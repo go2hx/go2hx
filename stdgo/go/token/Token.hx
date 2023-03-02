@@ -987,7 +987,7 @@ private function _searchLineInfos(_a:Slice<T_lineInfo>, _x:GoInt):GoInt {
     // NewFileSet creates a new file set.
 **/
 function newFileSet():Ref<FileSet> {
-        return (({ _base : (1 : GoInt) } : FileSet) : Ref<FileSet>);
+        return (Go.setRef(({ _base : (1 : GoInt) } : FileSet)) : Ref<FileSet>);
     }
 private function _searchFiles(_a:Slice<Ref<File>>, _x:GoInt):GoInt {
         return stdgo.sort.Sort.search((_a.length), function(_i:GoInt):Bool {
@@ -1048,9 +1048,9 @@ function testNoPos(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("NoPos should not be valid" : GoString));
         };
         var _fset:Ref<FileSet> = (null : Ref<FileSet>);
-        _checkPos(_t, ("nil NoPos" : GoString), (_fset.position((0 : Pos)) == null ? null : _fset.position((0 : Pos)).__copy__()), (new Position() : Position));
+        _checkPos(_t, ("nil NoPos" : GoString), _fset.position((0 : Pos)).__copy__(), (new Position() : Position));
         _fset = newFileSet();
-        _checkPos(_t, ("fset NoPos" : GoString), (_fset.position((0 : Pos)) == null ? null : _fset.position((0 : Pos)).__copy__()), (new Position() : Position));
+        _checkPos(_t, ("fset NoPos" : GoString), _fset.position((0 : Pos)).__copy__(), (new Position() : Position));
     }
 private function _linecol(_lines:Slice<GoInt>, _offs:GoInt):{ var _0 : GoInt; var _1 : GoInt; } {
         var _prevLineOffs:GoInt = (0 : GoInt);
@@ -1073,8 +1073,8 @@ private function _verifyPositions(_t:Ref<stdgo.testing.Testing.T>, _fset:Ref<Fil
                 };
                 var __tmp__ = _linecol(_lines, _offs), _line:GoInt = __tmp__._0, _col:GoInt = __tmp__._1;
                 var _msg:GoString = stdgo.fmt.Fmt.sprintf(("%s (offs = %d, p = %d)" : GoString), Go.toInterface(_f.name()), Go.toInterface(_offs), Go.toInterface(Go.asInterface(_p)));
-                _checkPos(_t, _msg, (_f.position(_f.pos(_offs)) == null ? null : _f.position(_f.pos(_offs)).__copy__()), (new Position(_f.name(), _offs, _line, _col) : Position));
-                _checkPos(_t, _msg, (_fset.position(_p) == null ? null : _fset.position(_p).__copy__()), (new Position(_f.name(), _offs, _line, _col) : Position));
+                _checkPos(_t, _msg, _f.position(_f.pos(_offs)).__copy__(), (new Position(_f.name(), _offs, _line, _col) : Position));
+                _checkPos(_t, _msg, _fset.position(_p).__copy__(), (new Position(_f.name(), _offs, _line, _col) : Position));
             });
         };
     }
@@ -1162,8 +1162,8 @@ function testLineInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var _p:Pos = _f.pos(_offs);
                 var __tmp__ = _linecol(_lines, _offs), _1:GoInt = __tmp__._0, _col:GoInt = __tmp__._1;
                 var _msg:GoString = stdgo.fmt.Fmt.sprintf(("%s (offs = %d, p = %d)" : GoString), Go.toInterface(_f.name()), Go.toInterface(_offs), Go.toInterface(Go.asInterface(_p)));
-                _checkPos(_t, _msg, (_f.position(_f.pos(_offs)) == null ? null : _f.position(_f.pos(_offs)).__copy__()), (new Position(("bar" : GoString), _offs, (42 : GoInt), _col) : Position));
-                _checkPos(_t, _msg, (_fset.position(_p) == null ? null : _fset.position(_p).__copy__()), (new Position(("bar" : GoString), _offs, (42 : GoInt), _col) : Position));
+                _checkPos(_t, _msg, _f.position(_f.pos(_offs)).__copy__(), (new Position(("bar" : GoString), _offs, (42 : GoInt), _col) : Position));
+                _checkPos(_t, _msg, _fset.position(_p).__copy__(), (new Position(("bar" : GoString), _offs, (42 : GoInt), _col) : Position));
             });
         };
     }
@@ -1198,7 +1198,7 @@ function testFileSetPastEnd(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
         {
             var _f = _fset.file((_fset.base() : Pos));
-            if (_f != null) {
+            if (_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) {
                 _t.errorf(("got %v, want nil" : GoString), Go.toInterface(Go.asInterface(_f)));
             };
         };
@@ -1295,25 +1295,25 @@ function testPositionFor(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _f = _fset.addFile(("foo" : GoString), _fset.base(), (_src.length));
         _f.setLinesForContent(_src);
         for (_i => _offs in _f._lines) {
-            var _got1:Position = (_f.positionFor(_f.pos(_offs), false) == null ? null : _f.positionFor(_f.pos(_offs), false).__copy__());
-            var _got2:Position = (_f.positionFor(_f.pos(_offs), true) == null ? null : _f.positionFor(_f.pos(_offs), true).__copy__());
-            var _got3:Position = (_f.position(_f.pos(_offs)) == null ? null : _f.position(_f.pos(_offs)).__copy__());
+            var _got1:Position = _f.positionFor(_f.pos(_offs), false).__copy__();
+            var _got2:Position = _f.positionFor(_f.pos(_offs), true).__copy__();
+            var _got3:Position = _f.position(_f.pos(_offs)).__copy__();
             var _want:Position = (new Position(("foo" : GoString), _offs, _i + (1 : GoInt), (1 : GoInt)) : Position);
-            _checkPos(_t, ("1. PositionFor unadjusted" : GoString), (_got1 == null ? null : _got1.__copy__()), (_want == null ? null : _want.__copy__()));
-            _checkPos(_t, ("1. PositionFor adjusted" : GoString), (_got2 == null ? null : _got2.__copy__()), (_want == null ? null : _want.__copy__()));
-            _checkPos(_t, ("1. Position" : GoString), (_got3 == null ? null : _got3.__copy__()), (_want == null ? null : _want.__copy__()));
+            _checkPos(_t, ("1. PositionFor unadjusted" : GoString), _got1.__copy__(), _want.__copy__());
+            _checkPos(_t, ("1. PositionFor adjusted" : GoString), _got2.__copy__(), _want.__copy__());
+            _checkPos(_t, ("1. Position" : GoString), _got3.__copy__(), _want.__copy__());
         };
         {};
         _f.addLineInfo(_f._lines[(4 : GoInt)], Go.str(), (100 : GoInt));
         _f.addLineInfo(_f._lines[(6 : GoInt)], ("bar" : GoString), (3 : GoInt));
         for (_i => _offs in _f._lines) {
-            var _got1:Position = (_f.positionFor(_f.pos(_offs), false) == null ? null : _f.positionFor(_f.pos(_offs), false).__copy__());
+            var _got1:Position = _f.positionFor(_f.pos(_offs), false).__copy__();
             var _want:Position = (new Position(("foo" : GoString), _offs, _i + (1 : GoInt), (1 : GoInt)) : Position);
-            _checkPos(_t, ("2. PositionFor unadjusted" : GoString), (_got1 == null ? null : _got1.__copy__()), (_want == null ? null : _want.__copy__()));
+            _checkPos(_t, ("2. PositionFor unadjusted" : GoString), _got1.__copy__(), _want.__copy__());
         };
         for (_i => _offs in _f._lines) {
-            var _got2:Position = (_f.positionFor(_f.pos(_offs), true) == null ? null : _f.positionFor(_f.pos(_offs), true).__copy__());
-            var _got3:Position = (_f.position(_f.pos(_offs)) == null ? null : _f.position(_f.pos(_offs)).__copy__());
+            var _got2:Position = _f.positionFor(_f.pos(_offs), true).__copy__();
+            var _got3:Position = _f.position(_f.pos(_offs)).__copy__();
             var _want:Position = (new Position(("foo" : GoString), _offs, _i + (1 : GoInt), (1 : GoInt)) : Position);
             var _line:GoInt = _want.line;
             if ((_i + (1 : GoInt)) >= (5 : GoInt)) {
@@ -1324,8 +1324,8 @@ function testPositionFor(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _want.filename = ("bar" : GoString);
                 _want.line = (_line - (7 : GoInt)) + (3 : GoInt);
             };
-            _checkPos(_t, ("3. PositionFor adjusted" : GoString), (_got2 == null ? null : _got2.__copy__()), (_want == null ? null : _want.__copy__()));
-            _checkPos(_t, ("3. Position" : GoString), (_got3 == null ? null : _got3.__copy__()), (_want == null ? null : _want.__copy__()));
+            _checkPos(_t, ("3. PositionFor adjusted" : GoString), _got2.__copy__(), _want.__copy__());
+            _checkPos(_t, ("3. Position" : GoString), _got3.__copy__(), _want.__copy__());
         };
     }
 function testLineStart(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -1337,7 +1337,7 @@ function testLineStart(_t:Ref<stdgo.testing.Testing.T>):Void {
             var _line:GoInt = (1 : GoInt);
             Go.cfor(_line <= (3 : GoInt), _line++, {
                 var _pos:Pos = _f.lineStart(_line);
-                var _position:Position = (_fset.position(_pos) == null ? null : _fset.position(_pos).__copy__());
+                var _position:Position = _fset.position(_pos).__copy__();
                 if ((_position.line != _line) || (_position.column != (1 : GoInt))) {
                     _t.errorf(("LineStart(%d) returned wrong pos %d: %s" : GoString), Go.toInterface(_line), Go.toInterface(Go.asInterface(_pos)), Go.toInterface(Go.asInterface(_position)));
                 };
@@ -1468,7 +1468,7 @@ private function _equal(_p:Ref<FileSet>, _q:Ref<FileSet>):Error {
                     };
                 };
                 for (_j => _l in _f._infos) {
-                    var _m:T_lineInfo = (_g._infos[(_j : GoInt)] == null ? null : _g._infos[(_j : GoInt)].__copy__());
+                    var _m:T_lineInfo = _g._infos[(_j : GoInt)].__copy__();
                     if (((_l.offset != _m.offset) || (_l.filename != _m.filename)) || (_l.line != _m.line)) {
                         {
                             for (defer in __deferstack__) {
@@ -1512,7 +1512,7 @@ private function _equal(_p:Ref<FileSet>, _q:Ref<FileSet>):Error {
 private function _checkSerialize(_t:Ref<stdgo.testing.Testing.T>, _p:Ref<FileSet>):Void {
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         var _encode:AnyInterface -> Error = function(_x:AnyInterface):Error {
-            return stdgo.encoding.gob.Gob.newEncoder(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>))).encode(_x);
+            return stdgo.encoding.gob.Gob.newEncoder(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>))).encode(_x);
         };
         {
             var _err:Error = _p.write(_encode);
@@ -1523,7 +1523,7 @@ private function _checkSerialize(_t:Ref<stdgo.testing.Testing.T>, _p:Ref<FileSet
         };
         var _q = newFileSet();
         var _decode:AnyInterface -> Error = function(_x:AnyInterface):Error {
-            return stdgo.encoding.gob.Gob.newDecoder(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>))).decode(_x);
+            return stdgo.encoding.gob.Gob.newDecoder(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>))).decode(_x);
         };
         {
             var _err:Error = _q.read(_decode);
@@ -1652,12 +1652,12 @@ class Position_asInterface {
         //	-                   invalid position without file name
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     /**
         // IsValid reports whether the position is valid.
     **/
     @:keep
-    public function isValid():Bool return __self__.value.isValid();
+    public dynamic function isValid():Bool return __self__.value.isValid();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1708,7 +1708,7 @@ class File_asInterface {
         // Calling f.Position(p) is equivalent to calling f.PositionFor(p, true).
     **/
     @:keep
-    public function position(_p:Pos):Position return __self__.value.position(_p);
+    public dynamic function position(_p:Pos):Position return __self__.value.position(_p);
     /**
         // PositionFor returns the Position value for the given file position p.
         // If adjusted is set, the position may be adjusted by position-altering
@@ -1716,36 +1716,36 @@ class File_asInterface {
         // p must be a Pos value in f or NoPos.
     **/
     @:keep
-    public function positionFor(_p:Pos, _adjusted:Bool):Position return __self__.value.positionFor(_p, _adjusted);
+    public dynamic function positionFor(_p:Pos, _adjusted:Bool):Position return __self__.value.positionFor(_p, _adjusted);
     @:keep
-    public function _position(_p:Pos, _adjusted:Bool):Position return __self__.value._position(_p, _adjusted);
+    public dynamic function _position(_p:Pos, _adjusted:Bool):Position return __self__.value._position(_p, _adjusted);
     /**
         // unpack returns the filename and line and column number for a file offset.
         // If adjusted is set, unpack will return the filename and line information
         // possibly adjusted by //line comments; otherwise those comments are ignored.
     **/
     @:keep
-    public function _unpack(_offset:GoInt, _adjusted:Bool):{ var _0 : GoString; var _1 : GoInt; var _2 : GoInt; } return __self__.value._unpack(_offset, _adjusted);
+    public dynamic function _unpack(_offset:GoInt, _adjusted:Bool):{ var _0 : GoString; var _1 : GoInt; var _2 : GoInt; } return __self__.value._unpack(_offset, _adjusted);
     /**
         // Line returns the line number for the given file position p;
         // p must be a Pos value in that file or NoPos.
     **/
     @:keep
-    public function line(_p:Pos):GoInt return __self__.value.line(_p);
+    public dynamic function line(_p:Pos):GoInt return __self__.value.line(_p);
     /**
         // Offset returns the offset for the given file position p;
         // p must be a valid Pos value in that file.
         // f.Offset(f.Pos(offset)) == offset.
     **/
     @:keep
-    public function offset(_p:Pos):GoInt return __self__.value.offset(_p);
+    public dynamic function offset(_p:Pos):GoInt return __self__.value.offset(_p);
     /**
         // Pos returns the Pos value for the given file offset;
         // the offset must be <= f.Size().
         // f.Pos(f.Offset(p)) == p.
     **/
     @:keep
-    public function pos(_offset:GoInt):Pos return __self__.value.pos(_offset);
+    public dynamic function pos(_offset:GoInt):Pos return __self__.value.pos(_offset);
     /**
         // AddLineColumnInfo adds alternative file, line, and column number
         // information for a given file offset. The offset must be larger
@@ -1757,26 +1757,26 @@ class File_asInterface {
         // information for line directives such as //line filename:line:column.
     **/
     @:keep
-    public function addLineColumnInfo(_offset:GoInt, _filename:GoString, _line:GoInt, _column:GoInt):Void __self__.value.addLineColumnInfo(_offset, _filename, _line, _column);
+    public dynamic function addLineColumnInfo(_offset:GoInt, _filename:GoString, _line:GoInt, _column:GoInt):Void __self__.value.addLineColumnInfo(_offset, _filename, _line, _column);
     /**
         // AddLineInfo is like AddLineColumnInfo with a column = 1 argument.
         // It is here for backward-compatibility for code prior to Go 1.11.
     **/
     @:keep
-    public function addLineInfo(_offset:GoInt, _filename:GoString, _line:GoInt):Void __self__.value.addLineInfo(_offset, _filename, _line);
+    public dynamic function addLineInfo(_offset:GoInt, _filename:GoString, _line:GoInt):Void __self__.value.addLineInfo(_offset, _filename, _line);
     /**
         // LineStart returns the Pos value of the start of the specified line.
         // It ignores any alternative positions set using AddLineColumnInfo.
         // LineStart panics if the 1-based line number is invalid.
     **/
     @:keep
-    public function lineStart(_line:GoInt):Pos return __self__.value.lineStart(_line);
+    public dynamic function lineStart(_line:GoInt):Pos return __self__.value.lineStart(_line);
     /**
         // SetLinesForContent sets the line offsets for the given file content.
         // It ignores position-altering //line comments.
     **/
     @:keep
-    public function setLinesForContent(_content:Slice<GoByte>):Void __self__.value.setLinesForContent(_content);
+    public dynamic function setLinesForContent(_content:Slice<GoByte>):Void __self__.value.setLinesForContent(_content);
     /**
         // SetLines sets the line offsets for a file and reports whether it succeeded.
         // The line offsets are the offsets of the first character of each line;
@@ -1788,7 +1788,7 @@ class File_asInterface {
         // Callers must not mutate the provided slice after SetLines returns.
     **/
     @:keep
-    public function setLines(_lines:Slice<GoInt>):Bool return __self__.value.setLines(_lines);
+    public dynamic function setLines(_lines:Slice<GoInt>):Bool return __self__.value.setLines(_lines);
     /**
         // MergeLine merges a line with the following line. It is akin to replacing
         // the newline character at the end of the line with a space (to not change the
@@ -1796,34 +1796,34 @@ class File_asInterface {
         // MergeLine will panic if given an invalid line number.
     **/
     @:keep
-    public function mergeLine(_line:GoInt):Void __self__.value.mergeLine(_line);
+    public dynamic function mergeLine(_line:GoInt):Void __self__.value.mergeLine(_line);
     /**
         // AddLine adds the line offset for a new line.
         // The line offset must be larger than the offset for the previous line
         // and smaller than the file size; otherwise the line offset is ignored.
     **/
     @:keep
-    public function addLine(_offset:GoInt):Void __self__.value.addLine(_offset);
+    public dynamic function addLine(_offset:GoInt):Void __self__.value.addLine(_offset);
     /**
         // LineCount returns the number of lines in file f.
     **/
     @:keep
-    public function lineCount():GoInt return __self__.value.lineCount();
+    public dynamic function lineCount():GoInt return __self__.value.lineCount();
     /**
         // Size returns the size of file f as registered with AddFile.
     **/
     @:keep
-    public function size():GoInt return __self__.value.size();
+    public dynamic function size():GoInt return __self__.value.size();
     /**
         // Base returns the base offset of file f as registered with AddFile.
     **/
     @:keep
-    public function base():GoInt return __self__.value.base();
+    public dynamic function base():GoInt return __self__.value.base();
     /**
         // Name returns the file name of file f as registered with AddFile.
     **/
     @:keep
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1840,7 +1840,7 @@ class File_asInterface {
     @:keep
     static public function position( _f:Ref<File>, _p:Pos):Position {
         var _pos:Position = ({} : Position);
-        return (_f.positionFor(_p, true) == null ? null : _f.positionFor(_p, true).__copy__());
+        return _f.positionFor(_p, true).__copy__();
     }
     /**
         // PositionFor returns the Position value for the given file position p.
@@ -1855,7 +1855,7 @@ class File_asInterface {
             if (((_p : GoInt) < _f._base) || ((_p : GoInt) > (_f._base + _f._size))) {
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid Pos value %d (should be in [%d, %d])" : GoString), Go.toInterface(Go.asInterface(_p)), Go.toInterface(_f._base), Go.toInterface(_f._base + _f._size)));
             };
-            _pos = (_f._position(_p, _adjusted) == null ? null : _f._position(_p, _adjusted).__copy__());
+            _pos = _f._position(_p, _adjusted).__copy__();
         };
         return _pos;
     }
@@ -1897,7 +1897,7 @@ class File_asInterface {
             {
                 var _i:GoInt = _searchLineInfos(_f._infos, _offset);
                 if (_i >= (0 : GoInt)) {
-                    var _alt = (_f._infos[(_i : GoInt)] : Ref<T_lineInfo>);
+                    var _alt = (Go.setRef(_f._infos[(_i : GoInt)]) : Ref<T_lineInfo>);
                     _filename = _alt.filename;
                     {
                         var _i:GoInt = _searchInts(_f._lines, _alt.offset);
@@ -2166,18 +2166,18 @@ class FileSet_asInterface {
         // Write calls encode to serialize the file set s.
     **/
     @:keep
-    public function write(_encode:AnyInterface -> Error):Error return __self__.value.write(_encode);
+    public dynamic function write(_encode:AnyInterface -> Error):Error return __self__.value.write(_encode);
     /**
         // Read calls decode to deserialize a file set into s; s must not be nil.
     **/
     @:keep
-    public function read(_decode:AnyInterface -> Error):Error return __self__.value.read(_decode);
+    public dynamic function read(_decode:AnyInterface -> Error):Error return __self__.value.read(_decode);
     /**
         // Position converts a Pos p in the fileset into a Position value.
         // Calling s.Position(p) is equivalent to calling s.PositionFor(p, true).
     **/
     @:keep
-    public function position(_p:Pos):Position return __self__.value.position(_p);
+    public dynamic function position(_p:Pos):Position return __self__.value.position(_p);
     /**
         // PositionFor converts a Pos p in the fileset into a Position value.
         // If adjusted is set, the position may be adjusted by position-altering
@@ -2185,22 +2185,22 @@ class FileSet_asInterface {
         // p must be a Pos value in s or NoPos.
     **/
     @:keep
-    public function positionFor(_p:Pos, _adjusted:Bool):Position return __self__.value.positionFor(_p, _adjusted);
+    public dynamic function positionFor(_p:Pos, _adjusted:Bool):Position return __self__.value.positionFor(_p, _adjusted);
     /**
         // File returns the file that contains the position p.
         // If no such file is found (for instance for p == NoPos),
         // the result is nil.
     **/
     @:keep
-    public function file(_p:Pos):Ref<File> return __self__.value.file(_p);
+    public dynamic function file(_p:Pos):Ref<File> return __self__.value.file(_p);
     @:keep
-    public function _file(_p:Pos):Ref<File> return __self__.value._file(_p);
+    public dynamic function _file(_p:Pos):Ref<File> return __self__.value._file(_p);
     /**
         // Iterate calls f for the files in the file set in the order they were added
         // until f returns false.
     **/
     @:keep
-    public function iterate(_f:Ref<File> -> Bool):Void __self__.value.iterate(_f);
+    public dynamic function iterate(_f:Ref<File> -> Bool):Void __self__.value.iterate(_f);
     /**
         // RemoveFile removes a file from the FileSet so that subsequent
         // queries for its Pos interval yield a negative result.
@@ -2210,7 +2210,7 @@ class FileSet_asInterface {
         // Removing a file that does not belong to the set has no effect.
     **/
     @:keep
-    public function removeFile(_file:Ref<File>):Void __self__.value.removeFile(_file);
+    public dynamic function removeFile(_file:Ref<File>):Void __self__.value.removeFile(_file);
     /**
         // AddFile adds a new file with a given filename, base offset, and file size
         // to the file set s and returns the file. Multiple files may have the same
@@ -2229,13 +2229,13 @@ class FileSet_asInterface {
         // values from a file offset.
     **/
     @:keep
-    public function addFile(_filename:GoString, _base:GoInt, _size:GoInt):Ref<File> return __self__.value.addFile(_filename, _base, _size);
+    public dynamic function addFile(_filename:GoString, _base:GoInt, _size:GoInt):Ref<File> return __self__.value.addFile(_filename, _base, _size);
     /**
         // Base returns the minimum base offset that must be provided to
         // AddFile when adding the next file.
     **/
     @:keep
-    public function base():GoInt return __self__.value.base();
+    public dynamic function base():GoInt return __self__.value.base();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2270,7 +2270,7 @@ class FileSet_asInterface {
     static public function read( _s:Ref<FileSet>, _decode:AnyInterface -> Error):Error {
         var _ss:T_serializedFileSet = ({} : T_serializedFileSet);
         {
-            var _err:Error = _decode(Go.toInterface((_ss : Ref<T_serializedFileSet>)));
+            var _err:Error = _decode(Go.toInterface((Go.setRef(_ss) : Ref<T_serializedFileSet>)));
             if (_err != null) {
                 return _err;
             };
@@ -2281,8 +2281,8 @@ class FileSet_asInterface {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_ss.files.length), _i++, {
-                var _f = (_ss.files[(_i : GoInt)] : Ref<T_serializedFile>);
-                _files[(_i : GoInt)] = (({ _name : _f.name, _base : _f.base, _size : _f.size, _lines : _f.lines, _infos : _f.infos } : File) : Ref<File>);
+                var _f = (Go.setRef(_ss.files[(_i : GoInt)]) : Ref<T_serializedFile>);
+                _files[(_i : GoInt)] = (Go.setRef(({ _name : _f.name, _base : _f.base, _size : _f.size, _lines : _f.lines, _infos : _f.infos } : File)) : Ref<File>);
             });
         };
         _s._files = _files;
@@ -2297,7 +2297,7 @@ class FileSet_asInterface {
     @:keep
     static public function position( _s:Ref<FileSet>, _p:Pos):Position {
         var _pos:Position = ({} : Position);
-        return (_s.positionFor(_p, true) == null ? null : _s.positionFor(_p, true).__copy__());
+        return _s.positionFor(_p, true).__copy__();
     }
     /**
         // PositionFor converts a Pos p in the fileset into a Position value.
@@ -2311,8 +2311,8 @@ class FileSet_asInterface {
         if (_p != ((0 : Pos))) {
             {
                 var _f = _s._file(_p);
-                if (_f != null) {
-                    return (_f._position(_p, _adjusted) == null ? null : _f._position(_p, _adjusted).__copy__());
+                if (_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) {
+                    return _f._position(_p, _adjusted).__copy__();
                 };
             };
         };
@@ -2336,7 +2336,7 @@ class FileSet_asInterface {
         var __deferstack__:Array<Void -> Void> = [];
         {
             var _f = _s._last.load();
-            if (((_f != null) && (_f._base <= (_p : GoInt))) && ((_p : GoInt) <= (_f._base + _f._size))) {
+            if ((((_f != null) && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) && (_f._base <= (_p : GoInt))) && ((_p : GoInt) <= (_f._base + _f._size))) {
                 return _f;
             };
         };
@@ -2403,7 +2403,7 @@ class FileSet_asInterface {
                     _file = _s._files[(_i : GoInt)];
                 };
                 _s._mutex.runlock();
-                if ((_file == null) || !_f(_file)) {
+                if (((_file == null) || (_file : Dynamic).__nil__) || !_f(_file)) {
                     break;
                 };
             });
@@ -2427,7 +2427,7 @@ class FileSet_asInterface {
             {
                 var _i:GoInt = _searchFiles(_s._files, _file._base);
                 if ((_i >= (0 : GoInt)) && (_s._files[(_i : GoInt)] == _file)) {
-                    var _last = (_s._files[((_s._files.length) - (1 : GoInt) : GoInt)] : Ref<Ref<File>>);
+                    var _last = (Go.setRef(_s._files[((_s._files.length) - (1 : GoInt) : GoInt)]) : Ref<Ref<File>>);
                     _s._files = ((_s._files.__slice__(0, _i) : Slice<Ref<File>>).__append__(...(_s._files.__slice__(_i + (1 : GoInt)) : Slice<Ref<File>>).__toArray__()));
                     _last = null;
                 };
@@ -2476,7 +2476,7 @@ class FileSet_asInterface {
     @:keep
     static public function addFile( _s:Ref<FileSet>, _filename:GoString, _base:GoInt, _size:GoInt):Ref<File> {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = (({ _name : _filename, _size : _size, _lines : (new Slice<GoInt>(0, 0, (0 : GoInt)) : Slice<GoInt>) } : File) : Ref<File>);
+        var _f = (Go.setRef(({ _name : _filename, _size : _size, _lines : (new Slice<GoInt>(0, 0, (0 : GoInt)) : Slice<GoInt>) } : File)) : Ref<File>);
         try {
             _s._mutex.lock();
             __deferstack__.unshift(() -> _s._mutex.unlock());
@@ -2544,7 +2544,7 @@ class Pos_asInterface {
         // IsValid reports whether the position is valid.
     **/
     @:keep
-    public function isValid():Bool return __self__.value.isValid();
+    public dynamic function isValid():Bool return __self__.value.isValid();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2568,26 +2568,26 @@ class Token_asInterface {
         // it returns false otherwise.
     **/
     @:keep
-    public function isKeyword():Bool return __self__.value.isKeyword();
+    public dynamic function isKeyword():Bool return __self__.value.isKeyword();
     /**
         // IsOperator returns true for tokens corresponding to operators and
         // delimiters; it returns false otherwise.
     **/
     @:keep
-    public function isOperator():Bool return __self__.value.isOperator();
+    public dynamic function isOperator():Bool return __self__.value.isOperator();
     /**
         // IsLiteral returns true for tokens corresponding to identifiers
         // and basic type literals; it returns false otherwise.
     **/
     @:keep
-    public function isLiteral():Bool return __self__.value.isLiteral();
+    public dynamic function isLiteral():Bool return __self__.value.isLiteral();
     /**
         // Precedence returns the operator precedence of the binary
         // operator op. If op is not a binary operator, the result
         // is LowestPrecedence.
     **/
     @:keep
-    public function precedence():GoInt return __self__.value.precedence();
+    public dynamic function precedence():GoInt return __self__.value.precedence();
     /**
         // String returns the string corresponding to the token tok.
         // For operators, delimiters, and keywords the string is the actual
@@ -2596,7 +2596,7 @@ class Token_asInterface {
         // constant name (e.g. for the token IDENT, the string is "IDENT").
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2637,16 +2637,19 @@ class Token_asInterface {
     **/
     @:keep
     static public function precedence( _op:Token):GoInt {
-        if (_op == ((35 : Token))) {
-            return (1 : GoInt);
-        } else if (_op == ((34 : Token))) {
-            return (2 : GoInt);
-        } else if (_op == ((39 : Token)) || _op == ((44 : Token)) || _op == ((40 : Token)) || _op == ((45 : Token)) || _op == ((41 : Token)) || _op == ((46 : Token))) {
-            return (3 : GoInt);
-        } else if (_op == ((12 : Token)) || _op == ((13 : Token)) || _op == ((18 : Token)) || _op == ((19 : Token))) {
-            return (4 : GoInt);
-        } else if (_op == ((14 : Token)) || _op == ((15 : Token)) || _op == ((16 : Token)) || _op == ((20 : Token)) || _op == ((21 : Token)) || _op == ((17 : Token)) || _op == ((22 : Token))) {
-            return (5 : GoInt);
+        {
+            final __value__ = _op;
+            if (__value__ == ((35 : Token))) {
+                return (1 : GoInt);
+            } else if (__value__ == ((34 : Token))) {
+                return (2 : GoInt);
+            } else if (__value__ == ((39 : Token)) || __value__ == ((44 : Token)) || __value__ == ((40 : Token)) || __value__ == ((45 : Token)) || __value__ == ((41 : Token)) || __value__ == ((46 : Token))) {
+                return (3 : GoInt);
+            } else if (__value__ == ((12 : Token)) || __value__ == ((13 : Token)) || __value__ == ((18 : Token)) || __value__ == ((19 : Token))) {
+                return (4 : GoInt);
+            } else if (__value__ == ((14 : Token)) || __value__ == ((15 : Token)) || __value__ == ((16 : Token)) || __value__ == ((20 : Token)) || __value__ == ((21 : Token)) || __value__ == ((17 : Token)) || __value__ == ((22 : Token))) {
+                return (5 : GoInt);
+            };
         };
         return (0 : GoInt);
     }

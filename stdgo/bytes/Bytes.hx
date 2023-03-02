@@ -243,7 +243,7 @@ private function _growSlice(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
     // sufficient to initialize a Buffer.
 **/
 function newBuffer(_buf:Slice<GoByte>):Ref<Buffer> {
-        return (({ _buf : _buf } : Buffer) : Ref<Buffer>);
+        return (Go.setRef(({ _buf : _buf } : Buffer)) : Ref<Buffer>);
     }
 /**
     // NewBufferString creates and initializes a new Buffer using string s as its
@@ -254,7 +254,7 @@ function newBuffer(_buf:Slice<GoByte>):Ref<Buffer> {
     // sufficient to initialize a Buffer.
 **/
 function newBufferString(_s:GoString):Ref<Buffer> {
-        return (({ _buf : (_s : Slice<GoByte>) } : Buffer) : Ref<Buffer>);
+        return (Go.setRef(({ _buf : (_s : Slice<GoByte>) } : Buffer)) : Ref<Buffer>);
     }
 /**
     // Equal reports whether a and b
@@ -1215,12 +1215,12 @@ private function _makeASCIISet(_chars:GoString):{ var _0 : T_asciiSet; var _1 : 
             Go.cfor(_i < (_chars.length), _i++, {
                 var _c:GoUInt8 = _chars[(_i : GoInt)];
                 if (_c >= (128 : GoUInt8)) {
-                    return { _0 : (_as == null ? null : _as.__copy__()), _1 : false };
+                    return { _0 : _as.__copy__(), _1 : false };
                 };
                 _as[(_c / (32 : GoUInt8) : GoInt)] = _as[(_c / (32 : GoUInt8) : GoInt)] | ((("1" : GoUInt32) : GoUInt32) << (_c % (32 : GoUInt8)));
             });
         };
-        return { _0 : (_as == null ? null : _as.__copy__()), _1 : true };
+        return { _0 : _as.__copy__(), _1 : true };
     }
 /**
     // containsRune is a simplified version of strings.ContainsRune
@@ -1252,7 +1252,7 @@ function trim(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
         {
             var __tmp__ = _makeASCIISet(_cutset), _as:T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                return _trimLeftASCII(_trimRightASCII(_s, (_as : Ref<T_asciiSet>)), (_as : Ref<T_asciiSet>));
+                return _trimLeftASCII(_trimRightASCII(_s, (Go.setRef(_as) : Ref<T_asciiSet>)), (Go.setRef(_as) : Ref<T_asciiSet>));
             };
         };
         return _trimLeftUnicode(_trimRightUnicode(_s, _cutset), _cutset);
@@ -1274,7 +1274,7 @@ function trimLeft(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
         {
             var __tmp__ = _makeASCIISet(_cutset), _as:T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                return _trimLeftASCII(_s, (_as : Ref<T_asciiSet>));
+                return _trimLeftASCII(_s, (Go.setRef(_as) : Ref<T_asciiSet>));
             };
         };
         return _trimLeftUnicode(_s, _cutset);
@@ -1334,7 +1334,7 @@ function trimRight(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
         {
             var __tmp__ = _makeASCIISet(_cutset), _as:T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                return _trimRightASCII(_s, (_as : Ref<T_asciiSet>));
+                return _trimRightASCII(_s, (Go.setRef(_as) : Ref<T_asciiSet>));
             };
         };
         return _trimRightUnicode(_s, _cutset);
@@ -1703,7 +1703,7 @@ function cutSuffix(_s:Slice<GoByte>, _suffix:Slice<GoByte>):{ var _0 : Slice<GoB
     // NewReader returns a new Reader reading from b.
 **/
 function newReader(_b:Slice<GoByte>):Ref<Reader> {
-        return ((new Reader(_b, ("0" : GoInt64), (-1 : GoInt)) : Reader) : Ref<Reader>);
+        return (Go.setRef((new Reader(_b, ("0" : GoInt64), (-1 : GoInt)) : Reader)) : Ref<Reader>);
     }
 class Buffer_asInterface {
     /**
@@ -1715,12 +1715,12 @@ class Buffer_asInterface {
         // in delim.
     **/
     @:keep
-    public function readString(_delim:GoByte):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_delim);
+    public dynamic function readString(_delim:GoByte):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_delim);
     /**
         // readSlice is like ReadBytes but returns a reference to internal buffer data.
     **/
     @:keep
-    public function _readSlice(_delim:GoByte):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value._readSlice(_delim);
+    public dynamic function _readSlice(_delim:GoByte):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value._readSlice(_delim);
     /**
         // ReadBytes reads until the first occurrence of delim in the input,
         // returning a slice containing the data up to and including the delimiter.
@@ -1730,7 +1730,7 @@ class Buffer_asInterface {
         // delim.
     **/
     @:keep
-    public function readBytes(_delim:GoByte):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.readBytes(_delim);
+    public dynamic function readBytes(_delim:GoByte):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.readBytes(_delim);
     /**
         // UnreadByte unreads the last byte returned by the most recent successful
         // read operation that read at least one byte. If a write has happened since
@@ -1738,7 +1738,7 @@ class Buffer_asInterface {
         // bytes, UnreadByte returns an error.
     **/
     @:keep
-    public function unreadByte():Error return __self__.value.unreadByte();
+    public dynamic function unreadByte():Error return __self__.value.unreadByte();
     /**
         // UnreadRune unreads the last rune returned by ReadRune.
         // If the most recent read or write operation on the buffer was
@@ -1747,7 +1747,7 @@ class Buffer_asInterface {
         // from any read operation.)
     **/
     @:keep
-    public function unreadRune():Error return __self__.value.unreadRune();
+    public dynamic function unreadRune():Error return __self__.value.unreadRune();
     /**
         // ReadRune reads and returns the next UTF-8-encoded
         // Unicode code point from the buffer.
@@ -1756,13 +1756,13 @@ class Buffer_asInterface {
         // consumes one byte and returns U+FFFD, 1.
     **/
     @:keep
-    public function readRune():{ var _0 : GoRune; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
+    public dynamic function readRune():{ var _0 : GoRune; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
     /**
         // ReadByte reads and returns the next byte from the buffer.
         // If no byte is available, it returns error io.EOF.
     **/
     @:keep
-    public function readByte():{ var _0 : GoByte; var _1 : Error; } return __self__.value.readByte();
+    public dynamic function readByte():{ var _0 : GoByte; var _1 : Error; } return __self__.value.readByte();
     /**
         // Next returns a slice containing the next n bytes from the buffer,
         // advancing the buffer as if the bytes had been returned by Read.
@@ -1770,7 +1770,7 @@ class Buffer_asInterface {
         // The slice is only valid until the next call to a read or write method.
     **/
     @:keep
-    public function next(_n:GoInt):Slice<GoByte> return __self__.value.next(_n);
+    public dynamic function next(_n:GoInt):Slice<GoByte> return __self__.value.next(_n);
     /**
         // Read reads the next len(p) bytes from the buffer or until the buffer
         // is drained. The return value n is the number of bytes read. If the
@@ -1778,7 +1778,7 @@ class Buffer_asInterface {
         // otherwise it is nil.
     **/
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     /**
         // WriteRune appends the UTF-8 encoding of Unicode code point r to the
         // buffer, returning its length and an error, which is always nil but is
@@ -1786,7 +1786,7 @@ class Buffer_asInterface {
         // if it becomes too large, WriteRune will panic with ErrTooLarge.
     **/
     @:keep
-    public function writeRune(_r:GoRune):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(_r);
+    public dynamic function writeRune(_r:GoRune):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(_r);
     /**
         // WriteByte appends the byte c to the buffer, growing the buffer as needed.
         // The returned error is always nil, but is included to match bufio.Writer's
@@ -1794,7 +1794,7 @@ class Buffer_asInterface {
         // ErrTooLarge.
     **/
     @:keep
-    public function writeByte(_c:GoByte):Error return __self__.value.writeByte(_c);
+    public dynamic function writeByte(_c:GoByte):Error return __self__.value.writeByte(_c);
     /**
         // WriteTo writes data to w until the buffer is drained or an error occurs.
         // The return value n is the number of bytes written; it always fits into an
@@ -1802,7 +1802,7 @@ class Buffer_asInterface {
         // encountered during the write is also returned.
     **/
     @:keep
-    public function writeTo(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
+    public dynamic function writeTo(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
     /**
         // ReadFrom reads data from r until EOF and appends it to the buffer, growing
         // the buffer as needed. The return value n is the number of bytes read. Any
@@ -1810,21 +1810,21 @@ class Buffer_asInterface {
         // buffer becomes too large, ReadFrom will panic with ErrTooLarge.
     **/
     @:keep
-    public function readFrom(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
+    public dynamic function readFrom(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
     /**
         // WriteString appends the contents of s to the buffer, growing the buffer as
         // needed. The return value n is the length of s; err is always nil. If the
         // buffer becomes too large, WriteString will panic with ErrTooLarge.
     **/
     @:keep
-    public function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
+    public dynamic function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
     /**
         // Write appends the contents of p to the buffer, growing the buffer as
         // needed. The return value n is the length of p; err is always nil. If the
         // buffer becomes too large, Write will panic with ErrTooLarge.
     **/
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     /**
         // Grow grows the buffer's capacity, if necessary, to guarantee space for
         // another n bytes. After Grow(n), at least n bytes can be written to the
@@ -1833,52 +1833,52 @@ class Buffer_asInterface {
         // If the buffer can't grow it will panic with ErrTooLarge.
     **/
     @:keep
-    public function grow(_n:GoInt):Void __self__.value.grow(_n);
+    public dynamic function grow(_n:GoInt):Void __self__.value.grow(_n);
     /**
         // grow grows the buffer to guarantee space for n more bytes.
         // It returns the index where bytes should be written.
         // If the buffer can't grow it will panic with ErrTooLarge.
     **/
     @:keep
-    public function _grow(_n:GoInt):GoInt return __self__.value._grow(_n);
+    public dynamic function _grow(_n:GoInt):GoInt return __self__.value._grow(_n);
     /**
         // tryGrowByReslice is a inlineable version of grow for the fast-case where the
         // internal buffer only needs to be resliced.
         // It returns the index where bytes should be written and whether it succeeded.
     **/
     @:keep
-    public function _tryGrowByReslice(_n:GoInt):{ var _0 : GoInt; var _1 : Bool; } return __self__.value._tryGrowByReslice(_n);
+    public dynamic function _tryGrowByReslice(_n:GoInt):{ var _0 : GoInt; var _1 : Bool; } return __self__.value._tryGrowByReslice(_n);
     /**
         // Reset resets the buffer to be empty,
         // but it retains the underlying storage for use by future writes.
         // Reset is the same as Truncate(0).
     **/
     @:keep
-    public function reset():Void __self__.value.reset();
+    public dynamic function reset():Void __self__.value.reset();
     /**
         // Truncate discards all but the first n unread bytes from the buffer
         // but continues to use the same allocated storage.
         // It panics if n is negative or greater than the length of the buffer.
     **/
     @:keep
-    public function truncate(_n:GoInt):Void __self__.value.truncate(_n);
+    public dynamic function truncate(_n:GoInt):Void __self__.value.truncate(_n);
     /**
         // Cap returns the capacity of the buffer's underlying byte slice, that is, the
         // total space allocated for the buffer's data.
     **/
     @:keep
-    public function cap():GoInt return __self__.value.cap();
+    public dynamic function cap():GoInt return __self__.value.cap();
     /**
         // Len returns the number of bytes of the unread portion of the buffer;
         // b.Len() == len(b.Bytes()).
     **/
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     /**
         // empty reports whether the unread portion of the buffer is empty.
     **/
     @:keep
-    public function _empty():Bool return __self__.value._empty();
+    public dynamic function _empty():Bool return __self__.value._empty();
     /**
         // String returns the contents of the unread portion of the buffer
         // as a string. If the Buffer is a nil pointer, it returns "<nil>".
@@ -1886,7 +1886,7 @@ class Buffer_asInterface {
         // To build strings more efficiently, see the strings.Builder type.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     /**
         // Bytes returns a slice of length b.Len() holding the unread portion of the buffer.
         // The slice is valid for use only until the next buffer modification (that is,
@@ -1895,7 +1895,7 @@ class Buffer_asInterface {
         // so immediate changes to the slice will affect the result of future reads.
     **/
     @:keep
-    public function bytes():Slice<GoByte> return __self__.value.bytes();
+    public dynamic function bytes():Slice<GoByte> return __self__.value.bytes();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2317,7 +2317,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function string( _b:Ref<Buffer>):GoString {
-        if (_b == null) {
+        if (_b == null || (_b : Dynamic).__nil__) {
             return ("<nil>" : GoString);
         };
         return ((_b._buf.__slice__(_b._off) : Slice<GoUInt8>) : GoString);
@@ -2339,60 +2339,60 @@ class Reader_asInterface {
         // Reset resets the Reader to be reading from b.
     **/
     @:keep
-    public function reset(_b:Slice<GoByte>):Void __self__.value.reset(_b);
+    public dynamic function reset(_b:Slice<GoByte>):Void __self__.value.reset(_b);
     /**
         // WriteTo implements the io.WriterTo interface.
     **/
     @:keep
-    public function writeTo(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
+    public dynamic function writeTo(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
     /**
         // Seek implements the io.Seeker interface.
     **/
     @:keep
-    public function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
+    public dynamic function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
     /**
         // UnreadRune complements ReadRune in implementing the io.RuneScanner interface.
     **/
     @:keep
-    public function unreadRune():Error return __self__.value.unreadRune();
+    public dynamic function unreadRune():Error return __self__.value.unreadRune();
     /**
         // ReadRune implements the io.RuneReader interface.
     **/
     @:keep
-    public function readRune():{ var _0 : GoRune; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
+    public dynamic function readRune():{ var _0 : GoRune; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
     /**
         // UnreadByte complements ReadByte in implementing the io.ByteScanner interface.
     **/
     @:keep
-    public function unreadByte():Error return __self__.value.unreadByte();
+    public dynamic function unreadByte():Error return __self__.value.unreadByte();
     /**
         // ReadByte implements the io.ByteReader interface.
     **/
     @:keep
-    public function readByte():{ var _0 : GoByte; var _1 : Error; } return __self__.value.readByte();
+    public dynamic function readByte():{ var _0 : GoByte; var _1 : Error; } return __self__.value.readByte();
     /**
         // ReadAt implements the io.ReaderAt interface.
     **/
     @:keep
-    public function readAt(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_b, _off);
+    public dynamic function readAt(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_b, _off);
     /**
         // Read implements the io.Reader interface.
     **/
     @:keep
-    public function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
+    public dynamic function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
     /**
         // Size returns the original length of the underlying byte slice.
         // Size is the number of bytes available for reading via ReadAt.
         // The result is unaffected by any method calls except Reset.
     **/
     @:keep
-    public function size():GoInt64 return __self__.value.size();
+    public dynamic function size():GoInt64 return __self__.value.size();
     /**
         // Len returns the number of bytes of the unread portion of the
         // slice.
     **/
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2443,14 +2443,17 @@ class Reader_asInterface {
     static public function seek( _r:Ref<Reader>, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } {
         _r._prevRune = (-1 : GoInt);
         var _abs:GoInt64 = (0 : GoInt64);
-        if (_whence == ((0 : GoInt))) {
-            _abs = _offset;
-        } else if (_whence == ((1 : GoInt))) {
-            _abs = _r._i + _offset;
-        } else if (_whence == ((2 : GoInt))) {
-            _abs = (_r._s.length : GoInt64) + _offset;
-        } else {
-            return { _0 : ("0" : GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: invalid whence" : GoString)) };
+        {
+            final __value__ = _whence;
+            if (__value__ == ((0 : GoInt))) {
+                _abs = _offset;
+            } else if (__value__ == ((1 : GoInt))) {
+                _abs = _r._i + _offset;
+            } else if (__value__ == ((2 : GoInt))) {
+                _abs = (_r._s.length : GoInt64) + _offset;
+            } else {
+                return { _0 : ("0" : GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: invalid whence" : GoString)) };
+            };
         };
         if (_abs < ("0" : GoInt64)) {
             return { _0 : ("0" : GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: negative position" : GoString)) };
@@ -2582,7 +2585,7 @@ class T_asciiSet_asInterface {
         // contains reports whether c is inside the set.
     **/
     @:keep
-    public function _contains(_c:GoByte):Bool return __self__.value._contains(_c);
+    public dynamic function _contains(_c:GoByte):Bool return __self__.value._contains(_c);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

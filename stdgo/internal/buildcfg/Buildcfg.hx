@@ -110,7 +110,7 @@ var experiment : ExperimentFlags = {
                 error = _err;
                 return (new ExperimentFlags() : ExperimentFlags);
             };
-            return (_flags == null ? null : _flags.__copy__());
+            return (_flags : ExperimentFlags).__copy__();
         };
         a();
     };
@@ -274,14 +274,17 @@ private function _envOr(_key:GoString, _value:GoString):GoString {
 private function _goamd64():GoInt {
         {
             var _v:GoString = _envOr(("GOAMD64" : GoString), ("v1" : GoString));
-            if (_v == (("v1" : GoString))) {
-                return (1 : GoInt);
-            } else if (_v == (("v2" : GoString))) {
-                return (2 : GoInt);
-            } else if (_v == (("v3" : GoString))) {
-                return (3 : GoInt);
-            } else if (_v == (("v4" : GoString))) {
-                return (4 : GoInt);
+            {
+                final __value__ = _v;
+                if (__value__ == (("v1" : GoString))) {
+                    return (1 : GoInt);
+                } else if (__value__ == (("v2" : GoString))) {
+                    return (2 : GoInt);
+                } else if (__value__ == (("v3" : GoString))) {
+                    return (3 : GoInt);
+                } else if (__value__ == (("v4" : GoString))) {
+                    return (4 : GoInt);
+                };
             };
         };
         error = stdgo.fmt.Fmt.errorf(("invalid GOAMD64: must be v1, v2, v3, v4" : GoString));
@@ -294,12 +297,15 @@ private function _goarm():GoInt {
         };
         {
             var _v:GoString = _envOr(("GOARM" : GoString), _def);
-            if (_v == (("5" : GoString))) {
-                return (5 : GoInt);
-            } else if (_v == (("6" : GoString))) {
-                return (6 : GoInt);
-            } else if (_v == (("7" : GoString))) {
-                return (7 : GoInt);
+            {
+                final __value__ = _v;
+                if (__value__ == (("5" : GoString))) {
+                    return (5 : GoInt);
+                } else if (__value__ == (("6" : GoString))) {
+                    return (6 : GoInt);
+                } else if (__value__ == (("7" : GoString))) {
+                    return (7 : GoInt);
+                };
             };
         };
         error = stdgo.fmt.Fmt.errorf(("invalid GOARM: must be 5, 6, 7" : GoString));
@@ -308,8 +314,11 @@ private function _goarm():GoInt {
 private function _gomips():GoString {
         {
             var _v:GoString = _envOr(("GOMIPS" : GoString), ("hardfloat" : GoString));
-            if (_v == (("hardfloat" : GoString)) || _v == (("softfloat" : GoString))) {
-                return _v;
+            {
+                final __value__ = _v;
+                if (__value__ == (("hardfloat" : GoString)) || __value__ == (("softfloat" : GoString))) {
+                    return _v;
+                };
             };
         };
         error = stdgo.fmt.Fmt.errorf(("invalid GOMIPS: must be hardfloat, softfloat" : GoString));
@@ -318,8 +327,11 @@ private function _gomips():GoString {
 private function _gomips64():GoString {
         {
             var _v:GoString = _envOr(("GOMIPS64" : GoString), ("hardfloat" : GoString));
-            if (_v == (("hardfloat" : GoString)) || _v == (("softfloat" : GoString))) {
-                return _v;
+            {
+                final __value__ = _v;
+                if (__value__ == (("hardfloat" : GoString)) || __value__ == (("softfloat" : GoString))) {
+                    return _v;
+                };
             };
         };
         error = stdgo.fmt.Fmt.errorf(("invalid GOMIPS64: must be hardfloat, softfloat" : GoString));
@@ -328,12 +340,15 @@ private function _gomips64():GoString {
 private function _goppc64():GoInt {
         {
             var _v:GoString = _envOr(("GOPPC64" : GoString), ("power8" : GoString));
-            if (_v == (("power8" : GoString))) {
-                return (8 : GoInt);
-            } else if (_v == (("power9" : GoString))) {
-                return (9 : GoInt);
-            } else if (_v == (("power10" : GoString))) {
-                return (10 : GoInt);
+            {
+                final __value__ = _v;
+                if (__value__ == (("power8" : GoString))) {
+                    return (8 : GoInt);
+                } else if (__value__ == (("power9" : GoString))) {
+                    return (9 : GoInt);
+                } else if (__value__ == (("power10" : GoString))) {
+                    return (10 : GoInt);
+                };
             };
         };
         error = stdgo.fmt.Fmt.errorf(("invalid GOPPC64: must be power8, power9, power10" : GoString));
@@ -342,12 +357,15 @@ private function _goppc64():GoInt {
 private function _gowasm():T_gowasmFeatures {
         var _f:T_gowasmFeatures = ({} : T_gowasmFeatures);
         for (_0 => _opt in stdgo.strings.Strings.split(_envOr(("GOWASM" : GoString), Go.str()), ("," : GoString))) {
-            if (_opt == (("satconv" : GoString))) {
-                _f.satConv = true;
-            } else if (_opt == (("signext" : GoString))) {
-                _f.signExt = true;
-            } else if (_opt == (Go.str())) {} else {
-                error = stdgo.fmt.Fmt.errorf(("invalid GOWASM: no such feature %q" : GoString), Go.toInterface(_opt));
+            {
+                final __value__ = _opt;
+                if (__value__ == (("satconv" : GoString))) {
+                    _f.satConv = true;
+                } else if (__value__ == (("signext" : GoString))) {
+                    _f.signExt = true;
+                } else if (__value__ == (Go.str())) {} else {
+                    error = stdgo.fmt.Fmt.errorf(("invalid GOWASM: no such feature %q" : GoString), Go.toInterface(_opt));
+                };
             };
         };
         return _f;
@@ -373,66 +391,72 @@ private function _experimentTags():Slice<GoString> {
 **/
 function gogoarch():{ var _0 : GoString; var _1 : GoString; } {
         var _name:GoString = ("" : GoString), _value:GoString = ("" : GoString);
-        if (goarch == (("386" : GoString))) {
-            return { _0 : ("GO386" : GoString), _1 : go386 };
-        } else if (goarch == (("amd64" : GoString))) {
-            return { _0 : ("GOAMD64" : GoString), _1 : stdgo.fmt.Fmt.sprintf(("v%d" : GoString), Go.toInterface(goamd64)) };
-        } else if (goarch == (("arm" : GoString))) {
-            return { _0 : ("GOARM" : GoString), _1 : stdgo.fmt.Fmt.sprintf(("%d" : GoString), Go.toInterface(goarm)) };
-        } else if (goarch == (("mips" : GoString)) || goarch == (("mipsle" : GoString))) {
-            return { _0 : ("GOMIPS" : GoString), _1 : gomips };
-        } else if (goarch == (("mips64" : GoString)) || goarch == (("mips64le" : GoString))) {
-            return { _0 : ("GOMIPS64" : GoString), _1 : gomips64 };
-        } else if (goarch == (("ppc64" : GoString)) || goarch == (("ppc64le" : GoString))) {
-            return { _0 : ("GOPPC64" : GoString), _1 : stdgo.fmt.Fmt.sprintf(("power%d" : GoString), Go.toInterface(goppc64)) };
-        } else if (goarch == (("wasm" : GoString))) {
-            return { _0 : ("GOWASM" : GoString), _1 : (gowasm.string() : GoString) };
+        {
+            final __value__ = goarch;
+            if (__value__ == (("386" : GoString))) {
+                return { _0 : ("GO386" : GoString), _1 : go386 };
+            } else if (__value__ == (("amd64" : GoString))) {
+                return { _0 : ("GOAMD64" : GoString), _1 : stdgo.fmt.Fmt.sprintf(("v%d" : GoString), Go.toInterface(goamd64)) };
+            } else if (__value__ == (("arm" : GoString))) {
+                return { _0 : ("GOARM" : GoString), _1 : stdgo.fmt.Fmt.sprintf(("%d" : GoString), Go.toInterface(goarm)) };
+            } else if (__value__ == (("mips" : GoString)) || __value__ == (("mipsle" : GoString))) {
+                return { _0 : ("GOMIPS" : GoString), _1 : gomips };
+            } else if (__value__ == (("mips64" : GoString)) || __value__ == (("mips64le" : GoString))) {
+                return { _0 : ("GOMIPS64" : GoString), _1 : gomips64 };
+            } else if (__value__ == (("ppc64" : GoString)) || __value__ == (("ppc64le" : GoString))) {
+                return { _0 : ("GOPPC64" : GoString), _1 : stdgo.fmt.Fmt.sprintf(("power%d" : GoString), Go.toInterface(goppc64)) };
+            } else if (__value__ == (("wasm" : GoString))) {
+                return { _0 : ("GOWASM" : GoString), _1 : (gowasm.string() : GoString) };
+            };
         };
         return { _0 : Go.str(), _1 : Go.str() };
     }
 private function _gogoarchTags():Slice<GoString> {
-        if (goarch == (("386" : GoString))) {
-            return (new Slice<GoString>(0, 0, (goarch + ("." : GoString)) + go386) : Slice<GoString>);
-        } else if (goarch == (("amd64" : GoString))) {
-            var _list:Slice<GoString> = (null : Slice<GoString>);
-            {
-                var _i:GoInt = (1 : GoInt);
-                Go.cfor(_i <= goamd64, _i++, {
-                    _list = _list.__appendref__(stdgo.fmt.Fmt.sprintf(("%s.v%d" : GoString), Go.toInterface(goarch), Go.toInterface(_i)));
-                });
+        {
+            final __value__ = goarch;
+            if (__value__ == (("386" : GoString))) {
+                return (new Slice<GoString>(0, 0, (goarch + ("." : GoString)) + go386) : Slice<GoString>);
+            } else if (__value__ == (("amd64" : GoString))) {
+                var _list:Slice<GoString> = (null : Slice<GoString>);
+                {
+                    var _i:GoInt = (1 : GoInt);
+                    Go.cfor(_i <= goamd64, _i++, {
+                        _list = _list.__appendref__(stdgo.fmt.Fmt.sprintf(("%s.v%d" : GoString), Go.toInterface(goarch), Go.toInterface(_i)));
+                    });
+                };
+                return _list;
+            } else if (__value__ == (("arm" : GoString))) {
+                var _list:Slice<GoString> = (null : Slice<GoString>);
+                {
+                    var _i:GoInt = (5 : GoInt);
+                    Go.cfor(_i <= goarm, _i++, {
+                        _list = _list.__appendref__(stdgo.fmt.Fmt.sprintf(("%s.%d" : GoString), Go.toInterface(goarch), Go.toInterface(_i)));
+                    });
+                };
+                return _list;
+            } else if (__value__ == (("mips" : GoString)) || __value__ == (("mipsle" : GoString))) {
+                return (new Slice<GoString>(0, 0, (goarch + ("." : GoString)) + gomips) : Slice<GoString>);
+            } else if (__value__ == (("mips64" : GoString)) || __value__ == (("mips64le" : GoString))) {
+                return (new Slice<GoString>(0, 0, (goarch + ("." : GoString)) + gomips64) : Slice<GoString>);
+            } else if (__value__ == (("ppc64" : GoString)) || __value__ == (("ppc64le" : GoString))) {
+                var _list:Slice<GoString> = (null : Slice<GoString>);
+                {
+                    var _i:GoInt = (8 : GoInt);
+                    Go.cfor(_i <= goppc64, _i++, {
+                        _list = _list.__appendref__(stdgo.fmt.Fmt.sprintf(("%s.power%d" : GoString), Go.toInterface(goarch), Go.toInterface(_i)));
+                    });
+                };
+                return _list;
+            } else if (__value__ == (("wasm" : GoString))) {
+                var _list:Slice<GoString> = (null : Slice<GoString>);
+                if (gowasm.satConv) {
+                    _list = _list.__appendref__(goarch + (".satconv" : GoString));
+                };
+                if (gowasm.signExt) {
+                    _list = _list.__appendref__(goarch + (".signext" : GoString));
+                };
+                return _list;
             };
-            return _list;
-        } else if (goarch == (("arm" : GoString))) {
-            var _list:Slice<GoString> = (null : Slice<GoString>);
-            {
-                var _i:GoInt = (5 : GoInt);
-                Go.cfor(_i <= goarm, _i++, {
-                    _list = _list.__appendref__(stdgo.fmt.Fmt.sprintf(("%s.%d" : GoString), Go.toInterface(goarch), Go.toInterface(_i)));
-                });
-            };
-            return _list;
-        } else if (goarch == (("mips" : GoString)) || goarch == (("mipsle" : GoString))) {
-            return (new Slice<GoString>(0, 0, (goarch + ("." : GoString)) + gomips) : Slice<GoString>);
-        } else if (goarch == (("mips64" : GoString)) || goarch == (("mips64le" : GoString))) {
-            return (new Slice<GoString>(0, 0, (goarch + ("." : GoString)) + gomips64) : Slice<GoString>);
-        } else if (goarch == (("ppc64" : GoString)) || goarch == (("ppc64le" : GoString))) {
-            var _list:Slice<GoString> = (null : Slice<GoString>);
-            {
-                var _i:GoInt = (8 : GoInt);
-                Go.cfor(_i <= goppc64, _i++, {
-                    _list = _list.__appendref__(stdgo.fmt.Fmt.sprintf(("%s.power%d" : GoString), Go.toInterface(goarch), Go.toInterface(_i)));
-                });
-            };
-            return _list;
-        } else if (goarch == (("wasm" : GoString))) {
-            var _list:Slice<GoString> = (null : Slice<GoString>);
-            if (gowasm.satConv) {
-                _list = _list.__appendref__(goarch + (".satconv" : GoString));
-            };
-            if (gowasm.signExt) {
-                _list = _list.__appendref__(goarch + (".signext" : GoString));
-            };
-            return _list;
         };
         return (null : Slice<GoString>);
     }
@@ -445,20 +469,23 @@ private function _gogoarchTags():Slice<GoString> {
 **/
 function parseGOEXPERIMENT(_goos:GoString, _goarch:GoString, _goexp:GoString):{ var _0 : Ref<ExperimentFlags>; var _1 : Error; } {
         var _0:Bool = false, _1:Bool = false, _regabiAlwaysOn:Bool = _1, _regabiSupported:Bool = _0;
-        if (_goarch == (("amd64" : GoString)) || _goarch == (("arm64" : GoString)) || _goarch == (("ppc64le" : GoString)) || _goarch == (("ppc64" : GoString)) || _goarch == (("riscv64" : GoString))) {
-            _regabiAlwaysOn = true;
-            _regabiSupported = true;
+        {
+            final __value__ = _goarch;
+            if (__value__ == (("amd64" : GoString)) || __value__ == (("arm64" : GoString)) || __value__ == (("ppc64le" : GoString)) || __value__ == (("ppc64" : GoString)) || __value__ == (("riscv64" : GoString))) {
+                _regabiAlwaysOn = true;
+                _regabiSupported = true;
+            };
         };
         var _baseline:internal.goexperiment.Goexperiment.Flags = ({ unified : true, regabiWrappers : _regabiSupported, regabiArgs : _regabiSupported, coverageRedesign : true } : internal.goexperiment.Goexperiment.Flags);
-        var _flags = (({ flags : (_baseline == null ? null : _baseline.__copy__()), _baseline : (_baseline == null ? null : _baseline.__copy__()) } : ExperimentFlags) : Ref<ExperimentFlags>);
+        var _flags = (Go.setRef(({ flags : _baseline.__copy__(), _baseline : _baseline.__copy__() } : ExperimentFlags)) : Ref<ExperimentFlags>);
         if (_goexp != (Go.str())) {
             var _names = (new GoObjectMap<GoString, Bool -> Void>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> null }, { get : () -> null }, { get : () -> null }) }))) : GoMap<GoString, Bool -> Void>);
-            var _rv:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface((_flags.flags : Ref<internal.goexperiment.Goexperiment.Flags>))).elem() == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface((_flags.flags : Ref<internal.goexperiment.Goexperiment.Flags>))).elem().__copy__());
+            var _rv:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(Go.toInterface((Go.setRef(_flags.flags) : Ref<internal.goexperiment.Goexperiment.Flags>))).elem().__copy__();
             var _rt:stdgo.reflect.Reflect.Type = _rv.type();
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < _rt.numField(), _i++, {
-                    var _field:stdgo.reflect.Reflect.Value = (_rv.field(_i) == null ? null : _rv.field(_i).__copy__());
+                    var _field:stdgo.reflect.Reflect.Value = _rv.field(_i).__copy__();
                     _names[stdgo.strings.Strings.toLower(_rt.field(_i).name)] = _field.setBool;
                 });
             };
@@ -511,10 +538,10 @@ function parseGOEXPERIMENT(_goos:GoString, _goarch:GoString, _goexp:GoString):{ 
 **/
 private function _expList(_exp:Ref<internal.goexperiment.Goexperiment.Flags>, _base:Ref<internal.goexperiment.Goexperiment.Flags>, _all:Bool):Slice<GoString> {
         var _list:Slice<GoString> = (null : Slice<GoString>);
-        var _rv:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_exp)).elem() == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_exp)).elem().__copy__());
+        var _rv:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(Go.toInterface(_exp)).elem().__copy__();
         var _rBase:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
-        if (_base != null) {
-            _rBase = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_base)).elem() == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_base)).elem().__copy__());
+        if (_base != null && ((_base : Dynamic).__nil__ == null || !(_base : Dynamic).__nil__)) {
+            _rBase = stdgo.reflect.Reflect.valueOf(Go.toInterface(_base)).elem().__copy__();
         };
         var _rt:stdgo.reflect.Reflect.Type = _rv.type();
         {
@@ -523,7 +550,7 @@ private function _expList(_exp:Ref<internal.goexperiment.Goexperiment.Flags>, _b
                 var _name:GoString = stdgo.strings.Strings.toLower(_rt.field(_i).name);
                 var _val:Bool = _rv.field(_i).bool_();
                 var _baseVal:Bool = false;
-                if (_base != null) {
+                if (_base != null && ((_base : Dynamic).__nil__ == null || !(_base : Dynamic).__nil__)) {
                     _baseVal = _rBase.field(_i).bool_();
                 };
                 if (_all || (_val != _baseVal)) {
@@ -539,7 +566,7 @@ private function _expList(_exp:Ref<internal.goexperiment.Goexperiment.Flags>, _b
     }
 class T_gowasmFeatures_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -567,19 +594,19 @@ class ExperimentFlags_asInterface {
         // Disabled experiments appear in the list prefixed by "no".
     **/
     @:keep
-    public function all():Slice<GoString> return __self__.value.all();
+    public dynamic function all():Slice<GoString> return __self__.value.all();
     /**
         // Enabled returns a list of enabled experiments, as
         // lower-cased experiment names.
     **/
     @:keep
-    public function enabled():Slice<GoString> return __self__.value.enabled();
+    public dynamic function enabled():Slice<GoString> return __self__.value.enabled();
     /**
         // String returns the canonical GOEXPERIMENT string to enable this experiment
         // configuration. (Experiments in the same state as in the baseline are elided.)
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -595,7 +622,7 @@ class ExperimentFlags_asInterface {
     **/
     @:keep
     static public function all( _exp:Ref<ExperimentFlags>):Slice<GoString> {
-        return _expList((_exp.flags : Ref<internal.goexperiment.Goexperiment.Flags>), null, true);
+        return _expList((Go.setRef(_exp.flags) : Ref<internal.goexperiment.Goexperiment.Flags>), null, true);
     }
     /**
         // Enabled returns a list of enabled experiments, as
@@ -603,7 +630,7 @@ class ExperimentFlags_asInterface {
     **/
     @:keep
     static public function enabled( _exp:Ref<ExperimentFlags>):Slice<GoString> {
-        return _expList((_exp.flags : Ref<internal.goexperiment.Goexperiment.Flags>), null, false);
+        return _expList((Go.setRef(_exp.flags) : Ref<internal.goexperiment.Goexperiment.Flags>), null, false);
     }
     /**
         // String returns the canonical GOEXPERIMENT string to enable this experiment
@@ -611,6 +638,6 @@ class ExperimentFlags_asInterface {
     **/
     @:keep
     static public function string( _exp:Ref<ExperimentFlags>):GoString {
-        return stdgo.strings.Strings.join(_expList((_exp.flags : Ref<internal.goexperiment.Goexperiment.Flags>), (_exp._baseline : Ref<internal.goexperiment.Goexperiment.Flags>), false), ("," : GoString));
+        return stdgo.strings.Strings.join(_expList((Go.setRef(_exp.flags) : Ref<internal.goexperiment.Goexperiment.Flags>), (Go.setRef(_exp._baseline) : Ref<internal.goexperiment.Goexperiment.Flags>), false), ("," : GoString));
     }
 }

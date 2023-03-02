@@ -363,7 +363,7 @@ function newReaderSize(_rd:stdgo.io.Io.Reader, _size:GoInt):Ref<Reader> {
         if (_size < (16 : GoInt)) {
             _size = (16 : GoInt);
         };
-        var _r = (({} : Reader) : Ref<Reader>);
+        var _r = (Go.setRef(({} : Reader)) : Ref<Reader>);
         _r._reset(new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0 ... (_size : GoInt).toBasic()) (0 : GoUInt8)]), _rd);
         return _r;
     }
@@ -390,7 +390,7 @@ function newWriterSize(_w:stdgo.io.Io.Writer, _size:GoInt):Ref<Writer> {
         if (_size <= (0 : GoInt)) {
             _size = (4096 : GoInt);
         };
-        return (({ _buf : new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0 ... (_size : GoInt).toBasic()) (0 : GoUInt8)]), _wr : _w } : Writer) : Ref<Writer>);
+        return (Go.setRef(({ _buf : new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0 ... (_size : GoInt).toBasic()) (0 : GoUInt8)]), _wr : _w } : Writer)) : Ref<Writer>);
     }
 /**
     // NewWriter returns a new Writer whose buffer has the default size.
@@ -404,14 +404,14 @@ function newWriter(_w:stdgo.io.Io.Writer):Ref<Writer> {
     // NewReadWriter allocates a new ReadWriter that dispatches to r and w.
 **/
 function newReadWriter(_r:Ref<Reader>, _w:Ref<Writer>):Ref<ReadWriter> {
-        return ((new ReadWriter(_r, _w) : ReadWriter) : Ref<ReadWriter>);
+        return (Go.setRef((new ReadWriter(_r, _w) : ReadWriter)) : Ref<ReadWriter>);
     }
 /**
     // NewScanner returns a new Scanner to read from r.
     // The split function defaults to ScanLines.
 **/
 function newScanner(_r:stdgo.io.Io.Reader):Ref<Scanner> {
-        return (({ _r : _r, _split : scanLines, _maxTokenSize : (65536 : GoInt) } : Scanner) : Ref<Scanner>);
+        return (Go.setRef(({ _r : _r, _split : scanLines, _maxTokenSize : (65536 : GoInt) } : Scanner)) : Ref<Scanner>);
     }
 /**
     // ScanBytes is a split function for a Scanner that returns each byte as a token.
@@ -488,18 +488,24 @@ function scanLines(_data:Slice<GoByte>, _atEOF:Bool):{ var _0 : GoInt; var _1 : 
 **/
 private function _isSpace(_r:GoRune):Bool {
         if (_r <= (255 : GoInt32)) {
-            if (_r == ((32 : GoInt32)) || _r == ((9 : GoInt32)) || _r == ((10 : GoInt32)) || _r == ((11 : GoInt32)) || _r == ((12 : GoInt32)) || _r == ((13 : GoInt32))) {
-                return true;
-            } else if (_r == ((133 : GoInt32)) || _r == ((160 : GoInt32))) {
-                return true;
+            {
+                final __value__ = _r;
+                if (__value__ == ((32 : GoInt32)) || __value__ == ((9 : GoInt32)) || __value__ == ((10 : GoInt32)) || __value__ == ((11 : GoInt32)) || __value__ == ((12 : GoInt32)) || __value__ == ((13 : GoInt32))) {
+                    return true;
+                } else if (__value__ == ((133 : GoInt32)) || __value__ == ((160 : GoInt32))) {
+                    return true;
+                };
             };
             return false;
         };
         if (((8192 : GoInt32) <= _r) && (_r <= (8202 : GoInt32))) {
             return true;
         };
-        if (_r == ((5760 : GoInt32)) || _r == ((8232 : GoInt32)) || _r == ((8233 : GoInt32)) || _r == ((8239 : GoInt32)) || _r == ((8287 : GoInt32)) || _r == ((12288 : GoInt32))) {
-            return true;
+        {
+            final __value__ = _r;
+            if (__value__ == ((5760 : GoInt32)) || __value__ == ((8232 : GoInt32)) || __value__ == ((8233 : GoInt32)) || __value__ == ((8239 : GoInt32)) || __value__ == ((8287 : GoInt32)) || __value__ == ((12288 : GoInt32))) {
+                return true;
+            };
         };
         return false;
     }
@@ -550,7 +556,7 @@ class Reader_asInterface {
         // writeBuf writes the Reader's buffer to the writer.
     **/
     @:keep
-    public function _writeBuf(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value._writeBuf(_w);
+    public dynamic function _writeBuf(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value._writeBuf(_w);
     /**
         // WriteTo implements io.WriterTo.
         // This may make multiple calls to the Read method of the underlying Reader.
@@ -558,7 +564,7 @@ class Reader_asInterface {
         // this calls the underlying WriteTo without buffering.
     **/
     @:keep
-    public function writeTo(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
+    public dynamic function writeTo(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
     /**
         // ReadString reads until the first occurrence of delim in the input,
         // returning a string containing the data up to and including the delimiter.
@@ -569,7 +575,7 @@ class Reader_asInterface {
         // For simple uses, a Scanner may be more convenient.
     **/
     @:keep
-    public function readString(_delim:GoByte):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_delim);
+    public dynamic function readString(_delim:GoByte):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_delim);
     /**
         // ReadBytes reads until the first occurrence of delim in the input,
         // returning a slice containing the data up to and including the delimiter.
@@ -580,7 +586,7 @@ class Reader_asInterface {
         // For simple uses, a Scanner may be more convenient.
     **/
     @:keep
-    public function readBytes(_delim:GoByte):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.readBytes(_delim);
+    public dynamic function readBytes(_delim:GoByte):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.readBytes(_delim);
     /**
         // collectFragments reads until the first occurrence of delim in the input. It
         // returns (slice of full buffers, remaining bytes before delim, total number
@@ -591,7 +597,7 @@ class Reader_asInterface {
         // to minimize allocations and copies.
     **/
     @:keep
-    public function _collectFragments(_delim:GoByte):{ var _0 : Slice<Slice<GoByte>>; var _1 : Slice<GoByte>; var _2 : GoInt; var _3 : Error; } return __self__.value._collectFragments(_delim);
+    public dynamic function _collectFragments(_delim:GoByte):{ var _0 : Slice<Slice<GoByte>>; var _1 : Slice<GoByte>; var _2 : GoInt; var _3 : Error; } return __self__.value._collectFragments(_delim);
     /**
         // ReadLine is a low-level line-reading primitive. Most callers should use
         // ReadBytes('\n') or ReadString('\n') instead or use a Scanner.
@@ -611,7 +617,7 @@ class Reader_asInterface {
         // part of the line returned by ReadLine.
     **/
     @:keep
-    public function readLine():{ var _0 : Slice<GoByte>; var _1 : Bool; var _2 : Error; } return __self__.value.readLine();
+    public dynamic function readLine():{ var _0 : Slice<GoByte>; var _1 : Bool; var _2 : Error; } return __self__.value.readLine();
     /**
         // ReadSlice reads until the first occurrence of delim in the input,
         // returning a slice pointing at the bytes in the buffer.
@@ -625,12 +631,12 @@ class Reader_asInterface {
         // ReadSlice returns err != nil if and only if line does not end in delim.
     **/
     @:keep
-    public function readSlice(_delim:GoByte):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.readSlice(_delim);
+    public dynamic function readSlice(_delim:GoByte):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.readSlice(_delim);
     /**
         // Buffered returns the number of bytes that can be read from the current buffer.
     **/
     @:keep
-    public function buffered():GoInt return __self__.value.buffered();
+    public dynamic function buffered():GoInt return __self__.value.buffered();
     /**
         // UnreadRune unreads the last rune. If the most recent method called on
         // the Reader was not a ReadRune, UnreadRune returns an error. (In this
@@ -638,14 +644,14 @@ class Reader_asInterface {
         // from any read operation.)
     **/
     @:keep
-    public function unreadRune():Error return __self__.value.unreadRune();
+    public dynamic function unreadRune():Error return __self__.value.unreadRune();
     /**
         // ReadRune reads a single UTF-8 encoded Unicode character and returns the
         // rune and its size in bytes. If the encoded rune is invalid, it consumes one byte
         // and returns unicode.ReplacementChar (U+FFFD) with a size of 1.
     **/
     @:keep
-    public function readRune():{ var _0 : GoRune; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
+    public dynamic function readRune():{ var _0 : GoRune; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
     /**
         // UnreadByte unreads the last byte. Only the most recently read byte can be unread.
         //
@@ -654,13 +660,13 @@ class Reader_asInterface {
         // considered read operations.
     **/
     @:keep
-    public function unreadByte():Error return __self__.value.unreadByte();
+    public dynamic function unreadByte():Error return __self__.value.unreadByte();
     /**
         // ReadByte reads and returns a single byte.
         // If no byte is available, returns an error.
     **/
     @:keep
-    public function readByte():{ var _0 : GoByte; var _1 : Error; } return __self__.value.readByte();
+    public dynamic function readByte():{ var _0 : GoByte; var _1 : Error; } return __self__.value.readByte();
     /**
         // Read reads data into p.
         // It returns the number of bytes read into p.
@@ -671,7 +677,7 @@ class Reader_asInterface {
         // then this Read method can do so as well; see the [io.Reader] docs.
     **/
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     /**
         // Discard skips the next n bytes, returning the number of bytes discarded.
         //
@@ -680,7 +686,7 @@ class Reader_asInterface {
         // reading from the underlying io.Reader.
     **/
     @:keep
-    public function discard(_n:GoInt):{ var _0 : GoInt; var _1 : Error; } return __self__.value.discard(_n);
+    public dynamic function discard(_n:GoInt):{ var _0 : GoInt; var _1 : Error; } return __self__.value.discard(_n);
     /**
         // Peek returns the next n bytes without advancing the reader. The bytes stop
         // being valid at the next read call. If Peek returns fewer than n bytes, it
@@ -691,16 +697,16 @@ class Reader_asInterface {
         // until the next read operation.
     **/
     @:keep
-    public function peek(_n:GoInt):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.peek(_n);
+    public dynamic function peek(_n:GoInt):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.peek(_n);
     @:keep
-    public function _readErr():Error return __self__.value._readErr();
+    public dynamic function _readErr():Error return __self__.value._readErr();
     /**
         // fill reads a new chunk into the buffer.
     **/
     @:keep
-    public function _fill():Void __self__.value._fill();
+    public dynamic function _fill():Void __self__.value._fill();
     @:keep
-    public function _reset(_buf:Slice<GoByte>, _r:stdgo.io.Io.Reader):Void __self__.value._reset(_buf, _r);
+    public dynamic function _reset(_buf:Slice<GoByte>, _r:stdgo.io.Io.Reader):Void __self__.value._reset(_buf, _r);
     /**
         // Reset discards any buffered data, resets all state, and switches
         // the buffered reader to read from r.
@@ -708,12 +714,12 @@ class Reader_asInterface {
         // to the default size.
     **/
     @:keep
-    public function reset(_r:stdgo.io.Io.Reader):Void __self__.value.reset(_r);
+    public dynamic function reset(_r:stdgo.io.Io.Reader):Void __self__.value.reset(_r);
     /**
         // Size returns the size of the underlying buffer in bytes.
     **/
     @:keep
-    public function size():GoInt return __self__.value.size();
+    public dynamic function size():GoInt return __self__.value.size();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1278,7 +1284,7 @@ class Writer_asInterface {
         // the buffer and writes it before calling ReadFrom.
     **/
     @:keep
-    public function readFrom(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
+    public dynamic function readFrom(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
     /**
         // WriteString writes a string.
         // It returns the number of bytes written.
@@ -1286,18 +1292,18 @@ class Writer_asInterface {
         // why the write is short.
     **/
     @:keep
-    public function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
+    public dynamic function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
     /**
         // WriteRune writes a single Unicode code point, returning
         // the number of bytes written and any error.
     **/
     @:keep
-    public function writeRune(_r:GoRune):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(_r);
+    public dynamic function writeRune(_r:GoRune):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(_r);
     /**
         // WriteByte writes a single byte.
     **/
     @:keep
-    public function writeByte(_c:GoByte):Error return __self__.value.writeByte(_c);
+    public dynamic function writeByte(_c:GoByte):Error return __self__.value.writeByte(_c);
     /**
         // Write writes the contents of p into the buffer.
         // It returns the number of bytes written.
@@ -1305,12 +1311,12 @@ class Writer_asInterface {
         // why the write is short.
     **/
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     /**
         // Buffered returns the number of bytes that have been written into the current buffer.
     **/
     @:keep
-    public function buffered():GoInt return __self__.value.buffered();
+    public dynamic function buffered():GoInt return __self__.value.buffered();
     /**
         // AvailableBuffer returns an empty buffer with b.Available() capacity.
         // This buffer is intended to be appended to and
@@ -1318,17 +1324,17 @@ class Writer_asInterface {
         // The buffer is only valid until the next write operation on b.
     **/
     @:keep
-    public function availableBuffer():Slice<GoByte> return __self__.value.availableBuffer();
+    public dynamic function availableBuffer():Slice<GoByte> return __self__.value.availableBuffer();
     /**
         // Available returns how many bytes are unused in the buffer.
     **/
     @:keep
-    public function available():GoInt return __self__.value.available();
+    public dynamic function available():GoInt return __self__.value.available();
     /**
         // Flush writes any buffered data to the underlying io.Writer.
     **/
     @:keep
-    public function flush():Error return __self__.value.flush();
+    public dynamic function flush():Error return __self__.value.flush();
     /**
         // Reset discards any unflushed buffered data, clears any error, and
         // resets b to write its output to w.
@@ -1336,12 +1342,12 @@ class Writer_asInterface {
         // to the default size.
     **/
     @:keep
-    public function reset(_w:stdgo.io.Io.Writer):Void __self__.value.reset(_w);
+    public dynamic function reset(_w:stdgo.io.Io.Writer):Void __self__.value.reset(_w);
     /**
         // Size returns the size of the underlying buffer in bytes.
     **/
     @:keep
-    public function size():GoInt return __self__.value.size();
+    public dynamic function size():GoInt return __self__.value.size();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1617,55 +1623,55 @@ class Writer_asInterface {
 }
 class ReadWriter_asInterface {
     @:embedded
-    public function _writeBuf(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value._writeBuf(_w);
+    public dynamic function _writeBuf(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value._writeBuf(_w);
     @:embedded
-    public function _reset(_buf:Slice<GoUInt8>, _r:stdgo.io.Io.Reader):Void __self__.value._reset(_buf, _r);
+    public dynamic function _reset(_buf:Slice<GoUInt8>, _r:stdgo.io.Io.Reader):Void __self__.value._reset(_buf, _r);
     @:embedded
-    public function _readErr():Error return __self__.value._readErr();
+    public dynamic function _readErr():Error return __self__.value._readErr();
     @:embedded
-    public function _fill():Void __self__.value._fill();
+    public dynamic function _fill():Void __self__.value._fill();
     @:embedded
-    public function _collectFragments(_delim:GoUInt8):{ var _0 : Slice<Slice<GoUInt8>>; var _1 : Slice<GoUInt8>; var _2 : GoInt; var _3 : Error; } return __self__.value._collectFragments(_delim);
+    public dynamic function _collectFragments(_delim:GoUInt8):{ var _0 : Slice<Slice<GoUInt8>>; var _1 : Slice<GoUInt8>; var _2 : GoInt; var _3 : Error; } return __self__.value._collectFragments(_delim);
     @:embedded
-    public function writeTo(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
+    public dynamic function writeTo(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
     @:embedded
-    public function writeString(_text:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_text);
+    public dynamic function writeString(_text:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_text);
     @:embedded
-    public function writeRune(_r:GoInt32):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(_r);
+    public dynamic function writeRune(_r:GoInt32):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(_r);
     @:embedded
-    public function writeByte(_delim:GoUInt8):Error return __self__.value.writeByte(_delim);
+    public dynamic function writeByte(_delim:GoUInt8):Error return __self__.value.writeByte(_delim);
     @:embedded
-    public function write(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     @:embedded
-    public function unreadRune():Error return __self__.value.unreadRune();
+    public dynamic function unreadRune():Error return __self__.value.unreadRune();
     @:embedded
-    public function unreadByte():Error return __self__.value.unreadByte();
+    public dynamic function unreadByte():Error return __self__.value.unreadByte();
     @:embedded
-    public function readString(_delim:GoUInt8):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_delim);
+    public dynamic function readString(_delim:GoUInt8):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_delim);
     @:embedded
-    public function readSlice(_delim:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readSlice(_delim);
+    public dynamic function readSlice(_delim:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readSlice(_delim);
     @:embedded
-    public function readRune():{ var _0 : GoInt32; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
+    public dynamic function readRune():{ var _0 : GoInt32; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
     @:embedded
-    public function readLine():{ var _0 : Slice<GoUInt8>; var _1 : Bool; var _2 : Error; } return __self__.value.readLine();
+    public dynamic function readLine():{ var _0 : Slice<GoUInt8>; var _1 : Bool; var _2 : Error; } return __self__.value.readLine();
     @:embedded
-    public function readFrom(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
+    public dynamic function readFrom(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
     @:embedded
-    public function readBytes(_delim:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readBytes(_delim);
+    public dynamic function readBytes(_delim:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readBytes(_delim);
     @:embedded
-    public function readByte():{ var _0 : GoUInt8; var _1 : Error; } return __self__.value.readByte();
+    public dynamic function readByte():{ var _0 : GoUInt8; var _1 : Error; } return __self__.value.readByte();
     @:embedded
-    public function read(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     @:embedded
-    public function peek(__0:GoInt):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.peek(__0);
+    public dynamic function peek(__0:GoInt):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.peek(__0);
     @:embedded
-    public function flush():Error return __self__.value.flush();
+    public dynamic function flush():Error return __self__.value.flush();
     @:embedded
-    public function discard(__0:GoInt):{ var _0 : GoInt; var _1 : Error; } return __self__.value.discard(__0);
+    public dynamic function discard(__0:GoInt):{ var _0 : GoInt; var _1 : Error; } return __self__.value.discard(__0);
     @:embedded
-    public function availableBuffer():Slice<GoUInt8> return __self__.value.availableBuffer();
+    public dynamic function availableBuffer():Slice<GoUInt8> return __self__.value.availableBuffer();
     @:embedded
-    public function available():GoInt return __self__.value.available();
+    public dynamic function available():GoInt return __self__.value.available();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1734,7 +1740,7 @@ class Scanner_asInterface {
         // Split panics if it is called after scanning has started.
     **/
     @:keep
-    public function split(_split:SplitFunc):Void __self__.value.split(_split);
+    public dynamic function split(_split:SplitFunc):Void __self__.value.split(_split);
     /**
         // Buffer sets the initial buffer to use when scanning and the maximum
         // size of buffer that may be allocated during scanning. The maximum
@@ -1747,17 +1753,17 @@ class Scanner_asInterface {
         // Buffer panics if it is called after scanning has started.
     **/
     @:keep
-    public function buffer(_buf:Slice<GoByte>, _max:GoInt):Void __self__.value.buffer(_buf, _max);
+    public dynamic function buffer(_buf:Slice<GoByte>, _max:GoInt):Void __self__.value.buffer(_buf, _max);
     /**
         // setErr records the first error encountered.
     **/
     @:keep
-    public function _setErr(_err:Error):Void __self__.value._setErr(_err);
+    public dynamic function _setErr(_err:Error):Void __self__.value._setErr(_err);
     /**
         // advance consumes n bytes of the buffer. It reports whether the advance was legal.
     **/
     @:keep
-    public function _advance(_n:GoInt):Bool return __self__.value._advance(_n);
+    public dynamic function _advance(_n:GoInt):Bool return __self__.value._advance(_n);
     /**
         // Scan advances the Scanner to the next token, which will then be
         // available through the Bytes or Text method. It returns false when the
@@ -1770,32 +1776,32 @@ class Scanner_asInterface {
         // scanners.
     **/
     @:keep
-    public function scan():Bool return __self__.value.scan();
+    public dynamic function scan():Bool return __self__.value.scan();
     /**
         // Text returns the most recent token generated by a call to Scan
         // as a newly allocated string holding its bytes.
     **/
     @:keep
-    public function text():GoString return __self__.value.text();
+    public dynamic function text():GoString return __self__.value.text();
     /**
         // Bytes returns the most recent token generated by a call to Scan.
         // The underlying array may point to data that will be overwritten
         // by a subsequent call to Scan. It does no allocation.
     **/
     @:keep
-    public function bytes():Slice<GoByte> return __self__.value.bytes();
+    public dynamic function bytes():Slice<GoByte> return __self__.value.bytes();
     /**
         // Err returns the first non-EOF error that was encountered by the Scanner.
     **/
     @:keep
-    public function err():Error return __self__.value.err();
+    public dynamic function err():Error return __self__.value.err();
     /**
         // ErrOrEOF is like Err, but returns EOF. Used to test a corner case.
     **/
     @:keep
-    public function errOrEOF():Error return __self__.value.errOrEOF();
+    public dynamic function errOrEOF():Error return __self__.value.errOrEOF();
     @:keep
-    public function maxTokenSize(_n:GoInt):Void __self__.value.maxTokenSize(_n);
+    public dynamic function maxTokenSize(_n:GoInt):Void __self__.value.maxTokenSize(_n);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

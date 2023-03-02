@@ -27,7 +27,7 @@ class T__struct_7_asInterface {
     public var too : GoUInt16;
 };
 function exampleWrite():Void {
-        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _buf = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _pi:GoFloat64 = (3.141592653589793 : GoFloat64);
         var _err:Error = stdgo.encoding.binary.Binary.write(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), Go.toInterface(_pi));
         if (_err != null) {
@@ -36,7 +36,7 @@ function exampleWrite():Void {
         stdgo.fmt.Fmt.printf(("% x" : GoString), Go.toInterface(_buf.bytes()));
     }
 function exampleWrite_multi():Void {
-        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _buf = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _data:Slice<AnyInterface> = (new Slice<AnyInterface>(0, 0, Go.toInterface((61374 : GoUInt16)), Go.toInterface((-54 : GoInt8)), Go.toInterface((254 : GoUInt8))) : Slice<AnyInterface>);
         for (_0 => _v in _data) {
             var _err:Error = stdgo.encoding.binary.Binary.write(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), _v);
@@ -77,7 +77,7 @@ function exampleRead_multi():Void {
         var _r = stdgo.bytes.Bytes.newReader(_b);
         var _data:T__struct_7 = ({ pi : (0 : GoFloat64), uate : (0 : GoUInt8), mine : new GoArray<GoUInt8>(...[for (i in 0 ... 3) (0 : GoUInt8)]), too : (0 : GoUInt16) } : T__struct_7);
         {
-            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_r), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), Go.toInterface(Go.asInterface((_data : Ref<T__struct_7>))));
+            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_r), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), Go.toInterface(Go.asInterface((Go.setRef(_data) : Ref<T__struct_7>))));
             if (_err != null) {
                 stdgo.fmt.Fmt.println(Go.toInterface(("binary.Read failed:" : GoString)), Go.toInterface(_err));
             };

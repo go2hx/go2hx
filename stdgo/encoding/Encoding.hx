@@ -32,7 +32,7 @@ typedef BinaryMarshaler = StructType & {
         
         
     **/
-    public function marshalBinary():{ var _0 : Slice<GoByte>; var _1 : Error; };
+    public dynamic function marshalBinary():{ var _0 : Slice<GoByte>; var _1 : Error; };
 };
 /**
     // BinaryUnmarshaler is the interface implemented by an object that can
@@ -50,7 +50,7 @@ typedef BinaryUnmarshaler = StructType & {
         
         
     **/
-    public function unmarshalBinary(_data:Slice<GoByte>):Error;
+    public dynamic function unmarshalBinary(_data:Slice<GoByte>):Error;
 };
 /**
     // TextMarshaler is the interface implemented by an object that can
@@ -66,7 +66,7 @@ typedef TextMarshaler = StructType & {
         
         
     **/
-    public function marshalText():{ var _0 : Slice<GoByte>; var _1 : Error; };
+    public dynamic function marshalText():{ var _0 : Slice<GoByte>; var _1 : Error; };
 };
 /**
     // TextUnmarshaler is the interface implemented by an object that can
@@ -84,5 +84,5 @@ typedef TextUnmarshaler = StructType & {
         
         
     **/
-    public function unmarshalText(_text:Slice<GoByte>):Error;
+    public dynamic function unmarshalText(_text:Slice<GoByte>):Error;
 };

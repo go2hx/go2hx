@@ -1679,13 +1679,16 @@ function newArchive(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<Archive>; var _1 : E
                 return { _0 : null, _1 : _err };
             };
         };
-        var _arch = (({} : Archive) : Ref<Archive>);
-        if (((_magic.__slice__(0) : Slice<GoUInt8>) : GoString) == (("<bigaf>\n" : GoString))) {
-            _arch.archiveHeader._magic = ((_magic.__slice__(0) : Slice<GoUInt8>) : GoString);
-        } else if (((_magic.__slice__(0) : Slice<GoUInt8>) : GoString) == (("<aiaff>\n" : GoString))) {
-            return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("small AIX archive not supported" : GoString)) };
-        } else {
-            return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("unrecognised archive magic: 0x%x" : GoString), Go.toInterface(_magic)) };
+        var _arch = (Go.setRef(({} : Archive)) : Ref<Archive>);
+        {
+            final __value__ = ((_magic.__slice__(0) : Slice<GoUInt8>) : GoString);
+            if (__value__ == (("<bigaf>\n" : GoString))) {
+                _arch.archiveHeader._magic = ((_magic.__slice__(0) : Slice<GoUInt8>) : GoString);
+            } else if (__value__ == (("<aiaff>\n" : GoString))) {
+                return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("small AIX archive not supported" : GoString)) };
+            } else {
+                return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("unrecognised archive magic: 0x%x" : GoString), Go.toInterface(_magic)) };
+            };
         };
         var _fhdr:T_bigarFileHeader = ({} : T_bigarFileHeader);
         {
@@ -1695,7 +1698,7 @@ function newArchive(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<Archive>; var _1 : E
             };
         };
         {
-            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface((_fhdr : Ref<T_bigarFileHeader>)));
+            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface((Go.setRef(_fhdr) : Ref<T_bigarFileHeader>)));
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
@@ -1720,12 +1723,12 @@ function newArchive(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<Archive>; var _1 : E
             };
             var _mhdr:T_bigarMemberHeader = ({} : T_bigarMemberHeader);
             {
-                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface((_mhdr : Ref<T_bigarMemberHeader>)));
+                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface((Go.setRef(_mhdr) : Ref<T_bigarMemberHeader>)));
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
             };
-            var _member = (({} : Member) : Ref<Member>);
+            var _member = (Go.setRef(({} : Member)) : Ref<Member>);
             _arch.members = _arch.members.__appendref__(_member);
             var __tmp__ = _parseDecimalBytes((_mhdr.arsize.__slice__(0) : Slice<GoUInt8>)), _size:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -1756,7 +1759,7 @@ function newArchive(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<Archive>; var _1 : E
             };
             var _fmag:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 2) (0 : GoUInt8)]);
             {
-                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface((_fmag : Ref<GoArray<GoUInt8>>)));
+                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface((Go.setRef(_fmag) : Ref<GoArray<GoUInt8>>)));
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
@@ -1833,7 +1836,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
             if ((_magic != (479 : GoUInt16)) && (_magic != (503 : GoUInt16))) {
                 return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("unrecognised XCOFF magic: 0x%x" : GoString), Go.toInterface(_magic)) };
             };
-            var _f = (({} : File) : Ref<File>);
+            var _f = (Go.setRef(({} : File)) : Ref<File>);
             _f.fileHeader.targetMachine = _magic;
             {
                 var __tmp__ = _sr.seek(("0" : GoInt64), (0 : GoInt)), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
@@ -1846,32 +1849,35 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
             var _nsyms:GoInt32 = (0 : GoInt32);
             var _opthdr:GoUInt16 = (0 : GoUInt16);
             var _hdrsz:GoInt = (0 : GoInt);
-            if (_f.fileHeader.targetMachine == ((479 : GoUInt16))) {
-                var _fhdr = (({} : FileHeader32) : Ref<FileHeader32>);
-                {
-                    var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_fhdr));
-                    if (_err != null) {
-                        return { _0 : null, _1 : _err };
+            {
+                final __value__ = _f.fileHeader.targetMachine;
+                if (__value__ == ((479 : GoUInt16))) {
+                    var _fhdr = (Go.setRef(({} : FileHeader32)) : Ref<FileHeader32>);
+                    {
+                        var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_fhdr));
+                        if (_err != null) {
+                            return { _0 : null, _1 : _err };
+                        };
                     };
-                };
-                _nscns = _fhdr.fnscns;
-                _symptr = (_fhdr.fsymptr : GoUInt64);
-                _nsyms = _fhdr.fnsyms;
-                _opthdr = _fhdr.fopthdr;
-                _hdrsz = (20 : GoInt);
-            } else if (_f.fileHeader.targetMachine == ((503 : GoUInt16))) {
-                var _fhdr = (({} : FileHeader64) : Ref<FileHeader64>);
-                {
-                    var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_fhdr));
-                    if (_err != null) {
-                        return { _0 : null, _1 : _err };
+                    _nscns = _fhdr.fnscns;
+                    _symptr = (_fhdr.fsymptr : GoUInt64);
+                    _nsyms = _fhdr.fnsyms;
+                    _opthdr = _fhdr.fopthdr;
+                    _hdrsz = (20 : GoInt);
+                } else if (__value__ == ((503 : GoUInt16))) {
+                    var _fhdr = (Go.setRef(({} : FileHeader64)) : Ref<FileHeader64>);
+                    {
+                        var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_fhdr));
+                        if (_err != null) {
+                            return { _0 : null, _1 : _err };
+                        };
                     };
+                    _nscns = _fhdr.fnscns;
+                    _symptr = _fhdr.fsymptr;
+                    _nsyms = _fhdr.fnsyms;
+                    _opthdr = _fhdr.fopthdr;
+                    _hdrsz = (24 : GoInt);
                 };
-                _nscns = _fhdr.fnscns;
-                _symptr = _fhdr.fsymptr;
-                _nsyms = _fhdr.fnsyms;
-                _opthdr = _fhdr.fopthdr;
-                _hdrsz = (24 : GoInt);
             };
             if ((_symptr == ("0" : GoUInt64)) || (_nsyms <= (0 : GoInt32))) {
                 return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("no symbol table" : GoString)) };
@@ -1908,37 +1914,40 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < (_nscns : GoInt), _i++, {
                     var _scnptr:GoUInt64 = (0 : GoUInt64);
-                    var _s = (({} : Section) : Ref<Section>);
-                    if (_f.fileHeader.targetMachine == ((479 : GoUInt16))) {
-                        var _shdr = (({} : SectionHeader32) : Ref<SectionHeader32>);
-                        {
-                            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_shdr));
-                            if (_err != null) {
-                                return { _0 : null, _1 : _err };
+                    var _s = (Go.setRef(({} : Section)) : Ref<Section>);
+                    {
+                        final __value__ = _f.fileHeader.targetMachine;
+                        if (__value__ == ((479 : GoUInt16))) {
+                            var _shdr = (Go.setRef(({} : SectionHeader32)) : Ref<SectionHeader32>);
+                            {
+                                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_shdr));
+                                if (_err != null) {
+                                    return { _0 : null, _1 : _err };
+                                };
                             };
-                        };
-                        _s.sectionHeader.name = _cstring((_shdr.sname.__slice__(0) : Slice<GoUInt8>));
-                        _s.sectionHeader.virtualAddress = (_shdr.svaddr : GoUInt64);
-                        _s.sectionHeader.size = (_shdr.ssize : GoUInt64);
-                        _scnptr = (_shdr.sscnptr : GoUInt64);
-                        _s.sectionHeader.type = _shdr.sflags;
-                        _s.sectionHeader.relptr = (_shdr.srelptr : GoUInt64);
-                        _s.sectionHeader.nreloc = (_shdr.snreloc : GoUInt32);
-                    } else if (_f.fileHeader.targetMachine == ((503 : GoUInt16))) {
-                        var _shdr = (({} : SectionHeader64) : Ref<SectionHeader64>);
-                        {
-                            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_shdr));
-                            if (_err != null) {
-                                return { _0 : null, _1 : _err };
+                            _s.sectionHeader.name = _cstring((_shdr.sname.__slice__(0) : Slice<GoUInt8>));
+                            _s.sectionHeader.virtualAddress = (_shdr.svaddr : GoUInt64);
+                            _s.sectionHeader.size = (_shdr.ssize : GoUInt64);
+                            _scnptr = (_shdr.sscnptr : GoUInt64);
+                            _s.sectionHeader.type = _shdr.sflags;
+                            _s.sectionHeader.relptr = (_shdr.srelptr : GoUInt64);
+                            _s.sectionHeader.nreloc = (_shdr.snreloc : GoUInt32);
+                        } else if (__value__ == ((503 : GoUInt16))) {
+                            var _shdr = (Go.setRef(({} : SectionHeader64)) : Ref<SectionHeader64>);
+                            {
+                                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_shdr));
+                                if (_err != null) {
+                                    return { _0 : null, _1 : _err };
+                                };
                             };
+                            _s.sectionHeader.name = _cstring((_shdr.sname.__slice__(0) : Slice<GoUInt8>));
+                            _s.sectionHeader.virtualAddress = _shdr.svaddr;
+                            _s.sectionHeader.size = _shdr.ssize;
+                            _scnptr = _shdr.sscnptr;
+                            _s.sectionHeader.type = _shdr.sflags;
+                            _s.sectionHeader.relptr = _shdr.srelptr;
+                            _s.sectionHeader.nreloc = _shdr.snreloc;
                         };
-                        _s.sectionHeader.name = _cstring((_shdr.sname.__slice__(0) : Slice<GoUInt8>));
-                        _s.sectionHeader.virtualAddress = _shdr.svaddr;
-                        _s.sectionHeader.size = _shdr.ssize;
-                        _scnptr = _shdr.sscnptr;
-                        _s.sectionHeader.type = _shdr.sflags;
-                        _s.sectionHeader.relptr = _shdr.srelptr;
-                        _s.sectionHeader.nreloc = _shdr.snreloc;
                     };
                     var _r2:stdgo.io.Io.ReaderAt = _r;
                     if (_scnptr == (("0" : GoUInt64))) {
@@ -1962,60 +1971,63 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                 Go.cfor(_i < (_nsyms : GoInt), _i++, {
                     var _numaux:GoInt = (0 : GoInt);
                     var _0:Bool = false, _1:Bool = false, _needAuxFcn:Bool = _1, _ok:Bool = _0;
-                    var _sym = (({} : Symbol) : Ref<Symbol>);
-                    if (_f.fileHeader.targetMachine == ((479 : GoUInt16))) {
-                        var _se = (({} : SymEnt32) : Ref<SymEnt32>);
-                        {
-                            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_se));
-                            if (_err != null) {
-                                return { _0 : null, _1 : _err };
-                            };
-                        };
-                        _numaux = (_se.nnumaux : GoInt);
-                        if (_numaux < (0 : GoInt)) {
-                            return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("malformed symbol table, invalid number of aux symbols" : GoString)) };
-                        };
-                        _sym.sectionNumber = (_se.nscnum : GoInt);
-                        _sym.storageClass = (_se.nsclass : GoInt);
-                        _sym.value = (_se.nvalue : GoUInt64);
-                        _needAuxFcn = ((_se.ntype & (32 : GoUInt16)) != (0 : GoUInt16)) && (_numaux > (1 : GoInt));
-                        var _zeroes:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_se.nname.__slice__(0, (4 : GoInt)) : Slice<GoUInt8>));
-                        if (_zeroes != (("0" : GoUInt32))) {
-                            _sym.name = _cstring((_se.nname.__slice__(0) : Slice<GoUInt8>));
-                        } else {
-                            var _offset:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_se.nname.__slice__((4 : GoInt)) : Slice<GoUInt8>));
+                    var _sym = (Go.setRef(({} : Symbol)) : Ref<Symbol>);
+                    {
+                        final __value__ = _f.fileHeader.targetMachine;
+                        if (__value__ == ((479 : GoUInt16))) {
+                            var _se = (Go.setRef(({} : SymEnt32)) : Ref<SymEnt32>);
                             {
-                                var __tmp__ = _getString(_f.stringTable, _offset);
+                                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_se));
+                                if (_err != null) {
+                                    return { _0 : null, _1 : _err };
+                                };
+                            };
+                            _numaux = (_se.nnumaux : GoInt);
+                            if (_numaux < (0 : GoInt)) {
+                                return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("malformed symbol table, invalid number of aux symbols" : GoString)) };
+                            };
+                            _sym.sectionNumber = (_se.nscnum : GoInt);
+                            _sym.storageClass = (_se.nsclass : GoInt);
+                            _sym.value = (_se.nvalue : GoUInt64);
+                            _needAuxFcn = ((_se.ntype & (32 : GoUInt16)) != (0 : GoUInt16)) && (_numaux > (1 : GoInt));
+                            var _zeroes:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_se.nname.__slice__(0, (4 : GoInt)) : Slice<GoUInt8>));
+                            if (_zeroes != (("0" : GoUInt32))) {
+                                _sym.name = _cstring((_se.nname.__slice__(0) : Slice<GoUInt8>));
+                            } else {
+                                var _offset:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_se.nname.__slice__((4 : GoInt)) : Slice<GoUInt8>));
+                                {
+                                    var __tmp__ = _getString(_f.stringTable, _offset);
+                                    _sym.name = __tmp__._0;
+                                    _ok = __tmp__._1;
+                                };
+                                if (!_ok) {
+                                    @:goto "skip";
+                                };
+                            };
+                        } else if (__value__ == ((503 : GoUInt16))) {
+                            var _se = (Go.setRef(({} : SymEnt64)) : Ref<SymEnt64>);
+                            {
+                                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_se));
+                                if (_err != null) {
+                                    return { _0 : null, _1 : _err };
+                                };
+                            };
+                            _numaux = (_se.nnumaux : GoInt);
+                            if (_numaux < (0 : GoInt)) {
+                                return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("malformed symbol table, invalid number of aux symbols" : GoString)) };
+                            };
+                            _sym.sectionNumber = (_se.nscnum : GoInt);
+                            _sym.storageClass = (_se.nsclass : GoInt);
+                            _sym.value = _se.nvalue;
+                            _needAuxFcn = ((_se.ntype & (32 : GoUInt16)) != (0 : GoUInt16)) && (_numaux > (1 : GoInt));
+                            {
+                                var __tmp__ = _getString(_f.stringTable, _se.noffset);
                                 _sym.name = __tmp__._0;
                                 _ok = __tmp__._1;
                             };
                             if (!_ok) {
                                 @:goto "skip";
                             };
-                        };
-                    } else if (_f.fileHeader.targetMachine == ((503 : GoUInt16))) {
-                        var _se = (({} : SymEnt64) : Ref<SymEnt64>);
-                        {
-                            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_se));
-                            if (_err != null) {
-                                return { _0 : null, _1 : _err };
-                            };
-                        };
-                        _numaux = (_se.nnumaux : GoInt);
-                        if (_numaux < (0 : GoInt)) {
-                            return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("malformed symbol table, invalid number of aux symbols" : GoString)) };
-                        };
-                        _sym.sectionNumber = (_se.nscnum : GoInt);
-                        _sym.storageClass = (_se.nsclass : GoInt);
-                        _sym.value = _se.nvalue;
-                        _needAuxFcn = ((_se.ntype & (32 : GoUInt16)) != (0 : GoUInt16)) && (_numaux > (1 : GoInt));
-                        {
-                            var __tmp__ = _getString(_f.stringTable, _se.noffset);
-                            _sym.name = __tmp__._0;
-                            _ok = __tmp__._1;
-                        };
-                        if (!_ok) {
-                            @:goto "skip";
                         };
                     };
                     if (((_sym.storageClass != (2 : GoInt)) && (_sym.storageClass != (111 : GoInt))) && (_sym.storageClass != (107 : GoInt))) {
@@ -2034,24 +2046,27 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                     };
                     _idxToSym[_i] = _sym;
                     if (_needAuxFcn) {
-                        if (_f.fileHeader.targetMachine == ((479 : GoUInt16))) {
-                            var _aux = (({} : AuxFcn32) : Ref<AuxFcn32>);
-                            {
-                                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
-                                if (_err != null) {
-                                    return { _0 : null, _1 : _err };
+                        {
+                            final __value__ = _f.fileHeader.targetMachine;
+                            if (__value__ == ((479 : GoUInt16))) {
+                                var _aux = (Go.setRef(({} : AuxFcn32)) : Ref<AuxFcn32>);
+                                {
+                                    var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
+                                    if (_err != null) {
+                                        return { _0 : null, _1 : _err };
+                                    };
                                 };
-                            };
-                            _sym.auxFcn.size = (_aux.xfsize : GoInt64);
-                        } else if (_f.fileHeader.targetMachine == ((503 : GoUInt16))) {
-                            var _aux = (({} : AuxFcn64) : Ref<AuxFcn64>);
-                            {
-                                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
-                                if (_err != null) {
-                                    return { _0 : null, _1 : _err };
+                                _sym.auxFcn.size = (_aux.xfsize : GoInt64);
+                            } else if (__value__ == ((503 : GoUInt16))) {
+                                var _aux = (Go.setRef(({} : AuxFcn64)) : Ref<AuxFcn64>);
+                                {
+                                    var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
+                                    if (_err != null) {
+                                        return { _0 : null, _1 : _err };
+                                    };
                                 };
+                                _sym.auxFcn.size = (_aux.xfsize : GoInt64);
                             };
-                            _sym.auxFcn.size = (_aux.xfsize : GoInt64);
                         };
                     };
                     if (!_needAuxFcn) {
@@ -2064,28 +2079,31 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                     };
                     _i = _i + (_numaux);
                     _numaux = (0 : GoInt);
-                    if (_f.fileHeader.targetMachine == ((479 : GoUInt16))) {
-                        var _aux = (({} : AuxCSect32) : Ref<AuxCSect32>);
-                        {
-                            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
-                            if (_err != null) {
-                                return { _0 : null, _1 : _err };
+                    {
+                        final __value__ = _f.fileHeader.targetMachine;
+                        if (__value__ == ((479 : GoUInt16))) {
+                            var _aux = (Go.setRef(({} : AuxCSect32)) : Ref<AuxCSect32>);
+                            {
+                                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
+                                if (_err != null) {
+                                    return { _0 : null, _1 : _err };
+                                };
                             };
-                        };
-                        _sym.auxCSect.symbolType = (_aux.xsmtyp & (7 : GoUInt8) : GoInt);
-                        _sym.auxCSect.storageMappingClass = (_aux.xsmclas : GoInt);
-                        _sym.auxCSect.length_ = (_aux.xscnlen : GoInt64);
-                    } else if (_f.fileHeader.targetMachine == ((503 : GoUInt16))) {
-                        var _aux = (({} : AuxCSect64) : Ref<AuxCSect64>);
-                        {
-                            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
-                            if (_err != null) {
-                                return { _0 : null, _1 : _err };
+                            _sym.auxCSect.symbolType = (_aux.xsmtyp & (7 : GoUInt8) : GoInt);
+                            _sym.auxCSect.storageMappingClass = (_aux.xsmclas : GoInt);
+                            _sym.auxCSect.length_ = (_aux.xscnlen : GoInt64);
+                        } else if (__value__ == ((503 : GoUInt16))) {
+                            var _aux = (Go.setRef(({} : AuxCSect64)) : Ref<AuxCSect64>);
+                            {
+                                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
+                                if (_err != null) {
+                                    return { _0 : null, _1 : _err };
+                                };
                             };
+                            _sym.auxCSect.symbolType = (_aux.xsmtyp & (7 : GoUInt8) : GoInt);
+                            _sym.auxCSect.storageMappingClass = (_aux.xsmclas : GoInt);
+                            _sym.auxCSect.length_ = ((_aux.xscnlenhi : GoInt64) << (("32" : GoUInt64) : GoUInt64)) | (_aux.xscnlenlo : GoInt64);
                         };
-                        _sym.auxCSect.symbolType = (_aux.xsmtyp & (7 : GoUInt8) : GoInt);
-                        _sym.auxCSect.storageMappingClass = (_aux.xsmclas : GoInt);
-                        _sym.auxCSect.length_ = ((_aux.xscnlenhi : GoInt64) << (("32" : GoUInt64) : GoUInt64)) | (_aux.xscnlenlo : GoInt64);
                     };
                     _f.symbols = _f.symbols.__appendref__(_sym);
                     @:label("skip") _i = _i + (_numaux);
@@ -2114,41 +2132,44 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                 {
                     var _i:GoUInt32 = (("0" : GoUInt32) : GoUInt32);
                     Go.cfor(_i < _sect.sectionHeader.nreloc, _i++, {
-                        if (_f.fileHeader.targetMachine == ((479 : GoUInt16))) {
-                            var _rel = (({} : Reloc32) : Ref<Reloc32>);
-                            {
-                                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_rel));
-                                if (_err != null) {
-                                    return { _0 : null, _1 : _err };
+                        {
+                            final __value__ = _f.fileHeader.targetMachine;
+                            if (__value__ == ((479 : GoUInt16))) {
+                                var _rel = (Go.setRef(({} : Reloc32)) : Ref<Reloc32>);
+                                {
+                                    var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_rel));
+                                    if (_err != null) {
+                                        return { _0 : null, _1 : _err };
+                                    };
                                 };
-                            };
-                            _sect.relocs[(_i : GoInt)].virtualAddress = (_rel.rvaddr : GoUInt64);
-                            _sect.relocs[(_i : GoInt)].symbol = _idxToSym[(_rel.rsymndx : GoInt)];
-                            _sect.relocs[(_i : GoInt)].type = _rel.rtype;
-                            _sect.relocs[(_i : GoInt)].length_ = (_rel.rsize & (63 : GoUInt8)) + (1 : GoUInt8);
-                            if (_rel.rsize & (128 : GoUInt8) != ((0 : GoUInt8))) {
-                                _sect.relocs[(_i : GoInt)].signed = true;
-                            };
-                            if (_rel.rsize & (64 : GoUInt8) != ((0 : GoUInt8))) {
-                                _sect.relocs[(_i : GoInt)].instructionFixed = true;
-                            };
-                        } else if (_f.fileHeader.targetMachine == ((503 : GoUInt16))) {
-                            var _rel = (({} : Reloc64) : Ref<Reloc64>);
-                            {
-                                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_rel));
-                                if (_err != null) {
-                                    return { _0 : null, _1 : _err };
+                                _sect.relocs[(_i : GoInt)].virtualAddress = (_rel.rvaddr : GoUInt64);
+                                _sect.relocs[(_i : GoInt)].symbol = _idxToSym[(_rel.rsymndx : GoInt)];
+                                _sect.relocs[(_i : GoInt)].type = _rel.rtype;
+                                _sect.relocs[(_i : GoInt)].length_ = (_rel.rsize & (63 : GoUInt8)) + (1 : GoUInt8);
+                                if (_rel.rsize & (128 : GoUInt8) != ((0 : GoUInt8))) {
+                                    _sect.relocs[(_i : GoInt)].signed = true;
                                 };
-                            };
-                            _sect.relocs[(_i : GoInt)].virtualAddress = _rel.rvaddr;
-                            _sect.relocs[(_i : GoInt)].symbol = _idxToSym[(_rel.rsymndx : GoInt)];
-                            _sect.relocs[(_i : GoInt)].type = _rel.rtype;
-                            _sect.relocs[(_i : GoInt)].length_ = (_rel.rsize & (63 : GoUInt8)) + (1 : GoUInt8);
-                            if (_rel.rsize & (128 : GoUInt8) != ((0 : GoUInt8))) {
-                                _sect.relocs[(_i : GoInt)].signed = true;
-                            };
-                            if (_rel.rsize & (64 : GoUInt8) != ((0 : GoUInt8))) {
-                                _sect.relocs[(_i : GoInt)].instructionFixed = true;
+                                if (_rel.rsize & (64 : GoUInt8) != ((0 : GoUInt8))) {
+                                    _sect.relocs[(_i : GoInt)].instructionFixed = true;
+                                };
+                            } else if (__value__ == ((503 : GoUInt16))) {
+                                var _rel = (Go.setRef(({} : Reloc64)) : Ref<Reloc64>);
+                                {
+                                    var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_rel));
+                                    if (_err != null) {
+                                        return { _0 : null, _1 : _err };
+                                    };
+                                };
+                                _sect.relocs[(_i : GoInt)].virtualAddress = _rel.rvaddr;
+                                _sect.relocs[(_i : GoInt)].symbol = _idxToSym[(_rel.rsymndx : GoInt)];
+                                _sect.relocs[(_i : GoInt)].type = _rel.rtype;
+                                _sect.relocs[(_i : GoInt)].length_ = (_rel.rsize & (63 : GoUInt8)) + (1 : GoUInt8);
+                                if (_rel.rsize & (128 : GoUInt8) != ((0 : GoUInt8))) {
+                                    _sect.relocs[(_i : GoInt)].signed = true;
+                                };
+                                if (_rel.rsize & (64 : GoUInt8) != ((0 : GoUInt8))) {
+                                    _sect.relocs[(_i : GoInt)].instructionFixed = true;
+                                };
                             };
                         };
                     });
@@ -2164,14 +2185,14 @@ class Archive_asInterface {
         // name which can occur if a archive has both 32-bits and 64-bits files.
     **/
     @:keep
-    public function getFile(_name:GoString):{ var _0 : Ref<File>; var _1 : Error; } return __self__.value.getFile(_name);
+    public dynamic function getFile(_name:GoString):{ var _0 : Ref<File>; var _1 : Error; } return __self__.value.getFile(_name);
     /**
         // Close closes the Archive.
         // If the Archive was created using NewArchive directly instead of OpenArchive,
         // Close has no effect.
     **/
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2227,9 +2248,9 @@ class Section_asInterface {
         // Data reads and returns the contents of the XCOFF section s.
     **/
     @:keep
-    public function data():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.data();
+    public dynamic function data():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.data();
     @:embedded
-    public function readAt(_p:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_p, _off);
+    public dynamic function readAt(_p:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_p, _off);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2261,7 +2282,7 @@ class File_asInterface {
         // linked with the binary at dynamic link time.
     **/
     @:keep
-    public function importedLibraries():{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value.importedLibraries();
+    public dynamic function importedLibraries():{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value.importedLibraries();
     /**
         // ImportedSymbols returns the names of all symbols
         // referred to by the binary f that are expected to be
@@ -2269,26 +2290,26 @@ class File_asInterface {
         // It does not return weak symbols.
     **/
     @:keep
-    public function importedSymbols():{ var _0 : Slice<ImportedSymbol>; var _1 : Error; } return __self__.value.importedSymbols();
+    public dynamic function importedSymbols():{ var _0 : Slice<ImportedSymbol>; var _1 : Error; } return __self__.value.importedSymbols();
     /**
         // readImportID returns the import file IDs stored inside the .loader section.
         // Library name pattern is either path/base/member or base/member
     **/
     @:keep
-    public function _readImportIDs(_s:Ref<Section>):{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value._readImportIDs(_s);
+    public dynamic function _readImportIDs(_s:Ref<Section>):{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value._readImportIDs(_s);
     @:keep
-    public function dwarf():{ var _0 : Ref<stdgo.debug.dwarf.Dwarf.Data>; var _1 : Error; } return __self__.value.dwarf();
+    public dynamic function dwarf():{ var _0 : Ref<stdgo.debug.dwarf.Dwarf.Data>; var _1 : Error; } return __self__.value.dwarf();
     /**
         // CSect reads and returns the contents of a csect.
     **/
     @:keep
-    public function csect(_name:GoString):Slice<GoByte> return __self__.value.csect(_name);
+    public dynamic function csect(_name:GoString):Slice<GoByte> return __self__.value.csect(_name);
     /**
         // SectionByType returns the first section in f with the
         // given type, or nil if there is no such section.
     **/
     @:keep
-    public function sectionByType(_typ:GoUInt32):Ref<Section> return __self__.value.sectionByType(_typ);
+    public dynamic function sectionByType(_typ:GoUInt32):Ref<Section> return __self__.value.sectionByType(_typ);
     /**
         // Section returns the first section with the given name, or nil if no such
         // section exists.
@@ -2296,14 +2317,14 @@ class File_asInterface {
         // can be trunked but this method will still find them.
     **/
     @:keep
-    public function section(_name:GoString):Ref<Section> return __self__.value.section(_name);
+    public dynamic function section(_name:GoString):Ref<Section> return __self__.value.section(_name);
     /**
         // Close closes the File.
         // If the File was created using NewFile directly instead of Open,
         // Close has no effect.
     **/
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2321,7 +2342,7 @@ class File_asInterface {
     @:keep
     static public function importedLibraries( _f:Ref<File>):{ var _0 : Slice<GoString>; var _1 : Error; } {
         var _s = _f.sectionByType(("4096" : GoUInt32));
-        if (_s == null) {
+        if (_s == null || (_s : Dynamic).__nil__) {
             return { _0 : (null : Slice<GoString>), _1 : (null : Error) };
         };
         var __tmp__ = _f._readImportIDs(_s), _all:Slice<GoString> = __tmp__._0, _err:Error = __tmp__._1;
@@ -2336,7 +2357,7 @@ class File_asInterface {
     @:keep
     static public function importedSymbols( _f:Ref<File>):{ var _0 : Slice<ImportedSymbol>; var _1 : Error; } {
         var _s = _f.sectionByType(("4096" : GoUInt32));
-        if (_s == null) {
+        if (_s == null || (_s : Dynamic).__nil__) {
             return { _0 : (null : Slice<ImportedSymbol>), _1 : (null : Error) };
         };
         {
@@ -2349,30 +2370,33 @@ class File_asInterface {
         var _stoff:GoUInt64 = (0 : GoUInt64);
         var _nsyms:GoInt32 = (0 : GoInt32);
         var _symoff:GoUInt64 = (0 : GoUInt64);
-        if (_f.fileHeader.targetMachine == ((479 : GoUInt16))) {
-            var _lhdr = (({} : LoaderHeader32) : Ref<LoaderHeader32>);
-            {
-                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
-                if (_err != null) {
-                    return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+        {
+            final __value__ = _f.fileHeader.targetMachine;
+            if (__value__ == ((479 : GoUInt16))) {
+                var _lhdr = (Go.setRef(({} : LoaderHeader32)) : Ref<LoaderHeader32>);
+                {
+                    var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
+                    if (_err != null) {
+                        return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                    };
                 };
-            };
-            _stlen = _lhdr.lstlen;
-            _stoff = (_lhdr.lstoff : GoUInt64);
-            _nsyms = _lhdr.lnsyms;
-            _symoff = ("32" : GoUInt64);
-        } else if (_f.fileHeader.targetMachine == ((503 : GoUInt16))) {
-            var _lhdr = (({} : LoaderHeader64) : Ref<LoaderHeader64>);
-            {
-                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
-                if (_err != null) {
-                    return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                _stlen = _lhdr.lstlen;
+                _stoff = (_lhdr.lstoff : GoUInt64);
+                _nsyms = _lhdr.lnsyms;
+                _symoff = ("32" : GoUInt64);
+            } else if (__value__ == ((503 : GoUInt16))) {
+                var _lhdr = (Go.setRef(({} : LoaderHeader64)) : Ref<LoaderHeader64>);
+                {
+                    var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
+                    if (_err != null) {
+                        return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                    };
                 };
+                _stlen = _lhdr.lstlen;
+                _stoff = _lhdr.lstoff;
+                _nsyms = _lhdr.lnsyms;
+                _symoff = _lhdr.lsymoff;
             };
-            _stlen = _lhdr.lstlen;
-            _stoff = _lhdr.lstoff;
-            _nsyms = _lhdr.lnsyms;
-            _symoff = _lhdr.lsymoff;
         };
         {
             var __tmp__ = _s._sr.seek((_stoff : GoInt64), (0 : GoInt)), _1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
@@ -2404,59 +2428,62 @@ class File_asInterface {
                 var _name:GoString = ("" : GoString);
                 var _ifile:GoInt32 = (0 : GoInt32);
                 var _ok:Bool = false;
-                if (_f.fileHeader.targetMachine == ((479 : GoUInt16))) {
-                    var _ldsym = (({} : LoaderSymbol32) : Ref<LoaderSymbol32>);
-                    {
-                        var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_ldsym));
-                        if (_err != null) {
-                            return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
-                        };
-                    };
-                    if (_ldsym.lsmtype & (64 : GoInt8) == ((0 : GoInt8))) {
-                        continue;
-                    };
-                    var _zeroes:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_ldsym.lname.__slice__(0, (4 : GoInt)) : Slice<GoUInt8>));
-                    if (_zeroes != (("0" : GoUInt32))) {
-                        _name = _cstring((_ldsym.lname.__slice__(0) : Slice<GoUInt8>));
-                    } else {
-                        var _offset:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_ldsym.lname.__slice__((4 : GoInt)) : Slice<GoUInt8>));
+                {
+                    final __value__ = _f.fileHeader.targetMachine;
+                    if (__value__ == ((479 : GoUInt16))) {
+                        var _ldsym = (Go.setRef(({} : LoaderSymbol32)) : Ref<LoaderSymbol32>);
                         {
-                            var __tmp__ = _getString(_st, _offset);
+                            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_ldsym));
+                            if (_err != null) {
+                                return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                            };
+                        };
+                        if (_ldsym.lsmtype & (64 : GoInt8) == ((0 : GoInt8))) {
+                            continue;
+                        };
+                        var _zeroes:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_ldsym.lname.__slice__(0, (4 : GoInt)) : Slice<GoUInt8>));
+                        if (_zeroes != (("0" : GoUInt32))) {
+                            _name = _cstring((_ldsym.lname.__slice__(0) : Slice<GoUInt8>));
+                        } else {
+                            var _offset:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_ldsym.lname.__slice__((4 : GoInt)) : Slice<GoUInt8>));
+                            {
+                                var __tmp__ = _getString(_st, _offset);
+                                _name = __tmp__._0;
+                                _ok = __tmp__._1;
+                            };
+                            if (!_ok) {
+                                continue;
+                            };
+                        };
+                        _ifile = _ldsym.lifile;
+                    } else if (__value__ == ((503 : GoUInt16))) {
+                        var _ldsym = (Go.setRef(({} : LoaderSymbol64)) : Ref<LoaderSymbol64>);
+                        {
+                            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_ldsym));
+                            if (_err != null) {
+                                return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                            };
+                        };
+                        if (_ldsym.lsmtype & (64 : GoInt8) == ((0 : GoInt8))) {
+                            continue;
+                        };
+                        {
+                            var __tmp__ = _getString(_st, _ldsym.loffset);
                             _name = __tmp__._0;
                             _ok = __tmp__._1;
                         };
                         if (!_ok) {
                             continue;
                         };
+                        _ifile = _ldsym.lifile;
                     };
-                    _ifile = _ldsym.lifile;
-                } else if (_f.fileHeader.targetMachine == ((503 : GoUInt16))) {
-                    var _ldsym = (({} : LoaderSymbol64) : Ref<LoaderSymbol64>);
-                    {
-                        var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_ldsym));
-                        if (_err != null) {
-                            return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
-                        };
-                    };
-                    if (_ldsym.lsmtype & (64 : GoInt8) == ((0 : GoInt8))) {
-                        continue;
-                    };
-                    {
-                        var __tmp__ = _getString(_st, _ldsym.loffset);
-                        _name = __tmp__._0;
-                        _ok = __tmp__._1;
-                    };
-                    if (!_ok) {
-                        continue;
-                    };
-                    _ifile = _ldsym.lifile;
                 };
                 var _sym:ImportedSymbol = ({} : ImportedSymbol);
                 _sym.name = _name;
                 if ((_ifile >= (1 : GoInt32)) && ((_ifile : GoInt) <= _libs.length)) {
                     _sym.library = _libs[(_ifile - (1 : GoInt32) : GoInt)];
                 };
-                _all = _all.__appendref__((_sym == null ? null : _sym.__copy__()));
+                _all = _all.__appendref__(_sym.__copy__());
             });
         };
         return { _0 : _all, _1 : (null : Error) };
@@ -2476,28 +2503,31 @@ class File_asInterface {
         var _istlen:GoUInt32 = (0 : GoUInt32);
         var _nimpid:GoInt32 = (0 : GoInt32);
         var _impoff:GoUInt64 = (0 : GoUInt64);
-        if (_f.fileHeader.targetMachine == ((479 : GoUInt16))) {
-            var _lhdr = (({} : LoaderHeader32) : Ref<LoaderHeader32>);
-            {
-                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
-                if (_err != null) {
-                    return { _0 : (null : Slice<GoString>), _1 : _err };
+        {
+            final __value__ = _f.fileHeader.targetMachine;
+            if (__value__ == ((479 : GoUInt16))) {
+                var _lhdr = (Go.setRef(({} : LoaderHeader32)) : Ref<LoaderHeader32>);
+                {
+                    var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
+                    if (_err != null) {
+                        return { _0 : (null : Slice<GoString>), _1 : _err };
+                    };
                 };
-            };
-            _istlen = _lhdr.listlen;
-            _nimpid = _lhdr.lnimpid;
-            _impoff = (_lhdr.limpoff : GoUInt64);
-        } else if (_f.fileHeader.targetMachine == ((503 : GoUInt16))) {
-            var _lhdr = (({} : LoaderHeader64) : Ref<LoaderHeader64>);
-            {
-                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
-                if (_err != null) {
-                    return { _0 : (null : Slice<GoString>), _1 : _err };
+                _istlen = _lhdr.listlen;
+                _nimpid = _lhdr.lnimpid;
+                _impoff = (_lhdr.limpoff : GoUInt64);
+            } else if (__value__ == ((503 : GoUInt16))) {
+                var _lhdr = (Go.setRef(({} : LoaderHeader64)) : Ref<LoaderHeader64>);
+                {
+                    var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
+                    if (_err != null) {
+                        return { _0 : (null : Slice<GoString>), _1 : _err };
+                    };
                 };
+                _istlen = _lhdr.listlen;
+                _nimpid = _lhdr.lnimpid;
+                _impoff = _lhdr.limpoff;
             };
-            _istlen = _lhdr.listlen;
-            _nimpid = _lhdr.lnimpid;
-            _impoff = _lhdr.limpoff;
         };
         {
             var __tmp__ = _s._sr.seek((_impoff : GoInt64), (0 : GoInt)), _1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
@@ -2543,7 +2573,7 @@ class File_asInterface {
         var _dat:GoArray<Slice<GoByte>> = new GoArray<Slice<GoUInt8>>(...[for (i in 0 ... 5) (null : Slice<GoUInt8>)]);
         for (_i => _subtype in _subtypes) {
             var _s = _f.sectionByType(("16" : GoUInt32) | _subtype);
-            if (_s != null) {
+            if (_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) {
                 var __tmp__ = _s.data(), _b:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
                 if ((_err != null) && ((_b.length : GoUInt64) < _s.sectionHeader.size)) {
                     return { _0 : null, _1 : _err };
@@ -2628,7 +2658,7 @@ class T_zeroReaderAt_asInterface {
         // ReadAt writes len(p) 0s into p.
     **/
     @:keep
-    public function readAt(_p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_p, _off);
+    public dynamic function readAt(_p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_p, _off);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

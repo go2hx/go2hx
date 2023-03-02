@@ -45,7 +45,7 @@ typedef Generator = StructType & {
         
         
     **/
-    public function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value;
+    public dynamic function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value;
 };
 /**
     // A Config structure contains options for running a test.
@@ -277,127 +277,130 @@ private function _sizedValue(_t:stdgo.reflect.Reflect.Type, _rand:Ref<stdgo.math
                 { value : (null : Generator), ok : false };
             }, _m = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
-                return { _0 : (_m.generate(_rand, _size) == null ? null : _m.generate(_rand, _size).__copy__()), _1 : true };
+                return { _0 : _m.generate(_rand, _size).__copy__(), _1 : true };
             };
         };
-        var _v:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.new_(_t).elem() == null ? null : stdgo.reflect.Reflect.new_(_t).elem().__copy__());
+        var _v:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.new_(_t).elem().__copy__();
         {
             var _concrete:stdgo.reflect.Reflect.Type = _t;
-            if (_concrete.kind() == ((("1" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setBool(_rand.int_() & (1 : GoInt) == ((0 : GoInt)));
-            } else if (_concrete.kind() == ((("13" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setFloat((_randFloat32(_rand) : GoFloat64));
-            } else if (_concrete.kind() == ((("14" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setFloat(_randFloat64(_rand));
-            } else if (_concrete.kind() == ((("15" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setComplex(new GoComplex128((_randFloat32(_rand) : GoFloat64), (_randFloat32(_rand) : GoFloat64)));
-            } else if (_concrete.kind() == ((("16" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setComplex(new GoComplex128(_randFloat64(_rand), _randFloat64(_rand)));
-            } else if (_concrete.kind() == ((("4" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setInt(_randInt64(_rand));
-            } else if (_concrete.kind() == ((("5" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setInt(_randInt64(_rand));
-            } else if (_concrete.kind() == ((("6" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setInt(_randInt64(_rand));
-            } else if (_concrete.kind() == ((("3" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setInt(_randInt64(_rand));
-            } else if (_concrete.kind() == ((("2" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setInt(_randInt64(_rand));
-            } else if (_concrete.kind() == ((("9" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setUint((_randInt64(_rand) : GoUInt64));
-            } else if (_concrete.kind() == ((("10" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setUint((_randInt64(_rand) : GoUInt64));
-            } else if (_concrete.kind() == ((("11" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setUint((_randInt64(_rand) : GoUInt64));
-            } else if (_concrete.kind() == ((("8" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setUint((_randInt64(_rand) : GoUInt64));
-            } else if (_concrete.kind() == ((("7" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setUint((_randInt64(_rand) : GoUInt64));
-            } else if (_concrete.kind() == ((("12" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _v.setUint((_randInt64(_rand) : GoUInt64));
-            } else if (_concrete.kind() == ((("21" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                var _numElems:GoInt = _rand.intn(_size);
-                _v.set((stdgo.reflect.Reflect.makeMap(_concrete) == null ? null : stdgo.reflect.Reflect.makeMap(_concrete).__copy__()));
-                {
-                    var _i:GoInt = (0 : GoInt);
-                    Go.cfor(_i < _numElems, _i++, {
-                        var __tmp__ = _sizedValue(_concrete.key(), _rand, _size), _key:stdgo.reflect.Reflect.Value = __tmp__._0, _ok1:Bool = __tmp__._1;
-                        var __tmp__ = _sizedValue(_concrete.elem(), _rand, _size), _value:stdgo.reflect.Reflect.Value = __tmp__._0, _ok2:Bool = __tmp__._1;
-                        if (!_ok1 || !_ok2) {
-                            return { _0 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value), _1 : false };
-                        };
-                        _v.setMapIndex((_key == null ? null : _key.__copy__()), (_value == null ? null : _value.__copy__()));
-                    });
-                };
-            } else if (_concrete.kind() == ((("22" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                if (_rand.intn(_size) == ((0 : GoInt))) {
-                    _v.set((stdgo.reflect.Reflect.zero(_concrete) == null ? null : stdgo.reflect.Reflect.zero(_concrete).__copy__()));
-                } else {
-                    var __tmp__ = _sizedValue(_concrete.elem(), _rand, _size), _elem:stdgo.reflect.Reflect.Value = __tmp__._0, _ok:Bool = __tmp__._1;
-                    if (!_ok) {
-                        return { _0 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value), _1 : false };
+            {
+                final __value__ = _concrete.kind();
+                if (__value__ == ((("1" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setBool(_rand.int_() & (1 : GoInt) == ((0 : GoInt)));
+                } else if (__value__ == ((("13" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setFloat((_randFloat32(_rand) : GoFloat64));
+                } else if (__value__ == ((("14" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setFloat(_randFloat64(_rand));
+                } else if (__value__ == ((("15" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setComplex(new GoComplex128((_randFloat32(_rand) : GoFloat64), (_randFloat32(_rand) : GoFloat64)));
+                } else if (__value__ == ((("16" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setComplex(new GoComplex128(_randFloat64(_rand), _randFloat64(_rand)));
+                } else if (__value__ == ((("4" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setInt(_randInt64(_rand));
+                } else if (__value__ == ((("5" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setInt(_randInt64(_rand));
+                } else if (__value__ == ((("6" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setInt(_randInt64(_rand));
+                } else if (__value__ == ((("3" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setInt(_randInt64(_rand));
+                } else if (__value__ == ((("2" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setInt(_randInt64(_rand));
+                } else if (__value__ == ((("9" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setUint((_randInt64(_rand) : GoUInt64));
+                } else if (__value__ == ((("10" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setUint((_randInt64(_rand) : GoUInt64));
+                } else if (__value__ == ((("11" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setUint((_randInt64(_rand) : GoUInt64));
+                } else if (__value__ == ((("8" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setUint((_randInt64(_rand) : GoUInt64));
+                } else if (__value__ == ((("7" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setUint((_randInt64(_rand) : GoUInt64));
+                } else if (__value__ == ((("12" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    _v.setUint((_randInt64(_rand) : GoUInt64));
+                } else if (__value__ == ((("21" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    var _numElems:GoInt = _rand.intn(_size);
+                    _v.set(stdgo.reflect.Reflect.makeMap(_concrete).__copy__());
+                    {
+                        var _i:GoInt = (0 : GoInt);
+                        Go.cfor(_i < _numElems, _i++, {
+                            var __tmp__ = _sizedValue(_concrete.key(), _rand, _size), _key:stdgo.reflect.Reflect.Value = __tmp__._0, _ok1:Bool = __tmp__._1;
+                            var __tmp__ = _sizedValue(_concrete.elem(), _rand, _size), _value:stdgo.reflect.Reflect.Value = __tmp__._0, _ok2:Bool = __tmp__._1;
+                            if (!_ok1 || !_ok2) {
+                                return { _0 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value), _1 : false };
+                            };
+                            _v.setMapIndex(_key.__copy__(), _value.__copy__());
+                        });
                     };
-                    _v.set((stdgo.reflect.Reflect.new_(_concrete.elem()) == null ? null : stdgo.reflect.Reflect.new_(_concrete.elem()).__copy__()));
-                    _v.elem().set((_elem == null ? null : _elem.__copy__()));
-                };
-            } else if (_concrete.kind() == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                var _numElems:GoInt = _rand.intn(_size);
-                var _sizeLeft:GoInt = _size - _numElems;
-                _v.set((stdgo.reflect.Reflect.makeSlice(_concrete, _numElems, _numElems) == null ? null : stdgo.reflect.Reflect.makeSlice(_concrete, _numElems, _numElems).__copy__()));
-                {
-                    var _i:GoInt = (0 : GoInt);
-                    Go.cfor(_i < _numElems, _i++, {
-                        var __tmp__ = _sizedValue(_concrete.elem(), _rand, _sizeLeft), _elem:stdgo.reflect.Reflect.Value = __tmp__._0, _ok:Bool = __tmp__._1;
-                        if (!_ok) {
-                            return { _0 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value), _1 : false };
-                        };
-                        _v.index(_i).set((_elem == null ? null : _elem.__copy__()));
-                    });
-                };
-            } else if (_concrete.kind() == ((("17" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                {
-                    var _i:GoInt = (0 : GoInt);
-                    Go.cfor(_i < _v.len(), _i++, {
+                } else if (__value__ == ((("22" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    if (_rand.intn(_size) == ((0 : GoInt))) {
+                        _v.set(stdgo.reflect.Reflect.zero(_concrete).__copy__());
+                    } else {
                         var __tmp__ = _sizedValue(_concrete.elem(), _rand, _size), _elem:stdgo.reflect.Reflect.Value = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (!_ok) {
                             return { _0 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value), _1 : false };
                         };
-                        _v.index(_i).set((_elem == null ? null : _elem.__copy__()));
-                    });
+                        _v.set(stdgo.reflect.Reflect.new_(_concrete.elem()).__copy__());
+                        _v.elem().set(_elem.__copy__());
+                    };
+                } else if (__value__ == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    var _numElems:GoInt = _rand.intn(_size);
+                    var _sizeLeft:GoInt = _size - _numElems;
+                    _v.set(stdgo.reflect.Reflect.makeSlice(_concrete, _numElems, _numElems).__copy__());
+                    {
+                        var _i:GoInt = (0 : GoInt);
+                        Go.cfor(_i < _numElems, _i++, {
+                            var __tmp__ = _sizedValue(_concrete.elem(), _rand, _sizeLeft), _elem:stdgo.reflect.Reflect.Value = __tmp__._0, _ok:Bool = __tmp__._1;
+                            if (!_ok) {
+                                return { _0 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value), _1 : false };
+                            };
+                            _v.index(_i).set(_elem.__copy__());
+                        });
+                    };
+                } else if (__value__ == ((("17" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    {
+                        var _i:GoInt = (0 : GoInt);
+                        Go.cfor(_i < _v.len(), _i++, {
+                            var __tmp__ = _sizedValue(_concrete.elem(), _rand, _size), _elem:stdgo.reflect.Reflect.Value = __tmp__._0, _ok:Bool = __tmp__._1;
+                            if (!_ok) {
+                                return { _0 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value), _1 : false };
+                            };
+                            _v.index(_i).set(_elem.__copy__());
+                        });
+                    };
+                } else if (__value__ == ((("24" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    var _numChars:GoInt = _rand.intn((50 : GoInt));
+                    var _codePoints = new Slice<GoInt32>((_numChars : GoInt).toBasic(), 0, ...[for (i in 0 ... (_numChars : GoInt).toBasic()) (0 : GoInt32)]);
+                    {
+                        var _i:GoInt = (0 : GoInt);
+                        Go.cfor(_i < _numChars, _i++, {
+                            _codePoints[(_i : GoInt)] = (_rand.intn((1114111 : GoInt)) : GoRune);
+                        });
+                    };
+                    _v.setString((_codePoints : GoString));
+                } else if (__value__ == ((("25" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                    var _n:GoInt = _v.numField();
+                    var _sizeLeft:GoInt = _size;
+                    if (_n > _sizeLeft) {
+                        _sizeLeft = (1 : GoInt);
+                    } else if (_n > (0 : GoInt)) {
+                        _sizeLeft = _sizeLeft / (_n);
+                    };
+                    {
+                        var _i:GoInt = (0 : GoInt);
+                        Go.cfor(_i < _n, _i++, {
+                            var __tmp__ = _sizedValue(_concrete.field(_i).type, _rand, _sizeLeft), _elem:stdgo.reflect.Reflect.Value = __tmp__._0, _ok:Bool = __tmp__._1;
+                            if (!_ok) {
+                                return { _0 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value), _1 : false };
+                            };
+                            _v.field(_i).set(_elem.__copy__());
+                        });
+                    };
+                } else {
+                    return { _0 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value), _1 : false };
                 };
-            } else if (_concrete.kind() == ((("24" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                var _numChars:GoInt = _rand.intn((50 : GoInt));
-                var _codePoints = new Slice<GoInt32>((_numChars : GoInt).toBasic(), 0, ...[for (i in 0 ... (_numChars : GoInt).toBasic()) (0 : GoInt32)]);
-                {
-                    var _i:GoInt = (0 : GoInt);
-                    Go.cfor(_i < _numChars, _i++, {
-                        _codePoints[(_i : GoInt)] = (_rand.intn((1114111 : GoInt)) : GoRune);
-                    });
-                };
-                _v.setString((_codePoints : GoString));
-            } else if (_concrete.kind() == ((("25" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                var _n:GoInt = _v.numField();
-                var _sizeLeft:GoInt = _size;
-                if (_n > _sizeLeft) {
-                    _sizeLeft = (1 : GoInt);
-                } else if (_n > (0 : GoInt)) {
-                    _sizeLeft = _sizeLeft / (_n);
-                };
-                {
-                    var _i:GoInt = (0 : GoInt);
-                    Go.cfor(_i < _n, _i++, {
-                        var __tmp__ = _sizedValue(_concrete.field(_i).type, _rand, _sizeLeft), _elem:stdgo.reflect.Reflect.Value = __tmp__._0, _ok:Bool = __tmp__._1;
-                        if (!_ok) {
-                            return { _0 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value), _1 : false };
-                        };
-                        _v.field(_i).set((_elem == null ? null : _elem.__copy__()));
-                    });
-                };
-            } else {
-                return { _0 : (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value), _1 : false };
             };
         };
-        return { _0 : (_v == null ? null : _v.__copy__()), _1 : true };
+        return { _0 : _v.__copy__(), _1 : true };
     }
 /**
     // Check looks for an input to f, any function that returns bool,
@@ -417,8 +420,8 @@ private function _sizedValue(_t:stdgo.reflect.Reflect.Type, _rand:Ref<stdgo.math
     //	}
 **/
 function check(_f:AnyInterface, _config:Ref<Config>):Error {
-        if (_config == null) {
-            _config = (_defaultConfig : Ref<Config>);
+        if (_config == null || (_config : Dynamic).__nil__) {
+            _config = (Go.setRef(_defaultConfig) : Ref<Config>);
         };
         var __tmp__ = _functionAndType(_f), _fVal:stdgo.reflect.Reflect.Value = __tmp__._0, _fType:stdgo.reflect.Reflect.Type = __tmp__._1, _ok:Bool = __tmp__._2;
         if (!_ok) {
@@ -441,7 +444,7 @@ function check(_f:AnyInterface, _config:Ref<Config>):Error {
                     return _err;
                 };
                 if (!_fVal.call(_arguments)[(0 : GoInt)].bool_()) {
-                    return Go.asInterface(((new CheckError(_i + (1 : GoInt), _toInterfaces(_arguments)) : CheckError) : Ref<CheckError>));
+                    return Go.asInterface((Go.setRef((new CheckError(_i + (1 : GoInt), _toInterfaces(_arguments)) : CheckError)) : Ref<CheckError>));
                 };
             });
         };
@@ -454,8 +457,8 @@ function check(_f:AnyInterface, _config:Ref<Config>):Error {
     // describing the input and the outputs.
 **/
 function checkEqual(_f:AnyInterface, _g:AnyInterface, _config:Ref<Config>):Error {
-        if (_config == null) {
-            _config = (_defaultConfig : Ref<Config>);
+        if (_config == null || (_config : Dynamic).__nil__) {
+            _config = (Go.setRef(_defaultConfig) : Ref<Config>);
         };
         var __tmp__ = _functionAndType(_f), _x:stdgo.reflect.Reflect.Value = __tmp__._0, _xType:stdgo.reflect.Reflect.Type = __tmp__._1, _ok:Bool = __tmp__._2;
         if (!_ok) {
@@ -481,7 +484,7 @@ function checkEqual(_f:AnyInterface, _g:AnyInterface, _config:Ref<Config>):Error
                 var _xOut = _toInterfaces(_x.call(_arguments));
                 var _yOut = _toInterfaces(_y.call(_arguments));
                 if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_xOut), Go.toInterface(_yOut))) {
-                    return Go.asInterface(((new CheckEqualError((new CheckError(_i + (1 : GoInt), _toInterfaces(_arguments)) : CheckError), _xOut, _yOut) : CheckEqualError) : Ref<CheckEqualError>));
+                    return Go.asInterface((Go.setRef((new CheckEqualError((new CheckError(_i + (1 : GoInt), _toInterfaces(_arguments)) : CheckError), _xOut, _yOut) : CheckEqualError)) : Ref<CheckEqualError>));
                 };
             });
         };
@@ -503,7 +506,7 @@ private function _arbitraryValues(_args:Slice<stdgo.reflect.Reflect.Value>, _f:s
                 var _ok:Bool = false;
                 {
                     var __tmp__ = value(_f.in_(_j), _rand);
-                    _args[(_j : GoInt)] = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                    _args[(_j : GoInt)] = __tmp__._0.__copy__();
                     _ok = __tmp__._1;
                 };
                 if (!_ok) {
@@ -516,7 +519,7 @@ private function _arbitraryValues(_args:Slice<stdgo.reflect.Reflect.Value>, _f:s
     }
 private function _functionAndType(_f:AnyInterface):{ var _0 : stdgo.reflect.Reflect.Value; var _1 : stdgo.reflect.Reflect.Type; var _2 : Bool; } {
         var _v:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value), _t:stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type), _ok:Bool = false;
-        _v = (stdgo.reflect.Reflect.valueOf(_f) == null ? null : stdgo.reflect.Reflect.valueOf(_f).__copy__());
+        _v = stdgo.reflect.Reflect.valueOf(_f).__copy__();
         _ok = _v.kind() == ((("19" : GoUInt) : stdgo.reflect.Reflect.Kind));
         if (!_ok) {
             return { _0 : _v, _1 : _t, _2 : _ok };
@@ -539,10 +542,10 @@ private function _toString(_interfaces:Slice<AnyInterface>):GoString {
         return stdgo.strings.Strings.join(_s, (", " : GoString));
     }
 private function _fArray(_a:GoArray<GoByte>):GoArray<GoByte> {
-        return (_a == null ? null : _a.__copy__());
+        return _a.__copy__();
     }
 private function _fArrayAlias(_a:TestArrayAlias):TestArrayAlias {
-        return (_a == null ? null : _a.__copy__());
+        return _a.__copy__();
     }
 private function _fBool(_a:Bool):Bool {
         return _a;
@@ -633,10 +636,10 @@ private function _fStringAlias(_a:TestStringAlias):TestStringAlias {
         return _a;
     }
 private function _fStruct(_a:TestStruct):TestStruct {
-        return (_a == null ? null : _a.__copy__());
+        return _a.__copy__();
     }
 private function _fStructAlias(_a:TestStructAlias):TestStructAlias {
-        return (_a == null ? null : _a.__copy__());
+        return _a.__copy__();
     }
 private function _fUint16(_a:GoUInt16):GoUInt16 {
         return _a;
@@ -891,7 +894,7 @@ function testInt64(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
             return true;
         };
-        var _cfg = (({ maxCount : (10000 : GoInt) } : Config) : Ref<Config>);
+        var _cfg = (Go.setRef(({ maxCount : (10000 : GoInt) } : Config)) : Ref<Config>);
         check(Go.toInterface(_f), _cfg);
         if ((((_lo : GoUInt64) >> (("62" : GoUInt64) : GoUInt64)) == ("0" : GoUInt64)) || (((_hi : GoUInt64) >> (("62" : GoUInt64) : GoUInt64)) == ("0" : GoUInt64))) {
             _t.errorf(("int64 returned range %#016x,%#016x; does not look like full range" : GoString), Go.toInterface(_lo), Go.toInterface(_hi));
@@ -903,12 +906,12 @@ class Config_asInterface {
         // Config.
     **/
     @:keep
-    public function _getMaxCount():GoInt return __self__.value._getMaxCount();
+    public dynamic function _getMaxCount():GoInt return __self__.value._getMaxCount();
     /**
         // getRand returns the *rand.Rand to use for a given Config.
     **/
     @:keep
-    public function _getRand():Ref<stdgo.math.rand.Rand.Rand> return __self__.value._getRand();
+    public dynamic function _getRand():Ref<stdgo.math.rand.Rand.Rand> return __self__.value._getRand();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -940,7 +943,7 @@ class Config_asInterface {
     **/
     @:keep
     static public function _getRand( _c:Ref<Config>):Ref<stdgo.math.rand.Rand.Rand> {
-        if (_c.rand == null) {
+        if (_c.rand == null || (_c.rand : Dynamic).__nil__) {
             return stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(stdgo.time.Time.now().unixNano()));
         };
         return _c.rand;
@@ -948,7 +951,7 @@ class Config_asInterface {
 }
 class CheckError_asInterface {
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -965,7 +968,7 @@ class CheckError_asInterface {
 }
 class CheckEqualError_asInterface {
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -982,7 +985,7 @@ class CheckEqualError_asInterface {
 }
 class T_myStruct_asInterface {
     @:keep
-    public function generate(_r:Ref<stdgo.math.rand.Rand.Rand>, _0:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_r, _0);
+    public dynamic function generate(_r:Ref<stdgo.math.rand.Rand.Rand>, _0:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_r, _0);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -994,12 +997,12 @@ class T_myStruct_asInterface {
 @:keep @:allow(stdgo.testing.quick.Quick.T_myStruct_asInterface) class T_myStruct_static_extension {
     @:keep
     static public function generate( _m:T_myStruct, _r:Ref<stdgo.math.rand.Rand.Rand>, _0:GoInt):stdgo.reflect.Reflect.Value {
-        return (stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(({ _x : (42 : GoInt) } : T_myStruct)))) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(({ _x : (42 : GoInt) } : T_myStruct)))).__copy__());
+        return stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(({ _x : (42 : GoInt) } : T_myStruct)))).__copy__();
     }
 }
 class SetupError_asInterface {
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

@@ -782,12 +782,15 @@ function testIsUpper(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 private function _caseString(_c:GoInt):GoString {
-        if (_c == ((0 : GoInt))) {
-            return ("UpperCase" : GoString);
-        } else if (_c == ((1 : GoInt))) {
-            return ("LowerCase" : GoString);
-        } else if (_c == ((2 : GoInt))) {
-            return ("TitleCase" : GoString);
+        {
+            final __value__ = _c;
+            if (__value__ == ((0 : GoInt))) {
+                return ("UpperCase" : GoString);
+            } else if (__value__ == ((1 : GoInt))) {
+                return ("LowerCase" : GoString);
+            } else if (__value__ == ((2 : GoInt))) {
+                return ("TitleCase" : GoString);
+            };
         };
         return ("ErrorCase" : GoString);
     }
@@ -964,8 +967,8 @@ function testCalibrate(_t:Ref<stdgo.testing.Testing.T>):Void {
                     });
                 };
             };
-            var _bmlinear:stdgo.testing.Testing.BenchmarkResult = (stdgo.testing.Testing.benchmark(_blinear) == null ? null : stdgo.testing.Testing.benchmark(_blinear).__copy__());
-            var _bmbinary:stdgo.testing.Testing.BenchmarkResult = (stdgo.testing.Testing.benchmark(_bbinary) == null ? null : stdgo.testing.Testing.benchmark(_bbinary).__copy__());
+            var _bmlinear:stdgo.testing.Testing.BenchmarkResult = stdgo.testing.Testing.benchmark(_blinear).__copy__();
+            var _bmbinary:stdgo.testing.Testing.BenchmarkResult = stdgo.testing.Testing.benchmark(_bbinary).__copy__();
             stdgo.fmt.Fmt.printf(("n=%d: linear=%d binary=%d\n" : GoString), Go.toInterface(_n), Go.toInterface(_bmlinear.nsPerOp()), Go.toInterface(_bmbinary.nsPerOp()));
             return (_bmlinear.nsPerOp() * (("100" : GoInt64) : GoInt64)) > (_bmbinary.nsPerOp() * (("110" : GoInt64) : GoInt64));
         });
@@ -983,7 +986,7 @@ private function _fakeTable(_n:GoInt):Slice<Range16> {
     }
 private function _linear(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         for (_i in 0 ... _ranges.length.toBasic()) {
-            var _range_ = (_ranges[(_i : GoInt)] : Ref<Range16>);
+            var _range_ = (Go.setRef(_ranges[(_i : GoInt)]) : Ref<Range16>);
             if (_r < _range_.lo) {
                 return false;
             };
@@ -998,7 +1001,7 @@ private function _binary(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         var _hi:GoInt = (_ranges.length);
         while (_lo < _hi) {
             var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
-            var _range_ = (_ranges[(_m : GoInt)] : Ref<Range16>);
+            var _range_ = (Go.setRef(_ranges[(_m : GoInt)]) : Ref<Range16>);
             if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
                 return (_r - _range_.lo) % _range_.stride == ((0 : GoUInt16));
             };
@@ -1026,7 +1029,7 @@ function testLatinOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testSpecialCaseNoMapping(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _noChangeForCapitalA:CaseRange = (new CaseRange(("65" : GoUInt32), ("65" : GoUInt32), (new GoArray<GoInt32>((0 : GoInt32), (0 : GoInt32), (0 : GoInt32)) : GoArray<GoInt32>)) : CaseRange);
-        var _got:GoString = stdgo.strings.Strings.toLowerSpecial(((new Slice<CaseRange>(0, 0, (_noChangeForCapitalA == null ? null : _noChangeForCapitalA.__copy__())) : Slice<CaseRange>) : SpecialCase), ("ABC" : GoString));
+        var _got:GoString = stdgo.strings.Strings.toLowerSpecial(((new Slice<CaseRange>(0, 0, _noChangeForCapitalA.__copy__()) : Slice<CaseRange>) : SpecialCase), ("ABC" : GoString));
         var _want:GoString = ("Abc" : GoString);
         if (_got != (_want)) {
             _t.errorf(("got %q; want %q" : GoString), Go.toInterface(_got), Go.toInterface(_want));

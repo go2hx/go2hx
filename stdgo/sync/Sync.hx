@@ -161,19 +161,19 @@ typedef PoolDequeue = StructType & {
         
         
     **/
-    public function pushHead(_val:AnyInterface):Bool;
+    public dynamic function pushHead(_val:AnyInterface):Bool;
     /**
         
         
         
     **/
-    public function popHead():{ var _0 : AnyInterface; var _1 : Bool; };
+    public dynamic function popHead():{ var _0 : AnyInterface; var _1 : Bool; };
     /**
         
         
         
     **/
-    public function popTail():{ var _0 : AnyInterface; var _1 : Bool; };
+    public dynamic function popTail():{ var _0 : AnyInterface; var _1 : Bool; };
 };
 /**
     // A Locker represents an object that can be locked and unlocked.
@@ -186,13 +186,13 @@ typedef Locker = StructType & {
         
         
     **/
-    public function lock():Void;
+    public dynamic function lock():Void;
     /**
         
         
         
     **/
-    public function unlock():Void;
+    public dynamic function unlock():Void;
 };
 /**
     // Cond implements a condition variable, a rendezvous point
@@ -933,7 +933,7 @@ class Cond_asInterface {
         // during the call.
     **/
     @:keep
-    public function broadcast():Void __self__.value.broadcast();
+    public dynamic function broadcast():Void __self__.value.broadcast();
     /**
         // Signal wakes one goroutine waiting on c, if there is any.
         //
@@ -944,7 +944,7 @@ class Cond_asInterface {
         // are attempting to lock c.L, they may be awoken before a "waiting" goroutine.
     **/
     @:keep
-    public function signal():Void __self__.value.signal();
+    public dynamic function signal():Void __self__.value.signal();
     /**
         // Wait atomically unlocks c.L and suspends execution
         // of the calling goroutine. After later resuming execution,
@@ -963,7 +963,7 @@ class Cond_asInterface {
         //	c.L.Unlock()
     **/
     @:keep
-    public function wait_():Void __self__.value.wait_();
+    public dynamic function wait_():Void __self__.value.wait_();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1014,12 +1014,12 @@ class Cond_asInterface {
 }
 class T_noCopy_asInterface {
     @:keep
-    public function unlock():Void __self__.value.unlock();
+    public dynamic function unlock():Void __self__.value.unlock();
     /**
         // Lock is a no-op used by -copylocks checker from `go vet`.
     **/
     @:keep
-    public function lock():Void __self__.value.lock();
+    public dynamic function lock():Void __self__.value.lock();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1039,9 +1039,9 @@ class T_noCopy_asInterface {
 }
 class Map__asInterface {
     @:keep
-    public function _dirtyLocked():Void __self__.value._dirtyLocked();
+    public dynamic function _dirtyLocked():Void __self__.value._dirtyLocked();
     @:keep
-    public function _missLocked():Void __self__.value._missLocked();
+    public dynamic function _missLocked():Void __self__.value._missLocked();
     /**
         // Range calls f sequentially for each key and value present in the map.
         // If f returns false, range stops the iteration.
@@ -1056,7 +1056,7 @@ class Map__asInterface {
         // false after a constant number of calls.
     **/
     @:keep
-    public function range(_f:(_key:AnyInterface, _value:AnyInterface) -> Bool):Void __self__.value.range(_f);
+    public dynamic function range(_f:(_key:AnyInterface, _value:AnyInterface) -> Bool):Void __self__.value.range(_f);
     /**
         // CompareAndDelete deletes the entry for key if its value is equal to old.
         // The old value must be of a comparable type.
@@ -1065,52 +1065,52 @@ class Map__asInterface {
         // returns false (even if the old value is the nil interface value).
     **/
     @:keep
-    public function compareAndDelete(_key:AnyInterface, _old:AnyInterface):Bool return __self__.value.compareAndDelete(_key, _old);
+    public dynamic function compareAndDelete(_key:AnyInterface, _old:AnyInterface):Bool return __self__.value.compareAndDelete(_key, _old);
     /**
         // CompareAndSwap swaps the old and new values for key
         // if the value stored in the map is equal to old.
         // The old value must be of a comparable type.
     **/
     @:keep
-    public function compareAndSwap(_key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool return __self__.value.compareAndSwap(_key, _old, _new);
+    public dynamic function compareAndSwap(_key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool return __self__.value.compareAndSwap(_key, _old, _new);
     /**
         // Swap swaps the value for a key and returns the previous value if any.
         // The loaded result reports whether the key was present.
     **/
     @:keep
-    public function swap(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.swap(_key, _value);
+    public dynamic function swap(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.swap(_key, _value);
     /**
         // Delete deletes the value for a key.
     **/
     @:keep
-    public function delete(_key:AnyInterface):Void __self__.value.delete(_key);
+    public dynamic function delete(_key:AnyInterface):Void __self__.value.delete(_key);
     /**
         // LoadAndDelete deletes the value for a key, returning the previous value if any.
         // The loaded result reports whether the key was present.
     **/
     @:keep
-    public function loadAndDelete(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadAndDelete(_key);
+    public dynamic function loadAndDelete(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadAndDelete(_key);
     /**
         // LoadOrStore returns the existing value for the key if present.
         // Otherwise, it stores and returns the given value.
         // The loaded result is true if the value was loaded, false if stored.
     **/
     @:keep
-    public function loadOrStore(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadOrStore(_key, _value);
+    public dynamic function loadOrStore(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadOrStore(_key, _value);
     /**
         // Store sets the value for a key.
     **/
     @:keep
-    public function store(_key:AnyInterface, _value:AnyInterface):Void __self__.value.store(_key, _value);
+    public dynamic function store(_key:AnyInterface, _value:AnyInterface):Void __self__.value.store(_key, _value);
     /**
         // Load returns the value stored in the map for a key, or nil if no
         // value is present.
         // The ok result indicates whether value was found in the map.
     **/
     @:keep
-    public function load(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.load(_key);
+    public dynamic function load(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.load(_key);
     @:keep
-    public function _loadReadOnly():T_readOnly return __self__.value._loadReadOnly();
+    public dynamic function _loadReadOnly():T_readOnly return __self__.value._loadReadOnly();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1196,7 +1196,7 @@ class Map__asInterface {
 }
 class T_entry_asInterface {
     @:keep
-    public function _tryExpungeLocked():Bool return __self__.value._tryExpungeLocked();
+    public dynamic function _tryExpungeLocked():Bool return __self__.value._tryExpungeLocked();
     /**
         // trySwap swaps a value if the entry has not been expunged.
         //
@@ -1204,9 +1204,9 @@ class T_entry_asInterface {
         // unchanged.
     **/
     @:keep
-    public function _trySwap(_i:Ref<AnyInterface>):{ var _0 : Ref<AnyInterface>; var _1 : Bool; } return __self__.value._trySwap(_i);
+    public dynamic function _trySwap(_i:Ref<AnyInterface>):{ var _0 : Ref<AnyInterface>; var _1 : Bool; } return __self__.value._trySwap(_i);
     @:keep
-    public function _delete():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._delete();
+    public dynamic function _delete():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._delete();
     /**
         // tryLoadOrStore atomically loads or stores a value if the entry is not
         // expunged.
@@ -1215,14 +1215,14 @@ class T_entry_asInterface {
         // returns with ok==false.
     **/
     @:keep
-    public function _tryLoadOrStore(_i:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; var _2 : Bool; } return __self__.value._tryLoadOrStore(_i);
+    public dynamic function _tryLoadOrStore(_i:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; var _2 : Bool; } return __self__.value._tryLoadOrStore(_i);
     /**
         // swapLocked unconditionally swaps a value into the entry.
         //
         // The entry must be known not to be expunged.
     **/
     @:keep
-    public function _swapLocked(_i:Ref<AnyInterface>):Ref<AnyInterface> return __self__.value._swapLocked(_i);
+    public dynamic function _swapLocked(_i:Ref<AnyInterface>):Ref<AnyInterface> return __self__.value._swapLocked(_i);
     /**
         // unexpungeLocked ensures that the entry is not marked as expunged.
         //
@@ -1230,7 +1230,7 @@ class T_entry_asInterface {
         // before m.mu is unlocked.
     **/
     @:keep
-    public function _unexpungeLocked():Bool return __self__.value._unexpungeLocked();
+    public dynamic function _unexpungeLocked():Bool return __self__.value._unexpungeLocked();
     /**
         // tryCompareAndSwap compare the entry with the given old value and swaps
         // it with a new value if the entry is equal to the old value, and the entry
@@ -1240,9 +1240,9 @@ class T_entry_asInterface {
         // the entry unchanged.
     **/
     @:keep
-    public function _tryCompareAndSwap(_old:AnyInterface, _new:AnyInterface):Bool return __self__.value._tryCompareAndSwap(_old, _new);
+    public dynamic function _tryCompareAndSwap(_old:AnyInterface, _new:AnyInterface):Bool return __self__.value._tryCompareAndSwap(_old, _new);
     @:keep
-    public function _load():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._load();
+    public dynamic function _load():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1303,7 +1303,7 @@ class T_entry_asInterface {
 }
 class Mutex_asInterface {
     @:keep
-    public function _unlockSlow(_new:GoInt32):Void __self__.value._unlockSlow(_new);
+    public dynamic function _unlockSlow(_new:GoInt32):Void __self__.value._unlockSlow(_new);
     /**
         // Unlock unlocks m.
         // It is a run-time error if m is not locked on entry to Unlock.
@@ -1313,9 +1313,9 @@ class Mutex_asInterface {
         // arrange for another goroutine to unlock it.
     **/
     @:keep
-    public function unlock():Void __self__.value.unlock();
+    public dynamic function unlock():Void __self__.value.unlock();
     @:keep
-    public function _lockSlow():Void __self__.value._lockSlow();
+    public dynamic function _lockSlow():Void __self__.value._lockSlow();
     /**
         // TryLock tries to lock m and reports whether it succeeded.
         //
@@ -1324,14 +1324,14 @@ class Mutex_asInterface {
         // in a particular use of mutexes.
     **/
     @:keep
-    public function tryLock():Bool return __self__.value.tryLock();
+    public dynamic function tryLock():Bool return __self__.value.tryLock();
     /**
         // Lock locks m.
         // If the lock is already in use, the calling goroutine
         // blocks until the mutex is available.
     **/
     @:keep
-    public function lock():Void __self__.value.lock();
+    public dynamic function lock():Void __self__.value.lock();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1374,7 +1374,7 @@ class Mutex_asInterface {
 }
 class Once_asInterface {
     @:keep
-    public function _doSlow(_f:() -> Void):Void __self__.value._doSlow(_f);
+    public dynamic function _doSlow(_f:() -> Void):Void __self__.value._doSlow(_f);
     /**
         // Do calls the function f if and only if Do is being called for the
         // first time for this instance of Once. In other words, given
@@ -1398,7 +1398,7 @@ class Once_asInterface {
         // without calling f.
     **/
     @:keep
-    public function do_(_f:() -> Void):Void __self__.value.do_(_f);
+    public dynamic function do_(_f:() -> Void):Void __self__.value.do_(_f);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1441,16 +1441,16 @@ class Once_asInterface {
 }
 class Pool_asInterface {
     @:keep
-    public function _pinSlow():{ var _0 : Ref<T_poolLocal>; var _1 : GoInt; } return __self__.value._pinSlow();
+    public dynamic function _pinSlow():{ var _0 : Ref<T_poolLocal>; var _1 : GoInt; } return __self__.value._pinSlow();
     /**
         // pin pins the current goroutine to P, disables preemption and
         // returns poolLocal pool for the P and the P's id.
         // Caller must call runtime_procUnpin() when done with the pool.
     **/
     @:keep
-    public function _pin():{ var _0 : Ref<T_poolLocal>; var _1 : GoInt; } return __self__.value._pin();
+    public dynamic function _pin():{ var _0 : Ref<T_poolLocal>; var _1 : GoInt; } return __self__.value._pin();
     @:keep
-    public function _getSlow(_pid:GoInt):AnyInterface return __self__.value._getSlow(_pid);
+    public dynamic function _getSlow(_pid:GoInt):AnyInterface return __self__.value._getSlow(_pid);
     /**
         // Get selects an arbitrary item from the Pool, removes it from the
         // Pool, and returns it to the caller.
@@ -1462,12 +1462,12 @@ class Pool_asInterface {
         // the result of calling p.New.
     **/
     @:keep
-    public function get():AnyInterface return __self__.value.get();
+    public dynamic function get():AnyInterface return __self__.value.get();
     /**
         // Put adds x to the pool.
     **/
     @:keep
-    public function put(_x:AnyInterface):Void __self__.value.put(_x);
+    public dynamic function put(_x:AnyInterface):Void __self__.value.put(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1531,30 +1531,30 @@ class T_poolDequeue_asInterface {
         // number of consumers.
     **/
     @:keep
-    public function _popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popTail();
+    public dynamic function _popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popTail();
     /**
         // popHead removes and returns the element at the head of the queue.
         // It returns false if the queue is empty. It must only be called by a
         // single producer.
     **/
     @:keep
-    public function _popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popHead();
+    public dynamic function _popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popHead();
     /**
         // pushHead adds val at the head of the queue. It returns false if the
         // queue is full. It must only be called by a single producer.
     **/
     @:keep
-    public function _pushHead(_val:AnyInterface):Bool return __self__.value._pushHead(_val);
+    public dynamic function _pushHead(_val:AnyInterface):Bool return __self__.value._pushHead(_val);
     @:keep
-    public function _pack(_head:GoUInt32, _tail:GoUInt32):GoUInt64 return __self__.value._pack(_head, _tail);
+    public dynamic function _pack(_head:GoUInt32, _tail:GoUInt32):GoUInt64 return __self__.value._pack(_head, _tail);
     @:keep
-    public function _unpack(_ptrs:GoUInt64):{ var _0 : GoUInt32; var _1 : GoUInt32; } return __self__.value._unpack(_ptrs);
+    public dynamic function _unpack(_ptrs:GoUInt64):{ var _0 : GoUInt32; var _1 : GoUInt32; } return __self__.value._unpack(_ptrs);
     @:keep
-    public function popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popTail();
+    public dynamic function popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popTail();
     @:keep
-    public function popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popHead();
+    public dynamic function popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popHead();
     @:keep
-    public function pushHead(_val:AnyInterface):Bool return __self__.value.pushHead(_val);
+    public dynamic function pushHead(_val:AnyInterface):Bool return __self__.value.pushHead(_val);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1597,17 +1597,17 @@ class T_poolDequeue_asInterface {
 }
 class T_poolChain_asInterface {
     @:keep
-    public function _popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popTail();
+    public dynamic function _popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popTail();
     @:keep
-    public function _popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popHead();
+    public dynamic function _popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popHead();
     @:keep
-    public function _pushHead(_val:AnyInterface):Void __self__.value._pushHead(_val);
+    public dynamic function _pushHead(_val:AnyInterface):Void __self__.value._pushHead(_val);
     @:keep
-    public function popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popTail();
+    public dynamic function popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popTail();
     @:keep
-    public function popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popHead();
+    public dynamic function popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popHead();
     @:keep
-    public function pushHead(_val:AnyInterface):Bool return __self__.value.pushHead(_val);
+    public dynamic function pushHead(_val:AnyInterface):Bool return __self__.value.pushHead(_val);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1632,21 +1632,21 @@ class T_poolChain_asInterface {
 }
 class T_poolChainElt_asInterface {
     @:embedded
-    public function _unpack(__0:GoUInt64):{ var _0 : GoUInt32; var _1 : GoUInt32; } return __self__.value._unpack(__0);
+    public dynamic function _unpack(__0:GoUInt64):{ var _0 : GoUInt32; var _1 : GoUInt32; } return __self__.value._unpack(__0);
     @:embedded
-    public function _pushHead(_val_:AnyInterface):Bool return __self__.value._pushHead(_val_);
+    public dynamic function _pushHead(_val_:AnyInterface):Bool return __self__.value._pushHead(_val_);
     @:embedded
-    public function _popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popTail();
+    public dynamic function _popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popTail();
     @:embedded
-    public function _popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popHead();
+    public dynamic function _popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._popHead();
     @:embedded
-    public function _pack(_head:GoUInt32, _tail:GoUInt32):GoUInt64 return __self__.value._pack(_head, _tail);
+    public dynamic function _pack(_head:GoUInt32, _tail:GoUInt32):GoUInt64 return __self__.value._pack(_head, _tail);
     @:embedded
-    public function pushHead(_val_:AnyInterface):Bool return __self__.value.pushHead(_val_);
+    public dynamic function pushHead(_val_:AnyInterface):Bool return __self__.value.pushHead(_val_);
     @:embedded
-    public function popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popTail();
+    public dynamic function popTail():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popTail();
     @:embedded
-    public function popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popHead();
+    public dynamic function popHead():{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.popHead();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1679,7 +1679,7 @@ class RWMutex_asInterface {
         // the Lock and Unlock methods by calling rw.RLock and rw.RUnlock.
     **/
     @:keep
-    public function rlocker():Locker return __self__.value.rlocker();
+    public dynamic function rlocker():Locker return __self__.value.rlocker();
     /**
         // Unlock unlocks rw for writing. It is a run-time error if rw is
         // not locked for writing on entry to Unlock.
@@ -1689,7 +1689,7 @@ class RWMutex_asInterface {
         // arrange for another goroutine to RUnlock (Unlock) it.
     **/
     @:keep
-    public function unlock():Void __self__.value.unlock();
+    public dynamic function unlock():Void __self__.value.unlock();
     /**
         // TryLock tries to lock rw for writing and reports whether it succeeded.
         //
@@ -1698,16 +1698,16 @@ class RWMutex_asInterface {
         // in a particular use of mutexes.
     **/
     @:keep
-    public function tryLock():Bool return __self__.value.tryLock();
+    public dynamic function tryLock():Bool return __self__.value.tryLock();
     /**
         // Lock locks rw for writing.
         // If the lock is already locked for reading or writing,
         // Lock blocks until the lock is available.
     **/
     @:keep
-    public function lock():Void __self__.value.lock();
+    public dynamic function lock():Void __self__.value.lock();
     @:keep
-    public function _rUnlockSlow(_r:GoInt32):Void __self__.value._rUnlockSlow(_r);
+    public dynamic function _rUnlockSlow(_r:GoInt32):Void __self__.value._rUnlockSlow(_r);
     /**
         // RUnlock undoes a single RLock call;
         // it does not affect other simultaneous readers.
@@ -1715,7 +1715,7 @@ class RWMutex_asInterface {
         // on entry to RUnlock.
     **/
     @:keep
-    public function runlock():Void __self__.value.runlock();
+    public dynamic function runlock():Void __self__.value.runlock();
     /**
         // TryRLock tries to lock rw for reading and reports whether it succeeded.
         //
@@ -1724,7 +1724,7 @@ class RWMutex_asInterface {
         // in a particular use of mutexes.
     **/
     @:keep
-    public function tryRLock():Bool return __self__.value.tryRLock();
+    public dynamic function tryRLock():Bool return __self__.value.tryRLock();
     /**
         // RLock locks rw for reading.
         //
@@ -1733,7 +1733,7 @@ class RWMutex_asInterface {
         // documentation on the RWMutex type.
     **/
     @:keep
-    public function rlock():Void __self__.value.rlock();
+    public dynamic function rlock():Void __self__.value.rlock();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1809,12 +1809,12 @@ class WaitGroup_asInterface {
         // Wait blocks until the WaitGroup counter is zero.
     **/
     @:keep
-    public function wait_():Void __self__.value.wait_();
+    public dynamic function wait_():Void __self__.value.wait_();
     /**
         // Done decrements the WaitGroup counter by one.
     **/
     @:keep
-    public function done():Void __self__.value.done();
+    public dynamic function done():Void __self__.value.done();
     /**
         // Add adds delta, which may be negative, to the WaitGroup counter.
         // If the counter becomes zero, all goroutines blocked on Wait are released.
@@ -1831,7 +1831,7 @@ class WaitGroup_asInterface {
         // See the WaitGroup example.
     **/
     @:keep
-    public function add(_delta:GoInt):Void __self__.value.add(_delta);
+    public dynamic function add(_delta:GoInt):Void __self__.value.add(_delta);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1880,7 +1880,7 @@ class WaitGroup_asInterface {
 class T_copyChecker_asInterface {
     @:keep
     @:pointer
-    public function _check():Void __self__.value._check(__self__);
+    public dynamic function _check():Void __self__.value._check(__self__);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1896,9 +1896,9 @@ class T_copyChecker_asInterface {
 }
 class T_rlocker_asInterface {
     @:keep
-    public function unlock():Void __self__.value.unlock();
+    public dynamic function unlock():Void __self__.value.unlock();
     @:keep
-    public function lock():Void __self__.value.lock();
+    public dynamic function lock():Void __self__.value.lock();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

@@ -36,12 +36,15 @@ function exampleBinaryOp():Void {
 function exampleUnaryOp():Void {
         var _vs = (new Slice<Value>(0, 0, stdgo.go.constant.Constant.makeBool(true), stdgo.go.constant.Constant.makeFloat64((2.7 : GoFloat64)), stdgo.go.constant.Constant.makeUint64(("42" : GoUInt64))) : Slice<Value>);
         for (_i => _v in _vs) {
-            if (_v.kind() == ((1 : Kind))) {
-                _vs[(_i : GoInt)] = stdgo.go.constant.Constant.unaryOp((43 : stdgo.go.token.Token.Token), _v, ("0" : GoUInt));
-            } else if (_v.kind() == ((4 : Kind))) {
-                _vs[(_i : GoInt)] = stdgo.go.constant.Constant.unaryOp((13 : stdgo.go.token.Token.Token), _v, ("0" : GoUInt));
-            } else if (_v.kind() == ((3 : Kind))) {
-                _vs[(_i : GoInt)] = stdgo.go.constant.Constant.unaryOp((19 : stdgo.go.token.Token.Token), _v, ("16" : GoUInt));
+            {
+                final __value__ = _v.kind();
+                if (__value__ == ((1 : Kind))) {
+                    _vs[(_i : GoInt)] = stdgo.go.constant.Constant.unaryOp((43 : stdgo.go.token.Token.Token), _v, ("0" : GoUInt));
+                } else if (__value__ == ((4 : Kind))) {
+                    _vs[(_i : GoInt)] = stdgo.go.constant.Constant.unaryOp((13 : stdgo.go.token.Token.Token), _v, ("0" : GoUInt));
+                } else if (__value__ == ((3 : Kind))) {
+                    _vs[(_i : GoInt)] = stdgo.go.constant.Constant.unaryOp((19 : stdgo.go.token.Token.Token), _v, ("16" : GoUInt));
+                };
             };
         };
         for (_0 => _v in _vs) {

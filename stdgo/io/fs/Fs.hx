@@ -236,7 +236,7 @@ typedef FS = StructType & {
         
         
     **/
-    public function open(_name:GoString):{ var _0 : File; var _1 : Error; };
+    public dynamic function open(_name:GoString):{ var _0 : File; var _1 : Error; };
 };
 /**
     // A File provides access to a single file.
@@ -252,19 +252,19 @@ typedef File = StructType & {
         
         
     **/
-    public function stat():{ var _0 : FileInfo; var _1 : Error; };
+    public dynamic function stat():{ var _0 : FileInfo; var _1 : Error; };
     /**
         
         
         
     **/
-    public function read(_0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; };
+    public dynamic function read(_0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; };
     /**
         
         
         
     **/
-    public function close():Error;
+    public dynamic function close():Error;
 };
 /**
     // A DirEntry is an entry read from a directory
@@ -280,20 +280,20 @@ typedef DirEntry = StructType & {
         
         
     **/
-    public function name():GoString;
+    public dynamic function name():GoString;
     /**
         // IsDir reports whether the entry describes a directory.
         
         
     **/
-    public function isDir():Bool;
+    public dynamic function isDir():Bool;
     /**
         // Type returns the type bits for the entry.
         // The type bits are a subset of the usual FileMode bits, those returned by the FileMode.Type method.
         
         
     **/
-    public function type():FileMode;
+    public dynamic function type():FileMode;
     /**
         // Info returns the FileInfo for the file or subdirectory described by the entry.
         // The returned FileInfo may be from the time of the original directory read
@@ -304,7 +304,7 @@ typedef DirEntry = StructType & {
         
         
     **/
-    public function info():{ var _0 : FileInfo; var _1 : Error; };
+    public dynamic function info():{ var _0 : FileInfo; var _1 : Error; };
 };
 /**
     // A ReadDirFile is a directory file whose entries can be read with the ReadDir method.
@@ -335,7 +335,7 @@ typedef ReadDirFile = StructType & {
         
         
     **/
-    public function readDir(_n:GoInt):{ var _0 : Slice<DirEntry>; var _1 : Error; };
+    public dynamic function readDir(_n:GoInt):{ var _0 : Slice<DirEntry>; var _1 : Error; };
 };
 /**
     // A FileInfo describes a file and is returned by Stat.
@@ -348,37 +348,37 @@ typedef FileInfo = StructType & {
         
         // base name of the file
     **/
-    public function name():GoString;
+    public dynamic function name():GoString;
     /**
         
         
         // length in bytes for regular files; system-dependent for others
     **/
-    public function size():GoInt64;
+    public dynamic function size():GoInt64;
     /**
         
         
         // file mode bits
     **/
-    public function mode():FileMode;
+    public dynamic function mode():FileMode;
     /**
         
         
         // modification time
     **/
-    public function modTime():stdgo.time.Time.Time;
+    public dynamic function modTime():stdgo.time.Time.Time;
     /**
         
         
         // abbreviation for Mode().IsDir()
     **/
-    public function isDir():Bool;
+    public dynamic function isDir():Bool;
     /**
         
         
         // underlying data source (can return nil)
     **/
-    public function sys():AnyInterface;
+    public dynamic function sys():AnyInterface;
 };
 /**
     // A GlobFS is a file system with a Glob method.
@@ -394,7 +394,7 @@ typedef GlobFS = StructType & {
         
         
     **/
-    public function glob(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; };
+    public dynamic function glob(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; };
 };
 /**
     // ReadDirFS is the interface implemented by a file system
@@ -410,7 +410,7 @@ typedef ReadDirFS = StructType & {
         
         
     **/
-    public function readDir(_name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; };
+    public dynamic function readDir(_name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; };
 };
 /**
     // ReadFileFS is the interface implemented by a file system
@@ -431,7 +431,7 @@ typedef ReadFileFS = StructType & {
         
         
     **/
-    public function readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; };
+    public dynamic function readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; };
 };
 /**
     // A StatFS is a file system with a Stat method.
@@ -446,7 +446,7 @@ typedef StatFS = StructType & {
         
         
     **/
-    public function stat(_name:GoString):{ var _0 : FileInfo; var _1 : Error; };
+    public dynamic function stat(_name:GoString):{ var _0 : FileInfo; var _1 : Error; };
 };
 /**
     // A SubFS is a file system with a Sub method.
@@ -460,7 +460,7 @@ typedef SubFS = StructType & {
         
         
     **/
-    public function sub(_dir:GoString):{ var _0 : FS; var _1 : Error; };
+    public dynamic function sub(_dir:GoString):{ var _0 : FS; var _1 : Error; };
 };
 /**
     
@@ -473,7 +473,7 @@ private typedef T__interface_0 = StructType & {
         
         
     **/
-    public function timeout():Bool;
+    public dynamic function timeout():Bool;
 };
 /**
     // PathError records an error and the operation and file path that caused it.
@@ -736,10 +736,13 @@ private function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{ var
     // cleanGlobPath prepares path for glob matching.
 **/
 private function _cleanGlobPath(_path:GoString):GoString {
-        if (_path == (Go.str())) {
-            return ("." : GoString);
-        } else {
-            return (_path.__slice__((0 : GoInt), (_path.length) - (1 : GoInt)) : GoString);
+        {
+            final __value__ = _path;
+            if (__value__ == (Go.str())) {
+                return ("." : GoString);
+            } else {
+                return (_path.__slice__((0 : GoInt), (_path.length) - (1 : GoInt)) : GoString);
+            };
         };
     }
 /**
@@ -775,8 +778,11 @@ private function _hasMeta(_path:GoString):Bool {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_path.length), _i++, {
-                if (_path[(_i : GoInt)] == ((42 : GoUInt8)) || _path[(_i : GoInt)] == ((63 : GoUInt8)) || _path[(_i : GoInt)] == ((91 : GoUInt8)) || _path[(_i : GoInt)] == ((92 : GoUInt8))) {
-                    return true;
+                {
+                    final __value__ = _path[(_i : GoInt)];
+                    if (__value__ == ((42 : GoUInt8)) || __value__ == ((63 : GoUInt8)) || __value__ == ((91 : GoUInt8)) || __value__ == ((92 : GoUInt8))) {
+                        return true;
+                    };
                 };
             });
         };
@@ -818,7 +824,7 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return { _0 : (null : Slice<DirEntry>), _1 : Go.asInterface((({ op : ("readdir" : GoString), path : _name, err : stdgo.errors.Errors.new_(("not implemented" : GoString)) } : PathError) : Ref<PathError>)) };
+                    return { _0 : (null : Slice<DirEntry>), _1 : Go.asInterface((Go.setRef(({ op : ("readdir" : GoString), path : _name, err : stdgo.errors.Errors.new_(("not implemented" : GoString)) } : PathError)) : Ref<PathError>)) };
                 };
             };
             var __tmp__ = _dir.readDir((-1 : GoInt)), _list:Slice<DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
@@ -1019,7 +1025,7 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
 **/
 function sub(_fsys:FS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
         if (!validPath(_dir)) {
-            return { _0 : (null : FS), _1 : Go.asInterface((({ op : ("sub" : GoString), path : _dir, err : stdgo.errors.Errors.new_(("invalid name" : GoString)) } : PathError) : Ref<PathError>)) };
+            return { _0 : (null : FS), _1 : Go.asInterface((Go.setRef(({ op : ("sub" : GoString), path : _dir, err : stdgo.errors.Errors.new_(("invalid name" : GoString)) } : PathError)) : Ref<PathError>)) };
         };
         if (_dir == (("." : GoString))) {
             return { _0 : _fsys, _1 : (null : Error) };
@@ -1034,7 +1040,7 @@ function sub(_fsys:FS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
                 return _fsys.sub(_dir);
             };
         };
-        return { _0 : Go.asInterface(((new T_subFS(_fsys, _dir) : T_subFS) : Ref<T_subFS>)), _1 : (null : Error) };
+        return { _0 : Go.asInterface((Go.setRef((new T_subFS(_fsys, _dir) : T_subFS)) : Ref<T_subFS>)), _1 : (null : Error) };
     }
 /**
     // walkDir recursively descends path, calling walkDirFn.
@@ -1092,7 +1098,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
         if (_err != null) {
             _err = _fn(_root, (null : DirEntry), _err);
         } else {
-            _err = _walkDir(_fsys, _root, Go.asInterface(((new T_statDirEntry(_info) : T_statDirEntry) : Ref<T_statDirEntry>)), _fn);
+            _err = _walkDir(_fsys, _root, Go.asInterface((Go.setRef((new T_statDirEntry(_info) : T_statDirEntry)) : Ref<T_statDirEntry>)), _fn);
         };
         if ((Go.toInterface(_err) == Go.toInterface(skipDir)) || (Go.toInterface(_err) == Go.toInterface(skipAll))) {
             return (null : Error);
@@ -1104,11 +1110,11 @@ class PathError_asInterface {
         // Timeout reports whether this error represents a timeout.
     **/
     @:keep
-    public function timeout():Bool return __self__.value.timeout();
+    public dynamic function timeout():Bool return __self__.value.timeout();
     @:keep
-    public function unwrap():Error return __self__.value.unwrap();
+    public dynamic function unwrap():Error return __self__.value.unwrap();
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1141,13 +1147,13 @@ class PathError_asInterface {
 }
 class T_dirInfo_asInterface {
     @:keep
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     @:keep
-    public function info():{ var _0 : FileInfo; var _1 : Error; } return __self__.value.info();
+    public dynamic function info():{ var _0 : FileInfo; var _1 : Error; } return __self__.value.info();
     @:keep
-    public function type():FileMode return __self__.value.type();
+    public dynamic function type():FileMode return __self__.value.type();
     @:keep
-    public function isDir():Bool return __self__.value.isDir();
+    public dynamic function isDir():Bool return __self__.value.isDir();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1176,30 +1182,30 @@ class T_dirInfo_asInterface {
 }
 class T_subFS_asInterface {
     @:keep
-    public function sub(_dir:GoString):{ var _0 : FS; var _1 : Error; } return __self__.value.sub(_dir);
+    public dynamic function sub(_dir:GoString):{ var _0 : FS; var _1 : Error; } return __self__.value.sub(_dir);
     @:keep
-    public function glob(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value.glob(_pattern);
+    public dynamic function glob(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value.glob(_pattern);
     @:keep
-    public function readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.readFile(_name);
+    public dynamic function readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.readFile(_name);
     @:keep
-    public function readDir(_name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; } return __self__.value.readDir(_name);
+    public dynamic function readDir(_name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; } return __self__.value.readDir(_name);
     @:keep
-    public function open(_name:GoString):{ var _0 : File; var _1 : Error; } return __self__.value.open(_name);
+    public dynamic function open(_name:GoString):{ var _0 : File; var _1 : Error; } return __self__.value.open(_name);
     /**
         // fixErr shortens any reported names in PathErrors by stripping f.dir.
     **/
     @:keep
-    public function _fixErr(_err:Error):Error return __self__.value._fixErr(_err);
+    public dynamic function _fixErr(_err:Error):Error return __self__.value._fixErr(_err);
     /**
         // shorten maps name, which should start with f.dir, back to the suffix after f.dir.
     **/
     @:keep
-    public function _shorten(_name:GoString):{ var _0 : GoString; var _1 : Bool; } return __self__.value._shorten(_name);
+    public dynamic function _shorten(_name:GoString):{ var _0 : GoString; var _1 : Bool; } return __self__.value._shorten(_name);
     /**
         // fullName maps name to the fully-qualified name dir/name.
     **/
     @:keep
-    public function _fullName(_op:GoString, _name:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._fullName(_op, _name);
+    public dynamic function _fullName(_op:GoString, _name:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._fullName(_op, _name);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1218,7 +1224,7 @@ class T_subFS_asInterface {
         if (_err != null) {
             return { _0 : (null : FS), _1 : _err };
         };
-        return { _0 : Go.asInterface(((new T_subFS(_f._fsys, _full) : T_subFS) : Ref<T_subFS>)), _1 : (null : Error) };
+        return { _0 : Go.asInterface((Go.setRef((new T_subFS(_f._fsys, _full) : T_subFS)) : Ref<T_subFS>)), _1 : (null : Error) };
     }
     @:keep
     static public function glob( _f:Ref<T_subFS>, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } {
@@ -1311,20 +1317,20 @@ class T_subFS_asInterface {
     @:keep
     static public function _fullName( _f:Ref<T_subFS>, _op:GoString, _name:GoString):{ var _0 : GoString; var _1 : Error; } {
         if (!validPath(_name)) {
-            return { _0 : Go.str(), _1 : Go.asInterface((({ op : _op, path : _name, err : stdgo.errors.Errors.new_(("invalid name" : GoString)) } : PathError) : Ref<PathError>)) };
+            return { _0 : Go.str(), _1 : Go.asInterface((Go.setRef(({ op : _op, path : _name, err : stdgo.errors.Errors.new_(("invalid name" : GoString)) } : PathError)) : Ref<PathError>)) };
         };
         return { _0 : stdgo.path.Path.join(_f._dir, _name), _1 : (null : Error) };
     }
 }
 class T_statDirEntry_asInterface {
     @:keep
-    public function info():{ var _0 : FileInfo; var _1 : Error; } return __self__.value.info();
+    public dynamic function info():{ var _0 : FileInfo; var _1 : Error; } return __self__.value.info();
     @:keep
-    public function type():FileMode return __self__.value.type();
+    public dynamic function type():FileMode return __self__.value.type();
     @:keep
-    public function isDir():Bool return __self__.value.isDir();
+    public dynamic function isDir():Bool return __self__.value.isDir();
     @:keep
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1356,26 +1362,26 @@ class FileMode_asInterface {
         // Type returns type bits in m (m & ModeType).
     **/
     @:keep
-    public function type():FileMode return __self__.value.type();
+    public dynamic function type():FileMode return __self__.value.type();
     /**
         // Perm returns the Unix permission bits in m (m & ModePerm).
     **/
     @:keep
-    public function perm():FileMode return __self__.value.perm();
+    public dynamic function perm():FileMode return __self__.value.perm();
     /**
         // IsRegular reports whether m describes a regular file.
         // That is, it tests that no mode type bits are set.
     **/
     @:keep
-    public function isRegular():Bool return __self__.value.isRegular();
+    public dynamic function isRegular():Bool return __self__.value.isRegular();
     /**
         // IsDir reports whether m describes a directory.
         // That is, it tests for the ModeDir bit being set in m.
     **/
     @:keep
-    public function isDir():Bool return __self__.value.isDir();
+    public dynamic function isDir():Bool return __self__.value.isDir();
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

@@ -276,7 +276,7 @@ typedef Resetter = StructType & {
         
         
     **/
-    public function reset(_r:stdgo.io.Io.Reader, _dict:Slice<GoByte>):Error;
+    public dynamic function reset(_r:stdgo.io.Io.Reader, _dict:Slice<GoByte>):Error;
 };
 /**
     
@@ -374,7 +374,7 @@ function newReader(_r:stdgo.io.Io.Reader):{ var _0 : stdgo.io.Io.ReadCloser; var
     // The ReadCloser returned by NewReaderDict also implements Resetter.
 **/
 function newReaderDict(_r:stdgo.io.Io.Reader, _dict:Slice<GoByte>):{ var _0 : stdgo.io.Io.ReadCloser; var _1 : Error; } {
-        var _z = (({} : T_reader) : Ref<T_reader>);
+        var _z = (Go.setRef(({} : T_reader)) : Ref<T_reader>);
         var _err:Error = _z.reset(_r, _dict);
         if (_err != null) {
             return { _0 : (null : stdgo.io.Io.ReadCloser), _1 : _err };
@@ -384,7 +384,7 @@ function newReaderDict(_r:stdgo.io.Io.Reader, _dict:Slice<GoByte>):{ var _0 : st
 function testDecompressor(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _b = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
+            var _b = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
             for (_0 => _tt in _zlibTests) {
                 var _in = stdgo.bytes.Bytes.newReader(_tt._compressed);
                 var __tmp__ = newReaderDict(Go.asInterface(_in), _tt._dict), _zr:stdgo.io.Io.ReadCloser = __tmp__._0, _err:Error = __tmp__._1;
@@ -477,7 +477,7 @@ function newWriterLevelDict(_w:stdgo.io.Io.Writer, _level:GoInt, _dict:Slice<GoB
         if ((_level < (-2 : GoInt)) || (_level > (9 : GoInt))) {
             return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("zlib: invalid compression level: %d" : GoString), Go.toInterface(_level)) };
         };
-        return { _0 : (({ _w : _w, _level : _level, _dict : _dict } : Writer) : Ref<Writer>), _1 : (null : Error) };
+        return { _0 : (Go.setRef(({ _w : _w, _level : _level, _dict : _dict } : Writer)) : Ref<Writer>), _1 : (null : Error) };
     }
 /**
     // Tests that compressing and then decompressing the given file at the given compression level and dictionary
@@ -673,7 +673,7 @@ private function _testFileLevelDictReset(_t:Ref<stdgo.testing.Testing.T>, _fn:Go
                 return;
             };
         };
-        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _buf = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _zlibw:Ref<Writer> = (null : Ref<Writer>);
         if (_dict == null) {
             {
@@ -702,7 +702,7 @@ private function _testFileLevelDictReset(_t:Ref<stdgo.testing.Testing.T>, _fn:Go
             return;
         };
         var _out:GoString = (_buf.string() : GoString);
-        var _buf2 = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _buf2 = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
         _zlibw.reset(Go.asInterface(_buf2));
         {
             var __tmp__ = _zlibw.write(_b0);
@@ -797,7 +797,7 @@ function testWriterReset(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testWriterDictIsUsed(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _input:Slice<GoUInt8> = (("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." : GoString) : Slice<GoByte>);
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var __tmp__ = newWriterLevelDict(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), (9 : GoInt), _input), _compressor:Ref<Writer> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = newWriterLevelDict(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), (9 : GoInt), _input), _compressor:Ref<Writer> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("error in NewWriterLevelDict: %s" : GoString), Go.toInterface(_err));
             return;
@@ -812,16 +812,16 @@ function testWriterDictIsUsed(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 class T_reader_asInterface {
     @:keep
-    public function reset(_r:stdgo.io.Io.Reader, _dict:Slice<GoByte>):Error return __self__.value.reset(_r, _dict);
+    public dynamic function reset(_r:stdgo.io.Io.Reader, _dict:Slice<GoByte>):Error return __self__.value.reset(_r, _dict);
     /**
         // Calling Close does not close the wrapped io.Reader originally passed to NewReader.
         // In order for the ZLIB checksum to be verified, the reader must be
         // fully consumed until the io.EOF.
     **/
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -950,31 +950,31 @@ class Writer_asInterface {
         // io.Writer, but does not close the underlying io.Writer.
     **/
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     /**
         // Flush flushes the Writer to its underlying io.Writer.
     **/
     @:keep
-    public function flush():Error return __self__.value.flush();
+    public dynamic function flush():Error return __self__.value.flush();
     /**
         // Write writes a compressed form of p to the underlying io.Writer. The
         // compressed bytes are not necessarily flushed until the Writer is closed or
         // explicitly flushed.
     **/
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     /**
         // writeHeader writes the ZLIB header.
     **/
     @:keep
-    public function _writeHeader():Error return __self__.value._writeHeader();
+    public dynamic function _writeHeader():Error return __self__.value._writeHeader();
     /**
         // Reset clears the state of the Writer z such that it is equivalent to its
         // initial state from NewWriterLevel or NewWriterLevelDict, but instead writing
         // to w.
     **/
     @:keep
-    public function reset(_w:stdgo.io.Io.Writer):Void __self__.value.reset(_w);
+    public dynamic function reset(_w:stdgo.io.Io.Writer):Void __self__.value.reset(_w);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1059,16 +1059,19 @@ class Writer_asInterface {
         var _err:Error = (null : Error);
         _z._wroteHeader = true;
         _z._scratch[(0 : GoInt)] = (120 : GoUInt8);
-        if (_z._level == ((-2 : GoInt)) || _z._level == ((0 : GoInt)) || _z._level == ((1 : GoInt))) {
-            _z._scratch[(1 : GoInt)] = (0 : GoUInt8);
-        } else if (_z._level == ((2 : GoInt)) || _z._level == ((3 : GoInt)) || _z._level == ((4 : GoInt)) || _z._level == ((5 : GoInt))) {
-            _z._scratch[(1 : GoInt)] = (64 : GoUInt8);
-        } else if (_z._level == ((6 : GoInt)) || _z._level == ((-1 : GoInt))) {
-            _z._scratch[(1 : GoInt)] = (128 : GoUInt8);
-        } else if (_z._level == ((7 : GoInt)) || _z._level == ((8 : GoInt)) || _z._level == ((9 : GoInt))) {
-            _z._scratch[(1 : GoInt)] = (192 : GoUInt8);
-        } else {
-            throw Go.toInterface(("unreachable" : GoString));
+        {
+            final __value__ = _z._level;
+            if (__value__ == ((-2 : GoInt)) || __value__ == ((0 : GoInt)) || __value__ == ((1 : GoInt))) {
+                _z._scratch[(1 : GoInt)] = (0 : GoUInt8);
+            } else if (__value__ == ((2 : GoInt)) || __value__ == ((3 : GoInt)) || __value__ == ((4 : GoInt)) || __value__ == ((5 : GoInt))) {
+                _z._scratch[(1 : GoInt)] = (64 : GoUInt8);
+            } else if (__value__ == ((6 : GoInt)) || __value__ == ((-1 : GoInt))) {
+                _z._scratch[(1 : GoInt)] = (128 : GoUInt8);
+            } else if (__value__ == ((7 : GoInt)) || __value__ == ((8 : GoInt)) || __value__ == ((9 : GoInt))) {
+                _z._scratch[(1 : GoInt)] = (192 : GoUInt8);
+            } else {
+                throw Go.toInterface(("unreachable" : GoString));
+            };
         };
         if (_z._dict != null) {
             _z._scratch[(1 : GoInt)] = _z._scratch[(1 : GoInt)] | ((32 : GoUInt8));
@@ -1095,7 +1098,7 @@ class Writer_asInterface {
                 };
             };
         };
-        if (_z._compressor == null) {
+        if (_z._compressor == null || (_z._compressor : Dynamic).__nil__) {
             {
                 var __tmp__ = stdgo.compress.flate.Flate.newWriterDict(_z._w, _z._level, _z._dict);
                 _z._compressor = __tmp__._0;
@@ -1116,7 +1119,7 @@ class Writer_asInterface {
     @:keep
     static public function reset( _z:Ref<Writer>, _w:stdgo.io.Io.Writer):Void {
         _z._w = _w;
-        if (_z._compressor != null) {
+        if (_z._compressor != null && ((_z._compressor : Dynamic).__nil__ == null || !(_z._compressor : Dynamic).__nil__)) {
             _z._compressor.reset(_w);
         };
         if (_z._digest != null) {

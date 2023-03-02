@@ -3024,17 +3024,17 @@ private function _pzero(_x:GoFloat64):GoFloat64 {
         var _p:Ref<GoArray<GoFloat64>> = (null : Ref<GoArray<GoFloat64>>);
         var _q:Ref<GoArray<GoFloat64>> = (null : Ref<GoArray<GoFloat64>>);
         if (_x >= (8 : GoFloat64)) {
-            _p = (_p0R8 : Ref<GoArray<GoFloat64>>);
-            _q = (_p0S8 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_p0R8) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_p0S8) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (4.5454 : GoFloat64)) {
-            _p = (_p0R5 : Ref<GoArray<GoFloat64>>);
-            _q = (_p0S5 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_p0R5) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_p0S5) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (2.8571 : GoFloat64)) {
-            _p = (_p0R3 : Ref<GoArray<GoFloat64>>);
-            _q = (_p0S3 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_p0R3) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_p0S3) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (2 : GoFloat64)) {
-            _p = (_p0R2 : Ref<GoArray<GoFloat64>>);
-            _q = (_p0S2 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_p0R2) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_p0S2) : Ref<GoArray<GoFloat64>>);
         };
         var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
         var _r:GoFloat64 = _p[(0 : GoInt)] + (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
@@ -3044,17 +3044,17 @@ private function _pzero(_x:GoFloat64):GoFloat64 {
 private function _qzero(_x:GoFloat64):GoFloat64 {
         var _0:Ref<GoArray<GoFloat64>> = (null : Ref<GoArray<GoFloat64>>), _1:Ref<GoArray<GoFloat64>> = (null : Ref<GoArray<GoFloat64>>), _q:Ref<GoArray<GoFloat64>> = _1, _p:Ref<GoArray<GoFloat64>> = _0;
         if (_x >= (8 : GoFloat64)) {
-            _p = (_q0R8 : Ref<GoArray<GoFloat64>>);
-            _q = (_q0S8 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_q0R8) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_q0S8) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (4.5454 : GoFloat64)) {
-            _p = (_q0R5 : Ref<GoArray<GoFloat64>>);
-            _q = (_q0S5 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_q0R5) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_q0S5) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (2.8571 : GoFloat64)) {
-            _p = (_q0R3 : Ref<GoArray<GoFloat64>>);
-            _q = (_q0S3 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_q0R3) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_q0S3) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (2 : GoFloat64)) {
-            _p = (_q0R2 : Ref<GoArray<GoFloat64>>);
-            _q = (_q0S2 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_q0R2) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_q0S2) : Ref<GoArray<GoFloat64>>);
         };
         var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
         var _r:GoFloat64 = _p[(0 : GoInt)] + (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
@@ -3172,17 +3172,17 @@ private function _pone(_x:GoFloat64):GoFloat64 {
         var _p:Ref<GoArray<GoFloat64>> = (null : Ref<GoArray<GoFloat64>>);
         var _q:Ref<GoArray<GoFloat64>> = (null : Ref<GoArray<GoFloat64>>);
         if (_x >= (8 : GoFloat64)) {
-            _p = (_p1R8 : Ref<GoArray<GoFloat64>>);
-            _q = (_p1S8 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_p1R8) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_p1S8) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (4.5454 : GoFloat64)) {
-            _p = (_p1R5 : Ref<GoArray<GoFloat64>>);
-            _q = (_p1S5 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_p1R5) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_p1S5) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (2.8571 : GoFloat64)) {
-            _p = (_p1R3 : Ref<GoArray<GoFloat64>>);
-            _q = (_p1S3 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_p1R3) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_p1S3) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (2 : GoFloat64)) {
-            _p = (_p1R2 : Ref<GoArray<GoFloat64>>);
-            _q = (_p1S2 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_p1R2) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_p1S2) : Ref<GoArray<GoFloat64>>);
         };
         var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
         var _r:GoFloat64 = _p[(0 : GoInt)] + (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
@@ -3192,17 +3192,17 @@ private function _pone(_x:GoFloat64):GoFloat64 {
 private function _qone(_x:GoFloat64):GoFloat64 {
         var _0:Ref<GoArray<GoFloat64>> = (null : Ref<GoArray<GoFloat64>>), _1:Ref<GoArray<GoFloat64>> = (null : Ref<GoArray<GoFloat64>>), _q:Ref<GoArray<GoFloat64>> = _1, _p:Ref<GoArray<GoFloat64>> = _0;
         if (_x >= (8 : GoFloat64)) {
-            _p = (_q1R8 : Ref<GoArray<GoFloat64>>);
-            _q = (_q1S8 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_q1R8) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_q1S8) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (4.5454 : GoFloat64)) {
-            _p = (_q1R5 : Ref<GoArray<GoFloat64>>);
-            _q = (_q1S5 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_q1R5) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_q1S5) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (2.8571 : GoFloat64)) {
-            _p = (_q1R3 : Ref<GoArray<GoFloat64>>);
-            _q = (_q1S3 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_q1R3) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_q1S3) : Ref<GoArray<GoFloat64>>);
         } else if (_x >= (2 : GoFloat64)) {
-            _p = (_q1R2 : Ref<GoArray<GoFloat64>>);
-            _q = (_q1S2 : Ref<GoArray<GoFloat64>>);
+            _p = (Go.setRef(_q1R2) : Ref<GoArray<GoFloat64>>);
+            _q = (Go.setRef(_q1S2) : Ref<GoArray<GoFloat64>>);
         };
         var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
         var _r:GoFloat64 = _p[(0 : GoInt)] + (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
@@ -3254,14 +3254,17 @@ function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
                 var _temp:GoFloat64 = (0 : GoFloat64);
                 {
                     var __tmp__ = sincos(_x), _s:GoFloat64 = __tmp__._0, _c:GoFloat64 = __tmp__._1;
-                    if (_n & (3 : GoInt) == ((0 : GoInt))) {
-                        _temp = _c + _s;
-                    } else if (_n & (3 : GoInt) == ((1 : GoInt))) {
-                        _temp = -_c + _s;
-                    } else if (_n & (3 : GoInt) == ((2 : GoInt))) {
-                        _temp = -_c - _s;
-                    } else if (_n & (3 : GoInt) == ((3 : GoInt))) {
-                        _temp = _c - _s;
+                    {
+                        final __value__ = _n & (3 : GoInt);
+                        if (__value__ == ((0 : GoInt))) {
+                            _temp = _c + _s;
+                        } else if (__value__ == ((1 : GoInt))) {
+                            _temp = -_c + _s;
+                        } else if (__value__ == ((2 : GoInt))) {
+                            _temp = -_c - _s;
+                        } else if (__value__ == ((3 : GoInt))) {
+                            _temp = _c - _s;
+                        };
                     };
                 };
                 _b = ((0.5641895835477563 : GoFloat64) * _temp) / sqrt(_x);
@@ -3411,14 +3414,17 @@ function yn(_n:GoInt, _x:GoFloat64):GoFloat64 {
             var _temp:GoFloat64 = (0 : GoFloat64);
             {
                 var __tmp__ = sincos(_x), _s:GoFloat64 = __tmp__._0, _c:GoFloat64 = __tmp__._1;
-                if (_n & (3 : GoInt) == ((0 : GoInt))) {
-                    _temp = _s - _c;
-                } else if (_n & (3 : GoInt) == ((1 : GoInt))) {
-                    _temp = -_s - _c;
-                } else if (_n & (3 : GoInt) == ((2 : GoInt))) {
-                    _temp = -_s + _c;
-                } else if (_n & (3 : GoInt) == ((3 : GoInt))) {
-                    _temp = _s + _c;
+                {
+                    final __value__ = _n & (3 : GoInt);
+                    if (__value__ == ((0 : GoInt))) {
+                        _temp = _s - _c;
+                    } else if (__value__ == ((1 : GoInt))) {
+                        _temp = -_s - _c;
+                    } else if (__value__ == ((2 : GoInt))) {
+                        _temp = -_s + _c;
+                    } else if (__value__ == ((3 : GoInt))) {
+                        _temp = _s + _c;
+                    };
                 };
             };
             _b = ((0.5641895835477563 : GoFloat64) * _temp) / sqrt(_x);
@@ -3574,24 +3580,27 @@ function lgamma(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
                             _i = (2 : GoInt);
                         };
                     };
-                    if (_i == ((0 : GoInt))) {
-                        var _z:GoFloat64 = _y * _y;
-                        var _p1:GoFloat64 = __lgamA[(0 : GoInt)] + (_z * (__lgamA[(2 : GoInt)] + (_z * (__lgamA[(4 : GoInt)] + (_z * (__lgamA[(6 : GoInt)] + (_z * (__lgamA[(8 : GoInt)] + (_z * __lgamA[(10 : GoInt)])))))))));
-                        var _p2:GoFloat64 = _z * (__lgamA[(1 : GoInt)] + (_z * (__lgamA[(3 : GoInt)] + (_z * (__lgamA[(5 : GoInt)] + (_z * (__lgamA[(7 : GoInt)] + (_z * (__lgamA[(9 : GoInt)] + (_z * __lgamA[(11 : GoInt)]))))))))));
-                        var _p:GoFloat64 = (_y * _p1) + _p2;
-                        _lgamma = _lgamma + ((_p - ((0.5 : GoFloat64) * _y)));
-                    } else if (_i == ((1 : GoInt))) {
-                        var _z:GoFloat64 = _y * _y;
-                        var _w:GoFloat64 = _z * _y;
-                        var _p1:GoFloat64 = __lgamT[(0 : GoInt)] + (_w * (__lgamT[(3 : GoInt)] + (_w * (__lgamT[(6 : GoInt)] + (_w * (__lgamT[(9 : GoInt)] + (_w * __lgamT[(12 : GoInt)])))))));
-                        var _p2:GoFloat64 = __lgamT[(1 : GoInt)] + (_w * (__lgamT[(4 : GoInt)] + (_w * (__lgamT[(7 : GoInt)] + (_w * (__lgamT[(10 : GoInt)] + (_w * __lgamT[(13 : GoInt)])))))));
-                        var _p3:GoFloat64 = __lgamT[(2 : GoInt)] + (_w * (__lgamT[(5 : GoInt)] + (_w * (__lgamT[(8 : GoInt)] + (_w * (__lgamT[(11 : GoInt)] + (_w * __lgamT[(14 : GoInt)])))))));
-                        var _p:GoFloat64 = (_z * _p1) - ((-3.638676997039505e-18 : GoFloat64) - (_w * (_p2 + (_y * _p3))));
-                        _lgamma = _lgamma + (((-0.12148629053584961 : GoFloat64) + _p));
-                    } else if (_i == ((2 : GoInt))) {
-                        var _p1:GoFloat64 = _y * (__lgamU[(0 : GoInt)] + (_y * (__lgamU[(1 : GoInt)] + (_y * (__lgamU[(2 : GoInt)] + (_y * (__lgamU[(3 : GoInt)] + (_y * (__lgamU[(4 : GoInt)] + (_y * __lgamU[(5 : GoInt)]))))))))));
-                        var _p2:GoFloat64 = (1 : GoFloat64) + (_y * (__lgamV[(1 : GoInt)] + (_y * (__lgamV[(2 : GoInt)] + (_y * (__lgamV[(3 : GoInt)] + (_y * (__lgamV[(4 : GoInt)] + (_y * __lgamV[(5 : GoInt)])))))))));
-                        _lgamma = _lgamma + ((((-0.5 : GoFloat64) * _y) + (_p1 / _p2)));
+                    {
+                        final __value__ = _i;
+                        if (__value__ == ((0 : GoInt))) {
+                            var _z:GoFloat64 = _y * _y;
+                            var _p1:GoFloat64 = __lgamA[(0 : GoInt)] + (_z * (__lgamA[(2 : GoInt)] + (_z * (__lgamA[(4 : GoInt)] + (_z * (__lgamA[(6 : GoInt)] + (_z * (__lgamA[(8 : GoInt)] + (_z * __lgamA[(10 : GoInt)])))))))));
+                            var _p2:GoFloat64 = _z * (__lgamA[(1 : GoInt)] + (_z * (__lgamA[(3 : GoInt)] + (_z * (__lgamA[(5 : GoInt)] + (_z * (__lgamA[(7 : GoInt)] + (_z * (__lgamA[(9 : GoInt)] + (_z * __lgamA[(11 : GoInt)]))))))))));
+                            var _p:GoFloat64 = (_y * _p1) + _p2;
+                            _lgamma = _lgamma + ((_p - ((0.5 : GoFloat64) * _y)));
+                        } else if (__value__ == ((1 : GoInt))) {
+                            var _z:GoFloat64 = _y * _y;
+                            var _w:GoFloat64 = _z * _y;
+                            var _p1:GoFloat64 = __lgamT[(0 : GoInt)] + (_w * (__lgamT[(3 : GoInt)] + (_w * (__lgamT[(6 : GoInt)] + (_w * (__lgamT[(9 : GoInt)] + (_w * __lgamT[(12 : GoInt)])))))));
+                            var _p2:GoFloat64 = __lgamT[(1 : GoInt)] + (_w * (__lgamT[(4 : GoInt)] + (_w * (__lgamT[(7 : GoInt)] + (_w * (__lgamT[(10 : GoInt)] + (_w * __lgamT[(13 : GoInt)])))))));
+                            var _p3:GoFloat64 = __lgamT[(2 : GoInt)] + (_w * (__lgamT[(5 : GoInt)] + (_w * (__lgamT[(8 : GoInt)] + (_w * (__lgamT[(11 : GoInt)] + (_w * __lgamT[(14 : GoInt)])))))));
+                            var _p:GoFloat64 = (_z * _p1) - ((-3.638676997039505e-18 : GoFloat64) - (_w * (_p2 + (_y * _p3))));
+                            _lgamma = _lgamma + (((-0.12148629053584961 : GoFloat64) + _p));
+                        } else if (__value__ == ((2 : GoInt))) {
+                            var _p1:GoFloat64 = _y * (__lgamU[(0 : GoInt)] + (_y * (__lgamU[(1 : GoInt)] + (_y * (__lgamU[(2 : GoInt)] + (_y * (__lgamU[(3 : GoInt)] + (_y * (__lgamU[(4 : GoInt)] + (_y * __lgamU[(5 : GoInt)]))))))))));
+                            var _p2:GoFloat64 = (1 : GoFloat64) + (_y * (__lgamV[(1 : GoInt)] + (_y * (__lgamV[(2 : GoInt)] + (_y * (__lgamV[(3 : GoInt)] + (_y * (__lgamV[(4 : GoInt)] + (_y * __lgamV[(5 : GoInt)])))))))));
+                            _lgamma = _lgamma + ((((-0.5 : GoFloat64) * _y) + (_p1 / _p2)));
+                        };
                     };
                     break;
                 } else if (_x < (8 : GoFloat64)) {
@@ -3604,39 +3613,42 @@ function lgamma(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
                     {
                         var __switchIndex__ = -1;
                         while (true) {
-                            if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_i == (7 : GoInt)))) {
-                                _z = _z * ((_y + (6 : GoFloat64)));
-                                @:fallthrough {
-                                    __switchIndex__ = 1;
-                                    continue;
+                            {
+                                final __value__ = _i;
+                                if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (7 : GoInt)))) {
+                                    _z = _z * ((_y + (6 : GoFloat64)));
+                                    @:fallthrough {
+                                        __switchIndex__ = 1;
+                                        continue;
+                                    };
+                                    break;
+                                } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == (6 : GoInt)))) {
+                                    _z = _z * ((_y + (5 : GoFloat64)));
+                                    @:fallthrough {
+                                        __switchIndex__ = 2;
+                                        continue;
+                                    };
+                                    break;
+                                } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == (5 : GoInt)))) {
+                                    _z = _z * ((_y + (4 : GoFloat64)));
+                                    @:fallthrough {
+                                        __switchIndex__ = 3;
+                                        continue;
+                                    };
+                                    break;
+                                } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (__value__ == (4 : GoInt)))) {
+                                    _z = _z * ((_y + (3 : GoFloat64)));
+                                    @:fallthrough {
+                                        __switchIndex__ = 4;
+                                        continue;
+                                    };
+                                    break;
+                                } else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && (__value__ == (3 : GoInt)))) {
+                                    _z = _z * ((_y + (2 : GoFloat64)));
+                                    _lgamma = _lgamma + (log(_z));
+                                    break;
+                                    break;
                                 };
-                                break;
-                            } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_i == (6 : GoInt)))) {
-                                _z = _z * ((_y + (5 : GoFloat64)));
-                                @:fallthrough {
-                                    __switchIndex__ = 2;
-                                    continue;
-                                };
-                                break;
-                            } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_i == (5 : GoInt)))) {
-                                _z = _z * ((_y + (4 : GoFloat64)));
-                                @:fallthrough {
-                                    __switchIndex__ = 3;
-                                    continue;
-                                };
-                                break;
-                            } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (_i == (4 : GoInt)))) {
-                                _z = _z * ((_y + (3 : GoFloat64)));
-                                @:fallthrough {
-                                    __switchIndex__ = 4;
-                                    continue;
-                                };
-                                break;
-                            } else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && (_i == (3 : GoInt)))) {
-                                _z = _z * ((_y + (2 : GoFloat64)));
-                                _lgamma = _lgamma + (log(_z));
-                                break;
-                                break;
                             };
                             break;
                         };
@@ -3686,16 +3698,19 @@ private function _sinPi(_x:GoFloat64):GoFloat64 {
                 _n = _n << (("2" : GoUInt64));
             };
         };
-        if (_n == ((0 : GoInt))) {
-            _x = sin((3.141592653589793 : GoFloat64) * _x);
-        } else if (_n == ((1 : GoInt)) || _n == ((2 : GoInt))) {
-            _x = cos((3.141592653589793 : GoFloat64) * ((0.5 : GoFloat64) - _x));
-        } else if (_n == ((3 : GoInt)) || _n == ((4 : GoInt))) {
-            _x = sin((3.141592653589793 : GoFloat64) * ((1 : GoFloat64) - _x));
-        } else if (_n == ((5 : GoInt)) || _n == ((6 : GoInt))) {
-            _x = -cos((3.141592653589793 : GoFloat64) * (_x - (1.5 : GoFloat64)));
-        } else {
-            _x = sin((3.141592653589793 : GoFloat64) * (_x - (2 : GoFloat64)));
+        {
+            final __value__ = _n;
+            if (__value__ == ((0 : GoInt))) {
+                _x = sin((3.141592653589793 : GoFloat64) * _x);
+            } else if (__value__ == ((1 : GoInt)) || __value__ == ((2 : GoInt))) {
+                _x = cos((3.141592653589793 : GoFloat64) * ((0.5 : GoFloat64) - _x));
+            } else if (__value__ == ((3 : GoInt)) || __value__ == ((4 : GoInt))) {
+                _x = sin((3.141592653589793 : GoFloat64) * ((1 : GoFloat64) - _x));
+            } else if (__value__ == ((5 : GoInt)) || __value__ == ((6 : GoInt))) {
+                _x = -cos((3.141592653589793 : GoFloat64) * (_x - (1.5 : GoFloat64)));
+            } else {
+                _x = sin((3.141592653589793 : GoFloat64) * (_x - (2 : GoFloat64)));
+            };
         };
         return -_x;
     }

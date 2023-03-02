@@ -337,31 +337,31 @@ private typedef T_input = StructType & {
         
         // advance one rune
     **/
-    public function _step(_pos:GoInt):{ var _0 : GoRune; var _1 : GoInt; };
+    public dynamic function _step(_pos:GoInt):{ var _0 : GoRune; var _1 : GoInt; };
     /**
         
         
         // can we look ahead without losing info?
     **/
-    public function _canCheckPrefix():Bool;
+    public dynamic function _canCheckPrefix():Bool;
     /**
         
         
         
     **/
-    public function _hasPrefix(_re:Ref<Regexp>):Bool;
+    public dynamic function _hasPrefix(_re:Ref<Regexp>):Bool;
     /**
         
         
         
     **/
-    public function _index(_re:Ref<Regexp>, _pos:GoInt):GoInt;
+    public dynamic function _index(_re:Ref<Regexp>, _pos:GoInt):GoInt;
     /**
         
         
         
     **/
-    public function _context(_pos:GoInt):T_lazyFlag;
+    public dynamic function _context(_pos:GoInt):T_lazyFlag;
 };
 /**
     
@@ -1309,20 +1309,20 @@ class T_bitState_asInterface {
         // visited.
     **/
     @:keep
-    public function _push(_re:Ref<Regexp>, _pc:GoUInt32, _pos:GoInt, _arg:Bool):Void __self__.value._push(_re, _pc, _pos, _arg);
+    public dynamic function _push(_re:Ref<Regexp>, _pc:GoUInt32, _pos:GoInt, _arg:Bool):Void __self__.value._push(_re, _pc, _pos, _arg);
     /**
         // shouldVisit reports whether the combination of (pc, pos) has not
         // been visited yet.
     **/
     @:keep
-    public function _shouldVisit(_pc:GoUInt32, _pos:GoInt):Bool return __self__.value._shouldVisit(_pc, _pos);
+    public dynamic function _shouldVisit(_pc:GoUInt32, _pos:GoInt):Bool return __self__.value._shouldVisit(_pc, _pos);
     /**
         // reset resets the state of the backtracker.
         // end is the end position in the input.
         // ncap is the number of captures.
     **/
     @:keep
-    public function _reset(_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>, _end:GoInt, _ncap:GoInt):Void __self__.value._reset(_prog, _end, _ncap);
+    public dynamic function _reset(_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>, _end:GoInt, _ncap:GoInt):Void __self__.value._reset(_prog, _end, _ncap);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1360,7 +1360,7 @@ class T_machine_asInterface {
         // in the input.
     **/
     @:keep
-    public function _add(_q:Ref<T_queue>, _pc:GoUInt32, _pos:GoInt, _cap:Slice<GoInt>, _cond:Pointer<T_lazyFlag>, _t:Ref<T_thread>):Ref<T_thread> return __self__.value._add(_q, _pc, _pos, _cap, _cond, _t);
+    public dynamic function _add(_q:Ref<T_queue>, _pc:GoUInt32, _pos:GoInt, _cap:Slice<GoInt>, _cond:Pointer<T_lazyFlag>, _t:Ref<T_thread>):Ref<T_thread> return __self__.value._add(_q, _pc, _pos, _cap, _cond, _t);
     /**
         // step executes one step of the machine, running each of the threads
         // on runq and appending new threads to nextq.
@@ -1369,27 +1369,27 @@ class T_machine_asInterface {
         // nextCond gives the setting for the empty-width flags after c.
     **/
     @:keep
-    public function _step(_runq:Ref<T_queue>, _nextq:Ref<T_queue>, _pos:GoInt, _nextPos:GoInt, _c:GoRune, _nextCond:Pointer<T_lazyFlag>):Void __self__.value._step(_runq, _nextq, _pos, _nextPos, _c, _nextCond);
+    public dynamic function _step(_runq:Ref<T_queue>, _nextq:Ref<T_queue>, _pos:GoInt, _nextPos:GoInt, _c:GoRune, _nextCond:Pointer<T_lazyFlag>):Void __self__.value._step(_runq, _nextq, _pos, _nextPos, _c, _nextCond);
     /**
         // clear frees all threads on the thread queue.
     **/
     @:keep
-    public function _clear(_q:Ref<T_queue>):Void __self__.value._clear(_q);
+    public dynamic function _clear(_q:Ref<T_queue>):Void __self__.value._clear(_q);
     /**
         // match runs the machine over the input starting at pos.
         // It reports whether a match was found.
         // If so, m.matchcap holds the submatch information.
     **/
     @:keep
-    public function _match(_i:T_input, _pos:GoInt):Bool return __self__.value._match(_i, _pos);
+    public dynamic function _match(_i:T_input, _pos:GoInt):Bool return __self__.value._match(_i, _pos);
     /**
         // alloc allocates a new thread with the given instruction.
         // It uses the free pool if possible.
     **/
     @:keep
-    public function _alloc(_i:Ref<stdgo.regexp.syntax.Syntax.Inst>):Ref<T_thread> return __self__.value._alloc(_i);
+    public dynamic function _alloc(_i:Ref<stdgo.regexp.syntax.Syntax.Inst>):Ref<T_thread> return __self__.value._alloc(_i);
     @:keep
-    public function _init(_ncap:GoInt):Void __self__.value._init(_ncap);
+    public dynamic function _init(_ncap:GoInt):Void __self__.value._init(_ncap);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1439,15 +1439,15 @@ class T_machine_asInterface {
 }
 class T_inputs_asInterface {
     @:keep
-    public function _init(_r:stdgo.io.Io.RuneReader, _b:Slice<GoByte>, _s:GoString):{ var _0 : T_input; var _1 : GoInt; } return __self__.value._init(_r, _b, _s);
+    public dynamic function _init(_r:stdgo.io.Io.RuneReader, _b:Slice<GoByte>, _s:GoString):{ var _0 : T_input; var _1 : GoInt; } return __self__.value._init(_r, _b, _s);
     @:keep
-    public function _clear():Void __self__.value._clear();
+    public dynamic function _clear():Void __self__.value._clear();
     @:keep
-    public function _newReader(_r:stdgo.io.Io.RuneReader):T_input return __self__.value._newReader(_r);
+    public dynamic function _newReader(_r:stdgo.io.Io.RuneReader):T_input return __self__.value._newReader(_r);
     @:keep
-    public function _newString(_s:GoString):T_input return __self__.value._newString(_s);
+    public dynamic function _newString(_s:GoString):T_input return __self__.value._newString(_s);
     @:keep
-    public function _newBytes(_b:Slice<GoByte>):T_input return __self__.value._newBytes(_b);
+    public dynamic function _newBytes(_b:Slice<GoByte>):T_input return __self__.value._newBytes(_b);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1470,7 +1470,7 @@ class T_inputs_asInterface {
 }
 class FindTest_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1485,15 +1485,15 @@ class FindTest_asInterface {
 }
 class T_onePassInst_asInterface {
     @:embedded
-    public function _op():stdgo.regexp.syntax.Syntax.InstOp return __self__.value._op();
+    public dynamic function _op():stdgo.regexp.syntax.Syntax.InstOp return __self__.value._op();
     @:embedded
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:embedded
-    public function matchRunePos(__0:GoInt32):GoInt return __self__.value.matchRunePos(__0);
+    public dynamic function matchRunePos(__0:GoInt32):GoInt return __self__.value.matchRunePos(__0);
     @:embedded
-    public function matchRune(__0:GoInt32):Bool return __self__.value.matchRune(__0);
+    public dynamic function matchRune(__0:GoInt32):Bool return __self__.value.matchRune(__0);
     @:embedded
-    public function matchEmptyWidth(_old:GoInt32, _new:GoInt32):Bool return __self__.value.matchEmptyWidth(_old, _new);
+    public dynamic function matchEmptyWidth(_old:GoInt32, _new:GoInt32):Bool return __self__.value.matchEmptyWidth(_old, _new);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1516,17 +1516,17 @@ class T_onePassInst_asInterface {
 }
 class T_queueOnePass_asInterface {
     @:keep
-    public function _insertNew(_u:GoUInt32):Void __self__.value._insertNew(_u);
+    public dynamic function _insertNew(_u:GoUInt32):Void __self__.value._insertNew(_u);
     @:keep
-    public function _insert(_u:GoUInt32):Void __self__.value._insert(_u);
+    public dynamic function _insert(_u:GoUInt32):Void __self__.value._insert(_u);
     @:keep
-    public function _contains(_u:GoUInt32):Bool return __self__.value._contains(_u);
+    public dynamic function _contains(_u:GoUInt32):Bool return __self__.value._contains(_u);
     @:keep
-    public function _clear():Void __self__.value._clear();
+    public dynamic function _clear():Void __self__.value._clear();
     @:keep
-    public function _next():GoUInt32 return __self__.value._next();
+    public dynamic function _next():GoUInt32 return __self__.value._next();
     @:keep
-    public function _empty():Bool return __self__.value._empty();
+    public dynamic function _empty():Bool return __self__.value._empty();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1570,7 +1570,7 @@ class Regexp_asInterface {
         //	n < 0: all substrings
     **/
     @:keep
-    public function split(_s:GoString, _n:GoInt):Slice<GoString> return __self__.value.split(_s, _n);
+    public dynamic function split(_s:GoString, _n:GoInt):Slice<GoString> return __self__.value.split(_s, _n);
     /**
         // FindAllStringSubmatchIndex is the 'All' version of
         // FindStringSubmatchIndex; it returns a slice of all successive matches of
@@ -1579,7 +1579,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findAllStringSubmatchIndex(_s:GoString, _n:GoInt):Slice<Slice<GoInt>> return __self__.value.findAllStringSubmatchIndex(_s, _n);
+    public dynamic function findAllStringSubmatchIndex(_s:GoString, _n:GoInt):Slice<Slice<GoInt>> return __self__.value.findAllStringSubmatchIndex(_s, _n);
     /**
         // FindAllStringSubmatch is the 'All' version of FindStringSubmatch; it
         // returns a slice of all successive matches of the expression, as defined by
@@ -1587,7 +1587,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findAllStringSubmatch(_s:GoString, _n:GoInt):Slice<Slice<GoString>> return __self__.value.findAllStringSubmatch(_s, _n);
+    public dynamic function findAllStringSubmatch(_s:GoString, _n:GoInt):Slice<Slice<GoString>> return __self__.value.findAllStringSubmatch(_s, _n);
     /**
         // FindAllSubmatchIndex is the 'All' version of FindSubmatchIndex; it returns
         // a slice of all successive matches of the expression, as defined by the
@@ -1595,7 +1595,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findAllSubmatchIndex(_b:Slice<GoByte>, _n:GoInt):Slice<Slice<GoInt>> return __self__.value.findAllSubmatchIndex(_b, _n);
+    public dynamic function findAllSubmatchIndex(_b:Slice<GoByte>, _n:GoInt):Slice<Slice<GoInt>> return __self__.value.findAllSubmatchIndex(_b, _n);
     /**
         // FindAllSubmatch is the 'All' version of FindSubmatch; it returns a slice
         // of all successive matches of the expression, as defined by the 'All'
@@ -1603,7 +1603,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findAllSubmatch(_b:Slice<GoByte>, _n:GoInt):Slice<Slice<Slice<GoByte>>> return __self__.value.findAllSubmatch(_b, _n);
+    public dynamic function findAllSubmatch(_b:Slice<GoByte>, _n:GoInt):Slice<Slice<Slice<GoByte>>> return __self__.value.findAllSubmatch(_b, _n);
     /**
         // FindAllStringIndex is the 'All' version of FindStringIndex; it returns a
         // slice of all successive matches of the expression, as defined by the 'All'
@@ -1611,7 +1611,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findAllStringIndex(_s:GoString, _n:GoInt):Slice<Slice<GoInt>> return __self__.value.findAllStringIndex(_s, _n);
+    public dynamic function findAllStringIndex(_s:GoString, _n:GoInt):Slice<Slice<GoInt>> return __self__.value.findAllStringIndex(_s, _n);
     /**
         // FindAllString is the 'All' version of FindString; it returns a slice of all
         // successive matches of the expression, as defined by the 'All' description
@@ -1619,7 +1619,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findAllString(_s:GoString, _n:GoInt):Slice<GoString> return __self__.value.findAllString(_s, _n);
+    public dynamic function findAllString(_s:GoString, _n:GoInt):Slice<GoString> return __self__.value.findAllString(_s, _n);
     /**
         // FindAllIndex is the 'All' version of FindIndex; it returns a slice of all
         // successive matches of the expression, as defined by the 'All' description
@@ -1627,7 +1627,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findAllIndex(_b:Slice<GoByte>, _n:GoInt):Slice<Slice<GoInt>> return __self__.value.findAllIndex(_b, _n);
+    public dynamic function findAllIndex(_b:Slice<GoByte>, _n:GoInt):Slice<Slice<GoInt>> return __self__.value.findAllIndex(_b, _n);
     /**
         // FindAll is the 'All' version of Find; it returns a slice of all successive
         // matches of the expression, as defined by the 'All' description in the
@@ -1635,7 +1635,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findAll(_b:Slice<GoByte>, _n:GoInt):Slice<Slice<GoByte>> return __self__.value.findAll(_b, _n);
+    public dynamic function findAll(_b:Slice<GoByte>, _n:GoInt):Slice<Slice<GoByte>> return __self__.value.findAll(_b, _n);
     /**
         // FindReaderSubmatchIndex returns a slice holding the index pairs
         // identifying the leftmost match of the regular expression of text read by
@@ -1644,7 +1644,7 @@ class Regexp_asInterface {
         // return value of nil indicates no match.
     **/
     @:keep
-    public function findReaderSubmatchIndex(_r:stdgo.io.Io.RuneReader):Slice<GoInt> return __self__.value.findReaderSubmatchIndex(_r);
+    public dynamic function findReaderSubmatchIndex(_r:stdgo.io.Io.RuneReader):Slice<GoInt> return __self__.value.findReaderSubmatchIndex(_r);
     /**
         // FindStringSubmatchIndex returns a slice holding the index pairs
         // identifying the leftmost match of the regular expression in s and the
@@ -1653,7 +1653,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findStringSubmatchIndex(_s:GoString):Slice<GoInt> return __self__.value.findStringSubmatchIndex(_s);
+    public dynamic function findStringSubmatchIndex(_s:GoString):Slice<GoInt> return __self__.value.findStringSubmatchIndex(_s);
     /**
         // FindStringSubmatch returns a slice of strings holding the text of the
         // leftmost match of the regular expression in s and the matches, if any, of
@@ -1662,7 +1662,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findStringSubmatch(_s:GoString):Slice<GoString> return __self__.value.findStringSubmatch(_s);
+    public dynamic function findStringSubmatch(_s:GoString):Slice<GoString> return __self__.value.findStringSubmatch(_s);
     /**
         // FindSubmatchIndex returns a slice holding the index pairs identifying the
         // leftmost match of the regular expression in b and the matches, if any, of
@@ -1671,16 +1671,16 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findSubmatchIndex(_b:Slice<GoByte>):Slice<GoInt> return __self__.value.findSubmatchIndex(_b);
+    public dynamic function findSubmatchIndex(_b:Slice<GoByte>):Slice<GoInt> return __self__.value.findSubmatchIndex(_b);
     @:keep
-    public function _expand(_dst:Slice<GoByte>, _template:GoString, _bsrc:Slice<GoByte>, _src:GoString, _match:Slice<GoInt>):Slice<GoByte> return __self__.value._expand(_dst, _template, _bsrc, _src, _match);
+    public dynamic function _expand(_dst:Slice<GoByte>, _template:GoString, _bsrc:Slice<GoByte>, _src:GoString, _match:Slice<GoInt>):Slice<GoByte> return __self__.value._expand(_dst, _template, _bsrc, _src, _match);
     /**
         // ExpandString is like Expand but the template and source are strings.
         // It appends to and returns a byte slice in order to give the calling
         // code control over allocation.
     **/
     @:keep
-    public function expandString(_dst:Slice<GoByte>, _template:GoString, _src:GoString, _match:Slice<GoInt>):Slice<GoByte> return __self__.value.expandString(_dst, _template, _src, _match);
+    public dynamic function expandString(_dst:Slice<GoByte>, _template:GoString, _src:GoString, _match:Slice<GoInt>):Slice<GoByte> return __self__.value.expandString(_dst, _template, _src, _match);
     /**
         // Expand appends template to dst and returns the result; during the
         // append, Expand replaces variables in the template with corresponding
@@ -1701,7 +1701,7 @@ class Regexp_asInterface {
         // To insert a literal $ in the output, use $$ in the template.
     **/
     @:keep
-    public function expand(_dst:Slice<GoByte>, _template:Slice<GoByte>, _src:Slice<GoByte>, _match:Slice<GoInt>):Slice<GoByte> return __self__.value.expand(_dst, _template, _src, _match);
+    public dynamic function expand(_dst:Slice<GoByte>, _template:Slice<GoByte>, _src:Slice<GoByte>, _match:Slice<GoInt>):Slice<GoByte> return __self__.value.expand(_dst, _template, _src, _match);
     /**
         // FindSubmatch returns a slice of slices holding the text of the leftmost
         // match of the regular expression in b and the matches, if any, of its
@@ -1710,7 +1710,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findSubmatch(_b:Slice<GoByte>):Slice<Slice<GoByte>> return __self__.value.findSubmatch(_b);
+    public dynamic function findSubmatch(_b:Slice<GoByte>):Slice<Slice<GoByte>> return __self__.value.findSubmatch(_b);
     /**
         // FindReaderIndex returns a two-element slice of integers defining the
         // location of the leftmost match of the regular expression in text read from
@@ -1719,7 +1719,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findReaderIndex(_r:stdgo.io.Io.RuneReader):Slice<GoInt> return __self__.value.findReaderIndex(_r);
+    public dynamic function findReaderIndex(_r:stdgo.io.Io.RuneReader):Slice<GoInt> return __self__.value.findReaderIndex(_r);
     /**
         // FindStringIndex returns a two-element slice of integers defining the
         // location of the leftmost match in s of the regular expression. The match
@@ -1727,7 +1727,7 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findStringIndex(_s:GoString):Slice<GoInt> return __self__.value.findStringIndex(_s);
+    public dynamic function findStringIndex(_s:GoString):Slice<GoInt> return __self__.value.findStringIndex(_s);
     /**
         // FindString returns a string holding the text of the leftmost match in s of the regular
         // expression. If there is no match, the return value is an empty string,
@@ -1736,7 +1736,7 @@ class Regexp_asInterface {
         // necessary to distinguish these cases.
     **/
     @:keep
-    public function findString(_s:GoString):GoString return __self__.value.findString(_s);
+    public dynamic function findString(_s:GoString):GoString return __self__.value.findString(_s);
     /**
         // FindIndex returns a two-element slice of integers defining the location of
         // the leftmost match in b of the regular expression. The match itself is at
@@ -1744,20 +1744,20 @@ class Regexp_asInterface {
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function findIndex(_b:Slice<GoByte>):Slice<GoInt> return __self__.value.findIndex(_b);
+    public dynamic function findIndex(_b:Slice<GoByte>):Slice<GoInt> return __self__.value.findIndex(_b);
     /**
         // Find returns a slice holding the text of the leftmost match in b of the regular expression.
         // A return value of nil indicates no match.
     **/
     @:keep
-    public function find(_b:Slice<GoByte>):Slice<GoByte> return __self__.value.find(_b);
+    public dynamic function find(_b:Slice<GoByte>):Slice<GoByte> return __self__.value.find(_b);
     /**
         // allMatches calls deliver at most n times
         // with the location of successive matches in the input text.
         // The input text is b if non-nil, otherwise s.
     **/
     @:keep
-    public function _allMatches(_s:GoString, _b:Slice<GoByte>, _n:GoInt, _deliver:Slice<GoInt> -> Void):Void __self__.value._allMatches(_s, _b, _n, _deliver);
+    public dynamic function _allMatches(_s:GoString, _b:Slice<GoByte>, _n:GoInt, _deliver:Slice<GoInt> -> Void):Void __self__.value._allMatches(_s, _b, _n, _deliver);
     /**
         // The number of capture values in the program may correspond
         // to fewer capturing expressions than are in the regexp.
@@ -1766,7 +1766,7 @@ class Regexp_asInterface {
         // an expression for \1.  Pad appends -1s to the slice a as needed.
     **/
     @:keep
-    public function _pad(_a:Slice<GoInt>):Slice<GoInt> return __self__.value._pad(_a);
+    public dynamic function _pad(_a:Slice<GoInt>):Slice<GoInt> return __self__.value._pad(_a);
     /**
         // ReplaceAllFunc returns a copy of src in which all matches of the
         // Regexp have been replaced by the return value of function repl applied
@@ -1774,23 +1774,23 @@ class Regexp_asInterface {
         // directly, without using Expand.
     **/
     @:keep
-    public function replaceAllFunc(_src:Slice<GoByte>, _repl:Slice<GoByte> -> Slice<GoByte>):Slice<GoByte> return __self__.value.replaceAllFunc(_src, _repl);
+    public dynamic function replaceAllFunc(_src:Slice<GoByte>, _repl:Slice<GoByte> -> Slice<GoByte>):Slice<GoByte> return __self__.value.replaceAllFunc(_src, _repl);
     /**
         // ReplaceAllLiteral returns a copy of src, replacing matches of the Regexp
         // with the replacement bytes repl. The replacement repl is substituted directly,
         // without using Expand.
     **/
     @:keep
-    public function replaceAllLiteral(_src:Slice<GoByte>, _repl:Slice<GoByte>):Slice<GoByte> return __self__.value.replaceAllLiteral(_src, _repl);
+    public dynamic function replaceAllLiteral(_src:Slice<GoByte>, _repl:Slice<GoByte>):Slice<GoByte> return __self__.value.replaceAllLiteral(_src, _repl);
     /**
         // ReplaceAll returns a copy of src, replacing matches of the Regexp
         // with the replacement text repl. Inside repl, $ signs are interpreted as
         // in Expand, so for instance $1 represents the text of the first submatch.
     **/
     @:keep
-    public function replaceAll(_src:Slice<GoByte>, _repl:Slice<GoByte>):Slice<GoByte> return __self__.value.replaceAll(_src, _repl);
+    public dynamic function replaceAll(_src:Slice<GoByte>, _repl:Slice<GoByte>):Slice<GoByte> return __self__.value.replaceAll(_src, _repl);
     @:keep
-    public function _replaceAll(_bsrc:Slice<GoByte>, _src:GoString, _nmatch:GoInt, _repl:(_dst:Slice<GoByte>, _m:Slice<GoInt>) -> Slice<GoByte>):Slice<GoByte> return __self__.value._replaceAll(_bsrc, _src, _nmatch, _repl);
+    public dynamic function _replaceAll(_bsrc:Slice<GoByte>, _src:GoString, _nmatch:GoInt, _repl:(_dst:Slice<GoByte>, _m:Slice<GoInt>) -> Slice<GoByte>):Slice<GoByte> return __self__.value._replaceAll(_bsrc, _src, _nmatch, _repl);
     /**
         // ReplaceAllStringFunc returns a copy of src in which all matches of the
         // Regexp have been replaced by the return value of function repl applied
@@ -1798,46 +1798,46 @@ class Regexp_asInterface {
         // directly, without using Expand.
     **/
     @:keep
-    public function replaceAllStringFunc(_src:GoString, _repl:GoString -> GoString):GoString return __self__.value.replaceAllStringFunc(_src, _repl);
+    public dynamic function replaceAllStringFunc(_src:GoString, _repl:GoString -> GoString):GoString return __self__.value.replaceAllStringFunc(_src, _repl);
     /**
         // ReplaceAllLiteralString returns a copy of src, replacing matches of the Regexp
         // with the replacement string repl. The replacement repl is substituted directly,
         // without using Expand.
     **/
     @:keep
-    public function replaceAllLiteralString(_src:GoString, _repl:GoString):GoString return __self__.value.replaceAllLiteralString(_src, _repl);
+    public dynamic function replaceAllLiteralString(_src:GoString, _repl:GoString):GoString return __self__.value.replaceAllLiteralString(_src, _repl);
     /**
         // ReplaceAllString returns a copy of src, replacing matches of the Regexp
         // with the replacement string repl. Inside repl, $ signs are interpreted as
         // in Expand, so for instance $1 represents the text of the first submatch.
     **/
     @:keep
-    public function replaceAllString(_src:GoString, _repl:GoString):GoString return __self__.value.replaceAllString(_src, _repl);
+    public dynamic function replaceAllString(_src:GoString, _repl:GoString):GoString return __self__.value.replaceAllString(_src, _repl);
     /**
         // Match reports whether the byte slice b
         // contains any match of the regular expression re.
     **/
     @:keep
-    public function match(_b:Slice<GoByte>):Bool return __self__.value.match(_b);
+    public dynamic function match(_b:Slice<GoByte>):Bool return __self__.value.match(_b);
     /**
         // MatchString reports whether the string s
         // contains any match of the regular expression re.
     **/
     @:keep
-    public function matchString(_s:GoString):Bool return __self__.value.matchString(_s);
+    public dynamic function matchString(_s:GoString):Bool return __self__.value.matchString(_s);
     /**
         // MatchReader reports whether the text returned by the RuneReader
         // contains any match of the regular expression re.
     **/
     @:keep
-    public function matchReader(_r:stdgo.io.Io.RuneReader):Bool return __self__.value.matchReader(_r);
+    public dynamic function matchReader(_r:stdgo.io.Io.RuneReader):Bool return __self__.value.matchReader(_r);
     /**
         // LiteralPrefix returns a literal string that must begin any match
         // of the regular expression re. It returns the boolean true if the
         // literal string comprises the entire regular expression.
     **/
     @:keep
-    public function literalPrefix():{ var _0 : GoString; var _1 : Bool; } return __self__.value.literalPrefix();
+    public dynamic function literalPrefix():{ var _0 : GoString; var _1 : Bool; } return __self__.value.literalPrefix();
     /**
         // SubexpIndex returns the index of the first subexpression with the given name,
         // or -1 if there is no subexpression with that name.
@@ -1848,7 +1848,7 @@ class Regexp_asInterface {
         // in the regular expression.
     **/
     @:keep
-    public function subexpIndex(_name:GoString):GoInt return __self__.value.subexpIndex(_name);
+    public dynamic function subexpIndex(_name:GoString):GoInt return __self__.value.subexpIndex(_name);
     /**
         // SubexpNames returns the names of the parenthesized subexpressions
         // in this Regexp. The name for the first sub-expression is names[1],
@@ -1857,24 +1857,24 @@ class Regexp_asInterface {
         // the empty string. The slice should not be modified.
     **/
     @:keep
-    public function subexpNames():Slice<GoString> return __self__.value.subexpNames();
+    public dynamic function subexpNames():Slice<GoString> return __self__.value.subexpNames();
     /**
         // NumSubexp returns the number of parenthesized subexpressions in this Regexp.
     **/
     @:keep
-    public function numSubexp():GoInt return __self__.value.numSubexp();
+    public dynamic function numSubexp():GoInt return __self__.value.numSubexp();
     /**
         // put returns a machine to the correct machine pool.
     **/
     @:keep
-    public function _put(_m:Ref<T_machine>):Void __self__.value._put(_m);
+    public dynamic function _put(_m:Ref<T_machine>):Void __self__.value._put(_m);
     /**
         // get returns a machine to use for matching re.
         // It uses the re's machine cache if possible, to avoid
         // unnecessary allocation.
     **/
     @:keep
-    public function _get():Ref<T_machine> return __self__.value._get();
+    public dynamic function _get():Ref<T_machine> return __self__.value._get();
     /**
         // Longest makes future searches prefer the leftmost-longest match.
         // That is, when matching against text, the regexp returns a match that
@@ -1884,7 +1884,7 @@ class Regexp_asInterface {
         // with any other methods.
     **/
     @:keep
-    public function longest():Void __self__.value.longest();
+    public dynamic function longest():Void __self__.value.longest();
     /**
         // Copy returns a new Regexp object copied from re.
         // Calling Longest on one copy does not affect another.
@@ -1896,12 +1896,12 @@ class Regexp_asInterface {
         // two copies with different Longest settings.
     **/
     @:keep
-    public function copy():Ref<Regexp> return __self__.value.copy();
+    public dynamic function copy():Ref<Regexp> return __self__.value.copy();
     /**
         // String returns the source text used to compile the regular expression.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     /**
         // doExecute finds the leftmost match in the input, appends the position
         // of its subexpressions to dstCap and returns dstCap.
@@ -1909,27 +1909,27 @@ class Regexp_asInterface {
         // nil is returned if no matches are found and non-nil if matches are found.
     **/
     @:keep
-    public function _doExecute(_r:stdgo.io.Io.RuneReader, _b:Slice<GoByte>, _s:GoString, _pos:GoInt, _ncap:GoInt, _dstCap:Slice<GoInt>):Slice<GoInt> return __self__.value._doExecute(_r, _b, _s, _pos, _ncap, _dstCap);
+    public dynamic function _doExecute(_r:stdgo.io.Io.RuneReader, _b:Slice<GoByte>, _s:GoString, _pos:GoInt, _ncap:GoInt, _dstCap:Slice<GoInt>):Slice<GoInt> return __self__.value._doExecute(_r, _b, _s, _pos, _ncap, _dstCap);
     /**
         // doMatch reports whether either r, b or s match the regexp.
     **/
     @:keep
-    public function _doMatch(_r:stdgo.io.Io.RuneReader, _b:Slice<GoByte>, _s:GoString):Bool return __self__.value._doMatch(_r, _b, _s);
+    public dynamic function _doMatch(_r:stdgo.io.Io.RuneReader, _b:Slice<GoByte>, _s:GoString):Bool return __self__.value._doMatch(_r, _b, _s);
     /**
         // doOnePass implements r.doExecute using the one-pass execution engine.
     **/
     @:keep
-    public function _doOnePass(_ir:stdgo.io.Io.RuneReader, _ib:Slice<GoByte>, _is:GoString, _pos:GoInt, _ncap:GoInt, _dstCap:Slice<GoInt>):Slice<GoInt> return __self__.value._doOnePass(_ir, _ib, _is, _pos, _ncap, _dstCap);
+    public dynamic function _doOnePass(_ir:stdgo.io.Io.RuneReader, _ib:Slice<GoByte>, _is:GoString, _pos:GoInt, _ncap:GoInt, _dstCap:Slice<GoInt>):Slice<GoInt> return __self__.value._doOnePass(_ir, _ib, _is, _pos, _ncap, _dstCap);
     /**
         // backtrack runs a backtracking search of prog on the input starting at pos.
     **/
     @:keep
-    public function _backtrack(_ib:Slice<GoByte>, _is:GoString, _pos:GoInt, _ncap:GoInt, _dstCap:Slice<GoInt>):Slice<GoInt> return __self__.value._backtrack(_ib, _is, _pos, _ncap, _dstCap);
+    public dynamic function _backtrack(_ib:Slice<GoByte>, _is:GoString, _pos:GoInt, _ncap:GoInt, _dstCap:Slice<GoInt>):Slice<GoInt> return __self__.value._backtrack(_ib, _is, _pos, _ncap, _dstCap);
     /**
         // tryBacktrack runs a backtracking search starting at pos.
     **/
     @:keep
-    public function _tryBacktrack(_b:Ref<T_bitState>, _i:T_input, _pc:GoUInt32, _pos:GoInt):Bool return __self__.value._tryBacktrack(_b, _i, _pc, _pos);
+    public dynamic function _tryBacktrack(_b:Ref<T_bitState>, _i:T_input, _pc:GoUInt32, _pos:GoInt):Bool return __self__.value._tryBacktrack(_b, _i, _pc, _pos);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2322,15 +2322,15 @@ class Regexp_asInterface {
 }
 class T_inputString_asInterface {
     @:keep
-    public function _context(_pos:GoInt):T_lazyFlag return __self__.value._context(_pos);
+    public dynamic function _context(_pos:GoInt):T_lazyFlag return __self__.value._context(_pos);
     @:keep
-    public function _index(_re:Ref<Regexp>, _pos:GoInt):GoInt return __self__.value._index(_re, _pos);
+    public dynamic function _index(_re:Ref<Regexp>, _pos:GoInt):GoInt return __self__.value._index(_re, _pos);
     @:keep
-    public function _hasPrefix(_re:Ref<Regexp>):Bool return __self__.value._hasPrefix(_re);
+    public dynamic function _hasPrefix(_re:Ref<Regexp>):Bool return __self__.value._hasPrefix(_re);
     @:keep
-    public function _canCheckPrefix():Bool return __self__.value._canCheckPrefix();
+    public dynamic function _canCheckPrefix():Bool return __self__.value._canCheckPrefix();
     @:keep
-    public function _step(_pos:GoInt):{ var _0 : GoRune; var _1 : GoInt; } return __self__.value._step(_pos);
+    public dynamic function _step(_pos:GoInt):{ var _0 : GoRune; var _1 : GoInt; } return __self__.value._step(_pos);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2353,15 +2353,15 @@ class T_inputString_asInterface {
 }
 class T_inputBytes_asInterface {
     @:keep
-    public function _context(_pos:GoInt):T_lazyFlag return __self__.value._context(_pos);
+    public dynamic function _context(_pos:GoInt):T_lazyFlag return __self__.value._context(_pos);
     @:keep
-    public function _index(_re:Ref<Regexp>, _pos:GoInt):GoInt return __self__.value._index(_re, _pos);
+    public dynamic function _index(_re:Ref<Regexp>, _pos:GoInt):GoInt return __self__.value._index(_re, _pos);
     @:keep
-    public function _hasPrefix(_re:Ref<Regexp>):Bool return __self__.value._hasPrefix(_re);
+    public dynamic function _hasPrefix(_re:Ref<Regexp>):Bool return __self__.value._hasPrefix(_re);
     @:keep
-    public function _canCheckPrefix():Bool return __self__.value._canCheckPrefix();
+    public dynamic function _canCheckPrefix():Bool return __self__.value._canCheckPrefix();
     @:keep
-    public function _step(_pos:GoInt):{ var _0 : GoRune; var _1 : GoInt; } return __self__.value._step(_pos);
+    public dynamic function _step(_pos:GoInt):{ var _0 : GoRune; var _1 : GoInt; } return __self__.value._step(_pos);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2384,15 +2384,15 @@ class T_inputBytes_asInterface {
 }
 class T_inputReader_asInterface {
     @:keep
-    public function _context(_pos:GoInt):T_lazyFlag return __self__.value._context(_pos);
+    public dynamic function _context(_pos:GoInt):T_lazyFlag return __self__.value._context(_pos);
     @:keep
-    public function _index(_re:Ref<Regexp>, _pos:GoInt):GoInt return __self__.value._index(_re, _pos);
+    public dynamic function _index(_re:Ref<Regexp>, _pos:GoInt):GoInt return __self__.value._index(_re, _pos);
     @:keep
-    public function _hasPrefix(_re:Ref<Regexp>):Bool return __self__.value._hasPrefix(_re);
+    public dynamic function _hasPrefix(_re:Ref<Regexp>):Bool return __self__.value._hasPrefix(_re);
     @:keep
-    public function _canCheckPrefix():Bool return __self__.value._canCheckPrefix();
+    public dynamic function _canCheckPrefix():Bool return __self__.value._canCheckPrefix();
     @:keep
-    public function _step(_pos:GoInt):{ var _0 : GoRune; var _1 : GoInt; } return __self__.value._step(_pos);
+    public dynamic function _step(_pos:GoInt):{ var _0 : GoRune; var _1 : GoInt; } return __self__.value._step(_pos);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2415,7 +2415,7 @@ class T_inputReader_asInterface {
 }
 class T_lazyFlag_asInterface {
     @:keep
-    public function _match(_op:stdgo.regexp.syntax.Syntax.EmptyOp):Bool return __self__.value._match(_op);
+    public dynamic function _match(_op:stdgo.regexp.syntax.Syntax.EmptyOp):Bool return __self__.value._match(_op);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2430,11 +2430,11 @@ class T_lazyFlag_asInterface {
 }
 class T_runeSlice_asInterface {
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

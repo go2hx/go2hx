@@ -2579,7 +2579,7 @@ function new_():stdgo.hash.Hash.Hash {
         if (false) {
             return _boringNewSHA1();
         };
-        var _d = (({} : T_digest) : Ref<T_digest>);
+        var _d = (Go.setRef(({} : T_digest)) : Ref<T_digest>);
         _d.reset();
         return Go.asInterface(_d);
     }
@@ -2588,18 +2588,18 @@ function new_():stdgo.hash.Hash.Hash {
 **/
 function sum(_data:Slice<GoByte>):GoArray<GoByte> {
         if (false) {
-            return (_boringSHA1(_data) == null ? null : _boringSHA1(_data).__copy__());
+            return _boringSHA1(_data).__copy__();
         };
         var _d:T_digest = ({} : T_digest);
         _d.reset();
         _d.write(_data);
-        return (_d._checkSum() == null ? null : _d._checkSum().__copy__());
+        return _d._checkSum().__copy__();
     }
 function testGolden(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_golden.length), _i++, {
-                var _g:T_sha1Test = (_golden[(_i : GoInt)] == null ? null : _golden[(_i : GoInt)].__copy__());
+                var _g:T_sha1Test = _golden[(_i : GoInt)].__copy__();
                 var _s:GoString = stdgo.fmt.Fmt.sprintf(("%x" : GoString), Go.toInterface(sum((_g._in : Slice<GoByte>))));
                 if (_s != (_g._out)) {
                     _t.fatalf(("Sum function: sha1(%s) = %s want %s" : GoString), Go.toInterface(_g._in), Go.toInterface(_s), Go.toInterface(_g._out));
@@ -2609,22 +2609,25 @@ function testGolden(_t:Ref<stdgo.testing.Testing.T>):Void {
                     var _j:GoInt = (0 : GoInt);
                     Go.cfor(_j < (4 : GoInt), _j++, {
                         var _sum:Slice<GoByte> = (null : Slice<GoUInt8>);
-                        if (_j == ((0 : GoInt)) || _j == ((1 : GoInt))) {
-                            stdgo.io.Io.writeString(_c, _g._in);
-                            _sum = _c.sum((null : Slice<GoUInt8>));
-                        } else if (_j == ((2 : GoInt))) {
-                            stdgo.io.Io.writeString(_c, (_g._in.__slice__((0 : GoInt), (_g._in.length) / (2 : GoInt)) : GoString));
-                            _c.sum((null : Slice<GoUInt8>));
-                            stdgo.io.Io.writeString(_c, (_g._in.__slice__((_g._in.length) / (2 : GoInt)) : GoString));
-                            _sum = _c.sum((null : Slice<GoUInt8>));
-                        } else if (_j == ((3 : GoInt))) {
-                            if (false) {
-                                continue;
+                        {
+                            final __value__ = _j;
+                            if (__value__ == ((0 : GoInt)) || __value__ == ((1 : GoInt))) {
+                                stdgo.io.Io.writeString(_c, _g._in);
+                                _sum = _c.sum((null : Slice<GoUInt8>));
+                            } else if (__value__ == ((2 : GoInt))) {
+                                stdgo.io.Io.writeString(_c, (_g._in.__slice__((0 : GoInt), (_g._in.length) / (2 : GoInt)) : GoString));
+                                _c.sum((null : Slice<GoUInt8>));
+                                stdgo.io.Io.writeString(_c, (_g._in.__slice__((_g._in.length) / (2 : GoInt)) : GoString));
+                                _sum = _c.sum((null : Slice<GoUInt8>));
+                            } else if (__value__ == ((3 : GoInt))) {
+                                if (false) {
+                                    continue;
+                                };
+                                stdgo.io.Io.writeString(_c, (_g._in.__slice__((0 : GoInt), (_g._in.length) / (2 : GoInt)) : GoString));
+                                (Go.typeAssert((Go.toInterface(_c) : Ref<T_digest>)) : Ref<T_digest>).constantTimeSum((null : Slice<GoUInt8>));
+                                stdgo.io.Io.writeString(_c, (_g._in.__slice__((_g._in.length) / (2 : GoInt)) : GoString));
+                                _sum = (Go.typeAssert((Go.toInterface(_c) : Ref<T_digest>)) : Ref<T_digest>).constantTimeSum((null : Slice<GoUInt8>));
                             };
-                            stdgo.io.Io.writeString(_c, (_g._in.__slice__((0 : GoInt), (_g._in.length) / (2 : GoInt)) : GoString));
-                            (Go.typeAssert((Go.toInterface(_c) : Ref<T_digest>)) : Ref<T_digest>).constantTimeSum((null : Slice<GoUInt8>));
-                            stdgo.io.Io.writeString(_c, (_g._in.__slice__((_g._in.length) / (2 : GoInt)) : GoString));
-                            _sum = (Go.typeAssert((Go.toInterface(_c) : Ref<T_digest>)) : Ref<T_digest>).constantTimeSum((null : Slice<GoUInt8>));
                         };
                         var _s:GoString = stdgo.fmt.Fmt.sprintf(("%x" : GoString), Go.toInterface(_sum));
                         if (_s != (_g._out)) {
@@ -2702,7 +2705,7 @@ function testBlockGeneric(_t:Ref<stdgo.testing.Testing.T>):Void {
                 stdgo.crypto.rand.Rand.read(_buf);
                 _blockGeneric(_gen, _buf);
                 _block(_asm, _buf);
-                if (Go.toInterface(Go.asInterface(_gen)) != Go.toInterface(Go.asInterface(_asm))) {
+                if (Go.toInterface(Go.asInterface((_gen : T_digest))) != Go.toInterface(Go.asInterface((_asm : T_digest)))) {
                     _t.errorf(("For %#v block and blockGeneric resulted in different states" : GoString), Go.toInterface(_buf));
                 };
             });
@@ -2966,28 +2969,28 @@ private function _block(_dig:Ref<T_digest>, _p:Slice<GoByte>):Void {
     };
 class T_digest_asInterface {
     @:keep
-    public function _constSum():GoArray<GoByte> return __self__.value._constSum();
+    public dynamic function _constSum():GoArray<GoByte> return __self__.value._constSum();
     /**
         // ConstantTimeSum computes the same result of Sum() but in constant time
     **/
     @:keep
-    public function constantTimeSum(_in:Slice<GoByte>):Slice<GoByte> return __self__.value.constantTimeSum(_in);
+    public dynamic function constantTimeSum(_in:Slice<GoByte>):Slice<GoByte> return __self__.value.constantTimeSum(_in);
     @:keep
-    public function _checkSum():GoArray<GoByte> return __self__.value._checkSum();
+    public dynamic function _checkSum():GoArray<GoByte> return __self__.value._checkSum();
     @:keep
-    public function sum(_in:Slice<GoByte>):Slice<GoByte> return __self__.value.sum(_in);
+    public dynamic function sum(_in:Slice<GoByte>):Slice<GoByte> return __self__.value.sum(_in);
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     @:keep
-    public function blockSize():GoInt return __self__.value.blockSize();
+    public dynamic function blockSize():GoInt return __self__.value.blockSize();
     @:keep
-    public function size():GoInt return __self__.value.size();
+    public dynamic function size():GoInt return __self__.value.size();
     @:keep
-    public function reset():Void __self__.value.reset();
+    public dynamic function reset():Void __self__.value.reset();
     @:keep
-    public function unmarshalBinary(_b:Slice<GoByte>):Error return __self__.value.unmarshalBinary(_b);
+    public dynamic function unmarshalBinary(_b:Slice<GoByte>):Error return __self__.value.unmarshalBinary(_b);
     @:keep
-    public function marshalBinary():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.marshalBinary();
+    public dynamic function marshalBinary():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.marshalBinary();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -3048,15 +3051,15 @@ class T_digest_asInterface {
             _digest[((_i * (4 : GoInt)) + (2 : GoInt) : GoInt)] = _digest[((_i * (4 : GoInt)) + (2 : GoInt) : GoInt)] | ((-1 ^ _mask1b) & (_s >> ("8" : GoUInt64) : GoByte));
             _digest[((_i * (4 : GoInt)) + (3 : GoInt) : GoInt)] = _digest[((_i * (4 : GoInt)) + (3 : GoInt) : GoInt)] | ((-1 ^ _mask1b) & (_s : GoByte));
         };
-        return (_digest == null ? null : _digest.__copy__());
+        return _digest.__copy__();
     }
     /**
         // ConstantTimeSum computes the same result of Sum() but in constant time
     **/
     @:keep
     static public function constantTimeSum( _d:Ref<T_digest>, _in:Slice<GoByte>):Slice<GoByte> {
-        var _d0:T_digest = (_d == null ? null : _d.__copy__());
-        var _hash = (_d0._constSum() == null ? null : _d0._constSum().__copy__());
+        var _d0:T_digest = (_d : T_digest).__copy__();
+        var _hash = _d0._constSum().__copy__();
         return (_in.__append__(...(_hash.__slice__(0) : Slice<GoUInt8>).__toArray__()));
     }
     @:keep
@@ -3083,13 +3086,13 @@ class T_digest_asInterface {
         stdgo.encoding.binary.Binary.bigEndian.putUint32((_digest.__slice__((8 : GoInt)) : Slice<GoUInt8>), _d._h[(2 : GoInt)]);
         stdgo.encoding.binary.Binary.bigEndian.putUint32((_digest.__slice__((12 : GoInt)) : Slice<GoUInt8>), _d._h[(3 : GoInt)]);
         stdgo.encoding.binary.Binary.bigEndian.putUint32((_digest.__slice__((16 : GoInt)) : Slice<GoUInt8>), _d._h[(4 : GoInt)]);
-        return (_digest == null ? null : _digest.__copy__());
+        return _digest.__copy__();
     }
     @:keep
     static public function sum( _d:Ref<T_digest>, _in:Slice<GoByte>):Slice<GoByte> {
         _boringUnreachable();
-        var _d0:T_digest = (_d == null ? null : _d.__copy__());
-        var _hash = (_d0._checkSum() == null ? null : _d0._checkSum().__copy__());
+        var _d0:T_digest = (_d : T_digest).__copy__();
+        var _hash = _d0._checkSum().__copy__();
         return (_in.__append__(...(_hash.__slice__(0) : Slice<GoUInt8>).__toArray__()));
     }
     @:keep

@@ -170,13 +170,13 @@ private function _ct(_typ:stdgo.reflect.Reflect.Type, _args:haxe.Rest<AnyInterfa
         var _args = new Slice<AnyInterface>(0, 0, ..._args);
         var _value = new Slice<stdgo.reflect.Reflect.Value>((_args.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_args.length : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
         for (_i => _v in _args) {
-            var _x:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(_v) == null ? null : stdgo.reflect.Reflect.valueOf(_v).__copy__());
+            var _x:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_v).__copy__();
             if (!_x.isValid()) {
-                _x = (stdgo.reflect.Reflect.zero(_typ) == null ? null : stdgo.reflect.Reflect.zero(_typ).__copy__());
+                _x = stdgo.reflect.Reflect.zero(_typ).__copy__();
             } else {
-                _x = (_x.convert(_typ) == null ? null : _x.convert(_typ).__copy__());
+                _x = _x.convert(_typ).__copy__();
             };
-            _value[(_i : GoInt)] = (_x == null ? null : _x.__copy__());
+            _value[(_i : GoInt)] = _x.__copy__();
         };
         return _value;
     }
@@ -184,7 +184,7 @@ function testCompare(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_0 => _test in _compareTests) {
             for (_i => _v0 in _test) {
                 for (_j => _v1 in _test) {
-                    var _c:GoInt = stdgo.internal.fmtsort.Fmtsort.compare((_v0 == null ? null : _v0.__copy__()), (_v1 == null ? null : _v1.__copy__()));
+                    var _c:GoInt = stdgo.internal.fmtsort.Fmtsort.compare(_v0.__copy__(), _v1.__copy__());
                     var _expect:GoInt = (0 : GoInt);
                     if (_i == (_j)) {
                         _expect = (0 : GoInt);
@@ -207,16 +207,16 @@ function testCompare(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 private function _sprint(_data:AnyInterface):GoString {
-        var _om = stdgo.internal.fmtsort.Fmtsort.sort((stdgo.reflect.Reflect.valueOf(_data) == null ? null : stdgo.reflect.Reflect.valueOf(_data).__copy__()));
-        if (_om == null) {
+        var _om = stdgo.internal.fmtsort.Fmtsort.sort(stdgo.reflect.Reflect.valueOf(_data).__copy__());
+        if (_om == null || (_om : Dynamic).__nil__) {
             return ("nil" : GoString);
         };
-        var _b = (({} : stdgo.strings.Strings.Builder) : Ref<stdgo.strings.Strings.Builder>);
+        var _b = (Go.setRef(({} : stdgo.strings.Strings.Builder)) : Ref<stdgo.strings.Strings.Builder>);
         for (_i => _key in _om.key) {
             if (_i > (0 : GoInt)) {
                 _b.writeRune((32 : GoInt32));
             };
-            _b.writeString(_sprintKey((_key == null ? null : _key.__copy__())));
+            _b.writeString(_sprintKey(_key.__copy__()));
             _b.writeRune((58 : GoInt32));
             stdgo.fmt.Fmt.fprint(Go.asInterface(_b), Go.toInterface(Go.asInterface(_om.value[(_i : GoInt)])));
         };
@@ -231,32 +231,35 @@ private function _sprint(_data:AnyInterface):GoString {
 private function _sprintKey(_key:stdgo.reflect.Reflect.Value):GoString {
         {
             var _str:GoString = (_key.type().string() : GoString);
-            if (_str == (("*int" : GoString))) {
-                var _ptr = (Go.typeAssert((_key.interface_() : Pointer<GoInt>)) : Pointer<GoInt>);
-                for (_i in 0 ... _ints.length.toBasic()) {
-                    if (_ptr == (Go.pointer(_ints[(_i : GoInt)]))) {
-                        return stdgo.fmt.Fmt.sprintf(("PTR%d" : GoString), Go.toInterface(_i));
+            {
+                final __value__ = _str;
+                if (__value__ == (("*int" : GoString))) {
+                    var _ptr = (Go.typeAssert((_key.interface_() : Pointer<GoInt>)) : Pointer<GoInt>);
+                    for (_i in 0 ... _ints.length.toBasic()) {
+                        if (_ptr == (Go.pointer(_ints[(_i : GoInt)]))) {
+                            return stdgo.fmt.Fmt.sprintf(("PTR%d" : GoString), Go.toInterface(_i));
+                        };
                     };
-                };
-                return ("PTR???" : GoString);
-            } else if (_str == (("unsafe.Pointer" : GoString))) {
-                var _ptr:stdgo.unsafe.Unsafe.UnsafePointer = (Go.typeAssert((_key.interface_() : stdgo.unsafe.Unsafe.UnsafePointer)) : stdgo.unsafe.Unsafe.UnsafePointer);
-                for (_i in 0 ... _ints.length.toBasic()) {
-                    if (_ptr == ((Go.toInterface(Go.pointer(_ints[(_i : GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer))) {
-                        return stdgo.fmt.Fmt.sprintf(("UNSAFEPTR%d" : GoString), Go.toInterface(_i));
+                    return ("PTR???" : GoString);
+                } else if (__value__ == (("unsafe.Pointer" : GoString))) {
+                    var _ptr:stdgo.unsafe.Unsafe.UnsafePointer = (Go.typeAssert((_key.interface_() : stdgo.unsafe.Unsafe.UnsafePointer)) : stdgo.unsafe.Unsafe.UnsafePointer);
+                    for (_i in 0 ... _ints.length.toBasic()) {
+                        if (_ptr == ((Go.toInterface(Go.pointer(_ints[(_i : GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer))) {
+                            return stdgo.fmt.Fmt.sprintf(("UNSAFEPTR%d" : GoString), Go.toInterface(_i));
+                        };
                     };
-                };
-                return ("UNSAFEPTR???" : GoString);
-            } else if (_str == (("chan int" : GoString))) {
-                var _c = (Go.typeAssert((_key.interface_() : Chan<GoInt>)) : Chan<GoInt>);
-                for (_i in 0 ... _chans.length.toBasic()) {
-                    if (_c == (_chans[(_i : GoInt)])) {
-                        return stdgo.fmt.Fmt.sprintf(("CHAN%d" : GoString), Go.toInterface(_i));
+                    return ("UNSAFEPTR???" : GoString);
+                } else if (__value__ == (("chan int" : GoString))) {
+                    var _c = (Go.typeAssert((_key.interface_() : Chan<GoInt>)) : Chan<GoInt>);
+                    for (_i in 0 ... _chans.length.toBasic()) {
+                        if (_c == (_chans[(_i : GoInt)])) {
+                            return stdgo.fmt.Fmt.sprintf(("CHAN%d" : GoString), Go.toInterface(_i));
+                        };
                     };
+                    return ("CHAN???" : GoString);
+                } else {
+                    return stdgo.fmt.Fmt.sprint(Go.toInterface(Go.asInterface(_key)));
                 };
-                return ("CHAN???" : GoString);
-            } else {
-                return stdgo.fmt.Fmt.sprint(Go.toInterface(Go.asInterface(_key)));
             };
         };
     }

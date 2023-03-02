@@ -1217,7 +1217,7 @@ private var _fn = (new GoArray<GoFloat32>(
     
     
 **/
-private var _globalRand = new_(Go.asInterface((({} : T_lockedSource) : Ref<T_lockedSource>)));
+private var _globalRand = new_(Go.asInterface((Go.setRef(({} : T_lockedSource)) : Ref<T_lockedSource>)));
 /**
     
     
@@ -1893,13 +1893,13 @@ typedef Source = StructType & {
         
         
     **/
-    public function int63():GoInt64;
+    public dynamic function int63():GoInt64;
     /**
         
         
         
     **/
-    public function seed(_seed:GoInt64):Void;
+    public dynamic function seed(_seed:GoInt64):Void;
 };
 /**
     // A Source64 is a Source that can also generate
@@ -1918,7 +1918,7 @@ typedef Source64 = StructType & {
         
         
     **/
-    public function uint64():GoUInt64;
+    public dynamic function uint64():GoUInt64;
 };
 /**
     // A Rand is a source of random numbers.
@@ -2022,10 +2022,10 @@ function int31nForTest(_r:Ref<Rand>, _n:GoInt32):GoInt32 {
         return _r._int31n(_n);
     }
 function getNormalDistributionParameters():{ var _0 : GoFloat64; var _1 : GoArray<GoUInt32>; var _2 : GoArray<GoFloat32>; var _3 : GoArray<GoFloat32>; } {
-        return { _0 : (3.442619855899 : GoFloat64), _1 : (_kn == null ? null : _kn.__copy__()), _2 : (_wn == null ? null : _wn.__copy__()), _3 : (_fn == null ? null : _fn.__copy__()) };
+        return { _0 : (3.442619855899 : GoFloat64), _1 : _kn.__copy__(), _2 : _wn.__copy__(), _3 : _fn.__copy__() };
     }
 function getExponentialDistributionParameters():{ var _0 : GoFloat64; var _1 : GoArray<GoUInt32>; var _2 : GoArray<GoFloat32>; var _3 : GoArray<GoFloat32>; } {
-        return { _0 : (7.69711747013105 : GoFloat64), _1 : (_ke == null ? null : _ke.__copy__()), _2 : (_we == null ? null : _we.__copy__()), _3 : (_fe == null ? null : _fe.__copy__()) };
+        return { _0 : (7.69711747013105 : GoFloat64), _1 : _ke.__copy__(), _2 : _we.__copy__(), _3 : _fe.__copy__() };
     }
 private function _absInt32(_i:GoInt32):GoUInt32 {
         if (_i < (0 : GoInt32)) {
@@ -2045,7 +2045,7 @@ function newSource(_seed:GoInt64):Source {
 private function _newSource(_seed:GoInt64):Ref<T_rngSource> {
         var _rng:T_rngSource = ({} : T_rngSource);
         _rng.seed(_seed);
-        return (_rng : Ref<T_rngSource>);
+        return (Go.setRef(_rng) : Ref<T_rngSource>);
     }
 /**
     // New returns a new Rand that uses random values from src
@@ -2057,7 +2057,7 @@ function new_(_src:Source):Ref<Rand> {
         } catch(_) {
             { value : (null : Source64), ok : false };
         }, _s64 = __tmp__.value, _0 = __tmp__.ok;
-        return (({ _src : _src, _s64 : _s64 } : Rand) : Ref<Rand>);
+        return (Go.setRef(({ _src : _src, _s64 : _s64 } : Rand)) : Ref<Rand>);
     }
 private function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
@@ -2072,7 +2072,7 @@ private function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>,
             _n = (0 : GoInt);
             Go.cfor(_n < (_p.length), _n++, {
                 if (_pos == ((0 : GoInt8))) {
-                    if (_rng != null) {
+                    if (_rng != null && ((_rng : Dynamic).__nil__ == null || !(_rng : Dynamic).__nil__)) {
                         _val = _rng.int63();
                     } else {
                         _val = _src.int63();
@@ -2256,7 +2256,7 @@ private function _seedrand(_x:GoInt32):GoInt32 {
     // Requirements: s > 1 and v >= 1.
 **/
 function newZipf(_r:Ref<Rand>, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Ref<Zipf> {
-        var _z = (({} : Zipf) : Ref<Zipf>);
+        var _z = (Go.setRef(({} : Zipf)) : Ref<Zipf>);
         if ((_s <= (1 : GoFloat64)) || (_v < (1 : GoFloat64))) {
             return null;
         };
@@ -2278,36 +2278,36 @@ class Rand_asInterface {
         // Read should not be called concurrently with any other Rand method.
     **/
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     /**
         // Shuffle pseudo-randomizes the order of elements.
         // n is the number of elements. Shuffle panics if n < 0.
         // swap swaps the elements with indexes i and j.
     **/
     @:keep
-    public function shuffle(_n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void __self__.value.shuffle(_n, _swap);
+    public dynamic function shuffle(_n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void __self__.value.shuffle(_n, _swap);
     /**
         // Perm returns, as a slice of n ints, a pseudo-random permutation of the integers
         // in the half-open interval [0,n).
     **/
     @:keep
-    public function perm(_n:GoInt):Slice<GoInt> return __self__.value.perm(_n);
+    public dynamic function perm(_n:GoInt):Slice<GoInt> return __self__.value.perm(_n);
     /**
         // Float32 returns, as a float32, a pseudo-random number in the half-open interval [0.0,1.0).
     **/
     @:keep
-    public function float32():GoFloat32 return __self__.value.float32();
+    public dynamic function float32():GoFloat32 return __self__.value.float32();
     /**
         // Float64 returns, as a float64, a pseudo-random number in the half-open interval [0.0,1.0).
     **/
     @:keep
-    public function float64():GoFloat64 return __self__.value.float64();
+    public dynamic function float64():GoFloat64 return __self__.value.float64();
     /**
         // Intn returns, as an int, a non-negative pseudo-random number in the half-open interval [0,n).
         // It panics if n <= 0.
     **/
     @:keep
-    public function intn(_n:GoInt):GoInt return __self__.value.intn(_n);
+    public dynamic function intn(_n:GoInt):GoInt return __self__.value.intn(_n);
     /**
         // int31n returns, as an int32, a non-negative pseudo-random number in the half-open interval [0,n).
         // n must be > 0, but int31n does not check this; the caller must ensure it.
@@ -2320,50 +2320,50 @@ class Rand_asInterface {
         // https://lemire.me/blog/2016/06/30/fast-random-shuffling
     **/
     @:keep
-    public function _int31n(_n:GoInt32):GoInt32 return __self__.value._int31n(_n);
+    public dynamic function _int31n(_n:GoInt32):GoInt32 return __self__.value._int31n(_n);
     /**
         // Int31n returns, as an int32, a non-negative pseudo-random number in the half-open interval [0,n).
         // It panics if n <= 0.
     **/
     @:keep
-    public function int31n(_n:GoInt32):GoInt32 return __self__.value.int31n(_n);
+    public dynamic function int31n(_n:GoInt32):GoInt32 return __self__.value.int31n(_n);
     /**
         // Int63n returns, as an int64, a non-negative pseudo-random number in the half-open interval [0,n).
         // It panics if n <= 0.
     **/
     @:keep
-    public function int63n(_n:GoInt64):GoInt64 return __self__.value.int63n(_n);
+    public dynamic function int63n(_n:GoInt64):GoInt64 return __self__.value.int63n(_n);
     /**
         // Int returns a non-negative pseudo-random int.
     **/
     @:keep
-    public function int_():GoInt return __self__.value.int_();
+    public dynamic function int_():GoInt return __self__.value.int_();
     /**
         // Int31 returns a non-negative pseudo-random 31-bit integer as an int32.
     **/
     @:keep
-    public function int31():GoInt32 return __self__.value.int31();
+    public dynamic function int31():GoInt32 return __self__.value.int31();
     /**
         // Uint64 returns a pseudo-random 64-bit value as a uint64.
     **/
     @:keep
-    public function uint64():GoUInt64 return __self__.value.uint64();
+    public dynamic function uint64():GoUInt64 return __self__.value.uint64();
     /**
         // Uint32 returns a pseudo-random 32-bit value as a uint32.
     **/
     @:keep
-    public function uint32():GoUInt32 return __self__.value.uint32();
+    public dynamic function uint32():GoUInt32 return __self__.value.uint32();
     /**
         // Int63 returns a non-negative pseudo-random 63-bit integer as an int64.
     **/
     @:keep
-    public function int63():GoInt64 return __self__.value.int63();
+    public dynamic function int63():GoInt64 return __self__.value.int63();
     /**
         // Seed uses the provided seed value to initialize the generator to a deterministic state.
         // Seed should not be called concurrently with any other Rand method.
     **/
     @:keep
-    public function seed(_seed:GoInt64):Void __self__.value.seed(_seed);
+    public dynamic function seed(_seed:GoInt64):Void __self__.value.seed(_seed);
     /**
         // NormFloat64 returns a normally distributed float64 in
         // the range -math.MaxFloat64 through +math.MaxFloat64 inclusive,
@@ -2374,7 +2374,7 @@ class Rand_asInterface {
         //	sample = NormFloat64() * desiredStdDev + desiredMean
     **/
     @:keep
-    public function normFloat64():GoFloat64 return __self__.value.normFloat64();
+    public dynamic function normFloat64():GoFloat64 return __self__.value.normFloat64();
     /**
         // ExpFloat64 returns an exponentially distributed float64 in the range
         // (0, +math.MaxFloat64] with an exponential distribution whose rate parameter
@@ -2385,7 +2385,7 @@ class Rand_asInterface {
         //	sample = ExpFloat64() / desiredRateParameter
     **/
     @:keep
-    public function expFloat64():GoFloat64 return __self__.value.expFloat64();
+    public dynamic function expFloat64():GoFloat64 return __self__.value.expFloat64();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2683,30 +2683,30 @@ class T_lockedSource_asInterface {
         // read implements Read for a lockedSource without a race condition.
     **/
     @:keep
-    public function _read(_p:Slice<GoByte>, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value._read(_p, _readVal, _readPos);
+    public dynamic function _read(_p:Slice<GoByte>, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value._read(_p, _readVal, _readPos);
     /**
         // seed seeds the underlying source.
         // The caller must have locked r.lk.
     **/
     @:keep
-    public function _seed(_seed:GoInt64):Void __self__.value._seed(_seed);
+    public dynamic function _seed(_seed:GoInt64):Void __self__.value._seed(_seed);
     /**
         // seedPos implements Seed for a lockedSource without a race condition.
     **/
     @:keep
-    public function _seedPos(_seed:GoInt64, _readPos:Pointer<GoInt8>):Void __self__.value._seedPos(_seed, _readPos);
+    public dynamic function _seedPos(_seed:GoInt64, _readPos:Pointer<GoInt8>):Void __self__.value._seedPos(_seed, _readPos);
     @:keep
-    public function seed(_seed:GoInt64):Void __self__.value.seed(_seed);
+    public dynamic function seed(_seed:GoInt64):Void __self__.value.seed(_seed);
     @:keep
-    public function uint64():GoUInt64 return __self__.value.uint64();
+    public dynamic function uint64():GoUInt64 return __self__.value.uint64();
     @:keep
-    public function int63():GoInt64 return __self__.value.int63();
+    public dynamic function int63():GoInt64 return __self__.value.int63();
     /**
         // source returns r.s, allocating and seeding it if needed.
         // The caller must have locked r.
     **/
     @:keep
-    public function _source():Ref<T_rngSource> return __self__.value._source();
+    public dynamic function _source():Ref<T_rngSource> return __self__.value._source();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2737,7 +2737,7 @@ class T_lockedSource_asInterface {
     **/
     @:keep
     static public function _seed( _r:Ref<T_lockedSource>, _seed:GoInt64):Void {
-        if (_r._s == null) {
+        if (_r._s == null || (_r._s : Dynamic).__nil__) {
             _r._s = _newSource(_seed);
         } else {
             _r._s.seed(_seed);
@@ -2781,7 +2781,7 @@ class T_lockedSource_asInterface {
     **/
     @:keep
     static public function _source( _r:Ref<T_lockedSource>):Ref<T_rngSource> {
-        if (_r._s == null) {
+        if (_r._s == null || (_r._s : Dynamic).__nil__) {
             var _seed:GoInt64 = (0 : GoInt64);
             if (_randautoseed.value() == (("0" : GoString))) {
                 _seed = ("1" : GoInt64);
@@ -2798,17 +2798,17 @@ class T_rngSource_asInterface {
         // Uint64 returns a non-negative pseudo-random 64-bit integer as an uint64.
     **/
     @:keep
-    public function uint64():GoUInt64 return __self__.value.uint64();
+    public dynamic function uint64():GoUInt64 return __self__.value.uint64();
     /**
         // Int63 returns a non-negative pseudo-random 63-bit integer as an int64.
     **/
     @:keep
-    public function int63():GoInt64 return __self__.value.int63();
+    public dynamic function int63():GoInt64 return __self__.value.int63();
     /**
         // Seed uses the provided seed value to initialize the generator to a deterministic state.
     **/
     @:keep
-    public function seed(_seed:GoInt64):Void __self__.value.seed(_seed);
+    public dynamic function seed(_seed:GoInt64):Void __self__.value.seed(_seed);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2881,11 +2881,11 @@ class Zipf_asInterface {
         // by the Zipf object.
     **/
     @:keep
-    public function uint64():GoUInt64 return __self__.value.uint64();
+    public dynamic function uint64():GoUInt64 return __self__.value.uint64();
     @:keep
-    public function _hinv(_x:GoFloat64):GoFloat64 return __self__.value._hinv(_x);
+    public dynamic function _hinv(_x:GoFloat64):GoFloat64 return __self__.value._hinv(_x);
     @:keep
-    public function _h(_x:GoFloat64):GoFloat64 return __self__.value._h(_x);
+    public dynamic function _h(_x:GoFloat64):GoFloat64 return __self__.value._h(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2901,7 +2901,7 @@ class Zipf_asInterface {
     **/
     @:keep
     static public function uint64( _z:Ref<Zipf>):GoUInt64 {
-        if (_z == null) {
+        if (_z == null || (_z : Dynamic).__nil__) {
             throw Go.toInterface(("rand: nil Zipf" : GoString));
         };
         var _k:GoFloat64 = (0 : GoFloat64);

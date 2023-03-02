@@ -599,7 +599,7 @@ function newEncoding(_encoder:GoString):Ref<Encoding> {
                 };
             });
         };
-        var _e = (({} : Encoding) : Ref<Encoding>);
+        var _e = (Go.setRef(({} : Encoding)) : Ref<Encoding>);
         _e._padChar = (61 : GoInt32);
         Go.copySlice((_e._encode.__slice__(0) : Slice<GoUInt8>), _encoder);
         Go.copySlice((_e._decodeMap.__slice__(0) : Slice<GoUInt8>), Go.str(255,
@@ -874,7 +874,7 @@ function newEncoding(_encoder:GoString):Ref<Encoding> {
     // partially written blocks.
 **/
 function newEncoder(_enc:Ref<Encoding>, _w:stdgo.io.Io.Writer):stdgo.io.Io.WriteCloser {
-        return Go.asInterface((({ _enc : _enc, _w : _w } : T_encoder) : Ref<T_encoder>));
+        return Go.asInterface((Go.setRef(({ _enc : _enc, _w : _w } : T_encoder)) : Ref<T_encoder>));
     }
 /**
     // assemble32 assembles 4 base64 digits into 3 bytes.
@@ -904,7 +904,7 @@ private function _assemble64(_n1:GoByte, _n2:GoByte, _n3:GoByte, _n4:GoByte, _n5
     // NewDecoder constructs a new base64 stream decoder.
 **/
 function newDecoder(_enc:Ref<Encoding>, _r:stdgo.io.Io.Reader):stdgo.io.Io.Reader {
-        return Go.asInterface((({ _enc : _enc, _r : Go.asInterface(((new T_newlineFilteringReader(_r) : T_newlineFilteringReader) : Ref<T_newlineFilteringReader>)) } : T_decoder) : Ref<T_decoder>));
+        return Go.asInterface((Go.setRef(({ _enc : _enc, _r : Go.asInterface((Go.setRef((new T_newlineFilteringReader(_r) : T_newlineFilteringReader)) : Ref<T_newlineFilteringReader>)) } : T_decoder)) : Ref<T_decoder>));
     }
 /**
     // Do nothing to a reference base64 string (leave in standard format)
@@ -938,7 +938,7 @@ private function _funnyRef(_ref:GoString):GoString {
 private function _testEqual(_t:Ref<stdgo.testing.Testing.T>, _msg:GoString, _args:haxe.Rest<AnyInterface>):Bool {
         var _args = new Slice<AnyInterface>(0, 0, ..._args);
         _t.helper();
-        if (Go.toInterface(_args[((_args.length) - (2 : GoInt) : GoInt)]) != (Go.toInterface(_args[((_args.length) - (1 : GoInt) : GoInt)]))) {
+        if (_args[((_args.length) - (2 : GoInt) : GoInt)] != (_args[((_args.length) - (1 : GoInt) : GoInt)])) {
             _t.errorf(_msg, ..._args.__toArray__());
             return false;
         };
@@ -954,7 +954,7 @@ function testEncode(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testEncoder(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_0 => _p in _pairs) {
-            var _bb = ((new stdgo.strings.Strings.Builder() : stdgo.strings.Strings.Builder) : Ref<stdgo.strings.Strings.Builder>);
+            var _bb = (Go.setRef((new stdgo.strings.Strings.Builder() : stdgo.strings.Strings.Builder)) : Ref<stdgo.strings.Strings.Builder>);
             var _encoder:stdgo.io.Io.WriteCloser = newEncoder(stdEncoding, Go.asInterface(_bb));
             _encoder.write((_p._decoded : Slice<GoByte>));
             _encoder.close();
@@ -966,7 +966,7 @@ function testEncoderBuffering(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _bs:GoInt = (1 : GoInt);
             Go.cfor(_bs <= (12 : GoInt), _bs++, {
-                var _bb = ((new stdgo.strings.Strings.Builder() : stdgo.strings.Strings.Builder) : Ref<stdgo.strings.Strings.Builder>);
+                var _bb = (Go.setRef((new stdgo.strings.Strings.Builder() : stdgo.strings.Strings.Builder)) : Ref<stdgo.strings.Strings.Builder>);
                 var _encoder:stdgo.io.Io.WriteCloser = newEncoder(stdEncoding, Go.asInterface(_bb));
                 {
                     var _pos:GoInt = (0 : GoInt);
@@ -1191,7 +1191,7 @@ function testBig(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _raw[(_i : GoInt)] = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString)[(_i % (("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString).length) : GoInt)];
             });
         };
-        var _encoded = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _encoded = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _w:stdgo.io.Io.WriteCloser = newEncoder(stdEncoding, Go.asInterface(_encoded));
         var __tmp__ = _w.write(_raw), _nn:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if ((_nn != _n) || (_err != null)) {
@@ -1257,7 +1257,7 @@ function testDecoderIssue3577(_t:Ref<stdgo.testing.Testing.T>):Void {
         _next.__send__((new T_nextRead((5 : GoInt), (null : Error)) : T_nextRead));
         _next.__send__((new T_nextRead((10 : GoInt), _wantErr) : T_nextRead));
         _next.__send__((new T_nextRead((0 : GoInt), _wantErr) : T_nextRead));
-        var _d:stdgo.io.Io.Reader = newDecoder(stdEncoding, Go.asInterface((({ _source : ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : GoString), _nextc : _next } : T_faultInjectReader) : Ref<T_faultInjectReader>)));
+        var _d:stdgo.io.Io.Reader = newDecoder(stdEncoding, Go.asInterface((Go.setRef(({ _source : ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : GoString), _nextc : _next } : T_faultInjectReader)) : Ref<T_faultInjectReader>)));
         var _errc = new Chan<Error>((1 : GoInt).toBasic(), () -> (null : Error));
         Go.routine(() -> {
             var a = function():Void {
@@ -1392,7 +1392,7 @@ class Encoding_asInterface {
         // corresponding to n bytes of base64-encoded data.
     **/
     @:keep
-    public function decodedLen(_n:GoInt):GoInt return __self__.value.decodedLen(_n);
+    public dynamic function decodedLen(_n:GoInt):GoInt return __self__.value.decodedLen(_n);
     /**
         // Decode decodes src using the encoding enc. It writes at most
         // DecodedLen(len(src)) bytes to dst and returns the number of bytes
@@ -1401,12 +1401,12 @@ class Encoding_asInterface {
         // New line characters (\r and \n) are ignored.
     **/
     @:keep
-    public function decode(_dst:Slice<GoByte>, _src:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.decode(_dst, _src);
+    public dynamic function decode(_dst:Slice<GoByte>, _src:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.decode(_dst, _src);
     /**
         // DecodeString returns the bytes represented by the base64 string s.
     **/
     @:keep
-    public function decodeString(_s:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.decodeString(_s);
+    public dynamic function decodeString(_s:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.decodeString(_s);
     /**
         // decodeQuantum decodes up to 4 base64 bytes. The received parameters are
         // the destination buffer dst, the source buffer src and an index in the
@@ -1415,18 +1415,18 @@ class Encoding_asInterface {
         // to dst, and an error, if any.
     **/
     @:keep
-    public function _decodeQuantum(_dst:Slice<GoByte>, _src:Slice<GoByte>, _si:GoInt):{ var _0 : GoInt; var _1 : GoInt; var _2 : Error; } return __self__.value._decodeQuantum(_dst, _src, _si);
+    public dynamic function _decodeQuantum(_dst:Slice<GoByte>, _src:Slice<GoByte>, _si:GoInt):{ var _0 : GoInt; var _1 : GoInt; var _2 : Error; } return __self__.value._decodeQuantum(_dst, _src, _si);
     /**
         // EncodedLen returns the length in bytes of the base64 encoding
         // of an input buffer of length n.
     **/
     @:keep
-    public function encodedLen(_n:GoInt):GoInt return __self__.value.encodedLen(_n);
+    public dynamic function encodedLen(_n:GoInt):GoInt return __self__.value.encodedLen(_n);
     /**
         // EncodeToString returns the base64 encoding of src.
     **/
     @:keep
-    public function encodeToString(_src:Slice<GoByte>):GoString return __self__.value.encodeToString(_src);
+    public dynamic function encodeToString(_src:Slice<GoByte>):GoString return __self__.value.encodeToString(_src);
     /**
         // Encode encodes src using the encoding enc, writing
         // EncodedLen(len(src)) bytes to dst.
@@ -1436,7 +1436,7 @@ class Encoding_asInterface {
         // of a large data stream. Use NewEncoder() instead.
     **/
     @:keep
-    public function encode(_dst:Slice<GoByte>, _src:Slice<GoByte>):Void __self__.value.encode(_dst, _src);
+    public dynamic function encode(_dst:Slice<GoByte>, _src:Slice<GoByte>):Void __self__.value.encode(_dst, _src);
     /**
         // Strict creates a new encoding identical to enc except with
         // strict decoding enabled. In this mode, the decoder requires that
@@ -1446,7 +1446,7 @@ class Encoding_asInterface {
         // (CR and LF) are still ignored.
     **/
     @:keep
-    public function strict():Ref<Encoding> return __self__.value.strict();
+    public dynamic function strict():Ref<Encoding> return __self__.value.strict();
     /**
         // WithPadding creates a new encoding identical to enc except
         // with a specified padding character, or NoPadding to disable padding.
@@ -1455,7 +1455,7 @@ class Encoding_asInterface {
         // below '\xff'.
     **/
     @:keep
-    public function withPadding(_padding:GoRune):Ref<Encoding> return __self__.value.withPadding(_padding);
+    public dynamic function withPadding(_padding:GoRune):Ref<Encoding> return __self__.value.withPadding(_padding);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1600,19 +1600,22 @@ class Encoding_asInterface {
                 if ((_in : GoRune) != (_enc._padChar)) {
                     return { _0 : _si, _1 : (0 : GoInt), _2 : Go.asInterface((_si - (1 : GoInt) : CorruptInputError)) };
                 };
-                if (_j == ((0 : GoInt)) || _j == ((1 : GoInt))) {
-                    return { _0 : _si, _1 : (0 : GoInt), _2 : Go.asInterface((_si - (1 : GoInt) : CorruptInputError)) };
-                } else if (_j == ((2 : GoInt))) {
-                    while ((_si < _src.length) && ((_src[(_si : GoInt)] == (10 : GoUInt8)) || (_src[(_si : GoInt)] == (13 : GoUInt8)))) {
+                {
+                    final __value__ = _j;
+                    if (__value__ == ((0 : GoInt)) || __value__ == ((1 : GoInt))) {
+                        return { _0 : _si, _1 : (0 : GoInt), _2 : Go.asInterface((_si - (1 : GoInt) : CorruptInputError)) };
+                    } else if (__value__ == ((2 : GoInt))) {
+                        while ((_si < _src.length) && ((_src[(_si : GoInt)] == (10 : GoUInt8)) || (_src[(_si : GoInt)] == (13 : GoUInt8)))) {
+                            _si++;
+                        };
+                        if (_si == ((_src.length))) {
+                            return { _0 : _si, _1 : (0 : GoInt), _2 : Go.asInterface((_src.length : CorruptInputError)) };
+                        };
+                        if ((_src[(_si : GoInt)] : GoRune) != (_enc._padChar)) {
+                            return { _0 : _si, _1 : (0 : GoInt), _2 : Go.asInterface((_si - (1 : GoInt) : CorruptInputError)) };
+                        };
                         _si++;
                     };
-                    if (_si == ((_src.length))) {
-                        return { _0 : _si, _1 : (0 : GoInt), _2 : Go.asInterface((_src.length : CorruptInputError)) };
-                    };
-                    if ((_src[(_si : GoInt)] : GoRune) != (_enc._padChar)) {
-                        return { _0 : _si, _1 : (0 : GoInt), _2 : Go.asInterface((_si - (1 : GoInt) : CorruptInputError)) };
-                    };
-                    _si++;
                 };
                 while ((_si < _src.length) && ((_src[(_si : GoInt)] == (10 : GoUInt8)) || (_src[(_si : GoInt)] == (13 : GoUInt8)))) {
                     _si++;
@@ -1636,32 +1639,35 @@ class Encoding_asInterface {
         {
             var __switchIndex__ = -1;
             while (true) {
-                if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_dlen == (4 : GoInt)))) {
-                    _dst[(2 : GoInt)] = _dbuf[(2 : GoInt)];
-                    _dbuf[(2 : GoInt)] = (0 : GoUInt8);
-                    @:fallthrough {
-                        __switchIndex__ = 1;
-                        continue;
+                {
+                    final __value__ = _dlen;
+                    if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (4 : GoInt)))) {
+                        _dst[(2 : GoInt)] = _dbuf[(2 : GoInt)];
+                        _dbuf[(2 : GoInt)] = (0 : GoUInt8);
+                        @:fallthrough {
+                            __switchIndex__ = 1;
+                            continue;
+                        };
+                        break;
+                    } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == (3 : GoInt)))) {
+                        _dst[(1 : GoInt)] = _dbuf[(1 : GoInt)];
+                        if (_enc._strict && (_dbuf[(2 : GoInt)] != (0 : GoUInt8))) {
+                            return { _0 : _si, _1 : (0 : GoInt), _2 : Go.asInterface((_si - (1 : GoInt) : CorruptInputError)) };
+                        };
+                        _dbuf[(1 : GoInt)] = (0 : GoUInt8);
+                        @:fallthrough {
+                            __switchIndex__ = 2;
+                            continue;
+                        };
+                        break;
+                    } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == (2 : GoInt)))) {
+                        _dst[(0 : GoInt)] = _dbuf[(0 : GoInt)];
+                        if (_enc._strict && ((_dbuf[(1 : GoInt)] != (0 : GoUInt8)) || (_dbuf[(2 : GoInt)] != (0 : GoUInt8)))) {
+                            return { _0 : _si, _1 : (0 : GoInt), _2 : Go.asInterface((_si - (2 : GoInt) : CorruptInputError)) };
+                        };
+                        break;
+                        break;
                     };
-                    break;
-                } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_dlen == (3 : GoInt)))) {
-                    _dst[(1 : GoInt)] = _dbuf[(1 : GoInt)];
-                    if (_enc._strict && (_dbuf[(2 : GoInt)] != (0 : GoUInt8))) {
-                        return { _0 : _si, _1 : (0 : GoInt), _2 : Go.asInterface((_si - (1 : GoInt) : CorruptInputError)) };
-                    };
-                    _dbuf[(1 : GoInt)] = (0 : GoUInt8);
-                    @:fallthrough {
-                        __switchIndex__ = 2;
-                        continue;
-                    };
-                    break;
-                } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_dlen == (2 : GoInt)))) {
-                    _dst[(0 : GoInt)] = _dbuf[(0 : GoInt)];
-                    if (_enc._strict && ((_dbuf[(1 : GoInt)] != (0 : GoUInt8)) || (_dbuf[(2 : GoInt)] != (0 : GoUInt8)))) {
-                        return { _0 : _si, _1 : (0 : GoInt), _2 : Go.asInterface((_si - (2 : GoInt) : CorruptInputError)) };
-                    };
-                    break;
-                    break;
                 };
                 break;
             };
@@ -1723,15 +1729,18 @@ class Encoding_asInterface {
         };
         _dst[(_di + (0 : GoInt) : GoInt)] = _enc._encode[((_val >> (("18" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
         _dst[(_di + (1 : GoInt) : GoInt)] = _enc._encode[((_val >> (("12" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
-        if (_remain == ((2 : GoInt))) {
-            _dst[(_di + (2 : GoInt) : GoInt)] = _enc._encode[((_val >> (("6" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
-            if (_enc._padChar != ((-1 : GoInt32))) {
-                _dst[(_di + (3 : GoInt) : GoInt)] = (_enc._padChar : GoByte);
-            };
-        } else if (_remain == ((1 : GoInt))) {
-            if (_enc._padChar != ((-1 : GoInt32))) {
-                _dst[(_di + (2 : GoInt) : GoInt)] = (_enc._padChar : GoByte);
-                _dst[(_di + (3 : GoInt) : GoInt)] = (_enc._padChar : GoByte);
+        {
+            final __value__ = _remain;
+            if (__value__ == ((2 : GoInt))) {
+                _dst[(_di + (2 : GoInt) : GoInt)] = _enc._encode[((_val >> (("6" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
+                if (_enc._padChar != ((-1 : GoInt32))) {
+                    _dst[(_di + (3 : GoInt) : GoInt)] = (_enc._padChar : GoByte);
+                };
+            } else if (__value__ == ((1 : GoInt))) {
+                if (_enc._padChar != ((-1 : GoInt32))) {
+                    _dst[(_di + (2 : GoInt) : GoInt)] = (_enc._padChar : GoByte);
+                    _dst[(_di + (3 : GoInt) : GoInt)] = (_enc._padChar : GoByte);
+                };
             };
         };
     }
@@ -1746,7 +1755,7 @@ class Encoding_asInterface {
     @:keep
     static public function strict( _enc:Encoding):Ref<Encoding> {
         _enc._strict = true;
-        return (_enc : Ref<Encoding>);
+        return (Go.setRef(_enc) : Ref<Encoding>);
     }
     /**
         // WithPadding creates a new encoding identical to enc except
@@ -1769,7 +1778,7 @@ class Encoding_asInterface {
             });
         };
         _enc._padChar = _padding;
-        return (_enc : Ref<Encoding>);
+        return (Go.setRef(_enc) : Ref<Encoding>);
     }
 }
 class T_encoder_asInterface {
@@ -1778,9 +1787,9 @@ class T_encoder_asInterface {
         // It is an error to call Write after calling Close.
     **/
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1865,7 +1874,7 @@ class T_encoder_asInterface {
 }
 class T_decoder_asInterface {
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1951,7 +1960,7 @@ class T_decoder_asInterface {
 }
 class T_newlineFilteringReader_asInterface {
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1988,7 +1997,7 @@ class T_newlineFilteringReader_asInterface {
 }
 class T_faultInjectReader_asInterface {
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2000,7 +2009,7 @@ class T_faultInjectReader_asInterface {
 @:keep @:allow(stdgo.encoding.base64.Base64.T_faultInjectReader_asInterface) class T_faultInjectReader_static_extension {
     @:keep
     static public function read( _r:Ref<T_faultInjectReader>, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
-        var _nr:T_nextRead = (_r._nextc.__get__() == null ? null : _r._nextc.__get__().__copy__());
+        var _nr:T_nextRead = _r._nextc.__get__().__copy__();
         if ((_p.length) > _nr._n) {
             _p = (_p.__slice__(0, _nr._n) : Slice<GoUInt8>);
         };
@@ -2011,7 +2020,7 @@ class T_faultInjectReader_asInterface {
 }
 class CorruptInputError_asInterface {
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

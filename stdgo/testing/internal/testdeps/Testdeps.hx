@@ -75,36 +75,36 @@ private var _log : T_testLog = ({} : T_testLog);
 }
 class TestDeps_asInterface {
     @:keep
-    public function snapshotCoverage():Void __self__.value.snapshotCoverage();
+    public dynamic function snapshotCoverage():Void __self__.value.snapshotCoverage();
     @:keep
-    public function resetCoverage():Void __self__.value.resetCoverage();
+    public dynamic function resetCoverage():Void __self__.value.resetCoverage();
     @:keep
-    public function checkCorpus(_vals:Slice<AnyInterface>, _types:Slice<stdgo.reflect.Reflect.Type>):Error return __self__.value.checkCorpus(_vals, _types);
+    public dynamic function checkCorpus(_vals:Slice<AnyInterface>, _types:Slice<stdgo.reflect.Reflect.Type>):Error return __self__.value.checkCorpus(_vals, _types);
     @:keep
-    public function readCorpus(_dir:GoString, _types:Slice<stdgo.reflect.Reflect.Type>):{ var _0 : Slice<{ var parent : GoString; var path : GoString; var data : Slice<GoUInt8>; var values : Slice<AnyInterface>; var generation : GoInt; var isSeed : Bool; }>; var _1 : Error; } return __self__.value.readCorpus(_dir, _types);
+    public dynamic function readCorpus(_dir:GoString, _types:Slice<stdgo.reflect.Reflect.Type>):{ var _0 : Slice<{ var parent : GoString; var path : GoString; var data : Slice<GoUInt8>; var values : Slice<AnyInterface>; var generation : GoInt; var isSeed : Bool; }>; var _1 : Error; } return __self__.value.readCorpus(_dir, _types);
     @:keep
-    public function runFuzzWorker(_fn:({ var parent : GoString; var path : GoString; var data : Slice<GoUInt8>; var values : Slice<AnyInterface>; var generation : GoInt; var isSeed : Bool; }) -> Error):Error return __self__.value.runFuzzWorker(_fn);
+    public dynamic function runFuzzWorker(_fn:({ var parent : GoString; var path : GoString; var data : Slice<GoUInt8>; var values : Slice<AnyInterface>; var generation : GoInt; var isSeed : Bool; }) -> Error):Error return __self__.value.runFuzzWorker(_fn);
     @:keep
-    public function coordinateFuzzing(_timeout:stdgo.time.Time.Duration, _limit:GoInt64, _minimizeTimeout:stdgo.time.Time.Duration, _minimizeLimit:GoInt64, _parallel:GoInt, _seed:Slice<{ var parent : GoString; var path : GoString; var data : Slice<GoUInt8>; var values : Slice<AnyInterface>; var generation : GoInt; var isSeed : Bool; }>, _types:Slice<stdgo.reflect.Reflect.Type>, _corpusDir:GoString, _cacheDir:GoString):Error return __self__.value.coordinateFuzzing(_timeout, _limit, _minimizeTimeout, _minimizeLimit, _parallel, _seed, _types, _corpusDir, _cacheDir);
+    public dynamic function coordinateFuzzing(_timeout:stdgo.time.Time.Duration, _limit:GoInt64, _minimizeTimeout:stdgo.time.Time.Duration, _minimizeLimit:GoInt64, _parallel:GoInt, _seed:Slice<{ var parent : GoString; var path : GoString; var data : Slice<GoUInt8>; var values : Slice<AnyInterface>; var generation : GoInt; var isSeed : Bool; }>, _types:Slice<stdgo.reflect.Reflect.Type>, _corpusDir:GoString, _cacheDir:GoString):Error return __self__.value.coordinateFuzzing(_timeout, _limit, _minimizeTimeout, _minimizeLimit, _parallel, _seed, _types, _corpusDir, _cacheDir);
     /**
         // SetPanicOnExit0 tells the os package whether to panic on os.Exit(0).
     **/
     @:keep
-    public function setPanicOnExit0(_v:Bool):Void __self__.value.setPanicOnExit0(_v);
+    public dynamic function setPanicOnExit0(_v:Bool):Void __self__.value.setPanicOnExit0(_v);
     @:keep
-    public function stopTestLog():Error return __self__.value.stopTestLog();
+    public dynamic function stopTestLog():Error return __self__.value.stopTestLog();
     @:keep
-    public function startTestLog(_w:stdgo.io.Io.Writer):Void __self__.value.startTestLog(_w);
+    public dynamic function startTestLog(_w:stdgo.io.Io.Writer):Void __self__.value.startTestLog(_w);
     @:keep
-    public function importPath():GoString return __self__.value.importPath();
+    public dynamic function importPath():GoString return __self__.value.importPath();
     @:keep
-    public function writeProfileTo(_name:GoString, _w:stdgo.io.Io.Writer, _debug:GoInt):Error return __self__.value.writeProfileTo(_name, _w, _debug);
+    public dynamic function writeProfileTo(_name:GoString, _w:stdgo.io.Io.Writer, _debug:GoInt):Error return __self__.value.writeProfileTo(_name, _w, _debug);
     @:keep
-    public function stopCPUProfile():Void __self__.value.stopCPUProfile();
+    public dynamic function stopCPUProfile():Void __self__.value.stopCPUProfile();
     @:keep
-    public function startCPUProfile(_w:stdgo.io.Io.Writer):Error return __self__.value.startCPUProfile(_w);
+    public dynamic function startCPUProfile(_w:stdgo.io.Io.Writer):Error return __self__.value.startCPUProfile(_w);
     @:keep
-    public function matchString(_pat:GoString, _str:GoString):{ var _0 : Bool; var _1 : Error; } return __self__.value.matchString(_pat, _str);
+    public dynamic function matchString(_pat:GoString, _str:GoString):{ var _0 : Bool; var _1 : Error; } return __self__.value.matchString(_pat, _str);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -151,15 +151,15 @@ class T_testLog_asInterface {
         // add adds the (op, name) pair to the test log.
     **/
     @:keep
-    public function _add(_op:GoString, _name:GoString):Void __self__.value._add(_op, _name);
+    public dynamic function _add(_op:GoString, _name:GoString):Void __self__.value._add(_op, _name);
     @:keep
-    public function chdir(_name:GoString):Void __self__.value.chdir(_name);
+    public dynamic function chdir(_name:GoString):Void __self__.value.chdir(_name);
     @:keep
-    public function stat(_name:GoString):Void __self__.value.stat(_name);
+    public dynamic function stat(_name:GoString):Void __self__.value.stat(_name);
     @:keep
-    public function open(_name:GoString):Void __self__.value.open(_name);
+    public dynamic function open(_name:GoString):Void __self__.value.open(_name);
     @:keep
-    public function getenv(_key:GoString):Void __self__.value.getenv(_key);
+    public dynamic function getenv(_key:GoString):Void __self__.value.getenv(_key);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

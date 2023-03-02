@@ -52,13 +52,13 @@ private typedef T_replacer = StructType & {
         
         
     **/
-    public function replace(_s:GoString):GoString;
+    public dynamic function replace(_s:GoString):GoString;
     /**
         
         
         
     **/
-    public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; };
+    public dynamic function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; };
 };
 /**
     // A Builder is used to efficiently build a string using Write methods.
@@ -406,7 +406,7 @@ function dumpTables(_pattern:GoString):{ var _0 : Slice<GoInt>; var _1 : Slice<G
     // It is similar to bytes.NewBufferString but more efficient and read-only.
 **/
 function newReader(_s:GoString):Ref<Reader> {
-        return ((new Reader(_s, ("0" : GoInt64), (-1 : GoInt)) : Reader) : Ref<Reader>);
+        return (Go.setRef((new Reader(_s, ("0" : GoInt64), (-1 : GoInt)) : Reader)) : Ref<Reader>);
     }
 /**
     // NewReplacer returns a new Replacer from a list of old, new string
@@ -421,10 +421,10 @@ function newReplacer(_oldnew:haxe.Rest<GoString>):Ref<Replacer> {
         if ((_oldnew.length) % (2 : GoInt) == ((1 : GoInt))) {
             throw Go.toInterface(("strings.NewReplacer: odd argument count" : GoString));
         };
-        return (({ _oldnew : ((null : Slice<GoString>).__append__(..._oldnew.__toArray__())) } : Replacer) : Ref<Replacer>);
+        return (Go.setRef(({ _oldnew : ((null : Slice<GoString>).__append__(..._oldnew.__toArray__())) } : Replacer)) : Ref<Replacer>);
     }
 private function _makeGenericReplacer(_oldnew:Slice<GoString>):Ref<T_genericReplacer> {
-        var _r = (({} : T_genericReplacer) : Ref<T_genericReplacer>);
+        var _r = (Go.setRef(({} : T_genericReplacer)) : Ref<T_genericReplacer>);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_oldnew.length), _i = _i + ((2 : GoInt)), {
@@ -470,10 +470,10 @@ private function _getStringWriter(_w:stdgo.io.Io.Writer):stdgo.io.Io.StringWrite
         return _sw;
     }
 private function _makeSingleStringReplacer(_pattern:GoString, _value:GoString):Ref<T_singleStringReplacer> {
-        return (({ _finder : _makeStringFinder(_pattern), _value : _value } : T_singleStringReplacer) : Ref<T_singleStringReplacer>);
+        return (Go.setRef(({ _finder : _makeStringFinder(_pattern), _value : _value } : T_singleStringReplacer)) : Ref<T_singleStringReplacer>);
     }
 private function _makeStringFinder(_pattern:GoString):Ref<T_stringFinder> {
-        var _f = (({ _pattern : _pattern, _goodSuffixSkip : new Slice<GoInt>((_pattern.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_pattern.length : GoInt).toBasic()) (0 : GoInt)]) } : T_stringFinder) : Ref<T_stringFinder>);
+        var _f = (Go.setRef(({ _pattern : _pattern, _goodSuffixSkip : new Slice<GoInt>((_pattern.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_pattern.length : GoInt).toBasic()) (0 : GoInt)]) } : T_stringFinder)) : Ref<T_stringFinder>);
         var _last:GoInt = (_pattern.length) - (1 : GoInt);
         for (_i in 0 ... _f._badCharSkip.length.toBasic()) {
             _f._badCharSkip[(_i : GoInt)] = (_pattern.length);
@@ -971,10 +971,13 @@ function fieldsFunc(_s:GoString, _f:GoRune -> Bool):Slice<GoString> {
     // string sep is placed between elements in the resulting string.
 **/
 function join(_elems:Slice<GoString>, _sep:GoString):GoString {
-        if ((_elems.length) == ((0 : GoInt))) {
-            return Go.str();
-        } else if ((_elems.length) == ((1 : GoInt))) {
-            return _elems[(0 : GoInt)];
+        {
+            final __value__ = (_elems.length);
+            if (__value__ == ((0 : GoInt))) {
+                return Go.str();
+            } else if (__value__ == ((1 : GoInt))) {
+                return _elems[(0 : GoInt)];
+            };
         };
         var _n:GoInt = (_sep.length) * (_elems.length - (1 : GoInt));
         {
@@ -1059,10 +1062,13 @@ function map(_mapping:GoRune -> GoRune, _s:GoString):GoString {
     // overflows.
 **/
 function repeat(_s:GoString, _count:GoInt):GoString {
-        if (_count == ((0 : GoInt))) {
-            return Go.str();
-        } else if (_count == ((1 : GoInt))) {
-            return _s;
+        {
+            final __value__ = _count;
+            if (__value__ == ((0 : GoInt))) {
+                return Go.str();
+            } else if (__value__ == ((1 : GoInt))) {
+                return _s;
+            };
         };
         if (_count < (0 : GoInt)) {
             throw Go.toInterface(("strings: negative Repeat count" : GoString));
@@ -1386,12 +1392,12 @@ private function _makeASCIISet(_chars:GoString):{ var _0 : T_asciiSet; var _1 : 
             Go.cfor(_i < (_chars.length), _i++, {
                 var _c:GoUInt8 = _chars[(_i : GoInt)];
                 if (_c >= (128 : GoUInt8)) {
-                    return { _0 : (_as == null ? null : _as.__copy__()), _1 : false };
+                    return { _0 : _as.__copy__(), _1 : false };
                 };
                 _as[(_c / (32 : GoUInt8) : GoInt)] = _as[(_c / (32 : GoUInt8) : GoInt)] | ((("1" : GoUInt32) : GoUInt32) << (_c % (32 : GoUInt8)));
             });
         };
-        return { _0 : (_as == null ? null : _as.__copy__()), _1 : true };
+        return { _0 : _as.__copy__(), _1 : true };
     }
 /**
     // Trim returns a slice of the string s with all leading and
@@ -1407,7 +1413,7 @@ function trim(_s:GoString, _cutset:GoString):GoString {
         {
             var __tmp__ = _makeASCIISet(_cutset), _as:T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                return _trimLeftASCII(_trimRightASCII(_s, (_as : Ref<T_asciiSet>)), (_as : Ref<T_asciiSet>));
+                return _trimLeftASCII(_trimRightASCII(_s, (Go.setRef(_as) : Ref<T_asciiSet>)), (Go.setRef(_as) : Ref<T_asciiSet>));
             };
         };
         return _trimLeftUnicode(_trimRightUnicode(_s, _cutset), _cutset);
@@ -1428,7 +1434,7 @@ function trimLeft(_s:GoString, _cutset:GoString):GoString {
         {
             var __tmp__ = _makeASCIISet(_cutset), _as:T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                return _trimLeftASCII(_s, (_as : Ref<T_asciiSet>));
+                return _trimLeftASCII(_s, (Go.setRef(_as) : Ref<T_asciiSet>));
             };
         };
         return _trimLeftUnicode(_s, _cutset);
@@ -1481,7 +1487,7 @@ function trimRight(_s:GoString, _cutset:GoString):GoString {
         {
             var __tmp__ = _makeASCIISet(_cutset), _as:T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                return _trimRightASCII(_s, (_as : Ref<T_asciiSet>));
+                return _trimRightASCII(_s, (Go.setRef(_as) : Ref<T_asciiSet>));
             };
         };
         return _trimRightUnicode(_s, _cutset);
@@ -1825,62 +1831,62 @@ class Builder_asInterface {
         // It returns the length of s and a nil error.
     **/
     @:keep
-    public function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
+    public dynamic function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
     /**
         // WriteRune appends the UTF-8 encoding of Unicode code point r to b's buffer.
         // It returns the length of r and a nil error.
     **/
     @:keep
-    public function writeRune(_r:GoRune):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(_r);
+    public dynamic function writeRune(_r:GoRune):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(_r);
     /**
         // WriteByte appends the byte c to b's buffer.
         // The returned error is always nil.
     **/
     @:keep
-    public function writeByte(_c:GoByte):Error return __self__.value.writeByte(_c);
+    public dynamic function writeByte(_c:GoByte):Error return __self__.value.writeByte(_c);
     /**
         // Write appends the contents of p to b's buffer.
         // Write always returns len(p), nil.
     **/
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     /**
         // Grow grows b's capacity, if necessary, to guarantee space for
         // another n bytes. After Grow(n), at least n bytes can be written to b
         // without another allocation. If n is negative, Grow panics.
     **/
     @:keep
-    public function grow(_n:GoInt):Void __self__.value.grow(_n);
+    public dynamic function grow(_n:GoInt):Void __self__.value.grow(_n);
     /**
         // grow copies the buffer to a new, larger buffer so that there are at least n
         // bytes of capacity beyond len(b.buf).
     **/
     @:keep
-    public function _grow(_n:GoInt):Void __self__.value._grow(_n);
+    public dynamic function _grow(_n:GoInt):Void __self__.value._grow(_n);
     /**
         // Reset resets the Builder to be empty.
     **/
     @:keep
-    public function reset():Void __self__.value.reset();
+    public dynamic function reset():Void __self__.value.reset();
     /**
         // Cap returns the capacity of the builder's underlying byte slice. It is the
         // total space allocated for the string being built and includes any bytes
         // already written.
     **/
     @:keep
-    public function cap():GoInt return __self__.value.cap();
+    public dynamic function cap():GoInt return __self__.value.cap();
     /**
         // Len returns the number of accumulated bytes; b.Len() == len(b.String()).
     **/
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     /**
         // String returns the accumulated string.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function _copyCheck():Void __self__.value._copyCheck();
+    public dynamic function _copyCheck():Void __self__.value._copyCheck();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1995,47 +2001,47 @@ class Reader_asInterface {
         // Reset resets the Reader to be reading from s.
     **/
     @:keep
-    public function reset(_s:GoString):Void __self__.value.reset(_s);
+    public dynamic function reset(_s:GoString):Void __self__.value.reset(_s);
     /**
         // WriteTo implements the io.WriterTo interface.
     **/
     @:keep
-    public function writeTo(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
+    public dynamic function writeTo(_w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
     /**
         // Seek implements the io.Seeker interface.
     **/
     @:keep
-    public function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
+    public dynamic function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
     /**
         // UnreadRune implements the io.RuneScanner interface.
     **/
     @:keep
-    public function unreadRune():Error return __self__.value.unreadRune();
+    public dynamic function unreadRune():Error return __self__.value.unreadRune();
     /**
         // ReadRune implements the io.RuneReader interface.
     **/
     @:keep
-    public function readRune():{ var _0 : GoRune; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
+    public dynamic function readRune():{ var _0 : GoRune; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
     /**
         // UnreadByte implements the io.ByteScanner interface.
     **/
     @:keep
-    public function unreadByte():Error return __self__.value.unreadByte();
+    public dynamic function unreadByte():Error return __self__.value.unreadByte();
     /**
         // ReadByte implements the io.ByteReader interface.
     **/
     @:keep
-    public function readByte():{ var _0 : GoByte; var _1 : Error; } return __self__.value.readByte();
+    public dynamic function readByte():{ var _0 : GoByte; var _1 : Error; } return __self__.value.readByte();
     /**
         // ReadAt implements the io.ReaderAt interface.
     **/
     @:keep
-    public function readAt(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_b, _off);
+    public dynamic function readAt(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_b, _off);
     /**
         // Read implements the io.Reader interface.
     **/
     @:keep
-    public function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
+    public dynamic function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
     /**
         // Size returns the original length of the underlying string.
         // Size is the number of bytes available for reading via ReadAt.
@@ -2043,13 +2049,13 @@ class Reader_asInterface {
         // to any other method.
     **/
     @:keep
-    public function size():GoInt64 return __self__.value.size();
+    public dynamic function size():GoInt64 return __self__.value.size();
     /**
         // Len returns the number of bytes of the unread portion of the
         // string.
     **/
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2100,14 +2106,17 @@ class Reader_asInterface {
     static public function seek( _r:Ref<Reader>, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } {
         _r._prevRune = (-1 : GoInt);
         var _abs:GoInt64 = (0 : GoInt64);
-        if (_whence == ((0 : GoInt))) {
-            _abs = _offset;
-        } else if (_whence == ((1 : GoInt))) {
-            _abs = _r._i + _offset;
-        } else if (_whence == ((2 : GoInt))) {
-            _abs = (_r._s.length : GoInt64) + _offset;
-        } else {
-            return { _0 : ("0" : GoInt64), _1 : stdgo.errors.Errors.new_(("strings.Reader.Seek: invalid whence" : GoString)) };
+        {
+            final __value__ = _whence;
+            if (__value__ == ((0 : GoInt))) {
+                _abs = _offset;
+            } else if (__value__ == ((1 : GoInt))) {
+                _abs = _r._i + _offset;
+            } else if (__value__ == ((2 : GoInt))) {
+                _abs = (_r._s.length : GoInt64) + _offset;
+            } else {
+                return { _0 : ("0" : GoInt64), _1 : stdgo.errors.Errors.new_(("strings.Reader.Seek: invalid whence" : GoString)) };
+            };
         };
         if (_abs < ("0" : GoInt64)) {
             return { _0 : ("0" : GoInt64), _1 : stdgo.errors.Errors.new_(("strings.Reader.Seek: negative position" : GoString)) };
@@ -2240,20 +2249,20 @@ class Replacer_asInterface {
         // WriteString writes s to w with all replacements performed.
     **/
     @:keep
-    public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_w, _s);
+    public dynamic function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_w, _s);
     /**
         // Replace returns a copy of s with all replacements performed.
     **/
     @:keep
-    public function replace(_s:GoString):GoString return __self__.value.replace(_s);
+    public dynamic function replace(_s:GoString):GoString return __self__.value.replace(_s);
     @:keep
-    public function _build():T_replacer return __self__.value._build();
+    public dynamic function _build():T_replacer return __self__.value._build();
     @:keep
-    public function _buildOnce():Void __self__.value._buildOnce();
+    public dynamic function _buildOnce():Void __self__.value._buildOnce();
     @:keep
-    public function printTrie():GoString return __self__.value.printTrie();
+    public dynamic function printTrie():GoString return __self__.value.printTrie();
     @:keep
-    public function replacer():AnyInterface return __self__.value.replacer();
+    public dynamic function replacer():AnyInterface return __self__.value.replacer();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2311,7 +2320,7 @@ class Replacer_asInterface {
                     _r[(_o : GoInt)] = _n;
                 });
             };
-            return Go.asInterface((_r : Ref<T_byteReplacer>));
+            return Go.asInterface((Go.setRef(_r) : Ref<T_byteReplacer>));
         };
         var _r:T_byteStringReplacer = ({ _toReplace : new Slice<GoString>((0 : GoInt).toBasic(), (_oldnew.length) / (2 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) ("" : GoString)]) } : T_byteStringReplacer);
         {
@@ -2325,7 +2334,7 @@ class Replacer_asInterface {
                 _r._replacements[(_o : GoInt)] = (_n : Slice<GoByte>);
             });
         };
-        return Go.asInterface((_r : Ref<T_byteStringReplacer>));
+        return Go.asInterface((Go.setRef(_r) : Ref<T_byteStringReplacer>));
     }
     @:keep
     static public function _buildOnce( _r:Ref<Replacer>):Void {
@@ -2336,7 +2345,7 @@ class Replacer_asInterface {
     static public function printTrie( _r:Ref<Replacer>):GoString {
         _r._once.do_(_r._buildOnce);
         var _gen = (Go.typeAssert((Go.toInterface(_r._r) : Ref<T_genericReplacer>)) : Ref<T_genericReplacer>);
-        return _gen._printNode((_gen._root : Ref<T_trieNode>), (0 : GoInt));
+        return _gen._printNode((Go.setRef(_gen._root) : Ref<T_trieNode>), (0 : GoInt));
     }
     @:keep
     static public function replacer( _r:Ref<Replacer>):AnyInterface {
@@ -2346,7 +2355,7 @@ class Replacer_asInterface {
 }
 class T_trieNode_asInterface {
     @:keep
-    public function _add(_key:GoString, _val:GoString, _priority:GoInt, _r:Ref<T_genericReplacer>):Void __self__.value._add(_key, _val, _priority, _r);
+    public dynamic function _add(_key:GoString, _val:GoString, _priority:GoInt, _r:Ref<T_genericReplacer>):Void __self__.value._add(_key, _val, _priority, _r);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2379,9 +2388,9 @@ class T_trieNode_asInterface {
                 if ((_t._prefix.length) == ((1 : GoInt))) {
                     _prefixNode = _t._next;
                 } else {
-                    _prefixNode = (({ _prefix : (_t._prefix.__slice__((1 : GoInt)) : GoString), _next : _t._next } : T_trieNode) : Ref<T_trieNode>);
+                    _prefixNode = (Go.setRef(({ _prefix : (_t._prefix.__slice__((1 : GoInt)) : GoString), _next : _t._next } : T_trieNode)) : Ref<T_trieNode>);
                 };
-                var _keyNode = (({} : T_trieNode) : Ref<T_trieNode>);
+                var _keyNode = (Go.setRef(({} : T_trieNode)) : Ref<T_trieNode>);
                 _t._table = new Slice<Ref<T_trieNode>>((_r._tableSize : GoInt).toBasic(), 0, ...[for (i in 0 ... (_r._tableSize : GoInt).toBasic()) (null : Ref<T_trieNode>)]);
                 _t._table[(_r._mapping[(_t._prefix[(0 : GoInt)] : GoInt)] : GoInt)] = _prefixNode;
                 _t._table[(_r._mapping[(_key[(0 : GoInt)] : GoInt)] : GoInt)] = _keyNode;
@@ -2389,33 +2398,33 @@ class T_trieNode_asInterface {
                 _t._next = null;
                 _keyNode._add((_key.__slice__((1 : GoInt)) : GoString), _val, _priority, _r);
             } else {
-                var _next = (({ _prefix : (_t._prefix.__slice__(_n) : GoString), _next : _t._next } : T_trieNode) : Ref<T_trieNode>);
+                var _next = (Go.setRef(({ _prefix : (_t._prefix.__slice__(_n) : GoString), _next : _t._next } : T_trieNode)) : Ref<T_trieNode>);
                 _t._prefix = (_t._prefix.__slice__(0, _n) : GoString);
                 _t._next = _next;
                 _next._add((_key.__slice__(_n) : GoString), _val, _priority, _r);
             };
         } else if (_t._table != null) {
             var _m:GoUInt8 = _r._mapping[(_key[(0 : GoInt)] : GoInt)];
-            if (_t._table[(_m : GoInt)] == null) {
-                _t._table[(_m : GoInt)] = (({} : T_trieNode) : Ref<T_trieNode>);
+            if (_t._table[(_m : GoInt)] == null || (_t._table[(_m : GoInt)] : Dynamic).__nil__) {
+                _t._table[(_m : GoInt)] = (Go.setRef(({} : T_trieNode)) : Ref<T_trieNode>);
             };
             _t._table[(_m : GoInt)]._add((_key.__slice__((1 : GoInt)) : GoString), _val, _priority, _r);
         } else {
             _t._prefix = _key;
-            _t._next = (({} : T_trieNode) : Ref<T_trieNode>);
+            _t._next = (Go.setRef(({} : T_trieNode)) : Ref<T_trieNode>);
             _t._next._add(Go.str(), _val, _priority, _r);
         };
     }
 }
 class T_genericReplacer_asInterface {
     @:keep
-    public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_w, _s);
+    public dynamic function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_w, _s);
     @:keep
-    public function replace(_s:GoString):GoString return __self__.value.replace(_s);
+    public dynamic function replace(_s:GoString):GoString return __self__.value.replace(_s);
     @:keep
-    public function _lookup(_s:GoString, _ignoreRoot:Bool):{ var _0 : GoString; var _1 : GoInt; var _2 : Bool; } return __self__.value._lookup(_s, _ignoreRoot);
+    public dynamic function _lookup(_s:GoString, _ignoreRoot:Bool):{ var _0 : GoString; var _1 : GoInt; var _2 : Bool; } return __self__.value._lookup(_s, _ignoreRoot);
     @:keep
-    public function _printNode(_t:Ref<T_trieNode>, _depth:GoInt):GoString return __self__.value._printNode(_t, _depth);
+    public dynamic function _printNode(_t:Ref<T_trieNode>, _depth:GoInt):GoString return __self__.value._printNode(_t, _depth);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2436,7 +2445,7 @@ class T_genericReplacer_asInterface {
             while (_i <= (_s.length)) {
                 if ((_i != (_s.length)) && (_r._root._priority == (0 : GoInt))) {
                     var _index:GoInt = (_r._mapping[(_s[(_i : GoInt)] : GoInt)] : GoInt);
-                    if ((_index == _r._tableSize) || (_r._root._table[(_index : GoInt)] == null)) {
+                    if ((_index == _r._tableSize) || ((_r._root._table[(_index : GoInt)] == null) || (_r._root._table[(_index : GoInt)] : Dynamic).__nil__)) {
                         _i++;
                         continue;
                     };
@@ -2482,17 +2491,17 @@ class T_genericReplacer_asInterface {
     @:keep
     static public function replace( _r:Ref<T_genericReplacer>, _s:GoString):GoString {
         var _buf:T_appendSliceWriter = new T_appendSliceWriter((0 : GoInt).toBasic(), (_s.length), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
-        _r.writeString(Go.asInterface((_buf : Ref<T_appendSliceWriter>)), _s);
+        _r.writeString(Go.asInterface((Go.setRef(_buf) : Ref<T_appendSliceWriter>)), _s);
         return (_buf : GoString);
     }
     @:keep
     static public function _lookup( _r:Ref<T_genericReplacer>, _s:GoString, _ignoreRoot:Bool):{ var _0 : GoString; var _1 : GoInt; var _2 : Bool; } {
         var _val:GoString = ("" : GoString), _keylen:GoInt = (0 : GoInt), _found:Bool = false;
         var _bestPriority:GoInt = (0 : GoInt);
-        var _node = (_r._root : Ref<T_trieNode>);
+        var _node = (Go.setRef(_r._root) : Ref<T_trieNode>);
         var _n:GoInt = (0 : GoInt);
-        while (_node != null) {
-            if ((_node._priority > _bestPriority) && !(_ignoreRoot && (_node == (_r._root : Ref<T_trieNode>)))) {
+        while (_node != null && ((_node : Dynamic).__nil__ == null || !(_node : Dynamic).__nil__)) {
+            if ((_node._priority > _bestPriority) && !(_ignoreRoot && (_node == (Go.setRef(_r._root) : Ref<T_trieNode>)))) {
                 _bestPriority = _node._priority;
                 _val = _node._value;
                 _keylen = _n;
@@ -2533,7 +2542,7 @@ class T_genericReplacer_asInterface {
             _s = _s + (_r._printNode(_t._next, _depth + (_t._prefix.length)));
         } else if (_t._table != null) {
             for (_b => _m in _r._mapping) {
-                if (((_m : GoInt) != _r._tableSize) && (_t._table[(_m : GoInt)] != null)) {
+                if (((_m : GoInt) != _r._tableSize) && ((_t._table[(_m : GoInt)] != null) && ((_t._table[(_m : GoInt)] : Dynamic).__nil__ == null || !(_t._table[(_m : GoInt)] : Dynamic).__nil__))) {
                     _s = _s + (repeat(("." : GoString), _depth) + ((new Slice<GoUInt8>(0, 0, (_b : GoByte)) : Slice<GoUInt8>) : GoString));
                     _s = _s + (_r._printNode(_t._table[(_m : GoInt)], _depth + (1 : GoInt)));
                 };
@@ -2544,7 +2553,7 @@ class T_genericReplacer_asInterface {
 }
 class T_stringWriter_asInterface {
     @:keep
-    public function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
+    public dynamic function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2561,9 +2570,9 @@ class T_stringWriter_asInterface {
 }
 class T_singleStringReplacer_asInterface {
     @:keep
-    public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_w, _s);
+    public dynamic function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_w, _s);
     @:keep
-    public function replace(_s:GoString):GoString return __self__.value.replace(_s);
+    public dynamic function replace(_s:GoString):GoString return __self__.value.replace(_s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2635,9 +2644,9 @@ class T_singleStringReplacer_asInterface {
 }
 class T_byteStringReplacer_asInterface {
     @:keep
-    public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_w, _s);
+    public dynamic function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_w, _s);
     @:keep
-    public function replace(_s:GoString):GoString return __self__.value.replace(_s);
+    public dynamic function replace(_s:GoString):GoString return __self__.value.replace(_s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2737,7 +2746,7 @@ class T_stringFinder_asInterface {
         // the pattern is not found, it returns -1.
     **/
     @:keep
-    public function _next(_text:GoString):GoInt return __self__.value._next(_text);
+    public dynamic function _next(_text:GoString):GoInt return __self__.value._next(_text);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2773,12 +2782,12 @@ class T_appendSliceWriter_asInterface {
         // WriteString writes to the buffer without string->[]byte->string allocations.
     **/
     @:keep
-    public function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
+    public dynamic function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
     /**
         // Write writes to the buffer to satisfy io.Writer.
     **/
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2793,7 +2802,7 @@ class T_appendSliceWriter_asInterface {
     **/
     @:keep
     static public function writeString( _w:Ref<T_appendSliceWriter>, _s:GoString):{ var _0 : GoInt; var _1 : Error; } {
-        _w.__setData__(_w.__appendref__(..._s.__toArray__()));
+        _w.__setData__(((_w : T_appendSliceWriter).__append__(..._s.__toArray__())));
         return { _0 : (_s.length), _1 : (null : Error) };
     }
     /**
@@ -2801,15 +2810,15 @@ class T_appendSliceWriter_asInterface {
     **/
     @:keep
     static public function write( _w:Ref<T_appendSliceWriter>, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
-        _w.__setData__(_w.__appendref__(..._p.__toArray__()));
+        _w.__setData__(((_w : T_appendSliceWriter).__append__(..._p.__toArray__())));
         return { _0 : (_p.length), _1 : (null : Error) };
     }
 }
 class T_byteReplacer_asInterface {
     @:keep
-    public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_w, _s);
+    public dynamic function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_w, _s);
     @:keep
-    public function replace(_s:GoString):GoString return __self__.value.replace(_s);
+    public dynamic function replace(_s:GoString):GoString return __self__.value.replace(_s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2881,7 +2890,7 @@ class T_asciiSet_asInterface {
         // contains reports whether c is inside the set.
     **/
     @:keep
-    public function _contains(_c:GoByte):Bool return __self__.value._contains(_c);
+    public dynamic function _contains(_c:GoByte):Bool return __self__.value._contains(_c);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

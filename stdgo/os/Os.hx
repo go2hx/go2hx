@@ -570,7 +570,7 @@ private typedef T_timeout = StructType & {
         
         
     **/
-    public function timeout():Bool;
+    public dynamic function timeout():Bool;
 };
 /**
     // A Signal represents an operating system signal.
@@ -585,13 +585,13 @@ typedef Signal = StructType & {
         
         
     **/
-    public function string():GoString;
+    public dynamic function string():GoString;
     /**
         
         
         // to distinguish from other Stringers
     **/
-    public function signal():Void;
+    public dynamic function signal():Void;
 };
 /**
     // Auxiliary information if the File describes a directory
@@ -869,15 +869,15 @@ typedef Signal = StructType & {
 }
 class T__struct_0_asInterface {
     @:embedded
-    public function _unlockSlow(__0:GoInt32):Void __self__.value._unlockSlow(__0);
+    public dynamic function _unlockSlow(__0:GoInt32):Void __self__.value._unlockSlow(__0);
     @:embedded
-    public function _lockSlow():Void __self__.value._lockSlow();
+    public dynamic function _lockSlow():Void __self__.value._lockSlow();
     @:embedded
-    public function unlock():Void __self__.value.unlock();
+    public dynamic function unlock():Void __self__.value.unlock();
     @:embedded
-    public function tryLock():Bool return __self__.value.tryLock();
+    public dynamic function tryLock():Bool return __self__.value.tryLock();
     @:embedded
-    public function lock():Void __self__.value.lock();
+    public dynamic function lock():Void __self__.value.lock();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1601,7 +1601,7 @@ private function _sameFile(_fs1:Ref<T_fileStat>, _fs2:Ref<T_fileStat>):Bool thro
     };
 class T_dirInfo_asInterface {
     @:keep
-    public function _close():Void __self__.value._close();
+    public dynamic function _close():Void __self__.value._close();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1619,11 +1619,11 @@ class SyscallError_asInterface {
         // Timeout reports whether this error represents a timeout.
     **/
     @:keep
-    public function timeout():Bool return __self__.value.timeout();
+    public dynamic function timeout():Bool return __self__.value.timeout();
     @:keep
-    public function unwrap():Error return __self__.value.unwrap();
+    public dynamic function unwrap():Error return __self__.value.unwrap();
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1654,21 +1654,21 @@ class Process_asInterface {
         // signal to the wrong process, see issue #13987.
     **/
     @:keep
-    public function _blockUntilWaitable():{ var _0 : Bool; var _1 : Error; } return __self__.value._blockUntilWaitable();
+    public dynamic function _blockUntilWaitable():{ var _0 : Bool; var _1 : Error; } return __self__.value._blockUntilWaitable();
     @:keep
-    public function _release():Error return __self__.value._release();
+    public dynamic function _release():Error return __self__.value._release();
     @:keep
-    public function _signal(_sig:Signal):Error return __self__.value._signal(_sig);
+    public dynamic function _signal(_sig:Signal):Error return __self__.value._signal(_sig);
     @:keep
-    public function _wait():{ var _0 : Ref<ProcessState>; var _1 : Error; } return __self__.value._wait();
+    public dynamic function _wait():{ var _0 : Ref<ProcessState>; var _1 : Error; } return __self__.value._wait();
     @:keep
-    public function _kill():Error return __self__.value._kill();
+    public dynamic function _kill():Error return __self__.value._kill();
     /**
         // Signal sends a signal to the Process.
         // Sending Interrupt on Windows is not implemented.
     **/
     @:keep
-    public function signal(_sig:Signal):Error return __self__.value.signal(_sig);
+    public dynamic function signal(_sig:Signal):Error return __self__.value.signal(_sig);
     /**
         // Wait waits for the Process to exit, and then returns a
         // ProcessState describing its status and an error, if any.
@@ -1677,25 +1677,25 @@ class Process_asInterface {
         // of the current process or an error will be returned.
     **/
     @:keep
-    public function wait_():{ var _0 : Ref<ProcessState>; var _1 : Error; } return __self__.value.wait_();
+    public dynamic function wait_():{ var _0 : Ref<ProcessState>; var _1 : Error; } return __self__.value.wait_();
     /**
         // Kill causes the Process to exit immediately. Kill does not wait until
         // the Process has actually exited. This only kills the Process itself,
         // not any other processes it may have started.
     **/
     @:keep
-    public function kill():Error return __self__.value.kill();
+    public dynamic function kill():Error return __self__.value.kill();
     /**
         // Release releases any resources associated with the Process p,
         // rendering it unusable in the future.
         // Release only needs to be called if Wait is not.
     **/
     @:keep
-    public function release():Error return __self__.value.release();
+    public dynamic function release():Error return __self__.value.release();
     @:keep
-    public function _done():Bool return __self__.value._done();
+    public dynamic function _done():Bool return __self__.value._done();
     @:keep
-    public function _setDone():Void __self__.value._setDone();
+    public dynamic function _setDone():Void __self__.value._setDone();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1760,30 +1760,30 @@ class Process_asInterface {
 }
 class ProcessState_asInterface {
     @:keep
-    public function _systemTime():stdgo.time.Time.Duration return __self__.value._systemTime();
+    public dynamic function _systemTime():stdgo.time.Time.Duration return __self__.value._systemTime();
     @:keep
-    public function _userTime():stdgo.time.Time.Duration return __self__.value._userTime();
+    public dynamic function _userTime():stdgo.time.Time.Duration return __self__.value._userTime();
     /**
         // ExitCode returns the exit code of the exited process, or -1
         // if the process hasn't exited or was terminated by a signal.
     **/
     @:keep
-    public function exitCode():GoInt return __self__.value.exitCode();
+    public dynamic function exitCode():GoInt return __self__.value.exitCode();
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function _sysUsage():AnyInterface return __self__.value._sysUsage();
+    public dynamic function _sysUsage():AnyInterface return __self__.value._sysUsage();
     @:keep
-    public function _sys():AnyInterface return __self__.value._sys();
+    public dynamic function _sys():AnyInterface return __self__.value._sys();
     @:keep
-    public function _success():Bool return __self__.value._success();
+    public dynamic function _success():Bool return __self__.value._success();
     @:keep
-    public function _exited():Bool return __self__.value._exited();
+    public dynamic function _exited():Bool return __self__.value._exited();
     /**
         // Pid returns the process id of the exited process.
     **/
     @:keep
-    public function pid():GoInt return __self__.value.pid();
+    public dynamic function pid():GoInt return __self__.value.pid();
     /**
         // SysUsage returns system-dependent resource usage information about
         // the exited process. Convert it to the appropriate underlying
@@ -1792,37 +1792,37 @@ class ProcessState_asInterface {
         // getrusage(2) manual page.)
     **/
     @:keep
-    public function sysUsage():AnyInterface return __self__.value.sysUsage();
+    public dynamic function sysUsage():AnyInterface return __self__.value.sysUsage();
     /**
         // Sys returns system-dependent exit information about
         // the process. Convert it to the appropriate underlying
         // type, such as syscall.WaitStatus on Unix, to access its contents.
     **/
     @:keep
-    public function sys():AnyInterface return __self__.value.sys();
+    public dynamic function sys():AnyInterface return __self__.value.sys();
     /**
         // Success reports whether the program exited successfully,
         // such as with exit status 0 on Unix.
     **/
     @:keep
-    public function success():Bool return __self__.value.success();
+    public dynamic function success():Bool return __self__.value.success();
     /**
         // Exited reports whether the program has exited.
         // On Unix systems this reports true if the program exited due to calling exit,
         // but false if the program terminated due to a signal.
     **/
     @:keep
-    public function exited():Bool return __self__.value.exited();
+    public dynamic function exited():Bool return __self__.value.exited();
     /**
         // SystemTime returns the system CPU time of the exited process and its children.
     **/
     @:keep
-    public function systemTime():stdgo.time.Time.Duration return __self__.value.systemTime();
+    public dynamic function systemTime():stdgo.time.Time.Duration return __self__.value.systemTime();
     /**
         // UserTime returns the user CPU time of the exited process and its children.
     **/
     @:keep
-    public function userTime():stdgo.time.Time.Duration return __self__.value.userTime();
+    public dynamic function userTime():stdgo.time.Time.Duration return __self__.value.userTime();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1899,9 +1899,9 @@ class ProcessState_asInterface {
 }
 class LinkError_asInterface {
     @:keep
-    public function unwrap():Error return __self__.value.unwrap();
+    public dynamic function unwrap():Error return __self__.value.unwrap();
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1918,7 +1918,7 @@ class LinkError_asInterface {
 }
 class T_onlyWriter_asInterface {
     @:embedded
-    public function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
+    public dynamic function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1933,7 +1933,7 @@ class T_onlyWriter_asInterface {
 }
 class T_file_asInterface {
     @:keep
-    public function _close():Error return __self__.value._close();
+    public dynamic function _close():Error return __self__.value._close();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1948,13 +1948,13 @@ class T_file_asInterface {
 }
 class T_unixDirent_asInterface {
     @:keep
-    public function info():{ var _0 : FileInfo; var _1 : Error; } return __self__.value.info();
+    public dynamic function info():{ var _0 : FileInfo; var _1 : Error; } return __self__.value.info();
     @:keep
-    public function type():FileMode return __self__.value.type();
+    public dynamic function type():FileMode return __self__.value.type();
     @:keep
-    public function isDir():Bool return __self__.value.isDir();
+    public dynamic function isDir():Bool return __self__.value.isDir();
     @:keep
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1975,11 +1975,11 @@ class T_unixDirent_asInterface {
 }
 class T_rawConn_asInterface {
     @:keep
-    public function write(_f:GoUIntptr -> Bool):Error return __self__.value.write(_f);
+    public dynamic function write(_f:GoUIntptr -> Bool):Error return __self__.value.write(_f);
     @:keep
-    public function read(_f:GoUIntptr -> Bool):Error return __self__.value.read(_f);
+    public dynamic function read(_f:GoUIntptr -> Bool):Error return __self__.value.read(_f);
     @:keep
-    public function control(_f:GoUIntptr -> Void):Error return __self__.value.control(_f);
+    public dynamic function control(_f:GoUIntptr -> Void):Error return __self__.value.control(_f);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2002,9 +2002,9 @@ class File_asInterface {
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    public function stat():{ var _0 : FileInfo; var _1 : Error; } return __self__.value.stat();
+    public dynamic function stat():{ var _0 : FileInfo; var _1 : Error; } return __self__.value.stat();
     @:keep
-    public function _readFrom(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Bool; var _2 : Error; } return __self__.value._readFrom(_r);
+    public dynamic function _readFrom(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Bool; var _2 : Error; } return __self__.value._readFrom(_r);
     /**
         // seek sets the offset for the next Read or Write on file to offset, interpreted
         // according to whence: 0 means relative to the origin of the file, 1 means
@@ -2012,7 +2012,7 @@ class File_asInterface {
         // It returns the new offset and an error, if any.
     **/
     @:keep
-    public function _seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value._seek(_offset, _whence);
+    public dynamic function _seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value._seek(_offset, _whence);
     /**
         // Fd returns the integer Unix file descriptor referencing the open file.
         // If f is closed, the file descriptor becomes invalid.
@@ -2028,49 +2028,49 @@ class File_asInterface {
         // As an alternative, see the f.SyscallConn method.
     **/
     @:keep
-    public function fd():GoUIntptr return __self__.value.fd();
+    public dynamic function fd():GoUIntptr return __self__.value.fd();
     /**
         // checkValid checks whether f is valid for use.
         // If not, it returns an appropriate error, perhaps incorporating the operation name op.
     **/
     @:keep
-    public function _checkValid(_op:GoString):Error return __self__.value._checkValid(_op);
+    public dynamic function _checkValid(_op:GoString):Error return __self__.value._checkValid(_op);
     /**
         // setWriteDeadline sets the write deadline.
     **/
     @:keep
-    public function _setWriteDeadline(_t:stdgo.time.Time.Time):Error return __self__.value._setWriteDeadline(_t);
+    public dynamic function _setWriteDeadline(_t:stdgo.time.Time.Time):Error return __self__.value._setWriteDeadline(_t);
     /**
         // setReadDeadline sets the read deadline.
     **/
     @:keep
-    public function _setReadDeadline(_t:stdgo.time.Time.Time):Error return __self__.value._setReadDeadline(_t);
+    public dynamic function _setReadDeadline(_t:stdgo.time.Time.Time):Error return __self__.value._setReadDeadline(_t);
     /**
         // setDeadline sets the read and write deadline.
     **/
     @:keep
-    public function _setDeadline(_t:stdgo.time.Time.Time):Error return __self__.value._setDeadline(_t);
+    public dynamic function _setDeadline(_t:stdgo.time.Time.Time):Error return __self__.value._setDeadline(_t);
     /**
         // Chdir changes the current working directory to the file,
         // which must be a directory.
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    public function chdir():Error return __self__.value.chdir();
+    public dynamic function chdir():Error return __self__.value.chdir();
     /**
         // Sync commits the current contents of the file to stable storage.
         // Typically, this means flushing the file system's in-memory copy
         // of recently written data to disk.
     **/
     @:keep
-    public function sync():Error return __self__.value.sync();
+    public dynamic function sync():Error return __self__.value.sync();
     /**
         // Truncate changes the size of the file.
         // It does not change the I/O offset.
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    public function truncate(_size:GoInt64):Error return __self__.value.truncate(_size);
+    public dynamic function truncate(_size:GoInt64):Error return __self__.value.truncate(_size);
     /**
         // Chown changes the numeric uid and gid of the named file.
         // If there is an error, it will be of type *PathError.
@@ -2079,37 +2079,37 @@ class File_asInterface {
         // in *PathError.
     **/
     @:keep
-    public function chown(_uid:GoInt, _gid:GoInt):Error return __self__.value.chown(_uid, _gid);
+    public dynamic function chown(_uid:GoInt, _gid:GoInt):Error return __self__.value.chown(_uid, _gid);
     /**
         // See docs in file.go:(*File).Chmod.
     **/
     @:keep
-    public function _chmod(_mode:FileMode):Error return __self__.value._chmod(_mode);
+    public dynamic function _chmod(_mode:FileMode):Error return __self__.value._chmod(_mode);
     /**
         // pwrite writes len(b) bytes to the File starting at byte offset off.
         // It returns the number of bytes written and an error, if any.
     **/
     @:keep
-    public function _pwrite(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value._pwrite(_b, _off);
+    public dynamic function _pwrite(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value._pwrite(_b, _off);
     /**
         // write writes len(b) bytes to the File.
         // It returns the number of bytes written and an error, if any.
     **/
     @:keep
-    public function _write(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value._write(_b);
+    public dynamic function _write(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value._write(_b);
     /**
         // pread reads len(b) bytes from the File starting at byte offset off.
         // It returns the number of bytes read and the error, if any.
         // EOF is signaled by a zero count with err set to nil.
     **/
     @:keep
-    public function _pread(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value._pread(_b, _off);
+    public dynamic function _pread(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value._pread(_b, _off);
     /**
         // read reads up to len(b) bytes from the File.
         // It returns the number of bytes read and an error, if any.
     **/
     @:keep
-    public function _read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value._read(_b);
+    public dynamic function _read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value._read(_b);
     /**
         // Close closes the File, rendering it unusable for I/O.
         // On files that support SetDeadline, any pending I/O operations will
@@ -2117,13 +2117,13 @@ class File_asInterface {
         // Close will return an error if it has already been called.
     **/
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     /**
         // SyscallConn returns a raw file.
         // This implements the syscall.Conn interface.
     **/
     @:keep
-    public function syscallConn():{ var _0 : stdgo.syscall.Syscall.RawConn; var _1 : Error; } return __self__.value.syscallConn();
+    public dynamic function syscallConn():{ var _0 : stdgo.syscall.Syscall.RawConn; var _1 : Error; } return __self__.value.syscallConn();
     /**
         // SetWriteDeadline sets the deadline for any future Write calls and any
         // currently-blocked Write call.
@@ -2133,7 +2133,7 @@ class File_asInterface {
         // Not all files support setting deadlines; see SetDeadline.
     **/
     @:keep
-    public function setWriteDeadline(_t:stdgo.time.Time.Time):Error return __self__.value.setWriteDeadline(_t);
+    public dynamic function setWriteDeadline(_t:stdgo.time.Time.Time):Error return __self__.value.setWriteDeadline(_t);
     /**
         // SetReadDeadline sets the deadline for future Read calls and any
         // currently-blocked Read call.
@@ -2141,7 +2141,7 @@ class File_asInterface {
         // Not all files support setting deadlines; see SetDeadline.
     **/
     @:keep
-    public function setReadDeadline(_t:stdgo.time.Time.Time):Error return __self__.value.setReadDeadline(_t);
+    public dynamic function setReadDeadline(_t:stdgo.time.Time.Time):Error return __self__.value.setReadDeadline(_t);
     /**
         // SetDeadline sets the read and write deadlines for a File.
         // It is equivalent to calling both SetReadDeadline and SetWriteDeadline.
@@ -2169,26 +2169,26 @@ class File_asInterface {
         // A zero value for t means I/O operations will not time out.
     **/
     @:keep
-    public function setDeadline(_t:stdgo.time.Time.Time):Error return __self__.value.setDeadline(_t);
+    public dynamic function setDeadline(_t:stdgo.time.Time.Time):Error return __self__.value.setDeadline(_t);
     /**
         // Chmod changes the mode of the file to mode.
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    public function chmod(_mode:FileMode):Error return __self__.value.chmod(_mode);
+    public dynamic function chmod(_mode:FileMode):Error return __self__.value.chmod(_mode);
     /**
         // wrapErr wraps an error that occurred during an operation on an open file.
         // It passes io.EOF through unchanged, otherwise converts
         // poll.ErrFileClosing to ErrClosed and wraps the error in a PathError.
     **/
     @:keep
-    public function _wrapErr(_op:GoString, _err:Error):Error return __self__.value._wrapErr(_op, _err);
+    public dynamic function _wrapErr(_op:GoString, _err:Error):Error return __self__.value._wrapErr(_op, _err);
     /**
         // WriteString is like Write, but writes the contents of string s rather than
         // a slice of bytes.
     **/
     @:keep
-    public function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
+    public dynamic function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
     /**
         // Seek sets the offset for the next Read or Write on file to offset, interpreted
         // according to whence: 0 means relative to the origin of the file, 1 means
@@ -2197,7 +2197,7 @@ class File_asInterface {
         // The behavior of Seek on a file opened with O_APPEND is not specified.
     **/
     @:keep
-    public function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
+    public dynamic function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
     /**
         // WriteAt writes len(b) bytes to the File starting at byte offset off.
         // It returns the number of bytes written and an error, if any.
@@ -2206,19 +2206,19 @@ class File_asInterface {
         // If file was opened with the O_APPEND flag, WriteAt returns an error.
     **/
     @:keep
-    public function writeAt(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeAt(_b, _off);
+    public dynamic function writeAt(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeAt(_b, _off);
     /**
         // Write writes len(b) bytes from b to the File.
         // It returns the number of bytes written and an error, if any.
         // Write returns a non-nil error when n != len(b).
     **/
     @:keep
-    public function write(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
+    public dynamic function write(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
     /**
         // ReadFrom implements io.ReaderFrom.
     **/
     @:keep
-    public function readFrom(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
+    public dynamic function readFrom(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
     /**
         // ReadAt reads len(b) bytes from the File starting at byte offset off.
         // It returns the number of bytes read and the error, if any.
@@ -2226,21 +2226,21 @@ class File_asInterface {
         // At end of file, that error is io.EOF.
     **/
     @:keep
-    public function readAt(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_b, _off);
+    public dynamic function readAt(_b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_b, _off);
     /**
         // Read reads up to len(b) bytes from the File and stores them in b.
         // It returns the number of bytes read and any error encountered.
         // At end of file, Read returns 0, io.EOF.
     **/
     @:keep
-    public function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
+    public dynamic function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
     /**
         // Name returns the name of the file as presented to Open.
     **/
     @:keep
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     @:keep
-    public function _readdir(_n:GoInt, _mode:T_readdirMode):{ var _0 : Slice<GoString>; var _1 : Slice<DirEntry>; var _2 : Slice<FileInfo>; var _3 : Error; } return __self__.value._readdir(_n, _mode);
+    public dynamic function _readdir(_n:GoInt, _mode:T_readdirMode):{ var _0 : Slice<GoString>; var _1 : Slice<DirEntry>; var _2 : Slice<FileInfo>; var _3 : Error; } return __self__.value._readdir(_n, _mode);
     /**
         // ReadDir reads the contents of the directory associated with the file f
         // and returns a slice of DirEntry values in directory order.
@@ -2254,7 +2254,7 @@ class File_asInterface {
         // When it succeeds, it returns a nil error (not io.EOF).
     **/
     @:keep
-    public function readDir(_n:GoInt):{ var _0 : Slice<DirEntry>; var _1 : Error; } return __self__.value.readDir(_n);
+    public dynamic function readDir(_n:GoInt):{ var _0 : Slice<DirEntry>; var _1 : Error; } return __self__.value.readDir(_n);
     /**
         // Readdirnames reads the contents of the directory associated with file
         // and returns a slice of up to n names of files in the directory,
@@ -2273,7 +2273,7 @@ class File_asInterface {
         // a non-nil error.
     **/
     @:keep
-    public function readdirnames(_n:GoInt):{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value.readdirnames(_n);
+    public dynamic function readdirnames(_n:GoInt):{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value.readdirnames(_n);
     /**
         // Readdir reads the contents of the directory associated with file and
         // returns a slice of up to n FileInfo values, as would be returned
@@ -2294,9 +2294,9 @@ class File_asInterface {
         // Most clients are better served by the more efficient ReadDir method.
     **/
     @:keep
-    public function readdir(_n:GoInt):{ var _0 : Slice<FileInfo>; var _1 : Error; } return __self__.value.readdir(_n);
+    public dynamic function readdir(_n:GoInt):{ var _0 : Slice<FileInfo>; var _1 : Error; } return __self__.value.readdir(_n);
     @:embedded
-    public function _close():Error return __self__.value._close();
+    public dynamic function _close():Error return __self__.value._close();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2614,17 +2614,17 @@ class File_asInterface {
 }
 class T_fileStat_asInterface {
     @:keep
-    public function sys():AnyInterface return __self__.value.sys();
+    public dynamic function sys():AnyInterface return __self__.value.sys();
     @:keep
-    public function modTime():stdgo.time.Time.Time return __self__.value.modTime();
+    public dynamic function modTime():stdgo.time.Time.Time return __self__.value.modTime();
     @:keep
-    public function mode():FileMode return __self__.value.mode();
+    public dynamic function mode():FileMode return __self__.value.mode();
     @:keep
-    public function size():GoInt64 return __self__.value.size();
+    public dynamic function size():GoInt64 return __self__.value.size();
     @:keep
-    public function isDir():Bool return __self__.value.isDir();
+    public dynamic function isDir():Bool return __self__.value.isDir();
     @:keep
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2652,11 +2652,11 @@ class T_dirFS_asInterface {
         // join returns the path for name in dir.
     **/
     @:keep
-    public function _join(_name:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._join(_name);
+    public dynamic function _join(_name:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._join(_name);
     @:keep
-    public function stat(_name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.stat(_name);
+    public dynamic function stat(_name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.stat(_name);
     @:keep
-    public function open(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return __self__.value.open(_name);
+    public dynamic function open(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return __self__.value.open(_name);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

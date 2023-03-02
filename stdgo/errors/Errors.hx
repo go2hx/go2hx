@@ -80,7 +80,7 @@ private typedef T__interface_0 = StructType & {
         
         
     **/
-    public function unwrap():Error;
+    public dynamic function unwrap():Error;
 };
 /**
     
@@ -93,7 +93,7 @@ private typedef T__interface_1 = StructType & {
         
         
     **/
-    public function is_(_0:Error):Bool;
+    public dynamic function is_(_0:Error):Bool;
 };
 /**
     
@@ -106,7 +106,7 @@ private typedef T__interface_2 = StructType & {
         
         
     **/
-    public function unwrap():Slice<Error>;
+    public dynamic function unwrap():Slice<Error>;
 };
 /**
     
@@ -119,7 +119,7 @@ private typedef T__interface_3 = StructType & {
         
         
     **/
-    public function as(_0:AnyInterface):Bool;
+    public dynamic function as(_0:AnyInterface):Bool;
 };
 /**
     // errorString is a trivial implementation of error.
@@ -156,7 +156,7 @@ private typedef T__interface_3 = StructType & {
     // Each call to New returns a distinct error value even if the text is identical.
 **/
 function new_(_text:GoString):Error {
-        return Go.asInterface(((new T_errorString(_text) : T_errorString) : Ref<T_errorString>));
+        return Go.asInterface((Go.setRef((new T_errorString(_text) : T_errorString)) : Ref<T_errorString>));
     }
 /**
     // Join returns an error that wraps the given errors.
@@ -177,7 +177,7 @@ function join(_errs:haxe.Rest<Error>):Error {
         if (_n == ((0 : GoInt))) {
             return (null : Error);
         };
-        var _e = (({ _errs : new Slice<Error>((0 : GoInt).toBasic(), _n, ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : Error)]) } : T_joinError) : Ref<T_joinError>);
+        var _e = (Go.setRef(({ _errs : new Slice<Error>((0 : GoInt).toBasic(), _n, ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : Error)]) } : T_joinError)) : Ref<T_joinError>);
         for (_1 => _err in _errs) {
             if (_err != null) {
                 _e._errs = _e._errs.__appendref__(_err);
@@ -290,7 +290,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
         if (_target == null) {
             throw Go.toInterface(("errors: target cannot be nil" : GoString));
         };
-        var _val:stdgo.internal.reflectlite.Reflectlite.Value = (stdgo.internal.reflectlite.Reflectlite.valueOf(_target) == null ? null : stdgo.internal.reflectlite.Reflectlite.valueOf(_target).__copy__());
+        var _val:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_target).__copy__();
         var _typ:stdgo.internal.reflectlite.Reflectlite.Type = _val.type();
         if ((_typ.kind() != (("22" : GoUInt) : stdgo.internal.reflectlite.Reflectlite.Kind)) || _val.isNil()) {
             throw Go.toInterface(("errors: target must be a non-nil pointer" : GoString));
@@ -301,7 +301,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
         };
         while (true) {
             if (stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(_err)).assignableTo(_targetType)) {
-                _val.elem().set((stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_err)) == null ? null : stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_err)).__copy__()));
+                _val.elem().set(stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_err)).__copy__());
                 return true;
             };
             {
@@ -339,7 +339,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
     }
 class T_errorString_asInterface {
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -356,9 +356,9 @@ class T_errorString_asInterface {
 }
 class T_joinError_asInterface {
     @:keep
-    public function unwrap():Slice<Error> return __self__.value.unwrap();
+    public dynamic function unwrap():Slice<Error> return __self__.value.unwrap();
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

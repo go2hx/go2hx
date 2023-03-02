@@ -94,7 +94,7 @@ function testRead(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.fatalf(("ReadFull(buf) = %d, %s" : GoString), Go.toInterface(_n), Go.toInterface(_err));
         };
         var _z:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var __tmp__ = stdgo.compress.flate.Flate.newWriter(Go.asInterface((_z : Ref<stdgo.bytes.Bytes.Buffer>)), (5 : GoInt)), _f:Ref<stdgo.compress.flate.Flate.Writer> = __tmp__._0, _0:Error = __tmp__._1;
+        var __tmp__ = stdgo.compress.flate.Flate.newWriter(Go.asInterface((Go.setRef(_z) : Ref<stdgo.bytes.Bytes.Buffer>)), (5 : GoInt)), _f:Ref<stdgo.compress.flate.Flate.Writer> = __tmp__._0, _0:Error = __tmp__._1;
         _f.write(_b);
         _f.close();
         if (_z.len() < ((_b.length * (99 : GoInt)) / (100 : GoInt))) {
@@ -129,7 +129,7 @@ function prime(_rand:stdgo.io.Io.Reader, _bits:GoInt):{ var _0 : Ref<stdgo.math.
             _b = ("8" : GoUInt);
         };
         var _bytes = new Slice<GoUInt8>(((_bits + (7 : GoInt)) / (8 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_bits + (7 : GoInt)) / (8 : GoInt) : GoInt).toBasic()) (0 : GoUInt8)]);
-        var _p = (({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>);
+        var _p = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>);
         while (true) {
             {
                 var __tmp__ = stdgo.io.Io.readFull(_rand, _bytes), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -161,7 +161,7 @@ function int_(_rand:stdgo.io.Io.Reader, _max:Ref<stdgo.math.big.Big.Int_>):{ var
         if (_max.sign() <= (0 : GoInt)) {
             throw Go.toInterface(("crypto/rand: argument to Int is <= 0" : GoString));
         };
-        _n = (({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>);
+        _n = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>);
         _n.sub(_max, _n.setUint64(("1" : GoUInt64)));
         var _bitLen:GoInt = _n.bitLen();
         if (_bitLen == ((0 : GoInt))) {
@@ -190,13 +190,13 @@ function int_(_rand:stdgo.io.Io.Reader, _max:Ref<stdgo.math.big.Big.Int_>):{ var
     }
 @:keep var _ = {
         try {
-            reader = Go.asInterface(((new T_reader() : T_reader) : Ref<T_reader>));
+            reader = Go.asInterface((Go.setRef((new T_reader() : T_reader)) : Ref<T_reader>));
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };
 class T_reader_asInterface {
     @:keep
-    public function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
+    public dynamic function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -208,9 +208,9 @@ class T_reader_asInterface {
 @:keep @:allow(stdgo.crypto.rand.Rand.T_reader_asInterface) class T_reader_static_extension {
     @:keep
     static public function read( _r:Ref<T_reader>, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
-        var _a:stdgo.syscall.js.Js.Value = (_uint8Array.new_(Go.toInterface((_b.length))) == null ? null : _uint8Array.new_(Go.toInterface((_b.length))).__copy__());
+        var _a:stdgo.syscall.js.Js.Value = _uint8Array.new_(Go.toInterface((_b.length))).__copy__();
         _jsCrypto.call(("getRandomValues" : GoString), Go.toInterface(Go.asInterface(_a)));
-        stdgo.syscall.js.Js.copyBytesToGo(_b, (_a == null ? null : _a.__copy__()));
+        stdgo.syscall.js.Js.copyBytesToGo(_b, _a.__copy__());
         return { _0 : (_b.length), _1 : (null : Error) };
     }
 }

@@ -3096,26 +3096,26 @@ function testUnaligned64(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testAutoAligned64(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _signed:T__struct_12 = ({ _i : ({} : Int64_) } : T__struct_12);
         {
-            var _o:GoUIntptr = stdgo.reflect.Reflect.typeOf(Go.toInterface(Go.asInterface((_signed : Ref<T__struct_12>)))).elem().field((1 : GoInt)).offset;
+            var _o:GoUIntptr = stdgo.reflect.Reflect.typeOf(Go.toInterface(Go.asInterface((Go.setRef(_signed) : Ref<T__struct_12>)))).elem().field((1 : GoInt)).offset;
             if (_o != ((8 : GoUIntptr))) {
                 _t.fatalf(("Int64 offset = %d, want 8" : GoString), Go.toInterface(_o));
             };
         };
         {
-            var _p:GoUIntptr = stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((_signed : Ref<T__struct_12>)))).elem().field((1 : GoInt)).addr().pointer();
+            var _p:GoUIntptr = stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((Go.setRef(_signed) : Ref<T__struct_12>)))).elem().field((1 : GoInt)).addr().pointer();
             if (_p & (7 : GoUIntptr) != ((0 : GoUIntptr))) {
                 _t.fatalf(("Int64 pointer = %#x, want 8-aligned" : GoString), Go.toInterface(_p));
             };
         };
         var _unsigned:T__struct_13 = ({ _i : ({} : Uint64) } : T__struct_13);
         {
-            var _o:GoUIntptr = stdgo.reflect.Reflect.typeOf(Go.toInterface(Go.asInterface((_unsigned : Ref<T__struct_13>)))).elem().field((1 : GoInt)).offset;
+            var _o:GoUIntptr = stdgo.reflect.Reflect.typeOf(Go.toInterface(Go.asInterface((Go.setRef(_unsigned) : Ref<T__struct_13>)))).elem().field((1 : GoInt)).offset;
             if (_o != ((8 : GoUIntptr))) {
                 _t.fatalf(("Uint64 offset = %d, want 8" : GoString), Go.toInterface(_o));
             };
         };
         {
-            var _p:GoUIntptr = stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((_unsigned : Ref<T__struct_13>)))).elem().field((1 : GoInt)).addr().pointer();
+            var _p:GoUIntptr = stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((Go.setRef(_unsigned) : Ref<T__struct_13>)))).elem().field((1 : GoInt)).addr().pointer();
             if (_p & (7 : GoUIntptr) != ((0 : GoUIntptr))) {
                 _t.fatalf(("Int64 pointer = %#x, want 8-aligned" : GoString), Go.toInterface(_p));
             };
@@ -3510,7 +3510,7 @@ function testValuePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 Go.recover_exception = null;
                                 r;
                             });
-                            if (Go.toInterface(_err) != (Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)))) {
+                            if (_err != (Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)))) {
                                 _t.fatalf(("inconsistent store panic: got \'%v\', want \'%v\'" : GoString), _err, Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)));
                             };
                         };
@@ -3555,7 +3555,7 @@ function testValuePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 Go.recover_exception = null;
                                 r;
                             });
-                            if (Go.toInterface(_err) != (Go.toInterface(("sync/atomic: store of inconsistently typed value into Value" : GoString)))) {
+                            if (_err != (Go.toInterface(("sync/atomic: store of inconsistently typed value into Value" : GoString)))) {
                                 _t.fatalf(("inconsistent store panic: got \'%v\', want \'%v\'" : GoString), _err, Go.toInterface(("sync/atomic: store of inconsistently typed value into Value" : GoString)));
                             };
                         };
@@ -3599,7 +3599,7 @@ function testValuePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 Go.recover_exception = null;
                                 r;
                             });
-                            if (Go.toInterface(_err) != (Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)))) {
+                            if (_err != (Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)))) {
                                 _t.fatalf(("inconsistent store panic: got \'%v\', want \'%v\'" : GoString), _err, Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)));
                             };
                         };
@@ -3658,7 +3658,7 @@ function testValueConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                                     _v.store(_x);
                                     _x = _v.load();
                                     for (_0 => _x1 in _test) {
-                                        if (Go.toInterface(_x) == (Go.toInterface(_x1))) {
+                                        if (_x == (_x1)) {
                                             @:jump("loop") continue;
                                         };
                                     };
@@ -3721,13 +3721,13 @@ function testValue_Swap(_t:Ref<stdgo.testing.Testing.T>):Void {
                     });
                     {
                         var _got:AnyInterface = _v.swap(_tt._new);
-                        if (Go.toInterface(_got) != (Go.toInterface(_tt._want))) {
+                        if (_got != (_tt._want)) {
                             _t.errorf(("got %v, want %v" : GoString), _got, _tt._want);
                         };
                     };
                     {
                         var _got:AnyInterface = _v.load();
-                        if (Go.toInterface(_got) != (Go.toInterface(_tt._new))) {
+                        if (_got != (_tt._new)) {
                             _t.errorf(("got %v, want %v" : GoString), _got, _tt._new);
                         };
                     };

@@ -217,7 +217,7 @@ private var _utcLoc = ({ _name : ("UTC" : GoString) } : Location);
     
     
 **/
-var utc : Ref<Location> = (_utcLoc : Ref<Location>);
+var utc : Ref<Location> = (Go.setRef(_utcLoc) : Ref<Location>);
 /**
     // Local represents the system's local time zone.
     // On Unix systems, Local consults the TZ environment
@@ -228,7 +228,7 @@ var utc : Ref<Location> = (_utcLoc : Ref<Location>);
     
     
 **/
-var local : Ref<Location> = (_localLoc : Ref<Location>);
+var local : Ref<Location> = (Go.setRef(_localLoc) : Ref<Location>);
 /**
     
     
@@ -264,13 +264,13 @@ var parseTimeZone = _parseTimeZone;
     
     
 **/
-var setMono = (Time_static_extension)._setMono;
+var setMono = Time_static_extension._setMono;
 /**
     
     
     
 **/
-var getMono = (Time_static_extension)._mono;
+var getMono = Time_static_extension._mono;
 /**
     
     
@@ -3379,7 +3379,7 @@ function loadFromEmbeddedTZData(_zone:GoString):{ var _0 : GoString; var _1 : Er
 function tzsetRule(_s:GoString):{ var _0 : Rule; var _1 : GoString; var _2 : Bool; } {
         var __tmp__ = _tzsetRule(_s), _r:T_rule = __tmp__._0, _rs:GoString = __tmp__._1, _ok:Bool = __tmp__._2;
         var _rr:Rule = ({ kind : (_r._kind : RuleKind), day : _r._day, week : _r._week, mon : _r._mon, time : _r._time } : Rule);
-        return { _0 : (_rr == null ? null : _rr.__copy__()), _1 : _rs, _2 : _ok };
+        return { _0 : _rr.__copy__(), _1 : _rs, _2 : _ok };
     }
 /**
     // startsWithLowerCase reports whether the string has a lower-case letter at the beginning.
@@ -3403,116 +3403,119 @@ private function _nextStdChunk(_layout:GoString):{ var _0 : GoString; var _1 : G
             Go.cfor(_i < (_layout.length), _i++, {
                 {
                     var _c:GoInt = (_layout[(_i : GoInt)] : GoInt);
-                    if (_c == ((74 : GoInt))) {
-                        if ((_layout.length >= (_i + (3 : GoInt))) && ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == ("Jan" : GoString))) {
-                            if ((_layout.length >= (_i + (7 : GoInt))) && ((_layout.__slice__(_i, _i + (7 : GoInt)) : GoString) == ("January" : GoString))) {
-                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (257 : GoInt), _2 : (_layout.__slice__(_i + (7 : GoInt)) : GoString) };
-                            };
-                            if (!_startsWithLowerCase((_layout.__slice__(_i + (3 : GoInt)) : GoString))) {
-                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (258 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
-                            };
-                        };
-                    } else if (_c == ((77 : GoInt))) {
-                        if ((_layout.length) >= (_i + (3 : GoInt))) {
-                            if ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (("Mon" : GoString))) {
-                                if ((_layout.length >= (_i + (6 : GoInt))) && ((_layout.__slice__(_i, _i + (6 : GoInt)) : GoString) == ("Monday" : GoString))) {
-                                    return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (261 : GoInt), _2 : (_layout.__slice__(_i + (6 : GoInt)) : GoString) };
+                    {
+                        final __value__ = _c;
+                        if (__value__ == ((74 : GoInt))) {
+                            if ((_layout.length >= (_i + (3 : GoInt))) && ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == ("Jan" : GoString))) {
+                                if ((_layout.length >= (_i + (7 : GoInt))) && ((_layout.__slice__(_i, _i + (7 : GoInt)) : GoString) == ("January" : GoString))) {
+                                    return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (257 : GoInt), _2 : (_layout.__slice__(_i + (7 : GoInt)) : GoString) };
                                 };
                                 if (!_startsWithLowerCase((_layout.__slice__(_i + (3 : GoInt)) : GoString))) {
-                                    return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (262 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
+                                    return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (258 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
                                 };
                             };
-                            if ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (("MST" : GoString))) {
-                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (23 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
-                            };
-                        };
-                    } else if (_c == ((48 : GoInt))) {
-                        if (((_layout.length >= (_i + (2 : GoInt))) && ((49 : GoUInt8) <= _layout[(_i + (1 : GoInt) : GoInt)])) && (_layout[(_i + (1 : GoInt) : GoInt)] <= (54 : GoUInt8))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : _std0x[(_layout[(_i + (1 : GoInt) : GoInt)] - (49 : GoUInt8) : GoInt)], _2 : (_layout.__slice__(_i + (2 : GoInt)) : GoString) };
-                        };
-                        if (((_layout.length >= (_i + (3 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (48 : GoUInt8))) && (_layout[(_i + (2 : GoInt) : GoInt)] == (50 : GoUInt8))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (267 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
-                        };
-                    } else if (_c == ((49 : GoInt))) {
-                        if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (53 : GoUInt8))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (524 : GoInt), _2 : (_layout.__slice__(_i + (2 : GoInt)) : GoString) };
-                        };
-                        return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (259 : GoInt), _2 : (_layout.__slice__(_i + (1 : GoInt)) : GoString) };
-                    } else if (_c == ((50 : GoInt))) {
-                        if ((_layout.length >= (_i + (4 : GoInt))) && ((_layout.__slice__(_i, _i + (4 : GoInt)) : GoString) == ("2006" : GoString))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (275 : GoInt), _2 : (_layout.__slice__(_i + (4 : GoInt)) : GoString) };
-                        };
-                        return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (263 : GoInt), _2 : (_layout.__slice__(_i + (1 : GoInt)) : GoString) };
-                    } else if (_c == ((95 : GoInt))) {
-                        if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (50 : GoUInt8))) {
-                            if ((_layout.length >= (_i + (5 : GoInt))) && ((_layout.__slice__(_i + (1 : GoInt), _i + (5 : GoInt)) : GoString) == ("2006" : GoString))) {
-                                return { _0 : (_layout.__slice__((0 : GoInt), _i + (1 : GoInt)) : GoString), _1 : (275 : GoInt), _2 : (_layout.__slice__(_i + (5 : GoInt)) : GoString) };
-                            };
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (264 : GoInt), _2 : (_layout.__slice__(_i + (2 : GoInt)) : GoString) };
-                        };
-                        if (((_layout.length >= (_i + (3 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (95 : GoUInt8))) && (_layout[(_i + (2 : GoInt) : GoInt)] == (50 : GoUInt8))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (266 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
-                        };
-                    } else if (_c == ((51 : GoInt))) {
-                        return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (525 : GoInt), _2 : (_layout.__slice__(_i + (1 : GoInt)) : GoString) };
-                    } else if (_c == ((52 : GoInt))) {
-                        return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (527 : GoInt), _2 : (_layout.__slice__(_i + (1 : GoInt)) : GoString) };
-                    } else if (_c == ((53 : GoInt))) {
-                        return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (529 : GoInt), _2 : (_layout.__slice__(_i + (1 : GoInt)) : GoString) };
-                    } else if (_c == ((80 : GoInt))) {
-                        if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (77 : GoUInt8))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (533 : GoInt), _2 : (_layout.__slice__(_i + (2 : GoInt)) : GoString) };
-                        };
-                    } else if (_c == ((112 : GoInt))) {
-                        if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (109 : GoUInt8))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (534 : GoInt), _2 : (_layout.__slice__(_i + (2 : GoInt)) : GoString) };
-                        };
-                    } else if (_c == ((45 : GoInt))) {
-                        if ((_layout.length >= (_i + (7 : GoInt))) && ((_layout.__slice__(_i, _i + (7 : GoInt)) : GoString) == ("-070000" : GoString))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (30 : GoInt), _2 : (_layout.__slice__(_i + (7 : GoInt)) : GoString) };
-                        };
-                        if ((_layout.length >= (_i + (9 : GoInt))) && ((_layout.__slice__(_i, _i + (9 : GoInt)) : GoString) == ("-07:00:00" : GoString))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (33 : GoInt), _2 : (_layout.__slice__(_i + (9 : GoInt)) : GoString) };
-                        };
-                        if ((_layout.length >= (_i + (5 : GoInt))) && ((_layout.__slice__(_i, _i + (5 : GoInt)) : GoString) == ("-0700" : GoString))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (29 : GoInt), _2 : (_layout.__slice__(_i + (5 : GoInt)) : GoString) };
-                        };
-                        if ((_layout.length >= (_i + (6 : GoInt))) && ((_layout.__slice__(_i, _i + (6 : GoInt)) : GoString) == ("-07:00" : GoString))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (32 : GoInt), _2 : (_layout.__slice__(_i + (6 : GoInt)) : GoString) };
-                        };
-                        if ((_layout.length >= (_i + (3 : GoInt))) && ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == ("-07" : GoString))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (31 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
-                        };
-                    } else if (_c == ((90 : GoInt))) {
-                        if ((_layout.length >= (_i + (7 : GoInt))) && ((_layout.__slice__(_i, _i + (7 : GoInt)) : GoString) == ("Z070000" : GoString))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (25 : GoInt), _2 : (_layout.__slice__(_i + (7 : GoInt)) : GoString) };
-                        };
-                        if ((_layout.length >= (_i + (9 : GoInt))) && ((_layout.__slice__(_i, _i + (9 : GoInt)) : GoString) == ("Z07:00:00" : GoString))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (28 : GoInt), _2 : (_layout.__slice__(_i + (9 : GoInt)) : GoString) };
-                        };
-                        if ((_layout.length >= (_i + (5 : GoInt))) && ((_layout.__slice__(_i, _i + (5 : GoInt)) : GoString) == ("Z0700" : GoString))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (24 : GoInt), _2 : (_layout.__slice__(_i + (5 : GoInt)) : GoString) };
-                        };
-                        if ((_layout.length >= (_i + (6 : GoInt))) && ((_layout.__slice__(_i, _i + (6 : GoInt)) : GoString) == ("Z07:00" : GoString))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (27 : GoInt), _2 : (_layout.__slice__(_i + (6 : GoInt)) : GoString) };
-                        };
-                        if ((_layout.length >= (_i + (3 : GoInt))) && ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == ("Z07" : GoString))) {
-                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (26 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
-                        };
-                    } else if (_c == ((46 : GoInt)) || _c == ((44 : GoInt))) {
-                        if (((_i + (1 : GoInt)) < _layout.length) && ((_layout[(_i + (1 : GoInt) : GoInt)] == (48 : GoUInt8)) || (_layout[(_i + (1 : GoInt) : GoInt)] == (57 : GoUInt8)))) {
-                            var _ch:GoUInt8 = _layout[(_i + (1 : GoInt) : GoInt)];
-                            var _j:GoInt = _i + (1 : GoInt);
-                            while ((_j < _layout.length) && (_layout[(_j : GoInt)] == _ch)) {
-                                _j++;
-                            };
-                            if (!_isDigit(_layout, _j)) {
-                                var _code:GoInt = (34 : GoInt);
-                                if (_layout[(_i + (1 : GoInt) : GoInt)] == ((57 : GoUInt8))) {
-                                    _code = (35 : GoInt);
+                        } else if (__value__ == ((77 : GoInt))) {
+                            if ((_layout.length) >= (_i + (3 : GoInt))) {
+                                if ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (("Mon" : GoString))) {
+                                    if ((_layout.length >= (_i + (6 : GoInt))) && ((_layout.__slice__(_i, _i + (6 : GoInt)) : GoString) == ("Monday" : GoString))) {
+                                        return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (261 : GoInt), _2 : (_layout.__slice__(_i + (6 : GoInt)) : GoString) };
+                                    };
+                                    if (!_startsWithLowerCase((_layout.__slice__(_i + (3 : GoInt)) : GoString))) {
+                                        return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (262 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
+                                    };
                                 };
-                                var _std:GoInt = _stdFracSecond(_code, _j - (_i + (1 : GoInt)), _c);
-                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : _std, _2 : (_layout.__slice__(_j) : GoString) };
+                                if ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (("MST" : GoString))) {
+                                    return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (23 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
+                                };
+                            };
+                        } else if (__value__ == ((48 : GoInt))) {
+                            if (((_layout.length >= (_i + (2 : GoInt))) && ((49 : GoUInt8) <= _layout[(_i + (1 : GoInt) : GoInt)])) && (_layout[(_i + (1 : GoInt) : GoInt)] <= (54 : GoUInt8))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : _std0x[(_layout[(_i + (1 : GoInt) : GoInt)] - (49 : GoUInt8) : GoInt)], _2 : (_layout.__slice__(_i + (2 : GoInt)) : GoString) };
+                            };
+                            if (((_layout.length >= (_i + (3 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (48 : GoUInt8))) && (_layout[(_i + (2 : GoInt) : GoInt)] == (50 : GoUInt8))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (267 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
+                            };
+                        } else if (__value__ == ((49 : GoInt))) {
+                            if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (53 : GoUInt8))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (524 : GoInt), _2 : (_layout.__slice__(_i + (2 : GoInt)) : GoString) };
+                            };
+                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (259 : GoInt), _2 : (_layout.__slice__(_i + (1 : GoInt)) : GoString) };
+                        } else if (__value__ == ((50 : GoInt))) {
+                            if ((_layout.length >= (_i + (4 : GoInt))) && ((_layout.__slice__(_i, _i + (4 : GoInt)) : GoString) == ("2006" : GoString))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (275 : GoInt), _2 : (_layout.__slice__(_i + (4 : GoInt)) : GoString) };
+                            };
+                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (263 : GoInt), _2 : (_layout.__slice__(_i + (1 : GoInt)) : GoString) };
+                        } else if (__value__ == ((95 : GoInt))) {
+                            if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (50 : GoUInt8))) {
+                                if ((_layout.length >= (_i + (5 : GoInt))) && ((_layout.__slice__(_i + (1 : GoInt), _i + (5 : GoInt)) : GoString) == ("2006" : GoString))) {
+                                    return { _0 : (_layout.__slice__((0 : GoInt), _i + (1 : GoInt)) : GoString), _1 : (275 : GoInt), _2 : (_layout.__slice__(_i + (5 : GoInt)) : GoString) };
+                                };
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (264 : GoInt), _2 : (_layout.__slice__(_i + (2 : GoInt)) : GoString) };
+                            };
+                            if (((_layout.length >= (_i + (3 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (95 : GoUInt8))) && (_layout[(_i + (2 : GoInt) : GoInt)] == (50 : GoUInt8))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (266 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
+                            };
+                        } else if (__value__ == ((51 : GoInt))) {
+                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (525 : GoInt), _2 : (_layout.__slice__(_i + (1 : GoInt)) : GoString) };
+                        } else if (__value__ == ((52 : GoInt))) {
+                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (527 : GoInt), _2 : (_layout.__slice__(_i + (1 : GoInt)) : GoString) };
+                        } else if (__value__ == ((53 : GoInt))) {
+                            return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (529 : GoInt), _2 : (_layout.__slice__(_i + (1 : GoInt)) : GoString) };
+                        } else if (__value__ == ((80 : GoInt))) {
+                            if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (77 : GoUInt8))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (533 : GoInt), _2 : (_layout.__slice__(_i + (2 : GoInt)) : GoString) };
+                            };
+                        } else if (__value__ == ((112 : GoInt))) {
+                            if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (109 : GoUInt8))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (534 : GoInt), _2 : (_layout.__slice__(_i + (2 : GoInt)) : GoString) };
+                            };
+                        } else if (__value__ == ((45 : GoInt))) {
+                            if ((_layout.length >= (_i + (7 : GoInt))) && ((_layout.__slice__(_i, _i + (7 : GoInt)) : GoString) == ("-070000" : GoString))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (30 : GoInt), _2 : (_layout.__slice__(_i + (7 : GoInt)) : GoString) };
+                            };
+                            if ((_layout.length >= (_i + (9 : GoInt))) && ((_layout.__slice__(_i, _i + (9 : GoInt)) : GoString) == ("-07:00:00" : GoString))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (33 : GoInt), _2 : (_layout.__slice__(_i + (9 : GoInt)) : GoString) };
+                            };
+                            if ((_layout.length >= (_i + (5 : GoInt))) && ((_layout.__slice__(_i, _i + (5 : GoInt)) : GoString) == ("-0700" : GoString))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (29 : GoInt), _2 : (_layout.__slice__(_i + (5 : GoInt)) : GoString) };
+                            };
+                            if ((_layout.length >= (_i + (6 : GoInt))) && ((_layout.__slice__(_i, _i + (6 : GoInt)) : GoString) == ("-07:00" : GoString))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (32 : GoInt), _2 : (_layout.__slice__(_i + (6 : GoInt)) : GoString) };
+                            };
+                            if ((_layout.length >= (_i + (3 : GoInt))) && ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == ("-07" : GoString))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (31 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
+                            };
+                        } else if (__value__ == ((90 : GoInt))) {
+                            if ((_layout.length >= (_i + (7 : GoInt))) && ((_layout.__slice__(_i, _i + (7 : GoInt)) : GoString) == ("Z070000" : GoString))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (25 : GoInt), _2 : (_layout.__slice__(_i + (7 : GoInt)) : GoString) };
+                            };
+                            if ((_layout.length >= (_i + (9 : GoInt))) && ((_layout.__slice__(_i, _i + (9 : GoInt)) : GoString) == ("Z07:00:00" : GoString))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (28 : GoInt), _2 : (_layout.__slice__(_i + (9 : GoInt)) : GoString) };
+                            };
+                            if ((_layout.length >= (_i + (5 : GoInt))) && ((_layout.__slice__(_i, _i + (5 : GoInt)) : GoString) == ("Z0700" : GoString))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (24 : GoInt), _2 : (_layout.__slice__(_i + (5 : GoInt)) : GoString) };
+                            };
+                            if ((_layout.length >= (_i + (6 : GoInt))) && ((_layout.__slice__(_i, _i + (6 : GoInt)) : GoString) == ("Z07:00" : GoString))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (27 : GoInt), _2 : (_layout.__slice__(_i + (6 : GoInt)) : GoString) };
+                            };
+                            if ((_layout.length >= (_i + (3 : GoInt))) && ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == ("Z07" : GoString))) {
+                                return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : (26 : GoInt), _2 : (_layout.__slice__(_i + (3 : GoInt)) : GoString) };
+                            };
+                        } else if (__value__ == ((46 : GoInt)) || __value__ == ((44 : GoInt))) {
+                            if (((_i + (1 : GoInt)) < _layout.length) && ((_layout[(_i + (1 : GoInt) : GoInt)] == (48 : GoUInt8)) || (_layout[(_i + (1 : GoInt) : GoInt)] == (57 : GoUInt8)))) {
+                                var _ch:GoUInt8 = _layout[(_i + (1 : GoInt) : GoInt)];
+                                var _j:GoInt = _i + (1 : GoInt);
+                                while ((_j < _layout.length) && (_layout[(_j : GoInt)] == _ch)) {
+                                    _j++;
+                                };
+                                if (!_isDigit(_layout, _j)) {
+                                    var _code:GoInt = (34 : GoInt);
+                                    if (_layout[(_i + (1 : GoInt) : GoInt)] == ((57 : GoUInt8))) {
+                                        _code = (35 : GoInt);
+                                    };
+                                    var _std:GoInt = _stdFracSecond(_code, _j - (_i + (1 : GoInt)), _c);
+                                    return { _0 : (_layout.__slice__((0 : GoInt), _i) : GoString), _1 : _std, _2 : (_layout.__slice__(_j) : GoString) };
+                                };
                             };
                         };
                     };
@@ -3657,7 +3660,7 @@ private function _appendNano(_b:Slice<GoByte>, _nanosec:GoInt, _std:GoInt):Slice
 private function _newParseError(_layout:GoString, _value:GoString, _layoutElem:GoString, _valueElem:GoString, _message:GoString):Ref<ParseError> {
         var _valueCopy:GoString = _cloneString(_value);
         var _valueElemCopy:GoString = _cloneString(_valueElem);
-        return ((new ParseError(_layout, _valueCopy, _layoutElem, _valueElemCopy, _message) : ParseError) : Ref<ParseError>);
+        return (Go.setRef((new ParseError(_layout, _valueCopy, _layoutElem, _valueElemCopy, _message) : ParseError)) : Ref<ParseError>);
     }
 /**
     // cloneString returns a string copy of s.
@@ -3814,7 +3817,7 @@ function parse(_layout:GoString, _value:GoString):{ var _0 : Time; var _1 : Erro
             {
                 var __tmp__ = _parseRFC3339(_value, local), _t:Time = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
-                    return { _0 : (_t == null ? null : _t.__copy__()), _1 : (null : Error) };
+                    return { _0 : _t.__copy__(), _1 : (null : Error) };
                 };
             };
         };
@@ -3832,7 +3835,7 @@ function parseInLocation(_layout:GoString, _value:GoString, _loc:Ref<Location>):
             {
                 var __tmp__ = _parseRFC3339(_value, _loc), _t:Time = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
-                    return { _0 : (_t == null ? null : _t.__copy__()), _1 : (null : Error) };
+                    return { _0 : _t.__copy__(), _1 : (null : Error) };
                 };
             };
         };
@@ -3868,399 +3871,411 @@ private function _parse(_layout:GoString, _value:GoString, _defaultLocation:Ref<
             {
                 var __switchIndex__ = -1;
                 while (true) {
-                    if (_std & (65535 : GoInt) == ((276 : GoInt))) {
-                        if ((_value.length) < (2 : GoInt)) {
-                            _err = _errBad;
-                            break;
-                        };
-                        {
-                            final __tmp__0 = (_value.__slice__((0 : GoInt), (2 : GoInt)) : GoString);
-                            final __tmp__1 = (_value.__slice__((2 : GoInt)) : GoString);
-                            _p = __tmp__0;
-                            _value = __tmp__1;
-                        };
-                        {
-                            var __tmp__ = _atoi(_p);
-                            _year = __tmp__._0;
-                            _err = __tmp__._1;
-                        };
-                        if (_err != null) {
-                            break;
-                        };
-                        if (_year >= (69 : GoInt)) {
-                            _year = _year + ((1900 : GoInt));
-                        } else {
-                            _year = _year + ((2000 : GoInt));
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((275 : GoInt))) {
-                        if ((_value.length < (4 : GoInt)) || !_isDigit(_value, (0 : GoInt))) {
-                            _err = _errBad;
-                            break;
-                        };
-                        {
-                            final __tmp__0 = (_value.__slice__((0 : GoInt), (4 : GoInt)) : GoString);
-                            final __tmp__1 = (_value.__slice__((4 : GoInt)) : GoString);
-                            _p = __tmp__0;
-                            _value = __tmp__1;
-                        };
-                        {
-                            var __tmp__ = _atoi(_p);
-                            _year = __tmp__._0;
-                            _err = __tmp__._1;
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((258 : GoInt))) {
-                        {
-                            var __tmp__ = _lookup(_shortMonthNames, _value);
-                            _month = __tmp__._0;
-                            _value = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        _month++;
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((257 : GoInt))) {
-                        {
-                            var __tmp__ = _lookup(_longMonthNames, _value);
-                            _month = __tmp__._0;
-                            _value = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        _month++;
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((259 : GoInt)) || _std & (65535 : GoInt) == ((260 : GoInt))) {
-                        {
-                            var __tmp__ = _getnum(_value, _std == ((260 : GoInt)));
-                            _month = __tmp__._0;
-                            _value = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        if ((_err == null) && ((_month <= (0 : GoInt)) || ((12 : GoInt) < _month))) {
-                            _rangeErrString = ("month" : GoString);
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((262 : GoInt))) {
-                        {
-                            var __tmp__ = _lookup(_shortDayNames, _value);
-                            _value = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((261 : GoInt))) {
-                        {
-                            var __tmp__ = _lookup(_longDayNames, _value);
-                            _value = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((263 : GoInt)) || _std & (65535 : GoInt) == ((264 : GoInt)) || _std & (65535 : GoInt) == ((265 : GoInt))) {
-                        if (((_std == (264 : GoInt)) && (_value.length > (0 : GoInt))) && (_value[(0 : GoInt)] == (32 : GoUInt8))) {
-                            _value = (_value.__slice__((1 : GoInt)) : GoString);
-                        };
-                        {
-                            var __tmp__ = _getnum(_value, _std == ((265 : GoInt)));
-                            _day = __tmp__._0;
-                            _value = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((266 : GoInt)) || _std & (65535 : GoInt) == ((267 : GoInt))) {
-                        {
-                            var _i:GoInt = (0 : GoInt);
-                            Go.cfor(_i < (2 : GoInt), _i++, {
-                                if (((_std == (266 : GoInt)) && (_value.length > (0 : GoInt))) && (_value[(0 : GoInt)] == (32 : GoUInt8))) {
-                                    _value = (_value.__slice__((1 : GoInt)) : GoString);
-                                };
-                            });
-                        };
-                        {
-                            var __tmp__ = _getnum3(_value, _std == ((267 : GoInt)));
-                            _yday = __tmp__._0;
-                            _value = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((524 : GoInt))) {
-                        {
-                            var __tmp__ = _getnum(_value, false);
-                            _hour = __tmp__._0;
-                            _value = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        if ((_hour < (0 : GoInt)) || ((24 : GoInt) <= _hour)) {
-                            _rangeErrString = ("hour" : GoString);
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((525 : GoInt)) || _std & (65535 : GoInt) == ((526 : GoInt))) {
-                        {
-                            var __tmp__ = _getnum(_value, _std == ((526 : GoInt)));
-                            _hour = __tmp__._0;
-                            _value = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        if ((_hour < (0 : GoInt)) || ((12 : GoInt) < _hour)) {
-                            _rangeErrString = ("hour" : GoString);
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((527 : GoInt)) || _std & (65535 : GoInt) == ((528 : GoInt))) {
-                        {
-                            var __tmp__ = _getnum(_value, _std == ((528 : GoInt)));
-                            _min = __tmp__._0;
-                            _value = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        if ((_min < (0 : GoInt)) || ((60 : GoInt) <= _min)) {
-                            _rangeErrString = ("minute" : GoString);
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((529 : GoInt)) || _std & (65535 : GoInt) == ((530 : GoInt))) {
-                        {
-                            var __tmp__ = _getnum(_value, _std == ((530 : GoInt)));
-                            _sec = __tmp__._0;
-                            _value = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        if (_err != null) {
-                            break;
-                        };
-                        if ((_sec < (0 : GoInt)) || ((60 : GoInt) <= _sec)) {
-                            _rangeErrString = ("second" : GoString);
-                            break;
-                        };
-                        if (((_value.length >= (2 : GoInt)) && _commaOrPeriod(_value[(0 : GoInt)])) && _isDigit(_value, (1 : GoInt))) {
-                            {
-                                var __tmp__ = _nextStdChunk(_layout);
-                                _std = __tmp__._1;
-                            };
-                            _std = _std & ((65535 : GoInt));
-                            if ((_std == (34 : GoInt)) || (_std == (35 : GoInt))) {
+                    {
+                        final __value__ = _std & (65535 : GoInt);
+                        if (__value__ == ((276 : GoInt))) {
+                            if ((_value.length) < (2 : GoInt)) {
+                                _err = _errBad;
                                 break;
                             };
-                            var _n:GoInt = (2 : GoInt);
-                            Go.cfor((_n < _value.length) && _isDigit(_value, _n), _n++, {});
                             {
-                                var __tmp__ = _parseNanoseconds(_value, _n);
+                                final __tmp__0 = (_value.__slice__((0 : GoInt), (2 : GoInt)) : GoString);
+                                final __tmp__1 = (_value.__slice__((2 : GoInt)) : GoString);
+                                _p = __tmp__0;
+                                _value = __tmp__1;
+                            };
+                            {
+                                var __tmp__ = _atoi(_p);
+                                _year = __tmp__._0;
+                                _err = __tmp__._1;
+                            };
+                            if (_err != null) {
+                                break;
+                            };
+                            if (_year >= (69 : GoInt)) {
+                                _year = _year + ((1900 : GoInt));
+                            } else {
+                                _year = _year + ((2000 : GoInt));
+                            };
+                            break;
+                        } else if (__value__ == ((275 : GoInt))) {
+                            if ((_value.length < (4 : GoInt)) || !_isDigit(_value, (0 : GoInt))) {
+                                _err = _errBad;
+                                break;
+                            };
+                            {
+                                final __tmp__0 = (_value.__slice__((0 : GoInt), (4 : GoInt)) : GoString);
+                                final __tmp__1 = (_value.__slice__((4 : GoInt)) : GoString);
+                                _p = __tmp__0;
+                                _value = __tmp__1;
+                            };
+                            {
+                                var __tmp__ = _atoi(_p);
+                                _year = __tmp__._0;
+                                _err = __tmp__._1;
+                            };
+                            break;
+                        } else if (__value__ == ((258 : GoInt))) {
+                            {
+                                var __tmp__ = _lookup(_shortMonthNames, _value);
+                                _month = __tmp__._0;
+                                _value = __tmp__._1;
+                                _err = __tmp__._2;
+                            };
+                            _month++;
+                            break;
+                        } else if (__value__ == ((257 : GoInt))) {
+                            {
+                                var __tmp__ = _lookup(_longMonthNames, _value);
+                                _month = __tmp__._0;
+                                _value = __tmp__._1;
+                                _err = __tmp__._2;
+                            };
+                            _month++;
+                            break;
+                        } else if (__value__ == ((259 : GoInt)) || __value__ == ((260 : GoInt))) {
+                            {
+                                var __tmp__ = _getnum(_value, _std == ((260 : GoInt)));
+                                _month = __tmp__._0;
+                                _value = __tmp__._1;
+                                _err = __tmp__._2;
+                            };
+                            if ((_err == null) && ((_month <= (0 : GoInt)) || ((12 : GoInt) < _month))) {
+                                _rangeErrString = ("month" : GoString);
+                            };
+                            break;
+                        } else if (__value__ == ((262 : GoInt))) {
+                            {
+                                var __tmp__ = _lookup(_shortDayNames, _value);
+                                _value = __tmp__._1;
+                                _err = __tmp__._2;
+                            };
+                            break;
+                        } else if (__value__ == ((261 : GoInt))) {
+                            {
+                                var __tmp__ = _lookup(_longDayNames, _value);
+                                _value = __tmp__._1;
+                                _err = __tmp__._2;
+                            };
+                            break;
+                        } else if (__value__ == ((263 : GoInt)) || __value__ == ((264 : GoInt)) || __value__ == ((265 : GoInt))) {
+                            if (((_std == (264 : GoInt)) && (_value.length > (0 : GoInt))) && (_value[(0 : GoInt)] == (32 : GoUInt8))) {
+                                _value = (_value.__slice__((1 : GoInt)) : GoString);
+                            };
+                            {
+                                var __tmp__ = _getnum(_value, _std == ((265 : GoInt)));
+                                _day = __tmp__._0;
+                                _value = __tmp__._1;
+                                _err = __tmp__._2;
+                            };
+                            break;
+                        } else if (__value__ == ((266 : GoInt)) || __value__ == ((267 : GoInt))) {
+                            {
+                                var _i:GoInt = (0 : GoInt);
+                                Go.cfor(_i < (2 : GoInt), _i++, {
+                                    if (((_std == (266 : GoInt)) && (_value.length > (0 : GoInt))) && (_value[(0 : GoInt)] == (32 : GoUInt8))) {
+                                        _value = (_value.__slice__((1 : GoInt)) : GoString);
+                                    };
+                                });
+                            };
+                            {
+                                var __tmp__ = _getnum3(_value, _std == ((267 : GoInt)));
+                                _yday = __tmp__._0;
+                                _value = __tmp__._1;
+                                _err = __tmp__._2;
+                            };
+                            break;
+                        } else if (__value__ == ((524 : GoInt))) {
+                            {
+                                var __tmp__ = _getnum(_value, false);
+                                _hour = __tmp__._0;
+                                _value = __tmp__._1;
+                                _err = __tmp__._2;
+                            };
+                            if ((_hour < (0 : GoInt)) || ((24 : GoInt) <= _hour)) {
+                                _rangeErrString = ("hour" : GoString);
+                            };
+                            break;
+                        } else if (__value__ == ((525 : GoInt)) || __value__ == ((526 : GoInt))) {
+                            {
+                                var __tmp__ = _getnum(_value, _std == ((526 : GoInt)));
+                                _hour = __tmp__._0;
+                                _value = __tmp__._1;
+                                _err = __tmp__._2;
+                            };
+                            if ((_hour < (0 : GoInt)) || ((12 : GoInt) < _hour)) {
+                                _rangeErrString = ("hour" : GoString);
+                            };
+                            break;
+                        } else if (__value__ == ((527 : GoInt)) || __value__ == ((528 : GoInt))) {
+                            {
+                                var __tmp__ = _getnum(_value, _std == ((528 : GoInt)));
+                                _min = __tmp__._0;
+                                _value = __tmp__._1;
+                                _err = __tmp__._2;
+                            };
+                            if ((_min < (0 : GoInt)) || ((60 : GoInt) <= _min)) {
+                                _rangeErrString = ("minute" : GoString);
+                            };
+                            break;
+                        } else if (__value__ == ((529 : GoInt)) || __value__ == ((530 : GoInt))) {
+                            {
+                                var __tmp__ = _getnum(_value, _std == ((530 : GoInt)));
+                                _sec = __tmp__._0;
+                                _value = __tmp__._1;
+                                _err = __tmp__._2;
+                            };
+                            if (_err != null) {
+                                break;
+                            };
+                            if ((_sec < (0 : GoInt)) || ((60 : GoInt) <= _sec)) {
+                                _rangeErrString = ("second" : GoString);
+                                break;
+                            };
+                            if (((_value.length >= (2 : GoInt)) && _commaOrPeriod(_value[(0 : GoInt)])) && _isDigit(_value, (1 : GoInt))) {
+                                {
+                                    var __tmp__ = _nextStdChunk(_layout);
+                                    _std = __tmp__._1;
+                                };
+                                _std = _std & ((65535 : GoInt));
+                                if ((_std == (34 : GoInt)) || (_std == (35 : GoInt))) {
+                                    break;
+                                };
+                                var _n:GoInt = (2 : GoInt);
+                                Go.cfor((_n < _value.length) && _isDigit(_value, _n), _n++, {});
+                                {
+                                    var __tmp__ = _parseNanoseconds(_value, _n);
+                                    _nsec = __tmp__._0;
+                                    _rangeErrString = __tmp__._1;
+                                    _err = __tmp__._2;
+                                };
+                                _value = (_value.__slice__(_n) : GoString);
+                            };
+                            break;
+                        } else if (__value__ == ((533 : GoInt))) {
+                            if ((_value.length) < (2 : GoInt)) {
+                                _err = _errBad;
+                                break;
+                            };
+                            {
+                                final __tmp__0 = (_value.__slice__((0 : GoInt), (2 : GoInt)) : GoString);
+                                final __tmp__1 = (_value.__slice__((2 : GoInt)) : GoString);
+                                _p = __tmp__0;
+                                _value = __tmp__1;
+                            };
+                            {
+                                final __value__ = _p;
+                                if (__value__ == (("PM" : GoString))) {
+                                    _pmSet = true;
+                                } else if (__value__ == (("AM" : GoString))) {
+                                    _amSet = true;
+                                } else {
+                                    _err = _errBad;
+                                };
+                            };
+                            break;
+                        } else if (__value__ == ((534 : GoInt))) {
+                            if ((_value.length) < (2 : GoInt)) {
+                                _err = _errBad;
+                                break;
+                            };
+                            {
+                                final __tmp__0 = (_value.__slice__((0 : GoInt), (2 : GoInt)) : GoString);
+                                final __tmp__1 = (_value.__slice__((2 : GoInt)) : GoString);
+                                _p = __tmp__0;
+                                _value = __tmp__1;
+                            };
+                            {
+                                final __value__ = _p;
+                                if (__value__ == (("pm" : GoString))) {
+                                    _pmSet = true;
+                                } else if (__value__ == (("am" : GoString))) {
+                                    _amSet = true;
+                                } else {
+                                    _err = _errBad;
+                                };
+                            };
+                            break;
+                        } else if (__value__ == ((24 : GoInt)) || __value__ == ((27 : GoInt)) || __value__ == ((25 : GoInt)) || __value__ == ((26 : GoInt)) || __value__ == ((28 : GoInt)) || __value__ == ((29 : GoInt)) || __value__ == ((31 : GoInt)) || __value__ == ((32 : GoInt)) || __value__ == ((30 : GoInt)) || __value__ == ((33 : GoInt))) {
+                            if (((((_std == (24 : GoInt)) || (_std == (26 : GoInt))) || (_std == (27 : GoInt))) && (_value.length >= (1 : GoInt))) && (_value[(0 : GoInt)] == (90 : GoUInt8))) {
+                                _value = (_value.__slice__((1 : GoInt)) : GoString);
+                                _z = utc;
+                                break;
+                            };
+                            var _0:GoString = ("" : GoString), _1:GoString = ("" : GoString), _2:GoString = ("" : GoString), _3:GoString = ("" : GoString), _seconds:GoString = _3, _min:GoString = _2, _hour:GoString = _1, _sign:GoString = _0;
+                            if ((_std == (27 : GoInt)) || (_std == (32 : GoInt))) {
+                                if ((_value.length) < (6 : GoInt)) {
+                                    _err = _errBad;
+                                    break;
+                                };
+                                if (_value[(3 : GoInt)] != ((58 : GoUInt8))) {
+                                    _err = _errBad;
+                                    break;
+                                };
+                                {
+                                    final __tmp__0 = (_value.__slice__((0 : GoInt), (1 : GoInt)) : GoString);
+                                    final __tmp__1 = (_value.__slice__((1 : GoInt), (3 : GoInt)) : GoString);
+                                    final __tmp__2 = (_value.__slice__((4 : GoInt), (6 : GoInt)) : GoString);
+                                    final __tmp__3 = ("00" : GoString);
+                                    final __tmp__4 = (_value.__slice__((6 : GoInt)) : GoString);
+                                    _sign = __tmp__0;
+                                    _hour = __tmp__1;
+                                    _min = __tmp__2;
+                                    _seconds = __tmp__3;
+                                    _value = __tmp__4;
+                                };
+                            } else if ((_std == (31 : GoInt)) || (_std == (26 : GoInt))) {
+                                if ((_value.length) < (3 : GoInt)) {
+                                    _err = _errBad;
+                                    break;
+                                };
+                                {
+                                    final __tmp__0 = (_value.__slice__((0 : GoInt), (1 : GoInt)) : GoString);
+                                    final __tmp__1 = (_value.__slice__((1 : GoInt), (3 : GoInt)) : GoString);
+                                    final __tmp__2 = ("00" : GoString);
+                                    final __tmp__3 = ("00" : GoString);
+                                    final __tmp__4 = (_value.__slice__((3 : GoInt)) : GoString);
+                                    _sign = __tmp__0;
+                                    _hour = __tmp__1;
+                                    _min = __tmp__2;
+                                    _seconds = __tmp__3;
+                                    _value = __tmp__4;
+                                };
+                            } else if ((_std == (28 : GoInt)) || (_std == (33 : GoInt))) {
+                                if ((_value.length) < (9 : GoInt)) {
+                                    _err = _errBad;
+                                    break;
+                                };
+                                if ((_value[(3 : GoInt)] != (58 : GoUInt8)) || (_value[(6 : GoInt)] != (58 : GoUInt8))) {
+                                    _err = _errBad;
+                                    break;
+                                };
+                                {
+                                    final __tmp__0 = (_value.__slice__((0 : GoInt), (1 : GoInt)) : GoString);
+                                    final __tmp__1 = (_value.__slice__((1 : GoInt), (3 : GoInt)) : GoString);
+                                    final __tmp__2 = (_value.__slice__((4 : GoInt), (6 : GoInt)) : GoString);
+                                    final __tmp__3 = (_value.__slice__((7 : GoInt), (9 : GoInt)) : GoString);
+                                    final __tmp__4 = (_value.__slice__((9 : GoInt)) : GoString);
+                                    _sign = __tmp__0;
+                                    _hour = __tmp__1;
+                                    _min = __tmp__2;
+                                    _seconds = __tmp__3;
+                                    _value = __tmp__4;
+                                };
+                            } else if ((_std == (25 : GoInt)) || (_std == (30 : GoInt))) {
+                                if ((_value.length) < (7 : GoInt)) {
+                                    _err = _errBad;
+                                    break;
+                                };
+                                {
+                                    final __tmp__0 = (_value.__slice__((0 : GoInt), (1 : GoInt)) : GoString);
+                                    final __tmp__1 = (_value.__slice__((1 : GoInt), (3 : GoInt)) : GoString);
+                                    final __tmp__2 = (_value.__slice__((3 : GoInt), (5 : GoInt)) : GoString);
+                                    final __tmp__3 = (_value.__slice__((5 : GoInt), (7 : GoInt)) : GoString);
+                                    final __tmp__4 = (_value.__slice__((7 : GoInt)) : GoString);
+                                    _sign = __tmp__0;
+                                    _hour = __tmp__1;
+                                    _min = __tmp__2;
+                                    _seconds = __tmp__3;
+                                    _value = __tmp__4;
+                                };
+                            } else {
+                                if ((_value.length) < (5 : GoInt)) {
+                                    _err = _errBad;
+                                    break;
+                                };
+                                {
+                                    final __tmp__0 = (_value.__slice__((0 : GoInt), (1 : GoInt)) : GoString);
+                                    final __tmp__1 = (_value.__slice__((1 : GoInt), (3 : GoInt)) : GoString);
+                                    final __tmp__2 = (_value.__slice__((3 : GoInt), (5 : GoInt)) : GoString);
+                                    final __tmp__3 = ("00" : GoString);
+                                    final __tmp__4 = (_value.__slice__((5 : GoInt)) : GoString);
+                                    _sign = __tmp__0;
+                                    _hour = __tmp__1;
+                                    _min = __tmp__2;
+                                    _seconds = __tmp__3;
+                                    _value = __tmp__4;
+                                };
+                            };
+                            var _0:GoInt = (0 : GoInt), _1:GoInt = (0 : GoInt), _2:GoInt = (0 : GoInt), _ss:GoInt = _2, _mm:GoInt = _1, _hr:GoInt = _0;
+                            {
+                                var __tmp__ = _getnum(_hour, true);
+                                _hr = __tmp__._0;
+                                _err = __tmp__._2;
+                            };
+                            if (_err == null) {
+                                {
+                                    var __tmp__ = _getnum(_min, true);
+                                    _mm = __tmp__._0;
+                                    _err = __tmp__._2;
+                                };
+                            };
+                            if (_err == null) {
+                                {
+                                    var __tmp__ = _getnum(_seconds, true);
+                                    _ss = __tmp__._0;
+                                    _err = __tmp__._2;
+                                };
+                            };
+                            _zoneOffset = (((_hr * (60 : GoInt)) + _mm) * (60 : GoInt)) + _ss;
+                            {
+                                final __value__ = _sign[(0 : GoInt)];
+                                if (__value__ == ((43 : GoUInt8))) {} else if (__value__ == ((45 : GoUInt8))) {
+                                    _zoneOffset = -_zoneOffset;
+                                } else {
+                                    _err = _errBad;
+                                };
+                            };
+                            break;
+                        } else if (__value__ == ((23 : GoInt))) {
+                            if ((_value.length >= (3 : GoInt)) && ((_value.__slice__((0 : GoInt), (3 : GoInt)) : GoString) == ("UTC" : GoString))) {
+                                _z = utc;
+                                _value = (_value.__slice__((3 : GoInt)) : GoString);
+                                break;
+                            };
+                            var __tmp__ = _parseTimeZone(_value), _n:GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
+                            if (!_ok) {
+                                _err = _errBad;
+                                break;
+                            };
+                            {
+                                final __tmp__0 = (_value.__slice__(0, _n) : GoString);
+                                final __tmp__1 = (_value.__slice__(_n) : GoString);
+                                _zoneName = __tmp__0;
+                                _value = __tmp__1;
+                            };
+                            break;
+                        } else if (__value__ == ((34 : GoInt))) {
+                            var _ndigit:GoInt = (1 : GoInt) + _digitsLen(_std);
+                            if ((_value.length) < _ndigit) {
+                                _err = _errBad;
+                                break;
+                            };
+                            {
+                                var __tmp__ = _parseNanoseconds(_value, _ndigit);
                                 _nsec = __tmp__._0;
                                 _rangeErrString = __tmp__._1;
                                 _err = __tmp__._2;
                             };
-                            _value = (_value.__slice__(_n) : GoString);
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((533 : GoInt))) {
-                        if ((_value.length) < (2 : GoInt)) {
-                            _err = _errBad;
+                            _value = (_value.__slice__(_ndigit) : GoString);
                             break;
-                        };
-                        {
-                            final __tmp__0 = (_value.__slice__((0 : GoInt), (2 : GoInt)) : GoString);
-                            final __tmp__1 = (_value.__slice__((2 : GoInt)) : GoString);
-                            _p = __tmp__0;
-                            _value = __tmp__1;
-                        };
-                        if (_p == (("PM" : GoString))) {
-                            _pmSet = true;
-                        } else if (_p == (("AM" : GoString))) {
-                            _amSet = true;
-                        } else {
-                            _err = _errBad;
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((534 : GoInt))) {
-                        if ((_value.length) < (2 : GoInt)) {
-                            _err = _errBad;
-                            break;
-                        };
-                        {
-                            final __tmp__0 = (_value.__slice__((0 : GoInt), (2 : GoInt)) : GoString);
-                            final __tmp__1 = (_value.__slice__((2 : GoInt)) : GoString);
-                            _p = __tmp__0;
-                            _value = __tmp__1;
-                        };
-                        if (_p == (("pm" : GoString))) {
-                            _pmSet = true;
-                        } else if (_p == (("am" : GoString))) {
-                            _amSet = true;
-                        } else {
-                            _err = _errBad;
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((24 : GoInt)) || _std & (65535 : GoInt) == ((27 : GoInt)) || _std & (65535 : GoInt) == ((25 : GoInt)) || _std & (65535 : GoInt) == ((26 : GoInt)) || _std & (65535 : GoInt) == ((28 : GoInt)) || _std & (65535 : GoInt) == ((29 : GoInt)) || _std & (65535 : GoInt) == ((31 : GoInt)) || _std & (65535 : GoInt) == ((32 : GoInt)) || _std & (65535 : GoInt) == ((30 : GoInt)) || _std & (65535 : GoInt) == ((33 : GoInt))) {
-                        if (((((_std == (24 : GoInt)) || (_std == (26 : GoInt))) || (_std == (27 : GoInt))) && (_value.length >= (1 : GoInt))) && (_value[(0 : GoInt)] == (90 : GoUInt8))) {
-                            _value = (_value.__slice__((1 : GoInt)) : GoString);
-                            _z = utc;
-                            break;
-                        };
-                        var _0:GoString = ("" : GoString), _1:GoString = ("" : GoString), _2:GoString = ("" : GoString), _3:GoString = ("" : GoString), _seconds:GoString = _3, _min:GoString = _2, _hour:GoString = _1, _sign:GoString = _0;
-                        if ((_std == (27 : GoInt)) || (_std == (32 : GoInt))) {
-                            if ((_value.length) < (6 : GoInt)) {
-                                _err = _errBad;
+                        } else if (__value__ == ((35 : GoInt))) {
+                            if ((((_value.length < (2 : GoInt)) || !_commaOrPeriod(_value[(0 : GoInt)])) || (_value[(1 : GoInt)] < (48 : GoUInt8))) || ((57 : GoUInt8) < _value[(1 : GoInt)])) {
                                 break;
                             };
-                            if (_value[(3 : GoInt)] != ((58 : GoUInt8))) {
-                                _err = _errBad;
-                                break;
+                            var _i:GoInt = (0 : GoInt);
+                            while ((((_i + (1 : GoInt)) < _value.length) && ((48 : GoUInt8) <= _value[(_i + (1 : GoInt) : GoInt)])) && (_value[(_i + (1 : GoInt) : GoInt)] <= (57 : GoUInt8))) {
+                                _i++;
                             };
                             {
-                                final __tmp__0 = (_value.__slice__((0 : GoInt), (1 : GoInt)) : GoString);
-                                final __tmp__1 = (_value.__slice__((1 : GoInt), (3 : GoInt)) : GoString);
-                                final __tmp__2 = (_value.__slice__((4 : GoInt), (6 : GoInt)) : GoString);
-                                final __tmp__3 = ("00" : GoString);
-                                final __tmp__4 = (_value.__slice__((6 : GoInt)) : GoString);
-                                _sign = __tmp__0;
-                                _hour = __tmp__1;
-                                _min = __tmp__2;
-                                _seconds = __tmp__3;
-                                _value = __tmp__4;
-                            };
-                        } else if ((_std == (31 : GoInt)) || (_std == (26 : GoInt))) {
-                            if ((_value.length) < (3 : GoInt)) {
-                                _err = _errBad;
-                                break;
-                            };
-                            {
-                                final __tmp__0 = (_value.__slice__((0 : GoInt), (1 : GoInt)) : GoString);
-                                final __tmp__1 = (_value.__slice__((1 : GoInt), (3 : GoInt)) : GoString);
-                                final __tmp__2 = ("00" : GoString);
-                                final __tmp__3 = ("00" : GoString);
-                                final __tmp__4 = (_value.__slice__((3 : GoInt)) : GoString);
-                                _sign = __tmp__0;
-                                _hour = __tmp__1;
-                                _min = __tmp__2;
-                                _seconds = __tmp__3;
-                                _value = __tmp__4;
-                            };
-                        } else if ((_std == (28 : GoInt)) || (_std == (33 : GoInt))) {
-                            if ((_value.length) < (9 : GoInt)) {
-                                _err = _errBad;
-                                break;
-                            };
-                            if ((_value[(3 : GoInt)] != (58 : GoUInt8)) || (_value[(6 : GoInt)] != (58 : GoUInt8))) {
-                                _err = _errBad;
-                                break;
-                            };
-                            {
-                                final __tmp__0 = (_value.__slice__((0 : GoInt), (1 : GoInt)) : GoString);
-                                final __tmp__1 = (_value.__slice__((1 : GoInt), (3 : GoInt)) : GoString);
-                                final __tmp__2 = (_value.__slice__((4 : GoInt), (6 : GoInt)) : GoString);
-                                final __tmp__3 = (_value.__slice__((7 : GoInt), (9 : GoInt)) : GoString);
-                                final __tmp__4 = (_value.__slice__((9 : GoInt)) : GoString);
-                                _sign = __tmp__0;
-                                _hour = __tmp__1;
-                                _min = __tmp__2;
-                                _seconds = __tmp__3;
-                                _value = __tmp__4;
-                            };
-                        } else if ((_std == (25 : GoInt)) || (_std == (30 : GoInt))) {
-                            if ((_value.length) < (7 : GoInt)) {
-                                _err = _errBad;
-                                break;
-                            };
-                            {
-                                final __tmp__0 = (_value.__slice__((0 : GoInt), (1 : GoInt)) : GoString);
-                                final __tmp__1 = (_value.__slice__((1 : GoInt), (3 : GoInt)) : GoString);
-                                final __tmp__2 = (_value.__slice__((3 : GoInt), (5 : GoInt)) : GoString);
-                                final __tmp__3 = (_value.__slice__((5 : GoInt), (7 : GoInt)) : GoString);
-                                final __tmp__4 = (_value.__slice__((7 : GoInt)) : GoString);
-                                _sign = __tmp__0;
-                                _hour = __tmp__1;
-                                _min = __tmp__2;
-                                _seconds = __tmp__3;
-                                _value = __tmp__4;
-                            };
-                        } else {
-                            if ((_value.length) < (5 : GoInt)) {
-                                _err = _errBad;
-                                break;
-                            };
-                            {
-                                final __tmp__0 = (_value.__slice__((0 : GoInt), (1 : GoInt)) : GoString);
-                                final __tmp__1 = (_value.__slice__((1 : GoInt), (3 : GoInt)) : GoString);
-                                final __tmp__2 = (_value.__slice__((3 : GoInt), (5 : GoInt)) : GoString);
-                                final __tmp__3 = ("00" : GoString);
-                                final __tmp__4 = (_value.__slice__((5 : GoInt)) : GoString);
-                                _sign = __tmp__0;
-                                _hour = __tmp__1;
-                                _min = __tmp__2;
-                                _seconds = __tmp__3;
-                                _value = __tmp__4;
-                            };
-                        };
-                        var _0:GoInt = (0 : GoInt), _1:GoInt = (0 : GoInt), _2:GoInt = (0 : GoInt), _ss:GoInt = _2, _mm:GoInt = _1, _hr:GoInt = _0;
-                        {
-                            var __tmp__ = _getnum(_hour, true);
-                            _hr = __tmp__._0;
-                            _err = __tmp__._2;
-                        };
-                        if (_err == null) {
-                            {
-                                var __tmp__ = _getnum(_min, true);
-                                _mm = __tmp__._0;
+                                var __tmp__ = _parseNanoseconds(_value, (1 : GoInt) + _i);
+                                _nsec = __tmp__._0;
+                                _rangeErrString = __tmp__._1;
                                 _err = __tmp__._2;
                             };
-                        };
-                        if (_err == null) {
-                            {
-                                var __tmp__ = _getnum(_seconds, true);
-                                _ss = __tmp__._0;
-                                _err = __tmp__._2;
-                            };
-                        };
-                        _zoneOffset = (((_hr * (60 : GoInt)) + _mm) * (60 : GoInt)) + _ss;
-                        if (_sign[(0 : GoInt)] == ((43 : GoUInt8))) {} else if (_sign[(0 : GoInt)] == ((45 : GoUInt8))) {
-                            _zoneOffset = -_zoneOffset;
-                        } else {
-                            _err = _errBad;
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((23 : GoInt))) {
-                        if ((_value.length >= (3 : GoInt)) && ((_value.__slice__((0 : GoInt), (3 : GoInt)) : GoString) == ("UTC" : GoString))) {
-                            _z = utc;
-                            _value = (_value.__slice__((3 : GoInt)) : GoString);
+                            _value = (_value.__slice__((1 : GoInt) + _i) : GoString);
                             break;
                         };
-                        var __tmp__ = _parseTimeZone(_value), _n:GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
-                        if (!_ok) {
-                            _err = _errBad;
-                            break;
-                        };
-                        {
-                            final __tmp__0 = (_value.__slice__(0, _n) : GoString);
-                            final __tmp__1 = (_value.__slice__(_n) : GoString);
-                            _zoneName = __tmp__0;
-                            _value = __tmp__1;
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((34 : GoInt))) {
-                        var _ndigit:GoInt = (1 : GoInt) + _digitsLen(_std);
-                        if ((_value.length) < _ndigit) {
-                            _err = _errBad;
-                            break;
-                        };
-                        {
-                            var __tmp__ = _parseNanoseconds(_value, _ndigit);
-                            _nsec = __tmp__._0;
-                            _rangeErrString = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        _value = (_value.__slice__(_ndigit) : GoString);
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((35 : GoInt))) {
-                        if ((((_value.length < (2 : GoInt)) || !_commaOrPeriod(_value[(0 : GoInt)])) || (_value[(1 : GoInt)] < (48 : GoUInt8))) || ((57 : GoUInt8) < _value[(1 : GoInt)])) {
-                            break;
-                        };
-                        var _i:GoInt = (0 : GoInt);
-                        while ((((_i + (1 : GoInt)) < _value.length) && ((48 : GoUInt8) <= _value[(_i + (1 : GoInt) : GoInt)])) && (_value[(_i + (1 : GoInt) : GoInt)] <= (57 : GoUInt8))) {
-                            _i++;
-                        };
-                        {
-                            var __tmp__ = _parseNanoseconds(_value, (1 : GoInt) + _i);
-                            _nsec = __tmp__._0;
-                            _rangeErrString = __tmp__._1;
-                            _err = __tmp__._2;
-                        };
-                        _value = (_value.__slice__((1 : GoInt) + _i) : GoString);
-                        break;
                     };
                     break;
                 };
@@ -4317,28 +4332,28 @@ private function _parse(_layout:GoString, _value:GoString, _defaultLocation:Ref<
         if ((_day < (1 : GoInt)) || (_day > _daysIn((_month : Month), _year))) {
             return { _0 : (new Time() : Time), _1 : Go.asInterface(_newParseError(_alayout, _avalue, Go.str(), _value, (": day out of range" : GoString))) };
         };
-        if (_z != null) {
-            return { _0 : (date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, _z) == null ? null : date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, _z).__copy__()), _1 : (null : Error) };
+        if (_z != null && ((_z : Dynamic).__nil__ == null || !(_z : Dynamic).__nil__)) {
+            return { _0 : date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, _z).__copy__(), _1 : (null : Error) };
         };
         if (_zoneOffset != ((-1 : GoInt))) {
-            var _t:Time = (date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc) == null ? null : date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc).__copy__());
+            var _t:Time = date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc).__copy__();
             _t._addSec(-(_zoneOffset : GoInt64));
             var __tmp__ = _local._lookup(_t._unixSec()), _name:GoString = __tmp__._0, _offset:GoInt = __tmp__._1, _0:GoInt64 = __tmp__._2, _1:GoInt64 = __tmp__._3, _2:Bool = __tmp__._4;
             if ((_offset == _zoneOffset) && ((_zoneName == Go.str()) || (_name == _zoneName))) {
                 _t._setLoc(_local);
-                return { _0 : (_t == null ? null : _t.__copy__()), _1 : (null : Error) };
+                return { _0 : _t.__copy__(), _1 : (null : Error) };
             };
             var _zoneNameCopy:GoString = _cloneString(_zoneName);
             _t._setLoc(fixedZone(_zoneNameCopy, _zoneOffset));
-            return { _0 : (_t == null ? null : _t.__copy__()), _1 : (null : Error) };
+            return { _0 : _t.__copy__(), _1 : (null : Error) };
         };
         if (_zoneName != (Go.str())) {
-            var _t:Time = (date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc) == null ? null : date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc).__copy__());
+            var _t:Time = date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc).__copy__();
             var __tmp__ = _local._lookupName(_zoneName, _t._unixSec()), _offset:GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 _t._addSec(-(_offset : GoInt64));
                 _t._setLoc(_local);
-                return { _0 : (_t == null ? null : _t.__copy__()), _1 : (null : Error) };
+                return { _0 : _t.__copy__(), _1 : (null : Error) };
             };
             if ((_zoneName.length > (3 : GoInt)) && ((_zoneName.__slice__(0, (3 : GoInt)) : GoString) == ("GMT" : GoString))) {
                 {
@@ -4349,9 +4364,9 @@ private function _parse(_layout:GoString, _value:GoString, _defaultLocation:Ref<
             };
             var _zoneNameCopy:GoString = _cloneString(_zoneName);
             _t._setLoc(fixedZone(_zoneNameCopy, _offset));
-            return { _0 : (_t == null ? null : _t.__copy__()), _1 : (null : Error) };
+            return { _0 : _t.__copy__(), _1 : (null : Error) };
         };
-        return { _0 : (date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, _defaultLocation) == null ? null : date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, _defaultLocation).__copy__()), _1 : (null : Error) };
+        return { _0 : date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, _defaultLocation).__copy__(), _1 : (null : Error) };
     }
 /**
     // parseTimeZone parses a time zone string and returns its length. Time zones
@@ -4397,18 +4412,21 @@ private function _parseTimeZone(_value:GoString):{ var _0 : GoInt; var _1 : Bool
                 };
             });
         };
-        if (_nUpper == ((0 : GoInt)) || _nUpper == ((1 : GoInt)) || _nUpper == ((2 : GoInt)) || _nUpper == ((6 : GoInt))) {
-            return { _0 : (0 : GoInt), _1 : false };
-        } else if (_nUpper == ((5 : GoInt))) {
-            if (_value[(4 : GoInt)] == ((84 : GoUInt8))) {
-                return { _0 : (5 : GoInt), _1 : true };
+        {
+            final __value__ = _nUpper;
+            if (__value__ == ((0 : GoInt)) || __value__ == ((1 : GoInt)) || __value__ == ((2 : GoInt)) || __value__ == ((6 : GoInt))) {
+                return { _0 : (0 : GoInt), _1 : false };
+            } else if (__value__ == ((5 : GoInt))) {
+                if (_value[(4 : GoInt)] == ((84 : GoUInt8))) {
+                    return { _0 : (5 : GoInt), _1 : true };
+                };
+            } else if (__value__ == ((4 : GoInt))) {
+                if ((_value[(3 : GoInt)] == (84 : GoUInt8)) || ((_value.__slice__(0, (4 : GoInt)) : GoString) == ("WITA" : GoString))) {
+                    return { _0 : (4 : GoInt), _1 : true };
+                };
+            } else if (__value__ == ((3 : GoInt))) {
+                return { _0 : (3 : GoInt), _1 : true };
             };
-        } else if (_nUpper == ((4 : GoInt))) {
-            if ((_value[(3 : GoInt)] == (84 : GoUInt8)) || ((_value.__slice__(0, (4 : GoInt)) : GoString) == ("WITA" : GoString))) {
-                return { _0 : (4 : GoInt), _1 : true };
-            };
-        } else if (_nUpper == ((3 : GoInt))) {
-            return { _0 : (3 : GoInt), _1 : true };
         };
         return { _0 : (0 : GoInt), _1 : false };
     }
@@ -4590,22 +4608,22 @@ private function _parseStrictRFC3339(_b:Slice<GoByte>):{ var _0 : Time; var _1 :
                 return ((10 : GoUInt8) * (_b[(0 : GoInt)] - (48 : GoUInt8))) + (_b[(1 : GoInt)] - (48 : GoUInt8));
             };
             if (true) {
-                return { _0 : (_t == null ? null : _t.__copy__()), _1 : (null : Error) };
+                return { _0 : _t.__copy__(), _1 : (null : Error) };
             } else if (_b[(12 : GoInt)] == ((58 : GoUInt8))) {
-                return { _0 : (new Time() : Time), _1 : Go.asInterface(((new ParseError(("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), ("15" : GoString), (((_b.__slice__((("2006-01-02T" : GoString).length)) : Slice<GoUInt8>).__slice__(0, (1 : GoInt)) : Slice<GoUInt8>) : GoString), Go.str()) : ParseError) : Ref<ParseError>)) };
+                return { _0 : (new Time() : Time), _1 : Go.asInterface((Go.setRef((new ParseError(("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), ("15" : GoString), (((_b.__slice__((("2006-01-02T" : GoString).length)) : Slice<GoUInt8>).__slice__(0, (1 : GoInt)) : Slice<GoUInt8>) : GoString), Go.str()) : ParseError)) : Ref<ParseError>)) };
             } else if (_b[(("2006-01-02T15:04:05" : GoString).length : GoInt)] == ((44 : GoUInt8))) {
-                return { _0 : (new Time() : Time), _1 : Go.asInterface(((new ParseError(("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), ("." : GoString), ("," : GoString), Go.str()) : ParseError) : Ref<ParseError>)) };
+                return { _0 : (new Time() : Time), _1 : Go.asInterface((Go.setRef((new ParseError(("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), ("." : GoString), ("," : GoString), Go.str()) : ParseError)) : Ref<ParseError>)) };
             } else if (_b[((_b.length) - (1 : GoInt) : GoInt)] != ((90 : GoUInt8))) {
                 if (_num2((_b.__slice__((_b.length) - (("07:00" : GoString).length)) : Slice<GoUInt8>)) >= (24 : GoUInt8)) {
-                    return { _0 : (new Time() : Time), _1 : Go.asInterface(((new ParseError(("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), ("Z07:00" : GoString), ((_b.__slice__((_b.length) - (("Z07:00" : GoString).length)) : Slice<GoUInt8>) : GoString), (": timezone hour out of range" : GoString)) : ParseError) : Ref<ParseError>)) };
+                    return { _0 : (new Time() : Time), _1 : Go.asInterface((Go.setRef((new ParseError(("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), ("Z07:00" : GoString), ((_b.__slice__((_b.length) - (("Z07:00" : GoString).length)) : Slice<GoUInt8>) : GoString), (": timezone hour out of range" : GoString)) : ParseError)) : Ref<ParseError>)) };
                 } else if (_num2((_b.__slice__((_b.length) - (("00" : GoString).length)) : Slice<GoUInt8>)) >= (60 : GoUInt8)) {
-                    return { _0 : (new Time() : Time), _1 : Go.asInterface(((new ParseError(("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), ("Z07:00" : GoString), ((_b.__slice__((_b.length) - (("Z07:00" : GoString).length)) : Slice<GoUInt8>) : GoString), (": timezone minute out of range" : GoString)) : ParseError) : Ref<ParseError>)) };
+                    return { _0 : (new Time() : Time), _1 : Go.asInterface((Go.setRef((new ParseError(("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), ("Z07:00" : GoString), ((_b.__slice__((_b.length) - (("Z07:00" : GoString).length)) : Slice<GoUInt8>) : GoString), (": timezone minute out of range" : GoString)) : ParseError)) : Ref<ParseError>)) };
                 };
             } else {
-                return { _0 : (new Time() : Time), _1 : Go.asInterface(((new ParseError(("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), ("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), Go.str()) : ParseError) : Ref<ParseError>)) };
+                return { _0 : (new Time() : Time), _1 : Go.asInterface((Go.setRef((new ParseError(("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), ("2006-01-02T15:04:05Z07:00" : GoString), (_b : GoString), Go.str()) : ParseError)) : Ref<ParseError>)) };
             };
         };
-        return { _0 : (_t == null ? null : _t.__copy__()), _1 : (null : Error) };
+        return { _0 : _t.__copy__(), _1 : (null : Error) };
     }
 private function _initTestingZone():Void {
         var _sources = (new Slice<GoString>(0, 0, ("../../lib/time/zoneinfo.zip" : GoString)) : Slice<GoString>);
@@ -4614,7 +4632,7 @@ private function _initTestingZone():Void {
             throw Go.toInterface((("cannot load America/Los_Angeles for testing: " : GoString) + _err.error()) + ("; you may want to use -tags=timetzdata" : GoString));
         };
         _z._name = ("Local" : GoString);
-        _localLoc = (_z == null ? null : _z.__copy__());
+        _localLoc = (_z : Location).__copy__();
     }
 private function _disablePlatformSources():() -> Void {
         var _undo:() -> Void = null;
@@ -4634,7 +4652,7 @@ private function _empty(_arg:AnyInterface, _seq:GoUIntptr):Void {}
 function checkRuntimeTimerPeriodOverflow():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _r = (({ _when : _runtimeNano(), _period : ("9223372036854775807" : GoInt64), _f : _empty, _arg : (null : AnyInterface) } : T_runtimeTimer) : Ref<T_runtimeTimer>);
+            var _r = (Go.setRef(({ _when : _runtimeNano(), _period : ("9223372036854775807" : GoInt64), _f : _empty, _arg : (null : AnyInterface) } : T_runtimeTimer)) : Ref<T_runtimeTimer>);
             _startTimer(_r);
             {
                 var _a0 = _r;
@@ -4736,8 +4754,8 @@ private function _modTimer(_t:Ref<T_runtimeTimer>, _when:GoInt64, _period:GoInt6
 **/
 function newTimer(_d:Duration):Ref<Timer> {
         var _c = new Chan<Time>((1 : GoInt).toBasic(), () -> ({} : Time));
-        var _t = (({ c : _c, _r : ({ _when : _when(_d), _f : _sendTime, _arg : Go.toInterface(_c) } : T_runtimeTimer) } : Timer) : Ref<Timer>);
-        _startTimer((_t._r : Ref<T_runtimeTimer>));
+        var _t = (Go.setRef(({ c : _c, _r : ({ _when : _when(_d), _f : _sendTime, _arg : Go.toInterface(_c) } : T_runtimeTimer) } : Timer)) : Ref<Timer>);
+        _startTimer((Go.setRef(_t._r) : Ref<T_runtimeTimer>));
         return _t;
     }
 /**
@@ -4763,8 +4781,8 @@ function after(_d:Duration):Chan<Time> {
     // be used to cancel the call using its Stop method.
 **/
 function afterFunc(_d:Duration, _f:() -> Void):Ref<Timer> {
-        var _t = (({ _r : ({ _when : _when(_d), _f : _goFunc, _arg : Go.toInterface(_f) } : T_runtimeTimer) } : Timer) : Ref<Timer>);
-        _startTimer((_t._r : Ref<T_runtimeTimer>));
+        var _t = (Go.setRef(({ _r : ({ _when : _when(_d), _f : _goFunc, _arg : Go.toInterface(_f) } : T_runtimeTimer) } : Timer)) : Ref<Timer>);
+        _startTimer((Go.setRef(_t._r) : Ref<T_runtimeTimer>));
         return _t;
     }
 private function _goFunc(_arg:AnyInterface, _seq:GoUIntptr):Void {
@@ -4825,8 +4843,8 @@ function newTicker(_d:Duration):Ref<Ticker> {
             throw Go.toInterface(stdgo.errors.Errors.new_(("non-positive interval for NewTicker" : GoString)));
         };
         var _c = new Chan<Time>((1 : GoInt).toBasic(), () -> ({} : Time));
-        var _t = (({ c : _c, _r : ({ _when : _when(_d), _period : (_d : GoInt64), _f : _sendTime, _arg : Go.toInterface(_c) } : T_runtimeTimer) } : Ticker) : Ref<Ticker>);
-        _startTimer((_t._r : Ref<T_runtimeTimer>));
+        var _t = (Go.setRef(({ c : _c, _r : ({ _when : _when(_d), _period : (_d : GoInt64), _f : _sendTime, _arg : Go.toInterface(_c) } : T_runtimeTimer) } : Ticker)) : Ref<Ticker>);
+        _startTimer((Go.setRef(_t._r) : Ref<T_runtimeTimer>));
         return _t;
     }
 /**
@@ -4923,9 +4941,9 @@ function since(_t:Time):Duration {
         if (_t._wall & ("9223372036854775808" : GoUInt64) != (("0" : GoUInt64))) {
             _now = (new Time(("9223372036854775808" : GoUInt64), _runtimeNano() - _startNano, null) : Time);
         } else {
-            _now = (now() == null ? null : now().__copy__());
+            _now = now().__copy__();
         };
-        return _now.sub((_t == null ? null : _t.__copy__()));
+        return _now.sub(_t.__copy__());
     }
 /**
     // Until returns the duration until t.
@@ -4936,9 +4954,9 @@ function until(_t:Time):Duration {
         if (_t._wall & ("9223372036854775808" : GoUInt64) != (("0" : GoUInt64))) {
             _now = (new Time(("9223372036854775808" : GoUInt64), _runtimeNano() - _startNano, null) : Time);
         } else {
-            _now = (now() == null ? null : now().__copy__());
+            _now = now().__copy__();
         };
-        return _t.sub((_now == null ? null : _now.__copy__()));
+        return _t.sub(_now.__copy__());
     }
 /**
     // absDate is like date but operates on an absolute time.
@@ -5062,21 +5080,21 @@ function unix(_sec:GoInt64, _nsec:GoInt64):Time {
                 _sec--;
             };
         };
-        return (_unixTime(_sec, (_nsec : GoInt32)) == null ? null : _unixTime(_sec, (_nsec : GoInt32)).__copy__());
+        return _unixTime(_sec, (_nsec : GoInt32)).__copy__();
     }
 /**
     // UnixMilli returns the local Time corresponding to the given Unix time,
     // msec milliseconds since January 1, 1970 UTC.
 **/
 function unixMilli(_msec:GoInt64):Time {
-        return (unix(_msec / ("1000" : GoInt64), (_msec % (("1000" : GoInt64) : GoInt64)) * ("1000000" : GoInt64)) == null ? null : unix(_msec / ("1000" : GoInt64), (_msec % ("1000" : GoInt64)) * ("1000000" : GoInt64)).__copy__());
+        return unix(_msec / ("1000" : GoInt64), (_msec % (("1000" : GoInt64) : GoInt64)) * ("1000000" : GoInt64)).__copy__();
     }
 /**
     // UnixMicro returns the local Time corresponding to the given Unix time,
     // usec microseconds since January 1, 1970 UTC.
 **/
 function unixMicro(_usec:GoInt64):Time {
-        return (unix(_usec / ("1000000" : GoInt64), (_usec % (("1000000" : GoInt64) : GoInt64)) * ("1000" : GoInt64)) == null ? null : unix(_usec / ("1000000" : GoInt64), (_usec % ("1000000" : GoInt64)) * ("1000" : GoInt64)).__copy__());
+        return unix(_usec / ("1000000" : GoInt64), (_usec % (("1000000" : GoInt64) : GoInt64)) * ("1000" : GoInt64)).__copy__();
     }
 private function _isLeap(_year:GoInt):Bool {
         return ((_year % (4 : GoInt)) == (0 : GoInt)) && (((_year % (100 : GoInt)) != (0 : GoInt)) || ((_year % (400 : GoInt)) == (0 : GoInt)));
@@ -5122,7 +5140,7 @@ private function _norm(_hi:GoInt, _lo:GoInt, _base:GoInt):{ var _0 : GoInt; var 
     // Date panics if loc is nil.
 **/
 function date(_year:GoInt, _month:Month, _day:GoInt, _hour:GoInt, _min:GoInt, _sec:GoInt, _nsec:GoInt, _loc:Ref<Location>):Time {
-        if (_loc == null) {
+        if (_loc == null || (_loc : Dynamic).__nil__) {
             throw Go.toInterface(("time: missing Location in call to Date" : GoString));
         };
         var _m:GoInt = (_month : GoInt) - (1 : GoInt);
@@ -5172,9 +5190,9 @@ function date(_year:GoInt, _month:Month, _day:GoInt, _hour:GoInt, _min:GoInt, _s
             };
             _unix = _unix - ((_offset : GoInt64));
         };
-        var _t:Time = (_unixTime(_unix, (_nsec : GoInt32)) == null ? null : _unixTime(_unix, (_nsec : GoInt32)).__copy__());
+        var _t:Time = _unixTime(_unix, (_nsec : GoInt32)).__copy__();
         _t._setLoc(_loc);
-        return (_t == null ? null : _t.__copy__());
+        return _t.__copy__();
     }
 /**
     // div divides t by d and returns the quotient parity and remainder.
@@ -5287,8 +5305,8 @@ function fixedZone(_name:GoString, _offset:GoInt):Ref<Location> {
         return _fixedZone(_name, _offset);
     }
 private function _fixedZone(_name:GoString, _offset:GoInt):Ref<Location> {
-        var _l = (({ _name : _name, _zone : (new Slice<T_zone>(0, 0, (new T_zone(_name, _offset, false) : T_zone)) : Slice<T_zone>), _tx : (new Slice<T_zoneTrans>(0, 0, (new T_zoneTrans(("-9223372036854775808" : GoInt64), (0 : GoUInt8), false, false) : T_zoneTrans)) : Slice<T_zoneTrans>), _cacheStart : ("-9223372036854775808" : GoInt64), _cacheEnd : ("9223372036854775807" : GoInt64) } : Location) : Ref<Location>);
-        _l._cacheZone = (_l._zone[(0 : GoInt)] : Ref<T_zone>);
+        var _l = (Go.setRef(({ _name : _name, _zone : (new Slice<T_zone>(0, 0, (new T_zone(_name, _offset, false) : T_zone)) : Slice<T_zone>), _tx : (new Slice<T_zoneTrans>(0, 0, (new T_zoneTrans(("-9223372036854775808" : GoInt64), (0 : GoUInt8), false, false) : T_zoneTrans)) : Slice<T_zoneTrans>), _cacheStart : ("-9223372036854775808" : GoInt64), _cacheEnd : ("9223372036854775807" : GoInt64) } : Location)) : Ref<Location>);
+        _l._cacheZone = (Go.setRef(_l._zone[(0 : GoInt)]) : Ref<T_zone>);
         return _l;
     }
 /**
@@ -5355,7 +5373,7 @@ private function _tzset(_s:GoString, _initEnd:GoInt64, _sec:GoInt64):{ var _0 : 
         var _0:T_rule = ({} : T_rule), _1:T_rule = ({} : T_rule), _endRule:T_rule = _1, _startRule:T_rule = _0;
         {
             var __tmp__ = _tzsetRule(_s);
-            _startRule = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+            _startRule = __tmp__._0.__copy__();
             _s = __tmp__._1;
             _ok = __tmp__._2;
         };
@@ -5365,7 +5383,7 @@ private function _tzset(_s:GoString, _initEnd:GoInt64, _sec:GoInt64):{ var _0 : 
         _s = (_s.__slice__((1 : GoInt)) : GoString);
         {
             var __tmp__ = _tzsetRule(_s);
-            _endRule = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+            _endRule = __tmp__._0.__copy__();
             _s = __tmp__._1;
             _ok = __tmp__._2;
         };
@@ -5377,8 +5395,8 @@ private function _tzset(_s:GoString, _initEnd:GoInt64, _sec:GoInt64):{ var _0 : 
         var _d:GoUInt64 = _daysSinceEpoch(_year);
         var _abs:GoInt64 = (_d * ("86400" : GoUInt64) : GoInt64);
         _abs = _abs + (("-9223372028715321600" : GoInt64));
-        var _startSec:GoInt64 = (_tzruleTime(_year, (_startRule == null ? null : _startRule.__copy__()), _stdOffset) : GoInt64);
-        var _endSec:GoInt64 = (_tzruleTime(_year, (_endRule == null ? null : _endRule.__copy__()), _dstOffset) : GoInt64);
+        var _startSec:GoInt64 = (_tzruleTime(_year, _startRule.__copy__(), _stdOffset) : GoInt64);
+        var _endSec:GoInt64 = (_tzruleTime(_year, _endRule.__copy__(), _dstOffset) : GoInt64);
         var _0:Bool = true, _1:Bool = false, _stdIsDST:Bool = _1, _dstIsDST:Bool = _0;
         if (_endSec < _startSec) {
             {
@@ -5424,11 +5442,14 @@ private function _tzsetName(_s:GoString):{ var _0 : GoString; var _1 : GoString;
         };
         if (_s[(0 : GoInt)] != ((60 : GoUInt8))) {
             for (_i => _r in _s) {
-                if (_r == ((48 : GoInt32)) || _r == ((49 : GoInt32)) || _r == ((50 : GoInt32)) || _r == ((51 : GoInt32)) || _r == ((52 : GoInt32)) || _r == ((53 : GoInt32)) || _r == ((54 : GoInt32)) || _r == ((55 : GoInt32)) || _r == ((56 : GoInt32)) || _r == ((57 : GoInt32)) || _r == ((44 : GoInt32)) || _r == ((45 : GoInt32)) || _r == ((43 : GoInt32))) {
-                    if (_i < (3 : GoInt)) {
-                        return { _0 : Go.str(), _1 : Go.str(), _2 : false };
+                {
+                    final __value__ = _r;
+                    if (__value__ == ((48 : GoInt32)) || __value__ == ((49 : GoInt32)) || __value__ == ((50 : GoInt32)) || __value__ == ((51 : GoInt32)) || __value__ == ((52 : GoInt32)) || __value__ == ((53 : GoInt32)) || __value__ == ((54 : GoInt32)) || __value__ == ((55 : GoInt32)) || __value__ == ((56 : GoInt32)) || __value__ == ((57 : GoInt32)) || __value__ == ((44 : GoInt32)) || __value__ == ((45 : GoInt32)) || __value__ == ((43 : GoInt32))) {
+                        if (_i < (3 : GoInt)) {
+                            return { _0 : Go.str(), _1 : Go.str(), _2 : false };
+                        };
+                        return { _0 : (_s.__slice__(0, _i) : GoString), _1 : (_s.__slice__(_i) : GoString), _2 : true };
                     };
-                    return { _0 : (_s.__slice__(0, _i) : GoString), _1 : (_s.__slice__(_i) : GoString), _2 : true };
                 };
             };
             if ((_s.length) < (3 : GoInt)) {
@@ -5585,14 +5606,14 @@ private function _tzsetRule(_s:GoString):{ var _0 : T_rule; var _1 : GoString; v
         };
         if ((_s.length == (0 : GoInt)) || (_s[(0 : GoInt)] != (47 : GoUInt8))) {
             _r._time = (7200 : GoInt);
-            return { _0 : (_r == null ? null : _r.__copy__()), _1 : _s, _2 : true };
+            return { _0 : _r.__copy__(), _1 : _s, _2 : true };
         };
         var __tmp__ = _tzsetOffset((_s.__slice__((1 : GoInt)) : GoString)), _offset:GoInt = __tmp__._0, _s:GoString = __tmp__._1, _ok:Bool = __tmp__._2;
         if (!_ok) {
             return { _0 : (new T_rule() : T_rule), _1 : Go.str(), _2 : false };
         };
         _r._time = _offset;
-        return { _0 : (_r == null ? null : _r.__copy__()), _1 : _s, _2 : true };
+        return { _0 : _r.__copy__(), _1 : _s, _2 : true };
     }
 /**
     // tzsetNum parses a number from a tzset string.
@@ -5633,46 +5654,49 @@ private function _tzruleTime(_year:GoInt, _r:T_rule, _off:GoInt):GoInt {
         {
             var __switchIndex__ = -1;
             while (true) {
-                if (_r._kind == ((0 : T_ruleKind))) {
-                    _s = (_r._day - (1 : GoInt)) * (86400 : GoInt);
-                    if (_isLeap(_year) && (_r._day >= (60 : GoInt))) {
-                        _s = _s + ((86400 : GoInt));
-                    };
-                    break;
-                } else if (_r._kind == ((1 : T_ruleKind))) {
-                    _s = _r._day * (86400 : GoInt);
-                    break;
-                } else if (_r._kind == ((2 : T_ruleKind))) {
-                    var _m1:GoInt = ((_r._mon + (9 : GoInt)) % (12 : GoInt)) + (1 : GoInt);
-                    var _yy0:GoInt = _year;
-                    if (_r._mon <= (2 : GoInt)) {
-                        _yy0--;
-                    };
-                    var _yy1:GoInt = _yy0 / (100 : GoInt);
-                    var _yy2:GoInt = _yy0 % (100 : GoInt);
-                    var _dow:GoInt = (((((((((26 : GoInt) * _m1) - (2 : GoInt)) / (10 : GoInt)) + (1 : GoInt)) + _yy2) + (_yy2 / (4 : GoInt))) + (_yy1 / (4 : GoInt))) - ((2 : GoInt) * _yy1)) % (7 : GoInt);
-                    if (_dow < (0 : GoInt)) {
-                        _dow = _dow + ((7 : GoInt));
-                    };
-                    var _d:GoInt = _r._day - _dow;
-                    if (_d < (0 : GoInt)) {
-                        _d = _d + ((7 : GoInt));
-                    };
-                    {
-                        var _i:GoInt = (1 : GoInt);
-                        Go.cfor(_i < _r._week, _i++, {
-                            if ((_d + (7 : GoInt)) >= _daysIn((_r._mon : Month), _year)) {
-                                break;
-                            };
+                {
+                    final __value__ = _r._kind;
+                    if (__value__ == ((0 : T_ruleKind))) {
+                        _s = (_r._day - (1 : GoInt)) * (86400 : GoInt);
+                        if (_isLeap(_year) && (_r._day >= (60 : GoInt))) {
+                            _s = _s + ((86400 : GoInt));
+                        };
+                        break;
+                    } else if (__value__ == ((1 : T_ruleKind))) {
+                        _s = _r._day * (86400 : GoInt);
+                        break;
+                    } else if (__value__ == ((2 : T_ruleKind))) {
+                        var _m1:GoInt = ((_r._mon + (9 : GoInt)) % (12 : GoInt)) + (1 : GoInt);
+                        var _yy0:GoInt = _year;
+                        if (_r._mon <= (2 : GoInt)) {
+                            _yy0--;
+                        };
+                        var _yy1:GoInt = _yy0 / (100 : GoInt);
+                        var _yy2:GoInt = _yy0 % (100 : GoInt);
+                        var _dow:GoInt = (((((((((26 : GoInt) * _m1) - (2 : GoInt)) / (10 : GoInt)) + (1 : GoInt)) + _yy2) + (_yy2 / (4 : GoInt))) + (_yy1 / (4 : GoInt))) - ((2 : GoInt) * _yy1)) % (7 : GoInt);
+                        if (_dow < (0 : GoInt)) {
+                            _dow = _dow + ((7 : GoInt));
+                        };
+                        var _d:GoInt = _r._day - _dow;
+                        if (_d < (0 : GoInt)) {
                             _d = _d + ((7 : GoInt));
-                        });
+                        };
+                        {
+                            var _i:GoInt = (1 : GoInt);
+                            Go.cfor(_i < _r._week, _i++, {
+                                if ((_d + (7 : GoInt)) >= _daysIn((_r._mon : Month), _year)) {
+                                    break;
+                                };
+                                _d = _d + ((7 : GoInt));
+                            });
+                        };
+                        _d = _d + ((_daysBefore[(_r._mon - (1 : GoInt) : GoInt)] : GoInt));
+                        if (_isLeap(_year) && (_r._mon > (2 : GoInt))) {
+                            _d++;
+                        };
+                        _s = _d * (86400 : GoInt);
+                        break;
                     };
-                    _d = _d + ((_daysBefore[(_r._mon - (1 : GoInt) : GoInt)] : GoInt));
-                    if (_isLeap(_year) && (_r._mon > (2 : GoInt))) {
-                        _d++;
-                    };
-                    _s = _d * (86400 : GoInt);
-                    break;
                 };
                 break;
             };
@@ -5821,14 +5845,17 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{ var _0 : 
             if ((_p.length) != ((16 : GoInt))) {
                 return { _0 : null, _1 : _badData };
             } else {
-                if (_p[(0 : GoInt)] == ((0 : GoUInt8))) {
-                    _version = (1 : GoInt);
-                } else if (_p[(0 : GoInt)] == ((50 : GoUInt8))) {
-                    _version = (2 : GoInt);
-                } else if (_p[(0 : GoInt)] == ((51 : GoUInt8))) {
-                    _version = (3 : GoInt);
-                } else {
-                    return { _0 : null, _1 : _badData };
+                {
+                    final __value__ = _p[(0 : GoInt)];
+                    if (__value__ == ((0 : GoUInt8))) {
+                        _version = (1 : GoInt);
+                    } else if (__value__ == ((50 : GoUInt8))) {
+                        _version = (2 : GoInt);
+                    } else if (__value__ == ((51 : GoUInt8))) {
+                        _version = (3 : GoInt);
+                    } else {
+                        return { _0 : null, _1 : _badData };
+                    };
                 };
             };
         };
@@ -5974,13 +6001,13 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{ var _0 : 
         if ((_tx.length) == ((0 : GoInt))) {
             _tx = _tx.__appendref__(({ _when : ("-9223372036854775808" : GoInt64), _index : (0 : GoUInt8) } : T_zoneTrans));
         };
-        var _l = (({ _name : _name, _zone : _zones, _tx : _tx, _extend : _extend } : Location) : Ref<Location>);
+        var _l = (Go.setRef(({ _name : _name, _zone : _zones, _tx : _tx, _extend : _extend } : Location)) : Ref<Location>);
         var __tmp__ = _now(), _sec:GoInt64 = __tmp__._0, _0:GoInt32 = __tmp__._1, _1:GoInt64 = __tmp__._2;
         for (_i in 0 ... _tx.length.toBasic()) {
             if ((_tx[(_i : GoInt)]._when <= _sec) && (((_i + (1 : GoInt)) == (_tx.length)) || (_sec < _tx[(_i + (1 : GoInt) : GoInt)]._when))) {
                 _l._cacheStart = _tx[(_i : GoInt)]._when;
                 _l._cacheEnd = ("9223372036854775807" : GoInt64);
-                _l._cacheZone = (_l._zone[(_tx[(_i : GoInt)]._index : GoInt)] : Ref<T_zone>);
+                _l._cacheZone = (Go.setRef(_l._zone[(_tx[(_i : GoInt)]._index : GoInt)]) : Ref<T_zone>);
                 if ((_i + (1 : GoInt)) < (_tx.length)) {
                     _l._cacheEnd = _tx[(_i + (1 : GoInt) : GoInt)]._when;
                 } else if (_l._extend != (Go.str())) {
@@ -5992,9 +6019,9 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{ var _0 : 
                             {
                                 var _zoneIdx:GoInt = _findZone(_l._zone, _name, _offset, _isDST);
                                 if (_zoneIdx != ((-1 : GoInt))) {
-                                    _l._cacheZone = (_l._zone[(_zoneIdx : GoInt)] : Ref<T_zone>);
+                                    _l._cacheZone = (Go.setRef(_l._zone[(_zoneIdx : GoInt)]) : Ref<T_zone>);
                                 } else {
-                                    _l._cacheZone = (({ _name : _name, _offset : _offset, _isDST : _isDST } : T_zone) : Ref<T_zone>);
+                                    _l._cacheZone = (Go.setRef(({ _name : _name, _offset : _offset, _isDST : _isDST } : T_zone)) : Ref<T_zone>);
                                 };
                             };
                         };
@@ -6337,7 +6364,7 @@ class ParseError_asInterface {
         // Error returns the string representation of a ParseError.
     **/
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -6396,7 +6423,7 @@ class Timer_asInterface {
         // f is completed, it must coordinate with f explicitly.
     **/
     @:keep
-    public function reset(_d:Duration):Bool return __self__.value.reset(_d);
+    public dynamic function reset(_d:Duration):Bool return __self__.value.reset(_d);
     /**
         // Stop prevents the Timer from firing.
         // It returns true if the call stops the timer, false if the timer has already
@@ -6422,7 +6449,7 @@ class Timer_asInterface {
         // with f explicitly.
     **/
     @:keep
-    public function stop():Bool return __self__.value.stop();
+    public dynamic function stop():Bool return __self__.value.stop();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -6474,7 +6501,7 @@ class Timer_asInterface {
             throw Go.toInterface(("time: Reset called on uninitialized Timer" : GoString));
         };
         var _w:GoInt64 = _when(_d);
-        return _resetTimer((_t._r : Ref<T_runtimeTimer>), _w);
+        return _resetTimer((Go.setRef(_t._r) : Ref<T_runtimeTimer>), _w);
     }
     /**
         // Stop prevents the Timer from firing.
@@ -6505,7 +6532,7 @@ class Timer_asInterface {
         if (_t._r._f == null) {
             throw Go.toInterface(("time: Stop called on uninitialized Timer" : GoString));
         };
-        return _stopTimer((_t._r : Ref<T_runtimeTimer>));
+        return _stopTimer((Go.setRef(_t._r) : Ref<T_runtimeTimer>));
     }
 }
 class Ticker_asInterface {
@@ -6515,14 +6542,14 @@ class Ticker_asInterface {
         // must be greater than zero; if not, Reset will panic.
     **/
     @:keep
-    public function reset(_d:Duration):Void __self__.value.reset(_d);
+    public dynamic function reset(_d:Duration):Void __self__.value.reset(_d);
     /**
         // Stop turns off a ticker. After Stop, no more ticks will be sent.
         // Stop does not close the channel, to prevent a concurrent goroutine
         // reading from the channel from seeing an erroneous "tick".
     **/
     @:keep
-    public function stop():Void __self__.value.stop();
+    public dynamic function stop():Void __self__.value.stop();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -6545,7 +6572,7 @@ class Ticker_asInterface {
         if (_t._r._f == null) {
             throw Go.toInterface(("time: Reset called on uninitialized Ticker" : GoString));
         };
-        _modTimer((_t._r : Ref<T_runtimeTimer>), _when(_d), (_d : GoInt64), _t._r._f, _t._r._arg, _t._r._seq);
+        _modTimer((Go.setRef(_t._r) : Ref<T_runtimeTimer>), _when(_d), (_d : GoInt64), _t._r._f, _t._r._arg, _t._r._seq);
     }
     /**
         // Stop turns off a ticker. After Stop, no more ticks will be sent.
@@ -6554,7 +6581,7 @@ class Ticker_asInterface {
     **/
     @:keep
     static public function stop( _t:Ref<Ticker>):Void {
-        _stopTimer((_t._r : Ref<T_runtimeTimer>));
+        _stopTimer((Go.setRef(_t._r) : Ref<T_runtimeTimer>));
     }
 }
 class Time_asInterface {
@@ -6569,7 +6596,7 @@ class Time_asInterface {
         // minute, depending on the time's Location.
     **/
     @:keep
-    public function round(_d:Duration):Time return __self__.value.round(_d);
+    public dynamic function round(_d:Duration):Time return __self__.value.round(_d);
     /**
         // Truncate returns the result of rounding t down to a multiple of d (since the zero time).
         // If d <= 0, Truncate returns t stripped of any monotonic clock reading but otherwise unchanged.
@@ -6580,18 +6607,18 @@ class Time_asInterface {
         // minute, depending on the time's Location.
     **/
     @:keep
-    public function truncate(_d:Duration):Time return __self__.value.truncate(_d);
+    public dynamic function truncate(_d:Duration):Time return __self__.value.truncate(_d);
     /**
         // IsDST reports whether the time in the configured location is in Daylight Savings Time.
     **/
     @:keep
-    public function isDST():Bool return __self__.value.isDST();
+    public dynamic function isDST():Bool return __self__.value.isDST();
     /**
         // UnmarshalText implements the encoding.TextUnmarshaler interface.
         // The time must be in the RFC 3339 format.
     **/
     @:keep
-    public function unmarshalText(_data:Slice<GoByte>):Error return __self__.value.unmarshalText(_data);
+    public dynamic function unmarshalText(_data:Slice<GoByte>):Error return __self__.value.unmarshalText(_data);
     /**
         // MarshalText implements the encoding.TextMarshaler interface.
         // The time is formatted in RFC 3339 format with sub-second precision.
@@ -6599,13 +6626,13 @@ class Time_asInterface {
         // (e.g., the year is out of range), then an error is reported.
     **/
     @:keep
-    public function marshalText():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.marshalText();
+    public dynamic function marshalText():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.marshalText();
     /**
         // UnmarshalJSON implements the json.Unmarshaler interface.
         // The time must be a quoted string in the RFC 3339 format.
     **/
     @:keep
-    public function unmarshalJSON(_data:Slice<GoByte>):Error return __self__.value.unmarshalJSON(_data);
+    public dynamic function unmarshalJSON(_data:Slice<GoByte>):Error return __self__.value.unmarshalJSON(_data);
     /**
         // MarshalJSON implements the json.Marshaler interface.
         // The time is a quoted string in the RFC 3339 format with sub-second precision.
@@ -6613,27 +6640,27 @@ class Time_asInterface {
         // (e.g., the year is out of range), then an error is reported.
     **/
     @:keep
-    public function marshalJSON():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.marshalJSON();
+    public dynamic function marshalJSON():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.marshalJSON();
     /**
         // GobDecode implements the gob.GobDecoder interface.
     **/
     @:keep
-    public function gobDecode(_data:Slice<GoByte>):Error return __self__.value.gobDecode(_data);
+    public dynamic function gobDecode(_data:Slice<GoByte>):Error return __self__.value.gobDecode(_data);
     /**
         // GobEncode implements the gob.GobEncoder interface.
     **/
     @:keep
-    public function gobEncode():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.gobEncode();
+    public dynamic function gobEncode():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.gobEncode();
     /**
         // UnmarshalBinary implements the encoding.BinaryUnmarshaler interface.
     **/
     @:keep
-    public function unmarshalBinary(_data:Slice<GoByte>):Error return __self__.value.unmarshalBinary(_data);
+    public dynamic function unmarshalBinary(_data:Slice<GoByte>):Error return __self__.value.unmarshalBinary(_data);
     /**
         // MarshalBinary implements the encoding.BinaryMarshaler interface.
     **/
     @:keep
-    public function marshalBinary():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.marshalBinary();
+    public dynamic function marshalBinary():{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.marshalBinary();
     /**
         // UnixNano returns t as a Unix time, the number of nanoseconds elapsed
         // since January 1, 1970 UTC. The result is undefined if the Unix time
@@ -6643,7 +6670,7 @@ class Time_asInterface {
         // location associated with t.
     **/
     @:keep
-    public function unixNano():GoInt64 return __self__.value.unixNano();
+    public dynamic function unixNano():GoInt64 return __self__.value.unixNano();
     /**
         // UnixMicro returns t as a Unix time, the number of microseconds elapsed since
         // January 1, 1970 UTC. The result is undefined if the Unix time in
@@ -6652,7 +6679,7 @@ class Time_asInterface {
         // with t.
     **/
     @:keep
-    public function unixMicro():GoInt64 return __self__.value.unixMicro();
+    public dynamic function unixMicro():GoInt64 return __self__.value.unixMicro();
     /**
         // UnixMilli returns t as a Unix time, the number of milliseconds elapsed since
         // January 1, 1970 UTC. The result is undefined if the Unix time in
@@ -6661,7 +6688,7 @@ class Time_asInterface {
         // location associated with t.
     **/
     @:keep
-    public function unixMilli():GoInt64 return __self__.value.unixMilli();
+    public dynamic function unixMilli():GoInt64 return __self__.value.unixMilli();
     /**
         // Unix returns t as a Unix time, the number of seconds elapsed
         // since January 1, 1970 UTC. The result does not depend on the
@@ -6671,7 +6698,7 @@ class Time_asInterface {
         // value it is valid for billions of years into the past or future.
     **/
     @:keep
-    public function unix():GoInt64 return __self__.value.unix();
+    public dynamic function unix():GoInt64 return __self__.value.unix();
     /**
         // ZoneBounds returns the bounds of the time zone in effect at time t.
         // The zone begins at start and the next zone begins at end.
@@ -6680,18 +6707,18 @@ class Time_asInterface {
         // The Location of the returned times will be the same as t.
     **/
     @:keep
-    public function zoneBounds():{ var _0 : Time; var _1 : Time; } return __self__.value.zoneBounds();
+    public dynamic function zoneBounds():{ var _0 : Time; var _1 : Time; } return __self__.value.zoneBounds();
     /**
         // Zone computes the time zone in effect at time t, returning the abbreviated
         // name of the zone (such as "CET") and its offset in seconds east of UTC.
     **/
     @:keep
-    public function zone():{ var _0 : GoString; var _1 : GoInt; } return __self__.value.zone();
+    public dynamic function zone():{ var _0 : GoString; var _1 : GoInt; } return __self__.value.zone();
     /**
         // Location returns the time zone information associated with t.
     **/
     @:keep
-    public function location():Ref<Location> return __self__.value.location();
+    public dynamic function location():Ref<Location> return __self__.value.location();
     /**
         // In returns a copy of t representing the same time instant, but
         // with the copy's location information set to loc for display
@@ -6700,23 +6727,23 @@ class Time_asInterface {
         // In panics if loc is nil.
     **/
     @:keep
-    public function in_(_loc:Ref<Location>):Time return __self__.value.in_(_loc);
+    public dynamic function in_(_loc:Ref<Location>):Time return __self__.value.in_(_loc);
     /**
         // Local returns t with the location set to local time.
     **/
     @:keep
-    public function local():Time return __self__.value.local();
+    public dynamic function local():Time return __self__.value.local();
     /**
         // UTC returns t with the location set to UTC.
     **/
     @:keep
-    public function utc():Time return __self__.value.utc();
+    public dynamic function utc():Time return __self__.value.utc();
     /**
         // date computes the year, day of year, and when full=true,
         // the month and day in which t occurs.
     **/
     @:keep
-    public function _date(_full:Bool):{ var _0 : GoInt; var _1 : Month; var _2 : GoInt; var _3 : GoInt; } return __self__.value._date(_full);
+    public dynamic function _date(_full:Bool):{ var _0 : GoInt; var _1 : Month; var _2 : GoInt; var _3 : GoInt; } return __self__.value._date(_full);
     /**
         // AddDate returns the time corresponding to adding the
         // given number of years, months, and days to t.
@@ -6728,7 +6755,7 @@ class Time_asInterface {
         // December 1, the normalized form for November 31.
     **/
     @:keep
-    public function addDate(_years:GoInt, _months:GoInt, _days:GoInt):Time return __self__.value.addDate(_years, _months, _days);
+    public dynamic function addDate(_years:GoInt, _months:GoInt, _days:GoInt):Time return __self__.value.addDate(_years, _months, _days);
     /**
         // Sub returns the duration t-u. If the result exceeds the maximum (or minimum)
         // value that can be stored in a Duration, the maximum (or minimum) duration
@@ -6736,44 +6763,44 @@ class Time_asInterface {
         // To compute t-d for a duration d, use t.Add(-d).
     **/
     @:keep
-    public function sub(_u:Time):Duration return __self__.value.sub(_u);
+    public dynamic function sub(_u:Time):Duration return __self__.value.sub(_u);
     /**
         // Add returns the time t+d.
     **/
     @:keep
-    public function add(_d:Duration):Time return __self__.value.add(_d);
+    public dynamic function add(_d:Duration):Time return __self__.value.add(_d);
     /**
         // YearDay returns the day of the year specified by t, in the range [1,365] for non-leap years,
         // and [1,366] in leap years.
     **/
     @:keep
-    public function yearDay():GoInt return __self__.value.yearDay();
+    public dynamic function yearDay():GoInt return __self__.value.yearDay();
     /**
         // Nanosecond returns the nanosecond offset within the second specified by t,
         // in the range [0, 999999999].
     **/
     @:keep
-    public function nanosecond():GoInt return __self__.value.nanosecond();
+    public dynamic function nanosecond():GoInt return __self__.value.nanosecond();
     /**
         // Second returns the second offset within the minute specified by t, in the range [0, 59].
     **/
     @:keep
-    public function second():GoInt return __self__.value.second();
+    public dynamic function second():GoInt return __self__.value.second();
     /**
         // Minute returns the minute offset within the hour specified by t, in the range [0, 59].
     **/
     @:keep
-    public function minute():GoInt return __self__.value.minute();
+    public dynamic function minute():GoInt return __self__.value.minute();
     /**
         // Hour returns the hour within the day specified by t, in the range [0, 23].
     **/
     @:keep
-    public function hour():GoInt return __self__.value.hour();
+    public dynamic function hour():GoInt return __self__.value.hour();
     /**
         // Clock returns the hour, minute, and second within the day specified by t.
     **/
     @:keep
-    public function clock():{ var _0 : GoInt; var _1 : GoInt; var _2 : GoInt; } return __self__.value.clock();
+    public dynamic function clock():{ var _0 : GoInt; var _1 : GoInt; var _2 : GoInt; } return __self__.value.clock();
     /**
         // ISOWeek returns the ISO 8601 year and week number in which t occurs.
         // Week ranges from 1 to 53. Jan 01 to Jan 03 of year n might belong to
@@ -6781,50 +6808,50 @@ class Time_asInterface {
         // of year n+1.
     **/
     @:keep
-    public function isoweek():{ var _0 : GoInt; var _1 : GoInt; } return __self__.value.isoweek();
+    public dynamic function isoweek():{ var _0 : GoInt; var _1 : GoInt; } return __self__.value.isoweek();
     /**
         // Weekday returns the day of the week specified by t.
     **/
     @:keep
-    public function weekday():Weekday return __self__.value.weekday();
+    public dynamic function weekday():Weekday return __self__.value.weekday();
     /**
         // Day returns the day of the month specified by t.
     **/
     @:keep
-    public function day():GoInt return __self__.value.day();
+    public dynamic function day():GoInt return __self__.value.day();
     /**
         // Month returns the month of the year specified by t.
     **/
     @:keep
-    public function month():Month return __self__.value.month();
+    public dynamic function month():Month return __self__.value.month();
     /**
         // Year returns the year in which t occurs.
     **/
     @:keep
-    public function year():GoInt return __self__.value.year();
+    public dynamic function year():GoInt return __self__.value.year();
     /**
         // Date returns the year, month, and day in which t occurs.
     **/
     @:keep
-    public function date():{ var _0 : GoInt; var _1 : Month; var _2 : GoInt; } return __self__.value.date();
+    public dynamic function date():{ var _0 : GoInt; var _1 : Month; var _2 : GoInt; } return __self__.value.date();
     /**
         // locabs is a combination of the Zone and abs methods,
         // extracting both return values from a single zone lookup.
     **/
     @:keep
-    public function _locabs():{ var _0 : GoString; var _1 : GoInt; var _2 : GoUInt64; } return __self__.value._locabs();
+    public dynamic function _locabs():{ var _0 : GoString; var _1 : GoInt; var _2 : GoUInt64; } return __self__.value._locabs();
     /**
         // abs returns the time t as an absolute time, adjusted by the zone offset.
         // It is called when computing a presentation property like Month or Hour.
     **/
     @:keep
-    public function _abs():GoUInt64 return __self__.value._abs();
+    public dynamic function _abs():GoUInt64 return __self__.value._abs();
     /**
         // IsZero reports whether t represents the zero time instant,
         // January 1, year 1, 00:00:00 UTC.
     **/
     @:keep
-    public function isZero():Bool return __self__.value.isZero();
+    public dynamic function isZero():Bool return __self__.value.isZero();
     /**
         // Equal reports whether t and u represent the same time instant.
         // Two times can be equal even if they are in different locations.
@@ -6833,23 +6860,23 @@ class Time_asInterface {
         // Time values; most code should use Equal instead.
     **/
     @:keep
-    public function equal(_u:Time):Bool return __self__.value.equal(_u);
+    public dynamic function equal(_u:Time):Bool return __self__.value.equal(_u);
     /**
         // Compare compares the time instant t with u. If t is before u, it returns -1;
         // if t is after u, it returns +1; if they're the same, it returns 0.
     **/
     @:keep
-    public function compare(_u:Time):GoInt return __self__.value.compare(_u);
+    public dynamic function compare(_u:Time):GoInt return __self__.value.compare(_u);
     /**
         // Before reports whether the time instant t is before u.
     **/
     @:keep
-    public function before(_u:Time):Bool return __self__.value.before(_u);
+    public dynamic function before(_u:Time):Bool return __self__.value.before(_u);
     /**
         // After reports whether the time instant t is after u.
     **/
     @:keep
-    public function after(_u:Time):Bool return __self__.value.after(_u);
+    public dynamic function after(_u:Time):Bool return __self__.value.after(_u);
     /**
         // mono returns t's monotonic clock reading.
         // It returns 0 for a missing reading.
@@ -6858,7 +6885,7 @@ class Time_asInterface {
         // monotonic clock reading as well.
     **/
     @:keep
-    public function _mono():GoInt64 return __self__.value._mono();
+    public dynamic function _mono():GoInt64 return __self__.value._mono();
     /**
         // setMono sets the monotonic clock reading in t.
         // If t cannot hold a monotonic clock reading,
@@ -6866,49 +6893,49 @@ class Time_asInterface {
         // setMono is a no-op.
     **/
     @:keep
-    public function _setMono(_m:GoInt64):Void __self__.value._setMono(_m);
+    public dynamic function _setMono(_m:GoInt64):Void __self__.value._setMono(_m);
     /**
         // stripMono strips the monotonic clock reading in t.
     **/
     @:keep
-    public function _stripMono():Void __self__.value._stripMono();
+    public dynamic function _stripMono():Void __self__.value._stripMono();
     /**
         // setLoc sets the location associated with the time.
     **/
     @:keep
-    public function _setLoc(_loc:Ref<Location>):Void __self__.value._setLoc(_loc);
+    public dynamic function _setLoc(_loc:Ref<Location>):Void __self__.value._setLoc(_loc);
     /**
         // addSec adds d seconds to the time.
     **/
     @:keep
-    public function _addSec(_d:GoInt64):Void __self__.value._addSec(_d);
+    public dynamic function _addSec(_d:GoInt64):Void __self__.value._addSec(_d);
     /**
         // unixSec returns the time's seconds since Jan 1 1970 (Unix time).
     **/
     @:keep
-    public function _unixSec():GoInt64 return __self__.value._unixSec();
+    public dynamic function _unixSec():GoInt64 return __self__.value._unixSec();
     /**
         // sec returns the time's seconds since Jan 1 year 1.
     **/
     @:keep
-    public function _sec():GoInt64 return __self__.value._sec();
+    public dynamic function _sec():GoInt64 return __self__.value._sec();
     /**
         // nsec returns the time's nanoseconds.
     **/
     @:keep
-    public function _nsec():GoInt32 return __self__.value._nsec();
+    public dynamic function _nsec():GoInt32 return __self__.value._nsec();
     @:keep
-    public function _appendStrictRFC3339(_b:Slice<GoByte>):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value._appendStrictRFC3339(_b);
+    public dynamic function _appendStrictRFC3339(_b:Slice<GoByte>):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value._appendStrictRFC3339(_b);
     @:keep
-    public function _appendFormatRFC3339(_b:Slice<GoByte>, _nanos:Bool):Slice<GoByte> return __self__.value._appendFormatRFC3339(_b, _nanos);
+    public dynamic function _appendFormatRFC3339(_b:Slice<GoByte>, _nanos:Bool):Slice<GoByte> return __self__.value._appendFormatRFC3339(_b, _nanos);
     @:keep
-    public function _appendFormat(_b:Slice<GoByte>, _layout:GoString):Slice<GoByte> return __self__.value._appendFormat(_b, _layout);
+    public dynamic function _appendFormat(_b:Slice<GoByte>, _layout:GoString):Slice<GoByte> return __self__.value._appendFormat(_b, _layout);
     /**
         // AppendFormat is like Format but appends the textual
         // representation to b and returns the extended buffer.
     **/
     @:keep
-    public function appendFormat(_b:Slice<GoByte>, _layout:GoString):Slice<GoByte> return __self__.value.appendFormat(_b, _layout);
+    public dynamic function appendFormat(_b:Slice<GoByte>, _layout:GoString):Slice<GoByte> return __self__.value.appendFormat(_b, _layout);
     /**
         // Format returns a textual representation of the time value formatted according
         // to the layout defined by the argument. See the documentation for the
@@ -6918,13 +6945,13 @@ class Time_asInterface {
         // of the layout string in detail and is a good reference.
     **/
     @:keep
-    public function format(_layout:GoString):GoString return __self__.value.format(_layout);
+    public dynamic function format(_layout:GoString):GoString return __self__.value.format(_layout);
     /**
         // GoString implements fmt.GoStringer and formats t to be printed in Go source
         // code.
     **/
     @:keep
-    public function goString():GoString return __self__.value.goString();
+    public dynamic function goString():GoString return __self__.value.goString();
     /**
         // String returns the time formatted using the format string
         //
@@ -6939,7 +6966,7 @@ class Time_asInterface {
         // with an explicit format string.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -6963,13 +6990,13 @@ class Time_asInterface {
     static public function round( _t:Time, _d:Duration):Time {
         _t._stripMono();
         if (_d <= (("0" : GoInt64) : Duration)) {
-            return (_t == null ? null : _t.__copy__());
+            return _t.__copy__();
         };
-        var __tmp__ = _div((_t == null ? null : _t.__copy__()), _d), _0:GoInt = __tmp__._0, _r:Duration = __tmp__._1;
+        var __tmp__ = _div(_t.__copy__(), _d), _0:GoInt = __tmp__._0, _r:Duration = __tmp__._1;
         if (_lessThanHalf(_r, _d)) {
-            return (_t.add(-_r) == null ? null : _t.add(-_r).__copy__());
+            return _t.add(-_r).__copy__();
         };
-        return (_t.add(_d - _r) == null ? null : _t.add(_d - _r).__copy__());
+        return _t.add(_d - _r).__copy__();
     }
     /**
         // Truncate returns the result of rounding t down to a multiple of d (since the zero time).
@@ -6984,10 +7011,10 @@ class Time_asInterface {
     static public function truncate( _t:Time, _d:Duration):Time {
         _t._stripMono();
         if (_d <= (("0" : GoInt64) : Duration)) {
-            return (_t == null ? null : _t.__copy__());
+            return _t.__copy__();
         };
-        var __tmp__ = _div((_t == null ? null : _t.__copy__()), _d), _0:GoInt = __tmp__._0, _r:Duration = __tmp__._1;
-        return (_t.add(-_r) == null ? null : _t.add(-_r).__copy__());
+        var __tmp__ = _div(_t.__copy__(), _d), _0:GoInt = __tmp__._0, _r:Duration = __tmp__._1;
+        return _t.add(-_r).__copy__();
     }
     /**
         // IsDST reports whether the time in the configured location is in Daylight Savings Time.
@@ -7006,7 +7033,7 @@ class Time_asInterface {
         var _err:Error = (null : Error);
         {
             var __tmp__ = _parseStrictRFC3339(_data);
-            _t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+            _t = __tmp__._0.__copy__();
             _err = __tmp__._1;
         };
         return _err;
@@ -7042,7 +7069,7 @@ class Time_asInterface {
         var _err:Error = (null : Error);
         {
             var __tmp__ = _parseStrictRFC3339(_data);
-            _t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+            _t = __tmp__._0.__copy__();
             _err = __tmp__._1;
         };
         return _err;
@@ -7116,7 +7143,7 @@ class Time_asInterface {
         _t._wall = (_nsec : GoUInt64);
         _t._ext = _sec;
         if (_offset == ((-60 : GoInt))) {
-            _t._setLoc((_utcLoc : Ref<Location>));
+            _t._setLoc((Go.setRef(_utcLoc) : Ref<Location>));
         } else {
             var __tmp__ = stdgo.time.Time.local._lookup(_t._unixSec()), _0:GoString = __tmp__._0, _localoff:GoInt = __tmp__._1, _1:GoInt64 = __tmp__._2, _2:GoInt64 = __tmp__._3, _3:Bool = __tmp__._4;
             if (_offset == (_localoff)) {
@@ -7232,11 +7259,11 @@ _version,
         var _start:Time = ({} : Time), _end:Time = ({} : Time);
         var __tmp__ = _t._loc._lookup(_t._unixSec()), _0:GoString = __tmp__._0, _1:GoInt = __tmp__._1, _startSec:GoInt64 = __tmp__._2, _endSec:GoInt64 = __tmp__._3, _2:Bool = __tmp__._4;
         if (_startSec != (("-9223372036854775808" : GoInt64))) {
-            _start = (_unixTime(_startSec, (0 : GoInt32)) == null ? null : _unixTime(_startSec, (0 : GoInt32)).__copy__());
+            _start = _unixTime(_startSec, (0 : GoInt32)).__copy__();
             _start._setLoc(_t._loc);
         };
         if (_endSec != (("9223372036854775807" : GoInt64))) {
-            _end = (_unixTime(_endSec, (0 : GoInt32)) == null ? null : _unixTime(_endSec, (0 : GoInt32)).__copy__());
+            _end = _unixTime(_endSec, (0 : GoInt32)).__copy__();
             _end._setLoc(_t._loc);
         };
         return { _0 : _start, _1 : _end };
@@ -7261,7 +7288,7 @@ _version,
     @:keep
     static public function location( _t:Time):Ref<Location> {
         var _l = _t._loc;
-        if (_l == null) {
+        if (_l == null || (_l : Dynamic).__nil__) {
             _l = stdgo.time.Time.utc;
         };
         return _l;
@@ -7275,11 +7302,11 @@ _version,
     **/
     @:keep
     static public function in_( _t:Time, _loc:Ref<Location>):Time {
-        if (_loc == null) {
+        if (_loc == null || (_loc : Dynamic).__nil__) {
             throw Go.toInterface(("time: missing Location in call to Time.In" : GoString));
         };
         _t._setLoc(_loc);
-        return (_t == null ? null : _t.__copy__());
+        return _t.__copy__();
     }
     /**
         // Local returns t with the location set to local time.
@@ -7287,15 +7314,15 @@ _version,
     @:keep
     static public function local( _t:Time):Time {
         _t._setLoc(stdgo.time.Time.local);
-        return (_t == null ? null : _t.__copy__());
+        return _t.__copy__();
     }
     /**
         // UTC returns t with the location set to UTC.
     **/
     @:keep
     static public function utc( _t:Time):Time {
-        _t._setLoc((_utcLoc : Ref<Location>));
-        return (_t == null ? null : _t.__copy__());
+        _t._setLoc((Go.setRef(_utcLoc) : Ref<Location>));
+        return _t.__copy__();
     }
     /**
         // date computes the year, day of year, and when full=true,
@@ -7320,7 +7347,7 @@ _version,
     static public function addDate( _t:Time, _years:GoInt, _months:GoInt, _days:GoInt):Time {
         var __tmp__ = _t.date(), _year:GoInt = __tmp__._0, _month:Month = __tmp__._1, _day:GoInt = __tmp__._2;
         var __tmp__ = _t.clock(), _hour:GoInt = __tmp__._0, _min:GoInt = __tmp__._1, _sec:GoInt = __tmp__._2;
-        return (stdgo.time.Time.date(_year + _years, _month + (_months : Month), _day + _days, _hour, _min, _sec, (_t._nsec() : GoInt), _t.location()) == null ? null : stdgo.time.Time.date(_year + _years, _month + (_months : Month), _day + _days, _hour, _min, _sec, (_t._nsec() : GoInt), _t.location()).__copy__());
+        return stdgo.time.Time.date(_year + _years, _month + (_months : Month), _day + _days, _hour, _min, _sec, (_t._nsec() : GoInt), _t.location()).__copy__();
     }
     /**
         // Sub returns the duration t-u. If the result exceeds the maximum (or minimum)
@@ -7343,9 +7370,9 @@ _version,
             return _d;
         };
         var _d:Duration = ((_t._sec() - _u._sec() : Duration) * (("1000000000" : GoInt64) : Duration)) + (_t._nsec() - _u._nsec() : Duration);
-        if (_u.add(_d).equal((_t == null ? null : _t.__copy__()))) {
+        if (_u.add(_d).equal(_t.__copy__())) {
             return _d;
-        } else if (_t.before((_u == null ? null : _u.__copy__()))) {
+        } else if (_t.before(_u.__copy__())) {
             return (("-9223372036854775808" : GoInt64) : Duration);
         } else {
             return (("9223372036854775807" : GoInt64) : Duration);
@@ -7375,7 +7402,7 @@ _version,
                 _t._ext = _te;
             };
         };
-        return (_t == null ? null : _t.__copy__());
+        return _t.__copy__();
     }
     /**
         // YearDay returns the day of the year specified by t, in the range [1,365] for non-leap years,
@@ -7494,12 +7521,12 @@ _version,
     static public function _locabs( _t:Time):{ var _0 : GoString; var _1 : GoInt; var _2 : GoUInt64; } {
         var _name:GoString = ("" : GoString), _offset:GoInt = (0 : GoInt), _abs:GoUInt64 = (0 : GoUInt64);
         var _l = _t._loc;
-        if ((_l == null) || (_l == (_localLoc : Ref<Location>))) {
+        if (((_l == null) || (_l : Dynamic).__nil__) || (_l == (Go.setRef(_localLoc) : Ref<Location>))) {
             _l = _l._get();
         };
         var _sec:GoInt64 = _t._unixSec();
-        if (_l != ((_utcLoc : Ref<Location>))) {
-            if (((_l._cacheZone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
+        if (_l != ((Go.setRef(_utcLoc) : Ref<Location>))) {
+            if ((((_l._cacheZone != null) && ((_l._cacheZone : Dynamic).__nil__ == null || !(_l._cacheZone : Dynamic).__nil__)) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
                 _name = _l._cacheZone._name;
                 _offset = _l._cacheZone._offset;
             } else {
@@ -7523,12 +7550,12 @@ _version,
     @:keep
     static public function _abs( _t:Time):GoUInt64 {
         var _l = _t._loc;
-        if ((_l == null) || (_l == (_localLoc : Ref<Location>))) {
+        if (((_l == null) || (_l : Dynamic).__nil__) || (_l == (Go.setRef(_localLoc) : Ref<Location>))) {
             _l = _l._get();
         };
         var _sec:GoInt64 = _t._unixSec();
-        if (_l != ((_utcLoc : Ref<Location>))) {
-            if (((_l._cacheZone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
+        if (_l != ((Go.setRef(_utcLoc) : Ref<Location>))) {
+            if ((((_l._cacheZone != null) && ((_l._cacheZone : Dynamic).__nil__ == null || !(_l._cacheZone : Dynamic).__nil__)) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
                 _sec = _sec + ((_l._cacheZone._offset : GoInt64));
             } else {
                 var __tmp__ = _l._lookup(_sec), _0:GoString = __tmp__._0, _offset:GoInt = __tmp__._1, _1:GoInt64 = __tmp__._2, _2:GoInt64 = __tmp__._3, _3:Bool = __tmp__._4;
@@ -7666,7 +7693,7 @@ _version,
     **/
     @:keep
     static public function _setLoc( _t:Ref<Time>, _loc:Ref<Location>):Void {
-        if (_loc == ((_utcLoc : Ref<Location>))) {
+        if (_loc == ((Go.setRef(_utcLoc) : Ref<Location>))) {
             _loc = null;
         };
         _t._stripMono();
@@ -7804,149 +7831,152 @@ _version,
             {
                 var __switchIndex__ = -1;
                 while (true) {
-                    if (_std & (65535 : GoInt) == ((276 : GoInt))) {
-                        var _y:GoInt = _year;
-                        if (_y < (0 : GoInt)) {
-                            _y = -_y;
-                        };
-                        _b = _appendInt(_b, _y % (100 : GoInt), (2 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((275 : GoInt))) {
-                        _b = _appendInt(_b, _year, (4 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((258 : GoInt))) {
-                        _b = _b.__appendref__(...((_month.string() : GoString).__slice__(0, (3 : GoInt)) : GoString).__toArray__());
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((257 : GoInt))) {
-                        var _m:GoString = (_month.string() : GoString);
-                        _b = _b.__appendref__(..._m.__toArray__());
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((259 : GoInt))) {
-                        _b = _appendInt(_b, (_month : GoInt), (0 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((260 : GoInt))) {
-                        _b = _appendInt(_b, (_month : GoInt), (2 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((262 : GoInt))) {
-                        _b = _b.__appendref__(...((_absWeekday(_abs).string() : GoString).__slice__(0, (3 : GoInt)) : GoString).__toArray__());
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((261 : GoInt))) {
-                        var _s:GoString = (_absWeekday(_abs).string() : GoString);
-                        _b = _b.__appendref__(..._s.__toArray__());
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((263 : GoInt))) {
-                        _b = _appendInt(_b, _day, (0 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((264 : GoInt))) {
-                        if (_day < (10 : GoInt)) {
-                            _b = _b.__appendref__((32 : GoUInt8));
-                        };
-                        _b = _appendInt(_b, _day, (0 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((265 : GoInt))) {
-                        _b = _appendInt(_b, _day, (2 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((266 : GoInt))) {
-                        if (_yday < (100 : GoInt)) {
-                            _b = _b.__appendref__((32 : GoUInt8));
-                            if (_yday < (10 : GoInt)) {
+                    {
+                        final __value__ = _std & (65535 : GoInt);
+                        if (__value__ == ((276 : GoInt))) {
+                            var _y:GoInt = _year;
+                            if (_y < (0 : GoInt)) {
+                                _y = -_y;
+                            };
+                            _b = _appendInt(_b, _y % (100 : GoInt), (2 : GoInt));
+                            break;
+                        } else if (__value__ == ((275 : GoInt))) {
+                            _b = _appendInt(_b, _year, (4 : GoInt));
+                            break;
+                        } else if (__value__ == ((258 : GoInt))) {
+                            _b = _b.__appendref__(...((_month.string() : GoString).__slice__(0, (3 : GoInt)) : GoString).__toArray__());
+                            break;
+                        } else if (__value__ == ((257 : GoInt))) {
+                            var _m:GoString = (_month.string() : GoString);
+                            _b = _b.__appendref__(..._m.__toArray__());
+                            break;
+                        } else if (__value__ == ((259 : GoInt))) {
+                            _b = _appendInt(_b, (_month : GoInt), (0 : GoInt));
+                            break;
+                        } else if (__value__ == ((260 : GoInt))) {
+                            _b = _appendInt(_b, (_month : GoInt), (2 : GoInt));
+                            break;
+                        } else if (__value__ == ((262 : GoInt))) {
+                            _b = _b.__appendref__(...((_absWeekday(_abs).string() : GoString).__slice__(0, (3 : GoInt)) : GoString).__toArray__());
+                            break;
+                        } else if (__value__ == ((261 : GoInt))) {
+                            var _s:GoString = (_absWeekday(_abs).string() : GoString);
+                            _b = _b.__appendref__(..._s.__toArray__());
+                            break;
+                        } else if (__value__ == ((263 : GoInt))) {
+                            _b = _appendInt(_b, _day, (0 : GoInt));
+                            break;
+                        } else if (__value__ == ((264 : GoInt))) {
+                            if (_day < (10 : GoInt)) {
                                 _b = _b.__appendref__((32 : GoUInt8));
                             };
-                        };
-                        _b = _appendInt(_b, _yday, (0 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((267 : GoInt))) {
-                        _b = _appendInt(_b, _yday, (3 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((524 : GoInt))) {
-                        _b = _appendInt(_b, _hour, (2 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((525 : GoInt))) {
-                        var _hr:GoInt = _hour % (12 : GoInt);
-                        if (_hr == ((0 : GoInt))) {
-                            _hr = (12 : GoInt);
-                        };
-                        _b = _appendInt(_b, _hr, (0 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((526 : GoInt))) {
-                        var _hr:GoInt = _hour % (12 : GoInt);
-                        if (_hr == ((0 : GoInt))) {
-                            _hr = (12 : GoInt);
-                        };
-                        _b = _appendInt(_b, _hr, (2 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((527 : GoInt))) {
-                        _b = _appendInt(_b, _min, (0 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((528 : GoInt))) {
-                        _b = _appendInt(_b, _min, (2 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((529 : GoInt))) {
-                        _b = _appendInt(_b, _sec, (0 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((530 : GoInt))) {
-                        _b = _appendInt(_b, _sec, (2 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((533 : GoInt))) {
-                        if (_hour >= (12 : GoInt)) {
-                            _b = _b.__appendref__(...("PM" : GoString).__toArray__());
-                        } else {
-                            _b = _b.__appendref__(...("AM" : GoString).__toArray__());
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((534 : GoInt))) {
-                        if (_hour >= (12 : GoInt)) {
-                            _b = _b.__appendref__(...("pm" : GoString).__toArray__());
-                        } else {
-                            _b = _b.__appendref__(...("am" : GoString).__toArray__());
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((24 : GoInt)) || _std & (65535 : GoInt) == ((27 : GoInt)) || _std & (65535 : GoInt) == ((25 : GoInt)) || _std & (65535 : GoInt) == ((26 : GoInt)) || _std & (65535 : GoInt) == ((28 : GoInt)) || _std & (65535 : GoInt) == ((29 : GoInt)) || _std & (65535 : GoInt) == ((32 : GoInt)) || _std & (65535 : GoInt) == ((30 : GoInt)) || _std & (65535 : GoInt) == ((31 : GoInt)) || _std & (65535 : GoInt) == ((33 : GoInt))) {
-                        if ((_offset == (0 : GoInt)) && (((((_std == (24 : GoInt)) || (_std == (27 : GoInt))) || (_std == (25 : GoInt))) || (_std == (26 : GoInt))) || (_std == (28 : GoInt)))) {
-                            _b = _b.__appendref__((90 : GoUInt8));
+                            _b = _appendInt(_b, _day, (0 : GoInt));
                             break;
-                        };
-                        var _zone:GoInt = _offset / (60 : GoInt);
-                        var _absoffset:GoInt = _offset;
-                        if (_zone < (0 : GoInt)) {
-                            _b = _b.__appendref__((45 : GoUInt8));
-                            _zone = -_zone;
-                            _absoffset = -_absoffset;
-                        } else {
-                            _b = _b.__appendref__((43 : GoUInt8));
-                        };
-                        _b = _appendInt(_b, _zone / (60 : GoInt), (2 : GoInt));
-                        if ((((_std == (27 : GoInt)) || (_std == (32 : GoInt))) || (_std == (28 : GoInt))) || (_std == (33 : GoInt))) {
-                            _b = _b.__appendref__((58 : GoUInt8));
-                        };
-                        if ((_std != (31 : GoInt)) && (_std != (26 : GoInt))) {
-                            _b = _appendInt(_b, _zone % (60 : GoInt), (2 : GoInt));
-                        };
-                        if ((((_std == (25 : GoInt)) || (_std == (30 : GoInt))) || (_std == (33 : GoInt))) || (_std == (28 : GoInt))) {
-                            if ((_std == (33 : GoInt)) || (_std == (28 : GoInt))) {
+                        } else if (__value__ == ((265 : GoInt))) {
+                            _b = _appendInt(_b, _day, (2 : GoInt));
+                            break;
+                        } else if (__value__ == ((266 : GoInt))) {
+                            if (_yday < (100 : GoInt)) {
+                                _b = _b.__appendref__((32 : GoUInt8));
+                                if (_yday < (10 : GoInt)) {
+                                    _b = _b.__appendref__((32 : GoUInt8));
+                                };
+                            };
+                            _b = _appendInt(_b, _yday, (0 : GoInt));
+                            break;
+                        } else if (__value__ == ((267 : GoInt))) {
+                            _b = _appendInt(_b, _yday, (3 : GoInt));
+                            break;
+                        } else if (__value__ == ((524 : GoInt))) {
+                            _b = _appendInt(_b, _hour, (2 : GoInt));
+                            break;
+                        } else if (__value__ == ((525 : GoInt))) {
+                            var _hr:GoInt = _hour % (12 : GoInt);
+                            if (_hr == ((0 : GoInt))) {
+                                _hr = (12 : GoInt);
+                            };
+                            _b = _appendInt(_b, _hr, (0 : GoInt));
+                            break;
+                        } else if (__value__ == ((526 : GoInt))) {
+                            var _hr:GoInt = _hour % (12 : GoInt);
+                            if (_hr == ((0 : GoInt))) {
+                                _hr = (12 : GoInt);
+                            };
+                            _b = _appendInt(_b, _hr, (2 : GoInt));
+                            break;
+                        } else if (__value__ == ((527 : GoInt))) {
+                            _b = _appendInt(_b, _min, (0 : GoInt));
+                            break;
+                        } else if (__value__ == ((528 : GoInt))) {
+                            _b = _appendInt(_b, _min, (2 : GoInt));
+                            break;
+                        } else if (__value__ == ((529 : GoInt))) {
+                            _b = _appendInt(_b, _sec, (0 : GoInt));
+                            break;
+                        } else if (__value__ == ((530 : GoInt))) {
+                            _b = _appendInt(_b, _sec, (2 : GoInt));
+                            break;
+                        } else if (__value__ == ((533 : GoInt))) {
+                            if (_hour >= (12 : GoInt)) {
+                                _b = _b.__appendref__(...("PM" : GoString).__toArray__());
+                            } else {
+                                _b = _b.__appendref__(...("AM" : GoString).__toArray__());
+                            };
+                            break;
+                        } else if (__value__ == ((534 : GoInt))) {
+                            if (_hour >= (12 : GoInt)) {
+                                _b = _b.__appendref__(...("pm" : GoString).__toArray__());
+                            } else {
+                                _b = _b.__appendref__(...("am" : GoString).__toArray__());
+                            };
+                            break;
+                        } else if (__value__ == ((24 : GoInt)) || __value__ == ((27 : GoInt)) || __value__ == ((25 : GoInt)) || __value__ == ((26 : GoInt)) || __value__ == ((28 : GoInt)) || __value__ == ((29 : GoInt)) || __value__ == ((32 : GoInt)) || __value__ == ((30 : GoInt)) || __value__ == ((31 : GoInt)) || __value__ == ((33 : GoInt))) {
+                            if ((_offset == (0 : GoInt)) && (((((_std == (24 : GoInt)) || (_std == (27 : GoInt))) || (_std == (25 : GoInt))) || (_std == (26 : GoInt))) || (_std == (28 : GoInt)))) {
+                                _b = _b.__appendref__((90 : GoUInt8));
+                                break;
+                            };
+                            var _zone:GoInt = _offset / (60 : GoInt);
+                            var _absoffset:GoInt = _offset;
+                            if (_zone < (0 : GoInt)) {
+                                _b = _b.__appendref__((45 : GoUInt8));
+                                _zone = -_zone;
+                                _absoffset = -_absoffset;
+                            } else {
+                                _b = _b.__appendref__((43 : GoUInt8));
+                            };
+                            _b = _appendInt(_b, _zone / (60 : GoInt), (2 : GoInt));
+                            if ((((_std == (27 : GoInt)) || (_std == (32 : GoInt))) || (_std == (28 : GoInt))) || (_std == (33 : GoInt))) {
                                 _b = _b.__appendref__((58 : GoUInt8));
                             };
-                            _b = _appendInt(_b, _absoffset % (60 : GoInt), (2 : GoInt));
-                        };
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((23 : GoInt))) {
-                        if (_name != (Go.str())) {
-                            _b = _b.__appendref__(..._name.__toArray__());
+                            if ((_std != (31 : GoInt)) && (_std != (26 : GoInt))) {
+                                _b = _appendInt(_b, _zone % (60 : GoInt), (2 : GoInt));
+                            };
+                            if ((((_std == (25 : GoInt)) || (_std == (30 : GoInt))) || (_std == (33 : GoInt))) || (_std == (28 : GoInt))) {
+                                if ((_std == (33 : GoInt)) || (_std == (28 : GoInt))) {
+                                    _b = _b.__appendref__((58 : GoUInt8));
+                                };
+                                _b = _appendInt(_b, _absoffset % (60 : GoInt), (2 : GoInt));
+                            };
+                            break;
+                        } else if (__value__ == ((23 : GoInt))) {
+                            if (_name != (Go.str())) {
+                                _b = _b.__appendref__(..._name.__toArray__());
+                                break;
+                            };
+                            var _zone:GoInt = _offset / (60 : GoInt);
+                            if (_zone < (0 : GoInt)) {
+                                _b = _b.__appendref__((45 : GoUInt8));
+                                _zone = -_zone;
+                            } else {
+                                _b = _b.__appendref__((43 : GoUInt8));
+                            };
+                            _b = _appendInt(_b, _zone / (60 : GoInt), (2 : GoInt));
+                            _b = _appendInt(_b, _zone % (60 : GoInt), (2 : GoInt));
+                            break;
+                        } else if (__value__ == ((34 : GoInt)) || __value__ == ((35 : GoInt))) {
+                            _b = _appendNano(_b, _t.nanosecond(), _std);
                             break;
                         };
-                        var _zone:GoInt = _offset / (60 : GoInt);
-                        if (_zone < (0 : GoInt)) {
-                            _b = _b.__appendref__((45 : GoUInt8));
-                            _zone = -_zone;
-                        } else {
-                            _b = _b.__appendref__((43 : GoUInt8));
-                        };
-                        _b = _appendInt(_b, _zone / (60 : GoInt), (2 : GoInt));
-                        _b = _appendInt(_b, _zone % (60 : GoInt), (2 : GoInt));
-                        break;
-                    } else if (_std & (65535 : GoInt) == ((34 : GoInt)) || _std & (65535 : GoInt) == ((35 : GoInt))) {
-                        _b = _appendNano(_b, _t.nanosecond(), _std);
-                        break;
                     };
                     break;
                 };
@@ -7960,12 +7990,15 @@ _version,
     **/
     @:keep
     static public function appendFormat( _t:Time, _b:Slice<GoByte>, _layout:GoString):Slice<GoByte> {
-        if (_layout == (("2006-01-02T15:04:05Z07:00" : GoString))) {
-            return _t._appendFormatRFC3339(_b, false);
-        } else if (_layout == (("2006-01-02T15:04:05.999999999Z07:00" : GoString))) {
-            return _t._appendFormatRFC3339(_b, true);
-        } else {
-            return _t._appendFormat(_b, _layout);
+        {
+            final __value__ = _layout;
+            if (__value__ == (("2006-01-02T15:04:05Z07:00" : GoString))) {
+                return _t._appendFormatRFC3339(_b, false);
+            } else if (__value__ == (("2006-01-02T15:04:05.999999999Z07:00" : GoString))) {
+                return _t._appendFormatRFC3339(_b, true);
+            } else {
+                return _t._appendFormat(_b, _layout);
+            };
         };
     }
     /**
@@ -8021,14 +8054,17 @@ _version,
         _buf = _buf.__appendref__(...(", " : GoString).__toArray__());
         {
             var _loc = _t.location();
-            if (_loc == (stdgo.time.Time.utc) || _loc == null) {
-                _buf = _buf.__appendref__(...("time.UTC" : GoString).__toArray__());
-            } else if (_loc == (stdgo.time.Time.local)) {
-                _buf = _buf.__appendref__(...("time.Local" : GoString).__toArray__());
-            } else {
-                _buf = _buf.__appendref__(...("time.Location(" : GoString).__toArray__());
-                _buf = _buf.__appendref__(..._quote(_loc._name).__toArray__());
-                _buf = _buf.__appendref__((41 : GoUInt8));
+            {
+                final __value__ = _loc;
+                if (__value__ == (stdgo.time.Time.utc) || __value__ == null || (__value__ : Dynamic).__nil__) {
+                    _buf = _buf.__appendref__(...("time.UTC" : GoString).__toArray__());
+                } else if (__value__ == (stdgo.time.Time.local)) {
+                    _buf = _buf.__appendref__(...("time.Local" : GoString).__toArray__());
+                } else {
+                    _buf = _buf.__appendref__(...("time.Location(" : GoString).__toArray__());
+                    _buf = _buf.__appendref__(..._quote(_loc._name).__toArray__());
+                    _buf = _buf.__appendref__((41 : GoUInt8));
+                };
             };
         };
         _buf = _buf.__appendref__((41 : GoUInt8));
@@ -8082,13 +8118,13 @@ class Location_asInterface {
         // (what the given time of day would be in UTC).
     **/
     @:keep
-    public function _lookupName(_name:GoString, _unix:GoInt64):{ var _0 : GoInt; var _1 : Bool; } return __self__.value._lookupName(_name, _unix);
+    public dynamic function _lookupName(_name:GoString, _unix:GoInt64):{ var _0 : GoInt; var _1 : Bool; } return __self__.value._lookupName(_name, _unix);
     /**
         // firstZoneUsed reports whether the first zone is used by some
         // transition.
     **/
     @:keep
-    public function _firstZoneUsed():Bool return __self__.value._firstZoneUsed();
+    public dynamic function _firstZoneUsed():Bool return __self__.value._firstZoneUsed();
     /**
         // lookupFirstZone returns the index of the time zone to use for times
         // before the first transition time, or when there are no transition
@@ -8107,7 +8143,7 @@ class Location_asInterface {
         //  4. Otherwise, use the first zone.
     **/
     @:keep
-    public function _lookupFirstZone():GoInt return __self__.value._lookupFirstZone();
+    public dynamic function _lookupFirstZone():GoInt return __self__.value._lookupFirstZone();
     /**
         // lookup returns information about the time zone in use at an
         // instant in time expressed as seconds since January 1, 1970 00:00:00 UTC.
@@ -8118,15 +8154,15 @@ class Location_asInterface {
         // the daylight savings is being observed at that time.
     **/
     @:keep
-    public function _lookup(_sec:GoInt64):{ var _0 : GoString; var _1 : GoInt; var _2 : GoInt64; var _3 : GoInt64; var _4 : Bool; } return __self__.value._lookup(_sec);
+    public dynamic function _lookup(_sec:GoInt64):{ var _0 : GoString; var _1 : GoInt; var _2 : GoInt64; var _3 : GoInt64; var _4 : Bool; } return __self__.value._lookup(_sec);
     /**
         // String returns a descriptive name for the time zone information,
         // corresponding to the name argument to LoadLocation or FixedZone.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function _get():Ref<Location> return __self__.value._get();
+    public dynamic function _get():Ref<Location> return __self__.value._get();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -8146,7 +8182,7 @@ class Location_asInterface {
         var _offset:GoInt = (0 : GoInt), _ok:Bool = false;
         _l = _l._get();
         for (_i in 0 ... _l._zone.length.toBasic()) {
-            var _zone = (_l._zone[(_i : GoInt)] : Ref<T_zone>);
+            var _zone = (Go.setRef(_l._zone[(_i : GoInt)]) : Ref<T_zone>);
             if (_zone._name == (_name)) {
                 var __tmp__ = _l._lookup(_unix - (_zone._offset : GoInt64)), _nam:GoString = __tmp__._0, _offset:GoInt = __tmp__._1, _0:GoInt64 = __tmp__._2, _1:GoInt64 = __tmp__._3, _2:Bool = __tmp__._4;
                 if (_nam == (_zone._name)) {
@@ -8155,7 +8191,7 @@ class Location_asInterface {
             };
         };
         for (_i in 0 ... _l._zone.length.toBasic()) {
-            var _zone = (_l._zone[(_i : GoInt)] : Ref<T_zone>);
+            var _zone = (Go.setRef(_l._zone[(_i : GoInt)]) : Ref<T_zone>);
             if (_zone._name == (_name)) {
                 return { _0 : _zone._offset, _1 : true };
             };
@@ -8237,7 +8273,7 @@ class Location_asInterface {
         };
         {
             var _zone = _l._cacheZone;
-            if (((_zone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
+            if ((((_zone != null) && ((_zone : Dynamic).__nil__ == null || !(_zone : Dynamic).__nil__)) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
                 _name = _zone._name;
                 _offset = _zone._offset;
                 _start = _l._cacheStart;
@@ -8247,7 +8283,7 @@ class Location_asInterface {
             };
         };
         if ((_l._tx.length == (0 : GoInt)) || (_sec < _l._tx[(0 : GoInt)]._when)) {
-            var _zone = (_l._zone[(_l._lookupFirstZone() : GoInt)] : Ref<T_zone>);
+            var _zone = (Go.setRef(_l._zone[(_l._lookupFirstZone() : GoInt)]) : Ref<T_zone>);
             _name = _zone._name;
             _offset = _zone._offset;
             _start = ("-9223372036854775808" : GoInt64);
@@ -8273,7 +8309,7 @@ class Location_asInterface {
                 _lo = _m;
             };
         };
-        var _zone = (_l._zone[(_tx[(_lo : GoInt)]._index : GoInt)] : Ref<T_zone>);
+        var _zone = (Go.setRef(_l._zone[(_tx[(_lo : GoInt)]._index : GoInt)]) : Ref<T_zone>);
         _name = _zone._name;
         _offset = _zone._offset;
         _start = _tx[(_lo : GoInt)]._when;
@@ -8298,10 +8334,10 @@ class Location_asInterface {
     }
     @:keep
     static public function _get( _l:Ref<Location>):Ref<Location> {
-        if (_l == null) {
-            return (_utcLoc : Ref<Location>);
+        if (_l == null || (_l : Dynamic).__nil__) {
+            return (Go.setRef(_utcLoc) : Ref<Location>);
         };
-        if (_l == ((_localLoc : Ref<Location>))) {
+        if (_l == ((Go.setRef(_localLoc) : Ref<Location>))) {
             _localOnce.do_(_initLocal);
         };
         return _l;
@@ -8312,15 +8348,15 @@ class T_dataIO_asInterface {
         // read returns the read of the data in the buffer.
     **/
     @:keep
-    public function _rest():Slice<GoByte> return __self__.value._rest();
+    public dynamic function _rest():Slice<GoByte> return __self__.value._rest();
     @:keep
-    public function _byte():{ var _0 : GoByte; var _1 : Bool; } return __self__.value._byte();
+    public dynamic function _byte():{ var _0 : GoByte; var _1 : Bool; } return __self__.value._byte();
     @:keep
-    public function _big8():{ var _0 : GoUInt64; var _1 : Bool; } return __self__.value._big8();
+    public dynamic function _big8():{ var _0 : GoUInt64; var _1 : Bool; } return __self__.value._big8();
     @:keep
-    public function _big4():{ var _0 : GoUInt32; var _1 : Bool; } return __self__.value._big4();
+    public dynamic function _big4():{ var _0 : GoUInt32; var _1 : Bool; } return __self__.value._big4();
     @:keep
-    public function _read(_n:GoInt):Slice<GoByte> return __self__.value._read(_n);
+    public dynamic function _read(_n:GoInt):Slice<GoByte> return __self__.value._read(_n);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -8387,7 +8423,7 @@ class Month_asInterface {
         // String returns the English name of the month ("January", "February", ...).
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -8415,7 +8451,7 @@ class Weekday_asInterface {
         // String returns the English name of the day ("Sunday", "Monday", ...).
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -8444,7 +8480,7 @@ class Duration_asInterface {
         // As a special case, math.MinInt64 is converted to math.MaxInt64.
     **/
     @:keep
-    public function abs():Duration return __self__.value.abs();
+    public dynamic function abs():Duration return __self__.value.abs();
     /**
         // Round returns the result of rounding d to the nearest multiple of m.
         // The rounding behavior for halfway values is to round away from zero.
@@ -8454,43 +8490,43 @@ class Duration_asInterface {
         // If m <= 0, Round returns d unchanged.
     **/
     @:keep
-    public function round(_m:Duration):Duration return __self__.value.round(_m);
+    public dynamic function round(_m:Duration):Duration return __self__.value.round(_m);
     /**
         // Truncate returns the result of rounding d toward zero to a multiple of m.
         // If m <= 0, Truncate returns d unchanged.
     **/
     @:keep
-    public function truncate(_m:Duration):Duration return __self__.value.truncate(_m);
+    public dynamic function truncate(_m:Duration):Duration return __self__.value.truncate(_m);
     /**
         // Hours returns the duration as a floating point number of hours.
     **/
     @:keep
-    public function hours():GoFloat64 return __self__.value.hours();
+    public dynamic function hours():GoFloat64 return __self__.value.hours();
     /**
         // Minutes returns the duration as a floating point number of minutes.
     **/
     @:keep
-    public function minutes():GoFloat64 return __self__.value.minutes();
+    public dynamic function minutes():GoFloat64 return __self__.value.minutes();
     /**
         // Seconds returns the duration as a floating point number of seconds.
     **/
     @:keep
-    public function seconds():GoFloat64 return __self__.value.seconds();
+    public dynamic function seconds():GoFloat64 return __self__.value.seconds();
     /**
         // Milliseconds returns the duration as an integer millisecond count.
     **/
     @:keep
-    public function milliseconds():GoInt64 return __self__.value.milliseconds();
+    public dynamic function milliseconds():GoInt64 return __self__.value.milliseconds();
     /**
         // Microseconds returns the duration as an integer microsecond count.
     **/
     @:keep
-    public function microseconds():GoInt64 return __self__.value.microseconds();
+    public dynamic function microseconds():GoInt64 return __self__.value.microseconds();
     /**
         // Nanoseconds returns the duration as an integer nanosecond count.
     **/
     @:keep
-    public function nanoseconds():GoInt64 return __self__.value.nanoseconds();
+    public dynamic function nanoseconds():GoInt64 return __self__.value.nanoseconds();
     /**
         // String returns a string representing the duration in the form "72h3m0.5s".
         // Leading zero units are omitted. As a special case, durations less than one
@@ -8498,7 +8534,7 @@ class Duration_asInterface {
         // that the leading digit is non-zero. The zero duration formats as 0s.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -8689,7 +8725,7 @@ class Duration_asInterface {
 }
 class T_fileSizeError_asInterface {
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

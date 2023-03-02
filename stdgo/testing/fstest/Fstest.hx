@@ -264,7 +264,7 @@ function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void throw "testing.fstest
 function testDash(_t:Ref<stdgo.testing.Testing.T>):Void throw "testing.fstest.testDash is not yet implemented";
 class T_fsOnly_asInterface {
     @:embedded
-    public function open(_pattern:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return __self__.value.open(_pattern);
+    public dynamic function open(_pattern:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return __self__.value.open(_pattern);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -279,17 +279,17 @@ class T_fsOnly_asInterface {
 }
 class T_noSub_asInterface {
     @:keep
-    public function sub():Void __self__.value.sub();
+    public dynamic function sub():Void __self__.value.sub();
     @:embedded
-    public function stat(_pattern:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.stat(_pattern);
+    public dynamic function stat(_pattern:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.stat(_pattern);
     @:embedded
-    public function readFile(_pattern:GoString):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readFile(_pattern);
+    public dynamic function readFile(_pattern:GoString):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readFile(_pattern);
     @:embedded
-    public function readDir(_pattern:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : Error; } return __self__.value.readDir(_pattern);
+    public dynamic function readDir(_pattern:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : Error; } return __self__.value.readDir(_pattern);
     @:embedded
-    public function open(_pattern:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return __self__.value.open(_pattern);
+    public dynamic function open(_pattern:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return __self__.value.open(_pattern);
     @:embedded
-    public function glob(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value.glob(_pattern);
+    public dynamic function glob(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value.glob(_pattern);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -314,21 +314,21 @@ class T_noSub_asInterface {
 }
 class T_mapFileInfo_asInterface {
     @:keep
-    public function info():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.info();
+    public dynamic function info():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.info();
     @:keep
-    public function sys():AnyInterface return __self__.value.sys();
+    public dynamic function sys():AnyInterface return __self__.value.sys();
     @:keep
-    public function isDir():Bool return __self__.value.isDir();
+    public dynamic function isDir():Bool return __self__.value.isDir();
     @:keep
-    public function modTime():stdgo.time.Time.Time return __self__.value.modTime();
+    public dynamic function modTime():stdgo.time.Time.Time return __self__.value.modTime();
     @:keep
-    public function type():stdgo.io.fs.Fs.FileMode return __self__.value.type();
+    public dynamic function type():stdgo.io.fs.Fs.FileMode return __self__.value.type();
     @:keep
-    public function mode():stdgo.io.fs.Fs.FileMode return __self__.value.mode();
+    public dynamic function mode():stdgo.io.fs.Fs.FileMode return __self__.value.mode();
     @:keep
-    public function size():GoInt64 return __self__.value.size();
+    public dynamic function size():GoInt64 return __self__.value.size();
     @:keep
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -357,31 +357,31 @@ class T_mapFileInfo_asInterface {
 }
 class T_openMapFile_asInterface {
     @:keep
-    public function readAt(_b:Slice<GoByte>, _offset:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_b, _offset);
+    public dynamic function readAt(_b:Slice<GoByte>, _offset:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_b, _offset);
     @:keep
-    public function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
+    public dynamic function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
     @:keep
-    public function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
+    public dynamic function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     @:keep
-    public function stat():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.stat();
+    public dynamic function stat():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.stat();
     @:embedded
-    public function type():stdgo.io.fs.Fs.FileMode return __self__.value.type();
+    public dynamic function type():stdgo.io.fs.Fs.FileMode return __self__.value.type();
     @:embedded
-    public function sys():AnyInterface return __self__.value.sys();
+    public dynamic function sys():AnyInterface return __self__.value.sys();
     @:embedded
-    public function size():GoInt64 return __self__.value.size();
+    public dynamic function size():GoInt64 return __self__.value.size();
     @:embedded
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     @:embedded
-    public function mode():stdgo.io.fs.Fs.FileMode return __self__.value.mode();
+    public dynamic function mode():stdgo.io.fs.Fs.FileMode return __self__.value.mode();
     @:embedded
-    public function modTime():stdgo.time.Time.Time return __self__.value.modTime();
+    public dynamic function modTime():stdgo.time.Time.Time return __self__.value.modTime();
     @:embedded
-    public function isDir():Bool return __self__.value.isDir();
+    public dynamic function isDir():Bool return __self__.value.isDir();
     @:embedded
-    public function info():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.info();
+    public dynamic function info():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.info();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -420,29 +420,29 @@ class T_openMapFile_asInterface {
 }
 class T_mapDir_asInterface {
     @:keep
-    public function readDir(_count:GoInt):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : Error; } return __self__.value.readDir(_count);
+    public dynamic function readDir(_count:GoInt):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : Error; } return __self__.value.readDir(_count);
     @:keep
-    public function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
+    public dynamic function read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     @:keep
-    public function stat():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.stat();
+    public dynamic function stat():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.stat();
     @:embedded
-    public function type():stdgo.io.fs.Fs.FileMode return __self__.value.type();
+    public dynamic function type():stdgo.io.fs.Fs.FileMode return __self__.value.type();
     @:embedded
-    public function sys():AnyInterface return __self__.value.sys();
+    public dynamic function sys():AnyInterface return __self__.value.sys();
     @:embedded
-    public function size():GoInt64 return __self__.value.size();
+    public dynamic function size():GoInt64 return __self__.value.size();
     @:embedded
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     @:embedded
-    public function mode():stdgo.io.fs.Fs.FileMode return __self__.value.mode();
+    public dynamic function mode():stdgo.io.fs.Fs.FileMode return __self__.value.mode();
     @:embedded
-    public function modTime():stdgo.time.Time.Time return __self__.value.modTime();
+    public dynamic function modTime():stdgo.time.Time.Time return __self__.value.modTime();
     @:embedded
-    public function isDir():Bool return __self__.value.isDir();
+    public dynamic function isDir():Bool return __self__.value.isDir();
     @:embedded
-    public function info():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.info();
+    public dynamic function info():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.info();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -482,49 +482,49 @@ class T_fsTester_asInterface {
         // checkBadPath checks that various invalid forms of file's name cannot be opened using open.
     **/
     @:keep
-    public function _checkBadPath(_file:GoString, _desc:GoString, _open:GoString -> Error):Void __self__.value._checkBadPath(_file, _desc, _open);
+    public dynamic function _checkBadPath(_file:GoString, _desc:GoString, _open:GoString -> Error):Void __self__.value._checkBadPath(_file, _desc, _open);
     /**
         // checkBadPath checks that various invalid forms of file's name cannot be opened using t.fsys.Open.
     **/
     @:keep
-    public function _checkOpen(_file:GoString):Void __self__.value._checkOpen(_file);
+    public dynamic function _checkOpen(_file:GoString):Void __self__.value._checkOpen(_file);
     @:keep
-    public function _checkFileRead(_file:GoString, _desc:GoString, _data1:Slice<GoByte>, _data2:Slice<GoByte>):Void __self__.value._checkFileRead(_file, _desc, _data1, _data2);
+    public dynamic function _checkFileRead(_file:GoString, _desc:GoString, _data1:Slice<GoByte>, _data2:Slice<GoByte>):Void __self__.value._checkFileRead(_file, _desc, _data1, _data2);
     /**
         // checkFile checks that basic file reading works correctly.
     **/
     @:keep
-    public function _checkFile(_file:GoString):Void __self__.value._checkFile(_file);
+    public dynamic function _checkFile(_file:GoString):Void __self__.value._checkFile(_file);
     /**
         // checkDirList checks that two directory lists contain the same files and file info.
         // The order of the lists need not match.
     **/
     @:keep
-    public function _checkDirList(_dir:GoString, _desc:GoString, _list1:Slice<stdgo.io.fs.Fs.DirEntry>, _list2:Slice<stdgo.io.fs.Fs.DirEntry>):Void __self__.value._checkDirList(_dir, _desc, _list1, _list2);
+    public dynamic function _checkDirList(_dir:GoString, _desc:GoString, _list1:Slice<stdgo.io.fs.Fs.DirEntry>, _list2:Slice<stdgo.io.fs.Fs.DirEntry>):Void __self__.value._checkDirList(_dir, _desc, _list1, _list2);
     /**
         // checkStat checks that a direct stat of path matches entry,
         // which was found in the parent's directory listing.
     **/
     @:keep
-    public function _checkStat(_path:GoString, _entry:stdgo.io.fs.Fs.DirEntry):Void __self__.value._checkStat(_path, _entry);
+    public dynamic function _checkStat(_path:GoString, _entry:stdgo.io.fs.Fs.DirEntry):Void __self__.value._checkStat(_path, _entry);
     /**
         // checkGlob checks that various glob patterns work if the file system implements GlobFS.
     **/
     @:keep
-    public function _checkGlob(_dir:GoString, _list:Slice<stdgo.io.fs.Fs.DirEntry>):Void __self__.value._checkGlob(_dir, _list);
+    public dynamic function _checkGlob(_dir:GoString, _list:Slice<stdgo.io.fs.Fs.DirEntry>):Void __self__.value._checkGlob(_dir, _list);
     /**
         // checkDir checks the directory dir, which is expected to exist
         // (it is either the root or was found in a directory listing with IsDir true).
     **/
     @:keep
-    public function _checkDir(_dir:GoString):Void __self__.value._checkDir(_dir);
+    public dynamic function _checkDir(_dir:GoString):Void __self__.value._checkDir(_dir);
     @:keep
-    public function _openDir(_dir:GoString):stdgo.io.fs.Fs.ReadDirFile return __self__.value._openDir(_dir);
+    public dynamic function _openDir(_dir:GoString):stdgo.io.fs.Fs.ReadDirFile return __self__.value._openDir(_dir);
     /**
         // errorf adds an error line to errText.
     **/
     @:keep
-    public function _errorf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void __self__.value._errorf(_format, ..._args);
+    public dynamic function _errorf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void __self__.value._errorf(_format, ..._args);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -584,20 +584,20 @@ class T_fsTester_asInterface {
 }
 class MapFS_asInterface {
     @:keep
-    public function sub(_dir:GoString):{ var _0 : stdgo.io.fs.Fs.FS; var _1 : Error; } return __self__.value.sub(_dir);
+    public dynamic function sub(_dir:GoString):{ var _0 : stdgo.io.fs.Fs.FS; var _1 : Error; } return __self__.value.sub(_dir);
     @:keep
-    public function glob(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value.glob(_pattern);
+    public dynamic function glob(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } return __self__.value.glob(_pattern);
     @:keep
-    public function readDir(_name:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : Error; } return __self__.value.readDir(_name);
+    public dynamic function readDir(_name:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : Error; } return __self__.value.readDir(_name);
     @:keep
-    public function stat(_name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.stat(_name);
+    public dynamic function stat(_name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __self__.value.stat(_name);
     @:keep
-    public function readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.readFile(_name);
+    public dynamic function readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } return __self__.value.readFile(_name);
     /**
         // Open opens the named file.
     **/
     @:keep
-    public function open(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return __self__.value.open(_name);
+    public dynamic function open(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return __self__.value.open(_name);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

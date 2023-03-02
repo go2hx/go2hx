@@ -18,8 +18,8 @@ function example_retrievePositionInfo():Void {
         };
         for (_0 => _decl in _f.decls) {
             var _pos:Pos = _decl.pos();
-            var _relPosition:Position = (_fset.position(_pos) == null ? null : _fset.position(_pos).__copy__());
-            var _absPosition:Position = (_fset.positionFor(_pos, false) == null ? null : _fset.positionFor(_pos, false).__copy__());
+            var _relPosition:Position = _fset.position(_pos).__copy__();
+            var _absPosition:Position = _fset.positionFor(_pos, false).__copy__();
             var _kind:GoString = ("func" : GoString);
             {
                 var __tmp__ = try {

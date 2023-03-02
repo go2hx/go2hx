@@ -259,7 +259,7 @@ macro private function _parseRFC3339<T_bytes>(_s:haxe.macro.Expr.ExprOf<T_bytes>
                         };
                         _s = (_s.__slice__(_n) : $T_bytes);
                     };
-                    var _t:Time = (date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc) == null ? null : date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc).__copy__());
+                    var _t:Time = date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc).__copy__();
                     if ((_s.length != (1 : GoInt)) || (_s[@:param_index (0 : GoInt)] != (90 : GoUInt8))) {
                         if ((_s.length) != ((("-07:00" : GoString).length))) {
                             return { _0 : (new Time() : Time), _1 : false };
@@ -283,7 +283,7 @@ macro private function _parseRFC3339<T_bytes>(_s:haxe.macro.Expr.ExprOf<T_bytes>
                             };
                         };
                     };
-                    return { _0 : (_t == null ? null : _t.__copy__()), _1 : true };
+                    return { _0 : _t.__copy__(), _1 : true };
                 };
                 f($_s, $_local);
             };

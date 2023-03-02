@@ -320,7 +320,7 @@ function printStack():Void throw "runtime.debug.printStack is not yet implemente
 function stack():Slice<GoByte> throw "runtime.debug.stack is not yet implemented";
 class BuildInfo_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

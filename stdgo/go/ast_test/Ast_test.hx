@@ -218,7 +218,7 @@ function exampleCommentMap():Void {
         _f.comments = _cmap.filter(Go.asInterface(_f)).comments();
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         {
-            var _err:Error = stdgo.go.format.Format.node(Go.asInterface((_buf : Ref<stdgo.strings.Strings.Builder>)), _fset, Go.toInterface(Go.asInterface(_f)));
+            var _err:Error = stdgo.go.format.Format.node(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.strings.Strings.Builder>)), _fset, Go.toInterface(Go.asInterface(_f)));
             if (_err != null) {
                 throw Go.toInterface(_err);
             };
@@ -244,7 +244,7 @@ function testFilterDuplicates(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _merged = stdgo.go.ast.Ast.mergePackageFiles(_pkg, (("1" : GoUInt) : MergeMode));
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         {
-            var _err:Error = stdgo.go.format.Format.node(Go.asInterface((_buf : Ref<stdgo.strings.Strings.Builder>)), _fset, Go.toInterface(Go.asInterface(_merged)));
+            var _err:Error = stdgo.go.format.Format.node(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.strings.Strings.Builder>)), _fset, Go.toInterface(Go.asInterface(_merged)));
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -258,7 +258,7 @@ function testIssue33649(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_0 => _src in (new Slice<GoString>(0, 0, ("package p; func _()" : GoString), ("package p; func _() {" : GoString), ("package p; func _() { _ = 0" : GoString), ("package p; func _() { _ = 0 }" : GoString)) : Slice<GoString>)) {
             var _fset = stdgo.go.token.Token.newFileSet();
             var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, Go.str(), Go.toInterface(_src), (("32" : GoUInt) : stdgo.go.parser.Parser.Mode)), _f:Ref<File> = __tmp__._0, _1:Error = __tmp__._1;
-            if (_f == null) {
+            if (_f == null || (_f : Dynamic).__nil__) {
                 throw Go.toInterface(("invalid test setup: parser didn\'t return an AST" : GoString));
             };
             var _tf:Ref<stdgo.go.token.Token.File> = (null : Ref<stdgo.go.token.Token.File>);

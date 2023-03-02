@@ -2359,7 +2359,7 @@ typedef RawConn = StructType & {
         
         
     **/
-    public function control(_f:(_fd:GoUIntptr) -> Void):Error;
+    public dynamic function control(_f:(_fd:GoUIntptr) -> Void):Error;
     /**
         // Read invokes f on the underlying connection's file
         // descriptor or handle; f is expected to try to read from the
@@ -2372,13 +2372,13 @@ typedef RawConn = StructType & {
         
         
     **/
-    public function read(_f:(_fd:GoUIntptr) -> Bool):Error;
+    public dynamic function read(_f:(_fd:GoUIntptr) -> Bool):Error;
     /**
         // Write is like Read but for writing.
         
         
     **/
-    public function write(_f:(_fd:GoUIntptr) -> Bool):Error;
+    public dynamic function write(_f:(_fd:GoUIntptr) -> Bool):Error;
 };
 /**
     // Conn is implemented by some types in the net and os packages to provide
@@ -2392,7 +2392,7 @@ typedef Conn = StructType & {
         
         
     **/
-    public function syscallConn():{ var _0 : RawConn; var _1 : Error; };
+    public dynamic function syscallConn():{ var _0 : RawConn; var _1 : Error; };
 };
 /**
     
@@ -2842,12 +2842,12 @@ class Timespec_asInterface {
         // Nano returns the time stored in ts as nanoseconds.
     **/
     @:keep
-    public function nano():GoInt64 return __self__.value.nano();
+    public dynamic function nano():GoInt64 return __self__.value.nano();
     /**
         // Unix returns the time stored in ts as seconds plus nanoseconds.
     **/
     @:keep
-    public function unix():{ var _0 : GoInt64; var _1 : GoInt64; } return __self__.value.unix();
+    public dynamic function unix():{ var _0 : GoInt64; var _1 : GoInt64; } return __self__.value.unix();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2873,12 +2873,12 @@ class Timeval_asInterface {
         // Nano returns the time stored in tv as nanoseconds.
     **/
     @:keep
-    public function nano():GoInt64 return __self__.value.nano();
+    public dynamic function nano():GoInt64 return __self__.value.nano();
     /**
         // Unix returns the time stored in tv as seconds plus nanoseconds.
     **/
     @:keep
-    public function unix():{ var _0 : GoInt64; var _1 : GoInt64; } return __self__.value.unix();
+    public dynamic function unix():{ var _0 : GoInt64; var _1 : GoInt64; } return __self__.value.unix();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2901,13 +2901,13 @@ class Timeval_asInterface {
 }
 class Errno_asInterface {
     @:keep
-    public function timeout():Bool return __self__.value.timeout();
+    public dynamic function timeout():Bool return __self__.value.timeout();
     @:keep
-    public function temporary():Bool return __self__.value.temporary();
+    public dynamic function temporary():Bool return __self__.value.temporary();
     @:keep
-    public function is_(_target:Error):Bool return __self__.value.is_(_target);
+    public dynamic function is_(_target:Error):Bool return __self__.value.is_(_target);
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2928,9 +2928,9 @@ class Errno_asInterface {
 }
 class Signal_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function signal():Void __self__.value.signal();
+    public dynamic function signal():Void __self__.value.signal();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2947,23 +2947,23 @@ class Signal_asInterface {
 }
 class WaitStatus_asInterface {
     @:keep
-    public function trapCause():GoInt return __self__.value.trapCause();
+    public dynamic function trapCause():GoInt return __self__.value.trapCause();
     @:keep
-    public function stopSignal():Signal return __self__.value.stopSignal();
+    public dynamic function stopSignal():Signal return __self__.value.stopSignal();
     @:keep
-    public function continued():Bool return __self__.value.continued();
+    public dynamic function continued():Bool return __self__.value.continued();
     @:keep
-    public function stopped():Bool return __self__.value.stopped();
+    public dynamic function stopped():Bool return __self__.value.stopped();
     @:keep
-    public function coreDump():Bool return __self__.value.coreDump();
+    public dynamic function coreDump():Bool return __self__.value.coreDump();
     @:keep
-    public function signal():Signal return __self__.value.signal();
+    public dynamic function signal():Signal return __self__.value.signal();
     @:keep
-    public function signaled():Bool return __self__.value.signaled();
+    public dynamic function signaled():Bool return __self__.value.signaled();
     @:keep
-    public function exitStatus():GoInt return __self__.value.exitStatus();
+    public dynamic function exitStatus():GoInt return __self__.value.exitStatus();
     @:keep
-    public function exited():Bool return __self__.value.exited();
+    public dynamic function exited():Bool return __self__.value.exited();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

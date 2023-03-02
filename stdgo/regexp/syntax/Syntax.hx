@@ -1370,9 +1370,9 @@ private function _simplify1(_op:Op, _flags:Flags, _sub:Ref<Regexp>, _re:Ref<Rege
 function testSimplify(_t:Ref<stdgo.testing.Testing.T>):Void throw "regexp.syntax.testSimplify is not yet implemented";
 class T_patchList_asInterface {
     @:keep
-    public function _append(_p:Ref<Prog>, _l2:T_patchList):T_patchList return __self__.value._append(_p, _l2);
+    public dynamic function _append(_p:Ref<Prog>, _l2:T_patchList):T_patchList return __self__.value._append(_p, _l2);
     @:keep
-    public function _patch(_p:Ref<Prog>, _val:GoUInt32):Void __self__.value._patch(_p, _val);
+    public dynamic function _patch(_p:Ref<Prog>, _val:GoUInt32):Void __self__.value._patch(_p, _val);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1389,13 +1389,13 @@ class T_patchList_asInterface {
 }
 class T_compiler_asInterface {
     @:keep
-    public function _rune(_r:Slice<GoRune>, _flags:Flags):T_frag return __self__.value._rune(_r, _flags);
+    public dynamic function _rune(_r:Slice<GoRune>, _flags:Flags):T_frag return __self__.value._rune(_r, _flags);
     @:keep
-    public function _empty(_op:EmptyOp):T_frag return __self__.value._empty(_op);
+    public dynamic function _empty(_op:EmptyOp):T_frag return __self__.value._empty(_op);
     @:keep
-    public function _plus(_f1:T_frag, _nongreedy:Bool):T_frag return __self__.value._plus(_f1, _nongreedy);
+    public dynamic function _plus(_f1:T_frag, _nongreedy:Bool):T_frag return __self__.value._plus(_f1, _nongreedy);
     @:keep
-    public function _star(_f1:T_frag, _nongreedy:Bool):T_frag return __self__.value._star(_f1, _nongreedy);
+    public dynamic function _star(_f1:T_frag, _nongreedy:Bool):T_frag return __self__.value._star(_f1, _nongreedy);
     /**
         // loop returns the fragment for the main loop of a plus or star.
         // For plus, it can be used after changing the entry to f1.i.
@@ -1404,25 +1404,25 @@ class T_compiler_asInterface {
         // to get the priority match order correct.)
     **/
     @:keep
-    public function _loop(_f1:T_frag, _nongreedy:Bool):T_frag return __self__.value._loop(_f1, _nongreedy);
+    public dynamic function _loop(_f1:T_frag, _nongreedy:Bool):T_frag return __self__.value._loop(_f1, _nongreedy);
     @:keep
-    public function _quest(_f1:T_frag, _nongreedy:Bool):T_frag return __self__.value._quest(_f1, _nongreedy);
+    public dynamic function _quest(_f1:T_frag, _nongreedy:Bool):T_frag return __self__.value._quest(_f1, _nongreedy);
     @:keep
-    public function _alt(_f1:T_frag, _f2:T_frag):T_frag return __self__.value._alt(_f1, _f2);
+    public dynamic function _alt(_f1:T_frag, _f2:T_frag):T_frag return __self__.value._alt(_f1, _f2);
     @:keep
-    public function _cat(_f1:T_frag, _f2:T_frag):T_frag return __self__.value._cat(_f1, _f2);
+    public dynamic function _cat(_f1:T_frag, _f2:T_frag):T_frag return __self__.value._cat(_f1, _f2);
     @:keep
-    public function _cap(_arg:GoUInt32):T_frag return __self__.value._cap(_arg);
+    public dynamic function _cap(_arg:GoUInt32):T_frag return __self__.value._cap(_arg);
     @:keep
-    public function _fail():T_frag return __self__.value._fail();
+    public dynamic function _fail():T_frag return __self__.value._fail();
     @:keep
-    public function _nop():T_frag return __self__.value._nop();
+    public dynamic function _nop():T_frag return __self__.value._nop();
     @:keep
-    public function _inst(_op:InstOp):T_frag return __self__.value._inst(_op);
+    public dynamic function _inst(_op:InstOp):T_frag return __self__.value._inst(_op);
     @:keep
-    public function _compile(_re:Ref<Regexp>):T_frag return __self__.value._compile(_re);
+    public dynamic function _compile(_re:Ref<Regexp>):T_frag return __self__.value._compile(_re);
     @:keep
-    public function _init():Void __self__.value._init();
+    public dynamic function _init():Void __self__.value._init();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1470,7 +1470,7 @@ class T_compiler_asInterface {
 }
 class T_error_asInterface {
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1489,103 +1489,103 @@ class T_parser_asInterface {
         // and pushes it onto the parse stack.
     **/
     @:keep
-    public function _parseClass(_s:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._parseClass(_s);
+    public dynamic function _parseClass(_s:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._parseClass(_s);
     /**
         // parseUnicodeClass parses a leading Unicode character class like \p{Han}
         // from the beginning of s. If one is present, it appends the characters to r
         // and returns the new slice r and the remainder of the string.
     **/
     @:keep
-    public function _parseUnicodeClass(_s:GoString, _r:Slice<GoRune>):{ var _0 : Slice<GoRune>; var _1 : GoString; var _2 : Error; } return __self__.value._parseUnicodeClass(_s, _r);
+    public dynamic function _parseUnicodeClass(_s:GoString, _r:Slice<GoRune>):{ var _0 : Slice<GoRune>; var _1 : GoString; var _2 : Error; } return __self__.value._parseUnicodeClass(_s, _r);
     @:keep
-    public function _appendGroup(_r:Slice<GoRune>, _g:T_charGroup):Slice<GoRune> return __self__.value._appendGroup(_r, _g);
+    public dynamic function _appendGroup(_r:Slice<GoRune>, _g:T_charGroup):Slice<GoRune> return __self__.value._appendGroup(_r, _g);
     /**
         // parseNamedClass parses a leading POSIX named character class like [:alnum:]
         // from the beginning of s. If one is present, it appends the characters to r
         // and returns the new slice r and the remainder of the string.
     **/
     @:keep
-    public function _parseNamedClass(_s:GoString, _r:Slice<GoRune>):{ var _0 : Slice<GoRune>; var _1 : GoString; var _2 : Error; } return __self__.value._parseNamedClass(_s, _r);
+    public dynamic function _parseNamedClass(_s:GoString, _r:Slice<GoRune>):{ var _0 : Slice<GoRune>; var _1 : GoString; var _2 : Error; } return __self__.value._parseNamedClass(_s, _r);
     /**
         // parsePerlClassEscape parses a leading Perl character class escape like \d
         // from the beginning of s. If one is present, it appends the characters to r
         // and returns the new slice r and the remainder of the string.
     **/
     @:keep
-    public function _parsePerlClassEscape(_s:GoString, _r:Slice<GoRune>):{ var _0 : Slice<GoRune>; var _1 : GoString; } return __self__.value._parsePerlClassEscape(_s, _r);
+    public dynamic function _parsePerlClassEscape(_s:GoString, _r:Slice<GoRune>):{ var _0 : Slice<GoRune>; var _1 : GoString; } return __self__.value._parsePerlClassEscape(_s, _r);
     /**
         // parseClassChar parses a character class character at the beginning of s
         // and returns it.
     **/
     @:keep
-    public function _parseClassChar(_s:GoString, _wholeClass:GoString):{ var _0 : GoRune; var _1 : GoString; var _2 : Error; } return __self__.value._parseClassChar(_s, _wholeClass);
+    public dynamic function _parseClassChar(_s:GoString, _wholeClass:GoString):{ var _0 : GoRune; var _1 : GoString; var _2 : Error; } return __self__.value._parseClassChar(_s, _wholeClass);
     /**
         // parseEscape parses an escape sequence at the beginning of s
         // and returns the rune.
     **/
     @:keep
-    public function _parseEscape(_s:GoString):{ var _0 : GoRune; var _1 : GoString; var _2 : Error; } return __self__.value._parseEscape(_s);
+    public dynamic function _parseEscape(_s:GoString):{ var _0 : GoRune; var _1 : GoString; var _2 : Error; } return __self__.value._parseEscape(_s);
     /**
         // parseRightParen handles a ) in the input.
     **/
     @:keep
-    public function _parseRightParen():Error return __self__.value._parseRightParen();
+    public dynamic function _parseRightParen():Error return __self__.value._parseRightParen();
     /**
         // If the top of the stack is an element followed by an opVerticalBar
         // swapVerticalBar swaps the two and returns true.
         // Otherwise it returns false.
     **/
     @:keep
-    public function _swapVerticalBar():Bool return __self__.value._swapVerticalBar();
+    public dynamic function _swapVerticalBar():Bool return __self__.value._swapVerticalBar();
     /**
         // parseVerticalBar handles a | in the input.
     **/
     @:keep
-    public function _parseVerticalBar():Error return __self__.value._parseVerticalBar();
+    public dynamic function _parseVerticalBar():Error return __self__.value._parseVerticalBar();
     /**
         // parseInt parses a decimal integer.
     **/
     @:keep
-    public function _parseInt(_s:GoString):{ var _0 : GoInt; var _1 : GoString; var _2 : Bool; } return __self__.value._parseInt(_s);
+    public dynamic function _parseInt(_s:GoString):{ var _0 : GoInt; var _1 : GoString; var _2 : Bool; } return __self__.value._parseInt(_s);
     /**
         // parsePerlFlags parses a Perl flag setting or non-capturing group or both,
         // like (?i) or (?: or (?i:.  It removes the prefix from s and updates the parse state.
         // The caller must have ensured that s begins with "(?".
     **/
     @:keep
-    public function _parsePerlFlags(_s:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._parsePerlFlags(_s);
+    public dynamic function _parsePerlFlags(_s:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._parsePerlFlags(_s);
     /**
         // parseRepeat parses {min} (max=min) or {min,} (max=-1) or {min,max}.
         // If s is not of that form, it returns ok == false.
         // If s has the right form but the values are too big, it returns min == -1, ok == true.
     **/
     @:keep
-    public function _parseRepeat(_s:GoString):{ var _0 : GoInt; var _1 : GoInt; var _2 : GoString; var _3 : Bool; } return __self__.value._parseRepeat(_s);
+    public dynamic function _parseRepeat(_s:GoString):{ var _0 : GoInt; var _1 : GoInt; var _2 : GoString; var _3 : Bool; } return __self__.value._parseRepeat(_s);
     /**
         // removeLeadingRegexp removes the leading regexp in re.
         // It returns the replacement for re.
         // If reuse is true, it passes the removed regexp (if no longer needed) to p.reuse.
     **/
     @:keep
-    public function _removeLeadingRegexp(_re:Ref<Regexp>, _reuse:Bool):Ref<Regexp> return __self__.value._removeLeadingRegexp(_re, _reuse);
+    public dynamic function _removeLeadingRegexp(_re:Ref<Regexp>, _reuse:Bool):Ref<Regexp> return __self__.value._removeLeadingRegexp(_re, _reuse);
     /**
         // leadingRegexp returns the leading regexp that re begins with.
         // The regexp refers to storage in re or its children.
     **/
     @:keep
-    public function _leadingRegexp(_re:Ref<Regexp>):Ref<Regexp> return __self__.value._leadingRegexp(_re);
+    public dynamic function _leadingRegexp(_re:Ref<Regexp>):Ref<Regexp> return __self__.value._leadingRegexp(_re);
     /**
         // removeLeadingString removes the first n leading runes
         // from the beginning of re. It returns the replacement for re.
     **/
     @:keep
-    public function _removeLeadingString(_re:Ref<Regexp>, _n:GoInt):Ref<Regexp> return __self__.value._removeLeadingString(_re, _n);
+    public dynamic function _removeLeadingString(_re:Ref<Regexp>, _n:GoInt):Ref<Regexp> return __self__.value._removeLeadingString(_re, _n);
     /**
         // leadingString returns the leading literal string that re begins with.
         // The string refers to storage in re or its children.
     **/
     @:keep
-    public function _leadingString(_re:Ref<Regexp>):{ var _0 : Slice<GoRune>; var _1 : Flags; } return __self__.value._leadingString(_re);
+    public dynamic function _leadingString(_re:Ref<Regexp>):{ var _0 : Slice<GoRune>; var _1 : Flags; } return __self__.value._leadingString(_re);
     /**
         // factor factors common prefixes from the alternation list sub.
         // It returns a replacement list that reuses the same storage and
@@ -1604,7 +1604,7 @@ class T_parser_asInterface {
         //	A(B[CD]|EF)|BC[XY]
     **/
     @:keep
-    public function _factor(_sub:Slice<Ref<Regexp>>):Slice<Ref<Regexp>> return __self__.value._factor(_sub);
+    public dynamic function _factor(_sub:Slice<Ref<Regexp>>):Slice<Ref<Regexp>> return __self__.value._factor(_sub);
     /**
         // collapse returns the result of applying op to sub.
         // If sub contains op nodes, they all get hoisted up
@@ -1612,17 +1612,17 @@ class T_parser_asInterface {
         // alternate of an alternate.
     **/
     @:keep
-    public function _collapse(_subs:Slice<Ref<Regexp>>, _op:Op):Ref<Regexp> return __self__.value._collapse(_subs, _op);
+    public dynamic function _collapse(_subs:Slice<Ref<Regexp>>, _op:Op):Ref<Regexp> return __self__.value._collapse(_subs, _op);
     /**
         // alternate replaces the top of the stack (above the topmost '(') with its alternation.
     **/
     @:keep
-    public function _alternate():Ref<Regexp> return __self__.value._alternate();
+    public dynamic function _alternate():Ref<Regexp> return __self__.value._alternate();
     /**
         // concat replaces the top of the stack (above the topmost '|' or '(') with its concatenation.
     **/
     @:keep
-    public function _concat():Ref<Regexp> return __self__.value._concat();
+    public dynamic function _concat():Ref<Regexp> return __self__.value._concat();
     /**
         // repeat replaces the top stack element with itself repeated according to op, min, max.
         // before is the regexp suffix starting at the repetition operator.
@@ -1630,18 +1630,18 @@ class T_parser_asInterface {
         // repeat returns an updated 'after' and an error, if any.
     **/
     @:keep
-    public function _repeat(_op:Op, _min:GoInt, _max:GoInt, _before:GoString, _after:GoString, _lastRepeat:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._repeat(_op, _min, _max, _before, _after, _lastRepeat);
+    public dynamic function _repeat(_op:Op, _min:GoInt, _max:GoInt, _before:GoString, _after:GoString, _lastRepeat:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._repeat(_op, _min, _max, _before, _after, _lastRepeat);
     /**
         // op pushes a regexp with the given op onto the stack
         // and returns that regexp.
     **/
     @:keep
-    public function _op(_op:Op):Ref<Regexp> return __self__.value._op(_op);
+    public dynamic function _op(_op:Op):Ref<Regexp> return __self__.value._op(_op);
     /**
         // literal pushes a literal regexp for the rune r on the stack.
     **/
     @:keep
-    public function _literal(_r:GoRune):Void __self__.value._literal(_r);
+    public dynamic function _literal(_r:GoRune):Void __self__.value._literal(_r);
     /**
         // maybeConcat implements incremental concatenation
         // of literal runes into string nodes. The parser calls this
@@ -1654,26 +1654,26 @@ class T_parser_asInterface {
         // maybeConcat reports whether r was pushed.
     **/
     @:keep
-    public function _maybeConcat(_r:GoRune, _flags:Flags):Bool return __self__.value._maybeConcat(_r, _flags);
+    public dynamic function _maybeConcat(_r:GoRune, _flags:Flags):Bool return __self__.value._maybeConcat(_r, _flags);
     /**
         // push pushes the regexp re onto the parse stack and returns the regexp.
     **/
     @:keep
-    public function _push(_re:Ref<Regexp>):Ref<Regexp> return __self__.value._push(_re);
+    public dynamic function _push(_re:Ref<Regexp>):Ref<Regexp> return __self__.value._push(_re);
     @:keep
-    public function _calcHeight(_re:Ref<Regexp>, _force:Bool):GoInt return __self__.value._calcHeight(_re, _force);
+    public dynamic function _calcHeight(_re:Ref<Regexp>, _force:Bool):GoInt return __self__.value._calcHeight(_re, _force);
     @:keep
-    public function _checkHeight(_re:Ref<Regexp>):Void __self__.value._checkHeight(_re);
+    public dynamic function _checkHeight(_re:Ref<Regexp>):Void __self__.value._checkHeight(_re);
     @:keep
-    public function _calcSize(_re:Ref<Regexp>, _force:Bool):GoInt64 return __self__.value._calcSize(_re, _force);
+    public dynamic function _calcSize(_re:Ref<Regexp>, _force:Bool):GoInt64 return __self__.value._calcSize(_re, _force);
     @:keep
-    public function _checkSize(_re:Ref<Regexp>):Void __self__.value._checkSize(_re);
+    public dynamic function _checkSize(_re:Ref<Regexp>):Void __self__.value._checkSize(_re);
     @:keep
-    public function _checkLimits(_re:Ref<Regexp>):Void __self__.value._checkLimits(_re);
+    public dynamic function _checkLimits(_re:Ref<Regexp>):Void __self__.value._checkLimits(_re);
     @:keep
-    public function _reuse(_re:Ref<Regexp>):Void __self__.value._reuse(_re);
+    public dynamic function _reuse(_re:Ref<Regexp>):Void __self__.value._reuse(_re);
     @:keep
-    public function _newRegexp(_op:Op):Ref<Regexp> return __self__.value._newRegexp(_op);
+    public dynamic function _newRegexp(_op:Op):Ref<Regexp> return __self__.value._newRegexp(_op);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1876,11 +1876,11 @@ class T_parser_asInterface {
 }
 class T_ranges_asInterface {
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1903,21 +1903,21 @@ class Prog_asInterface {
         // be true in any match. It returns ^EmptyOp(0) if no matches are possible.
     **/
     @:keep
-    public function startCond():EmptyOp return __self__.value.startCond();
+    public dynamic function startCond():EmptyOp return __self__.value.startCond();
     /**
         // Prefix returns a literal string that all matches for the
         // regexp must start with. Complete is true if the prefix
         // is the entire match.
     **/
     @:keep
-    public function prefix():{ var _0 : GoString; var _1 : Bool; } return __self__.value.prefix();
+    public dynamic function prefix():{ var _0 : GoString; var _1 : Bool; } return __self__.value.prefix();
     /**
         // skipNop follows any no-op or capturing instructions.
     **/
     @:keep
-    public function _skipNop(_pc:GoUInt32):Ref<Inst> return __self__.value._skipNop(_pc);
+    public dynamic function _skipNop(_pc:GoUInt32):Ref<Inst> return __self__.value._skipNop(_pc);
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1950,14 +1950,14 @@ class Prog_asInterface {
 }
 class Inst_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     /**
         // MatchEmptyWidth reports whether the instruction matches
         // an empty string between the runes before and after.
         // It should only be called when i.Op == InstEmptyWidth.
     **/
     @:keep
-    public function matchEmptyWidth(_before:GoRune, _after:GoRune):Bool return __self__.value.matchEmptyWidth(_before, _after);
+    public dynamic function matchEmptyWidth(_before:GoRune, _after:GoRune):Bool return __self__.value.matchEmptyWidth(_before, _after);
     /**
         // MatchRunePos checks whether the instruction matches (and consumes) r.
         // If so, MatchRunePos returns the index of the matching rune pair
@@ -1966,18 +1966,18 @@ class Inst_asInterface {
         // MatchRunePos should only be called when i.Op == InstRune.
     **/
     @:keep
-    public function matchRunePos(_r:GoRune):GoInt return __self__.value.matchRunePos(_r);
+    public dynamic function matchRunePos(_r:GoRune):GoInt return __self__.value.matchRunePos(_r);
     /**
         // MatchRune reports whether the instruction matches (and consumes) r.
         // It should only be called when i.Op == InstRune.
     **/
     @:keep
-    public function matchRune(_r:GoRune):Bool return __self__.value.matchRune(_r);
+    public dynamic function matchRune(_r:GoRune):Bool return __self__.value.matchRune(_r);
     /**
         // op returns i.Op but merges all the Rune special cases into InstRune
     **/
     @:keep
-    public function _op():InstOp return __self__.value._op();
+    public dynamic function _op():InstOp return __self__.value._op();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2028,26 +2028,26 @@ class Regexp_asInterface {
         // The returned regexp may share structure with or be the original.
     **/
     @:keep
-    public function simplify():Ref<Regexp> return __self__.value.simplify();
+    public dynamic function simplify():Ref<Regexp> return __self__.value.simplify();
     @:keep
-    public function _capNames(_names:Slice<GoString>):Void __self__.value._capNames(_names);
+    public dynamic function _capNames(_names:Slice<GoString>):Void __self__.value._capNames(_names);
     /**
         // CapNames walks the regexp to find the names of capturing groups.
     **/
     @:keep
-    public function capNames():Slice<GoString> return __self__.value.capNames();
+    public dynamic function capNames():Slice<GoString> return __self__.value.capNames();
     /**
         // MaxCap walks the regexp to find the maximum capture index.
     **/
     @:keep
-    public function maxCap():GoInt return __self__.value.maxCap();
+    public dynamic function maxCap():GoInt return __self__.value.maxCap();
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     /**
         // Equal reports whether x and y have identical structure.
     **/
     @:keep
-    public function equal(_y:Ref<Regexp>):Bool return __self__.value.equal(_y);
+    public dynamic function equal(_y:Ref<Regexp>):Bool return __self__.value.equal(_y);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2090,7 +2090,7 @@ class Regexp_asInterface {
 }
 class ErrorCode_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2105,7 +2105,7 @@ class ErrorCode_asInterface {
 }
 class InstOp_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2120,7 +2120,7 @@ class InstOp_asInterface {
 }
 class Op_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

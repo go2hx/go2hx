@@ -42,7 +42,7 @@ typedef Interface = StructType & {
         
         
     **/
-    public function len():GoInt;
+    public dynamic function len():GoInt;
     /**
         // Less reports whether the element with index i
         // must sort before the element with index j.
@@ -62,13 +62,13 @@ typedef Interface = StructType & {
         
         
     **/
-    public function less(_i:GoInt, _j:GoInt):Bool;
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool;
     /**
         // Swap swaps the elements with indexes i and j.
         
         
     **/
-    public function swap(_i:GoInt, _j:GoInt):Void;
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void;
 };
 /**
     // lessSwap is a pair of Less and Swap function for use with the
@@ -284,7 +284,7 @@ function searchStrings(_a:Slice<GoString>, _x:GoString):GoInt {
     // the Interface type's Less method.
 **/
 function slice(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Void {
-        var _rv:stdgo.internal.reflectlite.Reflectlite.Value = (stdgo.internal.reflectlite.Reflectlite.valueOf(_x) == null ? null : stdgo.internal.reflectlite.Reflectlite.valueOf(_x).__copy__());
+        var _rv:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_x).__copy__();
         var _swap:(GoInt, GoInt) -> Void = stdgo.internal.reflectlite.Reflectlite.swapper(_x);
         var _length:GoInt = _rv.len();
         var _limit:GoInt = stdgo.math.bits.Bits.len((_length : GoUInt));
@@ -299,7 +299,7 @@ function slice(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Void {
     // the Interface type's Less method.
 **/
 function sliceStable(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Void {
-        var _rv:stdgo.internal.reflectlite.Reflectlite.Value = (stdgo.internal.reflectlite.Reflectlite.valueOf(_x) == null ? null : stdgo.internal.reflectlite.Reflectlite.valueOf(_x).__copy__());
+        var _rv:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_x).__copy__();
         var _swap:(GoInt, GoInt) -> Void = stdgo.internal.reflectlite.Reflectlite.swapper(_x);
         _stable_func((new T_lessSwap(_less, _swap) : T_lessSwap), _rv.len());
     }
@@ -308,7 +308,7 @@ function sliceStable(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Void {
     // It panics if x is not a slice.
 **/
 function sliceIsSorted(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Bool {
-        var _rv:stdgo.internal.reflectlite.Reflectlite.Value = (stdgo.internal.reflectlite.Reflectlite.valueOf(_x) == null ? null : stdgo.internal.reflectlite.Reflectlite.valueOf(_x).__copy__());
+        var _rv:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_x).__copy__();
         var _n:GoInt = _rv.len();
         {
             var _i:GoInt = _n - (1 : GoInt);
@@ -341,7 +341,7 @@ private function _nextPowerOfTwo(_length:GoInt):GoUInt {
     // Reverse returns the reverse order for data.
 **/
 function reverse(_data:Interface):Interface {
-        return Go.asInterface(((new T_reverse(_data) : T_reverse) : Ref<T_reverse>));
+        return Go.asInterface((Go.setRef((new T_reverse(_data) : T_reverse)) : Ref<T_reverse>));
     }
 /**
     // IsSorted reports whether data is sorted.
@@ -456,14 +456,14 @@ private function _heapSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
         {
             var _i:GoInt = (_hi - (1 : GoInt)) / (2 : GoInt);
             Go.cfor(_i >= (0 : GoInt), _i--, {
-                _siftDown_func((_data == null ? null : _data.__copy__()), _i, _hi, _first);
+                _siftDown_func(_data.__copy__(), _i, _hi, _first);
             });
         };
         {
             var _i:GoInt = _hi - (1 : GoInt);
             Go.cfor(_i >= (0 : GoInt), _i--, {
                 _data.swap(_first, _first + _i);
-                _siftDown_func((_data == null ? null : _data.__copy__()), _lo, _i, _first);
+                _siftDown_func(_data.__copy__(), _lo, _i, _first);
             });
         };
     }
@@ -481,44 +481,44 @@ private function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoIn
         while (true) {
             var _length:GoInt = _b - _a;
             if (_length <= (12 : GoInt)) {
-                _insertionSort_func((_data == null ? null : _data.__copy__()), _a, _b);
+                _insertionSort_func(_data.__copy__(), _a, _b);
                 return;
             };
             if (_limit == ((0 : GoInt))) {
-                _heapSort_func((_data == null ? null : _data.__copy__()), _a, _b);
+                _heapSort_func(_data.__copy__(), _a, _b);
                 return;
             };
             if (!_wasBalanced) {
-                _breakPatterns_func((_data == null ? null : _data.__copy__()), _a, _b);
+                _breakPatterns_func(_data.__copy__(), _a, _b);
                 _limit--;
             };
-            var __tmp__ = _choosePivot_func((_data == null ? null : _data.__copy__()), _a, _b), _pivot:GoInt = __tmp__._0, _hint:T_sortedHint = __tmp__._1;
+            var __tmp__ = _choosePivot_func(_data.__copy__(), _a, _b), _pivot:GoInt = __tmp__._0, _hint:T_sortedHint = __tmp__._1;
             if (_hint == ((2 : T_sortedHint))) {
-                _reverseRange_func((_data == null ? null : _data.__copy__()), _a, _b);
+                _reverseRange_func(_data.__copy__(), _a, _b);
                 _pivot = (_b - (1 : GoInt)) - (_pivot - _a);
                 _hint = (1 : T_sortedHint);
             };
             if ((_wasBalanced && _wasPartitioned) && (_hint == (1 : T_sortedHint))) {
-                if (_partialInsertionSort_func((_data == null ? null : _data.__copy__()), _a, _b)) {
+                if (_partialInsertionSort_func(_data.__copy__(), _a, _b)) {
                     return;
                 };
             };
             if ((_a > (0 : GoInt)) && !_data.less(_a - (1 : GoInt), _pivot)) {
-                var _mid:GoInt = _partitionEqual_func((_data == null ? null : _data.__copy__()), _a, _b, _pivot);
+                var _mid:GoInt = _partitionEqual_func(_data.__copy__(), _a, _b, _pivot);
                 _a = _mid;
                 continue;
             };
-            var __tmp__ = _partition_func((_data == null ? null : _data.__copy__()), _a, _b, _pivot), _mid:GoInt = __tmp__._0, _alreadyPartitioned:Bool = __tmp__._1;
+            var __tmp__ = _partition_func(_data.__copy__(), _a, _b, _pivot), _mid:GoInt = __tmp__._0, _alreadyPartitioned:Bool = __tmp__._1;
             _wasPartitioned = _alreadyPartitioned;
             var _0:GoInt = _mid - _a, _1:GoInt = _b - _mid, _rightLen:GoInt = _1, _leftLen:GoInt = _0;
             var _balanceThreshold:GoInt = _length / (8 : GoInt);
             if (_leftLen < _rightLen) {
                 _wasBalanced = _leftLen >= _balanceThreshold;
-                _pdqsort_func((_data == null ? null : _data.__copy__()), _a, _mid, _limit);
+                _pdqsort_func(_data.__copy__(), _a, _mid, _limit);
                 _a = _mid + (1 : GoInt);
             } else {
                 _wasBalanced = _rightLen >= _balanceThreshold;
-                _pdqsort_func((_data == null ? null : _data.__copy__()), _mid + (1 : GoInt), _b, _limit);
+                _pdqsort_func(_data.__copy__(), _mid + (1 : GoInt), _b, _limit);
                 _b = _mid;
             };
         };
@@ -667,18 +667,21 @@ private function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{ var _
         var _0:GoInt = (0 : GoInt), _1:GoInt = _a + ((_l / (4 : GoInt)) * (1 : GoInt)), _2:GoInt = _a + ((_l / (4 : GoInt)) * (2 : GoInt)), _3:GoInt = _a + ((_l / (4 : GoInt)) * (3 : GoInt)), _k:GoInt = _3, _j:GoInt = _2, _i:GoInt = _1, _swaps:GoInt = _0;
         if (_l >= (8 : GoInt)) {
             if (_l >= (50 : GoInt)) {
-                _i = _medianAdjacent_func((_data == null ? null : _data.__copy__()), _i, Go.pointer(_swaps));
-                _j = _medianAdjacent_func((_data == null ? null : _data.__copy__()), _j, Go.pointer(_swaps));
-                _k = _medianAdjacent_func((_data == null ? null : _data.__copy__()), _k, Go.pointer(_swaps));
+                _i = _medianAdjacent_func(_data.__copy__(), _i, Go.pointer(_swaps));
+                _j = _medianAdjacent_func(_data.__copy__(), _j, Go.pointer(_swaps));
+                _k = _medianAdjacent_func(_data.__copy__(), _k, Go.pointer(_swaps));
             };
-            _j = _median_func((_data == null ? null : _data.__copy__()), _i, _j, _k, Go.pointer(_swaps));
+            _j = _median_func(_data.__copy__(), _i, _j, _k, Go.pointer(_swaps));
         };
-        if (_swaps == ((0 : GoInt))) {
-            return { _0 : _j, _1 : (1 : T_sortedHint) };
-        } else if (_swaps == ((12 : GoInt))) {
-            return { _0 : _j, _1 : (2 : T_sortedHint) };
-        } else {
-            return { _0 : _j, _1 : (0 : T_sortedHint) };
+        {
+            final __value__ = _swaps;
+            if (__value__ == ((0 : GoInt))) {
+                return { _0 : _j, _1 : (1 : T_sortedHint) };
+            } else if (__value__ == ((12 : GoInt))) {
+                return { _0 : _j, _1 : (2 : T_sortedHint) };
+            } else {
+                return { _0 : _j, _1 : (0 : T_sortedHint) };
+            };
         };
     }
 /**
@@ -696,17 +699,17 @@ private function _order2_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _swaps:Point
 **/
 private function _median_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _c:GoInt, _swaps:Pointer<GoInt>):GoInt {
         {
-            var __tmp__ = _order2_func((_data == null ? null : _data.__copy__()), _a, _b, _swaps);
+            var __tmp__ = _order2_func(_data.__copy__(), _a, _b, _swaps);
             _a = __tmp__._0;
             _b = __tmp__._1;
         };
         {
-            var __tmp__ = _order2_func((_data == null ? null : _data.__copy__()), _b, _c, _swaps);
+            var __tmp__ = _order2_func(_data.__copy__(), _b, _c, _swaps);
             _b = __tmp__._0;
             _c = __tmp__._1;
         };
         {
-            var __tmp__ = _order2_func((_data == null ? null : _data.__copy__()), _a, _b, _swaps);
+            var __tmp__ = _order2_func(_data.__copy__(), _a, _b, _swaps);
             _a = __tmp__._0;
             _b = __tmp__._1;
         };
@@ -716,7 +719,7 @@ private function _median_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _c:GoInt, _s
     // medianAdjacent_func finds the median of data[a - 1], data[a], data[a + 1] and stores the index into a.
 **/
 private function _medianAdjacent_func(_data:T_lessSwap, _a:GoInt, _swaps:Pointer<GoInt>):GoInt {
-        return _median_func((_data == null ? null : _data.__copy__()), _a - (1 : GoInt), _a, _a + (1 : GoInt), _swaps);
+        return _median_func(_data.__copy__(), _a - (1 : GoInt), _a, _a + (1 : GoInt), _swaps);
     }
 private function _reverseRange_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
         var _i:GoInt = _a;
@@ -739,11 +742,11 @@ private function _stable_func(_data:T_lessSwap, _n:GoInt):Void {
         var _blockSize:GoInt = (20 : GoInt);
         var _0:GoInt = (0 : GoInt), _1:GoInt = _blockSize, _b:GoInt = _1, _a:GoInt = _0;
         while (_b <= _n) {
-            _insertionSort_func((_data == null ? null : _data.__copy__()), _a, _b);
+            _insertionSort_func(_data.__copy__(), _a, _b);
             _a = _b;
             _b = _b + (_blockSize);
         };
-        _insertionSort_func((_data == null ? null : _data.__copy__()), _a, _n);
+        _insertionSort_func(_data.__copy__(), _a, _n);
         while (_blockSize < _n) {
             {
                 final __tmp__0 = (0 : GoInt);
@@ -752,14 +755,14 @@ private function _stable_func(_data:T_lessSwap, _n:GoInt):Void {
                 _b = __tmp__1;
             };
             while (_b <= _n) {
-                _symMerge_func((_data == null ? null : _data.__copy__()), _a, _a + _blockSize, _b);
+                _symMerge_func(_data.__copy__(), _a, _a + _blockSize, _b);
                 _a = _b;
                 _b = _b + ((2 : GoInt) * _blockSize);
             };
             {
                 var _m:GoInt = _a + _blockSize;
                 if (_m < _n) {
-                    _symMerge_func((_data == null ? null : _data.__copy__()), _a, _m, _n);
+                    _symMerge_func(_data.__copy__(), _a, _m, _n);
                 };
             };
             _blockSize = _blockSize * ((2 : GoInt));
@@ -846,13 +849,13 @@ private function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):
         };
         var _end:GoInt = _n - _start;
         if ((_start < _m) && (_m < _end)) {
-            _rotate_func((_data == null ? null : _data.__copy__()), _start, _m, _end);
+            _rotate_func(_data.__copy__(), _start, _m, _end);
         };
         if ((_a < _start) && (_start < _mid)) {
-            _symMerge_func((_data == null ? null : _data.__copy__()), _a, _start, _mid);
+            _symMerge_func(_data.__copy__(), _a, _start, _mid);
         };
         if ((_mid < _end) && (_end < _b)) {
-            _symMerge_func((_data == null ? null : _data.__copy__()), _mid, _end, _b);
+            _symMerge_func(_data.__copy__(), _mid, _end, _b);
         };
     }
 /**
@@ -866,14 +869,14 @@ private function _rotate_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Vo
         var _j:GoInt = _b - _m;
         while (_i != (_j)) {
             if (_i > _j) {
-                _swapRange_func((_data == null ? null : _data.__copy__()), _m - _i, _m, _j);
+                _swapRange_func(_data.__copy__(), _m - _i, _m, _j);
                 _i = _i - (_j);
             } else {
-                _swapRange_func((_data == null ? null : _data.__copy__()), _m - _i, (_m + _j) - _i, _i);
+                _swapRange_func(_data.__copy__(), _m - _i, (_m + _j) - _i, _i);
                 _j = _j - (_i);
             };
         };
-        _swapRange_func((_data == null ? null : _data.__copy__()), _m - _i, _m, _i);
+        _swapRange_func(_data.__copy__(), _m - _i, _m, _i);
     }
 /**
     // insertionSort sorts data[a:b] using insertion sort.
@@ -1136,12 +1139,15 @@ private function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{ var _0 : Go
             };
             _j = _median(_data, _i, _j, _k, Go.pointer(_swaps));
         };
-        if (_swaps == ((0 : GoInt))) {
-            return { _0 : _j, _1 : (1 : T_sortedHint) };
-        } else if (_swaps == ((12 : GoInt))) {
-            return { _0 : _j, _1 : (2 : T_sortedHint) };
-        } else {
-            return { _0 : _j, _1 : (0 : T_sortedHint) };
+        {
+            final __value__ = _swaps;
+            if (__value__ == ((0 : GoInt))) {
+                return { _0 : _j, _1 : (1 : T_sortedHint) };
+            } else if (__value__ == ((12 : GoInt))) {
+                return { _0 : _j, _1 : (2 : T_sortedHint) };
+            } else {
+                return { _0 : _j, _1 : (0 : T_sortedHint) };
+            };
         };
     }
 /**
@@ -1343,11 +1349,11 @@ class T_reverse_asInterface {
         // Less returns the opposite of the embedded implementation's Less method.
     **/
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     @:embedded
-    public function swap(_i_:GoInt, _j_:GoInt):Void __self__.value.swap(_i_, _j_);
+    public dynamic function swap(_i_:GoInt, _j_:GoInt):Void __self__.value.swap(_i_, _j_);
     @:embedded
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1372,7 +1378,7 @@ class T_reverse_asInterface {
 class T_xorshift_asInterface {
     @:keep
     @:pointer
-    public function next():GoUInt64 return __self__.value.next(__self__);
+    public dynamic function next():GoUInt64 return __self__.value.next(__self__);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1396,18 +1402,18 @@ class IntSlice_asInterface {
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/
     @:keep
-    public function sort():Void __self__.value.sort();
+    public dynamic function sort():Void __self__.value.sort();
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     /**
         // Search returns the result of applying SearchInts to the receiver and x.
     **/
     @:keep
-    public function search(_x:GoInt):GoInt return __self__.value.search(_x);
+    public dynamic function search(_x:GoInt):GoInt return __self__.value.search(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1454,9 +1460,9 @@ class Float64Slice_asInterface {
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/
     @:keep
-    public function sort():Void __self__.value.sort();
+    public dynamic function sort():Void __self__.value.sort();
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     /**
         // Less reports whether x[i] should be ordered before x[j], as required by the sort Interface.
         // Note that floating-point comparison by itself is not a transitive relation: it does not
@@ -1466,14 +1472,14 @@ class Float64Slice_asInterface {
         //	x[i] < x[j] || (math.IsNaN(x[i]) && !math.IsNaN(x[j]))
     **/
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     /**
         // Search returns the result of applying SearchFloat64s to the receiver and x.
     **/
     @:keep
-    public function search(_x:GoFloat64):GoInt return __self__.value.search(_x);
+    public dynamic function search(_x:GoFloat64):GoInt return __self__.value.search(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1528,18 +1534,18 @@ class StringSlice_asInterface {
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/
     @:keep
-    public function sort():Void __self__.value.sort();
+    public dynamic function sort():Void __self__.value.sort();
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     /**
         // Search returns the result of applying SearchStrings to the receiver and x.
     **/
     @:keep
-    public function search(_x:GoString):GoInt return __self__.value.search(_x);
+    public dynamic function search(_x:GoString):GoInt return __self__.value.search(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

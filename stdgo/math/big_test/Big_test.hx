@@ -661,7 +661,7 @@ private function _generatePositiveInt(_rand:Ref<stdgo.math.rand.Rand.Rand>, _siz
     // overwritten to test for improper buffer reuse.
 **/
 private function _checkAliasingOneArg(_t:Ref<stdgo.testing.Testing.T>, _f:(_v:Ref<Int_>, _x:Ref<Int_>) -> Ref<Int_>, _v:Ref<Int_>, _x:Ref<Int_>):Bool {
-        var _0 = (({} : Int_) : Ref<Int_>).set(_x), _1 = (({} : Int_) : Ref<Int_>).set(_x), _v1 = _1, _x1 = _0;
+        var _0 = (Go.setRef(({} : Int_)) : Ref<Int_>).set(_x), _1 = (Go.setRef(({} : Int_)) : Ref<Int_>).set(_x), _v1 = _1, _x1 = _0;
         {
             var _out = _f(_v, _x);
             if (_out != (_v)) {
@@ -691,10 +691,10 @@ private function _checkAliasingOneArg(_t:Ref<stdgo.testing.Testing.T>, _f:(_v:Re
     // overwritten to test for improper buffer reuse.
 **/
 private function _checkAliasingTwoArgs(_t:Ref<stdgo.testing.Testing.T>, _f:(_v:Ref<Int_>, _x:Ref<Int_>, _y:Ref<Int_>) -> Ref<Int_>, _v:Ref<Int_>, _x:Ref<Int_>, _y:Ref<Int_>):Bool {
-        var _0 = (({} : Int_) : Ref<Int_>).set(_x), _1 = (({} : Int_) : Ref<Int_>).set(_y), _2 = (({} : Int_) : Ref<Int_>).set(_v), _v1 = _2, _y1 = _1, _x1 = _0;
+        var _0 = (Go.setRef(({} : Int_)) : Ref<Int_>).set(_x), _1 = (Go.setRef(({} : Int_)) : Ref<Int_>).set(_y), _2 = (Go.setRef(({} : Int_)) : Ref<Int_>).set(_v), _v1 = _2, _y1 = _1, _x1 = _0;
         {
             var _out = _f(_v, _x, _y);
-            if (_out == null) {
+            if (_out == null || (_out : Dynamic).__nil__) {
                 return (_equal(_x, _x1) && _equal(_y, _y1)) && _equal(_v, _v1);
             } else if (_out != (_v)) {
                 return false;
@@ -717,10 +717,10 @@ private function _checkAliasingTwoArgs(_t:Ref<stdgo.testing.Testing.T>, _f:(_v:R
             };
         };
         _v1.set(_v);
-        var _y2 = (({} : Int_) : Ref<Int_>).set(_y);
+        var _y2 = (Go.setRef(({} : Int_)) : Ref<Int_>).set(_y);
         {
             var _out = _f(_v, _y, _y2);
-            if (_out == null) {
+            if (_out == null || (_out : Dynamic).__nil__) {
                 return (_equal(_y, _y1) && _equal(_y2, _y1)) && _equal(_v, _v1);
             } else if (_out != (_v)) {
                 return false;
@@ -777,19 +777,19 @@ function testAliasing(_t:Ref<stdgo.testing.Testing.T>):Void {
 ("Xor" : GoString)];
             @:privateAccess x._values = [
 function(_v:T_bigInt, _x:T_bigInt):Bool {
-                return _checkAliasingOneArg(_t, (stdgo.math.big.Big.int_).abs, _v.int_, _x.int_);
+                return _checkAliasingOneArg(_t, .Int__static_extension.abs, _v.int_, _x.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).add, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.add, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).and, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.and, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).andNot, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.andNot, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).div, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.div, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt, _z:T_notZeroInt):Bool {
                 return _checkAliasingTwoArgs(_t, function(_v:Ref<Int_>, _x:Ref<Int_>, _y:Ref<Int_>):Ref<Int_> {
@@ -812,14 +812,14 @@ function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
                 }, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                var _0 = (({} : Int_) : Ref<Int_>), _1 = (({} : Int_) : Ref<Int_>), _b = _1, _a = _0;
+                var _0 = (Go.setRef(({} : Int_)) : Ref<Int_>), _1 = (Go.setRef(({} : Int_)) : Ref<Int_>), _b = _1, _a = _0;
                 return _checkAliasingTwoArgs(_t, function(_v:Ref<Int_>, _x:Ref<Int_>, _y:Ref<Int_>):Ref<Int_> {
                     _a.gcd(_v, _b, _x, _y);
                     return _v;
                 }, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                var _0 = (({} : Int_) : Ref<Int_>), _1 = (({} : Int_) : Ref<Int_>), _b = _1, _a = _0;
+                var _0 = (Go.setRef(({} : Int_)) : Ref<Int_>), _1 = (Go.setRef(({} : Int_)) : Ref<Int_>), _b = _1, _a = _0;
                 return _checkAliasingTwoArgs(_t, function(_v:Ref<Int_>, _x:Ref<Int_>, _y:Ref<Int_>):Ref<Int_> {
                     _a.gcd(_b, _v, _x, _y);
                     return _v;
@@ -831,28 +831,28 @@ function(_v:T_bigInt, _x:T_bigInt, _n:T_smallUint):Bool {
                 }, _v.int_, _x.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).mod, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.mod, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).modInverse, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.modInverse, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _p:T_prime):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).modSqrt, _v.int_, _x.int_, _p.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.modSqrt, _v.int_, _x.int_, _p.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).mul, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.mul, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt):Bool {
-                return _checkAliasingOneArg(_t, (stdgo.math.big.Big.int_).neg, _v.int_, _x.int_);
+                return _checkAliasingOneArg(_t, .Int__static_extension.neg, _v.int_, _x.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt):Bool {
-                return _checkAliasingOneArg(_t, (stdgo.math.big.Big.int_).not, _v.int_, _x.int_);
+                return _checkAliasingOneArg(_t, .Int__static_extension.not, _v.int_, _x.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).or, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.or, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).quo, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.quo, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _seed:GoInt64):Bool {
                 return _checkAliasingOneArg(_t, function(_v:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> {
@@ -861,7 +861,7 @@ function(_v:T_bigInt, _x:T_bigInt, _seed:GoInt64):Bool {
                 }, _v.int_, _x.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).rem, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.rem, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _n:T_smallUint):Bool {
                 return _checkAliasingOneArg(_t, function(_v:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> {
@@ -869,7 +869,7 @@ function(_v:T_bigInt, _x:T_bigInt, _n:T_smallUint):Bool {
                 }, _v.int_, _x.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt):Bool {
-                return _checkAliasingOneArg(_t, (stdgo.math.big.Big.int_).set, _v.int_, _x.int_);
+                return _checkAliasingOneArg(_t, .Int__static_extension.set, _v.int_, _x.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _i:T_smallUint, _b:T_zeroOrOne):Bool {
                 return _checkAliasingOneArg(_t, function(_v:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> {
@@ -877,29 +877,32 @@ function(_v:T_bigInt, _x:T_bigInt, _i:T_smallUint, _b:T_zeroOrOne):Bool {
                 }, _v.int_, _x.int_);
             },
 function(_v:T_bigInt, _x:T_positiveInt):Bool {
-                return _checkAliasingOneArg(_t, (stdgo.math.big.Big.int_).sqrt, _v.int_, _x.int_);
+                return _checkAliasingOneArg(_t, .Int__static_extension.sqrt, _v.int_, _x.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).sub, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.sub, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, (stdgo.math.big.Big.int_).xor, _v.int_, _x.int_, _y.int_);
+                return _checkAliasingTwoArgs(_t, .Int__static_extension.xor, _v.int_, _x.int_, _y.int_);
             }];
             x;
         } : stdgo.GoMap<GoString, AnyInterface>)) {
             _t.run(_name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var _scale:GoFloat64 = (1 : GoFloat64);
-                if (_name == (("ModInverse" : GoString)) || _name == (("GCD-Y" : GoString)) || _name == (("GCD-X" : GoString))) {
-                    _scale = _scale / (5 : GoFloat64);
-                } else if (_name == (("Rand" : GoString))) {
-                    _scale = _scale / (10 : GoFloat64);
-                } else if (_name == (("Exp-XZ" : GoString)) || _name == (("Exp-XY" : GoString)) || _name == (("Exp-YZ" : GoString))) {
-                    _scale = _scale / (50 : GoFloat64);
-                } else if (_name == (("ModSqrt" : GoString))) {
-                    _scale = _scale / (500 : GoFloat64);
+                {
+                    final __value__ = _name;
+                    if (__value__ == (("ModInverse" : GoString)) || __value__ == (("GCD-Y" : GoString)) || __value__ == (("GCD-X" : GoString))) {
+                        _scale = _scale / (5 : GoFloat64);
+                    } else if (__value__ == (("Rand" : GoString))) {
+                        _scale = _scale / (10 : GoFloat64);
+                    } else if (__value__ == (("Exp-XZ" : GoString)) || __value__ == (("Exp-XY" : GoString)) || __value__ == (("Exp-YZ" : GoString))) {
+                        _scale = _scale / (50 : GoFloat64);
+                    } else if (__value__ == (("ModSqrt" : GoString))) {
+                        _scale = _scale / (500 : GoFloat64);
+                    };
                 };
                 {
-                    var _err:Error = stdgo.testing.quick.Quick.check(_f, (({ maxCountScale : _scale } : stdgo.testing.quick.Quick.Config) : Ref<stdgo.testing.quick.Quick.Config>));
+                    var _err:Error = stdgo.testing.quick.Quick.check(_f, (Go.setRef(({ maxCountScale : _scale } : stdgo.testing.quick.Quick.Config)) : Ref<stdgo.testing.quick.Quick.Config>));
                     if (_err != null) {
                         _t.error(Go.toInterface(_err));
                     };
@@ -918,7 +921,7 @@ function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
     //	(n-1)/3 * 2   if   n mod 3 == 1
 **/
 private function _recur(_n:GoInt64, _lim:GoInt64):Ref<Rat> {
-        var _term = (({} : Rat) : Ref<Rat>);
+        var _term = (Go.setRef(({} : Rat)) : Ref<Rat>);
         if (_n % ("3" : GoInt64) != (("1" : GoInt64))) {
             _term.setInt64(("1" : GoInt64));
         } else {
@@ -927,7 +930,7 @@ private function _recur(_n:GoInt64, _lim:GoInt64):Ref<Rat> {
         if (_n > _lim) {
             return _term;
         };
-        var _frac = (({} : Rat) : Ref<Rat>).inv(_recur(_n + ("1" : GoInt64), _lim));
+        var _frac = (Go.setRef(({} : Rat)) : Ref<Rat>).inv(_recur(_n + ("1" : GoInt64), _lim));
         return _term.add(_term, _frac);
     }
 /**
@@ -945,22 +948,22 @@ function example_eConvergents():Void {
         };
     }
 function exampleRat_SetString():Void {
-        var _r = (({} : Rat) : Ref<Rat>);
+        var _r = (Go.setRef(({} : Rat)) : Ref<Rat>);
         _r.setString(("355/113" : GoString));
         stdgo.fmt.Fmt.println(Go.toInterface(_r.floatString((3 : GoInt))));
     }
 function exampleInt_SetString():Void {
-        var _i = (({} : Int_) : Ref<Int_>);
+        var _i = (Go.setRef(({} : Int_)) : Ref<Int_>);
         _i.setString(("644" : GoString), (8 : GoInt));
         stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_i)));
     }
 function exampleFloat_SetString():Void {
-        var _f = (({} : Float_) : Ref<Float_>);
+        var _f = (Go.setRef(({} : Float_)) : Ref<Float_>);
         _f.setString(("3.14159" : GoString));
         stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_f)));
     }
 function exampleRat_Scan():Void {
-        var _r = (({} : Rat) : Ref<Rat>);
+        var _r = (Go.setRef(({} : Rat)) : Ref<Rat>);
         var __tmp__ = stdgo.fmt.Fmt.sscan(("1.5000" : GoString), Go.toInterface(Go.asInterface(_r))), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.println(Go.toInterface(("error scanning value:" : GoString)), Go.toInterface(_err));
@@ -969,7 +972,7 @@ function exampleRat_Scan():Void {
         };
     }
 function exampleInt_Scan():Void {
-        var _i = (({} : Int_) : Ref<Int_>);
+        var _i = (Go.setRef(({} : Int_)) : Ref<Int_>);
         var __tmp__ = stdgo.fmt.Fmt.sscan(("18446744073709551617" : GoString), Go.toInterface(Go.asInterface(_i))), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.println(Go.toInterface(("error scanning value:" : GoString)), Go.toInterface(_err));
@@ -978,7 +981,7 @@ function exampleInt_Scan():Void {
         };
     }
 function exampleFloat_Scan():Void {
-        var _f = (({} : Float_) : Ref<Float_>);
+        var _f = (Go.setRef(({} : Float_)) : Ref<Float_>);
         var __tmp__ = stdgo.fmt.Fmt.sscan(("1.19282e99" : GoString), Go.toInterface(Go.asInterface(_f))), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.println(Go.toInterface(("error scanning value:" : GoString)), Go.toInterface(_err));
@@ -995,7 +998,7 @@ function example_fibonacci():Void {
         var _b = stdgo.math.big.Big.newInt(("1" : GoInt64));
         var _limit:Int_ = ({} : Int_);
         _limit.exp(stdgo.math.big.Big.newInt(("10" : GoInt64)), stdgo.math.big.Big.newInt(("99" : GoInt64)), null);
-        while (_a.cmp((_limit : Ref<Int_>)) < (0 : GoInt)) {
+        while (_a.cmp((Go.setRef(_limit) : Ref<Int_>)) < (0 : GoInt)) {
             _a.add(_a, _b);
             {
                 final __tmp__0 = _b;
@@ -1014,10 +1017,10 @@ function example_fibonacci():Void {
 function example_sqrt2():Void {
         {};
         var _steps:GoInt = (stdgo.math.Math.log2((200 : GoFloat64)) : GoInt);
-        var _two = (({} : Float_) : Ref<Float_>).setPrec(("200" : GoUInt)).setInt64(("2" : GoInt64));
-        var _half = (({} : Float_) : Ref<Float_>).setPrec(("200" : GoUInt)).setFloat64((0.5 : GoFloat64));
-        var _x = (({} : Float_) : Ref<Float_>).setPrec(("200" : GoUInt)).setInt64(("1" : GoInt64));
-        var _t = (({} : Float_) : Ref<Float_>);
+        var _two = (Go.setRef(({} : Float_)) : Ref<Float_>).setPrec(("200" : GoUInt)).setInt64(("2" : GoInt64));
+        var _half = (Go.setRef(({} : Float_)) : Ref<Float_>).setPrec(("200" : GoUInt)).setFloat64((0.5 : GoFloat64));
+        var _x = (Go.setRef(({} : Float_)) : Ref<Float_>).setPrec(("200" : GoUInt)).setInt64(("1" : GoInt64));
+        var _t = (Go.setRef(({} : Float_)) : Ref<Float_>);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i <= _steps, _i++, {
@@ -1035,10 +1038,10 @@ function exampleFloat_Add():Void {
         _x.setInt64(("1000" : GoInt64));
         _y.setFloat64((2.718281828 : GoFloat64));
         _z.setPrec(("32" : GoUInt));
-        _z.add((_x : Ref<Float_>), (_y : Ref<Float_>));
-        stdgo.fmt.Fmt.printf(("x = %.10g (%s, prec = %d, acc = %s)\n" : GoString), Go.toInterface(Go.asInterface((_x : Ref<Float_>))), Go.toInterface(_x.text((112 : GoUInt8), (0 : GoInt))), Go.toInterface(_x.prec()), Go.toInterface(Go.asInterface(_x.acc())));
-        stdgo.fmt.Fmt.printf(("y = %.10g (%s, prec = %d, acc = %s)\n" : GoString), Go.toInterface(Go.asInterface((_y : Ref<Float_>))), Go.toInterface(_y.text((112 : GoUInt8), (0 : GoInt))), Go.toInterface(_y.prec()), Go.toInterface(Go.asInterface(_y.acc())));
-        stdgo.fmt.Fmt.printf(("z = %.10g (%s, prec = %d, acc = %s)\n" : GoString), Go.toInterface(Go.asInterface((_z : Ref<Float_>))), Go.toInterface(_z.text((112 : GoUInt8), (0 : GoInt))), Go.toInterface(_z.prec()), Go.toInterface(Go.asInterface(_z.acc())));
+        _z.add((Go.setRef(_x) : Ref<Float_>), (Go.setRef(_y) : Ref<Float_>));
+        stdgo.fmt.Fmt.printf(("x = %.10g (%s, prec = %d, acc = %s)\n" : GoString), Go.toInterface(Go.asInterface((Go.setRef(_x) : Ref<Float_>))), Go.toInterface(_x.text((112 : GoUInt8), (0 : GoInt))), Go.toInterface(_x.prec()), Go.toInterface(Go.asInterface(_x.acc())));
+        stdgo.fmt.Fmt.printf(("y = %.10g (%s, prec = %d, acc = %s)\n" : GoString), Go.toInterface(Go.asInterface((Go.setRef(_y) : Ref<Float_>))), Go.toInterface(_y.text((112 : GoUInt8), (0 : GoInt))), Go.toInterface(_y.prec()), Go.toInterface(Go.asInterface(_y.acc())));
+        stdgo.fmt.Fmt.printf(("z = %.10g (%s, prec = %d, acc = %s)\n" : GoString), Go.toInterface(Go.asInterface((Go.setRef(_z) : Ref<Float_>))), Go.toInterface(_z.text((112 : GoUInt8), (0 : GoInt))), Go.toInterface(_z.prec()), Go.toInterface(Go.asInterface(_z.acc())));
     }
 function exampleFloat_shift():Void {
         {
@@ -1080,7 +1083,7 @@ function exampleRoundingMode():Void {
             {
                 var _mode:RoundingMode = (0 : RoundingMode);
                 Go.cfor(_mode <= (5 : RoundingMode), _mode++, {
-                    var _f = (({} : Float_) : Ref<Float_>).setPrec(("2" : GoUInt)).setMode(_mode).setFloat64(_f64);
+                    var _f = (Go.setRef(({} : Float_)) : Ref<Float_>).setPrec(("2" : GoUInt)).setMode(_mode).setFloat64(_f64);
                     stdgo.fmt.Fmt.printf(("  %*g" : GoString), Go.toInterface(((_mode.string() : GoString).length)), Go.toInterface(Go.asInterface(_f)));
                 });
             };
@@ -1089,141 +1092,141 @@ function exampleRoundingMode():Void {
     }
 class T_bigInt_asInterface {
     @:keep
-    public function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_rand, _size);
+    public dynamic function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_rand, _size);
     @:embedded
-    public function _setFromScanner(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value._setFromScanner(_r, _base);
+    public dynamic function _setFromScanner(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value._setFromScanner(_r, _base);
     @:embedded
-    public function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : GoInt; var _2 : Error; } return __self__.value._scan(_r, _base);
+    public dynamic function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : GoInt; var _2 : Error; } return __self__.value._scan(_r, _base);
     @:embedded
-    public function _scaleDenom(_x:Ref<Int_>, _f:T_nat):Void __self__.value._scaleDenom(_x, _f);
+    public dynamic function _scaleDenom(_x:Ref<Int_>, _f:T_nat):Void __self__.value._scaleDenom(_x, _f);
     @:embedded
-    public function _modSqrtTonelliShanks(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrtTonelliShanks(_z, _x);
+    public dynamic function _modSqrtTonelliShanks(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrtTonelliShanks(_z, _x);
     @:embedded
-    public function _modSqrt5Mod8Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt5Mod8Prime(_z, _x);
+    public dynamic function _modSqrt5Mod8Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt5Mod8Prime(_z, _x);
     @:embedded
-    public function _modSqrt3Mod4Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt3Mod4Prime(_z, _x);
+    public dynamic function _modSqrt3Mod4Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt3Mod4Prime(_z, _x);
     @:embedded
-    public function _lehmerGCD(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value._lehmerGCD(_x, _y, _a, _b);
+    public dynamic function _lehmerGCD(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value._lehmerGCD(_x, _y, _a, _b);
     @:embedded
-    public function _expSlow(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value._expSlow(_x, _y, _m);
+    public dynamic function _expSlow(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value._expSlow(_x, _y, _m);
     @:embedded
-    public function _exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>, _slow:Bool):Ref<Int_> return __self__.value._exp(_x, _y, _m, _slow);
+    public dynamic function _exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>, _slow:Bool):Ref<Int_> return __self__.value._exp(_x, _y, _m, _slow);
     @:embedded
-    public function xor(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.xor(_z, _x);
+    public dynamic function xor(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.xor(_z, _x);
     @:embedded
-    public function unmarshalText(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalText(__0);
+    public dynamic function unmarshalText(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalText(__0);
     @:embedded
-    public function unmarshalJSON(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalJSON(__0);
+    public dynamic function unmarshalJSON(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalJSON(__0);
     @:embedded
-    public function uint64():GoUInt64 return __self__.value.uint64();
+    public dynamic function uint64():GoUInt64 return __self__.value.uint64();
     @:embedded
-    public function trailingZeroBits():GoUInt return __self__.value.trailingZeroBits();
+    public dynamic function trailingZeroBits():GoUInt return __self__.value.trailingZeroBits();
     @:embedded
-    public function text(_i:GoInt):GoString return __self__.value.text(_i);
+    public dynamic function text(_i:GoInt):GoString return __self__.value.text(_i);
     @:embedded
-    public function sub(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.sub(_z, _x);
+    public dynamic function sub(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.sub(_z, _x);
     @:embedded
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:embedded
-    public function sqrt(_x:Ref<Int_>):Ref<Int_> return __self__.value.sqrt(_x);
+    public dynamic function sqrt(_x:Ref<Int_>):Ref<Int_> return __self__.value.sqrt(_x);
     @:embedded
-    public function sign():GoInt return __self__.value.sign();
+    public dynamic function sign():GoInt return __self__.value.sign();
     @:embedded
-    public function setUint64(__0:GoUInt64):Ref<Int_> return __self__.value.setUint64(__0);
+    public dynamic function setUint64(__0:GoUInt64):Ref<Int_> return __self__.value.setUint64(__0);
     @:embedded
-    public function setString(_s:GoString, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value.setString(_s, _base);
+    public dynamic function setString(_s:GoString, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value.setString(_s, _base);
     @:embedded
-    public function setInt64(__0:GoInt64):Ref<Int_> return __self__.value.setInt64(__0);
+    public dynamic function setInt64(__0:GoInt64):Ref<Int_> return __self__.value.setInt64(__0);
     @:embedded
-    public function setBytes(__0:Slice<GoUInt8>):Ref<Int_> return __self__.value.setBytes(__0);
+    public dynamic function setBytes(__0:Slice<GoUInt8>):Ref<Int_> return __self__.value.setBytes(__0);
     @:embedded
-    public function setBits(__0:Slice<Word>):Ref<Int_> return __self__.value.setBits(__0);
+    public dynamic function setBits(__0:Slice<Word>):Ref<Int_> return __self__.value.setBits(__0);
     @:embedded
-    public function setBit(_x:Ref<Int_>, _i:GoInt, _b:GoUInt):Ref<Int_> return __self__.value.setBit(_x, _i, _b);
+    public dynamic function setBit(_x:Ref<Int_>, _i:GoInt, _b:GoUInt):Ref<Int_> return __self__.value.setBit(_x, _i, _b);
     @:embedded
-    public function set(_x:Ref<Int_>):Ref<Int_> return __self__.value.set(_x);
+    public dynamic function set(_x:Ref<Int_>):Ref<Int_> return __self__.value.set(_x);
     @:embedded
-    public function scan(_s:stdgo.fmt.Fmt.ScanState, _ch:GoInt32):Error return __self__.value.scan(_s, _ch);
+    public dynamic function scan(_s:stdgo.fmt.Fmt.ScanState, _ch:GoInt32):Error return __self__.value.scan(_s, _ch);
     @:embedded
-    public function rsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.rsh(_x, _n);
+    public dynamic function rsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.rsh(_x, _n);
     @:embedded
-    public function rem(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.rem(_z, _x);
+    public dynamic function rem(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.rem(_z, _x);
     @:embedded
-    public function rand(_rnd:Ref<stdgo.math.rand.Rand.Rand>, _n:Ref<Int_>):Ref<Int_> return __self__.value.rand(_rnd, _n);
+    public dynamic function rand(_rnd:Ref<stdgo.math.rand.Rand.Rand>, _n:Ref<Int_>):Ref<Int_> return __self__.value.rand(_rnd, _n);
     @:embedded
-    public function quoRem(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.quoRem(_x, _y, _m);
+    public dynamic function quoRem(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.quoRem(_x, _y, _m);
     @:embedded
-    public function quo(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.quo(_z, _x);
+    public dynamic function quo(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.quo(_z, _x);
     @:embedded
-    public function probablyPrime(_i:GoInt):Bool return __self__.value.probablyPrime(_i);
+    public dynamic function probablyPrime(_i:GoInt):Bool return __self__.value.probablyPrime(_i);
     @:embedded
-    public function or(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.or(_z, _x);
+    public dynamic function or(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.or(_z, _x);
     @:embedded
-    public function not(_x:Ref<Int_>):Ref<Int_> return __self__.value.not(_x);
+    public dynamic function not(_x:Ref<Int_>):Ref<Int_> return __self__.value.not(_x);
     @:embedded
-    public function neg(_x:Ref<Int_>):Ref<Int_> return __self__.value.neg(_x);
+    public dynamic function neg(_x:Ref<Int_>):Ref<Int_> return __self__.value.neg(_x);
     @:embedded
-    public function mulRange(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.mulRange(_n, _k);
+    public dynamic function mulRange(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.mulRange(_n, _k);
     @:embedded
-    public function mul(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mul(_z, _x);
+    public dynamic function mul(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mul(_z, _x);
     @:embedded
-    public function modSqrt(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modSqrt(_z, _x);
+    public dynamic function modSqrt(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modSqrt(_z, _x);
     @:embedded
-    public function modInverse(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modInverse(_z, _x);
+    public dynamic function modInverse(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modInverse(_z, _x);
     @:embedded
-    public function mod(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mod(_z, _x);
+    public dynamic function mod(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mod(_z, _x);
     @:embedded
-    public function marshalText():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalText();
+    public dynamic function marshalText():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalText();
     @:embedded
-    public function marshalJSON():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalJSON();
+    public dynamic function marshalJSON():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalJSON();
     @:embedded
-    public function lsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.lsh(_x, _n);
+    public dynamic function lsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.lsh(_x, _n);
     @:embedded
-    public function isUint64():Bool return __self__.value.isUint64();
+    public dynamic function isUint64():Bool return __self__.value.isUint64();
     @:embedded
-    public function isInt64():Bool return __self__.value.isInt64();
+    public dynamic function isInt64():Bool return __self__.value.isInt64();
     @:embedded
-    public function int64():GoInt64 return __self__.value.int64();
+    public dynamic function int64():GoInt64 return __self__.value.int64();
     @:embedded
-    public function gobEncode():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.gobEncode();
+    public dynamic function gobEncode():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.gobEncode();
     @:embedded
-    public function gobDecode(__0:Slice<GoUInt8>):Error return __self__.value.gobDecode(__0);
+    public dynamic function gobDecode(__0:Slice<GoUInt8>):Error return __self__.value.gobDecode(__0);
     @:embedded
-    public function gcd(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value.gcd(_x, _y, _a, _b);
+    public dynamic function gcd(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value.gcd(_x, _y, _a, _b);
     @:embedded
-    public function format(_s:stdgo.fmt.Fmt.State, _ch:GoInt32):Void __self__.value.format(_s, _ch);
+    public dynamic function format(_s:stdgo.fmt.Fmt.State, _ch:GoInt32):Void __self__.value.format(_s, _ch);
     @:embedded
-    public function fillBytes(__0:Slice<GoUInt8>):Slice<GoUInt8> return __self__.value.fillBytes(__0);
+    public dynamic function fillBytes(__0:Slice<GoUInt8>):Slice<GoUInt8> return __self__.value.fillBytes(__0);
     @:embedded
-    public function exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value.exp(_x, _y, _m);
+    public dynamic function exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value.exp(_x, _y, _m);
     @:embedded
-    public function divMod(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.divMod(_x, _y, _m);
+    public dynamic function divMod(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.divMod(_x, _y, _m);
     @:embedded
-    public function div(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.div(_z, _x);
+    public dynamic function div(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.div(_z, _x);
     @:embedded
-    public function cmpAbs(_x:Ref<Int_>):GoInt return __self__.value.cmpAbs(_x);
+    public dynamic function cmpAbs(_x:Ref<Int_>):GoInt return __self__.value.cmpAbs(_x);
     @:embedded
-    public function cmp(_x:Ref<Int_>):GoInt return __self__.value.cmp(_x);
+    public dynamic function cmp(_x:Ref<Int_>):GoInt return __self__.value.cmp(_x);
     @:embedded
-    public function bytes():Slice<GoUInt8> return __self__.value.bytes();
+    public dynamic function bytes():Slice<GoUInt8> return __self__.value.bytes();
     @:embedded
-    public function bits():Slice<Word> return __self__.value.bits();
+    public dynamic function bits():Slice<Word> return __self__.value.bits();
     @:embedded
-    public function bitLen():GoInt return __self__.value.bitLen();
+    public dynamic function bitLen():GoInt return __self__.value.bitLen();
     @:embedded
-    public function bit(_i:GoInt):GoUInt return __self__.value.bit(_i);
+    public dynamic function bit(_i:GoInt):GoUInt return __self__.value.bit(_i);
     @:embedded
-    public function binomial(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.binomial(_n, _k);
+    public dynamic function binomial(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.binomial(_n, _k);
     @:embedded
-    public function append(_buf:Slice<GoUInt8>, _base:GoInt):Slice<GoUInt8> return __self__.value.append(_buf, _base);
+    public dynamic function append(_buf:Slice<GoUInt8>, _base:GoInt):Slice<GoUInt8> return __self__.value.append(_buf, _base);
     @:embedded
-    public function andNot(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.andNot(_z, _x);
+    public dynamic function andNot(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.andNot(_z, _x);
     @:embedded
-    public function and(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.and(_z, _x);
+    public dynamic function and(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.and(_z, _x);
     @:embedded
-    public function add(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.add(_z, _x);
+    public dynamic function add(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.add(_z, _x);
     @:embedded
-    public function abs(_x:Ref<Int_>):Ref<Int_> return __self__.value.abs(_x);
+    public dynamic function abs(_x:Ref<Int_>):Ref<Int_> return __self__.value.abs(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1239,7 +1242,7 @@ class T_bigInt_asInterface {
         if (_rand.intn((4 : GoInt)) == ((0 : GoInt))) {
             _n.neg(_n);
         };
-        return (stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_bigInt(_n) : T_bigInt)))) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_bigInt(_n) : T_bigInt)))).__copy__());
+        return stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_bigInt(_n) : T_bigInt)))).__copy__();
     }
     @:embedded
     public static function _setFromScanner( __self__:T_bigInt, _r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__._setFromScanner(_r, _base);
@@ -1378,141 +1381,141 @@ class T_bigInt_asInterface {
 }
 class T_notZeroInt_asInterface {
     @:keep
-    public function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_rand, _size);
+    public dynamic function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_rand, _size);
     @:embedded
-    public function _setFromScanner(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value._setFromScanner(_r, _base);
+    public dynamic function _setFromScanner(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value._setFromScanner(_r, _base);
     @:embedded
-    public function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : GoInt; var _2 : Error; } return __self__.value._scan(_r, _base);
+    public dynamic function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : GoInt; var _2 : Error; } return __self__.value._scan(_r, _base);
     @:embedded
-    public function _scaleDenom(_x:Ref<Int_>, _f:T_nat):Void __self__.value._scaleDenom(_x, _f);
+    public dynamic function _scaleDenom(_x:Ref<Int_>, _f:T_nat):Void __self__.value._scaleDenom(_x, _f);
     @:embedded
-    public function _modSqrtTonelliShanks(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrtTonelliShanks(_z, _x);
+    public dynamic function _modSqrtTonelliShanks(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrtTonelliShanks(_z, _x);
     @:embedded
-    public function _modSqrt5Mod8Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt5Mod8Prime(_z, _x);
+    public dynamic function _modSqrt5Mod8Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt5Mod8Prime(_z, _x);
     @:embedded
-    public function _modSqrt3Mod4Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt3Mod4Prime(_z, _x);
+    public dynamic function _modSqrt3Mod4Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt3Mod4Prime(_z, _x);
     @:embedded
-    public function _lehmerGCD(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value._lehmerGCD(_x, _y, _a, _b);
+    public dynamic function _lehmerGCD(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value._lehmerGCD(_x, _y, _a, _b);
     @:embedded
-    public function _expSlow(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value._expSlow(_x, _y, _m);
+    public dynamic function _expSlow(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value._expSlow(_x, _y, _m);
     @:embedded
-    public function _exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>, _slow:Bool):Ref<Int_> return __self__.value._exp(_x, _y, _m, _slow);
+    public dynamic function _exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>, _slow:Bool):Ref<Int_> return __self__.value._exp(_x, _y, _m, _slow);
     @:embedded
-    public function xor(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.xor(_z, _x);
+    public dynamic function xor(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.xor(_z, _x);
     @:embedded
-    public function unmarshalText(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalText(__0);
+    public dynamic function unmarshalText(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalText(__0);
     @:embedded
-    public function unmarshalJSON(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalJSON(__0);
+    public dynamic function unmarshalJSON(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalJSON(__0);
     @:embedded
-    public function uint64():GoUInt64 return __self__.value.uint64();
+    public dynamic function uint64():GoUInt64 return __self__.value.uint64();
     @:embedded
-    public function trailingZeroBits():GoUInt return __self__.value.trailingZeroBits();
+    public dynamic function trailingZeroBits():GoUInt return __self__.value.trailingZeroBits();
     @:embedded
-    public function text(_i:GoInt):GoString return __self__.value.text(_i);
+    public dynamic function text(_i:GoInt):GoString return __self__.value.text(_i);
     @:embedded
-    public function sub(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.sub(_z, _x);
+    public dynamic function sub(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.sub(_z, _x);
     @:embedded
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:embedded
-    public function sqrt(_x:Ref<Int_>):Ref<Int_> return __self__.value.sqrt(_x);
+    public dynamic function sqrt(_x:Ref<Int_>):Ref<Int_> return __self__.value.sqrt(_x);
     @:embedded
-    public function sign():GoInt return __self__.value.sign();
+    public dynamic function sign():GoInt return __self__.value.sign();
     @:embedded
-    public function setUint64(__0:GoUInt64):Ref<Int_> return __self__.value.setUint64(__0);
+    public dynamic function setUint64(__0:GoUInt64):Ref<Int_> return __self__.value.setUint64(__0);
     @:embedded
-    public function setString(_s:GoString, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value.setString(_s, _base);
+    public dynamic function setString(_s:GoString, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value.setString(_s, _base);
     @:embedded
-    public function setInt64(__0:GoInt64):Ref<Int_> return __self__.value.setInt64(__0);
+    public dynamic function setInt64(__0:GoInt64):Ref<Int_> return __self__.value.setInt64(__0);
     @:embedded
-    public function setBytes(__0:Slice<GoUInt8>):Ref<Int_> return __self__.value.setBytes(__0);
+    public dynamic function setBytes(__0:Slice<GoUInt8>):Ref<Int_> return __self__.value.setBytes(__0);
     @:embedded
-    public function setBits(__0:Slice<Word>):Ref<Int_> return __self__.value.setBits(__0);
+    public dynamic function setBits(__0:Slice<Word>):Ref<Int_> return __self__.value.setBits(__0);
     @:embedded
-    public function setBit(_x:Ref<Int_>, _i:GoInt, _b:GoUInt):Ref<Int_> return __self__.value.setBit(_x, _i, _b);
+    public dynamic function setBit(_x:Ref<Int_>, _i:GoInt, _b:GoUInt):Ref<Int_> return __self__.value.setBit(_x, _i, _b);
     @:embedded
-    public function set(_x:Ref<Int_>):Ref<Int_> return __self__.value.set(_x);
+    public dynamic function set(_x:Ref<Int_>):Ref<Int_> return __self__.value.set(_x);
     @:embedded
-    public function scan(_s:stdgo.fmt.Fmt.ScanState, _ch:GoInt32):Error return __self__.value.scan(_s, _ch);
+    public dynamic function scan(_s:stdgo.fmt.Fmt.ScanState, _ch:GoInt32):Error return __self__.value.scan(_s, _ch);
     @:embedded
-    public function rsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.rsh(_x, _n);
+    public dynamic function rsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.rsh(_x, _n);
     @:embedded
-    public function rem(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.rem(_z, _x);
+    public dynamic function rem(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.rem(_z, _x);
     @:embedded
-    public function rand(_rnd:Ref<stdgo.math.rand.Rand.Rand>, _n:Ref<Int_>):Ref<Int_> return __self__.value.rand(_rnd, _n);
+    public dynamic function rand(_rnd:Ref<stdgo.math.rand.Rand.Rand>, _n:Ref<Int_>):Ref<Int_> return __self__.value.rand(_rnd, _n);
     @:embedded
-    public function quoRem(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.quoRem(_x, _y, _m);
+    public dynamic function quoRem(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.quoRem(_x, _y, _m);
     @:embedded
-    public function quo(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.quo(_z, _x);
+    public dynamic function quo(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.quo(_z, _x);
     @:embedded
-    public function probablyPrime(_i:GoInt):Bool return __self__.value.probablyPrime(_i);
+    public dynamic function probablyPrime(_i:GoInt):Bool return __self__.value.probablyPrime(_i);
     @:embedded
-    public function or(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.or(_z, _x);
+    public dynamic function or(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.or(_z, _x);
     @:embedded
-    public function not(_x:Ref<Int_>):Ref<Int_> return __self__.value.not(_x);
+    public dynamic function not(_x:Ref<Int_>):Ref<Int_> return __self__.value.not(_x);
     @:embedded
-    public function neg(_x:Ref<Int_>):Ref<Int_> return __self__.value.neg(_x);
+    public dynamic function neg(_x:Ref<Int_>):Ref<Int_> return __self__.value.neg(_x);
     @:embedded
-    public function mulRange(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.mulRange(_n, _k);
+    public dynamic function mulRange(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.mulRange(_n, _k);
     @:embedded
-    public function mul(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mul(_z, _x);
+    public dynamic function mul(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mul(_z, _x);
     @:embedded
-    public function modSqrt(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modSqrt(_z, _x);
+    public dynamic function modSqrt(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modSqrt(_z, _x);
     @:embedded
-    public function modInverse(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modInverse(_z, _x);
+    public dynamic function modInverse(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modInverse(_z, _x);
     @:embedded
-    public function mod(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mod(_z, _x);
+    public dynamic function mod(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mod(_z, _x);
     @:embedded
-    public function marshalText():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalText();
+    public dynamic function marshalText():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalText();
     @:embedded
-    public function marshalJSON():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalJSON();
+    public dynamic function marshalJSON():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalJSON();
     @:embedded
-    public function lsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.lsh(_x, _n);
+    public dynamic function lsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.lsh(_x, _n);
     @:embedded
-    public function isUint64():Bool return __self__.value.isUint64();
+    public dynamic function isUint64():Bool return __self__.value.isUint64();
     @:embedded
-    public function isInt64():Bool return __self__.value.isInt64();
+    public dynamic function isInt64():Bool return __self__.value.isInt64();
     @:embedded
-    public function int64():GoInt64 return __self__.value.int64();
+    public dynamic function int64():GoInt64 return __self__.value.int64();
     @:embedded
-    public function gobEncode():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.gobEncode();
+    public dynamic function gobEncode():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.gobEncode();
     @:embedded
-    public function gobDecode(__0:Slice<GoUInt8>):Error return __self__.value.gobDecode(__0);
+    public dynamic function gobDecode(__0:Slice<GoUInt8>):Error return __self__.value.gobDecode(__0);
     @:embedded
-    public function gcd(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value.gcd(_x, _y, _a, _b);
+    public dynamic function gcd(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value.gcd(_x, _y, _a, _b);
     @:embedded
-    public function format(_s:stdgo.fmt.Fmt.State, _ch:GoInt32):Void __self__.value.format(_s, _ch);
+    public dynamic function format(_s:stdgo.fmt.Fmt.State, _ch:GoInt32):Void __self__.value.format(_s, _ch);
     @:embedded
-    public function fillBytes(__0:Slice<GoUInt8>):Slice<GoUInt8> return __self__.value.fillBytes(__0);
+    public dynamic function fillBytes(__0:Slice<GoUInt8>):Slice<GoUInt8> return __self__.value.fillBytes(__0);
     @:embedded
-    public function exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value.exp(_x, _y, _m);
+    public dynamic function exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value.exp(_x, _y, _m);
     @:embedded
-    public function divMod(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.divMod(_x, _y, _m);
+    public dynamic function divMod(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.divMod(_x, _y, _m);
     @:embedded
-    public function div(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.div(_z, _x);
+    public dynamic function div(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.div(_z, _x);
     @:embedded
-    public function cmpAbs(_x:Ref<Int_>):GoInt return __self__.value.cmpAbs(_x);
+    public dynamic function cmpAbs(_x:Ref<Int_>):GoInt return __self__.value.cmpAbs(_x);
     @:embedded
-    public function cmp(_x:Ref<Int_>):GoInt return __self__.value.cmp(_x);
+    public dynamic function cmp(_x:Ref<Int_>):GoInt return __self__.value.cmp(_x);
     @:embedded
-    public function bytes():Slice<GoUInt8> return __self__.value.bytes();
+    public dynamic function bytes():Slice<GoUInt8> return __self__.value.bytes();
     @:embedded
-    public function bits():Slice<Word> return __self__.value.bits();
+    public dynamic function bits():Slice<Word> return __self__.value.bits();
     @:embedded
-    public function bitLen():GoInt return __self__.value.bitLen();
+    public dynamic function bitLen():GoInt return __self__.value.bitLen();
     @:embedded
-    public function bit(_i:GoInt):GoUInt return __self__.value.bit(_i);
+    public dynamic function bit(_i:GoInt):GoUInt return __self__.value.bit(_i);
     @:embedded
-    public function binomial(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.binomial(_n, _k);
+    public dynamic function binomial(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.binomial(_n, _k);
     @:embedded
-    public function append(_buf:Slice<GoUInt8>, _base:GoInt):Slice<GoUInt8> return __self__.value.append(_buf, _base);
+    public dynamic function append(_buf:Slice<GoUInt8>, _base:GoInt):Slice<GoUInt8> return __self__.value.append(_buf, _base);
     @:embedded
-    public function andNot(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.andNot(_z, _x);
+    public dynamic function andNot(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.andNot(_z, _x);
     @:embedded
-    public function and(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.and(_z, _x);
+    public dynamic function and(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.and(_z, _x);
     @:embedded
-    public function add(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.add(_z, _x);
+    public dynamic function add(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.add(_z, _x);
     @:embedded
-    public function abs(_x:Ref<Int_>):Ref<Int_> return __self__.value.abs(_x);
+    public dynamic function abs(_x:Ref<Int_>):Ref<Int_> return __self__.value.abs(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1531,7 +1534,7 @@ class T_notZeroInt_asInterface {
         if (_n.sign() == ((0 : GoInt))) {
             _n.setInt64(("1" : GoInt64));
         };
-        return (stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_notZeroInt(_n) : T_notZeroInt)))) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_notZeroInt(_n) : T_notZeroInt)))).__copy__());
+        return stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_notZeroInt(_n) : T_notZeroInt)))).__copy__();
     }
     @:embedded
     public static function _setFromScanner( __self__:T_notZeroInt, _r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__._setFromScanner(_r, _base);
@@ -1670,141 +1673,141 @@ class T_notZeroInt_asInterface {
 }
 class T_positiveInt_asInterface {
     @:keep
-    public function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_rand, _size);
+    public dynamic function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_rand, _size);
     @:embedded
-    public function _setFromScanner(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value._setFromScanner(_r, _base);
+    public dynamic function _setFromScanner(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value._setFromScanner(_r, _base);
     @:embedded
-    public function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : GoInt; var _2 : Error; } return __self__.value._scan(_r, _base);
+    public dynamic function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : GoInt; var _2 : Error; } return __self__.value._scan(_r, _base);
     @:embedded
-    public function _scaleDenom(_x:Ref<Int_>, _f:T_nat):Void __self__.value._scaleDenom(_x, _f);
+    public dynamic function _scaleDenom(_x:Ref<Int_>, _f:T_nat):Void __self__.value._scaleDenom(_x, _f);
     @:embedded
-    public function _modSqrtTonelliShanks(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrtTonelliShanks(_z, _x);
+    public dynamic function _modSqrtTonelliShanks(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrtTonelliShanks(_z, _x);
     @:embedded
-    public function _modSqrt5Mod8Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt5Mod8Prime(_z, _x);
+    public dynamic function _modSqrt5Mod8Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt5Mod8Prime(_z, _x);
     @:embedded
-    public function _modSqrt3Mod4Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt3Mod4Prime(_z, _x);
+    public dynamic function _modSqrt3Mod4Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt3Mod4Prime(_z, _x);
     @:embedded
-    public function _lehmerGCD(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value._lehmerGCD(_x, _y, _a, _b);
+    public dynamic function _lehmerGCD(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value._lehmerGCD(_x, _y, _a, _b);
     @:embedded
-    public function _expSlow(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value._expSlow(_x, _y, _m);
+    public dynamic function _expSlow(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value._expSlow(_x, _y, _m);
     @:embedded
-    public function _exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>, _slow:Bool):Ref<Int_> return __self__.value._exp(_x, _y, _m, _slow);
+    public dynamic function _exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>, _slow:Bool):Ref<Int_> return __self__.value._exp(_x, _y, _m, _slow);
     @:embedded
-    public function xor(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.xor(_z, _x);
+    public dynamic function xor(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.xor(_z, _x);
     @:embedded
-    public function unmarshalText(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalText(__0);
+    public dynamic function unmarshalText(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalText(__0);
     @:embedded
-    public function unmarshalJSON(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalJSON(__0);
+    public dynamic function unmarshalJSON(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalJSON(__0);
     @:embedded
-    public function uint64():GoUInt64 return __self__.value.uint64();
+    public dynamic function uint64():GoUInt64 return __self__.value.uint64();
     @:embedded
-    public function trailingZeroBits():GoUInt return __self__.value.trailingZeroBits();
+    public dynamic function trailingZeroBits():GoUInt return __self__.value.trailingZeroBits();
     @:embedded
-    public function text(_i:GoInt):GoString return __self__.value.text(_i);
+    public dynamic function text(_i:GoInt):GoString return __self__.value.text(_i);
     @:embedded
-    public function sub(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.sub(_z, _x);
+    public dynamic function sub(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.sub(_z, _x);
     @:embedded
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:embedded
-    public function sqrt(_x:Ref<Int_>):Ref<Int_> return __self__.value.sqrt(_x);
+    public dynamic function sqrt(_x:Ref<Int_>):Ref<Int_> return __self__.value.sqrt(_x);
     @:embedded
-    public function sign():GoInt return __self__.value.sign();
+    public dynamic function sign():GoInt return __self__.value.sign();
     @:embedded
-    public function setUint64(__0:GoUInt64):Ref<Int_> return __self__.value.setUint64(__0);
+    public dynamic function setUint64(__0:GoUInt64):Ref<Int_> return __self__.value.setUint64(__0);
     @:embedded
-    public function setString(_s:GoString, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value.setString(_s, _base);
+    public dynamic function setString(_s:GoString, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value.setString(_s, _base);
     @:embedded
-    public function setInt64(__0:GoInt64):Ref<Int_> return __self__.value.setInt64(__0);
+    public dynamic function setInt64(__0:GoInt64):Ref<Int_> return __self__.value.setInt64(__0);
     @:embedded
-    public function setBytes(__0:Slice<GoUInt8>):Ref<Int_> return __self__.value.setBytes(__0);
+    public dynamic function setBytes(__0:Slice<GoUInt8>):Ref<Int_> return __self__.value.setBytes(__0);
     @:embedded
-    public function setBits(__0:Slice<Word>):Ref<Int_> return __self__.value.setBits(__0);
+    public dynamic function setBits(__0:Slice<Word>):Ref<Int_> return __self__.value.setBits(__0);
     @:embedded
-    public function setBit(_x:Ref<Int_>, _i:GoInt, _b:GoUInt):Ref<Int_> return __self__.value.setBit(_x, _i, _b);
+    public dynamic function setBit(_x:Ref<Int_>, _i:GoInt, _b:GoUInt):Ref<Int_> return __self__.value.setBit(_x, _i, _b);
     @:embedded
-    public function set(_x:Ref<Int_>):Ref<Int_> return __self__.value.set(_x);
+    public dynamic function set(_x:Ref<Int_>):Ref<Int_> return __self__.value.set(_x);
     @:embedded
-    public function scan(_s:stdgo.fmt.Fmt.ScanState, _ch:GoInt32):Error return __self__.value.scan(_s, _ch);
+    public dynamic function scan(_s:stdgo.fmt.Fmt.ScanState, _ch:GoInt32):Error return __self__.value.scan(_s, _ch);
     @:embedded
-    public function rsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.rsh(_x, _n);
+    public dynamic function rsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.rsh(_x, _n);
     @:embedded
-    public function rem(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.rem(_z, _x);
+    public dynamic function rem(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.rem(_z, _x);
     @:embedded
-    public function rand(_rnd:Ref<stdgo.math.rand.Rand.Rand>, _n:Ref<Int_>):Ref<Int_> return __self__.value.rand(_rnd, _n);
+    public dynamic function rand(_rnd:Ref<stdgo.math.rand.Rand.Rand>, _n:Ref<Int_>):Ref<Int_> return __self__.value.rand(_rnd, _n);
     @:embedded
-    public function quoRem(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.quoRem(_x, _y, _m);
+    public dynamic function quoRem(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.quoRem(_x, _y, _m);
     @:embedded
-    public function quo(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.quo(_z, _x);
+    public dynamic function quo(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.quo(_z, _x);
     @:embedded
-    public function probablyPrime(_i:GoInt):Bool return __self__.value.probablyPrime(_i);
+    public dynamic function probablyPrime(_i:GoInt):Bool return __self__.value.probablyPrime(_i);
     @:embedded
-    public function or(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.or(_z, _x);
+    public dynamic function or(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.or(_z, _x);
     @:embedded
-    public function not(_x:Ref<Int_>):Ref<Int_> return __self__.value.not(_x);
+    public dynamic function not(_x:Ref<Int_>):Ref<Int_> return __self__.value.not(_x);
     @:embedded
-    public function neg(_x:Ref<Int_>):Ref<Int_> return __self__.value.neg(_x);
+    public dynamic function neg(_x:Ref<Int_>):Ref<Int_> return __self__.value.neg(_x);
     @:embedded
-    public function mulRange(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.mulRange(_n, _k);
+    public dynamic function mulRange(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.mulRange(_n, _k);
     @:embedded
-    public function mul(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mul(_z, _x);
+    public dynamic function mul(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mul(_z, _x);
     @:embedded
-    public function modSqrt(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modSqrt(_z, _x);
+    public dynamic function modSqrt(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modSqrt(_z, _x);
     @:embedded
-    public function modInverse(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modInverse(_z, _x);
+    public dynamic function modInverse(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modInverse(_z, _x);
     @:embedded
-    public function mod(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mod(_z, _x);
+    public dynamic function mod(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mod(_z, _x);
     @:embedded
-    public function marshalText():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalText();
+    public dynamic function marshalText():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalText();
     @:embedded
-    public function marshalJSON():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalJSON();
+    public dynamic function marshalJSON():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalJSON();
     @:embedded
-    public function lsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.lsh(_x, _n);
+    public dynamic function lsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.lsh(_x, _n);
     @:embedded
-    public function isUint64():Bool return __self__.value.isUint64();
+    public dynamic function isUint64():Bool return __self__.value.isUint64();
     @:embedded
-    public function isInt64():Bool return __self__.value.isInt64();
+    public dynamic function isInt64():Bool return __self__.value.isInt64();
     @:embedded
-    public function int64():GoInt64 return __self__.value.int64();
+    public dynamic function int64():GoInt64 return __self__.value.int64();
     @:embedded
-    public function gobEncode():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.gobEncode();
+    public dynamic function gobEncode():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.gobEncode();
     @:embedded
-    public function gobDecode(__0:Slice<GoUInt8>):Error return __self__.value.gobDecode(__0);
+    public dynamic function gobDecode(__0:Slice<GoUInt8>):Error return __self__.value.gobDecode(__0);
     @:embedded
-    public function gcd(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value.gcd(_x, _y, _a, _b);
+    public dynamic function gcd(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value.gcd(_x, _y, _a, _b);
     @:embedded
-    public function format(_s:stdgo.fmt.Fmt.State, _ch:GoInt32):Void __self__.value.format(_s, _ch);
+    public dynamic function format(_s:stdgo.fmt.Fmt.State, _ch:GoInt32):Void __self__.value.format(_s, _ch);
     @:embedded
-    public function fillBytes(__0:Slice<GoUInt8>):Slice<GoUInt8> return __self__.value.fillBytes(__0);
+    public dynamic function fillBytes(__0:Slice<GoUInt8>):Slice<GoUInt8> return __self__.value.fillBytes(__0);
     @:embedded
-    public function exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value.exp(_x, _y, _m);
+    public dynamic function exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value.exp(_x, _y, _m);
     @:embedded
-    public function divMod(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.divMod(_x, _y, _m);
+    public dynamic function divMod(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.divMod(_x, _y, _m);
     @:embedded
-    public function div(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.div(_z, _x);
+    public dynamic function div(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.div(_z, _x);
     @:embedded
-    public function cmpAbs(_x:Ref<Int_>):GoInt return __self__.value.cmpAbs(_x);
+    public dynamic function cmpAbs(_x:Ref<Int_>):GoInt return __self__.value.cmpAbs(_x);
     @:embedded
-    public function cmp(_x:Ref<Int_>):GoInt return __self__.value.cmp(_x);
+    public dynamic function cmp(_x:Ref<Int_>):GoInt return __self__.value.cmp(_x);
     @:embedded
-    public function bytes():Slice<GoUInt8> return __self__.value.bytes();
+    public dynamic function bytes():Slice<GoUInt8> return __self__.value.bytes();
     @:embedded
-    public function bits():Slice<Word> return __self__.value.bits();
+    public dynamic function bits():Slice<Word> return __self__.value.bits();
     @:embedded
-    public function bitLen():GoInt return __self__.value.bitLen();
+    public dynamic function bitLen():GoInt return __self__.value.bitLen();
     @:embedded
-    public function bit(_i:GoInt):GoUInt return __self__.value.bit(_i);
+    public dynamic function bit(_i:GoInt):GoUInt return __self__.value.bit(_i);
     @:embedded
-    public function binomial(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.binomial(_n, _k);
+    public dynamic function binomial(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.binomial(_n, _k);
     @:embedded
-    public function append(_buf:Slice<GoUInt8>, _base:GoInt):Slice<GoUInt8> return __self__.value.append(_buf, _base);
+    public dynamic function append(_buf:Slice<GoUInt8>, _base:GoInt):Slice<GoUInt8> return __self__.value.append(_buf, _base);
     @:embedded
-    public function andNot(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.andNot(_z, _x);
+    public dynamic function andNot(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.andNot(_z, _x);
     @:embedded
-    public function and(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.and(_z, _x);
+    public dynamic function and(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.and(_z, _x);
     @:embedded
-    public function add(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.add(_z, _x);
+    public dynamic function add(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.add(_z, _x);
     @:embedded
-    public function abs(_x:Ref<Int_>):Ref<Int_> return __self__.value.abs(_x);
+    public dynamic function abs(_x:Ref<Int_>):Ref<Int_> return __self__.value.abs(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1817,7 +1820,7 @@ class T_positiveInt_asInterface {
     @:keep
     static public function generate( _:T_positiveInt, _rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value {
         var _n = _generatePositiveInt(_rand, _size);
-        return (stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_positiveInt(_n) : T_positiveInt)))) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_positiveInt(_n) : T_positiveInt)))).__copy__());
+        return stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_positiveInt(_n) : T_positiveInt)))).__copy__();
     }
     @:embedded
     public static function _setFromScanner( __self__:T_positiveInt, _r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__._setFromScanner(_r, _base);
@@ -1956,141 +1959,141 @@ class T_positiveInt_asInterface {
 }
 class T_prime_asInterface {
     @:keep
-    public function generate(_r:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_r, _size);
+    public dynamic function generate(_r:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_r, _size);
     @:embedded
-    public function _setFromScanner(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value._setFromScanner(_r, _base);
+    public dynamic function _setFromScanner(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value._setFromScanner(_r, _base);
     @:embedded
-    public function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : GoInt; var _2 : Error; } return __self__.value._scan(_r, _base);
+    public dynamic function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : GoInt; var _2 : Error; } return __self__.value._scan(_r, _base);
     @:embedded
-    public function _scaleDenom(_x:Ref<Int_>, _f:T_nat):Void __self__.value._scaleDenom(_x, _f);
+    public dynamic function _scaleDenom(_x:Ref<Int_>, _f:T_nat):Void __self__.value._scaleDenom(_x, _f);
     @:embedded
-    public function _modSqrtTonelliShanks(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrtTonelliShanks(_z, _x);
+    public dynamic function _modSqrtTonelliShanks(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrtTonelliShanks(_z, _x);
     @:embedded
-    public function _modSqrt5Mod8Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt5Mod8Prime(_z, _x);
+    public dynamic function _modSqrt5Mod8Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt5Mod8Prime(_z, _x);
     @:embedded
-    public function _modSqrt3Mod4Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt3Mod4Prime(_z, _x);
+    public dynamic function _modSqrt3Mod4Prime(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value._modSqrt3Mod4Prime(_z, _x);
     @:embedded
-    public function _lehmerGCD(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value._lehmerGCD(_x, _y, _a, _b);
+    public dynamic function _lehmerGCD(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value._lehmerGCD(_x, _y, _a, _b);
     @:embedded
-    public function _expSlow(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value._expSlow(_x, _y, _m);
+    public dynamic function _expSlow(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value._expSlow(_x, _y, _m);
     @:embedded
-    public function _exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>, _slow:Bool):Ref<Int_> return __self__.value._exp(_x, _y, _m, _slow);
+    public dynamic function _exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>, _slow:Bool):Ref<Int_> return __self__.value._exp(_x, _y, _m, _slow);
     @:embedded
-    public function xor(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.xor(_z, _x);
+    public dynamic function xor(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.xor(_z, _x);
     @:embedded
-    public function unmarshalText(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalText(__0);
+    public dynamic function unmarshalText(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalText(__0);
     @:embedded
-    public function unmarshalJSON(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalJSON(__0);
+    public dynamic function unmarshalJSON(__0:Slice<GoUInt8>):Error return __self__.value.unmarshalJSON(__0);
     @:embedded
-    public function uint64():GoUInt64 return __self__.value.uint64();
+    public dynamic function uint64():GoUInt64 return __self__.value.uint64();
     @:embedded
-    public function trailingZeroBits():GoUInt return __self__.value.trailingZeroBits();
+    public dynamic function trailingZeroBits():GoUInt return __self__.value.trailingZeroBits();
     @:embedded
-    public function text(_i:GoInt):GoString return __self__.value.text(_i);
+    public dynamic function text(_i:GoInt):GoString return __self__.value.text(_i);
     @:embedded
-    public function sub(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.sub(_z, _x);
+    public dynamic function sub(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.sub(_z, _x);
     @:embedded
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:embedded
-    public function sqrt(_x:Ref<Int_>):Ref<Int_> return __self__.value.sqrt(_x);
+    public dynamic function sqrt(_x:Ref<Int_>):Ref<Int_> return __self__.value.sqrt(_x);
     @:embedded
-    public function sign():GoInt return __self__.value.sign();
+    public dynamic function sign():GoInt return __self__.value.sign();
     @:embedded
-    public function setUint64(__0:GoUInt64):Ref<Int_> return __self__.value.setUint64(__0);
+    public dynamic function setUint64(__0:GoUInt64):Ref<Int_> return __self__.value.setUint64(__0);
     @:embedded
-    public function setString(_s:GoString, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value.setString(_s, _base);
+    public dynamic function setString(_s:GoString, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__.value.setString(_s, _base);
     @:embedded
-    public function setInt64(__0:GoInt64):Ref<Int_> return __self__.value.setInt64(__0);
+    public dynamic function setInt64(__0:GoInt64):Ref<Int_> return __self__.value.setInt64(__0);
     @:embedded
-    public function setBytes(__0:Slice<GoUInt8>):Ref<Int_> return __self__.value.setBytes(__0);
+    public dynamic function setBytes(__0:Slice<GoUInt8>):Ref<Int_> return __self__.value.setBytes(__0);
     @:embedded
-    public function setBits(__0:Slice<Word>):Ref<Int_> return __self__.value.setBits(__0);
+    public dynamic function setBits(__0:Slice<Word>):Ref<Int_> return __self__.value.setBits(__0);
     @:embedded
-    public function setBit(_x:Ref<Int_>, _i:GoInt, _b:GoUInt):Ref<Int_> return __self__.value.setBit(_x, _i, _b);
+    public dynamic function setBit(_x:Ref<Int_>, _i:GoInt, _b:GoUInt):Ref<Int_> return __self__.value.setBit(_x, _i, _b);
     @:embedded
-    public function set(_x:Ref<Int_>):Ref<Int_> return __self__.value.set(_x);
+    public dynamic function set(_x:Ref<Int_>):Ref<Int_> return __self__.value.set(_x);
     @:embedded
-    public function scan(_s:stdgo.fmt.Fmt.ScanState, _ch:GoInt32):Error return __self__.value.scan(_s, _ch);
+    public dynamic function scan(_s:stdgo.fmt.Fmt.ScanState, _ch:GoInt32):Error return __self__.value.scan(_s, _ch);
     @:embedded
-    public function rsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.rsh(_x, _n);
+    public dynamic function rsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.rsh(_x, _n);
     @:embedded
-    public function rem(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.rem(_z, _x);
+    public dynamic function rem(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.rem(_z, _x);
     @:embedded
-    public function rand(_rnd:Ref<stdgo.math.rand.Rand.Rand>, _n:Ref<Int_>):Ref<Int_> return __self__.value.rand(_rnd, _n);
+    public dynamic function rand(_rnd:Ref<stdgo.math.rand.Rand.Rand>, _n:Ref<Int_>):Ref<Int_> return __self__.value.rand(_rnd, _n);
     @:embedded
-    public function quoRem(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.quoRem(_x, _y, _m);
+    public dynamic function quoRem(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.quoRem(_x, _y, _m);
     @:embedded
-    public function quo(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.quo(_z, _x);
+    public dynamic function quo(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.quo(_z, _x);
     @:embedded
-    public function probablyPrime(_i:GoInt):Bool return __self__.value.probablyPrime(_i);
+    public dynamic function probablyPrime(_i:GoInt):Bool return __self__.value.probablyPrime(_i);
     @:embedded
-    public function or(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.or(_z, _x);
+    public dynamic function or(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.or(_z, _x);
     @:embedded
-    public function not(_x:Ref<Int_>):Ref<Int_> return __self__.value.not(_x);
+    public dynamic function not(_x:Ref<Int_>):Ref<Int_> return __self__.value.not(_x);
     @:embedded
-    public function neg(_x:Ref<Int_>):Ref<Int_> return __self__.value.neg(_x);
+    public dynamic function neg(_x:Ref<Int_>):Ref<Int_> return __self__.value.neg(_x);
     @:embedded
-    public function mulRange(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.mulRange(_n, _k);
+    public dynamic function mulRange(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.mulRange(_n, _k);
     @:embedded
-    public function mul(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mul(_z, _x);
+    public dynamic function mul(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mul(_z, _x);
     @:embedded
-    public function modSqrt(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modSqrt(_z, _x);
+    public dynamic function modSqrt(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modSqrt(_z, _x);
     @:embedded
-    public function modInverse(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modInverse(_z, _x);
+    public dynamic function modInverse(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.modInverse(_z, _x);
     @:embedded
-    public function mod(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mod(_z, _x);
+    public dynamic function mod(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.mod(_z, _x);
     @:embedded
-    public function marshalText():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalText();
+    public dynamic function marshalText():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalText();
     @:embedded
-    public function marshalJSON():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalJSON();
+    public dynamic function marshalJSON():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.marshalJSON();
     @:embedded
-    public function lsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.lsh(_x, _n);
+    public dynamic function lsh(_x:Ref<Int_>, _n:GoUInt):Ref<Int_> return __self__.value.lsh(_x, _n);
     @:embedded
-    public function isUint64():Bool return __self__.value.isUint64();
+    public dynamic function isUint64():Bool return __self__.value.isUint64();
     @:embedded
-    public function isInt64():Bool return __self__.value.isInt64();
+    public dynamic function isInt64():Bool return __self__.value.isInt64();
     @:embedded
-    public function int64():GoInt64 return __self__.value.int64();
+    public dynamic function int64():GoInt64 return __self__.value.int64();
     @:embedded
-    public function gobEncode():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.gobEncode();
+    public dynamic function gobEncode():{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.gobEncode();
     @:embedded
-    public function gobDecode(__0:Slice<GoUInt8>):Error return __self__.value.gobDecode(__0);
+    public dynamic function gobDecode(__0:Slice<GoUInt8>):Error return __self__.value.gobDecode(__0);
     @:embedded
-    public function gcd(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value.gcd(_x, _y, _a, _b);
+    public dynamic function gcd(_x:Ref<Int_>, _y:Ref<Int_>, _a:Ref<Int_>, _b:Ref<Int_>):Ref<Int_> return __self__.value.gcd(_x, _y, _a, _b);
     @:embedded
-    public function format(_s:stdgo.fmt.Fmt.State, _ch:GoInt32):Void __self__.value.format(_s, _ch);
+    public dynamic function format(_s:stdgo.fmt.Fmt.State, _ch:GoInt32):Void __self__.value.format(_s, _ch);
     @:embedded
-    public function fillBytes(__0:Slice<GoUInt8>):Slice<GoUInt8> return __self__.value.fillBytes(__0);
+    public dynamic function fillBytes(__0:Slice<GoUInt8>):Slice<GoUInt8> return __self__.value.fillBytes(__0);
     @:embedded
-    public function exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value.exp(_x, _y, _m);
+    public dynamic function exp(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):Ref<Int_> return __self__.value.exp(_x, _y, _m);
     @:embedded
-    public function divMod(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.divMod(_x, _y, _m);
+    public dynamic function divMod(_x:Ref<Int_>, _y:Ref<Int_>, _m:Ref<Int_>):{ var _0 : Ref<Int_>; var _1 : Ref<Int_>; } return __self__.value.divMod(_x, _y, _m);
     @:embedded
-    public function div(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.div(_z, _x);
+    public dynamic function div(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.div(_z, _x);
     @:embedded
-    public function cmpAbs(_x:Ref<Int_>):GoInt return __self__.value.cmpAbs(_x);
+    public dynamic function cmpAbs(_x:Ref<Int_>):GoInt return __self__.value.cmpAbs(_x);
     @:embedded
-    public function cmp(_x:Ref<Int_>):GoInt return __self__.value.cmp(_x);
+    public dynamic function cmp(_x:Ref<Int_>):GoInt return __self__.value.cmp(_x);
     @:embedded
-    public function bytes():Slice<GoUInt8> return __self__.value.bytes();
+    public dynamic function bytes():Slice<GoUInt8> return __self__.value.bytes();
     @:embedded
-    public function bits():Slice<Word> return __self__.value.bits();
+    public dynamic function bits():Slice<Word> return __self__.value.bits();
     @:embedded
-    public function bitLen():GoInt return __self__.value.bitLen();
+    public dynamic function bitLen():GoInt return __self__.value.bitLen();
     @:embedded
-    public function bit(_i:GoInt):GoUInt return __self__.value.bit(_i);
+    public dynamic function bit(_i:GoInt):GoUInt return __self__.value.bit(_i);
     @:embedded
-    public function binomial(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.binomial(_n, _k);
+    public dynamic function binomial(_n:GoInt64, _k:GoInt64):Ref<Int_> return __self__.value.binomial(_n, _k);
     @:embedded
-    public function append(_buf:Slice<GoUInt8>, _base:GoInt):Slice<GoUInt8> return __self__.value.append(_buf, _base);
+    public dynamic function append(_buf:Slice<GoUInt8>, _base:GoInt):Slice<GoUInt8> return __self__.value.append(_buf, _base);
     @:embedded
-    public function andNot(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.andNot(_z, _x);
+    public dynamic function andNot(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.andNot(_z, _x);
     @:embedded
-    public function and(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.and(_z, _x);
+    public dynamic function and(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.and(_z, _x);
     @:embedded
-    public function add(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.add(_z, _x);
+    public dynamic function add(_z:Ref<Int_>, _x:Ref<Int_>):Ref<Int_> return __self__.value.add(_z, _x);
     @:embedded
-    public function abs(_x:Ref<Int_>):Ref<Int_> return __self__.value.abs(_x);
+    public dynamic function abs(_x:Ref<Int_>):Ref<Int_> return __self__.value.abs(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2106,7 +2109,7 @@ class T_prime_asInterface {
         if (_err != null) {
             throw Go.toInterface(_err);
         };
-        return (stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_prime(_n) : T_prime)))) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_prime(_n) : T_prime)))).__copy__());
+        return stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_prime(_n) : T_prime)))).__copy__();
     }
     @:embedded
     public static function _setFromScanner( __self__:T_prime, _r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Ref<Int_>; var _1 : Bool; } return __self__._setFromScanner(_r, _base);
@@ -2245,7 +2248,7 @@ class T_prime_asInterface {
 }
 class T_zeroOrOne_asInterface {
     @:keep
-    public function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_rand, _size);
+    public dynamic function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_rand, _size);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2257,12 +2260,12 @@ class T_zeroOrOne_asInterface {
 @:keep @:allow(stdgo.math.big_test.Big_test.T_zeroOrOne_asInterface) class T_zeroOrOne_static_extension {
     @:keep
     static public function generate( _:T_zeroOrOne, _rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value {
-        return (stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_zeroOrOne((_rand.intn((2 : GoInt)) : GoUInt)) : T_zeroOrOne)))) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_zeroOrOne((_rand.intn((2 : GoInt)) : GoUInt)) : T_zeroOrOne)))).__copy__());
+        return stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_zeroOrOne((_rand.intn((2 : GoInt)) : GoUInt)) : T_zeroOrOne)))).__copy__();
     }
 }
 class T_smallUint_asInterface {
     @:keep
-    public function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_rand, _size);
+    public dynamic function generate(_rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_rand, _size);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2274,6 +2277,6 @@ class T_smallUint_asInterface {
 @:keep @:allow(stdgo.math.big_test.Big_test.T_smallUint_asInterface) class T_smallUint_static_extension {
     @:keep
     static public function generate( _:T_smallUint, _rand:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value {
-        return (stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_smallUint((_rand.intn((1024 : GoInt)) : GoUInt)) : T_smallUint)))) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_smallUint((_rand.intn((1024 : GoInt)) : GoUInt)) : T_smallUint)))).__copy__());
+        return stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((new T_smallUint((_rand.intn((1024 : GoInt)) : GoUInt)) : T_smallUint)))).__copy__();
     }
 }

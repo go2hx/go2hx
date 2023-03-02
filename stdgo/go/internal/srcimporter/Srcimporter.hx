@@ -50,7 +50,7 @@ private var _importing : stdgo.go.types.Types.Package = ({} : stdgo.go.types.Typ
     // files; and imported packages are added to the packages map.
 **/
 function new_(_ctxt:Ref<stdgo.go.build.Build.Context>, _fset:Ref<stdgo.go.token.Token.FileSet>, _packages:GoMap<GoString, Ref<stdgo.go.types.Types.Package>>):Ref<Importer> {
-        return (({ _ctxt : _ctxt, _fset : _fset, _sizes : stdgo.go.types.Types.sizesFor(_ctxt.compiler, _ctxt.goarch), _packages : _packages } : Importer) : Ref<Importer>);
+        return (Go.setRef(({ _ctxt : _ctxt, _fset : _fset, _sizes : stdgo.go.types.Types.sizesFor(_ctxt.compiler, _ctxt.goarch), _packages : _packages } : Importer)) : Ref<Importer>);
     }
 /**
     //go:linkname setUsesCgo go/types.srcimporter_setUsesCgo
@@ -58,15 +58,15 @@ function new_(_ctxt:Ref<stdgo.go.build.Build.Context>, _fset:Ref<stdgo.go.token.
 private function _setUsesCgo(_conf:Ref<stdgo.go.types.Types.Config>):Void {}
 class Importer_asInterface {
     @:keep
-    public function _joinPath(_elem:haxe.Rest<GoString>):GoString return __self__.value._joinPath(..._elem);
+    public dynamic function _joinPath(_elem:haxe.Rest<GoString>):GoString return __self__.value._joinPath(..._elem);
     @:keep
-    public function _isAbsPath(_path:GoString):Bool return __self__.value._isAbsPath(_path);
+    public dynamic function _isAbsPath(_path:GoString):Bool return __self__.value._isAbsPath(_path);
     @:keep
-    public function _absPath(_path:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._absPath(_path);
+    public dynamic function _absPath(_path:GoString):{ var _0 : GoString; var _1 : Error; } return __self__.value._absPath(_path);
     @:keep
-    public function _cgo(_bp:Ref<stdgo.go.build.Build.Package>):{ var _0 : Ref<stdgo.go.ast.Ast.File>; var _1 : Error; } return __self__.value._cgo(_bp);
+    public dynamic function _cgo(_bp:Ref<stdgo.go.build.Build.Package>):{ var _0 : Ref<stdgo.go.ast.Ast.File>; var _1 : Error; } return __self__.value._cgo(_bp);
     @:keep
-    public function _parseFiles(_dir:GoString, _filenames:Slice<GoString>):{ var _0 : Slice<Ref<stdgo.go.ast.Ast.File>>; var _1 : Error; } return __self__.value._parseFiles(_dir, _filenames);
+    public dynamic function _parseFiles(_dir:GoString, _filenames:Slice<GoString>):{ var _0 : Slice<Ref<stdgo.go.ast.Ast.File>>; var _1 : Error; } return __self__.value._parseFiles(_dir, _filenames);
     /**
         // ImportFrom imports the package with the given import path resolved from the given srcDir,
         // adds the new package to the set of packages maintained by the importer, and returns the
@@ -76,12 +76,12 @@ class Importer_asInterface {
         // type checker may not be able to determine all exported entities (e.g. due to cgo dependencies).
     **/
     @:keep
-    public function importFrom(_path:GoString, _srcDir:GoString, _mode:stdgo.go.types.Types.ImportMode):{ var _0 : Ref<stdgo.go.types.Types.Package>; var _1 : Error; } return __self__.value.importFrom(_path, _srcDir, _mode);
+    public dynamic function importFrom(_path:GoString, _srcDir:GoString, _mode:stdgo.go.types.Types.ImportMode):{ var _0 : Ref<stdgo.go.types.Types.Package>; var _1 : Error; } return __self__.value.importFrom(_path, _srcDir, _mode);
     /**
         // Import(path) is a shortcut for ImportFrom(path, ".", 0).
     **/
     @:keep
-    public function import_(_path:GoString):{ var _0 : Ref<stdgo.go.types.Types.Package>; var _1 : Error; } return __self__.value.import_(_path);
+    public dynamic function import_(_path:GoString):{ var _0 : Ref<stdgo.go.types.Types.Package>; var _1 : Error; } return __self__.value.import_(_path);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -134,10 +134,13 @@ class Importer_asInterface {
             };
             var _args = (new Slice<GoString>(0, 0, _goCmd, ("tool" : GoString), ("cgo" : GoString), ("-objdir" : GoString), _tmpdir) : Slice<GoString>);
             if (_bp.goroot) {
-                if (_bp.importPath == (("runtime/cgo" : GoString))) {
-                    _args = _args.__appendref__(("-import_runtime_cgo=false" : GoString), ("-import_syscall=false" : GoString));
-                } else if (_bp.importPath == (("runtime/race" : GoString))) {
-                    _args = _args.__appendref__(("-import_syscall=false" : GoString));
+                {
+                    final __value__ = _bp.importPath;
+                    if (__value__ == (("runtime/cgo" : GoString))) {
+                        _args = _args.__appendref__(("-import_runtime_cgo=false" : GoString), ("-import_syscall=false" : GoString));
+                    } else if (__value__ == (("runtime/race" : GoString))) {
+                        _args = _args.__appendref__(("-import_syscall=false" : GoString));
+                    };
                 };
             };
             _args = _args.__appendref__(("--" : GoString));
@@ -301,8 +304,8 @@ class Importer_asInterface {
                 return { _0 : stdgo.go.types.Types.unsafe, _1 : (null : Error) };
             };
             var _pkg = _p._packages[_bp.importPath];
-            if (_pkg != null) {
-                if (_pkg == ((_importing : Ref<stdgo.go.types.Types.Package>))) {
+            if (_pkg != null && ((_pkg : Dynamic).__nil__ == null || !(_pkg : Dynamic).__nil__)) {
+                if (_pkg == ((Go.setRef(_importing) : Ref<stdgo.go.types.Types.Package>))) {
                     return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("import cycle through package %q" : GoString), Go.toInterface(_bp.importPath)) };
                 };
                 if (!_pkg.complete()) {
@@ -310,10 +313,10 @@ class Importer_asInterface {
                 };
                 return { _0 : _pkg, _1 : (null : Error) };
             };
-            _p._packages[_bp.importPath] = (_importing : Ref<stdgo.go.types.Types.Package>);
+            _p._packages[_bp.importPath] = (Go.setRef(_importing) : Ref<stdgo.go.types.Types.Package>);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    if (_p._packages[_bp.importPath] == ((_importing : Ref<stdgo.go.types.Types.Package>))) {
+                    if (_p._packages[_bp.importPath] == ((Go.setRef(_importing) : Ref<stdgo.go.types.Types.Package>))) {
                         _p._packages[_bp.importPath] = null;
                     };
                 };
@@ -341,7 +344,7 @@ class Importer_asInterface {
                 if (_p._ctxt.openFile != null) {
                     _conf.fakeImportC = true;
                 } else {
-                    _setUsesCgo((_conf : Ref<stdgo.go.types.Types.Config>));
+                    _setUsesCgo((Go.setRef(_conf) : Ref<stdgo.go.types.Types.Config>));
                     var __tmp__ = _p._cgo(_bp), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
                     if (_err != null) {
                         {

@@ -40,19 +40,19 @@ typedef Hash = StructType & {
         
         
     **/
-    public function sum(_b:Slice<GoByte>):Slice<GoByte>;
+    public dynamic function sum(_b:Slice<GoByte>):Slice<GoByte>;
     /**
         // Reset resets the Hash to its initial state.
         
         
     **/
-    public function reset():Void;
+    public dynamic function reset():Void;
     /**
         // Size returns the number of bytes Sum will return.
         
         
     **/
-    public function size():GoInt;
+    public dynamic function size():GoInt;
     /**
         // BlockSize returns the hash's underlying block size.
         // The Write method must be able to accept any amount
@@ -61,7 +61,7 @@ typedef Hash = StructType & {
         
         
     **/
-    public function blockSize():GoInt;
+    public dynamic function blockSize():GoInt;
 };
 /**
     // Hash32 is the common interface implemented by all 32-bit hash functions.
@@ -75,7 +75,7 @@ typedef Hash32 = StructType & {
         
         
     **/
-    public function sum32():GoUInt32;
+    public dynamic function sum32():GoUInt32;
 };
 /**
     // Hash64 is the common interface implemented by all 64-bit hash functions.
@@ -89,5 +89,5 @@ typedef Hash64 = StructType & {
         
         
     **/
-    public function sum64():GoUInt64;
+    public dynamic function sum64():GoUInt64;
 };

@@ -24,7 +24,7 @@ private var _aNewline = (("\n" : GoString) : Slice<GoByte>);
     
 **/
 private var _printerPool = ({ new_ : function():AnyInterface {
-        return Go.toInterface(Go.asInterface((({ _output : new Slice<GoUInt8>((0 : GoInt).toBasic(), (16384 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]), _wsbuf : new Slice<T_whiteSpace>((0 : GoInt).toBasic(), (16 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) ((0 : GoUInt8) : T_whiteSpace)]) } : T_printer) : Ref<T_printer>)));
+        return Go.toInterface(Go.asInterface((Go.setRef(({ _output : new Slice<GoUInt8>((0 : GoInt).toBasic(), (16384 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]), _wsbuf : new Slice<T_whiteSpace>((0 : GoInt).toBasic(), (16 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) ((0 : GoUInt8) : T_whiteSpace)]) } : T_printer)) : Ref<T_printer>)));
     } } : stdgo.sync.Sync.Pool);
 /**
     
@@ -615,7 +615,7 @@ private function _formatDocComment(_list:Slice<Ref<stdgo.go.ast.Ast.Comment>>):S
         _text = (_pr.comment(_d) : GoString);
         var _slash:stdgo.go.token.Token.Pos = _list[(0 : GoInt)].slash;
         if (_kind == (("/*" : GoString))) {
-            var _c = (({ slash : _slash, text : (("/*\n" : GoString) + _text) + ("*/" : GoString) } : stdgo.go.ast.Ast.Comment) : Ref<stdgo.go.ast.Ast.Comment>);
+            var _c = (Go.setRef(({ slash : _slash, text : (("/*\n" : GoString) + _text) + ("*/" : GoString) } : stdgo.go.ast.Ast.Comment)) : Ref<stdgo.go.ast.Ast.Comment>);
             return (new Slice<Ref<stdgo.go.ast.Ast.Comment>>(0, 0, _c) : Slice<Ref<stdgo.go.ast.Ast.Comment>>);
         };
         var _out:Slice<Ref<stdgo.go.ast.Ast.Comment>> = (null : Slice<Ref<stdgo.go.ast.Ast.Comment>>);
@@ -633,12 +633,12 @@ private function _formatDocComment(_list:Slice<Ref<stdgo.go.ast.Ast.Comment>>):S
             } else {
                 _line = ("// " : GoString) + _line;
             };
-            _out = _out.__appendref__((({ slash : _slash, text : _line } : stdgo.go.ast.Ast.Comment) : Ref<stdgo.go.ast.Ast.Comment>));
+            _out = _out.__appendref__((Go.setRef(({ slash : _slash, text : _line } : stdgo.go.ast.Ast.Comment)) : Ref<stdgo.go.ast.Ast.Comment>));
         };
         if ((_directives.length) > (0 : GoInt)) {
-            _out = _out.__appendref__((({ slash : _slash, text : ("//" : GoString) } : stdgo.go.ast.Ast.Comment) : Ref<stdgo.go.ast.Ast.Comment>));
+            _out = _out.__appendref__((Go.setRef(({ slash : _slash, text : ("//" : GoString) } : stdgo.go.ast.Ast.Comment)) : Ref<stdgo.go.ast.Ast.Comment>));
             for (_1 => _c in _directives) {
-                _out = _out.__appendref__((({ slash : _slash, text : _c.text } : stdgo.go.ast.Ast.Comment) : Ref<stdgo.go.ast.Ast.Comment>));
+                _out = _out.__appendref__((Go.setRef(({ slash : _slash, text : _c.text } : stdgo.go.ast.Ast.Comment)) : Ref<stdgo.go.ast.Ast.Comment>));
             };
         };
         return _out;
@@ -768,10 +768,13 @@ private function _identListSize(_list:Slice<Ref<stdgo.go.ast.Ast.Ident>>, _maxSi
     }
 private function _walkBinary(_e:Ref<stdgo.go.ast.Ast.BinaryExpr>):{ var _0 : Bool; var _1 : Bool; var _2 : GoInt; } {
         var _has4:Bool = false, _has5:Bool = false, _maxProblem:GoInt = (0 : GoInt);
-        if (_e.op.precedence() == ((4 : GoInt))) {
-            _has4 = true;
-        } else if (_e.op.precedence() == ((5 : GoInt))) {
-            _has5 = true;
+        {
+            final __value__ = _e.op.precedence();
+            if (__value__ == ((4 : GoInt))) {
+                _has4 = true;
+            } else if (__value__ == ((5 : GoInt))) {
+                _has5 = true;
+            };
         };
         {
             final __type__ = _e.x;
@@ -815,11 +818,14 @@ private function _walkBinary(_e:Ref<stdgo.go.ast.Ast.BinaryExpr>):{ var _0 : Boo
                 };
             } else if (Go.typeEquals((__type__ : Ref<stdgo.go.ast.Ast.UnaryExpr>))) {
                 var _r:Ref<stdgo.go.ast.Ast.UnaryExpr> = __type__ == null ? (null : Ref<stdgo.go.ast.Ast.UnaryExpr>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.ast.Ast.UnaryExpr>) : __type__ == null ? (null : Ref<stdgo.go.ast.Ast.UnaryExpr>) : __type__.__underlying__().value;
-                if ((_e.op.string() : GoString) + (_r.op.string() : GoString) == (("/*" : GoString)) || (_e.op.string() : GoString) + (_r.op.string() : GoString) == (("&&" : GoString)) || (_e.op.string() : GoString) + (_r.op.string() : GoString) == (("&^" : GoString))) {
-                    _maxProblem = (5 : GoInt);
-                } else if ((_e.op.string() : GoString) + (_r.op.string() : GoString) == (("++" : GoString)) || (_e.op.string() : GoString) + (_r.op.string() : GoString) == (("--" : GoString))) {
-                    if (_maxProblem < (4 : GoInt)) {
-                        _maxProblem = (4 : GoInt);
+                {
+                    final __value__ = (_e.op.string() : GoString) + (_r.op.string() : GoString);
+                    if (__value__ == (("/*" : GoString)) || __value__ == (("&&" : GoString)) || __value__ == (("&^" : GoString))) {
+                        _maxProblem = (5 : GoInt);
+                    } else if (__value__ == (("++" : GoString)) || __value__ == (("--" : GoString))) {
+                        if (_maxProblem < (4 : GoInt)) {
+                            _maxProblem = (4 : GoInt);
+                        };
                     };
                 };
             };
@@ -889,39 +895,42 @@ private function _normalizedNumber(_lit:Ref<stdgo.go.ast.Ast.BasicLit>):Ref<stdg
         {
             var __switchIndex__ = -1;
             while (true) {
-                if ((_x.__slice__(0, (2 : GoInt)) : GoString) == (("0X" : GoString))) {
-                    _x = ("0x" : GoString) + (_x.__slice__((2 : GoInt)) : GoString);
-                    {
-                        var _i:GoInt = stdgo.strings.Strings.lastIndexByte(_x, (80 : GoUInt8));
-                        if (_i >= (0 : GoInt)) {
-                            _x = ((_x.__slice__(0, _i) : GoString) + ("p" : GoString)) + (_x.__slice__(_i + (1 : GoInt)) : GoString);
+                {
+                    final __value__ = (_x.__slice__(0, (2 : GoInt)) : GoString);
+                    if (__value__ == (("0X" : GoString))) {
+                        _x = ("0x" : GoString) + (_x.__slice__((2 : GoInt)) : GoString);
+                        {
+                            var _i:GoInt = stdgo.strings.Strings.lastIndexByte(_x, (80 : GoUInt8));
+                            if (_i >= (0 : GoInt)) {
+                                _x = ((_x.__slice__(0, _i) : GoString) + ("p" : GoString)) + (_x.__slice__(_i + (1 : GoInt)) : GoString);
+                            };
                         };
-                    };
-                    break;
-                } else if ((_x.__slice__(0, (2 : GoInt)) : GoString) == (("0x" : GoString))) {
-                    var _i:GoInt = stdgo.strings.Strings.lastIndexByte(_x, (80 : GoUInt8));
-                    if (_i == ((-1 : GoInt))) {
+                        break;
+                    } else if (__value__ == (("0x" : GoString))) {
+                        var _i:GoInt = stdgo.strings.Strings.lastIndexByte(_x, (80 : GoUInt8));
+                        if (_i == ((-1 : GoInt))) {
+                            return _lit;
+                        };
+                        _x = ((_x.__slice__(0, _i) : GoString) + ("p" : GoString)) + (_x.__slice__(_i + (1 : GoInt)) : GoString);
+                        break;
+                    } else if (__value__ == (("0O" : GoString))) {
+                        _x = ("0o" : GoString) + (_x.__slice__((2 : GoInt)) : GoString);
+                        break;
+                    } else if (__value__ == (("0o" : GoString))) {
                         return _lit;
+                        break;
+                    } else if (__value__ == (("0B" : GoString))) {
+                        _x = ("0b" : GoString) + (_x.__slice__((2 : GoInt)) : GoString);
+                        break;
+                    } else if (__value__ == (("0b" : GoString))) {
+                        return _lit;
+                        break;
                     };
-                    _x = ((_x.__slice__(0, _i) : GoString) + ("p" : GoString)) + (_x.__slice__(_i + (1 : GoInt)) : GoString);
-                    break;
-                } else if ((_x.__slice__(0, (2 : GoInt)) : GoString) == (("0O" : GoString))) {
-                    _x = ("0o" : GoString) + (_x.__slice__((2 : GoInt)) : GoString);
-                    break;
-                } else if ((_x.__slice__(0, (2 : GoInt)) : GoString) == (("0o" : GoString))) {
-                    return _lit;
-                    break;
-                } else if ((_x.__slice__(0, (2 : GoInt)) : GoString) == (("0B" : GoString))) {
-                    _x = ("0b" : GoString) + (_x.__slice__((2 : GoInt)) : GoString);
-                    break;
-                } else if ((_x.__slice__(0, (2 : GoInt)) : GoString) == (("0b" : GoString))) {
-                    return _lit;
-                    break;
                 };
                 break;
             };
         };
-        return (({ valuePos : _lit.valuePos, kind : _lit.kind, value : _x } : stdgo.go.ast.Ast.BasicLit) : Ref<stdgo.go.ast.Ast.BasicLit>);
+        return (Go.setRef(({ valuePos : _lit.valuePos, kind : _lit.kind, value : _x } : stdgo.go.ast.Ast.BasicLit)) : Ref<stdgo.go.ast.Ast.BasicLit>);
     }
 private function _isTypeName(_x:stdgo.go.ast.Ast.Expr):Bool {
         {
@@ -1060,7 +1069,7 @@ private function _sanitizeImportPath(_lit:Ref<stdgo.go.ast.Ast.BasicLit>):Ref<st
         if (_s == (_lit.value)) {
             return _lit;
         };
-        return (({ valuePos : _lit.valuePos, kind : (9 : stdgo.go.token.Token.Token), value : _s } : stdgo.go.ast.Ast.BasicLit) : Ref<stdgo.go.ast.Ast.BasicLit>);
+        return (Go.setRef(({ valuePos : _lit.valuePos, kind : (9 : stdgo.go.token.Token.Token), value : _s } : stdgo.go.ast.Ast.BasicLit)) : Ref<stdgo.go.ast.Ast.BasicLit>);
     }
 private function _declToken(_decl:stdgo.go.ast.Ast.Decl):stdgo.go.token.Token.Token {
         var _tok:stdgo.go.token.Token.Token = ((0 : GoInt) : stdgo.go.token.Token.Token);
@@ -1079,7 +1088,7 @@ private function _declToken(_decl:stdgo.go.ast.Ast.Decl):stdgo.go.token.Token.To
     }
 private function _testprint(_out:stdgo.io.Io.Writer, _node:stdgo.go.ast.Ast.Node):Void {
         {
-            var _err:Error = (((new Config((("1073741830" : GoUInt) : Mode), (8 : GoInt), (0 : GoInt)) : Config) : Ref<Config>)).fprint(_out, _fset, Go.toInterface(_node));
+            var _err:Error = (Go.setRef((new Config((("1073741830" : GoUInt) : Mode), (8 : GoInt), (0 : GoInt)) : Config)) : Ref<Config>).fprint(_out, _fset, Go.toInterface(_node));
             if (_err != null) {
                 stdgo.log.Log.fatalf(("print error: %s" : GoString), Go.toInterface(_err));
             };
@@ -1099,7 +1108,7 @@ private function _initialize():Void {
             stdgo.log.Log.fatalf(("%s" : GoString), Go.toInterface(_err));
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        _testprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), Go.asInterface(_file));
+        _testprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), Go.asInterface(_file));
         if (!stdgo.bytes.Bytes.equal(_buf.bytes(), _src)) {
             stdgo.log.Log.fatalf(("print error: %s not idempotent" : GoString), Go.toInterface(("testdata/parser.go" : GoString)));
         };
@@ -1121,7 +1130,7 @@ private function _initialize():Void {
         };
     }
 function benchmarkPrintFile(_b:Ref<stdgo.testing.Testing.B>):Void {
-        if (_fileNode == null) {
+        if (_fileNode == null || (_fileNode : Dynamic).__nil__) {
             _initialize();
         };
         _b.reportAllocs();
@@ -1277,18 +1286,21 @@ private function _nlimit(_n:GoInt):GoInt {
     }
 private function _mayCombine(_prev:stdgo.go.token.Token.Token, _next:GoByte):Bool {
         var _b:Bool = false;
-        if (_prev == ((5 : stdgo.go.token.Token.Token))) {
-            _b = _next == ((46 : GoUInt8));
-        } else if (_prev == ((12 : stdgo.go.token.Token.Token))) {
-            _b = _next == ((43 : GoUInt8));
-        } else if (_prev == ((13 : stdgo.go.token.Token.Token))) {
-            _b = _next == ((45 : GoUInt8));
-        } else if (_prev == ((15 : stdgo.go.token.Token.Token))) {
-            _b = _next == ((42 : GoUInt8));
-        } else if (_prev == ((40 : stdgo.go.token.Token.Token))) {
-            _b = (_next == (45 : GoUInt8)) || (_next == (60 : GoUInt8));
-        } else if (_prev == ((17 : stdgo.go.token.Token.Token))) {
-            _b = (_next == (38 : GoUInt8)) || (_next == (94 : GoUInt8));
+        {
+            final __value__ = _prev;
+            if (__value__ == ((5 : stdgo.go.token.Token.Token))) {
+                _b = _next == ((46 : GoUInt8));
+            } else if (__value__ == ((12 : stdgo.go.token.Token.Token))) {
+                _b = _next == ((43 : GoUInt8));
+            } else if (__value__ == ((13 : stdgo.go.token.Token.Token))) {
+                _b = _next == ((45 : GoUInt8));
+            } else if (__value__ == ((15 : stdgo.go.token.Token.Token))) {
+                _b = _next == ((42 : GoUInt8));
+            } else if (__value__ == ((40 : stdgo.go.token.Token.Token))) {
+                _b = (_next == (45 : GoUInt8)) || (_next == (60 : GoUInt8));
+            } else if (__value__ == ((17 : stdgo.go.token.Token.Token))) {
+                _b = (_next == (38 : GoUInt8)) || (_next == (94 : GoUInt8));
+            };
         };
         return _b;
     }
@@ -1355,7 +1367,7 @@ private function _getLastComment(_n:stdgo.go.ast.Ast.Node):Ref<stdgo.go.ast.Ast.
 private function _newPrinter(_cfg:Ref<Config>, _fset:Ref<stdgo.go.token.Token.FileSet>, _nodeSizes:GoMap<stdgo.go.ast.Ast.Node, GoInt>):Ref<T_printer> {
         var _p = (Go.typeAssert((_printerPool.get() : Ref<T_printer>)) : Ref<T_printer>);
         {
-            var __tmp__ = ({ config : (_cfg == null ? null : _cfg.__copy__()), _fset : _fset, _output : (_p._output.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), _wsbuf : (_p._wsbuf.__slice__(0, (0 : GoInt)) : Slice<T_whiteSpace>), _pos : ({ line : (1 : GoInt), column : (1 : GoInt) } : stdgo.go.token.Token.Position), _out : ({ line : (1 : GoInt), column : (1 : GoInt) } : stdgo.go.token.Token.Position), _nodeSizes : _nodeSizes, _cachedPos : (-1 : stdgo.go.token.Token.Pos) } : T_printer);
+            var __tmp__ = ({ config : (_cfg : Config).__copy__(), _fset : _fset, _output : (_p._output.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), _wsbuf : (_p._wsbuf.__slice__(0, (0 : GoInt)) : Slice<T_whiteSpace>), _pos : ({ line : (1 : GoInt), column : (1 : GoInt) } : stdgo.go.token.Token.Position), _out : ({ line : (1 : GoInt), column : (1 : GoInt) } : stdgo.go.token.Token.Position), _nodeSizes : _nodeSizes, _cachedPos : (-1 : stdgo.go.token.Token.Pos) } : T_printer);
             _p.config = __tmp__.config;
             _p._fset = __tmp__._fset;
             _p._output = __tmp__._output;
@@ -1389,7 +1401,7 @@ private function _newPrinter(_cfg:Ref<Config>, _fset:Ref<stdgo.go.token.Token.Fi
     // use format.Node (package go/format) for output that matches gofmt.
 **/
 function fprint(_output:stdgo.io.Io.Writer, _fset:Ref<stdgo.go.token.Token.FileSet>, _node:AnyInterface):Error {
-        return ((({ tabwidth : (8 : GoInt) } : Config) : Ref<Config>)).fprint(_output, _fset, _node);
+        return (Go.setRef(({ tabwidth : (8 : GoInt) } : Config)) : Ref<Config>).fprint(_output, _fset, _node);
     }
 /**
     // format parses src, prints the corresponding AST, verifies the resulting
@@ -1414,7 +1426,7 @@ private function _format(_src:Slice<GoByte>, _mode:T_checkMode):{ var _0 : Slice
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         {
-            var _err:Error = _cfg.fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
+            var _err:Error = _cfg.fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
             if (_err != null) {
                 return { _0 : (null : Slice<GoUInt8>), _1 : stdgo.fmt.Fmt.errorf(("print: %s" : GoString), Go.toInterface(_err)) };
             };
@@ -1536,7 +1548,7 @@ function testLineComments(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         _fset = stdgo.go.token.Token.newFileSet();
-        fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
+        fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
         var _nlines:GoInt = (0 : GoInt);
         for (_0 => _ch in _buf.bytes()) {
             if (_ch == ((10 : GoUInt8))) {
@@ -1560,7 +1572,7 @@ function testBadNodes(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.error(Go.toInterface(("expected illegal program" : GoString)));
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
+        fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
         if ((_buf.string() : GoString) != (("package p\nBadDecl\n" : GoString))) {
             _t.errorf(("got %q, expected %q" : GoString), Go.toInterface((_buf.string() : GoString)), Go.toInterface(("package p\nBadDecl\n" : GoString)));
         };
@@ -1577,7 +1589,7 @@ private function _testComment(_t:Ref<stdgo.testing.Testing.T>, _f:Ref<stdgo.go.a
             Go.cfor(_offs <= _srclen, _offs++, {
                 _buf.reset();
                 {
-                    var _err:Error = fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
+                    var _err:Error = fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
                     if (_err != null) {
                         _t.error(Go.toInterface(_err));
                     };
@@ -1609,10 +1621,10 @@ function testBadComments(_t:Ref<stdgo.testing.Testing.T>):Void {
         if (_fset.positionFor(_pos, false).offset != ((1 : GoInt))) {
             _t.error(Go.toInterface(("expected offset 1" : GoString)));
         };
-        _testComment(_t, _f, (("\n// first comment - text and position changed by test\npackage p\nimport \"fmt\"\nconst pi = 3.14 // rough circle\nvar (\n\tx, y, z int = 1, 2, 3\n\tu, v float64\n)\nfunc fibo(n int) {\n\tif n < 2 {\n\t\treturn n /* seed values */\n\t}\n\treturn fibo(n-1) + fibo(n-2)\n}\n" : GoString).length), (({ slash : _pos, text : ("//-style comment" : GoString) } : stdgo.go.ast.Ast.Comment) : Ref<stdgo.go.ast.Ast.Comment>));
-        _testComment(_t, _f, (("\n// first comment - text and position changed by test\npackage p\nimport \"fmt\"\nconst pi = 3.14 // rough circle\nvar (\n\tx, y, z int = 1, 2, 3\n\tu, v float64\n)\nfunc fibo(n int) {\n\tif n < 2 {\n\t\treturn n /* seed values */\n\t}\n\treturn fibo(n-1) + fibo(n-2)\n}\n" : GoString).length), (({ slash : _pos, text : ("/*-style comment */" : GoString) } : stdgo.go.ast.Ast.Comment) : Ref<stdgo.go.ast.Ast.Comment>));
-        _testComment(_t, _f, (("\n// first comment - text and position changed by test\npackage p\nimport \"fmt\"\nconst pi = 3.14 // rough circle\nvar (\n\tx, y, z int = 1, 2, 3\n\tu, v float64\n)\nfunc fibo(n int) {\n\tif n < 2 {\n\t\treturn n /* seed values */\n\t}\n\treturn fibo(n-1) + fibo(n-2)\n}\n" : GoString).length), (({ slash : _pos, text : ("/*-style \n comment */" : GoString) } : stdgo.go.ast.Ast.Comment) : Ref<stdgo.go.ast.Ast.Comment>));
-        _testComment(_t, _f, (("\n// first comment - text and position changed by test\npackage p\nimport \"fmt\"\nconst pi = 3.14 // rough circle\nvar (\n\tx, y, z int = 1, 2, 3\n\tu, v float64\n)\nfunc fibo(n int) {\n\tif n < 2 {\n\t\treturn n /* seed values */\n\t}\n\treturn fibo(n-1) + fibo(n-2)\n}\n" : GoString).length), (({ slash : _pos, text : ("/*-style comment \n\n\n */" : GoString) } : stdgo.go.ast.Ast.Comment) : Ref<stdgo.go.ast.Ast.Comment>));
+        _testComment(_t, _f, (("\n// first comment - text and position changed by test\npackage p\nimport \"fmt\"\nconst pi = 3.14 // rough circle\nvar (\n\tx, y, z int = 1, 2, 3\n\tu, v float64\n)\nfunc fibo(n int) {\n\tif n < 2 {\n\t\treturn n /* seed values */\n\t}\n\treturn fibo(n-1) + fibo(n-2)\n}\n" : GoString).length), (Go.setRef(({ slash : _pos, text : ("//-style comment" : GoString) } : stdgo.go.ast.Ast.Comment)) : Ref<stdgo.go.ast.Ast.Comment>));
+        _testComment(_t, _f, (("\n// first comment - text and position changed by test\npackage p\nimport \"fmt\"\nconst pi = 3.14 // rough circle\nvar (\n\tx, y, z int = 1, 2, 3\n\tu, v float64\n)\nfunc fibo(n int) {\n\tif n < 2 {\n\t\treturn n /* seed values */\n\t}\n\treturn fibo(n-1) + fibo(n-2)\n}\n" : GoString).length), (Go.setRef(({ slash : _pos, text : ("/*-style comment */" : GoString) } : stdgo.go.ast.Ast.Comment)) : Ref<stdgo.go.ast.Ast.Comment>));
+        _testComment(_t, _f, (("\n// first comment - text and position changed by test\npackage p\nimport \"fmt\"\nconst pi = 3.14 // rough circle\nvar (\n\tx, y, z int = 1, 2, 3\n\tu, v float64\n)\nfunc fibo(n int) {\n\tif n < 2 {\n\t\treturn n /* seed values */\n\t}\n\treturn fibo(n-1) + fibo(n-2)\n}\n" : GoString).length), (Go.setRef(({ slash : _pos, text : ("/*-style \n comment */" : GoString) } : stdgo.go.ast.Ast.Comment)) : Ref<stdgo.go.ast.Ast.Comment>));
+        _testComment(_t, _f, (("\n// first comment - text and position changed by test\npackage p\nimport \"fmt\"\nconst pi = 3.14 // rough circle\nvar (\n\tx, y, z int = 1, 2, 3\n\tu, v float64\n)\nfunc fibo(n int) {\n\tif n < 2 {\n\t\treturn n /* seed values */\n\t}\n\treturn fibo(n-1) + fibo(n-2)\n}\n" : GoString).length), (Go.setRef(({ slash : _pos, text : ("/*-style comment \n\n\n */" : GoString) } : stdgo.go.ast.Ast.Comment)) : Ref<stdgo.go.ast.Ast.Comment>));
     }
 /**
     // idents is an iterator that returns all idents in f via the result channel.
@@ -1650,7 +1662,7 @@ function testSourcePos(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.fatal(Go.toInterface(_err));
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        _err = ((({ mode : (("12" : GoUInt) : Mode), tabwidth : (8 : GoInt) } : Config) : Ref<Config>)).fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f1)));
+        _err = (Go.setRef(({ mode : (("12" : GoUInt) : Mode), tabwidth : (8 : GoInt) } : Config)) : Ref<Config>).fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f1)));
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
@@ -1694,7 +1706,7 @@ function testIssue5945(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.fatal(Go.toInterface(_err));
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        _err = ((({ mode : (("12" : GoUInt) : Mode), tabwidth : (8 : GoInt) } : Config) : Ref<Config>)).fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f1)));
+        _err = (Go.setRef(({ mode : (("12" : GoUInt) : Mode), tabwidth : (8 : GoInt) } : Config)) : Ref<Config>).fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f1)));
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
@@ -1710,7 +1722,7 @@ function testDeclLists(_t:Ref<stdgo.testing.Testing.T>):Void {
                 throw Go.toInterface(_err);
             };
             var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-            _err = fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(_file.decls));
+            _err = fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(_file.decls));
             if (_err != null) {
                 throw Go.toInterface(_err);
             };
@@ -1727,7 +1739,7 @@ function testStmtLists(_t:Ref<stdgo.testing.Testing.T>):Void {
                 throw Go.toInterface(_err);
             };
             var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-            _err = fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface((Go.typeAssert((Go.toInterface(_file.decls[(0 : GoInt)]) : Ref<stdgo.go.ast.Ast.FuncDecl>)) : Ref<stdgo.go.ast.Ast.FuncDecl>).body.list));
+            _err = fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface((Go.typeAssert((Go.toInterface(_file.decls[(0 : GoInt)]) : Ref<stdgo.go.ast.Ast.FuncDecl>)) : Ref<stdgo.go.ast.Ast.FuncDecl>).body.list));
             if (_err != null) {
                 throw Go.toInterface(_err);
             };
@@ -1755,7 +1767,7 @@ function testBaseIndent(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.run(stdgo.fmt.Fmt.sprint(Go.toInterface(_indent)), function(_t:Ref<stdgo.testing.Testing.T>):Void {
                     _t.parallel();
                     var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-                    ((({ tabwidth : (8 : GoInt), indent : _indent } : Config) : Ref<Config>)).fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_file)));
+                    (Go.setRef(({ tabwidth : (8 : GoInt), indent : _indent } : Config)) : Ref<Config>).fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_file)));
                     var _lines = stdgo.bytes.Bytes.split(_buf.bytes(), (new Slice<GoUInt8>(0, 0, (10 : GoUInt8)) : Slice<GoUInt8>));
                     for (_i => _line in _lines) {
                         if ((_line.length) == ((0 : GoInt))) {
@@ -1781,10 +1793,10 @@ function testBaseIndent(_t:Ref<stdgo.testing.Testing.T>):Void {
     // can be printed (per go/ast specification). Test case for issue 3870.
 **/
 function testFuncType(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _src = (({ name : (({ name : ("p" : GoString) } : stdgo.go.ast.Ast.Ident) : Ref<stdgo.go.ast.Ast.Ident>), decls : (new Slice<stdgo.go.ast.Ast.Decl>(0, 0, Go.asInterface((({ name : (({ name : ("f" : GoString) } : stdgo.go.ast.Ast.Ident) : Ref<stdgo.go.ast.Ast.Ident>), type : ((new stdgo.go.ast.Ast.FuncType() : stdgo.go.ast.Ast.FuncType) : Ref<stdgo.go.ast.Ast.FuncType>) } : stdgo.go.ast.Ast.FuncDecl) : Ref<stdgo.go.ast.Ast.FuncDecl>))) : Slice<stdgo.go.ast.Ast.Decl>) } : stdgo.go.ast.Ast.File) : Ref<stdgo.go.ast.Ast.File>);
+        var _src = (Go.setRef(({ name : (Go.setRef(({ name : ("p" : GoString) } : stdgo.go.ast.Ast.Ident)) : Ref<stdgo.go.ast.Ast.Ident>), decls : (new Slice<stdgo.go.ast.Ast.Decl>(0, 0, Go.asInterface((Go.setRef(({ name : (Go.setRef(({ name : ("f" : GoString) } : stdgo.go.ast.Ast.Ident)) : Ref<stdgo.go.ast.Ast.Ident>), type : (Go.setRef((new stdgo.go.ast.Ast.FuncType() : stdgo.go.ast.Ast.FuncType)) : Ref<stdgo.go.ast.Ast.FuncType>) } : stdgo.go.ast.Ast.FuncDecl)) : Ref<stdgo.go.ast.Ast.FuncDecl>))) : Slice<stdgo.go.ast.Ast.Decl>) } : stdgo.go.ast.Ast.File)) : Ref<stdgo.go.ast.Ast.File>);
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         {
-            var _err:Error = fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_src)));
+            var _err:Error = fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_src)));
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -1812,8 +1824,8 @@ function testWriteErrors(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (20 : GoInt), _i++, {
-                var _lw = (({ _remaining : _i } : T_limitWriter) : Ref<T_limitWriter>);
-                var _err:Error = ((({ mode : (("1" : GoUInt) : Mode) } : Config) : Ref<Config>)).fprint(Go.asInterface(_lw), _fset, Go.toInterface(Go.asInterface(_file)));
+                var _lw = (Go.setRef(({ _remaining : _i } : T_limitWriter)) : Ref<T_limitWriter>);
+                var _err:Error = (Go.setRef(({ mode : (("1" : GoUInt) : Mode) } : Config)) : Ref<Config>).fprint(Go.asInterface(_lw), _fset, Go.toInterface(Go.asInterface(_file)));
                 if (_lw._errCount > (1 : GoInt)) {
                     _t.fatal(Go.toInterface(("Writes continued after first error returned" : GoString)));
                 };
@@ -1842,7 +1854,7 @@ function testCommentedNode(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.fatal(Go.toInterface(_err));
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        _err = fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface((({ node : Go.toInterface(_f.decls[(0 : GoInt)]), comments : _f.comments } : CommentedNode) : Ref<CommentedNode>)));
+        _err = fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface((Go.setRef(({ node : Go.toInterface(_f.decls[(0 : GoInt)]), comments : _f.comments } : CommentedNode)) : Ref<CommentedNode>)));
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
@@ -1850,7 +1862,7 @@ function testCommentedNode(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("got %q, want %q" : GoString), Go.toInterface((_buf.string() : GoString)), Go.toInterface(("func foo() {\n\t// comment inside func\n}" : GoString)));
         };
         _buf.reset();
-        _err = fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface((({ node : Go.toInterface(_f.decls[(1 : GoInt)]), comments : _f.comments } : CommentedNode) : Ref<CommentedNode>)));
+        _err = fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface((Go.setRef(({ node : Go.toInterface(_f.decls[(1 : GoInt)]), comments : _f.comments } : CommentedNode)) : Ref<CommentedNode>)));
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
@@ -1866,7 +1878,7 @@ function testIssue11151(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.fatal(Go.toInterface(_err));
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
+        fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
         var _got:GoString = (_buf.string() : GoString);
         {};
         if (_got != (("package p\t/*/1*\r/2*\r/3*+/4*/\n" : GoString))) {
@@ -1892,7 +1904,7 @@ function testParenthesizedDecl(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.fatal(Go.toInterface(_err));
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        _err = fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
+        _err = fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
@@ -1904,7 +1916,7 @@ function testParenthesizedDecl(_t:Ref<stdgo.testing.Testing.T>):Void {
             });
         };
         _buf.reset();
-        _err = fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
+        _err = fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_f)));
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
@@ -1929,7 +1941,7 @@ function testIssue32854(_t:Ref<stdgo.testing.Testing.T>):Void {
         _ret.results[(0 : GoInt)] = (Go.typeAssert((Go.toInterface(_ret.results[(0 : GoInt)]) : Ref<stdgo.go.ast.Ast.CompositeLit>)) : Ref<stdgo.go.ast.Ast.CompositeLit>).elts[(0 : GoInt)];
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         {
-            var _err:Error = fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_ret)));
+            var _err:Error = fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_ret)));
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -1947,7 +1959,7 @@ function testIssue32854(_t:Ref<stdgo.testing.Testing.T>):Void {
             {};
             var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
             {
-                var _err:Error = fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface((({ name : ("foobar" : GoString) } : stdgo.go.ast.Ast.Ident) : Ref<stdgo.go.ast.Ast.Ident>))));
+                var _err:Error = fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface((Go.setRef(({ name : ("foobar" : GoString) } : stdgo.go.ast.Ast.Ident)) : Ref<stdgo.go.ast.Ast.Ident>))));
                 if (_err != null) {
                     throw Go.toInterface(_err);
                 };
@@ -1963,7 +1975,7 @@ function testIssue32854(_t:Ref<stdgo.testing.Testing.T>):Void {
     };
 class T_sizeCounter_asInterface {
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1989,9 +2001,9 @@ class T_sizeCounter_asInterface {
 }
 class T_printer_asInterface {
     @:keep
-    public function _free():Void __self__.value._free();
+    public dynamic function _free():Void __self__.value._free();
     @:keep
-    public function _printNode(_node:AnyInterface):Error return __self__.value._printNode(_node);
+    public dynamic function _printNode(_node:AnyInterface):Error return __self__.value._printNode(_node);
     /**
         // flush prints any pending comments and whitespace occurring textually
         // before the position of the next token tok. The flush result indicates
@@ -1999,7 +2011,7 @@ class T_printer_asInterface {
         // buffer.
     **/
     @:keep
-    public function _flush(_next:stdgo.go.token.Token.Position, _tok:stdgo.go.token.Token.Token):{ var _0 : Bool; var _1 : Bool; } return __self__.value._flush(_next, _tok);
+    public dynamic function _flush(_next:stdgo.go.token.Token.Position, _tok:stdgo.go.token.Token.Token):{ var _0 : Bool; var _1 : Bool; } return __self__.value._flush(_next, _tok);
     /**
         // print prints a list of "items" (roughly corresponding to syntactic
         // tokens, but also including whitespace and formatting information).
@@ -2013,14 +2025,14 @@ class T_printer_asInterface {
         // printed, followed by the actual token.
     **/
     @:keep
-    public function _print(_args:haxe.Rest<AnyInterface>):Void __self__.value._print(..._args);
+    public dynamic function _print(_args:haxe.Rest<AnyInterface>):Void __self__.value._print(..._args);
     @:keep
-    public function _setPos(_pos:stdgo.go.token.Token.Pos):Void __self__.value._setPos(_pos);
+    public dynamic function _setPos(_pos:stdgo.go.token.Token.Pos):Void __self__.value._setPos(_pos);
     /**
         // whiteWhitespace writes the first n whitespace entries.
     **/
     @:keep
-    public function _writeWhitespace(_n:GoInt):Void __self__.value._writeWhitespace(_n);
+    public dynamic function _writeWhitespace(_n:GoInt):Void __self__.value._writeWhitespace(_n);
     /**
         // intersperseComments consumes all comments that appear before the next token
         // tok and prints it together with the buffered whitespace (i.e., the whitespace
@@ -2029,12 +2041,12 @@ class T_printer_asInterface {
         // newline was written or if a formfeed was dropped from the whitespace buffer.
     **/
     @:keep
-    public function _intersperseComments(_next:stdgo.go.token.Token.Position, _tok:stdgo.go.token.Token.Token):{ var _0 : Bool; var _1 : Bool; } return __self__.value._intersperseComments(_next, _tok);
+    public dynamic function _intersperseComments(_next:stdgo.go.token.Token.Position, _tok:stdgo.go.token.Token.Token):{ var _0 : Bool; var _1 : Bool; } return __self__.value._intersperseComments(_next, _tok);
     /**
         // containsLinebreak reports whether the whitespace buffer contains any line breaks.
     **/
     @:keep
-    public function _containsLinebreak():Bool return __self__.value._containsLinebreak();
+    public dynamic function _containsLinebreak():Bool return __self__.value._containsLinebreak();
     /**
         // writeCommentSuffix writes a line break after a comment if indicated
         // and processes any leftover indentation information. If a line break
@@ -2044,9 +2056,9 @@ class T_printer_asInterface {
         // buffer.
     **/
     @:keep
-    public function _writeCommentSuffix(_needsLinebreak:Bool):{ var _0 : Bool; var _1 : Bool; } return __self__.value._writeCommentSuffix(_needsLinebreak);
+    public dynamic function _writeCommentSuffix(_needsLinebreak:Bool):{ var _0 : Bool; var _1 : Bool; } return __self__.value._writeCommentSuffix(_needsLinebreak);
     @:keep
-    public function _writeComment(_comment:Ref<stdgo.go.ast.Ast.Comment>):Void __self__.value._writeComment(_comment);
+    public dynamic function _writeComment(_comment:Ref<stdgo.go.ast.Ast.Comment>):Void __self__.value._writeComment(_comment);
     /**
         // writeCommentPrefix writes the whitespace before a comment.
         // If there is any pending whitespace, it consumes as much of
@@ -2056,7 +2068,7 @@ class T_printer_asInterface {
         // a group of comments (or nil), and tok is the next token.
     **/
     @:keep
-    public function _writeCommentPrefix(_pos:stdgo.go.token.Token.Position, _next:stdgo.go.token.Token.Position, _prev:Ref<stdgo.go.ast.Ast.Comment>, _tok:stdgo.go.token.Token.Token):Void __self__.value._writeCommentPrefix(_pos, _next, _prev, _tok);
+    public dynamic function _writeCommentPrefix(_pos:stdgo.go.token.Token.Position, _next:stdgo.go.token.Token.Position, _prev:Ref<stdgo.go.ast.Ast.Comment>, _tok:stdgo.go.token.Token.Token):Void __self__.value._writeCommentPrefix(_pos, _next, _prev, _tok);
     /**
         // writeString writes the string s to p.output and updates p.pos, p.out,
         // and p.last. If isLit is set, s is escaped w/ tabwriter.Escape characters
@@ -2070,27 +2082,27 @@ class T_printer_asInterface {
         // printer benchmark by up to 10%.
     **/
     @:keep
-    public function _writeString(_pos:stdgo.go.token.Token.Position, _s:GoString, _isLit:Bool):Void __self__.value._writeString(_pos, _s, _isLit);
+    public dynamic function _writeString(_pos:stdgo.go.token.Token.Position, _s:GoString, _isLit:Bool):Void __self__.value._writeString(_pos, _s, _isLit);
     /**
         // writeByte writes ch n times to p.output and updates p.pos.
         // Only used to write formatting (white space) characters.
     **/
     @:keep
-    public function _writeByte(_ch:GoByte, _n:GoInt):Void __self__.value._writeByte(_ch, _n);
+    public dynamic function _writeByte(_ch:GoByte, _n:GoInt):Void __self__.value._writeByte(_ch, _n);
     /**
         // writeIndent writes indentation.
     **/
     @:keep
-    public function _writeIndent():Void __self__.value._writeIndent();
+    public dynamic function _writeIndent():Void __self__.value._writeIndent();
     /**
         // writeLineDirective writes a //line directive if necessary.
     **/
     @:keep
-    public function _writeLineDirective(_pos:stdgo.go.token.Token.Position):Void __self__.value._writeLineDirective(_pos);
+    public dynamic function _writeLineDirective(_pos:stdgo.go.token.Token.Position):Void __self__.value._writeLineDirective(_pos);
     @:keep
-    public function _lineFor(_pos:stdgo.go.token.Token.Pos):GoInt return __self__.value._lineFor(_pos);
+    public dynamic function _lineFor(_pos:stdgo.go.token.Token.Pos):GoInt return __self__.value._lineFor(_pos);
     @:keep
-    public function _posFor(_pos:stdgo.go.token.Token.Pos):stdgo.go.token.Token.Position return __self__.value._posFor(_pos);
+    public dynamic function _posFor(_pos:stdgo.go.token.Token.Pos):stdgo.go.token.Token.Position return __self__.value._posFor(_pos);
     /**
         // linesFrom returns the number of output lines between the current
         // output line and the line argument, ignoring any pending (not yet
@@ -2098,7 +2110,7 @@ class T_printer_asInterface {
         // size (in number of lines) for a formatted construct.
     **/
     @:keep
-    public function _linesFrom(_line:GoInt):GoInt return __self__.value._linesFrom(_line);
+    public dynamic function _linesFrom(_line:GoInt):GoInt return __self__.value._linesFrom(_line);
     /**
         // recordLine records the output line number for the next non-whitespace
         // token in *linePtr. It is used to compute an accurate line number for a
@@ -2106,46 +2118,46 @@ class T_printer_asInterface {
         // or comments.
     **/
     @:keep
-    public function _recordLine(_linePtr:Pointer<GoInt>):Void __self__.value._recordLine(_linePtr);
+    public dynamic function _recordLine(_linePtr:Pointer<GoInt>):Void __self__.value._recordLine(_linePtr);
     /**
         // commentSizeBefore returns the estimated size of the
         // comments on the same line before the next position.
     **/
     @:keep
-    public function _commentSizeBefore(_next:stdgo.go.token.Token.Position):GoInt return __self__.value._commentSizeBefore(_next);
+    public dynamic function _commentSizeBefore(_next:stdgo.go.token.Token.Position):GoInt return __self__.value._commentSizeBefore(_next);
     /**
         // commentBefore reports whether the current comment group occurs
         // before the next position in the source code and printing it does
         // not introduce implicit semicolons.
     **/
     @:keep
-    public function _commentBefore(_next:stdgo.go.token.Token.Position):Bool return __self__.value._commentBefore(_next);
+    public dynamic function _commentBefore(_next:stdgo.go.token.Token.Position):Bool return __self__.value._commentBefore(_next);
     @:keep
-    public function _nextComment():Void __self__.value._nextComment();
+    public dynamic function _nextComment():Void __self__.value._nextComment();
     /**
         // commentsHaveNewline reports whether a list of comments belonging to
         // an *ast.CommentGroup contains newlines. Because the position information
         // may only be partially correct, we also have to read the comment text.
     **/
     @:keep
-    public function _commentsHaveNewline(_list:Slice<Ref<stdgo.go.ast.Ast.Comment>>):Bool return __self__.value._commentsHaveNewline(_list);
+    public dynamic function _commentsHaveNewline(_list:Slice<Ref<stdgo.go.ast.Ast.Comment>>):Bool return __self__.value._commentsHaveNewline(_list);
     @:keep
-    public function _internalError(_msg:haxe.Rest<AnyInterface>):Void __self__.value._internalError(..._msg);
+    public dynamic function _internalError(_msg:haxe.Rest<AnyInterface>):Void __self__.value._internalError(..._msg);
     @:keep
-    public function _file(_src:Ref<stdgo.go.ast.Ast.File>):Void __self__.value._file(_src);
+    public dynamic function _file(_src:Ref<stdgo.go.ast.Ast.File>):Void __self__.value._file(_src);
     @:keep
-    public function _declList(_list:Slice<stdgo.go.ast.Ast.Decl>):Void __self__.value._declList(_list);
+    public dynamic function _declList(_list:Slice<stdgo.go.ast.Ast.Decl>):Void __self__.value._declList(_list);
     @:keep
-    public function _decl(_decl:stdgo.go.ast.Ast.Decl):Void __self__.value._decl(_decl);
+    public dynamic function _decl(_decl:stdgo.go.ast.Ast.Decl):Void __self__.value._decl(_decl);
     @:keep
-    public function _funcDecl(_d:Ref<stdgo.go.ast.Ast.FuncDecl>):Void __self__.value._funcDecl(_d);
+    public dynamic function _funcDecl(_d:Ref<stdgo.go.ast.Ast.FuncDecl>):Void __self__.value._funcDecl(_d);
     /**
         // distanceFrom returns the column difference between p.out (the current output
         // position) and startOutCol. If the start position is on a different line from
         // the current position (or either is unknown), the result is infinity.
     **/
     @:keep
-    public function _distanceFrom(_startPos:stdgo.go.token.Token.Pos, _startOutCol:GoInt):GoInt return __self__.value._distanceFrom(_startPos, _startOutCol);
+    public dynamic function _distanceFrom(_startPos:stdgo.go.token.Token.Pos, _startOutCol:GoInt):GoInt return __self__.value._distanceFrom(_startPos, _startOutCol);
     /**
         // funcBody prints a function body following a function header of given headerSize.
         // If the header's and block's size are "small enough" and the block is "simple enough",
@@ -2154,17 +2166,17 @@ class T_printer_asInterface {
         // lines for the block's statements and its closing "}".
     **/
     @:keep
-    public function _funcBody(_headerSize:GoInt, _sep:T_whiteSpace, _b:Ref<stdgo.go.ast.Ast.BlockStmt>):Void __self__.value._funcBody(_headerSize, _sep, _b);
+    public dynamic function _funcBody(_headerSize:GoInt, _sep:T_whiteSpace, _b:Ref<stdgo.go.ast.Ast.BlockStmt>):Void __self__.value._funcBody(_headerSize, _sep, _b);
     /**
         // bodySize is like nodeSize but it is specialized for *ast.BlockStmt's.
     **/
     @:keep
-    public function _bodySize(_b:Ref<stdgo.go.ast.Ast.BlockStmt>, _maxSize:GoInt):GoInt return __self__.value._bodySize(_b, _maxSize);
+    public dynamic function _bodySize(_b:Ref<stdgo.go.ast.Ast.BlockStmt>, _maxSize:GoInt):GoInt return __self__.value._bodySize(_b, _maxSize);
     /**
         // numLines returns the number of lines spanned by node n in the original source.
     **/
     @:keep
-    public function _numLines(_n:stdgo.go.ast.Ast.Node):GoInt return __self__.value._numLines(_n);
+    public dynamic function _numLines(_n:stdgo.go.ast.Ast.Node):GoInt return __self__.value._numLines(_n);
     /**
         // nodeSize determines the size of n in chars after formatting.
         // The result is <= maxSize if the node fits on one line with at
@@ -2172,55 +2184,55 @@ class T_printer_asInterface {
         // any control chars. Otherwise, the result is > maxSize.
     **/
     @:keep
-    public function _nodeSize(_n:stdgo.go.ast.Ast.Node, _maxSize:GoInt):GoInt return __self__.value._nodeSize(_n, _maxSize);
+    public dynamic function _nodeSize(_n:stdgo.go.ast.Ast.Node, _maxSize:GoInt):GoInt return __self__.value._nodeSize(_n, _maxSize);
     @:keep
-    public function _genDecl(_d:Ref<stdgo.go.ast.Ast.GenDecl>):Void __self__.value._genDecl(_d);
+    public dynamic function _genDecl(_d:Ref<stdgo.go.ast.Ast.GenDecl>):Void __self__.value._genDecl(_d);
     /**
         // The parameter n is the number of specs in the group. If doIndent is set,
         // multi-line identifier lists in the spec are indented when the first
         // linebreak is encountered.
     **/
     @:keep
-    public function _spec(_spec:stdgo.go.ast.Ast.Spec, _n:GoInt, _doIndent:Bool):Void __self__.value._spec(_spec, _n, _doIndent);
+    public dynamic function _spec(_spec:stdgo.go.ast.Ast.Spec, _n:GoInt, _doIndent:Bool):Void __self__.value._spec(_spec, _n, _doIndent);
     @:keep
-    public function _valueSpec(_s:Ref<stdgo.go.ast.Ast.ValueSpec>, _keepType:Bool):Void __self__.value._valueSpec(_s, _keepType);
+    public dynamic function _valueSpec(_s:Ref<stdgo.go.ast.Ast.ValueSpec>, _keepType:Bool):Void __self__.value._valueSpec(_s, _keepType);
     @:keep
-    public function _stmt(_stmt:stdgo.go.ast.Ast.Stmt, _nextIsRBrace:Bool):Void __self__.value._stmt(_stmt, _nextIsRBrace);
+    public dynamic function _stmt(_stmt:stdgo.go.ast.Ast.Stmt, _nextIsRBrace:Bool):Void __self__.value._stmt(_stmt, _nextIsRBrace);
     /**
         // indentList reports whether an expression list would look better if it
         // were indented wholesale (starting with the very first element, rather
         // than starting at the first line break).
     **/
     @:keep
-    public function _indentList(_list:Slice<stdgo.go.ast.Ast.Expr>):Bool return __self__.value._indentList(_list);
+    public dynamic function _indentList(_list:Slice<stdgo.go.ast.Ast.Expr>):Bool return __self__.value._indentList(_list);
     @:keep
-    public function _controlClause(_isForStmt:Bool, _init:stdgo.go.ast.Ast.Stmt, _expr:stdgo.go.ast.Ast.Expr, _post:stdgo.go.ast.Ast.Stmt):Void __self__.value._controlClause(_isForStmt, _init, _expr, _post);
+    public dynamic function _controlClause(_isForStmt:Bool, _init:stdgo.go.ast.Ast.Stmt, _expr:stdgo.go.ast.Ast.Expr, _post:stdgo.go.ast.Ast.Stmt):Void __self__.value._controlClause(_isForStmt, _init, _expr, _post);
     /**
         // block prints an *ast.BlockStmt; it always spans at least two lines.
     **/
     @:keep
-    public function _block(_b:Ref<stdgo.go.ast.Ast.BlockStmt>, _nindent:GoInt):Void __self__.value._block(_b, _nindent);
+    public dynamic function _block(_b:Ref<stdgo.go.ast.Ast.BlockStmt>, _nindent:GoInt):Void __self__.value._block(_b, _nindent);
     /**
         // Print the statement list indented, but without a newline after the last statement.
         // Extra line breaks between statements in the source are respected but at most one
         // empty line is printed between statements.
     **/
     @:keep
-    public function _stmtList(_list:Slice<stdgo.go.ast.Ast.Stmt>, _nindent:GoInt, _nextIsRBrace:Bool):Void __self__.value._stmtList(_list, _nindent, _nextIsRBrace);
+    public dynamic function _stmtList(_list:Slice<stdgo.go.ast.Ast.Stmt>, _nindent:GoInt, _nextIsRBrace:Bool):Void __self__.value._stmtList(_list, _nindent, _nextIsRBrace);
     @:keep
-    public function _expr(_x:stdgo.go.ast.Ast.Expr):Void __self__.value._expr(_x);
+    public dynamic function _expr(_x:stdgo.go.ast.Ast.Expr):Void __self__.value._expr(_x);
     @:keep
-    public function _expr0(_x:stdgo.go.ast.Ast.Expr, _depth:GoInt):Void __self__.value._expr0(_x, _depth);
+    public dynamic function _expr0(_x:stdgo.go.ast.Ast.Expr, _depth:GoInt):Void __self__.value._expr0(_x, _depth);
     /**
         // selectorExpr handles an *ast.SelectorExpr node and reports whether x spans
         // multiple lines.
     **/
     @:keep
-    public function _selectorExpr(_x:Ref<stdgo.go.ast.Ast.SelectorExpr>, _depth:GoInt, _isMethod:Bool):Bool return __self__.value._selectorExpr(_x, _depth, _isMethod);
+    public dynamic function _selectorExpr(_x:Ref<stdgo.go.ast.Ast.SelectorExpr>, _depth:GoInt, _isMethod:Bool):Bool return __self__.value._selectorExpr(_x, _depth, _isMethod);
     @:keep
-    public function _possibleSelectorExpr(_expr:stdgo.go.ast.Ast.Expr, _prec1:GoInt, _depth:GoInt):Bool return __self__.value._possibleSelectorExpr(_expr, _prec1, _depth);
+    public dynamic function _possibleSelectorExpr(_expr:stdgo.go.ast.Ast.Expr, _prec1:GoInt, _depth:GoInt):Bool return __self__.value._possibleSelectorExpr(_expr, _prec1, _depth);
     @:keep
-    public function _expr1(_expr:stdgo.go.ast.Ast.Expr, _prec1:GoInt, _depth:GoInt):Void __self__.value._expr1(_expr, _prec1, _depth);
+    public dynamic function _expr1(_expr:stdgo.go.ast.Ast.Expr, _prec1:GoInt, _depth:GoInt):Void __self__.value._expr1(_expr, _prec1, _depth);
     /**
         // Format the binary expression: decide the cutoff and then format.
         // Let's call depth == 1 Normal mode, and depth > 1 Compact mode.
@@ -2260,17 +2272,17 @@ class T_printer_asInterface {
         //     and 4 (never use spaces) in Compact mode.
     **/
     @:keep
-    public function _binaryExpr(_x:Ref<stdgo.go.ast.Ast.BinaryExpr>, _prec1:GoInt, _cutoff:GoInt, _depth:GoInt):Void __self__.value._binaryExpr(_x, _prec1, _cutoff, _depth);
+    public dynamic function _binaryExpr(_x:Ref<stdgo.go.ast.Ast.BinaryExpr>, _prec1:GoInt, _cutoff:GoInt, _depth:GoInt):Void __self__.value._binaryExpr(_x, _prec1, _cutoff, _depth);
     @:keep
-    public function _fieldList(_fields:Ref<stdgo.go.ast.Ast.FieldList>, _isStruct:Bool, _isIncomplete:Bool):Void __self__.value._fieldList(_fields, _isStruct, _isIncomplete);
+    public dynamic function _fieldList(_fields:Ref<stdgo.go.ast.Ast.FieldList>, _isStruct:Bool, _isIncomplete:Bool):Void __self__.value._fieldList(_fields, _isStruct, _isIncomplete);
     @:keep
-    public function _setLineComment(_text:GoString):Void __self__.value._setLineComment(_text);
+    public dynamic function _setLineComment(_text:GoString):Void __self__.value._setLineComment(_text);
     @:keep
-    public function _isOneLineFieldList(_list:Slice<Ref<stdgo.go.ast.Ast.Field>>):Bool return __self__.value._isOneLineFieldList(_list);
+    public dynamic function _isOneLineFieldList(_list:Slice<Ref<stdgo.go.ast.Ast.Field>>):Bool return __self__.value._isOneLineFieldList(_list);
     @:keep
-    public function _signature(_sig:Ref<stdgo.go.ast.Ast.FuncType>):Void __self__.value._signature(_sig);
+    public dynamic function _signature(_sig:Ref<stdgo.go.ast.Ast.FuncType>):Void __self__.value._signature(_sig);
     @:keep
-    public function _parameters(_fields:Ref<stdgo.go.ast.Ast.FieldList>, _mode:T_paramMode):Void __self__.value._parameters(_fields, _mode);
+    public dynamic function _parameters(_fields:Ref<stdgo.go.ast.Ast.FieldList>, _mode:T_paramMode):Void __self__.value._parameters(_fields, _mode);
     /**
         // Print a list of expressions. If the list spans multiple
         // source lines, the original line breaks are respected between
@@ -2282,13 +2294,13 @@ class T_printer_asInterface {
         //	(e.g., pass list via a channel over which to range).
     **/
     @:keep
-    public function _exprList(_prev0:stdgo.go.token.Token.Pos, _list:Slice<stdgo.go.ast.Ast.Expr>, _depth:GoInt, _mode:T_exprListMode, _next0:stdgo.go.token.Token.Pos, _isIncomplete:Bool):Void __self__.value._exprList(_prev0, _list, _depth, _mode, _next0, _isIncomplete);
+    public dynamic function _exprList(_prev0:stdgo.go.token.Token.Pos, _list:Slice<stdgo.go.ast.Ast.Expr>, _depth:GoInt, _mode:T_exprListMode, _next0:stdgo.go.token.Token.Pos, _isIncomplete:Bool):Void __self__.value._exprList(_prev0, _list, _depth, _mode, _next0, _isIncomplete);
     /**
         // If indent is set, a multi-line identifier list is indented after the
         // first linebreak encountered.
     **/
     @:keep
-    public function _identList(_list:Slice<Ref<stdgo.go.ast.Ast.Ident>>, _indent:Bool):Void __self__.value._identList(_list, _indent);
+    public dynamic function _identList(_list:Slice<Ref<stdgo.go.ast.Ast.Ident>>, _indent:Bool):Void __self__.value._identList(_list, _indent);
     /**
         // setComment sets g as the next comment if g != nil and if node comments
         // are enabled - this mode is used when printing source code fragments such
@@ -2296,7 +2308,7 @@ class T_printer_asInterface {
         // and at most one pending comment in the p.comment cache.
     **/
     @:keep
-    public function _setComment(_g:Ref<stdgo.go.ast.Ast.CommentGroup>):Void __self__.value._setComment(_g);
+    public dynamic function _setComment(_g:Ref<stdgo.go.ast.Ast.CommentGroup>):Void __self__.value._setComment(_g);
     /**
         // Print as many newlines as necessary (but at least min newlines) to get to
         // the current line. ws is printed before the first line break. If newSection
@@ -2314,17 +2326,17 @@ class T_printer_asInterface {
         // future (not yet interspersed) comments in this function.
     **/
     @:keep
-    public function _linebreak(_line:GoInt, _min:GoInt, _ws:T_whiteSpace, _newSection:Bool):GoInt return __self__.value._linebreak(_line, _min, _ws, _newSection);
+    public dynamic function _linebreak(_line:GoInt, _min:GoInt, _ws:T_whiteSpace, _newSection:Bool):GoInt return __self__.value._linebreak(_line, _min, _ws, _newSection);
     @:keep
-    public function _commentTextAt(_start:GoInt):GoString return __self__.value._commentTextAt(_start);
+    public dynamic function _commentTextAt(_start:GoInt):GoString return __self__.value._commentTextAt(_start);
     @:keep
-    public function _lineAt(_start:GoInt):Slice<GoByte> return __self__.value._lineAt(_start);
+    public dynamic function _lineAt(_start:GoInt):Slice<GoByte> return __self__.value._lineAt(_start);
     @:keep
-    public function _fixGoBuildLines():Void __self__.value._fixGoBuildLines();
+    public dynamic function _fixGoBuildLines():Void __self__.value._fixGoBuildLines();
     @:embedded
-    public function _fprint(_output:stdgo.io.Io.Writer, _fset_:Ref<stdgo.go.token.Token.FileSet>, _node:AnyInterface, _nodeSizes:GoMap<stdgo.go.ast.Ast.Node, GoInt>):Error return __self__.value._fprint(_output, _fset_, _node, _nodeSizes);
+    public dynamic function _fprint(_output:stdgo.io.Io.Writer, _fset_:Ref<stdgo.go.token.Token.FileSet>, _node:AnyInterface, _nodeSizes:GoMap<stdgo.go.ast.Ast.Node, GoInt>):Error return __self__.value._fprint(_output, _fset_, _node, _nodeSizes);
     @:embedded
-    public function fprint(_output:stdgo.io.Io.Writer, _fset_:Ref<stdgo.go.token.Token.FileSet>, _node:AnyInterface):Error return __self__.value.fprint(_output, _fset_, _node);
+    public dynamic function fprint(_output:stdgo.io.Io.Writer, _fset_:Ref<stdgo.go.token.Token.FileSet>, _node:AnyInterface):Error return __self__.value.fprint(_output, _fset_, _node);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2369,13 +2381,13 @@ class T_printer_asInterface {
                 var _end:stdgo.go.token.Token.Pos = _n.end();
                 {
                     var _doc = _getDoc(_n);
-                    if (_doc != null) {
+                    if (_doc != null && ((_doc : Dynamic).__nil__ == null || !(_doc : Dynamic).__nil__)) {
                         _beg = _doc.pos();
                     };
                 };
                 {
                     var _com = _getLastComment(_n);
-                    if (_com != null) {
+                    if (_com != null && ((_com : Dynamic).__nil__ == null || !(_com : Dynamic).__nil__)) {
                         {
                             var _e:stdgo.go.token.Token.Pos = _com.end();
                             if (_e > _end) {
@@ -2454,7 +2466,7 @@ class T_printer_asInterface {
                     var _n:Ref<stdgo.go.ast.Ast.File> = __type__ == null ? (null : Ref<stdgo.go.ast.Ast.File>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.ast.Ast.File>) : __type__ == null ? (null : Ref<stdgo.go.ast.Ast.File>) : __type__.__underlying__().value;
                     _p._file(_n);
                 } else {
-                    var _n:AnyInterface = __type__ == null ? null : __type__.__underlying__();
+                    var _n:AnyInterface = __type__.__underlying__();
                     @:goto "unsupported";
                 };
             };
@@ -2471,9 +2483,9 @@ class T_printer_asInterface {
     @:keep
     static public function _flush( _p:Ref<T_printer>, _next:stdgo.go.token.Token.Position, _tok:stdgo.go.token.Token.Token):{ var _0 : Bool; var _1 : Bool; } {
         var _wroteNewline:Bool = false, _droppedFF:Bool = false;
-        if (_p._commentBefore((_next == null ? null : _next.__copy__()))) {
+        if (_p._commentBefore(_next.__copy__())) {
             {
-                var __tmp__ = _p._intersperseComments((_next == null ? null : _next.__copy__()), _tok);
+                var __tmp__ = _p._intersperseComments(_next.__copy__(), _tok);
                 _wroteNewline = __tmp__._0;
                 _droppedFF = __tmp__._1;
             };
@@ -2501,10 +2513,13 @@ class T_printer_asInterface {
             var _data:GoString = ("" : GoString);
             var _isLit:Bool = false;
             var _impliedSemi:Bool = false;
-            if (_p._lastTok == ((0 : stdgo.go.token.Token.Token))) {} else if (_p._lastTok == ((49 : stdgo.go.token.Token.Token)) || _p._lastTok == ((50 : stdgo.go.token.Token.Token))) {
-                _p._prevOpen = _p._lastTok;
-            } else {
-                _p._prevOpen = (0 : stdgo.go.token.Token.Token);
+            {
+                final __value__ = _p._lastTok;
+                if (__value__ == ((0 : stdgo.go.token.Token.Token))) {} else if (__value__ == ((49 : stdgo.go.token.Token.Token)) || __value__ == ((50 : stdgo.go.token.Token.Token))) {
+                    _p._prevOpen = _p._lastTok;
+                } else {
+                    _p._prevOpen = (0 : stdgo.go.token.Token.Token);
+                };
             };
             {
                 final __type__ = _arg;
@@ -2551,8 +2566,11 @@ class T_printer_asInterface {
                         _p._wsbuf[(0 : GoInt)] = (32 : T_whiteSpace);
                     };
                     _data = _s;
-                    if (_x == ((61 : stdgo.go.token.Token.Token)) || _x == ((65 : stdgo.go.token.Token.Token)) || _x == ((69 : stdgo.go.token.Token.Token)) || _x == ((80 : stdgo.go.token.Token.Token)) || _x == ((37 : stdgo.go.token.Token.Token)) || _x == ((38 : stdgo.go.token.Token.Token)) || _x == ((54 : stdgo.go.token.Token.Token)) || _x == ((55 : stdgo.go.token.Token.Token)) || _x == ((56 : stdgo.go.token.Token.Token))) {
-                        _impliedSemi = true;
+                    {
+                        final __value__ = _x;
+                        if (__value__ == ((61 : stdgo.go.token.Token.Token)) || __value__ == ((65 : stdgo.go.token.Token.Token)) || __value__ == ((69 : stdgo.go.token.Token.Token)) || __value__ == ((80 : stdgo.go.token.Token.Token)) || __value__ == ((37 : stdgo.go.token.Token.Token)) || __value__ == ((38 : stdgo.go.token.Token.Token)) || __value__ == ((54 : stdgo.go.token.Token.Token)) || __value__ == ((55 : stdgo.go.token.Token.Token)) || __value__ == ((56 : stdgo.go.token.Token.Token))) {
+                            _impliedSemi = true;
+                        };
                     };
                     _p._lastTok = _x;
                 } else if (Go.typeEquals((__type__ : GoString))) {
@@ -2562,13 +2580,13 @@ class T_printer_asInterface {
                     _impliedSemi = true;
                     _p._lastTok = (9 : stdgo.go.token.Token.Token);
                 } else {
-                    var _x:AnyInterface = __type__ == null ? null : __type__.__underlying__();
+                    var _x:AnyInterface = __type__.__underlying__();
                     stdgo.fmt.Fmt.fprintf(Go.asInterface(stdgo.os.Os.stderr), ("print: unsupported argument %v (%T)\n" : GoString), _arg, _arg);
                     throw Go.toInterface(("go/printer type" : GoString));
                 };
             };
-            var _next:stdgo.go.token.Token.Position = (_p._pos == null ? null : _p._pos.__copy__());
-            var __tmp__ = _p._flush((_next == null ? null : _next.__copy__()), _p._lastTok), _wroteNewline:Bool = __tmp__._0, _droppedFF:Bool = __tmp__._1;
+            var _next:stdgo.go.token.Token.Position = _p._pos.__copy__();
+            var __tmp__ = _p._flush(_next.__copy__(), _p._lastTok), _wroteNewline:Bool = __tmp__._0, _droppedFF:Bool = __tmp__._1;
             if (!_p._impliedSemi) {
                 var _n:GoInt = _nlimit(_next.line - _p._pos.line);
                 if (_wroteNewline && (_n == (2 : GoInt))) {
@@ -2587,14 +2605,14 @@ class T_printer_asInterface {
                 _p._linePtr.value = _p._out.line;
                 _p._linePtr = (null : Pointer<GoInt>);
             };
-            _p._writeString((_next == null ? null : _next.__copy__()), _data, _isLit);
+            _p._writeString(_next.__copy__(), _data, _isLit);
             _p._impliedSemi = _impliedSemi;
         };
     }
     @:keep
     static public function _setPos( _p:Ref<T_printer>, _pos:stdgo.go.token.Token.Pos):Void {
         if (_pos.isValid()) {
-            _p._pos = (_p._posFor(_pos) == null ? null : _p._posFor(_pos).__copy__());
+            _p._pos = _p._posFor(_pos).__copy__();
         };
     }
     /**
@@ -2611,42 +2629,45 @@ class T_printer_asInterface {
                         var __continue__ = false;
                         var __switchIndex__ = -1;
                         while (true) {
-                            if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_ch == (0 : T_whiteSpace)))) {
-                                break;
-                            } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_ch == (62 : T_whiteSpace)))) {
-                                _p._indent++;
-                                break;
-                                break;
-                            } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_ch == (60 : T_whiteSpace)))) {
-                                _p._indent--;
-                                if (_p._indent < (0 : GoInt)) {
-                                    _p._internalError(Go.toInterface(("negative indentation:" : GoString)), Go.toInterface(_p._indent));
-                                    _p._indent = (0 : GoInt);
-                                };
-                                break;
-                                break;
-                            } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (_ch == ((10 : T_whiteSpace)) || _ch == ((12 : T_whiteSpace))))) {
-                                if (((_i + (1 : GoInt)) < _n) && (_p._wsbuf[(_i + (1 : GoInt) : GoInt)] == (60 : T_whiteSpace))) {
-                                    {
-                                        final __tmp__0 = (60 : T_whiteSpace);
-                                        final __tmp__1 = (12 : T_whiteSpace);
-                                        _p._wsbuf[(_i : GoInt)] = __tmp__0;
-                                        _p._wsbuf[(_i + (1 : GoInt) : GoInt)] = __tmp__1;
+                            {
+                                final __value__ = _ch;
+                                if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (0 : T_whiteSpace)))) {
+                                    break;
+                                } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == (62 : T_whiteSpace)))) {
+                                    _p._indent++;
+                                    break;
+                                    break;
+                                } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == (60 : T_whiteSpace)))) {
+                                    _p._indent--;
+                                    if (_p._indent < (0 : GoInt)) {
+                                        _p._internalError(Go.toInterface(("negative indentation:" : GoString)), Go.toInterface(_p._indent));
+                                        _p._indent = (0 : GoInt);
                                     };
-                                    _i--;
-                                    {
-                                        __continue__ = true;
-                                        break;
+                                    break;
+                                    break;
+                                } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (__value__ == ((10 : T_whiteSpace)) || __value__ == ((12 : T_whiteSpace))))) {
+                                    if (((_i + (1 : GoInt)) < _n) && (_p._wsbuf[(_i + (1 : GoInt) : GoInt)] == (60 : T_whiteSpace))) {
+                                        {
+                                            final __tmp__0 = (60 : T_whiteSpace);
+                                            final __tmp__1 = (12 : T_whiteSpace);
+                                            _p._wsbuf[(_i : GoInt)] = __tmp__0;
+                                            _p._wsbuf[(_i + (1 : GoInt) : GoInt)] = __tmp__1;
+                                        };
+                                        _i--;
+                                        {
+                                            __continue__ = true;
+                                            break;
+                                        };
                                     };
+                                    @:fallthrough {
+                                        __switchIndex__ = 4;
+                                        continue;
+                                    };
+                                    break;
+                                } else {
+                                    _p._writeByte((_ch : GoByte), (1 : GoInt));
+                                    break;
                                 };
-                                @:fallthrough {
-                                    __switchIndex__ = 4;
-                                    continue;
-                                };
-                                break;
-                            } else {
-                                _p._writeByte((_ch : GoByte), (1 : GoInt));
-                                break;
                             };
                             break;
                         };
@@ -2669,33 +2690,33 @@ class T_printer_asInterface {
     static public function _intersperseComments( _p:Ref<T_printer>, _next:stdgo.go.token.Token.Position, _tok:stdgo.go.token.Token.Token):{ var _0 : Bool; var _1 : Bool; } {
         var _wroteNewline:Bool = false, _droppedFF:Bool = false;
         var _last:Ref<stdgo.go.ast.Ast.Comment> = (null : Ref<stdgo.go.ast.Ast.Comment>);
-        while (_p._commentBefore((_next == null ? null : _next.__copy__()))) {
+        while (_p._commentBefore(_next.__copy__())) {
             var _list = _p._commentInfo._comment.list;
             var _changed:Bool = false;
             if (((_p._lastTok != (75 : stdgo.go.token.Token.Token)) && (_p._posFor(_p._commentInfo._comment.pos()).column == (1 : GoInt))) && (Go.toInterface(Go.asInterface(_p._posFor(_p._commentInfo._comment.end() + (1 : stdgo.go.token.Token.Pos)))) == Go.toInterface(Go.asInterface(_next)))) {
                 _list = _formatDocComment(_list);
                 _changed = true;
                 if ((_p._commentInfo._comment.list.length > (0 : GoInt)) && (_list.length == (0 : GoInt))) {
-                    _p._writeCommentPrefix((_p._posFor(_p._commentInfo._comment.pos()) == null ? null : _p._posFor(_p._commentInfo._comment.pos()).__copy__()), (_next == null ? null : _next.__copy__()), _last, _tok);
-                    _p._pos = (_next == null ? null : _next.__copy__());
-                    _p._last = (_next == null ? null : _next.__copy__());
+                    _p._writeCommentPrefix(_p._posFor(_p._commentInfo._comment.pos()).__copy__(), _next.__copy__(), _last, _tok);
+                    _p._pos = _next.__copy__();
+                    _p._last = _next.__copy__();
                     _p._nextComment();
                     return _p._writeCommentSuffix(false);
                 };
             };
             for (_64 => _c in _list) {
-                _p._writeCommentPrefix((_p._posFor(_c.pos()) == null ? null : _p._posFor(_c.pos()).__copy__()), (_next == null ? null : _next.__copy__()), _last, _tok);
+                _p._writeCommentPrefix(_p._posFor(_c.pos()).__copy__(), _next.__copy__(), _last, _tok);
                 _p._writeComment(_c);
                 _last = _c;
             };
             if ((_p._commentInfo._comment.list.length > (0 : GoInt)) && _changed) {
                 _last = _p._commentInfo._comment.list[((_p._commentInfo._comment.list.length) - (1 : GoInt) : GoInt)];
-                _p._pos = (_p._posFor(_last.end()) == null ? null : _p._posFor(_last.end()).__copy__());
-                _p._last = (_p._pos == null ? null : _p._pos.__copy__());
+                _p._pos = _p._posFor(_last.end()).__copy__();
+                _p._last = _p._pos.__copy__();
             };
             _p._nextComment();
         };
-        if (_last != null) {
+        if (_last != null && ((_last : Dynamic).__nil__ == null || !(_last : Dynamic).__nil__)) {
             var _needsLinebreak:Bool = false;
             if (((((((_p._mode & (1 : T_pmode)) == (0 : T_pmode)) && (_last.text[(1 : GoInt)] == (42 : GoUInt8))) && (_p._lineFor(_last.pos()) == _next.line)) && (_tok != (52 : stdgo.go.token.Token.Token))) && ((_tok != (54 : stdgo.go.token.Token.Token)) || (_p._prevOpen == (49 : stdgo.go.token.Token.Token)))) && ((_tok != (55 : stdgo.go.token.Token.Token)) || (_p._prevOpen == (50 : stdgo.go.token.Token.Token)))) {
                 if ((_p._containsLinebreak() && ((_p._mode & (2 : T_pmode)) == (0 : T_pmode))) && (_p._level == (0 : GoInt))) {
@@ -2736,17 +2757,20 @@ class T_printer_asInterface {
     static public function _writeCommentSuffix( _p:Ref<T_printer>, _needsLinebreak:Bool):{ var _0 : Bool; var _1 : Bool; } {
         var _wroteNewline:Bool = false, _droppedFF:Bool = false;
         for (_i => _ch in _p._wsbuf) {
-            if (_ch == ((32 : T_whiteSpace)) || _ch == ((11 : T_whiteSpace))) {
-                _p._wsbuf[(_i : GoInt)] = (0 : T_whiteSpace);
-            } else if (_ch == ((62 : T_whiteSpace)) || _ch == ((60 : T_whiteSpace))) {} else if (_ch == ((10 : T_whiteSpace)) || _ch == ((12 : T_whiteSpace))) {
-                if (_needsLinebreak) {
-                    _needsLinebreak = false;
-                    _wroteNewline = true;
-                } else {
-                    if (_ch == ((12 : T_whiteSpace))) {
-                        _droppedFF = true;
-                    };
+            {
+                final __value__ = _ch;
+                if (__value__ == ((32 : T_whiteSpace)) || __value__ == ((11 : T_whiteSpace))) {
                     _p._wsbuf[(_i : GoInt)] = (0 : T_whiteSpace);
+                } else if (__value__ == ((62 : T_whiteSpace)) || __value__ == ((60 : T_whiteSpace))) {} else if (__value__ == ((10 : T_whiteSpace)) || __value__ == ((12 : T_whiteSpace))) {
+                    if (_needsLinebreak) {
+                        _needsLinebreak = false;
+                        _wroteNewline = true;
+                    } else {
+                        if (_ch == ((12 : T_whiteSpace))) {
+                            _droppedFF = true;
+                        };
+                        _p._wsbuf[(_i : GoInt)] = (0 : T_whiteSpace);
+                    };
                 };
             };
         };
@@ -2762,7 +2786,7 @@ class T_printer_asInterface {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _text:GoString = _comment.text;
-            var _pos:stdgo.go.token.Token.Position = (_p._posFor(_comment.pos()) == null ? null : _p._posFor(_comment.pos()).__copy__());
+            var _pos:stdgo.go.token.Token.Position = _p._posFor(_comment.pos()).__copy__();
             {};
             if (stdgo.strings.Strings.hasPrefix(_text, ("//line " : GoString)) && (!_pos.isValid() || (_pos.column == (1 : GoInt)))) {
                 {
@@ -2782,7 +2806,7 @@ class T_printer_asInterface {
                 } else if (stdgo.go.build.constraint.Constraint.isPlusBuild(_text)) {
                     _p._plusBuild = _p._plusBuild.__appendref__((_p._output.length));
                 };
-                _p._writeString((_pos == null ? null : _pos.__copy__()), _trimRight(_text), true);
+                _p._writeString(_pos.__copy__(), _trimRight(_text), true);
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -2800,10 +2824,10 @@ class T_printer_asInterface {
             for (_i => _line in _lines) {
                 if (_i > (0 : GoInt)) {
                     _p._writeByte((12 : GoUInt8), (1 : GoInt));
-                    _pos = (_p._pos == null ? null : _p._pos.__copy__());
+                    _pos = _p._pos.__copy__();
                 };
                 if ((_line.length) > (0 : GoInt)) {
-                    _p._writeString((_pos == null ? null : _pos.__copy__()), _trimRight(_line), true);
+                    _p._writeString(_pos.__copy__(), _trimRight(_line), true);
                 };
             };
             for (defer in __deferstack__) {
@@ -2847,19 +2871,22 @@ class T_printer_asInterface {
             _p._writeByte((12 : GoUInt8), (2 : GoInt));
             return;
         };
-        if ((_pos.line == _p._last.line) && ((_prev == null) || (_prev.text[(1 : GoInt)] != (47 : GoUInt8)))) {
+        if ((_pos.line == _p._last.line) && (((_prev == null) || (_prev : Dynamic).__nil__) || (_prev.text[(1 : GoInt)] != (47 : GoUInt8)))) {
             var _hasSep:Bool = false;
-            if (_prev == null) {
+            if (_prev == null || (_prev : Dynamic).__nil__) {
                 var _j:GoInt = (0 : GoInt);
                 for (_i => _ch in _p._wsbuf) {
-                    if (_ch == ((32 : T_whiteSpace))) {
-                        _p._wsbuf[(_i : GoInt)] = (0 : T_whiteSpace);
-                        continue;
-                    } else if (_ch == ((11 : T_whiteSpace))) {
-                        _hasSep = true;
-                        continue;
-                    } else if (_ch == ((62 : T_whiteSpace))) {
-                        continue;
+                    {
+                        final __value__ = _ch;
+                        if (__value__ == ((32 : T_whiteSpace))) {
+                            _p._wsbuf[(_i : GoInt)] = (0 : T_whiteSpace);
+                            continue;
+                        } else if (__value__ == ((11 : T_whiteSpace))) {
+                            _hasSep = true;
+                            continue;
+                        } else if (__value__ == ((62 : T_whiteSpace))) {
+                            continue;
+                        };
                     };
                     _j = _i;
                     break;
@@ -2877,21 +2904,24 @@ class T_printer_asInterface {
             var _droppedLinebreak:Bool = false;
             var _j:GoInt = (0 : GoInt);
             for (_i => _ch in _p._wsbuf) {
-                if (_ch == ((32 : T_whiteSpace)) || _ch == ((11 : T_whiteSpace))) {
-                    _p._wsbuf[(_i : GoInt)] = (0 : T_whiteSpace);
-                    continue;
-                } else if (_ch == ((62 : T_whiteSpace))) {
-                    continue;
-                } else if (_ch == ((60 : T_whiteSpace))) {
-                    if (((_i + (1 : GoInt)) < _p._wsbuf.length) && (_p._wsbuf[(_i + (1 : GoInt) : GoInt)] == (60 : T_whiteSpace))) {
+                {
+                    final __value__ = _ch;
+                    if (__value__ == ((32 : T_whiteSpace)) || __value__ == ((11 : T_whiteSpace))) {
+                        _p._wsbuf[(_i : GoInt)] = (0 : T_whiteSpace);
                         continue;
-                    };
-                    if ((_tok != (56 : stdgo.go.token.Token.Token)) && (_pos.column == _next.column)) {
+                    } else if (__value__ == ((62 : T_whiteSpace))) {
                         continue;
+                    } else if (__value__ == ((60 : T_whiteSpace))) {
+                        if (((_i + (1 : GoInt)) < _p._wsbuf.length) && (_p._wsbuf[(_i + (1 : GoInt) : GoInt)] == (60 : T_whiteSpace))) {
+                            continue;
+                        };
+                        if ((_tok != (56 : stdgo.go.token.Token.Token)) && (_pos.column == _next.column)) {
+                            continue;
+                        };
+                    } else if (__value__ == ((10 : T_whiteSpace)) || __value__ == ((12 : T_whiteSpace))) {
+                        _p._wsbuf[(_i : GoInt)] = (0 : T_whiteSpace);
+                        _droppedLinebreak = _prev == null || (_prev : Dynamic).__nil__;
                     };
-                } else if (_ch == ((10 : T_whiteSpace)) || _ch == ((12 : T_whiteSpace))) {
-                    _p._wsbuf[(_i : GoInt)] = (0 : T_whiteSpace);
-                    _droppedLinebreak = _prev == null;
                 };
                 _j = _i;
                 break;
@@ -2907,7 +2937,7 @@ class T_printer_asInterface {
             if ((_p._indent == (0 : GoInt)) && _droppedLinebreak) {
                 _n++;
             };
-            if (((_n == (0 : GoInt)) && (_prev != null)) && (_prev.text[(1 : GoInt)] == (47 : GoUInt8))) {
+            if (((_n == (0 : GoInt)) && ((_prev != null) && ((_prev : Dynamic).__nil__ == null || !(_prev : Dynamic).__nil__))) && (_prev.text[(1 : GoInt)] == (47 : GoUInt8))) {
                 _n = (1 : GoInt);
             };
             if (_n > (0 : GoInt)) {
@@ -2931,12 +2961,12 @@ class T_printer_asInterface {
     static public function _writeString( _p:Ref<T_printer>, _pos:stdgo.go.token.Token.Position, _s:GoString, _isLit:Bool):Void {
         if (_p._out.column == ((1 : GoInt))) {
             if (_p.config.mode & (("8" : GoUInt) : Mode) != ((("0" : GoUInt) : Mode))) {
-                _p._writeLineDirective((_pos == null ? null : _pos.__copy__()));
+                _p._writeLineDirective(_pos.__copy__());
             };
             _p._writeIndent();
         };
         if (_pos.isValid()) {
-            _p._pos = (_pos == null ? null : _pos.__copy__());
+            _p._pos = _pos.__copy__();
         };
         if (_isLit) {
             _p._output = _p._output.__appendref__((255 : GoUInt8));
@@ -2974,7 +3004,7 @@ class T_printer_asInterface {
         if (_isLit) {
             _p._output = _p._output.__appendref__((255 : GoUInt8));
         };
-        _p._last = (_p._pos == null ? null : _p._pos.__copy__());
+        _p._last = _p._pos.__copy__();
     }
     /**
         // writeByte writes ch n times to p.output and updates p.pos.
@@ -2983,11 +3013,14 @@ class T_printer_asInterface {
     @:keep
     static public function _writeByte( _p:Ref<T_printer>, _ch:GoByte, _n:GoInt):Void {
         if (_p._endAlignment) {
-            if (_ch == ((9 : GoUInt8)) || _ch == ((11 : GoUInt8))) {
-                _ch = (32 : GoUInt8);
-            } else if (_ch == ((10 : GoUInt8)) || _ch == ((12 : GoUInt8))) {
-                _ch = (12 : GoUInt8);
-                _p._endAlignment = false;
+            {
+                final __value__ = _ch;
+                if (__value__ == ((9 : GoUInt8)) || __value__ == ((11 : GoUInt8))) {
+                    _ch = (32 : GoUInt8);
+                } else if (__value__ == ((10 : GoUInt8)) || __value__ == ((12 : GoUInt8))) {
+                    _ch = (12 : GoUInt8);
+                    _p._endAlignment = false;
+                };
             };
         };
         if (_p._out.column == ((1 : GoInt))) {
@@ -3049,7 +3082,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _posFor( _p:Ref<T_printer>, _pos:stdgo.go.token.Token.Pos):stdgo.go.token.Token.Position {
-        return (_p._fset.positionFor(_pos, false) == null ? null : _p._fset.positionFor(_pos, false).__copy__());
+        return _p._fset.positionFor(_pos, false).__copy__();
     }
     /**
         // linesFrom returns the number of output lines between the current
@@ -3082,14 +3115,14 @@ class T_printer_asInterface {
             var _a0 = _p._commentInfo;
             __deferstack__.unshift(() -> {
                 var a = function(_info:T_commentInfo):Void {
-                    _p._commentInfo = (_info == null ? null : _info.__copy__());
+                    _p._commentInfo = _info.__copy__();
                 };
-                a((_a0 == null ? null : _a0.__copy__()));
+                a(_a0.__copy__());
             });
         };
         try {
             var _size:GoInt = (0 : GoInt);
-            while (_p._commentBefore((_next == null ? null : _next.__copy__()))) {
+            while (_p._commentBefore(_next.__copy__())) {
                 for (_8 => _c in _p._commentInfo._comment.list) {
                     _size = _size + ((_c.text.length));
                 };
@@ -3199,7 +3232,7 @@ class T_printer_asInterface {
             _tok = _declToken(_d);
             if ((_p._output.length) > (0 : GoInt)) {
                 var _min:GoInt = (1 : GoInt);
-                if ((_prev != _tok) || (_getDoc(_d) != null)) {
+                if ((_prev != _tok) || ((_getDoc(_d) != null) && ((_getDoc(_d) : Dynamic).__nil__ == null || !(_getDoc(_d) : Dynamic).__nil__))) {
                     _min = (2 : GoInt);
                 };
                 _p._linebreak(_p._lineFor(_d.pos()), _min, (0 : T_whiteSpace), (_tok == (71 : stdgo.go.token.Token.Token)) && (_p._numLines(_d) > (1 : GoInt)));
@@ -3233,7 +3266,7 @@ class T_printer_asInterface {
         _p._setPos(_d.pos());
         _p._print(Go.toInterface(Go.asInterface((71 : stdgo.go.token.Token.Token))), Go.toInterface((32 : T_whiteSpace)));
         var _startCol:GoInt = _p._out.column - (("func " : GoString).length);
-        if (_d.recv != null) {
+        if (_d.recv != null && ((_d.recv : Dynamic).__nil__ == null || !(_d.recv : Dynamic).__nil__)) {
             _p._parameters(_d.recv, (0 : T_paramMode));
             _p._print(Go.toInterface((32 : T_whiteSpace)));
         };
@@ -3264,7 +3297,7 @@ class T_printer_asInterface {
     static public function _funcBody( _p:Ref<T_printer>, _headerSize:GoInt, _sep:T_whiteSpace, _b:Ref<stdgo.go.ast.Ast.BlockStmt>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_b == null) {
+            if (_b == null || (_b : Dynamic).__nil__) {
                 return;
             };
             {
@@ -3343,7 +3376,7 @@ class T_printer_asInterface {
         if ((_b.list.length) > (5 : GoInt)) {
             return _maxSize + (1 : GoInt);
         };
-        var _bodySize:GoInt = _p._commentSizeBefore((_p._posFor(_pos2) == null ? null : _p._posFor(_pos2).__copy__()));
+        var _bodySize:GoInt = _p._commentSizeBefore(_p._posFor(_pos2).__copy__());
         for (_i => _s in _b.list) {
             if (_bodySize > _maxSize) {
                 break;
@@ -3393,7 +3426,7 @@ class T_printer_asInterface {
         var _cfg:Config = ({ mode : (("1" : GoUInt) : Mode) } : Config);
         var _counter:T_sizeCounter = ({} : T_sizeCounter);
         {
-            var _err:Error = _cfg._fprint(Go.asInterface((_counter : Ref<T_sizeCounter>)), _p._fset, Go.toInterface(_n), _p._nodeSizes);
+            var _err:Error = _cfg._fprint(Go.asInterface((Go.setRef(_counter) : Ref<T_sizeCounter>)), _p._fset, Go.toInterface(_n), _p._nodeSizes);
             if (_err != null) {
                 return _size;
             };
@@ -3457,7 +3490,7 @@ class T_printer_asInterface {
             if (Go.typeEquals((__type__ : Ref<stdgo.go.ast.Ast.ImportSpec>))) {
                 var _s:Ref<stdgo.go.ast.Ast.ImportSpec> = __type__ == null ? (null : Ref<stdgo.go.ast.Ast.ImportSpec>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.ast.Ast.ImportSpec>) : __type__ == null ? (null : Ref<stdgo.go.ast.Ast.ImportSpec>) : __type__.__underlying__().value;
                 _p._setComment(_s.doc);
-                if (_s.name != null) {
+                if (_s.name != null && ((_s.name : Dynamic).__nil__ == null || !(_s.name : Dynamic).__nil__)) {
                     _p._expr(Go.asInterface(_s.name));
                     _p._print(Go.toInterface((32 : T_whiteSpace)));
                 };
@@ -3484,7 +3517,7 @@ class T_printer_asInterface {
                 var _s:Ref<stdgo.go.ast.Ast.TypeSpec> = __type__ == null ? (null : Ref<stdgo.go.ast.Ast.TypeSpec>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.ast.Ast.TypeSpec>) : __type__ == null ? (null : Ref<stdgo.go.ast.Ast.TypeSpec>) : __type__.__underlying__().value;
                 _p._setComment(_s.doc);
                 _p._expr(Go.asInterface(_s.name));
-                if (_s.typeParams != null) {
+                if (_s.typeParams != null && ((_s.typeParams : Dynamic).__nil__ == null || !(_s.typeParams : Dynamic).__nil__)) {
                     _p._parameters(_s.typeParams, (2 : T_paramMode));
                 };
                 if (_n == ((1 : GoInt))) {
@@ -3520,7 +3553,7 @@ class T_printer_asInterface {
             _p._exprList((0 : stdgo.go.token.Token.Pos), _s.values, (1 : GoInt), (("0" : GoUInt) : T_exprListMode), (0 : stdgo.go.token.Token.Pos), false);
             _extraTabs--;
         };
-        if (_s.comment != null) {
+        if (_s.comment != null && ((_s.comment : Dynamic).__nil__ == null || !(_s.comment : Dynamic).__nil__)) {
             Go.cfor(_extraTabs > (0 : GoInt), _extraTabs--, {
                 _p._print(Go.toInterface((11 : T_whiteSpace)));
             });
@@ -3617,7 +3650,7 @@ class T_printer_asInterface {
             } else if (Go.typeEquals((__type__ : Ref<stdgo.go.ast.Ast.BranchStmt>))) {
                 var _s:Ref<stdgo.go.ast.Ast.BranchStmt> = __type__ == null ? (null : Ref<stdgo.go.ast.Ast.BranchStmt>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.ast.Ast.BranchStmt>) : __type__ == null ? (null : Ref<stdgo.go.ast.Ast.BranchStmt>) : __type__.__underlying__().value;
                 _p._print(Go.toInterface(Go.asInterface(_s.tok)));
-                if (_s.label != null) {
+                if (_s.label != null && ((_s.label : Dynamic).__nil__ == null || !(_s.label : Dynamic).__nil__)) {
                     _p._print(Go.toInterface((32 : T_whiteSpace)));
                     _p._expr(Go.asInterface(_s.label));
                 };
@@ -3685,7 +3718,7 @@ class T_printer_asInterface {
                 var _s:Ref<stdgo.go.ast.Ast.SelectStmt> = __type__ == null ? (null : Ref<stdgo.go.ast.Ast.SelectStmt>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.ast.Ast.SelectStmt>) : __type__ == null ? (null : Ref<stdgo.go.ast.Ast.SelectStmt>) : __type__.__underlying__().value;
                 _p._print(Go.toInterface(Go.asInterface((81 : stdgo.go.token.Token.Token))), Go.toInterface((32 : T_whiteSpace)));
                 var _body = _s.body;
-                if ((_body.list.length == (0 : GoInt)) && !_p._commentBefore((_p._posFor(_body.rbrace) == null ? null : _p._posFor(_body.rbrace).__copy__()))) {
+                if ((_body.list.length == (0 : GoInt)) && !_p._commentBefore(_p._posFor(_body.rbrace).__copy__())) {
                     _p._setPos(_body.lbrace);
                     _p._print(Go.toInterface(Go.asInterface((51 : stdgo.go.token.Token.Token))));
                     _p._setPos(_body.rbrace);
@@ -3827,7 +3860,7 @@ class T_printer_asInterface {
                             } catch(_) {
                                 { value : (null : Ref<stdgo.go.ast.Ast.LabeledStmt>), ok : false };
                             }, _lt = __tmp__.value, _10 = __tmp__.ok;
-                            if (_lt == null) {
+                            if (_lt == null || (_lt : Dynamic).__nil__) {
                                 break;
                             };
                             _line++;
@@ -4131,14 +4164,17 @@ class T_printer_asInterface {
                 _p._expr(_x.value);
             } else if (Go.typeEquals((__type__ : Ref<stdgo.go.ast.Ast.ChanType>))) {
                 var _x:Ref<stdgo.go.ast.Ast.ChanType> = __type__ == null ? (null : Ref<stdgo.go.ast.Ast.ChanType>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.ast.Ast.ChanType>) : __type__ == null ? (null : Ref<stdgo.go.ast.Ast.ChanType>) : __type__.__underlying__().value;
-                if (_x.dir == ((3 : stdgo.go.ast.Ast.ChanDir))) {
-                    _p._print(Go.toInterface(Go.asInterface((63 : stdgo.go.token.Token.Token))));
-                } else if (_x.dir == ((2 : stdgo.go.ast.Ast.ChanDir))) {
-                    _p._print(Go.toInterface(Go.asInterface((36 : stdgo.go.token.Token.Token))), Go.toInterface(Go.asInterface((63 : stdgo.go.token.Token.Token))));
-                } else if (_x.dir == ((1 : stdgo.go.ast.Ast.ChanDir))) {
-                    _p._print(Go.toInterface(Go.asInterface((63 : stdgo.go.token.Token.Token))));
-                    _p._setPos(_x.arrow);
-                    _p._print(Go.toInterface(Go.asInterface((36 : stdgo.go.token.Token.Token))));
+                {
+                    final __value__ = _x.dir;
+                    if (__value__ == ((3 : stdgo.go.ast.Ast.ChanDir))) {
+                        _p._print(Go.toInterface(Go.asInterface((63 : stdgo.go.token.Token.Token))));
+                    } else if (__value__ == ((2 : stdgo.go.ast.Ast.ChanDir))) {
+                        _p._print(Go.toInterface(Go.asInterface((36 : stdgo.go.token.Token.Token))), Go.toInterface(Go.asInterface((63 : stdgo.go.token.Token.Token))));
+                    } else if (__value__ == ((1 : stdgo.go.ast.Ast.ChanDir))) {
+                        _p._print(Go.toInterface(Go.asInterface((63 : stdgo.go.token.Token.Token))));
+                        _p._setPos(_x.arrow);
+                        _p._print(Go.toInterface(Go.asInterface((36 : stdgo.go.token.Token.Token))));
+                    };
                 };
                 _p._print(Go.toInterface((32 : T_whiteSpace)));
                 _p._expr(_x.value);
@@ -4224,7 +4260,7 @@ class T_printer_asInterface {
         var _lbrace:stdgo.go.token.Token.Pos = _fields.opening;
         var _list = _fields.list;
         var _rbrace:stdgo.go.token.Token.Pos = _fields.closing;
-        var _hasComments:Bool = _isIncomplete || _p._commentBefore((_p._posFor(_rbrace) == null ? null : _p._posFor(_rbrace).__copy__()));
+        var _hasComments:Bool = _isIncomplete || _p._commentBefore(_p._posFor(_rbrace).__copy__());
         var _srcIsOneLine:Bool = (_lbrace.isValid() && _rbrace.isValid()) && (_p._lineFor(_lbrace) == _p._lineFor(_rbrace));
         if (!_hasComments && _srcIsOneLine) {
             if ((_list.length) == ((0 : GoInt))) {
@@ -4291,7 +4327,7 @@ class T_printer_asInterface {
                     _p._expr(_f.type);
                     _extraTabs = (2 : GoInt);
                 };
-                if (_f.tag != null) {
+                if (_f.tag != null && ((_f.tag : Dynamic).__nil__ == null || !(_f.tag : Dynamic).__nil__)) {
                     if ((_f.names.length > (0 : GoInt)) && (_sep == (11 : T_whiteSpace))) {
                         _p._print(Go.toInterface(_sep));
                     };
@@ -4299,7 +4335,7 @@ class T_printer_asInterface {
                     _p._expr(Go.asInterface(_f.tag));
                     _extraTabs = (0 : GoInt);
                 };
-                if (_f.comment != null) {
+                if (_f.comment != null && ((_f.comment : Dynamic).__nil__ == null || !(_f.comment : Dynamic).__nil__)) {
                     Go.cfor(_extraTabs > (0 : GoInt), _extraTabs--, {
                         _p._print(Go.toInterface(_sep));
                     });
@@ -4310,7 +4346,7 @@ class T_printer_asInterface {
                 if ((_list.length) > (0 : GoInt)) {
                     _p._print(Go.toInterface((12 : T_whiteSpace)));
                 };
-                _p._flush((_p._posFor(_rbrace) == null ? null : _p._posFor(_rbrace).__copy__()), (56 : stdgo.go.token.Token.Token));
+                _p._flush(_p._posFor(_rbrace).__copy__(), (56 : stdgo.go.token.Token.Token));
                 _p._setLineComment(("// contains filtered or unexported fields" : GoString));
             };
         } else {
@@ -4323,14 +4359,14 @@ class T_printer_asInterface {
                 };
                 if (_i > (0 : GoInt)) {
                     var _min:GoInt = (1 : GoInt);
-                    if ((_prev != null) && (_name == _prev)) {
+                    if (((_prev != null) && ((_prev : Dynamic).__nil__ == null || !(_prev : Dynamic).__nil__)) && (_name == _prev)) {
                         _min = (0 : GoInt);
                     };
                     _p._linebreak(_p._lineFor(_f.pos()), _min, (0 : T_whiteSpace), _p._linesFrom(_line) > (0 : GoInt));
                 };
                 _p._setComment(_f.doc);
                 _p._recordLine(Go.pointer(_line));
-                if (_name != null) {
+                if (_name != null && ((_name : Dynamic).__nil__ == null || !(_name : Dynamic).__nil__)) {
                     _p._expr(Go.asInterface(_name));
                     _p._signature((Go.typeAssert((Go.toInterface(_f.type) : Ref<stdgo.go.ast.Ast.FuncType>)) : Ref<stdgo.go.ast.Ast.FuncType>));
                     _prev = null;
@@ -4344,7 +4380,7 @@ class T_printer_asInterface {
                 if ((_list.length) > (0 : GoInt)) {
                     _p._print(Go.toInterface((12 : T_whiteSpace)));
                 };
-                _p._flush((_p._posFor(_rbrace) == null ? null : _p._posFor(_rbrace).__copy__()), (56 : stdgo.go.token.Token.Token));
+                _p._flush(_p._posFor(_rbrace).__copy__(), (56 : stdgo.go.token.Token.Token));
                 _p._setLineComment(("// contains filtered or unexported methods" : GoString));
             };
         };
@@ -4354,7 +4390,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _setLineComment( _p:Ref<T_printer>, _text:GoString):Void {
-        _p._setComment((({ list : (new Slice<Ref<stdgo.go.ast.Ast.Comment>>(0, 0, ({ slash : (0 : stdgo.go.token.Token.Pos), text : _text } : stdgo.go.ast.Ast.Comment)) : Slice<Ref<stdgo.go.ast.Ast.Comment>>) } : stdgo.go.ast.Ast.CommentGroup) : Ref<stdgo.go.ast.Ast.CommentGroup>));
+        _p._setComment((Go.setRef(({ list : (new Slice<Ref<stdgo.go.ast.Ast.Comment>>(0, 0, ({ slash : (0 : stdgo.go.token.Token.Pos), text : _text } : stdgo.go.ast.Ast.Comment)) : Slice<Ref<stdgo.go.ast.Ast.Comment>>) } : stdgo.go.ast.Ast.CommentGroup)) : Ref<stdgo.go.ast.Ast.CommentGroup>));
     }
     @:keep
     static public function _isOneLineFieldList( _p:Ref<T_printer>, _list:Slice<Ref<stdgo.go.ast.Ast.Field>>):Bool {
@@ -4362,7 +4398,7 @@ class T_printer_asInterface {
             return false;
         };
         var _f = _list[(0 : GoInt)];
-        if ((_f.tag != null) || (_f.comment != null)) {
+        if (((_f.tag != null) && ((_f.tag : Dynamic).__nil__ == null || !(_f.tag : Dynamic).__nil__)) || ((_f.comment != null) && ((_f.comment : Dynamic).__nil__ == null || !(_f.comment : Dynamic).__nil__))) {
             return false;
         };
         {};
@@ -4375,10 +4411,10 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _signature( _p:Ref<T_printer>, _sig:Ref<stdgo.go.ast.Ast.FuncType>):Void {
-        if (_sig.typeParams != null) {
+        if (_sig.typeParams != null && ((_sig.typeParams : Dynamic).__nil__ == null || !(_sig.typeParams : Dynamic).__nil__)) {
             _p._parameters(_sig.typeParams, (1 : T_paramMode));
         };
-        if (_sig.params != null) {
+        if (_sig.params != null && ((_sig.params : Dynamic).__nil__ == null || !(_sig.params : Dynamic).__nil__)) {
             _p._parameters(_sig.params, (0 : T_paramMode));
         } else {
             _p._print(Go.toInterface(Go.asInterface((49 : stdgo.go.token.Token.Token))), Go.toInterface(Go.asInterface((54 : stdgo.go.token.Token.Token))));
@@ -4462,8 +4498,8 @@ class T_printer_asInterface {
     static public function _exprList( _p:Ref<T_printer>, _prev0:stdgo.go.token.Token.Pos, _list:Slice<stdgo.go.ast.Ast.Expr>, _depth:GoInt, _mode:T_exprListMode, _next0:stdgo.go.token.Token.Pos, _isIncomplete:Bool):Void {
         if ((_list.length) == ((0 : GoInt))) {
             if (_isIncomplete) {
-                var _prev:stdgo.go.token.Token.Position = (_p._posFor(_prev0) == null ? null : _p._posFor(_prev0).__copy__());
-                var _next:stdgo.go.token.Token.Position = (_p._posFor(_next0) == null ? null : _p._posFor(_next0).__copy__());
+                var _prev:stdgo.go.token.Token.Position = _p._posFor(_prev0).__copy__();
+                var _next:stdgo.go.token.Token.Position = _p._posFor(_next0).__copy__();
                 if (_prev.isValid() && (_prev.line == _next.line)) {
                     _p._print(Go.toInterface(("/* contains filtered or unexported fields */" : GoString)));
                 } else {
@@ -4473,8 +4509,8 @@ class T_printer_asInterface {
             };
             return;
         };
-        var _prev:stdgo.go.token.Token.Position = (_p._posFor(_prev0) == null ? null : _p._posFor(_prev0).__copy__());
-        var _next:stdgo.go.token.Token.Position = (_p._posFor(_next0) == null ? null : _p._posFor(_next0).__copy__());
+        var _prev:stdgo.go.token.Token.Position = _p._posFor(_prev0).__copy__();
+        var _next:stdgo.go.token.Token.Position = _p._posFor(_next0).__copy__();
         var _line:GoInt = _p._lineFor(_list[(0 : GoInt)].pos());
         var _endLine:GoInt = _p._lineFor(_list[((_list.length) - (1 : GoInt) : GoInt)].end());
         if ((_prev.isValid() && (_prev.line == _line)) && (_line == _endLine)) {
@@ -4613,13 +4649,13 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _setComment( _p:Ref<T_printer>, _g:Ref<stdgo.go.ast.Ast.CommentGroup>):Void {
-        if ((_g == null) || !_p._useNodeComments) {
+        if (((_g == null) || (_g : Dynamic).__nil__) || !_p._useNodeComments) {
             return;
         };
         if (_p._comments == null) {
             _p._comments = new Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>((1 : GoInt).toBasic(), 0, ...[for (i in 0 ... (1 : GoInt).toBasic()) (null : Ref<stdgo.go.ast.Ast.CommentGroup>)]);
         } else if (_p._commentInfo._cindex < (_p._comments.length)) {
-            _p._flush((_p._posFor(_g.list[(0 : GoInt)].pos()) == null ? null : _p._posFor(_g.list[(0 : GoInt)].pos()).__copy__()), (0 : stdgo.go.token.Token.Token));
+            _p._flush(_p._posFor(_g.list[(0 : GoInt)].pos()).__copy__(), (0 : stdgo.go.token.Token.Token));
             _p._comments = (_p._comments.__slice__((0 : GoInt), (1 : GoInt)) : Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>);
             _p._internalError(Go.toInterface(("setComment found pending comments" : GoString)));
         };
@@ -4725,26 +4761,29 @@ class T_printer_asInterface {
         {
             var __switchIndex__ = -1;
             while (true) {
-                if ((_p._goBuild.length) == ((0 : GoInt))) {
-                    for (_160 => _pos in _p._plusBuild) {
-                        var __tmp__ = stdgo.go.build.constraint.Constraint.parse(_p._commentTextAt(_pos)), _y:stdgo.go.build.constraint.Constraint.Expr = __tmp__._0, _err:Error = __tmp__._1;
-                        if (_err != null) {
-                            _x = (null : stdgo.go.build.constraint.Constraint.Expr);
-                            break;
+                {
+                    final __value__ = (_p._goBuild.length);
+                    if (__value__ == ((0 : GoInt))) {
+                        for (_160 => _pos in _p._plusBuild) {
+                            var __tmp__ = stdgo.go.build.constraint.Constraint.parse(_p._commentTextAt(_pos)), _y:stdgo.go.build.constraint.Constraint.Expr = __tmp__._0, _err:Error = __tmp__._1;
+                            if (_err != null) {
+                                _x = (null : stdgo.go.build.constraint.Constraint.Expr);
+                                break;
+                            };
+                            if (_x == null) {
+                                _x = _y;
+                            } else {
+                                _x = Go.asInterface((Go.setRef(({ x : _x, y : _y } : stdgo.go.build.constraint.Constraint.AndExpr)) : Ref<stdgo.go.build.constraint.Constraint.AndExpr>));
+                            };
                         };
-                        if (_x == null) {
-                            _x = _y;
-                        } else {
-                            _x = Go.asInterface((({ x : _x, y : _y } : stdgo.go.build.constraint.Constraint.AndExpr) : Ref<stdgo.go.build.constraint.Constraint.AndExpr>));
+                        break;
+                    } else if (__value__ == ((1 : GoInt))) {
+                        {
+                            var __tmp__ = stdgo.go.build.constraint.Constraint.parse(_p._commentTextAt(_p._goBuild[(0 : GoInt)]));
+                            _x = __tmp__._0;
                         };
+                        break;
                     };
-                    break;
-                } else if ((_p._goBuild.length) == ((1 : GoInt))) {
-                    {
-                        var __tmp__ = stdgo.go.build.constraint.Constraint.parse(_p._commentTextAt(_p._goBuild[(0 : GoInt)]));
-                        _x = __tmp__._0;
-                    };
-                    break;
                 };
                 break;
             };
@@ -4804,9 +4843,9 @@ class T_printer_asInterface {
 }
 class T_trimmer_asInterface {
     @:keep
-    public function write(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_data);
+    public dynamic function write(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_data);
     @:keep
-    public function _resetSpace():Void __self__.value._resetSpace();
+    public dynamic function _resetSpace():Void __self__.value._resetSpace();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -4827,80 +4866,92 @@ class T_trimmer_asInterface {
             if (_b == ((11 : GoUInt8))) {
                 _b = (9 : GoUInt8);
             };
-            if (_p._state == ((0 : GoInt))) {
-                if (_b == ((9 : GoUInt8)) || _b == ((32 : GoUInt8))) {
-                    _p._space = _p._space.__appendref__(_b);
-                } else if (_b == ((10 : GoUInt8)) || _b == ((12 : GoUInt8))) {
-                    _p._resetSpace();
+            {
+                final __value__ = _p._state;
+                if (__value__ == ((0 : GoInt))) {
                     {
-                        var __tmp__ = _p._output.write(_aNewline);
-                        _err = __tmp__._1;
-                    };
-                } else if (_b == ((255 : GoUInt8))) {
-                    {
-                        var __tmp__ = _p._output.write(_p._space);
-                        _err = __tmp__._1;
-                    };
-                    _p._state = (1 : GoInt);
-                    _m = _n + (1 : GoInt);
-                } else {
-                    {
-                        var __tmp__ = _p._output.write(_p._space);
-                        _err = __tmp__._1;
-                    };
-                    _p._state = (2 : GoInt);
-                    _m = _n;
-                };
-            } else if (_p._state == ((1 : GoInt))) {
-                if (_b == ((255 : GoUInt8))) {
-                    {
-                        var __tmp__ = _p._output.write((_data.__slice__(_m, _n) : Slice<GoUInt8>));
-                        _err = __tmp__._1;
-                    };
-                    _p._resetSpace();
-                };
-            } else if (_p._state == ((2 : GoInt))) {
-                if (_b == ((9 : GoUInt8)) || _b == ((32 : GoUInt8))) {
-                    {
-                        var __tmp__ = _p._output.write((_data.__slice__(_m, _n) : Slice<GoUInt8>));
-                        _err = __tmp__._1;
-                    };
-                    _p._resetSpace();
-                    _p._space = _p._space.__appendref__(_b);
-                } else if (_b == ((10 : GoUInt8)) || _b == ((12 : GoUInt8))) {
-                    {
-                        var __tmp__ = _p._output.write((_data.__slice__(_m, _n) : Slice<GoUInt8>));
-                        _err = __tmp__._1;
-                    };
-                    _p._resetSpace();
-                    if (_err == null) {
-                        {
-                            var __tmp__ = _p._output.write(_aNewline);
-                            _err = __tmp__._1;
+                        final __value__ = _b;
+                        if (__value__ == ((9 : GoUInt8)) || __value__ == ((32 : GoUInt8))) {
+                            _p._space = _p._space.__appendref__(_b);
+                        } else if (__value__ == ((10 : GoUInt8)) || __value__ == ((12 : GoUInt8))) {
+                            _p._resetSpace();
+                            {
+                                var __tmp__ = _p._output.write(_aNewline);
+                                _err = __tmp__._1;
+                            };
+                        } else if (__value__ == ((255 : GoUInt8))) {
+                            {
+                                var __tmp__ = _p._output.write(_p._space);
+                                _err = __tmp__._1;
+                            };
+                            _p._state = (1 : GoInt);
+                            _m = _n + (1 : GoInt);
+                        } else {
+                            {
+                                var __tmp__ = _p._output.write(_p._space);
+                                _err = __tmp__._1;
+                            };
+                            _p._state = (2 : GoInt);
+                            _m = _n;
                         };
                     };
-                } else if (_b == ((255 : GoUInt8))) {
-                    {
-                        var __tmp__ = _p._output.write((_data.__slice__(_m, _n) : Slice<GoUInt8>));
-                        _err = __tmp__._1;
+                } else if (__value__ == ((1 : GoInt))) {
+                    if (_b == ((255 : GoUInt8))) {
+                        {
+                            var __tmp__ = _p._output.write((_data.__slice__(_m, _n) : Slice<GoUInt8>));
+                            _err = __tmp__._1;
+                        };
+                        _p._resetSpace();
                     };
-                    _p._state = (1 : GoInt);
-                    _m = _n + (1 : GoInt);
+                } else if (__value__ == ((2 : GoInt))) {
+                    {
+                        final __value__ = _b;
+                        if (__value__ == ((9 : GoUInt8)) || __value__ == ((32 : GoUInt8))) {
+                            {
+                                var __tmp__ = _p._output.write((_data.__slice__(_m, _n) : Slice<GoUInt8>));
+                                _err = __tmp__._1;
+                            };
+                            _p._resetSpace();
+                            _p._space = _p._space.__appendref__(_b);
+                        } else if (__value__ == ((10 : GoUInt8)) || __value__ == ((12 : GoUInt8))) {
+                            {
+                                var __tmp__ = _p._output.write((_data.__slice__(_m, _n) : Slice<GoUInt8>));
+                                _err = __tmp__._1;
+                            };
+                            _p._resetSpace();
+                            if (_err == null) {
+                                {
+                                    var __tmp__ = _p._output.write(_aNewline);
+                                    _err = __tmp__._1;
+                                };
+                            };
+                        } else if (__value__ == ((255 : GoUInt8))) {
+                            {
+                                var __tmp__ = _p._output.write((_data.__slice__(_m, _n) : Slice<GoUInt8>));
+                                _err = __tmp__._1;
+                            };
+                            _p._state = (1 : GoInt);
+                            _m = _n + (1 : GoInt);
+                        };
+                    };
+                } else {
+                    throw Go.toInterface(("unreachable" : GoString));
                 };
-            } else {
-                throw Go.toInterface(("unreachable" : GoString));
             };
             if (_err != null) {
                 return { _0 : _n, _1 : _err };
             };
         };
         _n = (_data.length);
-        if (_p._state == ((1 : GoInt)) || _p._state == ((2 : GoInt))) {
-            {
-                var __tmp__ = _p._output.write((_data.__slice__(_m, _n) : Slice<GoUInt8>));
-                _err = __tmp__._1;
+        {
+            final __value__ = _p._state;
+            if (__value__ == ((1 : GoInt)) || __value__ == ((2 : GoInt))) {
+                {
+                    var __tmp__ = _p._output.write((_data.__slice__(_m, _n) : Slice<GoUInt8>));
+                    _err = __tmp__._1;
+                };
+                _p._resetSpace();
             };
-            _p._resetSpace();
         };
         return { _0 : _n, _1 : _err };
     }
@@ -4918,12 +4969,12 @@ class Config_asInterface {
         // or assignment-compatible to ast.Expr, ast.Decl, ast.Spec, or ast.Stmt.
     **/
     @:keep
-    public function fprint(_output:stdgo.io.Io.Writer, _fset:Ref<stdgo.go.token.Token.FileSet>, _node:AnyInterface):Error return __self__.value.fprint(_output, _fset, _node);
+    public dynamic function fprint(_output:stdgo.io.Io.Writer, _fset:Ref<stdgo.go.token.Token.FileSet>, _node:AnyInterface):Error return __self__.value.fprint(_output, _fset, _node);
     /**
         // fprint implements Fprint and takes a nodesSizes map for setting up the printer state.
     **/
     @:keep
-    public function _fprint(_output:stdgo.io.Io.Writer, _fset:Ref<stdgo.go.token.Token.FileSet>, _node:AnyInterface, _nodeSizes:GoMap<stdgo.go.ast.Ast.Node, GoInt>):Error return __self__.value._fprint(_output, _fset, _node, _nodeSizes);
+    public dynamic function _fprint(_output:stdgo.io.Io.Writer, _fset:Ref<stdgo.go.token.Token.FileSet>, _node:AnyInterface, _nodeSizes:GoMap<stdgo.go.ast.Ast.Node, GoInt>):Error return __self__.value._fprint(_output, _fset, _node, _nodeSizes);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -4967,7 +5018,7 @@ class Config_asInterface {
             _p._impliedSemi = false;
             _p._flush(({ offset : (1073741824 : GoInt), line : (1073741824 : GoInt) } : stdgo.go.token.Token.Position), (1 : stdgo.go.token.Token.Token));
             _p._fixGoBuildLines();
-            _output = Go.asInterface((({ _output : _output } : T_trimmer) : Ref<T_trimmer>));
+            _output = Go.asInterface((Go.setRef(({ _output : _output } : T_trimmer)) : Ref<T_trimmer>));
             if (_cfg.mode & (("1" : GoUInt) : Mode) == ((("0" : GoUInt) : Mode))) {
                 var _minwidth:GoInt = _cfg.tabwidth;
                 var _padchar:GoUInt8 = ((9 : GoUInt8) : GoByte);
@@ -5001,7 +5052,7 @@ class Config_asInterface {
                 } catch(_) {
                     { value : (null : Ref<stdgo.text.tabwriter.Tabwriter.Writer>), ok : false };
                 }, _tw = __tmp__.value, _16 = __tmp__.ok;
-                if (_tw != null) {
+                if (_tw != null && ((_tw : Dynamic).__nil__ == null || !(_tw : Dynamic).__nil__)) {
                     _err = _tw.flush();
                 };
             };
@@ -5038,7 +5089,7 @@ class Config_asInterface {
 }
 class T_limitWriter_asInterface {
     @:keep
-    public function write(_buf:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_buf);
+    public dynamic function write(_buf:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_buf);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -5063,7 +5114,7 @@ class T_limitWriter_asInterface {
 }
 class T_visitor_asInterface {
     @:keep
-    public function visit(_n:stdgo.go.ast.Ast.Node):stdgo.go.ast.Ast.Visitor return __self__.value.visit(_n);
+    public dynamic function visit(_n:stdgo.go.ast.Ast.Node):stdgo.go.ast.Ast.Visitor return __self__.value.visit(_n);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

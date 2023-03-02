@@ -172,7 +172,7 @@ private typedef T_boolFlag = StructType & {
         
         
     **/
-    public function isBoolFlag():Bool;
+    public dynamic function isBoolFlag():Bool;
 };
 /**
     // Value is the interface to the dynamic value stored in a flag.
@@ -194,13 +194,13 @@ typedef Value = StructType & {
         
         
     **/
-    public function string():GoString;
+    public dynamic function string():GoString;
     /**
         
         
         
     **/
-    public function set(_0:GoString):Error;
+    public dynamic function set(_0:GoString):Error;
 };
 /**
     // Getter is an interface that allows the contents of a Value to be retrieved.
@@ -217,7 +217,7 @@ typedef Getter = StructType & {
         
         
     **/
-    public function get():AnyInterface;
+    public dynamic function get():AnyInterface;
 };
 /**
     // -- encoding.TextUnmarshaler Value
@@ -396,18 +396,18 @@ private function _newDurationValue(_val:stdgo.time.Time.Duration, _p:Pointer<std
         return new Pointer<T_durationValue>(() -> (_p.value : T_durationValue), v -> (_p.value = (v : stdgo.time.Time.Duration) : T_durationValue));
     }
 private function _newTextValue(_val:stdgo.encoding.Encoding.TextMarshaler, _p:stdgo.encoding.Encoding.TextUnmarshaler):T_textValue {
-        var _ptrVal:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_p)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_p)).__copy__());
+        var _ptrVal:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(Go.toInterface(_p)).__copy__();
         if (_ptrVal.kind() != ((("22" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
             throw Go.toInterface(("variable value type must be a pointer" : GoString));
         };
-        var _defVal:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_val)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_val)).__copy__());
+        var _defVal:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(Go.toInterface(_val)).__copy__();
         if (_defVal.kind() == ((("22" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-            _defVal = (_defVal.elem() == null ? null : _defVal.elem().__copy__());
+            _defVal = _defVal.elem().__copy__();
         };
         if (!((_defVal.type().string() : String) == (_ptrVal.type().elem().string() : String))) {
             throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("default type does not match variable type: %v != %v" : GoString), Go.toInterface(_defVal.type()), Go.toInterface(_ptrVal.type().elem())));
         };
-        _ptrVal.elem().set((_defVal == null ? null : _defVal.__copy__()));
+        _ptrVal.elem().set(_defVal.__copy__());
         return (new T_textValue(_p) : T_textValue);
     }
 /**
@@ -463,9 +463,9 @@ private function _isZeroValue(_flag:Ref<Flag>, _value:GoString):{ var _0 : Bool;
         try {
             var _z:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
             if (_typ.kind() == ((("22" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-                _z = (stdgo.reflect.Reflect.new_(_typ.elem()) == null ? null : stdgo.reflect.Reflect.new_(_typ.elem()).__copy__());
+                _z = stdgo.reflect.Reflect.new_(_typ.elem()).__copy__();
             } else {
-                _z = (stdgo.reflect.Reflect.zero(_typ) == null ? null : stdgo.reflect.Reflect.zero(_typ).__copy__());
+                _z = stdgo.reflect.Reflect.zero(_typ).__copy__();
             };
             __deferstack__.unshift(() -> {
                 var a = function():Void {
@@ -792,7 +792,7 @@ private function _commandLineUsage():Void {
     // in the default usage message and in error messages.
 **/
 function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):Ref<FlagSet> {
-        var _f = (({ _name : _name, _errorHandling : _errorHandling } : FlagSet) : Ref<FlagSet>);
+        var _f = (Go.setRef(({ _name : _name, _errorHandling : _errorHandling } : FlagSet)) : Ref<FlagSet>);
         _f.usage = _f._defaultUsage;
         return _f;
     }
@@ -804,11 +804,11 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):Ref<FlagSet> {
     };
 class T_textValue_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function get():AnyInterface return __self__.value.get();
+    public dynamic function get():AnyInterface return __self__.value.get();
     @:keep
-    public function set(_s:GoString):Error return __self__.value.set(_s);
+    public dynamic function set(_s:GoString):Error return __self__.value.set(_s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -853,12 +853,12 @@ class FlagSet_asInterface {
         // ContinueOnError error handling policy.
     **/
     @:keep
-    public function init(_name:GoString, _errorHandling:ErrorHandling):Void __self__.value.init(_name, _errorHandling);
+    public dynamic function init(_name:GoString, _errorHandling:ErrorHandling):Void __self__.value.init(_name, _errorHandling);
     /**
         // Parsed reports whether f.Parse has been called.
     **/
     @:keep
-    public function parsed():Bool return __self__.value.parsed();
+    public dynamic function parsed():Bool return __self__.value.parsed();
     /**
         // Parse parses flag definitions from the argument list, which should not
         // include the command name. Must be called after all flags in the FlagSet
@@ -866,29 +866,29 @@ class FlagSet_asInterface {
         // The return value will be ErrHelp if -help or -h were set but not defined.
     **/
     @:keep
-    public function parse(_arguments:Slice<GoString>):Error return __self__.value.parse(_arguments);
+    public dynamic function parse(_arguments:Slice<GoString>):Error return __self__.value.parse(_arguments);
     /**
         // parseOne parses one flag. It reports whether a flag was seen.
     **/
     @:keep
-    public function _parseOne():{ var _0 : Bool; var _1 : Error; } return __self__.value._parseOne();
+    public dynamic function _parseOne():{ var _0 : Bool; var _1 : Error; } return __self__.value._parseOne();
     /**
         // usage calls the Usage method for the flag set if one is specified,
         // or the appropriate default usage function otherwise.
     **/
     @:keep
-    public function _usage():Void __self__.value._usage();
+    public dynamic function _usage():Void __self__.value._usage();
     /**
         // failf prints to standard error a formatted error and usage message and
         // returns the error.
     **/
     @:keep
-    public function _failf(_format:GoString, _a:haxe.Rest<AnyInterface>):Error return __self__.value._failf(_format, ..._a);
+    public dynamic function _failf(_format:GoString, _a:haxe.Rest<AnyInterface>):Error return __self__.value._failf(_format, ..._a);
     /**
         // sprintf formats the message, prints it to output, and returns it.
     **/
     @:keep
-    public function _sprintf(_format:GoString, _a:haxe.Rest<AnyInterface>):GoString return __self__.value._sprintf(_format, ..._a);
+    public dynamic function _sprintf(_format:GoString, _a:haxe.Rest<AnyInterface>):GoString return __self__.value._sprintf(_format, ..._a);
     /**
         // Var defines a flag with the specified name and usage string. The type and
         // value of the flag are represented by the first argument, of type Value, which
@@ -898,14 +898,14 @@ class FlagSet_asInterface {
         // decompose the comma-separated string into the slice.
     **/
     @:keep
-    public function var_(_value:Value, _name:GoString, _usage:GoString):Void __self__.value.var_(_value, _name, _usage);
+    public dynamic function var_(_value:Value, _name:GoString, _usage:GoString):Void __self__.value.var_(_value, _name, _usage);
     /**
         // Func defines a flag with the specified name and usage string.
         // Each time the flag is seen, fn is called with the value of the flag.
         // If fn returns a non-nil error, it will be treated as a flag value parsing error.
     **/
     @:keep
-    public function func(_name:GoString, _usage:GoString, _fn:GoString -> Error):Void __self__.value.func(_name, _usage, _fn);
+    public dynamic function func(_name:GoString, _usage:GoString, _fn:GoString -> Error):Void __self__.value.func(_name, _usage, _fn);
     /**
         // TextVar defines a flag with a specified name, default value, and usage string.
         // The argument p must be a pointer to a variable that will hold the value
@@ -914,183 +914,183 @@ class FlagSet_asInterface {
         // The type of the default value must be the same as the type of p.
     **/
     @:keep
-    public function textVar(_p:stdgo.encoding.Encoding.TextUnmarshaler, _name:GoString, _value:stdgo.encoding.Encoding.TextMarshaler, _usage:GoString):Void __self__.value.textVar(_p, _name, _value, _usage);
+    public dynamic function textVar(_p:stdgo.encoding.Encoding.TextUnmarshaler, _name:GoString, _value:stdgo.encoding.Encoding.TextMarshaler, _usage:GoString):Void __self__.value.textVar(_p, _name, _value, _usage);
     /**
         // Duration defines a time.Duration flag with specified name, default value, and usage string.
         // The return value is the address of a time.Duration variable that stores the value of the flag.
         // The flag accepts a value acceptable to time.ParseDuration.
     **/
     @:keep
-    public function duration(_name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Pointer<stdgo.time.Time.Duration> return __self__.value.duration(_name, _value, _usage);
+    public dynamic function duration(_name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Pointer<stdgo.time.Time.Duration> return __self__.value.duration(_name, _value, _usage);
     /**
         // DurationVar defines a time.Duration flag with specified name, default value, and usage string.
         // The argument p points to a time.Duration variable in which to store the value of the flag.
         // The flag accepts a value acceptable to time.ParseDuration.
     **/
     @:keep
-    public function durationVar(_p:Pointer<stdgo.time.Time.Duration>, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Void __self__.value.durationVar(_p, _name, _value, _usage);
+    public dynamic function durationVar(_p:Pointer<stdgo.time.Time.Duration>, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Void __self__.value.durationVar(_p, _name, _value, _usage);
     /**
         // Float64 defines a float64 flag with specified name, default value, and usage string.
         // The return value is the address of a float64 variable that stores the value of the flag.
     **/
     @:keep
-    public function float64(_name:GoString, _value:GoFloat64, _usage:GoString):Pointer<GoFloat64> return __self__.value.float64(_name, _value, _usage);
+    public dynamic function float64(_name:GoString, _value:GoFloat64, _usage:GoString):Pointer<GoFloat64> return __self__.value.float64(_name, _value, _usage);
     /**
         // Float64Var defines a float64 flag with specified name, default value, and usage string.
         // The argument p points to a float64 variable in which to store the value of the flag.
     **/
     @:keep
-    public function float64Var(_p:Pointer<GoFloat64>, _name:GoString, _value:GoFloat64, _usage:GoString):Void __self__.value.float64Var(_p, _name, _value, _usage);
+    public dynamic function float64Var(_p:Pointer<GoFloat64>, _name:GoString, _value:GoFloat64, _usage:GoString):Void __self__.value.float64Var(_p, _name, _value, _usage);
     /**
         // String defines a string flag with specified name, default value, and usage string.
         // The return value is the address of a string variable that stores the value of the flag.
     **/
     @:keep
-    public function string(_name:GoString, _value:GoString, _usage:GoString):Pointer<GoString> return __self__.value.string(_name, _value, _usage);
+    public dynamic function string(_name:GoString, _value:GoString, _usage:GoString):Pointer<GoString> return __self__.value.string(_name, _value, _usage);
     /**
         // StringVar defines a string flag with specified name, default value, and usage string.
         // The argument p points to a string variable in which to store the value of the flag.
     **/
     @:keep
-    public function stringVar(_p:Pointer<GoString>, _name:GoString, _value:GoString, _usage:GoString):Void __self__.value.stringVar(_p, _name, _value, _usage);
+    public dynamic function stringVar(_p:Pointer<GoString>, _name:GoString, _value:GoString, _usage:GoString):Void __self__.value.stringVar(_p, _name, _value, _usage);
     /**
         // Uint64 defines a uint64 flag with specified name, default value, and usage string.
         // The return value is the address of a uint64 variable that stores the value of the flag.
     **/
     @:keep
-    public function uint64(_name:GoString, _value:GoUInt64, _usage:GoString):Pointer<GoUInt64> return __self__.value.uint64(_name, _value, _usage);
+    public dynamic function uint64(_name:GoString, _value:GoUInt64, _usage:GoString):Pointer<GoUInt64> return __self__.value.uint64(_name, _value, _usage);
     /**
         // Uint64Var defines a uint64 flag with specified name, default value, and usage string.
         // The argument p points to a uint64 variable in which to store the value of the flag.
     **/
     @:keep
-    public function uint64Var(_p:Pointer<GoUInt64>, _name:GoString, _value:GoUInt64, _usage:GoString):Void __self__.value.uint64Var(_p, _name, _value, _usage);
+    public dynamic function uint64Var(_p:Pointer<GoUInt64>, _name:GoString, _value:GoUInt64, _usage:GoString):Void __self__.value.uint64Var(_p, _name, _value, _usage);
     /**
         // Uint defines a uint flag with specified name, default value, and usage string.
         // The return value is the address of a uint variable that stores the value of the flag.
     **/
     @:keep
-    public function uint(_name:GoString, _value:GoUInt, _usage:GoString):Pointer<GoUInt> return __self__.value.uint(_name, _value, _usage);
+    public dynamic function uint(_name:GoString, _value:GoUInt, _usage:GoString):Pointer<GoUInt> return __self__.value.uint(_name, _value, _usage);
     /**
         // UintVar defines a uint flag with specified name, default value, and usage string.
         // The argument p points to a uint variable in which to store the value of the flag.
     **/
     @:keep
-    public function uintVar(_p:Pointer<GoUInt>, _name:GoString, _value:GoUInt, _usage:GoString):Void __self__.value.uintVar(_p, _name, _value, _usage);
+    public dynamic function uintVar(_p:Pointer<GoUInt>, _name:GoString, _value:GoUInt, _usage:GoString):Void __self__.value.uintVar(_p, _name, _value, _usage);
     /**
         // Int64 defines an int64 flag with specified name, default value, and usage string.
         // The return value is the address of an int64 variable that stores the value of the flag.
     **/
     @:keep
-    public function int64(_name:GoString, _value:GoInt64, _usage:GoString):Pointer<GoInt64> return __self__.value.int64(_name, _value, _usage);
+    public dynamic function int64(_name:GoString, _value:GoInt64, _usage:GoString):Pointer<GoInt64> return __self__.value.int64(_name, _value, _usage);
     /**
         // Int64Var defines an int64 flag with specified name, default value, and usage string.
         // The argument p points to an int64 variable in which to store the value of the flag.
     **/
     @:keep
-    public function int64Var(_p:Pointer<GoInt64>, _name:GoString, _value:GoInt64, _usage:GoString):Void __self__.value.int64Var(_p, _name, _value, _usage);
+    public dynamic function int64Var(_p:Pointer<GoInt64>, _name:GoString, _value:GoInt64, _usage:GoString):Void __self__.value.int64Var(_p, _name, _value, _usage);
     /**
         // Int defines an int flag with specified name, default value, and usage string.
         // The return value is the address of an int variable that stores the value of the flag.
     **/
     @:keep
-    public function int_(_name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt> return __self__.value.int_(_name, _value, _usage);
+    public dynamic function int_(_name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt> return __self__.value.int_(_name, _value, _usage);
     /**
         // IntVar defines an int flag with specified name, default value, and usage string.
         // The argument p points to an int variable in which to store the value of the flag.
     **/
     @:keep
-    public function intVar(_p:Pointer<GoInt>, _name:GoString, _value:GoInt, _usage:GoString):Void __self__.value.intVar(_p, _name, _value, _usage);
+    public dynamic function intVar(_p:Pointer<GoInt>, _name:GoString, _value:GoInt, _usage:GoString):Void __self__.value.intVar(_p, _name, _value, _usage);
     /**
         // Bool defines a bool flag with specified name, default value, and usage string.
         // The return value is the address of a bool variable that stores the value of the flag.
     **/
     @:keep
-    public function bool_(_name:GoString, _value:Bool, _usage:GoString):Pointer<Bool> return __self__.value.bool_(_name, _value, _usage);
+    public dynamic function bool_(_name:GoString, _value:Bool, _usage:GoString):Pointer<Bool> return __self__.value.bool_(_name, _value, _usage);
     /**
         // BoolVar defines a bool flag with specified name, default value, and usage string.
         // The argument p points to a bool variable in which to store the value of the flag.
     **/
     @:keep
-    public function boolVar(_p:Pointer<Bool>, _name:GoString, _value:Bool, _usage:GoString):Void __self__.value.boolVar(_p, _name, _value, _usage);
+    public dynamic function boolVar(_p:Pointer<Bool>, _name:GoString, _value:Bool, _usage:GoString):Void __self__.value.boolVar(_p, _name, _value, _usage);
     /**
         // Args returns the non-flag arguments.
     **/
     @:keep
-    public function args():Slice<GoString> return __self__.value.args();
+    public dynamic function args():Slice<GoString> return __self__.value.args();
     /**
         // NArg is the number of arguments remaining after flags have been processed.
     **/
     @:keep
-    public function narg():GoInt return __self__.value.narg();
+    public dynamic function narg():GoInt return __self__.value.narg();
     /**
         // Arg returns the i'th argument. Arg(0) is the first remaining argument
         // after flags have been processed. Arg returns an empty string if the
         // requested element does not exist.
     **/
     @:keep
-    public function arg(_i:GoInt):GoString return __self__.value.arg(_i);
+    public dynamic function arg(_i:GoInt):GoString return __self__.value.arg(_i);
     /**
         // NFlag returns the number of flags that have been set.
     **/
     @:keep
-    public function nflag():GoInt return __self__.value.nflag();
+    public dynamic function nflag():GoInt return __self__.value.nflag();
     /**
         // defaultUsage is the default function to print a usage message.
     **/
     @:keep
-    public function _defaultUsage():Void __self__.value._defaultUsage();
+    public dynamic function _defaultUsage():Void __self__.value._defaultUsage();
     /**
         // PrintDefaults prints, to standard error unless configured otherwise, the
         // default values of all defined command-line flags in the set. See the
         // documentation for the global function PrintDefaults for more information.
     **/
     @:keep
-    public function printDefaults():Void __self__.value.printDefaults();
+    public dynamic function printDefaults():Void __self__.value.printDefaults();
     /**
         // Set sets the value of the named flag.
     **/
     @:keep
-    public function set(_name:GoString, _value:GoString):Error return __self__.value.set(_name, _value);
+    public dynamic function set(_name:GoString, _value:GoString):Error return __self__.value.set(_name, _value);
     /**
         // Lookup returns the Flag structure of the named flag, returning nil if none exists.
     **/
     @:keep
-    public function lookup(_name:GoString):Ref<Flag> return __self__.value.lookup(_name);
+    public dynamic function lookup(_name:GoString):Ref<Flag> return __self__.value.lookup(_name);
     /**
         // Visit visits the flags in lexicographical order, calling fn for each.
         // It visits only those flags that have been set.
     **/
     @:keep
-    public function visit(_fn:Ref<Flag> -> Void):Void __self__.value.visit(_fn);
+    public dynamic function visit(_fn:Ref<Flag> -> Void):Void __self__.value.visit(_fn);
     /**
         // VisitAll visits the flags in lexicographical order, calling fn for each.
         // It visits all flags, even those not set.
     **/
     @:keep
-    public function visitAll(_fn:Ref<Flag> -> Void):Void __self__.value.visitAll(_fn);
+    public dynamic function visitAll(_fn:Ref<Flag> -> Void):Void __self__.value.visitAll(_fn);
     /**
         // SetOutput sets the destination for usage and error messages.
         // If output is nil, os.Stderr is used.
     **/
     @:keep
-    public function setOutput(_output:stdgo.io.Io.Writer):Void __self__.value.setOutput(_output);
+    public dynamic function setOutput(_output:stdgo.io.Io.Writer):Void __self__.value.setOutput(_output);
     /**
         // ErrorHandling returns the error handling behavior of the flag set.
     **/
     @:keep
-    public function errorHandling():ErrorHandling return __self__.value.errorHandling();
+    public dynamic function errorHandling():ErrorHandling return __self__.value.errorHandling();
     /**
         // Name returns the name of the flag set.
     **/
     @:keep
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     /**
         // Output returns the destination for usage and error messages. os.Stderr is returned if
         // output was not set or was set to nil.
     **/
     @:keep
-    public function output():stdgo.io.Io.Writer return __self__.value.output();
+    public dynamic function output():stdgo.io.Io.Writer return __self__.value.output();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1135,15 +1135,18 @@ class FlagSet_asInterface {
             if (_err == null) {
                 break;
             };
-            if (_f._errorHandling == ((0 : ErrorHandling))) {
-                return _err;
-            } else if (_f._errorHandling == ((1 : ErrorHandling))) {
-                if (Go.toInterface(_err) == (Go.toInterface(errHelp))) {
-                    Sys.exit((0 : GoInt));
+            {
+                final __value__ = _f._errorHandling;
+                if (__value__ == ((0 : ErrorHandling))) {
+                    return _err;
+                } else if (__value__ == ((1 : ErrorHandling))) {
+                    if (Go.toInterface(_err) == (Go.toInterface(errHelp))) {
+                        Sys.exit((0 : GoInt));
+                    };
+                    Sys.exit((2 : GoInt));
+                } else if (__value__ == ((2 : ErrorHandling))) {
+                    throw Go.toInterface(_err);
                 };
-                Sys.exit((2 : GoInt));
-            } else if (_f._errorHandling == ((2 : ErrorHandling))) {
-                throw Go.toInterface(_err);
             };
         };
         return (null : Error);
@@ -1291,7 +1294,7 @@ class FlagSet_asInterface {
         } else if (stdgo.strings.Strings.contains(_name, ("=" : GoString))) {
             throw Go.toInterface(_f._sprintf(("flag %q contains =" : GoString), Go.toInterface(_name)));
         };
-        var _flag = ((new Flag(_name, _usage, _value, (_value.string() : GoString)) : Flag) : Ref<Flag>);
+        var _flag = (Go.setRef((new Flag(_name, _usage, _value, (_value.string() : GoString)) : Flag)) : Ref<Flag>);
         var __tmp__ = (_f._formal != null && _f._formal.__exists__(_name) ? { value : _f._formal[_name], ok : true } : { value : (null : Ref<Flag>), ok : false }), _0:Ref<Flag> = __tmp__.value, _alreadythere:Bool = __tmp__.ok;
         if (_alreadythere) {
             var _msg:GoString = ("" : GoString);
@@ -1528,7 +1531,7 @@ class FlagSet_asInterface {
         var _isZeroValueErrs:Slice<Error> = (null : Slice<Error>);
         _f.visitAll(function(_flag:Ref<Flag>):Void {
             var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-            stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), ("  -%s" : GoString), Go.toInterface(_flag.name));
+            stdgo.fmt.Fmt.fprintf(Go.asInterface((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>)), ("  -%s" : GoString), Go.toInterface(_flag.name));
             var __tmp__ = unquoteUsage(_flag), _name:GoString = __tmp__._0, _usage:GoString = __tmp__._1;
             if ((_name.length) > (0 : GoInt)) {
                 _b.writeString((" " : GoString));
@@ -1552,9 +1555,9 @@ class FlagSet_asInterface {
                             { value : (null : Pointer<T_stringValue>), ok : false };
                         }, _0 = __tmp__.value, _ok = __tmp__.ok;
                         if (_ok) {
-                            stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), (" (default %q)" : GoString), Go.toInterface(_flag.defValue));
+                            stdgo.fmt.Fmt.fprintf(Go.asInterface((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>)), (" (default %q)" : GoString), Go.toInterface(_flag.defValue));
                         } else {
-                            stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), (" (default %v)" : GoString), Go.toInterface(_flag.defValue));
+                            stdgo.fmt.Fmt.fprintf(Go.asInterface((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>)), (" (default %v)" : GoString), Go.toInterface(_flag.defValue));
                         };
                     };
                 };
@@ -1654,16 +1657,16 @@ class FlagSet_asInterface {
 class T_boolValue_asInterface {
     @:keep
     @:pointer
-    public function isBoolFlag():Bool return __self__.value.isBoolFlag(__self__);
+    public dynamic function isBoolFlag():Bool return __self__.value.isBoolFlag(__self__);
     @:keep
     @:pointer
-    public function string():GoString return __self__.value.string(__self__);
+    public dynamic function string():GoString return __self__.value.string(__self__);
     @:keep
     @:pointer
-    public function get():AnyInterface return __self__.value.get(__self__);
+    public dynamic function get():AnyInterface return __self__.value.get(__self__);
     @:keep
     @:pointer
-    public function set(_s:GoString):Error return __self__.value.set(__self__, _s);
+    public dynamic function set(_s:GoString):Error return __self__.value.set(__self__, _s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1702,13 +1705,13 @@ class T_boolValue_asInterface {
 class T_intValue_asInterface {
     @:keep
     @:pointer
-    public function string():GoString return __self__.value.string(__self__);
+    public dynamic function string():GoString return __self__.value.string(__self__);
     @:keep
     @:pointer
-    public function get():AnyInterface return __self__.value.get(__self__);
+    public dynamic function get():AnyInterface return __self__.value.get(__self__);
     @:keep
     @:pointer
-    public function set(_s:GoString):Error return __self__.value.set(__self__, _s);
+    public dynamic function set(_s:GoString):Error return __self__.value.set(__self__, _s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1742,13 +1745,13 @@ class T_intValue_asInterface {
 class T_int64Value_asInterface {
     @:keep
     @:pointer
-    public function string():GoString return __self__.value.string(__self__);
+    public dynamic function string():GoString return __self__.value.string(__self__);
     @:keep
     @:pointer
-    public function get():AnyInterface return __self__.value.get(__self__);
+    public dynamic function get():AnyInterface return __self__.value.get(__self__);
     @:keep
     @:pointer
-    public function set(_s:GoString):Error return __self__.value.set(__self__, _s);
+    public dynamic function set(_s:GoString):Error return __self__.value.set(__self__, _s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1782,13 +1785,13 @@ class T_int64Value_asInterface {
 class T_uintValue_asInterface {
     @:keep
     @:pointer
-    public function string():GoString return __self__.value.string(__self__);
+    public dynamic function string():GoString return __self__.value.string(__self__);
     @:keep
     @:pointer
-    public function get():AnyInterface return __self__.value.get(__self__);
+    public dynamic function get():AnyInterface return __self__.value.get(__self__);
     @:keep
     @:pointer
-    public function set(_s:GoString):Error return __self__.value.set(__self__, _s);
+    public dynamic function set(_s:GoString):Error return __self__.value.set(__self__, _s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1822,13 +1825,13 @@ class T_uintValue_asInterface {
 class T_uint64Value_asInterface {
     @:keep
     @:pointer
-    public function string():GoString return __self__.value.string(__self__);
+    public dynamic function string():GoString return __self__.value.string(__self__);
     @:keep
     @:pointer
-    public function get():AnyInterface return __self__.value.get(__self__);
+    public dynamic function get():AnyInterface return __self__.value.get(__self__);
     @:keep
     @:pointer
-    public function set(_s:GoString):Error return __self__.value.set(__self__, _s);
+    public dynamic function set(_s:GoString):Error return __self__.value.set(__self__, _s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1862,13 +1865,13 @@ class T_uint64Value_asInterface {
 class T_stringValue_asInterface {
     @:keep
     @:pointer
-    public function string():GoString return __self__.value.string(__self__);
+    public dynamic function string():GoString return __self__.value.string(__self__);
     @:keep
     @:pointer
-    public function get():AnyInterface return __self__.value.get(__self__);
+    public dynamic function get():AnyInterface return __self__.value.get(__self__);
     @:keep
     @:pointer
-    public function set(_val:GoString):Error return __self__.value.set(__self__, _val);
+    public dynamic function set(_val:GoString):Error return __self__.value.set(__self__, _val);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1898,13 +1901,13 @@ class T_stringValue_asInterface {
 class T_float64Value_asInterface {
     @:keep
     @:pointer
-    public function string():GoString return __self__.value.string(__self__);
+    public dynamic function string():GoString return __self__.value.string(__self__);
     @:keep
     @:pointer
-    public function get():AnyInterface return __self__.value.get(__self__);
+    public dynamic function get():AnyInterface return __self__.value.get(__self__);
     @:keep
     @:pointer
-    public function set(_s:GoString):Error return __self__.value.set(__self__, _s);
+    public dynamic function set(_s:GoString):Error return __self__.value.set(__self__, _s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1938,13 +1941,13 @@ class T_float64Value_asInterface {
 class T_durationValue_asInterface {
     @:keep
     @:pointer
-    public function string():GoString return __self__.value.string(__self__);
+    public dynamic function string():GoString return __self__.value.string(__self__);
     @:keep
     @:pointer
-    public function get():AnyInterface return __self__.value.get(__self__);
+    public dynamic function get():AnyInterface return __self__.value.get(__self__);
     @:keep
     @:pointer
-    public function set(_s:GoString):Error return __self__.value.set(__self__, _s);
+    public dynamic function set(_s:GoString):Error return __self__.value.set(__self__, _s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1977,9 +1980,9 @@ class T_durationValue_asInterface {
 }
 class T_funcValue_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function set(_s:GoString):Error return __self__.value.set(_s);
+    public dynamic function set(_s:GoString):Error return __self__.value.set(_s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

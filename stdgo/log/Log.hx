@@ -292,7 +292,7 @@ final rshortfile = ("[A-Za-z0-9_\\-]+\\.go:(61|63):" : GoString);
     // The flag argument defines the logging properties.
 **/
 function new_(_out:stdgo.io.Io.Writer, _prefix:GoString, _flag:GoInt):Ref<Logger> {
-        var _l = (({ _prefix : _prefix, _flag : _flag, _out : _out } : Logger) : Ref<Logger>);
+        var _l = (Go.setRef(({ _prefix : _prefix, _flag : _flag, _out : _out } : Logger)) : Ref<Logger>);
         if (Go.toInterface(_out) == (Go.toInterface(stdgo.io.Io.discard))) {
             _l._isDiscard.store(true);
         };
@@ -318,7 +318,7 @@ private function _itoa(_buf:Ref<Slice<GoByte>>, _i:GoInt, _wid:GoInt):Void {
             _i = _q;
         };
         _b[(_bp : GoInt)] = ((48 : GoInt) + _i : GoByte);
-        _buf.__setData__(_buf.__appendref__(...(_b.__slice__(_bp) : Slice<GoUInt8>).__toArray__()));
+        _buf.__setData__(((_buf : Slice<GoUInt8>).__append__(...(_b.__slice__(_bp) : Slice<GoUInt8>).__toArray__())));
     }
 /**
     // SetOutput sets the output destination for the standard logger.
@@ -458,7 +458,7 @@ function output(_calldepth:GoInt, _s:GoString):Error {
     // Test using Println("hello", 23, "world") or using Printf("hello %d world", 23)
 **/
 private function _testPrint(_t:Ref<stdgo.testing.Testing.T>, _flag:GoInt, _prefix:GoString, _pattern:GoString, _useFormat:Bool):Void {
-        var _buf = (({} : stdgo.strings.Strings.Builder) : Ref<stdgo.strings.Strings.Builder>);
+        var _buf = (Go.setRef(({} : stdgo.strings.Strings.Builder)) : Ref<stdgo.strings.Strings.Builder>);
         setOutput(Go.asInterface(_buf));
         setFlags(_flag);
         setPrefix(_prefix);
@@ -496,7 +496,7 @@ function testAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testOutput(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-        var _l = new_(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), Go.str(), (0 : GoInt));
+        var _l = new_(Go.asInterface((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>)), Go.str(), (0 : GoInt));
         _l.println(Go.toInterface(("test" : GoString)));
         {
             var _expect:GoString = ("test\n" : GoString);
@@ -507,7 +507,7 @@ function testOutput(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testOutputRace(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var _l = new_(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (0 : GoInt));
+        var _l = new_(Go.asInterface((Go.setRef(_b) : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (0 : GoInt));
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (100 : GoInt), _i++, {
@@ -523,7 +523,7 @@ function testOutputRace(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testFlagAndPrefixSetting(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var _l = new_(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)), ("Test:" : GoString), (3 : GoInt));
+        var _l = new_(Go.asInterface((Go.setRef(_b) : Ref<stdgo.bytes.Bytes.Buffer>)), ("Test:" : GoString), (3 : GoInt));
         var _f:GoInt = _l.flags();
         if (_f != ((3 : GoInt))) {
             _t.errorf(("Flags 1: expected %x got %x" : GoString), Go.toInterface((3 : GoInt)), Go.toInterface(_f));
@@ -554,16 +554,16 @@ function testFlagAndPrefixSetting(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testUTCFlag(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-        var _l = new_(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), ("Test:" : GoString), (3 : GoInt));
+        var _l = new_(Go.asInterface((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>)), ("Test:" : GoString), (3 : GoInt));
         _l.setFlags((35 : GoInt));
-        var _now:stdgo.time.Time.Time = (stdgo.time.Time.now().utc() == null ? null : stdgo.time.Time.now().utc().__copy__());
+        var _now:stdgo.time.Time.Time = stdgo.time.Time.now().utc().__copy__();
         _l.print(Go.toInterface(("hello" : GoString)));
         var _want:GoString = stdgo.fmt.Fmt.sprintf(("Test:%d/%.2d/%.2d %.2d:%.2d:%.2d hello\n" : GoString), Go.toInterface(_now.year()), Go.toInterface(Go.asInterface(_now.month())), Go.toInterface(_now.day()), Go.toInterface(_now.hour()), Go.toInterface(_now.minute()), Go.toInterface(_now.second()));
         var _got:GoString = (_b.string() : GoString);
         if (_got == (_want)) {
             return;
         };
-        _now = (_now.add((("1000000000" : GoInt64) : stdgo.time.Time.Duration)) == null ? null : _now.add((("1000000000" : GoInt64) : stdgo.time.Time.Duration)).__copy__());
+        _now = _now.add((("1000000000" : GoInt64) : stdgo.time.Time.Duration)).__copy__();
         _want = stdgo.fmt.Fmt.sprintf(("Test:%d/%.2d/%.2d %.2d:%.2d:%.2d hello\n" : GoString), Go.toInterface(_now.year()), Go.toInterface(Go.asInterface(_now.month())), Go.toInterface(_now.day()), Go.toInterface(_now.hour()), Go.toInterface(_now.minute()), Go.toInterface(_now.second()));
         if (_got == (_want)) {
             return;
@@ -572,7 +572,7 @@ function testUTCFlag(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testEmptyPrintCreatesLine(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-        var _l = new_(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), ("Header:" : GoString), (3 : GoInt));
+        var _l = new_(Go.asInterface((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>)), ("Header:" : GoString), (3 : GoInt));
         _l.print();
         _l.println(Go.toInterface(("non-empty" : GoString)));
         var _output:GoString = (_b.string() : GoString);
@@ -605,20 +605,20 @@ function benchmarkItoa(_b:Ref<stdgo.testing.Testing.B>):Void {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
                 _dst = (_dst.__slice__((0 : GoInt), (0 : GoInt)) : Slice<GoUInt8>);
-                _itoa((_dst : Ref<Slice<GoUInt8>>), (2015 : GoInt), (4 : GoInt));
-                _itoa((_dst : Ref<Slice<GoUInt8>>), (1 : GoInt), (2 : GoInt));
-                _itoa((_dst : Ref<Slice<GoUInt8>>), (30 : GoInt), (2 : GoInt));
-                _itoa((_dst : Ref<Slice<GoUInt8>>), (12 : GoInt), (2 : GoInt));
-                _itoa((_dst : Ref<Slice<GoUInt8>>), (56 : GoInt), (2 : GoInt));
-                _itoa((_dst : Ref<Slice<GoUInt8>>), (0 : GoInt), (2 : GoInt));
-                _itoa((_dst : Ref<Slice<GoUInt8>>), (987654 : GoInt), (6 : GoInt));
+                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (2015 : GoInt), (4 : GoInt));
+                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (1 : GoInt), (2 : GoInt));
+                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (30 : GoInt), (2 : GoInt));
+                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (12 : GoInt), (2 : GoInt));
+                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (56 : GoInt), (2 : GoInt));
+                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (0 : GoInt), (2 : GoInt));
+                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (987654 : GoInt), (6 : GoInt));
             });
         };
     }
 function benchmarkPrintln(_b:Ref<stdgo.testing.Testing.B>):Void {
         {};
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var _l = new_(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (3 : GoInt));
+        var _l = new_(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (3 : GoInt));
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
@@ -630,7 +630,7 @@ function benchmarkPrintln(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkPrintlnNoFlags(_b:Ref<stdgo.testing.Testing.B>):Void {
         {};
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var _l = new_(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (0 : GoInt));
+        var _l = new_(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (0 : GoInt));
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
@@ -644,77 +644,77 @@ class Logger_asInterface {
         // Writer returns the output destination for the logger.
     **/
     @:keep
-    public function writer():stdgo.io.Io.Writer return __self__.value.writer();
+    public dynamic function writer():stdgo.io.Io.Writer return __self__.value.writer();
     /**
         // SetPrefix sets the output prefix for the logger.
     **/
     @:keep
-    public function setPrefix(_prefix:GoString):Void __self__.value.setPrefix(_prefix);
+    public dynamic function setPrefix(_prefix:GoString):Void __self__.value.setPrefix(_prefix);
     /**
         // Prefix returns the output prefix for the logger.
     **/
     @:keep
-    public function prefix():GoString return __self__.value.prefix();
+    public dynamic function prefix():GoString return __self__.value.prefix();
     /**
         // SetFlags sets the output flags for the logger.
         // The flag bits are Ldate, Ltime, and so on.
     **/
     @:keep
-    public function setFlags(_flag:GoInt):Void __self__.value.setFlags(_flag);
+    public dynamic function setFlags(_flag:GoInt):Void __self__.value.setFlags(_flag);
     /**
         // Flags returns the output flags for the logger.
         // The flag bits are Ldate, Ltime, and so on.
     **/
     @:keep
-    public function flags():GoInt return __self__.value.flags();
+    public dynamic function flags():GoInt return __self__.value.flags();
     /**
         // Panicln is equivalent to l.Println() followed by a call to panic().
     **/
     @:keep
-    public function panicln(_v:haxe.Rest<AnyInterface>):Void __self__.value.panicln(..._v);
+    public dynamic function panicln(_v:haxe.Rest<AnyInterface>):Void __self__.value.panicln(..._v);
     /**
         // Panicf is equivalent to l.Printf() followed by a call to panic().
     **/
     @:keep
-    public function panicf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void __self__.value.panicf(_format, ..._v);
+    public dynamic function panicf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void __self__.value.panicf(_format, ..._v);
     /**
         // Panic is equivalent to l.Print() followed by a call to panic().
     **/
     @:keep
-    public function panic(_v:haxe.Rest<AnyInterface>):Void __self__.value.panic(..._v);
+    public dynamic function panic(_v:haxe.Rest<AnyInterface>):Void __self__.value.panic(..._v);
     /**
         // Fatalln is equivalent to l.Println() followed by a call to os.Exit(1).
     **/
     @:keep
-    public function fatalln(_v:haxe.Rest<AnyInterface>):Void __self__.value.fatalln(..._v);
+    public dynamic function fatalln(_v:haxe.Rest<AnyInterface>):Void __self__.value.fatalln(..._v);
     /**
         // Fatalf is equivalent to l.Printf() followed by a call to os.Exit(1).
     **/
     @:keep
-    public function fatalf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void __self__.value.fatalf(_format, ..._v);
+    public dynamic function fatalf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void __self__.value.fatalf(_format, ..._v);
     /**
         // Fatal is equivalent to l.Print() followed by a call to os.Exit(1).
     **/
     @:keep
-    public function fatal(_v:haxe.Rest<AnyInterface>):Void __self__.value.fatal(..._v);
+    public dynamic function fatal(_v:haxe.Rest<AnyInterface>):Void __self__.value.fatal(..._v);
     /**
         // Println calls l.Output to print to the logger.
         // Arguments are handled in the manner of fmt.Println.
     **/
     @:keep
-    public function println(_v:haxe.Rest<AnyInterface>):Void __self__.value.println(..._v);
+    public dynamic function println(_v:haxe.Rest<AnyInterface>):Void __self__.value.println(..._v);
     /**
         // Print calls l.Output to print to the logger.
         // Arguments are handled in the manner of fmt.Print.
     **/
     @:keep
-    public function print(_v:haxe.Rest<AnyInterface>):Void __self__.value.print(..._v);
+    public dynamic function print(_v:haxe.Rest<AnyInterface>):Void __self__.value.print(..._v);
     /**
         // Printf calls l.Output to print to the logger.
         // Arguments are handled in the manner of fmt.Printf.
     **/
     @:keep
-    public function printf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void __self__.value.printf(_format, ..._v);
+    public dynamic function printf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void __self__.value.printf(_format, ..._v);
     /**
         // Output writes the output for a logging event. The string s contains
         // the text to print after the prefix specified by the flags of the
@@ -724,7 +724,7 @@ class Logger_asInterface {
         // paths it will be 2.
     **/
     @:keep
-    public function output(_calldepth:GoInt, _s:GoString):Error return __self__.value.output(_calldepth, _s);
+    public dynamic function output(_calldepth:GoInt, _s:GoString):Error return __self__.value.output(_calldepth, _s);
     /**
         // formatHeader writes log header to buf in following order:
         //   - l.prefix (if it's not blank and Lmsgprefix is unset),
@@ -733,12 +733,12 @@ class Logger_asInterface {
         //   - l.prefix (if it's not blank and Lmsgprefix is set).
     **/
     @:keep
-    public function _formatHeader(_buf:Ref<Slice<GoByte>>, _t:stdgo.time.Time.Time, _file:GoString, _line:GoInt):Void __self__.value._formatHeader(_buf, _t, _file, _line);
+    public dynamic function _formatHeader(_buf:Ref<Slice<GoByte>>, _t:stdgo.time.Time.Time, _file:GoString, _line:GoInt):Void __self__.value._formatHeader(_buf, _t, _file, _line);
     /**
         // SetOutput sets the output destination for the logger.
     **/
     @:keep
-    public function setOutput(_w:stdgo.io.Io.Writer):Void __self__.value.setOutput(_w);
+    public dynamic function setOutput(_w:stdgo.io.Io.Writer):Void __self__.value.setOutput(_w);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1039,7 +1039,7 @@ class Logger_asInterface {
     @:keep
     static public function output( _l:Ref<Logger>, _calldepth:GoInt, _s:GoString):Error {
         var __deferstack__:Array<Void -> Void> = [];
-        var _now:stdgo.time.Time.Time = (stdgo.time.Time.now() == null ? null : stdgo.time.Time.now().__copy__());
+        var _now:stdgo.time.Time.Time = stdgo.time.Time.now().__copy__();
         try {
             var _file:GoString = ("" : GoString);
             var _line:GoInt = (0 : GoInt);
@@ -1061,7 +1061,7 @@ class Logger_asInterface {
                 _l._mu.lock();
             };
             _l._buf = (_l._buf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>);
-            _l._formatHeader((_l._buf : Ref<Slice<GoUInt8>>), (_now == null ? null : _now.__copy__()), _file, _line);
+            _l._formatHeader((Go.setRef(_l._buf) : Ref<Slice<GoUInt8>>), _now.__copy__(), _file, _line);
             _l._buf = _l._buf.__appendref__(..._s.__toArray__());
             if ((_s.length == (0 : GoInt)) || (_s[((_s.length) - (1 : GoInt) : GoInt)] != (10 : GoUInt8))) {
                 _l._buf = _l._buf.__appendref__((10 : GoUInt8));
@@ -1107,33 +1107,33 @@ class Logger_asInterface {
     @:keep
     static public function _formatHeader( _l:Ref<Logger>, _buf:Ref<Slice<GoByte>>, _t:stdgo.time.Time.Time, _file:GoString, _line:GoInt):Void {
         if (_l._flag & (64 : GoInt) == ((0 : GoInt))) {
-            _buf.__setData__(_buf.__appendref__(..._l._prefix.__toArray__()));
+            _buf.__setData__(((_buf : Slice<GoUInt8>).__append__(..._l._prefix.__toArray__())));
         };
         if (_l._flag & (7 : GoInt) != ((0 : GoInt))) {
             if (_l._flag & (32 : GoInt) != ((0 : GoInt))) {
-                _t = (_t.utc() == null ? null : _t.utc().__copy__());
+                _t = _t.utc().__copy__();
             };
             if (_l._flag & (1 : GoInt) != ((0 : GoInt))) {
                 var __tmp__ = _t.date(), _year:GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, _day:GoInt = __tmp__._2;
                 _itoa(_buf, _year, (4 : GoInt));
-                _buf.__setData__(_buf.__appendref__((47 : GoUInt8)));
+                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((47 : GoUInt8))));
                 _itoa(_buf, (_month : GoInt), (2 : GoInt));
-                _buf.__setData__(_buf.__appendref__((47 : GoUInt8)));
+                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((47 : GoUInt8))));
                 _itoa(_buf, _day, (2 : GoInt));
-                _buf.__setData__(_buf.__appendref__((32 : GoUInt8)));
+                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((32 : GoUInt8))));
             };
             if (_l._flag & (6 : GoInt) != ((0 : GoInt))) {
                 var __tmp__ = _t.clock(), _hour:GoInt = __tmp__._0, _min:GoInt = __tmp__._1, _sec:GoInt = __tmp__._2;
                 _itoa(_buf, _hour, (2 : GoInt));
-                _buf.__setData__(_buf.__appendref__((58 : GoUInt8)));
+                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((58 : GoUInt8))));
                 _itoa(_buf, _min, (2 : GoInt));
-                _buf.__setData__(_buf.__appendref__((58 : GoUInt8)));
+                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((58 : GoUInt8))));
                 _itoa(_buf, _sec, (2 : GoInt));
                 if (_l._flag & (4 : GoInt) != ((0 : GoInt))) {
-                    _buf.__setData__(_buf.__appendref__((46 : GoUInt8)));
+                    _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((46 : GoUInt8))));
                     _itoa(_buf, _t.nanosecond() / (1000 : GoInt), (6 : GoInt));
                 };
-                _buf.__setData__(_buf.__appendref__((32 : GoUInt8)));
+                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((32 : GoUInt8))));
             };
         };
         if (_l._flag & (24 : GoInt) != ((0 : GoInt))) {
@@ -1150,13 +1150,13 @@ class Logger_asInterface {
                 };
                 _file = _short;
             };
-            _buf.__setData__(_buf.__appendref__(..._file.__toArray__()));
-            _buf.__setData__(_buf.__appendref__((58 : GoUInt8)));
+            _buf.__setData__(((_buf : Slice<GoUInt8>).__append__(..._file.__toArray__())));
+            _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((58 : GoUInt8))));
             _itoa(_buf, _line, (-1 : GoInt));
-            _buf.__setData__(_buf.__appendref__(...(": " : GoString).__toArray__()));
+            _buf.__setData__(((_buf : Slice<GoUInt8>).__append__(...(": " : GoString).__toArray__())));
         };
         if (_l._flag & (64 : GoInt) != ((0 : GoInt))) {
-            _buf.__setData__(_buf.__appendref__(..._l._prefix.__toArray__()));
+            _buf.__setData__(((_buf : Slice<GoUInt8>).__append__(..._l._prefix.__toArray__())));
         };
     }
     /**

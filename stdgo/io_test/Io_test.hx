@@ -28,13 +28,13 @@ private typedef T_closer = StructType & {
         
         
     **/
-    public function closeWithError(_0:Error):Error;
+    public dynamic function closeWithError(_0:Error):Error;
     /**
         
         
         
     **/
-    public function close():Error;
+    public dynamic function close():Error;
 };
 /**
     
@@ -425,9 +425,9 @@ class T__struct_3_asInterface {
 };
 class T__struct_4_asInterface {
     @:embedded
-    public function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
+    public dynamic function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
     @:embedded
-    public function read(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
+    public dynamic function read(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -467,9 +467,9 @@ class T__struct_5_asInterface {
 };
 class T__struct_6_asInterface {
     @:embedded
-    public function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
+    public dynamic function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
     @:embedded
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -709,7 +709,7 @@ function exampleSeeker_Seek():Void {
 function exampleMultiWriter():Void {
         var _r = stdgo.strings.Strings.newReader(("some io.Reader stream to be read\n" : GoString));
         var _0:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder), _1:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder), _buf2:stdgo.strings.Strings.Builder = _1, _buf1:stdgo.strings.Strings.Builder = _0;
-        var _w:Writer = stdgo.io.Io.multiWriter(Go.asInterface((_buf1 : Ref<stdgo.strings.Strings.Builder>)), Go.asInterface((_buf2 : Ref<stdgo.strings.Strings.Builder>)));
+        var _w:Writer = stdgo.io.Io.multiWriter(Go.asInterface((Go.setRef(_buf1) : Ref<stdgo.strings.Strings.Builder>)), Go.asInterface((Go.setRef(_buf2) : Ref<stdgo.strings.Strings.Builder>)));
         {
             var __tmp__ = stdgo.io.Io.copy(_w, Go.asInterface(_r)), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -744,8 +744,8 @@ function exampleReadAll():Void {
         stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(_b));
     }
 function testCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _rb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
-        var _wb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _rb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _wb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
         _rb.writeString(("hello, world." : GoString));
         copy(Go.asInterface(_wb), Go.asInterface(_rb));
         if ((_wb.string() : GoString) != (("hello, world." : GoString))) {
@@ -753,10 +753,10 @@ function testCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCopyNegative(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _rb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
-        var _wb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _rb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _wb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
         _rb.writeString(("hello" : GoString));
-        copy(Go.asInterface(_wb), Go.asInterface((({ r : Go.asInterface(_rb), n : ("-1" : GoInt64) } : LimitedReader) : Ref<LimitedReader>)));
+        copy(Go.asInterface(_wb), Go.asInterface((Go.setRef(({ r : Go.asInterface(_rb), n : ("-1" : GoInt64) } : LimitedReader)) : Ref<LimitedReader>)));
         if ((_wb.string() : GoString) != (Go.str())) {
             _t.errorf(("Copy on LimitedReader with N<0 copied data" : GoString));
         };
@@ -766,8 +766,8 @@ function testCopyNegative(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCopyBuffer(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _rb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
-        var _wb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _rb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _wb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
         _rb.writeString(("hello, world." : GoString));
         copyBuffer(Go.asInterface(_wb), Go.asInterface(_rb), new Slice<GoUInt8>((1 : GoInt).toBasic(), 0, ...[for (i in 0 ... (1 : GoInt).toBasic()) (0 : GoUInt8)]));
         if ((_wb.string() : GoString) != (("hello, world." : GoString))) {
@@ -775,8 +775,8 @@ function testCopyBuffer(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCopyBufferNil(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _rb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
-        var _wb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _rb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _wb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
         _rb.writeString(("hello, world." : GoString));
         copyBuffer(Go.asInterface(_wb), Go.asInterface(_rb), (null : Slice<GoUInt8>));
         if ((_wb.string() : GoString) != (("hello, world." : GoString))) {
@@ -784,8 +784,8 @@ function testCopyBufferNil(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCopyReadFrom(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _rb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
-        var _wb = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _rb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _wb = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
         _rb.writeString(("hello, world." : GoString));
         copy(Go.asInterface(_wb), Go.asInterface(_rb));
         if ((_wb.string() : GoString) != (("hello, world." : GoString))) {
@@ -793,8 +793,8 @@ function testCopyReadFrom(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCopyWriteTo(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _rb = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
-        var _wb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _rb = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _wb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
         _rb.writeString(("hello, world." : GoString));
         copy(Go.asInterface(_wb), Go.asInterface(_rb));
         if ((_wb.string() : GoString) != (("hello, world." : GoString))) {
@@ -807,8 +807,8 @@ function testCopyWriteTo(_t:Ref<stdgo.testing.Testing.T>):Void {
     // Make sure that we choose WriterTo when both are implemented.
 **/
 function testCopyPriority(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _rb = (({} : stdgo.io_test.Io_test.T_writeToChecker) : Ref<stdgo.io_test.Io_test.T_writeToChecker>);
-        var _wb = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _rb = (Go.setRef(({} : stdgo.io_test.Io_test.T_writeToChecker)) : Ref<stdgo.io_test.Io_test.T_writeToChecker>);
+        var _wb = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
         _rb.writeString(("hello, world." : GoString));
         copy(Go.asInterface(_wb), Go.asInterface(_rb));
         if ((_wb.string() : GoString) != (("hello, world." : GoString))) {
@@ -831,8 +831,8 @@ function testCopyReadErrWriteErr(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCopyN(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _rb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
-        var _wb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _rb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _wb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
         _rb.writeString(("hello, world." : GoString));
         copyN(Go.asInterface(_wb), Go.asInterface(_rb), ("5" : GoInt64));
         if ((_wb.string() : GoString) != (("hello" : GoString))) {
@@ -840,8 +840,8 @@ function testCopyN(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCopyNReadFrom(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _rb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
-        var _wb = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _rb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _wb = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
         _rb.writeString(("hello" : GoString));
         copyN(Go.asInterface(_wb), Go.asInterface(_rb), ("5" : GoInt64));
         if ((_wb.string() : GoString) != (("hello" : GoString))) {
@@ -849,8 +849,8 @@ function testCopyNReadFrom(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCopyNWriteTo(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _rb = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
-        var _wb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _rb = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _wb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
         _rb.writeString(("hello, world." : GoString));
         copyN(Go.asInterface(_wb), Go.asInterface(_rb), ("5" : GoInt64));
         if ((_wb.string() : GoString) != (("hello" : GoString))) {
@@ -860,7 +860,7 @@ function testCopyNWriteTo(_t:Ref<stdgo.testing.Testing.T>):Void {
 function benchmarkCopyNSmall(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _bs = stdgo.bytes.Bytes.repeat((new Slice<GoUInt8>(0, 0, (0 : GoUInt8)) : Slice<GoUInt8>), (513 : GoInt));
         var _rd = stdgo.bytes.Bytes.newReader(_bs);
-        var _buf = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _buf = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
         _b.resetTimer();
         {
             var _i:GoInt = (0 : GoInt);
@@ -873,7 +873,7 @@ function benchmarkCopyNSmall(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkCopyNLarge(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _bs = stdgo.bytes.Bytes.repeat((new Slice<GoUInt8>(0, 0, (0 : GoUInt8)) : Slice<GoUInt8>), (32769 : GoInt));
         var _rd = stdgo.bytes.Bytes.newReader(_bs);
-        var _buf = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _buf = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
         _b.resetTimer();
         {
             var _i:GoInt = (0 : GoInt);
@@ -884,13 +884,13 @@ function benchmarkCopyNLarge(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function testCopyNEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
-        var __tmp__ = copyN(Go.asInterface(((new T_noReadFrom(Go.asInterface(_b)) : T_noReadFrom) : Ref<stdgo.io_test.Io_test.T_noReadFrom>)), Go.asInterface(stdgo.strings.Strings.newReader(("foo" : GoString))), ("3" : GoInt64)), _n:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+        var _b = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var __tmp__ = copyN(Go.asInterface((Go.setRef((new T_noReadFrom(Go.asInterface(_b)) : T_noReadFrom)) : Ref<stdgo.io_test.Io_test.T_noReadFrom>)), Go.asInterface(stdgo.strings.Strings.newReader(("foo" : GoString))), ("3" : GoInt64)), _n:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
         if ((_n != ("3" : GoInt64)) || (_err != null)) {
             _t.errorf(("CopyN(noReadFrom, foo, 3) = %d, %v; want 3, nil" : GoString), Go.toInterface(_n), Go.toInterface(_err));
         };
         {
-            var __tmp__ = copyN(Go.asInterface(((new T_noReadFrom(Go.asInterface(_b)) : T_noReadFrom) : Ref<stdgo.io_test.Io_test.T_noReadFrom>)), Go.asInterface(stdgo.strings.Strings.newReader(("foo" : GoString))), ("4" : GoInt64));
+            var __tmp__ = copyN(Go.asInterface((Go.setRef((new T_noReadFrom(Go.asInterface(_b)) : T_noReadFrom)) : Ref<stdgo.io_test.Io_test.T_noReadFrom>)), Go.asInterface(stdgo.strings.Strings.newReader(("foo" : GoString))), ("4" : GoInt64));
             _n = __tmp__._0;
             _err = __tmp__._1;
         };
@@ -922,7 +922,7 @@ function testCopyNEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("CopyN(bytes.Buffer, wantedAndErrReader, 5) = %d, %v; want 5, nil" : GoString), Go.toInterface(_n), Go.toInterface(_err));
         };
         {
-            var __tmp__ = copyN(Go.asInterface(((new T_noReadFrom(Go.asInterface(_b)) : T_noReadFrom) : Ref<stdgo.io_test.Io_test.T_noReadFrom>)), Go.asInterface((new T_wantedAndErrReader() : T_wantedAndErrReader)), ("5" : GoInt64));
+            var __tmp__ = copyN(Go.asInterface((Go.setRef((new T_noReadFrom(Go.asInterface(_b)) : T_noReadFrom)) : Ref<stdgo.io_test.Io_test.T_noReadFrom>)), Go.asInterface((new T_wantedAndErrReader() : T_wantedAndErrReader)), ("5" : GoInt64));
             _n = __tmp__._0;
             _err = __tmp__._1;
         };
@@ -932,17 +932,17 @@ function testCopyNEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReadAtLeast(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _rb:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        _testReadAtLeast(_t, Go.asInterface((_rb : Ref<stdgo.bytes.Bytes.Buffer>)));
+        _testReadAtLeast(_t, Go.asInterface((Go.setRef(_rb) : Ref<stdgo.bytes.Bytes.Buffer>)));
     }
 function testReadAtLeastWithDataAndEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _rb:T_dataAndErrorBuffer = ({} : stdgo.io_test.Io_test.T_dataAndErrorBuffer);
         _rb._err = eof;
-        _testReadAtLeast(_t, Go.asInterface((_rb : Ref<stdgo.io_test.Io_test.T_dataAndErrorBuffer>)));
+        _testReadAtLeast(_t, Go.asInterface((Go.setRef(_rb) : Ref<stdgo.io_test.Io_test.T_dataAndErrorBuffer>)));
     }
 function testReadAtLeastWithDataAndError(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _rb:T_dataAndErrorBuffer = ({} : stdgo.io_test.Io_test.T_dataAndErrorBuffer);
         _rb._err = stdgo.fmt.Fmt.errorf(("fake error" : GoString));
-        _testReadAtLeast(_t, Go.asInterface((_rb : Ref<stdgo.io_test.Io_test.T_dataAndErrorBuffer>)));
+        _testReadAtLeast(_t, Go.asInterface((Go.setRef(_rb) : Ref<stdgo.io_test.Io_test.T_dataAndErrorBuffer>)));
     }
 private function _testReadAtLeast(_t:Ref<stdgo.testing.Testing.T>, _rb:ReadWriter):Void {
         _rb.write((("0123" : GoString) : Slice<GoByte>));
@@ -1015,7 +1015,7 @@ function testTeeReader(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _src = (("hello, world" : GoString) : Slice<GoByte>);
         var _dst = new Slice<GoUInt8>((_src.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_src.length : GoInt).toBasic()) (0 : GoUInt8)]);
         var _rb = stdgo.bytes.Bytes.newBuffer(_src);
-        var _wb = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _wb = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _r:Reader = teeReader(Go.asInterface(_rb), Go.asInterface(_wb));
         {
             var __tmp__ = readFull(_r, _dst), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -1131,7 +1131,7 @@ function testSectionReader_Max(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testCopyLargeWriter(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _want:Error = errInvalidWrite;
-        var _rb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
+        var _rb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
         var _wb:stdgo.io_test.Io_test.T_largeWriter = (new T_largeWriter() : T_largeWriter);
         _rb.writeString(("hello, world." : GoString));
         {
@@ -1141,7 +1141,7 @@ function testCopyLargeWriter(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         _want = stdgo.errors.Errors.new_(("largeWriterError" : GoString));
-        _rb = (({} : stdgo.io_test.Io_test.Buffer) : Ref<stdgo.io_test.Io_test.Buffer>);
+        _rb = (Go.setRef(({} : stdgo.io_test.Io_test.Buffer)) : Ref<stdgo.io_test.Io_test.Buffer>);
         _wb = ({ _err : _want } : T_largeWriter);
         _rb.writeString(("hello, world." : GoString));
         {
@@ -1174,7 +1174,7 @@ function testOffsetWriter_Seek(_t:Ref<stdgo.testing.Testing.T>):Void {
         try {
             var _tmpfilename:GoString = ("TestOffsetWriter_Seek" : GoString);
             var __tmp__ = stdgo.os.Os.createTemp(_t.tempDir(), _tmpfilename), _tmpfile:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
-            if ((_err != null) || (_tmpfile == null)) {
+            if ((_err != null) || ((_tmpfile == null) || (_tmpfile : Dynamic).__nil__)) {
                 _t.fatalf(("CreateTemp(%s) failed: %v" : GoString), Go.toInterface(_tmpfilename), Go.toInterface(_err));
             };
             __deferstack__.unshift(() -> _tmpfile.close());
@@ -1246,7 +1246,7 @@ function testOffsetWriter_WriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
             try {
                 var _position:GoString = stdgo.fmt.Fmt.sprintf(("off_%d_at_%d" : GoString), Go.toInterface(_off), Go.toInterface(_at));
                 var __tmp__ = stdgo.os.Os.createTemp(_tmpdir, _position), _tmpfile:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
-                if ((_err != null) || (_tmpfile == null)) {
+                if ((_err != null) || ((_tmpfile == null) || (_tmpfile : Dynamic).__nil__)) {
                     _t.fatalf(("CreateTemp(%s) failed: %v" : GoString), Go.toInterface(_position), Go.toInterface(_err));
                 };
                 __deferstack__.unshift(() -> _tmpfile.close());
@@ -1289,7 +1289,7 @@ function testOffsetWriter_WriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 return;
                             };
                         };
-                        a((_wg : Ref<stdgo.sync.Sync.WaitGroup>), _tmpfile, _value, _off, _at, _step);
+                        a((Go.setRef(_wg) : Ref<stdgo.sync.Sync.WaitGroup>), _tmpfile, _value, _off, _at, _step);
                     });
                 };
                 _wg.wait_();
@@ -1345,7 +1345,7 @@ function testOffsetWriter_Write(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _makeOffsetWriter:GoString -> { var _0 : Ref<OffsetWriter>; var _1 : Ref<stdgo.os.Os.File>; } = function(_name:GoString):{ var _0 : Ref<OffsetWriter>; var _1 : Ref<stdgo.os.Os.File>; } {
             var _tmpfilename:GoString = ("TestOffsetWriter_Write_" : GoString) + _name;
             var __tmp__ = stdgo.os.Os.createTemp(_tmpdir, _tmpfilename), _tmpfile:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
-            if ((_err != null) || (_tmpfile == null)) {
+            if ((_err != null) || ((_tmpfile == null) || (_tmpfile : Dynamic).__nil__)) {
                 _t.fatalf(("CreateTemp(%s) failed: %v" : GoString), Go.toInterface(_tmpfilename), Go.toInterface(_err));
             };
             return { _0 : newOffsetWriter(Go.asInterface(_tmpfile), ("0" : GoInt64)), _1 : _tmpfile };
@@ -1490,7 +1490,7 @@ function testMultiReaderAsWriterTo(_t:Ref<stdgo.testing.Testing.T>):Void {
         if (!_ok) {
             _t.fatalf(("expected cast to WriterTo to succeed" : GoString));
         };
-        var _sink = ((new stdgo.strings.Strings.Builder() : stdgo.strings.Strings.Builder) : Ref<stdgo.strings.Strings.Builder>);
+        var _sink = (Go.setRef((new stdgo.strings.Strings.Builder() : stdgo.strings.Strings.Builder)) : Ref<stdgo.strings.Strings.Builder>);
         var __tmp__ = _mrAsWriterTo.writeTo(Go.asInterface(_sink)), _n:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatalf(("expected no error; got %v" : GoString), Go.toInterface(_err));
@@ -1506,11 +1506,11 @@ function testMultiReaderAsWriterTo(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testMultiWriter(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _sink = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
+        var _sink = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
         _testMultiWriter(_t, Go.asInterface(({ writer : Go.asInterface(_sink), stringer : Go.asInterface(_sink) } : T__struct_6)));
     }
 function testMultiWriter_String(_t:Ref<stdgo.testing.Testing.T>):Void {
-        _testMultiWriter(_t, Go.asInterface((({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>)));
+        _testMultiWriter(_t, Go.asInterface((Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>)));
     }
 /**
     
@@ -1537,7 +1537,7 @@ function testMultiWriter_String(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testMultiWriter_WriteStringSingleAlloc(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _0:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer), _1:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer), _sink2:stdgo.bytes.Bytes.Buffer = _1, _sink1:stdgo.bytes.Bytes.Buffer = _0;
         {};
-        var _mw:Writer = multiWriter(Go.asInterface((new T_testMultiWriter_WriteStringSingleAlloc_0___localname___simpleWriter(Go.asInterface((_sink1 : Ref<stdgo.bytes.Bytes.Buffer>))) : T_testMultiWriter_WriteStringSingleAlloc_0___localname___simpleWriter)), Go.asInterface((new T_testMultiWriter_WriteStringSingleAlloc_0___localname___simpleWriter(Go.asInterface((_sink2 : Ref<stdgo.bytes.Bytes.Buffer>))) : T_testMultiWriter_WriteStringSingleAlloc_0___localname___simpleWriter)));
+        var _mw:Writer = multiWriter(Go.asInterface((new T_testMultiWriter_WriteStringSingleAlloc_0___localname___simpleWriter(Go.asInterface((Go.setRef(_sink1) : Ref<stdgo.bytes.Bytes.Buffer>))) : T_testMultiWriter_WriteStringSingleAlloc_0___localname___simpleWriter)), Go.asInterface((new T_testMultiWriter_WriteStringSingleAlloc_0___localname___simpleWriter(Go.asInterface((Go.setRef(_sink2) : Ref<stdgo.bytes.Bytes.Buffer>))) : T_testMultiWriter_WriteStringSingleAlloc_0___localname___simpleWriter)));
         var _allocs:GoInt = (stdgo.testing.Testing.allocsPerRun((1000 : GoInt), function():Void {
             writeString(_mw, ("foo" : GoString));
         }) : GoInt);
@@ -1547,7 +1547,7 @@ function testMultiWriter_WriteStringSingleAlloc(_t:Ref<stdgo.testing.Testing.T>)
     }
 function testMultiWriter_StringCheckCall(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _c:T_writeStringChecker = ({} : stdgo.io_test.Io_test.T_writeStringChecker);
-        var _mw:Writer = multiWriter(Go.asInterface((_c : Ref<stdgo.io_test.Io_test.T_writeStringChecker>)));
+        var _mw:Writer = multiWriter(Go.asInterface((Go.setRef(_c) : Ref<stdgo.io_test.Io_test.T_writeStringChecker>)));
         writeString(_mw, ("foo" : GoString));
         if (!_c._called) {
             _t.error(Go.toInterface(("did not see WriteString call to writeStringChecker" : GoString)));
@@ -1630,7 +1630,7 @@ function testMultiReaderCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testMultiWriterCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-        var _slice = (new Slice<Writer>(0, 0, Go.asInterface((_buf : Ref<stdgo.strings.Strings.Builder>))) : Slice<Writer>);
+        var _slice = (new Slice<Writer>(0, 0, Go.asInterface((Go.setRef(_buf) : Ref<stdgo.strings.Strings.Builder>))) : Slice<Writer>);
         var _w:Writer = multiWriter(..._slice.__toArray__());
         _slice[(0 : GoInt)] = (null : Writer);
         var __tmp__ = _w.write((("hello world" : GoString) : Slice<GoByte>)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -1880,7 +1880,7 @@ function testPipe3(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _tot = _tot + (_nn);
             });
         };
-        var _pr:stdgo.io_test.Io_test.T_pipeReturn = (_c.__get__() == null ? null : _c.__get__().__copy__());
+        var _pr:stdgo.io_test.Io_test.T_pipeReturn = _c.__get__().__copy__();
         if ((_pr._n != (128 : GoInt)) || (_pr._err != null)) {
             _t.fatalf(("write 128: %d, %v" : GoString), Go.toInterface(_pr._n), Go.toInterface(_pr._err));
         };
@@ -1914,9 +1914,9 @@ function testPipeReadClose(_t:Ref<stdgo.testing.Testing.T>):Void {
             var _c = new Chan<GoInt>((1 : GoInt).toBasic(), () -> (0 : GoInt));
             var __tmp__ = pipe(), _r:Ref<PipeReader> = __tmp__._0, _w:Ref<PipeWriter> = __tmp__._1;
             if (_tt._async) {
-                Go.routine(() -> _delayClose(_t, Go.asInterface(_w), _c, (_tt == null ? null : _tt.__copy__())));
+                Go.routine(() -> _delayClose(_t, Go.asInterface(_w), _c, _tt.__copy__()));
             } else {
-                _delayClose(_t, Go.asInterface(_w), _c, (_tt == null ? null : _tt.__copy__()));
+                _delayClose(_t, Go.asInterface(_w), _c, _tt.__copy__());
             };
             var _buf:Slice<GoUInt8> = new Slice<GoUInt8>((64 : GoInt).toBasic(), 0, ...[for (i in 0 ... (64 : GoInt).toBasic()) (0 : GoUInt8)]);
             var __tmp__ = _r.read(_buf), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -1957,9 +1957,9 @@ function testPipeWriteClose(_t:Ref<stdgo.testing.Testing.T>):Void {
             var _c = new Chan<GoInt>((1 : GoInt).toBasic(), () -> (0 : GoInt));
             var __tmp__ = pipe(), _r:Ref<PipeReader> = __tmp__._0, _w:Ref<PipeWriter> = __tmp__._1;
             if (_tt._async) {
-                Go.routine(() -> _delayClose(_t, Go.asInterface(_r), _c, (_tt == null ? null : _tt.__copy__())));
+                Go.routine(() -> _delayClose(_t, Go.asInterface(_r), _c, _tt.__copy__()));
             } else {
-                _delayClose(_t, Go.asInterface(_r), _c, (_tt == null ? null : _tt.__copy__()));
+                _delayClose(_t, Go.asInterface(_r), _c, _tt.__copy__());
             };
             var __tmp__ = writeString(Go.asInterface(_w), ("hello, world" : GoString)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             _c.__get__();
@@ -2228,51 +2228,51 @@ private function _sortBytesInGroups(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
     }
 class Buffer_asInterface {
     @:embedded
-    public function _tryGrowByReslice(__0:GoInt):{ var _0 : GoInt; var _1 : Bool; } return __self__.value._tryGrowByReslice(__0);
+    public dynamic function _tryGrowByReslice(__0:GoInt):{ var _0 : GoInt; var _1 : Bool; } return __self__.value._tryGrowByReslice(__0);
     @:embedded
-    public function _readSlice(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value._readSlice(_c);
+    public dynamic function _readSlice(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value._readSlice(_c);
     @:embedded
-    public function _grow(__0:GoInt):GoInt return __self__.value._grow(__0);
+    public dynamic function _grow(__0:GoInt):GoInt return __self__.value._grow(__0);
     @:embedded
-    public function _empty():Bool return __self__.value._empty();
+    public dynamic function _empty():Bool return __self__.value._empty();
     @:embedded
-    public function writeString(__0:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(__0);
+    public dynamic function writeString(__0:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(__0);
     @:embedded
-    public function writeRune(__0:GoInt32):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(__0);
+    public dynamic function writeRune(__0:GoInt32):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(__0);
     @:embedded
-    public function writeByte(_c:GoUInt8):Error return __self__.value.writeByte(_c);
+    public dynamic function writeByte(_c:GoUInt8):Error return __self__.value.writeByte(_c);
     @:embedded
-    public function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
+    public dynamic function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
     @:embedded
-    public function unreadRune():Error return __self__.value.unreadRune();
+    public dynamic function unreadRune():Error return __self__.value.unreadRune();
     @:embedded
-    public function unreadByte():Error return __self__.value.unreadByte();
+    public dynamic function unreadByte():Error return __self__.value.unreadByte();
     @:embedded
-    public function truncate(__0:GoInt):Void __self__.value.truncate(__0);
+    public dynamic function truncate(__0:GoInt):Void __self__.value.truncate(__0);
     @:embedded
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:embedded
-    public function reset():Void __self__.value.reset();
+    public dynamic function reset():Void __self__.value.reset();
     @:embedded
-    public function readString(_c:GoUInt8):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_c);
+    public dynamic function readString(_c:GoUInt8):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_c);
     @:embedded
-    public function readRune():{ var _0 : GoInt32; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
+    public dynamic function readRune():{ var _0 : GoInt32; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
     @:embedded
-    public function readBytes(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readBytes(_c);
+    public dynamic function readBytes(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readBytes(_c);
     @:embedded
-    public function readByte():{ var _0 : GoUInt8; var _1 : Error; } return __self__.value.readByte();
+    public dynamic function readByte():{ var _0 : GoUInt8; var _1 : Error; } return __self__.value.readByte();
     @:embedded
-    public function read(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
+    public dynamic function read(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
     @:embedded
-    public function next(__0:GoInt):Slice<GoUInt8> return __self__.value.next(__0);
+    public dynamic function next(__0:GoInt):Slice<GoUInt8> return __self__.value.next(__0);
     @:embedded
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     @:embedded
-    public function grow(__0:GoInt):Void __self__.value.grow(__0);
+    public dynamic function grow(__0:GoInt):Void __self__.value.grow(__0);
     @:embedded
-    public function cap():GoInt return __self__.value.cap();
+    public dynamic function cap():GoInt return __self__.value.cap();
     @:embedded
-    public function bytes():Slice<GoUInt8> return __self__.value.bytes();
+    public dynamic function bytes():Slice<GoUInt8> return __self__.value.bytes();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2331,55 +2331,55 @@ class Buffer_asInterface {
 }
 class T_writeToChecker_asInterface {
     @:keep
-    public function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
+    public dynamic function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
     @:embedded
-    public function _tryGrowByReslice(__0:GoInt):{ var _0 : GoInt; var _1 : Bool; } return __self__.value._tryGrowByReslice(__0);
+    public dynamic function _tryGrowByReslice(__0:GoInt):{ var _0 : GoInt; var _1 : Bool; } return __self__.value._tryGrowByReslice(__0);
     @:embedded
-    public function _readSlice(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value._readSlice(_c);
+    public dynamic function _readSlice(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value._readSlice(_c);
     @:embedded
-    public function _grow(__0:GoInt):GoInt return __self__.value._grow(__0);
+    public dynamic function _grow(__0:GoInt):GoInt return __self__.value._grow(__0);
     @:embedded
-    public function _empty():Bool return __self__.value._empty();
+    public dynamic function _empty():Bool return __self__.value._empty();
     @:embedded
-    public function writeString(__0:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(__0);
+    public dynamic function writeString(__0:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(__0);
     @:embedded
-    public function writeRune(__0:GoInt32):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(__0);
+    public dynamic function writeRune(__0:GoInt32):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(__0);
     @:embedded
-    public function writeByte(_c:GoUInt8):Error return __self__.value.writeByte(_c);
+    public dynamic function writeByte(_c:GoUInt8):Error return __self__.value.writeByte(_c);
     @:embedded
-    public function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
+    public dynamic function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
     @:embedded
-    public function unreadRune():Error return __self__.value.unreadRune();
+    public dynamic function unreadRune():Error return __self__.value.unreadRune();
     @:embedded
-    public function unreadByte():Error return __self__.value.unreadByte();
+    public dynamic function unreadByte():Error return __self__.value.unreadByte();
     @:embedded
-    public function truncate(__0:GoInt):Void __self__.value.truncate(__0);
+    public dynamic function truncate(__0:GoInt):Void __self__.value.truncate(__0);
     @:embedded
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:embedded
-    public function reset():Void __self__.value.reset();
+    public dynamic function reset():Void __self__.value.reset();
     @:embedded
-    public function readString(_c:GoUInt8):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_c);
+    public dynamic function readString(_c:GoUInt8):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_c);
     @:embedded
-    public function readRune():{ var _0 : GoInt32; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
+    public dynamic function readRune():{ var _0 : GoInt32; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
     @:embedded
-    public function readFrom(_r:Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
+    public dynamic function readFrom(_r:Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
     @:embedded
-    public function readBytes(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readBytes(_c);
+    public dynamic function readBytes(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readBytes(_c);
     @:embedded
-    public function readByte():{ var _0 : GoUInt8; var _1 : Error; } return __self__.value.readByte();
+    public dynamic function readByte():{ var _0 : GoUInt8; var _1 : Error; } return __self__.value.readByte();
     @:embedded
-    public function read(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
+    public dynamic function read(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_b);
     @:embedded
-    public function next(__0:GoInt):Slice<GoUInt8> return __self__.value.next(__0);
+    public dynamic function next(__0:GoInt):Slice<GoUInt8> return __self__.value.next(__0);
     @:embedded
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     @:embedded
-    public function grow(__0:GoInt):Void __self__.value.grow(__0);
+    public dynamic function grow(__0:GoInt):Void __self__.value.grow(__0);
     @:embedded
-    public function cap():GoInt return __self__.value.cap();
+    public dynamic function cap():GoInt return __self__.value.cap();
     @:embedded
-    public function bytes():Slice<GoUInt8> return __self__.value.bytes();
+    public dynamic function bytes():Slice<GoUInt8> return __self__.value.bytes();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2445,7 +2445,7 @@ class T_writeToChecker_asInterface {
 }
 class T_zeroErrReader_asInterface {
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2462,7 +2462,7 @@ class T_zeroErrReader_asInterface {
 }
 class T_errWriter_asInterface {
     @:keep
-    public function write(_0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_0);
+    public dynamic function write(_0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_0);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2479,7 +2479,7 @@ class T_errWriter_asInterface {
 }
 class T_noReadFrom_asInterface {
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2497,7 +2497,7 @@ class T_noReadFrom_asInterface {
 }
 class T_wantedAndErrReader_asInterface {
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2514,55 +2514,55 @@ class T_wantedAndErrReader_asInterface {
 }
 class T_dataAndErrorBuffer_asInterface {
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     @:embedded
-    public function _tryGrowByReslice(__0:GoInt):{ var _0 : GoInt; var _1 : Bool; } return __self__.value._tryGrowByReslice(__0);
+    public dynamic function _tryGrowByReslice(__0:GoInt):{ var _0 : GoInt; var _1 : Bool; } return __self__.value._tryGrowByReslice(__0);
     @:embedded
-    public function _readSlice(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value._readSlice(_c);
+    public dynamic function _readSlice(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value._readSlice(_c);
     @:embedded
-    public function _grow(__0:GoInt):GoInt return __self__.value._grow(__0);
+    public dynamic function _grow(__0:GoInt):GoInt return __self__.value._grow(__0);
     @:embedded
-    public function _empty():Bool return __self__.value._empty();
+    public dynamic function _empty():Bool return __self__.value._empty();
     @:embedded
-    public function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
+    public dynamic function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
     @:embedded
-    public function writeString(__0:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(__0);
+    public dynamic function writeString(__0:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(__0);
     @:embedded
-    public function writeRune(__0:GoInt32):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(__0);
+    public dynamic function writeRune(__0:GoInt32):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeRune(__0);
     @:embedded
-    public function writeByte(_c:GoUInt8):Error return __self__.value.writeByte(_c);
+    public dynamic function writeByte(_c:GoUInt8):Error return __self__.value.writeByte(_c);
     @:embedded
-    public function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
+    public dynamic function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
     @:embedded
-    public function unreadRune():Error return __self__.value.unreadRune();
+    public dynamic function unreadRune():Error return __self__.value.unreadRune();
     @:embedded
-    public function unreadByte():Error return __self__.value.unreadByte();
+    public dynamic function unreadByte():Error return __self__.value.unreadByte();
     @:embedded
-    public function truncate(__0:GoInt):Void __self__.value.truncate(__0);
+    public dynamic function truncate(__0:GoInt):Void __self__.value.truncate(__0);
     @:embedded
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:embedded
-    public function reset():Void __self__.value.reset();
+    public dynamic function reset():Void __self__.value.reset();
     @:embedded
-    public function readString(_c:GoUInt8):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_c);
+    public dynamic function readString(_c:GoUInt8):{ var _0 : GoString; var _1 : Error; } return __self__.value.readString(_c);
     @:embedded
-    public function readRune():{ var _0 : GoInt32; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
+    public dynamic function readRune():{ var _0 : GoInt32; var _1 : GoInt; var _2 : Error; } return __self__.value.readRune();
     @:embedded
-    public function readFrom(_r:Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
+    public dynamic function readFrom(_r:Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
     @:embedded
-    public function readBytes(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readBytes(_c);
+    public dynamic function readBytes(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : Error; } return __self__.value.readBytes(_c);
     @:embedded
-    public function readByte():{ var _0 : GoUInt8; var _1 : Error; } return __self__.value.readByte();
+    public dynamic function readByte():{ var _0 : GoUInt8; var _1 : Error; } return __self__.value.readByte();
     @:embedded
-    public function next(__0:GoInt):Slice<GoUInt8> return __self__.value.next(__0);
+    public dynamic function next(__0:GoInt):Slice<GoUInt8> return __self__.value.next(__0);
     @:embedded
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     @:embedded
-    public function grow(__0:GoInt):Void __self__.value.grow(__0);
+    public dynamic function grow(__0:GoInt):Void __self__.value.grow(__0);
     @:embedded
-    public function cap():GoInt return __self__.value.cap();
+    public dynamic function cap():GoInt return __self__.value.cap();
     @:embedded
-    public function bytes():Slice<GoUInt8> return __self__.value.bytes();
+    public dynamic function bytes():Slice<GoUInt8> return __self__.value.bytes();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2636,7 +2636,7 @@ class T_dataAndErrorBuffer_asInterface {
 }
 class T_largeWriter_asInterface {
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2653,9 +2653,9 @@ class T_largeWriter_asInterface {
 }
 class T_writeStringChecker_asInterface {
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     @:keep
-    public function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
+    public dynamic function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2679,7 +2679,7 @@ class T_writeStringChecker_asInterface {
 }
 class T_pipeTest_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2696,7 +2696,7 @@ class T_pipeTest_asInterface {
 }
 class T_writerFunc_asInterface {
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2713,7 +2713,7 @@ class T_writerFunc_asInterface {
 }
 class T_readerFunc_asInterface {
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2730,7 +2730,7 @@ class T_readerFunc_asInterface {
 }
 class T_byteAndEOFReader_asInterface {
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2752,7 +2752,7 @@ class T_byteAndEOFReader_asInterface {
 }
 class T_testMultiWriter_WriteStringSingleAlloc_0___localname___simpleWriter_asInterface {
     @:embedded
-    public function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
+    public dynamic function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_b);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2767,7 +2767,7 @@ class T_testMultiWriter_WriteStringSingleAlloc_0___localname___simpleWriter_asIn
 }
 class T_testPipeCloseError_0___localname___testError1_asInterface {
     @:embedded
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2782,7 +2782,7 @@ class T_testPipeCloseError_0___localname___testError1_asInterface {
 }
 class T_testPipeCloseError_1___localname___testError2_asInterface {
     @:embedded
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

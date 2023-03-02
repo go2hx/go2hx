@@ -285,7 +285,7 @@ typedef T_error = StructType & {
         
         
     **/
-    public function runtimeError():Void;
+    public dynamic function runtimeError():Void;
 };
 /**
     // A TypeAssertionError explains a failed type assertion.
@@ -1348,9 +1348,9 @@ function readTrace():Slice<GoByte> throw "runtime.readTrace is not yet implement
 function setCgoTraceback(_version:GoInt, _traceback:stdgo.unsafe.Unsafe.UnsafePointer, _context:stdgo.unsafe.Unsafe.UnsafePointer, _symbolizer:stdgo.unsafe.Unsafe.UnsafePointer):Void throw "runtime.setCgoTraceback is not yet implemented";
 class TypeAssertionError_asInterface {
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     @:keep
-    public function runtimeError():Void __self__.value.runtimeError();
+    public dynamic function runtimeError():Void __self__.value.runtimeError();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1371,7 +1371,7 @@ class StackRecord_asInterface {
         // a prefix of r.Stack0.
     **/
     @:keep
-    public function stack():Slice<GoUIntptr> return __self__.value.stack();
+    public dynamic function stack():Slice<GoUIntptr> return __self__.value.stack();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1394,17 +1394,17 @@ class MemProfileRecord_asInterface {
         // a prefix of r.Stack0.
     **/
     @:keep
-    public function stack():Slice<GoUIntptr> return __self__.value.stack();
+    public dynamic function stack():Slice<GoUIntptr> return __self__.value.stack();
     /**
         // InUseObjects returns the number of objects in use (AllocObjects - FreeObjects).
     **/
     @:keep
-    public function inUseObjects():GoInt64 return __self__.value.inUseObjects();
+    public dynamic function inUseObjects():GoInt64 return __self__.value.inUseObjects();
     /**
         // InUseBytes returns the number of bytes in use (AllocBytes - FreeBytes).
     **/
     @:keep
-    public function inUseBytes():GoInt64 return __self__.value.inUseBytes();
+    public dynamic function inUseBytes():GoInt64 return __self__.value.inUseBytes();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1433,7 +1433,7 @@ class MemProfileRecord_asInterface {
 }
 class BlockProfileRecord_asInterface {
     @:embedded
-    public function stack():Slice<GoUIntptr> return __self__.value.stack();
+    public dynamic function stack():Slice<GoUIntptr> return __self__.value.stack();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1459,7 +1459,7 @@ class Frames_asInterface {
         // See the Frames example for idiomatic usage.
     **/
     @:keep
-    public function next():{ var _0 : Frame; var _1 : Bool; } return __self__.value.next();
+    public dynamic function next():{ var _0 : Frame; var _1 : Bool; } return __self__.value.next();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1491,17 +1491,17 @@ class Func_asInterface {
         // counter within f.
     **/
     @:keep
-    public function fileLine(_pc:GoUIntptr):{ var _0 : GoString; var _1 : GoInt; } return __self__.value.fileLine(_pc);
+    public dynamic function fileLine(_pc:GoUIntptr):{ var _0 : GoString; var _1 : GoInt; } return __self__.value.fileLine(_pc);
     /**
         // Entry returns the entry address of the function.
     **/
     @:keep
-    public function entry():GoUIntptr return __self__.value.entry();
+    public dynamic function entry():GoUIntptr return __self__.value.entry();
     /**
         // Name returns the name of the function.
     **/
     @:keep
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

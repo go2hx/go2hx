@@ -463,7 +463,7 @@ typedef Value = StructType & {
         
         
     **/
-    public function kind():Kind;
+    public dynamic function kind():Kind;
     /**
         // String returns a short, quoted (human-readable) form of the value.
         // For numeric values, the result may be an approximation;
@@ -472,20 +472,20 @@ typedef Value = StructType & {
         
         
     **/
-    public function string():GoString;
+    public dynamic function string():GoString;
     /**
         // ExactString returns an exact, quoted (human-readable) form of the value.
         // If the Value is of Kind String, use StringVal to obtain the unquoted string.
         
         
     **/
-    public function exactString():GoString;
+    public dynamic function exactString():GoString;
     /**
         // Prevent external implementations.
         
         
     **/
-    public function _implementsValue():Void;
+    public dynamic function _implementsValue():Void;
 };
 /**
     
@@ -675,13 +675,13 @@ private function _reverse(_x:Slice<GoString>):Slice<GoString> {
         return _x;
     }
 private function _newInt():Ref<stdgo.math.big.Big.Int_> {
-        return (({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>);
+        return (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>);
     }
 private function _newRat():Ref<stdgo.math.big.Big.Rat> {
-        return (({} : stdgo.math.big.Big.Rat) : Ref<stdgo.math.big.Big.Rat>);
+        return (Go.setRef(({} : stdgo.math.big.Big.Rat)) : Ref<stdgo.math.big.Big.Rat>);
     }
 private function _newFloat():Ref<stdgo.math.big.Big.Float_> {
-        return (({} : stdgo.math.big.Big.Float_) : Ref<stdgo.math.big.Big.Float_>).setPrec(("512" : GoUInt));
+        return (Go.setRef(({} : stdgo.math.big.Big.Float_)) : Ref<stdgo.math.big.Big.Float_>).setPrec(("512" : GoUInt));
     }
 private function _i64toi(_x:T_int64Val):T_intVal {
         return (new T_intVal(_newInt().setInt64((_x : GoInt64))) : T_intVal);
@@ -799,9 +799,9 @@ function makeBool(_b:Bool):Value {
 **/
 function makeString(_s:GoString):Value {
         if (_s == (Go.str())) {
-            return Go.asInterface((_emptyString : Ref<T_stringVal>));
+            return Go.asInterface((Go.setRef(_emptyString) : Ref<T_stringVal>));
         };
-        return Go.asInterface((({ _s : _s } : T_stringVal) : Ref<T_stringVal>));
+        return Go.asInterface((Go.setRef(({ _s : _s } : T_stringVal)) : Ref<T_stringVal>));
     }
 /**
     // MakeInt64 returns the Int value for x.
@@ -843,59 +843,62 @@ function makeFromLiteral(_lit:GoString, _tok:stdgo.go.token.Token.Token, _zero:G
         if (_zero != (("0" : GoUInt))) {
             throw Go.toInterface(("MakeFromLiteral called with non-zero last argument" : GoString));
         };
-        if (_tok == ((5 : stdgo.go.token.Token.Token))) {
-            {
-                var __tmp__ = stdgo.strconv.Strconv.parseInt(_lit, (0 : GoInt), (64 : GoInt)), _x:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
-                if (_err == null) {
-                    return Go.asInterface((_x : T_int64Val));
+        {
+            final __value__ = _tok;
+            if (__value__ == ((5 : stdgo.go.token.Token.Token))) {
+                {
+                    var __tmp__ = stdgo.strconv.Strconv.parseInt(_lit, (0 : GoInt), (64 : GoInt)), _x:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                    if (_err == null) {
+                        return Go.asInterface((_x : T_int64Val));
+                    };
                 };
-            };
-            {
-                var __tmp__ = _newInt().setString(_lit, (0 : GoInt)), _x:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
-                if (_ok) {
-                    return Go.asInterface((new T_intVal(_x) : T_intVal));
+                {
+                    var __tmp__ = _newInt().setString(_lit, (0 : GoInt)), _x:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
+                    if (_ok) {
+                        return Go.asInterface((new T_intVal(_x) : T_intVal));
+                    };
                 };
-            };
-        } else if (_tok == ((6 : stdgo.go.token.Token.Token))) {
-            {
-                var _x:Value = _makeFloatFromLiteral(_lit);
-                if (_x != null) {
-                    return _x;
+            } else if (__value__ == ((6 : stdgo.go.token.Token.Token))) {
+                {
+                    var _x:Value = _makeFloatFromLiteral(_lit);
+                    if (_x != null) {
+                        return _x;
+                    };
                 };
-            };
-        } else if (_tok == ((7 : stdgo.go.token.Token.Token))) {
-            {
-                var _n:GoInt = (_lit.length);
-                if ((_n > (0 : GoInt)) && (_lit[(_n - (1 : GoInt) : GoInt)] == (105 : GoUInt8))) {
-                    {
-                        var _im:Value = _makeFloatFromLiteral((_lit.__slice__(0, _n - (1 : GoInt)) : GoString));
-                        if (_im != null) {
-                            return _makeComplex(Go.asInterface((("0" : GoInt64) : T_int64Val)), _im);
+            } else if (__value__ == ((7 : stdgo.go.token.Token.Token))) {
+                {
+                    var _n:GoInt = (_lit.length);
+                    if ((_n > (0 : GoInt)) && (_lit[(_n - (1 : GoInt) : GoInt)] == (105 : GoUInt8))) {
+                        {
+                            var _im:Value = _makeFloatFromLiteral((_lit.__slice__(0, _n - (1 : GoInt)) : GoString));
+                            if (_im != null) {
+                                return _makeComplex(Go.asInterface((("0" : GoInt64) : T_int64Val)), _im);
+                            };
                         };
                     };
                 };
-            };
-        } else if (_tok == ((8 : stdgo.go.token.Token.Token))) {
-            {
-                var _n:GoInt = (_lit.length);
-                if (_n >= (2 : GoInt)) {
-                    {
-                        var __tmp__ = stdgo.strconv.Strconv.unquoteChar((_lit.__slice__((1 : GoInt), _n - (1 : GoInt)) : GoString), (39 : GoUInt8)), _code:GoInt32 = __tmp__._0, _0:Bool = __tmp__._1, _1:GoString = __tmp__._2, _err:Error = __tmp__._3;
-                        if (_err == null) {
-                            return makeInt64((_code : GoInt64));
+            } else if (__value__ == ((8 : stdgo.go.token.Token.Token))) {
+                {
+                    var _n:GoInt = (_lit.length);
+                    if (_n >= (2 : GoInt)) {
+                        {
+                            var __tmp__ = stdgo.strconv.Strconv.unquoteChar((_lit.__slice__((1 : GoInt), _n - (1 : GoInt)) : GoString), (39 : GoUInt8)), _code:GoInt32 = __tmp__._0, _0:Bool = __tmp__._1, _1:GoString = __tmp__._2, _err:Error = __tmp__._3;
+                            if (_err == null) {
+                                return makeInt64((_code : GoInt64));
+                            };
                         };
                     };
                 };
-            };
-        } else if (_tok == ((9 : stdgo.go.token.Token.Token))) {
-            {
-                var __tmp__ = stdgo.strconv.Strconv.unquote(_lit), _s:GoString = __tmp__._0, _err:Error = __tmp__._1;
-                if (_err == null) {
-                    return makeString(_s);
+            } else if (__value__ == ((9 : stdgo.go.token.Token.Token))) {
+                {
+                    var __tmp__ = stdgo.strconv.Strconv.unquote(_lit), _s:GoString = __tmp__._0, _err:Error = __tmp__._1;
+                    if (_err == null) {
+                        return makeString(_s);
+                    };
                 };
+            } else {
+                throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v is not a valid token" : GoString), Go.toInterface(Go.asInterface(_tok))));
             };
-        } else {
-            throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v is not a valid token" : GoString), Go.toInterface(Go.asInterface(_tok))));
         };
         return Go.asInterface((new T_unknownVal() : T_unknownVal));
     }
@@ -1108,7 +1111,7 @@ function make(_x:AnyInterface):Value {
                 return Go.asInterface((_x : T_boolVal));
             } else if (Go.typeEquals((__type__ : GoString))) {
                 var _x:GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__().value;
-                return Go.asInterface((({ _s : _x } : T_stringVal) : Ref<T_stringVal>));
+                return Go.asInterface((Go.setRef(({ _s : _x } : T_stringVal)) : Ref<T_stringVal>));
             } else if (Go.typeEquals((__type__ : GoInt64))) {
                 var _x:GoInt64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
                 return Go.asInterface((_x : T_int64Val));
@@ -1122,7 +1125,7 @@ function make(_x:AnyInterface):Value {
                 var _x:Ref<stdgo.math.big.Big.Float_> = __type__ == null ? (null : Ref<stdgo.math.big.Big.Float_>) : __type__.__underlying__() == null ? (null : Ref<stdgo.math.big.Big.Float_>) : __type__ == null ? (null : Ref<stdgo.math.big.Big.Float_>) : __type__.__underlying__().value;
                 return _makeFloat(_x);
             } else {
-                var _x:AnyInterface = __type__ == null ? null : __type__.__underlying__();
+                var _x:AnyInterface = __type__.__underlying__();
                 return Go.asInterface((new T_unknownVal() : T_unknownVal));
             };
         };
@@ -1201,10 +1204,10 @@ function bytes(_x:Value):Slice<GoByte> {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_int64Val))) {
                 var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
-                _t = (_i64toi(_x) == null ? null : _i64toi(_x).__copy__());
+                _t = _i64toi(_x).__copy__();
             } else if (Go.typeEquals((__type__ : T_intVal))) {
                 var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
-                _t = (_x == null ? null : _x.__copy__());
+                _t = _x.__copy__();
             } else {
                 var _x:Value = __type__ == null ? (null : Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not an Int" : GoString), Go.toInterface(_x)));
@@ -1461,9 +1464,9 @@ function toFloat(_x:Value):Value {
             } else if (Go.typeEquals((__type__ : T_intVal))) {
                 var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
                 if (_smallInt(_x._val)) {
-                    return Go.asInterface(_itor((_x == null ? null : _x.__copy__())));
+                    return Go.asInterface(_itor(_x.__copy__()));
                 };
-                return Go.asInterface(_itof((_x == null ? null : _x.__copy__())));
+                return Go.asInterface(_itof(_x.__copy__()));
             } else if (Go.typeEquals((__type__ : T_ratVal)) || Go.typeEquals((__type__ : T_floatVal))) {
                 var _x:Value = __type__ == null ? (null : Value) : cast __type__;
                 return _x;
@@ -1515,75 +1518,78 @@ private function _is63bit(_x:GoInt64):Bool {
 **/
 function unaryOp(_op:stdgo.go.token.Token.Token, _y:Value, _prec:GoUInt):Value {
         return stdgo.internal.Macro.controlFlow({
-            if (_op == ((12 : stdgo.go.token.Token.Token))) {
-                {
-                    final __type__ = _y;
-                    if (Go.typeEquals((__type__ : T_unknownVal)) || Go.typeEquals((__type__ : T_int64Val)) || Go.typeEquals((__type__ : T_intVal)) || Go.typeEquals((__type__ : T_ratVal)) || Go.typeEquals((__type__ : T_floatVal)) || Go.typeEquals((__type__ : T_complexVal))) {
-                        return _y;
-                    };
-                };
-            } else if (_op == ((13 : stdgo.go.token.Token.Token))) {
-                {
-                    final __type__ = _y;
-                    if (Go.typeEquals((__type__ : T_unknownVal))) {
-                        var _y:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
-                        return Go.asInterface(_y);
-                    } else if (Go.typeEquals((__type__ : T_int64Val))) {
-                        var _y:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
-                        {
-                            var _z:T_int64Val = -_y;
-                            if (_z != (_y)) {
-                                return Go.asInterface(_z);
-                            };
+            {
+                final __value__ = _op;
+                if (__value__ == ((12 : stdgo.go.token.Token.Token))) {
+                    {
+                        final __type__ = _y;
+                        if (Go.typeEquals((__type__ : T_unknownVal)) || Go.typeEquals((__type__ : T_int64Val)) || Go.typeEquals((__type__ : T_intVal)) || Go.typeEquals((__type__ : T_ratVal)) || Go.typeEquals((__type__ : T_floatVal)) || Go.typeEquals((__type__ : T_complexVal))) {
+                            return _y;
                         };
-                        return _makeInt(_newInt().neg(stdgo.math.big.Big.newInt((_y : GoInt64))));
-                    } else if (Go.typeEquals((__type__ : T_intVal))) {
-                        var _y:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
-                        return _makeInt(_newInt().neg(_y._val));
-                    } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                        var _y:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
-                        return _makeRat(_newRat().neg(_y._val));
-                    } else if (Go.typeEquals((__type__ : T_floatVal))) {
-                        var _y:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
-                        return _makeFloat(_newFloat().neg(_y._val));
-                    } else if (Go.typeEquals((__type__ : T_complexVal))) {
-                        var _y:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
-                        var _re:Value = unaryOp((13 : stdgo.go.token.Token.Token), _y._re, ("0" : GoUInt));
-                        var _im:Value = unaryOp((13 : stdgo.go.token.Token.Token), _y._im, ("0" : GoUInt));
-                        return _makeComplex(_re, _im);
                     };
-                };
-            } else if (_op == ((19 : stdgo.go.token.Token.Token))) {
-                var _z = _newInt();
-                {
-                    final __type__ = _y;
-                    if (Go.typeEquals((__type__ : T_unknownVal))) {
-                        var _y:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
-                        return Go.asInterface(_y);
-                    } else if (Go.typeEquals((__type__ : T_int64Val))) {
-                        var _y:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
-                        _z.not(stdgo.math.big.Big.newInt((_y : GoInt64)));
-                    } else if (Go.typeEquals((__type__ : T_intVal))) {
-                        var _y:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
-                        _z.not(_y._val);
-                    } else {
-                        var _y:Value = __type__ == null ? (null : Value) : cast __type__;
-                        @:goto "Error";
+                } else if (__value__ == ((13 : stdgo.go.token.Token.Token))) {
+                    {
+                        final __type__ = _y;
+                        if (Go.typeEquals((__type__ : T_unknownVal))) {
+                            var _y:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                            return Go.asInterface(_y);
+                        } else if (Go.typeEquals((__type__ : T_int64Val))) {
+                            var _y:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                            {
+                                var _z:T_int64Val = -_y;
+                                if (_z != (_y)) {
+                                    return Go.asInterface(_z);
+                                };
+                            };
+                            return _makeInt(_newInt().neg(stdgo.math.big.Big.newInt((_y : GoInt64))));
+                        } else if (Go.typeEquals((__type__ : T_intVal))) {
+                            var _y:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                            return _makeInt(_newInt().neg(_y._val));
+                        } else if (Go.typeEquals((__type__ : T_ratVal))) {
+                            var _y:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
+                            return _makeRat(_newRat().neg(_y._val));
+                        } else if (Go.typeEquals((__type__ : T_floatVal))) {
+                            var _y:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
+                            return _makeFloat(_newFloat().neg(_y._val));
+                        } else if (Go.typeEquals((__type__ : T_complexVal))) {
+                            var _y:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
+                            var _re:Value = unaryOp((13 : stdgo.go.token.Token.Token), _y._re, ("0" : GoUInt));
+                            var _im:Value = unaryOp((13 : stdgo.go.token.Token.Token), _y._im, ("0" : GoUInt));
+                            return _makeComplex(_re, _im);
+                        };
                     };
-                };
-                if (_prec > ("0" : GoUInt)) {
-                    _z.andNot(_z, _newInt().lsh(stdgo.math.big.Big.newInt(("-1" : GoInt64)), _prec));
-                };
-                return _makeInt(_z);
-            } else if (_op == ((43 : stdgo.go.token.Token.Token))) {
-                {
-                    final __type__ = _y;
-                    if (Go.typeEquals((__type__ : T_unknownVal))) {
-                        var _y:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
-                        return Go.asInterface(_y);
-                    } else if (Go.typeEquals((__type__ : T_boolVal))) {
-                        var _y:T_boolVal = __type__ == null ? (false : T_boolVal) : __type__.__underlying__() == null ? (false : T_boolVal) : __type__ == null ? (false : T_boolVal) : __type__.__underlying__().value;
-                        return Go.asInterface(!_y);
+                } else if (__value__ == ((19 : stdgo.go.token.Token.Token))) {
+                    var _z = _newInt();
+                    {
+                        final __type__ = _y;
+                        if (Go.typeEquals((__type__ : T_unknownVal))) {
+                            var _y:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                            return Go.asInterface(_y);
+                        } else if (Go.typeEquals((__type__ : T_int64Val))) {
+                            var _y:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                            _z.not(stdgo.math.big.Big.newInt((_y : GoInt64)));
+                        } else if (Go.typeEquals((__type__ : T_intVal))) {
+                            var _y:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                            _z.not(_y._val);
+                        } else {
+                            var _y:Value = __type__ == null ? (null : Value) : cast __type__;
+                            @:goto "Error";
+                        };
+                    };
+                    if (_prec > ("0" : GoUInt)) {
+                        _z.andNot(_z, _newInt().lsh(stdgo.math.big.Big.newInt(("-1" : GoInt64)), _prec));
+                    };
+                    return _makeInt(_z);
+                } else if (__value__ == ((43 : stdgo.go.token.Token.Token))) {
+                    {
+                        final __type__ = _y;
+                        if (Go.typeEquals((__type__ : T_unknownVal))) {
+                            var _y:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                            return Go.asInterface(_y);
+                        } else if (Go.typeEquals((__type__ : T_boolVal))) {
+                            var _y:T_boolVal = __type__ == null ? (false : T_boolVal) : __type__.__underlying__() == null ? (false : T_boolVal) : __type__ == null ? (false : T_boolVal) : __type__.__underlying__().value;
+                            return Go.asInterface(!_y);
+                        };
                     };
                 };
             };
@@ -1662,7 +1668,7 @@ private function _match0(_x:Value, _y:Value):{ var _0 : Value; var _1 : Value; }
                         return { _0 : Go.asInterface(_i64tor(_x1)), _1 : _y };
                     } else if (Go.typeEquals((__type__ : T_intVal))) {
                         var _x1:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
-                        return { _0 : Go.asInterface(_itor((_x1 == null ? null : _x1.__copy__()))), _1 : _y };
+                        return { _0 : Go.asInterface(_itor(_x1.__copy__())), _1 : _y };
                     };
                 };
             } else if (Go.typeEquals((__type__ : T_floatVal))) {
@@ -1673,10 +1679,10 @@ private function _match0(_x:Value, _y:Value):{ var _0 : Value; var _1 : Value; }
                         return { _0 : Go.asInterface(_i64tof(_x1)), _1 : _y };
                     } else if (Go.typeEquals((__type__ : T_intVal))) {
                         var _x1:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
-                        return { _0 : Go.asInterface(_itof((_x1 == null ? null : _x1.__copy__()))), _1 : _y };
+                        return { _0 : Go.asInterface(_itof(_x1.__copy__())), _1 : _y };
                     } else if (Go.typeEquals((__type__ : T_ratVal))) {
                         var _x1:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
-                        return { _0 : Go.asInterface(_rtof((_x1 == null ? null : _x1.__copy__()))), _1 : _y };
+                        return { _0 : Go.asInterface(_rtof(_x1.__copy__())), _1 : _y };
                     };
                 };
             } else if (Go.typeEquals((__type__ : T_complexVal))) {
@@ -1707,47 +1713,53 @@ function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
                 } else if (Go.typeEquals((__type__ : T_boolVal))) {
                     var _x:T_boolVal = __type__ == null ? (false : T_boolVal) : __type__.__underlying__() == null ? (false : T_boolVal) : __type__ == null ? (false : T_boolVal) : __type__.__underlying__().value;
                     var _y:T_boolVal = (Go.typeAssert((Go.toInterface(_y) : T_boolVal)) : T_boolVal);
-                    if (_op == ((34 : stdgo.go.token.Token.Token))) {
-                        return Go.asInterface(_x && _y);
-                    } else if (_op == ((35 : stdgo.go.token.Token.Token))) {
-                        return Go.asInterface(_x || _y);
+                    {
+                        final __value__ = _op;
+                        if (__value__ == ((34 : stdgo.go.token.Token.Token))) {
+                            return Go.asInterface(_x && _y);
+                        } else if (__value__ == ((35 : stdgo.go.token.Token.Token))) {
+                            return Go.asInterface(_x || _y);
+                        };
                     };
                 } else if (Go.typeEquals((__type__ : T_int64Val))) {
                     var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
                     var _a:GoInt64 = (_x : GoInt64);
                     var _b:GoInt64 = ((Go.typeAssert((Go.toInterface(_y) : T_int64Val)) : T_int64Val) : GoInt64);
                     var _c:GoInt64 = (0 : GoInt64);
-                    if (_op == ((12 : stdgo.go.token.Token.Token))) {
-                        if (!_is63bit(_a) || !_is63bit(_b)) {
-                            return _makeInt(_newInt().add(stdgo.math.big.Big.newInt(_a), stdgo.math.big.Big.newInt(_b)));
+                    {
+                        final __value__ = _op;
+                        if (__value__ == ((12 : stdgo.go.token.Token.Token))) {
+                            if (!_is63bit(_a) || !_is63bit(_b)) {
+                                return _makeInt(_newInt().add(stdgo.math.big.Big.newInt(_a), stdgo.math.big.Big.newInt(_b)));
+                            };
+                            _c = _a + _b;
+                        } else if (__value__ == ((13 : stdgo.go.token.Token.Token))) {
+                            if (!_is63bit(_a) || !_is63bit(_b)) {
+                                return _makeInt(_newInt().sub(stdgo.math.big.Big.newInt(_a), stdgo.math.big.Big.newInt(_b)));
+                            };
+                            _c = _a - _b;
+                        } else if (__value__ == ((14 : stdgo.go.token.Token.Token))) {
+                            if (!_is32bit(_a) || !_is32bit(_b)) {
+                                return _makeInt(_newInt().mul(stdgo.math.big.Big.newInt(_a), stdgo.math.big.Big.newInt(_b)));
+                            };
+                            _c = _a * _b;
+                        } else if (__value__ == ((15 : stdgo.go.token.Token.Token))) {
+                            return _makeRat(stdgo.math.big.Big.newRat(_a, _b));
+                        } else if (__value__ == ((26 : stdgo.go.token.Token.Token))) {
+                            _c = _a / _b;
+                        } else if (__value__ == ((16 : stdgo.go.token.Token.Token))) {
+                            _c = _a % _b;
+                        } else if (__value__ == ((17 : stdgo.go.token.Token.Token))) {
+                            _c = _a & _b;
+                        } else if (__value__ == ((18 : stdgo.go.token.Token.Token))) {
+                            _c = _a | _b;
+                        } else if (__value__ == ((19 : stdgo.go.token.Token.Token))) {
+                            _c = _a ^ _b;
+                        } else if (__value__ == ((22 : stdgo.go.token.Token.Token))) {
+                            _c = _a & (_b ^ (-1 : GoInt));
+                        } else {
+                            @:goto "Error";
                         };
-                        _c = _a + _b;
-                    } else if (_op == ((13 : stdgo.go.token.Token.Token))) {
-                        if (!_is63bit(_a) || !_is63bit(_b)) {
-                            return _makeInt(_newInt().sub(stdgo.math.big.Big.newInt(_a), stdgo.math.big.Big.newInt(_b)));
-                        };
-                        _c = _a - _b;
-                    } else if (_op == ((14 : stdgo.go.token.Token.Token))) {
-                        if (!_is32bit(_a) || !_is32bit(_b)) {
-                            return _makeInt(_newInt().mul(stdgo.math.big.Big.newInt(_a), stdgo.math.big.Big.newInt(_b)));
-                        };
-                        _c = _a * _b;
-                    } else if (_op == ((15 : stdgo.go.token.Token.Token))) {
-                        return _makeRat(stdgo.math.big.Big.newRat(_a, _b));
-                    } else if (_op == ((26 : stdgo.go.token.Token.Token))) {
-                        _c = _a / _b;
-                    } else if (_op == ((16 : stdgo.go.token.Token.Token))) {
-                        _c = _a % _b;
-                    } else if (_op == ((17 : stdgo.go.token.Token.Token))) {
-                        _c = _a & _b;
-                    } else if (_op == ((18 : stdgo.go.token.Token.Token))) {
-                        _c = _a | _b;
-                    } else if (_op == ((19 : stdgo.go.token.Token.Token))) {
-                        _c = _a ^ _b;
-                    } else if (_op == ((22 : stdgo.go.token.Token.Token))) {
-                        _c = _a & (_b ^ (-1 : GoInt));
-                    } else {
-                        @:goto "Error";
                     };
                     return Go.asInterface((_c : T_int64Val));
                 } else if (Go.typeEquals((__type__ : T_intVal))) {
@@ -1755,28 +1767,31 @@ function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
                     var _a = _x._val;
                     var _b = (Go.typeAssert((Go.toInterface(_y) : T_intVal)) : T_intVal)._val;
                     var _c = _newInt();
-                    if (_op == ((12 : stdgo.go.token.Token.Token))) {
-                        _c.add(_a, _b);
-                    } else if (_op == ((13 : stdgo.go.token.Token.Token))) {
-                        _c.sub(_a, _b);
-                    } else if (_op == ((14 : stdgo.go.token.Token.Token))) {
-                        _c.mul(_a, _b);
-                    } else if (_op == ((15 : stdgo.go.token.Token.Token))) {
-                        return _makeRat(_newRat().setFrac(_a, _b));
-                    } else if (_op == ((26 : stdgo.go.token.Token.Token))) {
-                        _c.quo(_a, _b);
-                    } else if (_op == ((16 : stdgo.go.token.Token.Token))) {
-                        _c.rem(_a, _b);
-                    } else if (_op == ((17 : stdgo.go.token.Token.Token))) {
-                        _c.and(_a, _b);
-                    } else if (_op == ((18 : stdgo.go.token.Token.Token))) {
-                        _c.or(_a, _b);
-                    } else if (_op == ((19 : stdgo.go.token.Token.Token))) {
-                        _c.xor(_a, _b);
-                    } else if (_op == ((22 : stdgo.go.token.Token.Token))) {
-                        _c.andNot(_a, _b);
-                    } else {
-                        @:goto "Error";
+                    {
+                        final __value__ = _op;
+                        if (__value__ == ((12 : stdgo.go.token.Token.Token))) {
+                            _c.add(_a, _b);
+                        } else if (__value__ == ((13 : stdgo.go.token.Token.Token))) {
+                            _c.sub(_a, _b);
+                        } else if (__value__ == ((14 : stdgo.go.token.Token.Token))) {
+                            _c.mul(_a, _b);
+                        } else if (__value__ == ((15 : stdgo.go.token.Token.Token))) {
+                            return _makeRat(_newRat().setFrac(_a, _b));
+                        } else if (__value__ == ((26 : stdgo.go.token.Token.Token))) {
+                            _c.quo(_a, _b);
+                        } else if (__value__ == ((16 : stdgo.go.token.Token.Token))) {
+                            _c.rem(_a, _b);
+                        } else if (__value__ == ((17 : stdgo.go.token.Token.Token))) {
+                            _c.and(_a, _b);
+                        } else if (__value__ == ((18 : stdgo.go.token.Token.Token))) {
+                            _c.or(_a, _b);
+                        } else if (__value__ == ((19 : stdgo.go.token.Token.Token))) {
+                            _c.xor(_a, _b);
+                        } else if (__value__ == ((22 : stdgo.go.token.Token.Token))) {
+                            _c.andNot(_a, _b);
+                        } else {
+                            @:goto "Error";
+                        };
                     };
                     return _makeInt(_c);
                 } else if (Go.typeEquals((__type__ : T_ratVal))) {
@@ -1784,16 +1799,19 @@ function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
                     var _a = _x._val;
                     var _b = (Go.typeAssert((Go.toInterface(_y) : T_ratVal)) : T_ratVal)._val;
                     var _c = _newRat();
-                    if (_op == ((12 : stdgo.go.token.Token.Token))) {
-                        _c.add(_a, _b);
-                    } else if (_op == ((13 : stdgo.go.token.Token.Token))) {
-                        _c.sub(_a, _b);
-                    } else if (_op == ((14 : stdgo.go.token.Token.Token))) {
-                        _c.mul(_a, _b);
-                    } else if (_op == ((15 : stdgo.go.token.Token.Token))) {
-                        _c.quo(_a, _b);
-                    } else {
-                        @:goto "Error";
+                    {
+                        final __value__ = _op;
+                        if (__value__ == ((12 : stdgo.go.token.Token.Token))) {
+                            _c.add(_a, _b);
+                        } else if (__value__ == ((13 : stdgo.go.token.Token.Token))) {
+                            _c.sub(_a, _b);
+                        } else if (__value__ == ((14 : stdgo.go.token.Token.Token))) {
+                            _c.mul(_a, _b);
+                        } else if (__value__ == ((15 : stdgo.go.token.Token.Token))) {
+                            _c.quo(_a, _b);
+                        } else {
+                            @:goto "Error";
+                        };
                     };
                     return _makeRat(_c);
                 } else if (Go.typeEquals((__type__ : T_floatVal))) {
@@ -1801,57 +1819,63 @@ function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
                     var _a = _x._val;
                     var _b = (Go.typeAssert((Go.toInterface(_y) : T_floatVal)) : T_floatVal)._val;
                     var _c = _newFloat();
-                    if (_op == ((12 : stdgo.go.token.Token.Token))) {
-                        _c.add(_a, _b);
-                    } else if (_op == ((13 : stdgo.go.token.Token.Token))) {
-                        _c.sub(_a, _b);
-                    } else if (_op == ((14 : stdgo.go.token.Token.Token))) {
-                        _c.mul(_a, _b);
-                    } else if (_op == ((15 : stdgo.go.token.Token.Token))) {
-                        _c.quo(_a, _b);
-                    } else {
-                        @:goto "Error";
+                    {
+                        final __value__ = _op;
+                        if (__value__ == ((12 : stdgo.go.token.Token.Token))) {
+                            _c.add(_a, _b);
+                        } else if (__value__ == ((13 : stdgo.go.token.Token.Token))) {
+                            _c.sub(_a, _b);
+                        } else if (__value__ == ((14 : stdgo.go.token.Token.Token))) {
+                            _c.mul(_a, _b);
+                        } else if (__value__ == ((15 : stdgo.go.token.Token.Token))) {
+                            _c.quo(_a, _b);
+                        } else {
+                            @:goto "Error";
+                        };
                     };
                     return _makeFloat(_c);
                 } else if (Go.typeEquals((__type__ : T_complexVal))) {
                     var _x:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
-                    var _y:T_complexVal = ((Go.typeAssert((Go.toInterface(_y) : T_complexVal)) : T_complexVal) == null ? null : (Go.typeAssert((Go.toInterface(_y) : T_complexVal)) : T_complexVal).__copy__());
+                    var _y:T_complexVal = (Go.typeAssert((Go.toInterface(_y) : T_complexVal)) : T_complexVal).__copy__();
                     var _0:Value = _x._re, _1:Value = _x._im, _b:Value = _1, _a:Value = _0;
                     var _0:Value = _y._re, _1:Value = _y._im, _d:Value = _1, _c:Value = _0;
                     var _0:Value = (null : Value), _1:Value = (null : Value), _im:Value = _1, _re:Value = _0;
-                    if (_op == ((12 : stdgo.go.token.Token.Token))) {
-                        _re = _add(_a, _c);
-                        _im = _add(_b, _d);
-                    } else if (_op == ((13 : stdgo.go.token.Token.Token))) {
-                        _re = _sub(_a, _c);
-                        _im = _sub(_b, _d);
-                    } else if (_op == ((14 : stdgo.go.token.Token.Token))) {
-                        var _ac:Value = _mul(_a, _c);
-                        var _bd:Value = _mul(_b, _d);
-                        var _bc:Value = _mul(_b, _c);
-                        var _ad:Value = _mul(_a, _d);
-                        _re = _sub(_ac, _bd);
-                        _im = _add(_bc, _ad);
-                    } else if (_op == ((15 : stdgo.go.token.Token.Token))) {
-                        var _ac:Value = _mul(_a, _c);
-                        var _bd:Value = _mul(_b, _d);
-                        var _bc:Value = _mul(_b, _c);
-                        var _ad:Value = _mul(_a, _d);
-                        var _cc:Value = _mul(_c, _c);
-                        var _dd:Value = _mul(_d, _d);
-                        var _s:Value = _add(_cc, _dd);
-                        _re = _add(_ac, _bd);
-                        _re = _quo(_re, _s);
-                        _im = _sub(_bc, _ad);
-                        _im = _quo(_im, _s);
-                    } else {
-                        @:goto "Error";
+                    {
+                        final __value__ = _op;
+                        if (__value__ == ((12 : stdgo.go.token.Token.Token))) {
+                            _re = _add(_a, _c);
+                            _im = _add(_b, _d);
+                        } else if (__value__ == ((13 : stdgo.go.token.Token.Token))) {
+                            _re = _sub(_a, _c);
+                            _im = _sub(_b, _d);
+                        } else if (__value__ == ((14 : stdgo.go.token.Token.Token))) {
+                            var _ac:Value = _mul(_a, _c);
+                            var _bd:Value = _mul(_b, _d);
+                            var _bc:Value = _mul(_b, _c);
+                            var _ad:Value = _mul(_a, _d);
+                            _re = _sub(_ac, _bd);
+                            _im = _add(_bc, _ad);
+                        } else if (__value__ == ((15 : stdgo.go.token.Token.Token))) {
+                            var _ac:Value = _mul(_a, _c);
+                            var _bd:Value = _mul(_b, _d);
+                            var _bc:Value = _mul(_b, _c);
+                            var _ad:Value = _mul(_a, _d);
+                            var _cc:Value = _mul(_c, _c);
+                            var _dd:Value = _mul(_d, _d);
+                            var _s:Value = _add(_cc, _dd);
+                            _re = _add(_ac, _bd);
+                            _re = _quo(_re, _s);
+                            _im = _sub(_bc, _ad);
+                            _im = _quo(_im, _s);
+                        } else {
+                            @:goto "Error";
+                        };
                     };
                     return _makeComplex(_re, _im);
                 } else if (Go.typeEquals((__type__ : Ref<T_stringVal>))) {
                     var _x:Ref<T_stringVal> = __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__() == null ? (null : Ref<T_stringVal>) : __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__().value;
                     if (_op == ((12 : stdgo.go.token.Token.Token))) {
-                        return Go.asInterface((({ _l : _x, _r : (Go.typeAssert((Go.toInterface(_y) : Ref<T_stringVal>)) : Ref<T_stringVal>) } : T_stringVal) : Ref<T_stringVal>));
+                        return Go.asInterface((Go.setRef(({ _l : _x, _r : (Go.typeAssert((Go.toInterface(_y) : Ref<T_stringVal>)) : Ref<T_stringVal>) } : T_stringVal)) : Ref<T_stringVal>));
                     };
                 };
             };
@@ -1886,11 +1910,14 @@ function shift(_x:Value, _op:stdgo.go.token.Token.Token, _s:GoUInt):Value {
                 if (_s == (("0" : GoUInt))) {
                     return Go.asInterface(_x);
                 };
-                if (_op == ((20 : stdgo.go.token.Token.Token))) {
-                    var _z = _i64toi(_x)._val;
-                    return _makeInt(_z.lsh(_z, _s));
-                } else if (_op == ((21 : stdgo.go.token.Token.Token))) {
-                    return Go.asInterface(_x >> _s);
+                {
+                    final __value__ = _op;
+                    if (__value__ == ((20 : stdgo.go.token.Token.Token))) {
+                        var _z = _i64toi(_x)._val;
+                        return _makeInt(_z.lsh(_z, _s));
+                    } else if (__value__ == ((21 : stdgo.go.token.Token.Token))) {
+                        return Go.asInterface(_x >> _s);
+                    };
                 };
             } else if (Go.typeEquals((__type__ : T_intVal))) {
                 var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
@@ -1898,28 +1925,34 @@ function shift(_x:Value, _op:stdgo.go.token.Token.Token, _s:GoUInt):Value {
                     return Go.asInterface(_x);
                 };
                 var _z = _newInt();
-                if (_op == ((20 : stdgo.go.token.Token.Token))) {
-                    return _makeInt(_z.lsh(_x._val, _s));
-                } else if (_op == ((21 : stdgo.go.token.Token.Token))) {
-                    return _makeInt(_z.rsh(_x._val, _s));
+                {
+                    final __value__ = _op;
+                    if (__value__ == ((20 : stdgo.go.token.Token.Token))) {
+                        return _makeInt(_z.lsh(_x._val, _s));
+                    } else if (__value__ == ((21 : stdgo.go.token.Token.Token))) {
+                        return _makeInt(_z.rsh(_x._val, _s));
+                    };
                 };
             };
         };
         throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid shift %v %s %d" : GoString), Go.toInterface(_x), Go.toInterface(Go.asInterface(_op)), Go.toInterface(_s)));
     }
 private function _cmpZero(_x:GoInt, _op:stdgo.go.token.Token.Token):Bool {
-        if (_op == ((39 : stdgo.go.token.Token.Token))) {
-            return _x == ((0 : GoInt));
-        } else if (_op == ((44 : stdgo.go.token.Token.Token))) {
-            return _x != ((0 : GoInt));
-        } else if (_op == ((40 : stdgo.go.token.Token.Token))) {
-            return _x < (0 : GoInt);
-        } else if (_op == ((45 : stdgo.go.token.Token.Token))) {
-            return _x <= (0 : GoInt);
-        } else if (_op == ((41 : stdgo.go.token.Token.Token))) {
-            return _x > (0 : GoInt);
-        } else if (_op == ((46 : stdgo.go.token.Token.Token))) {
-            return _x >= (0 : GoInt);
+        {
+            final __value__ = _op;
+            if (__value__ == ((39 : stdgo.go.token.Token.Token))) {
+                return _x == ((0 : GoInt));
+            } else if (__value__ == ((44 : stdgo.go.token.Token.Token))) {
+                return _x != ((0 : GoInt));
+            } else if (__value__ == ((40 : stdgo.go.token.Token.Token))) {
+                return _x < (0 : GoInt);
+            } else if (__value__ == ((45 : stdgo.go.token.Token.Token))) {
+                return _x <= (0 : GoInt);
+            } else if (__value__ == ((41 : stdgo.go.token.Token.Token))) {
+                return _x > (0 : GoInt);
+            } else if (__value__ == ((46 : stdgo.go.token.Token.Token))) {
+                return _x >= (0 : GoInt);
+            };
         };
         throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid comparison %v %s 0" : GoString), Go.toInterface(_x), Go.toInterface(Go.asInterface(_op))));
     }
@@ -1939,26 +1972,32 @@ function compare(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Bool {
             } else if (Go.typeEquals((__type__ : T_boolVal))) {
                 var _x:T_boolVal = __type__ == null ? (false : T_boolVal) : __type__.__underlying__() == null ? (false : T_boolVal) : __type__ == null ? (false : T_boolVal) : __type__.__underlying__().value;
                 var _y:T_boolVal = (Go.typeAssert((Go.toInterface(_y) : T_boolVal)) : T_boolVal);
-                if (_op == ((39 : stdgo.go.token.Token.Token))) {
-                    return _x == (_y);
-                } else if (_op == ((44 : stdgo.go.token.Token.Token))) {
-                    return _x != (_y);
+                {
+                    final __value__ = _op;
+                    if (__value__ == ((39 : stdgo.go.token.Token.Token))) {
+                        return _x == (_y);
+                    } else if (__value__ == ((44 : stdgo.go.token.Token.Token))) {
+                        return _x != (_y);
+                    };
                 };
             } else if (Go.typeEquals((__type__ : T_int64Val))) {
                 var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
                 var _y:T_int64Val = (Go.typeAssert((Go.toInterface(_y) : T_int64Val)) : T_int64Val);
-                if (_op == ((39 : stdgo.go.token.Token.Token))) {
-                    return _x == (_y);
-                } else if (_op == ((44 : stdgo.go.token.Token.Token))) {
-                    return _x != (_y);
-                } else if (_op == ((40 : stdgo.go.token.Token.Token))) {
-                    return _x < _y;
-                } else if (_op == ((45 : stdgo.go.token.Token.Token))) {
-                    return _x <= _y;
-                } else if (_op == ((41 : stdgo.go.token.Token.Token))) {
-                    return _x > _y;
-                } else if (_op == ((46 : stdgo.go.token.Token.Token))) {
-                    return _x >= _y;
+                {
+                    final __value__ = _op;
+                    if (__value__ == ((39 : stdgo.go.token.Token.Token))) {
+                        return _x == (_y);
+                    } else if (__value__ == ((44 : stdgo.go.token.Token.Token))) {
+                        return _x != (_y);
+                    } else if (__value__ == ((40 : stdgo.go.token.Token.Token))) {
+                        return _x < _y;
+                    } else if (__value__ == ((45 : stdgo.go.token.Token.Token))) {
+                        return _x <= _y;
+                    } else if (__value__ == ((41 : stdgo.go.token.Token.Token))) {
+                        return _x > _y;
+                    } else if (__value__ == ((46 : stdgo.go.token.Token.Token))) {
+                        return _x >= _y;
+                    };
                 };
             } else if (Go.typeEquals((__type__ : T_intVal))) {
                 var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
@@ -1971,30 +2010,36 @@ function compare(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Bool {
                 return _cmpZero(_x._val.cmp((Go.typeAssert((Go.toInterface(_y) : T_floatVal)) : T_floatVal)._val), _op);
             } else if (Go.typeEquals((__type__ : T_complexVal))) {
                 var _x:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
-                var _y:T_complexVal = ((Go.typeAssert((Go.toInterface(_y) : T_complexVal)) : T_complexVal) == null ? null : (Go.typeAssert((Go.toInterface(_y) : T_complexVal)) : T_complexVal).__copy__());
+                var _y:T_complexVal = (Go.typeAssert((Go.toInterface(_y) : T_complexVal)) : T_complexVal).__copy__();
                 var _re:Bool = compare(_x._re, (39 : stdgo.go.token.Token.Token), _y._re);
                 var _im:Bool = compare(_x._im, (39 : stdgo.go.token.Token.Token), _y._im);
-                if (_op == ((39 : stdgo.go.token.Token.Token))) {
-                    return _re && _im;
-                } else if (_op == ((44 : stdgo.go.token.Token.Token))) {
-                    return !_re || !_im;
+                {
+                    final __value__ = _op;
+                    if (__value__ == ((39 : stdgo.go.token.Token.Token))) {
+                        return _re && _im;
+                    } else if (__value__ == ((44 : stdgo.go.token.Token.Token))) {
+                        return !_re || !_im;
+                    };
                 };
             } else if (Go.typeEquals((__type__ : Ref<T_stringVal>))) {
                 var _x:Ref<T_stringVal> = __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__() == null ? (null : Ref<T_stringVal>) : __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__().value;
                 var _xs:GoString = _x._string();
                 var _ys:GoString = (Go.typeAssert((Go.toInterface(_y) : Ref<T_stringVal>)) : Ref<T_stringVal>)._string();
-                if (_op == ((39 : stdgo.go.token.Token.Token))) {
-                    return _xs == (_ys);
-                } else if (_op == ((44 : stdgo.go.token.Token.Token))) {
-                    return _xs != (_ys);
-                } else if (_op == ((40 : stdgo.go.token.Token.Token))) {
-                    return _xs < _ys;
-                } else if (_op == ((45 : stdgo.go.token.Token.Token))) {
-                    return _xs <= _ys;
-                } else if (_op == ((41 : stdgo.go.token.Token.Token))) {
-                    return _xs > _ys;
-                } else if (_op == ((46 : stdgo.go.token.Token.Token))) {
-                    return _xs >= _ys;
+                {
+                    final __value__ = _op;
+                    if (__value__ == ((39 : stdgo.go.token.Token.Token))) {
+                        return _xs == (_ys);
+                    } else if (__value__ == ((44 : stdgo.go.token.Token.Token))) {
+                        return _xs != (_ys);
+                    } else if (__value__ == ((40 : stdgo.go.token.Token.Token))) {
+                        return _xs < _ys;
+                    } else if (__value__ == ((45 : stdgo.go.token.Token.Token))) {
+                        return _xs <= _ys;
+                    } else if (__value__ == ((41 : stdgo.go.token.Token.Token))) {
+                        return _xs > _ys;
+                    } else if (__value__ == ((46 : stdgo.go.token.Token.Token))) {
+                        return _xs >= _ys;
+                    };
                 };
             };
         };
@@ -2054,17 +2099,20 @@ function testOps(_t:Ref<stdgo.testing.Testing.T>):Void {
             var _a = stdgo.strings.Strings.split(_test, (" " : GoString));
             var _i:GoInt = (0 : GoInt);
             var _0:Value = (null : Value), _1:Value = (null : Value), _x0:Value = _1, _x:Value = _0;
-            if ((_a.length) == ((4 : GoInt))) {} else if ((_a.length) == ((5 : GoInt))) {
-                {
-                    final __tmp__0 = _val(_a[(0 : GoInt)]);
-                    final __tmp__1 = _val(_a[(0 : GoInt)]);
-                    _x = __tmp__0;
-                    _x0 = __tmp__1;
+            {
+                final __value__ = (_a.length);
+                if (__value__ == ((4 : GoInt))) {} else if (__value__ == ((5 : GoInt))) {
+                    {
+                        final __tmp__0 = _val(_a[(0 : GoInt)]);
+                        final __tmp__1 = _val(_a[(0 : GoInt)]);
+                        _x = __tmp__0;
+                        _x0 = __tmp__1;
+                    };
+                    _i = (1 : GoInt);
+                } else {
+                    _t.errorf(("invalid test case: %s" : GoString), Go.toInterface(_test));
+                    continue;
                 };
-                _i = (1 : GoInt);
-            } else {
-                _t.errorf(("invalid test case: %s" : GoString), Go.toInterface(_test));
-                continue;
             };
             var __tmp__ = (_optab != null && _optab.__exists__(_a[(_i : GoInt)]) ? { value : _optab[_a[(_i : GoInt)]], ok : true } : { value : ((0 : GoInt) : stdgo.go.token.Token.Token), ok : false }), _op:stdgo.go.token.Token.Token = __tmp__.value, _ok:Bool = __tmp__.ok;
             if (!_ok) {
@@ -2124,12 +2172,15 @@ private function _val(_lit:GoString):Value {
         if ((_lit.length) == ((0 : GoInt))) {
             return makeUnknown();
         };
-        if (_lit == (("?" : GoString))) {
-            return makeUnknown();
-        } else if (_lit == (("true" : GoString))) {
-            return makeBool(true);
-        } else if (_lit == (("false" : GoString))) {
-            return makeBool(false);
+        {
+            final __value__ = _lit;
+            if (__value__ == (("?" : GoString))) {
+                return makeUnknown();
+            } else if (__value__ == (("true" : GoString))) {
+                return makeBool(true);
+            } else if (__value__ == (("false" : GoString))) {
+                return makeBool(false);
+            };
         };
         {
             var __tmp__ = stdgo.strings.Strings.cut(_lit, ("/" : GoString)), _as:GoString = __tmp__._0, _bs:GoString = __tmp__._1, _ok:Bool = __tmp__._2;
@@ -2168,12 +2219,24 @@ private function _panicHandler(_v:Ref<Value>):Void {
                 var _p:AnyInterface = __type__ == null ? (null : AnyInterface) : __type__.__underlying__();
             } else if (Go.typeEquals((__type__ : GoString))) {
                 var _p:GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__().value;
-                _v = makeString(_p);
+                {
+                    var __tmp__ = makeString(_p);
+                    _v.exactString = __tmp__.exactString;
+                    _v.kind = __tmp__.kind;
+                    _v.string = __tmp__.string;
+                    _v._implementsValue = __tmp__._implementsValue;
+                };
             } else if (Go.typeEquals((__type__ : Error))) {
                 var _p:Error = __type__ == null ? (null : Error) : __type__.__underlying__() == null ? (null : Error) : __type__ == null ? (null : Error) : __type__.__underlying__().value;
-                _v = makeString(_p.error());
+                {
+                    var __tmp__ = makeString(_p.error());
+                    _v.exactString = __tmp__.exactString;
+                    _v.kind = __tmp__.kind;
+                    _v.string = __tmp__.string;
+                    _v._implementsValue = __tmp__._implementsValue;
+                };
             } else {
-                var _p:AnyInterface = __type__ == null ? null : __type__.__underlying__();
+                var _p:AnyInterface = __type__.__underlying__();
                 throw Go.toInterface(_p);
             };
         };
@@ -2183,7 +2246,7 @@ private function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value
         var _z:Value = (null : Value);
         try {
             {
-                var _a0 = (_z : Ref<Value>);
+                var _a0 = (Go.setRef(_z) : Ref<Value>);
                 __deferstack__.unshift(() -> _panicHandler(_a0));
             };
             if (_x == null) {
@@ -2194,27 +2257,30 @@ private function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value
                     return unaryOp(_op, _y, ("0" : GoUInt));
                 };
             };
-            if (_op == ((39 : stdgo.go.token.Token.Token)) || _op == ((44 : stdgo.go.token.Token.Token)) || _op == ((40 : stdgo.go.token.Token.Token)) || _op == ((45 : stdgo.go.token.Token.Token)) || _op == ((41 : stdgo.go.token.Token.Token)) || _op == ((46 : stdgo.go.token.Token.Token))) {
-                {
-                    for (defer in __deferstack__) {
-                        defer();
+            {
+                final __value__ = _op;
+                if (__value__ == ((39 : stdgo.go.token.Token.Token)) || __value__ == ((44 : stdgo.go.token.Token.Token)) || __value__ == ((40 : stdgo.go.token.Token.Token)) || __value__ == ((45 : stdgo.go.token.Token.Token)) || __value__ == ((41 : stdgo.go.token.Token.Token)) || __value__ == ((46 : stdgo.go.token.Token.Token))) {
+                    {
+                        for (defer in __deferstack__) {
+                            defer();
+                        };
+                        return makeBool(compare(_x, _op, _y));
                     };
-                    return makeBool(compare(_x, _op, _y));
-                };
-            } else if (_op == ((20 : stdgo.go.token.Token.Token)) || _op == ((21 : stdgo.go.token.Token.Token))) {
-                var __tmp__ = int64Val(_y), _s:GoInt64 = __tmp__._0, _0:Bool = __tmp__._1;
-                {
-                    for (defer in __deferstack__) {
-                        defer();
+                } else if (__value__ == ((20 : stdgo.go.token.Token.Token)) || __value__ == ((21 : stdgo.go.token.Token.Token))) {
+                    var __tmp__ = int64Val(_y), _s:GoInt64 = __tmp__._0, _0:Bool = __tmp__._1;
+                    {
+                        for (defer in __deferstack__) {
+                            defer();
+                        };
+                        return shift(_x, _op, (_s : GoUInt));
                     };
-                    return shift(_x, _op, (_s : GoUInt));
-                };
-            } else {
-                {
-                    for (defer in __deferstack__) {
-                        defer();
+                } else {
+                    {
+                        for (defer in __deferstack__) {
+                            defer();
+                        };
+                        return binaryOp(_x, _op, _y);
                     };
-                    return binaryOp(_x, _op, _y);
                 };
             };
             for (defer in __deferstack__) {
@@ -2345,14 +2411,14 @@ function testMake(_t:Ref<stdgo.testing.Testing.T>):Void {
 (new T_makeTestCase((2 : Kind), Go.toInterface(("hello" : GoString)), Go.toInterface(("hello" : GoString))) : T_makeTestCase),
 (new T_makeTestCase((3 : Kind), Go.toInterface((("1" : GoInt64) : GoInt64)), Go.toInterface((("1" : GoInt64) : GoInt64))) : T_makeTestCase),
 (new T_makeTestCase((3 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newInt(("10" : GoInt64)))), Go.toInterface((("10" : GoInt64) : GoInt64))) : T_makeTestCase),
-(new T_makeTestCase((3 : Kind), Go.toInterface(Go.asInterface((({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("62" : GoUInt)))), Go.toInterface((("4611686018427387904" : GoInt64) : GoInt64))) : T_makeTestCase),
-(_dup((3 : Kind), Go.toInterface(Go.asInterface((({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("63" : GoUInt))))) == null ? null : _dup((3 : Kind), Go.toInterface(Go.asInterface((({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("63" : GoUInt))))).__copy__()),
+(new T_makeTestCase((3 : Kind), Go.toInterface(Go.asInterface((Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("62" : GoUInt)))), Go.toInterface((("4611686018427387904" : GoInt64) : GoInt64))) : T_makeTestCase),
+_dup((3 : Kind), Go.toInterface(Go.asInterface((Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("63" : GoUInt))))).__copy__(),
 (new T_makeTestCase((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newFloat((0 : GoFloat64)))), Go.toInterface(Go.asInterface(_floatVal0._val))) : T_makeTestCase),
-(_dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newFloat((2 : GoFloat64))))) == null ? null : _dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newFloat((2 : GoFloat64))))).__copy__()),
-(_dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newRat(("1" : GoInt64), ("3" : GoInt64))))) == null ? null : _dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newRat(("1" : GoInt64), ("3" : GoInt64))))).__copy__())) : Slice<T_makeTestCase>)) {
+_dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newFloat((2 : GoFloat64))))).__copy__(),
+_dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newRat(("1" : GoInt64), ("3" : GoInt64))))).__copy__()) : Slice<T_makeTestCase>)) {
             var _val:Value = make(_test._arg);
             var _got:AnyInterface = val(_val);
-            if ((_val.kind() != _test._kind) || (Go.toInterface(_got) != Go.toInterface(_test._want))) {
+            if ((_val.kind() != _test._kind) || (_got != _test._want)) {
                 _t.errorf(("got %v (%T, kind = %d); want %v (%T, kind = %d)" : GoString), _got, _got, Go.toInterface(Go.asInterface(_val.kind())), _test._want, _test._want, Go.toInterface(Go.asInterface(_test._kind)));
             };
         };
@@ -2397,13 +2463,13 @@ function testBitLen(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 class T_unknownVal_asInterface {
     @:keep
-    public function _implementsValue():Void __self__.value._implementsValue();
+    public dynamic function _implementsValue():Void __self__.value._implementsValue();
     @:keep
-    public function exactString():GoString return __self__.value.exactString();
+    public dynamic function exactString():GoString return __self__.value.exactString();
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function kind():Kind return __self__.value.kind();
+    public dynamic function kind():Kind return __self__.value.kind();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2430,9 +2496,9 @@ class T_unknownVal_asInterface {
 }
 class T_stringVal_asInterface {
     @:keep
-    public function _implementsValue():Void __self__.value._implementsValue();
+    public dynamic function _implementsValue():Void __self__.value._implementsValue();
     @:keep
-    public function exactString():GoString return __self__.value.exactString();
+    public dynamic function exactString():GoString return __self__.value.exactString();
     /**
         // appendReverse appends to list all of x's subpieces, but in reverse,
         // and returns the result. Appending the reversal allows processing
@@ -2442,7 +2508,7 @@ class T_stringVal_asInterface {
         // x must be locked.
     **/
     @:keep
-    public function _appendReverse(_list:Slice<GoString>):Slice<GoString> return __self__.value._appendReverse(_list);
+    public dynamic function _appendReverse(_list:Slice<GoString>):Slice<GoString> return __self__.value._appendReverse(_list);
     /**
         // string constructs and returns the actual string literal value.
         // If x represents an addition, then it rewrites x to be a single
@@ -2451,14 +2517,14 @@ class T_stringVal_asInterface {
         // concatenation. See golang.org/issue/23348.
     **/
     @:keep
-    public function _string():GoString return __self__.value._string();
+    public dynamic function _string():GoString return __self__.value._string();
     /**
         // String returns a possibly shortened quoted form of the String value.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function kind():Kind return __self__.value.kind();
+    public dynamic function kind():Kind return __self__.value.kind();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2485,7 +2551,7 @@ class T_stringVal_asInterface {
     @:keep
     static public function _appendReverse( _x:Ref<T_stringVal>, _list:Slice<GoString>):Slice<GoString> {
         var _y = _x;
-        while (_y._r != null) {
+        while (_y._r != null && ((_y._r : Dynamic).__nil__ == null || !(_y._r : Dynamic).__nil__)) {
             _y._r._mu.lock();
             _list = _y._r._appendReverse(_list);
             _y._r._mu.unlock();
@@ -2512,7 +2578,7 @@ class T_stringVal_asInterface {
     @:keep
     static public function _string( _x:Ref<T_stringVal>):GoString {
         _x._mu.lock();
-        if (_x._l != null) {
+        if (_x._l != null && ((_x._l : Dynamic).__nil__ == null || !(_x._l : Dynamic).__nil__)) {
             _x._s = stdgo.strings.Strings.join(_reverse(_x._appendReverse((null : Slice<GoString>))), Go.str());
             _x._l = null;
             _x._r = null;
@@ -2548,13 +2614,13 @@ class T_stringVal_asInterface {
 }
 class T_intVal_asInterface {
     @:keep
-    public function _implementsValue():Void __self__.value._implementsValue();
+    public dynamic function _implementsValue():Void __self__.value._implementsValue();
     @:keep
-    public function exactString():GoString return __self__.value.exactString();
+    public dynamic function exactString():GoString return __self__.value.exactString();
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function kind():Kind return __self__.value.kind();
+    public dynamic function kind():Kind return __self__.value.kind();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2581,13 +2647,13 @@ class T_intVal_asInterface {
 }
 class T_ratVal_asInterface {
     @:keep
-    public function _implementsValue():Void __self__.value._implementsValue();
+    public dynamic function _implementsValue():Void __self__.value._implementsValue();
     @:keep
-    public function exactString():GoString return __self__.value.exactString();
+    public dynamic function exactString():GoString return __self__.value.exactString();
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function kind():Kind return __self__.value.kind();
+    public dynamic function kind():Kind return __self__.value.kind();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2609,7 +2675,7 @@ class T_ratVal_asInterface {
     }
     @:keep
     static public function string( _x:T_ratVal):GoString {
-        return (_rtof((_x == null ? null : _x.__copy__())).string() : GoString);
+        return (_rtof(_x.__copy__()).string() : GoString);
     }
     @:keep
     static public function kind( _:T_ratVal):Kind {
@@ -2618,16 +2684,16 @@ class T_ratVal_asInterface {
 }
 class T_floatVal_asInterface {
     @:keep
-    public function _implementsValue():Void __self__.value._implementsValue();
+    public dynamic function _implementsValue():Void __self__.value._implementsValue();
     @:keep
-    public function exactString():GoString return __self__.value.exactString();
+    public dynamic function exactString():GoString return __self__.value.exactString();
     /**
         // String returns a decimal approximation of the Float value.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function kind():Kind return __self__.value.kind();
+    public dynamic function kind():Kind return __self__.value.kind();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2663,7 +2729,7 @@ class T_floatVal_asInterface {
             };
         };
         var _mant:stdgo.math.big.Big.Float_ = ({} : stdgo.math.big.Big.Float_);
-        var _exp:GoInt = _f.mantExp((_mant : Ref<stdgo.math.big.Big.Float_>));
+        var _exp:GoInt = _f.mantExp((Go.setRef(_mant) : Ref<stdgo.math.big.Big.Float_>));
         var __tmp__ = _mant.float64(), _m:GoFloat64 = __tmp__._0, _1:stdgo.math.big.Big.Accuracy = __tmp__._1;
         var _d:GoFloat64 = (_exp : GoFloat64) * (0.3010299956639812 : GoFloat64);
         var _e:GoInt64 = (_d : GoInt64);
@@ -2687,13 +2753,13 @@ class T_floatVal_asInterface {
 }
 class T_complexVal_asInterface {
     @:keep
-    public function _implementsValue():Void __self__.value._implementsValue();
+    public dynamic function _implementsValue():Void __self__.value._implementsValue();
     @:keep
-    public function exactString():GoString return __self__.value.exactString();
+    public dynamic function exactString():GoString return __self__.value.exactString();
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function kind():Kind return __self__.value.kind();
+    public dynamic function kind():Kind return __self__.value.kind();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2720,7 +2786,7 @@ class T_complexVal_asInterface {
 }
 class Kind_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2740,13 +2806,13 @@ class Kind_asInterface {
 }
 class T_boolVal_asInterface {
     @:keep
-    public function _implementsValue():Void __self__.value._implementsValue();
+    public dynamic function _implementsValue():Void __self__.value._implementsValue();
     @:keep
-    public function exactString():GoString return __self__.value.exactString();
+    public dynamic function exactString():GoString return __self__.value.exactString();
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function kind():Kind return __self__.value.kind();
+    public dynamic function kind():Kind return __self__.value.kind();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2773,13 +2839,13 @@ class T_boolVal_asInterface {
 }
 class T_int64Val_asInterface {
     @:keep
-    public function _implementsValue():Void __self__.value._implementsValue();
+    public dynamic function _implementsValue():Void __self__.value._implementsValue();
     @:keep
-    public function exactString():GoString return __self__.value.exactString();
+    public dynamic function exactString():GoString return __self__.value.exactString();
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:keep
-    public function kind():Kind return __self__.value.kind();
+    public dynamic function kind():Kind return __self__.value.kind();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

@@ -452,22 +452,22 @@ class Bool__asInterface {
         // CompareAndSwap executes the compare-and-swap operation for the boolean value x.
     **/
     @:keep
-    public function compareAndSwap(_old:Bool, _new:Bool):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:Bool, _new:Bool):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public function swap(_new:Bool):Bool return __self__.value.swap(_new);
+    public dynamic function swap(_new:Bool):Bool return __self__.value.swap(_new);
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public function store(_val:Bool):Void __self__.value.store(_val);
+    public dynamic function store(_val:Bool):Void __self__.value.store(_val);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public function load():Bool return __self__.value.load();
+    public dynamic function load():Bool return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -554,27 +554,27 @@ class Int32_asInterface {
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    public function add(_delta:GoInt32):GoInt32 return __self__.value.add(_delta);
+    public dynamic function add(_delta:GoInt32):GoInt32 return __self__.value.add(_delta);
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public function compareAndSwap(_old:GoInt32, _new:GoInt32):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:GoInt32, _new:GoInt32):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public function swap(_new:GoInt32):GoInt32 return __self__.value.swap(_new);
+    public dynamic function swap(_new:GoInt32):GoInt32 return __self__.value.swap(_new);
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public function store(_val:GoInt32):Void __self__.value.store(_val);
+    public dynamic function store(_val:GoInt32):Void __self__.value.store(_val);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public function load():GoInt32 return __self__.value.load();
+    public dynamic function load():GoInt32 return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -615,27 +615,27 @@ class Int64__asInterface {
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    public function add(_delta:GoInt64):GoInt64 return __self__.value.add(_delta);
+    public dynamic function add(_delta:GoInt64):GoInt64 return __self__.value.add(_delta);
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public function compareAndSwap(_old:GoInt64, _new:GoInt64):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:GoInt64, _new:GoInt64):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public function swap(_new:GoInt64):GoInt64 return __self__.value.swap(_new);
+    public dynamic function swap(_new:GoInt64):GoInt64 return __self__.value.swap(_new);
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public function store(_val:GoInt64):Void __self__.value.store(_val);
+    public dynamic function store(_val:GoInt64):Void __self__.value.store(_val);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public function load():GoInt64 return __self__.value.load();
+    public dynamic function load():GoInt64 return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -676,27 +676,27 @@ class Uint32_asInterface {
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    public function add(_delta:GoUInt32):GoUInt32 return __self__.value.add(_delta);
+    public dynamic function add(_delta:GoUInt32):GoUInt32 return __self__.value.add(_delta);
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public function compareAndSwap(_old:GoUInt32, _new:GoUInt32):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:GoUInt32, _new:GoUInt32):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public function swap(_new:GoUInt32):GoUInt32 return __self__.value.swap(_new);
+    public dynamic function swap(_new:GoUInt32):GoUInt32 return __self__.value.swap(_new);
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public function store(_val:GoUInt32):Void __self__.value.store(_val);
+    public dynamic function store(_val:GoUInt32):Void __self__.value.store(_val);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public function load():GoUInt32 return __self__.value.load();
+    public dynamic function load():GoUInt32 return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -737,27 +737,27 @@ class Uint64_asInterface {
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    public function add(_delta:GoUInt64):GoUInt64 return __self__.value.add(_delta);
+    public dynamic function add(_delta:GoUInt64):GoUInt64 return __self__.value.add(_delta);
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public function compareAndSwap(_old:GoUInt64, _new:GoUInt64):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:GoUInt64, _new:GoUInt64):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public function swap(_new:GoUInt64):GoUInt64 return __self__.value.swap(_new);
+    public dynamic function swap(_new:GoUInt64):GoUInt64 return __self__.value.swap(_new);
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public function store(_val:GoUInt64):Void __self__.value.store(_val);
+    public dynamic function store(_val:GoUInt64):Void __self__.value.store(_val);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public function load():GoUInt64 return __self__.value.load();
+    public dynamic function load():GoUInt64 return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -798,27 +798,27 @@ class Uintptr_asInterface {
         // Add atomically adds delta to x and returns the new value.
     **/
     @:keep
-    public function add(_delta:GoUIntptr):GoUIntptr return __self__.value.add(_delta);
+    public dynamic function add(_delta:GoUIntptr):GoUIntptr return __self__.value.add(_delta);
     /**
         // CompareAndSwap executes the compare-and-swap operation for x.
     **/
     @:keep
-    public function compareAndSwap(_old:GoUIntptr, _new:GoUIntptr):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:GoUIntptr, _new:GoUIntptr):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap atomically stores new into x and returns the previous value.
     **/
     @:keep
-    public function swap(_new:GoUIntptr):GoUIntptr return __self__.value.swap(_new);
+    public dynamic function swap(_new:GoUIntptr):GoUIntptr return __self__.value.swap(_new);
     /**
         // Store atomically stores val into x.
     **/
     @:keep
-    public function store(_val:GoUIntptr):Void __self__.value.store(_val);
+    public dynamic function store(_val:GoUIntptr):Void __self__.value.store(_val);
     /**
         // Load atomically loads and returns the value stored in x.
     **/
     @:keep
-    public function load():GoUIntptr return __self__.value.load();
+    public dynamic function load():GoUIntptr return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -856,12 +856,12 @@ class Uintptr_asInterface {
 }
 class T_noCopy_asInterface {
     @:keep
-    public function unlock():Void __self__.value.unlock();
+    public dynamic function unlock():Void __self__.value.unlock();
     /**
         // Lock is a no-op used by -copylocks checker from `go vet`.
     **/
     @:keep
-    public function lock():Void __self__.value.lock();
+    public dynamic function lock():Void __self__.value.lock();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -888,7 +888,7 @@ class Value_asInterface {
         // CompareAndSwap(old, nil).
     **/
     @:keep
-    public function compareAndSwap(_old:AnyInterface, _new:AnyInterface):Bool return __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:AnyInterface, _new:AnyInterface):Bool return __self__.value.compareAndSwap(_old, _new);
     /**
         // Swap stores new into Value and returns the previous value. It returns nil if
         // the Value is empty.
@@ -897,20 +897,20 @@ class Value_asInterface {
         // type. Swap of an inconsistent type panics, as does Swap(nil).
     **/
     @:keep
-    public function swap(_new:AnyInterface):AnyInterface return __self__.value.swap(_new);
+    public dynamic function swap(_new:AnyInterface):AnyInterface return __self__.value.swap(_new);
     /**
         // Store sets the value of the Value v to val.
         // All calls to Store for a given Value must use values of the same concrete type.
         // Store of an inconsistent type panics, as does Store(nil).
     **/
     @:keep
-    public function store(_val:AnyInterface):Void __self__.value.store(_val);
+    public dynamic function store(_val:AnyInterface):Void __self__.value.store(_val);
     /**
         // Load returns the value set by the most recent Store.
         // It returns nil if there has been no call to Store for this Value.
     **/
     @:keep
-    public function load():AnyInterface return __self__.value.load();
+    public dynamic function load():AnyInterface return __self__.value.load();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

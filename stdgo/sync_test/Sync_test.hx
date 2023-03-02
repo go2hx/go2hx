@@ -78,13 +78,13 @@ private var _http : T_httpPkg = ({} : stdgo.sync_test.Sync_test.T_httpPkg);
     
     
 **/
-private var _2 : T_mapInterface = Go.asInterface(((new RWMutexMap() : RWMutexMap) : Ref<stdgo.sync_test.Sync_test.RWMutexMap>));
+private var _2 : T_mapInterface = Go.asInterface((Go.setRef((new RWMutexMap() : RWMutexMap)) : Ref<stdgo.sync_test.Sync_test.RWMutexMap>));
 /**
     
     
     
 **/
-private var _3 : T_mapInterface = Go.asInterface(((new DeepCopyMap() : DeepCopyMap) : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>));
+private var _3 : T_mapInterface = Go.asInterface((Go.setRef((new DeepCopyMap() : DeepCopyMap)) : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>));
 /**
     
     
@@ -150,55 +150,55 @@ private typedef T_mapInterface = StructType & {
         
         
     **/
-    public function load(_0:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; };
+    public dynamic function load(_0:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; };
     /**
         
         
         
     **/
-    public function store(_key:AnyInterface, _value:AnyInterface):Void;
+    public dynamic function store(_key:AnyInterface, _value:AnyInterface):Void;
     /**
         
         
         
     **/
-    public function loadOrStore(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; };
+    public dynamic function loadOrStore(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; };
     /**
         
         
         
     **/
-    public function loadAndDelete(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; };
+    public dynamic function loadAndDelete(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; };
     /**
         
         
         
     **/
-    public function delete(_0:AnyInterface):Void;
+    public dynamic function delete(_0:AnyInterface):Void;
     /**
         
         
         
     **/
-    public function swap(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; };
+    public dynamic function swap(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; };
     /**
         
         
         
     **/
-    public function compareAndSwap(_key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool;
+    public dynamic function compareAndSwap(_key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool;
     /**
         
         
         
     **/
-    public function compareAndDelete(_key:AnyInterface, _old:AnyInterface):Bool;
+    public dynamic function compareAndDelete(_key:AnyInterface, _old:AnyInterface):Bool;
     /**
         
         
         
     **/
-    public function range(_0:(_key:AnyInterface, _value:AnyInterface) -> Bool):Void;
+    public dynamic function range(_0:(_key:AnyInterface, _value:AnyInterface) -> Bool):Void;
 };
 /**
     
@@ -334,7 +334,7 @@ class T__struct_2_asInterface {
 @:named @:using(stdgo.sync_test.Sync_test.T_one_static_extension) private typedef T_one = GoInt;
 function testCondSignal(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _m:Mutex = ({} : Mutex);
-        var _c = newCond(Go.asInterface((_m : Ref<Mutex>)));
+        var _c = newCond(Go.asInterface((Go.setRef(_m) : Ref<Mutex>)));
         var _n:GoInt = (2 : GoInt);
         var _running = new Chan<Bool>((_n : GoInt).toBasic(), () -> false);
         var _awake = new Chan<Bool>((_n : GoInt).toBasic(), () -> false);
@@ -376,7 +376,7 @@ function testCondSignal(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testCondSignalGenerations(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _m:Mutex = ({} : Mutex);
-        var _c = newCond(Go.asInterface((_m : Ref<Mutex>)));
+        var _c = newCond(Go.asInterface((Go.setRef(_m) : Ref<Mutex>)));
         var _n:GoInt = (100 : GoInt);
         var _running = new Chan<Bool>((_n : GoInt).toBasic(), () -> false);
         var _awake = new Chan<GoInt>((_n : GoInt).toBasic(), () -> (0 : GoInt));
@@ -408,7 +408,7 @@ function testCondSignalGenerations(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testCondBroadcast(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _m:Mutex = ({} : Mutex);
-        var _c = newCond(Go.asInterface((_m : Ref<Mutex>)));
+        var _c = newCond(Go.asInterface((Go.setRef(_m) : Ref<Mutex>)));
         var _n:GoInt = (200 : GoInt);
         var _running = new Chan<GoInt>((_n : GoInt).toBasic(), () -> (0 : GoInt));
         var _awake = new Chan<GoInt>((_n : GoInt).toBasic(), () -> (0 : GoInt));
@@ -470,7 +470,7 @@ function testCondBroadcast(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testRace(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _x:GoInt = (0 : GoInt);
-        var _c = newCond(Go.asInterface(((new Mutex() : Mutex) : Ref<Mutex>)));
+        var _c = newCond(Go.asInterface((Go.setRef((new Mutex() : Mutex)) : Ref<Mutex>)));
         var _done = new Chan<Bool>(0, () -> false);
         Go.routine(() -> {
             var a = function():Void {
@@ -537,7 +537,7 @@ function testCondSignalStealing(_t:Ref<stdgo.testing.Testing.T>):Void {
             var _iters:GoInt = (0 : GoInt);
             Go.cfor(_iters < (1000 : GoInt), _iters++, {
                 var _m:Mutex = ({} : Mutex);
-                var _cond = newCond(Go.asInterface((_m : Ref<Mutex>)));
+                var _cond = newCond(Go.asInterface((Go.setRef(_m) : Ref<Mutex>)));
                 var _ch = new Chan<T_httpPkg>(0, () -> ({} : T_httpPkg));
                 Go.routine(() -> {
                     var a = function():Void {
@@ -595,10 +595,10 @@ function testCondCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
                 a();
             });
-            var _c:Cond = ({ l : Go.asInterface(((new Mutex() : Mutex) : Ref<Mutex>)) } : Cond);
+            var _c:Cond = ({ l : Go.asInterface((Go.setRef((new Mutex() : Mutex)) : Ref<Mutex>)) } : Cond);
             _c.signal();
             var _c2:Cond = ({} : Cond);
-            stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((_c2 : Ref<Cond>)))).elem().set((stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((_c : Ref<Cond>)))).elem() == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((_c : Ref<Cond>)))).elem().__copy__()));
+            stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((Go.setRef(_c2) : Ref<Cond>)))).elem().set(stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((Go.setRef(_c) : Ref<Cond>)))).elem().__copy__());
             _c2.signal();
             for (defer in __deferstack__) {
                 defer();
@@ -643,7 +643,7 @@ function benchmarkCond32(_b:Ref<stdgo.testing.Testing.B>):Void {
         _benchmarkCond(_b, (32 : GoInt));
     }
 private function _benchmarkCond(_b:Ref<stdgo.testing.Testing.B>, _waiters:GoInt):Void {
-        var _c = newCond(Go.asInterface(((new Mutex() : Mutex) : Ref<Mutex>)));
+        var _c = newCond(Go.asInterface((Go.setRef((new Mutex() : Mutex)) : Ref<Mutex>)));
         var _done = new Chan<Bool>(0, () -> false);
         var _id:GoInt = (0 : GoInt);
         {
@@ -690,7 +690,7 @@ private function _benchmarkCond(_b:Ref<stdgo.testing.Testing.B>, _waiters:GoInt)
     // timeNow is a fake version of time.Now for tests.
 **/
 private function _timeNow():stdgo.time.Time.Time {
-        return (stdgo.time.Time.unix(("1136214245" : GoInt64), ("0" : GoInt64)) == null ? null : stdgo.time.Time.unix(("1136214245" : GoInt64), ("0" : GoInt64)).__copy__());
+        return stdgo.time.Time.unix(("1136214245" : GoInt64), ("0" : GoInt64)).__copy__();
     }
 function log(_w:stdgo.io.Io.Writer, _key:GoString, _val:GoString):Void {
         var _b = (Go.typeAssert((_bufPool.get() : Ref<stdgo.bytes.Bytes.Buffer>)) : Ref<stdgo.bytes.Bytes.Buffer>);
@@ -776,7 +776,7 @@ function exampleOnce():Void {
         };
     }
 private function _benchMap(_b:Ref<stdgo.testing.Testing.B>, _bench:T_bench):Void {
-        for (_0 => _m in (new GoArray<stdgo.sync_test.Sync_test.T_mapInterface>(Go.asInterface(((new DeepCopyMap() : DeepCopyMap) : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>)), Go.asInterface(((new RWMutexMap() : RWMutexMap) : Ref<stdgo.sync_test.Sync_test.RWMutexMap>)), Go.asInterface(((new Map_() : Map_) : Ref<Map_>))) : GoArray<stdgo.sync_test.Sync_test.T_mapInterface>)) {
+        for (_0 => _m in (new GoArray<stdgo.sync_test.Sync_test.T_mapInterface>(Go.asInterface((Go.setRef((new DeepCopyMap() : DeepCopyMap)) : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>)), Go.asInterface((Go.setRef((new RWMutexMap() : RWMutexMap)) : Ref<stdgo.sync_test.Sync_test.RWMutexMap>)), Go.asInterface((Go.setRef((new Map_() : Map_)) : Ref<Map_>))) : GoArray<stdgo.sync_test.Sync_test.T_mapInterface>)) {
             _b.run(stdgo.fmt.Fmt.sprintf(("%T" : GoString), Go.toInterface(_m)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 _m = (Go.typeAssert((stdgo.reflect.Reflect.new_(stdgo.reflect.Reflect.typeOf(Go.toInterface(_m)).elem()).interface_() : T_mapInterface)) : T_mapInterface);
                 if (_bench._setup != null) {
@@ -1509,7 +1509,7 @@ function testMapRangeNestedCall(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCompareAndSwap_NonExistingKey(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _m = ((new Map_() : Map_) : Ref<Map_>);
+        var _m = (Go.setRef((new Map_() : Map_)) : Ref<Map_>);
         if (_m.compareAndSwap(Go.toInterface(Go.asInterface(_m)), (null : AnyInterface), Go.toInterface((42 : GoInt)))) {
             _t.fatalf(("CompareAndSwap on an non-existing key succeeded" : GoString));
         };
@@ -1877,7 +1877,7 @@ private function _run(_t:Ref<stdgo.testing.Testing.T>, _once:Ref<Once>, _o:Point
         _c.__send__(true);
     }
 function testOnce(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _o = _new(T_one_static_extension);
+        var _o = _new(_one);
         var _once = _new(once);
         var _c = new Chan<Bool>(0, () -> false);
         {};
@@ -1976,13 +1976,13 @@ function testPool(_t:Ref<stdgo.testing.Testing.T>):Void {
             _p.put(Go.toInterface(("b" : GoString)));
             {
                 var _g:AnyInterface = _p.get();
-                if (Go.toInterface(_g) != (Go.toInterface(("a" : GoString)))) {
+                if (_g != (Go.toInterface(("a" : GoString)))) {
                     _t.fatalf(("got %#v; want a" : GoString), _g);
                 };
             };
             {
                 var _g:AnyInterface = _p.get();
-                if (Go.toInterface(_g) != (Go.toInterface(("b" : GoString)))) {
+                if (_g != (Go.toInterface(("b" : GoString)))) {
                     _t.fatalf(("got %#v; want b" : GoString), _g);
                 };
             };
@@ -2002,7 +2002,7 @@ function testPool(_t:Ref<stdgo.testing.Testing.T>):Void {
             stdgo.runtime.Runtime.gc();
             {
                 var _g:AnyInterface = _p.get();
-                if (Go.toInterface(_g) != (Go.toInterface(("c" : GoString)))) {
+                if (_g != (Go.toInterface(("c" : GoString)))) {
                     _t.fatalf(("got %#v; want c after GC" : GoString), _g);
                 };
             };
@@ -2051,13 +2051,13 @@ function testPoolNew(_t:Ref<stdgo.testing.Testing.T>):Void {
             } } : Pool);
             {
                 var _v:AnyInterface = _p.get();
-                if (Go.toInterface(_v) != (Go.toInterface((1 : GoInt)))) {
+                if (_v != (Go.toInterface((1 : GoInt)))) {
                     _t.fatalf(("got %v; want 1" : GoString), _v);
                 };
             };
             {
                 var _v:AnyInterface = _p.get();
-                if (Go.toInterface(_v) != (Go.toInterface((2 : GoInt)))) {
+                if (_v != (Go.toInterface((2 : GoInt)))) {
                     _t.fatalf(("got %v; want 2" : GoString), _v);
                 };
             };
@@ -2065,14 +2065,14 @@ function testPoolNew(_t:Ref<stdgo.testing.Testing.T>):Void {
             _p.put(Go.toInterface((42 : GoInt)));
             {
                 var _v:AnyInterface = _p.get();
-                if (Go.toInterface(_v) != (Go.toInterface((42 : GoInt)))) {
+                if (_v != (Go.toInterface((42 : GoInt)))) {
                     _t.fatalf(("got %v; want 42" : GoString), _v);
                 };
             };
             runtime_procUnpin();
             {
                 var _v:AnyInterface = _p.get();
-                if (Go.toInterface(_v) != (Go.toInterface((3 : GoInt)))) {
+                if (_v != (Go.toInterface((3 : GoInt)))) {
                     _t.fatalf(("got %v; want 3" : GoString), _v);
                 };
             };
@@ -2356,7 +2356,7 @@ function benchmarkPoolSTW(_b:Ref<stdgo.testing.Testing.B>):Void {
                         });
                     };
                     stdgo.runtime.Runtime.gc();
-                    stdgo.runtime.Runtime.readMemStats((_mstats : Ref<stdgo.runtime.Runtime.MemStats>));
+                    stdgo.runtime.Runtime.readMemStats((Go.setRef(_mstats) : Ref<stdgo.runtime.Runtime.MemStats>));
                     _pauses = _pauses.__appendref__(_mstats.pauseNs[((_mstats.numGC + (("255" : GoUInt32) : GoUInt32)) % ("256" : GoUInt32) : GoInt)]);
                 });
             };
@@ -2412,7 +2412,7 @@ function benchmarkPoolExpensiveNew(_b:Ref<stdgo.testing.Testing.B>):Void {
                 return Go.toInterface((42 : GoInt));
             };
             var _0:stdgo.runtime.Runtime.MemStats = ({} : stdgo.runtime.Runtime.MemStats), _1:stdgo.runtime.Runtime.MemStats = ({} : stdgo.runtime.Runtime.MemStats), _mstats2:stdgo.runtime.Runtime.MemStats = _1, _mstats1:stdgo.runtime.Runtime.MemStats = _0;
-            stdgo.runtime.Runtime.readMemStats((_mstats1 : Ref<stdgo.runtime.Runtime.MemStats>));
+            stdgo.runtime.Runtime.readMemStats((Go.setRef(_mstats1) : Ref<stdgo.runtime.Runtime.MemStats>));
             _b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
                 var _items = new Slice<AnyInterface>((100 : GoInt).toBasic(), 0, ...[for (i in 0 ... (100 : GoInt).toBasic()) (null : AnyInterface)]);
                 var _sink:Slice<GoByte> = (null : Slice<GoUInt8>);
@@ -2428,7 +2428,7 @@ function benchmarkPoolExpensiveNew(_b:Ref<stdgo.testing.Testing.B>):Void {
                 };
                 _sink;
             });
-            stdgo.runtime.Runtime.readMemStats((_mstats2 : Ref<stdgo.runtime.Runtime.MemStats>));
+            stdgo.runtime.Runtime.readMemStats((Go.setRef(_mstats2) : Ref<stdgo.runtime.Runtime.MemStats>));
             _b.reportMetric((_mstats2.numGC - _mstats1.numGC : GoFloat64) / (_b.n : GoFloat64), ("GCs/op" : GoString));
             _b.reportMetric((_nNew : GoFloat64) / (_b.n : GoFloat64), ("New/op" : GoString));
             for (defer in __deferstack__) {
@@ -2580,7 +2580,7 @@ private function _doTestParallelReaders(_numReaders:GoInt, _gomaxprocs:GoInt):Vo
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _numReaders, _i++, {
-                Go.routine(() -> _parallelReader((_m : Ref<RWMutex>), _clocked, _cunlock, _cdone));
+                Go.routine(() -> _parallelReader((Go.setRef(_m) : Ref<RWMutex>), _clocked, _cunlock, _cdone));
             });
         };
         {
@@ -2681,17 +2681,17 @@ function hammerRWMutex(_gomaxprocs:GoInt, _numReaders:GoInt, _num_iterations:GoI
         var _activity:GoInt32 = (0 : GoInt32);
         var _rwm:RWMutex = ({} : RWMutex);
         var _cdone = new Chan<Bool>(0, () -> false);
-        Go.routine(() -> _writer((_rwm : Ref<RWMutex>), _num_iterations, Go.pointer(_activity), _cdone));
+        Go.routine(() -> _writer((Go.setRef(_rwm) : Ref<RWMutex>), _num_iterations, Go.pointer(_activity), _cdone));
         var _i:GoInt = (0 : GoInt);
         {
             _i = (0 : GoInt);
             Go.cfor(_i < (_numReaders / (2 : GoInt)), _i++, {
-                Go.routine(() -> _reader((_rwm : Ref<RWMutex>), _num_iterations, Go.pointer(_activity), _cdone));
+                Go.routine(() -> _reader((Go.setRef(_rwm) : Ref<RWMutex>), _num_iterations, Go.pointer(_activity), _cdone));
             });
         };
-        Go.routine(() -> _writer((_rwm : Ref<RWMutex>), _num_iterations, Go.pointer(_activity), _cdone));
+        Go.routine(() -> _writer((Go.setRef(_rwm) : Ref<RWMutex>), _num_iterations, Go.pointer(_activity), _cdone));
         Go.cfor(_i < _numReaders, _i++, {
-            Go.routine(() -> _reader((_rwm : Ref<RWMutex>), _num_iterations, Go.pointer(_activity), _cdone));
+            Go.routine(() -> _reader((Go.setRef(_rwm) : Ref<RWMutex>), _num_iterations, Go.pointer(_activity), _cdone));
         });
         {
             var _i:GoInt = (0 : GoInt);
@@ -2928,8 +2928,8 @@ private function _testWaitGroup(_t:Ref<stdgo.testing.Testing.T>, _wg1:Ref<WaitGr
         };
     }
 function testWaitGroup(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _wg1 = ((new WaitGroup() : WaitGroup) : Ref<WaitGroup>);
-        var _wg2 = ((new WaitGroup() : WaitGroup) : Ref<WaitGroup>);
+        var _wg1 = (Go.setRef((new WaitGroup() : WaitGroup)) : Ref<WaitGroup>);
+        var _wg2 = (Go.setRef((new WaitGroup() : WaitGroup)) : Ref<WaitGroup>);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i != ((8 : GoInt)), _i++, {
@@ -2947,13 +2947,13 @@ function testWaitGroupMisuse(_t:Ref<stdgo.testing.Testing.T>):Void {
                         Go.recover_exception = null;
                         r;
                     });
-                    if (Go.toInterface(_err) != (Go.toInterface(("sync: negative WaitGroup counter" : GoString)))) {
+                    if (_err != (Go.toInterface(("sync: negative WaitGroup counter" : GoString)))) {
                         _t.fatalf(("Unexpected panic: %#v" : GoString), _err);
                     };
                 };
                 a();
             });
-            var _wg = ((new WaitGroup() : WaitGroup) : Ref<WaitGroup>);
+            var _wg = (Go.setRef((new WaitGroup() : WaitGroup)) : Ref<WaitGroup>);
             _wg.add((1 : GoInt));
             _wg.done();
             _wg.done();
@@ -2986,7 +2986,7 @@ function testWaitGroupRace(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (1000 : GoInt), _i++, {
-                var _wg = ((new WaitGroup() : WaitGroup) : Ref<WaitGroup>);
+                var _wg = (Go.setRef((new WaitGroup() : WaitGroup)) : Ref<WaitGroup>);
                 var _n = _new(_int32);
                 _wg.add((1 : GoInt));
                 Go.routine(() -> {
@@ -3036,7 +3036,7 @@ function testWaitGroupAlign(_t:Ref<stdgo.testing.Testing.T>):Void {
             var a = function(_x:Ref<T_testWaitGroupAlign_0___localname___X>):Void {
                 _x._wg.done();
             };
-            a((_x : Ref<stdgo.sync_test.Sync_test.T_testWaitGroupAlign_0___localname___X>));
+            a((Go.setRef(_x) : Ref<stdgo.sync_test.Sync_test.T_testWaitGroupAlign_0___localname___X>));
         });
         _x._wg.wait_();
     }
@@ -3187,7 +3187,7 @@ function benchmarkWaitGroupActuallyWait(_b:Ref<stdgo.testing.Testing.B>):Void {
     };
 class T_httpPkg_asInterface {
     @:keep
-    public function get(_url:GoString):Void __self__.value.get(_url);
+    public dynamic function get(_url:GoString):Void __self__.value.get(_url);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -3202,23 +3202,23 @@ class T_httpPkg_asInterface {
 }
 class RWMutexMap_asInterface {
     @:keep
-    public function range(_f:(_key:AnyInterface, _value:AnyInterface) -> Bool):Void __self__.value.range(_f);
+    public dynamic function range(_f:(_key:AnyInterface, _value:AnyInterface) -> Bool):Void __self__.value.range(_f);
     @:keep
-    public function compareAndDelete(_key:AnyInterface, _old:AnyInterface):Bool return __self__.value.compareAndDelete(_key, _old);
+    public dynamic function compareAndDelete(_key:AnyInterface, _old:AnyInterface):Bool return __self__.value.compareAndDelete(_key, _old);
     @:keep
-    public function compareAndSwap(_key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool return __self__.value.compareAndSwap(_key, _old, _new);
+    public dynamic function compareAndSwap(_key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool return __self__.value.compareAndSwap(_key, _old, _new);
     @:keep
-    public function delete(_key:AnyInterface):Void __self__.value.delete(_key);
+    public dynamic function delete(_key:AnyInterface):Void __self__.value.delete(_key);
     @:keep
-    public function loadAndDelete(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadAndDelete(_key);
+    public dynamic function loadAndDelete(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadAndDelete(_key);
     @:keep
-    public function swap(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.swap(_key, _value);
+    public dynamic function swap(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.swap(_key, _value);
     @:keep
-    public function loadOrStore(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadOrStore(_key, _value);
+    public dynamic function loadOrStore(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadOrStore(_key, _value);
     @:keep
-    public function store(_key:AnyInterface, _value:AnyInterface):Void __self__.value.store(_key, _value);
+    public dynamic function store(_key:AnyInterface, _value:AnyInterface):Void __self__.value.store(_key, _value);
     @:keep
-    public function load(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.load(_key);
+    public dynamic function load(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.load(_key);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -3262,7 +3262,7 @@ class RWMutexMap_asInterface {
                 };
             };
             var __tmp__ = (_m._dirty != null && _m._dirty.__exists__(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
-            if (_loaded && (Go.toInterface(_value) == Go.toInterface(_old))) {
+            if (_loaded && (_value == _old)) {
                 if (_m._dirty != null) _m._dirty.__remove__(_key);
                 {
                     for (defer in __deferstack__) {
@@ -3317,7 +3317,7 @@ class RWMutexMap_asInterface {
                 };
             };
             var __tmp__ = (_m._dirty != null && _m._dirty.__exists__(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
-            if (_loaded && (Go.toInterface(_value) == Go.toInterface(_old))) {
+            if (_loaded && (_value == _old)) {
                 _m._dirty[_key] = _new;
                 {
                     for (defer in __deferstack__) {
@@ -3438,25 +3438,25 @@ class RWMutexMap_asInterface {
 }
 class DeepCopyMap_asInterface {
     @:keep
-    public function _dirty():GoMap<AnyInterface, AnyInterface> return __self__.value._dirty();
+    public dynamic function _dirty():GoMap<AnyInterface, AnyInterface> return __self__.value._dirty();
     @:keep
-    public function range(_f:(_key:AnyInterface, _value:AnyInterface) -> Bool):Void __self__.value.range(_f);
+    public dynamic function range(_f:(_key:AnyInterface, _value:AnyInterface) -> Bool):Void __self__.value.range(_f);
     @:keep
-    public function compareAndDelete(_key:AnyInterface, _old:AnyInterface):Bool return __self__.value.compareAndDelete(_key, _old);
+    public dynamic function compareAndDelete(_key:AnyInterface, _old:AnyInterface):Bool return __self__.value.compareAndDelete(_key, _old);
     @:keep
-    public function compareAndSwap(_key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool return __self__.value.compareAndSwap(_key, _old, _new);
+    public dynamic function compareAndSwap(_key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool return __self__.value.compareAndSwap(_key, _old, _new);
     @:keep
-    public function delete(_key:AnyInterface):Void __self__.value.delete(_key);
+    public dynamic function delete(_key:AnyInterface):Void __self__.value.delete(_key);
     @:keep
-    public function loadAndDelete(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadAndDelete(_key);
+    public dynamic function loadAndDelete(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadAndDelete(_key);
     @:keep
-    public function swap(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.swap(_key, _value);
+    public dynamic function swap(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.swap(_key, _value);
     @:keep
-    public function loadOrStore(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadOrStore(_key, _value);
+    public dynamic function loadOrStore(_key:AnyInterface, _value:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.loadOrStore(_key, _value);
     @:keep
-    public function store(_key:AnyInterface, _value:AnyInterface):Void __self__.value.store(_key, _value);
+    public dynamic function store(_key:AnyInterface, _value:AnyInterface):Void __self__.value.store(_key, _value);
     @:keep
-    public function load(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.load(_key);
+    public dynamic function load(_key:AnyInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value.load(_key);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -3504,7 +3504,7 @@ class DeepCopyMap_asInterface {
             }, _clean = __tmp__.value, _0 = __tmp__.ok;
             {
                 var __tmp__ = (_clean != null && _clean.__exists__(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _previous:AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
-                if (!_ok || (Go.toInterface(_previous) != Go.toInterface(_old))) {
+                if (!_ok || (_previous != _old)) {
                     return false;
                 };
             };
@@ -3512,7 +3512,7 @@ class DeepCopyMap_asInterface {
             __deferstack__.unshift(() -> _m._mu.unlock());
             var _dirty = _m._dirty();
             var __tmp__ = (_dirty != null && _dirty.__exists__(_key) ? { value : _dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
-            if (_loaded && (Go.toInterface(_value) == Go.toInterface(_old))) {
+            if (_loaded && (_value == _old)) {
                 if (_dirty != null) _dirty.__remove__(_key);
                 _m._clean.store(Go.toInterface(_dirty));
                 {
@@ -3564,7 +3564,7 @@ class DeepCopyMap_asInterface {
             }, _clean = __tmp__.value, _0 = __tmp__.ok;
             {
                 var __tmp__ = (_clean != null && _clean.__exists__(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _previous:AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
-                if (!_ok || (Go.toInterface(_previous) != Go.toInterface(_old))) {
+                if (!_ok || (_previous != _old)) {
                     return false;
                 };
             };
@@ -3572,7 +3572,7 @@ class DeepCopyMap_asInterface {
             __deferstack__.unshift(() -> _m._mu.unlock());
             var _dirty = _m._dirty();
             var __tmp__ = (_dirty != null && _dirty.__exists__(_key) ? { value : _dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
-            if (_loaded && (Go.toInterface(_value) == Go.toInterface(_old))) {
+            if (_loaded && (_value == _old)) {
                 _dirty[_key] = _new;
                 _m._clean.store(Go.toInterface(_dirty));
                 {
@@ -3715,9 +3715,9 @@ class DeepCopyMap_asInterface {
 }
 class T_mapCall_asInterface {
     @:keep
-    public function generate(_r:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_r, _size);
+    public dynamic function generate(_r:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value return __self__.value.generate(_r, _size);
     @:keep
-    public function _apply(_m:T_mapInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._apply(_m);
+    public dynamic function _apply(_m:T_mapInterface):{ var _0 : AnyInterface; var _1 : Bool; } return __self__.value._apply(_m);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -3730,52 +3730,58 @@ class T_mapCall_asInterface {
     @:keep
     static public function generate( _:T_mapCall, _r:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value {
         var _c:stdgo.sync_test.Sync_test.T_mapCall = ({ _op : _mapOps[(stdgo.math.rand.Rand.intn((_mapOps.length)) : GoInt)], _k : _randValue(_r) } : T_mapCall);
-        if (_c._op == (("Store" : GoString)) || _c._op == (("LoadOrStore" : GoString))) {
-            _c._v = _randValue(_r);
+        {
+            final __value__ = _c._op;
+            if (__value__ == (("Store" : GoString)) || __value__ == (("LoadOrStore" : GoString))) {
+                _c._v = _randValue(_r);
+            };
         };
-        return (stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(_c))) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(_c))).__copy__());
+        return stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(_c))).__copy__();
     }
     @:keep
     static public function _apply( _c:T_mapCall, _m:T_mapInterface):{ var _0 : AnyInterface; var _1 : Bool; } {
-        if (_c._op == (("Load" : GoString))) {
-            return _m.load(_c._k);
-        } else if (_c._op == (("Store" : GoString))) {
-            _m.store(_c._k, _c._v);
-            return { _0 : (null : AnyInterface), _1 : false };
-        } else if (_c._op == (("LoadOrStore" : GoString))) {
-            return _m.loadOrStore(_c._k, _c._v);
-        } else if (_c._op == (("LoadAndDelete" : GoString))) {
-            return _m.loadAndDelete(_c._k);
-        } else if (_c._op == (("Delete" : GoString))) {
-            _m.delete(_c._k);
-            return { _0 : (null : AnyInterface), _1 : false };
-        } else if (_c._op == (("Swap" : GoString))) {
-            return _m.swap(_c._k, _c._v);
-        } else if (_c._op == (("CompareAndSwap" : GoString))) {
-            if (_m.compareAndSwap(_c._k, _c._v, Go.toInterface(stdgo.math.rand.Rand.int_()))) {
+        {
+            final __value__ = _c._op;
+            if (__value__ == (("Load" : GoString))) {
+                return _m.load(_c._k);
+            } else if (__value__ == (("Store" : GoString))) {
+                _m.store(_c._k, _c._v);
+                return { _0 : (null : AnyInterface), _1 : false };
+            } else if (__value__ == (("LoadOrStore" : GoString))) {
+                return _m.loadOrStore(_c._k, _c._v);
+            } else if (__value__ == (("LoadAndDelete" : GoString))) {
+                return _m.loadAndDelete(_c._k);
+            } else if (__value__ == (("Delete" : GoString))) {
                 _m.delete(_c._k);
-                return { _0 : _c._v, _1 : true };
-            };
-            return { _0 : (null : AnyInterface), _1 : false };
-        } else if (_c._op == (("CompareAndDelete" : GoString))) {
-            if (_m.compareAndDelete(_c._k, _c._v)) {
-                {
-                    var __tmp__ = _m.load(_c._k), _0:AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
-                    if (!_ok) {
-                        return { _0 : (null : AnyInterface), _1 : true };
+                return { _0 : (null : AnyInterface), _1 : false };
+            } else if (__value__ == (("Swap" : GoString))) {
+                return _m.swap(_c._k, _c._v);
+            } else if (__value__ == (("CompareAndSwap" : GoString))) {
+                if (_m.compareAndSwap(_c._k, _c._v, Go.toInterface(stdgo.math.rand.Rand.int_()))) {
+                    _m.delete(_c._k);
+                    return { _0 : _c._v, _1 : true };
+                };
+                return { _0 : (null : AnyInterface), _1 : false };
+            } else if (__value__ == (("CompareAndDelete" : GoString))) {
+                if (_m.compareAndDelete(_c._k, _c._v)) {
+                    {
+                        var __tmp__ = _m.load(_c._k), _0:AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                        if (!_ok) {
+                            return { _0 : (null : AnyInterface), _1 : true };
+                        };
                     };
                 };
+                return { _0 : (null : AnyInterface), _1 : false };
+            } else {
+                throw Go.toInterface(("invalid mapOp" : GoString));
             };
-            return { _0 : (null : AnyInterface), _1 : false };
-        } else {
-            throw Go.toInterface(("invalid mapOp" : GoString));
         };
     }
 }
 class T_one_asInterface {
     @:keep
     @:pointer
-    public function increment():Void __self__.value.increment(__self__);
+    public dynamic function increment():Void __self__.value.increment(__self__);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -3793,15 +3799,15 @@ class T_one_asInterface {
 }
 class T_benchmarkMutexUncontended_0___localname___PaddedMutex_asInterface {
     @:embedded
-    public function _unlockSlow(__0:GoInt32):Void __self__.value._unlockSlow(__0);
+    public dynamic function _unlockSlow(__0:GoInt32):Void __self__.value._unlockSlow(__0);
     @:embedded
-    public function _lockSlow():Void __self__.value._lockSlow();
+    public dynamic function _lockSlow():Void __self__.value._lockSlow();
     @:embedded
-    public function unlock():Void __self__.value.unlock();
+    public dynamic function unlock():Void __self__.value.unlock();
     @:embedded
-    public function tryLock():Bool return __self__.value.tryLock();
+    public dynamic function tryLock():Bool return __self__.value.tryLock();
     @:embedded
-    public function lock():Void __self__.value.lock();
+    public dynamic function lock():Void __self__.value.lock();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -3824,21 +3830,21 @@ class T_benchmarkMutexUncontended_0___localname___PaddedMutex_asInterface {
 }
 class T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex_asInterface {
     @:embedded
-    public function _rUnlockSlow(__0:GoInt32):Void __self__.value._rUnlockSlow(__0);
+    public dynamic function _rUnlockSlow(__0:GoInt32):Void __self__.value._rUnlockSlow(__0);
     @:embedded
-    public function unlock():Void __self__.value.unlock();
+    public dynamic function unlock():Void __self__.value.unlock();
     @:embedded
-    public function tryRLock():Bool return __self__.value.tryRLock();
+    public dynamic function tryRLock():Bool return __self__.value.tryRLock();
     @:embedded
-    public function tryLock():Bool return __self__.value.tryLock();
+    public dynamic function tryLock():Bool return __self__.value.tryLock();
     @:embedded
-    public function runlock():Void __self__.value.runlock();
+    public dynamic function runlock():Void __self__.value.runlock();
     @:embedded
-    public function rlocker():Locker return __self__.value.rlocker();
+    public dynamic function rlocker():Locker return __self__.value.rlocker();
     @:embedded
-    public function rlock():Void __self__.value.rlock();
+    public dynamic function rlock():Void __self__.value.rlock();
     @:embedded
-    public function lock():Void __self__.value.lock();
+    public dynamic function lock():Void __self__.value.lock();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -3867,11 +3873,11 @@ class T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex_asInterface {
 }
 class T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup_asInterface {
     @:embedded
-    public function wait_():Void __self__.value.wait_();
+    public dynamic function wait_():Void __self__.value.wait_();
     @:embedded
-    public function done():Void __self__.value.done();
+    public dynamic function done():Void __self__.value.done();
     @:embedded
-    public function add(__0:GoInt):Void __self__.value.add(__0);
+    public dynamic function add(__0:GoInt):Void __self__.value.add(__0);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

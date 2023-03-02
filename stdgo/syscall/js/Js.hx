@@ -457,51 +457,51 @@ class Func_asInterface {
         // It is allowed to call Release while the function is still running.
     **/
     @:keep
-    public function release():Void __self__.value.release();
+    public dynamic function release():Void __self__.value.release();
     @:embedded
-    public function _isNumber():Bool return __self__.value._isNumber();
+    public dynamic function _isNumber():Bool return __self__.value._isNumber();
     @:embedded
-    public function _float(_p:GoString):GoFloat64 return __self__.value._float(_p);
+    public dynamic function _float(_p:GoString):GoFloat64 return __self__.value._float(_p);
     @:embedded
-    public function type():Type return __self__.value.type();
+    public dynamic function type():Type return __self__.value.type();
     @:embedded
-    public function truthy():Bool return __self__.value.truthy();
+    public dynamic function truthy():Bool return __self__.value.truthy();
     @:embedded
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:embedded
-    public function setIndex(_i:GoInt, _x:AnyInterface):Void __self__.value.setIndex(_i, _x);
+    public dynamic function setIndex(_i:GoInt, _x:AnyInterface):Void __self__.value.setIndex(_i, _x);
     @:embedded
-    public function set(_p:GoString, _x:AnyInterface):Void __self__.value.set(_p, _x);
+    public dynamic function set(_p:GoString, _x:AnyInterface):Void __self__.value.set(_p, _x);
     @:embedded
-    public function new_(_args:haxe.Rest<AnyInterface>):Value return __self__.value.new_(..._args);
+    public dynamic function new_(_args:haxe.Rest<AnyInterface>):Value return __self__.value.new_(..._args);
     @:embedded
-    public function length_():GoInt return __self__.value.length_();
+    public dynamic function length_():GoInt return __self__.value.length_();
     @:embedded
-    public function isUndefined():Bool return __self__.value.isUndefined();
+    public dynamic function isUndefined():Bool return __self__.value.isUndefined();
     @:embedded
-    public function isNull():Bool return __self__.value.isNull();
+    public dynamic function isNull():Bool return __self__.value.isNull();
     @:embedded
-    public function isNaN():Bool return __self__.value.isNaN();
+    public dynamic function isNaN():Bool return __self__.value.isNaN();
     @:embedded
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value return __self__.value.invoke(..._args);
+    public dynamic function invoke(_args:haxe.Rest<AnyInterface>):Value return __self__.value.invoke(..._args);
     @:embedded
-    public function int_():GoInt return __self__.value.int_();
+    public dynamic function int_():GoInt return __self__.value.int_();
     @:embedded
-    public function instanceOf(__0:Value):Bool return __self__.value.instanceOf(__0);
+    public dynamic function instanceOf(__0:Value):Bool return __self__.value.instanceOf(__0);
     @:embedded
-    public function index(_i:GoInt):Value return __self__.value.index(_i);
+    public dynamic function index(_i:GoInt):Value return __self__.value.index(_i);
     @:embedded
-    public function get(_p:GoString):Value return __self__.value.get(_p);
+    public dynamic function get(_p:GoString):Value return __self__.value.get(_p);
     @:embedded
-    public function float_():GoFloat64 return __self__.value.float_();
+    public dynamic function float_():GoFloat64 return __self__.value.float_();
     @:embedded
-    public function equal(__0:Value):Bool return __self__.value.equal(__0);
+    public dynamic function equal(__0:Value):Bool return __self__.value.equal(__0);
     @:embedded
-    public function delete(_p:GoString):Void __self__.value.delete(_p);
+    public dynamic function delete(_p:GoString):Void __self__.value.delete(_p);
     @:embedded
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.value.call(_m, ..._args);
+    public dynamic function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.value.call(_m, ..._args);
     @:embedded
-    public function bool_():Bool return __self__.value.bool_();
+    public dynamic function bool_():Bool return __self__.value.bool_();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -568,7 +568,7 @@ class Value_asInterface {
         // InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
     **/
     @:keep
-    public function instanceOf(_t:Value):Bool return __self__.value.instanceOf(_t);
+    public dynamic function instanceOf(_t:Value):Bool return __self__.value.instanceOf(_t);
     /**
         // String returns the value v as a string.
         // String is a special case because of Go's String method convention. Unlike the other getters,
@@ -576,119 +576,119 @@ class Value_asInterface {
         // or "<T: V>" where T is v's type and V is a string representation of v's value.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     /**
         // Truthy returns the JavaScript "truthiness" of the value v. In JavaScript,
         // false, 0, "", null, undefined, and NaN are "falsy", and everything else is
         // "truthy". See https://developer.mozilla.org/en-US/docs/Glossary/Truthy.
     **/
     @:keep
-    public function truthy():Bool return __self__.value.truthy();
+    public dynamic function truthy():Bool return __self__.value.truthy();
     /**
         // Bool returns the value v as a bool.
         // It panics if v is not a JavaScript boolean.
     **/
     @:keep
-    public function bool_():Bool return __self__.value.bool_();
+    public dynamic function bool_():Bool return __self__.value.bool_();
     /**
         // Int returns the value v truncated to an int.
         // It panics if v is not a JavaScript number.
     **/
     @:keep
-    public function int_():GoInt return __self__.value.int_();
+    public dynamic function int_():GoInt return __self__.value.int_();
     /**
         // Float returns the value v as a float64.
         // It panics if v is not a JavaScript number.
     **/
     @:keep
-    public function float_():GoFloat64 return __self__.value.float_();
+    public dynamic function float_():GoFloat64 return __self__.value.float_();
     @:keep
-    public function _float(_method:GoString):GoFloat64 return __self__.value._float(_method);
+    public dynamic function _float(_method:GoString):GoFloat64 return __self__.value._float(_method);
     @:keep
-    public function _isNumber():Bool return __self__.value._isNumber();
+    public dynamic function _isNumber():Bool return __self__.value._isNumber();
     /**
         // New uses JavaScript's "new" operator with value v as constructor and the given arguments.
         // It panics if v is not a JavaScript function.
         // The arguments get mapped to JavaScript values according to the ValueOf function.
     **/
     @:keep
-    public function new_(_args:haxe.Rest<AnyInterface>):Value return __self__.value.new_(..._args);
+    public dynamic function new_(_args:haxe.Rest<AnyInterface>):Value return __self__.value.new_(..._args);
     /**
         // Invoke does a JavaScript call of the value v with the given arguments.
         // It panics if v is not a JavaScript function.
         // The arguments get mapped to JavaScript values according to the ValueOf function.
     **/
     @:keep
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value return __self__.value.invoke(..._args);
+    public dynamic function invoke(_args:haxe.Rest<AnyInterface>):Value return __self__.value.invoke(..._args);
     /**
         // Call does a JavaScript call to the method m of value v with the given arguments.
         // It panics if v has no method m.
         // The arguments get mapped to JavaScript values according to the ValueOf function.
     **/
     @:keep
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.value.call(_m, ..._args);
+    public dynamic function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.value.call(_m, ..._args);
     /**
         // Length returns the JavaScript property "length" of v.
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    public function length_():GoInt return __self__.value.length_();
+    public dynamic function length_():GoInt return __self__.value.length_();
     /**
         // SetIndex sets the JavaScript index i of value v to ValueOf(x).
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    public function setIndex(_i:GoInt, _x:AnyInterface):Void __self__.value.setIndex(_i, _x);
+    public dynamic function setIndex(_i:GoInt, _x:AnyInterface):Void __self__.value.setIndex(_i, _x);
     /**
         // Index returns JavaScript index i of value v.
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    public function index(_i:GoInt):Value return __self__.value.index(_i);
+    public dynamic function index(_i:GoInt):Value return __self__.value.index(_i);
     /**
         // Delete deletes the JavaScript property p of value v.
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    public function delete(_p:GoString):Void __self__.value.delete(_p);
+    public dynamic function delete(_p:GoString):Void __self__.value.delete(_p);
     /**
         // Set sets the JavaScript property p of value v to ValueOf(x).
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    public function set(_p:GoString, _x:AnyInterface):Void __self__.value.set(_p, _x);
+    public dynamic function set(_p:GoString, _x:AnyInterface):Void __self__.value.set(_p, _x);
     /**
         // Get returns the JavaScript property p of value v.
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    public function get(_p:GoString):Value return __self__.value.get(_p);
+    public dynamic function get(_p:GoString):Value return __self__.value.get(_p);
     /**
         // Type returns the JavaScript type of the value v. It is similar to JavaScript's typeof operator,
         // except that it returns TypeNull instead of TypeObject for null.
     **/
     @:keep
-    public function type():Type return __self__.value.type();
+    public dynamic function type():Type return __self__.value.type();
     /**
         // IsNaN reports whether v is the JavaScript value "NaN".
     **/
     @:keep
-    public function isNaN():Bool return __self__.value.isNaN();
+    public dynamic function isNaN():Bool return __self__.value.isNaN();
     /**
         // IsNull reports whether v is the JavaScript value "null".
     **/
     @:keep
-    public function isNull():Bool return __self__.value.isNull();
+    public dynamic function isNull():Bool return __self__.value.isNull();
     /**
         // IsUndefined reports whether v is the JavaScript value "undefined".
     **/
     @:keep
-    public function isUndefined():Bool return __self__.value.isUndefined();
+    public dynamic function isUndefined():Bool return __self__.value.isUndefined();
     /**
         // Equal reports whether v and w are equal according to JavaScript's === operator.
     **/
     @:keep
-    public function equal(_w:Value):Bool return __self__.value.equal(_w);
+    public dynamic function equal(_w:Value):Bool return __self__.value.equal(_w);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -829,51 +829,51 @@ class T_error_asInterface {
         // Error implements the error interface.
     **/
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     @:embedded
-    public function _isNumber():Bool return __self__.value._isNumber();
+    public dynamic function _isNumber():Bool return __self__.value._isNumber();
     @:embedded
-    public function _float(_p:GoString):GoFloat64 return __self__.value._float(_p);
+    public dynamic function _float(_p:GoString):GoFloat64 return __self__.value._float(_p);
     @:embedded
-    public function type():Type return __self__.value.type();
+    public dynamic function type():Type return __self__.value.type();
     @:embedded
-    public function truthy():Bool return __self__.value.truthy();
+    public dynamic function truthy():Bool return __self__.value.truthy();
     @:embedded
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     @:embedded
-    public function setIndex(_i:GoInt, _x:AnyInterface):Void __self__.value.setIndex(_i, _x);
+    public dynamic function setIndex(_i:GoInt, _x:AnyInterface):Void __self__.value.setIndex(_i, _x);
     @:embedded
-    public function set(_p:GoString, _x:AnyInterface):Void __self__.value.set(_p, _x);
+    public dynamic function set(_p:GoString, _x:AnyInterface):Void __self__.value.set(_p, _x);
     @:embedded
-    public function new_(_args:haxe.Rest<AnyInterface>):Value return __self__.value.new_(..._args);
+    public dynamic function new_(_args:haxe.Rest<AnyInterface>):Value return __self__.value.new_(..._args);
     @:embedded
-    public function length_():GoInt return __self__.value.length_();
+    public dynamic function length_():GoInt return __self__.value.length_();
     @:embedded
-    public function isUndefined():Bool return __self__.value.isUndefined();
+    public dynamic function isUndefined():Bool return __self__.value.isUndefined();
     @:embedded
-    public function isNull():Bool return __self__.value.isNull();
+    public dynamic function isNull():Bool return __self__.value.isNull();
     @:embedded
-    public function isNaN():Bool return __self__.value.isNaN();
+    public dynamic function isNaN():Bool return __self__.value.isNaN();
     @:embedded
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value return __self__.value.invoke(..._args);
+    public dynamic function invoke(_args:haxe.Rest<AnyInterface>):Value return __self__.value.invoke(..._args);
     @:embedded
-    public function int_():GoInt return __self__.value.int_();
+    public dynamic function int_():GoInt return __self__.value.int_();
     @:embedded
-    public function instanceOf(__0:Value):Bool return __self__.value.instanceOf(__0);
+    public dynamic function instanceOf(__0:Value):Bool return __self__.value.instanceOf(__0);
     @:embedded
-    public function index(_i:GoInt):Value return __self__.value.index(_i);
+    public dynamic function index(_i:GoInt):Value return __self__.value.index(_i);
     @:embedded
-    public function get(_p:GoString):Value return __self__.value.get(_p);
+    public dynamic function get(_p:GoString):Value return __self__.value.get(_p);
     @:embedded
-    public function float_():GoFloat64 return __self__.value.float_();
+    public dynamic function float_():GoFloat64 return __self__.value.float_();
     @:embedded
-    public function equal(__0:Value):Bool return __self__.value.equal(__0);
+    public dynamic function equal(__0:Value):Bool return __self__.value.equal(__0);
     @:embedded
-    public function delete(_p:GoString):Void __self__.value.delete(_p);
+    public dynamic function delete(_p:GoString):Void __self__.value.delete(_p);
     @:embedded
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.value.call(_m, ..._args);
+    public dynamic function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.value.call(_m, ..._args);
     @:embedded
-    public function bool_():Bool return __self__.value.bool_();
+    public dynamic function bool_():Bool return __self__.value.bool_();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -935,7 +935,7 @@ class T_error_asInterface {
 }
 class ValueError_asInterface {
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -950,9 +950,9 @@ class ValueError_asInterface {
 }
 class Type_asInterface {
     @:keep
-    public function _isObject():Bool return __self__.value._isObject();
+    public dynamic function _isObject():Bool return __self__.value._isObject();
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

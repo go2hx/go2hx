@@ -147,22 +147,25 @@ private function _scanChunk(_pattern:GoString):{ var _0 : Bool; var _1 : GoStrin
                     {
                         var __switchIndex__ = -1;
                         while (true) {
-                            if (_pattern[(_i : GoInt)] == ((92 : GoUInt8))) {
-                                if ((_i + (1 : GoInt)) < (_pattern.length)) {
-                                    _i++;
+                            {
+                                final __value__ = _pattern[(_i : GoInt)];
+                                if (__value__ == ((92 : GoUInt8))) {
+                                    if ((_i + (1 : GoInt)) < (_pattern.length)) {
+                                        _i++;
+                                    };
+                                    break;
+                                } else if (__value__ == ((91 : GoUInt8))) {
+                                    _inrange = true;
+                                    break;
+                                } else if (__value__ == ((93 : GoUInt8))) {
+                                    _inrange = false;
+                                    break;
+                                } else if (__value__ == ((42 : GoUInt8))) {
+                                    if (!_inrange) {
+                                        @:jump("Scan") break;
+                                    };
+                                    break;
                                 };
-                                break;
-                            } else if (_pattern[(_i : GoInt)] == ((91 : GoUInt8))) {
-                                _inrange = true;
-                                break;
-                            } else if (_pattern[(_i : GoInt)] == ((93 : GoUInt8))) {
-                                _inrange = false;
-                                break;
-                            } else if (_pattern[(_i : GoInt)] == ((42 : GoUInt8))) {
-                                if (!_inrange) {
-                                    @:jump("Scan") break;
-                                };
-                                break;
                             };
                             break;
                         };
@@ -187,48 +190,37 @@ private function _matchChunk(_chunk:GoString, _s:GoString):{ var _0 : GoString; 
             {
                 var __switchIndex__ = -1;
                 while (true) {
-                    if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_chunk[(0 : GoInt)] == (91 : GoUInt8)))) {
-                        var _r:GoRune = (0 : GoInt32);
-                        if (!_failed) {
-                            var _n:GoInt = (0 : GoInt);
-                            {
-                                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s);
-                                _r = __tmp__._0;
-                                _n = __tmp__._1;
-                            };
-                            _s = (_s.__slice__(_n) : GoString);
-                        };
-                        _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
-                        var _negated:Bool = false;
-                        if ((_chunk.length > (0 : GoInt)) && (_chunk[(0 : GoInt)] == (94 : GoUInt8))) {
-                            _negated = true;
-                            _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
-                        };
-                        var _match:Bool = false;
-                        var _nrange:GoInt = (0 : GoInt);
-                        while (true) {
-                            if (((_chunk.length > (0 : GoInt)) && (_chunk[(0 : GoInt)] == (93 : GoUInt8))) && (_nrange > (0 : GoInt))) {
-                                _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
-                                break;
-                            };
-                            var _0:GoRune = (0 : GoInt32), _1:GoRune = (0 : GoInt32), _hi:GoRune = _1, _lo:GoRune = _0;
-                            {
+                    {
+                        final __value__ = _chunk[(0 : GoInt)];
+                        if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (91 : GoUInt8)))) {
+                            var _r:GoRune = (0 : GoInt32);
+                            if (!_failed) {
+                                var _n:GoInt = (0 : GoInt);
                                 {
-                                    var __tmp__ = _getEsc(_chunk);
-                                    _lo = __tmp__._0;
-                                    _chunk = __tmp__._1;
-                                    _err = __tmp__._2;
+                                    var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s);
+                                    _r = __tmp__._0;
+                                    _n = __tmp__._1;
                                 };
-                                if (_err != null) {
-                                    return { _0 : Go.str(), _1 : false, _2 : _err };
-                                };
+                                _s = (_s.__slice__(_n) : GoString);
                             };
-                            _hi = _lo;
-                            if (_chunk[(0 : GoInt)] == ((45 : GoUInt8))) {
+                            _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
+                            var _negated:Bool = false;
+                            if ((_chunk.length > (0 : GoInt)) && (_chunk[(0 : GoInt)] == (94 : GoUInt8))) {
+                                _negated = true;
+                                _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
+                            };
+                            var _match:Bool = false;
+                            var _nrange:GoInt = (0 : GoInt);
+                            while (true) {
+                                if (((_chunk.length > (0 : GoInt)) && (_chunk[(0 : GoInt)] == (93 : GoUInt8))) && (_nrange > (0 : GoInt))) {
+                                    _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
+                                    break;
+                                };
+                                var _0:GoRune = (0 : GoInt32), _1:GoRune = (0 : GoInt32), _hi:GoRune = _1, _lo:GoRune = _0;
                                 {
                                     {
-                                        var __tmp__ = _getEsc((_chunk.__slice__((1 : GoInt)) : GoString));
-                                        _hi = __tmp__._0;
+                                        var __tmp__ = _getEsc(_chunk);
+                                        _lo = __tmp__._0;
                                         _chunk = __tmp__._1;
                                         _err = __tmp__._2;
                                     };
@@ -236,47 +228,61 @@ private function _matchChunk(_chunk:GoString, _s:GoString):{ var _0 : GoString; 
                                         return { _0 : Go.str(), _1 : false, _2 : _err };
                                     };
                                 };
+                                _hi = _lo;
+                                if (_chunk[(0 : GoInt)] == ((45 : GoUInt8))) {
+                                    {
+                                        {
+                                            var __tmp__ = _getEsc((_chunk.__slice__((1 : GoInt)) : GoString));
+                                            _hi = __tmp__._0;
+                                            _chunk = __tmp__._1;
+                                            _err = __tmp__._2;
+                                        };
+                                        if (_err != null) {
+                                            return { _0 : Go.str(), _1 : false, _2 : _err };
+                                        };
+                                    };
+                                };
+                                if ((_lo <= _r) && (_r <= _hi)) {
+                                    _match = true;
+                                };
+                                _nrange++;
                             };
-                            if ((_lo <= _r) && (_r <= _hi)) {
-                                _match = true;
-                            };
-                            _nrange++;
-                        };
-                        if (_match == (_negated)) {
-                            _failed = true;
-                        };
-                        break;
-                        break;
-                    } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_chunk[(0 : GoInt)] == (63 : GoUInt8)))) {
-                        if (!_failed) {
-                            if (_s[(0 : GoInt)] == ((47 : GoUInt8))) {
+                            if (_match == (_negated)) {
                                 _failed = true;
                             };
-                            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s), _0:GoInt32 = __tmp__._0, _n:GoInt = __tmp__._1;
-                            _s = (_s.__slice__(_n) : GoString);
-                        };
-                        _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
-                        break;
-                        break;
-                    } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_chunk[(0 : GoInt)] == (92 : GoUInt8)))) {
-                        _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
-                        if ((_chunk.length) == ((0 : GoInt))) {
-                            return { _0 : Go.str(), _1 : false, _2 : errBadPattern };
-                        };
-                        @:fallthrough {
-                            __switchIndex__ = 3;
-                            continue;
-                        };
-                        break;
-                    } else {
-                        if (!_failed) {
-                            if (_chunk[(0 : GoInt)] != (_s[((0 : GoInt) : GoInt)])) {
-                                _failed = true;
+                            break;
+                            break;
+                        } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == (63 : GoUInt8)))) {
+                            if (!_failed) {
+                                if (_s[(0 : GoInt)] == ((47 : GoUInt8))) {
+                                    _failed = true;
+                                };
+                                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s), _0:GoInt32 = __tmp__._0, _n:GoInt = __tmp__._1;
+                                _s = (_s.__slice__(_n) : GoString);
                             };
-                            _s = (_s.__slice__((1 : GoInt)) : GoString);
+                            _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
+                            break;
+                            break;
+                        } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == (92 : GoUInt8)))) {
+                            _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
+                            if ((_chunk.length) == ((0 : GoInt))) {
+                                return { _0 : Go.str(), _1 : false, _2 : errBadPattern };
+                            };
+                            @:fallthrough {
+                                __switchIndex__ = 3;
+                                continue;
+                            };
+                            break;
+                        } else {
+                            if (!_failed) {
+                                if (_chunk[(0 : GoInt)] != (_s[((0 : GoInt) : GoInt)])) {
+                                    _failed = true;
+                                };
+                                _s = (_s.__slice__((1 : GoInt)) : GoString);
+                            };
+                            _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
+                            break;
                         };
-                        _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
-                        break;
                     };
                     break;
                 };
@@ -496,11 +502,11 @@ function dir(_path:GoString):GoString {
     }
 class T_lazybuf_asInterface {
     @:keep
-    public function _string():GoString return __self__.value._string();
+    public dynamic function _string():GoString return __self__.value._string();
     @:keep
-    public function _append(_c:GoByte):Void __self__.value._append(_c);
+    public dynamic function _append(_c:GoByte):Void __self__.value._append(_c);
     @:keep
-    public function _index(_i:GoInt):GoByte return __self__.value._index(_i);
+    public dynamic function _index(_i:GoInt):GoByte return __self__.value._index(_i);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

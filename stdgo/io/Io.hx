@@ -91,7 +91,7 @@ var discard : Writer = Go.asInterface((new T_discard() : T_discard));
 **/
 private var _blackHolePool = ({ new_ : function():AnyInterface {
         var _b = new Slice<GoUInt8>((8192 : GoInt).toBasic(), 0, ...[for (i in 0 ... (8192 : GoInt).toBasic()) (0 : GoUInt8)]);
-        return Go.toInterface((_b : Ref<Slice<GoUInt8>>));
+        return Go.toInterface((Go.setRef(_b) : Ref<Slice<GoUInt8>>));
     } } : stdgo.sync.Sync.Pool);
 /**
     // ErrClosedPipe is the error used for read or write operations on a closed pipe.
@@ -192,7 +192,7 @@ typedef Reader = StructType & {
         
         
     **/
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; };
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; };
 };
 /**
     // Writer is the interface that wraps the basic Write method.
@@ -213,7 +213,7 @@ typedef Writer = StructType & {
         
         
     **/
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; };
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; };
 };
 /**
     // Closer is the interface that wraps the basic Close method.
@@ -229,7 +229,7 @@ typedef Closer = StructType & {
         
         
     **/
-    public function close():Error;
+    public dynamic function close():Error;
 };
 /**
     // Seeker is the interface that wraps the basic Seek method.
@@ -256,7 +256,7 @@ typedef Seeker = StructType & {
         
         
     **/
-    public function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; };
+    public dynamic function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; };
 };
 /**
     // ReadWriter is the interface that groups the basic Read and Write methods.
@@ -351,7 +351,7 @@ typedef ReaderFrom = StructType & {
         
         
     **/
-    public function readFrom(_r:Reader):{ var _0 : GoInt64; var _1 : Error; };
+    public dynamic function readFrom(_r:Reader):{ var _0 : GoInt64; var _1 : Error; };
 };
 /**
     // WriterTo is the interface that wraps the WriteTo method.
@@ -370,7 +370,7 @@ typedef WriterTo = StructType & {
         
         
     **/
-    public function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; };
+    public dynamic function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; };
 };
 /**
     // ReaderAt is the interface that wraps the basic ReadAt method.
@@ -408,7 +408,7 @@ typedef ReaderAt = StructType & {
         
         
     **/
-    public function readAt(_p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; };
+    public dynamic function readAt(_p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; };
 };
 /**
     // WriterAt is the interface that wraps the basic WriteAt method.
@@ -435,7 +435,7 @@ typedef WriterAt = StructType & {
         
         
     **/
-    public function writeAt(_p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; };
+    public dynamic function writeAt(_p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; };
 };
 /**
     // ByteReader is the interface that wraps the ReadByte method.
@@ -456,7 +456,7 @@ typedef ByteReader = StructType & {
         
         
     **/
-    public function readByte():{ var _0 : GoByte; var _1 : Error; };
+    public dynamic function readByte():{ var _0 : GoByte; var _1 : Error; };
 };
 /**
     // ByteScanner is the interface that adds the UnreadByte method to the
@@ -477,7 +477,7 @@ typedef ByteScanner = StructType & {
         
         
     **/
-    public function unreadByte():Error;
+    public dynamic function unreadByte():Error;
 };
 /**
     // ByteWriter is the interface that wraps the WriteByte method.
@@ -490,7 +490,7 @@ typedef ByteWriter = StructType & {
         
         
     **/
-    public function writeByte(_c:GoByte):Error;
+    public dynamic function writeByte(_c:GoByte):Error;
 };
 /**
     // RuneReader is the interface that wraps the ReadRune method.
@@ -507,7 +507,7 @@ typedef RuneReader = StructType & {
         
         
     **/
-    public function readRune():{ var _0 : GoRune; var _1 : GoInt; var _2 : Error; };
+    public dynamic function readRune():{ var _0 : GoRune; var _1 : GoInt; var _2 : Error; };
 };
 /**
     // RuneScanner is the interface that adds the UnreadRune method to the
@@ -528,7 +528,7 @@ typedef RuneScanner = StructType & {
         
         
     **/
-    public function unreadRune():Error;
+    public dynamic function unreadRune():Error;
 };
 /**
     // StringWriter is the interface that wraps the WriteString method.
@@ -541,7 +541,7 @@ typedef StringWriter = StructType & {
         
         
     **/
-    public function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; };
+    public dynamic function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; };
 };
 /**
     // A LimitedReader reads from R but limits the amount of
@@ -1009,7 +1009,7 @@ private function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{ var
     // The underlying implementation is a *LimitedReader.
 **/
 function limitReader(_r:Reader, _n:GoInt64):Reader {
-        return Go.asInterface(((new LimitedReader(_r, _n) : LimitedReader) : Ref<LimitedReader>));
+        return Go.asInterface((Go.setRef((new LimitedReader(_r, _n) : LimitedReader)) : Ref<LimitedReader>));
     }
 /**
     // NewSectionReader returns a SectionReader that reads from r
@@ -1023,14 +1023,14 @@ function newSectionReader(_r:ReaderAt, _off:GoInt64, _n:GoInt64):Ref<SectionRead
         } else {
             _remaining = ("9223372036854775807" : GoInt64);
         };
-        return ((new SectionReader(_r, _off, _off, _remaining) : SectionReader) : Ref<SectionReader>);
+        return (Go.setRef((new SectionReader(_r, _off, _off, _remaining) : SectionReader)) : Ref<SectionReader>);
     }
 /**
     // NewOffsetWriter returns an OffsetWriter that writes to w
     // starting at offset off.
 **/
 function newOffsetWriter(_w:WriterAt, _off:GoInt64):Ref<OffsetWriter> {
-        return ((new OffsetWriter(_w, _off, _off) : OffsetWriter) : Ref<OffsetWriter>);
+        return (Go.setRef((new OffsetWriter(_w, _off, _off) : OffsetWriter)) : Ref<OffsetWriter>);
     }
 /**
     // TeeReader returns a Reader that writes to w what it reads from r.
@@ -1040,7 +1040,7 @@ function newOffsetWriter(_w:WriterAt, _off:GoInt64):Ref<OffsetWriter> {
     // Any error encountered while writing is reported as a read error.
 **/
 function teeReader(_r:Reader, _w:Writer):Reader {
-        return Go.asInterface(((new T_teeReader(_r, _w) : T_teeReader) : Ref<T_teeReader>));
+        return Go.asInterface((Go.setRef((new T_teeReader(_r, _w) : T_teeReader)) : Ref<T_teeReader>));
     }
 /**
     // NopCloser returns a ReadCloser with a no-op Close method wrapping
@@ -1093,7 +1093,7 @@ function multiReader(_readers:haxe.Rest<Reader>):Reader {
         var _readers = new Slice<Reader>(0, 0, ..._readers);
         var _r = new Slice<Reader>((_readers.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_readers.length : GoInt).toBasic()) (null : Reader)]);
         Go.copySlice(_r, _readers);
-        return Go.asInterface(((new T_multiReader(_r) : T_multiReader) : Ref<T_multiReader>));
+        return Go.asInterface((Go.setRef((new T_multiReader(_r) : T_multiReader)) : Ref<T_multiReader>));
     }
 /**
     // MultiWriter creates a writer that duplicates its writes to all the
@@ -1120,7 +1120,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
                 };
             };
         };
-        return Go.asInterface(((new T_multiWriter(_allWriters) : T_multiWriter) : Ref<T_multiWriter>));
+        return Go.asInterface((Go.setRef((new T_multiWriter(_allWriters) : T_multiWriter)) : Ref<T_multiWriter>));
     }
 /**
     // Pipe creates a synchronous in-memory pipe.
@@ -1140,12 +1140,12 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
     // the individual calls will be gated sequentially.
 **/
 function pipe():{ var _0 : Ref<PipeReader>; var _1 : Ref<PipeWriter>; } {
-        var _p = (({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> (null : Slice<GoUInt8>)), _rdCh : new Chan<GoInt>(0, () -> (0 : GoInt)), _done : new Chan<T_discard>(0, () -> ({} : T_discard)) } : T_pipe) : Ref<T_pipe>);
-        return { _0 : ((new PipeReader(_p) : PipeReader) : Ref<PipeReader>), _1 : ((new PipeWriter(_p) : PipeWriter) : Ref<PipeWriter>) };
+        var _p = (Go.setRef(({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> (null : Slice<GoUInt8>)), _rdCh : new Chan<GoInt>(0, () -> (0 : GoInt)), _done : new Chan<T_discard>(0, () -> ({} : T_discard)) } : T_pipe)) : Ref<T_pipe>);
+        return { _0 : (Go.setRef((new PipeReader(_p) : PipeReader)) : Ref<PipeReader>), _1 : (Go.setRef((new PipeWriter(_p) : PipeWriter)) : Ref<PipeWriter>) };
     }
 class LimitedReader_asInterface {
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1178,13 +1178,13 @@ class SectionReader_asInterface {
         // Size returns the size of the section in bytes.
     **/
     @:keep
-    public function size():GoInt64 return __self__.value.size();
+    public dynamic function size():GoInt64 return __self__.value.size();
     @:keep
-    public function readAt(_p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_p, _off);
+    public dynamic function readAt(_p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.readAt(_p, _off);
     @:keep
-    public function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
+    public dynamic function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1227,12 +1227,15 @@ class SectionReader_asInterface {
     }
     @:keep
     static public function seek( _s:Ref<SectionReader>, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } {
-        if (_whence == ((0 : GoInt))) {
-            _offset = _offset + (_s._base);
-        } else if (_whence == ((1 : GoInt))) {
-            _offset = _offset + (_s._off);
-        } else if (_whence == ((2 : GoInt))) {
-            _offset = _offset + (_s._limit);
+        {
+            final __value__ = _whence;
+            if (__value__ == ((0 : GoInt))) {
+                _offset = _offset + (_s._base);
+            } else if (__value__ == ((1 : GoInt))) {
+                _offset = _offset + (_s._off);
+            } else if (__value__ == ((2 : GoInt))) {
+                _offset = _offset + (_s._limit);
+            };
         };
         if (_offset < _s._base) {
             return { _0 : ("0" : GoInt64), _1 : _errOffset };
@@ -1263,11 +1266,11 @@ class SectionReader_asInterface {
 }
 class OffsetWriter_asInterface {
     @:keep
-    public function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
+    public dynamic function seek(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.seek(_offset, _whence);
     @:keep
-    public function writeAt(_p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeAt(_p, _off);
+    public dynamic function writeAt(_p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeAt(_p, _off);
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1279,10 +1282,13 @@ class OffsetWriter_asInterface {
 @:keep @:allow(stdgo.io.Io.OffsetWriter_asInterface) class OffsetWriter_static_extension {
     @:keep
     static public function seek( _o:Ref<OffsetWriter>, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } {
-        if (_whence == ((0 : GoInt))) {
-            _offset = _offset + (_o._base);
-        } else if (_whence == ((1 : GoInt))) {
-            _offset = _offset + (_o._off);
+        {
+            final __value__ = _whence;
+            if (__value__ == ((0 : GoInt))) {
+                _offset = _offset + (_o._base);
+            } else if (__value__ == ((1 : GoInt))) {
+                _offset = _offset + (_o._off);
+            };
         };
         if (_offset < _o._base) {
             return { _0 : ("0" : GoInt64), _1 : _errOffset };
@@ -1310,7 +1316,7 @@ class OffsetWriter_asInterface {
 }
 class T_teeReader_asInterface {
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1341,11 +1347,11 @@ class T_teeReader_asInterface {
 }
 class T_discard_asInterface {
     @:keep
-    public function readFrom(_r:Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
+    public dynamic function readFrom(_r:Reader):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.readFrom(_r);
     @:keep
-    public function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
+    public dynamic function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1362,7 +1368,7 @@ class T_discard_asInterface {
         var _readSize:GoInt = (0 : GoInt);
         while (true) {
             {
-                var __tmp__ = _r.read(_bufp);
+                var __tmp__ = _r.read((_bufp : Slice<GoUInt8>));
                 _readSize = __tmp__._0;
                 _err = __tmp__._1;
             };
@@ -1387,9 +1393,9 @@ class T_discard_asInterface {
 }
 class T_nopCloser_asInterface {
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     @:embedded
-    public function read(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p_);
+    public dynamic function read(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p_);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1408,11 +1414,11 @@ class T_nopCloser_asInterface {
 }
 class T_nopCloserWriterTo_asInterface {
     @:keep
-    public function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
+    public dynamic function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     @:embedded
-    public function read(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p_);
+    public dynamic function read(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p_);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1436,7 +1442,7 @@ class T_nopCloserWriterTo_asInterface {
 }
 class T_eofReader_asInterface {
     @:keep
-    public function read(_0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_0);
+    public dynamic function read(_0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_0);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1453,11 +1459,11 @@ class T_eofReader_asInterface {
 }
 class T_multiReader_asInterface {
     @:keep
-    public function _writeToWithBuffer(_w:Writer, _buf:Slice<GoByte>):{ var _0 : GoInt64; var _1 : Error; } return __self__.value._writeToWithBuffer(_w, _buf);
+    public dynamic function _writeToWithBuffer(_w:Writer, _buf:Slice<GoByte>):{ var _0 : GoInt64; var _1 : Error; } return __self__.value._writeToWithBuffer(_w, _buf);
     @:keep
-    public function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
+    public dynamic function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : Error; } return __self__.value.writeTo(_w);
     @:keep
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1545,9 +1551,9 @@ class T_multiReader_asInterface {
 }
 class T_multiWriter_asInterface {
     @:keep
-    public function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
+    public dynamic function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; } return __self__.value.writeString(_s);
     @:keep
-    public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
+    public dynamic function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1617,19 +1623,19 @@ class T_multiWriter_asInterface {
 }
 class T_onceError_asInterface {
     @:keep
-    public function load():Error return __self__.value.load();
+    public dynamic function load():Error return __self__.value.load();
     @:keep
-    public function store(_err:Error):Void __self__.value.store(_err);
+    public dynamic function store(_err:Error):Void __self__.value.store(_err);
     @:embedded
-    public function _unlockSlow(_new:GoInt32):Void __self__.value._unlockSlow(_new);
+    public dynamic function _unlockSlow(_new:GoInt32):Void __self__.value._unlockSlow(_new);
     @:embedded
-    public function _lockSlow():Void __self__.value._lockSlow();
+    public dynamic function _lockSlow():Void __self__.value._lockSlow();
     @:embedded
-    public function unlock():Void __self__.value.unlock();
+    public dynamic function unlock():Void __self__.value.unlock();
     @:embedded
-    public function tryLock():Bool return __self__.value.tryLock();
+    public dynamic function tryLock():Bool return __self__.value.tryLock();
     @:embedded
-    public function lock():Void __self__.value.lock();
+    public dynamic function lock():Void __self__.value.lock();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1730,20 +1736,20 @@ class T_pipe_asInterface {
         // writeCloseError is considered internal to the pipe type.
     **/
     @:keep
-    public function _writeCloseError():Error return __self__.value._writeCloseError();
+    public dynamic function _writeCloseError():Error return __self__.value._writeCloseError();
     /**
         // readCloseError is considered internal to the pipe type.
     **/
     @:keep
-    public function _readCloseError():Error return __self__.value._readCloseError();
+    public dynamic function _readCloseError():Error return __self__.value._readCloseError();
     @:keep
-    public function _closeWrite(_err:Error):Error return __self__.value._closeWrite(_err);
+    public dynamic function _closeWrite(_err:Error):Error return __self__.value._closeWrite(_err);
     @:keep
-    public function _write(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value._write(_b);
+    public dynamic function _write(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value._write(_b);
     @:keep
-    public function _closeRead(_err:Error):Error return __self__.value._closeRead(_err);
+    public dynamic function _closeRead(_err:Error):Error return __self__.value._closeRead(_err);
     @:keep
-    public function _read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value._read(_b);
+    public dynamic function _read(_b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value._read(_b);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1888,13 +1894,13 @@ class PipeReader_asInterface {
         // and always returns nil.
     **/
     @:keep
-    public function closeWithError(_err:Error):Error return __self__.value.closeWithError(_err);
+    public dynamic function closeWithError(_err:Error):Error return __self__.value.closeWithError(_err);
     /**
         // Close closes the reader; subsequent writes to the
         // write half of the pipe will return the error ErrClosedPipe.
     **/
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     /**
         // Read implements the standard Read interface:
         // it reads data from the pipe, blocking until a writer
@@ -1903,7 +1909,7 @@ class PipeReader_asInterface {
         // returned as err; otherwise err is EOF.
     **/
     @:keep
-    public function read(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_data);
+    public dynamic function read(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_data);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1955,13 +1961,13 @@ class PipeWriter_asInterface {
         // and always returns nil.
     **/
     @:keep
-    public function closeWithError(_err:Error):Error return __self__.value.closeWithError(_err);
+    public dynamic function closeWithError(_err:Error):Error return __self__.value.closeWithError(_err);
     /**
         // Close closes the writer; subsequent reads from the
         // read half of the pipe will return no bytes and EOF.
     **/
     @:keep
-    public function close():Error return __self__.value.close();
+    public dynamic function close():Error return __self__.value.close();
     /**
         // Write implements the standard Write interface:
         // it writes data to the pipe, blocking until one or more readers
@@ -1970,7 +1976,7 @@ class PipeWriter_asInterface {
         // returned as err; otherwise err is ErrClosedPipe.
     **/
     @:keep
-    public function write(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_data);
+    public dynamic function write(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.write(_data);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

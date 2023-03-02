@@ -34,7 +34,7 @@ private function _parseFunc(_filename:GoString, _functionname:GoString):{ var _0
 private function _printSelf():Void {
         var __tmp__ = _parseFunc(("example_test.go" : GoString), ("printSelf" : GoString)), _funcAST:Ref<stdgo.go.ast.Ast.FuncDecl> = __tmp__._0, _fset:Ref<stdgo.go.token.Token.FileSet> = __tmp__._1;
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        stdgo.go.printer.Printer.fprint(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_funcAST.body)));
+        stdgo.go.printer.Printer.fprint(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), _fset, Go.toInterface(Go.asInterface(_funcAST.body)));
         var _s:GoString = (_buf.string() : GoString);
         _s = (_s.__slice__((1 : GoInt), (_s.length) - (1 : GoInt)) : GoString);
         _s = stdgo.strings.Strings.trimSpace(stdgo.strings.Strings.replaceAll(_s, ("\n\t" : GoString), ("\n" : GoString)));

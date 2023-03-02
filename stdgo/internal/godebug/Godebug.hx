@@ -118,17 +118,17 @@ class Setting_asInterface {
         // caching of Value's result.
     **/
     @:keep
-    public function value():GoString return __self__.value.value();
+    public dynamic function value():GoString return __self__.value.value();
     /**
         // String returns a printable form for the setting: name=value.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     /**
         // Name returns the name of the setting.
     **/
     @:keep
-    public function name():GoString return __self__.value.name();
+    public dynamic function name():GoString return __self__.value.name();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

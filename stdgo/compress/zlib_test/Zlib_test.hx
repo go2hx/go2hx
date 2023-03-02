@@ -10,7 +10,7 @@ import stdgo.GoMap;
 import stdgo.Chan;
 function exampleNewWriter():Void {
         var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var _w = stdgo.compress.zlib.Zlib.newWriter(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)));
+        var _w = stdgo.compress.zlib.Zlib.newWriter(Go.asInterface((Go.setRef(_b) : Ref<stdgo.bytes.Bytes.Buffer>)));
         _w.write((("hello, world\n" : GoString) : Slice<GoByte>));
         _w.close();
         stdgo.fmt.Fmt.println(Go.toInterface(_b.bytes()));

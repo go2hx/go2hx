@@ -338,13 +338,16 @@ private function _processOptions(_env:GoString):Void {
                 };
                 var _0:GoString = (_field.__slice__((4 : GoInt), _i) : GoString), _1:GoString = (_field.__slice__(_i + (1 : GoInt)) : GoString), _value:GoString = _1, _key:GoString = _0;
                 var _enable:Bool = false;
-                if (_value == (("on" : GoString))) {
-                    _enable = true;
-                } else if (_value == (("off" : GoString))) {
-                    _enable = false;
-                } else {
-                    trace(("GODEBUG: value \"" : GoString), _value, ("\" not supported for cpu option \"" : GoString), _key, ("\"\n" : GoString));
-                    @:jump("field") continue;
+                {
+                    final __value__ = _value;
+                    if (__value__ == (("on" : GoString))) {
+                        _enable = true;
+                    } else if (__value__ == (("off" : GoString))) {
+                        _enable = false;
+                    } else {
+                        trace(("GODEBUG: value \"" : GoString), _value, ("\" not supported for cpu option \"" : GoString), _key, ("\"\n" : GoString));
+                        @:jump("field") continue;
+                    };
                 };
                 if (_key == (("all" : GoString))) {
                     for (_i in 0 ... _options.length.toBasic()) {

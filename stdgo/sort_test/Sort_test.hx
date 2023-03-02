@@ -637,7 +637,7 @@ function example_sortKeys():Void {
 **/
 function orderedBy(_less:haxe.Rest<T_lessFunc>):Ref<T_multiSorter> {
         var _less = new Slice<T_lessFunc>(0, 0, ..._less);
-        return (({ _less : _less } : T_multiSorter) : Ref<stdgo.sort_test.Sort_test.T_multiSorter>);
+        return (Go.setRef(({ _less : _less } : T_multiSorter)) : Ref<stdgo.sort_test.Sort_test.T_multiSorter>);
     }
 /**
     // ExampleMultiKeys demonstrates a technique for sorting a struct type using different
@@ -1035,7 +1035,7 @@ function testFindExhaustive(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testSortIntSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _data = (_ints == null ? null : _ints.__copy__());
+        var _data = _ints.__copy__();
         var _a:IntSlice = ((_data.__slice__((0 : GoInt)) : Slice<GoInt>) : IntSlice);
         sort(Go.asInterface(_a));
         if (!isSorted(Go.asInterface(_a))) {
@@ -1044,7 +1044,7 @@ function testSortIntSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testSortFloat64Slice(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _data = (_float64s == null ? null : _float64s.__copy__());
+        var _data = _float64s.__copy__();
         var _a:Float64Slice = ((_data.__slice__((0 : GoInt)) : Slice<GoFloat64>) : Float64Slice);
         sort(Go.asInterface(_a));
         if (!isSorted(Go.asInterface(_a))) {
@@ -1053,7 +1053,7 @@ function testSortFloat64Slice(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testSortStringSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _data = (_strings == null ? null : _strings.__copy__());
+        var _data = _strings.__copy__();
         var _a:StringSlice = ((_data.__slice__((0 : GoInt)) : Slice<GoString>) : StringSlice);
         sort(Go.asInterface(_a));
         if (!isSorted(Go.asInterface(_a))) {
@@ -1062,7 +1062,7 @@ function testSortStringSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testInts(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _data = (_ints == null ? null : _ints.__copy__());
+        var _data = _ints.__copy__();
         ints((_data.__slice__((0 : GoInt)) : Slice<GoInt>));
         if (!intsAreSorted((_data.__slice__((0 : GoInt)) : Slice<GoInt>))) {
             _t.errorf(("sorted %v" : GoString), Go.toInterface(_ints));
@@ -1070,7 +1070,7 @@ function testInts(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testFloat64s(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _data = (_float64s == null ? null : _float64s.__copy__());
+        var _data = _float64s.__copy__();
         float64s((_data.__slice__((0 : GoInt)) : Slice<GoFloat64>));
         if (!float64sAreSorted((_data.__slice__((0 : GoInt)) : Slice<GoFloat64>))) {
             _t.errorf(("sorted %v" : GoString), Go.toInterface(_float64s));
@@ -1078,7 +1078,7 @@ function testFloat64s(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testStrings(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _data = (_strings == null ? null : _strings.__copy__());
+        var _data = _strings.__copy__();
         strings((_data.__slice__((0 : GoInt)) : Slice<GoString>));
         if (!stringsAreSorted((_data.__slice__((0 : GoInt)) : Slice<GoString>))) {
             _t.errorf(("sorted %v" : GoString), Go.toInterface(_strings));
@@ -1086,7 +1086,7 @@ function testStrings(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _data = (_strings == null ? null : _strings.__copy__());
+        var _data = _strings.__copy__();
         slice(Go.toInterface((_data.__slice__(0) : Slice<GoString>)), function(_i:GoInt, _j:GoInt):Bool {
             return _data[(_i : GoInt)] < _data[(_j : GoInt)];
         });
@@ -1118,8 +1118,8 @@ function testSortLarge_Random(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testReverseSortIntSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _data = (_ints == null ? null : _ints.__copy__());
-        var _data1 = (_ints == null ? null : _ints.__copy__());
+        var _data = _ints.__copy__();
+        var _data1 = _ints.__copy__();
         var _a:IntSlice = ((_data.__slice__((0 : GoInt)) : Slice<GoInt>) : IntSlice);
         sort(Go.asInterface(_a));
         var _r:IntSlice = ((_data1.__slice__((0 : GoInt)) : Slice<GoInt>) : IntSlice);
@@ -1184,7 +1184,7 @@ function testNonDeterministicComparison(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
                 a();
             });
-            var _td = (({ _r : stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(("0" : GoInt64))) } : T_nonDeterministicTestingData) : Ref<stdgo.sort_test.Sort_test.T_nonDeterministicTestingData>);
+            var _td = (Go.setRef(({ _r : stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(("0" : GoInt64))) } : T_nonDeterministicTestingData)) : Ref<stdgo.sort_test.Sort_test.T_nonDeterministicTestingData>);
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < (10 : GoInt), _i++, {
@@ -1466,21 +1466,24 @@ private function _testBentleyMcIlroy(_t:Ref<stdgo.testing.Testing.T>, _sort:Inte
                             {
                                 var _i:GoInt = (0 : GoInt);
                                 Go.cfor(_i < _n, _i++, {
-                                    if (_dist == ((0 : GoInt))) {
-                                        _data[(_i : GoInt)] = _i % _m;
-                                    } else if (_dist == ((1 : GoInt))) {
-                                        _data[(_i : GoInt)] = stdgo.math.rand.Rand.intn(_m);
-                                    } else if (_dist == ((2 : GoInt))) {
-                                        _data[(_i : GoInt)] = ((_i * _m) + _i) % _n;
-                                    } else if (_dist == ((3 : GoInt))) {
-                                        _data[(_i : GoInt)] = _min(_i, _m);
-                                    } else if (_dist == ((4 : GoInt))) {
-                                        if (stdgo.math.rand.Rand.intn(_m) != ((0 : GoInt))) {
-                                            _j = _j + ((2 : GoInt));
-                                            _data[(_i : GoInt)] = _j;
-                                        } else {
-                                            _k = _k + ((2 : GoInt));
-                                            _data[(_i : GoInt)] = _k;
+                                    {
+                                        final __value__ = _dist;
+                                        if (__value__ == ((0 : GoInt))) {
+                                            _data[(_i : GoInt)] = _i % _m;
+                                        } else if (__value__ == ((1 : GoInt))) {
+                                            _data[(_i : GoInt)] = stdgo.math.rand.Rand.intn(_m);
+                                        } else if (__value__ == ((2 : GoInt))) {
+                                            _data[(_i : GoInt)] = ((_i * _m) + _i) % _n;
+                                        } else if (__value__ == ((3 : GoInt))) {
+                                            _data[(_i : GoInt)] = _min(_i, _m);
+                                        } else if (__value__ == ((4 : GoInt))) {
+                                            if (stdgo.math.rand.Rand.intn(_m) != ((0 : GoInt))) {
+                                                _j = _j + ((2 : GoInt));
+                                                _data[(_i : GoInt)] = _j;
+                                            } else {
+                                                _k = _k + ((2 : GoInt));
+                                                _data[(_i : GoInt)] = _k;
+                                            };
                                         };
                                     };
                                 });
@@ -1489,64 +1492,67 @@ private function _testBentleyMcIlroy(_t:Ref<stdgo.testing.Testing.T>, _sort:Inte
                             {
                                 var _mode:GoInt = (0 : GoInt);
                                 Go.cfor(_mode < (6 : GoInt), _mode++, {
-                                    if (_mode == ((0 : GoInt))) {
-                                        {
-                                            var _i:GoInt = (0 : GoInt);
-                                            Go.cfor(_i < _n, _i++, {
-                                                _mdata[(_i : GoInt)] = _data[(_i : GoInt)];
-                                            });
-                                        };
-                                    } else if (_mode == ((1 : GoInt))) {
-                                        {
-                                            var _i:GoInt = (0 : GoInt);
-                                            Go.cfor(_i < _n, _i++, {
-                                                _mdata[(_i : GoInt)] = _data[((_n - _i) - (1 : GoInt) : GoInt)];
-                                            });
-                                        };
-                                    } else if (_mode == ((2 : GoInt))) {
-                                        {
-                                            var _i:GoInt = (0 : GoInt);
-                                            Go.cfor(_i < (_n / (2 : GoInt)), _i++, {
-                                                _mdata[(_i : GoInt)] = _data[(((_n / (2 : GoInt)) - _i) - (1 : GoInt) : GoInt)];
-                                            });
-                                        };
-                                        {
-                                            var _i:GoInt = _n / (2 : GoInt);
-                                            Go.cfor(_i < _n, _i++, {
-                                                _mdata[(_i : GoInt)] = _data[(_i : GoInt)];
-                                            });
-                                        };
-                                    } else if (_mode == ((3 : GoInt))) {
-                                        {
-                                            var _i:GoInt = (0 : GoInt);
-                                            Go.cfor(_i < (_n / (2 : GoInt)), _i++, {
-                                                _mdata[(_i : GoInt)] = _data[(_i : GoInt)];
-                                            });
-                                        };
-                                        {
-                                            var _i:GoInt = _n / (2 : GoInt);
-                                            Go.cfor(_i < _n, _i++, {
-                                                _mdata[(_i : GoInt)] = _data[((_n - (_i - (_n / (2 : GoInt)))) - (1 : GoInt) : GoInt)];
-                                            });
-                                        };
-                                    } else if (_mode == ((4 : GoInt))) {
-                                        {
-                                            var _i:GoInt = (0 : GoInt);
-                                            Go.cfor(_i < _n, _i++, {
-                                                _mdata[(_i : GoInt)] = _data[(_i : GoInt)];
-                                            });
-                                        };
-                                        ints(_mdata);
-                                    } else if (_mode == ((5 : GoInt))) {
-                                        {
-                                            var _i:GoInt = (0 : GoInt);
-                                            Go.cfor(_i < _n, _i++, {
-                                                _mdata[(_i : GoInt)] = _data[(_i : GoInt)] + (_i % (5 : GoInt));
-                                            });
+                                    {
+                                        final __value__ = _mode;
+                                        if (__value__ == ((0 : GoInt))) {
+                                            {
+                                                var _i:GoInt = (0 : GoInt);
+                                                Go.cfor(_i < _n, _i++, {
+                                                    _mdata[(_i : GoInt)] = _data[(_i : GoInt)];
+                                                });
+                                            };
+                                        } else if (__value__ == ((1 : GoInt))) {
+                                            {
+                                                var _i:GoInt = (0 : GoInt);
+                                                Go.cfor(_i < _n, _i++, {
+                                                    _mdata[(_i : GoInt)] = _data[((_n - _i) - (1 : GoInt) : GoInt)];
+                                                });
+                                            };
+                                        } else if (__value__ == ((2 : GoInt))) {
+                                            {
+                                                var _i:GoInt = (0 : GoInt);
+                                                Go.cfor(_i < (_n / (2 : GoInt)), _i++, {
+                                                    _mdata[(_i : GoInt)] = _data[(((_n / (2 : GoInt)) - _i) - (1 : GoInt) : GoInt)];
+                                                });
+                                            };
+                                            {
+                                                var _i:GoInt = _n / (2 : GoInt);
+                                                Go.cfor(_i < _n, _i++, {
+                                                    _mdata[(_i : GoInt)] = _data[(_i : GoInt)];
+                                                });
+                                            };
+                                        } else if (__value__ == ((3 : GoInt))) {
+                                            {
+                                                var _i:GoInt = (0 : GoInt);
+                                                Go.cfor(_i < (_n / (2 : GoInt)), _i++, {
+                                                    _mdata[(_i : GoInt)] = _data[(_i : GoInt)];
+                                                });
+                                            };
+                                            {
+                                                var _i:GoInt = _n / (2 : GoInt);
+                                                Go.cfor(_i < _n, _i++, {
+                                                    _mdata[(_i : GoInt)] = _data[((_n - (_i - (_n / (2 : GoInt)))) - (1 : GoInt) : GoInt)];
+                                                });
+                                            };
+                                        } else if (__value__ == ((4 : GoInt))) {
+                                            {
+                                                var _i:GoInt = (0 : GoInt);
+                                                Go.cfor(_i < _n, _i++, {
+                                                    _mdata[(_i : GoInt)] = _data[(_i : GoInt)];
+                                                });
+                                            };
+                                            ints(_mdata);
+                                        } else if (__value__ == ((5 : GoInt))) {
+                                            {
+                                                var _i:GoInt = (0 : GoInt);
+                                                Go.cfor(_i < _n, _i++, {
+                                                    _mdata[(_i : GoInt)] = _data[(_i : GoInt)] + (_i % (5 : GoInt));
+                                                });
+                                            };
                                         };
                                     };
                                     var _desc:GoString = stdgo.fmt.Fmt.sprintf(("n=%d m=%d dist=%s mode=%s" : GoString), Go.toInterface(_n), Go.toInterface(_m), Go.toInterface(_dists[(_dist : GoInt)]), Go.toInterface(_modes[(_mode : GoInt)]));
-                                    var _d = (({ _desc : _desc, _t : _t, _data : (_mdata.__slice__((0 : GoInt), _n) : Slice<GoInt>), _maxswap : _maxswap(_n) } : T_testingData) : Ref<stdgo.sort_test.Sort_test.T_testingData>);
+                                    var _d = (Go.setRef(({ _desc : _desc, _t : _t, _data : (_mdata.__slice__((0 : GoInt), _n) : Slice<GoInt>), _maxswap : _maxswap(_n) } : T_testingData)) : Ref<stdgo.sort_test.Sort_test.T_testingData>);
                                     _sort(Go.asInterface(_d));
                                     if (!intsAreSorted(_mdata)) {
                                         _t.fatalf(("%s: ints not sorted\n\t%v" : GoString), Go.toInterface(_desc), Go.toInterface(_mdata));
@@ -1583,7 +1589,7 @@ private function _newAdversaryTestingData(_t:Ref<stdgo.testing.Testing.T>, _size
                 _data[(_i : GoInt)] = _gas;
             });
         };
-        return (({ _t : _t, _data : _data, _maxcmp : _maxcmp, _gas : _gas } : T_adversaryTestingData) : Ref<stdgo.sort_test.Sort_test.T_adversaryTestingData>);
+        return (Go.setRef(({ _t : _t, _data : _data, _maxcmp : _maxcmp, _gas : _gas } : T_adversaryTestingData)) : Ref<stdgo.sort_test.Sort_test.T_adversaryTestingData>);
     }
 function testAdversary(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
@@ -1597,7 +1603,7 @@ function testAdversary(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testStableInts(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _data = (_ints == null ? null : _ints.__copy__());
+        var _data = _ints.__copy__();
         stable(Go.asInterface(((_data.__slice__((0 : GoInt)) : Slice<GoInt>) : IntSlice)));
         if (!intsAreSorted((_data.__slice__((0 : GoInt)) : Slice<GoInt>))) {
             _t.errorf(("nsorted %v\n   got %v" : GoString), Go.toInterface(_ints), Go.toInterface(_data));
@@ -1670,7 +1676,7 @@ private function _countOps(_t:Ref<stdgo.testing.Testing.T>, _algo:Interface -> V
                     _td._data[(_i : GoInt)] = stdgo.math.rand.Rand.intn(_n / (5 : GoInt));
                 });
             };
-            _algo(Go.asInterface((_td : Ref<stdgo.sort_test.Sort_test.T_testingData>)));
+            _algo(Go.asInterface((Go.setRef(_td) : Ref<stdgo.sort_test.Sort_test.T_testingData>)));
             _t.logf(("%s %8d elements: %11d Swap, %10d Less" : GoString), Go.toInterface(_name), Go.toInterface(_n), Go.toInterface(_td._nswap), Go.toInterface(_td._ncmp));
         };
     }
@@ -1739,7 +1745,7 @@ function benchmarkStable1e6(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 class Person_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1759,17 +1765,17 @@ class T_planetSorter_asInterface {
         // Less is part of sort.Interface. It is implemented by calling the "by" closure in the sorter.
     **/
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     /**
         // Swap is part of sort.Interface.
     **/
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     /**
         // Len is part of sort.Interface.
     **/
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1784,7 +1790,7 @@ class T_planetSorter_asInterface {
     **/
     @:keep
     static public function less( _s:Ref<T_planetSorter>, _i:GoInt, _j:GoInt):Bool {
-        return _s._by((_s._planets[(_i : GoInt)] : Ref<stdgo.sort_test.Sort_test.Planet>), (_s._planets[(_j : GoInt)] : Ref<stdgo.sort_test.Sort_test.Planet>));
+        return _s._by((Go.setRef(_s._planets[(_i : GoInt)]) : Ref<stdgo.sort_test.Sort_test.Planet>), (Go.setRef(_s._planets[(_j : GoInt)]) : Ref<stdgo.sort_test.Sort_test.Planet>));
     }
     /**
         // Swap is part of sort.Interface.
@@ -1792,8 +1798,8 @@ class T_planetSorter_asInterface {
     @:keep
     static public function swap( _s:Ref<T_planetSorter>, _i:GoInt, _j:GoInt):Void {
         {
-            final __tmp__0 = (_s._planets[(_j : GoInt)] == null ? null : _s._planets[(_j : GoInt)].__copy__());
-            final __tmp__1 = (_s._planets[(_i : GoInt)] == null ? null : _s._planets[(_i : GoInt)].__copy__());
+            final __tmp__0 = _s._planets[(_j : GoInt)].__copy__();
+            final __tmp__1 = _s._planets[(_i : GoInt)].__copy__();
             _s._planets[(_i : GoInt)] = __tmp__0;
             _s._planets[(_j : GoInt)] = __tmp__1;
         };
@@ -1816,22 +1822,22 @@ class T_multiSorter_asInterface {
         // exercise for the reader.
     **/
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     /**
         // Swap is part of sort.Interface.
     **/
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     /**
         // Len is part of sort.Interface.
     **/
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     /**
         // Sort sorts the argument slice according to the less functions passed to OrderedBy.
     **/
     @:keep
-    public function sort(_changes:Slice<Change>):Void __self__.value.sort(_changes);
+    public dynamic function sort(_changes:Slice<Change>):Void __self__.value.sort(_changes);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1851,7 +1857,7 @@ class T_multiSorter_asInterface {
     **/
     @:keep
     static public function less( _ms:Ref<T_multiSorter>, _i:GoInt, _j:GoInt):Bool {
-        var _0 = (_ms._changes[(_i : GoInt)] : Ref<stdgo.sort_test.Sort_test.Change>), _1 = (_ms._changes[(_j : GoInt)] : Ref<stdgo.sort_test.Sort_test.Change>), _q = _1, _p = _0;
+        var _0 = (Go.setRef(_ms._changes[(_i : GoInt)]) : Ref<stdgo.sort_test.Sort_test.Change>), _1 = (Go.setRef(_ms._changes[(_j : GoInt)]) : Ref<stdgo.sort_test.Sort_test.Change>), _q = _1, _p = _0;
         var _k:GoInt = (0 : GoInt);
         {
             _k = (0 : GoInt);
@@ -1872,8 +1878,8 @@ class T_multiSorter_asInterface {
     @:keep
     static public function swap( _ms:Ref<T_multiSorter>, _i:GoInt, _j:GoInt):Void {
         {
-            final __tmp__0 = (_ms._changes[(_j : GoInt)] == null ? null : _ms._changes[(_j : GoInt)].__copy__());
-            final __tmp__1 = (_ms._changes[(_i : GoInt)] == null ? null : _ms._changes[(_i : GoInt)].__copy__());
+            final __tmp__0 = _ms._changes[(_j : GoInt)].__copy__();
+            final __tmp__1 = _ms._changes[(_i : GoInt)].__copy__();
             _ms._changes[(_i : GoInt)] = __tmp__0;
             _ms._changes[(_j : GoInt)] = __tmp__1;
         };
@@ -1896,11 +1902,11 @@ class T_multiSorter_asInterface {
 }
 class ByName_asInterface {
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     @:embedded
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:embedded
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1921,11 +1927,11 @@ class ByName_asInterface {
 }
 class ByWeight_asInterface {
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     @:embedded
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:embedded
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1946,11 +1952,11 @@ class ByWeight_asInterface {
 }
 class T_nonDeterministicTestingData_asInterface {
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1980,11 +1986,11 @@ class T_nonDeterministicTestingData_asInterface {
 }
 class T_testingData_asInterface {
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2019,11 +2025,11 @@ class T_testingData_asInterface {
 }
 class T_adversaryTestingData_asInterface {
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2071,11 +2077,11 @@ class T_adversaryTestingData_asInterface {
 }
 class ByAge_asInterface {
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2092,8 +2098,8 @@ class ByAge_asInterface {
     @:keep
     static public function swap( _a:ByAge, _i:GoInt, _j:GoInt):Void {
         {
-            final __tmp__0 = (_a[(_j : GoInt)] == null ? null : _a[(_j : GoInt)].__copy__());
-            final __tmp__1 = (_a[(_i : GoInt)] == null ? null : _a[(_i : GoInt)].__copy__());
+            final __tmp__0 = _a[(_j : GoInt)].__copy__();
+            final __tmp__1 = _a[(_i : GoInt)].__copy__();
             _a[(_i : GoInt)] = __tmp__0;
             _a[(_j : GoInt)] = __tmp__1;
         };
@@ -2108,7 +2114,7 @@ class By_asInterface {
         // Sort is a method on the function type, By, that sorts the argument slice according to the function.
     **/
     @:keep
-    public function sort(_planets:Slice<Planet>):Void __self__.value.sort(_planets);
+    public dynamic function sort(_planets:Slice<Planet>):Void __self__.value.sort(_planets);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2123,13 +2129,13 @@ class By_asInterface {
     **/
     @:keep
     static public function sort( _by:By, _planets:Slice<Planet>):Void {
-        var _ps = (({ _planets : _planets, _by : _by } : T_planetSorter) : Ref<stdgo.sort_test.Sort_test.T_planetSorter>);
+        var _ps = (Go.setRef(({ _planets : _planets, _by : _by } : T_planetSorter)) : Ref<stdgo.sort_test.Sort_test.T_planetSorter>);
         stdgo.sort.Sort.sort(Go.asInterface(_ps));
     }
 }
 class Grams_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2146,9 +2152,9 @@ class Grams_asInterface {
 }
 class Organs_asInterface {
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2177,21 +2183,21 @@ class T_intPairs_asInterface {
         // InOrder checks if a-equal elements were not reordered.
     **/
     @:keep
-    public function _inOrder():Bool return __self__.value._inOrder();
+    public dynamic function _inOrder():Bool return __self__.value._inOrder();
     /**
         // Record initial order in B.
     **/
     @:keep
-    public function _initB():Void __self__.value._initB();
+    public dynamic function _initB():Void __self__.value._initB();
     @:keep
-    public function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
     /**
         // IntPairs compare on a only.
     **/
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

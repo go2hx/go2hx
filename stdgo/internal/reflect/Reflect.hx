@@ -1404,7 +1404,7 @@ class _Type_asInterface {
 	public dynamic function align():GoInt
 		return __self__.value.align();
 
-	public dynamic function new(__self__, __type__) {
+	public function new(__self__, __type__) {
 		this.__self__ = __self__;
 		this.__type__ = __type__;
 	}

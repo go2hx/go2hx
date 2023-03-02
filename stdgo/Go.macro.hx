@@ -599,8 +599,31 @@ class Go {
 					if (!b)
 						throw "unable to assert";
 					// interface kind check
+					// interface
 					if (t.kind() == 20) {
-						($e.value : $t);
+						var isPointer = false;
+						var asInterface = false;
+						final typ = std.Type.typeof($e.value);
+						switch typ {
+							case TClass(cl):
+								final className = std.Type.getClassName(cl);
+								if (StringTools.endsWith(className,"_asInterface")) {
+									asInterface = true;
+								} else if (className == "stdgo.PointerData") {
+									isPointer = true;
+								}
+							default:
+								var _ = false;
+						}
+						if (asInterface) {
+							($e.value : $t);
+						}else{
+							var gt = $e.type._common();
+							if (isPointer) {
+								gt = stdgo.internal.reflect.Reflect.getElem(gt);
+							}
+							(stdgo.internal.reflect.Reflect.asInterfaceValue($e.value,gt) : $t);
+						}
 					} else {
 						if (($e.value : Dynamic).__underlying__ == null) {
 							($e.value : $t);
@@ -645,7 +668,7 @@ class Go {
 							if (t2.kind() != stdgo.internal.reflect.Reflect.KindType.pointer && t.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(t)) {
 								if ((untyped ($e : Dynamic).value is PointerData)) {
 									final gt = stdgo.internal.reflect.Reflect.getElem(t._common());
-									untyped $e.value = stdgo.internal.reflect.Reflect.asInterface(($e.value : Pointer<Dynamic>).value,gt);
+									untyped $e.value = stdgo.internal.reflect.Reflect.asInterfaceValue(($e.value : Pointer<Dynamic>).value,gt);
 								}
 							}
 						}

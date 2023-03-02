@@ -465,7 +465,7 @@ final list = [
 				final field = fields[_i.toBasic()];
 				final t = @:privateAccess (cast _v.value.type.field(_i).type : stdgo.internal.reflect.Reflect._Type_asInterface).__type__;
 				var fieldValue = std.Reflect.field(@:privateAccess _v.value.value, field.name);
-				fieldValue = stdgo.internal.reflect.Reflect.asInterface(fieldValue, t._common());
+				fieldValue = stdgo.internal.reflect.Reflect.asInterfaceValue(fieldValue, t._common());
 				final valueType = new Value(new AnyInterface(fieldValue, t));
 				if (field.name.charAt(0) == "_")
 					@:privateAccess valueType.notSetBool = false;
@@ -751,11 +751,11 @@ final list = [
 		return switch gt {
 			case stdgo.internal.reflect.Reflect.GoType.arrayType(_.get() => elem, _):
 				final t = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem));
-				final valueInterface = stdgo.internal.reflect.Reflect.asInterface((value : GoArray<Dynamic>)[_i], t._common());
+				final valueInterface = stdgo.internal.reflect.Reflect.asInterfaceValue((value : GoArray<Dynamic>)[_i], t._common());
 				new Value(new AnyInterface(valueInterface,t),value, _i);
 			case stdgo.internal.reflect.Reflect.GoType.sliceType(_.get() => elem):
 				final t = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem));
-				final valueInterface = stdgo.internal.reflect.Reflect.asInterface((value : Slice<Dynamic>)[_i], t._common());
+				final valueInterface = stdgo.internal.reflect.Reflect.asInterfaceValue((value : Slice<Dynamic>)[_i], t._common());
 				final value = new Value(new AnyInterface(valueInterface,t),value, _i);
 				@:privateAccess value.canAddrBool = true;
 				value;
@@ -925,7 +925,7 @@ final list = [
 					if (StringTools.endsWith(name, "_asInterface")) {
 						@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
 						value = (value : Dynamic).__underlying__().value;
-					};
+					}
 				default:
 					final _ = false;
 			};

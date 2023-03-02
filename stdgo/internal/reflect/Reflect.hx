@@ -640,7 +640,7 @@ function pointerUnwrap(type:GoType):GoType {
 	}
 }
 
-function asInterface(value:Dynamic, gt:GoType):Dynamic {
+function asInterfaceValue(value:Dynamic, gt:GoType):Dynamic {
 	switch gt {
 		case named(path,_,_,_,_):
 			final pack = path.split(".");
@@ -648,7 +648,16 @@ function asInterface(value:Dynamic, gt:GoType):Dynamic {
 			final cl = std.Type.resolveClass(pack.join(".") + "_asInterface");
 			if (cl == null) // named type does not have asInterface class
 				return value;
-			return std.Type.createInstance(cl,[Go.pointer(value),new stdgo.internal.reflect.Reflect._Type(gt)]);
+			var isPointer = false;
+			final typ = std.Type.typeof(value);
+			switch typ {
+				case TClass(cl):
+					final className = std.Type.getClassName(cl);
+					if (className == "stdgo.PointerData")
+						isPointer = true;
+				default:
+			}
+			return std.Type.createInstance(cl,[isPointer ? value : Go.pointer(value),new stdgo.internal.reflect.Reflect._Type(gt)]);
 			
 		default:
 	}

@@ -961,6 +961,15 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 	}
 }
 
+private function escapeParensRaw(expr:Ast.Expr):Ast.Expr {
+	return switch expr.id {
+		case "ParenExpr":
+			escapeParensRaw(expr.x);
+		default:
+			expr;
+	}
+}
+
 private function escapeParens(expr:Expr):Expr {
 	return switch expr.expr {
 		case EParenthesis(e):
@@ -3040,6 +3049,8 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 		case typeParam(_, _):
 			// nothing
 			index = macro @:param_index $index;
+		case invalidType:
+			index = macro @:invalid_index $index;
 		default:
 			trace("invalid_index: " + t);
 			trace(expr.x);
@@ -3955,14 +3966,18 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 		case "ArrayType":
 			final e:Ast.ArrayType = e;
 			final elem = typeof(e.elt, info, false, paths.copy());
-			final id = hashTypeToExprType(e.type, info).id;
+			final v = hashTypeToExprType(e.type, info);
+			final id = v.id;
 			switch id {
 				case "Array":
-					final len = hashTypeToExprType(e.type, info).len;
+					final len = v.len;
 					arrayType({get: () -> elem}, len);
 				case "Slice":
 					sliceType({get: () -> elem});
+				case "Basic":
+					invalidType;
 				default:
+					trace(v);
 					throw "unknown Array id: " + id;
 			}
 		case "MapType":
@@ -4980,11 +4995,53 @@ function getStructFields(type:GoType):Array<FieldType> {
 }
 
 private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { // EField
-
-	var x = typeExpr(expr.x, info);
-	var typeX = typeof(expr.x, info, false);
-
 	var sel = nameIdent(expr.sel.name, false, false, info);
+	var isStar = false;
+	expr.x = escapeParensRaw(expr.x);
+	final kind = switch expr.x.id {
+		case "StarExpr":
+			if (expr.x.x.id == "Ident") {
+				isStar = true;
+				expr.x.x.kind;
+			}else if (expr.x.x.id == "SelectorExpr") {
+				isStar = true;
+				expr.x.x.sel.kind;
+			}else{
+				-1;
+			}
+		case "SelectorExpr":
+			if (expr.x.sel.id == "Ident") {
+				expr.x.sel.kind;
+			}else{
+				-1;
+			}
+		case "Ident":
+			expr.x.kind;
+		default:
+			-1;
+	}
+	var x = typeExpr(expr.x, info);
+	// if ident is type
+	if (kind == 3) {
+		if (isStar)
+			expr.x = expr.x.x;
+		switch expr.x.id {
+			case "Ident":
+				x = macro $i{className(expr.x.name,info) + "_static_extension"};
+			case "SelectorExpr":
+				final sel = nameIdent(expr.x.sel.name, false, false, info);
+				final xType = typeExprType(expr.x,info);
+				switch xType {
+					case TPath(p):
+						final name = p.pack.join(".") + "." + className(expr.x.sel.name,info) + "_static_extension"; 
+						x = macro $i{name};
+					default:
+				}
+			default:
+				throw "expr id: " + expr.x.id;
+		}
+	}
+	var typeX = typeof(expr.x, info, false);
 	var selFunctionBool = isFunction(expr.sel, info);
 
 	if (isPointer(typeX)) {
@@ -6124,8 +6181,8 @@ private function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field 
 
 private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var name = className(spec.name.name, info);
-	info.renameIdents[spec.name.name] = name + "_static_extension";
-	info.classNames[spec.name.name] = name + "_static_extension";
+	//info.renameIdents[spec.name.name] = name + "_static_extension";
+	//info.classNames[spec.name.name] = name + "_static_extension";
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getDocComment(spec, spec) + getSource(spec, info);

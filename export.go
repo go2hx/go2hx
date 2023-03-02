@@ -1113,6 +1113,13 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	} else {
 		obj := checker.ObjectOf(value)
 		if obj != nil {
+			switch obj.(type) {
+			case *types.TypeName:
+				data["kind"] = int(ast.Typ)
+			case *types.Var:
+				data["kind"] = int(ast.Var)
+			default:
+			}
 			data["type"] = parseType(obj.Type(), map[string]bool{})
 		}
 	}

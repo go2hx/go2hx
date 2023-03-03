@@ -4264,7 +4264,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		final t = typeof(expr.type,info,false);
 		switch t {
 			case basic(_):
-
+			case invalidType:
 			default:
 				final ct = toComplexType(t,info);
 				e = macro ($e : $ct);

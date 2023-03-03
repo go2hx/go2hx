@@ -319,6 +319,13 @@ function main(data:DataType, instance:Main.InstanceData) {
 				});
 			}
 			data.imports = data.imports.concat(defaultImports);
+			final _test = "_test";
+			if (StringTools.endsWith(module.path,_test)) {
+				var path = module.path;
+				path = path.substr(0,path.length - _test.length);
+				path = '"$path"';
+				typeImport({path: path, name: ".", endPos: 0, doc: null, comment: null},info);
+			}
 
 			if (pkgDoc != "")
 				data.defs.unshift({
@@ -1662,6 +1669,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		var next = condition(obj, i + 1);
 		return toExpr(EBinop(OpBoolOr, value, next));
 	}
+	var defaultBlock:Expr = null;
 	function ifs(i:Int = 0) {
 		var obj:Ast.CaseClause = stmt.body.list[i];
 		var cond = condition(obj);
@@ -1673,11 +1681,16 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 			info.switchIndex = i;
 		}
 		var block = toExpr(typeStmtList(obj.body, info, false));
+		if (cond == null)
+			defaultBlock = block;
 		if (i + 1 >= stmt.body.list.length) {
 			if (cond == null)
 				return block;
-			return macro if ($cond)
-				$block;
+			return defaultBlock == null ? macro if ($cond)
+				$block : macro if ($cond)
+					$block
+				else
+					$defaultBlock;
 		}
 		var next = ifs(i + 1);
 		if (cond == null)
@@ -4213,25 +4226,25 @@ private function typeRest(expr:Expr):Expr {
 
 private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 	if (expr.basic) {
-		return switch expr.token {
+		var e = switch expr.token {
 			case CHAR:
 				final const = makeString(getRune(expr.value));
 				final ct = TPath({name: "GoRune", pack: []});
-				(macro($const.code : $ct)).expr;
+				macro($const.code : $ct);
 			case STRING:
-				(if (!expr.raw) {
+				if (!expr.raw) {
 					makeStringLit(decodeEscapeSequences(expr.value));
 				} else {
 					makeString(rawEscapeSequences(expr.value));
-				}).expr;
+				}
 			case FLOAT:
 				final e = toExpr(EConst(CFloat(expr.value)));
-				(macro($e : GoFloat64)).expr;
+				macro ($e : GoFloat64);
 			case IMAG:
 				final index = expr.value.indexOf("i");
 				final imag = toExpr(EConst(CFloat(expr.value.substr(0, index))));
 				final real = toExpr(EConst(CFloat(expr.value.substr(index + 1))));
-				(macro new GoComplex128($real, $imag)).expr;
+				macro new GoComplex128($real, $imag);
 			case INT:
 				var e = toExpr(EConst(CInt(expr.value)));
 				if (expr.value.length >= 10) {
@@ -4244,10 +4257,19 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 						e = makeString(expr.value);
 					}
 				}
-				e.expr;
+				e;
 			default:
 				throw "unknown token: " + expr.token;
 		}
+		final t = typeof(expr.type,info,false);
+		switch t {
+			case basic(_):
+
+			default:
+				final ct = toComplexType(t,info);
+				e = macro ($e : $ct);
+		}
+		return e.expr;
 	}
 	return if (expr.info & Ast.BasicInfo.isFloat != 0) {
 		ECheckType(toExpr(EConst(CFloat(expr.value))), TPath({name: "GoFloat64", pack: []}));

@@ -98,7 +98,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this.offset;
 	}
 
-	public function __slice__(low:GoInt, high:GoInt = -1, cap:GoInt = -1):Slice<T> {
+	public function __slice__(low:GoInt, high:GoInt = -1, max:GoInt = -1):Slice<T> {
 		if (this == null)
 			return null;
 		var offset = low;
@@ -107,8 +107,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		var length = high - low;
 		var obj:SliceData<T> = __ref__();
 		obj.offset = this.offset + offset;
-		if (cap != -1) {
-			obj.capacity = cap;
+		if (max != -1) {
+			obj.capacity = max - low;
 		}
 		obj.length = length;
 		return obj;

@@ -839,7 +839,6 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 				EContinue;
 			}
 		case BREAK:
-			info.global.hasBreak = true;
 			if (stmt.label != null) {
 				final label = makeExpr(stmt.label.name);
 				(macro @:jump($label) break).expr;
@@ -1444,9 +1443,9 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 	}
 	if (stmt.body == null || stmt.body.list == null)
 		return (macro {}).expr;
-	info.global.hasBreak = false;
 	var expr = ifs();
-	if (info.global.hasBreak) { // no fallthrough stmt for TypeSwitch
+	final hasBreakBool = hasBreak(expr);
+	if (hasBreakBool) { // no fallthrough stmt for TypeSwitch
 		final continueBool = continueInsideSwitch(expr);
 		if (continueBool) {
 			expr = macro {
@@ -1700,16 +1699,16 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		else
 			$next;
 	}
-	info.global.hasBreak = false;
 	var expr = ifs();
+	final hasBreakBool = hasBreak(expr);
 	if (tag != null) {
 		expr = macro {
 			final __value__ = $tag;
 			$expr;
 		};
 	}
-	if (hasFallThrough || info.global.hasBreak) {
-		if (info.global.hasBreak) {
+	if (hasFallThrough || hasBreakBool) {
+		if (hasBreakBool) {
 			function func(expr:Expr):Expr {
 				return switch expr.expr {
 					case EBlock(exprs):
@@ -1776,6 +1775,20 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		}).expr;
 	}
 	return expr.expr;
+}
+
+private function hasBreak(expr:Expr):Bool {
+	var f = null;
+	var hasBreakBool = false;
+	f = expr -> switch expr.expr {
+		case EBreak:
+			hasBreakBool = true;
+			return;
+		default:
+			haxe.macro.ExprTools.iter(expr,f);
+	}
+	f(expr);
+	return hasBreakBool;
 }
 
 private function continueInsideSwitch(expr:Expr):Bool {
@@ -5309,11 +5322,17 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.restricted = [];
 	if (info.gotoSystem) {
 		var e = macro stdgo.internal.Macro.controlFlow($block);
-		if (decl.type.results != null && decl.type.results.list.length > 0)
-			e = macro return $e;
-		block = macro {
-			$e;
-		};
+		if (decl.type.results != null && decl.type.results.list.length > 0) {
+			//final ret = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
+			block = macro {
+				$e;
+				throw "controlFlow did not return";
+			};
+		}else{
+			block = macro {
+				$e;
+			};
+		}
 	}
 	var doc = getDocComment(decl);
 	var preamble = "// #go2hx ";
@@ -6969,7 +6988,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 			kind: TDField(FVar(null, func))
 		});
 		for (i in 0...value.names.length) {
-			var fieldName = "_" + i;
+			var fieldName = "_" + info.blankCounter++;
 			values.push({
 				name: nameIdent(value.names[i].name, false, true, info),
 				pos: null,
@@ -7224,7 +7243,6 @@ class Global {
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
 	public var filePath:String = "";
-	public var hasBreak:Bool = false;
 	public var module:Module = null;
 	public var noCommentsBool:Bool = false;
 	public var externBool:Bool = false;
@@ -7240,7 +7258,6 @@ class Global {
 		g.path = path;
 		g.module = module;
 		g.filePath = filePath;
-		g.hasBreak = hasBreak;
 		g.varTraceBool = varTraceBool;
 		g.root = root;
 		g.hashMap = hashMap;

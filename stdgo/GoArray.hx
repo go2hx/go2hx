@@ -87,15 +87,18 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		return this.get(index.toBasic());
 	}
 
-	public function __slice__(low:GoInt, high:GoInt = -1):Slice<T> {
+	public function __slice__(low:GoInt, high:GoInt = -1, max:GoInt=-1):Slice<T> {
 		if (this == null)
 			return null;
 		var offset = low;
 		if (high == -1)
 			high = length.toBasic();
 		var length = high - low;
-		final obj = new stdgo.Slice.SliceData<T>(0, 0);
+		final obj = new stdgo.Slice.SliceData<T>(0, -1);
 		obj.offset = offset;
+		if (max != -1) {
+			obj.capacity = max - low;
+		}
 		obj.vector = this.vector;
 		obj.length = length;
 		obj.capacity = this.capacity;

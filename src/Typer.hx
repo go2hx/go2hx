@@ -1181,7 +1181,7 @@ private function createTempVars(vars:Array<Var>):Array<Var> {
 	if (vars.length > 1) {
 		var count = 0;
 		for (v in vars) {
-			final tempName = "_" + (count++);
+			final tempName = "__" + (count++);
 			vars2.unshift({
 				name: v.name,
 				type: v.type,
@@ -7168,7 +7168,7 @@ private function untitle(name:String):String {
 private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:Bool = false):String {
 	name = nameAscii(name);
 	if (name == "_")
-		return "_" + info.blankCounter++;
+		return "__" + info.blankCounter++;
 	if (name == "null")
 		return "nil";
 	if (name == "main")

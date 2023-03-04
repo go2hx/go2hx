@@ -1,6 +1,25 @@
 final list = [
+	// stdgo/compress/Bzip2
+	"compress.bzip2:_mustLoadFile" => macro {
+		/*b, err := os.ReadFile(f)
+		if err != nil {
+			panic(err)
+		}
+		return b*/
+		return new Slice<GoByte>(0,0);
+	},
+	// stdgo/errors
 	"errors:_errorType" => macro stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface((null : Ref<Error>))).elem(),
 	// stdgo/os
+	"os:readFile" => macro {
+		if (!sys.FileSystem.exists(_name))
+			return {_0: null, _1: stdgo.errors.Errors.new_("readFile " + _name + ": no such file or directory")};
+		try {
+			return {_0: sys.io.File.getBytes(_name), _1: null};
+		}catch(e) {
+			return {_0: null, _1: stdgo.errors.Errors.new_(e.details())};
+		}
+	},
 	"os:_runtime_args" => macro {
 		@:define("js") return new Slice<GoString>(0, 0);
 		@:define("sys") {

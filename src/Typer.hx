@@ -74,7 +74,7 @@ final basicTypes = [
 
 var printer = new Printer();
 
-function main(data:DataType, instance:Main.InstanceData) {
+function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 	final imports:Array<String> = [];
 	final noCommentsBool = instance.noComments;
 	final externBool = instance.externBool;
@@ -324,6 +324,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 			if (StringTools.endsWith(module.path,_test)) {
 				var path = module.path;
 				path = path.substr(0,path.length - _test.length);
+				path = StringTools.replace(path,".","/");
 				path = '"$path"';
 				typeImport({path: path, name: ".", endPos: 0, doc: null, comment: null},info);
 			}
@@ -4301,16 +4302,21 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		final e = toExpr(switch underlyingType {
 			case basic(uint64_kind):
 				final value = haxe.UInt64Helper.parseString(expr.value);
-				final s = if (value > 9223372036854775807i64) {
-					@:privateAccess toExpr(EConst(CInt((value : haxe.Int64).toString(), kind)));
+				if (value > 9223372036854775807i64) {
+					@:privateAccess EConst(CInt((value : haxe.Int64).toString(), kind));
 				}else{
-					toExpr(EConst(CInt(expr.value, kind)));
+					EConst(CInt(expr.value, kind));
 				}
-				(macro ($s : GoUInt64)).expr;
-			case basic(int64_kind), basic(uint32_kind), basic(uint_kind), basic(untyped_int_kind):
-				final ct = toComplexType(underlyingType, info);
-				final s = toExpr(EConst(CInt(expr.value, kind)));
-				(macro($s : $ct)).expr;
+			case basic(uint32_kind), basic(uint_kind):
+				final value = haxe.UInt64Helper.parseString(expr.value);
+				// 2155905152
+				// 2147483647
+				if (value > 2147483647i64) {
+					final v = value.low + value.high;
+					@:privateAccess EConst(CInt(Std.string(v), kind));
+				}else{ 
+					EConst(CInt(expr.value, kind));
+				}
 			default:
 				EConst(CInt(expr.value));
 		});

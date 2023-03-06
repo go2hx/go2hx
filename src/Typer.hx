@@ -1976,7 +1976,11 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 				}
 				// trace(printer.printExpr(y), type);
 				if (!isInterface(type) && !isAnyInterface(type)) {
-					y = macro $y?.__copy__();
+					switch y.expr {
+						case EArray(_):
+						default:
+							y = macro $y?.__copy__();
+					}
 				}
 			case invalidType, pointerType(_), previouslyNamed(_), refType(_), tuple(_, _):
 
@@ -5739,7 +5743,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			default:
 		}
 	}*/
-	if (info.global.varTraceBool)
+	if (info.global.funcTraceBool)
 		if (block != null) {
 			block = macro {
 				trace("start func: " + ${makeExpr(name)});

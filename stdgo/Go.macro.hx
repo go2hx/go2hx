@@ -475,6 +475,8 @@ class Go {
 						fields.push({field: "__nil__", expr: macro true});
 					final obj:Expr = {expr: EObjectDecl(fields), pos: Context.currentPos()};
 					macro cast $obj;
+				case TFun(_, _):
+					return expr;
 				default:
 					throw "invalid t of gen setRef: " + t;
 			}

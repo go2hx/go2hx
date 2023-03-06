@@ -4293,13 +4293,10 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 				"i64";
 			case basic(uint_kind), basic(uint32_kind), basic(uint8_kind), basic(uint16_kind):
 				"u32";
-			case basic(int_kind), basic(int8_kind), basic(int16_kind), basic(int32_kind), basic(untyped_int_kind):
-				"i32";
 			case basic(uint64_kind):
 				"i64";
 			default:
-				trace(underlyingType);
-				throw "invalid kind";
+				"i32";
 		}
 		final e = toExpr(switch underlyingType {
 			case basic(uint64_kind):

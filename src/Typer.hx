@@ -116,6 +116,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 		info.global.path = pkg.path;
 		info.global.externBool = instance.externBool;
 		info.global.varTraceBool = instance.varTraceBool;
+		info.global.funcTraceBool = instance.funcTraceBool;
 		info.global.noCommentsBool = instance.noCommentsBool;
 		info.global.module = module;
 		info.global.root = instance.root;
@@ -4251,25 +4252,23 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 					makeString(rawEscapeSequences(expr.value));
 				}
 			case FLOAT:
+				if (expr.value.indexOf(".") == -1)
+					expr.value = expr.value + ".0";
 				final e = toExpr(EConst(CFloat(expr.value)));
 				macro ($e : GoFloat64);
 			case IMAG:
 				final index = expr.value.indexOf("i");
-				final imag = toExpr(EConst(CFloat(expr.value.substr(0, index))));
-				final real = toExpr(EConst(CFloat(expr.value.substr(index + 1))));
+				var imagFloat = expr.value.substr(0, index);
+				var realFloat = expr.value.substr(index + 1);
+				if (imagFloat.indexOf(".") == -1)
+					imagFloat = '$imagFloat.0';
+				if (realFloat.indexOf(".") == -1)
+					realFloat = '$realFloat.0';
+				final imag = toExpr(EConst(CFloat(imagFloat)));
+				final real = toExpr(EConst(CFloat(realFloat)));
 				macro new GoComplex128($real, $imag);
 			case INT:
-				var e = toExpr(EConst(CInt(expr.value)));
-				if (expr.value.length >= 10) {
-					try {
-						var i = haxe.Int64Helper.parseString(expr.value);
-						if (i > 2147483647 || i < -2147483648) {
-							e = makeString(expr.value);
-						}
-					} catch (_) {
-						e = makeString(expr.value);
-					}
-				}
+				var e = toExpr(EConst(CInt(expr.value,"i32")));
 				e;
 			default:
 				throw "unknown token: " + expr.token;
@@ -4289,10 +4288,31 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 	} else if (expr.info & Ast.BasicInfo.isInteger != 0) {
 		final t = typeof(expr.type, info, false);
 		final underlyingType = getUnderlying(t);
+		final kind = switch underlyingType {
+			case basic(int64_kind):
+				"i64";
+			case basic(uint_kind), basic(uint32_kind), basic(uint8_kind), basic(uint16_kind):
+				"u32";
+			case basic(int_kind), basic(int8_kind), basic(int16_kind), basic(int32_kind), basic(untyped_int_kind):
+				"i32";
+			case basic(uint64_kind):
+				"i64";
+			default:
+				trace(underlyingType);
+				throw "invalid kind";
+		}
 		final e = toExpr(switch underlyingType {
-			case basic(int64_kind), basic(uint32_kind), basic(uint64_kind), basic(uint_kind), basic(untyped_int_kind):
+			case basic(uint64_kind):
+				final value = haxe.UInt64Helper.parseString(expr.value);
+				final s = if (value > 9223372036854775807i64) {
+					@:privateAccess toExpr(EConst(CInt((value : haxe.Int64).toString(), kind)));
+				}else{
+					toExpr(EConst(CInt(expr.value, kind)));
+				}
+				(macro ($s : GoUInt64)).expr;
+			case basic(int64_kind), basic(uint32_kind), basic(uint_kind), basic(untyped_int_kind):
 				final ct = toComplexType(underlyingType, info);
-				final s = makeString(expr.value);
+				final s = toExpr(EConst(CInt(expr.value, kind)));
 				(macro($s : $ct)).expr;
 			default:
 				EConst(CInt(expr.value));
@@ -4301,8 +4321,14 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		(macro($e : $ct)).expr;
 	} else if (expr.info & Ast.BasicInfo.isComplex != 0) {
 		final index = expr.value.indexOf("i");
-		final real = toExpr(EConst(CFloat(expr.value.substr(0, index))));
-		final imag = toExpr(EConst(CFloat(expr.value.substr(index + 1))));
+		var imagFloat = expr.value.substr(0, index);
+		var realFloat = expr.value.substr(index + 1);
+		if (imagFloat.indexOf(".") == -1)
+			imagFloat = '$imagFloat.0';
+		if (realFloat.indexOf(".") == -1)
+			realFloat = '$realFloat.0';
+		final imag = toExpr(EConst(CFloat(imagFloat)));
+		final real = toExpr(EConst(CFloat(realFloat)));
 		(macro new GoComplex128($real, $imag)).expr;
 	} else {
 		trace(expr);
@@ -5710,6 +5736,14 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			default:
 		}
 	}*/
+	if (info.global.varTraceBool)
+		if (block != null) {
+			block = macro {
+				trace("start func: " + ${makeExpr(name)});
+				$block;
+				trace("end func: " + ${makeExpr(name)});
+			}
+	}
 	if (nonGenericParams.length > 0) {
 		params = params.concat(nonGenericParams);
 	}
@@ -7240,6 +7274,7 @@ function normalizePath(path:String):String {
 
 class Global {
 	public var varTraceBool:Bool = false;
+	public var funcTraceBool:Bool = false;
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
 	public var filePath:String = "";
@@ -7259,6 +7294,7 @@ class Global {
 		g.module = module;
 		g.filePath = filePath;
 		g.varTraceBool = varTraceBool;
+		g.funcTraceBool = funcTraceBool;
 		g.root = root;
 		g.hashMap = hashMap;
 		return g;

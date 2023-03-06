@@ -50,38 +50,6 @@ typedef Ref<T> = T; // refrence type used only for macro reflection type info pu
 @:eager
 typedef InvalidType = Dynamic; // invalid type, attempt to use Dynamic
 
-private function parseStringUInt(sParam:String):UInt32 {
-	final base:UInt32 = ofIntUInt(10);
-	var current:UInt32 = zeroUInt32();
-	var multiplier:UInt32 = oneUInt32();
-
-	var s = StringTools.trim(sParam);
-	final len = s.length;
-	for (i in 0...len) {
-		final digitInt = s.charCodeAt(len - 1 - i) - '0'.code;
-		if (digitInt < 0 || digitInt > 9)
-			throw "NumberFormatError";
-		if (digitInt != 0) {
-			final digit = ofIntUInt(digitInt);
-			current = current + multiplier * digit;
-		}
-		multiplier = multiplier * base;
-	}
-	return current;
-}
-
-private function ofStringUInt(s:String):UInt32 {
-	return parseStringUInt(s);
-}
-
-private function ofStringInt64(s:String):Int64 {
-	return haxe.Int64.parseString(s);
-}
-
-private function ofStringUInt64(s:String):UInt64 {
-	return UInt64.parseString(s);
-}
-
 private function ofIntInt64(x:Int):Int64 {
 	return haxe.Int64.ofInt(x);
 }
@@ -379,9 +347,6 @@ abstract GoFloat64(Float) from Float {
 	public inline function new(x = 0.0)
 		this = x;
 
-	@:from static function fromString(x:String):GoFloat64
-		return Std.parseFloat(x);
-
 	@:to inline function toFloat32():GoFloat32 {
 		#if interp
 		// lose precision
@@ -395,7 +360,7 @@ abstract GoFloat64(Float) from Float {
 
 	@:to inline function toInt64():GoInt64 {
 		if (std.Math.isNaN(this))
-			return ofStringInt64("-9223372036854775808");
+			return -9223372036854775808i64;
 		return ofFloatInt64(this);
 	}
 
@@ -431,7 +396,7 @@ abstract GoFloat64(Float) from Float {
 
 	@:to inline function toUInt64():GoUInt64 {
 		if (std.Math.isNaN(this))
-			return GoUInt64.ofString("9223372036854775808");
+			return -9223372036854775808i64;
 		return this;
 	}
 
@@ -520,7 +485,7 @@ abstract GoFloat32(Float32) from Float32 {
 
 	@:to inline function toInt64():GoInt64 {
 		if (std.Math.isNaN(this))
-			return ofStringInt64("-9223372036854775808");
+			return -9223372036854775808i64;
 		return ofFloatInt64(this);
 	}
 
@@ -556,7 +521,7 @@ abstract GoFloat32(Float32) from Float32 {
 
 	@:to inline function toUInt64():GoUInt64 {
 		if (std.Math.isNaN(this))
-			return GoUInt64.ofString("9223372036854775808");
+			return -9223372036854775808i64;
 		return this;
 	}
 
@@ -790,9 +755,6 @@ abstract GoInt32(Int) from Int32 to Int32 to Int {
 	public inline function toBasic()
 		return this;
 
-	@:from static function fromString(s:String):GoInt32
-		return Std.parseInt(s);
-
 	@:from static function fromFloat(x:Float):GoInt32
 		return Std.int(x);
 
@@ -911,10 +873,6 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 
 	public inline function toBasic()
 		return this;
-
-	@:from static inline function fromString(s:String):GoUInt32 {
-		return ofStringUInt(s);
-	}
 
 	@:to inline function toInt64():GoInt64
 		return ofIntInt64(this);
@@ -1270,9 +1228,6 @@ abstract GoInt64(Int64) from Int64 {
 
 	@:from static function fromFloat(x:Float):GoInt64
 		return ofFloatInt64(x);
-
-	@:from static function fromString(x:String):GoInt64
-		return ofStringInt64(x);
 
 	@:from static function fromInt(x:Int):GoInt64
 		return ofIntInt64(x);
@@ -1637,10 +1592,6 @@ abstract GoUInt64(UInt64) from UInt64 {
 
 	public inline function toBasic():UInt64
 		return this;
-
-	@:from public static function ofString(x:String):GoUInt64 {
-		return ofStringUInt64(x);
-	}
 
 	@:to inline function toInt():GoInt
 		return toIntInt64(this);

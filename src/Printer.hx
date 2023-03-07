@@ -29,6 +29,7 @@ class Printer extends haxe.macro.Printer {
 		if (e == null)
 			return "#NULL_EXPR";
 		return switch (e.expr) {
+			case EField(e1, n, kind): kind == Safe ? '${printExpr(e1)}?.$n' : '${printExpr(e1)}.$n';
 			case EMeta({name: ":macro"}, e): "macro " + printExpr(e);
 			case EMeta({name: ":define", params: params}, e):
 				switch params[0].expr {

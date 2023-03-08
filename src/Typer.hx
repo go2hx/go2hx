@@ -4257,20 +4257,14 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 					makeString(rawEscapeSequences(expr.value));
 				}
 			case FLOAT:
-				if (expr.value.indexOf(".") == -1)
-					expr.value = expr.value + ".0";
-				final e = toExpr(EConst(CFloat(expr.value)));
+				final e = toExpr(EConst(CFloat(expr.value,"f64")));
 				macro ($e : GoFloat64);
 			case IMAG:
 				final index = expr.value.indexOf("i");
 				var imagFloat = expr.value.substr(0, index);
 				var realFloat = expr.value.substr(index + 1);
-				if (imagFloat.indexOf(".") == -1)
-					imagFloat = '$imagFloat.0';
-				if (realFloat.indexOf(".") == -1)
-					realFloat = '$realFloat.0';
-				final imag = toExpr(EConst(CFloat(imagFloat)));
-				final real = toExpr(EConst(CFloat(realFloat)));
+				final imag = toExpr(EConst(CFloat(imagFloat,"f64")));
+				final real = toExpr(EConst(CFloat(realFloat,"f64")));
 				macro new GoComplex128($real, $imag);
 			case INT:
 				var e = toExpr(EConst(CInt(expr.value,"i32")));
@@ -4306,36 +4300,25 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		final e = toExpr(switch underlyingType {
 			case basic(uint64_kind):
 				final value = haxe.UInt64Helper.parseString(expr.value);
-				if (value > 9223372036854775807i64) {
-					@:privateAccess EConst(CInt((value : haxe.Int64).toString(), kind));
-				}else{
-					EConst(CInt(expr.value, kind));
-				}
+				final s = @:privateAccess (value : haxe.Int64).toString();
+				EConst(CInt(s,"i64"));
+			case basic(int64_kind):
+				EConst(CInt(expr.value,"i64"));
 			case basic(uint32_kind), basic(uint_kind):
-				final value = haxe.UInt64Helper.parseString(expr.value);
-				// 2155905152
-				// 2147483647
-				if (value > 2147483647i64) {
-					final v = value.low + value.high;
-					@:privateAccess EConst(CInt(Std.string(v), kind));
-				}else{ 
-					EConst(CInt(expr.value, kind));
-				}
+				final value = haxe.Int64Helper.parseString(expr.value);
+				EConst(CInt(Std.string(value.low),kind));
 			default:
 				EConst(CInt(expr.value));
 		});
 		final ct = toComplexType(t, info);
+		// casting
 		(macro($e : $ct)).expr;
 	} else if (expr.info & Ast.BasicInfo.isComplex != 0) {
 		final index = expr.value.indexOf("i");
 		var imagFloat = expr.value.substr(0, index);
 		var realFloat = expr.value.substr(index + 1);
-		if (imagFloat.indexOf(".") == -1)
-			imagFloat = '$imagFloat.0';
-		if (realFloat.indexOf(".") == -1)
-			realFloat = '$realFloat.0';
-		final imag = toExpr(EConst(CFloat(imagFloat)));
-		final real = toExpr(EConst(CFloat(realFloat)));
+		final imag = toExpr(EConst(CFloat(imagFloat,"f64")));
+		final real = toExpr(EConst(CFloat(realFloat,"f64")));
 		(macro new GoComplex128($real, $imag)).expr;
 	} else {
 		trace(expr);

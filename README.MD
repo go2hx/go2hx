@@ -4,7 +4,7 @@ go2hx
 ==========
 *warning: experimental version.*
 
-Source-to-Source Go to Haxe compiler.
+Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 
 
 ### What is supported?

@@ -1115,6 +1115,7 @@ final skipTargets = [
 	"math_test:testNextafter32" => ["interp"],
 	// "math_test:testSignbit" => ["interp"],
 	"math_test:testGamma" => ["interp"],
+	"strconv_testAtofRandom" => [], // imprecise float
 	"strconv_test:testFp" => [], // uses os read
 	"strconv_test:testFtoaPowersOfTwo" => [], // imprecise float
 	"strings_test:testBuilderGrow" => [], // checks runtime allocations num

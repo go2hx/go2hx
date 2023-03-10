@@ -53,7 +53,12 @@ function create(outputPath:String, module:Module, root:String) {
 								name: field.name,
 								access: field.access,
 								pos: field.pos,
-								kind: FFun({args: f.args,ret: f.ret,expr: f.expr ,params: f.params}),
+								kind: FFun({
+									args: f.args,
+									ret: f.ret,
+									expr: f.expr,
+									params: f.params
+								}),
 							});
 							f.expr = null;
 							field.kind = FFun(f);
@@ -70,13 +75,13 @@ function create(outputPath:String, module:Module, root:String) {
 					fields: macroFields,
 					kind: def.kind,
 					isExtern: true,
-				},false) + "\n";
+				}, false) + "\n";
 			}
 			content += Typer.printer.printTypeDefinition(def, false) + "\n";
 		}
 		save(outputPath + actualPath + "/", file.name, content);
 		if (hasMacroDef)
-			save(outputPath + actualPath + "/",file.name, macroContent, ".macro");
+			save(outputPath + actualPath + "/", file.name, macroContent, ".macro");
 	}
 }
 
@@ -100,11 +105,10 @@ private function runFormatter(path:String) {
 		}
 	}
 	#if js
-
 	#else
 	new sys.io.Process('haxelib run formatter -s $path');
 	#end
-	//if (code != 0)
+	// if (code != 0)
 	//	throw "formatter failed: " + code;
 }
 
@@ -124,7 +128,7 @@ private function runCmd(cmd:String) {
 	#end
 }
 
-private function save(dir:String, name:String, content:String, extension:String="") {
+private function save(dir:String, name:String, content:String, extension:String = "") {
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";

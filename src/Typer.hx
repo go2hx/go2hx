@@ -4056,8 +4056,11 @@ private function toHaxePath(path:String):String {
 }
 
 private function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
-	if (path == "command-line-arguments")
-		path = "";
+	final startCommandLineArg = "command-line-arguments.";
+	if (path.substr(0,startCommandLineArg.length) == startCommandLineArg) {
+		path = path.substr(startCommandLineArg.length);
+	}
+
 	var index = path.indexOf("[");
 	final params:Array<TypeParam> = [];
 	if (index != -1) {

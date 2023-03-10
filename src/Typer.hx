@@ -3672,12 +3672,6 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>, equalit
 			if (!paths.contains(path2)) {
 				paths.push(path2);
 				t = toReflectType(type, info, paths.copy(), equalityBool);
-				/*for (method in methods) {
-					final name = makeString(method.name);
-					final t = toReflectType(method.type.get(), info, paths.copy(), equalityBool);
-					final recv = macro stdgo.internal.reflect.Reflect.GoType.invalidType; // toReflectType(method.recv.get(), info);
-					methodExprs.push(macro new stdgo.internal.reflect.Reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
-				}*/
 			}
 			final e = macro stdgo.internal.reflect.Reflect.GoType.named($path, ${macro $a{methodExprs}}, $t, false, {get: () -> null});
 			e;
@@ -4078,18 +4072,14 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	if (path == "command-line-arguments")
 		path = "";
 	path = normalizePath(path);
-	var globalPath = getGlobalPath(info);
-	globalPath = toGoPath(globalPath);
-	var pack = [];
-	if (globalPath != path) {
-		pack = path.split("/");
-		if (stdgoList.indexOf(toGoPath(path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
-			pack.unshift("stdgo");
-		}
-		if (last == 0 && split == -1)
-			return {pack: [], name: cl};
-		pack.push(title(pkg));
+
+	var pack = path.split("/");
+	if (stdgoList.indexOf(toGoPath(path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+		pack.unshift("stdgo");
 	}
+	if (last == 0 && split == -1)
+		return {pack: [], name: cl};
+	pack.push(title(pkg));
 	return {pack: pack, name: cl};
 }
 

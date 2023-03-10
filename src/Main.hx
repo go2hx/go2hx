@@ -491,7 +491,9 @@ function buildTarget(target:String, out:String, main:String):String {
 	if (index != -1)
 		main = main.substr(index + 1);
 	return switch target {
-		case "hl", "jvm", "cpp", "cs", "js", "lua", "python", "php", "neko":
+		case "hl":
+			'--hl $out -D hl-check';
+		case "jvm", "cpp", "cs", "js", "lua", "python", "php", "neko":
 			'--$target $out';
 		case "interp":
 			"--interp";

@@ -175,6 +175,7 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			suites[task.data.type].runtimeError(task);
 		} else {
 			log(task.data.name + '.go `$command`   build error: $code');
+			log(proc.stdout.readAll().toString());
 			log(proc.stderr.readAll().toString());
 			suites[task.data.type].buildError(task);
 		}

@@ -117,8 +117,8 @@ function main() {
 		update();
 }
 
-// cpp tests take a long time to compile, so sometimes they are not run if quick testing is required
-final targets = ["interp", "hl", "jvm"]; // , "cpp"];
+// cpp tests take a long time to compile, so sometimes its not run if quick testing is required
+final targets = ["interp", "hl", "jvm"];
 
 private function update() {
 	processPool.update();
@@ -206,7 +206,11 @@ private function createTargetOutput(target:String, type:String, name:String):Str
 		case "interp": type + "_" + sanatize(name) + ".hxml";
 		case "hl": type + "_" + sanatize(name) + ".hl";
 		case "jvm": type + "_" + sanatize(name) + ".jar";
-		case "cpp", "cs": 'export/$target/' + type + "_" + sanatize(name);
+		case "cpp", "cs", "php": 'export/$target/' + type + "_" + sanatize(name);
+		case "js": type + "_" + sanatize(name) + ".js";
+		case "lua": type + "_" + sanatize(name) + ".lua";
+		case "neko": type + "_" + sanatize(name) + ".n";
+		case "python": type + "_" + sanatize(name) + ".py";
 		default:
 			throw "unknown target: " + target;
 	}

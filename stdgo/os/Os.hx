@@ -128,7 +128,7 @@ var errProcessDone = (null : Error);
     
     
 **/
-var interrupt : Signal = (null : Signal);
+var interrupt : Signal = (null : stdgo.os.Os.Signal);
 /**
     // The only signal values guaranteed to be present in the os package on all
     // systems are os.Interrupt (send the process an interrupt) and os.Kill (force
@@ -138,7 +138,7 @@ var interrupt : Signal = (null : Signal);
     
     
 **/
-var kill : Signal = (null : Signal);
+var kill : Signal = (null : stdgo.os.Os.Signal);
 /**
     
     
@@ -231,19 +231,19 @@ var splitPath = null;
     
     
 **/
-private final _readdirName : T_readdirMode = ((0 : GoInt) : T_readdirMode);
+private final _readdirName : T_readdirMode = ((0 : GoInt) : stdgo.os.Os.T_readdirMode);
 /**
     
     
     
 **/
-private final _readdirDirEntry = ((0 : GoInt) : T_readdirMode);
+private final _readdirDirEntry = ((0 : GoInt) : stdgo.os.Os.T_readdirMode);
 /**
     
     
     
 **/
-private final _readdirFileInfo = ((0 : GoInt) : T_readdirMode);
+private final _readdirFileInfo = ((0 : GoInt) : stdgo.os.Os.T_readdirMode);
 /**
     // testingForceReadDirLstat forces ReadDir to call Lstat, for testing that code path.
     // This can be difficult to provoke on some Unix systems otherwise.
@@ -346,25 +346,25 @@ final seek_END : GoInt = (0 : GoInt);
     
     
 **/
-private final _kindNewFile : T_newFileKind = ((0 : GoInt) : T_newFileKind);
+private final _kindNewFile : T_newFileKind = ((0 : GoInt) : stdgo.os.Os.T_newFileKind);
 /**
     
     
     
 **/
-private final _kindOpenFile = ((0 : GoInt) : T_newFileKind);
+private final _kindOpenFile = ((0 : GoInt) : stdgo.os.Os.T_newFileKind);
 /**
     
     
     
 **/
-private final _kindPipe = ((0 : GoInt) : T_newFileKind);
+private final _kindPipe = ((0 : GoInt) : stdgo.os.Os.T_newFileKind);
 /**
     
     
     
 **/
-private final _kindNonBlock = ((0 : GoInt) : T_newFileKind);
+private final _kindNonBlock = ((0 : GoInt) : stdgo.os.Os.T_newFileKind);
 /**
     // DevNull is the name of the operating system's “null device.”
     // On Unix-like systems, it is "/dev/null"; on Windows, "NUL".
@@ -678,7 +678,7 @@ typedef Signal = StructType & {
         // to blocking mode, which means that SetDeadline will stop working
         // and calling Close will not interrupt a Read or Write.
     **/
-    public var files : Slice<Ref<File>> = (null : Slice<Ref<File>>);
+    public var files : Slice<Ref<stdgo.os.Os.File>> = (null : Slice<Ref<stdgo.os.Os.File>>);
     /**
         // Operating system-specific process creation attributes.
         // Note that setting this field means that your program
@@ -686,7 +686,7 @@ typedef Signal = StructType & {
         // operating systems.
     **/
     public var sys : Ref<stdgo.syscall.Syscall.SysProcAttr> = (null : Ref<stdgo.syscall.Syscall.SysProcAttr>);
-    public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<Ref<File>>, ?sys:Ref<stdgo.syscall.Syscall.SysProcAttr>) {
+    public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<Ref<stdgo.os.Os.File>>, ?sys:Ref<stdgo.syscall.Syscall.SysProcAttr>) {
         if (dir != null) this.dir = dir;
         if (env != null) this.env = env;
         if (files != null) this.files = files;
@@ -767,11 +767,11 @@ typedef Signal = StructType & {
 @:structInit @:private @:using(stdgo.os.Os.T_file_static_extension) class T_file {
     public var _pfd : stdgo.internal.poll.Poll.FD = ({} : stdgo.internal.poll.Poll.FD);
     public var _name : GoString = "";
-    public var _dirinfo : Ref<T_dirInfo> = (null : Ref<T_dirInfo>);
+    public var _dirinfo : Ref<stdgo.os.Os.T_dirInfo> = (null : Ref<stdgo.os.Os.T_dirInfo>);
     public var _nonblock : Bool = false;
     public var _stdoutOrErr : Bool = false;
     public var _appendMode : Bool = false;
-    public function new(?_pfd:stdgo.internal.poll.Poll.FD, ?_name:GoString, ?_dirinfo:Ref<T_dirInfo>, ?_nonblock:Bool, ?_stdoutOrErr:Bool, ?_appendMode:Bool) {
+    public function new(?_pfd:stdgo.internal.poll.Poll.FD, ?_name:GoString, ?_dirinfo:Ref<stdgo.os.Os.T_dirInfo>, ?_nonblock:Bool, ?_stdoutOrErr:Bool, ?_appendMode:Bool) {
         if (_pfd != null) this._pfd = _pfd;
         if (_name != null) this._name = _name;
         if (_dirinfo != null) this._dirinfo = _dirinfo;
@@ -811,8 +811,8 @@ typedef Signal = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.os.Os.T_rawConn_static_extension) class T_rawConn {
-    public var _file : Ref<File> = (null : Ref<File>);
-    public function new(?_file:Ref<File>) {
+    public var _file : Ref<stdgo.os.Os.File> = (null : Ref<stdgo.os.Os.File>);
+    public function new(?_file:Ref<stdgo.os.Os.File>) {
         if (_file != null) this._file = _file;
     }
     public function __underlying__() return Go.toInterface(this);
@@ -827,12 +827,12 @@ typedef Signal = StructType & {
 **/
 @:structInit @:using(stdgo.os.Os.File_static_extension) class File {
     @:embedded
-    public var _file : Ref<T_file> = (null : Ref<T_file>);
+    public var _file : Ref<stdgo.os.Os.T_file> = (null : Ref<stdgo.os.Os.T_file>);
     @:local
     var _input : haxe.io.Input = null;
     @:local
     var _output : haxe.io.Output = null;
-    public function new(?_file:Ref<T_file>, ?_input:haxe.io.Input, ?_output:haxe.io.Output) {
+    public function new(?_file:Ref<stdgo.os.Os.T_file>, ?_input:haxe.io.Input, ?_output:haxe.io.Output) {
         if (_file != null) this._file = _file;
         if (_input != null) this._input = _input;
         if (_output != null) this._output = _output;
@@ -1285,7 +1285,14 @@ private function _containsAny(_s:GoString, _chars:GoString):Bool throw "os._cont
     // Because ReadFile reads the whole file, it does not treat an EOF from Read
     // as an error to be reported.
 **/
-function readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } throw "os.readFile is not yet implemented";
+function readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } {
+        if (!sys.FileSystem.exists(_name)) return { _0 : null, _1 : stdgo.errors.Errors.new_("readFile " + _name + ": no such file or directory") };
+        try {
+            return { _0 : sys.io.File.getBytes(_name), _1 : null };
+        } catch(e) {
+            return { _0 : null, _1 : stdgo.errors.Errors.new_(e.details()) };
+        };
+    }
 /**
     // WriteFile writes data to the named file, creating it if necessary.
     // If the file does not exist, WriteFile creates it with permissions perm (before umask);

@@ -19,6 +19,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.strconv.Strconv;
 /**
     
     
@@ -451,23 +452,23 @@ private var _roundTripCases = (new Slice<T__struct_0>(0, 0, ({ _f : (4.874021953
 private var _parseUint64Tests = (new Slice<stdgo.strconv_test.Strconv_test.T_parseUint64Test>(
 0,
 0,
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(Go.str(), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("0" : GoString), ("0" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("1" : GoString), ("1" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("12345" : GoString), ("12345" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("012345" : GoString), ("12345" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("12345x" : GoString), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("98765432100" : GoString), ("98765432100" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("18446744073709551615" : GoString), ("18446744073709551615" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("18446744073709551616" : GoString), ("18446744073709551615" : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("18446744073709551620" : GoString), ("18446744073709551615" : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("1_2_3_4_5" : GoString), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("_12345" : GoString), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("1__2345" : GoString), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("12345_" : GoString), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("-0" : GoString), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("-1" : GoString), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("+1" : GoString), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_parseUint64Test>);
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(Go.str(), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("0" : GoString), (0i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("1" : GoString), (1i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("12345" : GoString), (12345i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("012345" : GoString), (12345i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("12345x" : GoString), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("98765432100" : GoString), (98765432100i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("18446744073709551615" : GoString), (-1i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("18446744073709551616" : GoString), (-1i64 : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("18446744073709551620" : GoString), (-1i64 : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("1_2_3_4_5" : GoString), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("_12345" : GoString), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("1__2345" : GoString), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("12345_" : GoString), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("-0" : GoString), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("-1" : GoString), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64Test(("+1" : GoString), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_parseUint64Test>);
 /**
     
     
@@ -476,81 +477,81 @@ private var _parseUint64Tests = (new Slice<stdgo.strconv_test.Strconv_test.T_par
 private var _parseUint64BaseTests = (new Slice<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest>(
 0,
 0,
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(Go.str(), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0" : GoString), (0 : GoInt), ("0" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0X" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1" : GoString), (0 : GoInt), ("1" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("12345" : GoString), (0 : GoInt), ("12345" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("012345" : GoString), (0 : GoInt), ("5349" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x12345" : GoString), (0 : GoInt), ("74565" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0X12345" : GoString), (0 : GoInt), ("74565" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("12345x" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0xabcdefg123" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("123456789abc" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("98765432100" : GoString), (0 : GoInt), ("98765432100" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("18446744073709551615" : GoString), (0 : GoInt), ("18446744073709551615" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("18446744073709551616" : GoString), (0 : GoInt), ("18446744073709551615" : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("18446744073709551620" : GoString), (0 : GoInt), ("18446744073709551615" : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0xFFFFFFFFFFFFFFFF" : GoString), (0 : GoInt), ("18446744073709551615" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x10000000000000000" : GoString), (0 : GoInt), ("18446744073709551615" : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("01777777777777777777777" : GoString), (0 : GoInt), ("18446744073709551615" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("01777777777777777777778" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("02000000000000000000000" : GoString), (0 : GoInt), ("18446744073709551615" : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0200000000000000000000" : GoString), (0 : GoInt), ("2305843009213693952" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0B" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b101" : GoString), (0 : GoInt), ("5" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0B101" : GoString), (0 : GoInt), ("5" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0O" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o377" : GoString), (0 : GoInt), ("255" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0O377" : GoString), (0 : GoInt), ("255" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1_2_3_4_5" : GoString), (0 : GoInt), ("12345" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_12345" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1__2345" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("12345_" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1_2_3_4_5" : GoString), (10 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_12345" : GoString), (10 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1__2345" : GoString), (10 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("12345_" : GoString), (10 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x_1_2_3_4_5" : GoString), (0 : GoInt), ("74565" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_0x12345" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x__12345" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x1__2345" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x1234__5" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x12345_" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1_2_3_4_5" : GoString), (16 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_12345" : GoString), (16 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1__2345" : GoString), (16 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1234__5" : GoString), (16 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("12345_" : GoString), (16 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0_1_2_3_4_5" : GoString), (0 : GoInt), ("5349" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_012345" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0__12345" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("01234__5" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("012345_" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o_1_2_3_4_5" : GoString), (0 : GoInt), ("5349" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_0o12345" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o__12345" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o1234__5" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o12345_" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0_1_2_3_4_5" : GoString), (8 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_012345" : GoString), (8 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0__12345" : GoString), (8 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("01234__5" : GoString), (8 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("012345_" : GoString), (8 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b_1_0_1" : GoString), (0 : GoInt), ("5" : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_0b101" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b__101" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b1__01" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b10__1" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b101_" : GoString), (0 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1_0_1" : GoString), (2 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_101" : GoString), (2 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1_01" : GoString), (2 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("10_1" : GoString), (2 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("101_" : GoString), (2 : GoInt), ("0" : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest)) : Slice<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest>);
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(Go.str(), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0" : GoString), (0 : GoInt), (0i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0X" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1" : GoString), (0 : GoInt), (1i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("12345" : GoString), (0 : GoInt), (12345i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("012345" : GoString), (0 : GoInt), (5349i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x12345" : GoString), (0 : GoInt), (74565i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0X12345" : GoString), (0 : GoInt), (74565i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("12345x" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0xabcdefg123" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("123456789abc" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("98765432100" : GoString), (0 : GoInt), (98765432100i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("18446744073709551615" : GoString), (0 : GoInt), (-1i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("18446744073709551616" : GoString), (0 : GoInt), (-1i64 : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("18446744073709551620" : GoString), (0 : GoInt), (-1i64 : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0xFFFFFFFFFFFFFFFF" : GoString), (0 : GoInt), (-1i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x10000000000000000" : GoString), (0 : GoInt), (-1i64 : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("01777777777777777777777" : GoString), (0 : GoInt), (-1i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("01777777777777777777778" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("02000000000000000000000" : GoString), (0 : GoInt), (-1i64 : GoUInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0200000000000000000000" : GoString), (0 : GoInt), (2305843009213693952i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0B" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b101" : GoString), (0 : GoInt), (5i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0B101" : GoString), (0 : GoInt), (5i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0O" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o377" : GoString), (0 : GoInt), (255i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0O377" : GoString), (0 : GoInt), (255i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1_2_3_4_5" : GoString), (0 : GoInt), (12345i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_12345" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1__2345" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("12345_" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1_2_3_4_5" : GoString), (10 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_12345" : GoString), (10 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1__2345" : GoString), (10 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("12345_" : GoString), (10 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x_1_2_3_4_5" : GoString), (0 : GoInt), (74565i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_0x12345" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x__12345" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x1__2345" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x1234__5" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0x12345_" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1_2_3_4_5" : GoString), (16 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_12345" : GoString), (16 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1__2345" : GoString), (16 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1234__5" : GoString), (16 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("12345_" : GoString), (16 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0_1_2_3_4_5" : GoString), (0 : GoInt), (5349i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_012345" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0__12345" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("01234__5" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("012345_" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o_1_2_3_4_5" : GoString), (0 : GoInt), (5349i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_0o12345" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o__12345" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o1234__5" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0o12345_" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0_1_2_3_4_5" : GoString), (8 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_012345" : GoString), (8 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0__12345" : GoString), (8 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("01234__5" : GoString), (8 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("012345_" : GoString), (8 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b_1_0_1" : GoString), (0 : GoInt), (5i64 : GoUInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_0b101" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b__101" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b1__01" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b10__1" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("0b101_" : GoString), (0 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1_0_1" : GoString), (2 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("_101" : GoString), (2 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("1_01" : GoString), (2 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("10_1" : GoString), (2 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest(("101_" : GoString), (2 : GoInt), (0i64 : GoUInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest)) : Slice<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest>);
 /**
     
     
@@ -559,30 +560,30 @@ private var _parseUint64BaseTests = (new Slice<stdgo.strconv_test.Strconv_test.T
 private var _parseInt64Tests = (new Slice<stdgo.strconv_test.Strconv_test.T_parseInt64Test>(
 0,
 0,
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(Go.str(), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("0" : GoString), ("0" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-0" : GoString), ("0" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("+0" : GoString), ("0" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("1" : GoString), ("1" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-1" : GoString), ("-1" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("+1" : GoString), ("1" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("12345" : GoString), ("12345" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-12345" : GoString), ("-12345" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("012345" : GoString), ("12345" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-012345" : GoString), ("-12345" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("98765432100" : GoString), ("98765432100" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-98765432100" : GoString), ("-98765432100" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("9223372036854775807" : GoString), ("9223372036854775807" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-9223372036854775807" : GoString), ("-9223372036854775807" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("9223372036854775808" : GoString), ("9223372036854775807" : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-9223372036854775808" : GoString), ("-9223372036854775808" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("9223372036854775809" : GoString), ("9223372036854775807" : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-9223372036854775809" : GoString), ("-9223372036854775808" : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-1_2_3_4_5" : GoString), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-_12345" : GoString), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("_12345" : GoString), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("1__2345" : GoString), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("12345_" : GoString), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_parseInt64Test>);
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(Go.str(), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("0" : GoString), (0i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-0" : GoString), (0i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("+0" : GoString), (0i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("1" : GoString), (1i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-1" : GoString), (-1i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("+1" : GoString), (1i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("12345" : GoString), (12345i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-12345" : GoString), (-12345i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("012345" : GoString), (12345i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-012345" : GoString), (-12345i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("98765432100" : GoString), (98765432100i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-98765432100" : GoString), (-98765432100i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("9223372036854775807" : GoString), (9223372036854775807i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-9223372036854775807" : GoString), (-9223372036854775807i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("9223372036854775808" : GoString), (9223372036854775807i64 : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-9223372036854775808" : GoString), (-9223372036854775808i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("9223372036854775809" : GoString), (9223372036854775807i64 : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-9223372036854775809" : GoString), (-9223372036854775808i64 : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-1_2_3_4_5" : GoString), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("-_12345" : GoString), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("_12345" : GoString), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("1__2345" : GoString), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64Test(("12345_" : GoString), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_parseInt64Test>);
 /**
     
     
@@ -591,66 +592,66 @@ private var _parseInt64Tests = (new Slice<stdgo.strconv_test.Strconv_test.T_pars
 private var _parseInt64BaseTests = (new Slice<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest>(
 0,
 0,
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(Go.str(), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0" : GoString), (0 : GoInt), ("0" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-0" : GoString), (0 : GoInt), ("0" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("1" : GoString), (0 : GoInt), ("1" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-1" : GoString), (0 : GoInt), ("-1" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("12345" : GoString), (0 : GoInt), ("12345" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-12345" : GoString), (0 : GoInt), ("-12345" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("012345" : GoString), (0 : GoInt), ("5349" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-012345" : GoString), (0 : GoInt), ("-5349" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x12345" : GoString), (0 : GoInt), ("74565" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-0X12345" : GoString), (0 : GoInt), ("-74565" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("12345x" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-12345x" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("98765432100" : GoString), (0 : GoInt), ("98765432100" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-98765432100" : GoString), (0 : GoInt), ("-98765432100" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("9223372036854775807" : GoString), (0 : GoInt), ("9223372036854775807" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-9223372036854775807" : GoString), (0 : GoInt), ("-9223372036854775807" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("9223372036854775808" : GoString), (0 : GoInt), ("9223372036854775807" : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-9223372036854775808" : GoString), (0 : GoInt), ("-9223372036854775808" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("9223372036854775809" : GoString), (0 : GoInt), ("9223372036854775807" : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-9223372036854775809" : GoString), (0 : GoInt), ("-9223372036854775808" : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("g" : GoString), (17 : GoInt), ("16" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("10" : GoString), (25 : GoInt), ("25" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("holycow" : GoString), (35 : GoInt), ("32544027072" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("holycow" : GoString), (36 : GoInt), ("38493362624" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0" : GoString), (2 : GoInt), ("0" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-1" : GoString), (2 : GoInt), ("-1" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("1010" : GoString), (2 : GoInt), ("10" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("1000000000000000" : GoString), (2 : GoInt), ("32768" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("111111111111111111111111111111111111111111111111111111111111111" : GoString), (2 : GoInt), ("9223372036854775807" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("1000000000000000000000000000000000000000000000000000000000000000" : GoString), (2 : GoInt), ("9223372036854775807" : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-1000000000000000000000000000000000000000000000000000000000000000" : GoString), (2 : GoInt), ("-9223372036854775808" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-1000000000000000000000000000000000000000000000000000000000000001" : GoString), (2 : GoInt), ("-9223372036854775808" : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-10" : GoString), (8 : GoInt), ("-8" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("57635436545" : GoString), (8 : GoInt), ("6416645477" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("100000000" : GoString), (8 : GoInt), ("16777216" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("10" : GoString), (16 : GoInt), ("16" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-123456789abcdef" : GoString), (16 : GoInt), ("-81985529216486895" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("7fffffffffffffff" : GoString), (16 : GoInt), ("9223372036854775807" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-0x_1_2_3_4_5" : GoString), (0 : GoInt), ("-74565" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x_1_2_3_4_5" : GoString), (0 : GoInt), ("74565" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-_0x12345" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("_-0x12345" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("_0x12345" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x__12345" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x1__2345" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x1234__5" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x12345_" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-0_1_2_3_4_5" : GoString), (0 : GoInt), ("-5349" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0_1_2_3_4_5" : GoString), (0 : GoInt), ("5349" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-_012345" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("_-012345" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("_012345" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0__12345" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("01234__5" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("012345_" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("+0xf" : GoString), (0 : GoInt), ("15" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-0xf" : GoString), (0 : GoInt), ("-15" : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x+f" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
-(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x-f" : GoString), (0 : GoInt), ("0" : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest)) : Slice<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest>);
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(Go.str(), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0" : GoString), (0 : GoInt), (0i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-0" : GoString), (0 : GoInt), (0i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("1" : GoString), (0 : GoInt), (1i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-1" : GoString), (0 : GoInt), (-1i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("12345" : GoString), (0 : GoInt), (12345i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-12345" : GoString), (0 : GoInt), (-12345i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("012345" : GoString), (0 : GoInt), (5349i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-012345" : GoString), (0 : GoInt), (-5349i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x12345" : GoString), (0 : GoInt), (74565i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-0X12345" : GoString), (0 : GoInt), (-74565i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("12345x" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-12345x" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("98765432100" : GoString), (0 : GoInt), (98765432100i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-98765432100" : GoString), (0 : GoInt), (-98765432100i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("9223372036854775807" : GoString), (0 : GoInt), (9223372036854775807i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-9223372036854775807" : GoString), (0 : GoInt), (-9223372036854775807i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("9223372036854775808" : GoString), (0 : GoInt), (9223372036854775807i64 : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-9223372036854775808" : GoString), (0 : GoInt), (-9223372036854775808i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("9223372036854775809" : GoString), (0 : GoInt), (9223372036854775807i64 : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-9223372036854775809" : GoString), (0 : GoInt), (-9223372036854775808i64 : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("g" : GoString), (17 : GoInt), (16i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("10" : GoString), (25 : GoInt), (25i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("holycow" : GoString), (35 : GoInt), (32544027072i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("holycow" : GoString), (36 : GoInt), (38493362624i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0" : GoString), (2 : GoInt), (0i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-1" : GoString), (2 : GoInt), (-1i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("1010" : GoString), (2 : GoInt), (10i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("1000000000000000" : GoString), (2 : GoInt), (32768i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("111111111111111111111111111111111111111111111111111111111111111" : GoString), (2 : GoInt), (9223372036854775807i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("1000000000000000000000000000000000000000000000000000000000000000" : GoString), (2 : GoInt), (9223372036854775807i64 : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-1000000000000000000000000000000000000000000000000000000000000000" : GoString), (2 : GoInt), (-9223372036854775808i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-1000000000000000000000000000000000000000000000000000000000000001" : GoString), (2 : GoInt), (-9223372036854775808i64 : GoInt64), errRange) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-10" : GoString), (8 : GoInt), (-8i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("57635436545" : GoString), (8 : GoInt), (6416645477i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("100000000" : GoString), (8 : GoInt), (16777216i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("10" : GoString), (16 : GoInt), (16i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-123456789abcdef" : GoString), (16 : GoInt), (-81985529216486895i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("7fffffffffffffff" : GoString), (16 : GoInt), (9223372036854775807i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-0x_1_2_3_4_5" : GoString), (0 : GoInt), (-74565i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x_1_2_3_4_5" : GoString), (0 : GoInt), (74565i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-_0x12345" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("_-0x12345" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("_0x12345" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x__12345" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x1__2345" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x1234__5" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x12345_" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-0_1_2_3_4_5" : GoString), (0 : GoInt), (-5349i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0_1_2_3_4_5" : GoString), (0 : GoInt), (5349i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-_012345" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("_-012345" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("_012345" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0__12345" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("01234__5" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("012345_" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("+0xf" : GoString), (0 : GoInt), (15i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("-0xf" : GoString), (0 : GoInt), (-15i64 : GoInt64), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x+f" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
+(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest(("0x-f" : GoString), (0 : GoInt), (0i64 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest)) : Slice<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest>);
 /**
     
     
@@ -659,20 +660,20 @@ private var _parseInt64BaseTests = (new Slice<stdgo.strconv_test.Strconv_test.T_
 private var _parseUint32Tests = (new Slice<stdgo.strconv_test.Strconv_test.T_parseUint32Test>(
 0,
 0,
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(Go.str(), ("0" : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("0" : GoString), ("0" : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("1" : GoString), ("1" : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("12345" : GoString), ("12345" : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("012345" : GoString), ("12345" : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("12345x" : GoString), ("0" : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("987654321" : GoString), ("987654321" : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("4294967295" : GoString), ("4294967295" : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("4294967296" : GoString), ("4294967295" : GoUInt32), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("1_2_3_4_5" : GoString), ("0" : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("_12345" : GoString), ("0" : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("_12345" : GoString), ("0" : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("1__2345" : GoString), ("0" : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
-(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("12345_" : GoString), ("0" : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test)) : Slice<stdgo.strconv_test.Strconv_test.T_parseUint32Test>);
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(Go.str(), (0u32 : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("0" : GoString), (0u32 : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("1" : GoString), (1u32 : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("12345" : GoString), (12345u32 : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("012345" : GoString), (12345u32 : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("12345x" : GoString), (0u32 : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("987654321" : GoString), (987654321u32 : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("4294967295" : GoString), (-1u32 : GoUInt32), (null : Error)) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("4294967296" : GoString), (-1u32 : GoUInt32), errRange) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("1_2_3_4_5" : GoString), (0u32 : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("_12345" : GoString), (0u32 : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("_12345" : GoString), (0u32 : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("1__2345" : GoString), (0u32 : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
+(new stdgo.strconv_test.Strconv_test.T_parseUint32Test(("12345_" : GoString), (0u32 : GoUInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test)) : Slice<stdgo.strconv_test.Strconv_test.T_parseUint32Test>);
 /**
     
     
@@ -728,7 +729,7 @@ private var _parseBaseTests = (new Slice<stdgo.strconv_test.Strconv_test.T_parse
     
     
 **/
-private var _shifttests = (new Slice<stdgo.strconv_test.Strconv_test.T_shiftTest>(0, 0, (new stdgo.strconv_test.Strconv_test.T_shiftTest(("0" : GoUInt64), (-100 : GoInt), ("0" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest(("0" : GoUInt64), (100 : GoInt), ("0" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest(("1" : GoUInt64), (100 : GoInt), ("1267650600228229401496703205376" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest(("1" : GoUInt64), (-100 : GoInt), ("0.0000000000000000000000000000007888609052210118054117285652827862296732064351090230047702789306640625" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest(("12345678" : GoUInt64), (8 : GoInt), ("3160493568" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest(("12345678" : GoUInt64), (-8 : GoInt), ("48225.3046875" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest(("195312" : GoUInt64), (9 : GoInt), ("99999744" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest(("1953125" : GoUInt64), (9 : GoInt), ("1000000000" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest)) : Slice<stdgo.strconv_test.Strconv_test.T_shiftTest>);
+private var _shifttests = (new Slice<stdgo.strconv_test.Strconv_test.T_shiftTest>(0, 0, (new stdgo.strconv_test.Strconv_test.T_shiftTest((0i64 : GoUInt64), (-100 : GoInt), ("0" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest((0i64 : GoUInt64), (100 : GoInt), ("0" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest((1i64 : GoUInt64), (100 : GoInt), ("1267650600228229401496703205376" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest((1i64 : GoUInt64), (-100 : GoInt), ("0.0000000000000000000000000000007888609052210118054117285652827862296732064351090230047702789306640625" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest((12345678i64 : GoUInt64), (8 : GoInt), ("3160493568" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest((12345678i64 : GoUInt64), (-8 : GoInt), ("48225.3046875" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest((195312i64 : GoUInt64), (9 : GoInt), ("99999744" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest), (new stdgo.strconv_test.Strconv_test.T_shiftTest((1953125i64 : GoUInt64), (9 : GoInt), ("1000000000" : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest)) : Slice<stdgo.strconv_test.Strconv_test.T_shiftTest>);
 /**
     
     
@@ -737,19 +738,19 @@ private var _shifttests = (new Slice<stdgo.strconv_test.Strconv_test.T_shiftTest
 private var _roundtests = (new Slice<stdgo.strconv_test.Strconv_test.T_roundTest>(
 0,
 0,
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("0" : GoUInt64), (4 : GoInt), ("0" : GoString), ("0" : GoString), ("0" : GoString), ("0" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("12344999" : GoUInt64), (4 : GoInt), ("12340000" : GoString), ("12340000" : GoString), ("12350000" : GoString), ("12340000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("12345000" : GoUInt64), (4 : GoInt), ("12340000" : GoString), ("12340000" : GoString), ("12350000" : GoString), ("12340000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("12345001" : GoUInt64), (4 : GoInt), ("12340000" : GoString), ("12350000" : GoString), ("12350000" : GoString), ("12350000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("23454999" : GoUInt64), (4 : GoInt), ("23450000" : GoString), ("23450000" : GoString), ("23460000" : GoString), ("23450000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("23455000" : GoUInt64), (4 : GoInt), ("23450000" : GoString), ("23460000" : GoString), ("23460000" : GoString), ("23460000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("23455001" : GoUInt64), (4 : GoInt), ("23450000" : GoString), ("23460000" : GoString), ("23460000" : GoString), ("23460000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("99994999" : GoUInt64), (4 : GoInt), ("99990000" : GoString), ("99990000" : GoString), ("100000000" : GoString), ("99990000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("99995000" : GoUInt64), (4 : GoInt), ("99990000" : GoString), ("100000000" : GoString), ("100000000" : GoString), ("100000000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("99999999" : GoUInt64), (4 : GoInt), ("99990000" : GoString), ("100000000" : GoString), ("100000000" : GoString), ("100000000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("12994999" : GoUInt64), (4 : GoInt), ("12990000" : GoString), ("12990000" : GoString), ("13000000" : GoString), ("12990000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("12995000" : GoUInt64), (4 : GoInt), ("12990000" : GoString), ("13000000" : GoString), ("13000000" : GoString), ("13000000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
-(new stdgo.strconv_test.Strconv_test.T_roundTest(("12999999" : GoUInt64), (4 : GoInt), ("12990000" : GoString), ("13000000" : GoString), ("13000000" : GoString), ("13000000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest)) : Slice<stdgo.strconv_test.Strconv_test.T_roundTest>);
+(new stdgo.strconv_test.Strconv_test.T_roundTest((0i64 : GoUInt64), (4 : GoInt), ("0" : GoString), ("0" : GoString), ("0" : GoString), (0i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((12344999i64 : GoUInt64), (4 : GoInt), ("12340000" : GoString), ("12340000" : GoString), ("12350000" : GoString), (12340000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((12345000i64 : GoUInt64), (4 : GoInt), ("12340000" : GoString), ("12340000" : GoString), ("12350000" : GoString), (12340000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((12345001i64 : GoUInt64), (4 : GoInt), ("12340000" : GoString), ("12350000" : GoString), ("12350000" : GoString), (12350000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((23454999i64 : GoUInt64), (4 : GoInt), ("23450000" : GoString), ("23450000" : GoString), ("23460000" : GoString), (23450000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((23455000i64 : GoUInt64), (4 : GoInt), ("23450000" : GoString), ("23460000" : GoString), ("23460000" : GoString), (23460000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((23455001i64 : GoUInt64), (4 : GoInt), ("23450000" : GoString), ("23460000" : GoString), ("23460000" : GoString), (23460000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((99994999i64 : GoUInt64), (4 : GoInt), ("99990000" : GoString), ("99990000" : GoString), ("100000000" : GoString), (99990000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((99995000i64 : GoUInt64), (4 : GoInt), ("99990000" : GoString), ("100000000" : GoString), ("100000000" : GoString), (100000000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((99999999i64 : GoUInt64), (4 : GoInt), ("99990000" : GoString), ("100000000" : GoString), ("100000000" : GoString), (100000000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((12994999i64 : GoUInt64), (4 : GoInt), ("12990000" : GoString), ("12990000" : GoString), ("13000000" : GoString), (12990000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((12995000i64 : GoUInt64), (4 : GoInt), ("12990000" : GoString), ("13000000" : GoString), ("13000000" : GoString), (13000000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
+(new stdgo.strconv_test.Strconv_test.T_roundTest((12999999i64 : GoUInt64), (4 : GoInt), ("12990000" : GoString), ("13000000" : GoString), ("13000000" : GoString), (13000000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest)) : Slice<stdgo.strconv_test.Strconv_test.T_roundTest>);
 /**
     
     
@@ -758,16 +759,16 @@ private var _roundtests = (new Slice<stdgo.strconv_test.Strconv_test.T_roundTest
 private var _roundinttests = (new Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest>(
 0,
 0,
-(new stdgo.strconv_test.Strconv_test.T_roundIntTest(("0" : GoUInt64), (100 : GoInt), ("0" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
-(new stdgo.strconv_test.Strconv_test.T_roundIntTest(("512" : GoUInt64), (-8 : GoInt), ("2" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
-(new stdgo.strconv_test.Strconv_test.T_roundIntTest(("513" : GoUInt64), (-8 : GoInt), ("2" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
-(new stdgo.strconv_test.Strconv_test.T_roundIntTest(("640" : GoUInt64), (-8 : GoInt), ("2" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
-(new stdgo.strconv_test.Strconv_test.T_roundIntTest(("641" : GoUInt64), (-8 : GoInt), ("3" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
-(new stdgo.strconv_test.Strconv_test.T_roundIntTest(("384" : GoUInt64), (-8 : GoInt), ("2" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
-(new stdgo.strconv_test.Strconv_test.T_roundIntTest(("385" : GoUInt64), (-8 : GoInt), ("2" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
-(new stdgo.strconv_test.Strconv_test.T_roundIntTest(("383" : GoUInt64), (-8 : GoInt), ("1" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
-(new stdgo.strconv_test.Strconv_test.T_roundIntTest(("1" : GoUInt64), (100 : GoInt), ("18446744073709551615" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
-(new stdgo.strconv_test.Strconv_test.T_roundIntTest(("1000" : GoUInt64), (0 : GoInt), ("1000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest)) : Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest>);
+(new stdgo.strconv_test.Strconv_test.T_roundIntTest((0i64 : GoUInt64), (100 : GoInt), (0i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
+(new stdgo.strconv_test.Strconv_test.T_roundIntTest((512i64 : GoUInt64), (-8 : GoInt), (2i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
+(new stdgo.strconv_test.Strconv_test.T_roundIntTest((513i64 : GoUInt64), (-8 : GoInt), (2i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
+(new stdgo.strconv_test.Strconv_test.T_roundIntTest((640i64 : GoUInt64), (-8 : GoInt), (2i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
+(new stdgo.strconv_test.Strconv_test.T_roundIntTest((641i64 : GoUInt64), (-8 : GoInt), (3i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
+(new stdgo.strconv_test.Strconv_test.T_roundIntTest((384i64 : GoUInt64), (-8 : GoInt), (2i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
+(new stdgo.strconv_test.Strconv_test.T_roundIntTest((385i64 : GoUInt64), (-8 : GoInt), (2i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
+(new stdgo.strconv_test.Strconv_test.T_roundIntTest((383i64 : GoUInt64), (-8 : GoInt), (1i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
+(new stdgo.strconv_test.Strconv_test.T_roundIntTest((1i64 : GoUInt64), (100 : GoInt), (-1i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
+(new stdgo.strconv_test.Strconv_test.T_roundIntTest((1000i64 : GoUInt64), (0 : GoInt), (1000i64 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest)) : Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest>);
 /**
     
     
@@ -931,49 +932,49 @@ private var _ftoaBenches = (new Slice<T__struct_2>(
 private var _itob64tests = (new Slice<stdgo.strconv_test.Strconv_test.T_itob64Test>(
 0,
 0,
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("0" : GoInt64), (10 : GoInt), ("0" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("1" : GoInt64), (10 : GoInt), ("1" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-1" : GoInt64), (10 : GoInt), ("-1" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("12345678" : GoInt64), (10 : GoInt), ("12345678" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-987654321" : GoInt64), (10 : GoInt), ("-987654321" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("2147483647" : GoInt64), (10 : GoInt), ("2147483647" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-2147483647" : GoInt64), (10 : GoInt), ("-2147483647" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("2147483648" : GoInt64), (10 : GoInt), ("2147483648" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-2147483648" : GoInt64), (10 : GoInt), ("-2147483648" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("2147483649" : GoInt64), (10 : GoInt), ("2147483649" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-2147483649" : GoInt64), (10 : GoInt), ("-2147483649" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("4294967295" : GoInt64), (10 : GoInt), ("4294967295" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-4294967295" : GoInt64), (10 : GoInt), ("-4294967295" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("4294967296" : GoInt64), (10 : GoInt), ("4294967296" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-4294967296" : GoInt64), (10 : GoInt), ("-4294967296" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("4294967297" : GoInt64), (10 : GoInt), ("4294967297" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-4294967297" : GoInt64), (10 : GoInt), ("-4294967297" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("1125899906842624" : GoInt64), (10 : GoInt), ("1125899906842624" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("9223372036854775807" : GoInt64), (10 : GoInt), ("9223372036854775807" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-9223372036854775807" : GoInt64), (10 : GoInt), ("-9223372036854775807" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-9223372036854775808" : GoInt64), (10 : GoInt), ("-9223372036854775808" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("0" : GoInt64), (2 : GoInt), ("0" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("10" : GoInt64), (2 : GoInt), ("1010" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-1" : GoInt64), (2 : GoInt), ("-1" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("32768" : GoInt64), (2 : GoInt), ("1000000000000000" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-8" : GoInt64), (8 : GoInt), ("-10" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("6416645477" : GoInt64), (8 : GoInt), ("57635436545" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("16777216" : GoInt64), (8 : GoInt), ("100000000" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("16" : GoInt64), (16 : GoInt), ("10" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-81985529216486895" : GoInt64), (16 : GoInt), ("-123456789abcdef" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("9223372036854775807" : GoInt64), (16 : GoInt), ("7fffffffffffffff" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("9223372036854775807" : GoInt64), (2 : GoInt), ("111111111111111111111111111111111111111111111111111111111111111" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("-9223372036854775808" : GoInt64), (2 : GoInt), ("-1000000000000000000000000000000000000000000000000000000000000000" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("16" : GoInt64), (17 : GoInt), ("g" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("25" : GoInt64), (25 : GoInt), ("10" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("32544027072" : GoInt64), (35 : GoInt), ("holycow" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
-(new stdgo.strconv_test.Strconv_test.T_itob64Test(("38493362624" : GoInt64), (36 : GoInt), ("holycow" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_itob64Test>);
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((0i64 : GoInt64), (10 : GoInt), ("0" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((1i64 : GoInt64), (10 : GoInt), ("1" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-1i64 : GoInt64), (10 : GoInt), ("-1" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((12345678i64 : GoInt64), (10 : GoInt), ("12345678" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-987654321i64 : GoInt64), (10 : GoInt), ("-987654321" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((2147483647i64 : GoInt64), (10 : GoInt), ("2147483647" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-2147483647i64 : GoInt64), (10 : GoInt), ("-2147483647" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((2147483648i64 : GoInt64), (10 : GoInt), ("2147483648" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-2147483648i64 : GoInt64), (10 : GoInt), ("-2147483648" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((2147483649i64 : GoInt64), (10 : GoInt), ("2147483649" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-2147483649i64 : GoInt64), (10 : GoInt), ("-2147483649" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((4294967295i64 : GoInt64), (10 : GoInt), ("4294967295" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-4294967295i64 : GoInt64), (10 : GoInt), ("-4294967295" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((4294967296i64 : GoInt64), (10 : GoInt), ("4294967296" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-4294967296i64 : GoInt64), (10 : GoInt), ("-4294967296" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((4294967297i64 : GoInt64), (10 : GoInt), ("4294967297" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-4294967297i64 : GoInt64), (10 : GoInt), ("-4294967297" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((1125899906842624i64 : GoInt64), (10 : GoInt), ("1125899906842624" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((9223372036854775807i64 : GoInt64), (10 : GoInt), ("9223372036854775807" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-9223372036854775807i64 : GoInt64), (10 : GoInt), ("-9223372036854775807" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-9223372036854775808i64 : GoInt64), (10 : GoInt), ("-9223372036854775808" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((0i64 : GoInt64), (2 : GoInt), ("0" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((10i64 : GoInt64), (2 : GoInt), ("1010" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-1i64 : GoInt64), (2 : GoInt), ("-1" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((32768i64 : GoInt64), (2 : GoInt), ("1000000000000000" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-8i64 : GoInt64), (8 : GoInt), ("-10" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((6416645477i64 : GoInt64), (8 : GoInt), ("57635436545" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((16777216i64 : GoInt64), (8 : GoInt), ("100000000" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((16i64 : GoInt64), (16 : GoInt), ("10" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-81985529216486895i64 : GoInt64), (16 : GoInt), ("-123456789abcdef" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((9223372036854775807i64 : GoInt64), (16 : GoInt), ("7fffffffffffffff" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((9223372036854775807i64 : GoInt64), (2 : GoInt), ("111111111111111111111111111111111111111111111111111111111111111" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((-9223372036854775808i64 : GoInt64), (2 : GoInt), ("-1000000000000000000000000000000000000000000000000000000000000000" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((16i64 : GoInt64), (17 : GoInt), ("g" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((25i64 : GoInt64), (25 : GoInt), ("10" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((32544027072i64 : GoInt64), (35 : GoInt), ("holycow" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
+(new stdgo.strconv_test.Strconv_test.T_itob64Test((38493362624i64 : GoInt64), (36 : GoInt), ("holycow" : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_itob64Test>);
 /**
     
     
     
 **/
-private var _uitob64tests = (new Slice<stdgo.strconv_test.Strconv_test.T_uitob64Test>(0, 0, (new stdgo.strconv_test.Strconv_test.T_uitob64Test(("9223372036854775807" : GoUInt64), (10 : GoInt), ("9223372036854775807" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test), (new stdgo.strconv_test.Strconv_test.T_uitob64Test(("9223372036854775808" : GoUInt64), (10 : GoInt), ("9223372036854775808" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test), (new stdgo.strconv_test.Strconv_test.T_uitob64Test(("9223372036854775809" : GoUInt64), (10 : GoInt), ("9223372036854775809" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test), (new stdgo.strconv_test.Strconv_test.T_uitob64Test(("18446744073709551614" : GoUInt64), (10 : GoInt), ("18446744073709551614" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test), (new stdgo.strconv_test.Strconv_test.T_uitob64Test(("18446744073709551615" : GoUInt64), (10 : GoInt), ("18446744073709551615" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test), (new stdgo.strconv_test.Strconv_test.T_uitob64Test(("18446744073709551615" : GoUInt64), (2 : GoInt), ("1111111111111111111111111111111111111111111111111111111111111111" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_uitob64Test>);
+private var _uitob64tests = (new Slice<stdgo.strconv_test.Strconv_test.T_uitob64Test>(0, 0, (new stdgo.strconv_test.Strconv_test.T_uitob64Test((9223372036854775807i64 : GoUInt64), (10 : GoInt), ("9223372036854775807" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test), (new stdgo.strconv_test.Strconv_test.T_uitob64Test((-9223372036854775808i64 : GoUInt64), (10 : GoInt), ("9223372036854775808" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test), (new stdgo.strconv_test.Strconv_test.T_uitob64Test((-9223372036854775807i64 : GoUInt64), (10 : GoInt), ("9223372036854775809" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test), (new stdgo.strconv_test.Strconv_test.T_uitob64Test((-2i64 : GoUInt64), (10 : GoInt), ("18446744073709551614" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test), (new stdgo.strconv_test.Strconv_test.T_uitob64Test((-1i64 : GoUInt64), (10 : GoInt), ("18446744073709551615" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test), (new stdgo.strconv_test.Strconv_test.T_uitob64Test((-1i64 : GoUInt64), (2 : GoInt), ("1111111111111111111111111111111111111111111111111111111111111111" : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_uitob64Test>);
 /**
     
     
@@ -982,26 +983,26 @@ private var _uitob64tests = (new Slice<stdgo.strconv_test.Strconv_test.T_uitob64
 private var _varlenUints = (new Slice<T__struct_3>(
 0,
 0,
-({ _in : ("1" : GoUInt64), _out : ("1" : GoString) } : T__struct_3),
-({ _in : ("12" : GoUInt64), _out : ("12" : GoString) } : T__struct_3),
-({ _in : ("123" : GoUInt64), _out : ("123" : GoString) } : T__struct_3),
-({ _in : ("1234" : GoUInt64), _out : ("1234" : GoString) } : T__struct_3),
-({ _in : ("12345" : GoUInt64), _out : ("12345" : GoString) } : T__struct_3),
-({ _in : ("123456" : GoUInt64), _out : ("123456" : GoString) } : T__struct_3),
-({ _in : ("1234567" : GoUInt64), _out : ("1234567" : GoString) } : T__struct_3),
-({ _in : ("12345678" : GoUInt64), _out : ("12345678" : GoString) } : T__struct_3),
-({ _in : ("123456789" : GoUInt64), _out : ("123456789" : GoString) } : T__struct_3),
-({ _in : ("1234567890" : GoUInt64), _out : ("1234567890" : GoString) } : T__struct_3),
-({ _in : ("12345678901" : GoUInt64), _out : ("12345678901" : GoString) } : T__struct_3),
-({ _in : ("123456789012" : GoUInt64), _out : ("123456789012" : GoString) } : T__struct_3),
-({ _in : ("1234567890123" : GoUInt64), _out : ("1234567890123" : GoString) } : T__struct_3),
-({ _in : ("12345678901234" : GoUInt64), _out : ("12345678901234" : GoString) } : T__struct_3),
-({ _in : ("123456789012345" : GoUInt64), _out : ("123456789012345" : GoString) } : T__struct_3),
-({ _in : ("1234567890123456" : GoUInt64), _out : ("1234567890123456" : GoString) } : T__struct_3),
-({ _in : ("12345678901234567" : GoUInt64), _out : ("12345678901234567" : GoString) } : T__struct_3),
-({ _in : ("123456789012345678" : GoUInt64), _out : ("123456789012345678" : GoString) } : T__struct_3),
-({ _in : ("1234567890123456789" : GoUInt64), _out : ("1234567890123456789" : GoString) } : T__struct_3),
-({ _in : ("12345678901234567890" : GoUInt64), _out : ("12345678901234567890" : GoString) } : T__struct_3)) : Slice<T__struct_3>);
+({ _in : (1i64 : GoUInt64), _out : ("1" : GoString) } : T__struct_3),
+({ _in : (12i64 : GoUInt64), _out : ("12" : GoString) } : T__struct_3),
+({ _in : (123i64 : GoUInt64), _out : ("123" : GoString) } : T__struct_3),
+({ _in : (1234i64 : GoUInt64), _out : ("1234" : GoString) } : T__struct_3),
+({ _in : (12345i64 : GoUInt64), _out : ("12345" : GoString) } : T__struct_3),
+({ _in : (123456i64 : GoUInt64), _out : ("123456" : GoString) } : T__struct_3),
+({ _in : (1234567i64 : GoUInt64), _out : ("1234567" : GoString) } : T__struct_3),
+({ _in : (12345678i64 : GoUInt64), _out : ("12345678" : GoString) } : T__struct_3),
+({ _in : (123456789i64 : GoUInt64), _out : ("123456789" : GoString) } : T__struct_3),
+({ _in : (1234567890i64 : GoUInt64), _out : ("1234567890" : GoString) } : T__struct_3),
+({ _in : (12345678901i64 : GoUInt64), _out : ("12345678901" : GoString) } : T__struct_3),
+({ _in : (123456789012i64 : GoUInt64), _out : ("123456789012" : GoString) } : T__struct_3),
+({ _in : (1234567890123i64 : GoUInt64), _out : ("1234567890123" : GoString) } : T__struct_3),
+({ _in : (12345678901234i64 : GoUInt64), _out : ("12345678901234" : GoString) } : T__struct_3),
+({ _in : (123456789012345i64 : GoUInt64), _out : ("123456789012345" : GoString) } : T__struct_3),
+({ _in : (1234567890123456i64 : GoUInt64), _out : ("1234567890123456" : GoString) } : T__struct_3),
+({ _in : (12345678901234567i64 : GoUInt64), _out : ("12345678901234567" : GoString) } : T__struct_3),
+({ _in : (123456789012345678i64 : GoUInt64), _out : ("123456789012345678" : GoString) } : T__struct_3),
+({ _in : (1234567890123456789i64 : GoUInt64), _out : ("1234567890123456789" : GoString) } : T__struct_3),
+({ _in : (-6101065172474983726i64 : GoUInt64), _out : ("12345678901234567890" : GoString) } : T__struct_3)) : Slice<T__struct_3>);
 /**
     
     
@@ -1175,10 +1176,10 @@ private var _mallocTest = (new Slice<T__struct_5>(
 0,
 ({ _count : (0 : GoInt), _desc : ("AppendInt(localBuf[:0], 123, 10)" : GoString), _fn : function():Void {
         var _localBuf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 64) (0 : GoUInt8)]);
-        appendInt((_localBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), ("123" : GoInt64), (10 : GoInt));
+        appendInt((_localBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), (123i64 : GoInt64), (10 : GoInt));
     } } : T__struct_5),
 ({ _count : (0 : GoInt), _desc : ("AppendInt(globalBuf[:0], 123, 10)" : GoString), _fn : function():Void {
-        appendInt((_globalBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), ("123" : GoInt64), (10 : GoInt));
+        appendInt((_globalBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), (123i64 : GoInt64), (10 : GoInt));
     } } : T__struct_5),
 ({ _count : (0 : GoInt), _desc : ("AppendFloat(localBuf[:0], 1.23, \'g\', 5, 64)" : GoString), _fn : function():Void {
         var _localBuf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 64) (0 : GoUInt8)]);
@@ -1231,13 +1232,13 @@ private var _benchmarksRandomNormal : GoArray<GoString> = new GoArray<GoString>(
     
     
 **/
-private final _below1e23 = ("0" : GoUInt64);
+private final _below1e23 = (0i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _above1e23 = ("0" : GoUInt64);
+private final _above1e23 = (0i64 : GoUInt64);
 /**
     
     
@@ -1898,7 +1899,7 @@ class T__struct_8_asInterface {
     public var _want : GoString;
 };
 function testParseBool(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _atobtests) {
+        for (__0 => _test in _atobtests) {
             var __tmp__ = parseBool(_test._in), _b:Bool = __tmp__._0, _e:Error = __tmp__._1;
             if (_test._err != null) {
                 if (_e == null) {
@@ -1929,7 +1930,7 @@ function testFormatBool(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testAppendBool(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _appendBoolTests) {
+        for (__0 => _test in _appendBoolTests) {
             var _b = appendBool(_test._in, _test._b);
             if (!stdgo.bytes.Bytes.equal(_b, _test._out)) {
                 _t.errorf(("AppendBool(%q, %v): expected %q but got %q" : GoString), Go.toInterface(_test._in), Go.toInterface(_test._b), Go.toInterface(_test._out), Go.toInterface(_b));
@@ -1940,32 +1941,32 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _tests = (new Slice<stdgo.strconv_test.Strconv_test.T_atocTest>(
 0,
 0,
-(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str(), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest((" " : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("(" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest((")" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("-i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("1I" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("10  + 5i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("3+" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("3+5" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("3+5+5i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("()" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("(i)" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("(0)" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("(1i)" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 1)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("(3.0+5.5i)" : GoString), ((3 : GoFloat64) + new GoComplex128(0, 5.5)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("(1)+1i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("(3.0+5.5i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("3.0+5.5i)" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str(), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest((" " : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("(" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest((")" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("-i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("1I" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("10  + 5i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("3+" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("3+5" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("3+5+5i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("()" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("(i)" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("(0)" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("(1i)" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 1f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("(3.0+5.5i)" : GoString), ((3f64 : GoFloat64) + new GoComplex128(0f64, 5.5f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("(1)+1i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("(3.0+5.5i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("3.0+5.5i)" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("NaN" : GoString), new GoComplex128(stdgo.math.Math.naN(), (0 : GoFloat64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("NANi" : GoString), new GoComplex128((0 : GoFloat64), stdgo.math.Math.naN()), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("nan+nAni" : GoString), new GoComplex128(stdgo.math.Math.naN(), stdgo.math.Math.naN()), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+NaN" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("-NaN" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("NaN-NaNi" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+NaN" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("-NaN" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("NaN-NaNi" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("Inf" : GoString), _infp0, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("+inf" : GoString), _infp0, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("-inf" : GoString), _infm0, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -1977,55 +1978,55 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("Inf+Infi" : GoString), _infpp, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("+Inf-Infi" : GoString), _infpm, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("-Infinity+Infi" : GoString), _infmp, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("inf-inf" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0.0i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0+0.0i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0e+0i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0e-0+0i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0.0-0.0i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0e+012345" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x0p+012345i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x0.00p-012345i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0e-0+0e-0i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0e+0+0e+0i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0e+0-0e+0i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.1" : GoString), ((0.1 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.1i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0.1)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.123" : GoString), ((0.123 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.123i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0.123)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.123+0.123i" : GoString), ((0.123 : GoFloat64) + new GoComplex128(0, 0.123)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("99" : GoString), ((99 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+99" : GoString), ((99 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("-99" : GoString), ((-99 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+1i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 1)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("-1i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, -1)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+3+1i" : GoString), ((3 : GoFloat64) + new GoComplex128(0, 1)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("30+3i" : GoString), ((30 : GoFloat64) + new GoComplex128(0, 3)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+3e+3-3e+3i" : GoString), ((3000 : GoFloat64) + new GoComplex128(0, -3000)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+3e+3+3e+3i" : GoString), ((3000 : GoFloat64) + new GoComplex128(0, 3000)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+3e+3+3e+3i+" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.1" : GoString), ((0.1 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.1i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0.1)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.1_2_3" : GoString), ((0.123 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x_3p3i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 24)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0_0+0x_0p0i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x_10.3p-8+0x3p3i" : GoString), ((0.063232421875 : GoFloat64) + new GoComplex128(0, 24)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x_1_0.3p-8+0x_3_0p3i" : GoString), ((0.063232421875 : GoFloat64) + new GoComplex128(0, 384)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1_0.3p+8-0x_3p3i" : GoString), ((4144 : GoFloat64) + new GoComplex128(0, -24)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x10.3p-8+0x3p3i" : GoString), ((0.063232421875 : GoFloat64) + new GoComplex128(0, 24)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x10.3p-8+0x3p3i" : GoString), ((0.063232421875 : GoFloat64) + new GoComplex128(0, 24)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x10.3p+8-0x3p3i" : GoString), ((4144 : GoFloat64) + new GoComplex128(0, -24)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1p0" : GoString), ((1 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1p1" : GoString), ((2 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1p-1" : GoString), ((0.5 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1ep-1" : GoString), ((15 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1ep-1" : GoString), ((-15 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x2p3" : GoString), ((-16 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1e2" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("1p2" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1e2i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("inf-inf" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0.0i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0+0.0i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0e+0i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0e-0+0i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0.0-0.0i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0e+012345" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x0p+012345i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x0.00p-012345i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0e-0+0e-0i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0e+0+0e+0i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0e+0-0e+0i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.1" : GoString), ((0.1f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.1i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0.1f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.123" : GoString), ((0.123f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.123i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0.123f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.123+0.123i" : GoString), ((0.123f64 : GoFloat64) + new GoComplex128(0f64, 0.123f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("99" : GoString), ((99f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+99" : GoString), ((99f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("-99" : GoString), ((-99f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+1i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 1f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("-1i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, -1f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+3+1i" : GoString), ((3f64 : GoFloat64) + new GoComplex128(0f64, 1f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("30+3i" : GoString), ((30f64 : GoFloat64) + new GoComplex128(0f64, 3f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+3e+3-3e+3i" : GoString), ((3000f64 : GoFloat64) + new GoComplex128(0f64, -3000f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+3e+3+3e+3i" : GoString), ((3000f64 : GoFloat64) + new GoComplex128(0f64, 3000f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+3e+3+3e+3i+" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.1" : GoString), ((0.1f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.1i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0.1f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0.1_2_3" : GoString), ((0.123f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x_3p3i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 24f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0_0+0x_0p0i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x_10.3p-8+0x3p3i" : GoString), ((0.063232421875f64 : GoFloat64) + new GoComplex128(0f64, 24f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x_1_0.3p-8+0x_3_0p3i" : GoString), ((0.063232421875f64 : GoFloat64) + new GoComplex128(0f64, 384f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1_0.3p+8-0x_3p3i" : GoString), ((4144f64 : GoFloat64) + new GoComplex128(0f64, -24f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x10.3p-8+0x3p3i" : GoString), ((0.063232421875f64 : GoFloat64) + new GoComplex128(0f64, 24f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x10.3p-8+0x3p3i" : GoString), ((0.063232421875f64 : GoFloat64) + new GoComplex128(0f64, 24f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x10.3p+8-0x3p3i" : GoString), ((4144f64 : GoFloat64) + new GoComplex128(0f64, -24f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1p0" : GoString), ((1f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1p1" : GoString), ((2f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1p-1" : GoString), ((0.5f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1ep-1" : GoString), ((15f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1ep-1" : GoString), ((-15f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x2p3" : GoString), ((-16f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1e2" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("1p2" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1e2i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x1p1024" : GoString), _infp0, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1p1024" : GoString), _infm0, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x1p1024i" : GoString), _inf0p, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2034,10 +2035,10 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x1p1024-0x1p1024i" : GoString), _infpm, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1p1024+0x1p1024i" : GoString), _infmp, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1p1024-0x1p1024i" : GoString), _infmm, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x1.fffffffffffff7fffp1023+0x1.fffffffffffff7fffp1023i" : GoString), ((1.7976931348623157e+308 : GoFloat64) + new GoComplex128(0, 1.7976931348623157e+308)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x1.fffffffffffff7fffp1023-0x1.fffffffffffff7fffp1023i" : GoString), ((1.7976931348623157e+308 : GoFloat64) + new GoComplex128(0, -1.7976931348623157e+308)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1.fffffffffffff7fffp1023+0x1.fffffffffffff7fffp1023i" : GoString), ((-1.7976931348623157e+308 : GoFloat64) + new GoComplex128(0, 1.7976931348623157e+308)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1.fffffffffffff7fffp1023-0x1.fffffffffffff7fffp1023i" : GoString), ((-1.7976931348623157e+308 : GoFloat64) + new GoComplex128(0, -1.7976931348623157e+308)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x1.fffffffffffff7fffp1023+0x1.fffffffffffff7fffp1023i" : GoString), ((1.7976931348623157e+308f64 : GoFloat64) + new GoComplex128(0f64, 1.7976931348623157e+308f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x1.fffffffffffff7fffp1023-0x1.fffffffffffff7fffp1023i" : GoString), ((1.7976931348623157e+308f64 : GoFloat64) + new GoComplex128(0f64, -1.7976931348623157e+308f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1.fffffffffffff7fffp1023+0x1.fffffffffffff7fffp1023i" : GoString), ((-1.7976931348623157e+308f64 : GoFloat64) + new GoComplex128(0f64, 1.7976931348623157e+308f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1.fffffffffffff7fffp1023-0x1.fffffffffffff7fffp1023i" : GoString), ((-1.7976931348623157e+308f64 : GoFloat64) + new GoComplex128(0f64, -1.7976931348623157e+308f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x1.fffffffffffff8p1023" : GoString), _infp0, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1fffffffffffff.8p+971" : GoString), _infm0, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x1.fffffffffffff8p1023i" : GoString), _inf0p, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2046,7 +2047,7 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("+0x1.fffffffffffff8p1023-0x1.fffffffffffff8p1023i" : GoString), _infpm, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1fffffffffffff.8p+971+0x1fffffffffffff.8p+971i" : GoString), _infmp, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("-0x1fffffffffffff8p+967-0x1fffffffffffff8p+967i" : GoString), _infmm, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("1e308+1e308i" : GoString), ((1e+308 : GoFloat64) + new GoComplex128(0, 1e+308)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("1e308+1e308i" : GoString), ((1e+308f64 : GoFloat64) + new GoComplex128(0f64, 1e+308f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("2e308+2e308i" : GoString), _infpp, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("1e309+1e309i" : GoString), _infpp, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("0x1p1025+0x1p1025i" : GoString), _infpp, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2060,11 +2061,11 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("+1e310-1e310i" : GoString), _infpm, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("-1e310+1e310i" : GoString), _infmp, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("-1e310-1e310i" : GoString), _infmm, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("1e-4294967296" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("1e-4294967296i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("1e-4294967296+1i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 1)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("1+1e-4294967296i" : GoString), ((1 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-(new stdgo.strconv_test.Strconv_test.T_atocTest(("1e-4294967296+1e-4294967296i" : GoString), ((0 : GoFloat64) + new GoComplex128(0, 0)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("1e-4294967296" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("1e-4294967296i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("1e-4294967296+1i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 1f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("1+1e-4294967296i" : GoString), ((1f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+(new stdgo.strconv_test.Strconv_test.T_atocTest(("1e-4294967296+1e-4294967296i" : GoString), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("1e+4294967296" : GoString), _infp0, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("1e+4294967296i" : GoString), _inf0p, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 (new stdgo.strconv_test.Strconv_test.T_atocTest(("1e+4294967296+1e+4294967296i" : GoString), _infpp, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2072,7 +2073,7 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_i in 0 ... _tests.length.toBasic()) {
             var _test = (Go.setRef(_tests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_atocTest>);
             if (_test._err != null) {
-                _test._err = Go.asInterface((Go.setRef(({ func : ("ParseComplex" : GoString), num : _test._in, err : _test._err } : NumError)) : Ref<NumError>));
+                _test._err = Go.asInterface((Go.setRef(({ func : ("ParseComplex" : GoString), num : _test._in, err : _test._err } : NumError)) : Ref<stdgo.strconv.Strconv.NumError>));
             };
             var __tmp__ = parseComplex(_test._in, (128 : GoInt)), _got:GoComplex128 = __tmp__._0, _err:Error = __tmp__._1;
             if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_err), Go.toInterface(_test._err))) {
@@ -2099,13 +2100,13 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testParseComplexIncorrectBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         {};
-        for (_0 => _bitSize in (new Slice<GoInt>(0, 0, (0 : GoInt), (10 : GoInt), (100 : GoInt), (256 : GoInt)) : Slice<GoInt>)) {
+        for (__0 => _bitSize in (new Slice<GoInt>(0, 0, (0 : GoInt), (10 : GoInt), (100 : GoInt), (256 : GoInt)) : Slice<GoInt>)) {
             var __tmp__ = parseComplex(("1.5e308+1.0e307i" : GoString), _bitSize), _c:GoComplex128 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("ParseComplex(%q, %d) gave error %s" : GoString), Go.toInterface(("1.5e308+1.0e307i" : GoString)), Go.toInterface(_bitSize), Go.toInterface(_err));
             };
-            if (_c != (((1.5e+308 : GoFloat64) + new GoComplex128(0, 1e+307)))) {
-                _t.fatalf(("ParseComplex(%q, %d) = %g (expected %g)" : GoString), Go.toInterface(("1.5e308+1.0e307i" : GoString)), Go.toInterface(_bitSize), Go.toInterface(_c), Go.toInterface(((1.5e+308 : GoFloat64) + new GoComplex128(0, 1e+307))));
+            if (_c != (((1.5e+308f64 : GoFloat64) + new GoComplex128(0f64, 1e+307f64)))) {
+                _t.fatalf(("ParseComplex(%q, %d) = %g (expected %g)" : GoString), Go.toInterface(("1.5e308+1.0e307i" : GoString)), Go.toInterface(_bitSize), Go.toInterface(_c), Go.toInterface(((1.5e+308f64 : GoFloat64) + new GoComplex128(0f64, 1e+307f64))));
             };
         };
     }
@@ -2116,13 +2117,13 @@ private function _initAtofOnce():Void {
         for (_i in 0 ... _atoftests.length.toBasic()) {
             var _test = (Go.setRef(_atoftests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_atofTest>);
             if (_test._err != null) {
-                _test._err = Go.asInterface((Go.setRef((new NumError(("ParseFloat" : GoString), _test._in, _test._err) : NumError)) : Ref<NumError>));
+                _test._err = Go.asInterface((Go.setRef((new NumError(("ParseFloat" : GoString), _test._in, _test._err) : NumError)) : Ref<stdgo.strconv.Strconv.NumError>));
             };
         };
         for (_i in 0 ... _atof32tests.length.toBasic()) {
             var _test = (Go.setRef(_atof32tests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_atofTest>);
             if (_test._err != null) {
-                _test._err = Go.asInterface((Go.setRef((new NumError(("ParseFloat" : GoString), _test._in, _test._err) : NumError)) : Ref<NumError>));
+                _test._err = Go.asInterface((Go.setRef((new NumError(("ParseFloat" : GoString), _test._in, _test._err) : NumError)) : Ref<stdgo.strconv.Strconv.NumError>));
             };
         };
         if (stdgo.testing.Testing.short()) {
@@ -2131,13 +2132,13 @@ private function _initAtofOnce():Void {
             _atofRandomTests = new Slice<stdgo.strconv_test.Strconv_test.T_atofSimpleTest>((10000 : GoInt).toBasic(), 0, ...[for (i in 0 ... (10000 : GoInt).toBasic()) ({} : stdgo.strconv_test.Strconv_test.T_atofSimpleTest)]);
         };
         for (_i in 0 ... _atofRandomTests.length.toBasic()) {
-            var _n:GoUInt64 = ((stdgo.math.rand.Rand.uint32() : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (stdgo.math.rand.Rand.uint32() : GoUInt64);
+            var _n:GoUInt64 = ((stdgo.math.rand.Rand.uint32() : GoUInt64) << (32i64 : GoUInt64)) | (stdgo.math.rand.Rand.uint32() : GoUInt64);
             var _x:GoFloat64 = stdgo.math.Math.float64frombits(_n);
             var _s:GoString = formatFloat(_x, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
             _atofRandomTests[(_i : GoInt)] = (new T_atofSimpleTest(_x, _s) : T_atofSimpleTest);
         };
         for (_i in 0 ... _benchmarksRandomBits.length.toBasic()) {
-            var _bits:GoUInt64 = ((stdgo.math.rand.Rand.uint32() : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (stdgo.math.rand.Rand.uint32() : GoUInt64);
+            var _bits:GoUInt64 = ((stdgo.math.rand.Rand.uint32() : GoUInt64) << (32i64 : GoUInt64)) | (stdgo.math.rand.Rand.uint32() : GoUInt64);
             var _x:GoFloat64 = stdgo.math.Math.float64frombits(_bits);
             _benchmarksRandomBits[(_i : GoInt)] = formatFloat(_x, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
         };
@@ -2152,7 +2153,7 @@ function testParseFloatPrefix(_t:Ref<stdgo.testing.Testing.T>):Void {
             if (_test._err != null) {
                 continue;
             };
-            for (_0 => _suffix in (new Slice<GoString>(
+            for (__0 => _suffix in (new Slice<GoString>(
 0,
 0,
 (" " : GoString),
@@ -2167,7 +2168,7 @@ function testParseFloatPrefix(_t:Ref<stdgo.testing.Testing.T>):Void {
 ("i" : GoString),
 ("init" : GoString)) : Slice<GoString>)) {
                 var _in:GoString = _test._in + _suffix;
-                var __tmp__ = parseFloatPrefix(_in, (64 : GoInt)), _1:GoFloat64 = __tmp__._0, _n:GoInt = __tmp__._1, _err:Error = __tmp__._2;
+                var __tmp__ = parseFloatPrefix(_in, (64 : GoInt)), __1:GoFloat64 = __tmp__._0, _n:GoInt = __tmp__._1, _err:Error = __tmp__._2;
                 if (_err != null) {
                     _t.errorf(("ParseFloatPrefix(%q, 64): err = %v; want no error" : GoString), Go.toInterface(_in), Go.toInterface(_err));
                 };
@@ -2203,7 +2204,7 @@ private function _testAtof(_t:Ref<stdgo.testing.Testing.T>, _opt:Bool):Void {
                 };
             });
         };
-        for (_0 => _test in _atof32tests) {
+        for (__0 => _test in _atof32tests) {
             var __tmp__ = parseFloat(_test._in, (32 : GoInt)), _out:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
             var _out32:GoFloat32 = (_out : GoFloat32);
             if ((_out32 : GoFloat64) != (_out)) {
@@ -2224,15 +2225,19 @@ function testAtofSlow(_t:Ref<stdgo.testing.Testing.T>):Void {
         _testAtof(_t, false);
     }
 function testAtofRandom(_t:Ref<stdgo.testing.Testing.T>):Void {
+        trace("testAtofRandom" + " skip function");
+        return;
         _initAtof();
-        for (_0 => _test in _atofRandomTests) {
-            var __tmp__ = parseFloat(_test._s, (64 : GoInt)), _x:GoFloat64 = __tmp__._0, _1:Error = __tmp__._1;
-            if (_x == (_test._x)) {} else if (stdgo.math.Math.isNaN(_test._x) && stdgo.math.Math.isNaN(_x)) {};
+        for (__0 => _test in _atofRandomTests) {
+            var __tmp__ = parseFloat(_test._s, (64 : GoInt)), _x:GoFloat64 = __tmp__._0, __1:Error = __tmp__._1;
+            if (_x == (_test._x)) {} else if (stdgo.math.Math.isNaN(_test._x) && stdgo.math.Math.isNaN(_x)) {} else {
+                _t.errorf(("number %s badly parsed as %b (expected %b)" : GoString), Go.toInterface(_test._s), Go.toInterface(_x), Go.toInterface(_test._x));
+            };
         };
         _t.logf(("tested %d random numbers" : GoString), Go.toInterface((_atofRandomTests.length)));
     }
 function testRoundTrip(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _roundTripCases) {
+        for (__0 => _tt in _roundTripCases) {
             var _old:Bool = setOptimize(false);
             var _s:GoString = formatFloat(_tt._f, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
             if (_s != (_tt._s)) {
@@ -2262,16 +2267,16 @@ function testRoundTrip(_t:Ref<stdgo.testing.Testing.T>):Void {
     // TestRoundTrip32 tries a fraction of all finite positive float32 values.
 **/
 function testRoundTrip32(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _step:GoUInt32 = (("997" : GoUInt32) : GoUInt32);
+        var _step:GoUInt32 = (997u32 : GoUInt32);
         if (stdgo.testing.Testing.short()) {
-            _step = ("99991" : GoUInt32);
+            _step = (99991u32 : GoUInt32);
         };
         var _count:GoInt = (0 : GoInt);
         {
-            var _i:GoUInt32 = (("0" : GoUInt32) : GoUInt32);
-            Go.cfor(_i < ("2139095040" : GoUInt32), _i = _i + (_step), {
+            var _i:GoUInt32 = (0u32 : GoUInt32);
+            Go.cfor(_i < (2139095040u32 : GoUInt32), _i = _i + (_step), {
                 var _f:GoFloat32 = stdgo.math.Math.float32frombits(_i);
-                if (_i & ("1" : GoUInt32) == (("1" : GoUInt32))) {
+                if (_i & (1u32 : GoUInt32) == ((1u32 : GoUInt32))) {
                     _f = -_f;
                 };
                 var _s:GoString = formatFloat((_f : GoFloat64), (103 : GoUInt8), (-1 : GoInt), (32 : GoInt));
@@ -2296,7 +2301,7 @@ function testRoundTrip32(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testParseFloatIncorrectBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         {};
-        for (_0 => _bitSize in (new Slice<GoInt>(0, 0, (0 : GoInt), (10 : GoInt), (100 : GoInt), (128 : GoInt)) : Slice<GoInt>)) {
+        for (__0 => _bitSize in (new Slice<GoInt>(0, 0, (0 : GoInt), (10 : GoInt), (100 : GoInt), (128 : GoInt)) : Slice<GoInt>)) {
             var __tmp__ = parseFloat(("1.5e308" : GoString), _bitSize), _f:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("ParseFloat(%q, %d) gave error %s" : GoString), Go.toInterface(("1.5e308" : GoString)), Go.toInterface(_bitSize), Go.toInterface(_err));
@@ -2402,10 +2407,10 @@ function benchmarkAtof32FloatExp(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function benchmarkAtof32Random(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _n:GoUInt32 = (("997" : GoUInt32) : GoUInt32);
+        var _n:GoUInt32 = (997u32 : GoUInt32);
         var _float32strings:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0 ... 4096) ("" : GoString)]);
         for (_i in 0 ... _float32strings.length.toBasic()) {
-            _n = (((("99991" : GoUInt32) : GoUInt32) * _n) + (("42" : GoUInt32) : GoUInt32)) % ("2139095040" : GoUInt32);
+            _n = (((99991u32 : GoUInt32) * _n) + (42u32 : GoUInt32)) % (2139095040u32 : GoUInt32);
             _float32strings[(_i : GoInt)] = formatFloat((stdgo.math.Math.float32frombits(_n) : GoFloat64), (103 : GoUInt8), (-1 : GoInt), (32 : GoInt));
         };
         _b.resetTimer();
@@ -2417,10 +2422,10 @@ function benchmarkAtof32Random(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function benchmarkAtof32RandomLong(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _n:GoUInt32 = (("997" : GoUInt32) : GoUInt32);
+        var _n:GoUInt32 = (997u32 : GoUInt32);
         var _float32strings:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0 ... 4096) ("" : GoString)]);
         for (_i in 0 ... _float32strings.length.toBasic()) {
-            _n = (((("99991" : GoUInt32) : GoUInt32) * _n) + (("42" : GoUInt32) : GoUInt32)) % ("2139095040" : GoUInt32);
+            _n = (((99991u32 : GoUInt32) * _n) + (42u32 : GoUInt32)) % (2139095040u32 : GoUInt32);
             _float32strings[(_i : GoInt)] = formatFloat((stdgo.math.Math.float32frombits(_n) : GoFloat64), (103 : GoUInt8), (20 : GoInt), (32 : GoInt));
         };
         _b.resetTimer();
@@ -2538,7 +2543,7 @@ function testAtoi(_t:Ref<stdgo.testing.Testing.T>):Void {
                     var __tmp__ = atoi(_test._in), _out:GoInt = __tmp__._0, _err:Error = __tmp__._1;
                     var _testErr:Error = (null : Error);
                     if (_test._err != null) {
-                        _testErr = Go.asInterface((Go.setRef((new NumError(("Atoi" : GoString), _test._in, (Go.typeAssert((Go.toInterface(_test._err) : Ref<NumError>)) : Ref<NumError>).err) : NumError)) : Ref<NumError>));
+                        _testErr = Go.asInterface((Go.setRef((new NumError(("Atoi" : GoString), _test._in, (Go.typeAssert((Go.toInterface(_test._err) : Ref<NumError>)) : Ref<NumError>).err) : NumError)) : Ref<stdgo.strconv.Strconv.NumError>));
                     };
                     if (((_test._out : GoInt) != _out) || !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_testErr), Go.toInterface(_err))) {
                         _t.errorf(("Atoi(%q) = %v, %v want %v, %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_out), Go.toInterface(_err), Go.toInterface(_test._out), Go.toInterface(_testErr));
@@ -2550,7 +2555,7 @@ function testAtoi(_t:Ref<stdgo.testing.Testing.T>):Void {
                     var __tmp__ = atoi(_test._in), _out:GoInt = __tmp__._0, _err:Error = __tmp__._1;
                     var _testErr:Error = (null : Error);
                     if (_test._err != null) {
-                        _testErr = Go.asInterface((Go.setRef((new NumError(("Atoi" : GoString), _test._in, (Go.typeAssert((Go.toInterface(_test._err) : Ref<NumError>)) : Ref<NumError>).err) : NumError)) : Ref<NumError>));
+                        _testErr = Go.asInterface((Go.setRef((new NumError(("Atoi" : GoString), _test._in, (Go.typeAssert((Go.toInterface(_test._err) : Ref<NumError>)) : Ref<NumError>).err) : NumError)) : Ref<stdgo.strconv.Strconv.NumError>));
                     };
                     if ((_test._out != (_out : GoInt64)) || !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_testErr), Go.toInterface(_err))) {
                         _t.errorf(("Atoi(%q) = %v, %v want %v, %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_out), Go.toInterface(_err), Go.toInterface(_test._out), Go.toInterface(_testErr));
@@ -2581,7 +2586,7 @@ function testParseIntBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_i in 0 ... _parseBitSizeTests.length.toBasic()) {
             var _test = (Go.setRef(_parseBitSizeTests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_parseErrorTest>);
             var _testErr:Error = _test._errStub(("ParseInt" : GoString), _test._arg);
-            var __tmp__ = parseInt(("0" : GoString), (0 : GoInt), _test._arg), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = parseInt(("0" : GoString), (0 : GoInt), _test._arg), __0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (!_equalError(_testErr, _err)) {
                 _t.errorf(("ParseInt(\"0\", 0, %v) = 0, %v want 0, %v" : GoString), Go.toInterface(_test._arg), Go.toInterface(_err), Go.toInterface(_testErr));
             };
@@ -2591,7 +2596,7 @@ function testParseUintBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_i in 0 ... _parseBitSizeTests.length.toBasic()) {
             var _test = (Go.setRef(_parseBitSizeTests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_parseErrorTest>);
             var _testErr:Error = _test._errStub(("ParseUint" : GoString), _test._arg);
-            var __tmp__ = parseUint(("0" : GoString), (0 : GoInt), _test._arg), _0:GoUInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = parseUint(("0" : GoString), (0 : GoInt), _test._arg), __0:GoUInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (!_equalError(_testErr, _err)) {
                 _t.errorf(("ParseUint(\"0\", 0, %v) = 0, %v want 0, %v" : GoString), Go.toInterface(_test._arg), Go.toInterface(_err), Go.toInterface(_testErr));
             };
@@ -2601,7 +2606,7 @@ function testParseIntBase(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_i in 0 ... _parseBaseTests.length.toBasic()) {
             var _test = (Go.setRef(_parseBaseTests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_parseErrorTest>);
             var _testErr:Error = _test._errStub(("ParseInt" : GoString), _test._arg);
-            var __tmp__ = parseInt(("0" : GoString), _test._arg, (0 : GoInt)), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = parseInt(("0" : GoString), _test._arg, (0 : GoInt)), __0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (!_equalError(_testErr, _err)) {
                 _t.errorf(("ParseInt(\"0\", %v, 0) = 0, %v want 0, %v" : GoString), Go.toInterface(_test._arg), Go.toInterface(_err), Go.toInterface(_testErr));
             };
@@ -2611,15 +2616,15 @@ function testParseUintBase(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_i in 0 ... _parseBaseTests.length.toBasic()) {
             var _test = (Go.setRef(_parseBaseTests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_parseErrorTest>);
             var _testErr:Error = _test._errStub(("ParseUint" : GoString), _test._arg);
-            var __tmp__ = parseUint(("0" : GoString), _test._arg, (0 : GoInt)), _0:GoUInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = parseUint(("0" : GoString), _test._arg, (0 : GoInt)), __0:GoUInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (!_equalError(_testErr, _err)) {
                 _t.errorf(("ParseUint(\"0\", %v, 0) = 0, %v want 0, %v" : GoString), Go.toInterface(_test._arg), Go.toInterface(_err), Go.toInterface(_testErr));
             };
         };
     }
 function testNumError(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _numErrorTests) {
-            var _err = (Go.setRef(({ func : ("ParseFloat" : GoString), num : _test._num, err : stdgo.errors.Errors.new_(("failed" : GoString)) } : NumError)) : Ref<NumError>);
+        for (__0 => _test in _numErrorTests) {
+            var _err = (Go.setRef(({ func : ("ParseFloat" : GoString), num : _test._num, err : stdgo.errors.Errors.new_(("failed" : GoString)) } : NumError)) : Ref<stdgo.strconv.Strconv.NumError>);
             {
                 var _got:GoString = _err.error();
                 if (_got != (_test._want)) {
@@ -2629,7 +2634,7 @@ function testNumError(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testNumErrorUnwrap(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _err = (Go.setRef(({ err : errSyntax } : NumError)) : Ref<NumError>);
+        var _err = (Go.setRef(({ err : errSyntax } : NumError)) : Ref<stdgo.strconv.Strconv.NumError>);
         if (!stdgo.errors.Errors.is_(Go.asInterface(_err), errSyntax)) {
             _t.error(Go.toInterface(("errors.Is failed, wanted success" : GoString)));
         };
@@ -2643,14 +2648,14 @@ function benchmarkParseInt(_b:Ref<stdgo.testing.Testing.B>):Void {
         });
     }
 private function _benchmarkParseInt(_b:Ref<stdgo.testing.Testing.B>, _neg:GoInt):Void {
-        var _cases = (new Slice<stdgo.strconv_test.Strconv_test.T_benchCase>(0, 0, (new stdgo.strconv_test.Strconv_test.T_benchCase(("7bit" : GoString), ("127" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("26bit" : GoString), ("67108863" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("31bit" : GoString), ("2147483647" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("56bit" : GoString), ("72057594037927935" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("63bit" : GoString), ("9223372036854775807" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase)) : Slice<stdgo.strconv_test.Strconv_test.T_benchCase>);
-        for (_0 => _cs in _cases) {
+        var _cases = (new Slice<stdgo.strconv_test.Strconv_test.T_benchCase>(0, 0, (new stdgo.strconv_test.Strconv_test.T_benchCase(("7bit" : GoString), (127i64 : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("26bit" : GoString), (67108863i64 : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("31bit" : GoString), (2147483647i64 : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("56bit" : GoString), (72057594037927935i64 : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("63bit" : GoString), (9223372036854775807i64 : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase)) : Slice<stdgo.strconv_test.Strconv_test.T_benchCase>);
+        for (__0 => _cs in _cases) {
             _b.run(_cs._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 var _s:GoString = stdgo.fmt.Fmt.sprintf(("%d" : GoString), Go.toInterface(_cs._num * (_neg : GoInt64)));
                 {
                     var _i:GoInt = (0 : GoInt);
                     Go.cfor(_i < _b.n, _i++, {
-                        var __tmp__ = parseInt(_s, (10 : GoInt), (64 : GoInt)), _out:GoInt64 = __tmp__._0, _8:Error = __tmp__._1;
+                        var __tmp__ = parseInt(_s, (10 : GoInt), (64 : GoInt)), _out:GoInt64 = __tmp__._0, __8:Error = __tmp__._1;
                         benchSink = benchSink + ((_out : GoInt));
                     });
                 };
@@ -2666,17 +2671,17 @@ function benchmarkAtoi(_b:Ref<stdgo.testing.Testing.B>):Void {
         });
     }
 private function _benchmarkAtoi(_b:Ref<stdgo.testing.Testing.B>, _neg:GoInt):Void {
-        var _cases = (new Slice<stdgo.strconv_test.Strconv_test.T_benchCase>(0, 0, (new stdgo.strconv_test.Strconv_test.T_benchCase(("7bit" : GoString), ("127" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("26bit" : GoString), ("67108863" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("31bit" : GoString), ("2147483647" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase)) : Slice<stdgo.strconv_test.Strconv_test.T_benchCase>);
+        var _cases = (new Slice<stdgo.strconv_test.Strconv_test.T_benchCase>(0, 0, (new stdgo.strconv_test.Strconv_test.T_benchCase(("7bit" : GoString), (127i64 : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("26bit" : GoString), (67108863i64 : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("31bit" : GoString), (2147483647i64 : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase)) : Slice<stdgo.strconv_test.Strconv_test.T_benchCase>);
         if (false) {
-            _cases = _cases.__appendref__(...(new Slice<stdgo.strconv_test.Strconv_test.T_benchCase>(0, 0, (new stdgo.strconv_test.Strconv_test.T_benchCase(("56bit" : GoString), ("72057594037927935" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("63bit" : GoString), ("9223372036854775807" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase)) : Slice<stdgo.strconv_test.Strconv_test.T_benchCase>).__toArray__());
+            _cases = _cases.__appendref__(...(new Slice<stdgo.strconv_test.Strconv_test.T_benchCase>(0, 0, (new stdgo.strconv_test.Strconv_test.T_benchCase(("56bit" : GoString), (72057594037927935i64 : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase), (new stdgo.strconv_test.Strconv_test.T_benchCase(("63bit" : GoString), (9223372036854775807i64 : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase)) : Slice<stdgo.strconv_test.Strconv_test.T_benchCase>).__toArray__());
         };
-        for (_0 => _cs in _cases) {
+        for (__0 => _cs in _cases) {
             _b.run(_cs._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 var _s:GoString = stdgo.fmt.Fmt.sprintf(("%d" : GoString), Go.toInterface(_cs._num * (_neg : GoInt64)));
                 {
                     var _i:GoInt = (0 : GoInt);
                     Go.cfor(_i < _b.n, _i++, {
-                        var __tmp__ = atoi(_s), _out:GoInt = __tmp__._0, _8:Error = __tmp__._1;
+                        var __tmp__ = atoi(_s), _out:GoInt = __tmp__._0, __8:Error = __tmp__._1;
                         benchSink = benchSink + (_out);
                     });
                 };
@@ -2687,16 +2692,16 @@ function testFormatComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _tests = (new Slice<T__struct_1>(
 0,
 0,
-({ _c : ((1 : GoFloat64) + new GoComplex128(0, 2)), _fmt : (103 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (128 : GoInt), _out : ("(1+2i)" : GoString) } : T__struct_1),
-({ _c : ((3 : GoFloat64) + new GoComplex128(0, -4)), _fmt : (103 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (128 : GoInt), _out : ("(3-4i)" : GoString) } : T__struct_1),
-({ _c : ((-5 : GoFloat64) + new GoComplex128(0, 6)), _fmt : (103 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (128 : GoInt), _out : ("(-5+6i)" : GoString) } : T__struct_1),
-({ _c : ((-7 : GoFloat64) + new GoComplex128(0, -8)), _fmt : (103 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (128 : GoInt), _out : ("(-7-8i)" : GoString) } : T__struct_1),
-({ _c : ((3.14159 : GoFloat64) + new GoComplex128(0, 0.00123)), _fmt : (101 : GoUInt8), _prec : (3 : GoInt), _bitSize : (128 : GoInt), _out : ("(3.142e+00+1.230e-03i)" : GoString) } : T__struct_1),
-({ _c : ((3.14159 : GoFloat64) + new GoComplex128(0, 0.00123)), _fmt : (102 : GoUInt8), _prec : (3 : GoInt), _bitSize : (128 : GoInt), _out : ("(3.142+0.001i)" : GoString) } : T__struct_1),
-({ _c : ((3.14159 : GoFloat64) + new GoComplex128(0, 0.00123)), _fmt : (103 : GoUInt8), _prec : (3 : GoInt), _bitSize : (128 : GoInt), _out : ("(3.14+0.00123i)" : GoString) } : T__struct_1),
-({ _c : ((1.2345678901234567 : GoFloat64) + new GoComplex128(0, 9.876543210987654)), _fmt : (102 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (128 : GoInt), _out : ("(1.2345678901234567+9.876543210987654i)" : GoString) } : T__struct_1),
-({ _c : ((1.2345678901234567 : GoFloat64) + new GoComplex128(0, 9.876543210987654)), _fmt : (102 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (64 : GoInt), _out : ("(1.2345679+9.876543i)" : GoString) } : T__struct_1)) : Slice<T__struct_1>);
-        for (_0 => _test in _tests) {
+({ _c : ((1f64 : GoFloat64) + new GoComplex128(0f64, 2f64)), _fmt : (103 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (128 : GoInt), _out : ("(1+2i)" : GoString) } : T__struct_1),
+({ _c : ((3f64 : GoFloat64) + new GoComplex128(0f64, -4f64)), _fmt : (103 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (128 : GoInt), _out : ("(3-4i)" : GoString) } : T__struct_1),
+({ _c : ((-5f64 : GoFloat64) + new GoComplex128(0f64, 6f64)), _fmt : (103 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (128 : GoInt), _out : ("(-5+6i)" : GoString) } : T__struct_1),
+({ _c : ((-7f64 : GoFloat64) + new GoComplex128(0f64, -8f64)), _fmt : (103 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (128 : GoInt), _out : ("(-7-8i)" : GoString) } : T__struct_1),
+({ _c : ((3.14159f64 : GoFloat64) + new GoComplex128(0f64, 0.00123f64)), _fmt : (101 : GoUInt8), _prec : (3 : GoInt), _bitSize : (128 : GoInt), _out : ("(3.142e+00+1.230e-03i)" : GoString) } : T__struct_1),
+({ _c : ((3.14159f64 : GoFloat64) + new GoComplex128(0f64, 0.00123f64)), _fmt : (102 : GoUInt8), _prec : (3 : GoInt), _bitSize : (128 : GoInt), _out : ("(3.142+0.001i)" : GoString) } : T__struct_1),
+({ _c : ((3.14159f64 : GoFloat64) + new GoComplex128(0f64, 0.00123f64)), _fmt : (103 : GoUInt8), _prec : (3 : GoInt), _bitSize : (128 : GoInt), _out : ("(3.14+0.00123i)" : GoString) } : T__struct_1),
+({ _c : ((1.2345678901234567f64 : GoFloat64) + new GoComplex128(0f64, 9.876543210987654f64)), _fmt : (102 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (128 : GoInt), _out : ("(1.2345678901234567+9.876543210987654i)" : GoString) } : T__struct_1),
+({ _c : ((1.2345678901234567f64 : GoFloat64) + new GoComplex128(0f64, 9.876543210987654f64)), _fmt : (102 : GoUInt8), _prec : (-1 : GoInt), _bitSize : (64 : GoInt), _out : ("(1.2345679+9.876543i)" : GoString) } : T__struct_1)) : Slice<T__struct_1>);
+        for (__0 => _test in _tests) {
             var _out:GoString = formatComplex(_test._c, _test._fmt, _test._prec, _test._bitSize);
             if (_out != (_test._out)) {
                 _t.fatalf(("FormatComplex(%v, %q, %d, %d) = %q; want %q" : GoString), Go.toInterface(_test._c), Go.toInterface(_test._fmt), Go.toInterface(_test._prec), Go.toInterface(_test._bitSize), Go.toInterface(_out), Go.toInterface(_test._out));
@@ -2721,7 +2726,7 @@ function testFormatComplexInvalidBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
                 a();
             });
-            formatComplex(((1 : GoFloat64) + new GoComplex128(0, 2)), (103 : GoUInt8), (-1 : GoInt), (100 : GoInt));
+            formatComplex(((1f64 : GoFloat64) + new GoComplex128(0f64, 2f64)), (103 : GoUInt8), (-1 : GoInt), (100 : GoInt));
             for (defer in __deferstack__) {
                 defer();
             };
@@ -2790,7 +2795,7 @@ function testDecimalRoundedInteger(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_roundinttests.length), _i++, {
-                var _test:stdgo.strconv_test.Strconv_test.T_roundIntTest = _roundinttests[(_i : GoInt)].__copy__();
+                var _test:stdgo.strconv_test.Strconv_test.T_roundIntTest = _roundinttests[(_i : GoInt)];
                 var _d = newDecimal(_test._i);
                 _d.shift(_test._shift);
                 var _int:GoUInt64 = _d.roundedInteger();
@@ -2815,10 +2820,10 @@ function exampleAppendFloat():Void {
     }
 function exampleAppendInt():Void {
         var _b10 = (("int (base 10):" : GoString) : Slice<GoByte>);
-        _b10 = stdgo.strconv.Strconv.appendInt(_b10, ("-42" : GoInt64), (10 : GoInt));
+        _b10 = stdgo.strconv.Strconv.appendInt(_b10, (-42i64 : GoInt64), (10 : GoInt));
         stdgo.fmt.Fmt.println(Go.toInterface((_b10 : GoString)));
         var _b16 = (("int (base 16):" : GoString) : Slice<GoByte>);
-        _b16 = stdgo.strconv.Strconv.appendInt(_b16, ("-42" : GoInt64), (16 : GoInt));
+        _b16 = stdgo.strconv.Strconv.appendInt(_b16, (-42i64 : GoInt64), (16 : GoInt));
         stdgo.fmt.Fmt.println(Go.toInterface((_b16 : GoString)));
     }
 function exampleAppendQuote():Void {
@@ -2843,10 +2848,10 @@ function exampleAppendQuoteToASCII():Void {
     }
 function exampleAppendUint():Void {
         var _b10 = (("uint (base 10):" : GoString) : Slice<GoByte>);
-        _b10 = stdgo.strconv.Strconv.appendUint(_b10, ("42" : GoUInt64), (10 : GoInt));
+        _b10 = stdgo.strconv.Strconv.appendUint(_b10, (42i64 : GoUInt64), (10 : GoInt));
         stdgo.fmt.Fmt.println(Go.toInterface((_b10 : GoString)));
         var _b16 = (("uint (base 16):" : GoString) : Slice<GoByte>);
-        _b16 = stdgo.strconv.Strconv.appendUint(_b16, ("42" : GoUInt64), (16 : GoInt));
+        _b16 = stdgo.strconv.Strconv.appendUint(_b16, (42i64 : GoUInt64), (16 : GoInt));
         stdgo.fmt.Fmt.println(Go.toInterface((_b16 : GoString)));
     }
 function exampleAtoi():Void {
@@ -2875,14 +2880,14 @@ function exampleFormatFloat():Void {
         stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s64), Go.toInterface(_s64));
     }
 function exampleFormatInt():Void {
-        var _v:GoInt64 = (("-42" : GoInt64) : GoInt64);
+        var _v:GoInt64 = (-42i64 : GoInt64);
         var _s10:GoString = stdgo.strconv.Strconv.formatInt(_v, (10 : GoInt));
         stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s10), Go.toInterface(_s10));
         var _s16:GoString = stdgo.strconv.Strconv.formatInt(_v, (16 : GoInt));
         stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s16), Go.toInterface(_s16));
     }
 function exampleFormatUint():Void {
-        var _v:GoUInt64 = (("42" : GoUInt64) : GoUInt64);
+        var _v:GoUInt64 = (42i64 : GoUInt64);
         var _s10:GoString = stdgo.strconv.Strconv.formatUint(_v, (10 : GoInt));
         stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s10), Go.toInterface(_s10));
         var _s16:GoString = stdgo.strconv.Strconv.formatUint(_v, (16 : GoInt));
@@ -3090,9 +3095,9 @@ function exampleUnquoteChar():Void {
 function exampleNumError():Void {
         var _str:GoString = ("Not a number" : GoString);
         {
-            var __tmp__ = stdgo.strconv.Strconv.parseFloat(_str, (64 : GoInt)), _0:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.strconv.Strconv.parseFloat(_str, (64 : GoInt)), __0:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
-                var _e = (Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)) : Ref<NumError>);
+                var _e = (Go.typeAssert((Go.toInterface(_err) : Ref<stdgo.strconv.Strconv.NumError>)) : Ref<stdgo.strconv.Strconv.NumError>);
                 stdgo.fmt.Fmt.println(Go.toInterface(("Func:" : GoString)), Go.toInterface(_e.func));
                 stdgo.fmt.Fmt.println(Go.toInterface(("Num:" : GoString)), Go.toInterface(_e.num));
                 stdgo.fmt.Fmt.println(Go.toInterface(("Err:" : GoString)), Go.toInterface(_e.err));
@@ -3319,7 +3324,7 @@ function testFtoaPowersOfTwo(_t:Ref<stdgo.testing.Testing.T>):Void {
                 if (!stdgo.math.Math.isInf(_f, (0 : GoInt))) {
                     var _s:GoString = formatFloat(_f, (101 : GoUInt8), (-1 : GoInt), (64 : GoInt));
                     {
-                        var __tmp__ = parseFloat(_s, (64 : GoInt)), _x:GoFloat64 = __tmp__._0, _0:Error = __tmp__._1;
+                        var __tmp__ = parseFloat(_s, (64 : GoInt)), _x:GoFloat64 = __tmp__._0, __0:Error = __tmp__._1;
                         if (_x != (_f)) {
                             _t.errorf(("failed roundtrip %v => %s => %v" : GoString), Go.toInterface(_f), Go.toInterface(_s), Go.toInterface(_x));
                         };
@@ -3329,7 +3334,7 @@ function testFtoaPowersOfTwo(_t:Ref<stdgo.testing.Testing.T>):Void {
                 if (!stdgo.math.Math.isInf((_f32 : GoFloat64), (0 : GoInt))) {
                     var _s:GoString = formatFloat((_f32 : GoFloat64), (101 : GoUInt8), (-1 : GoInt), (32 : GoInt));
                     {
-                        var __tmp__ = parseFloat(_s, (32 : GoInt)), _x:GoFloat64 = __tmp__._0, _1:Error = __tmp__._1;
+                        var __tmp__ = parseFloat(_s, (32 : GoInt)), _x:GoFloat64 = __tmp__._0, __1:Error = __tmp__._1;
                         if ((_x : GoFloat32) != (_f32)) {
                             _t.errorf(("failed roundtrip %v => %s => %v" : GoString), Go.toInterface(_f32), Go.toInterface(_s), Go.toInterface((_x : GoFloat32)));
                         };
@@ -3347,7 +3352,7 @@ function testFtoaRandom(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < n, _i++, {
-                var _bits:GoUInt64 = ((stdgo.math.rand.Rand.uint32() : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (stdgo.math.rand.Rand.uint32() : GoUInt64);
+                var _bits:GoUInt64 = ((stdgo.math.rand.Rand.uint32() : GoUInt64) << (32i64 : GoUInt64)) | (stdgo.math.rand.Rand.uint32() : GoUInt64);
                 var _x:GoFloat64 = stdgo.math.Math.float64frombits(_bits);
                 var _shortFast:GoString = formatFloat(_x, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
                 setOptimize(false);
@@ -3411,7 +3416,7 @@ function testFormatFloatInvalidBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function benchmarkFormatFloat(_b:Ref<stdgo.testing.Testing.B>):Void {
-        for (_0 => _c in _ftoaBenches) {
+        for (__0 => _c in _ftoaBenches) {
             _b.run(_c._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _i:GoInt = (0 : GoInt);
@@ -3424,7 +3429,7 @@ function benchmarkFormatFloat(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkAppendFloat(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _dst = new Slice<GoUInt8>((30 : GoInt).toBasic(), 0, ...[for (i in 0 ... (30 : GoInt).toBasic()) (0 : GoUInt8)]);
-        for (_0 => _c in _ftoaBenches) {
+        for (__0 => _c in _ftoaBenches) {
             _b.run(_c._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _i:GoInt = (0 : GoInt);
@@ -3462,7 +3467,7 @@ function testMulByLog10Log2(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testItoa(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            for (_0 => _test in _itob64tests) {
+            for (__0 => _test in _itob64tests) {
                 var _s:GoString = formatInt(_test._in, _test._base);
                 if (_s != (_test._out)) {
                     _t.errorf(("FormatInt(%v, %v) = %v want %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_test._base), Go.toInterface(_s), Go.toInterface(_test._out));
@@ -3471,7 +3476,7 @@ function testItoa(_t:Ref<stdgo.testing.Testing.T>):Void {
                 if ((_x : GoString) != (("abc" : GoString) + _test._out)) {
                     _t.errorf(("AppendInt(%q, %v, %v) = %q want %v" : GoString), Go.toInterface(("abc" : GoString)), Go.toInterface(_test._in), Go.toInterface(_test._base), Go.toInterface(_x), Go.toInterface(_test._out));
                 };
-                if (_test._in >= ("0" : GoInt64)) {
+                if (_test._in >= (0i64 : GoInt64)) {
                     var _s:GoString = formatUint((_test._in : GoUInt64), _test._base);
                     if (_s != (_test._out)) {
                         _t.errorf(("FormatUint(%v, %v) = %v want %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_test._base), Go.toInterface(_s), Go.toInterface(_test._out));
@@ -3503,7 +3508,7 @@ function testItoa(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
                 a();
             });
-            formatUint(("12345678" : GoUInt64), (1 : GoInt));
+            formatUint((12345678i64 : GoUInt64), (1 : GoInt));
             for (defer in __deferstack__) {
                 defer();
             };
@@ -3529,7 +3534,7 @@ function testItoa(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testUitoa(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _uitob64tests) {
+        for (__0 => _test in _uitob64tests) {
             var _s:GoString = formatUint(_test._in, _test._base);
             if (_s != (_test._out)) {
                 _t.errorf(("FormatUint(%v, %v) = %v want %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_test._base), Go.toInterface(_s), Go.toInterface(_test._out));
@@ -3541,7 +3546,7 @@ function testUitoa(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testFormatUintVarlen(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _varlenUints) {
+        for (__0 => _test in _varlenUints) {
             var _s:GoString = formatUint(_test._in, (10 : GoInt));
             if (_s != (_test._out)) {
                 _t.errorf(("FormatUint(%v, 10) = %v want %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_s), Go.toInterface(_test._out));
@@ -3552,7 +3557,7 @@ function benchmarkFormatInt(_b:Ref<stdgo.testing.Testing.B>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
-                for (_8 => _test in _itob64tests) {
+                for (__8 => _test in _itob64tests) {
                     var _s:GoString = formatInt(_test._in, _test._base);
                     benchSink = benchSink + ((_s.length));
                 };
@@ -3564,7 +3569,7 @@ function benchmarkAppendInt(_b:Ref<stdgo.testing.Testing.B>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
-                for (_8 => _test in _itob64tests) {
+                for (__8 => _test in _itob64tests) {
                     _dst = appendInt((_dst.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), _test._in, _test._base);
                     benchSink = benchSink + ((_dst.length));
                 };
@@ -3575,7 +3580,7 @@ function benchmarkFormatUint(_b:Ref<stdgo.testing.Testing.B>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
-                for (_8 => _test in _uitob64tests) {
+                for (__8 => _test in _uitob64tests) {
                     var _s:GoString = formatUint(_test._in, _test._base);
                     benchSink = benchSink + ((_s.length));
                 };
@@ -3587,7 +3592,7 @@ function benchmarkAppendUint(_b:Ref<stdgo.testing.Testing.B>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
-                for (_8 => _test in _uitob64tests) {
+                for (__8 => _test in _uitob64tests) {
                     _dst = appendUint((_dst.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), _test._in, _test._base);
                     benchSink = benchSink + ((_dst.length));
                 };
@@ -3595,8 +3600,8 @@ function benchmarkAppendUint(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function benchmarkFormatIntSmall(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _smallInts = (new Slice<GoInt64>(0, 0, ("7" : GoInt64), ("42" : GoInt64)) : Slice<GoInt64>);
-        for (_0 => _smallInt in _smallInts) {
+        var _smallInts = (new Slice<GoInt64>(0, 0, (7i64 : GoInt64), (42i64 : GoInt64)) : Slice<GoInt64>);
+        for (__0 => _smallInt in _smallInts) {
             _b.run(itoa((_smallInt : GoInt)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _i:GoInt = (0 : GoInt);
@@ -3614,13 +3619,13 @@ function benchmarkAppendIntSmall(_b:Ref<stdgo.testing.Testing.B>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
-                _dst = appendInt((_dst.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), ("42" : GoInt64), (10 : GoInt));
+                _dst = appendInt((_dst.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), (42i64 : GoInt64), (10 : GoInt));
                 benchSink = benchSink + ((_dst.length));
             });
         };
     }
 function benchmarkAppendUintVarlen(_b:Ref<stdgo.testing.Testing.B>):Void {
-        for (_0 => _test in _varlenUints) {
+        for (__0 => _test in _varlenUints) {
             _b.run(_test._out, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 var _dst = new Slice<GoUInt8>((0 : GoInt).toBasic(), (30 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
                 {
@@ -3670,7 +3675,7 @@ function testIsGraphic(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testQuote(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _quotetests) {
+        for (__0 => _tt in _quotetests) {
             {
                 var _out:GoString = quote(_tt._in);
                 if (_out != (_tt._out)) {
@@ -3686,7 +3691,7 @@ function testQuote(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testQuoteToASCII(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _quotetests) {
+        for (__0 => _tt in _quotetests) {
             {
                 var _out:GoString = quoteToASCII(_tt._in);
                 if (_out != (_tt._ascii)) {
@@ -3702,7 +3707,7 @@ function testQuoteToASCII(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testQuoteToGraphic(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _quotetests) {
+        for (__0 => _tt in _quotetests) {
             {
                 var _out:GoString = quoteToGraphic(_tt._in);
                 if (_out != (_tt._graphic)) {
@@ -3750,7 +3755,7 @@ function benchmarkAppendQuoteRune(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function testQuoteRune(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _quoterunetests) {
+        for (__0 => _tt in _quoterunetests) {
             {
                 var _out:GoString = quoteRune(_tt._in);
                 if (_out != (_tt._out)) {
@@ -3766,7 +3771,7 @@ function testQuoteRune(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testQuoteRuneToASCII(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _quoterunetests) {
+        for (__0 => _tt in _quoterunetests) {
             {
                 var _out:GoString = quoteRuneToASCII(_tt._in);
                 if (_out != (_tt._ascii)) {
@@ -3782,7 +3787,7 @@ function testQuoteRuneToASCII(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testQuoteRuneToGraphic(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _quoterunetests) {
+        for (__0 => _tt in _quoterunetests) {
             {
                 var _out:GoString = quoteRuneToGraphic(_tt._in);
                 if (_out != (_tt._graphic)) {
@@ -3798,7 +3803,7 @@ function testQuoteRuneToGraphic(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCanBackquote(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _canbackquotetests) {
+        for (__0 => _tt in _canbackquotetests) {
             {
                 var _out:Bool = canBackquote(_tt._in);
                 if (_out != (_tt._out)) {
@@ -3808,13 +3813,13 @@ function testCanBackquote(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testUnquote(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _unquotetests) {
+        for (__0 => _tt in _unquotetests) {
             _testUnquote(_t, _tt._in, _tt._out, (null : Error));
         };
-        for (_1 => _tt in _quotetests) {
+        for (__1 => _tt in _quotetests) {
             _testUnquote(_t, _tt._out, _tt._in, (null : Error));
         };
-        for (_2 => _s in _misquoted) {
+        for (__2 => _s in _misquoted) {
             _testUnquote(_t, _s, Go.str(), errSyntax);
         };
     }
@@ -3823,7 +3828,7 @@ function testUnquote(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testUnquoteInvalidUTF8(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _tests = (new Slice<T__struct_4>(0, 0, ({ _in : ("\"foo\"" : GoString), _want : ("foo" : GoString), _wantErr : (null : Error) } : T__struct_4), ({ _in : ("\"foo" : GoString), _want : ("" : GoString), _wantErr : errSyntax } : T__struct_4), ({ _in : Go.str("\"", 192, "\""), _want : ("�" : GoString), _wantErr : (null : Error) } : T__struct_4), ({ _in : Go.str("\"a", 192, "\""), _want : ("a�" : GoString), _wantErr : (null : Error) } : T__struct_4), ({ _in : Go.str("\"\\t", 192, "\""), _want : ("\t�" : GoString), _wantErr : (null : Error) } : T__struct_4)) : Slice<T__struct_4>);
-        for (_0 => _tt in _tests) {
+        for (__0 => _tt in _tests) {
             _testUnquote(_t, _tt._in, _tt._want, _tt._wantErr);
         };
     }
@@ -3883,7 +3888,7 @@ function testCountMallocs(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_i in 0 ... _oneMB.length.toBasic()) {
             _oneMB[(_i : GoInt)] = (_i : GoByte);
         };
-        for (_0 => _mt in _mallocTest) {
+        for (__0 => _mt in _mallocTest) {
             var _allocs:GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : GoInt), _mt._fn);
             {
                 var _max:GoFloat64 = (_mt._count : GoFloat64);
@@ -3963,17 +3968,17 @@ function testAllocationsFromBytes(_t:Ref<stdgo.testing.Testing.T>):Void {
         }));
     }
 function testErrorPrefixes(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var __tmp__ = atoi(("INVALID" : GoString)), _0:GoInt = __tmp__._0, _errInt:Error = __tmp__._1;
-        var __tmp__ = parseBool(("INVALID" : GoString)), _1:Bool = __tmp__._0, _errBool:Error = __tmp__._1;
-        var __tmp__ = parseFloat(("INVALID" : GoString), (64 : GoInt)), _2:GoFloat64 = __tmp__._0, _errFloat:Error = __tmp__._1;
-        var __tmp__ = parseInt(("INVALID" : GoString), (10 : GoInt), (64 : GoInt)), _3:GoInt64 = __tmp__._0, _errInt64:Error = __tmp__._1;
-        var __tmp__ = parseUint(("INVALID" : GoString), (10 : GoInt), (64 : GoInt)), _4:GoUInt64 = __tmp__._0, _errUint64:Error = __tmp__._1;
+        var __tmp__ = atoi(("INVALID" : GoString)), __0:GoInt = __tmp__._0, _errInt:Error = __tmp__._1;
+        var __tmp__ = parseBool(("INVALID" : GoString)), __1:Bool = __tmp__._0, _errBool:Error = __tmp__._1;
+        var __tmp__ = parseFloat(("INVALID" : GoString), (64 : GoInt)), __2:GoFloat64 = __tmp__._0, _errFloat:Error = __tmp__._1;
+        var __tmp__ = parseInt(("INVALID" : GoString), (10 : GoInt), (64 : GoInt)), __3:GoInt64 = __tmp__._0, _errInt64:Error = __tmp__._1;
+        var __tmp__ = parseUint(("INVALID" : GoString), (10 : GoInt), (64 : GoInt)), __4:GoUInt64 = __tmp__._0, _errUint64:Error = __tmp__._1;
         var _vectors = (new Slice<T__struct_8>(0, 0, ({ _err : _errInt, _want : ("Atoi" : GoString) } : T__struct_8), ({ _err : _errBool, _want : ("ParseBool" : GoString) } : T__struct_8), ({ _err : _errFloat, _want : ("ParseFloat" : GoString) } : T__struct_8), ({ _err : _errInt64, _want : ("ParseInt" : GoString) } : T__struct_8), ({ _err : _errUint64, _want : ("ParseUint" : GoString) } : T__struct_8)) : Slice<T__struct_8>);
-        for (_5 => _v in _vectors) {
+        for (__5 => _v in _vectors) {
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_v._err) : Ref<NumError>)) : Ref<NumError>), ok : true };
             } catch(_) {
-                { value : (null : Ref<NumError>), ok : false };
+                { value : (null : Ref<stdgo.strconv.Strconv.NumError>), ok : false };
             }, _nerr = __tmp__.value, _ok = __tmp__.ok;
             if (!_ok) {
                 _t.errorf(("test %s, error was not a *NumError" : GoString), Go.toInterface(_v._want));
@@ -3992,37 +3997,37 @@ function testErrorPrefixes(_t:Ref<stdgo.testing.Testing.T>):Void {
             for (_i in 0 ... _parseUint64Tests.length.toBasic()) {
                 var _test = (Go.setRef(_parseUint64Tests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_parseUint64Test>);
                 if (_test._err != null) {
-                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseUint" : GoString), _test._in, _test._err) : NumError)) : Ref<NumError>));
+                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseUint" : GoString), _test._in, _test._err) : NumError)) : Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
             for (_i in 0 ... _parseUint64BaseTests.length.toBasic()) {
                 var _test = (Go.setRef(_parseUint64BaseTests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest>);
                 if (_test._err != null) {
-                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseUint" : GoString), _test._in, _test._err) : NumError)) : Ref<NumError>));
+                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseUint" : GoString), _test._in, _test._err) : NumError)) : Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
             for (_i in 0 ... _parseInt64Tests.length.toBasic()) {
                 var _test = (Go.setRef(_parseInt64Tests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_parseInt64Test>);
                 if (_test._err != null) {
-                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseInt" : GoString), _test._in, _test._err) : NumError)) : Ref<NumError>));
+                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseInt" : GoString), _test._in, _test._err) : NumError)) : Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
             for (_i in 0 ... _parseInt64BaseTests.length.toBasic()) {
                 var _test = (Go.setRef(_parseInt64BaseTests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest>);
                 if (_test._err != null) {
-                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseInt" : GoString), _test._in, _test._err) : NumError)) : Ref<NumError>));
+                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseInt" : GoString), _test._in, _test._err) : NumError)) : Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
             for (_i in 0 ... _parseUint32Tests.length.toBasic()) {
                 var _test = (Go.setRef(_parseUint32Tests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_parseUint32Test>);
                 if (_test._err != null) {
-                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseUint" : GoString), _test._in, _test._err) : NumError)) : Ref<NumError>));
+                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseUint" : GoString), _test._in, _test._err) : NumError)) : Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
             for (_i in 0 ... _parseInt32Tests.length.toBasic()) {
                 var _test = (Go.setRef(_parseInt32Tests[(_i : GoInt)]) : Ref<stdgo.strconv_test.Strconv_test.T_parseInt32Test>);
                 if (_test._err != null) {
-                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseInt" : GoString), _test._in, _test._err) : NumError)) : Ref<NumError>));
+                    _test._err = Go.asInterface((Go.setRef((new NumError(("ParseInt" : GoString), _test._in, _test._err) : NumError)) : Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;

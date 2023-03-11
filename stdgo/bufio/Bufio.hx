@@ -104,25 +104,25 @@ var isSpace = _isSpace;
     
     
 **/
-private final _defaultBufSize = ("4096" : GoUInt64);
+private final _defaultBufSize = (4096i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _minReadBufferSize = ("16" : GoUInt64);
+private final _minReadBufferSize = (16i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _maxConsecutiveEmptyReads = ("100" : GoUInt64);
+private final _maxConsecutiveEmptyReads = (100i64 : GoUInt64);
 /**
     
     
     
 **/
-final defaultBufSize = ("4096" : GoUInt64);
+final defaultBufSize = (4096i64 : GoUInt64);
 /**
     // MaxScanTokenSize is the maximum size used to buffer a token
     // unless the user provides an explicit buffer with Scanner.Buffer.
@@ -131,13 +131,13 @@ final defaultBufSize = ("4096" : GoUInt64);
     
     
 **/
-final maxScanTokenSize = ("65536" : GoUInt64);
+final maxScanTokenSize = (65536i64 : GoUInt64);
 /**
     
     
     // Size of initial allocation for buffer.
 **/
-private final _startBufSize = ("4096" : GoUInt64);
+private final _startBufSize = (4096i64 : GoUInt64);
 /**
     // Reader implements buffering for an io.Reader object.
     
@@ -199,10 +199,10 @@ private final _startBufSize = ("4096" : GoUInt64);
 **/
 @:structInit @:using(stdgo.bufio.Bufio.ReadWriter_static_extension) class ReadWriter {
     @:embedded
-    public var reader : Ref<Reader> = (null : Ref<Reader>);
+    public var reader : Ref<stdgo.bufio.Bufio.Reader> = (null : Ref<stdgo.bufio.Bufio.Reader>);
     @:embedded
-    public var writer : Ref<Writer> = (null : Ref<Writer>);
-    public function new(?reader:Ref<Reader>, ?writer:Ref<Writer>) {
+    public var writer : Ref<stdgo.bufio.Bufio.Writer> = (null : Ref<stdgo.bufio.Bufio.Writer>);
+    public function new(?reader:Ref<stdgo.bufio.Bufio.Reader>, ?writer:Ref<stdgo.bufio.Bufio.Writer>) {
         if (reader != null) this.reader = reader;
         if (writer != null) this.writer = writer;
     }
@@ -282,7 +282,7 @@ private final _startBufSize = ("4096" : GoUInt64);
 **/
 @:structInit @:using(stdgo.bufio.Bufio.Scanner_static_extension) class Scanner {
     public var _r : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
-    public var _split : SplitFunc = (null : SplitFunc);
+    public var _split : stdgo.bufio.Bufio.SplitFunc = (null : stdgo.bufio.Bufio.SplitFunc);
     public var _maxTokenSize : GoInt = 0;
     public var _token : Slice<GoUInt8> = (null : Slice<GoUInt8>);
     public var _buf : Slice<GoUInt8> = (null : Slice<GoUInt8>);
@@ -292,7 +292,7 @@ private final _startBufSize = ("4096" : GoUInt64);
     public var _empties : GoInt = 0;
     public var _scanCalled : Bool = false;
     public var _done : Bool = false;
-    public function new(?_r:stdgo.io.Io.Reader, ?_split:SplitFunc, ?_maxTokenSize:GoInt, ?_token:Slice<GoUInt8>, ?_buf:Slice<GoUInt8>, ?_start:GoInt, ?_end:GoInt, ?_err:Error, ?_empties:GoInt, ?_scanCalled:Bool, ?_done:Bool) {
+    public function new(?_r:stdgo.io.Io.Reader, ?_split:stdgo.bufio.Bufio.SplitFunc, ?_maxTokenSize:GoInt, ?_token:Slice<GoUInt8>, ?_buf:Slice<GoUInt8>, ?_start:GoInt, ?_end:GoInt, ?_err:Error, ?_empties:GoInt, ?_scanCalled:Bool, ?_done:Bool) {
         if (_r != null) this._r = _r;
         if (_split != null) this._split = _split;
         if (_maxTokenSize != null) this._maxTokenSize = _maxTokenSize;
@@ -355,7 +355,7 @@ function newReaderSize(_rd:stdgo.io.Io.Reader, _size:GoInt):Ref<Reader> {
         var __tmp__ = try {
             { value : (Go.typeAssert((Go.toInterface(_rd) : Ref<Reader>)) : Ref<Reader>), ok : true };
         } catch(_) {
-            { value : (null : Ref<Reader>), ok : false };
+            { value : (null : Ref<stdgo.bufio.Bufio.Reader>), ok : false };
         }, _b = __tmp__.value, _ok = __tmp__.ok;
         if (_ok && (_b._buf.length >= _size)) {
             return _b;
@@ -363,7 +363,7 @@ function newReaderSize(_rd:stdgo.io.Io.Reader, _size:GoInt):Ref<Reader> {
         if (_size < (16 : GoInt)) {
             _size = (16 : GoInt);
         };
-        var _r = (Go.setRef(({} : Reader)) : Ref<Reader>);
+        var _r = (Go.setRef(({} : stdgo.bufio.Bufio.Reader)) : Ref<stdgo.bufio.Bufio.Reader>);
         _r._reset(new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0 ... (_size : GoInt).toBasic()) (0 : GoUInt8)]), _rd);
         return _r;
     }
@@ -382,7 +382,7 @@ function newWriterSize(_w:stdgo.io.Io.Writer, _size:GoInt):Ref<Writer> {
         var __tmp__ = try {
             { value : (Go.typeAssert((Go.toInterface(_w) : Ref<Writer>)) : Ref<Writer>), ok : true };
         } catch(_) {
-            { value : (null : Ref<Writer>), ok : false };
+            { value : (null : Ref<stdgo.bufio.Bufio.Writer>), ok : false };
         }, _b = __tmp__.value, _ok = __tmp__.ok;
         if (_ok && (_b._buf.length >= _size)) {
             return _b;
@@ -390,7 +390,7 @@ function newWriterSize(_w:stdgo.io.Io.Writer, _size:GoInt):Ref<Writer> {
         if (_size <= (0 : GoInt)) {
             _size = (4096 : GoInt);
         };
-        return (Go.setRef(({ _buf : new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0 ... (_size : GoInt).toBasic()) (0 : GoUInt8)]), _wr : _w } : Writer)) : Ref<Writer>);
+        return (Go.setRef(({ _buf : new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0 ... (_size : GoInt).toBasic()) (0 : GoUInt8)]), _wr : _w } : Writer)) : Ref<stdgo.bufio.Bufio.Writer>);
     }
 /**
     // NewWriter returns a new Writer whose buffer has the default size.
@@ -404,14 +404,14 @@ function newWriter(_w:stdgo.io.Io.Writer):Ref<Writer> {
     // NewReadWriter allocates a new ReadWriter that dispatches to r and w.
 **/
 function newReadWriter(_r:Ref<Reader>, _w:Ref<Writer>):Ref<ReadWriter> {
-        return (Go.setRef((new ReadWriter(_r, _w) : ReadWriter)) : Ref<ReadWriter>);
+        return (Go.setRef((new ReadWriter(_r, _w) : ReadWriter)) : Ref<stdgo.bufio.Bufio.ReadWriter>);
     }
 /**
     // NewScanner returns a new Scanner to read from r.
     // The split function defaults to ScanLines.
 **/
 function newScanner(_r:stdgo.io.Io.Reader):Ref<Scanner> {
-        return (Go.setRef(({ _r : _r, _split : scanLines, _maxTokenSize : (65536 : GoInt) } : Scanner)) : Ref<Scanner>);
+        return (Go.setRef(({ _r : _r, _split : scanLines, _maxTokenSize : (65536 : GoInt) } : Scanner)) : Ref<stdgo.bufio.Bufio.Scanner>);
     }
 /**
     // ScanBytes is a split function for a Scanner that returns each byte as a token.
@@ -439,7 +439,7 @@ function scanRunes(_data:Slice<GoByte>, _atEOF:Bool):{ var _0 : GoInt; var _1 : 
         if (_data[(0 : GoInt)] < (128 : GoUInt8)) {
             return { _0 : (1 : GoInt), _1 : (_data.__slice__((0 : GoInt), (1 : GoInt)) : Slice<GoUInt8>), _2 : (null : Error) };
         };
-        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune(_data), _0:GoInt32 = __tmp__._0, _width:GoInt = __tmp__._1;
+        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune(_data), __0:GoInt32 = __tmp__._0, _width:GoInt = __tmp__._1;
         if (_width > (1 : GoInt)) {
             return { _0 : _width, _1 : (_data.__slice__((0 : GoInt), _width) : Slice<GoUInt8>), _2 : (null : Error) };
         };
@@ -533,7 +533,7 @@ function scanWords(_data:Slice<GoByte>, _atEOF:Bool):{ var _0 : GoInt; var _1 : 
             });
         };
         {
-            var _0:GoInt = (0 : GoInt), _1:GoInt = _start, _i:GoInt = _1, _width:GoInt = _0;
+            var __0:GoInt = (0 : GoInt), __1:GoInt = _start, _i:GoInt = __1, _width:GoInt = __0;
             Go.cfor(_i < (_data.length), _i = _i + (_width), {
                 var _r:GoRune = (0 : GoInt32);
                 {
@@ -814,7 +814,7 @@ class Reader_asInterface {
         var __tmp__ = _b._collectFragments(_delim), _full:Slice<Slice<GoUInt8>> = __tmp__._0, _frag:Slice<GoUInt8> = __tmp__._1, _n:GoInt = __tmp__._2, _err:Error = __tmp__._3;
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         _buf.grow(_n);
-        for (_0 => _fb in _full) {
+        for (__0 => _fb in _full) {
             _buf.write(_fb);
         };
         _buf.write(_frag);
@@ -1367,7 +1367,7 @@ class Writer_asInterface {
     static public function readFrom( _b:Ref<Writer>, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } {
         var _n:GoInt64 = (0 : GoInt64), _err:Error = (null : Error);
         if (_b._err != null) {
-            return { _0 : ("0" : GoInt64), _1 : _b._err };
+            return { _0 : (0i64 : GoInt64), _1 : _b._err };
         };
         var __tmp__ = try {
             { value : (Go.typeAssert((Go.toInterface(_b._wr) : stdgo.io.Io.ReaderFrom)) : stdgo.io.Io.ReaderFrom), ok : true };
@@ -1473,7 +1473,7 @@ class Writer_asInterface {
     @:keep
     static public function writeRune( _b:Ref<Writer>, _r:GoRune):{ var _0 : GoInt; var _1 : Error; } {
         var _size:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        if ((_r : GoUInt32) < ("128" : GoUInt32)) {
+        if ((_r : GoUInt32) < (128u32 : GoUInt32)) {
             _err = _b.writeByte((_r : GoByte));
             if (_err != null) {
                 return { _0 : (0 : GoInt), _1 : _err };

@@ -8,6 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.compress.zlib.Zlib;
 function exampleNewWriter():Void {
         var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         var _w = stdgo.compress.zlib.Zlib.newWriter(Go.asInterface((Go.setRef(_b) : Ref<stdgo.bytes.Bytes.Buffer>)));

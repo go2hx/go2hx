@@ -66,37 +66,37 @@ function diff(_oldName:GoString, _old:Slice<GoByte>, _newName:GoString, _new:Sli
         stdgo.fmt.Fmt.fprintf(Go.asInterface((Go.setRef(_out) : Ref<stdgo.bytes.Bytes.Buffer>)), ("diff %s %s\n" : GoString), Go.toInterface(_oldName), Go.toInterface(_newName));
         stdgo.fmt.Fmt.fprintf(Go.asInterface((Go.setRef(_out) : Ref<stdgo.bytes.Bytes.Buffer>)), ("--- %s\n" : GoString), Go.toInterface(_oldName));
         stdgo.fmt.Fmt.fprintf(Go.asInterface((Go.setRef(_out) : Ref<stdgo.bytes.Bytes.Buffer>)), ("+++ %s\n" : GoString), Go.toInterface(_newName));
-        var _0:T_pair = ({} : T_pair), _1:T_pair = ({} : T_pair), _2:T_pair = ({} : T_pair), _3:Slice<GoString> = (null : Slice<GoString>), _ctext:Slice<GoString> = _3, _count:T_pair = _2, _chunk:T_pair = _1, _done:T_pair = _0;
-        for (_0 => _m in _tgs(_x, _y)) {
+        var __0:T_pair = ({} : internal.diff.Diff.T_pair), __1:T_pair = ({} : internal.diff.Diff.T_pair), __2:T_pair = ({} : internal.diff.Diff.T_pair), __3:Slice<GoString> = (null : Slice<GoString>), _ctext:Slice<GoString> = __3, _count:T_pair = __2, _chunk:T_pair = __1, _done:T_pair = __0;
+        for (__0 => _m in _tgs(_x, _y)) {
             if (_m._x < _done._x) {
                 continue;
             };
-            var _start:T_pair = _m.__copy__();
+            var _start:internal.diff.Diff.T_pair = _m?.__copy__();
             while (((_start._x > _done._x) && (_start._y > _done._y)) && (_x[(_start._x - (1 : GoInt) : GoInt)] == _y[(_start._y - (1 : GoInt) : GoInt)])) {
                 _start._x--;
                 _start._y--;
             };
-            var _end:T_pair = _m.__copy__();
+            var _end:internal.diff.Diff.T_pair = _m?.__copy__();
             while (((_end._x < _x.length) && (_end._y < _y.length)) && (_x[(_end._x : GoInt)] == _y[(_end._y : GoInt)])) {
                 _end._x++;
                 _end._y++;
             };
-            for (_1 => _s in (_x.__slice__(_done._x, _start._x) : Slice<GoString>)) {
+            for (__1 => _s in (_x.__slice__(_done._x, _start._x) : Slice<GoString>)) {
                 _ctext = _ctext.__appendref__(("-" : GoString) + _s);
                 _count._x++;
             };
-            for (_2 => _s in (_y.__slice__(_done._y, _start._y) : Slice<GoString>)) {
+            for (__2 => _s in (_y.__slice__(_done._y, _start._y) : Slice<GoString>)) {
                 _ctext = _ctext.__appendref__(("+" : GoString) + _s);
                 _count._y++;
             };
             {};
             if (((_end._x < _x.length) || (_end._y < _y.length)) && (((_end._x - _start._x) < (3 : GoInt)) || ((_ctext.length > (0 : GoInt)) && ((_end._x - _start._x) < (6 : GoInt))))) {
-                for (_3 => _s in (_x.__slice__(_start._x, _end._x) : Slice<GoString>)) {
+                for (__3 => _s in (_x.__slice__(_start._x, _end._x) : Slice<GoString>)) {
                     _ctext = _ctext.__appendref__((" " : GoString) + _s);
                     _count._x++;
                     _count._y++;
                 };
-                _done = _end.__copy__();
+                _done = _end?.__copy__();
                 continue;
             };
             if ((_ctext.length) > (0 : GoInt)) {
@@ -104,7 +104,7 @@ function diff(_oldName:GoString, _old:Slice<GoByte>, _newName:GoString, _new:Sli
                 if (_n > (3 : GoInt)) {
                     _n = (3 : GoInt);
                 };
-                for (_4 => _s in (_x.__slice__(_start._x, _start._x + _n) : Slice<GoString>)) {
+                for (__4 => _s in (_x.__slice__(_start._x, _start._x + _n) : Slice<GoString>)) {
                     _ctext = _ctext.__appendref__((" " : GoString) + _s);
                     _count._x++;
                     _count._y++;
@@ -117,7 +117,7 @@ function diff(_oldName:GoString, _old:Slice<GoByte>, _newName:GoString, _new:Sli
                     _chunk._y++;
                 };
                 stdgo.fmt.Fmt.fprintf(Go.asInterface((Go.setRef(_out) : Ref<stdgo.bytes.Bytes.Buffer>)), ("@@ -%d,%d +%d,%d @@\n" : GoString), Go.toInterface(_chunk._x), Go.toInterface(_count._x), Go.toInterface(_chunk._y), Go.toInterface(_count._y));
-                for (_5 => _s in _ctext) {
+                for (__5 => _s in _ctext) {
                     _out.writeString(_s);
                 };
                 _count._x = (0 : GoInt);
@@ -128,12 +128,12 @@ function diff(_oldName:GoString, _old:Slice<GoByte>, _newName:GoString, _new:Sli
                 break;
             };
             _chunk = (new T_pair(_end._x - (3 : GoInt), _end._y - (3 : GoInt)) : T_pair);
-            for (_6 => _s in (_x.__slice__(_chunk._x, _end._x) : Slice<GoString>)) {
+            for (__6 => _s in (_x.__slice__(_chunk._x, _end._x) : Slice<GoString>)) {
                 _ctext = _ctext.__appendref__((" " : GoString) + _s);
                 _count._x++;
                 _count._y++;
             };
-            _done = _end.__copy__();
+            _done = _end?.__copy__();
         };
         return _out.bytes();
     }
@@ -163,7 +163,7 @@ private function _lines(_x:Slice<GoByte>):Slice<GoString> {
 **/
 private function _tgs(_x:Slice<GoString>, _y:Slice<GoString>):Slice<T_pair> {
         var _m = (new GoObjectMap<GoString, GoInt>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }))) : GoMap<GoString, GoInt>);
-        for (_0 => _s in _x) {
+        for (__0 => _s in _x) {
             {
                 var _c:GoInt = _m[_s];
                 if (_c > (-2 : GoInt)) {
@@ -171,7 +171,7 @@ private function _tgs(_x:Slice<GoString>, _y:Slice<GoString>):Slice<T_pair> {
                 };
             };
         };
-        for (_1 => _s in _y) {
+        for (__1 => _s in _y) {
             {
                 var _c:GoInt = _m[_s];
                 if (_c > (-8 : GoInt)) {
@@ -179,7 +179,7 @@ private function _tgs(_x:Slice<GoString>, _y:Slice<GoString>):Slice<T_pair> {
                 };
             };
         };
-        var _0:Slice<GoInt> = (null : Slice<GoInt>), _1:Slice<GoInt> = (null : Slice<GoInt>), _2:Slice<GoInt> = (null : Slice<GoInt>), _inv:Slice<GoInt> = _2, _yi:Slice<GoInt> = _1, _xi:Slice<GoInt> = _0;
+        var __0:Slice<GoInt> = (null : Slice<GoInt>), __1:Slice<GoInt> = (null : Slice<GoInt>), __2:Slice<GoInt> = (null : Slice<GoInt>), _inv:Slice<GoInt> = __2, _yi:Slice<GoInt> = __1, _xi:Slice<GoInt> = __0;
         for (_i => _s in _y) {
             if (_m[_s] == ((-5 : GoInt))) {
                 _m[_s] = (_yi.length);
@@ -213,12 +213,12 @@ private function _tgs(_x:Slice<GoString>, _y:Slice<GoString>):Slice<T_pair> {
             });
         };
         var _k:GoInt = (0 : GoInt);
-        for (_2 => _v in l) {
+        for (__2 => _v in l) {
             if (_k < _v) {
                 _k = _v;
             };
         };
-        var _seq = new Slice<T_pair>(((2 : GoInt) + _k : GoInt).toBasic(), 0, ...[for (i in 0 ... ((2 : GoInt) + _k : GoInt).toBasic()) ({} : T_pair)]);
+        var _seq = new Slice<internal.diff.Diff.T_pair>(((2 : GoInt) + _k : GoInt).toBasic(), 0, ...[for (i in 0 ... ((2 : GoInt) + _k : GoInt).toBasic()) ({} : internal.diff.Diff.T_pair)]);
         _seq[((1 : GoInt) + _k : GoInt)] = (new T_pair((_x.length), (_y.length)) : T_pair);
         var _lastj:GoInt = _n;
         {

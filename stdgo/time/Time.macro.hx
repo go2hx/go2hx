@@ -181,12 +181,12 @@ macro private function _leadingInt<T_bytes>(_s:haxe.macro.Expr.ExprOf<T_bytes>):
                         if ((_c < (48 : GoUInt8)) || (_c > (57 : GoUInt8))) {
                             break;
                         };
-                        if (_x > ("922337203685477580" : GoUInt64)) {
-                            return { _0 : ("0" : GoUInt64), _1 : _rem, _2 : _errLeadingInt };
+                        if (_x > (922337203685477580i64 : GoUInt64)) {
+                            return { _0 : (0i64 : GoUInt64), _1 : _rem, _2 : _errLeadingInt };
                         };
-                        _x = ((_x * (("10" : GoUInt64) : GoUInt64)) + (_c : GoUInt64)) - ("48" : GoUInt64);
-                        if (_x > ("9223372036854775808" : GoUInt64)) {
-                            return { _0 : ("0" : GoUInt64), _1 : _rem, _2 : _errLeadingInt };
+                        _x = ((_x * (10i64 : GoUInt64)) + (_c : GoUInt64)) - (48i64 : GoUInt64);
+                        if (_x > (-9223372036854775808i64 : GoUInt64)) {
+                            return { _0 : (0i64 : GoUInt64), _1 : _rem, _2 : _errLeadingInt };
                         };
                     });
                     return { _0 : _x, _1 : (_s.__slice__(_i) : $T_bytes), _2 : (null : Error) };
@@ -223,7 +223,7 @@ macro private function _parseRFC3339<T_bytes>(_s:haxe.macro.Expr.ExprOf<T_bytes>
                     var _ok:Bool = true;
                     var _parseUint:($T_bytes, GoInt, GoInt) -> GoInt = function(_s:$T_bytes, _min:GoInt, _max:GoInt):GoInt {
                         var _x:GoInt = (0 : GoInt);
-                        for (_0 => _c in (_s : Slice<GoByte>)) {
+                        for (__0 => _c in (_s : Slice<GoByte>)) {
                             if ((_c < (48 : GoUInt8)) || ((57 : GoUInt8) < _c)) {
                                 _ok = false;
                                 return _min;
@@ -259,7 +259,7 @@ macro private function _parseRFC3339<T_bytes>(_s:haxe.macro.Expr.ExprOf<T_bytes>
                         };
                         _s = (_s.__slice__(_n) : $T_bytes);
                     };
-                    var _t:Time = date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc).__copy__();
+                    var _t:stdgo.time.Time.Time = date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc).__copy__();
                     if ((_s.length != (1 : GoInt)) || (_s[@:param_index (0 : GoInt)] != (90 : GoUInt8))) {
                         if ((_s.length) != ((("-07:00" : GoString).length))) {
                             return { _0 : (new Time() : Time), _1 : false };
@@ -275,7 +275,7 @@ macro private function _parseRFC3339<T_bytes>(_s:haxe.macro.Expr.ExprOf<T_bytes>
                         };
                         _t._addSec(-(_zoneOffset : GoInt64));
                         {
-                            var __tmp__ = _local._lookup(_t._unixSec()), _0:GoString = __tmp__._0, _offset:GoInt = __tmp__._1, _1:GoInt64 = __tmp__._2, _2:GoInt64 = __tmp__._3, _3:Bool = __tmp__._4;
+                            var __tmp__ = _local._lookup(_t._unixSec()), __0:GoString = __tmp__._0, _offset:GoInt = __tmp__._1, __1:GoInt64 = __tmp__._2, __2:GoInt64 = __tmp__._3, __3:Bool = __tmp__._4;
                             if (_offset == (_zoneOffset)) {
                                 _t._setLoc(_local);
                             } else {

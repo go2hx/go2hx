@@ -14,19 +14,19 @@ import stdgo.Chan;
     
     
 **/
-final invalidSyntaxTree : Code = (-1 : Code);
+final invalidSyntaxTree : Code = (-1 : stdgo.internal.types.errors.Errors.Code);
 /**
     // The zero Code value indicates an unset (invalid) error code.
     
     
 **/
-private final _0 : Code = (148 : Code);
+private final __0 : Code = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // Test is reserved for errors that only apply while in self-test mode.
     
     
 **/
-final test = (148 : Code);
+final test = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // BlankPkgName occurs when a package name is the blank identifier "_".
     //
@@ -38,14 +38,14 @@ final test = (148 : Code);
     
     
 **/
-final blankPkgName = (148 : Code);
+final blankPkgName = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MismatchedPkgName occurs when a file's package name doesn't match the
     // package name already established by other files.
     
     
 **/
-final mismatchedPkgName = (148 : Code);
+final mismatchedPkgName = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidPkgUse occurs when a package identifier is used outside of a
     // selector expression.
@@ -57,13 +57,13 @@ final mismatchedPkgName = (148 : Code);
     
     
 **/
-final invalidPkgUse = (148 : Code);
+final invalidPkgUse = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // BadImportPath occurs when an import path is not valid.
     
     
 **/
-final badImportPath = (148 : Code);
+final badImportPath = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // BrokenImport occurs when importing a package fails.
     //
@@ -72,7 +72,7 @@ final badImportPath = (148 : Code);
     
     
 **/
-final brokenImport = (148 : Code);
+final brokenImport = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // ImportCRenamed occurs when the special import "C" is renamed. "C" is a
     // pseudo-package, and must not be renamed.
@@ -82,7 +82,7 @@ final brokenImport = (148 : Code);
     
     
 **/
-final importCRenamed = (148 : Code);
+final importCRenamed = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UnusedImport occurs when an import is unused.
     //
@@ -93,7 +93,7 @@ final importCRenamed = (148 : Code);
     
     
 **/
-final unusedImport = (148 : Code);
+final unusedImport = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidInitCycle occurs when an invalid cycle is detected within the
     // initialization graph.
@@ -105,7 +105,7 @@ final unusedImport = (148 : Code);
     
     
 **/
-final invalidInitCycle = (148 : Code);
+final invalidInitCycle = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // DuplicateDecl occurs when an identifier is declared multiple times.
     //
@@ -115,7 +115,7 @@ final invalidInitCycle = (148 : Code);
     
     
 **/
-final duplicateDecl = (148 : Code);
+final duplicateDecl = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidDeclCycle occurs when a declaration cycle is not valid.
     //
@@ -127,7 +127,7 @@ final duplicateDecl = (148 : Code);
     
     
 **/
-final invalidDeclCycle = (148 : Code);
+final invalidDeclCycle = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidTypeCycle occurs when a cycle in type definitions results in a
     // type that is not well-defined.
@@ -139,7 +139,7 @@ final invalidDeclCycle = (148 : Code);
     
     
 **/
-final invalidTypeCycle = (148 : Code);
+final invalidTypeCycle = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidConstInit occurs when a const declaration has a non-constant
     // initializer.
@@ -150,7 +150,7 @@ final invalidTypeCycle = (148 : Code);
     
     
 **/
-final invalidConstInit = (148 : Code);
+final invalidConstInit = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidConstVal occurs when a const value cannot be converted to its
     // target type.
@@ -163,7 +163,7 @@ final invalidConstInit = (148 : Code);
     
     
 **/
-final invalidConstVal = (148 : Code);
+final invalidConstVal = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidConstType occurs when the underlying type in a const declaration
     // is not a valid constant type.
@@ -173,7 +173,7 @@ final invalidConstVal = (148 : Code);
     
     
 **/
-final invalidConstType = (148 : Code);
+final invalidConstType = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UntypedNilUse occurs when the predeclared (untyped) value nil is used to
     // initialize a variable declared without an explicit type.
@@ -183,7 +183,7 @@ final invalidConstType = (148 : Code);
     
     
 **/
-final untypedNilUse = (148 : Code);
+final untypedNilUse = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // WrongAssignCount occurs when the number of values on the right-hand side
     // of an assignment or initialization expression does not match the number
@@ -194,7 +194,7 @@ final untypedNilUse = (148 : Code);
     
     
 **/
-final wrongAssignCount = (148 : Code);
+final wrongAssignCount = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UnassignableOperand occurs when the left-hand side of an assignment is
     // not assignable.
@@ -207,7 +207,7 @@ final wrongAssignCount = (148 : Code);
     
     
 **/
-final unassignableOperand = (148 : Code);
+final unassignableOperand = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // NoNewVar occurs when a short variable declaration (':=') does not declare
     // new variables.
@@ -220,7 +220,7 @@ final unassignableOperand = (148 : Code);
     
     
 **/
-final noNewVar = (148 : Code);
+final noNewVar = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MultiValAssignOp occurs when an assignment operation (+=, *=, etc) does
     // not have single-valued left-hand or right-hand side.
@@ -238,7 +238,7 @@ final noNewVar = (148 : Code);
     
     
 **/
-final multiValAssignOp = (148 : Code);
+final multiValAssignOp = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidIfaceAssign occurs when a value of type T is used as an
     // interface, but T does not implement a method of the expected interface.
@@ -254,7 +254,7 @@ final multiValAssignOp = (148 : Code);
     
     
 **/
-final invalidIfaceAssign = (148 : Code);
+final invalidIfaceAssign = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidChanAssign occurs when a chan assignment is invalid.
     //
@@ -273,7 +273,7 @@ final invalidIfaceAssign = (148 : Code);
     
     
 **/
-final invalidChanAssign = (148 : Code);
+final invalidChanAssign = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // IncompatibleAssign occurs when the type of the right-hand side expression
     // in an assignment cannot be assigned to the type of the variable being
@@ -285,7 +285,7 @@ final invalidChanAssign = (148 : Code);
     
     
 **/
-final incompatibleAssign = (148 : Code);
+final incompatibleAssign = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UnaddressableFieldAssign occurs when trying to assign to a struct field
     // in a map value.
@@ -298,7 +298,7 @@ final incompatibleAssign = (148 : Code);
     
     
 **/
-final unaddressableFieldAssign = (148 : Code);
+final unaddressableFieldAssign = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // NotAType occurs when the identifier used as the underlying type in a type
     // declaration or the right-hand side of a type alias does not denote a type.
@@ -310,7 +310,7 @@ final unaddressableFieldAssign = (148 : Code);
     
     
 **/
-final notAType = (148 : Code);
+final notAType = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidArrayLen occurs when an array length is not a constant value.
     //
@@ -320,7 +320,7 @@ final notAType = (148 : Code);
     
     
 **/
-final invalidArrayLen = (148 : Code);
+final invalidArrayLen = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // BlankIfaceMethod occurs when a method name is '_'.
     //
@@ -335,7 +335,7 @@ final invalidArrayLen = (148 : Code);
     
     
 **/
-final blankIfaceMethod = (148 : Code);
+final blankIfaceMethod = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // IncomparableMapKey occurs when a map key type does not support the == and
     // != operators.
@@ -351,14 +351,14 @@ final blankIfaceMethod = (148 : Code);
     
     
 **/
-final incomparableMapKey = (148 : Code);
+final incomparableMapKey = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidIfaceEmbed occurs when a non-interface type is embedded in an
     // interface (for go 1.17 or earlier).
     
     // not used anymore
 **/
-private final _1 = (148 : Code);
+private final __1 = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidPtrEmbed occurs when an embedded field is of the pointer form *T,
     // and T itself is itself a pointer, an unsafe.Pointer, or an interface.
@@ -376,7 +376,7 @@ private final _1 = (148 : Code);
     
     
 **/
-final invalidPtrEmbed = (148 : Code);
+final invalidPtrEmbed = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // BadRecv occurs when a method declaration does not have exactly one
     // receiver parameter.
@@ -386,7 +386,7 @@ final invalidPtrEmbed = (148 : Code);
     
     
 **/
-final badRecv = (148 : Code);
+final badRecv = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidRecv occurs when a receiver type expression is not of the form T
     // or *T, or T is a pointer type.
@@ -398,7 +398,7 @@ final badRecv = (148 : Code);
     
     
 **/
-final invalidRecv = (148 : Code);
+final invalidRecv = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // DuplicateFieldAndMethod occurs when an identifier appears as both a field
     // and method name.
@@ -412,7 +412,7 @@ final invalidRecv = (148 : Code);
     
     
 **/
-final duplicateFieldAndMethod = (148 : Code);
+final duplicateFieldAndMethod = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // DuplicateMethod occurs when two methods on the same receiver type have
     // the same name.
@@ -424,7 +424,7 @@ final duplicateFieldAndMethod = (148 : Code);
     
     
 **/
-final duplicateMethod = (148 : Code);
+final duplicateMethod = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidBlank occurs when a blank identifier is used as a value or type.
     //
@@ -437,7 +437,7 @@ final duplicateMethod = (148 : Code);
     
     
 **/
-final invalidBlank = (148 : Code);
+final invalidBlank = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidIota occurs when the predeclared identifier iota is used outside
     // of a constant declaration.
@@ -447,7 +447,7 @@ final invalidBlank = (148 : Code);
     
     
 **/
-final invalidIota = (148 : Code);
+final invalidIota = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MissingInitBody occurs when an init function is missing its body.
     //
@@ -456,7 +456,7 @@ final invalidIota = (148 : Code);
     
     
 **/
-final missingInitBody = (148 : Code);
+final missingInitBody = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidInitSig occurs when an init function declares parameters or
     // results.
@@ -466,7 +466,7 @@ final missingInitBody = (148 : Code);
     
     
 **/
-final invalidInitSig = (148 : Code);
+final invalidInitSig = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidInitDecl occurs when init is declared as anything other than a
     // function.
@@ -479,14 +479,14 @@ final invalidInitSig = (148 : Code);
     
     
 **/
-final invalidInitDecl = (148 : Code);
+final invalidInitDecl = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidMainDecl occurs when main is declared as anything other than a
     // function, in a main package.
     
     
 **/
-final invalidMainDecl = (148 : Code);
+final invalidMainDecl = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // TooManyValues occurs when a function returns too many values for the
     // expression context in which it is used.
@@ -500,7 +500,7 @@ final invalidMainDecl = (148 : Code);
     
     
 **/
-final tooManyValues = (148 : Code);
+final tooManyValues = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // NotAnExpr occurs when a type expression is used where a value expression
     // is expected.
@@ -514,7 +514,7 @@ final tooManyValues = (148 : Code);
     
     
 **/
-final notAnExpr = (148 : Code);
+final notAnExpr = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // TruncatedFloat occurs when a float constant is truncated to an integer
     // value.
@@ -524,7 +524,7 @@ final notAnExpr = (148 : Code);
     
     
 **/
-final truncatedFloat = (148 : Code);
+final truncatedFloat = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // NumericOverflow occurs when a numeric constant overflows its target type.
     //
@@ -533,7 +533,7 @@ final truncatedFloat = (148 : Code);
     
     
 **/
-final numericOverflow = (148 : Code);
+final numericOverflow = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UndefinedOp occurs when an operator is not defined for the type(s) used
     // in an operation.
@@ -543,7 +543,7 @@ final numericOverflow = (148 : Code);
     
     
 **/
-final undefinedOp = (148 : Code);
+final undefinedOp = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MismatchedTypes occurs when operand types are incompatible in a binary
     // operation.
@@ -555,7 +555,7 @@ final undefinedOp = (148 : Code);
     
     
 **/
-final mismatchedTypes = (148 : Code);
+final mismatchedTypes = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // DivByZero occurs when a division operation is provable at compile
     // time to be a division by zero.
@@ -566,7 +566,7 @@ final mismatchedTypes = (148 : Code);
     
     
 **/
-final divByZero = (148 : Code);
+final divByZero = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // NonNumericIncDec occurs when an increment or decrement operator is
     // applied to a non-numeric value.
@@ -579,7 +579,7 @@ final divByZero = (148 : Code);
     
     
 **/
-final nonNumericIncDec = (148 : Code);
+final nonNumericIncDec = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UnaddressableOperand occurs when the & operator is applied to an
     // unaddressable expression.
@@ -589,7 +589,7 @@ final nonNumericIncDec = (148 : Code);
     
     
 **/
-final unaddressableOperand = (148 : Code);
+final unaddressableOperand = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidIndirection occurs when a non-pointer value is indirected via the
     // '*' operator.
@@ -600,7 +600,7 @@ final unaddressableOperand = (148 : Code);
     
     
 **/
-final invalidIndirection = (148 : Code);
+final invalidIndirection = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // NonIndexableOperand occurs when an index operation is applied to a value
     // that cannot be indexed.
@@ -611,7 +611,7 @@ final invalidIndirection = (148 : Code);
     
     
 **/
-final nonIndexableOperand = (148 : Code);
+final nonIndexableOperand = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidIndex occurs when an index argument is not of integer type,
     // negative, or out-of-bounds.
@@ -631,7 +631,7 @@ final nonIndexableOperand = (148 : Code);
     
     
 **/
-final invalidIndex = (148 : Code);
+final invalidIndex = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // SwappedSliceIndices occurs when constant indices in a slice expression
     // are decreasing in value.
@@ -641,7 +641,7 @@ final invalidIndex = (148 : Code);
     
     
 **/
-final swappedSliceIndices = (148 : Code);
+final swappedSliceIndices = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // NonSliceableOperand occurs when a slice operation is applied to a value
     // whose type is not sliceable, or is unaddressable.
@@ -655,7 +655,7 @@ final swappedSliceIndices = (148 : Code);
     
     
 **/
-final nonSliceableOperand = (148 : Code);
+final nonSliceableOperand = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidSliceExpr occurs when a three-index slice expression (a[x:y:z]) is
     // applied to a string.
@@ -666,7 +666,7 @@ final nonSliceableOperand = (148 : Code);
     
     
 **/
-final invalidSliceExpr = (148 : Code);
+final invalidSliceExpr = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidShiftCount occurs when the right-hand side of a shift operation is
     // either non-integer, negative, or too large.
@@ -679,7 +679,7 @@ final invalidSliceExpr = (148 : Code);
     
     
 **/
-final invalidShiftCount = (148 : Code);
+final invalidShiftCount = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidShiftOperand occurs when the shifted operand is not an integer.
     //
@@ -689,7 +689,7 @@ final invalidShiftCount = (148 : Code);
     
     
 **/
-final invalidShiftOperand = (148 : Code);
+final invalidShiftOperand = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidReceive occurs when there is a channel receive from a value that
     // is either not a channel, or is a send-only channel.
@@ -702,7 +702,7 @@ final invalidShiftOperand = (148 : Code);
     
     
 **/
-final invalidReceive = (148 : Code);
+final invalidReceive = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidSend occurs when there is a channel send to a value that is not a
     // channel, or is a receive-only channel.
@@ -715,7 +715,7 @@ final invalidReceive = (148 : Code);
     
     
 **/
-final invalidSend = (148 : Code);
+final invalidSend = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // DuplicateLitKey occurs when an index is duplicated in a slice, array, or
     // map literal.
@@ -728,7 +728,7 @@ final invalidSend = (148 : Code);
     
     
 **/
-final duplicateLitKey = (148 : Code);
+final duplicateLitKey = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MissingLitKey occurs when a map literal is missing a key expression.
     //
@@ -737,7 +737,7 @@ final duplicateLitKey = (148 : Code);
     
     
 **/
-final missingLitKey = (148 : Code);
+final missingLitKey = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidLitIndex occurs when the key in a key-value element of a slice or
     // array literal is not an integer constant.
@@ -748,7 +748,7 @@ final missingLitKey = (148 : Code);
     
     
 **/
-final invalidLitIndex = (148 : Code);
+final invalidLitIndex = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // OversizeArrayLit occurs when an array literal exceeds its length.
     //
@@ -757,7 +757,7 @@ final invalidLitIndex = (148 : Code);
     
     
 **/
-final oversizeArrayLit = (148 : Code);
+final oversizeArrayLit = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MixedStructLit occurs when a struct literal contains a mix of positional
     // and named elements.
@@ -767,7 +767,7 @@ final oversizeArrayLit = (148 : Code);
     
     
 **/
-final mixedStructLit = (148 : Code);
+final mixedStructLit = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidStructLit occurs when a positional struct literal has an incorrect
     // number of values.
@@ -777,7 +777,7 @@ final mixedStructLit = (148 : Code);
     
     
 **/
-final invalidStructLit = (148 : Code);
+final invalidStructLit = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MissingLitField occurs when a struct literal refers to a field that does
     // not exist on the struct type.
@@ -787,7 +787,7 @@ final invalidStructLit = (148 : Code);
     
     
 **/
-final missingLitField = (148 : Code);
+final missingLitField = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // DuplicateLitField occurs when a struct literal contains duplicated
     // fields.
@@ -797,14 +797,14 @@ final missingLitField = (148 : Code);
     
     
 **/
-final duplicateLitField = (148 : Code);
+final duplicateLitField = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UnexportedLitField occurs when a positional struct literal implicitly
     // assigns an unexported field of an imported type.
     
     
 **/
-final unexportedLitField = (148 : Code);
+final unexportedLitField = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidLitField occurs when a field name is not a valid identifier.
     //
@@ -813,7 +813,7 @@ final unexportedLitField = (148 : Code);
     
     
 **/
-final invalidLitField = (148 : Code);
+final invalidLitField = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UntypedLit occurs when a composite literal omits a required type
     // identifier.
@@ -827,7 +827,7 @@ final invalidLitField = (148 : Code);
     
     
 **/
-final untypedLit = (148 : Code);
+final untypedLit = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidLit occurs when a composite literal expression does not match its
     // type.
@@ -840,7 +840,7 @@ final untypedLit = (148 : Code);
     
     
 **/
-final invalidLit = (148 : Code);
+final invalidLit = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // AmbiguousSelector occurs when a selector is ambiguous.
     //
@@ -854,7 +854,7 @@ final invalidLit = (148 : Code);
     
     
 **/
-final ambiguousSelector = (148 : Code);
+final ambiguousSelector = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UndeclaredImportedName occurs when a package-qualified identifier is
     // undeclared by the imported package.
@@ -866,7 +866,7 @@ final ambiguousSelector = (148 : Code);
     
     
 **/
-final undeclaredImportedName = (148 : Code);
+final undeclaredImportedName = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UnexportedName occurs when a selector refers to an unexported identifier
     // of an imported package.
@@ -878,7 +878,7 @@ final undeclaredImportedName = (148 : Code);
     
     
 **/
-final unexportedName = (148 : Code);
+final unexportedName = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UndeclaredName occurs when an identifier is not declared in the current
     // scope.
@@ -888,7 +888,7 @@ final unexportedName = (148 : Code);
     
     
 **/
-final undeclaredName = (148 : Code);
+final undeclaredName = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MissingFieldOrMethod occurs when a selector references a field or method
     // that does not exist.
@@ -900,7 +900,7 @@ final undeclaredName = (148 : Code);
     
     
 **/
-final missingFieldOrMethod = (148 : Code);
+final missingFieldOrMethod = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // BadDotDotDotSyntax occurs when a "..." occurs in a context where it is
     // not valid.
@@ -910,7 +910,7 @@ final missingFieldOrMethod = (148 : Code);
     
     
 **/
-final badDotDotDotSyntax = (148 : Code);
+final badDotDotDotSyntax = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // NonVariadicDotDotDot occurs when a "..." is used on the final argument to
     // a non-variadic function.
@@ -929,7 +929,7 @@ final badDotDotDotSyntax = (148 : Code);
     
     
 **/
-final nonVariadicDotDotDot = (148 : Code);
+final nonVariadicDotDotDot = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MisplacedDotDotDot occurs when a "..." is used somewhere other than the
     // final argument in a function declaration.
@@ -939,13 +939,13 @@ final nonVariadicDotDotDot = (148 : Code);
     
     
 **/
-final misplacedDotDotDot = (148 : Code);
+final misplacedDotDotDot = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     
     
     // InvalidDotDotDotOperand was removed.
 **/
-private final _2 = (148 : Code);
+private final __2 = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidDotDotDot occurs when a "..." is used in a non-variadic built-in
     // function.
@@ -956,7 +956,7 @@ private final _2 = (148 : Code);
     
     
 **/
-final invalidDotDotDot = (148 : Code);
+final invalidDotDotDot = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UncalledBuiltin occurs when a built-in function is used as a
     // function-valued expression, instead of being called.
@@ -970,7 +970,7 @@ final invalidDotDotDot = (148 : Code);
     
     
 **/
-final uncalledBuiltin = (148 : Code);
+final uncalledBuiltin = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidAppend occurs when append is called with a first argument that is
     // not a slice.
@@ -980,7 +980,7 @@ final uncalledBuiltin = (148 : Code);
     
     
 **/
-final invalidAppend = (148 : Code);
+final invalidAppend = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidCap occurs when an argument to the cap built-in function is not of
     // supported type.
@@ -994,7 +994,7 @@ final invalidAppend = (148 : Code);
     
     
 **/
-final invalidCap = (148 : Code);
+final invalidCap = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidClose occurs when close(...) is called with an argument that is
     // not of channel type, or that is a receive-only channel.
@@ -1007,7 +1007,7 @@ final invalidCap = (148 : Code);
     
     
 **/
-final invalidClose = (148 : Code);
+final invalidClose = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidCopy occurs when the arguments are not of slice type or do not
     // have compatible type.
@@ -1024,7 +1024,7 @@ final invalidClose = (148 : Code);
     
     
 **/
-final invalidCopy = (148 : Code);
+final invalidCopy = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidComplex occurs when the complex built-in function is called with
     // arguments with incompatible types.
@@ -1034,7 +1034,7 @@ final invalidCopy = (148 : Code);
     
     
 **/
-final invalidComplex = (148 : Code);
+final invalidComplex = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidDelete occurs when the delete built-in function is called with a
     // first argument that is not a map.
@@ -1047,7 +1047,7 @@ final invalidComplex = (148 : Code);
     
     
 **/
-final invalidDelete = (148 : Code);
+final invalidDelete = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidImag occurs when the imag built-in function is called with an
     // argument that does not have complex type.
@@ -1057,7 +1057,7 @@ final invalidDelete = (148 : Code);
     
     
 **/
-final invalidImag = (148 : Code);
+final invalidImag = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidLen occurs when an argument to the len built-in function is not of
     // supported type.
@@ -1071,7 +1071,7 @@ final invalidImag = (148 : Code);
     
     
 **/
-final invalidLen = (148 : Code);
+final invalidLen = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // SwappedMakeArgs occurs when make is called with three arguments, and its
     // length argument is larger than its capacity argument.
@@ -1081,7 +1081,7 @@ final invalidLen = (148 : Code);
     
     
 **/
-final swappedMakeArgs = (148 : Code);
+final swappedMakeArgs = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidMake occurs when make is called with an unsupported type argument.
     //
@@ -1093,7 +1093,7 @@ final swappedMakeArgs = (148 : Code);
     
     
 **/
-final invalidMake = (148 : Code);
+final invalidMake = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidReal occurs when the real built-in function is called with an
     // argument that does not have complex type.
@@ -1103,7 +1103,7 @@ final invalidMake = (148 : Code);
     
     
 **/
-final invalidReal = (148 : Code);
+final invalidReal = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidAssert occurs when a type assertion is applied to a
     // value that is not of interface type.
@@ -1114,7 +1114,7 @@ final invalidReal = (148 : Code);
     
     
 **/
-final invalidAssert = (148 : Code);
+final invalidAssert = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // ImpossibleAssert occurs for a type assertion x.(T) when the value x of
     // interface cannot have dynamic type T, due to a missing or mismatching
@@ -1132,7 +1132,7 @@ final invalidAssert = (148 : Code);
     
     
 **/
-final impossibleAssert = (148 : Code);
+final impossibleAssert = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidConversion occurs when the argument type cannot be converted to the
     // target.
@@ -1146,7 +1146,7 @@ final impossibleAssert = (148 : Code);
     
     
 **/
-final invalidConversion = (148 : Code);
+final invalidConversion = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidUntypedConversion occurs when there is no valid implicit
     // conversion from an untyped value satisfying the type constraints of the
@@ -1157,7 +1157,7 @@ final invalidConversion = (148 : Code);
     
     
 **/
-final invalidUntypedConversion = (148 : Code);
+final invalidUntypedConversion = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // BadOffsetofSyntax occurs when unsafe.Offsetof is called with an argument
     // that is not a selector expression.
@@ -1170,7 +1170,7 @@ final invalidUntypedConversion = (148 : Code);
     
     
 **/
-final badOffsetofSyntax = (148 : Code);
+final badOffsetofSyntax = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidOffsetof occurs when unsafe.Offsetof is called with a method
     // selector, rather than a field selector, or when the field is embedded via
@@ -1201,7 +1201,7 @@ final badOffsetofSyntax = (148 : Code);
     
     
 **/
-final invalidOffsetof = (148 : Code);
+final invalidOffsetof = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UnusedExpr occurs when a side-effect free expression is used as a
     // statement. Such a statement has no effect.
@@ -1213,7 +1213,7 @@ final invalidOffsetof = (148 : Code);
     
     
 **/
-final unusedExpr = (148 : Code);
+final unusedExpr = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UnusedVar occurs when a variable is declared but unused.
     //
@@ -1224,7 +1224,7 @@ final unusedExpr = (148 : Code);
     
     
 **/
-final unusedVar = (148 : Code);
+final unusedVar = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MissingReturn occurs when a function with results is missing a return
     // statement.
@@ -1234,7 +1234,7 @@ final unusedVar = (148 : Code);
     
     
 **/
-final missingReturn = (148 : Code);
+final missingReturn = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // WrongResultCount occurs when a return statement returns an incorrect
     // number of values.
@@ -1246,7 +1246,7 @@ final missingReturn = (148 : Code);
     
     
 **/
-final wrongResultCount = (148 : Code);
+final wrongResultCount = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // OutOfScopeResult occurs when the name of a value implicitly returned by
     // an empty return statement is shadowed in a nested scope.
@@ -1263,7 +1263,7 @@ final wrongResultCount = (148 : Code);
     
     
 **/
-final outOfScopeResult = (148 : Code);
+final outOfScopeResult = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidCond occurs when an if condition is not a boolean expression.
     //
@@ -1276,7 +1276,7 @@ final outOfScopeResult = (148 : Code);
     
     
 **/
-final invalidCond = (148 : Code);
+final invalidCond = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidPostDecl occurs when there is a declaration in a for-loop post
     // statement.
@@ -1288,13 +1288,13 @@ final invalidCond = (148 : Code);
     
     
 **/
-final invalidPostDecl = (148 : Code);
+final invalidPostDecl = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     
     
     // InvalidChanRange was removed.
 **/
-private final _3 = (148 : Code);
+private final __3 = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidIterVar occurs when two iteration variables are used while ranging
     // over a channel.
@@ -1308,7 +1308,7 @@ private final _3 = (148 : Code);
     
     
 **/
-final invalidIterVar = (148 : Code);
+final invalidIterVar = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidRangeExpr occurs when the type of a range expression is not array,
     // slice, string, map, or channel.
@@ -1322,7 +1322,7 @@ final invalidIterVar = (148 : Code);
     
     
 **/
-final invalidRangeExpr = (148 : Code);
+final invalidRangeExpr = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MisplacedBreak occurs when a break statement is not within a for, switch,
     // or select statement of the innermost function definition.
@@ -1334,7 +1334,7 @@ final invalidRangeExpr = (148 : Code);
     
     
 **/
-final misplacedBreak = (148 : Code);
+final misplacedBreak = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MisplacedContinue occurs when a continue statement is not within a for
     // loop of the innermost function definition.
@@ -1356,7 +1356,7 @@ final misplacedBreak = (148 : Code);
     
     
 **/
-final misplacedContinue = (148 : Code);
+final misplacedContinue = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MisplacedFallthrough occurs when a fallthrough statement is not within an
     // expression switch.
@@ -1374,7 +1374,7 @@ final misplacedContinue = (148 : Code);
     
     
 **/
-final misplacedFallthrough = (148 : Code);
+final misplacedFallthrough = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // DuplicateCase occurs when a type or expression switch has duplicate
     // cases.
@@ -1391,7 +1391,7 @@ final misplacedFallthrough = (148 : Code);
     
     
 **/
-final duplicateCase = (148 : Code);
+final duplicateCase = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // DuplicateDefault occurs when a type or expression switch has multiple
     // default clauses.
@@ -1410,7 +1410,7 @@ final duplicateCase = (148 : Code);
     
     
 **/
-final duplicateDefault = (148 : Code);
+final duplicateDefault = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // BadTypeKeyword occurs when a .(type) expression is used anywhere other
     // than a type switch.
@@ -1424,7 +1424,7 @@ final duplicateDefault = (148 : Code);
     
     
 **/
-final badTypeKeyword = (148 : Code);
+final badTypeKeyword = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidTypeSwitch occurs when .(type) is used on an expression that is
     // not of interface type.
@@ -1436,7 +1436,7 @@ final badTypeKeyword = (148 : Code);
     
     
 **/
-final invalidTypeSwitch = (148 : Code);
+final invalidTypeSwitch = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidExprSwitch occurs when a switch expression is not comparable.
     //
@@ -1449,7 +1449,7 @@ final invalidTypeSwitch = (148 : Code);
     
     
 **/
-final invalidExprSwitch = (148 : Code);
+final invalidExprSwitch = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidSelectCase occurs when a select case is not a channel send or
     // receive.
@@ -1466,7 +1466,7 @@ final invalidExprSwitch = (148 : Code);
     
     
 **/
-final invalidSelectCase = (148 : Code);
+final invalidSelectCase = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UndeclaredLabel occurs when an undeclared label is jumped to.
     //
@@ -1477,7 +1477,7 @@ final invalidSelectCase = (148 : Code);
     
     
 **/
-final undeclaredLabel = (148 : Code);
+final undeclaredLabel = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // DuplicateLabel occurs when a label is declared more than once.
     //
@@ -1490,7 +1490,7 @@ final undeclaredLabel = (148 : Code);
     
     
 **/
-final duplicateLabel = (148 : Code);
+final duplicateLabel = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MisplacedLabel occurs when a break or continue label is not on a for,
     // switch, or select statement.
@@ -1509,7 +1509,7 @@ final duplicateLabel = (148 : Code);
     
     
 **/
-final misplacedLabel = (148 : Code);
+final misplacedLabel = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UnusedLabel occurs when a label is declared and not used.
     //
@@ -1520,7 +1520,7 @@ final misplacedLabel = (148 : Code);
     
     
 **/
-final unusedLabel = (148 : Code);
+final unusedLabel = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // JumpOverDecl occurs when a label jumps over a variable declaration.
     //
@@ -1535,7 +1535,7 @@ final unusedLabel = (148 : Code);
     
     
 **/
-final jumpOverDecl = (148 : Code);
+final jumpOverDecl = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // JumpIntoBlock occurs when a forward jump goes to a label inside a nested
     // block.
@@ -1551,7 +1551,7 @@ final jumpOverDecl = (148 : Code);
     
     
 **/
-final jumpIntoBlock = (148 : Code);
+final jumpIntoBlock = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidMethodExpr occurs when a pointer method is called but the argument
     // is not addressable.
@@ -1565,7 +1565,7 @@ final jumpIntoBlock = (148 : Code);
     
     
 **/
-final invalidMethodExpr = (148 : Code);
+final invalidMethodExpr = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // WrongArgCount occurs when too few or too many arguments are passed by a
     // function call.
@@ -1576,7 +1576,7 @@ final invalidMethodExpr = (148 : Code);
     
     
 **/
-final wrongArgCount = (148 : Code);
+final wrongArgCount = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidCall occurs when an expression is called that is not of function
     // type.
@@ -1587,7 +1587,7 @@ final wrongArgCount = (148 : Code);
     
     
 **/
-final invalidCall = (148 : Code);
+final invalidCall = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UnusedResults occurs when a restricted expression-only built-in function
     // is suspended via go or defer. Such a suspension discards the results of
@@ -1601,7 +1601,7 @@ final invalidCall = (148 : Code);
     
     
 **/
-final unusedResults = (148 : Code);
+final unusedResults = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidDefer occurs when a deferred expression is not a function call,
     // for example if the expression is a type conversion.
@@ -1614,7 +1614,7 @@ final unusedResults = (148 : Code);
     
     
 **/
-final invalidDefer = (148 : Code);
+final invalidDefer = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidGo occurs when a go expression is not a function call, for example
     // if the expression is a type conversion.
@@ -1627,13 +1627,13 @@ final invalidDefer = (148 : Code);
     
     
 **/
-final invalidGo = (148 : Code);
+final invalidGo = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // BadDecl occurs when a declaration has invalid syntax.
     
     
 **/
-final badDecl = (148 : Code);
+final badDecl = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // RepeatedDecl occurs when an identifier occurs more than once on the left
     // hand side of a short variable declaration.
@@ -1645,7 +1645,7 @@ final badDecl = (148 : Code);
     
     
 **/
-final repeatedDecl = (148 : Code);
+final repeatedDecl = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidUnsafeAdd occurs when unsafe.Add is called with a
     // length argument that is not of integer type.
@@ -1660,7 +1660,7 @@ final repeatedDecl = (148 : Code);
     
     
 **/
-final invalidUnsafeAdd = (148 : Code);
+final invalidUnsafeAdd = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidUnsafeSlice occurs when unsafe.Slice is called with a
     // pointer argument that is not of pointer type or a length argument
@@ -1694,14 +1694,14 @@ final invalidUnsafeAdd = (148 : Code);
     
     
 **/
-final invalidUnsafeSlice = (148 : Code);
+final invalidUnsafeSlice = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // UnsupportedFeature occurs when a language feature is used that is not
     // supported at this Go version.
     
     
 **/
-final unsupportedFeature = (148 : Code);
+final unsupportedFeature = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // NotAGenericType occurs when a non-generic type is used where a generic
     // type is expected: in type or function instantiation.
@@ -1713,7 +1713,7 @@ final unsupportedFeature = (148 : Code);
     
     
 **/
-final notAGenericType = (148 : Code);
+final notAGenericType = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // WrongTypeArgCount occurs when a type or function is instantiated with an
     // incorrent number of type arguments, including when a generic type or
@@ -1733,7 +1733,7 @@ final notAGenericType = (148 : Code);
     
     
 **/
-final wrongTypeArgCount = (148 : Code);
+final wrongTypeArgCount = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // CannotInferTypeArgs occurs when type or function type argument inference
     // fails to infer all type arguments.
@@ -1747,7 +1747,7 @@ final wrongTypeArgCount = (148 : Code);
     
     
 **/
-final cannotInferTypeArgs = (148 : Code);
+final cannotInferTypeArgs = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidTypeArg occurs when a type argument does not satisfy its
     // corresponding type parameter constraints.
@@ -1759,7 +1759,7 @@ final cannotInferTypeArgs = (148 : Code);
     
     // arguments? InferenceFailed
 **/
-final invalidTypeArg = (148 : Code);
+final invalidTypeArg = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidInstanceCycle occurs when an invalid cycle is detected
     // within the instantiation graph.
@@ -1769,7 +1769,7 @@ final invalidTypeArg = (148 : Code);
     
     
 **/
-final invalidInstanceCycle = (148 : Code);
+final invalidInstanceCycle = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidUnion occurs when an embedded union or approximation element is
     // not valid.
@@ -1781,7 +1781,7 @@ final invalidInstanceCycle = (148 : Code);
     
     
 **/
-final invalidUnion = (148 : Code);
+final invalidUnion = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MisplacedConstraintIface occurs when a constraint-type interface is used
     // outside of constraint position.
@@ -1793,7 +1793,7 @@ final invalidUnion = (148 : Code);
     
     
 **/
-final misplacedConstraintIface = (148 : Code);
+final misplacedConstraintIface = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidMethodTypeParams occurs when methods have type parameters.
     //
@@ -1801,7 +1801,7 @@ final misplacedConstraintIface = (148 : Code);
     
     
 **/
-final invalidMethodTypeParams = (148 : Code);
+final invalidMethodTypeParams = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // MisplacedTypeParam occurs when a type parameter is used in a place where
     // it is not permitted.
@@ -1814,7 +1814,7 @@ final invalidMethodTypeParams = (148 : Code);
     
     
 **/
-final misplacedTypeParam = (148 : Code);
+final misplacedTypeParam = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidUnsafeSliceData occurs when unsafe.SliceData is called with
     // an argument that is not of slice type. It also occurs if it is used
@@ -1828,7 +1828,7 @@ final misplacedTypeParam = (148 : Code);
     
     
 **/
-final invalidUnsafeSliceData = (148 : Code);
+final invalidUnsafeSliceData = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidUnsafeString occurs when unsafe.String is called with
     // a length argument that is not of integer type, negative, or
@@ -1843,14 +1843,14 @@ final invalidUnsafeSliceData = (148 : Code);
     
     
 **/
-final invalidUnsafeString = (148 : Code);
+final invalidUnsafeString = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidUnsafeStringData occurs if it is used in a package
     // compiled for a language version before go1.20.
     
     // not used anymore
 **/
-private final _4 = (148 : Code);
+private final __4 = (148 : stdgo.internal.types.errors.Errors.Code);
 /**
     // InvalidClear occurs when clear is called with an argument
     // that is not of map, slice, or pointer-to-array type.
@@ -1862,5 +1862,5 @@ private final _4 = (148 : Code);
     
     
 **/
-final invalidClear = (148 : Code);
+final invalidClear = (148 : stdgo.internal.types.errors.Errors.Code);
 @:named typedef Code = GoInt;

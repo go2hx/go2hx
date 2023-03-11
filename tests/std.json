@@ -6,7 +6,6 @@
  "hl|path",
  "hl|sort",
  "hl|strconv",
- "hl|strings",
  "hl|unicode",
  "hl|unicode/utf16",
  "hl|unicode/utf8",

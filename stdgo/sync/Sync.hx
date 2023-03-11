@@ -112,7 +112,7 @@ private var _poolRaceHash : GoArray<GoUInt64> = new GoArray<GoUInt64>(...[for (i
     
     
 **/
-private var _allPoolsMu : Mutex = ({} : Mutex);
+private var _allPoolsMu : Mutex = ({} : stdgo.sync.Sync.Mutex);
 /**
     // allPools is the set of pools that have non-empty primary
     // caches. Protected by either 1) allPoolsMu and pinning or 2)
@@ -120,14 +120,14 @@ private var _allPoolsMu : Mutex = ({} : Mutex);
     
     
 **/
-private var _allPools : Slice<Ref<Pool>> = (null : Slice<Ref<Pool>>);
+private var _allPools : Slice<Ref<Pool>> = (null : Slice<Ref<stdgo.sync.Sync.Pool>>);
 /**
     // oldPools is the set of pools that may have non-empty victim
     // caches. Protected by STW.
     
     
 **/
-private var _oldPools : Slice<Ref<Pool>> = (null : Slice<Ref<Pool>>);
+private var _oldPools : Slice<Ref<Pool>> = (null : Slice<Ref<stdgo.sync.Sync.Pool>>);
 /**
     
     
@@ -223,14 +223,14 @@ typedef Locker = StructType & {
     
 **/
 @:structInit @:using(stdgo.sync.Sync.Cond_static_extension) class Cond {
-    public var _noCopy : T_noCopy = ({} : T_noCopy);
+    public var _noCopy : stdgo.sync.Sync.T_noCopy = ({} : stdgo.sync.Sync.T_noCopy);
     /**
         // L is held while observing or changing the condition
     **/
-    public var l : Locker = (null : Locker);
-    public var _notify : T_notifyList = ({} : T_notifyList);
-    public var _checker : T_copyChecker = ((0 : GoUIntptr) : T_copyChecker);
-    public function new(?_noCopy:T_noCopy, ?l:Locker, ?_notify:T_notifyList, ?_checker:T_copyChecker) {
+    public var l : stdgo.sync.Sync.Locker = (null : stdgo.sync.Sync.Locker);
+    public var _notify : stdgo.sync.Sync.T_notifyList = ({} : stdgo.sync.Sync.T_notifyList);
+    public var _checker : stdgo.sync.Sync.T_copyChecker = ((0 : GoUIntptr) : stdgo.sync.Sync.T_copyChecker);
+    public function new(?_noCopy:stdgo.sync.Sync.T_noCopy, ?l:stdgo.sync.Sync.Locker, ?_notify:stdgo.sync.Sync.T_notifyList, ?_checker:stdgo.sync.Sync.T_copyChecker) {
         if (_noCopy != null) this._noCopy = _noCopy;
         if (l != null) this.l = l;
         if (_notify != null) this._notify = _notify;
@@ -288,7 +288,7 @@ typedef Locker = StructType & {
     
 **/
 @:structInit @:using(stdgo.sync.Sync.Map__static_extension) class Map_ {
-    public var _mu : Mutex = ({} : Mutex);
+    public var _mu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
     /**
         // read contains the portion of the map's contents that are safe for
         // concurrent access (with or without mu held).
@@ -300,7 +300,7 @@ typedef Locker = StructType & {
         // a previously-expunged entry requires that the entry be copied to the dirty
         // map and unexpunged with mu held.
     **/
-    public var _read : stdgo.sync.atomic.Atomic.Pointer_<T_readOnly> = ({} : stdgo.sync.atomic.Atomic.Pointer_<T_readOnly>);
+    public var _read : stdgo.sync.atomic.Atomic.Pointer_<stdgo.sync.Sync.T_readOnly> = ({} : stdgo.sync.atomic.Atomic.Pointer_<stdgo.sync.Sync.T_readOnly>);
     /**
         // dirty contains the portion of the map's contents that require mu to be
         // held. To ensure that the dirty map can be promoted to the read map quickly,
@@ -313,7 +313,7 @@ typedef Locker = StructType & {
         // If the dirty map is nil, the next write to the map will initialize it by
         // making a shallow copy of the clean map, omitting stale entries.
     **/
-    public var _dirty : GoMap<AnyInterface, Ref<T_entry>> = (null : GoMap<AnyInterface, Ref<T_entry>>);
+    public var _dirty : GoMap<AnyInterface, Ref<stdgo.sync.Sync.T_entry>> = (null : GoMap<AnyInterface, Ref<stdgo.sync.Sync.T_entry>>);
     /**
         // misses counts the number of loads since the read map was last updated that
         // needed to lock mu to determine whether the key was present.
@@ -323,7 +323,7 @@ typedef Locker = StructType & {
         // state) and the next store to the map will make a new dirty copy.
     **/
     public var _misses : GoInt = 0;
-    public function new(?_mu:Mutex, ?_read:stdgo.sync.atomic.Atomic.Pointer_<T_readOnly>, ?_dirty:GoMap<AnyInterface, Ref<T_entry>>, ?_misses:GoInt) {
+    public function new(?_mu:stdgo.sync.Sync.Mutex, ?_read:stdgo.sync.atomic.Atomic.Pointer_<stdgo.sync.Sync.T_readOnly>, ?_dirty:GoMap<AnyInterface, Ref<stdgo.sync.Sync.T_entry>>, ?_misses:GoInt) {
         if (_mu != null) this._mu = _mu;
         if (_read != null) this._read = _read;
         if (_dirty != null) this._dirty = _dirty;
@@ -340,9 +340,9 @@ typedef Locker = StructType & {
     
 **/
 @:structInit @:private class T_readOnly {
-    public var _m : GoMap<AnyInterface, Ref<T_entry>> = (null : GoMap<AnyInterface, Ref<T_entry>>);
+    public var _m : GoMap<AnyInterface, Ref<stdgo.sync.Sync.T_entry>> = (null : GoMap<AnyInterface, Ref<stdgo.sync.Sync.T_entry>>);
     public var _amended : Bool = false;
-    public function new(?_m:GoMap<AnyInterface, Ref<T_entry>>, ?_amended:Bool) {
+    public function new(?_m:GoMap<AnyInterface, Ref<stdgo.sync.Sync.T_entry>>, ?_amended:Bool) {
         if (_m != null) this._m = _m;
         if (_amended != null) this._amended = _amended;
     }
@@ -437,8 +437,8 @@ typedef Locker = StructType & {
         // and fewer instructions (to calculate offset) on other architectures.
     **/
     public var _done : GoUInt32 = 0;
-    public var _m : Mutex = ({} : Mutex);
-    public function new(?_done:GoUInt32, ?_m:Mutex) {
+    public var _m : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
+    public function new(?_done:GoUInt32, ?_m:stdgo.sync.Sync.Mutex) {
         if (_done != null) this._done = _done;
         if (_m != null) this._m = _m;
     }
@@ -487,7 +487,7 @@ typedef Locker = StructType & {
     
 **/
 @:structInit @:using(stdgo.sync.Sync.Pool_static_extension) class Pool {
-    public var _noCopy : T_noCopy = ({} : T_noCopy);
+    public var _noCopy : stdgo.sync.Sync.T_noCopy = ({} : stdgo.sync.Sync.T_noCopy);
     public var _local : stdgo.unsafe.Unsafe.UnsafePointer = null;
     public var _localSize : GoUIntptr = 0;
     public var _victim : stdgo.unsafe.Unsafe.UnsafePointer = null;
@@ -500,7 +500,7 @@ typedef Locker = StructType & {
     public var new_ : () -> AnyInterface = null;
     @:local
     var pool = #if !js new sys.thread.Deque<AnyInterface>() #else new Array<AnyInterface>() #end;
-    public function new(?_noCopy:T_noCopy, ?_local:stdgo.unsafe.Unsafe.UnsafePointer, ?_localSize:GoUIntptr, ?_victim:stdgo.unsafe.Unsafe.UnsafePointer, ?_victimSize:GoUIntptr, ?new_:() -> AnyInterface, ?pool) {
+    public function new(?_noCopy:stdgo.sync.Sync.T_noCopy, ?_local:stdgo.unsafe.Unsafe.UnsafePointer, ?_localSize:GoUIntptr, ?_victim:stdgo.unsafe.Unsafe.UnsafePointer, ?_victimSize:GoUIntptr, ?new_:() -> AnyInterface, ?pool) {
         if (_noCopy != null) this._noCopy = _noCopy;
         if (_local != null) this._local = _local;
         if (_localSize != null) this._localSize = _localSize;
@@ -521,8 +521,8 @@ typedef Locker = StructType & {
 **/
 @:structInit @:private class T_poolLocalInternal {
     public var _private : AnyInterface = (null : AnyInterface);
-    public var _shared : T_poolChain = ({} : T_poolChain);
-    public function new(?_private:AnyInterface, ?_shared:T_poolChain) {
+    public var _shared : stdgo.sync.Sync.T_poolChain = ({} : stdgo.sync.Sync.T_poolChain);
+    public function new(?_private:AnyInterface, ?_shared:stdgo.sync.Sync.T_poolChain) {
         if (_private != null) this._private = _private;
         if (_shared != null) this._shared = _shared;
     }
@@ -538,13 +538,13 @@ typedef Locker = StructType & {
 **/
 @:structInit @:private @:using(stdgo.sync.Sync.T_poolLocal_static_extension) class T_poolLocal {
     @:embedded
-    public var _poolLocalInternal : T_poolLocalInternal = ({} : T_poolLocalInternal);
+    public var _poolLocalInternal : stdgo.sync.Sync.T_poolLocalInternal = ({} : stdgo.sync.Sync.T_poolLocalInternal);
     /**
         // Prevents false sharing on widespread platforms with
         // 128 mod (cache line size) = 0 .
     **/
     public var _pad : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 112) (0 : GoUInt8)]);
-    public function new(?_poolLocalInternal:T_poolLocalInternal, ?_pad:GoArray<GoUInt8>) {
+    public function new(?_poolLocalInternal:stdgo.sync.Sync.T_poolLocalInternal, ?_pad:GoArray<GoUInt8>) {
         if (_poolLocalInternal != null) this._poolLocalInternal = _poolLocalInternal;
         if (_pad != null) this._pad = _pad;
     }
@@ -592,8 +592,8 @@ typedef Locker = StructType & {
         // is set to nil atomically by the consumer and read
         // atomically by the producer.
     **/
-    public var _vals : Slice<T_eface> = (null : Slice<T_eface>);
-    public function new(?_headTail:GoUInt64, ?_vals:Slice<T_eface>) {
+    public var _vals : Slice<stdgo.sync.Sync.T_eface> = (null : Slice<stdgo.sync.Sync.T_eface>);
+    public function new(?_headTail:GoUInt64, ?_vals:Slice<stdgo.sync.Sync.T_eface>) {
         if (_headTail != null) this._headTail = _headTail;
         if (_vals != null) this._vals = _vals;
     }
@@ -635,13 +635,13 @@ typedef Locker = StructType & {
         // head is the poolDequeue to push to. This is only accessed
         // by the producer, so doesn't need to be synchronized.
     **/
-    public var _head : Ref<T_poolChainElt> = (null : Ref<T_poolChainElt>);
+    public var _head : Ref<stdgo.sync.Sync.T_poolChainElt> = (null : Ref<stdgo.sync.Sync.T_poolChainElt>);
     /**
         // tail is the poolDequeue to popTail from. This is accessed
         // by consumers, so reads and writes must be atomic.
     **/
-    public var _tail : Ref<T_poolChainElt> = (null : Ref<T_poolChainElt>);
-    public function new(?_head:Ref<T_poolChainElt>, ?_tail:Ref<T_poolChainElt>) {
+    public var _tail : Ref<stdgo.sync.Sync.T_poolChainElt> = (null : Ref<stdgo.sync.Sync.T_poolChainElt>);
+    public function new(?_head:Ref<stdgo.sync.Sync.T_poolChainElt>, ?_tail:Ref<stdgo.sync.Sync.T_poolChainElt>) {
         if (_head != null) this._head = _head;
         if (_tail != null) this._tail = _tail;
     }
@@ -657,7 +657,7 @@ typedef Locker = StructType & {
 **/
 @:structInit @:private @:using(stdgo.sync.Sync.T_poolChainElt_static_extension) class T_poolChainElt {
     @:embedded
-    public var _poolDequeue : T_poolDequeue = ({} : T_poolDequeue);
+    public var _poolDequeue : stdgo.sync.Sync.T_poolDequeue = ({} : stdgo.sync.Sync.T_poolDequeue);
     /**
         // next and prev link to the adjacent poolChainElts in this
         // poolChain.
@@ -670,9 +670,9 @@ typedef Locker = StructType & {
         // atomically by the producer. It only transitions from
         // non-nil to nil.
     **/
-    public var _next : Ref<T_poolChainElt> = (null : Ref<T_poolChainElt>);
-    public var _prev : Ref<T_poolChainElt> = (null : Ref<T_poolChainElt>);
-    public function new(?_poolDequeue:T_poolDequeue, ?_next:Ref<T_poolChainElt>, ?_prev:Ref<T_poolChainElt>) {
+    public var _next : Ref<stdgo.sync.Sync.T_poolChainElt> = (null : Ref<stdgo.sync.Sync.T_poolChainElt>);
+    public var _prev : Ref<stdgo.sync.Sync.T_poolChainElt> = (null : Ref<stdgo.sync.Sync.T_poolChainElt>);
+    public function new(?_poolDequeue:stdgo.sync.Sync.T_poolDequeue, ?_next:Ref<stdgo.sync.Sync.T_poolChainElt>, ?_prev:Ref<stdgo.sync.Sync.T_poolChainElt>) {
         if (_poolDequeue != null) this._poolDequeue = _poolDequeue;
         if (_next != null) this._next = _next;
         if (_prev != null) this._prev = _prev;
@@ -747,14 +747,14 @@ typedef Locker = StructType & {
     
 **/
 @:structInit @:using(stdgo.sync.Sync.RWMutex_static_extension) class RWMutex {
-    public var _w : Mutex = ({} : Mutex);
+    public var _w : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
     public var _writerSem : GoUInt32 = 0;
     public var _readerSem : GoUInt32 = 0;
     public var _readerCount : stdgo.sync.atomic.Atomic.Int32 = ({} : stdgo.sync.atomic.Atomic.Int32);
     public var _readerWait : stdgo.sync.atomic.Atomic.Int32 = ({} : stdgo.sync.atomic.Atomic.Int32);
     @:local
     var mutex = #if !js new sys.thread.Mutex() #else null #end;
-    public function new(?_w:Mutex, ?_writerSem:GoUInt32, ?_readerSem:GoUInt32, ?_readerCount:stdgo.sync.atomic.Atomic.Int32, ?_readerWait:stdgo.sync.atomic.Atomic.Int32, ?mutex) {
+    public function new(?_w:stdgo.sync.Sync.Mutex, ?_writerSem:GoUInt32, ?_readerSem:GoUInt32, ?_readerCount:stdgo.sync.atomic.Atomic.Int32, ?_readerWait:stdgo.sync.atomic.Atomic.Int32, ?mutex) {
         if (_w != null) this._w = _w;
         if (_writerSem != null) this._writerSem = _writerSem;
         if (_readerSem != null) this._readerSem = _readerSem;
@@ -782,13 +782,13 @@ typedef Locker = StructType & {
     
 **/
 @:structInit @:using(stdgo.sync.Sync.WaitGroup_static_extension) class WaitGroup {
-    public var _noCopy : T_noCopy = ({} : T_noCopy);
+    public var _noCopy : stdgo.sync.Sync.T_noCopy = ({} : stdgo.sync.Sync.T_noCopy);
     public var _state : stdgo.sync.atomic.Atomic.Uint64 = ({} : stdgo.sync.atomic.Atomic.Uint64);
     public var _sema : GoUInt32 = 0;
     @:local
     var lock = #if !js new sys.thread.Lock() #else null #end;
     var counter : GoUInt = 0;
-    public function new(?_noCopy:T_noCopy, ?_state:stdgo.sync.atomic.Atomic.Uint64, ?_sema:GoUInt32, ?lock, ?counter:GoUInt) {
+    public function new(?_noCopy:stdgo.sync.Sync.T_noCopy, ?_state:stdgo.sync.atomic.Atomic.Uint64, ?_sema:GoUInt32, ?lock, ?counter:GoUInt) {
         if (_noCopy != null) this._noCopy = _noCopy;
         if (_state != null) this._state = _state;
         if (_sema != null) this._sema = _sema;
@@ -823,7 +823,7 @@ class T__struct_0_asInterface {
     // to represent nil.
 **/
 @:named private typedef T_dequeueNil = Ref<T_noCopy>;
-@:named @:using(stdgo.sync.Sync.T_rlocker_static_extension) private typedef T_rlocker = RWMutex;
+@:named @:using(stdgo.sync.Sync.T_rlocker_static_extension) private typedef T_rlocker = stdgo.sync.Sync.RWMutex;
 /**
     // NewCond returns a new Cond with Locker l.
 **/

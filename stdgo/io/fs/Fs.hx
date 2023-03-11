@@ -76,7 +76,7 @@ var skipAll = stdgo.errors.Errors.new_(("skip everything and stop the walk" : Go
     
     // d: is a directory
 **/
-final modeDir : FileMode = (("524288" : GoUInt32) : FileMode);
+final modeDir : FileMode = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -86,7 +86,7 @@ final modeDir : FileMode = (("524288" : GoUInt32) : FileMode);
     
     // a: append-only
 **/
-final modeAppend = (("524288" : GoUInt32) : FileMode);
+final modeAppend = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -96,7 +96,7 @@ final modeAppend = (("524288" : GoUInt32) : FileMode);
     
     // l: exclusive use
 **/
-final modeExclusive = (("524288" : GoUInt32) : FileMode);
+final modeExclusive = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -106,7 +106,7 @@ final modeExclusive = (("524288" : GoUInt32) : FileMode);
     
     // T: temporary file; Plan 9 only
 **/
-final modeTemporary = (("524288" : GoUInt32) : FileMode);
+final modeTemporary = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -116,7 +116,7 @@ final modeTemporary = (("524288" : GoUInt32) : FileMode);
     
     // L: symbolic link
 **/
-final modeSymlink = (("524288" : GoUInt32) : FileMode);
+final modeSymlink = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -126,7 +126,7 @@ final modeSymlink = (("524288" : GoUInt32) : FileMode);
     
     // D: device file
 **/
-final modeDevice = (("524288" : GoUInt32) : FileMode);
+final modeDevice = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -136,7 +136,7 @@ final modeDevice = (("524288" : GoUInt32) : FileMode);
     
     // p: named pipe (FIFO)
 **/
-final modeNamedPipe = (("524288" : GoUInt32) : FileMode);
+final modeNamedPipe = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -146,7 +146,7 @@ final modeNamedPipe = (("524288" : GoUInt32) : FileMode);
     
     // S: Unix domain socket
 **/
-final modeSocket = (("524288" : GoUInt32) : FileMode);
+final modeSocket = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -156,7 +156,7 @@ final modeSocket = (("524288" : GoUInt32) : FileMode);
     
     // u: setuid
 **/
-final modeSetuid = (("524288" : GoUInt32) : FileMode);
+final modeSetuid = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -166,7 +166,7 @@ final modeSetuid = (("524288" : GoUInt32) : FileMode);
     
     // g: setgid
 **/
-final modeSetgid = (("524288" : GoUInt32) : FileMode);
+final modeSetgid = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -176,7 +176,7 @@ final modeSetgid = (("524288" : GoUInt32) : FileMode);
     
     // c: Unix character device, when ModeDevice is set
 **/
-final modeCharDevice = (("524288" : GoUInt32) : FileMode);
+final modeCharDevice = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -186,7 +186,7 @@ final modeCharDevice = (("524288" : GoUInt32) : FileMode);
     
     // t: sticky
 **/
-final modeSticky = (("524288" : GoUInt32) : FileMode);
+final modeSticky = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -196,13 +196,13 @@ final modeSticky = (("524288" : GoUInt32) : FileMode);
     
     // ?: non-regular file; nothing else is known about this file
 **/
-final modeIrregular = (("524288" : GoUInt32) : FileMode);
+final modeIrregular = (524288u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // Mask for the type bits. For regular files, none will be set.
     
     
 **/
-final modeType = (("2401763328" : GoUInt32) : FileMode);
+final modeType = (-1893203968u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // The defined file mode bits are the most significant bits of the FileMode.
     // The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
@@ -212,7 +212,7 @@ final modeType = (("2401763328" : GoUInt32) : FileMode);
     
     // Unix permission bits
 **/
-final modePerm : FileMode = (("511" : GoUInt32) : FileMode);
+final modePerm : FileMode = (511u32 : stdgo.io.fs.Fs.FileMode);
 /**
     // An FS provides access to a hierarchical file system.
     //
@@ -500,8 +500,8 @@ private typedef T__interface_0 = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.io.fs.Fs.T_dirInfo_static_extension) class T_dirInfo {
-    public var _fileInfo : FileInfo = (null : FileInfo);
-    public function new(?_fileInfo:FileInfo) {
+    public var _fileInfo : stdgo.io.fs.Fs.FileInfo = (null : stdgo.io.fs.Fs.FileInfo);
+    public function new(?_fileInfo:stdgo.io.fs.Fs.FileInfo) {
         if (_fileInfo != null) this._fileInfo = _fileInfo;
     }
     public function __underlying__() return Go.toInterface(this);
@@ -515,9 +515,9 @@ private typedef T__interface_0 = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.io.fs.Fs.T_subFS_static_extension) class T_subFS {
-    public var _fsys : FS = (null : FS);
+    public var _fsys : stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
     public var _dir : GoString = "";
-    public function new(?_fsys:FS, ?_dir:GoString) {
+    public function new(?_fsys:stdgo.io.fs.Fs.FS, ?_dir:GoString) {
         if (_fsys != null) this._fsys = _fsys;
         if (_dir != null) this._dir = _dir;
     }
@@ -532,8 +532,8 @@ private typedef T__interface_0 = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.io.fs.Fs.T_statDirEntry_static_extension) class T_statDirEntry {
-    public var _info : FileInfo = (null : FileInfo);
-    public function new(?_info:FileInfo) {
+    public var _info : stdgo.io.fs.Fs.FileInfo = (null : stdgo.io.fs.Fs.FileInfo);
+    public function new(?_info:stdgo.io.fs.Fs.FileInfo) {
         if (_info != null) this._info = _info;
     }
     public function __underlying__() return Go.toInterface(this);
@@ -598,7 +598,7 @@ private typedef T__interface_0 = StructType & {
     //   - If a directory read fails, the function is called a second time
     //     for that directory to report the error.
 **/
-@:named typedef WalkDirFunc = (GoString, DirEntry, Error) -> Error;
+@:named typedef WalkDirFunc = (GoString, stdgo.io.fs.Fs.DirEntry, Error) -> Error;
 /**
     // ValidPath reports whether the given path name
     // is valid for use in a call to Open.
@@ -679,14 +679,14 @@ private function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{ var
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_fsys) : GlobFS)) : GlobFS), ok : true };
             } catch(_) {
-                { value : (null : GlobFS), ok : false };
+                { value : (null : stdgo.io.fs.Fs.GlobFS), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _fsys.glob(_pattern);
             };
         };
         {
-            var __tmp__ = stdgo.path.Path.match(_pattern, Go.str()), _0:Bool = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.path.Path.match(_pattern, Go.str()), __0:Bool = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : Slice<GoString>), _1 : _err };
             };
@@ -720,7 +720,7 @@ private function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{ var
         if (_err != null) {
             return { _0 : (null : Slice<GoString>), _1 : _err };
         };
-        for (_1 => _d in _m) {
+        for (__1 => _d in _m) {
             {
                 var __tmp__ = _glob(_fsys, _d, _file, _matches);
                 _matches = __tmp__._0;
@@ -754,11 +754,11 @@ private function _cleanGlobPath(_path:GoString):GoString {
 private function _glob(_fs:FS, _dir:GoString, _pattern:GoString, _matches:Slice<GoString>):{ var _0 : Slice<GoString>; var _1 : Error; } {
         var _m:Slice<GoString> = (null : Slice<GoString>), _e:Error = (null : Error);
         _m = _matches;
-        var __tmp__ = readDir(_fs, _dir), _infos:Slice<DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = readDir(_fs, _dir), _infos:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             return { _0 : _m, _1 : _e };
         };
-        for (_0 => _info in _infos) {
+        for (__0 => _info in _infos) {
             var _n:GoString = _info.name();
             var __tmp__ = stdgo.path.Path.match(_pattern, _n), _matched:Bool = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -802,32 +802,32 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_fsys) : ReadDirFS)) : ReadDirFS), ok : true };
             } catch(_) {
-                { value : (null : ReadDirFS), ok : false };
+                { value : (null : stdgo.io.fs.Fs.ReadDirFS), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _fsys.readDir(_name);
             };
         };
-        var __tmp__ = _fsys.open(_name), _file:File = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _fsys.open(_name), _file:stdgo.io.fs.Fs.File = __tmp__._0, _err:Error = __tmp__._1;
         try {
             if (_err != null) {
-                return { _0 : (null : Slice<DirEntry>), _1 : _err };
+                return { _0 : (null : Slice<stdgo.io.fs.Fs.DirEntry>), _1 : _err };
             };
             __deferstack__.unshift(() -> _file.close());
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_file) : ReadDirFile)) : ReadDirFile), ok : true };
             } catch(_) {
-                { value : (null : ReadDirFile), ok : false };
+                { value : (null : stdgo.io.fs.Fs.ReadDirFile), ok : false };
             }, _dir = __tmp__.value, _ok = __tmp__.ok;
             if (!_ok) {
                 {
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return { _0 : (null : Slice<DirEntry>), _1 : Go.asInterface((Go.setRef(({ op : ("readdir" : GoString), path : _name, err : stdgo.errors.Errors.new_(("not implemented" : GoString)) } : PathError)) : Ref<PathError>)) };
+                    return { _0 : (null : Slice<stdgo.io.fs.Fs.DirEntry>), _1 : Go.asInterface((Go.setRef(({ op : ("readdir" : GoString), path : _name, err : stdgo.errors.Errors.new_(("not implemented" : GoString)) } : PathError)) : Ref<stdgo.io.fs.Fs.PathError>)) };
                 };
             };
-            var __tmp__ = _dir.readDir((-1 : GoInt)), _list:Slice<DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _dir.readDir((-1 : GoInt)), _list:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
             stdgo.sort.Sort.slice(Go.toInterface(_list), function(_i:GoInt, _j:GoInt):Bool {
                 return _list[(_i : GoInt)].name() < _list[(_j : GoInt)].name();
             });
@@ -845,7 +845,7 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
                     defer();
                 };
                 if (Go.recover_exception != null) throw Go.recover_exception;
-                return { _0 : (null : Slice<DirEntry>), _1 : (null : Error) };
+                return { _0 : (null : Slice<stdgo.io.fs.Fs.DirEntry>), _1 : (null : Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -858,7 +858,7 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
                 defer();
             };
             if (Go.recover_exception != null) throw Go.recover_exception;
-            return { _0 : (null : Slice<DirEntry>), _1 : (null : Error) };
+            return { _0 : (null : Slice<stdgo.io.fs.Fs.DirEntry>), _1 : (null : Error) };
         };
     }
 /**
@@ -867,7 +867,7 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
 **/
 function fileInfoToDirEntry(_info:FileInfo):DirEntry {
         if (_info == null) {
-            return (null : DirEntry);
+            return (null : stdgo.io.fs.Fs.DirEntry);
         };
         return Go.asInterface(({ _fileInfo : _info } : T_dirInfo));
     }
@@ -887,13 +887,13 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_fsys) : ReadFileFS)) : ReadFileFS), ok : true };
             } catch(_) {
-                { value : (null : ReadFileFS), ok : false };
+                { value : (null : stdgo.io.fs.Fs.ReadFileFS), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _fsys.readFile(_name);
             };
         };
-        var __tmp__ = _fsys.open(_name), _file:File = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _fsys.open(_name), _file:stdgo.io.fs.Fs.File = __tmp__._0, _err:Error = __tmp__._1;
         try {
             if (_err != null) {
                 return { _0 : (null : Slice<GoUInt8>), _1 : _err };
@@ -901,7 +901,7 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
             __deferstack__.unshift(() -> _file.close());
             var _size:GoInt = (0 : GoInt);
             {
-                var __tmp__ = _file.stat(), _info:FileInfo = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = _file.stat(), _info:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err == null) {
                     var _size64:GoInt64 = _info.size();
                     if (((_size64 : GoInt) : GoInt64) == (_size64)) {
@@ -965,16 +965,16 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_fsys) : StatFS)) : StatFS), ok : true };
             } catch(_) {
-                { value : (null : StatFS), ok : false };
+                { value : (null : stdgo.io.fs.Fs.StatFS), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _fsys.stat(_name);
             };
         };
-        var __tmp__ = _fsys.open(_name), _file:File = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _fsys.open(_name), _file:stdgo.io.fs.Fs.File = __tmp__._0, _err:Error = __tmp__._1;
         try {
             if (_err != null) {
-                return { _0 : (null : FileInfo), _1 : _err };
+                return { _0 : (null : stdgo.io.fs.Fs.FileInfo), _1 : _err };
             };
             __deferstack__.unshift(() -> _file.close());
             {
@@ -991,7 +991,7 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
                     defer();
                 };
                 if (Go.recover_exception != null) throw Go.recover_exception;
-                return { _0 : (null : FileInfo), _1 : (null : Error) };
+                return { _0 : (null : stdgo.io.fs.Fs.FileInfo), _1 : (null : Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -1004,7 +1004,7 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
                 defer();
             };
             if (Go.recover_exception != null) throw Go.recover_exception;
-            return { _0 : (null : FileInfo), _1 : (null : Error) };
+            return { _0 : (null : stdgo.io.fs.Fs.FileInfo), _1 : (null : Error) };
         };
     }
 /**
@@ -1025,7 +1025,7 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
 **/
 function sub(_fsys:FS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
         if (!validPath(_dir)) {
-            return { _0 : (null : FS), _1 : Go.asInterface((Go.setRef(({ op : ("sub" : GoString), path : _dir, err : stdgo.errors.Errors.new_(("invalid name" : GoString)) } : PathError)) : Ref<PathError>)) };
+            return { _0 : (null : stdgo.io.fs.Fs.FS), _1 : Go.asInterface((Go.setRef(({ op : ("sub" : GoString), path : _dir, err : stdgo.errors.Errors.new_(("invalid name" : GoString)) } : PathError)) : Ref<stdgo.io.fs.Fs.PathError>)) };
         };
         if (_dir == (("." : GoString))) {
             return { _0 : _fsys, _1 : (null : Error) };
@@ -1034,13 +1034,13 @@ function sub(_fsys:FS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_fsys) : SubFS)) : SubFS), ok : true };
             } catch(_) {
-                { value : (null : SubFS), ok : false };
+                { value : (null : stdgo.io.fs.Fs.SubFS), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _fsys.sub(_dir);
             };
         };
-        return { _0 : Go.asInterface((Go.setRef((new T_subFS(_fsys, _dir) : T_subFS)) : Ref<T_subFS>)), _1 : (null : Error) };
+        return { _0 : Go.asInterface((Go.setRef((new T_subFS(_fsys, _dir) : T_subFS)) : Ref<stdgo.io.fs.Fs.T_subFS>)), _1 : (null : Error) };
     }
 /**
     // walkDir recursively descends path, calling walkDirFn.
@@ -1055,7 +1055,7 @@ private function _walkDir(_fsys:FS, _name:GoString, _d:DirEntry, _walkDirFn:Walk
                 return _err;
             };
         };
-        var __tmp__ = readDir(_fsys, _name), _dirs:Slice<DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = readDir(_fsys, _name), _dirs:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _err = _walkDirFn(_name, _d, _err);
             if (_err != null) {
@@ -1065,7 +1065,7 @@ private function _walkDir(_fsys:FS, _name:GoString, _d:DirEntry, _walkDirFn:Walk
                 return _err;
             };
         };
-        for (_0 => _d1 in _dirs) {
+        for (__0 => _d1 in _dirs) {
             var _name1:GoString = stdgo.path.Path.join(_name, _d1.name());
             {
                 var _err:Error = _walkDir(_fsys, _name1, _d1, _walkDirFn);
@@ -1094,11 +1094,11 @@ private function _walkDir(_fsys:FS, _name:GoString, _d:DirEntry, _walkDirFn:Walk
     // but if root itself is a symbolic link, its target will be walked.
 **/
 function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
-        var __tmp__ = stat(_fsys, _root), _info:FileInfo = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = stat(_fsys, _root), _info:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
-            _err = _fn(_root, (null : DirEntry), _err);
+            _err = _fn(_root, (null : stdgo.io.fs.Fs.DirEntry), _err);
         } else {
-            _err = _walkDir(_fsys, _root, Go.asInterface((Go.setRef((new T_statDirEntry(_info) : T_statDirEntry)) : Ref<T_statDirEntry>)), _fn);
+            _err = _walkDir(_fsys, _root, Go.asInterface((Go.setRef((new T_statDirEntry(_info) : T_statDirEntry)) : Ref<stdgo.io.fs.Fs.T_statDirEntry>)), _fn);
         };
         if ((Go.toInterface(_err) == Go.toInterface(skipDir)) || (Go.toInterface(_err) == Go.toInterface(skipAll))) {
             return (null : Error);
@@ -1132,7 +1132,7 @@ class PathError_asInterface {
         var __tmp__ = try {
             { value : (Go.typeAssert((Go.toInterface(_e.err) : T__interface_0)) : T__interface_0), ok : true };
         } catch(_) {
-            { value : (null : T__interface_0), ok : false };
+            { value : (null : stdgo.io.fs.Fs.T__interface_0), ok : false };
         }, _t = __tmp__.value, _ok = __tmp__.ok;
         return _ok && _t.timeout();
     }
@@ -1222,14 +1222,14 @@ class T_subFS_asInterface {
         };
         var __tmp__ = _f._fullName(("sub" : GoString), _dir), _full:GoString = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : (null : FS), _1 : _err };
+            return { _0 : (null : stdgo.io.fs.Fs.FS), _1 : _err };
         };
-        return { _0 : Go.asInterface((Go.setRef((new T_subFS(_f._fsys, _full) : T_subFS)) : Ref<T_subFS>)), _1 : (null : Error) };
+        return { _0 : Go.asInterface((Go.setRef((new T_subFS(_f._fsys, _full) : T_subFS)) : Ref<stdgo.io.fs.Fs.T_subFS>)), _1 : (null : Error) };
     }
     @:keep
     static public function glob( _f:Ref<T_subFS>, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } {
         {
-            var __tmp__ = stdgo.path.Path.match(_pattern, Go.str()), _0:Bool = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.path.Path.match(_pattern, Go.str()), __0:Bool = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : Slice<GoString>), _1 : _err };
             };
@@ -1261,18 +1261,18 @@ class T_subFS_asInterface {
     static public function readDir( _f:Ref<T_subFS>, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; } {
         var __tmp__ = _f._fullName(("read" : GoString), _name), _full:GoString = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : (null : Slice<DirEntry>), _1 : _err };
+            return { _0 : (null : Slice<stdgo.io.fs.Fs.DirEntry>), _1 : _err };
         };
-        var __tmp__ = stdgo.io.fs.Fs.readDir(_f._fsys, _full), _dir:Slice<DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = stdgo.io.fs.Fs.readDir(_f._fsys, _full), _dir:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
         return { _0 : _dir, _1 : _f._fixErr(_err) };
     }
     @:keep
     static public function open( _f:Ref<T_subFS>, _name:GoString):{ var _0 : File; var _1 : Error; } {
         var __tmp__ = _f._fullName(("open" : GoString), _name), _full:GoString = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : (null : File), _1 : _err };
+            return { _0 : (null : stdgo.io.fs.Fs.File), _1 : _err };
         };
-        var __tmp__ = _f._fsys.open(_full), _file:File = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _f._fsys.open(_full), _file:stdgo.io.fs.Fs.File = __tmp__._0, _err:Error = __tmp__._1;
         return { _0 : _file, _1 : _f._fixErr(_err) };
     }
     /**
@@ -1284,7 +1284,7 @@ class T_subFS_asInterface {
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok : true };
             } catch(_) {
-                { value : (null : Ref<PathError>), ok : false };
+                { value : (null : Ref<stdgo.io.fs.Fs.PathError>), ok : false };
             }, _e = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 {
@@ -1317,7 +1317,7 @@ class T_subFS_asInterface {
     @:keep
     static public function _fullName( _f:Ref<T_subFS>, _op:GoString, _name:GoString):{ var _0 : GoString; var _1 : Error; } {
         if (!validPath(_name)) {
-            return { _0 : Go.str(), _1 : Go.asInterface((Go.setRef(({ op : _op, path : _name, err : stdgo.errors.Errors.new_(("invalid name" : GoString)) } : PathError)) : Ref<PathError>)) };
+            return { _0 : Go.str(), _1 : Go.asInterface((Go.setRef(({ op : _op, path : _name, err : stdgo.errors.Errors.new_(("invalid name" : GoString)) } : PathError)) : Ref<stdgo.io.fs.Fs.PathError>)) };
         };
         return { _0 : stdgo.path.Path.join(_f._dir, _name), _1 : (null : Error) };
     }
@@ -1396,14 +1396,14 @@ class FileMode_asInterface {
     **/
     @:keep
     static public function type( _m:FileMode):FileMode {
-        return _m & (("2401763328" : GoUInt32) : FileMode);
+        return _m & (-1893203968u32 : stdgo.io.fs.Fs.FileMode);
     }
     /**
         // Perm returns the Unix permission bits in m (m & ModePerm).
     **/
     @:keep
     static public function perm( _m:FileMode):FileMode {
-        return _m & (("511" : GoUInt32) : FileMode);
+        return _m & (511u32 : stdgo.io.fs.Fs.FileMode);
     }
     /**
         // IsRegular reports whether m describes a regular file.
@@ -1411,7 +1411,7 @@ class FileMode_asInterface {
     **/
     @:keep
     static public function isRegular( _m:FileMode):Bool {
-        return _m & (("2401763328" : GoUInt32) : FileMode) == ((("0" : GoUInt32) : FileMode));
+        return _m & (-1893203968u32 : stdgo.io.fs.Fs.FileMode) == ((0u32 : stdgo.io.fs.Fs.FileMode));
     }
     /**
         // IsDir reports whether m describes a directory.
@@ -1419,7 +1419,7 @@ class FileMode_asInterface {
     **/
     @:keep
     static public function isDir( _m:FileMode):Bool {
-        return _m & (("2147483648" : GoUInt32) : FileMode) != ((("0" : GoUInt32) : FileMode));
+        return _m & (-2147483648u32 : stdgo.io.fs.Fs.FileMode) != ((0u32 : stdgo.io.fs.Fs.FileMode));
     }
     @:keep
     static public function string( _m:FileMode):GoString {
@@ -1427,7 +1427,7 @@ class FileMode_asInterface {
         var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 32) (0 : GoUInt8)]);
         var _w:GoInt = (0 : GoInt);
         for (_i => _c in ("dalTLDpSugct?" : GoString)) {
-            if (_m & ((("1" : GoUInt32) : FileMode) << ((31 : GoInt) - _i : GoUInt)) != ((("0" : GoUInt32) : FileMode))) {
+            if (_m & ((1u32 : stdgo.io.fs.Fs.FileMode) << ((31 : GoInt) - _i : GoUInt)) != ((0u32 : stdgo.io.fs.Fs.FileMode))) {
                 _buf[(_w : GoInt)] = (_c : GoByte);
                 _w++;
             };
@@ -1438,7 +1438,7 @@ class FileMode_asInterface {
         };
         {};
         for (_i => _c in ("rwxrwxrwx" : GoString)) {
-            if (_m & ((("1" : GoUInt32) : FileMode) << ((8 : GoInt) - _i : GoUInt)) != ((("0" : GoUInt32) : FileMode))) {
+            if (_m & ((1u32 : stdgo.io.fs.Fs.FileMode) << ((8 : GoInt) - _i : GoUInt)) != ((0u32 : stdgo.io.fs.Fs.FileMode))) {
                 _buf[(_w : GoInt)] = (_c : GoByte);
             } else {
                 _buf[(_w : GoInt)] = (45 : GoUInt8);

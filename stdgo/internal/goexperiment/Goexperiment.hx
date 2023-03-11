@@ -60,7 +60,7 @@ final arenas = false;
     
     
 **/
-final arenasInt = ("0" : GoUInt64);
+final arenasInt = (0i64 : GoUInt64);
 /**
     
     
@@ -72,7 +72,7 @@ final boringCrypto = false;
     
     
 **/
-final boringCryptoInt = ("0" : GoUInt64);
+final boringCryptoInt = (0i64 : GoUInt64);
 /**
     
     
@@ -84,7 +84,7 @@ final coverageRedesign = true;
     
     
 **/
-final coverageRedesignInt = ("1" : GoUInt64);
+final coverageRedesignInt = (1i64 : GoUInt64);
 /**
     
     
@@ -96,7 +96,7 @@ final fieldTrack = false;
     
     
 **/
-final fieldTrackInt = ("0" : GoUInt64);
+final fieldTrackInt = (0i64 : GoUInt64);
 /**
     
     
@@ -108,7 +108,7 @@ final heapMinimum512KiB = false;
     
     
 **/
-final heapMinimum512KiBInt = ("0" : GoUInt64);
+final heapMinimum512KiBInt = (0i64 : GoUInt64);
 /**
     
     
@@ -120,7 +120,7 @@ final pageTrace = false;
     
     
 **/
-final pageTraceInt = ("0" : GoUInt64);
+final pageTraceInt = (0i64 : GoUInt64);
 /**
     
     
@@ -132,7 +132,7 @@ final preemptibleLoops = false;
     
     
 **/
-final preemptibleLoopsInt = ("0" : GoUInt64);
+final preemptibleLoopsInt = (0i64 : GoUInt64);
 /**
     
     
@@ -144,7 +144,7 @@ final regabiArgs = false;
     
     
 **/
-final regabiArgsInt = ("0" : GoUInt64);
+final regabiArgsInt = (0i64 : GoUInt64);
 /**
     
     
@@ -156,7 +156,7 @@ final regabiWrappers = false;
     
     
 **/
-final regabiWrappersInt = ("0" : GoUInt64);
+final regabiWrappersInt = (0i64 : GoUInt64);
 /**
     
     
@@ -168,7 +168,7 @@ final staticLockRanking = false;
     
     
 **/
-final staticLockRankingInt = ("0" : GoUInt64);
+final staticLockRankingInt = (0i64 : GoUInt64);
 /**
     
     
@@ -180,7 +180,7 @@ final unified = true;
     
     
 **/
-final unifiedInt = ("1" : GoUInt64);
+final unifiedInt = (1i64 : GoUInt64);
 /**
     // Flags is the set of experiments that can be enabled or disabled in
     // the current toolchain.

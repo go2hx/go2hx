@@ -50,29 +50,29 @@ var maxLen : GoInt = (0 : GoInt);
     
     
 **/
-final primeRK = ("16777619" : GoUInt64);
+final primeRK = (16777619i64 : GoUInt64);
 /**
     
     
     
 **/
-final maxBruteForce = ("0" : GoUInt64);
+final maxBruteForce = (0i64 : GoUInt64);
 /**
     // HashStrBytes returns the hash and the appropriate multiplicative
     // factor for use in Rabin-Karp algorithm.
 **/
 function hashStrBytes(_sep:Slice<GoByte>):{ var _0 : GoUInt32; var _1 : GoUInt32; } {
-        var _hash:GoUInt32 = (("0" : GoUInt32) : GoUInt32);
+        var _hash:GoUInt32 = (0u32 : GoUInt32);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_sep.length), _i++, {
-                _hash = (_hash * (("16777619" : GoUInt32) : GoUInt32)) + (_sep[(_i : GoInt)] : GoUInt32);
+                _hash = (_hash * (16777619u32 : GoUInt32)) + (_sep[(_i : GoInt)] : GoUInt32);
             });
         };
-        var _0:GoUInt32 = ("1" : GoUInt32), _1:GoUInt32 = ("16777619" : GoUInt32), _sq:GoUInt32 = _1, _pow:GoUInt32 = _0;
+        var __0:GoUInt32 = (1u32 : GoUInt32), __1:GoUInt32 = (16777619u32 : GoUInt32), _sq:GoUInt32 = __1, _pow:GoUInt32 = __0;
         {
             var _i:GoInt = (_sep.length);
-            Go.cfor(_i > (0 : GoInt), _i = _i >> (("1" : GoUInt64)), {
+            Go.cfor(_i > (0 : GoInt), _i = _i >> ((1i64 : GoUInt64)), {
                 if (_i & (1 : GoInt) != ((0 : GoInt))) {
                     _pow = _pow * (_sq);
                 };
@@ -86,17 +86,17 @@ function hashStrBytes(_sep:Slice<GoByte>):{ var _0 : GoUInt32; var _1 : GoUInt32
     // factor for use in Rabin-Karp algorithm.
 **/
 function hashStr(_sep:GoString):{ var _0 : GoUInt32; var _1 : GoUInt32; } {
-        var _hash:GoUInt32 = (("0" : GoUInt32) : GoUInt32);
+        var _hash:GoUInt32 = (0u32 : GoUInt32);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_sep.length), _i++, {
-                _hash = (_hash * (("16777619" : GoUInt32) : GoUInt32)) + (_sep[(_i : GoInt)] : GoUInt32);
+                _hash = (_hash * (16777619u32 : GoUInt32)) + (_sep[(_i : GoInt)] : GoUInt32);
             });
         };
-        var _0:GoUInt32 = ("1" : GoUInt32), _1:GoUInt32 = ("16777619" : GoUInt32), _sq:GoUInt32 = _1, _pow:GoUInt32 = _0;
+        var __0:GoUInt32 = (1u32 : GoUInt32), __1:GoUInt32 = (16777619u32 : GoUInt32), _sq:GoUInt32 = __1, _pow:GoUInt32 = __0;
         {
             var _i:GoInt = (_sep.length);
-            Go.cfor(_i > (0 : GoInt), _i = _i >> (("1" : GoUInt64)), {
+            Go.cfor(_i > (0 : GoInt), _i = _i >> ((1i64 : GoUInt64)), {
                 if (_i & (1 : GoInt) != ((0 : GoInt))) {
                     _pow = _pow * (_sq);
                 };
@@ -110,17 +110,17 @@ function hashStr(_sep:GoString):{ var _0 : GoUInt32; var _1 : GoUInt32; } {
     // appropriate multiplicative factor for use in Rabin-Karp algorithm.
 **/
 function hashStrRevBytes(_sep:Slice<GoByte>):{ var _0 : GoUInt32; var _1 : GoUInt32; } {
-        var _hash:GoUInt32 = (("0" : GoUInt32) : GoUInt32);
+        var _hash:GoUInt32 = (0u32 : GoUInt32);
         {
             var _i:GoInt = (_sep.length) - (1 : GoInt);
             Go.cfor(_i >= (0 : GoInt), _i--, {
-                _hash = (_hash * (("16777619" : GoUInt32) : GoUInt32)) + (_sep[(_i : GoInt)] : GoUInt32);
+                _hash = (_hash * (16777619u32 : GoUInt32)) + (_sep[(_i : GoInt)] : GoUInt32);
             });
         };
-        var _0:GoUInt32 = ("1" : GoUInt32), _1:GoUInt32 = ("16777619" : GoUInt32), _sq:GoUInt32 = _1, _pow:GoUInt32 = _0;
+        var __0:GoUInt32 = (1u32 : GoUInt32), __1:GoUInt32 = (16777619u32 : GoUInt32), _sq:GoUInt32 = __1, _pow:GoUInt32 = __0;
         {
             var _i:GoInt = (_sep.length);
-            Go.cfor(_i > (0 : GoInt), _i = _i >> (("1" : GoUInt64)), {
+            Go.cfor(_i > (0 : GoInt), _i = _i >> ((1i64 : GoUInt64)), {
                 if (_i & (1 : GoInt) != ((0 : GoInt))) {
                     _pow = _pow * (_sq);
                 };
@@ -134,17 +134,17 @@ function hashStrRevBytes(_sep:Slice<GoByte>):{ var _0 : GoUInt32; var _1 : GoUIn
     // appropriate multiplicative factor for use in Rabin-Karp algorithm.
 **/
 function hashStrRev(_sep:GoString):{ var _0 : GoUInt32; var _1 : GoUInt32; } {
-        var _hash:GoUInt32 = (("0" : GoUInt32) : GoUInt32);
+        var _hash:GoUInt32 = (0u32 : GoUInt32);
         {
             var _i:GoInt = (_sep.length) - (1 : GoInt);
             Go.cfor(_i >= (0 : GoInt), _i--, {
-                _hash = (_hash * (("16777619" : GoUInt32) : GoUInt32)) + (_sep[(_i : GoInt)] : GoUInt32);
+                _hash = (_hash * (16777619u32 : GoUInt32)) + (_sep[(_i : GoInt)] : GoUInt32);
             });
         };
-        var _0:GoUInt32 = ("1" : GoUInt32), _1:GoUInt32 = ("16777619" : GoUInt32), _sq:GoUInt32 = _1, _pow:GoUInt32 = _0;
+        var __0:GoUInt32 = (1u32 : GoUInt32), __1:GoUInt32 = (16777619u32 : GoUInt32), _sq:GoUInt32 = __1, _pow:GoUInt32 = __0;
         {
             var _i:GoInt = (_sep.length);
-            Go.cfor(_i > (0 : GoInt), _i = _i >> (("1" : GoUInt64)), {
+            Go.cfor(_i > (0 : GoInt), _i = _i >> ((1i64 : GoUInt64)), {
                 if (_i & (1 : GoInt) != ((0 : GoInt))) {
                     _pow = _pow * (_sq);
                 };
@@ -164,7 +164,7 @@ function indexRabinKarpBytes(_s:Slice<GoByte>, _sep:Slice<GoByte>):GoInt {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _n, _i++, {
-                _h = (_h * (("16777619" : GoUInt32) : GoUInt32)) + (_s[(_i : GoInt)] : GoUInt32);
+                _h = (_h * (16777619u32 : GoUInt32)) + (_s[(_i : GoInt)] : GoUInt32);
             });
         };
         if ((_h == _hashsep) && equal((_s.__slice__(0, _n) : Slice<GoUInt8>), _sep)) {
@@ -173,7 +173,7 @@ function indexRabinKarpBytes(_s:Slice<GoByte>, _sep:Slice<GoByte>):GoInt {
         {
             var _i:GoInt = _n;
             while (_i < (_s.length)) {
-                _h = _h * (("16777619" : GoUInt32));
+                _h = _h * ((16777619u32 : GoUInt32));
                 _h = _h + ((_s[(_i : GoInt)] : GoUInt32));
                 _h = _h - (_pow * (_s[(_i - _n : GoInt)] : GoUInt32));
                 _i++;
@@ -195,7 +195,7 @@ function indexRabinKarp(_s:GoString, _substr:GoString):GoInt {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _n, _i++, {
-                _h = (_h * (("16777619" : GoUInt32) : GoUInt32)) + (_s[(_i : GoInt)] : GoUInt32);
+                _h = (_h * (16777619u32 : GoUInt32)) + (_s[(_i : GoInt)] : GoUInt32);
             });
         };
         if ((_h == _hashss) && ((_s.__slice__(0, _n) : GoString) == _substr)) {
@@ -204,7 +204,7 @@ function indexRabinKarp(_s:GoString, _substr:GoString):GoInt {
         {
             var _i:GoInt = _n;
             while (_i < (_s.length)) {
-                _h = _h * (("16777619" : GoUInt32));
+                _h = _h * ((16777619u32 : GoUInt32));
                 _h = _h + ((_s[(_i : GoInt)] : GoUInt32));
                 _h = _h - (_pow * (_s[(_i - _n : GoInt)] : GoUInt32));
                 _i++;
@@ -253,7 +253,7 @@ function compare(_a:Slice<GoByte>, _b:Slice<GoByte>):GoInt {
 private function _abigen_runtime_cmpstring(_a:GoString, _b:GoString):GoInt throw "not implemented: _abigen_runtime_cmpstring";
 function count(_b:Slice<GoByte>, _c:GoByte):GoInt {
         var _n:GoInt = (0 : GoInt);
-        for (_0 => _x in _b) {
+        for (__0 => _x in _b) {
             if (_x == (_c)) {
                 _n++;
             };

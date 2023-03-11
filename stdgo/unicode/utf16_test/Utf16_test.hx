@@ -9,6 +9,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.unicode.utf16.Utf16;
 /**
     
     
@@ -147,7 +148,7 @@ function testConstants(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testEncode(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _encodeTests) {
+        for (__0 => _tt in _encodeTests) {
             var _out = encode(_tt._in);
             if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_out), Go.toInterface(_tt._out))) {
                 _t.errorf(("Encode(%x) = %x; want %x" : GoString), Go.toInterface(_tt._in), Go.toInterface(_out), Go.toInterface(_tt._out));
@@ -155,9 +156,9 @@ function testEncode(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testAppendRune(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _encodeTests) {
+        for (__0 => _tt in _encodeTests) {
             var _out:Slice<GoUInt16> = (null : Slice<GoUInt16>);
-            for (_1 => _u in _tt._in) {
+            for (__1 => _u in _tt._in) {
                 _out = appendRune(_out, _u);
             };
             if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_out), Go.toInterface(_tt._out))) {
@@ -168,7 +169,7 @@ function testAppendRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testEncodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_i => _tt in _encodeTests) {
             var _j:GoInt = (0 : GoInt);
-            for (_0 => _r in _tt._in) {
+            for (__0 => _r in _tt._in) {
                 var __tmp__ = encodeRune(_r), _r1:GoInt32 = __tmp__._0, _r2:GoInt32 = __tmp__._1;
                 if ((_r < (65536 : GoInt32)) || (_r > (1114111 : GoInt32))) {
                     if (_j >= (_tt._out.length)) {
@@ -200,7 +201,7 @@ function testEncodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testDecode(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _decodeTests) {
+        for (__0 => _tt in _decodeTests) {
             var _out = decode(_tt._in);
             if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_out), Go.toInterface(_tt._out))) {
                 _t.errorf(("Decode(%x) = %x; want %x" : GoString), Go.toInterface(_tt._in), Go.toInterface(_out), Go.toInterface(_tt._out));
@@ -311,7 +312,7 @@ function benchmarkAppendRuneValidASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
-                for (_8 => _u in _data) {
+                for (__8 => _u in _data) {
                     _a = appendRune(_a, _u);
                 };
                 _a = (_a.__slice__(0, (0 : GoInt)) : Slice<GoUInt16>);
@@ -324,7 +325,7 @@ function benchmarkAppendRuneValidJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
-                for (_8 => _u in _data) {
+                for (__8 => _u in _data) {
                     _a = appendRune(_a, _u);
                 };
                 _a = (_a.__slice__(0, (0 : GoInt)) : Slice<GoUInt16>);
@@ -335,7 +336,7 @@ function benchmarkEncodeRune(_b:Ref<stdgo.testing.Testing.B>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
-                for (_8 => _u in (new Slice<GoInt32>(0, 0, (120016 : GoInt32), (120017 : GoInt32), (120018 : GoInt32), (120019 : GoInt32), (120020 : GoInt32)) : Slice<GoInt32>)) {
+                for (__8 => _u in (new Slice<GoInt32>(0, 0, (120016 : GoInt32), (120017 : GoInt32), (120018 : GoInt32), (120019 : GoInt32), (120020 : GoInt32)) : Slice<GoInt32>)) {
                     encodeRune(_u);
                 };
             });

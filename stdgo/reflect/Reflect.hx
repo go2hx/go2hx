@@ -27,187 +27,187 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-final invalid : Kind = ((0 : GoUInt) : Kind);
+final invalid : Kind = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final bool_ = ((0 : GoUInt) : Kind);
+final bool_ = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final int_ = ((0 : GoUInt) : Kind);
+final int_ = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final int8 = ((0 : GoUInt) : Kind);
+final int8 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final int16 = ((0 : GoUInt) : Kind);
+final int16 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final int32 = ((0 : GoUInt) : Kind);
+final int32 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final int64 = ((0 : GoUInt) : Kind);
+final int64 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final uint = ((0 : GoUInt) : Kind);
+final uint = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final uint8 = ((0 : GoUInt) : Kind);
+final uint8 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final uint16 = ((0 : GoUInt) : Kind);
+final uint16 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final uint32 = ((0 : GoUInt) : Kind);
+final uint32 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final uint64 = ((0 : GoUInt) : Kind);
+final uint64 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final uintptr = ((0 : GoUInt) : Kind);
+final uintptr = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final float32 = ((0 : GoUInt) : Kind);
+final float32 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final float64 = ((0 : GoUInt) : Kind);
+final float64 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final complex64 = ((0 : GoUInt) : Kind);
+final complex64 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final complex128 = ((0 : GoUInt) : Kind);
+final complex128 = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final array = ((0 : GoUInt) : Kind);
+final array = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final chan = ((0 : GoUInt) : Kind);
+final chan = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final func = ((0 : GoUInt) : Kind);
+final func = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final interface_ = ((0 : GoUInt) : Kind);
+final interface_ = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final map = ((0 : GoUInt) : Kind);
+final map = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final pointer = ((0 : GoUInt) : Kind);
+final pointer = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final slice = ((0 : GoUInt) : Kind);
+final slice = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final string = ((0 : GoUInt) : Kind);
+final string = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final struct_ = ((0 : GoUInt) : Kind);
+final struct_ = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     
 **/
-final unsafePointer = ((0 : GoUInt) : Kind);
+final unsafePointer = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     // Ptr is the old name for the Pointer kind.
     
     
 **/
-final ptr = ((0 : GoUInt) : Kind);
+final ptr = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     
     // <-chan
 **/
-final recvDir : ChanDir = ((0 : GoInt) : ChanDir);
+final recvDir : ChanDir = ((0 : GoInt) : stdgo.reflect.Reflect.ChanDir);
 /**
     
     
     // chan<-
 **/
-final sendDir = ((0 : GoInt) : ChanDir);
+final sendDir = ((0 : GoInt) : stdgo.reflect.Reflect.ChanDir);
 /**
     
     
     // chan
 **/
-final bothDir = ((0 : GoInt) : ChanDir);
+final bothDir = ((0 : GoInt) : stdgo.reflect.Reflect.ChanDir);
 /**
     
     
@@ -515,10 +515,10 @@ typedef Type = StructType & {
         // See https://golang.org/ref/spec#Uniqueness_of_identifiers
     **/
     public var pkgPath : GoString = "";
-    public var type : Type = (null : Type);
-    public var func : Value = ({} : Value);
+    public var type : stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type);
+    public var func : stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
     public var index : GoInt = 0;
-    public function new(?name:GoString, ?pkgPath:GoString, ?type:Type, ?func:Value, ?index:GoInt) {
+    public function new(?name:GoString, ?pkgPath:GoString, ?type:stdgo.reflect.Reflect.Type, ?func:stdgo.reflect.Reflect.Value, ?index:GoInt) {
         if (name != null) this.name = name;
         if (pkgPath != null) this.pkgPath = pkgPath;
         if (type != null) this.type = type;
@@ -546,12 +546,12 @@ typedef Type = StructType & {
         // See https://golang.org/ref/spec#Uniqueness_of_identifiers
     **/
     public var pkgPath : GoString = "";
-    public var type : Type = (null : Type);
-    public var tag : StructTag = (("" : GoString) : StructTag);
+    public var type : stdgo.reflect.Reflect.Type = (null : stdgo.reflect.Reflect.Type);
+    public var tag : stdgo.reflect.Reflect.StructTag = (("" : GoString) : stdgo.reflect.Reflect.StructTag);
     public var offset : GoUIntptr = 0;
     public var index : Slice<GoInt> = (null : Slice<GoInt>);
     public var anonymous : Bool = false;
-    public function new(?name:GoString, ?pkgPath:GoString, ?type:Type, ?tag:StructTag, ?offset:GoUIntptr, ?index:Slice<GoInt>, ?anonymous:Bool) {
+    public function new(?name:GoString, ?pkgPath:GoString, ?type:stdgo.reflect.Reflect.Type, ?tag:stdgo.reflect.Reflect.StructTag, ?offset:GoUIntptr, ?index:Slice<GoInt>, ?anonymous:Bool) {
         if (name != null) this.name = name;
         if (pkgPath != null) this.pkgPath = pkgPath;
         if (type != null) this.type = type;
@@ -656,11 +656,11 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
 **/
 @:structInit @:using(stdgo.reflect.Reflect.ValueError_static_extension) class ValueError {
     public var method : GoString = "";
-    public var kind : Kind = ((0 : GoUInt) : Kind);
+    public var kind : stdgo.reflect.Reflect.Kind = ((0 : GoUInt) : stdgo.reflect.Reflect.Kind);
     dynamic public function toString():String {
         return "" + method;
     }
-    public function new(?method:GoString, ?kind:Kind, ?toString) {
+    public function new(?method:GoString, ?kind:stdgo.reflect.Reflect.Kind, ?toString) {
         if (method != null) this.method = method;
         if (kind != null) this.kind = kind;
         if (toString != null) this.toString = toString;
@@ -767,10 +767,10 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     
 **/
 @:structInit class SelectCase {
-    public var dir : SelectDir = ((0 : GoInt) : SelectDir);
-    public var chan : Value = ({} : Value);
-    public var send : Value = ({} : Value);
-    public function new(?dir:SelectDir, ?chan:Value, ?send:Value) {
+    public var dir : stdgo.reflect.Reflect.SelectDir = ((0 : GoInt) : stdgo.reflect.Reflect.SelectDir);
+    public var chan : stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
+    public var send : stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
+    public function new(?dir:stdgo.reflect.Reflect.SelectDir, ?chan:stdgo.reflect.Reflect.Value, ?send:stdgo.reflect.Reflect.Value) {
         if (dir != null) this.dir = dir;
         if (chan != null) this.chan = chan;
         if (send != null) this.send = send;

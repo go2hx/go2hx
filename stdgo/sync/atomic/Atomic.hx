@@ -59,7 +59,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-private var _22 = (null : Ref<Pointer_<GoInt>>);
+private var __22 = (null : Ref<stdgo.sync.atomic.Atomic.Pointer_<GoInt>>);
 /**
     
     
@@ -74,15 +74,15 @@ private var _firstStoreInProgress : GoByte = (0 : GoUInt8);
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Bool__static_extension) class Bool_ {
     @:optional
-    public var _2 : T_noCopy = ({} : T_noCopy);
+    public var __2 : stdgo.sync.atomic.Atomic.T_noCopy = ({} : stdgo.sync.atomic.Atomic.T_noCopy);
     public var _v : GoUInt32 = 0;
-    public function new(?_2:T_noCopy, ?_v:GoUInt32) {
-        if (_2 != null) this._2 = _2;
+    public function new(?__2:stdgo.sync.atomic.Atomic.T_noCopy, ?_v:GoUInt32) {
+        if (__2 != null) this.__2 = __2;
         if (_v != null) this._v = _v;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new Bool_(_2, _v);
+        return new Bool_(__2, _v);
     }
 }
 /**
@@ -97,18 +97,18 @@ private var _firstStoreInProgress : GoByte = (0 : GoUInt8);
         // Use *T, not T, to avoid spurious recursive type definition errors.
     **/
     @:optional
-    public var _5 : GoArray<Ref<T>> = new GoArray<Ref<T>>(...[for (i in 0 ... 0) (null : Ref<T>)]);
+    public var __5 : GoArray<Ref<T>> = new GoArray<Ref<T>>(...[for (i in 0 ... 0) (null : Ref<T>)]);
     @:optional
-    public var _6 : T_noCopy = ({} : T_noCopy);
+    public var __6 : stdgo.sync.atomic.Atomic.T_noCopy = ({} : stdgo.sync.atomic.Atomic.T_noCopy);
     public var _v : stdgo.unsafe.Unsafe.UnsafePointer = null;
-    public function new(?_5:GoArray<Ref<T>>, ?_6:T_noCopy, ?_v:stdgo.unsafe.Unsafe.UnsafePointer) {
-        if (_5 != null) this._5 = _5;
-        if (_6 != null) this._6 = _6;
+    public function new(?__5:GoArray<Ref<T>>, ?__6:stdgo.sync.atomic.Atomic.T_noCopy, ?_v:stdgo.unsafe.Unsafe.UnsafePointer) {
+        if (__5 != null) this.__5 = __5;
+        if (__6 != null) this.__6 = __6;
         if (_v != null) this._v = _v;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new Pointer_(_5, _6, _v);
+        return new Pointer_(__5, __6, _v);
     }
 }
 /**
@@ -118,15 +118,15 @@ private var _firstStoreInProgress : GoByte = (0 : GoUInt8);
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Int32_static_extension) class Int32 {
     @:optional
-    public var _8 : T_noCopy = ({} : T_noCopy);
+    public var __8 : stdgo.sync.atomic.Atomic.T_noCopy = ({} : stdgo.sync.atomic.Atomic.T_noCopy);
     public var _v : GoInt32 = 0;
-    public function new(?_8:T_noCopy, ?_v:GoInt32) {
-        if (_8 != null) this._8 = _8;
+    public function new(?__8:stdgo.sync.atomic.Atomic.T_noCopy, ?_v:GoInt32) {
+        if (__8 != null) this.__8 = __8;
         if (_v != null) this._v = _v;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new Int32(_8, _v);
+        return new Int32(__8, _v);
     }
 }
 /**
@@ -136,18 +136,18 @@ private var _firstStoreInProgress : GoByte = (0 : GoUInt8);
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Int64__static_extension) class Int64_ {
     @:optional
-    public var _11 : T_noCopy = ({} : T_noCopy);
+    public var __11 : stdgo.sync.atomic.Atomic.T_noCopy = ({} : stdgo.sync.atomic.Atomic.T_noCopy);
     @:optional
-    public var _12 : T_align64 = ({} : T_align64);
+    public var __12 : stdgo.sync.atomic.Atomic.T_align64 = ({} : stdgo.sync.atomic.Atomic.T_align64);
     public var _v : GoInt64 = 0;
-    public function new(?_11:T_noCopy, ?_12:T_align64, ?_v:GoInt64) {
-        if (_11 != null) this._11 = _11;
-        if (_12 != null) this._12 = _12;
+    public function new(?__11:stdgo.sync.atomic.Atomic.T_noCopy, ?__12:stdgo.sync.atomic.Atomic.T_align64, ?_v:GoInt64) {
+        if (__11 != null) this.__11 = __11;
+        if (__12 != null) this.__12 = __12;
         if (_v != null) this._v = _v;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new Int64_(_11, _12, _v);
+        return new Int64_(__11, __12, _v);
     }
 }
 /**
@@ -157,15 +157,15 @@ private var _firstStoreInProgress : GoByte = (0 : GoUInt8);
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Uint32_static_extension) class Uint32 {
     @:optional
-    public var _13 : T_noCopy = ({} : T_noCopy);
+    public var __13 : stdgo.sync.atomic.Atomic.T_noCopy = ({} : stdgo.sync.atomic.Atomic.T_noCopy);
     public var _v : GoUInt32 = 0;
-    public function new(?_13:T_noCopy, ?_v:GoUInt32) {
-        if (_13 != null) this._13 = _13;
+    public function new(?__13:stdgo.sync.atomic.Atomic.T_noCopy, ?_v:GoUInt32) {
+        if (__13 != null) this.__13 = __13;
         if (_v != null) this._v = _v;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new Uint32(_13, _v);
+        return new Uint32(__13, _v);
     }
 }
 /**
@@ -175,18 +175,18 @@ private var _firstStoreInProgress : GoByte = (0 : GoUInt8);
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Uint64_static_extension) class Uint64 {
     @:optional
-    public var _16 : T_noCopy = ({} : T_noCopy);
+    public var __16 : stdgo.sync.atomic.Atomic.T_noCopy = ({} : stdgo.sync.atomic.Atomic.T_noCopy);
     @:optional
-    public var _17 : T_align64 = ({} : T_align64);
+    public var __17 : stdgo.sync.atomic.Atomic.T_align64 = ({} : stdgo.sync.atomic.Atomic.T_align64);
     public var _v : GoUInt64 = 0;
-    public function new(?_16:T_noCopy, ?_17:T_align64, ?_v:GoUInt64) {
-        if (_16 != null) this._16 = _16;
-        if (_17 != null) this._17 = _17;
+    public function new(?__16:stdgo.sync.atomic.Atomic.T_noCopy, ?__17:stdgo.sync.atomic.Atomic.T_align64, ?_v:GoUInt64) {
+        if (__16 != null) this.__16 = __16;
+        if (__17 != null) this.__17 = __17;
         if (_v != null) this._v = _v;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new Uint64(_16, _17, _v);
+        return new Uint64(__16, __17, _v);
     }
 }
 /**
@@ -196,15 +196,15 @@ private var _firstStoreInProgress : GoByte = (0 : GoUInt8);
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Uintptr_static_extension) class Uintptr {
     @:optional
-    public var _19 : T_noCopy = ({} : T_noCopy);
+    public var __19 : stdgo.sync.atomic.Atomic.T_noCopy = ({} : stdgo.sync.atomic.Atomic.T_noCopy);
     public var _v : GoUIntptr = 0;
-    public function new(?_19:T_noCopy, ?_v:GoUIntptr) {
-        if (_19 != null) this._19 = _19;
+    public function new(?__19:stdgo.sync.atomic.Atomic.T_noCopy, ?_v:GoUIntptr) {
+        if (__19 != null) this.__19 = __19;
         if (_v != null) this._v = _v;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new Uintptr(_19, _v);
+        return new Uintptr(__19, _v);
     }
 }
 /**

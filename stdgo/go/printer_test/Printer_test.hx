@@ -8,13 +8,14 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.go.printer.Printer;
 private function _parseFunc(_filename:GoString, _functionname:GoString):{ var _0 : Ref<stdgo.go.ast.Ast.FuncDecl>; var _1 : Ref<stdgo.go.token.Token.FileSet>; } {
         var _fun:Ref<stdgo.go.ast.Ast.FuncDecl> = (null : Ref<stdgo.go.ast.Ast.FuncDecl>), _fset:Ref<stdgo.go.token.Token.FileSet> = (null : Ref<stdgo.go.token.Token.FileSet>);
         _fset = stdgo.go.token.Token.newFileSet();
         {
-            var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, _filename, (null : AnyInterface), (("0" : GoUInt) : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, _filename, (null : AnyInterface), (0u32 : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err == null) {
-                for (_0 => _d in _file.decls) {
+                for (__0 => _d in _file.decls) {
                     {
                         var __tmp__ = try {
                             { value : (Go.typeAssert((Go.toInterface(_d) : Ref<stdgo.go.ast.Ast.FuncDecl>)) : Ref<stdgo.go.ast.Ast.FuncDecl>), ok : true };

@@ -192,7 +192,7 @@ private var _code3 = (null : Slice<GoInt32>);
     
     
 **/
-private var _perlGroup = (null : GoMap<GoString, T_charGroup>);
+private var _perlGroup = (null : GoMap<GoString, stdgo.regexp.syntax.Syntax.T_charGroup>);
 /**
     
     
@@ -282,7 +282,7 @@ private var _code17 = (null : Slice<GoInt32>);
     
     
 **/
-private var _posixGroup = (null : GoMap<GoString, T_charGroup>);
+private var _posixGroup = (null : GoMap<GoString, stdgo.regexp.syntax.Syntax.T_charGroup>);
 /**
     
     
@@ -294,25 +294,25 @@ private var _instOpNames = (null : Slice<GoString>);
     
     
 **/
-private var _foldcaseTests = (null : Slice<T_parseTest>);
+private var _foldcaseTests = (null : Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
 /**
     
     
     
 **/
-private var _literalTests = (null : Slice<T_parseTest>);
+private var _literalTests = (null : Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
 /**
     
     
     
 **/
-private var _matchnlTests = (null : Slice<T_parseTest>);
+private var _matchnlTests = (null : Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
 /**
     
     
     
 **/
-private var _nomatchnlTests = (null : Slice<T_parseTest>);
+private var _nomatchnlTests = (null : Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
 /**
     
     
@@ -324,7 +324,7 @@ private var _opNames = (null : Slice<GoString>);
     
     
 **/
-private var _parseTests = (null : Slice<T_parseTest>);
+private var _parseTests = (null : Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
 /**
     
     
@@ -372,181 +372,181 @@ private final __Op_name_1 = ("" : GoString);
     
     
 **/
-final errInternalError : ErrorCode = (("" : GoString) : ErrorCode);
+final errInternalError : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     // Parse errors
     
     
 **/
-final errInvalidCharClass : ErrorCode = (("" : GoString) : ErrorCode);
+final errInvalidCharClass : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errInvalidCharRange : ErrorCode = (("" : GoString) : ErrorCode);
+final errInvalidCharRange : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errInvalidEscape : ErrorCode = (("" : GoString) : ErrorCode);
+final errInvalidEscape : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errInvalidNamedCapture : ErrorCode = (("" : GoString) : ErrorCode);
+final errInvalidNamedCapture : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errInvalidPerlOp : ErrorCode = (("" : GoString) : ErrorCode);
+final errInvalidPerlOp : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errInvalidRepeatOp : ErrorCode = (("" : GoString) : ErrorCode);
+final errInvalidRepeatOp : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errInvalidRepeatSize : ErrorCode = (("" : GoString) : ErrorCode);
+final errInvalidRepeatSize : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errInvalidUTF8 : ErrorCode = (("" : GoString) : ErrorCode);
+final errInvalidUTF8 : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errMissingBracket : ErrorCode = (("" : GoString) : ErrorCode);
+final errMissingBracket : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errMissingParen : ErrorCode = (("" : GoString) : ErrorCode);
+final errMissingParen : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errMissingRepeatArgument : ErrorCode = (("" : GoString) : ErrorCode);
+final errMissingRepeatArgument : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errTrailingBackslash : ErrorCode = (("" : GoString) : ErrorCode);
+final errTrailingBackslash : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errUnexpectedParen : ErrorCode = (("" : GoString) : ErrorCode);
+final errUnexpectedParen : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errNestingDepth : ErrorCode = (("" : GoString) : ErrorCode);
+final errNestingDepth : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     
 **/
-final errLarge : ErrorCode = (("" : GoString) : ErrorCode);
+final errLarge : ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
 /**
     
     
     // case-insensitive match
 **/
-final foldCase : Flags = ((0 : GoUInt16) : Flags);
+final foldCase : Flags = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     // treat pattern as literal string
 **/
-final literal = ((0 : GoUInt16) : Flags);
+final literal = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     // allow character classes like [^a-z] and [[:space:]] to match newline
 **/
-final classNL = ((0 : GoUInt16) : Flags);
+final classNL = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     // allow . to match newline
 **/
-final dotNL = ((0 : GoUInt16) : Flags);
+final dotNL = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     // treat ^ and $ as only matching at beginning and end of text
 **/
-final oneLine = ((0 : GoUInt16) : Flags);
+final oneLine = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     // make repetition operators default to non-greedy
 **/
-final nonGreedy = ((0 : GoUInt16) : Flags);
+final nonGreedy = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     // allow Perl extensions
 **/
-final perlX = ((0 : GoUInt16) : Flags);
+final perlX = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     // allow \p{Han}, \P{Han} for Unicode group and negation
 **/
-final unicodeGroups = ((0 : GoUInt16) : Flags);
+final unicodeGroups = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     // regexp OpEndText was $, not \z
 **/
-final wasDollar = ((0 : GoUInt16) : Flags);
+final wasDollar = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     // regexp contains no counted repetition
 **/
-final simple = ((0 : GoUInt16) : Flags);
+final simple = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     
 **/
-final matchNL = ((0 : GoUInt16) : Flags);
+final matchNL = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     // as close to Perl as possible
 **/
-final perl = ((0 : GoUInt16) : Flags);
+final perl = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     // POSIX syntax
 **/
-final posix : Flags = ((0 : GoUInt16) : Flags);
+final posix : Flags = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     // Pseudo-ops for parsing stack.
     
     
 **/
-private final _opLeftParen = ((0 : GoUInt8) : Op);
+private final _opLeftParen = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     // Pseudo-ops for parsing stack.
     
@@ -650,109 +650,109 @@ private final _maxFold = (0 : GoUInt64);
     
     
 **/
-private final _testFlags = ((0 : GoUInt16) : Flags);
+private final _testFlags = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
 /**
     
     
     
 **/
-final instAlt : InstOp = ((0 : GoUInt8) : InstOp);
+final instAlt : InstOp = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 /**
     
     
     
 **/
-final instAltMatch = ((0 : GoUInt8) : InstOp);
+final instAltMatch = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 /**
     
     
     
 **/
-final instCapture = ((0 : GoUInt8) : InstOp);
+final instCapture = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 /**
     
     
     
 **/
-final instEmptyWidth = ((0 : GoUInt8) : InstOp);
+final instEmptyWidth = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 /**
     
     
     
 **/
-final instMatch = ((0 : GoUInt8) : InstOp);
+final instMatch = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 /**
     
     
     
 **/
-final instFail = ((0 : GoUInt8) : InstOp);
+final instFail = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 /**
     
     
     
 **/
-final instNop = ((0 : GoUInt8) : InstOp);
+final instNop = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 /**
     
     
     
 **/
-final instRune = ((0 : GoUInt8) : InstOp);
+final instRune = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 /**
     
     
     
 **/
-final instRune1 = ((0 : GoUInt8) : InstOp);
+final instRune1 = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 /**
     
     
     
 **/
-final instRuneAny = ((0 : GoUInt8) : InstOp);
+final instRuneAny = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 /**
     
     
     
 **/
-final instRuneAnyNotNL = ((0 : GoUInt8) : InstOp);
+final instRuneAnyNotNL = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 /**
     
     
     
 **/
-final emptyBeginLine : EmptyOp = ((0 : GoUInt8) : EmptyOp);
+final emptyBeginLine : EmptyOp = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.EmptyOp);
 /**
     
     
     
 **/
-final emptyEndLine = ((0 : GoUInt8) : EmptyOp);
+final emptyEndLine = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.EmptyOp);
 /**
     
     
     
 **/
-final emptyBeginText = ((0 : GoUInt8) : EmptyOp);
+final emptyBeginText = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.EmptyOp);
 /**
     
     
     
 **/
-final emptyEndText = ((0 : GoUInt8) : EmptyOp);
+final emptyEndText = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.EmptyOp);
 /**
     
     
     
 **/
-final emptyWordBoundary = ((0 : GoUInt8) : EmptyOp);
+final emptyWordBoundary = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.EmptyOp);
 /**
     
     
     
 **/
-final emptyNoWordBoundary = ((0 : GoUInt8) : EmptyOp);
+final emptyNoWordBoundary = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.EmptyOp);
 /**
     
     
@@ -764,121 +764,121 @@ private final _noMatch = (0 : GoUInt64);
     
     // matches no strings
 **/
-final opNoMatch : Op = ((0 : GoUInt8) : Op);
+final opNoMatch : Op = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches empty string
 **/
-final opEmptyMatch = ((0 : GoUInt8) : Op);
+final opEmptyMatch = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches Runes sequence
 **/
-final opLiteral = ((0 : GoUInt8) : Op);
+final opLiteral = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches Runes interpreted as range pair list
 **/
-final opCharClass = ((0 : GoUInt8) : Op);
+final opCharClass = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches any character except newline
 **/
-final opAnyCharNotNL = ((0 : GoUInt8) : Op);
+final opAnyCharNotNL = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches any character
 **/
-final opAnyChar = ((0 : GoUInt8) : Op);
+final opAnyChar = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches empty string at beginning of line
 **/
-final opBeginLine = ((0 : GoUInt8) : Op);
+final opBeginLine = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches empty string at end of line
 **/
-final opEndLine = ((0 : GoUInt8) : Op);
+final opEndLine = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches empty string at beginning of text
 **/
-final opBeginText = ((0 : GoUInt8) : Op);
+final opBeginText = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches empty string at end of text
 **/
-final opEndText = ((0 : GoUInt8) : Op);
+final opEndText = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches word boundary `\b`
 **/
-final opWordBoundary = ((0 : GoUInt8) : Op);
+final opWordBoundary = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches word non-boundary `\B`
 **/
-final opNoWordBoundary = ((0 : GoUInt8) : Op);
+final opNoWordBoundary = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // capturing subexpression with index Cap, optional name Name
 **/
-final opCapture = ((0 : GoUInt8) : Op);
+final opCapture = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches Sub[0] zero or more times
 **/
-final opStar = ((0 : GoUInt8) : Op);
+final opStar = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches Sub[0] one or more times
 **/
-final opPlus = ((0 : GoUInt8) : Op);
+final opPlus = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches Sub[0] zero or one times
 **/
-final opQuest = ((0 : GoUInt8) : Op);
+final opQuest = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches Sub[0] at least Min times, at most Max (Max == -1 is no limit)
 **/
-final opRepeat = ((0 : GoUInt8) : Op);
+final opRepeat = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches concatenation of Subs
 **/
-final opConcat = ((0 : GoUInt8) : Op);
+final opConcat = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // matches alternation of Subs
 **/
-final opAlternate = ((0 : GoUInt8) : Op);
+final opAlternate = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
     // where pseudo-ops start
 **/
-private final _opPseudo : Op = ((0 : GoUInt8) : Op);
+private final _opPseudo : Op = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
 /**
     
     
@@ -918,9 +918,9 @@ private final _meta = ("" : GoString);
 **/
 @:structInit @:private class T_frag {
     public var _i : GoUInt32 = 0;
-    public var _out : T_patchList = ({} : T_patchList);
+    public var _out : stdgo.regexp.syntax.Syntax.T_patchList = ({} : stdgo.regexp.syntax.Syntax.T_patchList);
     public var _nullable : Bool = false;
-    public function new(?_i:GoUInt32, ?_out:T_patchList, ?_nullable:Bool) {
+    public function new(?_i:GoUInt32, ?_out:stdgo.regexp.syntax.Syntax.T_patchList, ?_nullable:Bool) {
         if (_i != null) this._i = _i;
         if (_out != null) this._out = _out;
         if (_nullable != null) this._nullable = _nullable;
@@ -936,8 +936,8 @@ private final _meta = ("" : GoString);
     
 **/
 @:structInit @:private @:using(stdgo.regexp.syntax.Syntax.T_compiler_static_extension) class T_compiler {
-    public var _p : Ref<Prog> = (null : Ref<Prog>);
-    public function new(?_p:Ref<Prog>) {
+    public var _p : Ref<stdgo.regexp.syntax.Syntax.Prog> = (null : Ref<stdgo.regexp.syntax.Syntax.Prog>);
+    public function new(?_p:Ref<stdgo.regexp.syntax.Syntax.Prog>) {
         if (_p != null) this._p = _p;
     }
     public function __underlying__() return Go.toInterface(this);
@@ -952,9 +952,9 @@ private final _meta = ("" : GoString);
     
 **/
 @:structInit @:using(stdgo.regexp.syntax.Syntax.T_error_static_extension) class T_error {
-    public var code : ErrorCode = (("" : GoString) : ErrorCode);
+    public var code : stdgo.regexp.syntax.Syntax.ErrorCode = (("" : GoString) : stdgo.regexp.syntax.Syntax.ErrorCode);
     public var expr : GoString = "";
-    public function new(?code:ErrorCode, ?expr:GoString) {
+    public function new(?code:stdgo.regexp.syntax.Syntax.ErrorCode, ?expr:GoString) {
         if (code != null) this.code = code;
         if (expr != null) this.expr = expr;
     }
@@ -969,18 +969,18 @@ private final _meta = ("" : GoString);
     
 **/
 @:structInit @:private @:using(stdgo.regexp.syntax.Syntax.T_parser_static_extension) class T_parser {
-    public var _flags : Flags = ((0 : GoUInt16) : Flags);
-    public var _stack : Slice<Ref<Regexp>> = (null : Slice<Ref<Regexp>>);
-    public var _free : Ref<Regexp> = (null : Ref<Regexp>);
+    public var _flags : stdgo.regexp.syntax.Syntax.Flags = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
+    public var _stack : Slice<Ref<stdgo.regexp.syntax.Syntax.Regexp>> = (null : Slice<Ref<stdgo.regexp.syntax.Syntax.Regexp>>);
+    public var _free : Ref<stdgo.regexp.syntax.Syntax.Regexp> = (null : Ref<stdgo.regexp.syntax.Syntax.Regexp>);
     public var _numCap : GoInt = 0;
     public var _wholeRegexp : GoString = "";
     public var _tmpClass : Slice<GoInt32> = (null : Slice<GoInt32>);
     public var _numRegexp : GoInt = 0;
     public var _numRunes : GoInt = 0;
     public var _repeats : GoInt64 = 0;
-    public var _height : GoMap<Ref<Regexp>, GoInt> = (null : GoMap<Ref<Regexp>, GoInt>);
-    public var _size : GoMap<Ref<Regexp>, GoInt64> = (null : GoMap<Ref<Regexp>, GoInt64>);
-    public function new(?_flags:Flags, ?_stack:Slice<Ref<Regexp>>, ?_free:Ref<Regexp>, ?_numCap:GoInt, ?_wholeRegexp:GoString, ?_tmpClass:Slice<GoInt32>, ?_numRegexp:GoInt, ?_numRunes:GoInt, ?_repeats:GoInt64, ?_height:GoMap<Ref<Regexp>, GoInt>, ?_size:GoMap<Ref<Regexp>, GoInt64>) {
+    public var _height : GoMap<Ref<stdgo.regexp.syntax.Syntax.Regexp>, GoInt> = (null : GoMap<Ref<stdgo.regexp.syntax.Syntax.Regexp>, GoInt>);
+    public var _size : GoMap<Ref<stdgo.regexp.syntax.Syntax.Regexp>, GoInt64> = (null : GoMap<Ref<stdgo.regexp.syntax.Syntax.Regexp>, GoInt64>);
+    public function new(?_flags:stdgo.regexp.syntax.Syntax.Flags, ?_stack:Slice<Ref<stdgo.regexp.syntax.Syntax.Regexp>>, ?_free:Ref<stdgo.regexp.syntax.Syntax.Regexp>, ?_numCap:GoInt, ?_wholeRegexp:GoString, ?_tmpClass:Slice<GoInt32>, ?_numRegexp:GoInt, ?_numRunes:GoInt, ?_repeats:GoInt64, ?_height:GoMap<Ref<stdgo.regexp.syntax.Syntax.Regexp>, GoInt>, ?_size:GoMap<Ref<stdgo.regexp.syntax.Syntax.Regexp>, GoInt64>) {
         if (_flags != null) this._flags = _flags;
         if (_stack != null) this._stack = _stack;
         if (_free != null) this._free = _free;
@@ -1067,10 +1067,10 @@ _size);
     
 **/
 @:structInit @:using(stdgo.regexp.syntax.Syntax.Prog_static_extension) class Prog {
-    public var inst : Slice<Inst> = (null : Slice<Inst>);
+    public var inst : Slice<stdgo.regexp.syntax.Syntax.Inst> = (null : Slice<stdgo.regexp.syntax.Syntax.Inst>);
     public var start : GoInt = 0;
     public var numCap : GoInt = 0;
-    public function new(?inst:Slice<Inst>, ?start:GoInt, ?numCap:GoInt) {
+    public function new(?inst:Slice<stdgo.regexp.syntax.Syntax.Inst>, ?start:GoInt, ?numCap:GoInt) {
         if (inst != null) this.inst = inst;
         if (start != null) this.start = start;
         if (numCap != null) this.numCap = numCap;
@@ -1086,11 +1086,11 @@ _size);
     
 **/
 @:structInit @:using(stdgo.regexp.syntax.Syntax.Inst_static_extension) class Inst {
-    public var op : InstOp = ((0 : GoUInt8) : InstOp);
+    public var op : stdgo.regexp.syntax.Syntax.InstOp = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
     public var out : GoUInt32 = 0;
     public var arg : GoUInt32 = 0;
     public var rune : Slice<GoInt32> = (null : Slice<GoInt32>);
-    public function new(?op:InstOp, ?out:GoUInt32, ?arg:GoUInt32, ?rune:Slice<GoInt32>) {
+    public function new(?op:stdgo.regexp.syntax.Syntax.InstOp, ?out:GoUInt32, ?arg:GoUInt32, ?rune:Slice<GoInt32>) {
         if (op != null) this.op = op;
         if (out != null) this.out = out;
         if (arg != null) this.arg = arg;
@@ -1107,17 +1107,17 @@ _size);
     
 **/
 @:structInit @:using(stdgo.regexp.syntax.Syntax.Regexp_static_extension) class Regexp {
-    public var op : Op = ((0 : GoUInt8) : Op);
-    public var flags : Flags = ((0 : GoUInt16) : Flags);
-    public var sub : Slice<Ref<Regexp>> = (null : Slice<Ref<Regexp>>);
-    public var sub0 : GoArray<Ref<Regexp>> = new GoArray<Ref<Regexp>>(...[for (i in 0 ... 1) (null : Ref<Regexp>)]);
+    public var op : stdgo.regexp.syntax.Syntax.Op = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.Op);
+    public var flags : stdgo.regexp.syntax.Syntax.Flags = ((0 : GoUInt16) : stdgo.regexp.syntax.Syntax.Flags);
+    public var sub : Slice<Ref<stdgo.regexp.syntax.Syntax.Regexp>> = (null : Slice<Ref<stdgo.regexp.syntax.Syntax.Regexp>>);
+    public var sub0 : GoArray<Ref<stdgo.regexp.syntax.Syntax.Regexp>> = new GoArray<Ref<stdgo.regexp.syntax.Syntax.Regexp>>(...[for (i in 0 ... 1) (null : Ref<stdgo.regexp.syntax.Syntax.Regexp>)]);
     public var rune : Slice<GoInt32> = (null : Slice<GoInt32>);
     public var rune0 : GoArray<GoInt32> = new GoArray<GoInt32>(...[for (i in 0 ... 2) (0 : GoInt32)]);
     public var min : GoInt = 0;
     public var max : GoInt = 0;
     public var cap : GoInt = 0;
     public var name : GoString = "";
-    public function new(?op:Op, ?flags:Flags, ?sub:Slice<Ref<Regexp>>, ?sub0:GoArray<Ref<Regexp>>, ?rune:Slice<GoInt32>, ?rune0:GoArray<GoInt32>, ?min:GoInt, ?max:GoInt, ?cap:GoInt, ?name:GoString) {
+    public function new(?op:stdgo.regexp.syntax.Syntax.Op, ?flags:stdgo.regexp.syntax.Syntax.Flags, ?sub:Slice<Ref<stdgo.regexp.syntax.Syntax.Regexp>>, ?sub0:GoArray<Ref<stdgo.regexp.syntax.Syntax.Regexp>>, ?rune:Slice<GoInt32>, ?rune0:GoArray<GoInt32>, ?min:GoInt, ?max:GoInt, ?cap:GoInt, ?name:GoString) {
         if (op != null) this.op = op;
         if (flags != null) this.flags = flags;
         if (sub != null) this.sub = sub;

@@ -43,25 +43,25 @@ private final _maxRune = (1114111 : GoInt32);
     
     
 **/
-private final _surr1 = ("55296" : GoUInt64);
+private final _surr1 = (55296i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _surr2 = ("56320" : GoUInt64);
+private final _surr2 = (56320i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _surr3 = ("57344" : GoUInt64);
+private final _surr3 = (57344i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _surrSelf = ("65536" : GoUInt64);
+private final _surrSelf = (65536i64 : GoUInt64);
 /**
     // IsSurrogate reports whether the specified Unicode code point
     // can appear in a surrogate pair.
@@ -76,7 +76,7 @@ function isSurrogate(_r:GoRune):Bool {
 **/
 function decodeRune(_r1:GoRune, _r2:GoRune):GoRune {
         if (((((55296 : GoInt32) <= _r1) && (_r1 < (56320 : GoInt32))) && ((56320 : GoInt32) <= _r2)) && (_r2 < (57344 : GoInt32))) {
-            return (((_r1 - (55296 : GoInt32)) << (("10" : GoUInt64) : GoUInt64)) | (_r2 - (56320 : GoInt32))) + (65536 : GoInt32);
+            return (((_r1 - (55296 : GoInt32)) << (10i64 : GoUInt64)) | (_r2 - (56320 : GoInt32))) + (65536 : GoInt32);
         };
         return (65533 : GoInt32);
     }
@@ -91,21 +91,21 @@ function encodeRune(_r:GoRune):{ var _0 : GoRune; var _1 : GoRune; } {
             return { _0 : (65533 : GoInt32), _1 : (65533 : GoInt32) };
         };
         _r = _r - ((65536 : GoInt32));
-        return { _0 : (55296 : GoInt32) + ((_r >> (("10" : GoUInt64) : GoUInt64)) & (1023 : GoInt32)), _1 : (56320 : GoInt32) + (_r & (1023 : GoInt32)) };
+        return { _0 : (55296 : GoInt32) + ((_r >> (10i64 : GoUInt64)) & (1023 : GoInt32)), _1 : (56320 : GoInt32) + (_r & (1023 : GoInt32)) };
     }
 /**
     // Encode returns the UTF-16 encoding of the Unicode code point sequence s.
 **/
 function encode(_s:Slice<GoRune>):Slice<GoUInt16> {
         var _n:GoInt = (_s.length);
-        for (_0 => _v in _s) {
+        for (__0 => _v in _s) {
             if (_v >= (65536 : GoInt32)) {
                 _n++;
             };
         };
         var _a = new Slice<GoUInt16>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt16)]);
         _n = (0 : GoInt);
-        for (_1 => _v in _s) {
+        for (__1 => _v in _s) {
             if (((0 : GoInt32) <= _v) && (_v < (55296 : GoInt32)) || ((57344 : GoInt32) <= _v) && (_v < (65536 : GoInt32))) {
                 _a[(_n : GoInt)] = (_v : GoUInt16);
                 _n++;

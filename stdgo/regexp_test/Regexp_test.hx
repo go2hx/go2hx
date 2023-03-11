@@ -8,8 +8,9 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.regexp.Regexp;
 function example():Void {
-        var _validID:Ref<Regexp> = stdgo.regexp.Regexp.mustCompile(("^[a-z]+\\[[0-9]+\\]$$" : GoString));
+        var _validID:Ref<stdgo.regexp.Regexp.Regexp> = stdgo.regexp.Regexp.mustCompile(("^[a-z]+\\[[0-9]+\\]$$" : GoString));
         stdgo.fmt.Fmt.println(Go.toInterface(_validID.matchString(("adam[23]" : GoString))));
         stdgo.fmt.Fmt.println(Go.toInterface(_validID.matchString(("eve[7]" : GoString))));
         stdgo.fmt.Fmt.println(Go.toInterface(_validID.matchString(("Job[48]" : GoString))));
@@ -191,7 +192,7 @@ function exampleRegexp_Expand():Void {
         var _pattern = stdgo.regexp.Regexp.mustCompile(("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$$" : GoString));
         var _template = (("$$key=$$value\n" : GoString) : Slice<GoByte>);
         var _result = (new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>);
-        for (_0 => _submatches in _pattern.findAllSubmatchIndex(_content, (-1 : GoInt))) {
+        for (__0 => _submatches in _pattern.findAllSubmatchIndex(_content, (-1 : GoInt))) {
             _result = _pattern.expand(_result, _template, _content, _submatches);
         };
         stdgo.fmt.Fmt.println(Go.toInterface((_result : GoString)));
@@ -201,7 +202,7 @@ function exampleRegexp_ExpandString():Void {
         var _pattern = stdgo.regexp.Regexp.mustCompile(("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$$" : GoString));
         var _template:GoString = ("$$key=$$value\n" : GoString);
         var _result = (new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>);
-        for (_0 => _submatches in _pattern.findAllStringSubmatchIndex(_content, (-1 : GoInt))) {
+        for (__0 => _submatches in _pattern.findAllStringSubmatchIndex(_content, (-1 : GoInt))) {
             _result = _pattern.expandString(_result, _template, _content, _submatches);
         };
         stdgo.fmt.Fmt.println(Go.toInterface((_result : GoString)));
@@ -217,7 +218,7 @@ function exampleRegexp_FindAllSubmatchIndex():Void {
         var _content = (("\n\t# comment line\n\toption1: value1\n\toption2: value2\n" : GoString) : Slice<GoByte>);
         var _pattern = stdgo.regexp.Regexp.mustCompile(("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$$" : GoString));
         var _allIndexes = _pattern.findAllSubmatchIndex(_content, (-1 : GoInt));
-        for (_0 => _loc in _allIndexes) {
+        for (__0 => _loc in _allIndexes) {
             stdgo.fmt.Fmt.println(Go.toInterface(_loc));
             stdgo.fmt.Fmt.println(Go.toInterface(((_content.__slice__(_loc[(0 : GoInt)], _loc[(1 : GoInt)]) : Slice<GoUInt8>) : GoString)));
             stdgo.fmt.Fmt.println(Go.toInterface(((_content.__slice__(_loc[(2 : GoInt)], _loc[(3 : GoInt)]) : Slice<GoUInt8>) : GoString)));

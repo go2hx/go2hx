@@ -8,6 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.internal.fmtsort.Fmtsort;
 /**
     
     
@@ -26,18 +27,18 @@ _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0 : GoInt))), Go.toInterface((-
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0 : GoInt8))), Go.toInterface((-1 : GoInt)), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0 : GoInt16))), Go.toInterface((-1 : GoInt)), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0 : GoInt32))), Go.toInterface((-1 : GoInt)), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt))),
-_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((("0" : GoInt64) : GoInt64))), Go.toInterface((-1 : GoInt)), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt))),
-_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((("0" : GoUInt) : GoUInt))), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt)), Go.toInterface((5 : GoInt))),
+_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0i64 : GoInt64))), Go.toInterface((-1 : GoInt)), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt))),
+_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0u32 : GoUInt))), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt)), Go.toInterface((5 : GoInt))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0 : GoUInt8))), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt)), Go.toInterface((5 : GoInt))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0 : GoUInt16))), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt)), Go.toInterface((5 : GoInt))),
-_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((("0" : GoUInt32) : GoUInt32))), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt)), Go.toInterface((5 : GoInt))),
-_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((("0" : GoUInt64) : GoUInt64))), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt)), Go.toInterface((5 : GoInt))),
+_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0u32 : GoUInt32))), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt)), Go.toInterface((5 : GoInt))),
+_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0i64 : GoUInt64))), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt)), Go.toInterface((5 : GoInt))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0 : GoUIntptr))), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt)), Go.toInterface((5 : GoInt))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((Go.str() : GoString))), Go.toInterface(Go.str()), Go.toInterface(("a" : GoString)), Go.toInterface(("ab" : GoString))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface(((0 : GoFloat64) : GoFloat32))), Go.toInterface(stdgo.math.Math.naN()), Go.toInterface(stdgo.math.Math.inf((-1 : GoInt))), Go.toInterface((-1e+10 : GoFloat64)), Go.toInterface((0 : GoInt)), Go.toInterface((1e+10 : GoFloat64)), Go.toInterface(stdgo.math.Math.inf((1 : GoInt)))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0 : GoFloat64))), Go.toInterface(stdgo.math.Math.naN()), Go.toInterface(stdgo.math.Math.inf((-1 : GoInt))), Go.toInterface((-1e+10 : GoFloat64)), Go.toInterface((0 : GoInt)), Go.toInterface((1e+10 : GoFloat64)), Go.toInterface(stdgo.math.Math.inf((1 : GoInt)))),
-_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface(((0 : GoFloat64) + new GoComplex128(0, 1) : GoComplex64))), Go.toInterface(((-1 : GoFloat64) + new GoComplex128(0, -1))), Go.toInterface(((-1 : GoFloat64) + new GoComplex128(0, 0))), Go.toInterface(((-1 : GoFloat64) + new GoComplex128(0, 1))), Go.toInterface(((0 : GoFloat64) + new GoComplex128(0, -1))), Go.toInterface(((0 : GoFloat64) + new GoComplex128(0, 0))), Go.toInterface(((0 : GoFloat64) + new GoComplex128(0, 1))), Go.toInterface(((1 : GoFloat64) + new GoComplex128(0, -1))), Go.toInterface(((1 : GoFloat64) + new GoComplex128(0, 0))), Go.toInterface(((1 : GoFloat64) + new GoComplex128(0, 1)))),
-_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface(((0 : GoFloat64) + new GoComplex128(0, 1) : GoComplex128))), Go.toInterface(((-1 : GoFloat64) + new GoComplex128(0, -1))), Go.toInterface(((-1 : GoFloat64) + new GoComplex128(0, 0))), Go.toInterface(((-1 : GoFloat64) + new GoComplex128(0, 1))), Go.toInterface(((0 : GoFloat64) + new GoComplex128(0, -1))), Go.toInterface(((0 : GoFloat64) + new GoComplex128(0, 0))), Go.toInterface(((0 : GoFloat64) + new GoComplex128(0, 1))), Go.toInterface(((1 : GoFloat64) + new GoComplex128(0, -1))), Go.toInterface(((1 : GoFloat64) + new GoComplex128(0, 0))), Go.toInterface(((1 : GoFloat64) + new GoComplex128(0, 1)))),
+_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface(((0f64 : GoFloat64) + new GoComplex128(0f64, 1f64) : GoComplex64))), Go.toInterface(((-1f64 : GoFloat64) + new GoComplex128(0f64, -1f64))), Go.toInterface(((-1f64 : GoFloat64) + new GoComplex128(0f64, 0f64))), Go.toInterface(((-1f64 : GoFloat64) + new GoComplex128(0f64, 1f64))), Go.toInterface(((0f64 : GoFloat64) + new GoComplex128(0f64, -1f64))), Go.toInterface(((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64))), Go.toInterface(((0f64 : GoFloat64) + new GoComplex128(0f64, 1f64))), Go.toInterface(((1f64 : GoFloat64) + new GoComplex128(0f64, -1f64))), Go.toInterface(((1f64 : GoFloat64) + new GoComplex128(0f64, 0f64))), Go.toInterface(((1f64 : GoFloat64) + new GoComplex128(0f64, 1f64)))),
+_ct(stdgo.reflect.Reflect.typeOf(Go.toInterface(((0f64 : GoFloat64) + new GoComplex128(0f64, 1f64) : GoComplex128))), Go.toInterface(((-1f64 : GoFloat64) + new GoComplex128(0f64, -1f64))), Go.toInterface(((-1f64 : GoFloat64) + new GoComplex128(0f64, 0f64))), Go.toInterface(((-1f64 : GoFloat64) + new GoComplex128(0f64, 1f64))), Go.toInterface(((0f64 : GoFloat64) + new GoComplex128(0f64, -1f64))), Go.toInterface(((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64))), Go.toInterface(((0f64 : GoFloat64) + new GoComplex128(0f64, 1f64))), Go.toInterface(((1f64 : GoFloat64) + new GoComplex128(0f64, -1f64))), Go.toInterface(((1f64 : GoFloat64) + new GoComplex128(0f64, 0f64))), Go.toInterface(((1f64 : GoFloat64) + new GoComplex128(0f64, 1f64)))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface(false)), Go.toInterface(false), Go.toInterface(true)),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface(Go.pointer(_ints[(0 : GoInt)]))), Go.toInterface(Go.pointer(_ints[(0 : GoInt)])), Go.toInterface(Go.pointer(_ints[(1 : GoInt)])), Go.toInterface(Go.pointer(_ints[(2 : GoInt)]))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((Go.toInterface(Go.pointer(_ints[(0 : GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer))), Go.toInterface((Go.toInterface(Go.pointer(_ints[(0 : GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer)), Go.toInterface((Go.toInterface(Go.pointer(_ints[(1 : GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer)), Go.toInterface((Go.toInterface(Go.pointer(_ints[(2 : GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer))),
@@ -79,7 +80,7 @@ private var _sortTests = (new Slice<stdgo.internal.fmtsort_test.Fmtsort_test.T_s
     } : stdgo.GoMap<GoFloat64, GoString>)), ("NaN:nan -3:foo 7:bar +Inf:inf" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
         final x = new stdgo.GoMap.GoObjectMap<GoComplex128, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(complex128_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-        @:privateAccess x._keys = [((7 : GoFloat64) + new GoComplex128(0, 2)), ((7 : GoFloat64) + new GoComplex128(0, 1)), ((-3 : GoFloat64) + new GoComplex128(0, 0)), new GoComplex128(stdgo.math.Math.naN(), (0 : GoFloat64)), new GoComplex128(stdgo.math.Math.inf((0 : GoInt)), (0 : GoFloat64))];
+        @:privateAccess x._keys = [((7f64 : GoFloat64) + new GoComplex128(0f64, 2f64)), ((7f64 : GoFloat64) + new GoComplex128(0f64, 1f64)), ((-3f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), new GoComplex128(stdgo.math.Math.naN(), (0 : GoFloat64)), new GoComplex128(stdgo.math.Math.inf((0 : GoInt)), (0 : GoFloat64))];
         @:privateAccess x._values = [("bar2" : GoString), ("bar" : GoString), ("foo" : GoString), ("nan" : GoString), ("inf" : GoString)];
         x;
     } : stdgo.GoMap<GoComplex128, GoString>)), ("(NaN+0i):nan (-3+0i):foo (7+1i):bar (7+2i):bar2 (+Inf+0i):inf" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
@@ -170,27 +171,27 @@ private function _ct(_typ:stdgo.reflect.Reflect.Type, _args:haxe.Rest<AnyInterfa
         var _args = new Slice<AnyInterface>(0, 0, ..._args);
         var _value = new Slice<stdgo.reflect.Reflect.Value>((_args.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_args.length : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
         for (_i => _v in _args) {
-            var _x:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_v).__copy__();
+            var _x:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_v)?.__copy__();
             if (!_x.isValid()) {
-                _x = stdgo.reflect.Reflect.zero(_typ).__copy__();
+                _x = stdgo.reflect.Reflect.zero(_typ)?.__copy__();
             } else {
-                _x = _x.convert(_typ).__copy__();
+                _x = _x.convert(_typ)?.__copy__();
             };
-            _value[(_i : GoInt)] = _x.__copy__();
+            _value[(_i : GoInt)] = _x?.__copy__();
         };
         return _value;
     }
 function testCompare(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _compareTests) {
+        for (__0 => _test in _compareTests) {
             for (_i => _v0 in _test) {
                 for (_j => _v1 in _test) {
-                    var _c:GoInt = stdgo.internal.fmtsort.Fmtsort.compare(_v0.__copy__(), _v1.__copy__());
+                    var _c:GoInt = stdgo.internal.fmtsort.Fmtsort.compare(_v0?.__copy__(), _v1?.__copy__());
                     var _expect:GoInt = (0 : GoInt);
                     if (_i == (_j)) {
                         _expect = (0 : GoInt);
                         {
                             var _typ:stdgo.reflect.Reflect.Type = _v0.type();
-                            if (((_typ.kind() == (("13" : GoUInt) : stdgo.reflect.Reflect.Kind)) || (_typ.kind() == (("14" : GoUInt) : stdgo.reflect.Reflect.Kind))) && stdgo.math.Math.isNaN(_v0.float_())) {
+                            if (((_typ.kind() == (13u32 : stdgo.reflect.Reflect.Kind)) || (_typ.kind() == (14u32 : stdgo.reflect.Reflect.Kind))) && stdgo.math.Math.isNaN(_v0.float_())) {
                                 _expect = (-1 : GoInt);
                             };
                         };
@@ -207,7 +208,7 @@ function testCompare(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 private function _sprint(_data:AnyInterface):GoString {
-        var _om = stdgo.internal.fmtsort.Fmtsort.sort(stdgo.reflect.Reflect.valueOf(_data).__copy__());
+        var _om = stdgo.internal.fmtsort.Fmtsort.sort(stdgo.reflect.Reflect.valueOf(_data)?.__copy__());
         if (_om == null || (_om : Dynamic).__nil__) {
             return ("nil" : GoString);
         };
@@ -216,7 +217,7 @@ private function _sprint(_data:AnyInterface):GoString {
             if (_i > (0 : GoInt)) {
                 _b.writeRune((32 : GoInt32));
             };
-            _b.writeString(_sprintKey(_key.__copy__()));
+            _b.writeString(_sprintKey(_key?.__copy__()));
             _b.writeRune((58 : GoInt32));
             stdgo.fmt.Fmt.fprint(Go.asInterface(_b), Go.toInterface(Go.asInterface(_om.value[(_i : GoInt)])));
         };
@@ -301,7 +302,7 @@ private function _chanMap():GoMap<Chan<GoInt>, GoString> {
         return _m;
     }
 function testOrder(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _sortTests) {
+        for (__0 => _test in _sortTests) {
             var _got:GoString = _sprint(_test._data);
             if (_got != (_test._print)) {
                 _t.errorf(("%s: got %q, want %q" : GoString), Go.toInterface(stdgo.reflect.Reflect.typeOf(_test._data)), Go.toInterface(_got), Go.toInterface(_test._print));
@@ -349,7 +350,7 @@ Go.str()];
         } : stdgo.GoMap<AnyInterface, GoString>);
         var _got:GoString = _sprint(Go.toInterface(_m));
         var _typeGroups = (new Slice<GoString>(0, 0, ("NaN: 1.1: 2.1: 3.1:" : GoString), ("false: true:" : GoString), ("1: 2: 3:" : GoString), ("a: b: c:" : GoString), ("[0 1]: [1 0]:" : GoString), ("{0 1}: {1 0}:" : GoString)) : Slice<GoString>);
-        for (_0 => _g in _typeGroups) {
+        for (__0 => _g in _typeGroups) {
             if (!stdgo.strings.Strings.contains(_got, _g)) {
                 _t.errorf(("sorted map should contain %q" : GoString), Go.toInterface(_g));
             };

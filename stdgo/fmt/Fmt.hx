@@ -395,7 +395,7 @@ private var __go2hxdoc__package : Bool;
     
 **/
 private var _ppFree = ({ new_ : function():AnyInterface {
-        return Go.toInterface(Go.asInterface((Go.setRef(({} : T_pp)) : Ref<T_pp>)));
+        return Go.toInterface(Go.asInterface((Go.setRef(({} : stdgo.fmt.Fmt.T_pp)) : Ref<stdgo.fmt.Fmt.T_pp>)));
     } } : stdgo.sync.Sync.Pool);
 /**
     // space is a copy of the unicode.White_Space ranges,
@@ -422,7 +422,7 @@ private var _space = (new Slice<GoArray<GoUInt16>>(
     
 **/
 private var _ssFree = ({ new_ : function():AnyInterface {
-        return Go.toInterface(Go.asInterface((Go.setRef(({} : T_ss)) : Ref<T_ss>)));
+        return Go.toInterface(Go.asInterface((Go.setRef(({} : stdgo.fmt.Fmt.T_ss)) : Ref<stdgo.fmt.Fmt.T_ss>)));
     } } : stdgo.sync.Sync.Pool);
 /**
     
@@ -575,7 +575,7 @@ private final _invReflectString = ("<invalid reflect.Value>" : GoString);
     
     
 **/
-private final _eof = ("0" : GoUInt64);
+private final _eof = (0i64 : GoUInt64);
 /**
     // Numerical elements
     
@@ -629,19 +629,19 @@ private final _floatVerbs = ("beEfFgGv" : GoString);
     
     
 **/
-private final _hugeWid = ("1073741824" : GoUInt64);
+private final _hugeWid = (1073741824i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _intBits = ("32" : GoUInt64);
+private final _intBits = (32i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _uintptrBits = ("32" : GoUInt64);
+private final _uintptrBits = (32i64 : GoUInt64);
 /**
     // State represents the printer state passed to custom formatters.
     // It provides access to the io.Writer interface plus information about
@@ -876,9 +876,9 @@ typedef Scanner = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.fmt.Fmt.T_fmt_static_extension) class T_fmt {
-    public var _buf : Ref<T_buffer> = (null : Ref<T_buffer>);
+    public var _buf : Ref<stdgo.fmt.Fmt.T_buffer> = (null : Ref<stdgo.fmt.Fmt.T_buffer>);
     @:embedded
-    public var _fmtFlags : T_fmtFlags = ({} : T_fmtFlags);
+    public var _fmtFlags : stdgo.fmt.Fmt.T_fmtFlags = ({} : stdgo.fmt.Fmt.T_fmtFlags);
     public var _wid : GoInt = 0;
     public var _prec : GoInt = 0;
     /**
@@ -886,7 +886,7 @@ typedef Scanner = StructType & {
         // avoids padding at the end of the struct on 32 bit architectures.
     **/
     public var _intbuf : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 68) (0 : GoUInt8)]);
-    public function new(?_buf:Ref<T_buffer>, ?_fmtFlags:T_fmtFlags, ?_wid:GoInt, ?_prec:GoInt, ?_intbuf:GoArray<GoUInt8>) {
+    public function new(?_buf:Ref<stdgo.fmt.Fmt.T_buffer>, ?_fmtFlags:stdgo.fmt.Fmt.T_fmtFlags, ?_wid:GoInt, ?_prec:GoInt, ?_intbuf:GoArray<GoUInt8>) {
         if (_buf != null) this._buf = _buf;
         if (_fmtFlags != null) this._fmtFlags = _fmtFlags;
         if (_wid != null) this._wid = _wid;
@@ -904,7 +904,7 @@ typedef Scanner = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.fmt.Fmt.T_pp_static_extension) class T_pp {
-    public var _buf : T_buffer = new T_buffer(0, 0);
+    public var _buf : stdgo.fmt.Fmt.T_buffer = new stdgo.fmt.Fmt.T_buffer(0, 0);
     /**
         // arg holds the current item, as an interface{}.
     **/
@@ -916,7 +916,7 @@ typedef Scanner = StructType & {
     /**
         // fmt is used to format basic items such as integers or strings.
     **/
-    public var _fmt : T_fmt = ({} : T_fmt);
+    public var _fmt : stdgo.fmt.Fmt.T_fmt = ({} : stdgo.fmt.Fmt.T_fmt);
     /**
         // reordered records whether the format string used argument reordering.
     **/
@@ -941,7 +941,7 @@ typedef Scanner = StructType & {
         // wrappedErrs records the targets of the %w verb.
     **/
     public var _wrappedErrs : Slice<GoInt> = (null : Slice<GoInt>);
-    public function new(?_buf:T_buffer, ?_arg:AnyInterface, ?_value:stdgo.reflect.Reflect.Value, ?_fmt:T_fmt, ?_reordered:Bool, ?_goodArgNum:Bool, ?_panicking:Bool, ?_erroring:Bool, ?_wrapErrs:Bool, ?_wrappedErrs:Slice<GoInt>) {
+    public function new(?_buf:stdgo.fmt.Fmt.T_buffer, ?_arg:AnyInterface, ?_value:stdgo.reflect.Reflect.Value, ?_fmt:stdgo.fmt.Fmt.T_fmt, ?_reordered:Bool, ?_goodArgNum:Bool, ?_panicking:Bool, ?_erroring:Bool, ?_wrapErrs:Bool, ?_wrappedErrs:Slice<GoInt>) {
         if (_buf != null) this._buf = _buf;
         if (_arg != null) this._arg = _arg;
         if (_value != null) this._value = _value;
@@ -981,12 +981,12 @@ typedef Scanner = StructType & {
 **/
 @:structInit @:private @:using(stdgo.fmt.Fmt.T_ss_static_extension) class T_ss {
     public var _rs : stdgo.io.Io.RuneScanner = (null : stdgo.io.Io.RuneScanner);
-    public var _buf : T_buffer = new T_buffer(0, 0);
+    public var _buf : stdgo.fmt.Fmt.T_buffer = new stdgo.fmt.Fmt.T_buffer(0, 0);
     public var _count : GoInt = 0;
     public var _atEOF : Bool = false;
     @:embedded
-    public var _ssave : T_ssave = ({} : T_ssave);
-    public function new(?_rs:stdgo.io.Io.RuneScanner, ?_buf:T_buffer, ?_count:GoInt, ?_atEOF:Bool, ?_ssave:T_ssave) {
+    public var _ssave : stdgo.fmt.Fmt.T_ssave = ({} : stdgo.fmt.Fmt.T_ssave);
+    public function new(?_rs:stdgo.io.Io.RuneScanner, ?_buf:stdgo.fmt.Fmt.T_buffer, ?_count:GoInt, ?_atEOF:Bool, ?_ssave:stdgo.fmt.Fmt.T_ssave) {
         if (_rs != null) this._rs = _rs;
         if (_buf != null) this._buf = _buf;
         if (_count != null) this._count = _count;
@@ -1078,7 +1078,7 @@ function errorf(_format:GoString, _a:haxe.Rest<AnyInterface>):Error {
             if (__value__ == ((0 : GoInt))) {
                 _err = stdgo.errors.Errors.new_(_s);
             } else if (__value__ == ((1 : GoInt))) {
-                var _w = (Go.setRef(({ _msg : _s } : T_wrapError)) : Ref<T_wrapError>);
+                var _w = (Go.setRef(({ _msg : _s } : T_wrapError)) : Ref<stdgo.fmt.Fmt.T_wrapError>);
                 {
                     var __tmp__ = try {
                         { value : (Go.typeAssert((_a[(_p._wrappedErrs[(0 : GoInt)] : GoInt)] : Error)) : Error), ok : true };
@@ -1108,7 +1108,7 @@ function errorf(_format:GoString, _a:haxe.Rest<AnyInterface>):Error {
                         };
                     };
                 };
-                _err = Go.asInterface((Go.setRef((new T_wrapErrors(_s, _errs) : T_wrapErrors)) : Ref<T_wrapErrors>));
+                _err = Go.asInterface((Go.setRef((new T_wrapErrors(_s, _errs) : T_wrapErrors)) : Ref<stdgo.fmt.Fmt.T_wrapErrors>));
             };
         };
         _p._free();
@@ -1125,7 +1125,7 @@ function errorf(_format:GoString, _a:haxe.Rest<AnyInterface>):Error {
 function formatString(_state:State, _verb:GoRune):GoString {
         var _tmp:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 16) (0 : GoUInt8)]);
         var _b = ((_tmp.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>).__append__((37 : GoUInt8)));
-        for (_0 => _c in (" +-#0" : GoString)) {
+        for (__0 => _c in (" +-#0" : GoString)) {
             if (_state.flag((_c : GoInt))) {
                 _b = _b.__appendref__((_c : GoByte));
             };
@@ -1154,7 +1154,7 @@ private function _newPrinter():Ref<T_pp> {
         _p._panicking = false;
         _p._erroring = false;
         _p._wrapErrs = false;
-        _p._fmt._init((Go.setRef(_p._buf) : Ref<T_buffer>));
+        _p._fmt._init((Go.setRef(_p._buf) : Ref<stdgo.fmt.Fmt.T_buffer>));
         return _p;
     }
 /**
@@ -1317,11 +1317,11 @@ function appendln(_b:Slice<GoByte>, _a:haxe.Rest<AnyInterface>):Slice<GoByte> {
     // the thing inside the interface, not the interface itself.
 **/
 private function _getField(_v:stdgo.reflect.Reflect.Value, _i:GoInt):stdgo.reflect.Reflect.Value {
-        var _val:stdgo.reflect.Reflect.Value = _v.field(_i).__copy__();
-        if ((_val.kind() == (("20" : GoUInt) : stdgo.reflect.Reflect.Kind)) && !_val.isNil()) {
-            _val = _val.elem().__copy__();
+        var _val:stdgo.reflect.Reflect.Value = _v.field(_i)?.__copy__();
+        if ((_val.kind() == (20u32 : stdgo.reflect.Reflect.Kind)) && !_val.isNil()) {
+            _val = _val.elem()?.__copy__();
         };
-        return _val.__copy__();
+        return _val?.__copy__();
     }
 /**
     // tooLarge reports whether the magnitude of the integer is
@@ -1369,18 +1369,18 @@ private function _intFromArg(_a:Slice<AnyInterface>, _argNum:GoInt):{ var _0 : G
             };
             if (!_isInt) {
                 {
-                    var _v:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_a[(_argNum : GoInt)]).__copy__();
+                    var _v:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_a[(_argNum : GoInt)])?.__copy__();
                     {
                         final __value__ = _v.kind();
-                        if (__value__ == ((("2" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("3" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("4" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("5" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("6" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                        if (__value__ == ((2u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((3u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((4u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((5u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((6u32 : stdgo.reflect.Reflect.Kind))) {
                             var _n:GoInt64 = _v.int_();
                             if (((_n : GoInt) : GoInt64) == (_n)) {
                                 _num = (_n : GoInt);
                                 _isInt = true;
                             };
-                        } else if (__value__ == ((("7" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("8" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("9" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("10" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("11" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("12" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                        } else if (__value__ == ((7u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((8u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((9u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((10u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((11u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((12u32 : stdgo.reflect.Reflect.Kind))) {
                             var _n:GoUInt64 = _v.uint();
-                            if (((_n : GoInt64) >= (("0" : GoInt64) : GoInt64)) && (((_n : GoInt) : GoUInt64) == _n)) {
+                            if (((_n : GoInt64) >= (0i64 : GoInt64)) && (((_n : GoInt) : GoUInt64) == _n)) {
                                 _num = (_n : GoInt);
                                 _isInt = true;
                             };
@@ -1466,7 +1466,7 @@ function scanf(_format:GoString, _a:haxe.Rest<AnyInterface>):{ var _0 : GoInt; v
 function sscan(_str:GoString, _a:haxe.Rest<AnyInterface>):{ var _0 : GoInt; var _1 : Error; } {
         var _a = new Slice<AnyInterface>(0, 0, ..._a);
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        return fscan(Go.asInterface(new Pointer<T_stringReader>(() -> (Go.pointer(_str).value : T_stringReader), v -> (Go.pointer(_str).value = (v : GoString) : T_stringReader))), ..._a.__toArray__());
+        return fscan(Go.asInterface(new Pointer<stdgo.fmt.Fmt.T_stringReader>(() -> (Go.pointer(_str).value : stdgo.fmt.Fmt.T_stringReader), v -> (Go.pointer(_str).value = (v : GoString) : stdgo.fmt.Fmt.T_stringReader))), ..._a.__toArray__());
     }
 /**
     // Sscanln is similar to Sscan, but stops scanning at a newline and
@@ -1475,7 +1475,7 @@ function sscan(_str:GoString, _a:haxe.Rest<AnyInterface>):{ var _0 : GoInt; var 
 function sscanln(_str:GoString, _a:haxe.Rest<AnyInterface>):{ var _0 : GoInt; var _1 : Error; } {
         var _a = new Slice<AnyInterface>(0, 0, ..._a);
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        return fscanln(Go.asInterface(new Pointer<T_stringReader>(() -> (Go.pointer(_str).value : T_stringReader), v -> (Go.pointer(_str).value = (v : GoString) : T_stringReader))), ..._a.__toArray__());
+        return fscanln(Go.asInterface(new Pointer<stdgo.fmt.Fmt.T_stringReader>(() -> (Go.pointer(_str).value : stdgo.fmt.Fmt.T_stringReader), v -> (Go.pointer(_str).value = (v : GoString) : stdgo.fmt.Fmt.T_stringReader))), ..._a.__toArray__());
     }
 /**
     // Sscanf scans the argument string, storing successive space-separated
@@ -1486,7 +1486,7 @@ function sscanln(_str:GoString, _a:haxe.Rest<AnyInterface>):{ var _0 : GoInt; va
 function sscanf(_str:GoString, _format:GoString, _a:haxe.Rest<AnyInterface>):{ var _0 : GoInt; var _1 : Error; } {
         var _a = new Slice<AnyInterface>(0, 0, ..._a);
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        return fscanf(Go.asInterface(new Pointer<T_stringReader>(() -> (Go.pointer(_str).value : T_stringReader), v -> (Go.pointer(_str).value = (v : GoString) : T_stringReader))), _format, ..._a.__toArray__());
+        return fscanf(Go.asInterface(new Pointer<stdgo.fmt.Fmt.T_stringReader>(() -> (Go.pointer(_str).value : stdgo.fmt.Fmt.T_stringReader), v -> (Go.pointer(_str).value = (v : GoString) : stdgo.fmt.Fmt.T_stringReader))), _format, ..._a.__toArray__());
     }
 /**
     // Fscan scans text read from r, storing successive space-separated
@@ -1497,13 +1497,13 @@ function sscanf(_str:GoString, _format:GoString, _a:haxe.Rest<AnyInterface>):{ v
 function fscan(_r:stdgo.io.Io.Reader, _a:haxe.Rest<AnyInterface>):{ var _0 : GoInt; var _1 : Error; } {
         var _a = new Slice<AnyInterface>(0, 0, ..._a);
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        var __tmp__ = _newScanState(_r, true, false), _s:Ref<T_ss> = __tmp__._0, _old:T_ssave = __tmp__._1;
+        var __tmp__ = _newScanState(_r, true, false), _s:Ref<stdgo.fmt.Fmt.T_ss> = __tmp__._0, _old:stdgo.fmt.Fmt.T_ssave = __tmp__._1;
         {
             var __tmp__ = _s._doScan(_a);
             _n = __tmp__._0;
             _err = __tmp__._1;
         };
-        _s._free(_old.__copy__());
+        _s._free(_old?.__copy__());
         return { _0 : _n, _1 : _err };
     }
 /**
@@ -1513,13 +1513,13 @@ function fscan(_r:stdgo.io.Io.Reader, _a:haxe.Rest<AnyInterface>):{ var _0 : GoI
 function fscanln(_r:stdgo.io.Io.Reader, _a:haxe.Rest<AnyInterface>):{ var _0 : GoInt; var _1 : Error; } {
         var _a = new Slice<AnyInterface>(0, 0, ..._a);
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        var __tmp__ = _newScanState(_r, false, true), _s:Ref<T_ss> = __tmp__._0, _old:T_ssave = __tmp__._1;
+        var __tmp__ = _newScanState(_r, false, true), _s:Ref<stdgo.fmt.Fmt.T_ss> = __tmp__._0, _old:stdgo.fmt.Fmt.T_ssave = __tmp__._1;
         {
             var __tmp__ = _s._doScan(_a);
             _n = __tmp__._0;
             _err = __tmp__._1;
         };
-        _s._free(_old.__copy__());
+        _s._free(_old?.__copy__());
         return { _0 : _n, _1 : _err };
     }
 /**
@@ -1531,13 +1531,13 @@ function fscanln(_r:stdgo.io.Io.Reader, _a:haxe.Rest<AnyInterface>):{ var _0 : G
 function fscanf(_r:stdgo.io.Io.Reader, _format:GoString, _a:haxe.Rest<AnyInterface>):{ var _0 : GoInt; var _1 : Error; } {
         var _a = new Slice<AnyInterface>(0, 0, ..._a);
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        var __tmp__ = _newScanState(_r, false, false), _s:Ref<T_ss> = __tmp__._0, _old:T_ssave = __tmp__._1;
+        var __tmp__ = _newScanState(_r, false, false), _s:Ref<stdgo.fmt.Fmt.T_ss> = __tmp__._0, _old:stdgo.fmt.Fmt.T_ssave = __tmp__._1;
         {
             var __tmp__ = _s._doScanf(_format, _a);
             _n = __tmp__._0;
             _err = __tmp__._1;
         };
-        _s._free(_old.__copy__());
+        _s._free(_old?.__copy__());
         return { _0 : _n, _1 : _err };
     }
 private function _isSpace(_r:GoRune):Bool {
@@ -1545,7 +1545,7 @@ private function _isSpace(_r:GoRune):Bool {
             return false;
         };
         var _rx:GoUInt16 = (_r : GoUInt16);
-        for (_0 => _rng in _space) {
+        for (__0 => _rng in _space) {
             if (_rx < _rng[(0 : GoInt)]) {
                 return false;
             };
@@ -1565,7 +1565,7 @@ private function _notSpace(_r:GoRune):Bool {
     // newScanState allocates a new ss struct or grab a cached one.
 **/
 private function _newScanState(_r:stdgo.io.Io.Reader, _nlIsSpace:Bool, _nlIsEnd:Bool):{ var _0 : Ref<T_ss>; var _1 : T_ssave; } {
-        var _s:Ref<T_ss> = (null : Ref<T_ss>), _old:T_ssave = ({} : T_ssave);
+        var _s:Ref<T_ss> = (null : Ref<stdgo.fmt.Fmt.T_ss>), _old:T_ssave = ({} : stdgo.fmt.Fmt.T_ssave);
         _s = (Go.typeAssert((_ssFree.get() : Ref<T_ss>)) : Ref<T_ss>);
         {
             var __tmp__ = try {
@@ -1576,7 +1576,7 @@ private function _newScanState(_r:stdgo.io.Io.Reader, _nlIsSpace:Bool, _nlIsEnd:
             if (_ok) {
                 _s._rs = _rs;
             } else {
-                _s._rs = Go.asInterface((Go.setRef(({ _reader : _r, _peekRune : (-1 : GoInt32) } : T_readRune)) : Ref<T_readRune>));
+                _s._rs = Go.asInterface((Go.setRef(({ _reader : _r, _peekRune : (-1 : GoInt32) } : T_readRune)) : Ref<stdgo.fmt.Fmt.T_readRune>));
             };
         };
         _s._ssave._nlIsSpace = _nlIsSpace;
@@ -1640,7 +1640,7 @@ private function _errorHandler(_errp:Ref<Error>):Void {
                     var __tmp__ = try {
                         { value : (Go.typeAssert((_e : T_scanError)) : T_scanError), ok : true };
                     } catch(_) {
-                        { value : ({} : T_scanError), ok : false };
+                        { value : ({} : stdgo.fmt.Fmt.T_scanError), ok : false };
                     }, _se = __tmp__.value, _ok = __tmp__.ok;
                     if (_ok) {
                         {
@@ -1933,7 +1933,7 @@ class T_fmt_asInterface {
     @:keep
     static public function _fmtQc( _f:Ref<T_fmt>, _c:GoUInt64):Void {
         var _r:GoInt32 = (_c : GoRune);
-        if (_c > ("1114111" : GoUInt64)) {
+        if (_c > (1114111i64 : GoUInt64)) {
             _r = (65533 : GoInt32);
         };
         var _buf = (_f._intbuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>);
@@ -1950,7 +1950,7 @@ class T_fmt_asInterface {
     @:keep
     static public function _fmtC( _f:Ref<T_fmt>, _c:GoUInt64):Void {
         var _r:GoInt32 = (_c : GoRune);
-        if (_c > ("1114111" : GoUInt64)) {
+        if (_c > (1114111i64 : GoUInt64)) {
             _r = (65533 : GoInt32);
         };
         var _buf = (_f._intbuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>);
@@ -2020,7 +2020,7 @@ class T_fmt_asInterface {
         if ((_f._fmtFlags._widPresent && (_f._wid > _width)) && !_f._fmtFlags._minus) {
             _f._writePadding(_f._wid - _width);
         };
-        var _buf:T_buffer = (_f._buf : T_buffer);
+        var _buf:stdgo.fmt.Fmt.T_buffer = (_f._buf : stdgo.fmt.Fmt.T_buffer);
         if (_f._fmtFlags._sharp) {
             _buf = _buf.__appendref__((48 : GoUInt8), _digits[(16 : GoInt)]);
         };
@@ -2039,7 +2039,7 @@ class T_fmt_asInterface {
                 } else {
                     _c = _s[(_i : GoInt)];
                 };
-                _buf = _buf.__appendref__(_digits[(_c >> ("4" : GoUInt64) : GoInt)], _digits[(_c & (15 : GoUInt8) : GoInt)]);
+                _buf = _buf.__appendref__(_digits[(_c >> (4i64 : GoUInt64) : GoInt)], _digits[(_c & (15 : GoUInt8) : GoInt)]);
             });
         };
         _f._buf.__setData__(_buf);
@@ -2111,7 +2111,7 @@ class T_fmt_asInterface {
     **/
     @:keep
     static public function _fmtInteger( _f:Ref<T_fmt>, _u:GoUInt64, _base:GoInt, _isSigned:Bool, _verb:GoRune, _digits:GoString):Void {
-        var _negative:Bool = _isSigned && ((_u : GoInt64) < (("0" : GoInt64) : GoInt64));
+        var _negative:Bool = _isSigned && ((_u : GoInt64) < (0i64 : GoInt64));
         if (_negative) {
             _u = -_u;
         };
@@ -2125,7 +2125,7 @@ class T_fmt_asInterface {
         var _prec:GoInt = (0 : GoInt);
         if (_f._fmtFlags._precPresent) {
             _prec = _f._prec;
-            if ((_prec == (0 : GoInt)) && (_u == ("0" : GoUInt64))) {
+            if ((_prec == (0 : GoInt)) && (_u == (0i64 : GoUInt64))) {
                 var _oldZero:Bool = _f._fmtFlags._zero;
                 _f._fmtFlags._zero = false;
                 _f._writePadding(_f._wid);
@@ -2142,29 +2142,29 @@ class T_fmt_asInterface {
         {
             final __value__ = _base;
             if (__value__ == ((10 : GoInt))) {
-                while (_u >= ("10" : GoUInt64)) {
+                while (_u >= (10i64 : GoUInt64)) {
                     _i--;
-                    var _next:GoUInt64 = _u / ("10" : GoUInt64);
-                    _buf[(_i : GoInt)] = (((("48" : GoUInt64) : GoUInt64) + _u) - (_next * (("10" : GoUInt64) : GoUInt64)) : GoByte);
+                    var _next:GoUInt64 = _u / (10i64 : GoUInt64);
+                    _buf[(_i : GoInt)] = (((48i64 : GoUInt64) + _u) - (_next * (10i64 : GoUInt64)) : GoByte);
                     _u = _next;
                 };
             } else if (__value__ == ((16 : GoInt))) {
-                while (_u >= ("16" : GoUInt64)) {
+                while (_u >= (16i64 : GoUInt64)) {
                     _i--;
-                    _buf[(_i : GoInt)] = _digits[(_u & ("15" : GoUInt64) : GoInt)];
-                    _u = _u >> (("4" : GoUInt64));
+                    _buf[(_i : GoInt)] = _digits[(_u & (15i64 : GoUInt64) : GoInt)];
+                    _u = _u >> ((4i64 : GoUInt64));
                 };
             } else if (__value__ == ((8 : GoInt))) {
-                while (_u >= ("8" : GoUInt64)) {
+                while (_u >= (8i64 : GoUInt64)) {
                     _i--;
-                    _buf[(_i : GoInt)] = (("48" : GoUInt64) + (_u & (("7" : GoUInt64) : GoUInt64)) : GoByte);
-                    _u = _u >> (("3" : GoUInt64));
+                    _buf[(_i : GoInt)] = ((48i64 : GoUInt64) + (_u & (7i64 : GoUInt64)) : GoByte);
+                    _u = _u >> ((3i64 : GoUInt64));
                 };
             } else if (__value__ == ((2 : GoInt))) {
-                while (_u >= ("2" : GoUInt64)) {
+                while (_u >= (2i64 : GoUInt64)) {
                     _i--;
-                    _buf[(_i : GoInt)] = (("48" : GoUInt64) + (_u & (("1" : GoUInt64) : GoUInt64)) : GoByte);
-                    _u = _u >> (("1" : GoUInt64));
+                    _buf[(_i : GoInt)] = ((48i64 : GoUInt64) + (_u & (1i64 : GoUInt64)) : GoByte);
+                    _u = _u >> ((1i64 : GoUInt64));
                 };
             } else {
                 throw Go.toInterface(("fmt: unknown base; can\'t happen" : GoString));
@@ -2233,7 +2233,7 @@ class T_fmt_asInterface {
             };
         };
         var _i:GoInt = (_buf.length);
-        if ((_f._fmtFlags._sharp && (_u <= (("1114111" : GoUInt64) : GoUInt64))) && stdgo.strconv.Strconv.isPrint((_u : GoRune))) {
+        if ((_f._fmtFlags._sharp && (_u <= (1114111i64 : GoUInt64))) && stdgo.strconv.Strconv.isPrint((_u : GoRune))) {
             _i--;
             _buf[(_i : GoInt)] = (39 : GoUInt8);
             _i = _i - (stdgo.unicode.utf8.Utf8.runeLen((_u : GoRune)));
@@ -2243,11 +2243,11 @@ class T_fmt_asInterface {
             _i--;
             _buf[(_i : GoInt)] = (32 : GoUInt8);
         };
-        while (_u >= ("16" : GoUInt64)) {
+        while (_u >= (16i64 : GoUInt64)) {
             _i--;
-            _buf[(_i : GoInt)] = ("0123456789ABCDEFX" : GoString)[(_u & ("15" : GoUInt64) : GoInt)];
+            _buf[(_i : GoInt)] = ("0123456789ABCDEFX" : GoString)[(_u & (15i64 : GoUInt64) : GoInt)];
             _prec--;
-            _u = _u >> (("4" : GoUInt64));
+            _u = _u >> ((4i64 : GoUInt64));
         };
         _i--;
         _buf[(_i : GoInt)] = ("0123456789ABCDEFX" : GoString)[(_u : GoInt)];
@@ -2321,22 +2321,22 @@ class T_fmt_asInterface {
         if (_n <= (0 : GoInt)) {
             return;
         };
-        var _buf:T_buffer = (_f._buf : T_buffer);
+        var _buf:stdgo.fmt.Fmt.T_buffer = (_f._buf : stdgo.fmt.Fmt.T_buffer);
         var _oldLen:GoInt = (_buf.length);
         var _newLen:GoInt = _oldLen + _n;
         if (_newLen > _buf.capacity) {
-            _buf = new T_buffer(((_buf.capacity * (2 : GoInt)) + _n : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_buf.capacity * (2 : GoInt)) + _n : GoInt).toBasic()) (0 : GoUInt8)]);
-            Go.copySlice(_buf, (_f._buf : T_buffer));
+            _buf = new stdgo.fmt.Fmt.T_buffer(((_buf.capacity * (2 : GoInt)) + _n : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_buf.capacity * (2 : GoInt)) + _n : GoInt).toBasic()) (0 : GoUInt8)]);
+            Go.copySlice(_buf, (_f._buf : stdgo.fmt.Fmt.T_buffer));
         };
         var _padByte:GoUInt8 = ((32 : GoUInt8) : GoByte);
         if (_f._fmtFlags._zero) {
             _padByte = ((48 : GoUInt8) : GoByte);
         };
-        var _padding:T_buffer = (_buf.__slice__(_oldLen, _newLen) : T_buffer);
+        var _padding:stdgo.fmt.Fmt.T_buffer = (_buf.__slice__(_oldLen, _newLen) : stdgo.fmt.Fmt.T_buffer);
         for (_i => _ in _padding) {
             _padding[(_i : GoInt)] = _padByte;
         };
-        _f._buf.__setData__((_buf.__slice__(0, _newLen) : T_buffer));
+        _f._buf.__setData__((_buf.__slice__(0, _newLen) : stdgo.fmt.Fmt.T_buffer));
     }
     @:keep
     static public function _init( _f:Ref<T_fmt>, _buf:Ref<T_buffer>):Void {
@@ -2468,7 +2468,7 @@ class T_pp_asInterface {
     static public function _doPrint( _p:Ref<T_pp>, _a:Slice<AnyInterface>):Void {
         var _prevString:Bool = false;
         for (_argNum => _arg in _a) {
-            var _isString:Bool = (_arg != null) && (stdgo.reflect.Reflect.typeOf(_arg).kind() == (("24" : GoUInt) : stdgo.reflect.Reflect.Kind));
+            var _isString:Bool = (_arg != null) && (stdgo.reflect.Reflect.typeOf(_arg).kind() == (24u32 : stdgo.reflect.Reflect.Kind));
             if (((_argNum > (0 : GoInt)) && !_isString) && !_prevString) {
                 _p._buf._writeByte((32 : GoUInt8));
             };
@@ -2646,7 +2646,7 @@ class T_pp_asInterface {
                         _p._buf._writeString(("%!(NOVERB)" : GoString));
                         break;
                     };
-                    var _0:GoInt32 = (_format[(_i : GoInt)] : GoRune), _1:GoInt = (1 : GoInt), _size:GoInt = _1, _verb:GoInt32 = _0;
+                    var __0:GoInt32 = (_format[(_i : GoInt)] : GoRune), __1:GoInt = (1 : GoInt), _size:GoInt = __1, _verb:GoInt32 = __0;
                     if (_verb >= (128 : GoInt32)) {
                         {
                             var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_format.__slice__(_i) : GoString));
@@ -2760,15 +2760,15 @@ class T_pp_asInterface {
             };
         };
         _p._arg = (null : AnyInterface);
-        _p._value = _value.__copy__();
+        _p._value = _value?.__copy__();
         {
-            var _f:stdgo.reflect.Reflect.Value = _value.__copy__();
+            var _f:stdgo.reflect.Reflect.Value = _value?.__copy__();
             {
                 var __switchIndex__ = -1;
                 while (true) {
                     {
                         final __value__ = _value.kind();
-                        if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (("0" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
+                        if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (0u32 : stdgo.reflect.Reflect.Kind)))) {
                             if (_depth == ((0 : GoInt))) {
                                 _p._buf._writeString(("<invalid reflect.Value>" : GoString));
                             } else {
@@ -2783,39 +2783,39 @@ class T_pp_asInterface {
                             };
                             break;
                             break;
-                        } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == (("1" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
+                        } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == (1u32 : stdgo.reflect.Reflect.Kind)))) {
                             _p._fmtBool(_f.bool_(), _verb);
                             break;
                             break;
-                        } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == ((("2" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("3" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("4" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("5" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("6" : GoUInt) : stdgo.reflect.Reflect.Kind))))) {
+                        } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == ((2u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((3u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((4u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((5u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((6u32 : stdgo.reflect.Reflect.Kind))))) {
                             _p._fmtInteger((_f.int_() : GoUInt64), true, _verb);
                             break;
                             break;
-                        } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (__value__ == ((("7" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("8" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("9" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("10" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("11" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("12" : GoUInt) : stdgo.reflect.Reflect.Kind))))) {
+                        } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (__value__ == ((7u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((8u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((9u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((10u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((11u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((12u32 : stdgo.reflect.Reflect.Kind))))) {
                             _p._fmtInteger(_f.uint(), false, _verb);
                             break;
                             break;
-                        } else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && (__value__ == (("13" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
+                        } else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && (__value__ == (13u32 : stdgo.reflect.Reflect.Kind)))) {
                             _p._fmtFloat(_f.float_(), (32 : GoInt), _verb);
                             break;
                             break;
-                        } else if (__switchIndex__ == 5 || (__switchIndex__ == -1 && (__value__ == (("14" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
+                        } else if (__switchIndex__ == 5 || (__switchIndex__ == -1 && (__value__ == (14u32 : stdgo.reflect.Reflect.Kind)))) {
                             _p._fmtFloat(_f.float_(), (64 : GoInt), _verb);
                             break;
                             break;
-                        } else if (__switchIndex__ == 6 || (__switchIndex__ == -1 && (__value__ == (("15" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
+                        } else if (__switchIndex__ == 6 || (__switchIndex__ == -1 && (__value__ == (15u32 : stdgo.reflect.Reflect.Kind)))) {
                             _p._fmtComplex(_f.complex(), (64 : GoInt), _verb);
                             break;
                             break;
-                        } else if (__switchIndex__ == 7 || (__switchIndex__ == -1 && (__value__ == (("16" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
+                        } else if (__switchIndex__ == 7 || (__switchIndex__ == -1 && (__value__ == (16u32 : stdgo.reflect.Reflect.Kind)))) {
                             _p._fmtComplex(_f.complex(), (128 : GoInt), _verb);
                             break;
                             break;
-                        } else if (__switchIndex__ == 8 || (__switchIndex__ == -1 && (__value__ == (("24" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
+                        } else if (__switchIndex__ == 8 || (__switchIndex__ == -1 && (__value__ == (24u32 : stdgo.reflect.Reflect.Kind)))) {
                             _p._fmtString((_f.string() : GoString), _verb);
                             break;
                             break;
-                        } else if (__switchIndex__ == 9 || (__switchIndex__ == -1 && (__value__ == (("21" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
+                        } else if (__switchIndex__ == 9 || (__switchIndex__ == -1 && (__value__ == (21u32 : stdgo.reflect.Reflect.Kind)))) {
                             if (_p._fmt._fmtFlags._sharpV) {
                                 _p._buf._writeString((_f.type().string() : GoString));
                                 if (_f.isNil()) {
@@ -2835,9 +2835,9 @@ class T_pp_asInterface {
                                         _p._buf._writeByte((32 : GoUInt8));
                                     };
                                 };
-                                _p._printValue(_key.__copy__(), _verb, _depth + (1 : GoInt));
+                                _p._printValue(_key?.__copy__(), _verb, _depth + (1 : GoInt));
                                 _p._buf._writeByte((58 : GoUInt8));
-                                _p._printValue(_sorted.value[(_i : GoInt)].__copy__(), _verb, _depth + (1 : GoInt));
+                                _p._printValue(_sorted.value[(_i : GoInt)], _verb, _depth + (1 : GoInt));
                             };
                             if (_p._fmt._fmtFlags._sharpV) {
                                 _p._buf._writeByte((125 : GoUInt8));
@@ -2846,7 +2846,7 @@ class T_pp_asInterface {
                             };
                             break;
                             break;
-                        } else if (__switchIndex__ == 10 || (__switchIndex__ == -1 && (__value__ == (("25" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
+                        } else if (__switchIndex__ == 10 || (__switchIndex__ == -1 && (__value__ == (25u32 : stdgo.reflect.Reflect.Kind)))) {
                             if (_p._fmt._fmtFlags._sharpV) {
                                 _p._buf._writeString((_f.type().string() : GoString));
                             };
@@ -2876,7 +2876,7 @@ class T_pp_asInterface {
                             _p._buf._writeByte((125 : GoUInt8));
                             break;
                             break;
-                        } else if (__switchIndex__ == 11 || (__switchIndex__ == -1 && (__value__ == (("20" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
+                        } else if (__switchIndex__ == 11 || (__switchIndex__ == -1 && (__value__ == (20u32 : stdgo.reflect.Reflect.Kind)))) {
                             var _value:stdgo.reflect.Reflect.Value = _f.elem().__copy__();
                             if (!_value.isValid()) {
                                 if (_p._fmt._fmtFlags._sharpV) {
@@ -2890,14 +2890,14 @@ class T_pp_asInterface {
                             };
                             break;
                             break;
-                        } else if (__switchIndex__ == 12 || (__switchIndex__ == -1 && (__value__ == ((("17" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))))) {
+                        } else if (__switchIndex__ == 12 || (__switchIndex__ == -1 && (__value__ == ((17u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((23u32 : stdgo.reflect.Reflect.Kind))))) {
                             {
                                 final __value__ = _verb;
                                 if (__value__ == ((115 : GoInt32)) || __value__ == ((113 : GoInt32)) || __value__ == ((120 : GoInt32)) || __value__ == ((88 : GoInt32))) {
                                     var _t:stdgo.reflect.Reflect.Type = _f.type();
-                                    if (_t.elem().kind() == ((("8" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                                    if (_t.elem().kind() == ((8u32 : stdgo.reflect.Reflect.Kind))) {
                                         var _bytes:Slice<GoByte> = (null : Slice<GoUInt8>);
-                                        if (_f.kind() == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                                        if (_f.kind() == ((23u32 : stdgo.reflect.Reflect.Kind))) {
                                             _bytes = _f.bytes();
                                         } else if (_f.canAddr()) {
                                             _bytes = _f.slice((0 : GoInt), _f.len()).bytes();
@@ -2914,7 +2914,7 @@ class T_pp_asInterface {
                             };
                             if (_p._fmt._fmtFlags._sharpV) {
                                 _p._buf._writeString((_f.type().string() : GoString));
-                                if ((_f.kind() == (("23" : GoUInt) : stdgo.reflect.Reflect.Kind)) && _f.isNil()) {
+                                if ((_f.kind() == (23u32 : stdgo.reflect.Reflect.Kind)) && _f.isNil()) {
                                     _p._buf._writeString(("(nil)" : GoString));
                                     return;
                                 };
@@ -2944,13 +2944,13 @@ class T_pp_asInterface {
                             };
                             break;
                             break;
-                        } else if (__switchIndex__ == 13 || (__switchIndex__ == -1 && (__value__ == (("22" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
+                        } else if (__switchIndex__ == 13 || (__switchIndex__ == -1 && (__value__ == (22u32 : stdgo.reflect.Reflect.Kind)))) {
                             if ((_depth == (0 : GoInt)) && (_f.pointer() != (0 : GoUIntptr))) {
                                 {
                                     var _a:stdgo.reflect.Reflect.Value = _f.elem().__copy__();
                                     {
                                         final __value__ = _a.kind();
-                                        if (__value__ == ((("17" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("25" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("21" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                                        if (__value__ == ((17u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((23u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((25u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((21u32 : stdgo.reflect.Reflect.Kind))) {
                                             _p._buf._writeByte((38 : GoUInt8));
                                             _p._printValue(_a.__copy__(), _verb, _depth + (1 : GoInt));
                                             return;
@@ -2963,7 +2963,7 @@ class T_pp_asInterface {
                                 continue;
                             };
                             break;
-                        } else if (__switchIndex__ == 14 || (__switchIndex__ == -1 && (__value__ == ((("18" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("19" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("26" : GoUInt) : stdgo.reflect.Reflect.Kind))))) {
+                        } else if (__switchIndex__ == 14 || (__switchIndex__ == -1 && (__value__ == ((18u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((19u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((26u32 : stdgo.reflect.Reflect.Kind))))) {
                             _p._fmtPointer(_f.__copy__(), _verb);
                             break;
                             break;
@@ -2998,7 +2998,7 @@ class T_pp_asInterface {
                 _p._fmt._fmtS((stdgo.reflect.Reflect.typeOf(_arg).string() : GoString));
                 return;
             } else if (__value__ == ((112 : GoInt32))) {
-                _p._fmtPointer(stdgo.reflect.Reflect.valueOf(_arg).__copy__(), (112 : GoInt32));
+                _p._fmtPointer(stdgo.reflect.Reflect.valueOf(_arg)?.__copy__(), (112 : GoInt32));
                 return;
             };
         };
@@ -3066,11 +3066,11 @@ class T_pp_asInterface {
                         return;
                     };
                 };
-                _p._printValue(_f.__copy__(), _verb, (0 : GoInt));
+                _p._printValue(_f?.__copy__(), _verb, (0 : GoInt));
             } else {
-                var _f:AnyInterface = __type__.__underlying__();
+                var _f:AnyInterface = __type__?.__underlying__();
                 if (!_p._handleMethods(_verb)) {
-                    _p._printValue(stdgo.reflect.Reflect.valueOf(_f).__copy__(), _verb, (0 : GoInt));
+                    _p._printValue(stdgo.reflect.Reflect.valueOf(_f)?.__copy__(), _verb, (0 : GoInt));
                 };
             };
         };
@@ -3088,7 +3088,7 @@ class T_pp_asInterface {
                     { value : (Go.typeAssert((_p._arg : Error)) : Error), ok : true };
                 } catch(_) {
                     { value : (null : Error), ok : false };
-                }, _0 = __tmp__.value, _ok = __tmp__.ok;
+                }, __0 = __tmp__.value, _ok = __tmp__.ok;
                 if (!_ok || !_p._wrapErrs) {
                     _p._badVerb(_verb);
                     return true;
@@ -3099,7 +3099,7 @@ class T_pp_asInterface {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((_p._arg : Formatter)) : Formatter), ok : true };
                 } catch(_) {
-                    { value : (null : Formatter), ok : false };
+                    { value : (null : stdgo.fmt.Fmt.Formatter), ok : false };
                 }, _formatter = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     _handled = true;
@@ -3123,7 +3123,7 @@ class T_pp_asInterface {
                     var __tmp__ = try {
                         { value : (Go.typeAssert((_p._arg : GoStringer)) : GoStringer), ok : true };
                     } catch(_) {
-                        { value : (null : GoStringer), ok : false };
+                        { value : (null : stdgo.fmt.Fmt.GoStringer), ok : false };
                     }, _stringer = __tmp__.value, _ok = __tmp__.ok;
                     if (_ok) {
                         _handled = true;
@@ -3165,7 +3165,7 @@ class T_pp_asInterface {
                                     return _handled;
                                 };
                             } else if (Go.typeEquals((__type__ : Stringer))) {
-                                var _v:Stringer = __type__ == null ? (null : Stringer) : __type__.__underlying__() == null ? (null : Stringer) : __type__ == null ? (null : Stringer) : __type__.__underlying__().value;
+                                var _v:stdgo.fmt.Fmt.Stringer = __type__ == null ? (null : stdgo.fmt.Fmt.Stringer) : __type__.__underlying__() == null ? (null : stdgo.fmt.Fmt.Stringer) : __type__ == null ? (null : stdgo.fmt.Fmt.Stringer) : __type__.__underlying__().value;
                                 _handled = true;
                                 {
                                     var _a0 = _p._arg;
@@ -3225,8 +3225,8 @@ class T_pp_asInterface {
             });
             if (_err != null) {
                 {
-                    var _v:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_arg).__copy__();
-                    if ((_v.kind() == (("22" : GoUInt) : stdgo.reflect.Reflect.Kind)) && _v.isNil()) {
+                    var _v:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_arg)?.__copy__();
+                    if ((_v.kind() == (22u32 : stdgo.reflect.Reflect.Kind)) && _v.isNil()) {
                         _p._buf._writeString(("<nil>" : GoString));
                         return;
                     };
@@ -3234,7 +3234,7 @@ class T_pp_asInterface {
                 if (_p._panicking) {
                     throw Go.toInterface(_err);
                 };
-                var _oldFlags:T_fmtFlags = _p._fmt._fmtFlags.__copy__();
+                var _oldFlags:stdgo.fmt.Fmt.T_fmtFlags = _p._fmt._fmtFlags?.__copy__();
                 _p._fmt._clearflags();
                 _p._buf._writeString(("%!" : GoString));
                 _p._buf._writeRune(_verb);
@@ -3245,7 +3245,7 @@ class T_pp_asInterface {
                 _p._printArg(_err, (118 : GoInt32));
                 _p._panicking = false;
                 _p._buf._writeByte((41 : GoUInt8));
-                _p._fmt._fmtFlags = _oldFlags.__copy__();
+                _p._fmt._fmtFlags = _oldFlags?.__copy__();
             };
         };
     }
@@ -3254,7 +3254,7 @@ class T_pp_asInterface {
         var _u:GoUIntptr = (0 : GoUIntptr);
         {
             final __value__ = _value.kind();
-            if (__value__ == ((("18" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("19" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("21" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("22" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("26" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+            if (__value__ == ((18u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((19u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((21u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((22u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((23u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((26u32 : stdgo.reflect.Reflect.Kind))) {
                 _u = _value.pointer();
             } else {
                 _p._badVerb(_verb);
@@ -3328,7 +3328,7 @@ class T_pp_asInterface {
             } else if (__value__ == ((113 : GoInt32))) {
                 _p._fmt._fmtQ((_v : GoString));
             } else {
-                _p._printValue(stdgo.reflect.Reflect.valueOf(Go.toInterface(_v)).__copy__(), _verb, (0 : GoInt));
+                _p._printValue(stdgo.reflect.Reflect.valueOf(Go.toInterface(_v))?.__copy__(), _verb, (0 : GoInt));
             };
         };
     }
@@ -3467,7 +3467,7 @@ class T_pp_asInterface {
         } else if (_p._value.isValid()) {
             _p._buf._writeString((_p._value.type().string() : GoString));
             _p._buf._writeByte((61 : GoUInt8));
-            _p._printValue(_p._value.__copy__(), (118 : GoInt32), (0 : GoInt));
+            _p._printValue(_p._value?.__copy__(), (118 : GoInt32), (0 : GoInt));
         } else {
             _p._buf._writeString(("<nil>" : GoString));
         };
@@ -3540,7 +3540,7 @@ class T_pp_asInterface {
         if (_p._buf.capacity > (65536 : GoInt)) {
             _p._buf = null;
         } else {
-            _p._buf = (_p._buf.__slice__(0, (0 : GoInt)) : T_buffer);
+            _p._buf = (_p._buf.__slice__(0, (0 : GoInt)) : stdgo.fmt.Fmt.T_buffer);
         };
         if (_p._wrappedErrs.capacity > (8 : GoInt)) {
             _p._wrappedErrs = (null : Slice<GoInt>);
@@ -3923,7 +3923,7 @@ class T_ss_asInterface {
                 if (_i + _w == ((_format.length))) {
                     _s._errorString(("missing verb: % at end of format string" : GoString));
                 };
-                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_format.__slice__(_i + _w) : GoString)), _nextc:GoInt32 = __tmp__._0, _0:GoInt = __tmp__._1;
+                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_format.__slice__(_i + _w) : GoString)), _nextc:GoInt32 = __tmp__._0, __0:GoInt = __tmp__._1;
                 if (_nextc != ((37 : GoInt32))) {
                     return _i;
                 };
@@ -3950,7 +3950,7 @@ class T_ss_asInterface {
             __deferstack__.unshift(() -> _errorHandler(_a0));
         };
         try {
-            for (_0 => _arg in _a) {
+            for (__0 => _arg in _a) {
                 _s._scanOne((118 : GoInt32), _arg);
                 _numProcessed++;
             };
@@ -4001,13 +4001,13 @@ class T_ss_asInterface {
     **/
     @:keep
     static public function _scanOne( _s:Ref<T_ss>, _verb:GoRune, _arg:AnyInterface):Void {
-        _s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : T_buffer);
+        _s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : stdgo.fmt.Fmt.T_buffer);
         var _err:Error = (null : Error);
         {
             var __tmp__ = try {
                 { value : (Go.typeAssert((_arg : Scanner)) : Scanner), ok : true };
             } catch(_) {
-                { value : (null : Scanner), ok : false };
+                { value : (null : stdgo.fmt.Fmt.Scanner), ok : false };
             }, _v = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 _err = _v.scan(Go.asInterface(_s), _verb);
@@ -4085,43 +4085,43 @@ class T_ss_asInterface {
                 var _v:Ref<Slice<GoUInt8>> = __type__ == null ? (null : Ref<Slice<GoUInt8>>) : __type__.__underlying__() == null ? (null : Ref<Slice<GoUInt8>>) : __type__ == null ? (null : Ref<Slice<GoUInt8>>) : __type__.__underlying__().value;
                 _v.__setData__((_s._convertString(_verb) : Slice<GoByte>));
             } else {
-                var _v:AnyInterface = __type__.__underlying__();
-                var _val:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_v).__copy__();
-                var _ptr:stdgo.reflect.Reflect.Value = _val.__copy__();
-                if (_ptr.kind() != ((("22" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                var _v:AnyInterface = __type__?.__underlying__();
+                var _val:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_v)?.__copy__();
+                var _ptr:stdgo.reflect.Reflect.Value = _val?.__copy__();
+                if (_ptr.kind() != ((22u32 : stdgo.reflect.Reflect.Kind))) {
                     _s._errorString(("type not a pointer: " : GoString) + (_val.type().string() : GoString));
                     return;
                 };
                 {
-                    var _v:stdgo.reflect.Reflect.Value = _ptr.elem().__copy__();
+                    var _v:stdgo.reflect.Reflect.Value = _ptr.elem()?.__copy__();
                     {
                         final __value__ = _v.kind();
-                        if (__value__ == ((("1" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                        if (__value__ == ((1u32 : stdgo.reflect.Reflect.Kind))) {
                             _v.setBool(_s._scanBool(_verb));
-                        } else if (__value__ == ((("2" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("3" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("4" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("5" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("6" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                        } else if (__value__ == ((2u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((3u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((4u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((5u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((6u32 : stdgo.reflect.Reflect.Kind))) {
                             _v.setInt(_s._scanInt(_verb, _v.type().bits()));
-                        } else if (__value__ == ((("7" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("8" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("9" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("10" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("11" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("12" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                        } else if (__value__ == ((7u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((8u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((9u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((10u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((11u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((12u32 : stdgo.reflect.Reflect.Kind))) {
                             _v.setUint(_s._scanUint(_verb, _v.type().bits()));
-                        } else if (__value__ == ((("24" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                        } else if (__value__ == ((24u32 : stdgo.reflect.Reflect.Kind))) {
                             _v.setString(_s._convertString(_verb));
-                        } else if (__value__ == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                        } else if (__value__ == ((23u32 : stdgo.reflect.Reflect.Kind))) {
                             var _typ:stdgo.reflect.Reflect.Type = _v.type();
-                            if (_typ.elem().kind() != ((("8" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                            if (_typ.elem().kind() != ((8u32 : stdgo.reflect.Reflect.Kind))) {
                                 _s._errorString(("can\'t scan type: " : GoString) + (_val.type().string() : GoString));
                             };
                             var _str:GoString = _s._convertString(_verb);
-                            _v.set(stdgo.reflect.Reflect.makeSlice(_typ, (_str.length), (_str.length)).__copy__());
+                            _v.set(stdgo.reflect.Reflect.makeSlice(_typ, (_str.length), (_str.length))?.__copy__());
                             {
                                 var _i:GoInt = (0 : GoInt);
                                 Go.cfor(_i < (_str.length), _i++, {
                                     _v.index(_i).setUint((_str[(_i : GoInt)] : GoUInt64));
                                 });
                             };
-                        } else if (__value__ == ((("13" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("14" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                        } else if (__value__ == ((13u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((14u32 : stdgo.reflect.Reflect.Kind))) {
                             _s.skipSpace();
                             _s._notEOF();
                             _v.setFloat(_s._convertFloat(_s._floatToken(), _v.type().bits()));
-                        } else if (__value__ == ((("15" : GoUInt) : stdgo.reflect.Reflect.Kind)) || __value__ == ((("16" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+                        } else if (__value__ == ((15u32 : stdgo.reflect.Reflect.Kind)) || __value__ == ((16u32 : stdgo.reflect.Reflect.Kind))) {
                             _v.setComplex(_s._scanComplex(_verb, _v.type().bits()));
                         } else {
                             _s._errorString(("can\'t scan type: " : GoString) + (_val.type().string() : GoString));
@@ -4183,7 +4183,7 @@ class T_ss_asInterface {
             _s._errorString(("illegal hex digit" : GoString));
             return { _0 : _b, _1 : _ok };
         };
-        return { _0 : ((_value1 << (("4" : GoUInt64) : GoUInt64)) | _value2 : GoByte), _1 : true };
+        return { _0 : ((_value1 << (4i64 : GoUInt64)) | _value2 : GoByte), _1 : true };
     }
     /**
         // quotedString returns the double- or back-quoted string represented by the next input characters.
@@ -4266,7 +4266,7 @@ class T_ss_asInterface {
     @:keep
     static public function _scanComplex( _s:Ref<T_ss>, _verb:GoRune, _n:GoInt):GoComplex128 {
         if (!_s._okVerb(_verb, ("beEfFgGv" : GoString), ("complex" : GoString))) {
-            return ((0 : GoFloat64) + new GoComplex128(0, 0));
+            return ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64));
         };
         _s.skipSpace();
         _s._notEOF();
@@ -4330,7 +4330,7 @@ class T_ss_asInterface {
         var _real:GoString = ("" : GoString), _imag:GoString = ("" : GoString);
         var _parens:Bool = _s._accept(("(" : GoString));
         _real = _s._floatToken();
-        _s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : T_buffer);
+        _s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : stdgo.fmt.Fmt.T_buffer);
         if (!_s._accept(("+-" : GoString))) {
             _s._error(_complexError);
         };
@@ -4351,7 +4351,7 @@ class T_ss_asInterface {
     **/
     @:keep
     static public function _floatToken( _s:Ref<T_ss>):GoString {
-        _s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : T_buffer);
+        _s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : stdgo.fmt.Fmt.T_buffer);
         if ((_s._accept(("nN" : GoString)) && _s._accept(("aA" : GoString))) && _s._accept(("nN" : GoString))) {
             return (_s._buf : GoString);
         };
@@ -4406,7 +4406,7 @@ class T_ss_asInterface {
             _s._error(_err);
         };
         var _n:GoUInt = (_bitSize : GoUInt);
-        var _x:GoUInt64 = (_i << ((("64" : GoUInt) : GoUInt) - _n)) >> ((("64" : GoUInt) : GoUInt) - _n);
+        var _x:GoUInt64 = (_i << ((64u32 : GoUInt) - _n)) >> ((64u32 : GoUInt) - _n);
         if (_x != (_i)) {
             _s._errorString(("unsigned integer overflow on token " : GoString) + _tok);
         };
@@ -4446,7 +4446,7 @@ class T_ss_asInterface {
             _s._error(_err);
         };
         var _n:GoUInt = (_bitSize : GoUInt);
-        var _x:GoInt64 = (_i << ((("64" : GoUInt) : GoUInt) - _n)) >> ((("64" : GoUInt) : GoUInt) - _n);
+        var _x:GoInt64 = (_i << ((64u32 : GoUInt) - _n)) >> ((64u32 : GoUInt) - _n);
         if (_x != (_i)) {
             _s._errorString(("integer overflow on token " : GoString) + _tok);
         };
@@ -4485,7 +4485,7 @@ class T_ss_asInterface {
         _s._notEOF();
         var _r:GoInt32 = _s._getRune();
         var _n:GoUInt = (_bitSize : GoUInt);
-        var _x:GoInt64 = ((_r : GoInt64) << ((("64" : GoUInt) : GoUInt) - _n)) >> ((("64" : GoUInt) : GoUInt) - _n);
+        var _x:GoInt64 = ((_r : GoInt64) << ((64u32 : GoUInt) - _n)) >> ((64u32 : GoUInt) - _n);
         if (_x != ((_r : GoInt64))) {
             _s._errorString(("overflow on character value " : GoString) + (_r : GoString));
         };
@@ -4564,7 +4564,7 @@ class T_ss_asInterface {
     **/
     @:keep
     static public function _okVerb( _s:Ref<T_ss>, _verb:GoRune, _okVerbs:GoString, _typ:GoString):Bool {
-        for (_0 => _v in _okVerbs) {
+        for (__0 => _v in _okVerbs) {
             if (_v == (_verb)) {
                 return true;
             };
@@ -4679,13 +4679,13 @@ class T_ss_asInterface {
     @:keep
     static public function _free( _s:Ref<T_ss>, _old:T_ssave):Void {
         if (_old._validSave) {
-            _s._ssave = _old.__copy__();
+            _s._ssave = _old?.__copy__();
             return;
         };
         if (_s._buf.capacity > (1024 : GoInt)) {
             return;
         };
-        _s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : T_buffer);
+        _s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : stdgo.fmt.Fmt.T_buffer);
         _s._rs = (null : stdgo.io.Io.RuneScanner);
         _ssFree.put(Go.toInterface(Go.asInterface(_s)));
     }
@@ -4706,7 +4706,7 @@ class T_ss_asInterface {
                             var __tmp__ = try {
                                 { value : (Go.typeAssert((_e : T_scanError)) : T_scanError), ok : true };
                             } catch(_) {
-                                { value : ({} : T_scanError), ok : false };
+                                { value : ({} : stdgo.fmt.Fmt.T_scanError), ok : false };
                             }, _se = __tmp__.value, _ok = __tmp__.ok;
                             if (_ok) {
                                 _err = _se._err;
@@ -4723,7 +4723,7 @@ class T_ss_asInterface {
             if (_f == null) {
                 _f = _notSpace;
             };
-            _s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : T_buffer);
+            _s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : stdgo.fmt.Fmt.T_buffer);
             _tok = _s._token(_skipSpace, _f);
             {
                 for (defer in __deferstack__) {
@@ -4791,7 +4791,7 @@ class T_ss_asInterface {
     @:keep
     static public function _getRune( _s:Ref<T_ss>):GoRune {
         var _r:GoRune = (0 : GoInt32);
-        var __tmp__ = _s.readRune(), _r:GoInt32 = __tmp__._0, _0:GoInt = __tmp__._1, _err:Error = __tmp__._2;
+        var __tmp__ = _s.readRune(), _r:GoInt32 = __tmp__._0, __0:GoInt = __tmp__._1, _err:Error = __tmp__._2;
         if (_err != null) {
             if (Go.toInterface(_err) == (Go.toInterface(stdgo.io.Io.eof))) {
                 return (-1 : GoInt32);
@@ -4971,19 +4971,19 @@ class T_buffer_asInterface {
 @:keep @:allow(stdgo.fmt.Fmt.T_buffer_asInterface) class T_buffer_static_extension {
     @:keep
     static public function _writeRune( _bp:Ref<T_buffer>, _r:GoRune):Void {
-        _bp.__setData__(stdgo.unicode.utf8.Utf8.appendRune((_bp : T_buffer), _r));
+        _bp.__setData__(stdgo.unicode.utf8.Utf8.appendRune((_bp : stdgo.fmt.Fmt.T_buffer), _r));
     }
     @:keep
     static public function _writeByte( _b:Ref<T_buffer>, _c:GoByte):Void {
-        _b.__setData__(((_b : T_buffer).__append__(_c)));
+        _b.__setData__(((_b : stdgo.fmt.Fmt.T_buffer).__append__(_c)));
     }
     @:keep
     static public function _writeString( _b:Ref<T_buffer>, _s:GoString):Void {
-        _b.__setData__(((_b : T_buffer).__append__(..._s.__toArray__())));
+        _b.__setData__(((_b : stdgo.fmt.Fmt.T_buffer).__append__(..._s.__toArray__())));
     }
     @:keep
     static public function _write( _b:Ref<T_buffer>, _p:Slice<GoByte>):Void {
-        _b.__setData__(((_b : T_buffer).__append__(..._p.__toArray__())));
+        _b.__setData__(((_b : stdgo.fmt.Fmt.T_buffer).__append__(..._p.__toArray__())));
     }
 }
 class T_stringReader_asInterface {
@@ -5004,7 +5004,7 @@ class T_stringReader_asInterface {
     static public function read(____:T_stringReader,  _r:Pointer<T_stringReader>, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
         _n = Go.copySlice(_b, _r.value);
-        _r.value = ((_r.value).__slice__(_n) : T_stringReader);
+        _r.value = ((_r.value).__slice__(_n) : stdgo.fmt.Fmt.T_stringReader);
         if (_n == ((0 : GoInt))) {
             _err = stdgo.io.Io.eof;
         };

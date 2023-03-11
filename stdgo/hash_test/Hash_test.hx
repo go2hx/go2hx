@@ -8,6 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.hash.Hash;
 /**
     
     
@@ -16,31 +17,31 @@ import stdgo.Chan;
 private var _marshalTests = (new Slice<T__struct_0>(
 0,
 0,
-({ _name : ("adler32" : GoString), _new : function():Hash {
+({ _name : ("adler32" : GoString), _new : function():stdgo.hash.Hash.Hash {
         return stdgo.hash.adler32.Adler32.new_();
     }, _golden : _fromHex(("61646c01460a789d" : GoString)) } : T__struct_0),
-({ _name : ("crc32" : GoString), _new : function():Hash {
+({ _name : ("crc32" : GoString), _new : function():stdgo.hash.Hash.Hash {
         return stdgo.hash.crc32.Crc32.newIEEE();
     }, _golden : _fromHex(("63726301ca87914dc956d3e8" : GoString)) } : T__struct_0),
-({ _name : ("crc64" : GoString), _new : function():Hash {
-        return stdgo.hash.crc64.Crc64.new_(stdgo.hash.crc64.Crc64.makeTable(("15564440312192434176" : GoUInt64)));
+({ _name : ("crc64" : GoString), _new : function():stdgo.hash.Hash.Hash {
+        return stdgo.hash.crc64.Crc64.new_(stdgo.hash.crc64.Crc64.makeTable((-2882303761517117440i64 : GoUInt64)));
     }, _golden : _fromHex(("6372630273ba8484bbcd5def5d51c83c581695be" : GoString)) } : T__struct_0),
-({ _name : ("fnv32" : GoString), _new : function():Hash {
+({ _name : ("fnv32" : GoString), _new : function():stdgo.hash.Hash.Hash {
         return stdgo.hash.fnv.Fnv.new32();
     }, _golden : _fromHex(("666e760171ba3d77" : GoString)) } : T__struct_0),
-({ _name : ("fnv32a" : GoString), _new : function():Hash {
+({ _name : ("fnv32a" : GoString), _new : function():stdgo.hash.Hash.Hash {
         return stdgo.hash.fnv.Fnv.new32a();
     }, _golden : _fromHex(("666e76027439f86f" : GoString)) } : T__struct_0),
-({ _name : ("fnv64" : GoString), _new : function():Hash {
+({ _name : ("fnv64" : GoString), _new : function():stdgo.hash.Hash.Hash {
         return stdgo.hash.fnv.Fnv.new64();
     }, _golden : _fromHex(("666e7603cc64e0e97692c637" : GoString)) } : T__struct_0),
-({ _name : ("fnv64a" : GoString), _new : function():Hash {
+({ _name : ("fnv64a" : GoString), _new : function():stdgo.hash.Hash.Hash {
         return stdgo.hash.fnv.Fnv.new64a();
     }, _golden : _fromHex(("666e7604c522af9b0dede66f" : GoString)) } : T__struct_0),
-({ _name : ("fnv128" : GoString), _new : function():Hash {
+({ _name : ("fnv128" : GoString), _new : function():stdgo.hash.Hash.Hash {
         return stdgo.hash.fnv.Fnv.new128();
     }, _golden : _fromHex(("666e760561587a70a0f66d7981dc980e2cabbaf7" : GoString)) } : T__struct_0),
-({ _name : ("fnv128a" : GoString), _new : function():Hash {
+({ _name : ("fnv128a" : GoString), _new : function():stdgo.hash.Hash.Hash {
         return stdgo.hash.fnv.Fnv.new128a();
     }, _golden : _fromHex(("666e7606a955802b0136cb67622b461d9f91e6ff" : GoString)) } : T__struct_0),
 ({ _name : ("md5" : GoString), _new : stdgo.crypto.md5.Md5.new_, _golden : _fromHex(("6d643501a91b0023007aa14740a3979210b5f024c0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f80000000000000000000000000000f9" : GoString)) } : T__struct_0),
@@ -65,12 +66,12 @@ class T__struct_0_asInterface {
 }
 @:local @:using(stdgo.hash_test.Hash_test.T__struct_0_static_extension) private typedef T__struct_0 = {
     public var _name : GoString;
-    public var _new : () -> Hash;
+    public var _new : () -> stdgo.hash.Hash.Hash;
     public var _golden : Slice<GoUInt8>;
 };
 function example_binaryMarshaler():Void {
         {};
-        var _first:Hash = stdgo.crypto.sha256.Sha256.new_();
+        var _first:stdgo.hash.Hash.Hash = stdgo.crypto.sha256.Sha256.new_();
         _first.write((("The tunneling gopher digs downwards, " : GoString) : Slice<GoByte>));
         var __tmp__ = try {
             { value : (Go.typeAssert((Go.toInterface(_first) : stdgo.encoding.Encoding.BinaryMarshaler)) : stdgo.encoding.Encoding.BinaryMarshaler), ok : true };
@@ -84,7 +85,7 @@ function example_binaryMarshaler():Void {
         if (_err != null) {
             stdgo.log.Log.fatal(Go.toInterface(("unable to marshal hash:" : GoString)), Go.toInterface(_err));
         };
-        var _second:Hash = stdgo.crypto.sha256.Sha256.new_();
+        var _second:stdgo.hash.Hash.Hash = stdgo.crypto.sha256.Sha256.new_();
         var __tmp__ = try {
             { value : (Go.typeAssert((Go.toInterface(_second) : stdgo.encoding.Encoding.BinaryUnmarshaler)) : stdgo.encoding.Encoding.BinaryUnmarshaler), ok : true };
         } catch(_) {
@@ -112,17 +113,17 @@ private function _fromHex(_s:GoString):Slice<GoByte> {
         return _b;
     }
 function testMarshalHash(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _marshalTests) {
+        for (__0 => _tt in _marshalTests) {
             _t.run(_tt._name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var _buf = new Slice<GoUInt8>((256 : GoInt).toBasic(), 0, ...[for (i in 0 ... (256 : GoInt).toBasic()) (0 : GoUInt8)]);
                 for (_i in 0 ... _buf.length.toBasic()) {
                     _buf[(_i : GoInt)] = (_i : GoByte);
                 };
-                var _h:Hash = _tt._new();
+                var _h:stdgo.hash.Hash.Hash = _tt._new();
                 _h.write((_buf.__slice__(0, (256 : GoInt)) : Slice<GoUInt8>));
                 var _sum = _h.sum((null : Slice<GoUInt8>));
-                var _h2:Hash = _tt._new();
-                var _h3:Hash = _tt._new();
+                var _h2:stdgo.hash.Hash.Hash = _tt._new();
+                var _h3:stdgo.hash.Hash.Hash = _tt._new();
                 {};
                 {
                     var _i:GoInt = (0 : GoInt);

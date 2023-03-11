@@ -40,7 +40,7 @@ var importPath : GoString = ("" : GoString);
     
     
 **/
-private var _log : T_testLog = ({} : T_testLog);
+private var _log : T_testLog = ({} : stdgo.testing.internal.testdeps.Testdeps.T_testLog);
 /**
     // TestDeps is an implementation of the testing.testDeps interface,
     // suitable for passing to testing.MainStart.

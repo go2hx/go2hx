@@ -122,49 +122,49 @@ private var _goodRe = (null : Slice<GoString>);
     
     
 **/
-private var _badRe = (null : Slice<T_stringError>);
+private var _badRe = (null : Slice<stdgo.regexp.Regexp.T_stringError>);
 /**
     
     
     
 **/
-private var _replaceTests = (null : Slice<ReplaceTest>);
+private var _replaceTests = (null : Slice<stdgo.regexp.Regexp.ReplaceTest>);
 /**
     
     
     
 **/
-private var _replaceLiteralTests = (null : Slice<ReplaceTest>);
+private var _replaceLiteralTests = (null : Slice<stdgo.regexp.Regexp.ReplaceTest>);
 /**
     
     
     
 **/
-private var _replaceFuncTests = (null : Slice<ReplaceFuncTest>);
+private var _replaceFuncTests = (null : Slice<stdgo.regexp.Regexp.ReplaceFuncTest>);
 /**
     
     
     
 **/
-private var _metaTests = (null : Slice<MetaTest>);
+private var _metaTests = (null : Slice<stdgo.regexp.Regexp.MetaTest>);
 /**
     
     
     
 **/
-private var _literalPrefixTests = (null : Slice<MetaTest>);
+private var _literalPrefixTests = (null : Slice<stdgo.regexp.Regexp.MetaTest>);
 /**
     
     
     
 **/
-private var _emptySubexpIndices = (null : Slice<T_subexpIndex>);
+private var _emptySubexpIndices = (null : Slice<stdgo.regexp.Regexp.T_subexpIndex>);
 /**
     
     
     
 **/
-private var _subexpCases = (null : Slice<T_subexpCase>);
+private var _subexpCases = (null : Slice<stdgo.regexp.Regexp.T_subexpCase>);
 /**
     
     
@@ -188,19 +188,19 @@ private var _minInputLenTests = (null : Slice<T__struct_2>);
     
     
 **/
-private var _run = (null : Slice<(Ref<Regexp>, Ref<Regexp>, GoString) -> { var _0 : Slice<GoInt>; var _1 : GoString; }>);
+private var _run = (null : Slice<(Ref<stdgo.regexp.Regexp.Regexp>, Ref<stdgo.regexp.Regexp.Regexp>, GoString) -> { var _0 : Slice<GoInt>; var _1 : GoString; }>);
 /**
     
     
     
 **/
-private var _match = (null : Slice<(Ref<Regexp>, Ref<Regexp>, GoString) -> { var _0 : Bool; var _1 : GoString; }>);
+private var _match = (null : Slice<(Ref<stdgo.regexp.Regexp.Regexp>, Ref<stdgo.regexp.Regexp.Regexp>, GoString) -> { var _0 : Bool; var _1 : GoString; }>);
 /**
     
     
     
 **/
-private var _notab = (null : Ref<Regexp>);
+private var _notab = (null : Ref<stdgo.regexp.Regexp.Regexp>);
 /**
     
     
@@ -218,7 +218,7 @@ private var _benchSizes = (null : Slice<T__struct_3>);
     
     
 **/
-private var _findTests = (null : Slice<FindTest>);
+private var _findTests = (null : Slice<stdgo.regexp.Regexp.FindTest>);
 /**
     
     
@@ -469,8 +469,8 @@ private typedef T_input = StructType & {
     public var _input : GoString = "";
     public var _num : GoInt = 0;
     public var _names : Slice<GoString> = (null : Slice<GoString>);
-    public var _indices : Slice<T_subexpIndex> = (null : Slice<T_subexpIndex>);
-    public function new(?_input:GoString, ?_num:GoInt, ?_names:Slice<GoString>, ?_indices:Slice<T_subexpIndex>) {
+    public var _indices : Slice<stdgo.regexp.Regexp.T_subexpIndex> = (null : Slice<stdgo.regexp.Regexp.T_subexpIndex>);
+    public function new(?_input:GoString, ?_num:GoInt, ?_names:Slice<GoString>, ?_indices:Slice<stdgo.regexp.Regexp.T_subexpIndex>) {
         if (_input != null) this._input = _input;
         if (_num != null) this._num = _num;
         if (_names != null) this._names = _names;
@@ -510,10 +510,10 @@ private typedef T_input = StructType & {
     public var _end : GoInt = 0;
     public var _cap : Slice<GoInt> = (null : Slice<GoInt>);
     public var _matchcap : Slice<GoInt> = (null : Slice<GoInt>);
-    public var _jobs : Slice<T_job> = (null : Slice<T_job>);
+    public var _jobs : Slice<stdgo.regexp.Regexp.T_job> = (null : Slice<stdgo.regexp.Regexp.T_job>);
     public var _visited : Slice<GoUInt32> = (null : Slice<GoUInt32>);
-    public var _inputs : T_inputs = ({} : T_inputs);
-    public function new(?_end:GoInt, ?_cap:Slice<GoInt>, ?_matchcap:Slice<GoInt>, ?_jobs:Slice<T_job>, ?_visited:Slice<GoUInt32>, ?_inputs:T_inputs) {
+    public var _inputs : stdgo.regexp.Regexp.T_inputs = ({} : stdgo.regexp.Regexp.T_inputs);
+    public function new(?_end:GoInt, ?_cap:Slice<GoInt>, ?_matchcap:Slice<GoInt>, ?_jobs:Slice<stdgo.regexp.Regexp.T_job>, ?_visited:Slice<GoUInt32>, ?_inputs:stdgo.regexp.Regexp.T_inputs) {
         if (_end != null) this._end = _end;
         if (_cap != null) this._cap = _cap;
         if (_matchcap != null) this._matchcap = _matchcap;
@@ -534,8 +534,8 @@ private typedef T_input = StructType & {
 **/
 @:structInit @:private class T_queue {
     public var _sparse : Slice<GoUInt32> = (null : Slice<GoUInt32>);
-    public var _dense : Slice<T_entry> = (null : Slice<T_entry>);
-    public function new(?_sparse:Slice<GoUInt32>, ?_dense:Slice<T_entry>) {
+    public var _dense : Slice<stdgo.regexp.Regexp.T_entry> = (null : Slice<stdgo.regexp.Regexp.T_entry>);
+    public function new(?_sparse:Slice<GoUInt32>, ?_dense:Slice<stdgo.regexp.Regexp.T_entry>) {
         if (_sparse != null) this._sparse = _sparse;
         if (_dense != null) this._dense = _dense;
     }
@@ -554,8 +554,8 @@ private typedef T_input = StructType & {
 **/
 @:structInit @:private class T_entry {
     public var _pc : GoUInt32 = 0;
-    public var _t : Ref<T_thread> = (null : Ref<T_thread>);
-    public function new(?_pc:GoUInt32, ?_t:Ref<T_thread>) {
+    public var _t : Ref<stdgo.regexp.Regexp.T_thread> = (null : Ref<stdgo.regexp.Regexp.T_thread>);
+    public function new(?_pc:GoUInt32, ?_t:Ref<stdgo.regexp.Regexp.T_thread>) {
         if (_pc != null) this._pc = _pc;
         if (_t != null) this._t = _t;
     }
@@ -589,15 +589,15 @@ private typedef T_input = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.regexp.Regexp.T_machine_static_extension) class T_machine {
-    public var _re : Ref<Regexp> = (null : Ref<Regexp>);
+    public var _re : Ref<stdgo.regexp.Regexp.Regexp> = (null : Ref<stdgo.regexp.Regexp.Regexp>);
     public var _p : Ref<stdgo.regexp.syntax.Syntax.Prog> = (null : Ref<stdgo.regexp.syntax.Syntax.Prog>);
-    public var _q0 : T_queue = ({} : T_queue);
-    public var _q1 : T_queue = ({} : T_queue);
-    public var _pool : Slice<Ref<T_thread>> = (null : Slice<Ref<T_thread>>);
+    public var _q0 : stdgo.regexp.Regexp.T_queue = ({} : stdgo.regexp.Regexp.T_queue);
+    public var _q1 : stdgo.regexp.Regexp.T_queue = ({} : stdgo.regexp.Regexp.T_queue);
+    public var _pool : Slice<Ref<stdgo.regexp.Regexp.T_thread>> = (null : Slice<Ref<stdgo.regexp.Regexp.T_thread>>);
     public var _matched : Bool = false;
     public var _matchcap : Slice<GoInt> = (null : Slice<GoInt>);
-    public var _inputs : T_inputs = ({} : T_inputs);
-    public function new(?_re:Ref<Regexp>, ?_p:Ref<stdgo.regexp.syntax.Syntax.Prog>, ?_q0:T_queue, ?_q1:T_queue, ?_pool:Slice<Ref<T_thread>>, ?_matched:Bool, ?_matchcap:Slice<GoInt>, ?_inputs:T_inputs) {
+    public var _inputs : stdgo.regexp.Regexp.T_inputs = ({} : stdgo.regexp.Regexp.T_inputs);
+    public function new(?_re:Ref<stdgo.regexp.Regexp.Regexp>, ?_p:Ref<stdgo.regexp.syntax.Syntax.Prog>, ?_q0:stdgo.regexp.Regexp.T_queue, ?_q1:stdgo.regexp.Regexp.T_queue, ?_pool:Slice<Ref<stdgo.regexp.Regexp.T_thread>>, ?_matched:Bool, ?_matchcap:Slice<GoInt>, ?_inputs:stdgo.regexp.Regexp.T_inputs) {
         if (_re != null) this._re = _re;
         if (_p != null) this._p = _p;
         if (_q0 != null) this._q0 = _q0;
@@ -621,10 +621,10 @@ private typedef T_input = StructType & {
     /**
         // cached inputs, to avoid allocation
     **/
-    public var _bytes : T_inputBytes = ({} : T_inputBytes);
-    public var _string : T_inputString = ({} : T_inputString);
-    public var _reader : T_inputReader = ({} : T_inputReader);
-    public function new(?_bytes:T_inputBytes, ?_string:T_inputString, ?_reader:T_inputReader) {
+    public var _bytes : stdgo.regexp.Regexp.T_inputBytes = ({} : stdgo.regexp.Regexp.T_inputBytes);
+    public var _string : stdgo.regexp.Regexp.T_inputString = ({} : stdgo.regexp.Regexp.T_inputString);
+    public var _reader : stdgo.regexp.Regexp.T_inputReader = ({} : stdgo.regexp.Regexp.T_inputReader);
+    public function new(?_bytes:stdgo.regexp.Regexp.T_inputBytes, ?_string:stdgo.regexp.Regexp.T_inputString, ?_reader:stdgo.regexp.Regexp.T_inputReader) {
         if (_bytes != null) this._bytes = _bytes;
         if (_string != null) this._string = _string;
         if (_reader != null) this._reader = _reader;
@@ -640,9 +640,9 @@ private typedef T_input = StructType & {
     
 **/
 @:structInit @:private class T_onePassMachine {
-    public var _inputs : T_inputs = ({} : T_inputs);
+    public var _inputs : stdgo.regexp.Regexp.T_inputs = ({} : stdgo.regexp.Regexp.T_inputs);
     public var _matchcap : Slice<GoInt> = (null : Slice<GoInt>);
-    public function new(?_inputs:T_inputs, ?_matchcap:Slice<GoInt>) {
+    public function new(?_inputs:stdgo.regexp.Regexp.T_inputs, ?_matchcap:Slice<GoInt>) {
         if (_inputs != null) this._inputs = _inputs;
         if (_matchcap != null) this._matchcap = _matchcap;
     }
@@ -681,10 +681,10 @@ private typedef T_input = StructType & {
     
 **/
 @:structInit @:private class T_onePassProg {
-    public var inst : Slice<T_onePassInst> = (null : Slice<T_onePassInst>);
+    public var inst : Slice<stdgo.regexp.Regexp.T_onePassInst> = (null : Slice<stdgo.regexp.Regexp.T_onePassInst>);
     public var start : GoInt = 0;
     public var numCap : GoInt = 0;
-    public function new(?inst:Slice<T_onePassInst>, ?start:GoInt, ?numCap:GoInt) {
+    public function new(?inst:Slice<stdgo.regexp.Regexp.T_onePassInst>, ?start:GoInt, ?numCap:GoInt) {
         if (inst != null) this.inst = inst;
         if (start != null) this.start = start;
         if (numCap != null) this.numCap = numCap;
@@ -754,7 +754,7 @@ private typedef T_input = StructType & {
 @:structInit @:using(stdgo.regexp.Regexp.Regexp_static_extension) class Regexp {
     public var _expr : GoString = "";
     public var _prog : Ref<stdgo.regexp.syntax.Syntax.Prog> = (null : Ref<stdgo.regexp.syntax.Syntax.Prog>);
-    public var _onepass : Ref<T_onePassProg> = (null : Ref<T_onePassProg>);
+    public var _onepass : Ref<stdgo.regexp.Regexp.T_onePassProg> = (null : Ref<stdgo.regexp.Regexp.T_onePassProg>);
     public var _numSubexp : GoInt = 0;
     public var _maxBitStateLen : GoInt = 0;
     public var _subexpNames : Slice<GoString> = (null : Slice<GoString>);
@@ -772,7 +772,7 @@ private typedef T_input = StructType & {
         // but it is otherwise read-only.
     **/
     public var _longest : Bool = false;
-    public function new(?_expr:GoString, ?_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>, ?_onepass:Ref<T_onePassProg>, ?_numSubexp:GoInt, ?_maxBitStateLen:GoInt, ?_subexpNames:Slice<GoString>, ?_prefix:GoString, ?_prefixBytes:Slice<GoUInt8>, ?_prefixRune:GoInt32, ?_prefixEnd:GoUInt32, ?_mpool:GoInt, ?_matchcap:GoInt, ?_prefixComplete:Bool, ?_cond:stdgo.regexp.syntax.Syntax.EmptyOp, ?_minInputLen:GoInt, ?_longest:Bool) {
+    public function new(?_expr:GoString, ?_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>, ?_onepass:Ref<stdgo.regexp.Regexp.T_onePassProg>, ?_numSubexp:GoInt, ?_maxBitStateLen:GoInt, ?_subexpNames:Slice<GoString>, ?_prefix:GoString, ?_prefixBytes:Slice<GoUInt8>, ?_prefixRune:GoInt32, ?_prefixEnd:GoUInt32, ?_mpool:GoInt, ?_matchcap:GoInt, ?_prefixComplete:Bool, ?_cond:stdgo.regexp.syntax.Syntax.EmptyOp, ?_minInputLen:GoInt, ?_longest:Bool) {
         if (_expr != null) this._expr = _expr;
         if (_prog != null) this._prog = _prog;
         if (_onepass != null) this._onepass = _onepass;

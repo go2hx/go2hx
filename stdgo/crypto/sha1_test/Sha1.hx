@@ -8,6 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.crypto.sha1.Sha1;
 /**
     
     

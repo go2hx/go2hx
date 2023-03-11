@@ -8,6 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.encoding.base64.Base64;
 function example():Void {
         var _msg:GoString = ("Hello, 世界" : GoString);
         var _encoded:GoString = stdgo.encoding.base64.Base64.stdEncoding.encodeToString((_msg : Slice<GoByte>));

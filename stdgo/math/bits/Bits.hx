@@ -132,55 +132,55 @@ private var _deBruijn64tab = (new GoArray<GoUInt8>(
     
     // 32 or 64
 **/
-private final _uintSize = ("32" : GoUInt64);
+private final _uintSize = (32i64 : GoUInt64);
 /**
     // UintSize is the size of a uint in bits.
     
     
 **/
-final uintSize = ("32" : GoUInt64);
+final uintSize = (32i64 : GoUInt64);
 /**
     // See http://supertech.csail.mit.edu/papers/debruijn.pdf
     
     
 **/
-private final _deBruijn32 = ("125613361" : GoUInt64);
+private final _deBruijn32 = (125613361i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _deBruijn64 = ("285870213051353865" : GoUInt64);
+private final _deBruijn64 = (285870213051353865i64 : GoUInt64);
 /**
     
     
     // 01010101 ...
 **/
-private final _m0 = ("6148914691236517205" : GoUInt64);
+private final _m0 = (6148914691236517205i64 : GoUInt64);
 /**
     
     
     // 00110011 ...
 **/
-private final _m1 = ("3689348814741910323" : GoUInt64);
+private final _m1 = (3689348814741910323i64 : GoUInt64);
 /**
     
     
     // 00001111 ...
 **/
-private final _m2 = ("1085102592571150095" : GoUInt64);
+private final _m2 = (1085102592571150095i64 : GoUInt64);
 /**
     
     
     // etc.
 **/
-private final _m3 = ("71777214294589695" : GoUInt64);
+private final _m3 = (71777214294589695i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _m4 = ("281470681808895" : GoUInt64);
+private final _m4 = (281470681808895i64 : GoUInt64);
 /**
     //go:linkname overflowError runtime.overflowError
     
@@ -1049,7 +1049,7 @@ private final _len8tab = Go.str(0,
     
     
 **/
-final deBruijn64 = ("285870213051353865" : GoUInt64);
+final deBruijn64 = (285870213051353865i64 : GoUInt64);
 /**
     // LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.
 **/
@@ -1357,25 +1357,25 @@ function trailingZeros16(_x:GoUInt16):GoInt {
         if (_x == ((0 : GoUInt16))) {
             return (16 : GoInt);
         };
-        return (_deBruijn32tab[(((_x & -_x : GoUInt32) * (("125613361" : GoUInt32) : GoUInt32)) >> ("27" : GoUInt64) : GoInt)] : GoInt);
+        return (_deBruijn32tab[(((_x & -_x : GoUInt32) * (125613361u32 : GoUInt32)) >> (27i64 : GoUInt64) : GoInt)] : GoInt);
     }
 /**
     // TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 for x == 0.
 **/
 function trailingZeros32(_x:GoUInt32):GoInt {
-        if (_x == (("0" : GoUInt32))) {
+        if (_x == ((0u32 : GoUInt32))) {
             return (32 : GoInt);
         };
-        return (_deBruijn32tab[(((_x & -_x) * (("125613361" : GoUInt32) : GoUInt32)) >> ("27" : GoUInt64) : GoInt)] : GoInt);
+        return (_deBruijn32tab[(((_x & -_x) * (125613361u32 : GoUInt32)) >> (27i64 : GoUInt64) : GoInt)] : GoInt);
     }
 /**
     // TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 for x == 0.
 **/
 function trailingZeros64(_x:GoUInt64):GoInt {
-        if (_x == (("0" : GoUInt64))) {
+        if (_x == ((0i64 : GoUInt64))) {
             return (64 : GoInt);
         };
-        return (_deBruijn64tab[(((_x & -_x) * (("285870213051353865" : GoUInt64) : GoUInt64)) >> ("58" : GoUInt64) : GoInt)] : GoInt);
+        return (_deBruijn64tab[(((_x & -_x) * (285870213051353865i64 : GoUInt64)) >> (58i64 : GoUInt64) : GoInt)] : GoInt);
     }
 /**
     // OnesCount returns the number of one bits ("population count") in x.
@@ -1902,7 +1902,7 @@ function onesCount16(_x:GoUInt16):GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[(_x >> ("8" : GoUInt64) : GoInt)] + Go.str(0,
+"\x07\x07\x08")[(_x >> (8i64 : GoUInt64) : GoInt)] + Go.str(0,
 1,
 1,
 2,
@@ -2414,7 +2414,7 @@ function onesCount32(_x:GoUInt32):GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[(_x >> ("24" : GoUInt64) : GoInt)] + Go.str(0,
+"\x07\x07\x08")[(_x >> (24i64 : GoUInt64) : GoInt)] + Go.str(0,
 1,
 1,
 2,
@@ -2667,7 +2667,7 @@ function onesCount32(_x:GoUInt32):GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[((_x >> (("16" : GoUInt64) : GoUInt64)) & ("255" : GoUInt32) : GoInt)]) + Go.str(0,
+"\x07\x07\x08")[((_x >> (16i64 : GoUInt64)) & (255u32 : GoUInt32) : GoInt)]) + Go.str(0,
 1,
 1,
 2,
@@ -2920,7 +2920,7 @@ function onesCount32(_x:GoUInt32):GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[((_x >> (("8" : GoUInt64) : GoUInt64)) & ("255" : GoUInt32) : GoInt)]) + Go.str(0,
+"\x07\x07\x08")[((_x >> (8i64 : GoUInt64)) & (255u32 : GoUInt32) : GoInt)]) + Go.str(0,
 1,
 1,
 2,
@@ -3173,19 +3173,19 @@ function onesCount32(_x:GoUInt32):GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[(_x & ("255" : GoUInt32) : GoInt)] : GoInt);
+"\x07\x07\x08")[(_x & (255u32 : GoUInt32) : GoInt)] : GoInt);
     }
 /**
     // OnesCount64 returns the number of one bits ("population count") in x.
 **/
 function onesCount64(_x:GoUInt64):GoInt {
         {};
-        _x = ((_x >> (("1" : GoUInt64) : GoUInt64)) & (("6148914691236517205" : GoUInt64) : GoUInt64)) + (_x & (("6148914691236517205" : GoUInt64) : GoUInt64));
-        _x = ((_x >> (("2" : GoUInt64) : GoUInt64)) & (("3689348814741910323" : GoUInt64) : GoUInt64)) + (_x & (("3689348814741910323" : GoUInt64) : GoUInt64));
-        _x = ((_x >> (("4" : GoUInt64) : GoUInt64)) + _x) & ("1085102592571150095" : GoUInt64);
-        _x = _x + (_x >> (("8" : GoUInt64) : GoUInt64));
-        _x = _x + (_x >> (("16" : GoUInt64) : GoUInt64));
-        _x = _x + (_x >> (("32" : GoUInt64) : GoUInt64));
+        _x = ((_x >> (1i64 : GoUInt64)) & (6148914691236517205i64 : GoUInt64)) + (_x & (6148914691236517205i64 : GoUInt64));
+        _x = ((_x >> (2i64 : GoUInt64)) & (3689348814741910323i64 : GoUInt64)) + (_x & (3689348814741910323i64 : GoUInt64));
+        _x = ((_x >> (4i64 : GoUInt64)) + _x) & (1085102592571150095i64 : GoUInt64);
+        _x = _x + (_x >> (8i64 : GoUInt64));
+        _x = _x + (_x >> (16i64 : GoUInt64));
+        _x = _x + (_x >> (32i64 : GoUInt64));
         return (_x : GoInt) & (127 : GoInt);
     }
 /**
@@ -3208,8 +3208,8 @@ function rotateLeft(_x:GoUInt, _k:GoInt):GoUInt {
 **/
 function rotateLeft8(_x:GoUInt8, _k:GoInt):GoUInt8 {
         {};
-        var _s:GoUInt = (_k : GoUInt) & ("7" : GoUInt);
-        return (_x << _s) | (_x >> ((("8" : GoUInt) : GoUInt) - _s));
+        var _s:GoUInt = (_k : GoUInt) & (7u32 : GoUInt);
+        return (_x << _s) | (_x >> ((8u32 : GoUInt) - _s));
     }
 /**
     // RotateLeft16 returns the value of x rotated left by (k mod 16) bits.
@@ -3219,8 +3219,8 @@ function rotateLeft8(_x:GoUInt8, _k:GoInt):GoUInt8 {
 **/
 function rotateLeft16(_x:GoUInt16, _k:GoInt):GoUInt16 {
         {};
-        var _s:GoUInt = (_k : GoUInt) & ("15" : GoUInt);
-        return (_x << _s) | (_x >> ((("16" : GoUInt) : GoUInt) - _s));
+        var _s:GoUInt = (_k : GoUInt) & (15u32 : GoUInt);
+        return (_x << _s) | (_x >> ((16u32 : GoUInt) - _s));
     }
 /**
     // RotateLeft32 returns the value of x rotated left by (k mod 32) bits.
@@ -3230,8 +3230,8 @@ function rotateLeft16(_x:GoUInt16, _k:GoInt):GoUInt16 {
 **/
 function rotateLeft32(_x:GoUInt32, _k:GoInt):GoUInt32 {
         {};
-        var _s:GoUInt = (_k : GoUInt) & ("31" : GoUInt);
-        return (_x << _s) | (_x >> ((("32" : GoUInt) : GoUInt) - _s));
+        var _s:GoUInt = (_k : GoUInt) & (31u32 : GoUInt);
+        return (_x << _s) | (_x >> ((32u32 : GoUInt) - _s));
     }
 /**
     // RotateLeft64 returns the value of x rotated left by (k mod 64) bits.
@@ -3241,8 +3241,8 @@ function rotateLeft32(_x:GoUInt32, _k:GoInt):GoUInt32 {
 **/
 function rotateLeft64(_x:GoUInt64, _k:GoInt):GoUInt64 {
         {};
-        var _s:GoUInt = (_k : GoUInt) & ("63" : GoUInt);
-        return (_x << _s) | (_x >> ((("64" : GoUInt) : GoUInt) - _s));
+        var _s:GoUInt = (_k : GoUInt) & (63u32 : GoUInt);
+        return (_x << _s) | (_x >> ((64u32 : GoUInt) - _s));
     }
 /**
     // Reverse returns the value of x with its bits in reversed order.
@@ -3773,7 +3773,7 @@ function reverse16(_x:GoUInt16):GoUInt16 {
 "?",
 191,
 127,
-255)[(_x >> ("8" : GoUInt64) : GoInt)] : GoUInt16) | ((Go.str(0,
+255)[(_x >> (8i64 : GoUInt64) : GoInt)] : GoUInt16) | ((Go.str(0,
 128,
 "@",
 192,
@@ -4028,16 +4028,16 @@ function reverse16(_x:GoUInt16):GoUInt16 {
 "?",
 191,
 127,
-255)[(_x & (255 : GoUInt16) : GoInt)] : GoUInt16) << (("8" : GoUInt64) : GoUInt64));
+255)[(_x & (255 : GoUInt16) : GoInt)] : GoUInt16) << (8i64 : GoUInt64));
     }
 /**
     // Reverse32 returns the value of x with its bits in reversed order.
 **/
 function reverse32(_x:GoUInt32):GoUInt32 {
         {};
-        _x = ((_x >> (("1" : GoUInt64) : GoUInt64)) & (("1431655765" : GoUInt32) : GoUInt32)) | ((_x & (("1431655765" : GoUInt32) : GoUInt32)) << (("1" : GoUInt64) : GoUInt64));
-        _x = ((_x >> (("2" : GoUInt64) : GoUInt64)) & (("858993459" : GoUInt32) : GoUInt32)) | ((_x & (("858993459" : GoUInt32) : GoUInt32)) << (("2" : GoUInt64) : GoUInt64));
-        _x = ((_x >> (("4" : GoUInt64) : GoUInt64)) & (("252645135" : GoUInt32) : GoUInt32)) | ((_x & (("252645135" : GoUInt32) : GoUInt32)) << (("4" : GoUInt64) : GoUInt64));
+        _x = ((_x >> (1i64 : GoUInt64)) & (1431655765u32 : GoUInt32)) | ((_x & (1431655765u32 : GoUInt32)) << (1i64 : GoUInt64));
+        _x = ((_x >> (2i64 : GoUInt64)) & (858993459u32 : GoUInt32)) | ((_x & (858993459u32 : GoUInt32)) << (2i64 : GoUInt64));
+        _x = ((_x >> (4i64 : GoUInt64)) & (252645135u32 : GoUInt32)) | ((_x & (252645135u32 : GoUInt32)) << (4i64 : GoUInt64));
         return reverseBytes32(_x);
     }
 /**
@@ -4045,9 +4045,9 @@ function reverse32(_x:GoUInt32):GoUInt32 {
 **/
 function reverse64(_x:GoUInt64):GoUInt64 {
         {};
-        _x = ((_x >> (("1" : GoUInt64) : GoUInt64)) & (("6148914691236517205" : GoUInt64) : GoUInt64)) | ((_x & (("6148914691236517205" : GoUInt64) : GoUInt64)) << (("1" : GoUInt64) : GoUInt64));
-        _x = ((_x >> (("2" : GoUInt64) : GoUInt64)) & (("3689348814741910323" : GoUInt64) : GoUInt64)) | ((_x & (("3689348814741910323" : GoUInt64) : GoUInt64)) << (("2" : GoUInt64) : GoUInt64));
-        _x = ((_x >> (("4" : GoUInt64) : GoUInt64)) & (("1085102592571150095" : GoUInt64) : GoUInt64)) | ((_x & (("1085102592571150095" : GoUInt64) : GoUInt64)) << (("4" : GoUInt64) : GoUInt64));
+        _x = ((_x >> (1i64 : GoUInt64)) & (6148914691236517205i64 : GoUInt64)) | ((_x & (6148914691236517205i64 : GoUInt64)) << (1i64 : GoUInt64));
+        _x = ((_x >> (2i64 : GoUInt64)) & (3689348814741910323i64 : GoUInt64)) | ((_x & (3689348814741910323i64 : GoUInt64)) << (2i64 : GoUInt64));
+        _x = ((_x >> (4i64 : GoUInt64)) & (1085102592571150095i64 : GoUInt64)) | ((_x & (1085102592571150095i64 : GoUInt64)) << (4i64 : GoUInt64));
         return reverseBytes64(_x);
     }
 /**
@@ -4067,7 +4067,7 @@ function reverseBytes(_x:GoUInt):GoUInt {
     // This function's execution time does not depend on the inputs.
 **/
 function reverseBytes16(_x:GoUInt16):GoUInt16 {
-        return (_x >> (("8" : GoUInt64) : GoUInt64)) | (_x << (("8" : GoUInt64) : GoUInt64));
+        return (_x >> (8i64 : GoUInt64)) | (_x << (8i64 : GoUInt64));
     }
 /**
     // ReverseBytes32 returns the value of x with its bytes in reversed order.
@@ -4076,8 +4076,8 @@ function reverseBytes16(_x:GoUInt16):GoUInt16 {
 **/
 function reverseBytes32(_x:GoUInt32):GoUInt32 {
         {};
-        _x = ((_x >> (("8" : GoUInt64) : GoUInt64)) & (("16711935" : GoUInt32) : GoUInt32)) | ((_x & (("16711935" : GoUInt32) : GoUInt32)) << (("8" : GoUInt64) : GoUInt64));
-        return (_x >> (("16" : GoUInt64) : GoUInt64)) | (_x << (("16" : GoUInt64) : GoUInt64));
+        _x = ((_x >> (8i64 : GoUInt64)) & (16711935u32 : GoUInt32)) | ((_x & (16711935u32 : GoUInt32)) << (8i64 : GoUInt64));
+        return (_x >> (16i64 : GoUInt64)) | (_x << (16i64 : GoUInt64));
     }
 /**
     // ReverseBytes64 returns the value of x with its bytes in reversed order.
@@ -4086,9 +4086,9 @@ function reverseBytes32(_x:GoUInt32):GoUInt32 {
 **/
 function reverseBytes64(_x:GoUInt64):GoUInt64 {
         {};
-        _x = ((_x >> (("8" : GoUInt64) : GoUInt64)) & (("71777214294589695" : GoUInt64) : GoUInt64)) | ((_x & (("71777214294589695" : GoUInt64) : GoUInt64)) << (("8" : GoUInt64) : GoUInt64));
-        _x = ((_x >> (("16" : GoUInt64) : GoUInt64)) & (("281470681808895" : GoUInt64) : GoUInt64)) | ((_x & (("281470681808895" : GoUInt64) : GoUInt64)) << (("16" : GoUInt64) : GoUInt64));
-        return (_x >> (("32" : GoUInt64) : GoUInt64)) | (_x << (("32" : GoUInt64) : GoUInt64));
+        _x = ((_x >> (8i64 : GoUInt64)) & (71777214294589695i64 : GoUInt64)) | ((_x & (71777214294589695i64 : GoUInt64)) << (8i64 : GoUInt64));
+        _x = ((_x >> (16i64 : GoUInt64)) & (281470681808895i64 : GoUInt64)) | ((_x & (281470681808895i64 : GoUInt64)) << (16i64 : GoUInt64));
+        return (_x >> (32i64 : GoUInt64)) | (_x << (32i64 : GoUInt64));
     }
 /**
     // Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.
@@ -4175,7 +4175,7 @@ function len8(_x:GoUInt8):GoInt {
 function len16(_x:GoUInt16):GoInt {
         var _n:GoInt = (0 : GoInt);
         if (_x >= (256 : GoUInt16)) {
-            _x = _x >> (("8" : GoUInt64));
+            _x = _x >> ((8i64 : GoUInt64));
             _n = (8 : GoInt);
         };
         return _n + (Go.str(0,
@@ -4249,12 +4249,12 @@ function len16(_x:GoUInt16):GoInt {
 **/
 function len32(_x:GoUInt32):GoInt {
         var _n:GoInt = (0 : GoInt);
-        if (_x >= ("65536" : GoUInt32)) {
-            _x = _x >> (("16" : GoUInt64));
+        if (_x >= (65536u32 : GoUInt32)) {
+            _x = _x >> ((16i64 : GoUInt64));
             _n = (16 : GoInt);
         };
-        if (_x >= ("256" : GoUInt32)) {
-            _x = _x >> (("8" : GoUInt64));
+        if (_x >= (256u32 : GoUInt32)) {
+            _x = _x >> ((8i64 : GoUInt64));
             _n = _n + ((8 : GoInt));
         };
         return _n + (Go.str(0,
@@ -4328,16 +4328,16 @@ function len32(_x:GoUInt32):GoInt {
 **/
 function len64(_x:GoUInt64):GoInt {
         var _n:GoInt = (0 : GoInt);
-        if (_x >= ("4294967296" : GoUInt64)) {
-            _x = _x >> (("32" : GoUInt64));
+        if (_x >= (4294967296i64 : GoUInt64)) {
+            _x = _x >> ((32i64 : GoUInt64));
             _n = (32 : GoInt);
         };
-        if (_x >= ("65536" : GoUInt64)) {
-            _x = _x >> (("16" : GoUInt64));
+        if (_x >= (65536i64 : GoUInt64)) {
+            _x = _x >> ((16i64 : GoUInt64));
             _n = _n + ((16 : GoInt));
         };
-        if (_x >= ("256" : GoUInt64)) {
-            _x = _x >> (("8" : GoUInt64));
+        if (_x >= (256i64 : GoUInt64)) {
+            _x = _x >> ((8i64 : GoUInt64));
             _n = _n + ((8 : GoInt));
         };
         return _n + (Go.str(0,
@@ -4433,7 +4433,7 @@ function add32(_x:GoUInt32, _y:GoUInt32, _carry:GoUInt32):{ var _0 : GoUInt32; v
         var _sum:GoUInt32 = (0 : GoUInt32), _carryOut:GoUInt32 = (0 : GoUInt32);
         var _sum64:GoUInt64 = ((_x : GoUInt64) + (_y : GoUInt64)) + (_carry : GoUInt64);
         _sum = (_sum64 : GoUInt32);
-        _carryOut = (_sum64 >> ("32" : GoUInt64) : GoUInt32);
+        _carryOut = (_sum64 >> (32i64 : GoUInt64) : GoUInt32);
         return { _0 : _sum, _1 : _carryOut };
     }
 /**
@@ -4446,7 +4446,7 @@ function add32(_x:GoUInt32, _y:GoUInt32, _carry:GoUInt32):{ var _0 : GoUInt32; v
 function add64(_x:GoUInt64, _y:GoUInt64, _carry:GoUInt64):{ var _0 : GoUInt64; var _1 : GoUInt64; } {
         var _sum:GoUInt64 = (0 : GoUInt64), _carryOut:GoUInt64 = (0 : GoUInt64);
         _sum = (_x + _y) + _carry;
-        _carryOut = ((_x & _y) | ((_x | _y) & (_sum ^ (-1 : GoInt)))) >> ("63" : GoUInt64);
+        _carryOut = ((_x & _y) | ((_x | _y) & (_sum ^ (-1i32 : GoInt)))) >> (63i64 : GoUInt64);
         return { _0 : _sum, _1 : _carryOut };
     }
 /**
@@ -4475,7 +4475,7 @@ function sub(_x:GoUInt, _y:GoUInt, _borrow:GoUInt):{ var _0 : GoUInt; var _1 : G
 function sub32(_x:GoUInt32, _y:GoUInt32, _borrow:GoUInt32):{ var _0 : GoUInt32; var _1 : GoUInt32; } {
         var _diff:GoUInt32 = (0 : GoUInt32), _borrowOut:GoUInt32 = (0 : GoUInt32);
         _diff = (_x - _y) - _borrow;
-        _borrowOut = (((-1 ^ _x) & _y) | ((-1 ^ (_x ^ _y)) & _diff)) >> ("31" : GoUInt64);
+        _borrowOut = (((-1 ^ _x) & _y) | ((-1 ^ (_x ^ _y)) & _diff)) >> (31i64 : GoUInt64);
         return { _0 : _diff, _1 : _borrowOut };
     }
 /**
@@ -4488,7 +4488,7 @@ function sub32(_x:GoUInt32, _y:GoUInt32, _borrow:GoUInt32):{ var _0 : GoUInt32; 
 function sub64(_x:GoUInt64, _y:GoUInt64, _borrow:GoUInt64):{ var _0 : GoUInt64; var _1 : GoUInt64; } {
         var _diff:GoUInt64 = (0 : GoUInt64), _borrowOut:GoUInt64 = (0 : GoUInt64);
         _diff = (_x - _y) - _borrow;
-        _borrowOut = (((-1 ^ _x) & _y) | ((-1 ^ (_x ^ _y)) & _diff)) >> ("63" : GoUInt64);
+        _borrowOut = (((-1 ^ _x) & _y) | ((-1 ^ (_x ^ _y)) & _diff)) >> (63i64 : GoUInt64);
         return { _0 : _diff, _1 : _borrowOut };
     }
 /**
@@ -4518,7 +4518,7 @@ function mul32(_x:GoUInt32, _y:GoUInt32):{ var _0 : GoUInt32; var _1 : GoUInt32;
         var _hi:GoUInt32 = (0 : GoUInt32), _lo:GoUInt32 = (0 : GoUInt32);
         var _tmp:GoUInt64 = (_x : GoUInt64) * (_y : GoUInt64);
         {
-            final __tmp__0 = (_tmp >> ("32" : GoUInt64) : GoUInt32);
+            final __tmp__0 = (_tmp >> (32i64 : GoUInt64) : GoUInt32);
             final __tmp__1 = (_tmp : GoUInt32);
             _hi = __tmp__0;
             _lo = __tmp__1;
@@ -4535,16 +4535,16 @@ function mul32(_x:GoUInt32, _y:GoUInt32):{ var _0 : GoUInt32; var _1 : GoUInt32;
 function mul64(_x:GoUInt64, _y:GoUInt64):{ var _0 : GoUInt64; var _1 : GoUInt64; } {
         var _hi:GoUInt64 = (0 : GoUInt64), _lo:GoUInt64 = (0 : GoUInt64);
         {};
-        var _x0:GoUInt64 = _x & ("4294967295" : GoUInt64);
-        var _x1:GoUInt64 = _x >> ("32" : GoUInt64);
-        var _y0:GoUInt64 = _y & ("4294967295" : GoUInt64);
-        var _y1:GoUInt64 = _y >> ("32" : GoUInt64);
+        var _x0:GoUInt64 = _x & (4294967295i64 : GoUInt64);
+        var _x1:GoUInt64 = _x >> (32i64 : GoUInt64);
+        var _y0:GoUInt64 = _y & (4294967295i64 : GoUInt64);
+        var _y1:GoUInt64 = _y >> (32i64 : GoUInt64);
         var _w0:GoUInt64 = _x0 * _y0;
-        var _t:GoUInt64 = (_x1 * _y0) + (_w0 >> (("32" : GoUInt64) : GoUInt64));
-        var _w1:GoUInt64 = _t & ("4294967295" : GoUInt64);
-        var _w2:GoUInt64 = _t >> ("32" : GoUInt64);
+        var _t:GoUInt64 = (_x1 * _y0) + (_w0 >> (32i64 : GoUInt64));
+        var _w1:GoUInt64 = _t & (4294967295i64 : GoUInt64);
+        var _w2:GoUInt64 = _t >> (32i64 : GoUInt64);
         _w1 = _w1 + (_x0 * _y1);
-        _hi = ((_x1 * _y1) + _w2) + (_w1 >> (("32" : GoUInt64) : GoUInt64));
+        _hi = ((_x1 * _y1) + _w2) + (_w1 >> (32i64 : GoUInt64));
         _lo = _x * _y;
         return { _0 : _hi, _1 : _lo };
     }
@@ -4571,10 +4571,10 @@ function div(_hi:GoUInt, _lo:GoUInt, _y:GoUInt):{ var _0 : GoUInt; var _1 : GoUI
 **/
 function div32(_hi:GoUInt32, _lo:GoUInt32, _y:GoUInt32):{ var _0 : GoUInt32; var _1 : GoUInt32; } {
         var _quo:GoUInt32 = (0 : GoUInt32), _rem:GoUInt32 = (0 : GoUInt32);
-        if ((_y != ("0" : GoUInt32)) && (_y <= _hi)) {
+        if ((_y != (0u32 : GoUInt32)) && (_y <= _hi)) {
             throw Go.toInterface(_overflowError);
         };
-        var _z:GoUInt64 = ((_hi : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (_lo : GoUInt64);
+        var _z:GoUInt64 = ((_hi : GoUInt64) << (32i64 : GoUInt64)) | (_lo : GoUInt64);
         {
             final __tmp__0 = (_z / (_y : GoUInt64) : GoUInt32);
             final __tmp__1 = (_z % (_y : GoUInt64) : GoUInt32);
@@ -4591,44 +4591,44 @@ function div32(_hi:GoUInt32, _lo:GoUInt32, _y:GoUInt32):{ var _0 : GoUInt32; var
 **/
 function div64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):{ var _0 : GoUInt64; var _1 : GoUInt64; } {
         var _quo:GoUInt64 = (0 : GoUInt64), _rem:GoUInt64 = (0 : GoUInt64);
-        if (_y == (("0" : GoUInt64))) {
+        if (_y == ((0i64 : GoUInt64))) {
             throw Go.toInterface(_divideError);
         };
         if (_y <= _hi) {
             throw Go.toInterface(_overflowError);
         };
-        if (_hi == (("0" : GoUInt64))) {
+        if (_hi == ((0i64 : GoUInt64))) {
             return { _0 : _lo / _y, _1 : _lo % _y };
         };
         var _s:GoUInt = (leadingZeros64(_y) : GoUInt);
         _y = _y << (_s);
         {};
-        var _yn1:GoUInt64 = _y >> ("32" : GoUInt64);
-        var _yn0:GoUInt64 = _y & ("4294967295" : GoUInt64);
-        var _un32:GoUInt64 = (_hi << _s) | (_lo >> ((("64" : GoUInt) : GoUInt) - _s));
+        var _yn1:GoUInt64 = _y >> (32i64 : GoUInt64);
+        var _yn0:GoUInt64 = _y & (4294967295i64 : GoUInt64);
+        var _un32:GoUInt64 = (_hi << _s) | (_lo >> ((64u32 : GoUInt) - _s));
         var _un10:GoUInt64 = _lo << _s;
-        var _un1:GoUInt64 = _un10 >> ("32" : GoUInt64);
-        var _un0:GoUInt64 = _un10 & ("4294967295" : GoUInt64);
+        var _un1:GoUInt64 = _un10 >> (32i64 : GoUInt64);
+        var _un0:GoUInt64 = _un10 & (4294967295i64 : GoUInt64);
         var _q1:GoUInt64 = _un32 / _yn1;
         var _rhat:GoUInt64 = _un32 - (_q1 * _yn1);
-        while ((_q1 >= (("4294967296" : GoUInt64) : GoUInt64)) || ((_q1 * _yn0) > (((("4294967296" : GoUInt64) : GoUInt64) * _rhat) + _un1))) {
+        while ((_q1 >= (4294967296i64 : GoUInt64)) || ((_q1 * _yn0) > (((4294967296i64 : GoUInt64) * _rhat) + _un1))) {
             _q1--;
             _rhat = _rhat + (_yn1);
-            if (_rhat >= ("4294967296" : GoUInt64)) {
+            if (_rhat >= (4294967296i64 : GoUInt64)) {
                 break;
             };
         };
-        var _un21:GoUInt64 = ((_un32 * (("4294967296" : GoUInt64) : GoUInt64)) + _un1) - (_q1 * _y);
+        var _un21:GoUInt64 = ((_un32 * (4294967296i64 : GoUInt64)) + _un1) - (_q1 * _y);
         var _q0:GoUInt64 = _un21 / _yn1;
         _rhat = _un21 - (_q0 * _yn1);
-        while ((_q0 >= (("4294967296" : GoUInt64) : GoUInt64)) || ((_q0 * _yn0) > (((("4294967296" : GoUInt64) : GoUInt64) * _rhat) + _un0))) {
+        while ((_q0 >= (4294967296i64 : GoUInt64)) || ((_q0 * _yn0) > (((4294967296i64 : GoUInt64) * _rhat) + _un0))) {
             _q0--;
             _rhat = _rhat + (_yn1);
-            if (_rhat >= ("4294967296" : GoUInt64)) {
+            if (_rhat >= (4294967296i64 : GoUInt64)) {
                 break;
             };
         };
-        return { _0 : (_q1 * (("4294967296" : GoUInt64) : GoUInt64)) + _q0, _1 : (((_un21 * (("4294967296" : GoUInt64) : GoUInt64)) + _un0) - (_q0 * _y)) >> _s };
+        return { _0 : (_q1 * (4294967296i64 : GoUInt64)) + _q0, _1 : (((_un21 * (4294967296i64 : GoUInt64)) + _un0) - (_q0 * _y)) >> _s };
     }
 /**
     // Rem returns the remainder of (hi, lo) divided by y. Rem panics for
@@ -4647,7 +4647,7 @@ function rem(_hi:GoUInt, _lo:GoUInt, _y:GoUInt):GoUInt {
     // on a quotient overflow.
 **/
 function rem32(_hi:GoUInt32, _lo:GoUInt32, _y:GoUInt32):GoUInt32 {
-        return ((((_hi : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (_lo : GoUInt64)) % (_y : GoUInt64) : GoUInt32);
+        return ((((_hi : GoUInt64) << (32i64 : GoUInt64)) | (_lo : GoUInt64)) % (_y : GoUInt64) : GoUInt32);
     }
 /**
     // Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics
@@ -4655,6 +4655,6 @@ function rem32(_hi:GoUInt32, _lo:GoUInt32, _y:GoUInt32):GoUInt32 {
     // on a quotient overflow.
 **/
 function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
-        var __tmp__ = div64(_hi % _y, _lo, _y), _0:GoUInt64 = __tmp__._0, _rem:GoUInt64 = __tmp__._1;
+        var __tmp__ = div64(_hi % _y, _lo, _y), __0:GoUInt64 = __tmp__._0, _rem:GoUInt64 = __tmp__._1;
         return _rem;
     }

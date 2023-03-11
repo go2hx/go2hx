@@ -105,7 +105,7 @@ private var _nodeEXCL = (0 : GoInt);
     
     
 **/
-private var _files = (null : GoMap<GoInt, Ref<T_jsFile>>);
+private var _files = (null : GoMap<GoInt, Ref<stdgo.syscall.Syscall.T_jsFile>>);
 /**
     
     
@@ -144,7 +144,7 @@ private var _errENOENT : Error = (null : Error);
     
     
 **/
-private var _errnoByCode = (null : GoMap<GoString, Errno>);
+private var _errnoByCode = (null : GoMap<GoString, stdgo.syscall.Syscall.Errno>);
 /**
     
     
@@ -270,7 +270,7 @@ final ipproto_UDP = (0 : GoUInt64);
     
     
 **/
-private final _4 = (0 : GoUInt64);
+private final __4 = (0 : GoUInt64);
 /**
     
     
@@ -294,7 +294,7 @@ final so_ERROR = null;
     
     
 **/
-private final _5 = (0 : GoUInt64);
+private final __5 = (0 : GoUInt64);
 /**
     // Misc constants expected by package net but not supported.
     
@@ -331,43 +331,43 @@ final pathMax = (0 : GoUInt64);
     
     
 **/
-private final _6 : Signal = ((0 : GoInt) : Signal);
+private final __6 : Signal = ((0 : GoInt) : stdgo.syscall.Syscall.Signal);
 /**
     
     
     
 **/
-final sigchld = ((0 : GoInt) : Signal);
+final sigchld = ((0 : GoInt) : stdgo.syscall.Syscall.Signal);
 /**
     
     
     
 **/
-final sigint = ((0 : GoInt) : Signal);
+final sigint = ((0 : GoInt) : stdgo.syscall.Syscall.Signal);
 /**
     
     
     
 **/
-final sigkill = ((0 : GoInt) : Signal);
+final sigkill = ((0 : GoInt) : stdgo.syscall.Syscall.Signal);
 /**
     
     
     
 **/
-final sigtrap = ((0 : GoInt) : Signal);
+final sigtrap = ((0 : GoInt) : stdgo.syscall.Syscall.Signal);
 /**
     
     
     
 **/
-final sigquit = ((0 : GoInt) : Signal);
+final sigquit = ((0 : GoInt) : stdgo.syscall.Syscall.Signal);
 /**
     
     
     
 **/
-final sigterm = ((0 : GoInt) : Signal);
+final sigterm = ((0 : GoInt) : stdgo.syscall.Syscall.Signal);
 /**
     
     
@@ -1612,733 +1612,733 @@ private final _sys_get_random_bytes = (0 : GoUInt64);
     
     /|* Operation not permitted *|/
 **/
-final eperm : Errno = ((0 : GoUIntptr) : Errno);
+final eperm : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No such file or directory *|/
 **/
-final enoent : Errno = ((0 : GoUIntptr) : Errno);
+final enoent : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No such process *|/
 **/
-final esrch : Errno = ((0 : GoUIntptr) : Errno);
+final esrch : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Interrupted system call *|/
 **/
-final eintr : Errno = ((0 : GoUIntptr) : Errno);
+final eintr : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* I/O error *|/
 **/
-final eio : Errno = ((0 : GoUIntptr) : Errno);
+final eio : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No such device or address *|/
 **/
-final enxio : Errno = ((0 : GoUIntptr) : Errno);
+final enxio : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Argument list too long *|/
 **/
-final e2big : Errno = ((0 : GoUIntptr) : Errno);
+final e2big : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Exec format error *|/
 **/
-final enoexec : Errno = ((0 : GoUIntptr) : Errno);
+final enoexec : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Bad file number *|/
 **/
-final ebadf : Errno = ((0 : GoUIntptr) : Errno);
+final ebadf : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No child processes *|/
 **/
-final echild : Errno = ((0 : GoUIntptr) : Errno);
+final echild : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Try again *|/
 **/
-final eagain : Errno = ((0 : GoUIntptr) : Errno);
+final eagain : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Out of memory *|/
 **/
-final enomem : Errno = ((0 : GoUIntptr) : Errno);
+final enomem : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Permission denied *|/
 **/
-final eacces : Errno = ((0 : GoUIntptr) : Errno);
+final eacces : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Bad address *|/
 **/
-final efault : Errno = ((0 : GoUIntptr) : Errno);
+final efault : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Device or resource busy *|/
 **/
-final ebusy : Errno = ((0 : GoUIntptr) : Errno);
+final ebusy : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* File exists *|/
 **/
-final eexist : Errno = ((0 : GoUIntptr) : Errno);
+final eexist : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Cross-device link *|/
 **/
-final exdev : Errno = ((0 : GoUIntptr) : Errno);
+final exdev : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No such device *|/
 **/
-final enodev : Errno = ((0 : GoUIntptr) : Errno);
+final enodev : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Not a directory *|/
 **/
-final enotdir : Errno = ((0 : GoUIntptr) : Errno);
+final enotdir : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Is a directory *|/
 **/
-final eisdir : Errno = ((0 : GoUIntptr) : Errno);
+final eisdir : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Invalid argument *|/
 **/
-final einval : Errno = ((0 : GoUIntptr) : Errno);
+final einval : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* File table overflow *|/
 **/
-final enfile : Errno = ((0 : GoUIntptr) : Errno);
+final enfile : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Too many open files *|/
 **/
-final emfile : Errno = ((0 : GoUIntptr) : Errno);
+final emfile : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Not a typewriter *|/
 **/
-final enotty : Errno = ((0 : GoUIntptr) : Errno);
+final enotty : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* File too large *|/
 **/
-final efbig : Errno = ((0 : GoUIntptr) : Errno);
+final efbig : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No space left on device *|/
 **/
-final enospc : Errno = ((0 : GoUIntptr) : Errno);
+final enospc : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Illegal seek *|/
 **/
-final espipe : Errno = ((0 : GoUIntptr) : Errno);
+final espipe : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Read-only file system *|/
 **/
-final erofs : Errno = ((0 : GoUIntptr) : Errno);
+final erofs : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Too many links *|/
 **/
-final emlink : Errno = ((0 : GoUIntptr) : Errno);
+final emlink : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Broken pipe *|/
 **/
-final epipe : Errno = ((0 : GoUIntptr) : Errno);
+final epipe : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* File name too long *|/
 **/
-final enametoolong : Errno = ((0 : GoUIntptr) : Errno);
+final enametoolong : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Function not implemented *|/
 **/
-final enosys : Errno = ((0 : GoUIntptr) : Errno);
+final enosys : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Quota exceeded *|/
 **/
-final edquot : Errno = ((0 : GoUIntptr) : Errno);
+final edquot : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Math arg out of domain of func *|/
 **/
-final edom : Errno = ((0 : GoUIntptr) : Errno);
+final edom : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Math result not representable *|/
 **/
-final erange : Errno = ((0 : GoUIntptr) : Errno);
+final erange : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Deadlock condition *|/
 **/
-final edeadlk : Errno = ((0 : GoUIntptr) : Errno);
+final edeadlk : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No record locks available *|/
 **/
-final enolck : Errno = ((0 : GoUIntptr) : Errno);
+final enolck : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Directory not empty *|/
 **/
-final enotempty : Errno = ((0 : GoUIntptr) : Errno);
+final enotempty : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Too many symbolic links *|/
 **/
-final eloop : Errno = ((0 : GoUIntptr) : Errno);
+final eloop : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No message of desired type *|/
 **/
-final enomsg : Errno = ((0 : GoUIntptr) : Errno);
+final enomsg : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Identifier removed *|/
 **/
-final eidrm : Errno = ((0 : GoUIntptr) : Errno);
+final eidrm : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Channel number out of range *|/
 **/
-final echrng : Errno = ((0 : GoUIntptr) : Errno);
+final echrng : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Level 2 not synchronized *|/
 **/
-final el2nsync : Errno = ((0 : GoUIntptr) : Errno);
+final el2nsync : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Level 3 halted *|/
 **/
-final el3hlt : Errno = ((0 : GoUIntptr) : Errno);
+final el3hlt : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Level 3 reset *|/
 **/
-final el3rst : Errno = ((0 : GoUIntptr) : Errno);
+final el3rst : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Link number out of range *|/
 **/
-final elnrng : Errno = ((0 : GoUIntptr) : Errno);
+final elnrng : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Protocol driver not attached *|/
 **/
-final eunatch : Errno = ((0 : GoUIntptr) : Errno);
+final eunatch : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No CSI structure available *|/
 **/
-final enocsi : Errno = ((0 : GoUIntptr) : Errno);
+final enocsi : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Level 2 halted *|/
 **/
-final el2hlt : Errno = ((0 : GoUIntptr) : Errno);
+final el2hlt : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Invalid exchange *|/
 **/
-final ebade : Errno = ((0 : GoUIntptr) : Errno);
+final ebade : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Invalid request descriptor *|/
 **/
-final ebadr : Errno = ((0 : GoUIntptr) : Errno);
+final ebadr : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Exchange full *|/
 **/
-final exfull : Errno = ((0 : GoUIntptr) : Errno);
+final exfull : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No anode *|/
 **/
-final enoano : Errno = ((0 : GoUIntptr) : Errno);
+final enoano : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Invalid request code *|/
 **/
-final ebadrqc : Errno = ((0 : GoUIntptr) : Errno);
+final ebadrqc : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Invalid slot *|/
 **/
-final ebadslt : Errno = ((0 : GoUIntptr) : Errno);
+final ebadslt : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* File locking deadlock error *|/
 **/
-final edeadlock : Errno = ((0 : GoUIntptr) : Errno);
+final edeadlock : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Bad font file fmt *|/
 **/
-final ebfont : Errno = ((0 : GoUIntptr) : Errno);
+final ebfont : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Device not a stream *|/
 **/
-final enostr : Errno = ((0 : GoUIntptr) : Errno);
+final enostr : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No data (for no delay io) *|/
 **/
-final enodata : Errno = ((0 : GoUIntptr) : Errno);
+final enodata : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Timer expired *|/
 **/
-final etime : Errno = ((0 : GoUIntptr) : Errno);
+final etime : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Out of streams resources *|/
 **/
-final enosr : Errno = ((0 : GoUIntptr) : Errno);
+final enosr : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Machine is not on the network *|/
 **/
-final enonet : Errno = ((0 : GoUIntptr) : Errno);
+final enonet : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Package not installed *|/
 **/
-final enopkg : Errno = ((0 : GoUIntptr) : Errno);
+final enopkg : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* The object is remote *|/
 **/
-final eremote : Errno = ((0 : GoUIntptr) : Errno);
+final eremote : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* The link has been severed *|/
 **/
-final enolink : Errno = ((0 : GoUIntptr) : Errno);
+final enolink : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Advertise error *|/
 **/
-final eadv : Errno = ((0 : GoUIntptr) : Errno);
+final eadv : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Srmount error *|/
 **/
-final esrmnt : Errno = ((0 : GoUIntptr) : Errno);
+final esrmnt : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Communication error on send *|/
 **/
-final ecomm : Errno = ((0 : GoUIntptr) : Errno);
+final ecomm : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Protocol error *|/
 **/
-final eproto : Errno = ((0 : GoUIntptr) : Errno);
+final eproto : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Multihop attempted *|/
 **/
-final emultihop : Errno = ((0 : GoUIntptr) : Errno);
+final emultihop : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Cross mount point (not really error) *|/
 **/
-final edotdot : Errno = ((0 : GoUIntptr) : Errno);
+final edotdot : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Trying to read unreadable message *|/
 **/
-final ebadmsg : Errno = ((0 : GoUIntptr) : Errno);
+final ebadmsg : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Value too large for defined data type *|/
 **/
-final eoverflow : Errno = ((0 : GoUIntptr) : Errno);
+final eoverflow : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Given log. name not unique *|/
 **/
-final enotuniq : Errno = ((0 : GoUIntptr) : Errno);
+final enotuniq : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* f.d. invalid for this operation *|/
 **/
-final ebadfd : Errno = ((0 : GoUIntptr) : Errno);
+final ebadfd : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Remote address changed *|/
 **/
-final eremchg : Errno = ((0 : GoUIntptr) : Errno);
+final eremchg : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Can't access a needed shared lib *|/
 **/
-final elibacc : Errno = ((0 : GoUIntptr) : Errno);
+final elibacc : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Accessing a corrupted shared lib *|/
 **/
-final elibbad : Errno = ((0 : GoUIntptr) : Errno);
+final elibbad : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* .lib section in a.out corrupted *|/
 **/
-final elibscn : Errno = ((0 : GoUIntptr) : Errno);
+final elibscn : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Attempting to link in too many libs *|/
 **/
-final elibmax : Errno = ((0 : GoUIntptr) : Errno);
+final elibmax : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Attempting to exec a shared library *|/
 **/
-final elibexec : Errno = ((0 : GoUIntptr) : Errno);
+final elibexec : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     
 **/
-final eilseq : Errno = ((0 : GoUIntptr) : Errno);
+final eilseq : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     
 **/
-final eusers : Errno = ((0 : GoUIntptr) : Errno);
+final eusers : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Socket operation on non-socket *|/
 **/
-final enotsock : Errno = ((0 : GoUIntptr) : Errno);
+final enotsock : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Destination address required *|/
 **/
-final edestaddrreq : Errno = ((0 : GoUIntptr) : Errno);
+final edestaddrreq : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Message too long *|/
 **/
-final emsgsize : Errno = ((0 : GoUIntptr) : Errno);
+final emsgsize : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Protocol wrong type for socket *|/
 **/
-final eprototype : Errno = ((0 : GoUIntptr) : Errno);
+final eprototype : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Protocol not available *|/
 **/
-final enoprotoopt : Errno = ((0 : GoUIntptr) : Errno);
+final enoprotoopt : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Unknown protocol *|/
 **/
-final eprotonosupport : Errno = ((0 : GoUIntptr) : Errno);
+final eprotonosupport : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Socket type not supported *|/
 **/
-final esocktnosupport : Errno = ((0 : GoUIntptr) : Errno);
+final esocktnosupport : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Operation not supported on transport endpoint *|/
 **/
-final eopnotsupp : Errno = ((0 : GoUIntptr) : Errno);
+final eopnotsupp : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Protocol family not supported *|/
 **/
-final epfnosupport : Errno = ((0 : GoUIntptr) : Errno);
+final epfnosupport : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Address family not supported by protocol family *|/
 **/
-final eafnosupport : Errno = ((0 : GoUIntptr) : Errno);
+final eafnosupport : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Address already in use *|/
 **/
-final eaddrinuse : Errno = ((0 : GoUIntptr) : Errno);
+final eaddrinuse : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Address not available *|/
 **/
-final eaddrnotavail : Errno = ((0 : GoUIntptr) : Errno);
+final eaddrnotavail : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Network interface is not configured *|/
 **/
-final enetdown : Errno = ((0 : GoUIntptr) : Errno);
+final enetdown : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Network is unreachable *|/
 **/
-final enetunreach : Errno = ((0 : GoUIntptr) : Errno);
+final enetunreach : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     
 **/
-final enetreset : Errno = ((0 : GoUIntptr) : Errno);
+final enetreset : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Connection aborted *|/
 **/
-final econnaborted : Errno = ((0 : GoUIntptr) : Errno);
+final econnaborted : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Connection reset by peer *|/
 **/
-final econnreset : Errno = ((0 : GoUIntptr) : Errno);
+final econnreset : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No buffer space available *|/
 **/
-final enobufs : Errno = ((0 : GoUIntptr) : Errno);
+final enobufs : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Socket is already connected *|/
 **/
-final eisconn : Errno = ((0 : GoUIntptr) : Errno);
+final eisconn : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Socket is not connected *|/
 **/
-final enotconn : Errno = ((0 : GoUIntptr) : Errno);
+final enotconn : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Can't send after socket shutdown *|/
 **/
-final eshutdown : Errno = ((0 : GoUIntptr) : Errno);
+final eshutdown : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     
 **/
-final etoomanyrefs : Errno = ((0 : GoUIntptr) : Errno);
+final etoomanyrefs : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Connection timed out *|/
 **/
-final etimedout : Errno = ((0 : GoUIntptr) : Errno);
+final etimedout : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Connection refused *|/
 **/
-final econnrefused : Errno = ((0 : GoUIntptr) : Errno);
+final econnrefused : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Host is down *|/
 **/
-final ehostdown : Errno = ((0 : GoUIntptr) : Errno);
+final ehostdown : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Host is unreachable *|/
 **/
-final ehostunreach : Errno = ((0 : GoUIntptr) : Errno);
+final ehostunreach : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Socket already connected *|/
 **/
-final ealready : Errno = ((0 : GoUIntptr) : Errno);
+final ealready : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Connection already in progress *|/
 **/
-final einprogress : Errno = ((0 : GoUIntptr) : Errno);
+final einprogress : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     
 **/
-final estale : Errno = ((0 : GoUIntptr) : Errno);
+final estale : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Not supported *|/
 **/
-final enotsup : Errno = ((0 : GoUIntptr) : Errno);
+final enotsup : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No medium (in tape drive) *|/
 **/
-final enomedium : Errno = ((0 : GoUIntptr) : Errno);
+final enomedium : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Operation canceled. *|/
 **/
-final ecanceled : Errno = ((0 : GoUIntptr) : Errno);
+final ecanceled : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Inode is remote (not really error) *|/
 **/
-final elbin : Errno = ((0 : GoUIntptr) : Errno);
+final elbin : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Inappropriate file type or format *|/
 **/
-final eftype : Errno = ((0 : GoUIntptr) : Errno);
+final eftype : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No more files *|/
 **/
-final enmfile : Errno = ((0 : GoUIntptr) : Errno);
+final enmfile : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     
 **/
-final eproclim : Errno = ((0 : GoUIntptr) : Errno);
+final eproclim : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* No such host or network path *|/
 **/
-final enoshare : Errno = ((0 : GoUIntptr) : Errno);
+final enoshare : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Filename exists with different case *|/
 **/
-final ecaseclash : Errno = ((0 : GoUIntptr) : Errno);
+final ecaseclash : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     // TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
     
     /|* Operation would block *|/
 **/
-final ewouldblock : Errno = ((0 : GoUIntptr) : Errno);
+final ewouldblock : Errno = ((0 : GoUIntptr) : stdgo.syscall.Syscall.Errno);
 /**
     
     
@@ -2552,9 +2552,9 @@ ctimeNsec);
     
 **/
 @:structInit class Rusage {
-    public var utime : Timeval = ({} : Timeval);
-    public var stime : Timeval = ({} : Timeval);
-    public function new(?utime:Timeval, ?stime:Timeval) {
+    public var utime : stdgo.syscall.Syscall.Timeval = ({} : stdgo.syscall.Syscall.Timeval);
+    public var stime : stdgo.syscall.Syscall.Timeval = ({} : stdgo.syscall.Syscall.Timeval);
+    public function new(?utime:stdgo.syscall.Syscall.Timeval, ?stime:stdgo.syscall.Syscall.Timeval) {
         if (utime != null) this.utime = utime;
         if (stime != null) this.stime = stime;
     }
@@ -2572,8 +2572,8 @@ ctimeNsec);
     public var dir : GoString = "";
     public var env : Slice<GoString> = (null : Slice<GoString>);
     public var files : Slice<GoUIntptr> = (null : Slice<GoUIntptr>);
-    public var sys : Ref<SysProcAttr> = (null : Ref<SysProcAttr>);
-    public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<GoUIntptr>, ?sys:Ref<SysProcAttr>) {
+    public var sys : Ref<stdgo.syscall.Syscall.SysProcAttr> = (null : Ref<stdgo.syscall.Syscall.SysProcAttr>);
+    public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<GoUIntptr>, ?sys:Ref<stdgo.syscall.Syscall.SysProcAttr>) {
         if (dir != null) this.dir = dir;
         if (env != null) this.env = env;
         if (files != null) this.files = files;

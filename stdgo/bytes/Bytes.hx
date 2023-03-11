@@ -57,55 +57,55 @@ var indexBytePortable = _indexBytePortable;
     
     
 **/
-private final _smallBufferSize = ("64" : GoUInt64);
+private final _smallBufferSize = (64i64 : GoUInt64);
 /**
     // Don't use iota for these, as the values need to correspond with the
     // names and comments, which is easier to see when being explicit.
     
     // Any other read operation.
 **/
-private final _opRead : T_readOp = (-1 : T_readOp);
+private final _opRead : T_readOp = (-1 : stdgo.bytes.Bytes.T_readOp);
 /**
     // Don't use iota for these, as the values need to correspond with the
     // names and comments, which is easier to see when being explicit.
     
     // Non-read operation.
 **/
-private final _opInvalid : T_readOp = (0 : T_readOp);
+private final _opInvalid : T_readOp = (0 : stdgo.bytes.Bytes.T_readOp);
 /**
     // Don't use iota for these, as the values need to correspond with the
     // names and comments, which is easier to see when being explicit.
     
     // Read rune of size 1.
 **/
-private final _opReadRune1 : T_readOp = (1 : T_readOp);
+private final _opReadRune1 : T_readOp = (1 : stdgo.bytes.Bytes.T_readOp);
 /**
     // Don't use iota for these, as the values need to correspond with the
     // names and comments, which is easier to see when being explicit.
     
     // Read rune of size 2.
 **/
-private final _opReadRune2 : T_readOp = (2 : T_readOp);
+private final _opReadRune2 : T_readOp = (2 : stdgo.bytes.Bytes.T_readOp);
 /**
     // Don't use iota for these, as the values need to correspond with the
     // names and comments, which is easier to see when being explicit.
     
     // Read rune of size 3.
 **/
-private final _opReadRune3 : T_readOp = (3 : T_readOp);
+private final _opReadRune3 : T_readOp = (3 : stdgo.bytes.Bytes.T_readOp);
 /**
     // Don't use iota for these, as the values need to correspond with the
     // names and comments, which is easier to see when being explicit.
     
     // Read rune of size 4.
 **/
-private final _opReadRune4 : T_readOp = (4 : T_readOp);
+private final _opReadRune4 : T_readOp = (4 : stdgo.bytes.Bytes.T_readOp);
 /**
     
     
     
 **/
-private final _maxInt = ((("2147483647" : GoUInt) : GoUInt) : GoInt);
+private final _maxInt = ((2147483647u32 : GoUInt) : GoInt);
 /**
     // MinRead is the minimum slice size passed to a Read call by
     // Buffer.ReadFrom. As long as the Buffer has at least MinRead bytes beyond
@@ -114,7 +114,7 @@ private final _maxInt = ((("2147483647" : GoUInt) : GoUInt) : GoInt);
     
     
 **/
-final minRead = ("512" : GoUInt64);
+final minRead = (512i64 : GoUInt64);
 /**
     // A Buffer is a variable-sized buffer of bytes with Read and Write methods.
     // The zero value for Buffer is an empty buffer ready to use.
@@ -124,8 +124,8 @@ final minRead = ("512" : GoUInt64);
 @:structInit @:using(stdgo.bytes.Bytes.Buffer_static_extension) class Buffer {
     public var _buf : Slice<GoUInt8> = (null : Slice<GoUInt8>);
     public var _off : GoInt = 0;
-    public var _lastRead : T_readOp = ((0 : GoInt8) : T_readOp);
-    public function new(?_buf:Slice<GoUInt8>, ?_off:GoInt, ?_lastRead:T_readOp) {
+    public var _lastRead : stdgo.bytes.Bytes.T_readOp = ((0 : GoInt8) : stdgo.bytes.Bytes.T_readOp);
+    public function new(?_buf:Slice<GoUInt8>, ?_off:GoInt, ?_lastRead:stdgo.bytes.Bytes.T_readOp) {
         if (_buf != null) this._buf = _buf;
         if (_off != null) this._off = _off;
         if (_lastRead != null) this._lastRead = _lastRead;
@@ -243,7 +243,7 @@ private function _growSlice(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
     // sufficient to initialize a Buffer.
 **/
 function newBuffer(_buf:Slice<GoByte>):Ref<Buffer> {
-        return (Go.setRef(({ _buf : _buf } : Buffer)) : Ref<Buffer>);
+        return (Go.setRef(({ _buf : _buf } : Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
     }
 /**
     // NewBufferString creates and initializes a new Buffer using string s as its
@@ -254,7 +254,7 @@ function newBuffer(_buf:Slice<GoByte>):Ref<Buffer> {
     // sufficient to initialize a Buffer.
 **/
 function newBufferString(_s:GoString):Ref<Buffer> {
-        return (Go.setRef(({ _buf : (_s : Slice<GoByte>) } : Buffer)) : Ref<Buffer>);
+        return (Go.setRef(({ _buf : (_s : Slice<GoByte>) } : Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
     }
 /**
     // Equal reports whether a and b
@@ -375,7 +375,7 @@ function lastIndex(_s:Slice<GoByte>, _sep:Slice<GoByte>):GoInt {
         {
             var _i:GoInt = (_s.length) - (1 : GoInt);
             Go.cfor(_i >= _last, _i--, {
-                _h = (_h * (("16777619" : GoUInt32) : GoUInt32)) + (_s[(_i : GoInt)] : GoUInt32);
+                _h = (_h * (16777619u32 : GoUInt32)) + (_s[(_i : GoInt)] : GoUInt32);
             });
         };
         if ((_h == _hashss) && equal((_s.__slice__(_last) : Slice<GoUInt8>), _sep)) {
@@ -384,7 +384,7 @@ function lastIndex(_s:Slice<GoByte>, _sep:Slice<GoByte>):GoInt {
         {
             var _i:GoInt = _last - (1 : GoInt);
             Go.cfor(_i >= (0 : GoInt), _i--, {
-                _h = _h * (("16777619" : GoUInt32));
+                _h = _h * ((16777619u32 : GoUInt32));
                 _h = _h + ((_s[(_i : GoInt)] : GoUInt32));
                 _h = _h - (_pow * (_s[(_i + _n : GoInt)] : GoUInt32));
                 if ((_h == _hashss) && equal((_s.__slice__(_i, _i + _n) : Slice<GoUInt8>), _sep)) {
@@ -473,7 +473,7 @@ function indexAny(_s:Slice<GoByte>, _chars:GoString):GoInt {
         };
         if ((_s.length) > (8 : GoInt)) {
             {
-                var __tmp__ = _makeASCIISet(_chars), _as:T_asciiSet = __tmp__._0, _isASCII:Bool = __tmp__._1;
+                var __tmp__ = _makeASCIISet(_chars), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _isASCII:Bool = __tmp__._1;
                 if (_isASCII) {
                     for (_i => _c in _s) {
                         if (_as._contains(_c)) {
@@ -515,7 +515,7 @@ function indexAny(_s:Slice<GoByte>, _chars:GoString):GoInt {
                         continue;
                     };
                 };
-                for (_1 => _ch in _chars) {
+                for (__1 => _ch in _chars) {
                     if (_r == (_ch)) {
                         return _i;
                     };
@@ -536,7 +536,7 @@ function lastIndexAny(_s:Slice<GoByte>, _chars:GoString):GoInt {
         };
         if ((_s.length) > (8 : GoInt)) {
             {
-                var __tmp__ = _makeASCIISet(_chars), _as:T_asciiSet = __tmp__._0, _isASCII:Bool = __tmp__._1;
+                var __tmp__ = _makeASCIISet(_chars), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _isASCII:Bool = __tmp__._1;
                 if (_isASCII) {
                     {
                         var _i:GoInt = (_s.length) - (1 : GoInt);
@@ -610,7 +610,7 @@ function lastIndexAny(_s:Slice<GoByte>, _chars:GoString):GoInt {
                         continue;
                     };
                 };
-                for (_1 => _ch in _chars) {
+                for (__1 => _ch in _chars) {
                     if (_r == (_ch)) {
                         return _i;
                     };
@@ -777,7 +777,7 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
 **/
 function fieldsFunc(_s:Slice<GoByte>, _f:GoRune -> Bool):Slice<Slice<GoByte>> {
         {};
-        var _spans = new Slice<T_fieldsFunc_0___localname___span>((0 : GoInt).toBasic(), (32 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) ({} : T_fieldsFunc_0___localname___span)]);
+        var _spans = new Slice<stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span>((0 : GoInt).toBasic(), (32 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) ({} : stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span)]);
         var _start:GoInt = (-1 : GoInt);
         {
             var _i:GoInt = (0 : GoInt);
@@ -825,12 +825,12 @@ function join(_s:Slice<Slice<GoByte>>, _sep:Slice<GoByte>):Slice<GoByte> {
             return (((null : Slice<GoUInt8>) : Slice<GoByte>).__append__(..._s[(0 : GoInt)].__toArray__()));
         };
         var _n:GoInt = (_sep.length) * (_s.length - (1 : GoInt));
-        for (_0 => _v in _s) {
+        for (__0 => _v in _s) {
             _n = _n + ((_v.length));
         };
         var _b = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt8)]);
         var _bp:GoInt = Go.copySlice(_b, _s[(0 : GoInt)]);
-        for (_1 => _v in (_s.__slice__((1 : GoInt)) : Slice<Slice<GoUInt8>>)) {
+        for (__1 => _v in (_s.__slice__((1 : GoInt)) : Slice<Slice<GoUInt8>>)) {
             _bp = _bp + (Go.copySlice((_b.__slice__(_bp) : Slice<GoUInt8>), _sep));
             _bp = _bp + (Go.copySlice((_b.__slice__(_bp) : Slice<GoUInt8>), _v));
         };
@@ -920,7 +920,7 @@ function repeat(_b:Slice<GoByte>, _count:GoInt):Slice<GoByte> {
     // their upper case.
 **/
 function toUpper(_s:Slice<GoByte>):Slice<GoByte> {
-        var _0:Bool = true, _1:Bool = false, _hasLower:Bool = _1, _isASCII:Bool = _0;
+        var __0:Bool = true, __1:Bool = false, _hasLower:Bool = __1, _isASCII:Bool = __0;
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_s.length), _i++, {
@@ -956,7 +956,7 @@ function toUpper(_s:Slice<GoByte>):Slice<GoByte> {
     // their lower case.
 **/
 function toLower(_s:Slice<GoByte>):Slice<GoByte> {
-        var _0:Bool = true, _1:Bool = false, _hasUpper:Bool = _1, _isASCII:Bool = _0;
+        var __0:Bool = true, __1:Bool = false, _hasUpper:Bool = __1, _isASCII:Bool = __0;
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_s.length), _i++, {
@@ -1031,7 +1031,7 @@ function toValidUTF8(_s:Slice<GoByte>, _replacement:Slice<GoByte>):Slice<GoByte>
                     _b = _b.__appendref__(_c);
                     continue;
                 };
-                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune((_s.__slice__(_i) : Slice<GoUInt8>)), _0:GoInt32 = __tmp__._0, _wid:GoInt = __tmp__._1;
+                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune((_s.__slice__(_i) : Slice<GoUInt8>)), __0:GoInt32 = __tmp__._0, _wid:GoInt = __tmp__._1;
                 if (_wid == ((1 : GoInt))) {
                     _i++;
                     if (!_invalid) {
@@ -1105,7 +1105,7 @@ function trimLeftFunc(_s:Slice<GoByte>, _f:(_r:GoRune) -> Bool):Slice<GoByte> {
 function trimRightFunc(_s:Slice<GoByte>, _f:(_r:GoRune) -> Bool):Slice<GoByte> {
         var _i:GoInt = _lastIndexFunc(_s, _f, false);
         if ((_i >= (0 : GoInt)) && (_s[(_i : GoInt)] >= (128 : GoUInt8))) {
-            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune((_s.__slice__(_i) : Slice<GoUInt8>)), _0:GoInt32 = __tmp__._0, _wid:GoInt = __tmp__._1;
+            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune((_s.__slice__(_i) : Slice<GoUInt8>)), __0:GoInt32 = __tmp__._0, _wid:GoInt = __tmp__._1;
             _i = _i + (_wid);
         } else {
             _i++;
@@ -1188,7 +1188,7 @@ private function _lastIndexFunc(_s:Slice<GoByte>, _f:(_r:GoRune) -> Bool, _truth
         {
             var _i:GoInt = (_s.length);
             while (_i > (0 : GoInt)) {
-                var _0:GoInt32 = (_s[(_i - (1 : GoInt) : GoInt)] : GoRune), _1:GoInt = (1 : GoInt), _size:GoInt = _1, _r:GoInt32 = _0;
+                var __0:GoInt32 = (_s[(_i - (1 : GoInt) : GoInt)] : GoRune), __1:GoInt = (1 : GoInt), _size:GoInt = __1, _r:GoInt32 = __0;
                 if (_r >= (128 : GoInt32)) {
                     {
                         var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRune((_s.__slice__((0 : GoInt), _i) : Slice<GoUInt8>));
@@ -1209,18 +1209,18 @@ private function _lastIndexFunc(_s:Slice<GoByte>, _f:(_r:GoRune) -> Bool, _truth
     // characters in chars are ASCII.
 **/
 private function _makeASCIISet(_chars:GoString):{ var _0 : T_asciiSet; var _1 : Bool; } {
-        var _as:T_asciiSet = new T_asciiSet(...[for (i in 0 ... 8) (0 : GoUInt32)]), _ok:Bool = false;
+        var _as:T_asciiSet = new stdgo.bytes.Bytes.T_asciiSet(...[for (i in 0 ... 8) (0 : GoUInt32)]), _ok:Bool = false;
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_chars.length), _i++, {
                 var _c:GoUInt8 = _chars[(_i : GoInt)];
                 if (_c >= (128 : GoUInt8)) {
-                    return { _0 : _as.__copy__(), _1 : false };
+                    return { _0 : _as?.__copy__(), _1 : false };
                 };
-                _as[(_c / (32 : GoUInt8) : GoInt)] = _as[(_c / (32 : GoUInt8) : GoInt)] | ((("1" : GoUInt32) : GoUInt32) << (_c % (32 : GoUInt8)));
+                _as[(_c / (32 : GoUInt8) : GoInt)] = _as[(_c / (32 : GoUInt8) : GoInt)] | ((1u32 : GoUInt32) << (_c % (32 : GoUInt8)));
             });
         };
-        return { _0 : _as.__copy__(), _1 : true };
+        return { _0 : _as?.__copy__(), _1 : true };
     }
 /**
     // containsRune is a simplified version of strings.ContainsRune
@@ -1228,7 +1228,7 @@ private function _makeASCIISet(_chars:GoString):{ var _0 : T_asciiSet; var _1 : 
     // We avoid bytes.ContainsRune to avoid allocating a temporary copy of s.
 **/
 private function _containsRune(_s:GoString, _r:GoRune):Bool {
-        for (_0 => _c in _s) {
+        for (__0 => _c in _s) {
             if (_c == (_r)) {
                 return true;
             };
@@ -1250,9 +1250,9 @@ function trim(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
             return _trimLeftByte(_trimRightByte(_s, _cutset[(0 : GoInt)]), _cutset[(0 : GoInt)]);
         };
         {
-            var __tmp__ = _makeASCIISet(_cutset), _as:T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _makeASCIISet(_cutset), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                return _trimLeftASCII(_trimRightASCII(_s, (Go.setRef(_as) : Ref<T_asciiSet>)), (Go.setRef(_as) : Ref<T_asciiSet>));
+                return _trimLeftASCII(_trimRightASCII(_s, (Go.setRef(_as) : Ref<stdgo.bytes.Bytes.T_asciiSet>)), (Go.setRef(_as) : Ref<stdgo.bytes.Bytes.T_asciiSet>));
             };
         };
         return _trimLeftUnicode(_trimRightUnicode(_s, _cutset), _cutset);
@@ -1272,9 +1272,9 @@ function trimLeft(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
             return _trimLeftByte(_s, _cutset[(0 : GoInt)]);
         };
         {
-            var __tmp__ = _makeASCIISet(_cutset), _as:T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _makeASCIISet(_cutset), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                return _trimLeftASCII(_s, (Go.setRef(_as) : Ref<T_asciiSet>));
+                return _trimLeftASCII(_s, (Go.setRef(_as) : Ref<stdgo.bytes.Bytes.T_asciiSet>));
             };
         };
         return _trimLeftUnicode(_s, _cutset);
@@ -1302,7 +1302,7 @@ private function _trimLeftASCII(_s:Slice<GoByte>, _as:Ref<T_asciiSet>):Slice<GoB
     }
 private function _trimLeftUnicode(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
         while ((_s.length) > (0 : GoInt)) {
-            var _0:GoInt32 = (_s[(0 : GoInt)] : GoRune), _1:GoInt = (1 : GoInt), _n:GoInt = _1, _r:GoInt32 = _0;
+            var __0:GoInt32 = (_s[(0 : GoInt)] : GoRune), __1:GoInt = (1 : GoInt), _n:GoInt = __1, _r:GoInt32 = __0;
             if (_r >= (128 : GoInt32)) {
                 {
                     var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune(_s);
@@ -1332,9 +1332,9 @@ function trimRight(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
             return _trimRightByte(_s, _cutset[(0 : GoInt)]);
         };
         {
-            var __tmp__ = _makeASCIISet(_cutset), _as:T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _makeASCIISet(_cutset), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                return _trimRightASCII(_s, (Go.setRef(_as) : Ref<T_asciiSet>));
+                return _trimRightASCII(_s, (Go.setRef(_as) : Ref<stdgo.bytes.Bytes.T_asciiSet>));
             };
         };
         return _trimRightUnicode(_s, _cutset);
@@ -1356,7 +1356,7 @@ private function _trimRightASCII(_s:Slice<GoByte>, _as:Ref<T_asciiSet>):Slice<Go
     }
 private function _trimRightUnicode(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
         while ((_s.length) > (0 : GoInt)) {
-            var _0:GoInt32 = (_s[((_s.length) - (1 : GoInt) : GoInt)] : GoRune), _1:GoInt = (1 : GoInt), _n:GoInt = _1, _r:GoInt32 = _0;
+            var __0:GoInt32 = (_s[((_s.length) - (1 : GoInt) : GoInt)] : GoRune), __1:GoInt = (1 : GoInt), _n:GoInt = __1, _r:GoInt32 = __0;
             if (_r >= (128 : GoInt32)) {
                 {
                     var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRune(_s);
@@ -1444,7 +1444,7 @@ function replace(_s:Slice<GoByte>, _old:Slice<GoByte>, _new:Slice<GoByte>, _n:Go
                 var _j:GoInt = _start;
                 if ((_old.length) == ((0 : GoInt))) {
                     if (_i > (0 : GoInt)) {
-                        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune((_s.__slice__(_start) : Slice<GoUInt8>)), _0:GoInt32 = __tmp__._0, _wid:GoInt = __tmp__._1;
+                        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune((_s.__slice__(_start) : Slice<GoUInt8>)), __0:GoInt32 = __tmp__._0, _wid:GoInt = __tmp__._1;
                         _j = _j + (_wid);
                     };
                 } else {
@@ -1474,7 +1474,7 @@ function replaceAll(_s:Slice<GoByte>, _old:Slice<GoByte>, _new:Slice<GoByte>):Sl
     // form of case-insensitivity.
 **/
 function equalFold(_s:Slice<GoByte>, _t:Slice<GoByte>):Bool {
-        return stdgo.internal.Macro.controlFlow({
+        stdgo.internal.Macro.controlFlow({
             var _i:GoInt = (0 : GoInt);
             Go.cfor((_i < _s.length) && (_i < _t.length), _i++, {
                 var _sr:GoUInt8 = _s[(_i : GoInt)];
@@ -1502,7 +1502,7 @@ function equalFold(_s:Slice<GoByte>, _t:Slice<GoByte>):Bool {
             @:label("hasUnicode") _s = (_s.__slice__(_i) : Slice<GoUInt8>);
             _t = (_t.__slice__(_i) : Slice<GoUInt8>);
             while ((_s.length != (0 : GoInt)) && (_t.length != (0 : GoInt))) {
-                var _0:GoRune = (0 : GoInt32), _1:GoRune = (0 : GoInt32), _tr:GoRune = _1, _sr:GoRune = _0;
+                var __0:GoRune = (0 : GoInt32), __1:GoRune = (0 : GoInt32), _tr:GoRune = __1, _sr:GoRune = __0;
                 if (_s[(0 : GoInt)] < (128 : GoUInt8)) {
                     {
                         final __tmp__0 = (_s[(0 : GoInt)] : GoRune);
@@ -1563,6 +1563,7 @@ function equalFold(_s:Slice<GoByte>, _t:Slice<GoByte>):Bool {
             };
             return (_s.length) == ((_t.length));
         });
+        throw "controlFlow did not return";
     }
 /**
     // Index returns the index of the first instance of sep in s, or -1 if sep is not present in s.
@@ -1630,7 +1631,7 @@ function index(_s:Slice<GoByte>, _sep:Slice<GoByte>):GoInt {
             };
             _i++;
             _fails++;
-            if ((_fails >= ((4 : GoInt) + (_i >> (("4" : GoUInt64) : GoUInt64)))) && (_i < _t)) {
+            if ((_fails >= ((4 : GoInt) + (_i >> (4i64 : GoUInt64)))) && (_i < _t)) {
                 var _j:GoInt = stdgo.internal.bytealg.Bytealg.indexRabinKarpBytes((_s.__slice__(_i) : Slice<GoUInt8>), _sep);
                 if (_j < (0 : GoInt)) {
                     return (-1 : GoInt);
@@ -1703,7 +1704,7 @@ function cutSuffix(_s:Slice<GoByte>, _suffix:Slice<GoByte>):{ var _0 : Slice<GoB
     // NewReader returns a new Reader reading from b.
 **/
 function newReader(_b:Slice<GoByte>):Ref<Reader> {
-        return (Go.setRef((new Reader(_b, ("0" : GoInt64), (-1 : GoInt)) : Reader)) : Ref<Reader>);
+        return (Go.setRef((new Reader(_b, (0i64 : GoInt64), (-1 : GoInt)) : Reader)) : Ref<stdgo.bytes.Bytes.Reader>);
     }
 class Buffer_asInterface {
     /**
@@ -1933,7 +1934,7 @@ class Buffer_asInterface {
         };
         _line = (_b._buf.__slice__(_b._off, _end) : Slice<GoUInt8>);
         _b._off = _end;
-        _b._lastRead = (-1 : T_readOp);
+        _b._lastRead = (-1 : stdgo.bytes.Bytes.T_readOp);
         return { _0 : _line, _1 : _err };
     }
     /**
@@ -1959,10 +1960,10 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function unreadByte( _b:Ref<Buffer>):Error {
-        if (_b._lastRead == ((0 : T_readOp))) {
+        if (_b._lastRead == ((0 : stdgo.bytes.Bytes.T_readOp))) {
             return _errUnreadByte;
         };
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         if (_b._off > (0 : GoInt)) {
             _b._off--;
         };
@@ -1977,13 +1978,13 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function unreadRune( _b:Ref<Buffer>):Error {
-        if (_b._lastRead <= (0 : T_readOp)) {
+        if (_b._lastRead <= (0 : stdgo.bytes.Bytes.T_readOp)) {
             return stdgo.errors.Errors.new_(("bytes.Buffer: UnreadRune: previous operation was not a successful ReadRune" : GoString));
         };
         if (_b._off >= (_b._lastRead : GoInt)) {
             _b._off = _b._off - ((_b._lastRead : GoInt));
         };
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         return (null : Error);
     }
     /**
@@ -2003,7 +2004,7 @@ class Buffer_asInterface {
         var _c:GoUInt8 = _b._buf[(_b._off : GoInt)];
         if (_c < (128 : GoUInt8)) {
             _b._off++;
-            _b._lastRead = (1 : T_readOp);
+            _b._lastRead = (1 : stdgo.bytes.Bytes.T_readOp);
             return { _0 : (_c : GoRune), _1 : (1 : GoInt), _2 : (null : Error) };
         };
         var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune((_b._buf.__slice__(_b._off) : Slice<GoUInt8>)), _r:GoInt32 = __tmp__._0, _n:GoInt = __tmp__._1;
@@ -2023,7 +2024,7 @@ class Buffer_asInterface {
         };
         var _c:GoUInt8 = _b._buf[(_b._off : GoInt)];
         _b._off++;
-        _b._lastRead = (-1 : T_readOp);
+        _b._lastRead = (-1 : stdgo.bytes.Bytes.T_readOp);
         return { _0 : _c, _1 : (null : Error) };
     }
     /**
@@ -2034,7 +2035,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function next( _b:Ref<Buffer>, _n:GoInt):Slice<GoByte> {
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         var _m:GoInt = _b.len();
         if (_n > _m) {
             _n = _m;
@@ -2042,7 +2043,7 @@ class Buffer_asInterface {
         var _data = (_b._buf.__slice__(_b._off, _b._off + _n) : Slice<GoUInt8>);
         _b._off = _b._off + (_n);
         if (_n > (0 : GoInt)) {
-            _b._lastRead = (-1 : T_readOp);
+            _b._lastRead = (-1 : stdgo.bytes.Bytes.T_readOp);
         };
         return _data;
     }
@@ -2055,7 +2056,7 @@ class Buffer_asInterface {
     @:keep
     static public function read( _b:Ref<Buffer>, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         if (_b._empty()) {
             _b.reset();
             if ((_p.length) == ((0 : GoInt))) {
@@ -2066,7 +2067,7 @@ class Buffer_asInterface {
         _n = Go.copySlice(_p, (_b._buf.__slice__(_b._off) : Slice<GoUInt8>));
         _b._off = _b._off + (_n);
         if (_n > (0 : GoInt)) {
-            _b._lastRead = (-1 : T_readOp);
+            _b._lastRead = (-1 : stdgo.bytes.Bytes.T_readOp);
         };
         return { _0 : _n, _1 : (null : Error) };
     }
@@ -2079,11 +2080,11 @@ class Buffer_asInterface {
     @:keep
     static public function writeRune( _b:Ref<Buffer>, _r:GoRune):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        if ((_r : GoUInt32) < ("128" : GoUInt32)) {
+        if ((_r : GoUInt32) < (128u32 : GoUInt32)) {
             _b.writeByte((_r : GoByte));
             return { _0 : (1 : GoInt), _1 : (null : Error) };
         };
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         var __tmp__ = _b._tryGrowByReslice((4 : GoInt)), _m:GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             _m = _b._grow((4 : GoInt));
@@ -2099,7 +2100,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function writeByte( _b:Ref<Buffer>, _c:GoByte):Error {
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         var __tmp__ = _b._tryGrowByReslice((1 : GoInt)), _m:GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             _m = _b._grow((1 : GoInt));
@@ -2116,7 +2117,7 @@ class Buffer_asInterface {
     @:keep
     static public function writeTo( _b:Ref<Buffer>, _w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } {
         var _n:GoInt64 = (0 : GoInt64), _err:Error = (null : Error);
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         {
             var _nBytes:GoInt = _b.len();
             if (_nBytes > (0 : GoInt)) {
@@ -2146,7 +2147,7 @@ class Buffer_asInterface {
     @:keep
     static public function readFrom( _b:Ref<Buffer>, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } {
         var _n:GoInt64 = (0 : GoInt64), _err:Error = (null : Error);
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         while (true) {
             var _i:GoInt = _b._grow((512 : GoInt));
             _b._buf = (_b._buf.__slice__(0, _i) : Slice<GoUInt8>);
@@ -2172,7 +2173,7 @@ class Buffer_asInterface {
     @:keep
     static public function writeString( _b:Ref<Buffer>, _s:GoString):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         var __tmp__ = _b._tryGrowByReslice((_s.length)), _m:GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             _m = _b._grow((_s.length));
@@ -2187,7 +2188,7 @@ class Buffer_asInterface {
     @:keep
     static public function write( _b:Ref<Buffer>, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         var __tmp__ = _b._tryGrowByReslice((_p.length)), _m:GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             _m = _b._grow((_p.length));
@@ -2267,7 +2268,7 @@ class Buffer_asInterface {
     static public function reset( _b:Ref<Buffer>):Void {
         _b._buf = (_b._buf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>);
         _b._off = (0 : GoInt);
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
     }
     /**
         // Truncate discards all but the first n unread bytes from the buffer
@@ -2280,7 +2281,7 @@ class Buffer_asInterface {
             _b.reset();
             return;
         };
-        _b._lastRead = (0 : T_readOp);
+        _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         if ((_n < (0 : GoInt)) || (_n > _b.len())) {
             throw Go.toInterface(("bytes.Buffer: truncation out of range" : GoString));
         };
@@ -2408,7 +2409,7 @@ class Reader_asInterface {
     @:keep
     static public function reset( _r:Ref<Reader>, _b:Slice<GoByte>):Void {
         {
-            var __tmp__ = (new Reader(_b, ("0" : GoInt64), (-1 : GoInt)) : Reader);
+            var __tmp__ = (new Reader(_b, (0i64 : GoInt64), (-1 : GoInt)) : Reader);
             _r._s = __tmp__._s;
             _r._i = __tmp__._i;
             _r._prevRune = __tmp__._prevRune;
@@ -2422,7 +2423,7 @@ class Reader_asInterface {
         var _n:GoInt64 = (0 : GoInt64), _err:Error = (null : Error);
         _r._prevRune = (-1 : GoInt);
         if (_r._i >= (_r._s.length : GoInt64)) {
-            return { _0 : ("0" : GoInt64), _1 : (null : Error) };
+            return { _0 : (0i64 : GoInt64), _1 : (null : Error) };
         };
         var _b = (_r._s.__slice__(_r._i) : Slice<GoUInt8>);
         var __tmp__ = _w.write(_b), _m:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -2452,11 +2453,11 @@ class Reader_asInterface {
             } else if (__value__ == ((2 : GoInt))) {
                 _abs = (_r._s.length : GoInt64) + _offset;
             } else {
-                return { _0 : ("0" : GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: invalid whence" : GoString)) };
+                return { _0 : (0i64 : GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: invalid whence" : GoString)) };
             };
         };
-        if (_abs < ("0" : GoInt64)) {
-            return { _0 : ("0" : GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: negative position" : GoString)) };
+        if (_abs < (0i64 : GoInt64)) {
+            return { _0 : (0i64 : GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: negative position" : GoString)) };
         };
         _r._i = _abs;
         return { _0 : _abs, _1 : (null : Error) };
@@ -2466,7 +2467,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function unreadRune( _r:Ref<Reader>):Error {
-        if (_r._i <= ("0" : GoInt64)) {
+        if (_r._i <= (0i64 : GoInt64)) {
             return stdgo.errors.Errors.new_(("bytes.Reader.UnreadRune: at beginning of slice" : GoString));
         };
         if (_r._prevRune < (0 : GoInt)) {
@@ -2507,7 +2508,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function unreadByte( _r:Ref<Reader>):Error {
-        if (_r._i <= ("0" : GoInt64)) {
+        if (_r._i <= (0i64 : GoInt64)) {
             return stdgo.errors.Errors.new_(("bytes.Reader.UnreadByte: at beginning of slice" : GoString));
         };
         _r._prevRune = (-1 : GoInt);
@@ -2533,7 +2534,7 @@ class Reader_asInterface {
     @:keep
     static public function readAt( _r:Ref<Reader>, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        if (_off < ("0" : GoInt64)) {
+        if (_off < (0i64 : GoInt64)) {
             return { _0 : (0 : GoInt), _1 : stdgo.errors.Errors.new_(("bytes.Reader.ReadAt: negative offset" : GoString)) };
         };
         if (_off >= (_r._s.length : GoInt64)) {
@@ -2600,6 +2601,6 @@ class T_asciiSet_asInterface {
     **/
     @:keep
     static public function _contains( _as:Ref<T_asciiSet>, _c:GoByte):Bool {
-        return (_as[(_c / (32 : GoUInt8) : GoInt)] & ((("1" : GoUInt32) : GoUInt32) << (_c % (32 : GoUInt8)))) != (("0" : GoUInt32));
+        return (_as[(_c / (32 : GoUInt8) : GoInt)] & ((1u32 : GoUInt32) << (_c % (32 : GoUInt8)))) != ((0u32 : GoUInt32));
     }
 }

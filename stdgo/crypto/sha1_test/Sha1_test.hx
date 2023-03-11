@@ -8,6 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.crypto.sha1.Sha1;
 function exampleNew():Void {
         var _h:stdgo.hash.Hash.Hash = stdgo.crypto.sha1.Sha1.new_();
         stdgo.io.Io.writeString(_h, ("His money is twice tainted:" : GoString));
@@ -28,7 +29,7 @@ function exampleNew_file():Void {
             __deferstack__.unshift(() -> _f.close());
             var _h:stdgo.hash.Hash.Hash = stdgo.crypto.sha1.Sha1.new_();
             {
-                var __tmp__ = stdgo.io.Io.copy(_h, Go.asInterface(_f)), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = stdgo.io.Io.copy(_h, Go.asInterface(_f)), __0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     stdgo.log.Log.fatal(Go.toInterface(_err));
                 };

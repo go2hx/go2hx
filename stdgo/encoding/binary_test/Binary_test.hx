@@ -8,6 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.encoding.binary.Binary;
 class T__struct_7_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;
@@ -38,7 +39,7 @@ function exampleWrite():Void {
 function exampleWrite_multi():Void {
         var _buf = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _data:Slice<AnyInterface> = (new Slice<AnyInterface>(0, 0, Go.toInterface((61374 : GoUInt16)), Go.toInterface((-54 : GoInt8)), Go.toInterface((254 : GoUInt8))) : Slice<AnyInterface>);
-        for (_0 => _v in _data) {
+        for (__0 => _v in _data) {
             var _err:Error = stdgo.encoding.binary.Binary.write(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), _v);
             if (_err != null) {
                 stdgo.fmt.Fmt.println(Go.toInterface(("binary.Write failed:" : GoString)), Go.toInterface(_err));
@@ -101,32 +102,32 @@ function exampleByteOrder_get():Void {
     }
 function examplePutUvarint():Void {
         var _buf = new Slice<GoUInt8>((10 : GoInt).toBasic(), 0, ...[for (i in 0 ... (10 : GoInt).toBasic()) (0 : GoUInt8)]);
-        for (_0 => _x in (new Slice<GoUInt64>(0, 0, ("1" : GoUInt64), ("2" : GoUInt64), ("127" : GoUInt64), ("128" : GoUInt64), ("255" : GoUInt64), ("256" : GoUInt64)) : Slice<GoUInt64>)) {
+        for (__0 => _x in (new Slice<GoUInt64>(0, 0, (1i64 : GoUInt64), (2i64 : GoUInt64), (127i64 : GoUInt64), (128i64 : GoUInt64), (255i64 : GoUInt64), (256i64 : GoUInt64)) : Slice<GoUInt64>)) {
             var _n:GoInt = stdgo.encoding.binary.Binary.putUvarint(_buf, _x);
             stdgo.fmt.Fmt.printf(("%x\n" : GoString), Go.toInterface((_buf.__slice__(0, _n) : Slice<GoUInt8>)));
         };
     }
 function examplePutVarint():Void {
         var _buf = new Slice<GoUInt8>((10 : GoInt).toBasic(), 0, ...[for (i in 0 ... (10 : GoInt).toBasic()) (0 : GoUInt8)]);
-        for (_0 => _x in (new Slice<GoInt64>(
+        for (__0 => _x in (new Slice<GoInt64>(
 0,
 0,
-("-65" : GoInt64),
-("-64" : GoInt64),
-("-2" : GoInt64),
-("-1" : GoInt64),
-("0" : GoInt64),
-("1" : GoInt64),
-("2" : GoInt64),
-("63" : GoInt64),
-("64" : GoInt64)) : Slice<GoInt64>)) {
+(-65i64 : GoInt64),
+(-64i64 : GoInt64),
+(-2i64 : GoInt64),
+(-1i64 : GoInt64),
+(0i64 : GoInt64),
+(1i64 : GoInt64),
+(2i64 : GoInt64),
+(63i64 : GoInt64),
+(64i64 : GoInt64)) : Slice<GoInt64>)) {
             var _n:GoInt = stdgo.encoding.binary.Binary.putVarint(_buf, _x);
             stdgo.fmt.Fmt.printf(("%x\n" : GoString), Go.toInterface((_buf.__slice__(0, _n) : Slice<GoUInt8>)));
         };
     }
 function exampleUvarint():Void {
         var _inputs = (new Slice<Slice<GoUInt8>>(0, 0, (new Slice<GoUInt8>(0, 0, (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(0, 0, (2 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(0, 0, (127 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(0, 0, (128 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(0, 0, (255 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(0, 0, (128 : GoUInt8), (2 : GoUInt8)) : Slice<GoUInt8>)) : Slice<Slice<GoUInt8>>);
-        for (_0 => _b in _inputs) {
+        for (__0 => _b in _inputs) {
             var __tmp__ = stdgo.encoding.binary.Binary.uvarint(_b), _x:GoUInt64 = __tmp__._0, _n:GoInt = __tmp__._1;
             if (_n != ((_b.length))) {
                 stdgo.fmt.Fmt.println(Go.toInterface(("Uvarint did not consume all of in" : GoString)));
@@ -147,7 +148,7 @@ function exampleVarint():Void {
 (new Slice<GoUInt8>(0, 0, (4 : GoUInt8)) : Slice<GoUInt8>),
 (new Slice<GoUInt8>(0, 0, (126 : GoUInt8)) : Slice<GoUInt8>),
 (new Slice<GoUInt8>(0, 0, (128 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>)) : Slice<Slice<GoUInt8>>);
-        for (_0 => _b in _inputs) {
+        for (__0 => _b in _inputs) {
             var __tmp__ = stdgo.encoding.binary.Binary.varint(_b), _x:GoInt64 = __tmp__._0, _n:GoInt = __tmp__._1;
             if (_n != ((_b.length))) {
                 stdgo.fmt.Fmt.println(Go.toInterface(("Varint did not consume all of in" : GoString)));

@@ -156,7 +156,7 @@ private typedef T__interface_3 = StructType & {
     // Each call to New returns a distinct error value even if the text is identical.
 **/
 function new_(_text:GoString):Error {
-        return Go.asInterface((Go.setRef((new T_errorString(_text) : T_errorString)) : Ref<T_errorString>));
+        return Go.asInterface((Go.setRef((new T_errorString(_text) : T_errorString)) : Ref<stdgo.errors.Errors.T_errorString>));
     }
 /**
     // Join returns an error that wraps the given errors.
@@ -169,7 +169,7 @@ function new_(_text:GoString):Error {
 function join(_errs:haxe.Rest<Error>):Error {
         var _errs = new Slice<Error>(0, 0, ..._errs);
         var _n:GoInt = (0 : GoInt);
-        for (_0 => _err in _errs) {
+        for (__0 => _err in _errs) {
             if (_err != null) {
                 _n++;
             };
@@ -177,8 +177,8 @@ function join(_errs:haxe.Rest<Error>):Error {
         if (_n == ((0 : GoInt))) {
             return (null : Error);
         };
-        var _e = (Go.setRef(({ _errs : new Slice<Error>((0 : GoInt).toBasic(), _n, ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : Error)]) } : T_joinError)) : Ref<T_joinError>);
-        for (_1 => _err in _errs) {
+        var _e = (Go.setRef(({ _errs : new Slice<Error>((0 : GoInt).toBasic(), _n, ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : Error)]) } : T_joinError)) : Ref<stdgo.errors.Errors.T_joinError>);
+        for (__1 => _err in _errs) {
             if (_err != null) {
                 _e._errs = _e._errs.__appendref__(_err);
             };
@@ -196,7 +196,7 @@ function unwrap(_err:Error):Error {
         var __tmp__ = try {
             { value : (Go.typeAssert((Go.toInterface(_err) : T__interface_0)) : T__interface_0), ok : true };
         } catch(_) {
-            { value : (null : T__interface_0), ok : false };
+            { value : (null : stdgo.errors.Errors.T__interface_0), ok : false };
         }, _u = __tmp__.value, _ok = __tmp__.ok;
         if (!_ok) {
             return (null : Error);
@@ -235,7 +235,7 @@ function is_(_err:Error, _target:Error):Bool {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(_err) : T__interface_1)) : T__interface_1), ok : true };
                 } catch(_) {
-                    { value : (null : T__interface_1), ok : false };
+                    { value : (null : stdgo.errors.Errors.T__interface_1), ok : false };
                 }, _x = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok && _x.is_(_target)) {
                     return true;
@@ -244,14 +244,14 @@ function is_(_err:Error, _target:Error):Bool {
             {
                 final __type__ = _err;
                 if (Go.typeEquals((__type__ : T__interface_0))) {
-                    var _x:T__interface_0 = __type__ == null ? (null : T__interface_0) : cast __type__;
+                    var _x:stdgo.errors.Errors.T__interface_0 = __type__ == null ? (null : stdgo.errors.Errors.T__interface_0) : cast __type__;
                     _err = _x.unwrap();
                     if (_err == null) {
                         return false;
                     };
                 } else if (Go.typeEquals((__type__ : T__interface_2))) {
-                    var _x:T__interface_2 = __type__ == null ? (null : T__interface_2) : cast __type__;
-                    for (_0 => _err in _x.unwrap()) {
+                    var _x:stdgo.errors.Errors.T__interface_2 = __type__ == null ? (null : stdgo.errors.Errors.T__interface_2) : cast __type__;
+                    for (__0 => _err in _x.unwrap()) {
                         if (is_(_err, _target)) {
                             return true;
                         };
@@ -290,25 +290,25 @@ function as(_err:Error, _target:AnyInterface):Bool {
         if (_target == null) {
             throw Go.toInterface(("errors: target cannot be nil" : GoString));
         };
-        var _val:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_target).__copy__();
+        var _val:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_target)?.__copy__();
         var _typ:stdgo.internal.reflectlite.Reflectlite.Type = _val.type();
-        if ((_typ.kind() != (("22" : GoUInt) : stdgo.internal.reflectlite.Reflectlite.Kind)) || _val.isNil()) {
+        if ((_typ.kind() != (22u32 : stdgo.internal.reflectlite.Reflectlite.Kind)) || _val.isNil()) {
             throw Go.toInterface(("errors: target must be a non-nil pointer" : GoString));
         };
         var _targetType:stdgo.internal.reflectlite.Reflectlite.Type = _typ.elem();
-        if ((_targetType.kind() != (("20" : GoUInt) : stdgo.internal.reflectlite.Reflectlite.Kind)) && !_targetType.implements_(_errorType)) {
+        if ((_targetType.kind() != (20u32 : stdgo.internal.reflectlite.Reflectlite.Kind)) && !_targetType.implements_(_errorType)) {
             throw Go.toInterface(("errors: *target must be interface or implement error" : GoString));
         };
         while (true) {
             if (stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(_err)).assignableTo(_targetType)) {
-                _val.elem().set(stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_err)).__copy__());
+                _val.elem().set(stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_err))?.__copy__());
                 return true;
             };
             {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(_err) : T__interface_3)) : T__interface_3), ok : true };
                 } catch(_) {
-                    { value : (null : T__interface_3), ok : false };
+                    { value : (null : stdgo.errors.Errors.T__interface_3), ok : false };
                 }, _x = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok && _x.as(_target)) {
                     return true;
@@ -317,14 +317,14 @@ function as(_err:Error, _target:AnyInterface):Bool {
             {
                 final __type__ = _err;
                 if (Go.typeEquals((__type__ : T__interface_0))) {
-                    var _x:T__interface_0 = __type__ == null ? (null : T__interface_0) : cast __type__;
+                    var _x:stdgo.errors.Errors.T__interface_0 = __type__ == null ? (null : stdgo.errors.Errors.T__interface_0) : cast __type__;
                     _err = _x.unwrap();
                     if (_err == null) {
                         return false;
                     };
                 } else if (Go.typeEquals((__type__ : T__interface_2))) {
-                    var _x:T__interface_2 = __type__ == null ? (null : T__interface_2) : cast __type__;
-                    for (_0 => _err in _x.unwrap()) {
+                    var _x:stdgo.errors.Errors.T__interface_2 = __type__ == null ? (null : stdgo.errors.Errors.T__interface_2) : cast __type__;
+                    for (__0 => _err in _x.unwrap()) {
                         if (as(_err, _target)) {
                             return true;
                         };

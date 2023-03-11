@@ -11,6 +11,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.math.Math;
 /**
     
     
@@ -1417,7 +1418,7 @@ private var _vffdimSC = (new Slice<GoArray<GoFloat64>>(
     
     // SSE2 DIVSD 0/0
 **/
-private var _nan = float64frombits(("18444492273895866368" : GoUInt64));
+private var _nan = float64frombits((-2251799813685248i64 : GoUInt64));
 /**
     
     
@@ -2236,7 +2237,7 @@ private var _sinhSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0
     
     
 **/
-private var _vfsqrtSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), float64frombits(("2" : GoUInt64))) : Slice<GoFloat64>);
+private var _vfsqrtSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), float64frombits((2i64 : GoUInt64))) : Slice<GoFloat64>);
 /**
     
     
@@ -2467,7 +2468,7 @@ private var _signbitPos = (2.5 : GoFloat64);
     
     
 **/
-private var _roundUint64 = (("5" : GoUInt64) : GoUInt64);
+private var _roundUint64 = (5i64 : GoUInt64);
 /**
     
     
@@ -2479,7 +2480,7 @@ private var _roundFloat32 = ((-2.5 : GoFloat64) : GoFloat32);
     
     
 **/
-private var _roundUint32 = (("5" : GoUInt32) : GoUInt32);
+private var _roundUint32 = (5u32 : GoUInt32);
 /**
     // Inputs to test trig_reduce
     
@@ -3475,7 +3476,7 @@ function testGamma(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (_0 => _g in _vfgamma) {
+        for (__0 => _g in _vfgamma) {
             var _f:GoFloat64 = gamma(_g[(0 : GoInt)]);
             var _ok:Bool = false;
             if (((isNaN(_g[(1 : GoInt)]) || isInf(_g[(1 : GoInt)], (0 : GoInt))) || (_g[(1 : GoInt)] == (0 : GoFloat64))) || (_f == (0 : GoFloat64))) {
@@ -4414,7 +4415,7 @@ function testYn(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testFMA(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _c in _fmaC) {
+        for (__0 => _c in _fmaC) {
             var _got:GoFloat64 = fma(_c._x, _c._y, _c._z);
             if (!_alike(_got, _c._want)) {
                 _t.errorf(("FMA(%g,%g,%g) == %g; want %g" : GoString), Go.toInterface(_c._x), Go.toInterface(_c._y), Go.toInterface(_c._z), Go.toInterface(_got), Go.toInterface(_c._want));
@@ -4462,7 +4463,7 @@ function testLargeSincos(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_vf.length), _i++, {
-                var _0:GoFloat64 = _sinLarge[(_i : GoInt)], _1:GoFloat64 = _cosLarge[(_i : GoInt)], _g1:GoFloat64 = _1, _f1:GoFloat64 = _0;
+                var __0:GoFloat64 = _sinLarge[(_i : GoInt)], __1:GoFloat64 = _cosLarge[(_i : GoInt)], _g1:GoFloat64 = __1, _f1:GoFloat64 = __0;
                 var __tmp__ = sincos(_vf[(_i : GoInt)] + _large), _f2:GoFloat64 = __tmp__._0, _g2:GoFloat64 = __tmp__._1;
                 if (!_close(_f1, _f2) || !_close(_g1, _g2)) {
                     _t.errorf(("Sincos(%g) = %g, %g, want %g, %g" : GoString), Go.toInterface(_vf[(_i : GoInt)] + _large), Go.toInterface(_f2), Go.toInterface(_g2), Go.toInterface(_f1), Go.toInterface(_g1));
@@ -4491,27 +4492,27 @@ function testTrigReduce(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _inputs = new Slice<GoFloat64>((_vf.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_vf.length : GoInt).toBasic()) (0 : GoFloat64)]);
         Go.copySlice(_inputs, _vf);
         var _large:GoFloat64 = (314159.26535897935 : GoFloat64);
-        for (_0 => _v in _vf) {
+        for (__0 => _v in _vf) {
             _inputs = _inputs.__appendref__(_v + _large);
         };
         _inputs = _inputs.__appendref__((3.141592653589793 : GoFloat64), nextafter((5.36870912e+08 : GoFloat64), (0 : GoFloat64)));
-        for (_1 => _x in _inputs) {
+        for (__1 => _x in _inputs) {
             var __tmp__ = trigReduce(_x), _j:GoUInt64 = __tmp__._0, _z:GoFloat64 = __tmp__._1;
             var _xred:GoFloat64 = ((_j : GoFloat64) * (0.7853981633974483 : GoFloat64)) + _z;
             {
-                var _0:GoFloat64 = sin(_x), _1:GoFloat64 = sin(_xred), _fred:GoFloat64 = _1, _f:GoFloat64 = _0;
+                var __0:GoFloat64 = sin(_x), __1:GoFloat64 = sin(_xred), _fred:GoFloat64 = __1, _f:GoFloat64 = __0;
                 if (!_close(_f, _fred)) {
                     _t.errorf(("Sin(trigReduce(%g)) != Sin(%g), got %g, want %g" : GoString), Go.toInterface(_x), Go.toInterface(_x), Go.toInterface(_fred), Go.toInterface(_f));
                 };
             };
             {
-                var _0:GoFloat64 = cos(_x), _1:GoFloat64 = cos(_xred), _fred:GoFloat64 = _1, _f:GoFloat64 = _0;
+                var __0:GoFloat64 = cos(_x), __1:GoFloat64 = cos(_xred), _fred:GoFloat64 = __1, _f:GoFloat64 = __0;
                 if (!_close(_f, _fred)) {
                     _t.errorf(("Cos(trigReduce(%g)) != Cos(%g), got %g, want %g" : GoString), Go.toInterface(_x), Go.toInterface(_x), Go.toInterface(_fred), Go.toInterface(_f));
                 };
             };
             {
-                var _0:GoFloat64 = tan(_x), _1:GoFloat64 = tan(_xred), _fred:GoFloat64 = _1, _f:GoFloat64 = _0;
+                var __0:GoFloat64 = tan(_x), __1:GoFloat64 = tan(_xred), _fred:GoFloat64 = __1, _f:GoFloat64 = __0;
                 if (!_close(_f, _fred)) {
                     _t.errorf((" Tan(trigReduce(%g)) != Tan(%g), got %g, want %g" : GoString), Go.toInterface(_x), Go.toInterface(_x), Go.toInterface(_fred), Go.toInterface(_f));
                 };
@@ -4546,7 +4547,7 @@ function testFloatMinima(_t:Ref<stdgo.testing.Testing.T>):Void {
     // TestFloat32Sqrt checks the correctness of the float32 square root optimization result.
 **/
 function testFloat32Sqrt(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _v in _sqrt32) {
+        for (__0 => _v in _sqrt32) {
             var _want:GoFloat32 = (_indirectSqrt((_v : GoFloat64)) : GoFloat32);
             var _got:GoFloat32 = (sqrt((_v : GoFloat64)) : GoFloat32);
             if (isNaN((_want : GoFloat64))) {
@@ -5145,7 +5146,7 @@ function benchmarkSinh(_b:Ref<stdgo.testing.Testing.B>):Void {
         globalF = _x;
     }
 function benchmarkSqrtIndirect(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _0:GoFloat64 = (0 : GoFloat64), _1:GoFloat64 = (10 : GoFloat64), _y:GoFloat64 = _1, _x:GoFloat64 = _0;
+        var __0:GoFloat64 = (0 : GoFloat64), __1:GoFloat64 = (10 : GoFloat64), _y:GoFloat64 = __1, _x:GoFloat64 = __0;
         var _f:GoFloat64 -> GoFloat64 = sqrt;
         {
             var _i:GoInt = (0 : GoInt);
@@ -5268,7 +5269,7 @@ function benchmarkYn(_b:Ref<stdgo.testing.Testing.B>):Void {
         globalF = _x;
     }
 function benchmarkFloat64bits(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _y:GoUInt64 = (("0" : GoUInt64) : GoUInt64);
+        var _y:GoUInt64 = (0i64 : GoUInt64);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
@@ -5288,7 +5289,7 @@ function benchmarkFloat64frombits(_b:Ref<stdgo.testing.Testing.B>):Void {
         globalF = _x;
     }
 function benchmarkFloat32bits(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _y:GoUInt32 = (("0" : GoUInt32) : GoUInt32);
+        var _y:GoUInt32 = (0u32 : GoUInt32);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
@@ -5319,9 +5320,9 @@ function benchmarkFMA(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function testMaxUint(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
-            var _v:GoUInt = (("4294967295" : GoUInt) : GoUInt);
-            if (_v + ("1" : GoUInt) != (("0" : GoUInt))) {
-                _t.errorf(("MaxUint should wrap around to zero: %d" : GoString), Go.toInterface(_v + ("1" : GoUInt)));
+            var _v:GoUInt = (-1u32 : GoUInt);
+            if (_v + (1u32 : GoUInt) != ((0u32 : GoUInt))) {
+                _t.errorf(("MaxUint should wrap around to zero: %d" : GoString), Go.toInterface(_v + (1u32 : GoUInt)));
             };
         };
         {
@@ -5337,15 +5338,15 @@ function testMaxUint(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         {
-            var _v:GoUInt32 = (("4294967295" : GoUInt32) : GoUInt32);
-            if (_v + ("1" : GoUInt32) != (("0" : GoUInt32))) {
-                _t.errorf(("MaxUint32 should wrap around to zero: %d" : GoString), Go.toInterface(_v + ("1" : GoUInt32)));
+            var _v:GoUInt32 = (-1u32 : GoUInt32);
+            if (_v + (1u32 : GoUInt32) != ((0u32 : GoUInt32))) {
+                _t.errorf(("MaxUint32 should wrap around to zero: %d" : GoString), Go.toInterface(_v + (1u32 : GoUInt32)));
             };
         };
         {
-            var _v:GoUInt64 = (("18446744073709551615" : GoUInt64) : GoUInt64);
-            if (_v + ("1" : GoUInt64) != (("0" : GoUInt64))) {
-                _t.errorf(("MaxUint64 should wrap around to zero: %d" : GoString), Go.toInterface(_v + ("1" : GoUInt64)));
+            var _v:GoUInt64 = (-1i64 : GoUInt64);
+            if (_v + (1i64 : GoUInt64) != ((0i64 : GoUInt64))) {
+                _t.errorf(("MaxUint64 should wrap around to zero: %d" : GoString), Go.toInterface(_v + (1i64 : GoUInt64)));
             };
         };
     }
@@ -5375,9 +5376,9 @@ function testMaxInt(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         {
-            var _v:GoInt64 = (("9223372036854775807" : GoInt64) : GoInt64);
-            if (_v + ("1" : GoInt64) != (("-9223372036854775808" : GoInt64))) {
-                _t.errorf(("MaxInt64 should wrap around to MinInt64: %d" : GoString), Go.toInterface(_v + ("1" : GoInt64)));
+            var _v:GoInt64 = (9223372036854775807i64 : GoInt64);
+            if (_v + (1i64 : GoInt64) != ((-9223372036854775808i64 : GoInt64))) {
+                _t.errorf(("MaxInt64 should wrap around to MinInt64: %d" : GoString), Go.toInterface(_v + (1i64 : GoInt64)));
             };
         };
     }
@@ -5553,7 +5554,7 @@ function testHugeSinCos(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_trigHuge.length), _i++, {
-                var _0:GoFloat64 = _sinHuge[(_i : GoInt)], _1:GoFloat64 = _cosHuge[(_i : GoInt)], _g1:GoFloat64 = _1, _f1:GoFloat64 = _0;
+                var __0:GoFloat64 = _sinHuge[(_i : GoInt)], __1:GoFloat64 = _cosHuge[(_i : GoInt)], _g1:GoFloat64 = __1, _f1:GoFloat64 = __0;
                 var __tmp__ = sincos(_trigHuge[(_i : GoInt)]), _f2:GoFloat64 = __tmp__._0, _g2:GoFloat64 = __tmp__._1;
                 if (!_close(_f1, _f2) || !_close(_g1, _g2)) {
                     _t.errorf(("Sincos(%g) = %g, %g, want %g, %g" : GoString), Go.toInterface(_trigHuge[(_i : GoInt)]), Go.toInterface(_f2), Go.toInterface(_g2), Go.toInterface(_f1), Go.toInterface(_g1));

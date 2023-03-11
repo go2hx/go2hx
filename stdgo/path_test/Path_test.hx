@@ -10,6 +10,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.path.Path;
 /**
     
     
@@ -310,7 +311,7 @@ function exampleBase():Void {
     }
 function exampleClean():Void {
         var _paths = (new Slice<GoString>(0, 0, ("a/c" : GoString), ("a//c" : GoString), ("a/c/." : GoString), ("a/c/b/.." : GoString), ("/../a/c" : GoString), ("/../a/b/../././/c" : GoString), Go.str()) : Slice<GoString>);
-        for (_0 => _p in _paths) {
+        for (__0 => _p in _paths) {
             stdgo.fmt.Fmt.printf(("Clean(%q) = %q\n" : GoString), Go.toInterface(_p), Go.toInterface(stdgo.path.Path.clean(_p)));
         };
     }
@@ -363,7 +364,7 @@ function exampleSplit():Void {
         _split(Go.str());
     }
 function testMatch(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _matchTests) {
+        for (__0 => _tt in _matchTests) {
             var __tmp__ = match(_tt._pattern, _tt._s), _ok:Bool = __tmp__._0, _err:Error = __tmp__._1;
             if ((_ok != _tt._match) || (Go.toInterface(_err) != Go.toInterface(_tt._err))) {
                 _t.errorf(("Match(%#q, %#q) = %v, %v want %v, %v" : GoString), Go.toInterface(_tt._pattern), Go.toInterface(_tt._s), Go.toInterface(_ok), Go.toInterface(_err), Go.toInterface(_tt._match), Go.toInterface(_tt._err));
@@ -371,7 +372,7 @@ function testMatch(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testClean(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _cleantests) {
+        for (__0 => _test in _cleantests) {
             {
                 var _s:GoString = clean(_test._path);
                 if (_s != (_test._result)) {
@@ -394,7 +395,7 @@ function testCleanMallocs(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.log(Go.toInterface(("skipping AllocsPerRun checks; GOMAXPROCS>1" : GoString)));
             return;
         };
-        for (_0 => _test in _cleantests) {
+        for (__0 => _test in _cleantests) {
             var _allocs:GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : GoInt), function():Void {
                 clean(_test._result);
             });
@@ -404,7 +405,7 @@ function testCleanMallocs(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testSplit(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _splittests) {
+        for (__0 => _test in _splittests) {
             {
                 var __tmp__ = split(_test._path), _d:GoString = __tmp__._0, _f:GoString = __tmp__._1;
                 if ((_d != _test._dir) || (_f != _test._file)) {
@@ -414,7 +415,7 @@ function testSplit(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testJoin(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _jointests) {
+        for (__0 => _test in _jointests) {
             {
                 var _p:GoString = join(..._test._elem.__toArray__());
                 if (_p != (_test._path)) {
@@ -424,7 +425,7 @@ function testJoin(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testExt(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _exttests) {
+        for (__0 => _test in _exttests) {
             {
                 var _x:GoString = ext(_test._path);
                 if (_x != (_test._ext)) {
@@ -434,7 +435,7 @@ function testExt(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testBase(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _basetests) {
+        for (__0 => _test in _basetests) {
             {
                 var _s:GoString = base(_test._path);
                 if (_s != (_test._result)) {
@@ -444,7 +445,7 @@ function testBase(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testDir(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _dirtests) {
+        for (__0 => _test in _dirtests) {
             {
                 var _s:GoString = dir(_test._path);
                 if (_s != (_test._result)) {
@@ -454,7 +455,7 @@ function testDir(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testIsAbs(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _isAbsTests) {
+        for (__0 => _test in _isAbsTests) {
             {
                 var _r:Bool = isAbs(_test._path);
                 if (_r != (_test._isAbs)) {

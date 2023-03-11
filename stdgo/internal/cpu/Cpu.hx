@@ -82,13 +82,13 @@ var s390x : T__struct_5 = ({ hasZARCH : false, hasSTFLE : false, hasLDISP : fals
     
     
 **/
-private var _options : Slice<T_option> = (null : Slice<T_option>);
+private var _options : Slice<T_option> = (null : Slice<stdgo.internal.cpu.Cpu.T_option>);
 /**
     
     
     
 **/
-final cacheLinePadSize = ("64" : GoUInt64);
+final cacheLinePadSize = (64i64 : GoUInt64);
 /**
     // CacheLinePad is used to pad structs to avoid false sharing.
     
@@ -96,13 +96,13 @@ final cacheLinePadSize = ("64" : GoUInt64);
 **/
 @:structInit class CacheLinePad {
     @:optional
-    public var _1 : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 64) (0 : GoUInt8)]);
-    public function new(?_1:GoArray<GoUInt8>) {
-        if (_1 != null) this._1 = _1;
+    public var __1 : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 64) (0 : GoUInt8)]);
+    public function new(?__1:GoArray<GoUInt8>) {
+        if (__1 != null) this.__1 = __1;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new CacheLinePad(_1);
+        return new CacheLinePad(__1);
     }
 }
 /**
@@ -140,7 +140,7 @@ class T__struct_0_asInterface {
 }
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_0_static_extension) private typedef T__struct_0 = {
     @:optional
-    public var _7 : CacheLinePad;
+    public var __7 : stdgo.internal.cpu.Cpu.CacheLinePad;
     public var hasAES : Bool;
     public var hasADX : Bool;
     public var hasAVX : Bool;
@@ -159,7 +159,7 @@ class T__struct_0_asInterface {
     public var hasSSE41 : Bool;
     public var hasSSE42 : Bool;
     @:optional
-    public var _9 : CacheLinePad;
+    public var __9 : stdgo.internal.cpu.Cpu.CacheLinePad;
 };
 class T__struct_1_asInterface {
     public function new(__self__, __type__) {
@@ -175,11 +175,11 @@ class T__struct_1_asInterface {
 }
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_1_static_extension) private typedef T__struct_1 = {
     @:optional
-    public var _15 : CacheLinePad;
+    public var __15 : stdgo.internal.cpu.Cpu.CacheLinePad;
     public var hasVFPv4 : Bool;
     public var hasIDIVA : Bool;
     @:optional
-    public var _17 : CacheLinePad;
+    public var __17 : stdgo.internal.cpu.Cpu.CacheLinePad;
 };
 class T__struct_2_asInterface {
     public function new(__self__, __type__) {
@@ -195,7 +195,7 @@ class T__struct_2_asInterface {
 }
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_2_static_extension) private typedef T__struct_2 = {
     @:optional
-    public var _23 : CacheLinePad;
+    public var __23 : stdgo.internal.cpu.Cpu.CacheLinePad;
     public var hasAES : Bool;
     public var hasPMULL : Bool;
     public var hasSHA1 : Bool;
@@ -207,7 +207,7 @@ class T__struct_2_asInterface {
     public var isNeoverseN1 : Bool;
     public var isNeoverseV1 : Bool;
     @:optional
-    public var _25 : CacheLinePad;
+    public var __25 : stdgo.internal.cpu.Cpu.CacheLinePad;
 };
 class T__struct_3_asInterface {
     public function new(__self__, __type__) {
@@ -223,10 +223,10 @@ class T__struct_3_asInterface {
 }
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_3_static_extension) private typedef T__struct_3 = {
     @:optional
-    public var _31 : CacheLinePad;
+    public var __31 : stdgo.internal.cpu.Cpu.CacheLinePad;
     public var hasMSA : Bool;
     @:optional
-    public var _33 : CacheLinePad;
+    public var __33 : stdgo.internal.cpu.Cpu.CacheLinePad;
 };
 class T__struct_4_asInterface {
     public function new(__self__, __type__) {
@@ -242,14 +242,14 @@ class T__struct_4_asInterface {
 }
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_4_static_extension) private typedef T__struct_4 = {
     @:optional
-    public var _39 : CacheLinePad;
+    public var __39 : stdgo.internal.cpu.Cpu.CacheLinePad;
     public var hasDARN : Bool;
     public var hasSCV : Bool;
     public var isPOWER8 : Bool;
     public var isPOWER9 : Bool;
     public var isPOWER10 : Bool;
     @:optional
-    public var _41 : CacheLinePad;
+    public var __41 : stdgo.internal.cpu.Cpu.CacheLinePad;
 };
 class T__struct_5_asInterface {
     public function new(__self__, __type__) {
@@ -265,7 +265,7 @@ class T__struct_5_asInterface {
 }
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_5_static_extension) private typedef T__struct_5 = {
     @:optional
-    public var _47 : CacheLinePad;
+    public var __47 : stdgo.internal.cpu.Cpu.CacheLinePad;
     public var hasZARCH : Bool;
     public var hasSTFLE : Bool;
     public var hasLDISP : Bool;
@@ -288,7 +288,7 @@ class T__struct_5_asInterface {
     public var hasECDSA : Bool;
     public var hasEDDSA : Bool;
     @:optional
-    public var _49 : CacheLinePad;
+    public var __49 : stdgo.internal.cpu.Cpu.CacheLinePad;
 };
 /**
     // Initialize examines the processor and sets the relevant variables above.
@@ -336,7 +336,7 @@ private function _processOptions(_env:GoString):Void {
                     trace(("GODEBUG: no value specified for \"" : GoString), _field, ("\"\n" : GoString));
                     continue;
                 };
-                var _0:GoString = (_field.__slice__((4 : GoInt), _i) : GoString), _1:GoString = (_field.__slice__(_i + (1 : GoInt)) : GoString), _value:GoString = _1, _key:GoString = _0;
+                var __0:GoString = (_field.__slice__((4 : GoInt), _i) : GoString), __1:GoString = (_field.__slice__(_i + (1 : GoInt)) : GoString), _value:GoString = __1, _key:GoString = __0;
                 var _enable:Bool = false;
                 {
                     final __value__ = _value;
@@ -365,7 +365,7 @@ private function _processOptions(_env:GoString):Void {
                 };
                 trace(("GODEBUG: unknown cpu feature \"" : GoString), _key, ("\"\n" : GoString));
             };
-            for (_0 => _o in _options) {
+            for (__0 => _o in _options) {
                 if (!_o.specified) {
                     continue;
                 };

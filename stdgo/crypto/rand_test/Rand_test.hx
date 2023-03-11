@@ -8,6 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.crypto.rand.Rand;
 /**
     
     
@@ -32,7 +33,7 @@ import stdgo.Chan;
 function exampleRead():Void {
         var _c:GoInt = (10 : GoInt);
         var _b = new Slice<GoUInt8>((_c : GoInt).toBasic(), 0, ...[for (i in 0 ... (_c : GoInt).toBasic()) (0 : GoUInt8)]);
-        var __tmp__ = stdgo.crypto.rand.Rand.read(_b), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = stdgo.crypto.rand.Rand.read(_b), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             stdgo.fmt.Fmt.println(Go.toInterface(("error:" : GoString)), Go.toInterface(_err));
             return;
@@ -71,7 +72,7 @@ function testPrimeBitsLt2(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testPrimeNondeterministic(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(("42" : GoInt64)));
+        var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((42i64 : GoInt64)));
         var __tmp__ = stdgo.crypto.rand.Rand.prime(Go.asInterface(_r), (32 : GoInt)), _p0:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
@@ -79,7 +80,7 @@ function testPrimeNondeterministic(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (128 : GoInt), _i++, {
-                _r.seed(("42" : GoInt64));
+                _r.seed((42i64 : GoInt64));
                 var __tmp__ = stdgo.crypto.rand.Rand.prime(Go.asInterface(_r), (32 : GoInt)), _p:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatal(Go.toInterface(_err));
@@ -113,10 +114,10 @@ function testIntReads(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (32 : GoInt), _i++, {
-                var _max:GoInt64 = (("1" : GoInt64) << (_i : GoUInt64) : GoInt64);
+                var _max:GoInt64 = ((1i64 : GoInt64) << (_i : GoUInt64) : GoInt64);
                 _t.run(stdgo.fmt.Fmt.sprintf(("max=%d" : GoString), Go.toInterface(_max)), function(_t:Ref<stdgo.testing.Testing.T>):Void {
                     var _reader = (Go.setRef(({ _r : stdgo.crypto.rand.Rand.reader } : T_countingReader)) : Ref<stdgo.crypto.rand_test.Rand_test.T_countingReader>);
-                    var __tmp__ = stdgo.crypto.rand.Rand.int_(Go.asInterface(_reader), stdgo.math.big.Big.newInt(_max)), _0:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
+                    var __tmp__ = stdgo.crypto.rand.Rand.int_(Go.asInterface(_reader), stdgo.math.big.Big.newInt(_max)), __0:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
                     if (_err != null) {
                         _t.fatalf(("Can\'t generate random value: %d, %v" : GoString), Go.toInterface(_max), Go.toInterface(_err));
                     };
@@ -211,7 +212,7 @@ function testIntEmptyMaxPanics(_t:Ref<stdgo.testing.Testing.T>):Void {
     // Test that passing a negative value as max causes Int to panic
 **/
 function testIntNegativeMaxPanics(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>).setInt64((("-1" : GoInt64) : GoInt64));
+        var _b = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>).setInt64((-1i64 : GoInt64));
         _testIntPanics(_t, _b);
     }
 function benchmarkPrime(_b:Ref<stdgo.testing.Testing.B>):Void {

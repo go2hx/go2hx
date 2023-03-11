@@ -21,7 +21,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-private var _funcs = (null : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface>);
+private var _funcs = (null : GoMap<GoUInt32, (stdgo.syscall.js.Js.Value, Slice<stdgo.syscall.js.Js.Value>) -> AnyInterface>);
 /**
     
     
@@ -33,67 +33,67 @@ private var _nextFuncID : GoUInt32 = (0 : GoUInt32);
     
     
 **/
-private var _valueUndefined = ({} : Value);
+private var _valueUndefined = ({} : stdgo.syscall.js.Js.Value);
 /**
     
     
     
 **/
-private var _valueNaN = ({} : Value);
+private var _valueNaN = ({} : stdgo.syscall.js.Js.Value);
 /**
     
     
     
 **/
-private var _valueZero = ({} : Value);
+private var _valueZero = ({} : stdgo.syscall.js.Js.Value);
 /**
     
     
     
 **/
-private var _valueNull = ({} : Value);
+private var _valueNull = ({} : stdgo.syscall.js.Js.Value);
 /**
     
     
     
 **/
-private var _valueTrue = ({} : Value);
+private var _valueTrue = ({} : stdgo.syscall.js.Js.Value);
 /**
     
     
     
 **/
-private var _valueFalse = ({} : Value);
+private var _valueFalse = ({} : stdgo.syscall.js.Js.Value);
 /**
     
     
     
 **/
-private var _valueGlobal = ({} : Value);
+private var _valueGlobal = ({} : stdgo.syscall.js.Js.Value);
 /**
     
     
     // instance of the Go class in JavaScript
 **/
-private var _jsGo = ({} : Value);
+private var _jsGo = ({} : stdgo.syscall.js.Js.Value);
 /**
     
     
     
 **/
-private var _objectConstructor = ({} : Value);
+private var _objectConstructor = ({} : stdgo.syscall.js.Js.Value);
 /**
     
     
     
 **/
-private var _arrayConstructor = ({} : Value);
+private var _arrayConstructor = ({} : stdgo.syscall.js.Js.Value);
 /**
     
     
     
 **/
-var jsgo = ({} : Value);
+var jsgo = ({} : stdgo.syscall.js.Js.Value);
 /**
     
     
@@ -141,49 +141,49 @@ private final _typeFlagFunction = null;
     
     
 **/
-final typeUndefined : Type = ((0 : GoInt) : Type);
+final typeUndefined : Type = ((0 : GoInt) : stdgo.syscall.js.Js.Type);
 /**
     
     
     
 **/
-final typeNull = ((0 : GoInt) : Type);
+final typeNull = ((0 : GoInt) : stdgo.syscall.js.Js.Type);
 /**
     
     
     
 **/
-final typeBoolean = ((0 : GoInt) : Type);
+final typeBoolean = ((0 : GoInt) : stdgo.syscall.js.Js.Type);
 /**
     
     
     
 **/
-final typeNumber = ((0 : GoInt) : Type);
+final typeNumber = ((0 : GoInt) : stdgo.syscall.js.Js.Type);
 /**
     
     
     
 **/
-final typeString = ((0 : GoInt) : Type);
+final typeString = ((0 : GoInt) : stdgo.syscall.js.Js.Type);
 /**
     
     
     
 **/
-final typeSymbol = ((0 : GoInt) : Type);
+final typeSymbol = ((0 : GoInt) : stdgo.syscall.js.Js.Type);
 /**
     
     
     
 **/
-final typeObject = ((0 : GoInt) : Type);
+final typeObject = ((0 : GoInt) : stdgo.syscall.js.Js.Type);
 /**
     
     
     
 **/
-final typeFunction = ((0 : GoInt) : Type);
+final typeFunction = ((0 : GoInt) : stdgo.syscall.js.Js.Type);
 /**
     // Func is a wrapped Go function to be called by JavaScript.
     
@@ -191,9 +191,9 @@ final typeFunction = ((0 : GoInt) : Type);
 **/
 @:structInit @:using(stdgo.syscall.js.Js.Func_static_extension) class Func {
     @:embedded
-    public var value : Value = ({} : Value);
+    public var value : stdgo.syscall.js.Js.Value = ({} : stdgo.syscall.js.Js.Value);
     public var _id : GoUInt32 = 0;
-    public function new(?value:Value, ?_id:GoUInt32) {
+    public function new(?value:stdgo.syscall.js.Js.Value, ?_id:GoUInt32) {
         if (value != null) this.value = value;
         if (_id != null) this._id = _id;
     }
@@ -201,23 +201,23 @@ final typeFunction = ((0 : GoInt) : Type);
     @:embedded
     public function bool_():Bool return false;
     @:embedded
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return ({} : Value);
+    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return ({} : stdgo.syscall.js.Js.Value);
     @:embedded
     public function delete(_p:GoString) null;
     @:embedded
-    public function equal(__0:Value):Bool return false;
+    public function equal(__0:stdgo.syscall.js.Js.Value):Bool return false;
     @:embedded
     public function float_():GoFloat64 return (0 : GoFloat64);
     @:embedded
-    public function get(_p:GoString):Value return ({} : Value);
+    public function get(_p:GoString):stdgo.syscall.js.Js.Value return ({} : stdgo.syscall.js.Js.Value);
     @:embedded
-    public function index(_i:GoInt):Value return ({} : Value);
+    public function index(_i:GoInt):stdgo.syscall.js.Js.Value return ({} : stdgo.syscall.js.Js.Value);
     @:embedded
-    public function instanceOf(__0:Value):Bool return false;
+    public function instanceOf(__0:stdgo.syscall.js.Js.Value):Bool return false;
     @:embedded
     public function int_():GoInt return (0 : GoInt);
     @:embedded
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value return ({} : Value);
+    public function invoke(_args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return ({} : stdgo.syscall.js.Js.Value);
     @:embedded
     public function isNaN():Bool return false;
     @:embedded
@@ -227,7 +227,7 @@ final typeFunction = ((0 : GoInt) : Type);
     @:embedded
     public function length_():GoInt return (0 : GoInt);
     @:embedded
-    public function new_(_args:haxe.Rest<AnyInterface>):Value return ({} : Value);
+    public function new_(_args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return ({} : stdgo.syscall.js.Js.Value);
     @:embedded
     public function set(_p:GoString, _x:AnyInterface) null;
     @:embedded
@@ -237,7 +237,7 @@ final typeFunction = ((0 : GoInt) : Type);
     @:embedded
     public function truthy():Bool return false;
     @:embedded
-    public function type():Type return ((0 : GoInt) : Type);
+    public function type():stdgo.syscall.js.Js.Type return ((0 : GoInt) : stdgo.syscall.js.Js.Type);
     @:embedded
     public function _float(_p:GoString):GoFloat64 return (0 : GoFloat64);
     @:embedded
@@ -254,17 +254,17 @@ final typeFunction = ((0 : GoInt) : Type);
 **/
 @:structInit @:using(stdgo.syscall.js.Js.Value_static_extension) class Value {
     @:optional
-    public var _10 : GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0 ... 0) null]);
-    public var _ref : T_ref = ((0 : GoUInt64) : T_ref);
-    public var _gcPtr : Pointer<T_ref> = (null : Pointer<T_ref>);
-    public function new(?_10:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
-        if (_10 != null) this._10 = _10;
+    public var __10 : GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0 ... 0) null]);
+    public var _ref : stdgo.syscall.js.Js.T_ref = ((0 : GoUInt64) : stdgo.syscall.js.Js.T_ref);
+    public var _gcPtr : Pointer<stdgo.syscall.js.Js.T_ref> = (null : Pointer<stdgo.syscall.js.Js.T_ref>);
+    public function new(?__10:GoArray<() -> Void>, ?_ref:stdgo.syscall.js.Js.T_ref, ?_gcPtr:Pointer<stdgo.syscall.js.Js.T_ref>) {
+        if (__10 != null) this.__10 = __10;
         if (_ref != null) this._ref = _ref;
         if (_gcPtr != null) this._gcPtr = _gcPtr;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new Value(_10, _ref, _gcPtr);
+        return new Value(__10, _ref, _gcPtr);
     }
 }
 /**
@@ -277,31 +277,31 @@ final typeFunction = ((0 : GoInt) : Type);
         // Value is the underlying JavaScript error value.
     **/
     @:embedded
-    public var value : Value = ({} : Value);
-    public function new(?value:Value) {
+    public var value : stdgo.syscall.js.Js.Value = ({} : stdgo.syscall.js.Js.Value);
+    public function new(?value:stdgo.syscall.js.Js.Value) {
         if (value != null) this.value = value;
     }
     public function __underlying__() return Go.toInterface(this);
     @:embedded
     public function bool_():Bool return false;
     @:embedded
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return ({} : Value);
+    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return ({} : stdgo.syscall.js.Js.Value);
     @:embedded
     public function delete(_p:GoString) null;
     @:embedded
-    public function equal(__0:Value):Bool return false;
+    public function equal(__0:stdgo.syscall.js.Js.Value):Bool return false;
     @:embedded
     public function float_():GoFloat64 return (0 : GoFloat64);
     @:embedded
-    public function get(_p:GoString):Value return ({} : Value);
+    public function get(_p:GoString):stdgo.syscall.js.Js.Value return ({} : stdgo.syscall.js.Js.Value);
     @:embedded
-    public function index(_i:GoInt):Value return ({} : Value);
+    public function index(_i:GoInt):stdgo.syscall.js.Js.Value return ({} : stdgo.syscall.js.Js.Value);
     @:embedded
-    public function instanceOf(__0:Value):Bool return false;
+    public function instanceOf(__0:stdgo.syscall.js.Js.Value):Bool return false;
     @:embedded
     public function int_():GoInt return (0 : GoInt);
     @:embedded
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value return ({} : Value);
+    public function invoke(_args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return ({} : stdgo.syscall.js.Js.Value);
     @:embedded
     public function isNaN():Bool return false;
     @:embedded
@@ -311,7 +311,7 @@ final typeFunction = ((0 : GoInt) : Type);
     @:embedded
     public function length_():GoInt return (0 : GoInt);
     @:embedded
-    public function new_(_args:haxe.Rest<AnyInterface>):Value return ({} : Value);
+    public function new_(_args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return ({} : stdgo.syscall.js.Js.Value);
     @:embedded
     public function set(_p:GoString, _x:AnyInterface) null;
     @:embedded
@@ -321,7 +321,7 @@ final typeFunction = ((0 : GoInt) : Type);
     @:embedded
     public function truthy():Bool return false;
     @:embedded
-    public function type():Type return ((0 : GoInt) : Type);
+    public function type():stdgo.syscall.js.Js.Type return ((0 : GoInt) : stdgo.syscall.js.Js.Type);
     @:embedded
     public function _float(_p:GoString):GoFloat64 return (0 : GoFloat64);
     @:embedded
@@ -339,8 +339,8 @@ final typeFunction = ((0 : GoInt) : Type);
 **/
 @:structInit @:using(stdgo.syscall.js.Js.ValueError_static_extension) class ValueError {
     public var method : GoString = "";
-    public var type : Type = ((0 : GoInt) : Type);
-    public function new(?method:GoString, ?type:Type) {
+    public var type : stdgo.syscall.js.Js.Type = ((0 : GoInt) : stdgo.syscall.js.Js.Type);
+    public function new(?method:GoString, ?type:stdgo.syscall.js.Js.Type) {
         if (method != null) this.method = method;
         if (type != null) this.type = type;
     }
@@ -463,7 +463,7 @@ class Func_asInterface {
     @:embedded
     public dynamic function _float(_p:GoString):GoFloat64 return __self__.value._float(_p);
     @:embedded
-    public dynamic function type():Type return __self__.value.type();
+    public dynamic function type():stdgo.syscall.js.Js.Type return __self__.value.type();
     @:embedded
     public dynamic function truthy():Bool return __self__.value.truthy();
     @:embedded
@@ -473,7 +473,7 @@ class Func_asInterface {
     @:embedded
     public dynamic function set(_p:GoString, _x:AnyInterface):Void __self__.value.set(_p, _x);
     @:embedded
-    public dynamic function new_(_args:haxe.Rest<AnyInterface>):Value return __self__.value.new_(..._args);
+    public dynamic function new_(_args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.value.new_(..._args);
     @:embedded
     public dynamic function length_():GoInt return __self__.value.length_();
     @:embedded
@@ -483,23 +483,23 @@ class Func_asInterface {
     @:embedded
     public dynamic function isNaN():Bool return __self__.value.isNaN();
     @:embedded
-    public dynamic function invoke(_args:haxe.Rest<AnyInterface>):Value return __self__.value.invoke(..._args);
+    public dynamic function invoke(_args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.value.invoke(..._args);
     @:embedded
     public dynamic function int_():GoInt return __self__.value.int_();
     @:embedded
-    public dynamic function instanceOf(__0:Value):Bool return __self__.value.instanceOf(__0);
+    public dynamic function instanceOf(__0:stdgo.syscall.js.Js.Value):Bool return __self__.value.instanceOf(__0);
     @:embedded
-    public dynamic function index(_i:GoInt):Value return __self__.value.index(_i);
+    public dynamic function index(_i:GoInt):stdgo.syscall.js.Js.Value return __self__.value.index(_i);
     @:embedded
-    public dynamic function get(_p:GoString):Value return __self__.value.get(_p);
+    public dynamic function get(_p:GoString):stdgo.syscall.js.Js.Value return __self__.value.get(_p);
     @:embedded
     public dynamic function float_():GoFloat64 return __self__.value.float_();
     @:embedded
-    public dynamic function equal(__0:Value):Bool return __self__.value.equal(__0);
+    public dynamic function equal(__0:stdgo.syscall.js.Js.Value):Bool return __self__.value.equal(__0);
     @:embedded
     public dynamic function delete(_p:GoString):Void __self__.value.delete(_p);
     @:embedded
-    public dynamic function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.value.call(_m, ..._args);
+    public dynamic function call(_m:GoString, _args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.value.call(_m, ..._args);
     @:embedded
     public dynamic function bool_():Bool return __self__.value.bool_();
     public function new(__self__, __type__) {
@@ -523,7 +523,7 @@ class Func_asInterface {
     @:embedded
     public static function _float( __self__:Func, _p:GoString):GoFloat64 return __self__._float(_p);
     @:embedded
-    public static function type( __self__:Func):Type return __self__.type();
+    public static function type( __self__:Func):stdgo.syscall.js.Js.Type return __self__.type();
     @:embedded
     public static function truthy( __self__:Func):Bool return __self__.truthy();
     @:embedded
@@ -533,7 +533,7 @@ class Func_asInterface {
     @:embedded
     public static function set( __self__:Func, _p:GoString, _x:AnyInterface) __self__.set(_p, _x);
     @:embedded
-    public static function new_( __self__:Func, _args:haxe.Rest<AnyInterface>):Value return __self__.new_(..._args);
+    public static function new_( __self__:Func, _args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.new_(..._args);
     @:embedded
     public static function length_( __self__:Func):GoInt return __self__.length_();
     @:embedded
@@ -543,23 +543,23 @@ class Func_asInterface {
     @:embedded
     public static function isNaN( __self__:Func):Bool return __self__.isNaN();
     @:embedded
-    public static function invoke( __self__:Func, _args:haxe.Rest<AnyInterface>):Value return __self__.invoke(..._args);
+    public static function invoke( __self__:Func, _args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.invoke(..._args);
     @:embedded
     public static function int_( __self__:Func):GoInt return __self__.int_();
     @:embedded
-    public static function instanceOf( __self__:Func, __0:Value):Bool return __self__.instanceOf(__0);
+    public static function instanceOf( __self__:Func, __0:stdgo.syscall.js.Js.Value):Bool return __self__.instanceOf(__0);
     @:embedded
-    public static function index( __self__:Func, _i:GoInt):Value return __self__.index(_i);
+    public static function index( __self__:Func, _i:GoInt):stdgo.syscall.js.Js.Value return __self__.index(_i);
     @:embedded
-    public static function get( __self__:Func, _p:GoString):Value return __self__.get(_p);
+    public static function get( __self__:Func, _p:GoString):stdgo.syscall.js.Js.Value return __self__.get(_p);
     @:embedded
     public static function float_( __self__:Func):GoFloat64 return __self__.float_();
     @:embedded
-    public static function equal( __self__:Func, __0:Value):Bool return __self__.equal(__0);
+    public static function equal( __self__:Func, __0:stdgo.syscall.js.Js.Value):Bool return __self__.equal(__0);
     @:embedded
     public static function delete( __self__:Func, _p:GoString) __self__.delete(_p);
     @:embedded
-    public static function call( __self__:Func, _m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.call(_m, ..._args);
+    public static function call( __self__:Func, _m:GoString, _args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.call(_m, ..._args);
     @:embedded
     public static function bool_( __self__:Func):Bool return __self__.bool_();
 }
@@ -835,7 +835,7 @@ class T_error_asInterface {
     @:embedded
     public dynamic function _float(_p:GoString):GoFloat64 return __self__.value._float(_p);
     @:embedded
-    public dynamic function type():Type return __self__.value.type();
+    public dynamic function type():stdgo.syscall.js.Js.Type return __self__.value.type();
     @:embedded
     public dynamic function truthy():Bool return __self__.value.truthy();
     @:embedded
@@ -845,7 +845,7 @@ class T_error_asInterface {
     @:embedded
     public dynamic function set(_p:GoString, _x:AnyInterface):Void __self__.value.set(_p, _x);
     @:embedded
-    public dynamic function new_(_args:haxe.Rest<AnyInterface>):Value return __self__.value.new_(..._args);
+    public dynamic function new_(_args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.value.new_(..._args);
     @:embedded
     public dynamic function length_():GoInt return __self__.value.length_();
     @:embedded
@@ -855,23 +855,23 @@ class T_error_asInterface {
     @:embedded
     public dynamic function isNaN():Bool return __self__.value.isNaN();
     @:embedded
-    public dynamic function invoke(_args:haxe.Rest<AnyInterface>):Value return __self__.value.invoke(..._args);
+    public dynamic function invoke(_args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.value.invoke(..._args);
     @:embedded
     public dynamic function int_():GoInt return __self__.value.int_();
     @:embedded
-    public dynamic function instanceOf(__0:Value):Bool return __self__.value.instanceOf(__0);
+    public dynamic function instanceOf(__0:stdgo.syscall.js.Js.Value):Bool return __self__.value.instanceOf(__0);
     @:embedded
-    public dynamic function index(_i:GoInt):Value return __self__.value.index(_i);
+    public dynamic function index(_i:GoInt):stdgo.syscall.js.Js.Value return __self__.value.index(_i);
     @:embedded
-    public dynamic function get(_p:GoString):Value return __self__.value.get(_p);
+    public dynamic function get(_p:GoString):stdgo.syscall.js.Js.Value return __self__.value.get(_p);
     @:embedded
     public dynamic function float_():GoFloat64 return __self__.value.float_();
     @:embedded
-    public dynamic function equal(__0:Value):Bool return __self__.value.equal(__0);
+    public dynamic function equal(__0:stdgo.syscall.js.Js.Value):Bool return __self__.value.equal(__0);
     @:embedded
     public dynamic function delete(_p:GoString):Void __self__.value.delete(_p);
     @:embedded
-    public dynamic function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.value.call(_m, ..._args);
+    public dynamic function call(_m:GoString, _args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.value.call(_m, ..._args);
     @:embedded
     public dynamic function bool_():Bool return __self__.value.bool_();
     public function new(__self__, __type__) {
@@ -893,7 +893,7 @@ class T_error_asInterface {
     @:embedded
     public static function _float( __self__:T_error, _p:GoString):GoFloat64 return __self__._float(_p);
     @:embedded
-    public static function type( __self__:T_error):Type return __self__.type();
+    public static function type( __self__:T_error):stdgo.syscall.js.Js.Type return __self__.type();
     @:embedded
     public static function truthy( __self__:T_error):Bool return __self__.truthy();
     @:embedded
@@ -903,7 +903,7 @@ class T_error_asInterface {
     @:embedded
     public static function set( __self__:T_error, _p:GoString, _x:AnyInterface) __self__.set(_p, _x);
     @:embedded
-    public static function new_( __self__:T_error, _args:haxe.Rest<AnyInterface>):Value return __self__.new_(..._args);
+    public static function new_( __self__:T_error, _args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.new_(..._args);
     @:embedded
     public static function length_( __self__:T_error):GoInt return __self__.length_();
     @:embedded
@@ -913,23 +913,23 @@ class T_error_asInterface {
     @:embedded
     public static function isNaN( __self__:T_error):Bool return __self__.isNaN();
     @:embedded
-    public static function invoke( __self__:T_error, _args:haxe.Rest<AnyInterface>):Value return __self__.invoke(..._args);
+    public static function invoke( __self__:T_error, _args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.invoke(..._args);
     @:embedded
     public static function int_( __self__:T_error):GoInt return __self__.int_();
     @:embedded
-    public static function instanceOf( __self__:T_error, __0:Value):Bool return __self__.instanceOf(__0);
+    public static function instanceOf( __self__:T_error, __0:stdgo.syscall.js.Js.Value):Bool return __self__.instanceOf(__0);
     @:embedded
-    public static function index( __self__:T_error, _i:GoInt):Value return __self__.index(_i);
+    public static function index( __self__:T_error, _i:GoInt):stdgo.syscall.js.Js.Value return __self__.index(_i);
     @:embedded
-    public static function get( __self__:T_error, _p:GoString):Value return __self__.get(_p);
+    public static function get( __self__:T_error, _p:GoString):stdgo.syscall.js.Js.Value return __self__.get(_p);
     @:embedded
     public static function float_( __self__:T_error):GoFloat64 return __self__.float_();
     @:embedded
-    public static function equal( __self__:T_error, __0:Value):Bool return __self__.equal(__0);
+    public static function equal( __self__:T_error, __0:stdgo.syscall.js.Js.Value):Bool return __self__.equal(__0);
     @:embedded
     public static function delete( __self__:T_error, _p:GoString) __self__.delete(_p);
     @:embedded
-    public static function call( __self__:T_error, _m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.call(_m, ..._args);
+    public static function call( __self__:T_error, _m:GoString, _args:haxe.Rest<AnyInterface>):stdgo.syscall.js.Js.Value return __self__.call(_m, ..._args);
     @:embedded
     public static function bool_( __self__:T_error):Bool return __self__.bool_();
 }

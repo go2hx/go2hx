@@ -50,7 +50,7 @@ private var _importing : stdgo.go.types.Types.Package = ({} : stdgo.go.types.Typ
     // files; and imported packages are added to the packages map.
 **/
 function new_(_ctxt:Ref<stdgo.go.build.Build.Context>, _fset:Ref<stdgo.go.token.Token.FileSet>, _packages:GoMap<GoString, Ref<stdgo.go.types.Types.Package>>):Ref<Importer> {
-        return (Go.setRef(({ _ctxt : _ctxt, _fset : _fset, _sizes : stdgo.go.types.Types.sizesFor(_ctxt.compiler, _ctxt.goarch), _packages : _packages } : Importer)) : Ref<Importer>);
+        return (Go.setRef(({ _ctxt : _ctxt, _fset : _fset, _sizes : stdgo.go.types.Types.sizesFor(_ctxt.compiler, _ctxt.goarch), _packages : _packages } : Importer)) : Ref<go.internal.srcimporter.Srcimporter.Importer>);
     }
 /**
     //go:linkname setUsesCgo go/types.srcimporter_setUsesCgo
@@ -180,7 +180,7 @@ class Importer_asInterface {
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return stdgo.go.parser.Parser.parseFile(_p._fset, stdgo.path.filepath.Filepath.join(_tmpdir, ("_cgo_gotypes.go" : GoString)), (null : AnyInterface), (("64" : GoUInt) : stdgo.go.parser.Parser.Mode));
+                return stdgo.go.parser.Parser.parseFile(_p._fset, stdgo.path.filepath.Filepath.join(_tmpdir, ("_cgo_gotypes.go" : GoString)), (null : AnyInterface), (64u32 : stdgo.go.parser.Parser.Mode));
             };
             for (defer in __deferstack__) {
                 defer();
@@ -235,7 +235,7 @@ class Importer_asInterface {
                             };
                         };
                         {
-                            var __tmp__ = stdgo.go.parser.Parser.parseFile(_p._fset, _filepath, Go.toInterface(_src), (("64" : GoUInt) : stdgo.go.parser.Parser.Mode));
+                            var __tmp__ = stdgo.go.parser.Parser.parseFile(_p._fset, _filepath, Go.toInterface(_src), (64u32 : stdgo.go.parser.Parser.Mode));
                             _files[(_i : GoInt)] = __tmp__._0;
                             _errors[(_i : GoInt)] = __tmp__._1;
                         };
@@ -268,7 +268,7 @@ class Importer_asInterface {
             });
         };
         _wg.wait_();
-        for (_8 => _err in _errors) {
+        for (__8 => _err in _errors) {
             if (_err != null) {
                 return { _0 : (null : Slice<Ref<stdgo.go.ast.Ast.File>>), _1 : _err };
             };
@@ -296,7 +296,7 @@ class Importer_asInterface {
             };
         };
         try {
-            var __tmp__ = _p._ctxt.import_(_path, _srcDir, (("0" : GoUInt) : stdgo.go.build.Build.ImportMode)), _bp:Ref<stdgo.go.build.Build.Package> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _p._ctxt.import_(_path, _srcDir, (0u32 : stdgo.go.build.Build.ImportMode)), _bp:Ref<stdgo.go.build.Build.Package> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };

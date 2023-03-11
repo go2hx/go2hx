@@ -47,27 +47,27 @@ var rawURLEncoding = urlencoding.withPadding((-1 : GoInt32));
     
     
 **/
-private var _pairs = (new Slice<T_testpair>(
+private var _pairs = (new Slice<stdgo.encoding.base64.Base64.T_testpair>(
 0,
 0,
-(new T_testpair(Go.str(20, 251, 156, 3, 217, "~"), ("FPucA9l+" : GoString)) : T_testpair),
-(new T_testpair(Go.str(20, 251, 156, 3, 217), ("FPucA9k=" : GoString)) : T_testpair),
-(new T_testpair(Go.str(20, 251, 156, 3), ("FPucAw==" : GoString)) : T_testpair),
-(new T_testpair(Go.str(), Go.str()) : T_testpair),
-(new T_testpair(("f" : GoString), ("Zg==" : GoString)) : T_testpair),
-(new T_testpair(("fo" : GoString), ("Zm8=" : GoString)) : T_testpair),
-(new T_testpair(("foo" : GoString), ("Zm9v" : GoString)) : T_testpair),
-(new T_testpair(("foob" : GoString), ("Zm9vYg==" : GoString)) : T_testpair),
-(new T_testpair(("fooba" : GoString), ("Zm9vYmE=" : GoString)) : T_testpair),
-(new T_testpair(("foobar" : GoString), ("Zm9vYmFy" : GoString)) : T_testpair),
-(new T_testpair(("sure." : GoString), ("c3VyZS4=" : GoString)) : T_testpair),
-(new T_testpair(("sure" : GoString), ("c3VyZQ==" : GoString)) : T_testpair),
-(new T_testpair(("sur" : GoString), ("c3Vy" : GoString)) : T_testpair),
-(new T_testpair(("su" : GoString), ("c3U=" : GoString)) : T_testpair),
-(new T_testpair(("leasure." : GoString), ("bGVhc3VyZS4=" : GoString)) : T_testpair),
-(new T_testpair(("easure." : GoString), ("ZWFzdXJlLg==" : GoString)) : T_testpair),
-(new T_testpair(("asure." : GoString), ("YXN1cmUu" : GoString)) : T_testpair),
-(new T_testpair(("sure." : GoString), ("c3VyZS4=" : GoString)) : T_testpair)) : Slice<T_testpair>);
+(new stdgo.encoding.base64.Base64.T_testpair(Go.str(20, 251, 156, 3, 217, "~"), ("FPucA9l+" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(Go.str(20, 251, 156, 3, 217), ("FPucA9k=" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(Go.str(20, 251, 156, 3), ("FPucAw==" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(Go.str(), Go.str()) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("f" : GoString), ("Zg==" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("fo" : GoString), ("Zm8=" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("foo" : GoString), ("Zm9v" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("foob" : GoString), ("Zm9vYg==" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("fooba" : GoString), ("Zm9vYmE=" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("foobar" : GoString), ("Zm9vYmFy" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("sure." : GoString), ("c3VyZS4=" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("sure" : GoString), ("c3VyZQ==" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("sur" : GoString), ("c3Vy" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("su" : GoString), ("c3U=" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("leasure." : GoString), ("bGVhc3VyZS4=" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("easure." : GoString), ("ZWFzdXJlLg==" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("asure." : GoString), ("YXN1cmUu" : GoString)) : stdgo.encoding.base64.Base64.T_testpair),
+(new stdgo.encoding.base64.Base64.T_testpair(("sure." : GoString), ("c3VyZS4=" : GoString)) : stdgo.encoding.base64.Base64.T_testpair)) : Slice<stdgo.encoding.base64.Base64.T_testpair>);
 /**
     // A nonstandard encoding with a funny padding character, for testing
     
@@ -79,19 +79,19 @@ private var _funnyEncoding = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijk
     
     
 **/
-private var _encodingTests = (new Slice<T_encodingTest>(
+private var _encodingTests = (new Slice<stdgo.encoding.base64.Base64.T_encodingTest>(
 0,
 0,
-(new T_encodingTest(stdEncoding, _stdRef) : T_encodingTest),
-(new T_encodingTest(urlencoding, _urlRef) : T_encodingTest),
-(new T_encodingTest(rawStdEncoding, _rawRef) : T_encodingTest),
-(new T_encodingTest(rawURLEncoding, _rawURLRef) : T_encodingTest),
-(new T_encodingTest(_funnyEncoding, _funnyRef) : T_encodingTest),
-(new T_encodingTest(stdEncoding.strict(), _stdRef) : T_encodingTest),
-(new T_encodingTest(urlencoding.strict(), _urlRef) : T_encodingTest),
-(new T_encodingTest(rawStdEncoding.strict(), _rawRef) : T_encodingTest),
-(new T_encodingTest(rawURLEncoding.strict(), _rawURLRef) : T_encodingTest),
-(new T_encodingTest(_funnyEncoding.strict(), _funnyRef) : T_encodingTest)) : Slice<T_encodingTest>);
+(new stdgo.encoding.base64.Base64.T_encodingTest(stdEncoding, _stdRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(urlencoding, _urlRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(rawStdEncoding, _rawRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(rawURLEncoding, _rawURLRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(_funnyEncoding, _funnyRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(stdEncoding.strict(), _stdRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(urlencoding.strict(), _urlRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(rawStdEncoding.strict(), _rawRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(rawURLEncoding.strict(), _rawURLRef) : stdgo.encoding.base64.Base64.T_encodingTest),
+(new stdgo.encoding.base64.Base64.T_encodingTest(_funnyEncoding.strict(), _funnyRef) : stdgo.encoding.base64.Base64.T_encodingTest)) : Slice<stdgo.encoding.base64.Base64.T_encodingTest>);
 /**
     
     
@@ -415,12 +415,12 @@ private final _encodeURL = ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxy
 **/
 @:structInit @:private @:using(stdgo.encoding.base64.Base64.T_encoder_static_extension) class T_encoder {
     public var _err : Error = (null : Error);
-    public var _enc : Ref<Encoding> = (null : Ref<Encoding>);
+    public var _enc : Ref<stdgo.encoding.base64.Base64.Encoding> = (null : Ref<stdgo.encoding.base64.Base64.Encoding>);
     public var _w : stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
     public var _buf : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 3) (0 : GoUInt8)]);
     public var _nbuf : GoInt = 0;
     public var _out : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 1024) (0 : GoUInt8)]);
-    public function new(?_err:Error, ?_enc:Ref<Encoding>, ?_w:stdgo.io.Io.Writer, ?_buf:GoArray<GoUInt8>, ?_nbuf:GoInt, ?_out:GoArray<GoUInt8>) {
+    public function new(?_err:Error, ?_enc:Ref<stdgo.encoding.base64.Base64.Encoding>, ?_w:stdgo.io.Io.Writer, ?_buf:GoArray<GoUInt8>, ?_nbuf:GoInt, ?_out:GoArray<GoUInt8>) {
         if (_err != null) this._err = _err;
         if (_enc != null) this._enc = _enc;
         if (_w != null) this._w = _w;
@@ -441,13 +441,13 @@ private final _encodeURL = ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxy
 @:structInit @:private @:using(stdgo.encoding.base64.Base64.T_decoder_static_extension) class T_decoder {
     public var _err : Error = (null : Error);
     public var _readErr : Error = (null : Error);
-    public var _enc : Ref<Encoding> = (null : Ref<Encoding>);
+    public var _enc : Ref<stdgo.encoding.base64.Base64.Encoding> = (null : Ref<stdgo.encoding.base64.Base64.Encoding>);
     public var _r : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
     public var _buf : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 1024) (0 : GoUInt8)]);
     public var _nbuf : GoInt = 0;
     public var _out : Slice<GoUInt8> = (null : Slice<GoUInt8>);
     public var _outbuf : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 768) (0 : GoUInt8)]);
-    public function new(?_err:Error, ?_readErr:Error, ?_enc:Ref<Encoding>, ?_r:stdgo.io.Io.Reader, ?_buf:GoArray<GoUInt8>, ?_nbuf:GoInt, ?_out:Slice<GoUInt8>, ?_outbuf:GoArray<GoUInt8>) {
+    public function new(?_err:Error, ?_readErr:Error, ?_enc:Ref<stdgo.encoding.base64.Base64.Encoding>, ?_r:stdgo.io.Io.Reader, ?_buf:GoArray<GoUInt8>, ?_nbuf:GoInt, ?_out:Slice<GoUInt8>, ?_outbuf:GoArray<GoUInt8>) {
         if (_err != null) this._err = _err;
         if (_readErr != null) this._readErr = _readErr;
         if (_enc != null) this._enc = _enc;
@@ -500,9 +500,9 @@ private final _encodeURL = ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxy
     
 **/
 @:structInit @:private class T_encodingTest {
-    public var _enc : Ref<Encoding> = (null : Ref<Encoding>);
+    public var _enc : Ref<stdgo.encoding.base64.Base64.Encoding> = (null : Ref<stdgo.encoding.base64.Base64.Encoding>);
     public var _conv : GoString -> GoString = null;
-    public function new(?_enc:Ref<Encoding>, ?_conv:GoString -> GoString) {
+    public function new(?_enc:Ref<stdgo.encoding.base64.Base64.Encoding>, ?_conv:GoString -> GoString) {
         if (_enc != null) this._enc = _enc;
         if (_conv != null) this._conv = _conv;
     }
@@ -536,8 +536,8 @@ private final _encodeURL = ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxy
 **/
 @:structInit @:private @:using(stdgo.encoding.base64.Base64.T_faultInjectReader_static_extension) class T_faultInjectReader {
     public var _source : GoString = "";
-    public var _nextc : Chan<T_nextRead> = (null : Chan<T_nextRead>);
-    public function new(?_source:GoString, ?_nextc:Chan<T_nextRead>) {
+    public var _nextc : Chan<stdgo.encoding.base64.Base64.T_nextRead> = (null : Chan<stdgo.encoding.base64.Base64.T_nextRead>);
+    public function new(?_source:GoString, ?_nextc:Chan<stdgo.encoding.base64.Base64.T_nextRead>) {
         if (_source != null) this._source = _source;
         if (_nextc != null) this._nextc = _nextc;
     }
@@ -575,7 +575,7 @@ class T__struct_1_asInterface {
 
 }
 @:local @:using(stdgo.encoding.base64.Base64.T__struct_1_static_extension) private typedef T__struct_1 = {
-    public var _enc : Ref<Encoding>;
+    public var _enc : Ref<stdgo.encoding.base64.Base64.Encoding>;
     public var _n : GoInt;
     public var _want : GoInt;
 };
@@ -599,7 +599,7 @@ function newEncoding(_encoder:GoString):Ref<Encoding> {
                 };
             });
         };
-        var _e = (Go.setRef(({} : Encoding)) : Ref<Encoding>);
+        var _e = (Go.setRef(({} : stdgo.encoding.base64.Base64.Encoding)) : Ref<stdgo.encoding.base64.Base64.Encoding>);
         _e._padChar = (61 : GoInt32);
         Go.copySlice((_e._encode.__slice__(0) : Slice<GoUInt8>), _encoder);
         Go.copySlice((_e._decodeMap.__slice__(0) : Slice<GoUInt8>), Go.str(255,
@@ -874,7 +874,7 @@ function newEncoding(_encoder:GoString):Ref<Encoding> {
     // partially written blocks.
 **/
 function newEncoder(_enc:Ref<Encoding>, _w:stdgo.io.Io.Writer):stdgo.io.Io.WriteCloser {
-        return Go.asInterface((Go.setRef(({ _enc : _enc, _w : _w } : T_encoder)) : Ref<T_encoder>));
+        return Go.asInterface((Go.setRef(({ _enc : _enc, _w : _w } : T_encoder)) : Ref<stdgo.encoding.base64.Base64.T_encoder>));
     }
 /**
     // assemble32 assembles 4 base64 digits into 3 bytes.
@@ -884,9 +884,9 @@ function newEncoder(_enc:Ref<Encoding>, _w:stdgo.io.Io.Writer):stdgo.io.Io.Write
 private function _assemble32(_n1:GoByte, _n2:GoByte, _n3:GoByte, _n4:GoByte):{ var _0 : GoUInt32; var _1 : Bool; } {
         var _dn:GoUInt32 = (0 : GoUInt32), _ok:Bool = false;
         if (_n1 | _n2 | _n3 | _n4 == ((255 : GoUInt8))) {
-            return { _0 : ("0" : GoUInt32), _1 : false };
+            return { _0 : (0u32 : GoUInt32), _1 : false };
         };
-        return { _0 : ((((_n1 : GoUInt32) << (("26" : GoUInt64) : GoUInt64)) | ((_n2 : GoUInt32) << (("20" : GoUInt64) : GoUInt64))) | ((_n3 : GoUInt32) << (("14" : GoUInt64) : GoUInt64))) | ((_n4 : GoUInt32) << (("8" : GoUInt64) : GoUInt64)), _1 : true };
+        return { _0 : ((((_n1 : GoUInt32) << (26i64 : GoUInt64)) | ((_n2 : GoUInt32) << (20i64 : GoUInt64))) | ((_n3 : GoUInt32) << (14i64 : GoUInt64))) | ((_n4 : GoUInt32) << (8i64 : GoUInt64)), _1 : true };
     }
 /**
     // assemble64 assembles 8 base64 digits into 6 bytes.
@@ -896,15 +896,15 @@ private function _assemble32(_n1:GoByte, _n2:GoByte, _n3:GoByte, _n4:GoByte):{ v
 private function _assemble64(_n1:GoByte, _n2:GoByte, _n3:GoByte, _n4:GoByte, _n5:GoByte, _n6:GoByte, _n7:GoByte, _n8:GoByte):{ var _0 : GoUInt64; var _1 : Bool; } {
         var _dn:GoUInt64 = (0 : GoUInt64), _ok:Bool = false;
         if (_n1 | _n2 | _n3 | _n4 | _n5 | _n6 | _n7 | _n8 == ((255 : GoUInt8))) {
-            return { _0 : ("0" : GoUInt64), _1 : false };
+            return { _0 : (0i64 : GoUInt64), _1 : false };
         };
-        return { _0 : ((((((((_n1 : GoUInt64) << (("58" : GoUInt64) : GoUInt64)) | ((_n2 : GoUInt64) << (("52" : GoUInt64) : GoUInt64))) | ((_n3 : GoUInt64) << (("46" : GoUInt64) : GoUInt64))) | ((_n4 : GoUInt64) << (("40" : GoUInt64) : GoUInt64))) | ((_n5 : GoUInt64) << (("34" : GoUInt64) : GoUInt64))) | ((_n6 : GoUInt64) << (("28" : GoUInt64) : GoUInt64))) | ((_n7 : GoUInt64) << (("22" : GoUInt64) : GoUInt64))) | ((_n8 : GoUInt64) << (("16" : GoUInt64) : GoUInt64)), _1 : true };
+        return { _0 : ((((((((_n1 : GoUInt64) << (58i64 : GoUInt64)) | ((_n2 : GoUInt64) << (52i64 : GoUInt64))) | ((_n3 : GoUInt64) << (46i64 : GoUInt64))) | ((_n4 : GoUInt64) << (40i64 : GoUInt64))) | ((_n5 : GoUInt64) << (34i64 : GoUInt64))) | ((_n6 : GoUInt64) << (28i64 : GoUInt64))) | ((_n7 : GoUInt64) << (22i64 : GoUInt64))) | ((_n8 : GoUInt64) << (16i64 : GoUInt64)), _1 : true };
     }
 /**
     // NewDecoder constructs a new base64 stream decoder.
 **/
 function newDecoder(_enc:Ref<Encoding>, _r:stdgo.io.Io.Reader):stdgo.io.Io.Reader {
-        return Go.asInterface((Go.setRef(({ _enc : _enc, _r : Go.asInterface((Go.setRef((new T_newlineFilteringReader(_r) : T_newlineFilteringReader)) : Ref<T_newlineFilteringReader>)) } : T_decoder)) : Ref<T_decoder>));
+        return Go.asInterface((Go.setRef(({ _enc : _enc, _r : Go.asInterface((Go.setRef((new T_newlineFilteringReader(_r) : T_newlineFilteringReader)) : Ref<stdgo.encoding.base64.Base64.T_newlineFilteringReader>)) } : T_decoder)) : Ref<stdgo.encoding.base64.Base64.T_decoder>));
     }
 /**
     // Do nothing to a reference base64 string (leave in standard format)
@@ -945,15 +945,15 @@ private function _testEqual(_t:Ref<stdgo.testing.Testing.T>, _msg:GoString, _arg
         return true;
     }
 function testEncode(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _p in _pairs) {
-            for (_1 => _tt in _encodingTests) {
+        for (__0 => _p in _pairs) {
+            for (__1 => _tt in _encodingTests) {
                 var _got:GoString = _tt._enc.encodeToString((_p._decoded : Slice<GoByte>));
                 _testEqual(_t, ("Encode(%q) = %q, want %q" : GoString), Go.toInterface(_p._decoded), Go.toInterface(_got), Go.toInterface(_tt._conv(_p._encoded)));
             };
         };
     }
 function testEncoder(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _p in _pairs) {
+        for (__0 => _p in _pairs) {
             var _bb = (Go.setRef((new stdgo.strings.Strings.Builder() : stdgo.strings.Strings.Builder)) : Ref<stdgo.strings.Strings.Builder>);
             var _encoder:stdgo.io.Io.WriteCloser = newEncoder(stdEncoding, Go.asInterface(_bb));
             _encoder.write((_p._decoded : Slice<GoByte>));
@@ -987,8 +987,8 @@ function testEncoderBuffering(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testDecode(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _p in _pairs) {
-            for (_1 => _tt in _encodingTests) {
+        for (__0 => _p in _pairs) {
+            for (__1 => _tt in _encodingTests) {
                 var _encoded:GoString = _tt._conv(_p._encoded);
                 var _dbuf = new Slice<GoUInt8>((_tt._enc.decodedLen((_encoded.length)) : GoInt).toBasic(), 0, ...[for (i in 0 ... (_tt._enc.decodedLen((_encoded.length)) : GoInt).toBasic()) (0 : GoUInt8)]);
                 var __tmp__ = _tt._enc.decode(_dbuf, (_encoded : Slice<GoByte>)), _count:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -1006,7 +1006,7 @@ function testDecode(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testDecoder(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _p in _pairs) {
+        for (__0 => _p in _pairs) {
             var _decoder:stdgo.io.Io.Reader = newDecoder(stdEncoding, Go.asInterface(stdgo.strings.Strings.newReader(_p._encoded)));
             var _dbuf = new Slice<GoUInt8>((stdEncoding.decodedLen((_p._encoded.length)) : GoInt).toBasic(), 0, ...[for (i in 0 ... (stdEncoding.decodedLen((_p._encoded.length)) : GoInt).toBasic()) (0 : GoUInt8)]);
             var __tmp__ = _decoder.read(_dbuf), _count:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -1079,9 +1079,9 @@ function testDecodeCorrupt(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _input : ("YWJjZA=====" : GoString), _offset : (8 : GoInt) } : T__struct_0),
 ({ _input : ("A!\n" : GoString), _offset : (1 : GoInt) } : T__struct_0),
 ({ _input : ("A=\n" : GoString), _offset : (1 : GoInt) } : T__struct_0)) : Slice<T__struct_0>);
-        for (_0 => _tc in _testCases) {
+        for (__0 => _tc in _testCases) {
             var _dbuf = new Slice<GoUInt8>((stdEncoding.decodedLen((_tc._input.length)) : GoInt).toBasic(), 0, ...[for (i in 0 ... (stdEncoding.decodedLen((_tc._input.length)) : GoInt).toBasic()) (0 : GoUInt8)]);
-            var __tmp__ = stdEncoding.decode(_dbuf, (_tc._input : Slice<GoByte>)), _1:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdEncoding.decode(_dbuf, (_tc._input : Slice<GoByte>)), __1:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_tc._offset == ((-1 : GoInt))) {
                 if (_err != null) {
                     _t.error(Go.toInterface(("Decoder wrongly detected corruption in" : GoString)), Go.toInterface(_tc._input));
@@ -1091,7 +1091,7 @@ function testDecodeCorrupt(_t:Ref<stdgo.testing.Testing.T>):Void {
             {
                 final __type__ = _err;
                 if (Go.typeEquals((__type__ : CorruptInputError))) {
-                    var _err:CorruptInputError = __type__ == null ? ((0 : GoInt64) : CorruptInputError) : __type__.__underlying__() == null ? ((0 : GoInt64) : CorruptInputError) : __type__ == null ? ((0 : GoInt64) : CorruptInputError) : __type__.__underlying__().value;
+                    var _err:stdgo.encoding.base64.Base64.CorruptInputError = __type__ == null ? ((0 : GoInt64) : stdgo.encoding.base64.Base64.CorruptInputError) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.encoding.base64.Base64.CorruptInputError) : __type__ == null ? ((0 : GoInt64) : stdgo.encoding.base64.Base64.CorruptInputError) : __type__.__underlying__().value;
                     _testEqual(_t, ("Corruption in %q at offset %v, want %v" : GoString), Go.toInterface(_tc._input), Go.toInterface((_err : GoInt)), Go.toInterface(_tc._offset));
                 } else {
                     var _err:Error = __type__ == null ? (null : Error) : cast __type__;
@@ -1149,7 +1149,7 @@ function testDecodeBounds(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testEncodedLen(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in (new Slice<T__struct_1>(
+        for (__0 => _tt in (new Slice<T__struct_1>(
 0,
 0,
 ({ _enc : rawStdEncoding, _n : (0 : GoInt), _want : (0 : GoInt) } : T__struct_1),
@@ -1172,7 +1172,7 @@ function testEncodedLen(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testDecodedLen(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in (new Slice<T__struct_1>(0, 0, ({ _enc : rawStdEncoding, _n : (0 : GoInt), _want : (0 : GoInt) } : T__struct_1), ({ _enc : rawStdEncoding, _n : (2 : GoInt), _want : (1 : GoInt) } : T__struct_1), ({ _enc : rawStdEncoding, _n : (3 : GoInt), _want : (2 : GoInt) } : T__struct_1), ({ _enc : rawStdEncoding, _n : (4 : GoInt), _want : (3 : GoInt) } : T__struct_1), ({ _enc : rawStdEncoding, _n : (10 : GoInt), _want : (7 : GoInt) } : T__struct_1), ({ _enc : stdEncoding, _n : (0 : GoInt), _want : (0 : GoInt) } : T__struct_1), ({ _enc : stdEncoding, _n : (4 : GoInt), _want : (3 : GoInt) } : T__struct_1), ({ _enc : stdEncoding, _n : (8 : GoInt), _want : (6 : GoInt) } : T__struct_1)) : Slice<T__struct_1>)) {
+        for (__0 => _tt in (new Slice<T__struct_1>(0, 0, ({ _enc : rawStdEncoding, _n : (0 : GoInt), _want : (0 : GoInt) } : T__struct_1), ({ _enc : rawStdEncoding, _n : (2 : GoInt), _want : (1 : GoInt) } : T__struct_1), ({ _enc : rawStdEncoding, _n : (3 : GoInt), _want : (2 : GoInt) } : T__struct_1), ({ _enc : rawStdEncoding, _n : (4 : GoInt), _want : (3 : GoInt) } : T__struct_1), ({ _enc : rawStdEncoding, _n : (10 : GoInt), _want : (7 : GoInt) } : T__struct_1), ({ _enc : stdEncoding, _n : (0 : GoInt), _want : (0 : GoInt) } : T__struct_1), ({ _enc : stdEncoding, _n : (4 : GoInt), _want : (3 : GoInt) } : T__struct_1), ({ _enc : stdEncoding, _n : (8 : GoInt), _want : (6 : GoInt) } : T__struct_1)) : Slice<T__struct_1>)) {
             {
                 var _got:GoInt = _tt._enc.decodedLen(_tt._n);
                 if (_got != (_tt._want)) {
@@ -1234,7 +1234,7 @@ function testNewLineCharacters(_t:Ref<stdgo.testing.Testing.T>):Void {
 ("c3VyZQ\n==" : GoString),
 ("c3VyZQ=\n=" : GoString),
 ("c3VyZQ=\r\n\r\n=" : GoString)) : Slice<GoString>);
-        for (_0 => _e in _examples) {
+        for (__0 => _e in _examples) {
             var __tmp__ = stdEncoding.decodeString(_e), _buf:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.errorf(("Decode(%q) failed: %v" : GoString), Go.toInterface(_e), Go.toInterface(_err));
@@ -1252,21 +1252,21 @@ function testNewLineCharacters(_t:Ref<stdgo.testing.Testing.T>):Void {
     // tests that we don't ignore errors from our underlying reader
 **/
 function testDecoderIssue3577(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _next = new Chan<T_nextRead>((10 : GoInt).toBasic(), () -> ({} : T_nextRead));
+        var _next = new Chan<stdgo.encoding.base64.Base64.T_nextRead>((10 : GoInt).toBasic(), () -> ({} : stdgo.encoding.base64.Base64.T_nextRead));
         var _wantErr:Error = stdgo.errors.Errors.new_(("my error" : GoString));
         _next.__send__((new T_nextRead((5 : GoInt), (null : Error)) : T_nextRead));
         _next.__send__((new T_nextRead((10 : GoInt), _wantErr) : T_nextRead));
         _next.__send__((new T_nextRead((0 : GoInt), _wantErr) : T_nextRead));
-        var _d:stdgo.io.Io.Reader = newDecoder(stdEncoding, Go.asInterface((Go.setRef(({ _source : ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : GoString), _nextc : _next } : T_faultInjectReader)) : Ref<T_faultInjectReader>)));
+        var _d:stdgo.io.Io.Reader = newDecoder(stdEncoding, Go.asInterface((Go.setRef(({ _source : ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : GoString), _nextc : _next } : T_faultInjectReader)) : Ref<stdgo.encoding.base64.Base64.T_faultInjectReader>)));
         var _errc = new Chan<Error>((1 : GoInt).toBasic(), () -> (null : Error));
         Go.routine(() -> {
             var a = function():Void {
-                var __tmp__ = stdgo.io.Io.readAll(_d), _0:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = stdgo.io.Io.readAll(_d), __0:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
                 _errc.__send__(_err);
             };
             a();
         });
-        Go.select([stdgo.time.Time.after((("5000000000" : GoInt64) : stdgo.time.Time.Duration)).__get__() => {
+        Go.select([stdgo.time.Time.after((5000000000i64 : stdgo.time.Time.Duration)).__get__() => {
             _t.errorf(("timeout; Decoder blocked without returning an error" : GoString));
         }, var _err = _errc.__get__() => {
             if (Go.toInterface(_err) != (Go.toInterface(_wantErr))) {
@@ -1298,7 +1298,7 @@ function testDecoderIssue4779(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testDecoderIssue7733(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __tmp__ = stdEncoding.decodeString(("YWJjZA=====" : GoString)), _s:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
-        var _want:CorruptInputError = (("8" : GoInt64) : CorruptInputError);
+        var _want:stdgo.encoding.base64.Base64.CorruptInputError = ((8i64 : stdgo.encoding.base64.Base64.CorruptInputError) : CorruptInputError);
         if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(Go.asInterface(_want)), Go.toInterface(_err))) {
             _t.errorf(("Error = %v; want CorruptInputError(8)" : GoString), Go.toInterface(_err));
         };
@@ -1307,8 +1307,8 @@ function testDecoderIssue7733(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testDecoderIssue15656(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var __tmp__ = stdEncoding.strict().decodeString(("WvLTlMrX9NpYDQlEIFlnDB==" : GoString)), _0:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
-        var _want:CorruptInputError = (("22" : GoInt64) : CorruptInputError);
+        var __tmp__ = stdEncoding.strict().decodeString(("WvLTlMrX9NpYDQlEIFlnDB==" : GoString)), __0:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
+        var _want:stdgo.encoding.base64.Base64.CorruptInputError = ((22i64 : stdgo.encoding.base64.Base64.CorruptInputError) : CorruptInputError);
         if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(Go.asInterface(_want)), Go.toInterface(_err))) {
             _t.errorf(("Error = %v; want CorruptInputError(22)" : GoString), Go.toInterface(_err));
         };
@@ -1350,7 +1350,7 @@ function benchmarkDecodeString(_b:Ref<stdgo.testing.Testing.B>):Void {
                 });
             };
         };
-        for (_0 => _size in _sizes) {
+        for (__0 => _size in _sizes) {
             _b.run(stdgo.fmt.Fmt.sprintf(("%d" : GoString), Go.toInterface(_size)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 _benchFunc(_b, _size);
             });
@@ -1362,7 +1362,7 @@ function benchmarkNewEncoding(_b:Ref<stdgo.testing.Testing.B>):Void {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
                 var _e = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : GoString));
-                for (_8 => _v in _e._decodeMap) {
+                for (__8 => _v in _e._decodeMap) {
                     _v;
                 };
             });
@@ -1376,7 +1376,7 @@ function testDecoderRaw(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("RawURLEncoding.DecodeString(%q) = %x, %v, want %x, nil" : GoString), Go.toInterface(_source), Go.toInterface(_dec1), Go.toInterface(_err), Go.toInterface(_want));
         };
         var _r:stdgo.io.Io.Reader = newDecoder(rawURLEncoding, Go.asInterface(stdgo.bytes.Bytes.newReader((_source : Slice<GoByte>))));
-        var __tmp__ = stdgo.io.Io.readAll(stdgo.io.Io.limitReader(_r, ("100" : GoInt64))), _dec2:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = stdgo.io.Io.readAll(stdgo.io.Io.limitReader(_r, (100i64 : GoInt64))), _dec2:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
         if ((_err != null) || !stdgo.bytes.Bytes.equal(_dec2, _want)) {
             _t.errorf(("reading NewDecoder(RawURLEncoding, %q) = %x, %v, want %x, nil" : GoString), Go.toInterface(_source), Go.toInterface(_dec2), Go.toInterface(_err), Go.toInterface(_want));
         };
@@ -1627,11 +1627,11 @@ class Encoding_asInterface {
                 break;
             });
         };
-        var _val:GoUInt = ((((_dbuf[(0 : GoInt)] : GoUInt) << (("18" : GoUInt64) : GoUInt64)) | ((_dbuf[(1 : GoInt)] : GoUInt) << (("12" : GoUInt64) : GoUInt64))) | ((_dbuf[(2 : GoInt)] : GoUInt) << (("6" : GoUInt64) : GoUInt64))) | (_dbuf[(3 : GoInt)] : GoUInt);
+        var _val:GoUInt = ((((_dbuf[(0 : GoInt)] : GoUInt) << (18i64 : GoUInt64)) | ((_dbuf[(1 : GoInt)] : GoUInt) << (12i64 : GoUInt64))) | ((_dbuf[(2 : GoInt)] : GoUInt) << (6i64 : GoUInt64))) | (_dbuf[(3 : GoInt)] : GoUInt);
         {
-            final __tmp__0 = (_val >> ("0" : GoUInt64) : GoByte);
-            final __tmp__1 = (_val >> ("8" : GoUInt64) : GoByte);
-            final __tmp__2 = (_val >> ("16" : GoUInt64) : GoByte);
+            final __tmp__0 = (_val >> (0i64 : GoUInt64) : GoByte);
+            final __tmp__1 = (_val >> (8i64 : GoUInt64) : GoByte);
+            final __tmp__2 = (_val >> (16i64 : GoUInt64) : GoByte);
             _dbuf[(2 : GoInt)] = __tmp__0;
             _dbuf[(1 : GoInt)] = __tmp__1;
             _dbuf[(0 : GoInt)] = __tmp__2;
@@ -1708,14 +1708,14 @@ class Encoding_asInterface {
             return;
         };
         _enc._encode;
-        var _0:GoInt = (0 : GoInt), _1:GoInt = (0 : GoInt), _si:GoInt = _1, _di:GoInt = _0;
+        var __0:GoInt = (0 : GoInt), __1:GoInt = (0 : GoInt), _si:GoInt = __1, _di:GoInt = __0;
         var _n:GoInt = (_src.length / (3 : GoInt)) * (3 : GoInt);
         while (_si < _n) {
-            var _val:GoUInt = (((_src[(_si + (0 : GoInt) : GoInt)] : GoUInt) << (("16" : GoUInt64) : GoUInt64)) | ((_src[(_si + (1 : GoInt) : GoInt)] : GoUInt) << (("8" : GoUInt64) : GoUInt64))) | (_src[(_si + (2 : GoInt) : GoInt)] : GoUInt);
-            _dst[(_di + (0 : GoInt) : GoInt)] = _enc._encode[((_val >> (("18" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
-            _dst[(_di + (1 : GoInt) : GoInt)] = _enc._encode[((_val >> (("12" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
-            _dst[(_di + (2 : GoInt) : GoInt)] = _enc._encode[((_val >> (("6" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
-            _dst[(_di + (3 : GoInt) : GoInt)] = _enc._encode[(_val & ("63" : GoUInt) : GoInt)];
+            var _val:GoUInt = (((_src[(_si + (0 : GoInt) : GoInt)] : GoUInt) << (16i64 : GoUInt64)) | ((_src[(_si + (1 : GoInt) : GoInt)] : GoUInt) << (8i64 : GoUInt64))) | (_src[(_si + (2 : GoInt) : GoInt)] : GoUInt);
+            _dst[(_di + (0 : GoInt) : GoInt)] = _enc._encode[((_val >> (18i64 : GoUInt64)) & (63u32 : GoUInt) : GoInt)];
+            _dst[(_di + (1 : GoInt) : GoInt)] = _enc._encode[((_val >> (12i64 : GoUInt64)) & (63u32 : GoUInt) : GoInt)];
+            _dst[(_di + (2 : GoInt) : GoInt)] = _enc._encode[((_val >> (6i64 : GoUInt64)) & (63u32 : GoUInt) : GoInt)];
+            _dst[(_di + (3 : GoInt) : GoInt)] = _enc._encode[(_val & (63u32 : GoUInt) : GoInt)];
             _si = _si + ((3 : GoInt));
             _di = _di + ((4 : GoInt));
         };
@@ -1723,16 +1723,16 @@ class Encoding_asInterface {
         if (_remain == ((0 : GoInt))) {
             return;
         };
-        var _val:GoUInt = (_src[(_si + (0 : GoInt) : GoInt)] : GoUInt) << ("16" : GoUInt64);
+        var _val:GoUInt = (_src[(_si + (0 : GoInt) : GoInt)] : GoUInt) << (16i64 : GoUInt64);
         if (_remain == ((2 : GoInt))) {
-            _val = _val | ((_src[(_si + (1 : GoInt) : GoInt)] : GoUInt) << (("8" : GoUInt64) : GoUInt64));
+            _val = _val | ((_src[(_si + (1 : GoInt) : GoInt)] : GoUInt) << (8i64 : GoUInt64));
         };
-        _dst[(_di + (0 : GoInt) : GoInt)] = _enc._encode[((_val >> (("18" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
-        _dst[(_di + (1 : GoInt) : GoInt)] = _enc._encode[((_val >> (("12" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
+        _dst[(_di + (0 : GoInt) : GoInt)] = _enc._encode[((_val >> (18i64 : GoUInt64)) & (63u32 : GoUInt) : GoInt)];
+        _dst[(_di + (1 : GoInt) : GoInt)] = _enc._encode[((_val >> (12i64 : GoUInt64)) & (63u32 : GoUInt) : GoInt)];
         {
             final __value__ = _remain;
             if (__value__ == ((2 : GoInt))) {
-                _dst[(_di + (2 : GoInt) : GoInt)] = _enc._encode[((_val >> (("6" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
+                _dst[(_di + (2 : GoInt) : GoInt)] = _enc._encode[((_val >> (6i64 : GoUInt64)) & (63u32 : GoUInt) : GoInt)];
                 if (_enc._padChar != ((-1 : GoInt32))) {
                     _dst[(_di + (3 : GoInt) : GoInt)] = (_enc._padChar : GoByte);
                 };
@@ -1755,7 +1755,7 @@ class Encoding_asInterface {
     @:keep
     static public function strict( _enc:Encoding):Ref<Encoding> {
         _enc._strict = true;
-        return (Go.setRef(_enc) : Ref<Encoding>);
+        return (Go.setRef(_enc) : Ref<stdgo.encoding.base64.Base64.Encoding>);
     }
     /**
         // WithPadding creates a new encoding identical to enc except
@@ -1778,7 +1778,7 @@ class Encoding_asInterface {
             });
         };
         _enc._padChar = _padding;
-        return (Go.setRef(_enc) : Ref<Encoding>);
+        return (Go.setRef(_enc) : Ref<stdgo.encoding.base64.Base64.Encoding>);
     }
 }
 class T_encoder_asInterface {
@@ -2009,7 +2009,7 @@ class T_faultInjectReader_asInterface {
 @:keep @:allow(stdgo.encoding.base64.Base64.T_faultInjectReader_asInterface) class T_faultInjectReader_static_extension {
     @:keep
     static public function read( _r:Ref<T_faultInjectReader>, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
-        var _nr:T_nextRead = _r._nextc.__get__().__copy__();
+        var _nr:stdgo.encoding.base64.Base64.T_nextRead = _r._nextc.__get__()?.__copy__();
         if ((_p.length) > _nr._n) {
             _p = (_p.__slice__(0, _nr._n) : Slice<GoUInt8>);
         };

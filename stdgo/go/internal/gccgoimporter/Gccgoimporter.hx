@@ -45,91 +45,91 @@ private final _armagb = ("<bigaf>\n" : GoString);
     
     
 **/
-private final _arNameOff = ("0" : GoUInt64);
+private final _arNameOff = (0i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arNameSize = ("16" : GoUInt64);
+private final _arNameSize = (16i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arDateOff = ("16" : GoUInt64);
+private final _arDateOff = (16i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arDateSize = ("12" : GoUInt64);
+private final _arDateSize = (12i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arUIDOff = ("28" : GoUInt64);
+private final _arUIDOff = (28i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arUIDSize = ("6" : GoUInt64);
+private final _arUIDSize = (6i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arGIDOff = ("34" : GoUInt64);
+private final _arGIDOff = (34i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arGIDSize = ("6" : GoUInt64);
+private final _arGIDSize = (6i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arModeOff = ("40" : GoUInt64);
+private final _arModeOff = (40i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arModeSize = ("8" : GoUInt64);
+private final _arModeSize = (8i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arSizeOff = ("48" : GoUInt64);
+private final _arSizeOff = (48i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arSizeSize = ("10" : GoUInt64);
+private final _arSizeSize = (10i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arFmagOff = ("58" : GoUInt64);
+private final _arFmagOff = (58i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arFmagSize = ("2" : GoUInt64);
+private final _arFmagSize = (2i64 : GoUInt64);
 /**
     // Offsets and sizes for fields in a standard archive header.
     
     
 **/
-private final _arHdrSize = ("60" : GoUInt64);
+private final _arHdrSize = (60i64 : GoUInt64);
 /**
     // The contents of the fmag field of a standard archive header.
     
@@ -179,121 +179,121 @@ private final _aixbigafMagic = ("<big" : GoString);
     
     
 **/
-private final _gccgoBuiltinINT8 = ("1" : GoUInt64);
+private final _gccgoBuiltinINT8 = (1i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinINT16 = ("2" : GoUInt64);
+private final _gccgoBuiltinINT16 = (2i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinINT32 = ("3" : GoUInt64);
+private final _gccgoBuiltinINT32 = (3i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinINT64 = ("4" : GoUInt64);
+private final _gccgoBuiltinINT64 = (4i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinUINT8 = ("5" : GoUInt64);
+private final _gccgoBuiltinUINT8 = (5i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinUINT16 = ("6" : GoUInt64);
+private final _gccgoBuiltinUINT16 = (6i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinUINT32 = ("7" : GoUInt64);
+private final _gccgoBuiltinUINT32 = (7i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinUINT64 = ("8" : GoUInt64);
+private final _gccgoBuiltinUINT64 = (8i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinFLOAT32 = ("9" : GoUInt64);
+private final _gccgoBuiltinFLOAT32 = (9i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinFLOAT64 = ("10" : GoUInt64);
+private final _gccgoBuiltinFLOAT64 = (10i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinINT = ("11" : GoUInt64);
+private final _gccgoBuiltinINT = (11i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinUINT = ("12" : GoUInt64);
+private final _gccgoBuiltinUINT = (12i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinUINTPTR = ("13" : GoUInt64);
+private final _gccgoBuiltinUINTPTR = (13i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinBOOL = ("15" : GoUInt64);
+private final _gccgoBuiltinBOOL = (15i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinSTRING = ("16" : GoUInt64);
+private final _gccgoBuiltinSTRING = (16i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinCOMPLEX64 = ("17" : GoUInt64);
+private final _gccgoBuiltinCOMPLEX64 = (17i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinCOMPLEX128 = ("18" : GoUInt64);
+private final _gccgoBuiltinCOMPLEX128 = (18i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinERROR = ("19" : GoUInt64);
+private final _gccgoBuiltinERROR = (19i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinBYTE = ("20" : GoUInt64);
+private final _gccgoBuiltinBYTE = (20i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _gccgoBuiltinRUNE = ("21" : GoUInt64);
+private final _gccgoBuiltinRUNE = (21i64 : GoUInt64);
 /**
     
     
@@ -386,8 +386,8 @@ private typedef T__interface_0 = StructType & {
         // including itself if needed. This is the subset of the transitive closure of
         // the package's dependencies that need initialization.
     **/
-    public var inits : Slice<PackageInit> = (null : Slice<PackageInit>);
-    public function new(?priority:GoInt, ?inits:Slice<PackageInit>) {
+    public var inits : Slice<go.internal.gccgoimporter.Gccgoimporter.PackageInit> = (null : Slice<go.internal.gccgoimporter.Gccgoimporter.PackageInit>);
+    public function new(?priority:GoInt, ?inits:Slice<go.internal.gccgoimporter.Gccgoimporter.PackageInit>) {
         if (priority != null) this.priority = priority;
         if (inits != null) this.inits = inits;
     }
@@ -412,10 +412,10 @@ private typedef T__interface_0 = StructType & {
     public var _imports : GoMap<GoString, Ref<stdgo.go.types.Types.Package>> = (null : GoMap<GoString, Ref<stdgo.go.types.Types.Package>>);
     public var _typeList : Slice<stdgo.go.types.Types.Type> = (null : Slice<stdgo.go.types.Types.Type>);
     public var _typeData : Slice<GoString> = (null : Slice<GoString>);
-    public var _fixups : Slice<T_fixupRecord> = (null : Slice<T_fixupRecord>);
-    public var _initdata : InitData = ({} : InitData);
+    public var _fixups : Slice<go.internal.gccgoimporter.Gccgoimporter.T_fixupRecord> = (null : Slice<go.internal.gccgoimporter.Gccgoimporter.T_fixupRecord>);
+    public var _initdata : go.internal.gccgoimporter.Gccgoimporter.InitData = ({} : go.internal.gccgoimporter.Gccgoimporter.InitData);
     public var _aliases : GoMap<GoInt, GoString> = (null : GoMap<GoInt, GoString>);
-    public function new(?_scanner:Ref<stdgo.text.scanner.Scanner.Scanner>, ?_version:GoString, ?_tok:GoInt32, ?_lit:GoString, ?_pkgpath:GoString, ?_pkgname:GoString, ?_pkg:Ref<stdgo.go.types.Types.Package>, ?_imports:GoMap<GoString, Ref<stdgo.go.types.Types.Package>>, ?_typeList:Slice<stdgo.go.types.Types.Type>, ?_typeData:Slice<GoString>, ?_fixups:Slice<T_fixupRecord>, ?_initdata:InitData, ?_aliases:GoMap<GoInt, GoString>) {
+    public function new(?_scanner:Ref<stdgo.text.scanner.Scanner.Scanner>, ?_version:GoString, ?_tok:GoInt32, ?_lit:GoString, ?_pkgpath:GoString, ?_pkgname:GoString, ?_pkg:Ref<stdgo.go.types.Types.Package>, ?_imports:GoMap<GoString, Ref<stdgo.go.types.Types.Package>>, ?_typeList:Slice<stdgo.go.types.Types.Type>, ?_typeData:Slice<GoString>, ?_fixups:Slice<go.internal.gccgoimporter.Gccgoimporter.T_fixupRecord>, ?_initdata:go.internal.gccgoimporter.Gccgoimporter.InitData, ?_aliases:GoMap<GoInt, GoString>) {
         if (_scanner != null) this._scanner = _scanner;
         if (_version != null) this._version = _version;
         if (_tok != null) this._tok = _tok;
@@ -524,14 +524,14 @@ class T__struct_0_asInterface {
 **/
 private function _arExportData(_archive:stdgo.io.Io.ReadSeeker):{ var _0 : stdgo.io.Io.ReadSeeker; var _1 : Error; } {
         {
-            var __tmp__ = _archive.seek(("0" : GoInt64), (0 : GoInt)), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _archive.seek((0i64 : GoInt64), (0 : GoInt)), __0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.io.Io.ReadSeeker), _1 : _err };
             };
         };
         var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 8) (0 : GoUInt8)]);
         {
-            var __tmp__ = _archive.read((_buf.__slice__(0) : Slice<GoUInt8>)), _1:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _archive.read((_buf.__slice__(0) : Slice<GoUInt8>)), __1:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.io.Io.ReadSeeker), _1 : _err };
             };
@@ -557,12 +557,12 @@ private function _standardArExportData(_archive:stdgo.io.Io.ReadSeeker):{ var _0
         while (true) {
             var _hdrBuf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 60) (0 : GoUInt8)]);
             {
-                var __tmp__ = _archive.read((_hdrBuf.__slice__(0) : Slice<GoUInt8>)), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = _archive.read((_hdrBuf.__slice__(0) : Slice<GoUInt8>)), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : (null : stdgo.io.Io.ReadSeeker), _1 : _err };
                 };
             };
-            _off = _off + (("60" : GoInt64));
+            _off = _off + ((60i64 : GoInt64));
             if (!stdgo.bytes.Bytes.equal((_hdrBuf.__slice__((58 : GoInt), (60 : GoInt)) : Slice<GoUInt8>), (("`\n" : GoString) : Slice<GoByte>))) {
                 return { _0 : (null : stdgo.io.Io.ReadSeeker), _1 : stdgo.fmt.Fmt.errorf(("archive header format header (%q)" : GoString), Go.toInterface((_hdrBuf.__slice__(0) : Slice<GoUInt8>))) };
             };
@@ -578,12 +578,12 @@ private function _standardArExportData(_archive:stdgo.io.Io.ReadSeeker):{ var _0
                     return { _0 : _ret, _1 : _err };
                 };
             };
-            if (_size & ("1" : GoInt64) != (("0" : GoInt64))) {
+            if (_size & (1i64 : GoInt64) != ((0i64 : GoInt64))) {
                 _size++;
             };
             _off = _off + (_size);
             {
-                var __tmp__ = _archive.seek(_off, (0 : GoInt)), _1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = _archive.seek(_off, (0 : GoInt)), __1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : (null : stdgo.io.Io.ReadSeeker), _1 : _err };
                 };
@@ -614,7 +614,7 @@ private function _aixBigArExportData(_archive:stdgo.io.Io.ReadSeeker):{ var _0 :
         if (_err != null) {
             return { _0 : (null : stdgo.io.Io.ReadSeeker), _1 : _err };
         };
-        for (_0 => _mem in _arch.members) {
+        for (__0 => _mem in _arch.members) {
             var __tmp__ = _arch.getFile(_mem.memberHeader.name), _f:Ref<internal.xcoff.Xcoff.File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.io.Io.ReadSeeker), _1 : _err };
@@ -649,10 +649,10 @@ private function _readerAtFromSeeker(_rs:stdgo.io.Io.ReadSeeker):stdgo.io.Io.Rea
     // This is intended to replicate the logic in gofrontend.
 **/
 private function _findExportFile(_searchpaths:Slice<GoString>, _pkgpath:GoString):{ var _0 : GoString; var _1 : Error; } {
-        for (_0 => _spath in _searchpaths) {
+        for (__0 => _spath in _searchpaths) {
             var _pkgfullpath:GoString = stdgo.path.filepath.Filepath.join(_spath, _pkgpath);
             var __tmp__ = stdgo.path.filepath.Filepath.split(_pkgfullpath), _pkgdir:GoString = __tmp__._0, _name:GoString = __tmp__._1;
-            for (_1 => stdgo.path.filepath.Filepath in (new GoArray<GoString>(_pkgfullpath, _pkgfullpath + (".gox" : GoString), ((_pkgdir + ("lib" : GoString)) + _name) + (".so" : GoString), ((_pkgdir + ("lib" : GoString)) + _name) + (".a" : GoString), _pkgfullpath + (".o" : GoString)) : GoArray<GoString>)) {
+            for (__1 => stdgo.path.filepath.Filepath in (new GoArray<GoString>(_pkgfullpath, _pkgfullpath + (".gox" : GoString), ((_pkgdir + ("lib" : GoString)) + _name) + (".so" : GoString), ((_pkgdir + ("lib" : GoString)) + _name) + (".a" : GoString), _pkgfullpath + (".o" : GoString)) : GoArray<GoString>)) {
                 var __tmp__ = stdgo.os.Os.stat(stdgo.path.filepath.Filepath), _fi:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:Error = __tmp__._1;
                 if ((_err == null) && !_fi.isDir()) {
                     return { _0 : stdgo.path.filepath.Filepath, _1 : (null : Error) };
@@ -686,7 +686,7 @@ private function _openExportFile(_fpath:GoString):{ var _0 : stdgo.io.Io.ReadSee
             });
             var _magic:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 4) (0 : GoUInt8)]);
             {
-                var __tmp__ = _f.readAt((_magic.__slice__(0) : Slice<GoUInt8>), ("0" : GoInt64));
+                var __tmp__ = _f.readAt((_magic.__slice__(0) : Slice<GoUInt8>), (0i64 : GoInt64));
                 _err = __tmp__._1;
             };
             if (_err != null) {
@@ -843,7 +843,7 @@ function getImporter(_searchpaths:Slice<GoString>, _initmap:GoMap<Ref<stdgo.go.t
                         var __tmp__ = try {
                             { value : (Go.typeAssert((Go.toInterface(_rc) : T__interface_0)) : T__interface_0), ok : true };
                         } catch(_) {
-                            { value : (null : T__interface_0), ok : false };
+                            { value : (null : go.internal.gccgoimporter.Gccgoimporter.T__interface_0), ok : false };
                         }, _n = __tmp__.value, _ok = __tmp__.ok;
                         if (_ok) {
                             _fpath = _n.name();
@@ -922,11 +922,11 @@ function getImporter(_searchpaths:Slice<GoString>, _initmap:GoMap<Ref<stdgo.go.t
                 {
                     final __value__ = _magics;
                     if (__value__ == (("v1;\n" : GoString)) || __value__ == (("v2;\n" : GoString)) || __value__ == (("v3;\n" : GoString))) {
-                        var _p:T_parser = ({} : T_parser);
+                        var _p:T_parser = ({} : go.internal.gccgoimporter.Gccgoimporter.T_parser);
                         _p._init(_fpath, _reader, _imports);
                         _pkg = _p._parsePackage();
                         if (_initmap != null) {
-                            _initmap[_pkg] = _p._initdata.__copy__();
+                            _initmap[_pkg] = _p._initdata?.__copy__();
                         };
                     } else {
                         _err = stdgo.fmt.Fmt.errorf(("unrecognized magic string: %q" : GoString), Go.toInterface(_magics));
@@ -970,13 +970,13 @@ function getImporter(_searchpaths:Slice<GoString>, _initmap:GoMap<Ref<stdgo.go.t
 private function _readMagic(_reader:stdgo.io.Io.ReadSeeker):{ var _0 : GoString; var _1 : Error; } {
         var _magic:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 4) (0 : GoUInt8)]);
         {
-            var __tmp__ = _reader.read((_magic.__slice__(0) : Slice<GoUInt8>)), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _reader.read((_magic.__slice__(0) : Slice<GoUInt8>)), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : Go.str(), _1 : _err };
             };
         };
         {
-            var __tmp__ = _reader.seek(("0" : GoInt64), (0 : GoInt)), _1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _reader.seek((0i64 : GoInt64), (0 : GoInt)), __1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : Go.str(), _1 : _err };
             };
@@ -989,7 +989,7 @@ private function _deref(_typ:stdgo.go.types.Types.Type):stdgo.go.types.Types.Typ
                 { value : (Go.typeAssert((Go.toInterface(_typ) : Ref<stdgo.go.types.Types.Pointer_>)) : Ref<stdgo.go.types.Types.Pointer_>), ok : true };
             } catch(_) {
                 { value : (null : Ref<stdgo.go.types.Types.Pointer_>), ok : false };
-            }, _p = __tmp__.value, _0 = __tmp__.ok;
+            }, _p = __tmp__.value, __0 = __tmp__.ok;
             if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
                 _typ = _p.elem();
             };
@@ -1037,7 +1037,7 @@ class T_seekerReadAt_asInterface {
     @:keep
     static public function readAt( _sra:T_seekerReadAt, _p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } {
         {
-            var __tmp__ = _sra._seeker.seek(_off, (0 : GoInt)), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _sra._seeker.seek(_off, (0 : GoInt)), __0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (0 : GoInt), _1 : _err };
             };
@@ -1086,7 +1086,7 @@ class GccgoInstallation_asInterface {
     @:keep
     static public function searchPaths( _inst:Ref<GccgoInstallation>):Slice<GoString> {
         var _paths:Slice<GoString> = (null : Slice<GoString>);
-        for (_0 => _lpath in _inst.libPaths) {
+        for (__0 => _lpath in _inst.libPaths) {
             var _spath:GoString = stdgo.path.filepath.Filepath.join(_lpath, ("go" : GoString), _inst.gccVersion);
             var __tmp__ = stdgo.os.Os.stat(_spath), _fi:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:Error = __tmp__._1;
             if ((_err != null) || !_fi.isDir()) {
@@ -1132,7 +1132,7 @@ class GccgoInstallation_asInterface {
                 _inst.targetTriple = (_line.__slice__((8 : GoInt)) : GoString);
             } else if (_line[(0 : GoInt)] == ((32 : GoUInt8))) {
                 var _args = stdgo.strings.Strings.fields(_line);
-                for (_0 => _arg in (_args.__slice__((1 : GoInt)) : Slice<GoString>)) {
+                for (__0 => _arg in (_args.__slice__((1 : GoInt)) : Slice<GoString>)) {
                     if (stdgo.strings.Strings.hasPrefix(_arg, ("-L" : GoString))) {
                         _inst.libPaths = _inst.libPaths.__appendref__((_arg.__slice__((2 : GoInt)) : GoString));
                     };
@@ -1406,14 +1406,14 @@ class T_parser_asInterface {
         while (_p._tok != ((-1 : GoInt32))) {
             _p._parseDirective();
         };
-        for (_0 => _f in _p._fixups) {
+        for (__0 => _f in _p._fixups) {
             if (_f._target.underlying() == null) {
                 _p._errorf(("internal error: fixup can\'t be applied, loop required" : GoString));
             };
             _f._toUpdate.setUnderlying(_f._target.underlying());
         };
-        _p._fixups = (null : Slice<T_fixupRecord>);
-        for (_25 => _typ in _p._typeList) {
+        _p._fixups = (null : Slice<go.internal.gccgoimporter.Gccgoimporter.T_fixupRecord>);
+        for (__25 => _typ in _p._typeList) {
             {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(_typ) : Ref<stdgo.go.types.Types.Interface>)) : Ref<stdgo.go.types.Types.Interface>), ok : true };
@@ -1541,7 +1541,7 @@ class T_parser_asInterface {
                 } else if (__value__ == (("init" : GoString))) {
                     _p._next();
                     while (((_p._tok != (10 : GoInt32)) && (_p._tok != (59 : GoInt32))) && (_p._tok != (-1 : GoInt32))) {
-                        _p._initdata.inits = _p._initdata.inits.__appendref__(_p._parsePackageInit().__copy__());
+                        _p._initdata.inits = _p._initdata.inits.__appendref__(_p._parsePackageInit()?.__copy__());
                     };
                     _p._expectEOL();
                 } else if (__value__ == (("init_graph" : GoString))) {
@@ -1561,7 +1561,7 @@ class T_parser_asInterface {
                             a(_a0);
                         });
                     };
-                    _p._scanner.mode = _p._scanner.mode & (("24" : GoUInt) ^ (-1 : GoInt));
+                    _p._scanner.mode = _p._scanner.mode & ((24u32 : GoUInt) ^ (-1i32 : GoInt));
                     _p._next();
                     _p._parseUnquotedString();
                     _p._expectEOL();
@@ -1687,7 +1687,7 @@ class T_parser_asInterface {
             var _exportedp1:GoInt = _p._parseInt();
             _p._typeList = new Slice<stdgo.go.types.Types.Type>((_maxp1 : GoInt).toBasic(), _maxp1, ...[for (i in 0 ... (_maxp1 : GoInt).toBasic()) (null : stdgo.go.types.Types.Type)]);
             {};
-            var _typeOffsets:Slice<T__parseTypes_0___localname___typeOffset> = (null : Slice<T__parseTypes_0___localname___typeOffset>);
+            var _typeOffsets:Slice<T__parseTypes_0___localname___typeOffset> = (null : Slice<go.internal.gccgoimporter.Gccgoimporter.T__parseTypes_0___localname___typeOffset>);
             var _total:GoInt = (0 : GoInt);
             {
                 var _i:GoInt = (1 : GoInt);
@@ -1706,7 +1706,7 @@ class T_parser_asInterface {
                     a(_a0);
                 });
             };
-            _p._scanner.whitespace = ("0" : GoUInt64);
+            _p._scanner.whitespace = (0i64 : GoUInt64);
             var _sb:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
             while (_sb.len() < _total) {
                 var _r:GoInt32 = _p._scanner.next();
@@ -1717,7 +1717,7 @@ class T_parser_asInterface {
             };
             var _allTypeData:GoString = (_sb.string() : GoString);
             _p._typeData = (new Slice<GoString>(0, 0, Go.str()) : Slice<GoString>);
-            for (_0 => _to in _typeOffsets) {
+            for (__0 => _to in _typeOffsets) {
                 _p._typeData = _p._typeData.__appendref__((_allTypeData.__slice__(_to._offset, _to._offset + _to._length) : GoString));
             };
             {
@@ -1778,7 +1778,7 @@ class T_parser_asInterface {
                     a(_a0);
                 });
             };
-            _p._scanner.whitespace = ("0" : GoUInt64);
+            _p._scanner.whitespace = (0i64 : GoUInt64);
             var _got:GoInt = (0 : GoInt);
             while (_got < _want) {
                 var _r:GoInt32 = _p._scanner.next();
@@ -1879,7 +1879,7 @@ class T_parser_asInterface {
     static public function _parseType( _p:Ref<T_parser>, _pkg:Ref<stdgo.go.types.Types.Package>, _n:haxe.Rest<AnyInterface>):stdgo.go.types.Types.Type {
         var _n = new Slice<AnyInterface>(0, 0, ..._n);
         _p._expect((60 : GoInt32));
-        var __tmp__ = _p._parseTypeAfterAngle(_pkg, ..._n.__toArray__()), _t:stdgo.go.types.Types.Type = __tmp__._0, _0:GoInt = __tmp__._1;
+        var __tmp__ = _p._parseTypeAfterAngle(_pkg, ..._n.__toArray__()), _t:stdgo.go.types.Types.Type = __tmp__._0, __0:GoInt = __tmp__._1;
         return _t;
     }
     /**
@@ -1930,7 +1930,7 @@ class T_parser_asInterface {
         var _t = (Go.setRef(({} : stdgo.go.types.Types.Pointer_)) : Ref<stdgo.go.types.Types.Pointer_>);
         _p._update(Go.asInterface(_t), _nlist);
         {
-            var __tmp__ = (stdgo.go.types.Types.newPointer(_p._parseType(_pkg, Go.toInterface(Go.asInterface(_t)))) : stdgo.go.types.Types.Pointer_).__copy__();
+            var __tmp__ = (stdgo.go.types.Types.newPointer(_p._parseType(_pkg, Go.toInterface(Go.asInterface(_t)))) : stdgo.go.types.Types.Pointer_)?.__copy__();
             _t._base = __tmp__._base;
         };
         return Go.asInterface(_t);
@@ -1960,7 +1960,7 @@ class T_parser_asInterface {
         };
         _p._expect((125 : GoInt32));
         {
-            var __tmp__ = (stdgo.go.types.Types.newInterfaceType(_methods, _embeddeds) : stdgo.go.types.Types.Interface).__copy__();
+            var __tmp__ = (stdgo.go.types.Types.newInterfaceType(_methods, _embeddeds) : stdgo.go.types.Types.Interface)?.__copy__();
             _t._check = __tmp__._check;
             _t._methods = __tmp__._methods;
             _t._embeddeds = __tmp__._embeddeds;
@@ -2003,7 +2003,7 @@ class T_parser_asInterface {
         var __tmp__ = _p._parseParamList(_pkg), _params:Ref<stdgo.go.types.Types.Tuple> = __tmp__._0, _isVariadic:Bool = __tmp__._1;
         var _results = _p._parseResultList(_pkg);
         {
-            var __tmp__ = (stdgo.go.types.Types.newSignatureType(null, (null : Slice<Ref<stdgo.go.types.Types.TypeParam>>), (null : Slice<Ref<stdgo.go.types.Types.TypeParam>>), _params, _results, _isVariadic) : stdgo.go.types.Types.Signature).__copy__();
+            var __tmp__ = (stdgo.go.types.Types.newSignatureType(null, (null : Slice<Ref<stdgo.go.types.Types.TypeParam>>), (null : Slice<Ref<stdgo.go.types.Types.TypeParam>>), _params, _results, _isVariadic) : stdgo.go.types.Types.Signature)?.__copy__();
             _t._rparams = __tmp__._rparams;
             _t._tparams = __tmp__._tparams;
             _t._scope = __tmp__._scope;
@@ -2026,10 +2026,10 @@ class T_parser_asInterface {
                 if ((_p._tok == (-2 : GoInt32)) && (_p._lit == ("inl" : GoString))) {
                     return null;
                 };
-                var __tmp__ = _p._parseTypeAfterAngle(_pkg), _taa:stdgo.go.types.Types.Type = __tmp__._0, _0:GoInt = __tmp__._1;
+                var __tmp__ = _p._parseTypeAfterAngle(_pkg), _taa:stdgo.go.types.Types.Type = __tmp__._0, __0:GoInt = __tmp__._1;
                 return stdgo.go.types.Types.newTuple(stdgo.go.types.Types.newParam((0 : stdgo.go.token.Token.Pos), _pkg, Go.str(), _taa));
             } else if (__value__ == ((40 : GoInt32))) {
-                var __tmp__ = _p._parseParamList(_pkg), _params:Ref<stdgo.go.types.Types.Tuple> = __tmp__._0, _1:Bool = __tmp__._1;
+                var __tmp__ = _p._parseParamList(_pkg), _params:Ref<stdgo.go.types.Types.Tuple> = __tmp__._0, __1:Bool = __tmp__._1;
                 return _params;
             } else {
                 return null;
@@ -2079,7 +2079,7 @@ class T_parser_asInterface {
         };
         _p._expect((125 : GoInt32));
         {
-            var __tmp__ = (stdgo.go.types.Types.newStruct(_fields, _tags) : stdgo.go.types.Types.Struct).__copy__();
+            var __tmp__ = (stdgo.go.types.Types.newStruct(_fields, _tags) : stdgo.go.types.Types.Struct)?.__copy__();
             _t._fields = __tmp__._fields;
             _t._tags = __tmp__._tags;
         };
@@ -2109,7 +2109,7 @@ class T_parser_asInterface {
             };
         };
         {
-            var __tmp__ = (stdgo.go.types.Types.newChan(_dir, _p._parseType(_pkg)) : stdgo.go.types.Types.Chan).__copy__();
+            var __tmp__ = (stdgo.go.types.Types.newChan(_dir, _p._parseType(_pkg)) : stdgo.go.types.Types.Chan)?.__copy__();
             _t._dir = __tmp__._dir;
             _t._elem = __tmp__._elem;
         };
@@ -2128,7 +2128,7 @@ class T_parser_asInterface {
         _p._expect((93 : GoInt32));
         var _elem:stdgo.go.types.Types.Type = _p._parseType(_pkg);
         {
-            var __tmp__ = (stdgo.go.types.Types.newMap(_key, _elem) : stdgo.go.types.Types.Map_).__copy__();
+            var __tmp__ = (stdgo.go.types.Types.newMap(_key, _elem) : stdgo.go.types.Types.Map_)?.__copy__();
             _t._key = __tmp__._key;
             _t._elem = __tmp__._elem;
         };
@@ -2145,7 +2145,7 @@ class T_parser_asInterface {
             var _t = (Go.setRef(({} : stdgo.go.types.Types.Slice_)) : Ref<stdgo.go.types.Types.Slice_>);
             _p._update(Go.asInterface(_t), _nlist);
             {
-                var __tmp__ = (stdgo.go.types.Types.newSlice(_p._parseType(_pkg)) : stdgo.go.types.Types.Slice_).__copy__();
+                var __tmp__ = (stdgo.go.types.Types.newSlice(_p._parseType(_pkg)) : stdgo.go.types.Types.Slice_)?.__copy__();
                 _t._elem = __tmp__._elem;
             };
             return Go.asInterface(_t);
@@ -2155,7 +2155,7 @@ class T_parser_asInterface {
         var _len:GoInt64 = _p._parseInt64();
         _p._expect((93 : GoInt32));
         {
-            var __tmp__ = (stdgo.go.types.Types.newArray(_p._parseType(_pkg), _len) : stdgo.go.types.Types.Array_).__copy__();
+            var __tmp__ = (stdgo.go.types.Types.newArray(_p._parseType(_pkg), _len) : stdgo.go.types.Types.Array_)?.__copy__();
             _t._len = __tmp__._len;
             _t._elem = __tmp__._elem;
         };
@@ -2232,8 +2232,8 @@ class T_parser_asInterface {
         var _underlying:stdgo.go.types.Types.Type = _p._parseType(_pkg);
         if (_nt.underlying() == null) {
             if (_underlying.underlying() == null) {
-                var _fix:T_fixupRecord = ({ _toUpdate : _nt, _target : _underlying } : T_fixupRecord);
-                _p._fixups = _p._fixups.__appendref__(_fix.__copy__());
+                var _fix:go.internal.gccgoimporter.Gccgoimporter.T_fixupRecord = ({ _toUpdate : _nt, _target : _underlying } : T_fixupRecord);
+                _p._fixups = _p._fixups.__appendref__(_fix?.__copy__());
             } else {
                 _nt.setUnderlying(_underlying.underlying());
             };
@@ -2252,7 +2252,7 @@ class T_parser_asInterface {
                     _p._expect((47 : GoInt32));
                 };
                 _p._expect((40 : GoInt32));
-                var __tmp__ = _p._parseParam(_pkg), _receiver:Ref<stdgo.go.types.Types.Var> = __tmp__._0, _0:Bool = __tmp__._1;
+                var __tmp__ = _p._parseParam(_pkg), _receiver:Ref<stdgo.go.types.Types.Var> = __tmp__._0, __0:Bool = __tmp__._1;
                 _p._expect((41 : GoInt32));
                 var _name:GoString = _p._parseName();
                 var __tmp__ = _p._parseParamList(_pkg), _params:Ref<stdgo.go.types.Types.Tuple> = __tmp__._0, _isVariadic:Bool = __tmp__._1;
@@ -2280,7 +2280,7 @@ class T_parser_asInterface {
         if (_t == null) {
             _p._errorf(("internal error: update(%v) invoked on nil" : GoString), Go.toInterface(_nlist));
         };
-        for (_0 => _n in _nlist) {
+        for (__0 => _n in _nlist) {
             {
                 final __type__ = _n;
                 if (Go.typeEquals((__type__ : GoInt))) {
@@ -2302,11 +2302,11 @@ class T_parser_asInterface {
                         _p._errorf(("internal error: update: pointer already set to %v, expected %v" : GoString), Go.toInterface(_elem), Go.toInterface(_t));
                     };
                     {
-                        var __tmp__ = (stdgo.go.types.Types.newPointer(_t) : stdgo.go.types.Types.Pointer_).__copy__();
+                        var __tmp__ = (stdgo.go.types.Types.newPointer(_t) : stdgo.go.types.Types.Pointer_)?.__copy__();
                         _n._base = __tmp__._base;
                     };
                 } else {
-                    var _n:AnyInterface = __type__.__underlying__();
+                    var _n:AnyInterface = __type__?.__underlying__();
                     _p._errorf(("internal error: %T on nlist" : GoString), _n);
                 };
             };
@@ -2392,7 +2392,7 @@ class T_parser_asInterface {
         {
             final __value__ = _p._tok;
             if (__value__ == ((-3 : GoInt32))) {
-                _val = stdgo.go.constant.Constant.makeFromLiteral(_sign + _p._lit, (5 : stdgo.go.token.Token.Token), ("0" : GoUInt));
+                _val = stdgo.go.constant.Constant.makeFromLiteral(_sign + _p._lit, (5 : stdgo.go.token.Token.Token), (0u32 : GoUInt));
                 if (_val == null) {
                     _p._error(Go.toInterface(("could not parse integer literal" : GoString)));
                 };
@@ -2419,7 +2419,7 @@ class T_parser_asInterface {
                         _im = _re;
                         _re = ("0" : GoString);
                     } else {
-                        _val = stdgo.go.constant.Constant.makeFromLiteral(_re, (6 : stdgo.go.token.Token.Token), ("0" : GoUInt));
+                        _val = stdgo.go.constant.Constant.makeFromLiteral(_re, (6 : stdgo.go.token.Token.Token), (0u32 : GoUInt));
                         if (_val == null) {
                             _p._error(Go.toInterface(("could not parse float literal" : GoString)));
                         };
@@ -2428,11 +2428,11 @@ class T_parser_asInterface {
                     };
                 };
                 _p._expectKeyword(("i" : GoString));
-                var _reval:stdgo.go.constant.Constant.Value = stdgo.go.constant.Constant.makeFromLiteral(_re, (6 : stdgo.go.token.Token.Token), ("0" : GoUInt));
+                var _reval:stdgo.go.constant.Constant.Value = stdgo.go.constant.Constant.makeFromLiteral(_re, (6 : stdgo.go.token.Token.Token), (0u32 : GoUInt));
                 if (_reval == null) {
                     _p._error(Go.toInterface(("could not parse real component of complex literal" : GoString)));
                 };
-                var _imval:stdgo.go.constant.Constant.Value = stdgo.go.constant.Constant.makeFromLiteral(_im + ("i" : GoString), (7 : stdgo.go.token.Token.Token), ("0" : GoUInt));
+                var _imval:stdgo.go.constant.Constant.Value = stdgo.go.constant.Constant.makeFromLiteral(_im + ("i" : GoString), (7 : stdgo.go.token.Token.Token), (0u32 : GoUInt));
                 if (_imval == null) {
                     _p._error(Go.toInterface(("could not parse imag component of complex literal" : GoString)));
                 };
@@ -2550,7 +2550,7 @@ class T_parser_asInterface {
             _p._next();
             return Go.str();
         };
-        var __tmp__ = _p._parseUnquotedQualifiedName(), _0:GoString = __tmp__._0, _name:GoString = __tmp__._1;
+        var __tmp__ = _p._parseUnquotedQualifiedName(), __0:GoString = __tmp__._0, _name:GoString = __tmp__._1;
         return _name;
     }
     /**
@@ -2651,7 +2651,7 @@ class T_parser_asInterface {
         _b.writeString(_p._scanner.tokenText());
         {
             var _ch:GoInt32 = _p._scanner.peek();
-            Go.cfor((((_ch != (10 : GoInt32)) && (_ch != (59 : GoInt32))) && (_ch != (-1 : GoInt32))) && ((_p._scanner.whitespace & ((("1" : GoUInt64) : GoUInt64) << (_ch : GoUInt))) == ("0" : GoUInt64)), _ch = _p._scanner.peek(), {
+            Go.cfor((((_ch != (10 : GoInt32)) && (_ch != (59 : GoInt32))) && (_ch != (-1 : GoInt32))) && ((_p._scanner.whitespace & ((1i64 : GoUInt64) << (_ch : GoUInt))) == (0i64 : GoUInt64)), _ch = _p._scanner.peek(), {
                 _b.writeRune(_ch);
                 _p._scanner.next();
             });
@@ -2707,16 +2707,16 @@ class T_parser_asInterface {
                 _err = Go.toInterface(stdgo.errors.Errors.new_(_s));
             };
         };
-        throw Go.toInterface(Go.asInterface((new T_importError(_p._scanner.pos().__copy__(), (Go.typeAssert((_err : Error)) : Error)) : T_importError)));
+        throw Go.toInterface(Go.asInterface((new T_importError(_p._scanner.pos()?.__copy__(), (Go.typeAssert((_err : Error)) : Error)) : T_importError)));
     }
     @:keep
     static public function _initScanner( _p:Ref<T_parser>, _filename:GoString, _src:stdgo.io.Io.Reader):Void {
         _p._scanner.init(_src);
-        _p._scanner.error = function(_0:Ref<stdgo.text.scanner.Scanner.Scanner>, _msg:GoString):Void {
+        _p._scanner.error = function(__0:Ref<stdgo.text.scanner.Scanner.Scanner>, _msg:GoString):Void {
             _p._error(Go.toInterface(_msg));
         };
-        _p._scanner.mode = ("92" : GoUInt);
-        _p._scanner.whitespace = ("4294967808" : GoUInt64);
+        _p._scanner.mode = (92u32 : GoUInt);
+        _p._scanner.whitespace = (4294967808i64 : GoUInt64);
         _p._scanner.position.filename = _filename;
         _p._next();
     }

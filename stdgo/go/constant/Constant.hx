@@ -371,7 +371,7 @@ private var _bytesTests = (new Slice<GoString>(0, 0, ("0" : GoString), ("1" : Go
     
     
 **/
-private var _bitLenTests = (new Slice<T__struct_2>(0, 0, ({ _val : ("0" : GoInt64), _want : (0 : GoInt) } : T__struct_2), ({ _val : ("1" : GoInt64), _want : (1 : GoInt) } : T__struct_2), ({ _val : ("-16" : GoInt64), _want : (5 : GoInt) } : T__struct_2), ({ _val : ("2305843009213693952" : GoInt64), _want : (62 : GoInt) } : T__struct_2), ({ _val : ("4611686018427387904" : GoInt64), _want : (63 : GoInt) } : T__struct_2), ({ _val : ("-4611686018427387904" : GoInt64), _want : (63 : GoInt) } : T__struct_2), ({ _val : ("-9223372036854775808" : GoInt64), _want : (64 : GoInt) } : T__struct_2)) : Slice<T__struct_2>);
+private var _bitLenTests = (new Slice<T__struct_2>(0, 0, ({ _val : (0i64 : GoInt64), _want : (0 : GoInt) } : T__struct_2), ({ _val : (1i64 : GoInt64), _want : (1 : GoInt) } : T__struct_2), ({ _val : (-16i64 : GoInt64), _want : (5 : GoInt) } : T__struct_2), ({ _val : (2305843009213693952i64 : GoInt64), _want : (62 : GoInt) } : T__struct_2), ({ _val : (4611686018427387904i64 : GoInt64), _want : (63 : GoInt) } : T__struct_2), ({ _val : (-4611686018427387904i64 : GoInt64), _want : (63 : GoInt) } : T__struct_2), ({ _val : (-9223372036854775808i64 : GoInt64), _want : (64 : GoInt) } : T__struct_2)) : Slice<T__struct_2>);
 /**
     
     
@@ -383,75 +383,75 @@ private final __Kind_name = ("UnknownBoolStringIntFloatComplex" : GoString);
     
     
 **/
-final unknown : Kind = (5 : Kind);
+final unknown : Kind = (5 : stdgo.go.constant.Constant.Kind);
 /**
     // non-numeric values
     
     
 **/
-final bool_ = (5 : Kind);
+final bool_ = (5 : stdgo.go.constant.Constant.Kind);
 /**
     
     
     
 **/
-final string = (5 : Kind);
+final string = (5 : stdgo.go.constant.Constant.Kind);
 /**
     // numeric values
     
     
 **/
-final int_ = (5 : Kind);
+final int_ = (5 : stdgo.go.constant.Constant.Kind);
 /**
     
     
     
 **/
-final float_ = (5 : Kind);
+final float_ = (5 : stdgo.go.constant.Constant.Kind);
 /**
     
     
     
 **/
-final complex = (5 : Kind);
+final complex = (5 : stdgo.go.constant.Constant.Kind);
 /**
     // Maximum supported mantissa precision.
     // The spec requires at least 256 bits; typical implementations use 512 bits.
     
     
 **/
-private final _prec = ("512" : GoUInt64);
+private final _prec = (512i64 : GoUInt64);
 /**
     // Permit fractions with component sizes up to maxExp
     // before switching to using floating-point numbers.
     
     
 **/
-private final _maxExp = ("4096" : GoUInt64);
+private final _maxExp = (4096i64 : GoUInt64);
 /**
     
     
     
 **/
-private var _emptyString : T_stringVal = ({} : T_stringVal);
+private var _emptyString : T_stringVal = ({} : stdgo.go.constant.Constant.T_stringVal);
 /**
     // Compute the size of a Word in bytes.
     
     
 **/
-private final __m = (("4294967295" : GoUInt) : stdgo.math.big.Big.Word);
+private final __m = (-1u32 : stdgo.math.big.Big.Word);
 /**
     
     
     
 **/
-private final __log = (("2" : GoUInt) : stdgo.math.big.Big.Word);
+private final __log = (2u32 : stdgo.math.big.Big.Word);
 /**
     
     
     
 **/
-private final _wordSize = ("4" : GoUInt64);
+private final _wordSize = (4i64 : GoUInt64);
 /**
     // A Value represents the value of a Go constant.
     
@@ -510,9 +510,9 @@ typedef Value = StructType & {
     **/
     public var _mu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
     public var _s : GoString = "";
-    public var _l : Ref<T_stringVal> = (null : Ref<T_stringVal>);
-    public var _r : Ref<T_stringVal> = (null : Ref<T_stringVal>);
-    public function new(?_mu:stdgo.sync.Sync.Mutex, ?_s:GoString, ?_l:Ref<T_stringVal>, ?_r:Ref<T_stringVal>) {
+    public var _l : Ref<stdgo.go.constant.Constant.T_stringVal> = (null : Ref<stdgo.go.constant.Constant.T_stringVal>);
+    public var _r : Ref<stdgo.go.constant.Constant.T_stringVal> = (null : Ref<stdgo.go.constant.Constant.T_stringVal>);
+    public function new(?_mu:stdgo.sync.Sync.Mutex, ?_s:GoString, ?_l:Ref<stdgo.go.constant.Constant.T_stringVal>, ?_r:Ref<stdgo.go.constant.Constant.T_stringVal>) {
         if (_mu != null) this._mu = _mu;
         if (_s != null) this._s = _s;
         if (_l != null) this._l = _l;
@@ -574,9 +574,9 @@ typedef Value = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.go.constant.Constant.T_complexVal_static_extension) class T_complexVal {
-    public var _re : Value = (null : Value);
-    public var _im : Value = (null : Value);
-    public function new(?_re:Value, ?_im:Value) {
+    public var _re : stdgo.go.constant.Constant.Value = (null : stdgo.go.constant.Constant.Value);
+    public var _im : stdgo.go.constant.Constant.Value = (null : stdgo.go.constant.Constant.Value);
+    public function new(?_re:stdgo.go.constant.Constant.Value, ?_im:stdgo.go.constant.Constant.Value) {
         if (_re != null) this._re = _re;
         if (_im != null) this._im = _im;
     }
@@ -591,10 +591,10 @@ typedef Value = StructType & {
     
 **/
 @:structInit @:private class T_makeTestCase {
-    public var _kind : Kind = ((0 : GoInt) : Kind);
+    public var _kind : stdgo.go.constant.Constant.Kind = ((0 : GoInt) : stdgo.go.constant.Constant.Kind);
     public var _arg : AnyInterface = (null : AnyInterface);
     public var _want : AnyInterface = (null : AnyInterface);
-    public function new(?_kind:Kind, ?_arg:AnyInterface, ?_want:AnyInterface) {
+    public function new(?_kind:stdgo.go.constant.Constant.Kind, ?_arg:AnyInterface, ?_want:AnyInterface) {
         if (_kind != null) this._kind = _kind;
         if (_arg != null) this._arg = _arg;
         if (_want != null) this._want = _want;
@@ -681,7 +681,7 @@ private function _newRat():Ref<stdgo.math.big.Big.Rat> {
         return (Go.setRef(({} : stdgo.math.big.Big.Rat)) : Ref<stdgo.math.big.Big.Rat>);
     }
 private function _newFloat():Ref<stdgo.math.big.Big.Float_> {
-        return (Go.setRef(({} : stdgo.math.big.Big.Float_)) : Ref<stdgo.math.big.Big.Float_>).setPrec(("512" : GoUInt));
+        return (Go.setRef(({} : stdgo.math.big.Big.Float_)) : Ref<stdgo.math.big.Big.Float_>).setPrec((512u32 : GoUInt));
     }
 private function _i64toi(_x:T_int64Val):T_intVal {
         return (new T_intVal(_newInt().setInt64((_x : GoInt64))) : T_intVal);
@@ -702,7 +702,7 @@ private function _rtof(_x:T_ratVal):T_floatVal {
         return (new T_floatVal(_newFloat().setRat(_x._val)) : T_floatVal);
     }
 private function _vtoc(_x:Value):T_complexVal {
-        return (new T_complexVal(_x, Go.asInterface((("0" : GoInt64) : T_int64Val))) : T_complexVal);
+        return (new T_complexVal(_x, Go.asInterface(((0i64 : stdgo.go.constant.Constant.T_int64Val) : T_int64Val))) : T_complexVal);
     }
 private function _makeInt(_x:Ref<stdgo.math.big.Big.Int_>):Value {
         if (_x.isInt64()) {
@@ -728,7 +728,7 @@ private function _makeFloat(_x:Ref<stdgo.math.big.Big.Float_>):Value {
         return Go.asInterface((new T_floatVal(_x) : T_floatVal));
     }
 private function _makeComplex(_re:Value, _im:Value):Value {
-        if ((_re.kind() == (0 : Kind)) || (_im.kind() == (0 : Kind))) {
+        if ((_re.kind() == (0 : stdgo.go.constant.Constant.Kind)) || (_im.kind() == (0 : stdgo.go.constant.Constant.Kind))) {
             return Go.asInterface((new T_unknownVal() : T_unknownVal));
         };
         return Go.asInterface((new T_complexVal(_re, _im) : T_complexVal));
@@ -751,7 +751,7 @@ private function _makeFloatFromLiteral(_lit:GoString):Value {
                 return _makeFloat(_f);
             };
         };
-        return (null : Value);
+        return (null : stdgo.go.constant.Constant.Value);
     }
 /**
     // smallInt reports whether x would lead to "reasonably"-sized fraction
@@ -768,7 +768,7 @@ private function _smallFloat64(_x:GoFloat64):Bool {
         if (stdgo.math.Math.isInf(_x, (0 : GoInt))) {
             return false;
         };
-        var __tmp__ = stdgo.math.Math.frexp(_x), _0:GoFloat64 = __tmp__._0, _e:GoInt = __tmp__._1;
+        var __tmp__ = stdgo.math.Math.frexp(_x), __0:GoFloat64 = __tmp__._0, _e:GoInt = __tmp__._1;
         return ((-4096 : GoInt) < _e) && (_e < (4096 : GoInt));
     }
 /**
@@ -799,9 +799,9 @@ function makeBool(_b:Bool):Value {
 **/
 function makeString(_s:GoString):Value {
         if (_s == (Go.str())) {
-            return Go.asInterface((Go.setRef(_emptyString) : Ref<T_stringVal>));
+            return Go.asInterface((Go.setRef(_emptyString) : Ref<stdgo.go.constant.Constant.T_stringVal>));
         };
-        return Go.asInterface((Go.setRef(({ _s : _s } : T_stringVal)) : Ref<T_stringVal>));
+        return Go.asInterface((Go.setRef(({ _s : _s } : T_stringVal)) : Ref<stdgo.go.constant.Constant.T_stringVal>));
     }
 /**
     // MakeInt64 returns the Int value for x.
@@ -813,7 +813,7 @@ function makeInt64(_x:GoInt64):Value {
     // MakeUint64 returns the Int value for x.
 **/
 function makeUint64(_x:GoUInt64):Value {
-        if (_x < ("9223372036854775808" : GoUInt64)) {
+        if (_x < (-9223372036854775808i64 : GoUInt64)) {
             return Go.asInterface(((_x : GoInt64) : T_int64Val));
         };
         return Go.asInterface((new T_intVal(_newInt().setUint64(_x)) : T_intVal));
@@ -840,7 +840,7 @@ function makeFloat64(_x:GoFloat64):Value {
     // If the literal string syntax is invalid, the result is an Unknown.
 **/
 function makeFromLiteral(_lit:GoString, _tok:stdgo.go.token.Token.Token, _zero:GoUInt):Value {
-        if (_zero != (("0" : GoUInt))) {
+        if (_zero != ((0u32 : GoUInt))) {
             throw Go.toInterface(("MakeFromLiteral called with non-zero last argument" : GoString));
         };
         {
@@ -860,7 +860,7 @@ function makeFromLiteral(_lit:GoString, _tok:stdgo.go.token.Token.Token, _zero:G
                 };
             } else if (__value__ == ((6 : stdgo.go.token.Token.Token))) {
                 {
-                    var _x:Value = _makeFloatFromLiteral(_lit);
+                    var _x:stdgo.go.constant.Constant.Value = _makeFloatFromLiteral(_lit);
                     if (_x != null) {
                         return _x;
                     };
@@ -870,9 +870,9 @@ function makeFromLiteral(_lit:GoString, _tok:stdgo.go.token.Token.Token, _zero:G
                     var _n:GoInt = (_lit.length);
                     if ((_n > (0 : GoInt)) && (_lit[(_n - (1 : GoInt) : GoInt)] == (105 : GoUInt8))) {
                         {
-                            var _im:Value = _makeFloatFromLiteral((_lit.__slice__(0, _n - (1 : GoInt)) : GoString));
+                            var _im:stdgo.go.constant.Constant.Value = _makeFloatFromLiteral((_lit.__slice__(0, _n - (1 : GoInt)) : GoString));
                             if (_im != null) {
-                                return _makeComplex(Go.asInterface((("0" : GoInt64) : T_int64Val)), _im);
+                                return _makeComplex(Go.asInterface(((0i64 : stdgo.go.constant.Constant.T_int64Val) : T_int64Val)), _im);
                             };
                         };
                     };
@@ -882,7 +882,7 @@ function makeFromLiteral(_lit:GoString, _tok:stdgo.go.token.Token.Token, _zero:G
                     var _n:GoInt = (_lit.length);
                     if (_n >= (2 : GoInt)) {
                         {
-                            var __tmp__ = stdgo.strconv.Strconv.unquoteChar((_lit.__slice__((1 : GoInt), _n - (1 : GoInt)) : GoString), (39 : GoUInt8)), _code:GoInt32 = __tmp__._0, _0:Bool = __tmp__._1, _1:GoString = __tmp__._2, _err:Error = __tmp__._3;
+                            var __tmp__ = stdgo.strconv.Strconv.unquoteChar((_lit.__slice__((1 : GoInt), _n - (1 : GoInt)) : GoString), (39 : GoUInt8)), _code:GoInt32 = __tmp__._0, __0:Bool = __tmp__._1, __1:GoString = __tmp__._2, _err:Error = __tmp__._3;
                             if (_err == null) {
                                 return makeInt64((_code : GoInt64));
                             };
@@ -910,13 +910,13 @@ function boolVal(_x:Value):Bool {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_boolVal))) {
-                var _x:T_boolVal = __type__ == null ? (false : T_boolVal) : __type__.__underlying__() == null ? (false : T_boolVal) : __type__ == null ? (false : T_boolVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_boolVal = __type__ == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__.__underlying__() == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__ == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__.__underlying__().value;
                 return (_x : Bool);
             } else if (Go.typeEquals((__type__ : T_unknownVal))) {
-                var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                 return false;
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not a Bool" : GoString), Go.toInterface(_x)));
             };
         };
@@ -929,13 +929,13 @@ function stringVal(_x:Value):GoString {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : Ref<T_stringVal>))) {
-                var _x:Ref<T_stringVal> = __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__() == null ? (null : Ref<T_stringVal>) : __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__().value;
+                var _x:Ref<stdgo.go.constant.Constant.T_stringVal> = __type__ == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__ == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__.__underlying__().value;
                 return _x._string();
             } else if (Go.typeEquals((__type__ : T_unknownVal))) {
-                var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                 return Go.str();
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not a String" : GoString), Go.toInterface(_x)));
             };
         };
@@ -949,16 +949,16 @@ function int64Val(_x:Value):{ var _0 : GoInt64; var _1 : Bool; } {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_int64Val))) {
-                var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                 return { _0 : (_x : GoInt64), _1 : true };
             } else if (Go.typeEquals((__type__ : T_intVal))) {
-                var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                 return { _0 : _x._val.int64(), _1 : false };
             } else if (Go.typeEquals((__type__ : T_unknownVal))) {
-                var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
-                return { _0 : ("0" : GoInt64), _1 : false };
+                var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
+                return { _0 : (0i64 : GoInt64), _1 : false };
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not an Int" : GoString), Go.toInterface(_x)));
             };
         };
@@ -972,16 +972,16 @@ function uint64Val(_x:Value):{ var _0 : GoUInt64; var _1 : Bool; } {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_int64Val))) {
-                var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
-                return { _0 : (_x : GoUInt64), _1 : _x >= (("0" : GoInt64) : T_int64Val) };
+                var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
+                return { _0 : (_x : GoUInt64), _1 : _x >= (0i64 : stdgo.go.constant.Constant.T_int64Val) };
             } else if (Go.typeEquals((__type__ : T_intVal))) {
-                var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                 return { _0 : _x._val.uint64(), _1 : _x._val.isUint64() };
             } else if (Go.typeEquals((__type__ : T_unknownVal))) {
-                var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
-                return { _0 : ("0" : GoUInt64), _1 : false };
+                var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
+                return { _0 : (0i64 : GoUInt64), _1 : false };
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not an Int" : GoString), Go.toInterface(_x)));
             };
         };
@@ -993,25 +993,25 @@ function float32Val(_x:Value):{ var _0 : GoFloat32; var _1 : Bool; } {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_int64Val))) {
-                var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                 var _f:GoFloat32 = (_x : GoFloat32);
                 return { _0 : _f, _1 : (_f : T_int64Val) == (_x) };
             } else if (Go.typeEquals((__type__ : T_intVal))) {
-                var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                 var __tmp__ = _newFloat().setInt(_x._val).float32(), _f:GoFloat32 = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
                 return { _0 : _f, _1 : _acc == ((0 : stdgo.math.big.Big.Accuracy)) };
             } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                var _x:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_ratVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__().value;
                 return _x._val.float32();
             } else if (Go.typeEquals((__type__ : T_floatVal))) {
-                var _x:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                 var __tmp__ = _x._val.float32(), _f:GoFloat32 = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
                 return { _0 : _f, _1 : _acc == ((0 : stdgo.math.big.Big.Accuracy)) };
             } else if (Go.typeEquals((__type__ : T_unknownVal))) {
-                var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                 return { _0 : (0 : GoFloat64), _1 : false };
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not a Float" : GoString), Go.toInterface(_x)));
             };
         };
@@ -1027,25 +1027,25 @@ function float64Val(_x:Value):{ var _0 : GoFloat64; var _1 : Bool; } {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_int64Val))) {
-                var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                 var _f:GoFloat64 = ((_x : GoInt64) : GoFloat64);
                 return { _0 : _f, _1 : (_f : T_int64Val) == (_x) };
             } else if (Go.typeEquals((__type__ : T_intVal))) {
-                var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                 var __tmp__ = _newFloat().setInt(_x._val).float64(), _f:GoFloat64 = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
                 return { _0 : _f, _1 : _acc == ((0 : stdgo.math.big.Big.Accuracy)) };
             } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                var _x:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_ratVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__().value;
                 return _x._val.float64();
             } else if (Go.typeEquals((__type__ : T_floatVal))) {
-                var _x:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                 var __tmp__ = _x._val.float64(), _f:GoFloat64 = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
                 return { _0 : _f, _1 : _acc == ((0 : stdgo.math.big.Big.Accuracy)) };
             } else if (Go.typeEquals((__type__ : T_unknownVal))) {
-                var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                 return { _0 : (0 : GoFloat64), _1 : false };
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not a Float" : GoString), Go.toInterface(_x)));
             };
         };
@@ -1067,25 +1067,25 @@ function val(_x:Value):AnyInterface {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_boolVal))) {
-                var _x:T_boolVal = __type__ == null ? (false : T_boolVal) : __type__.__underlying__() == null ? (false : T_boolVal) : __type__ == null ? (false : T_boolVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_boolVal = __type__ == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__.__underlying__() == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__ == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__.__underlying__().value;
                 return Go.toInterface((_x : Bool));
             } else if (Go.typeEquals((__type__ : Ref<T_stringVal>))) {
-                var _x:Ref<T_stringVal> = __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__() == null ? (null : Ref<T_stringVal>) : __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__().value;
+                var _x:Ref<stdgo.go.constant.Constant.T_stringVal> = __type__ == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__ == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__.__underlying__().value;
                 return Go.toInterface(_x._string());
             } else if (Go.typeEquals((__type__ : T_int64Val))) {
-                var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                 return Go.toInterface((_x : GoInt64));
             } else if (Go.typeEquals((__type__ : T_intVal))) {
-                var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                 return Go.toInterface(Go.asInterface(_x._val));
             } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                var _x:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_ratVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__().value;
                 return Go.toInterface(Go.asInterface(_x._val));
             } else if (Go.typeEquals((__type__ : T_floatVal))) {
-                var _x:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                 return Go.toInterface(Go.asInterface(_x._val));
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 return (null : AnyInterface);
             };
         };
@@ -1111,7 +1111,7 @@ function make(_x:AnyInterface):Value {
                 return Go.asInterface((_x : T_boolVal));
             } else if (Go.typeEquals((__type__ : GoString))) {
                 var _x:GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__().value;
-                return Go.asInterface((Go.setRef(({ _s : _x } : T_stringVal)) : Ref<T_stringVal>));
+                return Go.asInterface((Go.setRef(({ _s : _x } : T_stringVal)) : Ref<stdgo.go.constant.Constant.T_stringVal>));
             } else if (Go.typeEquals((__type__ : GoInt64))) {
                 var _x:GoInt64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
                 return Go.asInterface((_x : T_int64Val));
@@ -1125,7 +1125,7 @@ function make(_x:AnyInterface):Value {
                 var _x:Ref<stdgo.math.big.Big.Float_> = __type__ == null ? (null : Ref<stdgo.math.big.Big.Float_>) : __type__.__underlying__() == null ? (null : Ref<stdgo.math.big.Big.Float_>) : __type__ == null ? (null : Ref<stdgo.math.big.Big.Float_>) : __type__.__underlying__().value;
                 return _makeFloat(_x);
             } else {
-                var _x:AnyInterface = __type__.__underlying__();
+                var _x:AnyInterface = __type__?.__underlying__();
                 return Go.asInterface((new T_unknownVal() : T_unknownVal));
             };
         };
@@ -1139,20 +1139,20 @@ function bitLen(_x:Value):GoInt {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_int64Val))) {
-                var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                 var _u:GoUInt64 = (_x : GoUInt64);
-                if (_x < (("0" : GoInt64) : T_int64Val)) {
+                if (_x < (0i64 : stdgo.go.constant.Constant.T_int64Val)) {
                     _u = (-_x : GoUInt64);
                 };
                 return (64 : GoInt) - stdgo.math.bits.Bits.leadingZeros64(_u);
             } else if (Go.typeEquals((__type__ : T_intVal))) {
-                var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                 return _x._val.bitLen();
             } else if (Go.typeEquals((__type__ : T_unknownVal))) {
-                var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                 return (0 : GoInt);
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not an Int" : GoString), Go.toInterface(_x)));
             };
         };
@@ -1166,30 +1166,30 @@ function sign(_x:Value):GoInt {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_int64Val))) {
-                var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
-                if (_x < (("0" : GoInt64) : T_int64Val)) {
+                var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
+                if (_x < (0i64 : stdgo.go.constant.Constant.T_int64Val)) {
                     return (-1 : GoInt);
-                } else if (_x > (("0" : GoInt64) : T_int64Val)) {
+                } else if (_x > (0i64 : stdgo.go.constant.Constant.T_int64Val)) {
                     return (1 : GoInt);
                 };
                 return (0 : GoInt);
             } else if (Go.typeEquals((__type__ : T_intVal))) {
-                var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                 return _x._val.sign();
             } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                var _x:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_ratVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__().value;
                 return _x._val.sign();
             } else if (Go.typeEquals((__type__ : T_floatVal))) {
-                var _x:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                 return _x._val.sign();
             } else if (Go.typeEquals((__type__ : T_complexVal))) {
-                var _x:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_complexVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__().value;
                 return sign(_x._re) | sign(_x._im);
             } else if (Go.typeEquals((__type__ : T_unknownVal))) {
-                var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                 return (1 : GoInt);
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not numeric" : GoString), Go.toInterface(_x)));
             };
         };
@@ -1199,29 +1199,29 @@ function sign(_x:Value):GoInt {
     // endian binary representation; x must be an Int.
 **/
 function bytes(_x:Value):Slice<GoByte> {
-        var _t:T_intVal = ({} : T_intVal);
+        var _t:T_intVal = ({} : stdgo.go.constant.Constant.T_intVal);
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_int64Val))) {
-                var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
-                _t = _i64toi(_x).__copy__();
+                var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
+                _t = _i64toi(_x)?.__copy__();
             } else if (Go.typeEquals((__type__ : T_intVal))) {
-                var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
-                _t = _x.__copy__();
+                var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
+                _t = _x?.__copy__();
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not an Int" : GoString), Go.toInterface(_x)));
             };
         };
         var _words = _t._val.bits();
         var _bytes = new Slice<GoUInt8>(((_words.length) * (4 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_words.length) * (4 : GoInt) : GoInt).toBasic()) (0 : GoUInt8)]);
         var _i:GoInt = (0 : GoInt);
-        for (_0 => _w in _words) {
+        for (__0 => _w in _words) {
             {
                 var _j:GoInt = (0 : GoInt);
                 Go.cfor(_j < (4 : GoInt), _j++, {
                     _bytes[(_i : GoInt)] = (_w : GoByte);
-                    _w = _w >> (("8" : GoUInt64));
+                    _w = _w >> ((8i64 : GoUInt64));
                     _i++;
                 });
             };
@@ -1240,15 +1240,15 @@ function makeFromBytes(_bytes:Slice<GoByte>):Value {
         var _i:GoInt = (0 : GoInt);
         var _w:stdgo.math.big.Big.Word = ((0 : GoUInt) : stdgo.math.big.Big.Word);
         var _s:GoUInt = (0 : GoUInt);
-        for (_0 => _b in _bytes) {
+        for (__0 => _b in _bytes) {
             _w = _w | ((_b : stdgo.math.big.Big.Word) << _s);
             {
-                _s = _s + (("8" : GoUInt));
-                if (_s == (("32" : GoUInt))) {
+                _s = _s + ((8u32 : GoUInt));
+                if (_s == ((32u32 : GoUInt))) {
                     _words[(_i : GoInt)] = _w;
                     _i++;
-                    _w = (("0" : GoUInt) : stdgo.math.big.Big.Word);
-                    _s = ("0" : GoUInt);
+                    _w = (0u32 : stdgo.math.big.Big.Word);
+                    _s = (0u32 : GoUInt);
                 };
             };
         };
@@ -1256,7 +1256,7 @@ function makeFromBytes(_bytes:Slice<GoByte>):Value {
             _words[(_i : GoInt)] = _w;
             _i++;
         };
-        while ((_i > (0 : GoInt)) && (_words[(_i - (1 : GoInt) : GoInt)] == (("0" : GoUInt) : stdgo.math.big.Big.Word))) {
+        while ((_i > (0 : GoInt)) && (_words[(_i - (1 : GoInt) : GoInt)] == (0u32 : stdgo.math.big.Big.Word))) {
             _i--;
         };
         return _makeInt(_newInt().setBits((_words.__slice__(0, _i) : Slice<stdgo.math.big.Big.Word>)));
@@ -1275,22 +1275,22 @@ function num(_x:Value):Value {
                 while (__bool__) {
                     __bool__ = false;
                     if (Go.typeEquals((__type__ : T_int64Val)) || Go.typeEquals((__type__ : T_intVal))) {
-                        var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                        var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                         return _x;
                     } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                        var _x:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
+                        var _x:stdgo.go.constant.Constant.T_ratVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__().value;
                         return _makeInt(_x._val.num());
                     } else if (Go.typeEquals((__type__ : T_floatVal))) {
-                        var _x:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
+                        var _x:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                         if (_smallFloat(_x._val)) {
-                            var __tmp__ = _x._val.rat(null), _r:Ref<stdgo.math.big.Big.Rat> = __tmp__._0, _0:stdgo.math.big.Big.Accuracy = __tmp__._1;
+                            var __tmp__ = _x._val.rat(null), _r:Ref<stdgo.math.big.Big.Rat> = __tmp__._0, __0:stdgo.math.big.Big.Accuracy = __tmp__._1;
                             return _makeInt(_r.num());
                         };
                     } else if (Go.typeEquals((__type__ : T_unknownVal))) {
-                        var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                        var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                         break;
                     } else {
-                        var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                        var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                         throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not Int or Float" : GoString), Go.toInterface(_x)));
                     };
                     break;
@@ -1312,22 +1312,22 @@ function denom(_x:Value):Value {
                 while (__bool__) {
                     __bool__ = false;
                     if (Go.typeEquals((__type__ : T_int64Val)) || Go.typeEquals((__type__ : T_intVal))) {
-                        var _x:Value = __type__ == null ? (null : Value) : cast __type__;
-                        return Go.asInterface((("1" : GoInt64) : T_int64Val));
+                        var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
+                        return Go.asInterface(((1i64 : stdgo.go.constant.Constant.T_int64Val) : T_int64Val));
                     } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                        var _x:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
+                        var _x:stdgo.go.constant.Constant.T_ratVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__().value;
                         return _makeInt(_x._val.denom());
                     } else if (Go.typeEquals((__type__ : T_floatVal))) {
-                        var _x:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
+                        var _x:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                         if (_smallFloat(_x._val)) {
-                            var __tmp__ = _x._val.rat(null), _r:Ref<stdgo.math.big.Big.Rat> = __tmp__._0, _0:stdgo.math.big.Big.Accuracy = __tmp__._1;
+                            var __tmp__ = _x._val.rat(null), _r:Ref<stdgo.math.big.Big.Rat> = __tmp__._0, __0:stdgo.math.big.Big.Accuracy = __tmp__._1;
                             return _makeInt(_r.denom());
                         };
                     } else if (Go.typeEquals((__type__ : T_unknownVal))) {
-                        var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                        var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                         break;
                     } else {
-                        var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                        var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                         throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not Int or Float" : GoString), Go.toInterface(_x)));
                     };
                     break;
@@ -1347,7 +1347,7 @@ function makeImag(_x:Value):Value {
             if (Go.typeEquals((__type__ : T_unknownVal))) {
                 return _x;
             } else if (Go.typeEquals((__type__ : T_int64Val)) || Go.typeEquals((__type__ : T_intVal)) || Go.typeEquals((__type__ : T_ratVal)) || Go.typeEquals((__type__ : T_floatVal))) {
-                return _makeComplex(Go.asInterface((("0" : GoInt64) : T_int64Val)), _x);
+                return _makeComplex(Go.asInterface(((0i64 : stdgo.go.constant.Constant.T_int64Val) : T_int64Val)), _x);
             } else {
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not Int or Float" : GoString), Go.toInterface(_x)));
             };
@@ -1361,13 +1361,13 @@ function real(_x:Value):Value {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_unknownVal)) || Go.typeEquals((__type__ : T_int64Val)) || Go.typeEquals((__type__ : T_intVal)) || Go.typeEquals((__type__ : T_ratVal)) || Go.typeEquals((__type__ : T_floatVal))) {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 return _x;
             } else if (Go.typeEquals((__type__ : T_complexVal))) {
-                var _x:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_complexVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__().value;
                 return _x._re;
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not numeric" : GoString), Go.toInterface(_x)));
             };
         };
@@ -1380,16 +1380,16 @@ function imag(_x:Value):Value {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_unknownVal))) {
-                var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                 return Go.asInterface(_x);
             } else if (Go.typeEquals((__type__ : T_int64Val)) || Go.typeEquals((__type__ : T_intVal)) || Go.typeEquals((__type__ : T_ratVal)) || Go.typeEquals((__type__ : T_floatVal))) {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
-                return Go.asInterface((("0" : GoInt64) : T_int64Val));
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
+                return Go.asInterface(((0i64 : stdgo.go.constant.Constant.T_int64Val) : T_int64Val));
             } else if (Go.typeEquals((__type__ : T_complexVal))) {
-                var _x:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_complexVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__().value;
                 return _x._im;
             } else {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v not numeric" : GoString), Go.toInterface(_x)));
             };
         };
@@ -1402,30 +1402,30 @@ function toInt(_x:Value):Value {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_int64Val)) || Go.typeEquals((__type__ : T_intVal))) {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 return _x;
             } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                var _x:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_ratVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__().value;
                 if (_x._val.isInt()) {
                     return _makeInt(_x._val.num());
                 };
             } else if (Go.typeEquals((__type__ : T_floatVal))) {
-                var _x:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                 if (_smallFloat(_x._val)) {
                     var _i = _newInt();
                     {
-                        var __tmp__ = _x._val.int_(_i), _0:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
+                        var __tmp__ = _x._val.int_(_i), __0:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
                         if (_acc == ((0 : stdgo.math.big.Big.Accuracy))) {
                             return _makeInt(_i);
                         };
                     };
                     {};
                     var _t:stdgo.math.big.Big.Float_ = ({} : stdgo.math.big.Big.Float_);
-                    _t.setPrec(("508" : GoUInt));
+                    _t.setPrec((508u32 : GoUInt));
                     _t.setMode((2 : stdgo.math.big.Big.RoundingMode));
                     _t.set(_x._val);
                     {
-                        var __tmp__ = _t.int_(_i), _1:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
+                        var __tmp__ = _t.int_(_i), __1:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
                         if (_acc == ((0 : stdgo.math.big.Big.Accuracy))) {
                             return _makeInt(_i);
                         };
@@ -1433,17 +1433,17 @@ function toInt(_x:Value):Value {
                     _t.setMode((3 : stdgo.math.big.Big.RoundingMode));
                     _t.set(_x._val);
                     {
-                        var __tmp__ = _t.int_(_i), _2:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
+                        var __tmp__ = _t.int_(_i), __2:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
                         if (_acc == ((0 : stdgo.math.big.Big.Accuracy))) {
                             return _makeInt(_i);
                         };
                     };
                 };
             } else if (Go.typeEquals((__type__ : T_complexVal))) {
-                var _x:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_complexVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__().value;
                 {
-                    var _re:Value = toFloat(Go.asInterface(_x));
-                    if (_re.kind() == ((4 : Kind))) {
+                    var _re:stdgo.go.constant.Constant.Value = toFloat(Go.asInterface(_x));
+                    if (_re.kind() == ((4 : stdgo.go.constant.Constant.Kind))) {
                         return toInt(_re);
                     };
                 };
@@ -1459,19 +1459,19 @@ function toFloat(_x:Value):Value {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_int64Val))) {
-                var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                 return Go.asInterface(_i64tor(_x));
             } else if (Go.typeEquals((__type__ : T_intVal))) {
-                var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                 if (_smallInt(_x._val)) {
-                    return Go.asInterface(_itor(_x.__copy__()));
+                    return Go.asInterface(_itor(_x?.__copy__()));
                 };
-                return Go.asInterface(_itof(_x.__copy__()));
+                return Go.asInterface(_itof(_x?.__copy__()));
             } else if (Go.typeEquals((__type__ : T_ratVal)) || Go.typeEquals((__type__ : T_floatVal))) {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 return _x;
             } else if (Go.typeEquals((__type__ : T_complexVal))) {
-                var _x:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_complexVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__().value;
                 if (sign(_x._im) == ((0 : GoInt))) {
                     return toFloat(_x._re);
                 };
@@ -1487,10 +1487,10 @@ function toComplex(_x:Value):Value {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_int64Val)) || Go.typeEquals((__type__ : T_intVal)) || Go.typeEquals((__type__ : T_ratVal)) || Go.typeEquals((__type__ : T_floatVal))) {
-                var _x:Value = __type__ == null ? (null : Value) : cast __type__;
+                var _x:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                 return Go.asInterface(_vtoc(_x));
             } else if (Go.typeEquals((__type__ : T_complexVal))) {
-                var _x:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_complexVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__().value;
                 return Go.asInterface(_x);
             };
         };
@@ -1501,14 +1501,14 @@ function toComplex(_x:Value):Value {
 **/
 private function _is32bit(_x:GoInt64):Bool {
         {};
-        return ((("-2147483648" : GoInt64) : GoInt64) <= _x) && (_x <= (("2147483647" : GoInt64) : GoInt64));
+        return ((-2147483648i64 : GoInt64) <= _x) && (_x <= (2147483647i64 : GoInt64));
     }
 /**
     // is63bit reports whether x can be represented using 63 bits.
 **/
 private function _is63bit(_x:GoInt64):Bool {
         {};
-        return ((("-4611686018427387904" : GoInt64) : GoInt64) <= _x) && (_x <= (("4611686018427387903" : GoInt64) : GoInt64));
+        return ((-4611686018427387904i64 : GoInt64) <= _x) && (_x <= (4611686018427387903i64 : GoInt64));
     }
 /**
     // UnaryOp returns the result of the unary expression op y.
@@ -1517,7 +1517,7 @@ private function _is63bit(_x:GoInt64):Bool {
     // If y is Unknown, the result is Unknown.
 **/
 function unaryOp(_op:stdgo.go.token.Token.Token, _y:Value, _prec:GoUInt):Value {
-        return stdgo.internal.Macro.controlFlow({
+        stdgo.internal.Macro.controlFlow({
             {
                 final __value__ = _op;
                 if (__value__ == ((12 : stdgo.go.token.Token.Token))) {
@@ -1531,30 +1531,30 @@ function unaryOp(_op:stdgo.go.token.Token.Token, _y:Value, _prec:GoUInt):Value {
                     {
                         final __type__ = _y;
                         if (Go.typeEquals((__type__ : T_unknownVal))) {
-                            var _y:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                            var _y:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                             return Go.asInterface(_y);
                         } else if (Go.typeEquals((__type__ : T_int64Val))) {
-                            var _y:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                            var _y:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                             {
-                                var _z:T_int64Val = -_y;
+                                var _z:stdgo.go.constant.Constant.T_int64Val = -_y;
                                 if (_z != (_y)) {
                                     return Go.asInterface(_z);
                                 };
                             };
                             return _makeInt(_newInt().neg(stdgo.math.big.Big.newInt((_y : GoInt64))));
                         } else if (Go.typeEquals((__type__ : T_intVal))) {
-                            var _y:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                            var _y:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                             return _makeInt(_newInt().neg(_y._val));
                         } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                            var _y:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
+                            var _y:stdgo.go.constant.Constant.T_ratVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__().value;
                             return _makeRat(_newRat().neg(_y._val));
                         } else if (Go.typeEquals((__type__ : T_floatVal))) {
-                            var _y:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
+                            var _y:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                             return _makeFloat(_newFloat().neg(_y._val));
                         } else if (Go.typeEquals((__type__ : T_complexVal))) {
-                            var _y:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
-                            var _re:Value = unaryOp((13 : stdgo.go.token.Token.Token), _y._re, ("0" : GoUInt));
-                            var _im:Value = unaryOp((13 : stdgo.go.token.Token.Token), _y._im, ("0" : GoUInt));
+                            var _y:stdgo.go.constant.Constant.T_complexVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__().value;
+                            var _re:stdgo.go.constant.Constant.Value = unaryOp((13 : stdgo.go.token.Token.Token), _y._re, (0u32 : GoUInt));
+                            var _im:stdgo.go.constant.Constant.Value = unaryOp((13 : stdgo.go.token.Token.Token), _y._im, (0u32 : GoUInt));
                             return _makeComplex(_re, _im);
                         };
                     };
@@ -1563,31 +1563,31 @@ function unaryOp(_op:stdgo.go.token.Token.Token, _y:Value, _prec:GoUInt):Value {
                     {
                         final __type__ = _y;
                         if (Go.typeEquals((__type__ : T_unknownVal))) {
-                            var _y:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                            var _y:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                             return Go.asInterface(_y);
                         } else if (Go.typeEquals((__type__ : T_int64Val))) {
-                            var _y:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                            var _y:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                             _z.not(stdgo.math.big.Big.newInt((_y : GoInt64)));
                         } else if (Go.typeEquals((__type__ : T_intVal))) {
-                            var _y:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                            var _y:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                             _z.not(_y._val);
                         } else {
-                            var _y:Value = __type__ == null ? (null : Value) : cast __type__;
+                            var _y:stdgo.go.constant.Constant.Value = __type__ == null ? (null : stdgo.go.constant.Constant.Value) : cast __type__;
                             @:goto "Error";
                         };
                     };
-                    if (_prec > ("0" : GoUInt)) {
-                        _z.andNot(_z, _newInt().lsh(stdgo.math.big.Big.newInt(("-1" : GoInt64)), _prec));
+                    if (_prec > (0u32 : GoUInt)) {
+                        _z.andNot(_z, _newInt().lsh(stdgo.math.big.Big.newInt((-1i64 : GoInt64)), _prec));
                     };
                     return _makeInt(_z);
                 } else if (__value__ == ((43 : stdgo.go.token.Token.Token))) {
                     {
                         final __type__ = _y;
                         if (Go.typeEquals((__type__ : T_unknownVal))) {
-                            var _y:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                            var _y:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                             return Go.asInterface(_y);
                         } else if (Go.typeEquals((__type__ : T_boolVal))) {
-                            var _y:T_boolVal = __type__ == null ? (false : T_boolVal) : __type__.__underlying__() == null ? (false : T_boolVal) : __type__ == null ? (false : T_boolVal) : __type__.__underlying__().value;
+                            var _y:stdgo.go.constant.Constant.T_boolVal = __type__ == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__.__underlying__() == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__ == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__.__underlying__().value;
                             return Go.asInterface(!_y);
                         };
                     };
@@ -1595,6 +1595,7 @@ function unaryOp(_op:stdgo.go.token.Token.Token, _y:Value, _prec:GoUInt):Value {
             };
             @:label("Error") throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid unary operation %s%v" : GoString), Go.toInterface(Go.asInterface(_op)), Go.toInterface(_y)));
         });
+        throw "controlFlow did not return";
     }
 private function _ord(_x:Value):GoInt {
         {
@@ -1625,9 +1626,9 @@ private function _ord(_x:Value):GoInt {
     // or invalid (say, nil) both results are that value.
 **/
 private function _match(_x:Value, _y:Value):{ var _0 : Value; var _1 : Value; } {
-        var _0:Value = (null : Value), _1:Value = (null : Value);
+        var _0:Value = (null : stdgo.go.constant.Constant.Value), _1:Value = (null : stdgo.go.constant.Constant.Value);
         {
-            var _0:GoInt = _ord(_x), _1:GoInt = _ord(_y), _oy:GoInt = _1, _ox:GoInt = _0;
+            var __0:GoInt = _ord(_x), __1:GoInt = _ord(_y), _oy:GoInt = __1, _ox:GoInt = __0;
             if (_ox < _oy) {
                 {
                     var __tmp__ = _match0(_x, _y);
@@ -1649,14 +1650,14 @@ private function _match(_x:Value, _y:Value):{ var _0 : Value; var _1 : Value; } 
     // Invariant: ord(x) < ord(y)
 **/
 private function _match0(_x:Value, _y:Value):{ var _0 : Value; var _1 : Value; } {
-        var _0:Value = (null : Value), _1:Value = (null : Value);
+        var _0:Value = (null : stdgo.go.constant.Constant.Value), _1:Value = (null : stdgo.go.constant.Constant.Value);
         {
             final __type__ = _y;
             if (Go.typeEquals((__type__ : T_intVal))) {
                 {
                     final __type__ = _x;
                     if (Go.typeEquals((__type__ : T_int64Val))) {
-                        var _x1:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                        var _x1:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                         return { _0 : Go.asInterface(_i64toi(_x1)), _1 : _y };
                     };
                 };
@@ -1664,25 +1665,25 @@ private function _match0(_x:Value, _y:Value):{ var _0 : Value; var _1 : Value; }
                 {
                     final __type__ = _x;
                     if (Go.typeEquals((__type__ : T_int64Val))) {
-                        var _x1:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                        var _x1:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                         return { _0 : Go.asInterface(_i64tor(_x1)), _1 : _y };
                     } else if (Go.typeEquals((__type__ : T_intVal))) {
-                        var _x1:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
-                        return { _0 : Go.asInterface(_itor(_x1.__copy__())), _1 : _y };
+                        var _x1:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
+                        return { _0 : Go.asInterface(_itor(_x1?.__copy__())), _1 : _y };
                     };
                 };
             } else if (Go.typeEquals((__type__ : T_floatVal))) {
                 {
                     final __type__ = _x;
                     if (Go.typeEquals((__type__ : T_int64Val))) {
-                        var _x1:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                        var _x1:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                         return { _0 : Go.asInterface(_i64tof(_x1)), _1 : _y };
                     } else if (Go.typeEquals((__type__ : T_intVal))) {
-                        var _x1:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
-                        return { _0 : Go.asInterface(_itof(_x1.__copy__())), _1 : _y };
+                        var _x1:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
+                        return { _0 : Go.asInterface(_itof(_x1?.__copy__())), _1 : _y };
                     } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                        var _x1:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
-                        return { _0 : Go.asInterface(_rtof(_x1.__copy__())), _1 : _y };
+                        var _x1:stdgo.go.constant.Constant.T_ratVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__().value;
+                        return { _0 : Go.asInterface(_rtof(_x1?.__copy__())), _1 : _y };
                     };
                 };
             } else if (Go.typeEquals((__type__ : T_complexVal))) {
@@ -1703,16 +1704,16 @@ private function _match0(_x:Value, _y:Value):{ var _0 : Value; var _1 : Value; }
     // Division by zero leads to a run-time panic.
 **/
 function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
-        return stdgo.internal.Macro.controlFlow({
-            var __tmp__ = _match(_x_, _y_), _x:Value = __tmp__._0, _y:Value = __tmp__._1;
+        stdgo.internal.Macro.controlFlow({
+            var __tmp__ = _match(_x_, _y_), _x:stdgo.go.constant.Constant.Value = __tmp__._0, _y:stdgo.go.constant.Constant.Value = __tmp__._1;
             {
                 final __type__ = _x;
                 if (Go.typeEquals((__type__ : T_unknownVal))) {
-                    var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                    var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                     return Go.asInterface(_x);
                 } else if (Go.typeEquals((__type__ : T_boolVal))) {
-                    var _x:T_boolVal = __type__ == null ? (false : T_boolVal) : __type__.__underlying__() == null ? (false : T_boolVal) : __type__ == null ? (false : T_boolVal) : __type__.__underlying__().value;
-                    var _y:T_boolVal = (Go.typeAssert((Go.toInterface(_y) : T_boolVal)) : T_boolVal);
+                    var _x:stdgo.go.constant.Constant.T_boolVal = __type__ == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__.__underlying__() == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__ == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__.__underlying__().value;
+                    var _y:stdgo.go.constant.Constant.T_boolVal = (Go.typeAssert((Go.toInterface(_y) : T_boolVal)) : T_boolVal);
                     {
                         final __value__ = _op;
                         if (__value__ == ((34 : stdgo.go.token.Token.Token))) {
@@ -1722,7 +1723,7 @@ function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
                         };
                     };
                 } else if (Go.typeEquals((__type__ : T_int64Val))) {
-                    var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
+                    var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
                     var _a:GoInt64 = (_x : GoInt64);
                     var _b:GoInt64 = ((Go.typeAssert((Go.toInterface(_y) : T_int64Val)) : T_int64Val) : GoInt64);
                     var _c:GoInt64 = (0 : GoInt64);
@@ -1756,14 +1757,14 @@ function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
                         } else if (__value__ == ((19 : stdgo.go.token.Token.Token))) {
                             _c = _a ^ _b;
                         } else if (__value__ == ((22 : stdgo.go.token.Token.Token))) {
-                            _c = _a & (_b ^ (-1 : GoInt));
+                            _c = _a & (_b ^ (-1i32 : GoInt));
                         } else {
                             @:goto "Error";
                         };
                     };
                     return Go.asInterface((_c : T_int64Val));
                 } else if (Go.typeEquals((__type__ : T_intVal))) {
-                    var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                    var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                     var _a = _x._val;
                     var _b = (Go.typeAssert((Go.toInterface(_y) : T_intVal)) : T_intVal)._val;
                     var _c = _newInt();
@@ -1795,7 +1796,7 @@ function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
                     };
                     return _makeInt(_c);
                 } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                    var _x:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
+                    var _x:stdgo.go.constant.Constant.T_ratVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__().value;
                     var _a = _x._val;
                     var _b = (Go.typeAssert((Go.toInterface(_y) : T_ratVal)) : T_ratVal)._val;
                     var _c = _newRat();
@@ -1815,7 +1816,7 @@ function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
                     };
                     return _makeRat(_c);
                 } else if (Go.typeEquals((__type__ : T_floatVal))) {
-                    var _x:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
+                    var _x:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                     var _a = _x._val;
                     var _b = (Go.typeAssert((Go.toInterface(_y) : T_floatVal)) : T_floatVal)._val;
                     var _c = _newFloat();
@@ -1835,11 +1836,11 @@ function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
                     };
                     return _makeFloat(_c);
                 } else if (Go.typeEquals((__type__ : T_complexVal))) {
-                    var _x:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
-                    var _y:T_complexVal = (Go.typeAssert((Go.toInterface(_y) : T_complexVal)) : T_complexVal).__copy__();
-                    var _0:Value = _x._re, _1:Value = _x._im, _b:Value = _1, _a:Value = _0;
-                    var _0:Value = _y._re, _1:Value = _y._im, _d:Value = _1, _c:Value = _0;
-                    var _0:Value = (null : Value), _1:Value = (null : Value), _im:Value = _1, _re:Value = _0;
+                    var _x:stdgo.go.constant.Constant.T_complexVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__().value;
+                    var _y:stdgo.go.constant.Constant.T_complexVal = (Go.typeAssert((Go.toInterface(_y) : T_complexVal)) : T_complexVal)?.__copy__();
+                    var __0:stdgo.go.constant.Constant.Value = _x._re, __1:stdgo.go.constant.Constant.Value = _x._im, _b:stdgo.go.constant.Constant.Value = __1, _a:stdgo.go.constant.Constant.Value = __0;
+                    var __0:stdgo.go.constant.Constant.Value = _y._re, __1:stdgo.go.constant.Constant.Value = _y._im, _d:stdgo.go.constant.Constant.Value = __1, _c:stdgo.go.constant.Constant.Value = __0;
+                    var __0:Value = (null : stdgo.go.constant.Constant.Value), __1:Value = (null : stdgo.go.constant.Constant.Value), _im:Value = __1, _re:Value = __0;
                     {
                         final __value__ = _op;
                         if (__value__ == ((12 : stdgo.go.token.Token.Token))) {
@@ -1849,20 +1850,20 @@ function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
                             _re = _sub(_a, _c);
                             _im = _sub(_b, _d);
                         } else if (__value__ == ((14 : stdgo.go.token.Token.Token))) {
-                            var _ac:Value = _mul(_a, _c);
-                            var _bd:Value = _mul(_b, _d);
-                            var _bc:Value = _mul(_b, _c);
-                            var _ad:Value = _mul(_a, _d);
+                            var _ac:stdgo.go.constant.Constant.Value = _mul(_a, _c);
+                            var _bd:stdgo.go.constant.Constant.Value = _mul(_b, _d);
+                            var _bc:stdgo.go.constant.Constant.Value = _mul(_b, _c);
+                            var _ad:stdgo.go.constant.Constant.Value = _mul(_a, _d);
                             _re = _sub(_ac, _bd);
                             _im = _add(_bc, _ad);
                         } else if (__value__ == ((15 : stdgo.go.token.Token.Token))) {
-                            var _ac:Value = _mul(_a, _c);
-                            var _bd:Value = _mul(_b, _d);
-                            var _bc:Value = _mul(_b, _c);
-                            var _ad:Value = _mul(_a, _d);
-                            var _cc:Value = _mul(_c, _c);
-                            var _dd:Value = _mul(_d, _d);
-                            var _s:Value = _add(_cc, _dd);
+                            var _ac:stdgo.go.constant.Constant.Value = _mul(_a, _c);
+                            var _bd:stdgo.go.constant.Constant.Value = _mul(_b, _d);
+                            var _bc:stdgo.go.constant.Constant.Value = _mul(_b, _c);
+                            var _ad:stdgo.go.constant.Constant.Value = _mul(_a, _d);
+                            var _cc:stdgo.go.constant.Constant.Value = _mul(_c, _c);
+                            var _dd:stdgo.go.constant.Constant.Value = _mul(_d, _d);
+                            var _s:stdgo.go.constant.Constant.Value = _add(_cc, _dd);
                             _re = _add(_ac, _bd);
                             _re = _quo(_re, _s);
                             _im = _sub(_bc, _ad);
@@ -1873,14 +1874,15 @@ function binaryOp(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Value {
                     };
                     return _makeComplex(_re, _im);
                 } else if (Go.typeEquals((__type__ : Ref<T_stringVal>))) {
-                    var _x:Ref<T_stringVal> = __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__() == null ? (null : Ref<T_stringVal>) : __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__().value;
+                    var _x:Ref<stdgo.go.constant.Constant.T_stringVal> = __type__ == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__ == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__.__underlying__().value;
                     if (_op == ((12 : stdgo.go.token.Token.Token))) {
-                        return Go.asInterface((Go.setRef(({ _l : _x, _r : (Go.typeAssert((Go.toInterface(_y) : Ref<T_stringVal>)) : Ref<T_stringVal>) } : T_stringVal)) : Ref<T_stringVal>));
+                        return Go.asInterface((Go.setRef(({ _l : _x, _r : (Go.typeAssert((Go.toInterface(_y) : Ref<T_stringVal>)) : Ref<T_stringVal>) } : T_stringVal)) : Ref<stdgo.go.constant.Constant.T_stringVal>));
                     };
                 };
             };
             @:label("Error") throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid binary operation %v %s %v" : GoString), Go.toInterface(_x_), Go.toInterface(Go.asInterface(_op)), Go.toInterface(_y_)));
         });
+        throw "controlFlow did not return";
     }
 private function _add(_x:Value, _y:Value):Value {
         return binaryOp(_x, (12 : stdgo.go.token.Token.Token), _y);
@@ -1903,11 +1905,11 @@ function shift(_x:Value, _op:stdgo.go.token.Token.Token, _s:GoUInt):Value {
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_unknownVal))) {
-                var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                 return Go.asInterface(_x);
             } else if (Go.typeEquals((__type__ : T_int64Val))) {
-                var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
-                if (_s == (("0" : GoUInt))) {
+                var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
+                if (_s == ((0u32 : GoUInt))) {
                     return Go.asInterface(_x);
                 };
                 {
@@ -1920,8 +1922,8 @@ function shift(_x:Value, _op:stdgo.go.token.Token.Token, _s:GoUInt):Value {
                     };
                 };
             } else if (Go.typeEquals((__type__ : T_intVal))) {
-                var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
-                if (_s == (("0" : GoUInt))) {
+                var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
+                if (_s == ((0u32 : GoUInt))) {
                     return Go.asInterface(_x);
                 };
                 var _z = _newInt();
@@ -1963,15 +1965,15 @@ private function _cmpZero(_x:GoInt, _op:stdgo.go.token.Token.Token):Bool {
     // false.
 **/
 function compare(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Bool {
-        var __tmp__ = _match(_x_, _y_), _x:Value = __tmp__._0, _y:Value = __tmp__._1;
+        var __tmp__ = _match(_x_, _y_), _x:stdgo.go.constant.Constant.Value = __tmp__._0, _y:stdgo.go.constant.Constant.Value = __tmp__._1;
         {
             final __type__ = _x;
             if (Go.typeEquals((__type__ : T_unknownVal))) {
-                var _x:T_unknownVal = __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__() == null ? ({} : T_unknownVal) : __type__ == null ? ({} : T_unknownVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_unknownVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_unknownVal) : __type__.__underlying__().value;
                 return false;
             } else if (Go.typeEquals((__type__ : T_boolVal))) {
-                var _x:T_boolVal = __type__ == null ? (false : T_boolVal) : __type__.__underlying__() == null ? (false : T_boolVal) : __type__ == null ? (false : T_boolVal) : __type__.__underlying__().value;
-                var _y:T_boolVal = (Go.typeAssert((Go.toInterface(_y) : T_boolVal)) : T_boolVal);
+                var _x:stdgo.go.constant.Constant.T_boolVal = __type__ == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__.__underlying__() == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__ == null ? (false : stdgo.go.constant.Constant.T_boolVal) : __type__.__underlying__().value;
+                var _y:stdgo.go.constant.Constant.T_boolVal = (Go.typeAssert((Go.toInterface(_y) : T_boolVal)) : T_boolVal);
                 {
                     final __value__ = _op;
                     if (__value__ == ((39 : stdgo.go.token.Token.Token))) {
@@ -1981,8 +1983,8 @@ function compare(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Bool {
                     };
                 };
             } else if (Go.typeEquals((__type__ : T_int64Val))) {
-                var _x:T_int64Val = __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : T_int64Val) : __type__ == null ? ((0 : GoInt64) : T_int64Val) : __type__.__underlying__().value;
-                var _y:T_int64Val = (Go.typeAssert((Go.toInterface(_y) : T_int64Val)) : T_int64Val);
+                var _x:stdgo.go.constant.Constant.T_int64Val = __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__() == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__ == null ? ((0 : GoInt64) : stdgo.go.constant.Constant.T_int64Val) : __type__.__underlying__().value;
+                var _y:stdgo.go.constant.Constant.T_int64Val = (Go.typeAssert((Go.toInterface(_y) : T_int64Val)) : T_int64Val);
                 {
                     final __value__ = _op;
                     if (__value__ == ((39 : stdgo.go.token.Token.Token))) {
@@ -2000,17 +2002,17 @@ function compare(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Bool {
                     };
                 };
             } else if (Go.typeEquals((__type__ : T_intVal))) {
-                var _x:T_intVal = __type__ == null ? ({} : T_intVal) : __type__.__underlying__() == null ? ({} : T_intVal) : __type__ == null ? ({} : T_intVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_intVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_intVal) : __type__.__underlying__().value;
                 return _cmpZero(_x._val.cmp((Go.typeAssert((Go.toInterface(_y) : T_intVal)) : T_intVal)._val), _op);
             } else if (Go.typeEquals((__type__ : T_ratVal))) {
-                var _x:T_ratVal = __type__ == null ? ({} : T_ratVal) : __type__.__underlying__() == null ? ({} : T_ratVal) : __type__ == null ? ({} : T_ratVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_ratVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_ratVal) : __type__.__underlying__().value;
                 return _cmpZero(_x._val.cmp((Go.typeAssert((Go.toInterface(_y) : T_ratVal)) : T_ratVal)._val), _op);
             } else if (Go.typeEquals((__type__ : T_floatVal))) {
-                var _x:T_floatVal = __type__ == null ? ({} : T_floatVal) : __type__.__underlying__() == null ? ({} : T_floatVal) : __type__ == null ? ({} : T_floatVal) : __type__.__underlying__().value;
+                var _x:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                 return _cmpZero(_x._val.cmp((Go.typeAssert((Go.toInterface(_y) : T_floatVal)) : T_floatVal)._val), _op);
             } else if (Go.typeEquals((__type__ : T_complexVal))) {
-                var _x:T_complexVal = __type__ == null ? ({} : T_complexVal) : __type__.__underlying__() == null ? ({} : T_complexVal) : __type__ == null ? ({} : T_complexVal) : __type__.__underlying__().value;
-                var _y:T_complexVal = (Go.typeAssert((Go.toInterface(_y) : T_complexVal)) : T_complexVal).__copy__();
+                var _x:stdgo.go.constant.Constant.T_complexVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_complexVal) : __type__.__underlying__().value;
+                var _y:stdgo.go.constant.Constant.T_complexVal = (Go.typeAssert((Go.toInterface(_y) : T_complexVal)) : T_complexVal)?.__copy__();
                 var _re:Bool = compare(_x._re, (39 : stdgo.go.token.Token.Token), _y._re);
                 var _im:Bool = compare(_x._im, (39 : stdgo.go.token.Token.Token), _y._im);
                 {
@@ -2022,7 +2024,7 @@ function compare(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Bool {
                     };
                 };
             } else if (Go.typeEquals((__type__ : Ref<T_stringVal>))) {
-                var _x:Ref<T_stringVal> = __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__() == null ? (null : Ref<T_stringVal>) : __type__ == null ? (null : Ref<T_stringVal>) : __type__.__underlying__().value;
+                var _x:Ref<stdgo.go.constant.Constant.T_stringVal> = __type__ == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__ == null ? (null : Ref<stdgo.go.constant.Constant.T_stringVal>) : __type__.__underlying__().value;
                 var _xs:GoString = _x._string();
                 var _ys:GoString = (Go.typeAssert((Go.toInterface(_y) : Ref<T_stringVal>)) : Ref<T_stringVal>)._string();
                 {
@@ -2046,38 +2048,38 @@ function compare(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Bool {
         throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid comparison %v %s %v" : GoString), Go.toInterface(_x_), Go.toInterface(Go.asInterface(_op)), Go.toInterface(_y_)));
     }
 private function _testNumbers(_t:Ref<stdgo.testing.Testing.T>, _kind:stdgo.go.token.Token.Token, _tests:Slice<GoString>):Void {
-        for (_0 => _test in _tests) {
+        for (__0 => _test in _tests) {
             var _a = stdgo.strings.Strings.split(_test, (" = " : GoString));
             if ((_a.length) != ((2 : GoInt))) {
                 _t.errorf(("invalid test case: %s" : GoString), Go.toInterface(_test));
                 continue;
             };
-            var _x:Value = makeFromLiteral(_a[(0 : GoInt)], _kind, ("0" : GoUInt));
-            var _y:Value = (null : Value);
+            var _x:stdgo.go.constant.Constant.Value = makeFromLiteral(_a[(0 : GoInt)], _kind, (0u32 : GoUInt));
+            var _y:Value = (null : stdgo.go.constant.Constant.Value);
             if (_a[(1 : GoInt)] == (("?" : GoString))) {
                 _y = makeUnknown();
             } else {
                 {
                     var __tmp__ = stdgo.strings.Strings.cut(_a[(1 : GoInt)], ("/" : GoString)), _ns:GoString = __tmp__._0, _ds:GoString = __tmp__._1, _ok:Bool = __tmp__._2;
                     if (_ok && (_kind == (6 : stdgo.go.token.Token.Token))) {
-                        var _n:Value = makeFromLiteral(_ns, (5 : stdgo.go.token.Token.Token), ("0" : GoUInt));
-                        var _d:Value = makeFromLiteral(_ds, (5 : stdgo.go.token.Token.Token), ("0" : GoUInt));
+                        var _n:stdgo.go.constant.Constant.Value = makeFromLiteral(_ns, (5 : stdgo.go.token.Token.Token), (0u32 : GoUInt));
+                        var _d:stdgo.go.constant.Constant.Value = makeFromLiteral(_ds, (5 : stdgo.go.token.Token.Token), (0u32 : GoUInt));
                         _y = binaryOp(_n, (15 : stdgo.go.token.Token.Token), _d);
                     } else {
-                        _y = makeFromLiteral(_a[(1 : GoInt)], _kind, ("0" : GoUInt));
+                        _y = makeFromLiteral(_a[(1 : GoInt)], _kind, (0u32 : GoUInt));
                     };
                 };
-                if (_y.kind() == ((0 : Kind))) {
+                if (_y.kind() == ((0 : stdgo.go.constant.Constant.Kind))) {
                     throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid test case: %s %d" : GoString), Go.toInterface(_test), Go.toInterface(Go.asInterface(_y.kind()))));
                 };
             };
-            var _xk:Kind = _x.kind();
-            var _yk:Kind = _y.kind();
+            var _xk:stdgo.go.constant.Constant.Kind = _x.kind();
+            var _yk:stdgo.go.constant.Constant.Kind = _y.kind();
             if (_xk != (_yk)) {
                 _t.errorf(("%s: got kind %d != %d" : GoString), Go.toInterface(_test), Go.toInterface(Go.asInterface(_xk)), Go.toInterface(Go.asInterface(_yk)));
                 continue;
             };
-            if (_yk == ((0 : Kind))) {
+            if (_yk == ((0 : stdgo.go.constant.Constant.Kind))) {
                 continue;
             };
             if (!compare(_x, (39 : stdgo.go.token.Token.Token), _y)) {
@@ -2095,10 +2097,10 @@ function testNumbers(_t:Ref<stdgo.testing.Testing.T>):Void {
         _testNumbers(_t, (7 : stdgo.go.token.Token.Token), _imagTests);
     }
 function testOps(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _opTests) {
+        for (__0 => _test in _opTests) {
             var _a = stdgo.strings.Strings.split(_test, (" " : GoString));
             var _i:GoInt = (0 : GoInt);
-            var _0:Value = (null : Value), _1:Value = (null : Value), _x0:Value = _1, _x:Value = _0;
+            var __0:Value = (null : stdgo.go.constant.Constant.Value), __1:Value = (null : stdgo.go.constant.Constant.Value), _x0:Value = __1, _x:Value = __0;
             {
                 final __value__ = (_a.length);
                 if (__value__ == ((4 : GoInt))) {} else if (__value__ == ((5 : GoInt))) {
@@ -2118,9 +2120,9 @@ function testOps(_t:Ref<stdgo.testing.Testing.T>):Void {
             if (!_ok) {
                 throw Go.toInterface(("missing optab entry for " : GoString) + _a[(_i : GoInt)]);
             };
-            var _0:Value = _val(_a[(_i + (1 : GoInt) : GoInt)]), _1:Value = _val(_a[(_i + (1 : GoInt) : GoInt)]), _y0:Value = _1, _y:Value = _0;
-            var _got:Value = _doOp(_x, _op, _y);
-            var _want:Value = _val(_a[(_i + (3 : GoInt) : GoInt)]);
+            var __0:stdgo.go.constant.Constant.Value = _val(_a[(_i + (1 : GoInt) : GoInt)]), __1:stdgo.go.constant.Constant.Value = _val(_a[(_i + (1 : GoInt) : GoInt)]), _y0:stdgo.go.constant.Constant.Value = __1, _y:stdgo.go.constant.Constant.Value = __0;
+            var _got:stdgo.go.constant.Constant.Value = _doOp(_x, _op, _y);
+            var _want:stdgo.go.constant.Constant.Value = _val(_a[(_i + (3 : GoInt) : GoInt)]);
             if (!_eql(_got, _want)) {
                 _t.errorf(("%s: got %s; want %s" : GoString), Go.toInterface(_test), Go.toInterface(_got), Go.toInterface(_want));
                 continue;
@@ -2139,21 +2141,21 @@ private function _eql(_x:Value, _y:Value):Bool {
         var __tmp__ = try {
             { value : (Go.typeAssert((Go.toInterface(_x) : T_unknownVal)) : T_unknownVal), ok : true };
         } catch(_) {
-            { value : ({} : T_unknownVal), ok : false };
-        }, _0 = __tmp__.value, _ux = __tmp__.ok;
+            { value : ({} : stdgo.go.constant.Constant.T_unknownVal), ok : false };
+        }, __0 = __tmp__.value, _ux = __tmp__.ok;
         var __tmp__ = try {
             { value : (Go.typeAssert((Go.toInterface(_y) : T_unknownVal)) : T_unknownVal), ok : true };
         } catch(_) {
-            { value : ({} : T_unknownVal), ok : false };
-        }, _1 = __tmp__.value, _uy = __tmp__.ok;
+            { value : ({} : stdgo.go.constant.Constant.T_unknownVal), ok : false };
+        }, __1 = __tmp__.value, _uy = __tmp__.ok;
         if (_ux || _uy) {
             return _ux == (_uy);
         };
         return compare(_x, (39 : stdgo.go.token.Token.Token), _y);
     }
 function testString(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _stringTests) {
-            var _x:Value = _val(_test._input);
+        for (__0 => _test in _stringTests) {
+            var _x:stdgo.go.constant.Constant.Value = _val(_test._input);
             {
                 var _got:GoString = (_x.string() : GoString);
                 if (_got != (_test._short)) {
@@ -2185,14 +2187,14 @@ private function _val(_lit:GoString):Value {
         {
             var __tmp__ = stdgo.strings.Strings.cut(_lit, ("/" : GoString)), _as:GoString = __tmp__._0, _bs:GoString = __tmp__._1, _ok:Bool = __tmp__._2;
             if (_ok) {
-                var _a:Value = makeFromLiteral(_as, (5 : stdgo.go.token.Token.Token), ("0" : GoUInt));
-                var _b:Value = makeFromLiteral(_bs, (5 : stdgo.go.token.Token.Token), ("0" : GoUInt));
+                var _a:stdgo.go.constant.Constant.Value = makeFromLiteral(_as, (5 : stdgo.go.token.Token.Token), (0u32 : GoUInt));
+                var _b:stdgo.go.constant.Constant.Value = makeFromLiteral(_bs, (5 : stdgo.go.token.Token.Token), (0u32 : GoUInt));
                 return binaryOp(_a, (15 : stdgo.go.token.Token.Token), _b);
             };
         };
         var _tok:stdgo.go.token.Token.Token = (5 : stdgo.go.token.Token.Token);
         {
-            var _0:GoUInt8 = _lit[(0 : GoInt)], _1:GoUInt8 = _lit[((_lit.length) - (1 : GoInt) : GoInt)], _last:GoUInt8 = _1, _first:GoUInt8 = _0;
+            var __0:GoUInt8 = _lit[(0 : GoInt)], __1:GoUInt8 = _lit[((_lit.length) - (1 : GoInt) : GoInt)], _last:GoUInt8 = __1, _first:GoUInt8 = __0;
             if ((_first == (34 : GoUInt8)) || (_first == (96 : GoUInt8))) {
                 _tok = (9 : stdgo.go.token.Token.Token);
                 _lit = stdgo.strings.Strings.replaceAll(_lit, ("_" : GoString), (" " : GoString));
@@ -2206,7 +2208,7 @@ private function _val(_lit:GoString):Value {
                 };
             };
         };
-        return makeFromLiteral(_lit, _tok, ("0" : GoUInt));
+        return makeFromLiteral(_lit, _tok, (0u32 : GoUInt));
     }
 private function _panicHandler(_v:Ref<Value>):Void {
         {
@@ -2236,17 +2238,17 @@ private function _panicHandler(_v:Ref<Value>):Void {
                     _v._implementsValue = __tmp__._implementsValue;
                 };
             } else {
-                var _p:AnyInterface = __type__.__underlying__();
+                var _p:AnyInterface = __type__?.__underlying__();
                 throw Go.toInterface(_p);
             };
         };
     }
 private function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value {
         var __deferstack__:Array<Void -> Void> = [];
-        var _z:Value = (null : Value);
+        var _z:Value = (null : stdgo.go.constant.Constant.Value);
         try {
             {
-                var _a0 = (Go.setRef(_z) : Ref<Value>);
+                var _a0 = (Go.setRef(_z) : Ref<stdgo.go.constant.Constant.Value>);
                 __deferstack__.unshift(() -> _panicHandler(_a0));
             };
             if (_x == null) {
@@ -2254,7 +2256,7 @@ private function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return unaryOp(_op, _y, ("0" : GoUInt));
+                    return unaryOp(_op, _y, (0u32 : GoUInt));
                 };
             };
             {
@@ -2267,7 +2269,7 @@ private function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value
                         return makeBool(compare(_x, _op, _y));
                     };
                 } else if (__value__ == ((20 : stdgo.go.token.Token.Token)) || __value__ == ((21 : stdgo.go.token.Token.Token))) {
-                    var __tmp__ = int64Val(_y), _s:GoInt64 = __tmp__._0, _0:Bool = __tmp__._1;
+                    var __tmp__ = int64Val(_y), _s:GoInt64 = __tmp__._0, __0:Bool = __tmp__._1;
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -2308,9 +2310,9 @@ private function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value
         };
     }
 function testFractions(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _fracTests) {
-            var _x:Value = _val(_test);
-            var _q:Value = binaryOp(num(_x), (15 : stdgo.go.token.Token.Token), denom(_x));
+        for (__0 => _test in _fracTests) {
+            var _x:stdgo.go.constant.Constant.Value = _val(_test);
+            var _q:stdgo.go.constant.Constant.Value = binaryOp(num(_x), (15 : stdgo.go.token.Token.Token), denom(_x));
             var _got:GoString = (_q.string() : GoString);
             var _want:GoString = (_x.string() : GoString);
             if (_got != (_want)) {
@@ -2319,8 +2321,8 @@ function testFractions(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testBytes(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _bytesTests) {
-            var _x:Value = _val(_test);
+        for (__0 => _test in _bytesTests) {
+            var _x:stdgo.go.constant.Constant.Value = _val(_test);
             var _bytes = bytes(_x);
             if ((sign(_x) == (0 : GoInt)) && (_bytes.length != (0 : GoInt))) {
                 _t.errorf(("%s: got %v; want empty byte slice" : GoString), Go.toInterface(_test), Go.toInterface(_bytes));
@@ -2332,7 +2334,7 @@ function testBytes(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
             {
-                var _got:Value = makeFromBytes(_bytes);
+                var _got:stdgo.go.constant.Constant.Value = makeFromBytes(_bytes);
                 if (!_eql(_got, _x)) {
                     _t.errorf(("%s: got %s; want %s (bytes = %v)" : GoString), Go.toInterface(_test), Go.toInterface(_got), Go.toInterface(_x), Go.toInterface(_bytes));
                 };
@@ -2340,10 +2342,10 @@ function testBytes(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testUnknown(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _u:Value = makeUnknown();
-        var _values:Slice<Value> = (new Slice<Value>(0, 0, _u, makeBool(false), makeString(Go.str()), makeInt64(("1" : GoInt64)), makeFromLiteral(("\'\'" : GoString), (8 : stdgo.go.token.Token.Token), ("0" : GoUInt)), makeFromLiteral(("-1234567890123456789012345678901234567890" : GoString), (5 : stdgo.go.token.Token.Token), ("0" : GoUInt)), makeFloat64((1.2 : GoFloat64)), makeImag(makeFloat64((1.2 : GoFloat64)))) : Slice<Value>);
-        for (_0 => _val in _values) {
-            var _0:Value = _val, _1:Value = _u, _y:Value = _1, _x:Value = _0;
+        var _u:stdgo.go.constant.Constant.Value = makeUnknown();
+        var _values:Slice<stdgo.go.constant.Constant.Value> = (new Slice<stdgo.go.constant.Constant.Value>(0, 0, _u, makeBool(false), makeString(Go.str()), makeInt64((1i64 : GoInt64)), makeFromLiteral(("\'\'" : GoString), (8 : stdgo.go.token.Token.Token), (0u32 : GoUInt)), makeFromLiteral(("-1234567890123456789012345678901234567890" : GoString), (5 : stdgo.go.token.Token.Token), (0u32 : GoUInt)), makeFloat64((1.2 : GoFloat64)), makeImag(makeFloat64((1.2 : GoFloat64)))) : Slice<stdgo.go.constant.Constant.Value>);
+        for (__0 => _val in _values) {
+            var __0:stdgo.go.constant.Constant.Value = _val, __1:stdgo.go.constant.Constant.Value = _u, _y:stdgo.go.constant.Constant.Value = __1, _x:stdgo.go.constant.Constant.Value = __0;
             for (_i in 0 ... (new GoArray<GoInt>(...([].concat([for (i in 0 ... 2) (0 : GoInt)]))) : GoArray<GoInt>).length.toBasic()) {
                 if (_i == ((1 : GoInt))) {
                     {
@@ -2354,8 +2356,8 @@ function testUnknown(_t:Ref<stdgo.testing.Testing.T>):Void {
                     };
                 };
                 {
-                    var _got:Value = binaryOp(_x, (12 : stdgo.go.token.Token.Token), _y);
-                    if (_got.kind() != ((0 : Kind))) {
+                    var _got:stdgo.go.constant.Constant.Value = binaryOp(_x, (12 : stdgo.go.token.Token.Token), _y);
+                    if (_got.kind() != ((0 : stdgo.go.constant.Constant.Kind))) {
                         _t.errorf(("%s + %s: got %s; want %s" : GoString), Go.toInterface(_x), Go.toInterface(_y), Go.toInterface(_got), Go.toInterface(_u));
                     };
                 };
@@ -2370,7 +2372,7 @@ function testUnknown(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testMakeFloat64(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _zero:GoFloat64 = (0 : GoFloat64);
-        for (_0 => _arg in (new Slice<GoFloat64>(
+        for (__0 => _arg in (new Slice<GoFloat64>(
 0,
 0,
 (-3.4028234663852886e+38 : GoFloat64),
@@ -2383,9 +2385,9 @@ _zero,
 (1.2345678987654321e-15 : GoFloat64),
 (1e+10 : GoFloat64),
 (1.7976931348623157e+308 : GoFloat64)) : Slice<GoFloat64>)) {
-            var _val:Value = makeFloat64(_arg);
-            if (_val.kind() != ((4 : Kind))) {
-                _t.errorf(("%v: got kind = %d; want %d" : GoString), Go.toInterface(_arg), Go.toInterface(Go.asInterface(_val.kind())), Go.toInterface(Go.asInterface((4 : Kind))));
+            var _val:stdgo.go.constant.Constant.Value = makeFloat64(_arg);
+            if (_val.kind() != ((4 : stdgo.go.constant.Constant.Kind))) {
+                _t.errorf(("%v: got kind = %d; want %d" : GoString), Go.toInterface(_arg), Go.toInterface(Go.asInterface(_val.kind())), Go.toInterface(Go.asInterface((4 : stdgo.go.constant.Constant.Kind))));
             };
             var __tmp__ = float64Val(_val), _got:GoFloat64 = __tmp__._0, _exact:Bool = __tmp__._1;
             if (!_exact || (stdgo.math.Math.float64bits(_got) != stdgo.math.Math.float64bits(_arg + (0 : GoFloat64)))) {
@@ -2394,9 +2396,9 @@ _zero,
         };
         for (_sign in 0 ... (new Slice<GoInt>(0, 0, (-1 : GoInt), (1 : GoInt)) : Slice<GoInt>).length.toBasic()) {
             var _arg:GoFloat64 = stdgo.math.Math.inf(_sign);
-            var _val:Value = makeFloat64(_arg);
-            if (_val.kind() != ((0 : Kind))) {
-                _t.errorf(("%v: got kind = %d; want %d" : GoString), Go.toInterface(_arg), Go.toInterface(Go.asInterface(_val.kind())), Go.toInterface(Go.asInterface((0 : Kind))));
+            var _val:stdgo.go.constant.Constant.Value = makeFloat64(_arg);
+            if (_val.kind() != ((0 : stdgo.go.constant.Constant.Kind))) {
+                _t.errorf(("%v: got kind = %d; want %d" : GoString), Go.toInterface(_arg), Go.toInterface(Go.asInterface(_val.kind())), Go.toInterface(Go.asInterface((0 : stdgo.go.constant.Constant.Kind))));
             };
         };
     }
@@ -2404,19 +2406,19 @@ private function _dup(_k:Kind, _x:AnyInterface):T_makeTestCase {
         return (new T_makeTestCase(_k, _x, _x) : T_makeTestCase);
     }
 function testMake(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in (new Slice<T_makeTestCase>(
+        for (__0 => _test in (new Slice<stdgo.go.constant.Constant.T_makeTestCase>(
 0,
 0,
-(new T_makeTestCase((1 : Kind), Go.toInterface(false), Go.toInterface(false)) : T_makeTestCase),
-(new T_makeTestCase((2 : Kind), Go.toInterface(("hello" : GoString)), Go.toInterface(("hello" : GoString))) : T_makeTestCase),
-(new T_makeTestCase((3 : Kind), Go.toInterface((("1" : GoInt64) : GoInt64)), Go.toInterface((("1" : GoInt64) : GoInt64))) : T_makeTestCase),
-(new T_makeTestCase((3 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newInt(("10" : GoInt64)))), Go.toInterface((("10" : GoInt64) : GoInt64))) : T_makeTestCase),
-(new T_makeTestCase((3 : Kind), Go.toInterface(Go.asInterface((Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("62" : GoUInt)))), Go.toInterface((("4611686018427387904" : GoInt64) : GoInt64))) : T_makeTestCase),
-_dup((3 : Kind), Go.toInterface(Go.asInterface((Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("63" : GoUInt))))).__copy__(),
-(new T_makeTestCase((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newFloat((0 : GoFloat64)))), Go.toInterface(Go.asInterface(_floatVal0._val))) : T_makeTestCase),
-_dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newFloat((2 : GoFloat64))))).__copy__(),
-_dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newRat(("1" : GoInt64), ("3" : GoInt64))))).__copy__()) : Slice<T_makeTestCase>)) {
-            var _val:Value = make(_test._arg);
+(new stdgo.go.constant.Constant.T_makeTestCase((1 : stdgo.go.constant.Constant.Kind), Go.toInterface(false), Go.toInterface(false)) : stdgo.go.constant.Constant.T_makeTestCase),
+(new stdgo.go.constant.Constant.T_makeTestCase((2 : stdgo.go.constant.Constant.Kind), Go.toInterface(("hello" : GoString)), Go.toInterface(("hello" : GoString))) : stdgo.go.constant.Constant.T_makeTestCase),
+(new stdgo.go.constant.Constant.T_makeTestCase((3 : stdgo.go.constant.Constant.Kind), Go.toInterface((1i64 : GoInt64)), Go.toInterface((1i64 : GoInt64))) : stdgo.go.constant.Constant.T_makeTestCase),
+(new stdgo.go.constant.Constant.T_makeTestCase((3 : stdgo.go.constant.Constant.Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newInt((10i64 : GoInt64)))), Go.toInterface((10i64 : GoInt64))) : stdgo.go.constant.Constant.T_makeTestCase),
+(new stdgo.go.constant.Constant.T_makeTestCase((3 : stdgo.go.constant.Constant.Kind), Go.toInterface(Go.asInterface((Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt((1i64 : GoInt64)), (62u32 : GoUInt)))), Go.toInterface((4611686018427387904i64 : GoInt64))) : stdgo.go.constant.Constant.T_makeTestCase),
+_dup((3 : stdgo.go.constant.Constant.Kind), Go.toInterface(Go.asInterface((Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt((1i64 : GoInt64)), (63u32 : GoUInt)))))?.__copy__(),
+(new stdgo.go.constant.Constant.T_makeTestCase((4 : stdgo.go.constant.Constant.Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newFloat((0 : GoFloat64)))), Go.toInterface(Go.asInterface(_floatVal0._val))) : stdgo.go.constant.Constant.T_makeTestCase),
+_dup((4 : stdgo.go.constant.Constant.Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newFloat((2 : GoFloat64)))))?.__copy__(),
+_dup((4 : stdgo.go.constant.Constant.Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newRat((1i64 : GoInt64), (3i64 : GoInt64)))))?.__copy__()) : Slice<stdgo.go.constant.Constant.T_makeTestCase>)) {
+            var _val:stdgo.go.constant.Constant.Value = make(_test._arg);
             var _got:AnyInterface = val(_val);
             if ((_val.kind() != _test._kind) || (_got != _test._want)) {
                 _t.errorf(("got %v (%T, kind = %d); want %v (%T, kind = %d)" : GoString), _got, _got, Go.toInterface(Go.asInterface(_val.kind())), _test._want, _test._want, Go.toInterface(Go.asInterface(_test._kind)));
@@ -2429,12 +2431,12 @@ function benchmarkStringAdd(_b:Ref<stdgo.testing.Testing.B>):Void {
             Go.cfor(_size <= (65536 : GoInt), _size = _size * ((4 : GoInt)), {
                 _b.run(stdgo.fmt.Fmt.sprint(Go.toInterface(_size)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                     _b.reportAllocs();
-                    var _n:GoInt64 = (("0" : GoInt64) : GoInt64);
+                    var _n:GoInt64 = (0i64 : GoInt64);
                     {
                         var _i:GoInt = (0 : GoInt);
                         Go.cfor(_i < _b.n, _i++, {
-                            var _x:Value = makeString(stdgo.strings.Strings.repeat(("x" : GoString), (100 : GoInt)));
-                            var _y:Value = _x;
+                            var _x:stdgo.go.constant.Constant.Value = makeString(stdgo.strings.Strings.repeat(("x" : GoString), (100 : GoInt)));
+                            var _y:stdgo.go.constant.Constant.Value = _x;
                             {
                                 var _j:GoInt = (0 : GoInt);
                                 Go.cfor(_j < (_size - (1 : GoInt)), _j++, {
@@ -2444,15 +2446,15 @@ function benchmarkStringAdd(_b:Ref<stdgo.testing.Testing.B>):Void {
                             _n = _n + ((stringVal(_y).length : GoInt64));
                         });
                     };
-                    if (_n != ((_b.n : GoInt64) * (_size : GoInt64) * (("100" : GoInt64) : GoInt64))) {
-                        _b.fatalf(("bad string %d != %d" : GoString), Go.toInterface(_n), Go.toInterface(((_b.n : GoInt64) * (_size : GoInt64)) * ("100" : GoInt64)));
+                    if (_n != ((_b.n : GoInt64) * (_size : GoInt64) * (100i64 : GoInt64))) {
+                        _b.fatalf(("bad string %d != %d" : GoString), Go.toInterface(_n), Go.toInterface(((_b.n : GoInt64) * (_size : GoInt64)) * (100i64 : GoInt64)));
                     };
                 });
             });
         };
     }
 function testBitLen(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _bitLenTests) {
+        for (__0 => _test in _bitLenTests) {
             {
                 var _got:GoInt = bitLen(makeInt64(_test._val));
                 if (_got != (_test._want)) {
@@ -2491,7 +2493,7 @@ class T_unknownVal_asInterface {
     }
     @:keep
     static public function kind( _:T_unknownVal):Kind {
-        return (0 : Kind);
+        return (0 : stdgo.go.constant.Constant.Kind);
     }
 }
 class T_stringVal_asInterface {
@@ -2599,7 +2601,7 @@ class T_stringVal_asInterface {
             {
                 var _n:GoInt = (0 : GoInt);
                 Go.cfor(_n < (69 : GoInt), _n++, {
-                    var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_s.__slice__(_i) : GoString)), _0:GoInt32 = __tmp__._0, _size:GoInt = __tmp__._1;
+                    var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_s.__slice__(_i) : GoString)), __0:GoInt32 = __tmp__._0, _size:GoInt = __tmp__._1;
                     _i = _i + (_size);
                 });
             };
@@ -2609,7 +2611,7 @@ class T_stringVal_asInterface {
     }
     @:keep
     static public function kind( _:Ref<T_stringVal>):Kind {
-        return (2 : Kind);
+        return (2 : stdgo.go.constant.Constant.Kind);
     }
 }
 class T_intVal_asInterface {
@@ -2642,7 +2644,7 @@ class T_intVal_asInterface {
     }
     @:keep
     static public function kind( _:T_intVal):Kind {
-        return (3 : Kind);
+        return (3 : stdgo.go.constant.Constant.Kind);
     }
 }
 class T_ratVal_asInterface {
@@ -2675,11 +2677,11 @@ class T_ratVal_asInterface {
     }
     @:keep
     static public function string( _x:T_ratVal):GoString {
-        return (_rtof(_x.__copy__()).string() : GoString);
+        return (_rtof(_x?.__copy__()).string() : GoString);
     }
     @:keep
     static public function kind( _:T_ratVal):Kind {
-        return (4 : Kind);
+        return (4 : stdgo.go.constant.Constant.Kind);
     }
 }
 class T_floatVal_asInterface {
@@ -2719,7 +2721,7 @@ class T_floatVal_asInterface {
             return (_f.string() : GoString);
         };
         {
-            var __tmp__ = _f.float64(), _x:GoFloat64 = __tmp__._0, _0:stdgo.math.big.Big.Accuracy = __tmp__._1;
+            var __tmp__ = _f.float64(), _x:GoFloat64 = __tmp__._0, __0:stdgo.math.big.Big.Accuracy = __tmp__._1;
             if (((_f.sign() == (0 : GoInt)) == (_x == (0 : GoFloat64))) && !stdgo.math.Math.isInf(_x, (0 : GoInt))) {
                 var _s:GoString = stdgo.fmt.Fmt.sprintf(("%.6g" : GoString), Go.toInterface(_x));
                 if (!_f.isInt() && (stdgo.strings.Strings.indexByte(_s, (46 : GoUInt8)) < (0 : GoInt))) {
@@ -2730,7 +2732,7 @@ class T_floatVal_asInterface {
         };
         var _mant:stdgo.math.big.Big.Float_ = ({} : stdgo.math.big.Big.Float_);
         var _exp:GoInt = _f.mantExp((Go.setRef(_mant) : Ref<stdgo.math.big.Big.Float_>));
-        var __tmp__ = _mant.float64(), _m:GoFloat64 = __tmp__._0, _1:stdgo.math.big.Big.Accuracy = __tmp__._1;
+        var __tmp__ = _mant.float64(), _m:GoFloat64 = __tmp__._0, __1:stdgo.math.big.Big.Accuracy = __tmp__._1;
         var _d:GoFloat64 = (_exp : GoFloat64) * (0.3010299956639812 : GoFloat64);
         var _e:GoInt64 = (_d : GoInt64);
         _m = _m * (stdgo.math.Math.pow((10 : GoFloat64), _d - (_e : GoFloat64)));
@@ -2748,7 +2750,7 @@ class T_floatVal_asInterface {
     }
     @:keep
     static public function kind( _:T_floatVal):Kind {
-        return (4 : Kind);
+        return (4 : stdgo.go.constant.Constant.Kind);
     }
 }
 class T_complexVal_asInterface {
@@ -2781,7 +2783,7 @@ class T_complexVal_asInterface {
     }
     @:keep
     static public function kind( _:T_complexVal):Kind {
-        return (5 : Kind);
+        return (5 : stdgo.go.constant.Constant.Kind);
     }
 }
 class Kind_asInterface {
@@ -2798,10 +2800,10 @@ class Kind_asInterface {
 @:keep @:allow(stdgo.go.constant.Constant.Kind_asInterface) class Kind_static_extension {
     @:keep
     static public function string( _i:Kind):GoString {
-        if ((_i < (0 : Kind)) || (_i >= ((6 : GoInt) : Kind))) {
+        if ((_i < (0 : stdgo.go.constant.Constant.Kind)) || (_i >= ((6 : GoInt) : Kind))) {
             return (("Kind(" : GoString) + stdgo.strconv.Strconv.formatInt((_i : GoInt64), (10 : GoInt))) + (")" : GoString);
         };
-        return (("UnknownBoolStringIntFloatComplex" : GoString).__slice__(__Kind_index[(_i : GoInt)], __Kind_index[(_i + (1 : Kind) : GoInt)]) : GoString);
+        return (("UnknownBoolStringIntFloatComplex" : GoString).__slice__(__Kind_index[(_i : GoInt)], __Kind_index[(_i + (1 : stdgo.go.constant.Constant.Kind) : GoInt)]) : GoString);
     }
 }
 class T_boolVal_asInterface {
@@ -2834,7 +2836,7 @@ class T_boolVal_asInterface {
     }
     @:keep
     static public function kind( _:T_boolVal):Kind {
-        return (1 : Kind);
+        return (1 : stdgo.go.constant.Constant.Kind);
     }
 }
 class T_int64Val_asInterface {
@@ -2867,6 +2869,6 @@ class T_int64Val_asInterface {
     }
     @:keep
     static public function kind( _:T_int64Val):Kind {
-        return (3 : Kind);
+        return (3 : stdgo.go.constant.Constant.Kind);
     }
 }

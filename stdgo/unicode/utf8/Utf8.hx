@@ -282,12 +282,12 @@ private var _first = (new GoArray<GoUInt8>(
     
 **/
 private var _acceptRanges = {
-        var s:GoArray<T_acceptRange> = new GoArray<T_acceptRange>(...[for (i in 0 ... 16) ({} : T_acceptRange)]);
-        s[0] = (new T_acceptRange((128 : GoUInt8), (191 : GoUInt8)) : T_acceptRange);
-        s[1] = (new T_acceptRange((160 : GoUInt8), (191 : GoUInt8)) : T_acceptRange);
-        s[2] = (new T_acceptRange((128 : GoUInt8), (159 : GoUInt8)) : T_acceptRange);
-        s[3] = (new T_acceptRange((144 : GoUInt8), (191 : GoUInt8)) : T_acceptRange);
-        s[4] = (new T_acceptRange((128 : GoUInt8), (143 : GoUInt8)) : T_acceptRange);
+        var s:GoArray<stdgo.unicode.utf8.Utf8.T_acceptRange> = new GoArray<stdgo.unicode.utf8.Utf8.T_acceptRange>(...[for (i in 0 ... 16) ({} : stdgo.unicode.utf8.Utf8.T_acceptRange)]);
+        s[0] = (new stdgo.unicode.utf8.Utf8.T_acceptRange((128 : GoUInt8), (191 : GoUInt8)) : stdgo.unicode.utf8.Utf8.T_acceptRange);
+        s[1] = (new stdgo.unicode.utf8.Utf8.T_acceptRange((160 : GoUInt8), (191 : GoUInt8)) : stdgo.unicode.utf8.Utf8.T_acceptRange);
+        s[2] = (new stdgo.unicode.utf8.Utf8.T_acceptRange((128 : GoUInt8), (159 : GoUInt8)) : stdgo.unicode.utf8.Utf8.T_acceptRange);
+        s[3] = (new stdgo.unicode.utf8.Utf8.T_acceptRange((144 : GoUInt8), (191 : GoUInt8)) : stdgo.unicode.utf8.Utf8.T_acceptRange);
+        s[4] = (new stdgo.unicode.utf8.Utf8.T_acceptRange((128 : GoUInt8), (143 : GoUInt8)) : stdgo.unicode.utf8.Utf8.T_acceptRange);
         s;
     };
 /**
@@ -301,7 +301,7 @@ final runeError = (65533 : GoInt32);
     
     // characters below RuneSelf are represented as themselves in a single byte.
 **/
-final runeSelf = ("128" : GoUInt64);
+final runeSelf = (128i64 : GoUInt64);
 /**
     // Numbers fundamental to the encoding.
     
@@ -313,109 +313,109 @@ final maxRune = (1114111 : GoInt32);
     
     // maximum number of bytes of a UTF-8 encoded Unicode character.
 **/
-final utfmax = ("4" : GoUInt64);
+final utfmax = (4i64 : GoUInt64);
 /**
     // Code points in the surrogate range are not valid for UTF-8.
     
     
 **/
-private final _surrogateMin = ("55296" : GoUInt64);
+private final _surrogateMin = (55296i64 : GoUInt64);
 /**
     // Code points in the surrogate range are not valid for UTF-8.
     
     
 **/
-private final _surrogateMax = ("57343" : GoUInt64);
+private final _surrogateMax = (57343i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _t1 = ("0" : GoUInt64);
+private final _t1 = (0i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _tx = ("128" : GoUInt64);
+private final _tx = (128i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _t2 = ("192" : GoUInt64);
+private final _t2 = (192i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _t3 = ("224" : GoUInt64);
+private final _t3 = (224i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _t4 = ("240" : GoUInt64);
+private final _t4 = (240i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _t5 = ("248" : GoUInt64);
+private final _t5 = (248i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _maskx = ("63" : GoUInt64);
+private final _maskx = (63i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _mask2 = ("31" : GoUInt64);
+private final _mask2 = (31i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _mask3 = ("15" : GoUInt64);
+private final _mask3 = (15i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _mask4 = ("7" : GoUInt64);
+private final _mask4 = (7i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _rune1Max = ("127" : GoUInt64);
+private final _rune1Max = (127i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _rune2Max = ("2047" : GoUInt64);
+private final _rune2Max = (2047i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _rune3Max = ("65535" : GoUInt64);
+private final _rune3Max = (65535i64 : GoUInt64);
 /**
     // The default lowest and highest continuation byte.
     
     
 **/
-private final _locb = ("128" : GoUInt64);
+private final _locb = (128i64 : GoUInt64);
 /**
     
     
     
 **/
-private final _hicb = ("191" : GoUInt64);
+private final _hicb = (191i64 : GoUInt64);
 /**
     // These names of these constants are chosen to give nice alignment in the
     // table below. The first nibble is an index into acceptRanges or F for
@@ -424,55 +424,55 @@ private final _hicb = ("191" : GoUInt64);
     
     // invalid: size 1
 **/
-private final _xx = ("241" : GoUInt64);
+private final _xx = (241i64 : GoUInt64);
 /**
     
     
     // ASCII: size 1
 **/
-private final _as = ("240" : GoUInt64);
+private final _as = (240i64 : GoUInt64);
 /**
     
     
     // accept 0, size 2
 **/
-private final _s1 = ("2" : GoUInt64);
+private final _s1 = (2i64 : GoUInt64);
 /**
     
     
     // accept 1, size 3
 **/
-private final _s2 = ("19" : GoUInt64);
+private final _s2 = (19i64 : GoUInt64);
 /**
     
     
     // accept 0, size 3
 **/
-private final _s3 = ("3" : GoUInt64);
+private final _s3 = (3i64 : GoUInt64);
 /**
     
     
     // accept 2, size 3
 **/
-private final _s4 = ("35" : GoUInt64);
+private final _s4 = (35i64 : GoUInt64);
 /**
     
     
     // accept 3, size 4
 **/
-private final _s5 = ("52" : GoUInt64);
+private final _s5 = (52i64 : GoUInt64);
 /**
     
     
     // accept 0, size 4
 **/
-private final _s6 = ("4" : GoUInt64);
+private final _s6 = (4i64 : GoUInt64);
 /**
     
     
     // accept 4, size 4
 **/
-private final _s7 = ("68" : GoUInt64);
+private final _s7 = (68i64 : GoUInt64);
 /**
     // acceptRange gives the range of valid values for the second byte in a UTF-8
     // sequence.
@@ -504,7 +504,7 @@ function fullRune(_p:Slice<GoByte>):Bool {
         if (_n >= (_x & (7 : GoUInt8) : GoInt)) {
             return true;
         };
-        var _accept:T_acceptRange = _acceptRanges[(_x >> ("4" : GoUInt64) : GoInt)].__copy__();
+        var _accept:stdgo.unicode.utf8.Utf8.T_acceptRange = _acceptRanges[(_x >> (4i64 : GoUInt64) : GoInt)];
         if ((_n > (1 : GoInt)) && ((_p[(1 : GoInt)] < _accept._lo) || (_accept._hi < _p[(1 : GoInt)]))) {
             return true;
         } else if ((_n > (2 : GoInt)) && ((_p[(2 : GoInt)] < (128 : GoUInt8)) || ((191 : GoUInt8) < _p[(2 : GoInt)]))) {
@@ -524,7 +524,7 @@ function fullRuneInString(_s:GoString):Bool {
         if (_n >= (_x & (7 : GoUInt8) : GoInt)) {
             return true;
         };
-        var _accept:T_acceptRange = _acceptRanges[(_x >> ("4" : GoUInt64) : GoInt)].__copy__();
+        var _accept:stdgo.unicode.utf8.Utf8.T_acceptRange = _acceptRanges[(_x >> (4i64 : GoUInt64) : GoInt)];
         if ((_n > (1 : GoInt)) && ((_s[(1 : GoInt)] < _accept._lo) || (_accept._hi < _s[(1 : GoInt)]))) {
             return true;
         } else if ((_n > (2 : GoInt)) && ((_s[(2 : GoInt)] < (128 : GoUInt8)) || ((191 : GoUInt8) < _s[(2 : GoInt)]))) {
@@ -551,11 +551,11 @@ function decodeRune(_p:Slice<GoByte>):{ var _0 : GoRune; var _1 : GoInt; } {
         var _p0:GoUInt8 = _p[(0 : GoInt)];
         var _x:GoUInt8 = _first[(_p0 : GoInt)];
         if (_x >= (240 : GoUInt8)) {
-            var _mask:GoInt32 = ((_x : GoRune) << (("31" : GoUInt64) : GoUInt64)) >> ("31" : GoUInt64);
-            return { _0 : ((_p[(0 : GoInt)] : GoRune) & (_mask ^ (-1 : GoInt))) | ((65533 : GoInt32) & _mask), _1 : (1 : GoInt) };
+            var _mask:GoInt32 = ((_x : GoRune) << (31i64 : GoUInt64)) >> (31i64 : GoUInt64);
+            return { _0 : ((_p[(0 : GoInt)] : GoRune) & (_mask ^ (-1i32 : GoInt))) | ((65533 : GoInt32) & _mask), _1 : (1 : GoInt) };
         };
         var _sz:GoInt = (_x & (7 : GoUInt8) : GoInt);
-        var _accept:T_acceptRange = _acceptRanges[(_x >> ("4" : GoUInt64) : GoInt)].__copy__();
+        var _accept:stdgo.unicode.utf8.Utf8.T_acceptRange = _acceptRanges[(_x >> (4i64 : GoUInt64) : GoInt)];
         if (_n < _sz) {
             return { _0 : (65533 : GoInt32), _1 : (1 : GoInt) };
         };
@@ -564,20 +564,20 @@ function decodeRune(_p:Slice<GoByte>):{ var _0 : GoRune; var _1 : GoInt; } {
             return { _0 : (65533 : GoInt32), _1 : (1 : GoInt) };
         };
         if (_sz <= (2 : GoInt)) {
-            return { _0 : ((_p0 & (31 : GoUInt8) : GoRune) << (("6" : GoUInt64) : GoUInt64)) | (_b1 & (63 : GoUInt8) : GoRune), _1 : (2 : GoInt) };
+            return { _0 : ((_p0 & (31 : GoUInt8) : GoRune) << (6i64 : GoUInt64)) | (_b1 & (63 : GoUInt8) : GoRune), _1 : (2 : GoInt) };
         };
         var _b2:GoUInt8 = _p[(2 : GoInt)];
         if ((_b2 < (128 : GoUInt8)) || ((191 : GoUInt8) < _b2)) {
             return { _0 : (65533 : GoInt32), _1 : (1 : GoInt) };
         };
         if (_sz <= (3 : GoInt)) {
-            return { _0 : (((_p0 & (15 : GoUInt8) : GoRune) << (("12" : GoUInt64) : GoUInt64)) | ((_b1 & (63 : GoUInt8) : GoRune) << (("6" : GoUInt64) : GoUInt64))) | (_b2 & (63 : GoUInt8) : GoRune), _1 : (3 : GoInt) };
+            return { _0 : (((_p0 & (15 : GoUInt8) : GoRune) << (12i64 : GoUInt64)) | ((_b1 & (63 : GoUInt8) : GoRune) << (6i64 : GoUInt64))) | (_b2 & (63 : GoUInt8) : GoRune), _1 : (3 : GoInt) };
         };
         var _b3:GoUInt8 = _p[(3 : GoInt)];
         if ((_b3 < (128 : GoUInt8)) || ((191 : GoUInt8) < _b3)) {
             return { _0 : (65533 : GoInt32), _1 : (1 : GoInt) };
         };
-        return { _0 : ((((_p0 & (7 : GoUInt8) : GoRune) << (("18" : GoUInt64) : GoUInt64)) | ((_b1 & (63 : GoUInt8) : GoRune) << (("12" : GoUInt64) : GoUInt64))) | ((_b2 & (63 : GoUInt8) : GoRune) << (("6" : GoUInt64) : GoUInt64))) | (_b3 & (63 : GoUInt8) : GoRune), _1 : (4 : GoInt) };
+        return { _0 : ((((_p0 & (7 : GoUInt8) : GoRune) << (18i64 : GoUInt64)) | ((_b1 & (63 : GoUInt8) : GoRune) << (12i64 : GoUInt64))) | ((_b2 & (63 : GoUInt8) : GoRune) << (6i64 : GoUInt64))) | (_b3 & (63 : GoUInt8) : GoRune), _1 : (4 : GoInt) };
     }
 /**
     // DecodeRuneInString is like DecodeRune but its input is a string. If s is
@@ -598,11 +598,11 @@ function decodeRuneInString(_s:GoString):{ var _0 : GoRune; var _1 : GoInt; } {
         var _s0:GoUInt8 = _s[(0 : GoInt)];
         var _x:GoUInt8 = _first[(_s0 : GoInt)];
         if (_x >= (240 : GoUInt8)) {
-            var _mask:GoInt32 = ((_x : GoRune) << (("31" : GoUInt64) : GoUInt64)) >> ("31" : GoUInt64);
-            return { _0 : ((_s[(0 : GoInt)] : GoRune) & (_mask ^ (-1 : GoInt))) | ((65533 : GoInt32) & _mask), _1 : (1 : GoInt) };
+            var _mask:GoInt32 = ((_x : GoRune) << (31i64 : GoUInt64)) >> (31i64 : GoUInt64);
+            return { _0 : ((_s[(0 : GoInt)] : GoRune) & (_mask ^ (-1i32 : GoInt))) | ((65533 : GoInt32) & _mask), _1 : (1 : GoInt) };
         };
         var _sz:GoInt = (_x & (7 : GoUInt8) : GoInt);
-        var _accept:T_acceptRange = _acceptRanges[(_x >> ("4" : GoUInt64) : GoInt)].__copy__();
+        var _accept:stdgo.unicode.utf8.Utf8.T_acceptRange = _acceptRanges[(_x >> (4i64 : GoUInt64) : GoInt)];
         if (_n < _sz) {
             return { _0 : (65533 : GoInt32), _1 : (1 : GoInt) };
         };
@@ -611,20 +611,20 @@ function decodeRuneInString(_s:GoString):{ var _0 : GoRune; var _1 : GoInt; } {
             return { _0 : (65533 : GoInt32), _1 : (1 : GoInt) };
         };
         if (_sz <= (2 : GoInt)) {
-            return { _0 : ((_s0 & (31 : GoUInt8) : GoRune) << (("6" : GoUInt64) : GoUInt64)) | (_s1 & (63 : GoUInt8) : GoRune), _1 : (2 : GoInt) };
+            return { _0 : ((_s0 & (31 : GoUInt8) : GoRune) << (6i64 : GoUInt64)) | (_s1 & (63 : GoUInt8) : GoRune), _1 : (2 : GoInt) };
         };
         var _s2:GoUInt8 = _s[(2 : GoInt)];
         if ((_s2 < (128 : GoUInt8)) || ((191 : GoUInt8) < _s2)) {
             return { _0 : (65533 : GoInt32), _1 : (1 : GoInt) };
         };
         if (_sz <= (3 : GoInt)) {
-            return { _0 : (((_s0 & (15 : GoUInt8) : GoRune) << (("12" : GoUInt64) : GoUInt64)) | ((_s1 & (63 : GoUInt8) : GoRune) << (("6" : GoUInt64) : GoUInt64))) | (_s2 & (63 : GoUInt8) : GoRune), _1 : (3 : GoInt) };
+            return { _0 : (((_s0 & (15 : GoUInt8) : GoRune) << (12i64 : GoUInt64)) | ((_s1 & (63 : GoUInt8) : GoRune) << (6i64 : GoUInt64))) | (_s2 & (63 : GoUInt8) : GoRune), _1 : (3 : GoInt) };
         };
         var _s3:GoUInt8 = _s[(3 : GoInt)];
         if ((_s3 < (128 : GoUInt8)) || ((191 : GoUInt8) < _s3)) {
             return { _0 : (65533 : GoInt32), _1 : (1 : GoInt) };
         };
-        return { _0 : ((((_s0 & (7 : GoUInt8) : GoRune) << (("18" : GoUInt64) : GoUInt64)) | ((_s1 & (63 : GoUInt8) : GoRune) << (("12" : GoUInt64) : GoUInt64))) | ((_s2 & (63 : GoUInt8) : GoRune) << (("6" : GoUInt64) : GoUInt64))) | (_s3 & (63 : GoUInt8) : GoRune), _1 : (4 : GoInt) };
+        return { _0 : ((((_s0 & (7 : GoUInt8) : GoRune) << (18i64 : GoUInt64)) | ((_s1 & (63 : GoUInt8) : GoRune) << (12i64 : GoUInt64))) | ((_s2 & (63 : GoUInt8) : GoRune) << (6i64 : GoUInt64))) | (_s3 & (63 : GoUInt8) : GoRune), _1 : (4 : GoInt) };
     }
 /**
     // DecodeLastRune unpacks the last UTF-8 encoding in p and returns the rune and
@@ -749,38 +749,38 @@ function encodeRune(_p:Slice<GoByte>, _r:GoRune):GoInt {
             {
                 var __switchIndex__ = -1;
                 while (true) {
-                    if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_i <= (("127" : GoUInt32) : GoUInt32)))) {
+                    if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_i <= (127u32 : GoUInt32)))) {
                         _p[(0 : GoInt)] = (_r : GoByte);
                         return (1 : GoInt);
                         break;
                         break;
-                    } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_i <= (("2047" : GoUInt32) : GoUInt32)))) {
+                    } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_i <= (2047u32 : GoUInt32)))) {
                         _p[(1 : GoInt)];
-                        _p[(0 : GoInt)] = (192 : GoUInt8) | (_r >> ("6" : GoUInt64) : GoByte);
+                        _p[(0 : GoInt)] = (192 : GoUInt8) | (_r >> (6i64 : GoUInt64) : GoByte);
                         _p[(1 : GoInt)] = (128 : GoUInt8) | ((_r : GoByte) & (63 : GoUInt8));
                         return (2 : GoInt);
                         break;
                         break;
-                    } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_i > ("1114111" : GoUInt32) || ((("55296" : GoUInt32) : GoUInt32) <= _i) && (_i <= (("57343" : GoUInt32) : GoUInt32))))) {
+                    } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_i > (1114111u32 : GoUInt32) || ((55296u32 : GoUInt32) <= _i) && (_i <= (57343u32 : GoUInt32))))) {
                         _r = (65533 : GoInt32);
                         @:fallthrough {
                             __switchIndex__ = 3;
                             continue;
                         };
                         break;
-                    } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (_i <= (("65535" : GoUInt32) : GoUInt32)))) {
+                    } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (_i <= (65535u32 : GoUInt32)))) {
                         _p[(2 : GoInt)];
-                        _p[(0 : GoInt)] = (224 : GoUInt8) | (_r >> ("12" : GoUInt64) : GoByte);
-                        _p[(1 : GoInt)] = (128 : GoUInt8) | ((_r >> ("6" : GoUInt64) : GoByte) & (63 : GoUInt8));
+                        _p[(0 : GoInt)] = (224 : GoUInt8) | (_r >> (12i64 : GoUInt64) : GoByte);
+                        _p[(1 : GoInt)] = (128 : GoUInt8) | ((_r >> (6i64 : GoUInt64) : GoByte) & (63 : GoUInt8));
                         _p[(2 : GoInt)] = (128 : GoUInt8) | ((_r : GoByte) & (63 : GoUInt8));
                         return (3 : GoInt);
                         break;
                         break;
                     } else {
                         _p[(3 : GoInt)];
-                        _p[(0 : GoInt)] = (240 : GoUInt8) | (_r >> ("18" : GoUInt64) : GoByte);
-                        _p[(1 : GoInt)] = (128 : GoUInt8) | ((_r >> ("12" : GoUInt64) : GoByte) & (63 : GoUInt8));
-                        _p[(2 : GoInt)] = (128 : GoUInt8) | ((_r >> ("6" : GoUInt64) : GoByte) & (63 : GoUInt8));
+                        _p[(0 : GoInt)] = (240 : GoUInt8) | (_r >> (18i64 : GoUInt64) : GoByte);
+                        _p[(1 : GoInt)] = (128 : GoUInt8) | ((_r >> (12i64 : GoUInt64) : GoByte) & (63 : GoUInt8));
+                        _p[(2 : GoInt)] = (128 : GoUInt8) | ((_r >> (6i64 : GoUInt64) : GoByte) & (63 : GoUInt8));
                         _p[(3 : GoInt)] = (128 : GoUInt8) | ((_r : GoByte) & (63 : GoUInt8));
                         return (4 : GoInt);
                         break;
@@ -797,7 +797,7 @@ function encodeRune(_p:Slice<GoByte>, _r:GoRune):GoInt {
     // it appends the encoding of RuneError.
 **/
 function appendRune(_p:Slice<GoByte>, _r:GoRune):Slice<GoByte> {
-        if ((_r : GoUInt32) <= ("127" : GoUInt32)) {
+        if ((_r : GoUInt32) <= (127u32 : GoUInt32)) {
             return (_p.__append__((_r : GoByte)));
         };
         return _appendRuneNonASCII(_p, _r);
@@ -808,23 +808,23 @@ private function _appendRuneNonASCII(_p:Slice<GoByte>, _r:GoRune):Slice<GoByte> 
             {
                 var __switchIndex__ = -1;
                 while (true) {
-                    if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_i <= (("2047" : GoUInt32) : GoUInt32)))) {
-                        return (_p.__append__((192 : GoUInt8) | (_r >> ("6" : GoUInt64) : GoByte), (128 : GoUInt8) | ((_r : GoByte) & (63 : GoUInt8))));
+                    if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_i <= (2047u32 : GoUInt32)))) {
+                        return (_p.__append__((192 : GoUInt8) | (_r >> (6i64 : GoUInt64) : GoByte), (128 : GoUInt8) | ((_r : GoByte) & (63 : GoUInt8))));
                         break;
                         break;
-                    } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_i > ("1114111" : GoUInt32) || ((("55296" : GoUInt32) : GoUInt32) <= _i) && (_i <= (("57343" : GoUInt32) : GoUInt32))))) {
+                    } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_i > (1114111u32 : GoUInt32) || ((55296u32 : GoUInt32) <= _i) && (_i <= (57343u32 : GoUInt32))))) {
                         _r = (65533 : GoInt32);
                         @:fallthrough {
                             __switchIndex__ = 2;
                             continue;
                         };
                         break;
-                    } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_i <= (("65535" : GoUInt32) : GoUInt32)))) {
-                        return (_p.__append__((224 : GoUInt8) | (_r >> ("12" : GoUInt64) : GoByte), (128 : GoUInt8) | ((_r >> ("6" : GoUInt64) : GoByte) & (63 : GoUInt8)), (128 : GoUInt8) | ((_r : GoByte) & (63 : GoUInt8))));
+                    } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_i <= (65535u32 : GoUInt32)))) {
+                        return (_p.__append__((224 : GoUInt8) | (_r >> (12i64 : GoUInt64) : GoByte), (128 : GoUInt8) | ((_r >> (6i64 : GoUInt64) : GoByte) & (63 : GoUInt8)), (128 : GoUInt8) | ((_r : GoByte) & (63 : GoUInt8))));
                         break;
                         break;
                     } else {
-                        return (_p.__append__((240 : GoUInt8) | (_r >> ("18" : GoUInt64) : GoByte), (128 : GoUInt8) | ((_r >> ("12" : GoUInt64) : GoByte) & (63 : GoUInt8)), (128 : GoUInt8) | ((_r >> ("6" : GoUInt64) : GoByte) & (63 : GoUInt8)), (128 : GoUInt8) | ((_r : GoByte) & (63 : GoUInt8))));
+                        return (_p.__append__((240 : GoUInt8) | (_r >> (18i64 : GoUInt64) : GoByte), (128 : GoUInt8) | ((_r >> (12i64 : GoUInt64) : GoByte) & (63 : GoUInt8)), (128 : GoUInt8) | ((_r >> (6i64 : GoUInt64) : GoByte) & (63 : GoUInt8)), (128 : GoUInt8) | ((_r : GoByte) & (63 : GoUInt8))));
                         break;
                     };
                     break;
@@ -859,7 +859,7 @@ function runeCount(_p:Slice<GoByte>):GoInt {
                     _i++;
                     continue;
                 };
-                var _accept:T_acceptRange = _acceptRanges[(_x >> ("4" : GoUInt64) : GoInt)].__copy__();
+                var _accept:stdgo.unicode.utf8.Utf8.T_acceptRange = _acceptRanges[(_x >> (4i64 : GoUInt64) : GoInt)];
                 {
                     var _c:GoUInt8 = _p[(_i + (1 : GoInt) : GoInt)];
                     if ((_c < _accept._lo) || (_accept._hi < _c)) {
@@ -905,7 +905,7 @@ function runeCountInString(_s:GoString):GoInt {
                     _i++;
                     continue;
                 };
-                var _accept:T_acceptRange = _acceptRanges[(_x >> ("4" : GoUInt64) : GoInt)].__copy__();
+                var _accept:stdgo.unicode.utf8.Utf8.T_acceptRange = _acceptRanges[(_x >> (4i64 : GoUInt64) : GoInt)];
                 {
                     var _c:GoUInt8 = _s[(_i + (1 : GoInt) : GoInt)];
                     if ((_c < _accept._lo) || (_accept._hi < _c)) {
@@ -941,9 +941,9 @@ function runeStart(_b:GoByte):Bool {
 function valid(_p:Slice<GoByte>):Bool {
         _p = (_p.__slice__(0, (_p.length), (_p.length)) : Slice<GoUInt8>);
         while ((_p.length) >= (8 : GoInt)) {
-            var _first32:GoUInt32 = (((_p[(0 : GoInt)] : GoUInt32) | ((_p[(1 : GoInt)] : GoUInt32) << (("8" : GoUInt64) : GoUInt64))) | ((_p[(2 : GoInt)] : GoUInt32) << (("16" : GoUInt64) : GoUInt64))) | ((_p[(3 : GoInt)] : GoUInt32) << (("24" : GoUInt64) : GoUInt64));
-            var _second32:GoUInt32 = (((_p[(4 : GoInt)] : GoUInt32) | ((_p[(5 : GoInt)] : GoUInt32) << (("8" : GoUInt64) : GoUInt64))) | ((_p[(6 : GoInt)] : GoUInt32) << (("16" : GoUInt64) : GoUInt64))) | ((_p[(7 : GoInt)] : GoUInt32) << (("24" : GoUInt64) : GoUInt64));
-            if ((_first32 | _second32) & ("2155905152" : GoUInt32) != (("0" : GoUInt32))) {
+            var _first32:GoUInt32 = (((_p[(0 : GoInt)] : GoUInt32) | ((_p[(1 : GoInt)] : GoUInt32) << (8i64 : GoUInt64))) | ((_p[(2 : GoInt)] : GoUInt32) << (16i64 : GoUInt64))) | ((_p[(3 : GoInt)] : GoUInt32) << (24i64 : GoUInt64));
+            var _second32:GoUInt32 = (((_p[(4 : GoInt)] : GoUInt32) | ((_p[(5 : GoInt)] : GoUInt32) << (8i64 : GoUInt64))) | ((_p[(6 : GoInt)] : GoUInt32) << (16i64 : GoUInt64))) | ((_p[(7 : GoInt)] : GoUInt32) << (24i64 : GoUInt64));
+            if ((_first32 | _second32) & (-2139062144u32 : GoUInt32) != ((0u32 : GoUInt32))) {
                 break;
             };
             _p = (_p.__slice__((8 : GoInt)) : Slice<GoUInt8>);
@@ -965,7 +965,7 @@ function valid(_p:Slice<GoByte>):Bool {
                 if ((_i + _size) > _n) {
                     return false;
                 };
-                var _accept:T_acceptRange = _acceptRanges[(_x >> ("4" : GoUInt64) : GoInt)].__copy__();
+                var _accept:stdgo.unicode.utf8.Utf8.T_acceptRange = _acceptRanges[(_x >> (4i64 : GoUInt64) : GoInt)];
                 {
                     var _c:GoUInt8 = _p[(_i + (1 : GoInt) : GoInt)];
                     if ((_c < _accept._lo) || (_accept._hi < _c)) {
@@ -992,9 +992,9 @@ function valid(_p:Slice<GoByte>):Bool {
 **/
 function validString(_s:GoString):Bool {
         while ((_s.length) >= (8 : GoInt)) {
-            var _first32:GoUInt32 = (((_s[(0 : GoInt)] : GoUInt32) | ((_s[(1 : GoInt)] : GoUInt32) << (("8" : GoUInt64) : GoUInt64))) | ((_s[(2 : GoInt)] : GoUInt32) << (("16" : GoUInt64) : GoUInt64))) | ((_s[(3 : GoInt)] : GoUInt32) << (("24" : GoUInt64) : GoUInt64));
-            var _second32:GoUInt32 = (((_s[(4 : GoInt)] : GoUInt32) | ((_s[(5 : GoInt)] : GoUInt32) << (("8" : GoUInt64) : GoUInt64))) | ((_s[(6 : GoInt)] : GoUInt32) << (("16" : GoUInt64) : GoUInt64))) | ((_s[(7 : GoInt)] : GoUInt32) << (("24" : GoUInt64) : GoUInt64));
-            if ((_first32 | _second32) & ("2155905152" : GoUInt32) != (("0" : GoUInt32))) {
+            var _first32:GoUInt32 = (((_s[(0 : GoInt)] : GoUInt32) | ((_s[(1 : GoInt)] : GoUInt32) << (8i64 : GoUInt64))) | ((_s[(2 : GoInt)] : GoUInt32) << (16i64 : GoUInt64))) | ((_s[(3 : GoInt)] : GoUInt32) << (24i64 : GoUInt64));
+            var _second32:GoUInt32 = (((_s[(4 : GoInt)] : GoUInt32) | ((_s[(5 : GoInt)] : GoUInt32) << (8i64 : GoUInt64))) | ((_s[(6 : GoInt)] : GoUInt32) << (16i64 : GoUInt64))) | ((_s[(7 : GoInt)] : GoUInt32) << (24i64 : GoUInt64));
+            if ((_first32 | _second32) & (-2139062144u32 : GoUInt32) != ((0u32 : GoUInt32))) {
                 break;
             };
             _s = (_s.__slice__((8 : GoInt)) : GoString);
@@ -1016,7 +1016,7 @@ function validString(_s:GoString):Bool {
                 if ((_i + _size) > _n) {
                     return false;
                 };
-                var _accept:T_acceptRange = _acceptRanges[(_x >> ("4" : GoUInt64) : GoInt)].__copy__();
+                var _accept:stdgo.unicode.utf8.Utf8.T_acceptRange = _acceptRanges[(_x >> (4i64 : GoUInt64) : GoInt)];
                 {
                     var _c:GoUInt8 = _s[(_i + (1 : GoInt) : GoInt)];
                     if ((_c < _accept._lo) || (_accept._hi < _c)) {

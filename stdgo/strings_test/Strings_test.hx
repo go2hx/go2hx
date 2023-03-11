@@ -13,6 +13,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.strings.Strings;
 /**
     
     
@@ -498,15 +499,15 @@ private var _isValidRune = (new T_predicate(function(_r:GoRune):Bool {
 private var _trimFuncTests = (new Slice<T__struct_14>(
 0,
 0,
-({ _f : _isSpace.__copy__(), _in : ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000 hello \t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : GoString), _trimOut : ("hello" : GoString), _leftOut : ("hello \t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : GoString), _rightOut : ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000 hello" : GoString) } : T__struct_14),
-({ _f : _isDigit.__copy__(), _in : ("๐๒12hello34๐๑" : GoString), _trimOut : ("hello" : GoString), _leftOut : ("hello34๐๑" : GoString), _rightOut : ("๐๒12hello" : GoString) } : T__struct_14),
-({ _f : _isUpper.__copy__(), _in : ("ⱯⱯⱯⱯABCDhelloEFⱯⱯGHⱯⱯ" : GoString), _trimOut : ("hello" : GoString), _leftOut : ("helloEFⱯⱯGHⱯⱯ" : GoString), _rightOut : ("ⱯⱯⱯⱯABCDhello" : GoString) } : T__struct_14),
-({ _f : _not(_isSpace.__copy__()).__copy__(), _in : ("hello\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000hello" : GoString), _trimOut : ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : GoString), _leftOut : ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000hello" : GoString), _rightOut : ("hello\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : GoString) } : T__struct_14),
-({ _f : _not(_isDigit.__copy__()).__copy__(), _in : ("hello๐๒1234๐๑helo" : GoString), _trimOut : ("๐๒1234๐๑" : GoString), _leftOut : ("๐๒1234๐๑helo" : GoString), _rightOut : ("hello๐๒1234๐๑" : GoString) } : T__struct_14),
-({ _f : _isValidRune.__copy__(), _in : Go.str("ab", 192, "a", 192, "cd"), _trimOut : Go.str(192, "a", 192), _leftOut : Go.str(192, "a", 192, "cd"), _rightOut : Go.str("ab", 192, "a", 192) } : T__struct_14),
-({ _f : _not(_isValidRune.__copy__()).__copy__(), _in : Go.str(192, "a", 192), _trimOut : ("a" : GoString), _leftOut : Go.str("a", 192), _rightOut : Go.str(192, "a") } : T__struct_14),
-({ _f : _isSpace.__copy__(), _in : Go.str(), _trimOut : Go.str(), _leftOut : Go.str(), _rightOut : Go.str() } : T__struct_14),
-({ _f : _isSpace.__copy__(), _in : (" " : GoString), _trimOut : Go.str(), _leftOut : Go.str(), _rightOut : Go.str() } : T__struct_14)) : Slice<T__struct_14>);
+({ _f : _isSpace?.__copy__(), _in : ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000 hello \t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : GoString), _trimOut : ("hello" : GoString), _leftOut : ("hello \t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : GoString), _rightOut : ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000 hello" : GoString) } : T__struct_14),
+({ _f : _isDigit?.__copy__(), _in : ("๐๒12hello34๐๑" : GoString), _trimOut : ("hello" : GoString), _leftOut : ("hello34๐๑" : GoString), _rightOut : ("๐๒12hello" : GoString) } : T__struct_14),
+({ _f : _isUpper?.__copy__(), _in : ("ⱯⱯⱯⱯABCDhelloEFⱯⱯGHⱯⱯ" : GoString), _trimOut : ("hello" : GoString), _leftOut : ("helloEFⱯⱯGHⱯⱯ" : GoString), _rightOut : ("ⱯⱯⱯⱯABCDhello" : GoString) } : T__struct_14),
+({ _f : _not(_isSpace?.__copy__())?.__copy__(), _in : ("hello\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000hello" : GoString), _trimOut : ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : GoString), _leftOut : ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000hello" : GoString), _rightOut : ("hello\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : GoString) } : T__struct_14),
+({ _f : _not(_isDigit?.__copy__())?.__copy__(), _in : ("hello๐๒1234๐๑helo" : GoString), _trimOut : ("๐๒1234๐๑" : GoString), _leftOut : ("๐๒1234๐๑helo" : GoString), _rightOut : ("hello๐๒1234๐๑" : GoString) } : T__struct_14),
+({ _f : _isValidRune?.__copy__(), _in : Go.str("ab", 192, "a", 192, "cd"), _trimOut : Go.str(192, "a", 192), _leftOut : Go.str(192, "a", 192, "cd"), _rightOut : Go.str("ab", 192, "a", 192) } : T__struct_14),
+({ _f : _not(_isValidRune?.__copy__())?.__copy__(), _in : Go.str(192, "a", 192), _trimOut : ("a" : GoString), _leftOut : Go.str("a", 192), _rightOut : Go.str(192, "a") } : T__struct_14),
+({ _f : _isSpace?.__copy__(), _in : Go.str(), _trimOut : Go.str(), _leftOut : Go.str(), _rightOut : Go.str() } : T__struct_14),
+({ _f : _isSpace?.__copy__(), _in : (" " : GoString), _trimOut : Go.str(), _leftOut : Go.str(), _rightOut : Go.str() } : T__struct_14)) : Slice<T__struct_14>);
 /**
     
     
@@ -515,23 +516,23 @@ private var _trimFuncTests = (new Slice<T__struct_14>(
 private var _indexFuncTests = (new Slice<T__struct_16>(
 0,
 0,
-({ _in : Go.str(), _f : _isValidRune.__copy__(), _first : (-1 : GoInt), _last : (-1 : GoInt) } : T__struct_16),
-({ _in : ("abc" : GoString), _f : _isDigit.__copy__(), _first : (-1 : GoInt), _last : (-1 : GoInt) } : T__struct_16),
-({ _in : ("0123" : GoString), _f : _isDigit.__copy__(), _first : (0 : GoInt), _last : (3 : GoInt) } : T__struct_16),
-({ _in : ("a1b" : GoString), _f : _isDigit.__copy__(), _first : (1 : GoInt), _last : (1 : GoInt) } : T__struct_16),
-({ _in : ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : GoString), _f : _isSpace.__copy__(), _first : (0 : GoInt), _last : (12 : GoInt) } : T__struct_16),
-({ _in : ("๐๒12hello34๐๑" : GoString), _f : _isDigit.__copy__(), _first : (0 : GoInt), _last : (18 : GoInt) } : T__struct_16),
-({ _in : ("ⱯⱯⱯⱯABCDhelloEFⱯⱯGHⱯⱯ" : GoString), _f : _isUpper.__copy__(), _first : (0 : GoInt), _last : (34 : GoInt) } : T__struct_16),
-({ _in : ("12๐๒hello34๐๑" : GoString), _f : _not(_isDigit.__copy__()).__copy__(), _first : (8 : GoInt), _last : (12 : GoInt) } : T__struct_16),
-({ _in : Go.str(128, "1"), _f : _isDigit.__copy__(), _first : (1 : GoInt), _last : (1 : GoInt) } : T__struct_16),
-({ _in : Go.str(128, "abc"), _f : _isDigit.__copy__(), _first : (-1 : GoInt), _last : (-1 : GoInt) } : T__struct_16),
-({ _in : Go.str(192, "a", 192), _f : _isValidRune.__copy__(), _first : (1 : GoInt), _last : (1 : GoInt) } : T__struct_16),
-({ _in : Go.str(192, "a", 192), _f : _not(_isValidRune.__copy__()).__copy__(), _first : (0 : GoInt), _last : (2 : GoInt) } : T__struct_16),
-({ _in : Go.str(192, "☺", 192), _f : _not(_isValidRune.__copy__()).__copy__(), _first : (0 : GoInt), _last : (4 : GoInt) } : T__struct_16),
-({ _in : Go.str(192, "☺", 192, 192), _f : _not(_isValidRune.__copy__()).__copy__(), _first : (0 : GoInt), _last : (5 : GoInt) } : T__struct_16),
-({ _in : Go.str("ab", 192, "a", 192, "cd"), _f : _not(_isValidRune.__copy__()).__copy__(), _first : (2 : GoInt), _last : (4 : GoInt) } : T__struct_16),
-({ _in : Go.str("a", 224, 128, "cd"), _f : _not(_isValidRune.__copy__()).__copy__(), _first : (1 : GoInt), _last : (2 : GoInt) } : T__struct_16),
-({ _in : Go.str(128, 128, 128, 128), _f : _not(_isValidRune.__copy__()).__copy__(), _first : (0 : GoInt), _last : (3 : GoInt) } : T__struct_16)) : Slice<T__struct_16>);
+({ _in : Go.str(), _f : _isValidRune?.__copy__(), _first : (-1 : GoInt), _last : (-1 : GoInt) } : T__struct_16),
+({ _in : ("abc" : GoString), _f : _isDigit?.__copy__(), _first : (-1 : GoInt), _last : (-1 : GoInt) } : T__struct_16),
+({ _in : ("0123" : GoString), _f : _isDigit?.__copy__(), _first : (0 : GoInt), _last : (3 : GoInt) } : T__struct_16),
+({ _in : ("a1b" : GoString), _f : _isDigit?.__copy__(), _first : (1 : GoInt), _last : (1 : GoInt) } : T__struct_16),
+({ _in : ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : GoString), _f : _isSpace?.__copy__(), _first : (0 : GoInt), _last : (12 : GoInt) } : T__struct_16),
+({ _in : ("๐๒12hello34๐๑" : GoString), _f : _isDigit?.__copy__(), _first : (0 : GoInt), _last : (18 : GoInt) } : T__struct_16),
+({ _in : ("ⱯⱯⱯⱯABCDhelloEFⱯⱯGHⱯⱯ" : GoString), _f : _isUpper?.__copy__(), _first : (0 : GoInt), _last : (34 : GoInt) } : T__struct_16),
+({ _in : ("12๐๒hello34๐๑" : GoString), _f : _not(_isDigit?.__copy__())?.__copy__(), _first : (8 : GoInt), _last : (12 : GoInt) } : T__struct_16),
+({ _in : Go.str(128, "1"), _f : _isDigit?.__copy__(), _first : (1 : GoInt), _last : (1 : GoInt) } : T__struct_16),
+({ _in : Go.str(128, "abc"), _f : _isDigit?.__copy__(), _first : (-1 : GoInt), _last : (-1 : GoInt) } : T__struct_16),
+({ _in : Go.str(192, "a", 192), _f : _isValidRune?.__copy__(), _first : (1 : GoInt), _last : (1 : GoInt) } : T__struct_16),
+({ _in : Go.str(192, "a", 192), _f : _not(_isValidRune?.__copy__())?.__copy__(), _first : (0 : GoInt), _last : (2 : GoInt) } : T__struct_16),
+({ _in : Go.str(192, "☺", 192), _f : _not(_isValidRune?.__copy__())?.__copy__(), _first : (0 : GoInt), _last : (4 : GoInt) } : T__struct_16),
+({ _in : Go.str(192, "☺", 192, 192), _f : _not(_isValidRune?.__copy__())?.__copy__(), _first : (0 : GoInt), _last : (5 : GoInt) } : T__struct_16),
+({ _in : Go.str("ab", 192, "a", 192, "cd"), _f : _not(_isValidRune?.__copy__())?.__copy__(), _first : (2 : GoInt), _last : (4 : GoInt) } : T__struct_16),
+({ _in : Go.str("a", 224, 128, "cd"), _f : _not(_isValidRune?.__copy__())?.__copy__(), _first : (1 : GoInt), _last : (2 : GoInt) } : T__struct_16),
+({ _in : Go.str(128, 128, 128, 128), _f : _not(_isValidRune?.__copy__())?.__copy__(), _first : (0 : GoInt), _last : (3 : GoInt) } : T__struct_16)) : Slice<T__struct_16>);
 /**
     
     
@@ -573,7 +574,7 @@ var unreadRuneErrorTests = (new Slice<T__struct_20>(0, 0, ({ _name : ("Read" : G
     } } : T__struct_20), ({ _name : ("UnreadRune" : GoString), _f : function(_r:Ref<Reader>):Void {
         _r.unreadRune();
     } } : T__struct_20), ({ _name : ("Seek" : GoString), _f : function(_r:Ref<Reader>):Void {
-        _r.seek(("0" : GoInt64), (1 : GoInt));
+        _r.seek((0i64 : GoInt64), (1 : GoInt));
     } } : T__struct_20), ({ _name : ("WriteTo" : GoString), _f : function(_r:Ref<Reader>):Void {
         _r.writeTo(Go.asInterface((Go.setRef((new stdgo.bytes.Bytes.Buffer() : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>)));
     } } : T__struct_20)) : Slice<T__struct_20>);
@@ -992,7 +993,7 @@ class T__struct_0_asInterface {
 }
 @:local @:using(stdgo.strings_test.Strings_test.T__struct_0_static_extension) private typedef T__struct_0 = {
     public var _name : GoString;
-    public var _fn : Ref<Builder> -> { var _0 : GoInt; var _1 : Error; };
+    public var _fn : Ref<stdgo.strings.Strings.Builder> -> { var _0 : GoInt; var _1 : Error; };
     public var _n : GoInt;
     public var _want : GoString;
 };
@@ -1082,7 +1083,7 @@ class T__struct_5_asInterface {
 
 }
 @:local @:using(stdgo.strings_test.Strings_test.T__struct_5_static_extension) private typedef T__struct_5 = {
-    public var _r : Ref<Replacer>;
+    public var _r : Ref<stdgo.strings.Strings.Replacer>;
     public var _want : GoString;
 };
 class T__struct_6_asInterface {
@@ -1338,7 +1339,7 @@ class T__struct_20_asInterface {
 }
 @:local @:using(stdgo.strings_test.Strings_test.T__struct_20_static_extension) private typedef T__struct_20 = {
     public var _name : GoString;
-    public var _f : Ref<Reader> -> Void;
+    public var _f : Ref<stdgo.strings.Strings.Reader> -> Void;
 };
 class T__struct_21_asInterface {
     public function new(__self__, __type__) {
@@ -1485,20 +1486,20 @@ private function _check(_t:Ref<stdgo.testing.Testing.T>, _b:Ref<Builder>, _want:
         };
     }
 function testBuilder(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b:Builder = ({} : Builder);
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), Go.str());
+        var _b:Builder = ({} : stdgo.strings.Strings.Builder);
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), Go.str());
         var __tmp__ = _b.writeString(("hello" : GoString)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if ((_err != null) || (_n != (5 : GoInt))) {
             _t.errorf(("WriteString: got %d,%s; want 5,nil" : GoString), Go.toInterface(_n), Go.toInterface(_err));
         };
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), ("hello" : GoString));
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), ("hello" : GoString));
         {
             _err = _b.writeByte((32 : GoUInt8));
             if (_err != null) {
                 _t.errorf(("WriteByte: %s" : GoString), Go.toInterface(_err));
             };
         };
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), ("hello " : GoString));
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), ("hello " : GoString));
         {
             var __tmp__ = _b.writeString(("world" : GoString));
             _n = __tmp__._0;
@@ -1507,18 +1508,18 @@ function testBuilder(_t:Ref<stdgo.testing.Testing.T>):Void {
         if ((_err != null) || (_n != (5 : GoInt))) {
             _t.errorf(("WriteString: got %d,%s; want 5,nil" : GoString), Go.toInterface(_n), Go.toInterface(_err));
         };
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), ("hello world" : GoString));
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), ("hello world" : GoString));
     }
 function testBuilderString(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b:Builder = ({} : Builder);
+        var _b:Builder = ({} : stdgo.strings.Strings.Builder);
         _b.writeString(("alpha" : GoString));
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), ("alpha" : GoString));
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), ("alpha" : GoString));
         var _s1:GoString = (_b.string() : GoString);
         _b.writeString(("beta" : GoString));
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), ("alphabeta" : GoString));
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), ("alphabeta" : GoString));
         var _s2:GoString = (_b.string() : GoString);
         _b.writeString(("gamma" : GoString));
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), ("alphabetagamma" : GoString));
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), ("alphabetagamma" : GoString));
         var _s3:GoString = (_b.string() : GoString);
         {
             var _want:GoString = ("alpha" : GoString);
@@ -1540,15 +1541,15 @@ function testBuilderString(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testBuilderReset(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b:Builder = ({} : Builder);
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), Go.str());
+        var _b:Builder = ({} : stdgo.strings.Strings.Builder);
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), Go.str());
         _b.writeString(("aaa" : GoString));
         var _s:GoString = (_b.string() : GoString);
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), ("aaa" : GoString));
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), ("aaa" : GoString));
         _b.reset();
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), Go.str());
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), Go.str());
         _b.writeString(("bbb" : GoString));
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), ("bbb" : GoString));
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), ("bbb" : GoString));
         {
             var _want:GoString = ("aaa" : GoString);
             if (_s != (_want)) {
@@ -1561,10 +1562,10 @@ function testBuilderGrow(_t:Ref<stdgo.testing.Testing.T>):Void {
         return;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            for (_0 => _growLen in (new Slice<GoInt>(0, 0, (0 : GoInt), (100 : GoInt), (1000 : GoInt), (10000 : GoInt), (100000 : GoInt)) : Slice<GoInt>)) {
+            for (__0 => _growLen in (new Slice<GoInt>(0, 0, (0 : GoInt), (100 : GoInt), (1000 : GoInt), (10000 : GoInt), (100000 : GoInt)) : Slice<GoInt>)) {
                 var _p = stdgo.bytes.Bytes.repeat((new Slice<GoUInt8>(0, 0, (97 : GoUInt8)) : Slice<GoUInt8>), _growLen);
                 var _allocs:GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : GoInt), function():Void {
-                    var _b:Builder = ({} : Builder);
+                    var _b:Builder = ({} : stdgo.strings.Strings.Builder);
                     _b.grow(_growLen);
                     if (_b.cap() < _growLen) {
                         _t.fatalf(("growLen=%d: Cap() is lower than growLen" : GoString), Go.toInterface(_growLen));
@@ -1579,13 +1580,13 @@ function testBuilderGrow(_t:Ref<stdgo.testing.Testing.T>):Void {
                     _wantAllocs = (0 : GoInt);
                 };
                 {
-                    var _0:GoInt = (_allocs : GoInt), _1:GoInt = _wantAllocs, _w:GoInt = _1, _g:GoInt = _0;
+                    var __0:GoInt = (_allocs : GoInt), __1:GoInt = _wantAllocs, _w:GoInt = __1, _g:GoInt = __0;
                     if (_g != (_w)) {
                         _t.errorf(("growLen=%d: got %d allocs during Write; want %v" : GoString), Go.toInterface(_growLen), Go.toInterface(_g), Go.toInterface(_w));
                     };
                 };
             };
-            var _a:Builder = ({} : Builder);
+            var _a:Builder = ({} : stdgo.strings.Strings.Builder);
             var _n:GoInt = (-1 : GoInt);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
@@ -1629,7 +1630,7 @@ function testBuilderGrow(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testBuilderWrite2(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
-        for (_0 => _tt in (new Slice<T__struct_0>(0, 0, ({ _name : ("Write" : GoString), _fn : function(_b:Ref<Builder>):{ var _0 : GoInt; var _1 : Error; } {
+        for (__0 => _tt in (new Slice<T__struct_0>(0, 0, ({ _name : ("Write" : GoString), _fn : function(_b:Ref<Builder>):{ var _0 : GoInt; var _1 : Error; } {
             return _b.write((("hello 世界" : GoString) : Slice<GoByte>));
         }, _n : (("hello 世界" : GoString).length), _want : ("hello 世界" : GoString) } : T__struct_0), ({ _name : ("WriteRune" : GoString), _fn : function(_b:Ref<Builder>):{ var _0 : GoInt; var _1 : Error; } {
             return _b.writeRune((97 : GoInt32));
@@ -1639,17 +1640,17 @@ function testBuilderWrite2(_t:Ref<stdgo.testing.Testing.T>):Void {
             return _b.writeString(("hello 世界" : GoString));
         }, _n : (("hello 世界" : GoString).length), _want : ("hello 世界" : GoString) } : T__struct_0)) : Slice<T__struct_0>)) {
             _t.run(_tt._name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
-                var _b:Builder = ({} : Builder);
-                var __tmp__ = _tt._fn((Go.setRef(_b) : Ref<Builder>)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+                var _b:Builder = ({} : stdgo.strings.Strings.Builder);
+                var __tmp__ = _tt._fn((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatalf(("first call: got %s" : GoString), Go.toInterface(_err));
                 };
                 if (_n != (_tt._n)) {
                     _t.errorf(("first call: got n=%d; want %d" : GoString), Go.toInterface(_n), Go.toInterface(_tt._n));
                 };
-                _check(_t, (Go.setRef(_b) : Ref<Builder>), _tt._want);
+                _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), _tt._want);
                 {
-                    var __tmp__ = _tt._fn((Go.setRef(_b) : Ref<Builder>));
+                    var __tmp__ = _tt._fn((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>));
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                 };
@@ -1659,12 +1660,12 @@ function testBuilderWrite2(_t:Ref<stdgo.testing.Testing.T>):Void {
                 if (_n != (_tt._n)) {
                     _t.errorf(("second call: got n=%d; want %d" : GoString), Go.toInterface(_n), Go.toInterface(_tt._n));
                 };
-                _check(_t, (Go.setRef(_b) : Ref<Builder>), _tt._want + _tt._want);
+                _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), _tt._want + _tt._want);
             });
         };
     }
 function testBuilderWriteByte(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b:Builder = ({} : Builder);
+        var _b:Builder = ({} : stdgo.strings.Strings.Builder);
         {
             var _err:Error = _b.writeByte((97 : GoUInt8));
             if (_err != null) {
@@ -1677,13 +1678,13 @@ function testBuilderWriteByte(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.error(Go.toInterface(_err));
             };
         };
-        _check(_t, (Go.setRef(_b) : Ref<Builder>), Go.str("a", 0));
+        _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), Go.str("a", 0));
     }
 function testBuilderAllocs(_t:Ref<stdgo.testing.Testing.T>):Void {
         trace("testBuilderAllocs" + " skip function");
         return;
         var _n:GoFloat64 = stdgo.testing.Testing.allocsPerRun((10000 : GoInt), function():Void {
-            var _b:Builder = ({} : Builder);
+            var _b:Builder = ({} : stdgo.strings.Strings.Builder);
             _b.grow((5 : GoInt));
             _b.writeString(("abcde" : GoString));
             (_b.string() : GoString);
@@ -1699,61 +1700,61 @@ function testBuilderCopyPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
 0,
 0,
 ({ _name : ("String" : GoString), _fn : function():Void {
-            var _a:Builder = ({} : Builder);
+            var _a:Builder = ({} : stdgo.strings.Strings.Builder);
             _a.writeByte((120 : GoUInt8));
-            var _b:Builder = _a.__copy__();
+            var _b:stdgo.strings.Strings.Builder = _a?.__copy__();
             (_b.string() : GoString);
         }, _wantPanic : false } : T__struct_1),
 ({ _name : ("Len" : GoString), _fn : function():Void {
-            var _a:Builder = ({} : Builder);
+            var _a:Builder = ({} : stdgo.strings.Strings.Builder);
             _a.writeByte((120 : GoUInt8));
-            var _b:Builder = _a.__copy__();
+            var _b:stdgo.strings.Strings.Builder = _a?.__copy__();
             _b.len();
         }, _wantPanic : false } : T__struct_1),
 ({ _name : ("Cap" : GoString), _fn : function():Void {
-            var _a:Builder = ({} : Builder);
+            var _a:Builder = ({} : stdgo.strings.Strings.Builder);
             _a.writeByte((120 : GoUInt8));
-            var _b:Builder = _a.__copy__();
+            var _b:stdgo.strings.Strings.Builder = _a?.__copy__();
             _b.cap();
         }, _wantPanic : false } : T__struct_1),
 ({ _name : ("Reset" : GoString), _fn : function():Void {
-            var _a:Builder = ({} : Builder);
+            var _a:Builder = ({} : stdgo.strings.Strings.Builder);
             _a.writeByte((120 : GoUInt8));
-            var _b:Builder = _a.__copy__();
+            var _b:stdgo.strings.Strings.Builder = _a?.__copy__();
             _b.reset();
             _b.writeByte((121 : GoUInt8));
         }, _wantPanic : false } : T__struct_1),
 ({ _name : ("Write" : GoString), _fn : function():Void {
-            var _a:Builder = ({} : Builder);
+            var _a:Builder = ({} : stdgo.strings.Strings.Builder);
             _a.write((("x" : GoString) : Slice<GoByte>));
-            var _b:Builder = _a.__copy__();
+            var _b:stdgo.strings.Strings.Builder = _a?.__copy__();
             _b.write((("y" : GoString) : Slice<GoByte>));
         }, _wantPanic : true } : T__struct_1),
 ({ _name : ("WriteByte" : GoString), _fn : function():Void {
-            var _a:Builder = ({} : Builder);
+            var _a:Builder = ({} : stdgo.strings.Strings.Builder);
             _a.writeByte((120 : GoUInt8));
-            var _b:Builder = _a.__copy__();
+            var _b:stdgo.strings.Strings.Builder = _a?.__copy__();
             _b.writeByte((121 : GoUInt8));
         }, _wantPanic : true } : T__struct_1),
 ({ _name : ("WriteString" : GoString), _fn : function():Void {
-            var _a:Builder = ({} : Builder);
+            var _a:Builder = ({} : stdgo.strings.Strings.Builder);
             _a.writeString(("x" : GoString));
-            var _b:Builder = _a.__copy__();
+            var _b:stdgo.strings.Strings.Builder = _a?.__copy__();
             _b.writeString(("y" : GoString));
         }, _wantPanic : true } : T__struct_1),
 ({ _name : ("WriteRune" : GoString), _fn : function():Void {
-            var _a:Builder = ({} : Builder);
+            var _a:Builder = ({} : stdgo.strings.Strings.Builder);
             _a.writeRune((120 : GoInt32));
-            var _b:Builder = _a.__copy__();
+            var _b:stdgo.strings.Strings.Builder = _a?.__copy__();
             _b.writeRune((121 : GoInt32));
         }, _wantPanic : true } : T__struct_1),
 ({ _name : ("Grow" : GoString), _fn : function():Void {
-            var _a:Builder = ({} : Builder);
+            var _a:Builder = ({} : stdgo.strings.Strings.Builder);
             _a.grow((1 : GoInt));
-            var _b:Builder = _a.__copy__();
+            var _b:stdgo.strings.Strings.Builder = _a?.__copy__();
             _b.grow((2 : GoInt));
         }, _wantPanic : true } : T__struct_1)) : Slice<T__struct_1>);
-        for (_0 => _tt in _tests) {
+        for (__0 => _tt in _tests) {
             var _didPanic = new Chan<Bool>(0, () -> false);
             Go.routine(() -> {
                 var a = function():Void {
@@ -1805,10 +1806,10 @@ function testBuilderCopyPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testBuilderWriteInvalidRune(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _r in (new Slice<GoInt32>(0, 0, (-1 : GoInt32), (1114112 : GoInt32)) : Slice<GoInt32>)) {
-            var _b:Builder = ({} : Builder);
+        for (__0 => _r in (new Slice<GoInt32>(0, 0, (-1 : GoInt32), (1114112 : GoInt32)) : Slice<GoInt32>)) {
+            var _b:Builder = ({} : stdgo.strings.Strings.Builder);
             _b.writeRune(_r);
-            _check(_t, (Go.setRef(_b) : Ref<Builder>), ("�" : GoString));
+            _check(_t, (Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>), ("�" : GoString));
         };
     }
 private function _benchmarkBuilder(_b:Ref<stdgo.testing.Testing.B>, _f:(_b:Ref<stdgo.testing.Testing.B>, _numWrite:GoInt, _grow:Bool) -> Void):Void {
@@ -1830,7 +1831,7 @@ function benchmarkBuildString_Builder(_b:Ref<stdgo.testing.Testing.B>):Void {
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < _b.n, _i++, {
-                    var _buf:Builder = ({} : Builder);
+                    var _buf:Builder = ({} : stdgo.strings.Strings.Builder);
                     if (_grow) {
                         _buf.grow((_someBytes.length) * _numWrite);
                     };
@@ -1869,7 +1870,7 @@ function testClone(_t:Ref<stdgo.testing.Testing.T>):Void {
         trace("testClone" + " skip function");
         return;
         var _cloneTests:Slice<GoString> = (new Slice<GoString>(0, 0, Go.str(), stdgo.strings.Strings.clone(Go.str()), (stdgo.strings.Strings.repeat(("a" : GoString), (42 : GoInt)).__slice__(0, (0 : GoInt)) : GoString), ("short" : GoString), stdgo.strings.Strings.repeat(("a" : GoString), (42 : GoInt))) : Slice<GoString>);
-        for (_0 => _input in _cloneTests) {
+        for (__0 => _input in _cloneTests) {
             var _clone:GoString = stdgo.strings.Strings.clone(_input);
             if (_clone != (_input)) {
                 _t.errorf(("Clone(%q) = %q; want %q" : GoString), Go.toInterface(_input), Go.toInterface(_clone), Go.toInterface(_input));
@@ -1893,7 +1894,7 @@ function benchmarkClone(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function testCompare(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _compareTests) {
+        for (__0 => _tt in _compareTests) {
             var _cmp:GoInt = compare(_tt._a, _tt._b);
             if (_cmp != (_tt._i)) {
                 _t.errorf(("Compare(%q, %q) = %v" : GoString), Go.toInterface(_tt._a), Go.toInterface(_tt._b), Go.toInterface(_cmp));
@@ -1930,7 +1931,7 @@ function testCompareStrings(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _a = new Slice<GoUInt8>((_n + (1 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n + (1 : GoInt) : GoInt).toBasic()) (0 : GoUInt8)]);
         var _b = new Slice<GoUInt8>((_n + (1 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n + (1 : GoInt) : GoInt).toBasic()) (0 : GoUInt8)]);
         var _lastLen:GoInt = (0 : GoInt);
-        for (_0 => _len in _lengths) {
+        for (__0 => _len in _lengths) {
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < _len, _i++, {
@@ -1945,7 +1946,7 @@ function testCompareStrings(_t:Ref<stdgo.testing.Testing.T>):Void {
                     _b[(_i : GoInt)] = (9 : GoUInt8);
                 });
             };
-            var _0:GoString = _unsafeString(_a), _1:GoString = _unsafeString(_b), _sb:GoString = _1, _sa:GoString = _0;
+            var __0:GoString = _unsafeString(_a), __1:GoString = _unsafeString(_b), _sb:GoString = __1, _sa:GoString = __0;
             var _cmp:GoInt = compare((_sa.__slice__(0, _len) : GoString), (_sb.__slice__(0, _len) : GoString));
             if (_cmp != ((0 : GoInt))) {
                 _t.errorf(("CompareIdentical(%d) = %d" : GoString), Go.toInterface(_len), Go.toInterface(_cmp));
@@ -1980,11 +1981,11 @@ function testCompareStrings(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function exampleBuilder():Void {
-        var _b:Builder = ({} : Builder);
+        var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         {
             var _i:GoInt = (3 : GoInt);
             Go.cfor(_i >= (1 : GoInt), _i--, {
-                stdgo.fmt.Fmt.fprintf(Go.asInterface((Go.setRef(_b) : Ref<Builder>)), ("%d..." : GoString), Go.toInterface(_i));
+                stdgo.fmt.Fmt.fprintf(Go.asInterface((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>)), ("%d..." : GoString), Go.toInterface(_i));
             });
         };
         _b.writeString(("ignition" : GoString));
@@ -2211,15 +2212,15 @@ function testReader(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _tests = (new Slice<T__struct_3>(
 0,
 0,
-({ _off : ("0" : GoInt64), _seek : (0 : GoInt), _n : (20 : GoInt), _want : ("0123456789" : GoString), _wantpos : (0 : GoInt64), _readerr : (null : Error), _seekerr : ("" : GoString) } : T__struct_3),
-({ _off : ("1" : GoInt64), _seek : (0 : GoInt), _n : (1 : GoInt), _want : ("1" : GoString), _wantpos : (0 : GoInt64), _readerr : (null : Error), _seekerr : ("" : GoString) } : T__struct_3),
-({ _off : ("1" : GoInt64), _seek : (1 : GoInt), _n : (2 : GoInt), _want : ("34" : GoString), _wantpos : ("3" : GoInt64), _readerr : (null : Error), _seekerr : ("" : GoString) } : T__struct_3),
-({ _off : ("-1" : GoInt64), _seek : (0 : GoInt), _n : (0 : GoInt), _want : ("" : GoString), _wantpos : (0 : GoInt64), _readerr : (null : Error), _seekerr : ("strings.Reader.Seek: negative position" : GoString) } : T__struct_3),
-({ _off : ("8589934592" : GoInt64), _seek : (0 : GoInt), _n : (0 : GoInt), _want : ("" : GoString), _wantpos : ("8589934592" : GoInt64), _readerr : stdgo.io.Io.eof, _seekerr : ("" : GoString) } : T__struct_3),
-({ _off : ("1" : GoInt64), _seek : (1 : GoInt), _n : (0 : GoInt), _want : ("" : GoString), _wantpos : ("8589934593" : GoInt64), _readerr : stdgo.io.Io.eof, _seekerr : ("" : GoString) } : T__struct_3),
+({ _off : (0i64 : GoInt64), _seek : (0 : GoInt), _n : (20 : GoInt), _want : ("0123456789" : GoString), _wantpos : (0 : GoInt64), _readerr : (null : Error), _seekerr : ("" : GoString) } : T__struct_3),
+({ _off : (1i64 : GoInt64), _seek : (0 : GoInt), _n : (1 : GoInt), _want : ("1" : GoString), _wantpos : (0 : GoInt64), _readerr : (null : Error), _seekerr : ("" : GoString) } : T__struct_3),
+({ _off : (1i64 : GoInt64), _seek : (1 : GoInt), _n : (2 : GoInt), _want : ("34" : GoString), _wantpos : (3i64 : GoInt64), _readerr : (null : Error), _seekerr : ("" : GoString) } : T__struct_3),
+({ _off : (-1i64 : GoInt64), _seek : (0 : GoInt), _n : (0 : GoInt), _want : ("" : GoString), _wantpos : (0 : GoInt64), _readerr : (null : Error), _seekerr : ("strings.Reader.Seek: negative position" : GoString) } : T__struct_3),
+({ _off : (8589934592i64 : GoInt64), _seek : (0 : GoInt), _n : (0 : GoInt), _want : ("" : GoString), _wantpos : (8589934592i64 : GoInt64), _readerr : stdgo.io.Io.eof, _seekerr : ("" : GoString) } : T__struct_3),
+({ _off : (1i64 : GoInt64), _seek : (1 : GoInt), _n : (0 : GoInt), _want : ("" : GoString), _wantpos : (8589934593i64 : GoInt64), _readerr : stdgo.io.Io.eof, _seekerr : ("" : GoString) } : T__struct_3),
 ({ _off : (0 : GoInt64), _seek : (0 : GoInt), _n : (5 : GoInt), _want : ("01234" : GoString), _wantpos : (0 : GoInt64), _readerr : (null : Error), _seekerr : ("" : GoString) } : T__struct_3),
 ({ _off : (0 : GoInt64), _seek : (1 : GoInt), _n : (5 : GoInt), _want : ("56789" : GoString), _wantpos : (0 : GoInt64), _readerr : (null : Error), _seekerr : ("" : GoString) } : T__struct_3),
-({ _off : ("-1" : GoInt64), _seek : (2 : GoInt), _n : (1 : GoInt), _want : ("9" : GoString), _wantpos : ("9" : GoInt64), _readerr : (null : Error), _seekerr : ("" : GoString) } : T__struct_3)) : Slice<T__struct_3>);
+({ _off : (-1i64 : GoInt64), _seek : (2 : GoInt), _n : (1 : GoInt), _want : ("9" : GoString), _wantpos : (9i64 : GoInt64), _readerr : (null : Error), _seekerr : ("" : GoString) } : T__struct_3)) : Slice<T__struct_3>);
         for (_i => _tt in _tests) {
             var __tmp__ = _r.seek(_tt._off, _tt._seek), _pos:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if ((_err == null) && (_tt._seekerr != Go.str())) {
@@ -2230,7 +2231,7 @@ function testReader(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("%d. seek error = %q; want %q" : GoString), Go.toInterface(_i), Go.toInterface(_err.error()), Go.toInterface(_tt._seekerr));
                 continue;
             };
-            if ((_tt._wantpos != ("0" : GoInt64)) && (_tt._wantpos != _pos)) {
+            if ((_tt._wantpos != (0i64 : GoInt64)) && (_tt._wantpos != _pos)) {
                 _t.errorf(("%d. pos = %d, want %d" : GoString), Go.toInterface(_i), Go.toInterface(_pos), Go.toInterface(_tt._wantpos));
             };
             var _buf = new Slice<GoUInt8>((_tt._n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_tt._n : GoInt).toBasic()) (0 : GoUInt8)]);
@@ -2248,7 +2249,7 @@ function testReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testReadAfterBigSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _r = stdgo.strings.Strings.newReader(("0123456789" : GoString));
         {
-            var __tmp__ = _r.seek(("2147483653" : GoInt64), (0 : GoInt)), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _r.seek((2147483653i64 : GoInt64), (0 : GoInt)), __0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -2262,7 +2263,7 @@ function testReadAfterBigSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReaderAt(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _r = stdgo.strings.Strings.newReader(("0123456789" : GoString));
-        var _tests = (new Slice<T__struct_4>(0, 0, ({ _off : ("0" : GoInt64), _n : (10 : GoInt), _want : ("0123456789" : GoString), _wanterr : (null : AnyInterface) } : T__struct_4), ({ _off : ("1" : GoInt64), _n : (10 : GoInt), _want : ("123456789" : GoString), _wanterr : Go.toInterface(stdgo.io.Io.eof) } : T__struct_4), ({ _off : ("1" : GoInt64), _n : (9 : GoInt), _want : ("123456789" : GoString), _wanterr : (null : AnyInterface) } : T__struct_4), ({ _off : ("11" : GoInt64), _n : (10 : GoInt), _want : Go.str(), _wanterr : Go.toInterface(stdgo.io.Io.eof) } : T__struct_4), ({ _off : ("0" : GoInt64), _n : (0 : GoInt), _want : Go.str(), _wanterr : (null : AnyInterface) } : T__struct_4), ({ _off : ("-1" : GoInt64), _n : (0 : GoInt), _want : Go.str(), _wanterr : Go.toInterface(("strings.Reader.ReadAt: negative offset" : GoString)) } : T__struct_4)) : Slice<T__struct_4>);
+        var _tests = (new Slice<T__struct_4>(0, 0, ({ _off : (0i64 : GoInt64), _n : (10 : GoInt), _want : ("0123456789" : GoString), _wanterr : (null : AnyInterface) } : T__struct_4), ({ _off : (1i64 : GoInt64), _n : (10 : GoInt), _want : ("123456789" : GoString), _wanterr : Go.toInterface(stdgo.io.Io.eof) } : T__struct_4), ({ _off : (1i64 : GoInt64), _n : (9 : GoInt), _want : ("123456789" : GoString), _wanterr : (null : AnyInterface) } : T__struct_4), ({ _off : (11i64 : GoInt64), _n : (10 : GoInt), _want : Go.str(), _wanterr : Go.toInterface(stdgo.io.Io.eof) } : T__struct_4), ({ _off : (0i64 : GoInt64), _n : (0 : GoInt), _want : Go.str(), _wanterr : (null : AnyInterface) } : T__struct_4), ({ _off : (-1i64 : GoInt64), _n : (0 : GoInt), _want : Go.str(), _wanterr : Go.toInterface(("strings.Reader.ReadAt: negative offset" : GoString)) } : T__struct_4)) : Slice<T__struct_4>);
         for (_i => _tt in _tests) {
             var _b = new Slice<GoUInt8>((_tt._n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_tt._n : GoInt).toBasic()) (0 : GoUInt8)]);
             var __tmp__ = _r.readAt(_b, _tt._off), _rn:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -2429,18 +2430,18 @@ function testReaderLenSize(_t:Ref<stdgo.testing.Testing.T>):Void {
         trace("testReaderLenSize" + " skip function");
         return;
         var _r = stdgo.strings.Strings.newReader(("abc" : GoString));
-        stdgo.io.Io.copyN(stdgo.io.Io.discard, Go.asInterface(_r), ("1" : GoInt64));
+        stdgo.io.Io.copyN(stdgo.io.Io.discard, Go.asInterface(_r), (1i64 : GoInt64));
         if (_r.len() != ((2 : GoInt))) {
             _t.errorf(("Len = %d; want 2" : GoString), Go.toInterface(_r.len()));
         };
-        if (_r.size() != (("3" : GoInt64))) {
+        if (_r.size() != ((3i64 : GoInt64))) {
             _t.errorf(("Size = %d; want 3" : GoString), Go.toInterface(_r.size()));
         };
     }
 function testReaderReset(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _r = stdgo.strings.Strings.newReader(("世界" : GoString));
         {
-            var __tmp__ = _r.readRune(), _0:GoInt32 = __tmp__._0, _1:GoInt = __tmp__._1, _err:Error = __tmp__._2;
+            var __tmp__ = _r.readRune(), __0:GoInt32 = __tmp__._0, __1:GoInt = __tmp__._1, _err:Error = __tmp__._2;
             if (_err != null) {
                 _t.errorf(("ReadRune: unexpected error: %v" : GoString), Go.toInterface(_err));
             };
@@ -2466,56 +2467,56 @@ function testReaderReset(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReaderZero(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
-            var _l:GoInt = (Go.setRef((new Reader() : Reader)) : Ref<Reader>).len();
+            var _l:GoInt = (Go.setRef((new stdgo.strings.Strings.Reader() : stdgo.strings.Strings.Reader)) : Ref<stdgo.strings.Strings.Reader>).len();
             if (_l != ((0 : GoInt))) {
                 _t.errorf(("Len: got %d, want 0" : GoString), Go.toInterface(_l));
             };
         };
         {
-            var __tmp__ = (Go.setRef((new Reader() : Reader)) : Ref<Reader>).read((null : Slice<GoUInt8>)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = (Go.setRef((new stdgo.strings.Strings.Reader() : stdgo.strings.Strings.Reader)) : Ref<stdgo.strings.Strings.Reader>).read((null : Slice<GoUInt8>)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if ((_n != (0 : GoInt)) || (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof))) {
                 _t.errorf(("Read: got %d, %v; want 0, io.EOF" : GoString), Go.toInterface(_n), Go.toInterface(_err));
             };
         };
         {
-            var __tmp__ = (Go.setRef((new Reader() : Reader)) : Ref<Reader>).readAt((null : Slice<GoUInt8>), ("11" : GoInt64)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = (Go.setRef((new stdgo.strings.Strings.Reader() : stdgo.strings.Strings.Reader)) : Ref<stdgo.strings.Strings.Reader>).readAt((null : Slice<GoUInt8>), (11i64 : GoInt64)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if ((_n != (0 : GoInt)) || (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof))) {
                 _t.errorf(("ReadAt: got %d, %v; want 0, io.EOF" : GoString), Go.toInterface(_n), Go.toInterface(_err));
             };
         };
         {
-            var __tmp__ = (Go.setRef((new Reader() : Reader)) : Ref<Reader>).readByte(), _b:GoUInt8 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = (Go.setRef((new stdgo.strings.Strings.Reader() : stdgo.strings.Strings.Reader)) : Ref<stdgo.strings.Strings.Reader>).readByte(), _b:GoUInt8 = __tmp__._0, _err:Error = __tmp__._1;
             if ((_b != (0 : GoUInt8)) || (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof))) {
                 _t.errorf(("ReadByte: got %d, %v; want 0, io.EOF" : GoString), Go.toInterface(_b), Go.toInterface(_err));
             };
         };
         {
-            var __tmp__ = (Go.setRef((new Reader() : Reader)) : Ref<Reader>).readRune(), _ch:GoInt32 = __tmp__._0, _size:GoInt = __tmp__._1, _err:Error = __tmp__._2;
+            var __tmp__ = (Go.setRef((new stdgo.strings.Strings.Reader() : stdgo.strings.Strings.Reader)) : Ref<stdgo.strings.Strings.Reader>).readRune(), _ch:GoInt32 = __tmp__._0, _size:GoInt = __tmp__._1, _err:Error = __tmp__._2;
             if (((_ch != (0 : GoInt32)) || (_size != (0 : GoInt))) || (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof))) {
                 _t.errorf(("ReadRune: got %d, %d, %v; want 0, 0, io.EOF" : GoString), Go.toInterface(_ch), Go.toInterface(_size), Go.toInterface(_err));
             };
         };
         {
-            var __tmp__ = (Go.setRef((new Reader() : Reader)) : Ref<Reader>).seek(("11" : GoInt64), (0 : GoInt)), _offset:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
-            if ((_offset != ("11" : GoInt64)) || (_err != null)) {
+            var __tmp__ = (Go.setRef((new stdgo.strings.Strings.Reader() : stdgo.strings.Strings.Reader)) : Ref<stdgo.strings.Strings.Reader>).seek((11i64 : GoInt64), (0 : GoInt)), _offset:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            if ((_offset != (11i64 : GoInt64)) || (_err != null)) {
                 _t.errorf(("Seek: got %d, %v; want 11, nil" : GoString), Go.toInterface(_offset), Go.toInterface(_err));
             };
         };
         {
-            var _s:GoInt64 = (Go.setRef((new Reader() : Reader)) : Ref<Reader>).size();
-            if (_s != (("0" : GoInt64))) {
+            var _s:GoInt64 = (Go.setRef((new stdgo.strings.Strings.Reader() : stdgo.strings.Strings.Reader)) : Ref<stdgo.strings.Strings.Reader>).size();
+            if (_s != ((0i64 : GoInt64))) {
                 _t.errorf(("Size: got %d, want 0" : GoString), Go.toInterface(_s));
             };
         };
-        if ((Go.setRef((new Reader() : Reader)) : Ref<Reader>).unreadByte() == null) {
+        if ((Go.setRef((new stdgo.strings.Strings.Reader() : stdgo.strings.Strings.Reader)) : Ref<stdgo.strings.Strings.Reader>).unreadByte() == null) {
             _t.errorf(("UnreadByte: got nil, want error" : GoString));
         };
-        if ((Go.setRef((new Reader() : Reader)) : Ref<Reader>).unreadRune() == null) {
+        if ((Go.setRef((new stdgo.strings.Strings.Reader() : stdgo.strings.Strings.Reader)) : Ref<stdgo.strings.Strings.Reader>).unreadRune() == null) {
             _t.errorf(("UnreadRune: got nil, want error" : GoString));
         };
         {
-            var __tmp__ = (Go.setRef((new Reader() : Reader)) : Ref<Reader>).writeTo(stdgo.io.Io.discard), _n:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
-            if ((_n != ("0" : GoInt64)) || (_err != null)) {
+            var __tmp__ = (Go.setRef((new stdgo.strings.Strings.Reader() : stdgo.strings.Strings.Reader)) : Ref<stdgo.strings.Strings.Reader>).writeTo(stdgo.io.Io.discard), _n:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            if ((_n != (0i64 : GoInt64)) || (_err != null)) {
                 _t.errorf(("WriteTo: got %d, %v; want 0, nil" : GoString), Go.toInterface(_n), Go.toInterface(_err));
             };
         };
@@ -2537,10 +2538,10 @@ private function _oldHTMLEscape(_s:GoString):GoString {
     
 **/
 @:structInit class T_testReplacer_0___localname___testCase {
-    public var _r : Ref<Replacer> = (null : Ref<Replacer>);
+    public var _r : Ref<stdgo.strings.Strings.Replacer> = (null : Ref<stdgo.strings.Strings.Replacer>);
     public var _in : GoString = "";
     public var _out : GoString = "";
-    public function new(?_r:Ref<Replacer>, ?_in:GoString, ?_out:GoString) {
+    public function new(?_r:Ref<stdgo.strings.Strings.Replacer>, ?_in:GoString, ?_out:GoString) {
         if (_r != null) this._r = _r;
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
@@ -2715,7 +2716,7 @@ function testGenericTrieBuilding(_t:Ref<stdgo.testing.Testing.T>):Void {
         trace("testGenericTrieBuilding" + " skip function");
         return;
         var _testCases = (new Slice<StringTest>(0, 0, (new StringTest(("abc;abdef;abdefgh;xx;xy;z" : GoString), ("-\n\t\t\ta-\n\t\t\t.b-\n\t\t\t..c+\n\t\t\t..d-\n\t\t\t...ef+\n\t\t\t.....gh+\n\t\t\tx-\n\t\t\t.x+\n\t\t\t.y+\n\t\t\tz+\n\t\t\t" : GoString)) : StringTest), (new StringTest(("abracadabra;abracadabrakazam;abraham;abrasion" : GoString), ("-\n\t\t\ta-\n\t\t\t.bra-\n\t\t\t....c-\n\t\t\t.....adabra+\n\t\t\t...........kazam+\n\t\t\t....h-\n\t\t\t.....am+\n\t\t\t....s-\n\t\t\t.....ion+\n\t\t\t" : GoString)) : StringTest), (new StringTest(("aaa;aa;a;i;longerst;longer;long;xx;x;X;Y" : GoString), ("-\n\t\t\tX+\n\t\t\tY+\n\t\t\ta+\n\t\t\t.a+\n\t\t\t..a+\n\t\t\ti+\n\t\t\tl-\n\t\t\t.ong+\n\t\t\t....er+\n\t\t\t......st+\n\t\t\tx+\n\t\t\t.x+\n\t\t\t" : GoString)) : StringTest), (new StringTest(("foo;;foo;foo1" : GoString), ("+\n\t\t\tf-\n\t\t\t.oo+\n\t\t\t...1+\n\t\t\t" : GoString)) : StringTest)) : Slice<StringTest>);
-        for (_0 => _tc in _testCases) {
+        for (__0 => _tc in _testCases) {
             var _keys = split(_tc._in, (";" : GoString));
             var _args = new Slice<GoString>(((_keys.length) * (2 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_keys.length) * (2 : GoInt) : GoInt).toBasic()) ("" : GoString)]);
             for (_i => _key in _keys) {
@@ -2893,7 +2894,7 @@ function benchmarkMap(_b:Ref<stdgo.testing.Testing.B>):Void {
             return _r;
         };
         _b.run(("identity" : GoString), function(_b:Ref<stdgo.testing.Testing.B>):Void {
-            for (_0 => _md in _mapdata) {
+            for (__0 => _md in _mapdata) {
                 _b.run(_md._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                     {
                         var _i:GoInt = (0 : GoInt);
@@ -2914,7 +2915,7 @@ function benchmarkMap(_b:Ref<stdgo.testing.Testing.B>):Void {
             return _r;
         };
         _b.run(("change" : GoString), function(_b:Ref<stdgo.testing.Testing.B>):Void {
-            for (_0 => _md in _mapdata) {
+            for (__0 => _md in _mapdata) {
                 _b.run(_md._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                     {
                         var _i:GoInt = (0 : GoInt);
@@ -2945,7 +2946,7 @@ function testFinderNext(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _pat : ("aa" : GoString), _text : ("aaa" : GoString), _index : (0 : GoInt) } : T__struct_8),
 ({ _pat : ("baa" : GoString), _text : ("aaaaa" : GoString), _index : (-1 : GoInt) } : T__struct_8),
 ({ _pat : ("at that" : GoString), _text : ("which finally halts.  at that point" : GoString), _index : (22 : GoInt) } : T__struct_8)) : Slice<T__struct_8>);
-        for (_0 => _tc in _testCases) {
+        for (__0 => _tc in _testCases) {
             var _got:GoInt = stringFind(_tc._pat, _tc._text);
             var _want:GoInt = _tc._index;
             if (_got != (_want)) {
@@ -3006,7 +3007,7 @@ function testFinderCreation(_t:Ref<stdgo.testing.Testing.T>):Void {
 (7 : GoInt),
 (10 : GoInt),
 (1 : GoInt)) : Slice<GoInt>) } : T__struct_9)) : Slice<T__struct_9>);
-        for (_0 => _tc in _testCases) {
+        for (__0 => _tc in _testCases) {
             var __tmp__ = dumpTables(_tc._pattern), _bad:Slice<GoInt> = __tmp__._0, _good:Slice<GoInt> = __tmp__._1;
             for (_i => _got in _bad) {
                 var _want:GoInt = _tc._bad[(_i : GoInt)];
@@ -3041,7 +3042,7 @@ private function _eq(_a:Slice<GoString>, _b:Slice<GoString>):Bool {
     // in failure reports.
 **/
 private function _runIndexTests(_t:Ref<stdgo.testing.Testing.T>, _f:(_s:GoString, _sep:GoString) -> GoInt, _funcName:GoString, _testCases:Slice<IndexTest>):Void {
-        for (_0 => _test in _testCases) {
+        for (__0 => _test in _testCases) {
             var _actual:GoInt = _f(_test._s, _test._sep);
             if (_actual != (_test._out)) {
                 _t.errorf(("%s(%q,%q) = %v; want %v" : GoString), Go.toInterface(_funcName), Go.toInterface(_test._s), Go.toInterface(_test._sep), Go.toInterface(_actual), Go.toInterface(_test._out));
@@ -3061,7 +3062,7 @@ function testLastIndexAny(_t:Ref<stdgo.testing.Testing.T>):Void {
         _runIndexTests(_t, lastIndexAny, ("LastIndexAny" : GoString), _lastIndexAnyTests);
     }
 function testIndexByte(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _indexTests) {
+        for (__0 => _tt in _indexTests) {
             if ((_tt._sep.length) != ((1 : GoInt))) {
                 continue;
             };
@@ -3073,7 +3074,7 @@ function testIndexByte(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testLastIndexByte(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _testCases = (new Slice<stdgo.strings_test.Strings_test.IndexTest>(0, 0, (new stdgo.strings_test.Strings_test.IndexTest(Go.str(), ("q" : GoString), (-1 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest), (new stdgo.strings_test.Strings_test.IndexTest(("abcdef" : GoString), ("q" : GoString), (-1 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest), (new stdgo.strings_test.Strings_test.IndexTest(("abcdefabcdef" : GoString), ("a" : GoString), (("abcdef" : GoString).length)) : stdgo.strings_test.Strings_test.IndexTest), (new stdgo.strings_test.Strings_test.IndexTest(("abcdefabcdef" : GoString), ("f" : GoString), (("abcdefabcde" : GoString).length)) : stdgo.strings_test.Strings_test.IndexTest), (new stdgo.strings_test.Strings_test.IndexTest(("zabcdefabcdef" : GoString), ("z" : GoString), (0 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest), (new stdgo.strings_test.Strings_test.IndexTest(("a☺b☻c☹d" : GoString), ("b" : GoString), (("a☺" : GoString).length)) : stdgo.strings_test.Strings_test.IndexTest)) : Slice<stdgo.strings_test.Strings_test.IndexTest>);
-        for (_0 => _test in _testCases) {
+        for (__0 => _test in _testCases) {
             var _actual:GoInt = lastIndexByte(_test._s, _test._sep[(0 : GoInt)]);
             if (_actual != (_test._out)) {
                 _t.errorf(("LastIndexByte(%q,%c) = %v; want %v" : GoString), Go.toInterface(_test._s), Go.toInterface(_test._sep[(0 : GoInt)]), Go.toInterface(_actual), Go.toInterface(_test._out));
@@ -3150,7 +3151,7 @@ function testIndexRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _in : Go.str("a☺b☻c☹d", 226, 152, "�", 255, "�", 237, 160, 128), _rune : (-1 : GoInt32), _want : (-1 : GoInt) } : T__struct_10),
 ({ _in : Go.str("a☺b☻c☹d", 226, 152, "�", 255, "�", 237, 160, 128), _rune : (55296 : GoInt32), _want : (-1 : GoInt) } : T__struct_10),
 ({ _in : Go.str("a☺b☻c☹d", 226, 152, "�", 255, "�", 237, 160, 128), _rune : (1114112 : GoInt32), _want : (-1 : GoInt) } : T__struct_10)) : Slice<T__struct_10>);
-        for (_0 => _tt in _tests) {
+        for (__0 => _tt in _tests) {
             {
                 var _got:GoInt = indexRune(_tt._in, _tt._rune);
                 if (_got != (_tt._want)) {
@@ -3262,7 +3263,7 @@ function benchmarkIndexByte(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function testSplit(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _splittests) {
+        for (__0 => _tt in _splittests) {
             var _a = splitN(_tt._s, _tt._sep, _tt._n);
             if (!_eq(_a, _tt._a)) {
                 _t.errorf(("Split(%q, %q, %d) = %v; want %v" : GoString), Go.toInterface(_tt._s), Go.toInterface(_tt._sep), Go.toInterface(_tt._n), Go.toInterface(_a), Go.toInterface(_tt._a));
@@ -3284,7 +3285,7 @@ function testSplit(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testSplitAfter(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _splitaftertests) {
+        for (__0 => _tt in _splitaftertests) {
             var _a = splitAfterN(_tt._s, _tt._sep, _tt._n);
             if (!_eq(_a, _tt._a)) {
                 _t.errorf(("Split(%q, %q, %d) = %v; want %v" : GoString), Go.toInterface(_tt._s), Go.toInterface(_tt._sep), Go.toInterface(_tt._n), Go.toInterface(_a), Go.toInterface(_tt._a));
@@ -3303,7 +3304,7 @@ function testSplitAfter(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testFields(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _fieldstests) {
+        for (__0 => _tt in _fieldstests) {
             var _a = fields(_tt._s);
             if (!_eq(_a, _tt._a)) {
                 _t.errorf(("Fields(%q) = %v; want %v" : GoString), Go.toInterface(_tt._s), Go.toInterface(_a), Go.toInterface(_tt._a));
@@ -3312,7 +3313,7 @@ function testFields(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testFieldsFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _fieldstests) {
+        for (__0 => _tt in _fieldstests) {
             var _a = fieldsFunc(_tt._s, stdgo.unicode.Unicode.isSpace);
             if (!_eq(_a, _tt._a)) {
                 _t.errorf(("FieldsFunc(%q, unicode.IsSpace) = %v; want %v" : GoString), Go.toInterface(_tt._s), Go.toInterface(_a), Go.toInterface(_tt._a));
@@ -3322,7 +3323,7 @@ function testFieldsFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _pred:GoInt32 -> Bool = function(_c:GoRune):Bool {
             return _c == ((88 : GoInt32));
         };
-        for (_1 => _tt in fieldsFuncTests) {
+        for (__1 => _tt in fieldsFuncTests) {
             var _a = fieldsFunc(_tt._s, _pred);
             if (!_eq(_a, _tt._a)) {
                 _t.errorf(("FieldsFunc(%q) = %v, want %v" : GoString), Go.toInterface(_tt._s), Go.toInterface(_a), Go.toInterface(_tt._a));
@@ -3334,7 +3335,7 @@ function testFieldsFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
     // in failure reports.
 **/
 private function _runStringTests(_t:Ref<stdgo.testing.Testing.T>, _f:GoString -> GoString, _funcName:GoString, _testCases:Slice<StringTest>):Void {
-        for (_0 => _tc in _testCases) {
+        for (__0 => _tc in _testCases) {
             var _actual:GoString = _f(_tc._in);
             if (_actual != (_tc._out)) {
                 _t.errorf(("%s(%q) = %q; want %q" : GoString), Go.toInterface(_funcName), Go.toInterface(_tc._in), Go.toInterface(_actual), Go.toInterface(_tc._out));
@@ -3461,7 +3462,7 @@ function testToLower(_t:Ref<stdgo.testing.Testing.T>):Void {
         _runStringTests(_t, toLower, ("ToLower" : GoString), _lowerTests);
     }
 function testToValidUTF8(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tc in _toValidUTF8Tests) {
+        for (__0 => _tc in _toValidUTF8Tests) {
             var _got:GoString = toValidUTF8(_tc._in, _tc._repl);
             if (_got != (_tc._out)) {
                 _t.errorf(("ToValidUTF8(%q, %q) = %q; want %q" : GoString), Go.toInterface(_tc._in), Go.toInterface(_tc._repl), Go.toInterface(_got), Go.toInterface(_tc._out));
@@ -3469,7 +3470,7 @@ function testToValidUTF8(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function benchmarkToUpper(_b:Ref<stdgo.testing.Testing.B>):Void {
-        for (_0 => _tc in _upperTests) {
+        for (__0 => _tc in _upperTests) {
             _b.run(_tc._in, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _i:GoInt = (0 : GoInt);
@@ -3484,7 +3485,7 @@ function benchmarkToUpper(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function benchmarkToLower(_b:Ref<stdgo.testing.Testing.B>):Void {
-        for (_0 => _tc in _lowerTests) {
+        for (__0 => _tc in _lowerTests) {
             _b.run(_tc._in, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _i:GoInt = (0 : GoInt);
@@ -3533,7 +3534,7 @@ function testTrimSpace(_t:Ref<stdgo.testing.Testing.T>):Void {
         _runStringTests(_t, trimSpace, ("TrimSpace" : GoString), _trimSpaceTests);
     }
 function testTrim(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tc in _trimTests) {
+        for (__0 => _tc in _trimTests) {
             var _name:GoString = _tc._f;
             var _f:(GoString, GoString) -> GoString = null;
             {
@@ -3563,7 +3564,7 @@ function benchmarkTrim(_b:Ref<stdgo.testing.Testing.B>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
-                for (_8 => _tc in _trimTests) {
+                for (__8 => _tc in _trimTests) {
                     var _name:GoString = _tc._f;
                     var _f:(GoString, GoString) -> GoString = null;
                     {
@@ -3594,7 +3595,7 @@ function benchmarkToValidUTF8(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _tests = (new Slice<T__struct_13>(0, 0, ({ _name : ("Valid" : GoString), _input : ("typical" : GoString) } : T__struct_13), ({ _name : ("InvalidASCII" : GoString), _input : Go.str("foo", 255, "bar") } : T__struct_13), ({ _name : ("InvalidNonASCII" : GoString), _input : Go.str("日本語", 255, "日本語") } : T__struct_13)) : Slice<T__struct_13>);
         var _replacement:GoString = ("�" : GoString);
         _b.resetTimer();
-        for (_0 => _test in _tests) {
+        for (__0 => _test in _tests) {
             _b.run(_test._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _i:GoInt = (0 : GoInt);
@@ -3611,9 +3612,9 @@ private function _not(_p:T_predicate):T_predicate {
         }, ("not " : GoString) + _p._name) : T_predicate);
     }
 function testTrimFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tc in _trimFuncTests) {
+        for (__0 => _tc in _trimFuncTests) {
             var _trimmers = (new Slice<T__struct_15>(0, 0, ({ _name : ("TrimFunc" : GoString), _trim : trimFunc, _out : _tc._trimOut } : T__struct_15), ({ _name : ("TrimLeftFunc" : GoString), _trim : trimLeftFunc, _out : _tc._leftOut } : T__struct_15), ({ _name : ("TrimRightFunc" : GoString), _trim : trimRightFunc, _out : _tc._rightOut } : T__struct_15)) : Slice<T__struct_15>);
-            for (_1 => _trimmer in _trimmers) {
+            for (__1 => _trimmer in _trimmers) {
                 var _actual:GoString = _trimmer._trim(_tc._in, _tc._f._f);
                 if (_actual != (_trimmer._out)) {
                     _t.errorf(("%s(%q, %q) = %q; want %q" : GoString), Go.toInterface(_trimmer._name), Go.toInterface(_tc._in), Go.toInterface(_tc._f._name), Go.toInterface(_actual), Go.toInterface(_trimmer._out));
@@ -3622,7 +3623,7 @@ function testTrimFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testIndexFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tc in _indexFuncTests) {
+        for (__0 => _tc in _indexFuncTests) {
             var _first:GoInt = indexFunc(_tc._in, _tc._f._f);
             if (_first != (_tc._first)) {
                 _t.errorf(("IndexFunc(%q, %s) = %d; want %d" : GoString), Go.toInterface(_tc._in), Go.toInterface(_tc._f._name), Go.toInterface(_first), Go.toInterface(_tc._first));
@@ -3643,8 +3644,8 @@ private function _equal(_m:GoString, _s1:GoString, _s2:GoString, _t:Ref<stdgo.te
             if (_i >= (_e2.length)) {
                 break;
             };
-            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_c1), _r1:GoInt32 = __tmp__._0, _0:GoInt = __tmp__._1;
-            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_e2[(_i : GoInt)]), _r2:GoInt32 = __tmp__._0, _1:GoInt = __tmp__._1;
+            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_c1), _r1:GoInt32 = __tmp__._0, __0:GoInt = __tmp__._1;
+            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_e2[(_i : GoInt)]), _r2:GoInt32 = __tmp__._0, __1:GoInt = __tmp__._1;
             if (_r1 != (_r2)) {
                 _t.errorf(("%s diff at %d: U+%04X U+%04X" : GoString), Go.toInterface(_m), Go.toInterface(_i), Go.toInterface(_r1), Go.toInterface(_r2));
             };
@@ -3683,7 +3684,7 @@ function testCaseConsistency(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testRepeat(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in repeatTests) {
+        for (__0 => _tt in repeatTests) {
             var _a:GoString = repeat(_tt._in, _tt._count);
             if (!_equal(("Repeat(s)" : GoString), _a, _tt._out, _t)) {
                 _t.errorf(("Repeat(%v, %d) = %v; want %v" : GoString), Go.toInterface(_tt._in), Go.toInterface(_tt._count), Go.toInterface(_a), Go.toInterface(_tt._out));
@@ -3710,7 +3711,7 @@ private function _repeat(_s:GoString, _count:GoInt):Error {
                                     var _v:Error = __type__ == null ? (null : Error) : __type__.__underlying__() == null ? (null : Error) : __type__ == null ? (null : Error) : __type__.__underlying__().value;
                                     _err = _v;
                                 } else {
-                                    var _v:AnyInterface = __type__.__underlying__();
+                                    var _v:AnyInterface = __type__?.__underlying__();
                                     _err = stdgo.fmt.Fmt.errorf(("%s" : GoString), _v);
                                 };
                             };
@@ -3757,12 +3758,12 @@ function testRepeatCatchesOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _tests = {
             var s:GoArray<T__struct_18> = new GoArray<T__struct_18>(...[for (i in 0 ... 7) ({ _s : ("" : GoString), _count : (0 : GoInt), _errStr : ("" : GoString) } : T__struct_18)]);
             s[0] = ({ _s : ("--" : GoString), _count : (-2147483647 : GoInt), _errStr : ("negative" : GoString) } : T__struct_18);
-            s[1] = ({ _s : Go.str(), _count : ((("2147483647" : GoUInt) : GoUInt) : GoInt), _errStr : Go.str() } : T__struct_18);
+            s[1] = ({ _s : Go.str(), _count : ((2147483647u32 : GoUInt) : GoInt), _errStr : Go.str() } : T__struct_18);
             s[2] = ({ _s : ("-" : GoString), _count : (10 : GoInt), _errStr : Go.str() } : T__struct_18);
             s[3] = ({ _s : ("gopher" : GoString), _count : (0 : GoInt), _errStr : Go.str() } : T__struct_18);
             s[4] = ({ _s : ("-" : GoString), _count : (-1 : GoInt), _errStr : ("negative" : GoString) } : T__struct_18);
             s[5] = ({ _s : ("--" : GoString), _count : (-102 : GoInt), _errStr : ("negative" : GoString) } : T__struct_18);
-            s[6] = ({ _s : (new Slice<GoUInt8>((255 : GoInt).toBasic(), 0, ...[for (i in 0 ... (255 : GoInt).toBasic()) (0 : GoUInt8)]) : GoString), _count : ((("16843010" : GoUInt) : GoUInt) : GoInt), _errStr : ("overflow" : GoString) } : T__struct_18);
+            s[6] = ({ _s : (new Slice<GoUInt8>((255 : GoInt).toBasic(), 0, ...[for (i in 0 ... (255 : GoInt).toBasic()) (0 : GoUInt8)]) : GoString), _count : ((16843010u32 : GoUInt) : GoInt), _errStr : ("overflow" : GoString) } : T__struct_18);
             s;
         };
         for (_i => _tt in _tests) {
@@ -3790,7 +3791,7 @@ private function _runesEqual(_a:Slice<GoRune>, _b:Slice<GoRune>):Bool {
         return true;
     }
 function testRunes(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in runesTests) {
+        for (__0 => _tt in runesTests) {
             var _a = (_tt._in : Slice<GoRune>);
             if (!_runesEqual(_a, _tt._out)) {
                 _t.errorf(("[]rune(%q) = %v; want %v" : GoString), Go.toInterface(_tt._in), Go.toInterface(_a), Go.toInterface(_tt._out));
@@ -3806,7 +3807,7 @@ function testRunes(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReadByte(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _testStrings = (new Slice<GoString>(0, 0, Go.str(), _abcd, _faces, _commas) : Slice<GoString>);
-        for (_0 => _s in _testStrings) {
+        for (__0 => _s in _testStrings) {
             var _reader = newReader(_s);
             {
                 var _e:Error = _reader.unreadByte();
@@ -3847,7 +3848,7 @@ function testReadByte(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReadRune(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _testStrings = (new Slice<GoString>(0, 0, Go.str(), _abcd, _faces, _commas) : Slice<GoString>);
-        for (_0 => _s in _testStrings) {
+        for (__0 => _s in _testStrings) {
             var _reader = newReader(_s);
             {
                 var _e:Error = _reader.unreadRune();
@@ -3891,10 +3892,10 @@ function testReadRune(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testUnreadRuneError(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in unreadRuneErrorTests) {
+        for (__0 => _tt in unreadRuneErrorTests) {
             var _reader = newReader(("0123456789" : GoString));
             {
-                var __tmp__ = _reader.readRune(), _1:GoInt32 = __tmp__._0, _2:GoInt = __tmp__._1, _err:Error = __tmp__._2;
+                var __tmp__ = _reader.readRune(), __1:GoInt32 = __tmp__._0, __2:GoInt = __tmp__._1, _err:Error = __tmp__._2;
                 if (_err != null) {
                     _t.fatal(Go.toInterface(_err));
                 };
@@ -3907,7 +3908,7 @@ function testUnreadRuneError(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testReplace(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in replaceTests) {
+        for (__0 => _tt in replaceTests) {
             {
                 var _s:GoString = replace(_tt._in, _tt._old, _tt._new, _tt._n);
                 if (_s != (_tt._out)) {
@@ -3923,7 +3924,7 @@ function testReplace(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testTitle(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in titleTests) {
+        for (__0 => _tt in titleTests) {
             {
                 var _s:GoString = title(_tt._in);
                 if (_s != (_tt._out)) {
@@ -3933,28 +3934,28 @@ function testTitle(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testContains(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _ct in containsTests) {
+        for (__0 => _ct in containsTests) {
             if (contains(_ct._str, _ct._substr) != (_ct._expected)) {
                 _t.errorf(("Contains(%s, %s) = %v, want %v" : GoString), Go.toInterface(_ct._str), Go.toInterface(_ct._substr), Go.toInterface(!_ct._expected), Go.toInterface(_ct._expected));
             };
         };
     }
 function testContainsAny(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _ct in containsAnyTests) {
+        for (__0 => _ct in containsAnyTests) {
             if (containsAny(_ct._str, _ct._substr) != (_ct._expected)) {
                 _t.errorf(("ContainsAny(%s, %s) = %v, want %v" : GoString), Go.toInterface(_ct._str), Go.toInterface(_ct._substr), Go.toInterface(!_ct._expected), Go.toInterface(_ct._expected));
             };
         };
     }
 function testContainsRune(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _ct in containsRuneTests) {
+        for (__0 => _ct in containsRuneTests) {
             if (containsRune(_ct._str, _ct._r) != (_ct._expected)) {
                 _t.errorf(("ContainsRune(%q, %q) = %v, want %v" : GoString), Go.toInterface(_ct._str), Go.toInterface(_ct._r), Go.toInterface(!_ct._expected), Go.toInterface(_ct._expected));
             };
         };
     }
 function testEqualFold(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in equalFoldTests) {
+        for (__0 => _tt in equalFoldTests) {
             {
                 var _out:Bool = equalFold(_tt._s, _tt._t);
                 if (_out != (_tt._out)) {
@@ -3974,7 +3975,7 @@ function benchmarkEqualFold(_b:Ref<stdgo.testing.Testing.B>):Void {
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < _b.n, _i++, {
-                    for (_8 => _tt in equalFoldTests) {
+                    for (__8 => _tt in equalFoldTests) {
                         {
                             var _out:Bool = equalFold(_tt._s, _tt._t);
                             if (_out != (_tt._out)) {
@@ -4013,7 +4014,7 @@ function benchmarkEqualFold(_b:Ref<stdgo.testing.Testing.B>):Void {
         });
     }
 function testCount(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in countTests) {
+        for (__0 => _tt in countTests) {
             {
                 var _num:GoInt = count(_tt._s, _tt._sep);
                 if (_num != (_tt._num)) {
@@ -4023,7 +4024,7 @@ function testCount(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCut(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _cutTests) {
+        for (__0 => _tt in _cutTests) {
             {
                 var __tmp__ = cut(_tt._s, _tt._sep), _before:GoString = __tmp__._0, _after:GoString = __tmp__._1, _found:Bool = __tmp__._2;
                 if (((_before != _tt._before) || (_after != _tt._after)) || (_found != _tt._found)) {
@@ -4033,7 +4034,7 @@ function testCut(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCutPrefix(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _cutPrefixTests) {
+        for (__0 => _tt in _cutPrefixTests) {
             {
                 var __tmp__ = cutPrefix(_tt._s, _tt._sep), _after:GoString = __tmp__._0, _found:Bool = __tmp__._1;
                 if ((_after != _tt._after) || (_found != _tt._found)) {
@@ -4043,7 +4044,7 @@ function testCutPrefix(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCutSuffix(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _tt in _cutSuffixTests) {
+        for (__0 => _tt in _cutSuffixTests) {
             {
                 var __tmp__ = cutSuffix(_tt._s, _tt._sep), _after:GoString = __tmp__._0, _found:Bool = __tmp__._1;
                 if ((_after != _tt._after) || (_found != _tt._found)) {
@@ -4145,18 +4146,18 @@ function benchmarkCountByte(_b:Ref<stdgo.testing.Testing.B>):Void {
                 });
             };
         };
-        for (_0 => _size in _indexSizes) {
+        for (__0 => _size in _indexSizes) {
             _b.run(stdgo.fmt.Fmt.sprintf(("%d" : GoString), Go.toInterface(_size)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 _benchFunc(_b, (_benchStr.__slice__(0, _size) : GoString));
             });
         };
     }
 function benchmarkFields(_b:Ref<stdgo.testing.Testing.B>):Void {
-        for (_0 => _sd in _stringdata) {
+        for (__0 => _sd in _stringdata) {
             _b.run(_sd._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _j:GoInt = (16 : GoInt);
-                    Go.cfor(_j <= (1048576 : GoInt), _j = _j << (("4" : GoUInt64)), {
+                    Go.cfor(_j <= (1048576 : GoInt), _j = _j << ((4i64 : GoUInt64)), {
                         _b.run(stdgo.fmt.Fmt.sprintf(("%d" : GoString), Go.toInterface(_j)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                             _b.reportAllocs();
                             _b.setBytes((_j : GoInt64));
@@ -4174,11 +4175,11 @@ function benchmarkFields(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function benchmarkFieldsFunc(_b:Ref<stdgo.testing.Testing.B>):Void {
-        for (_0 => _sd in _stringdata) {
+        for (__0 => _sd in _stringdata) {
             _b.run(_sd._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _j:GoInt = (16 : GoInt);
-                    Go.cfor(_j <= (1048576 : GoInt), _j = _j << (("4" : GoUInt64)), {
+                    Go.cfor(_j <= (1048576 : GoInt), _j = _j << ((4i64 : GoUInt64)), {
                         _b.run(stdgo.fmt.Fmt.sprintf(("%d" : GoString), Go.toInterface(_j)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                             _b.reportAllocs();
                             _b.setBytes((_j : GoInt64));
@@ -4237,8 +4238,8 @@ function benchmarkSplitNMultiByteSeparator(_b:Ref<stdgo.testing.Testing.B>):Void
     }
 function benchmarkRepeat(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _s:GoString = ("0123456789" : GoString);
-        for (_0 => _n in (new Slice<GoInt>(0, 0, (5 : GoInt), (10 : GoInt)) : Slice<GoInt>)) {
-            for (_1 => _c in (new Slice<GoInt>(0, 0, (0 : GoInt), (1 : GoInt), (2 : GoInt), (6 : GoInt)) : Slice<GoInt>)) {
+        for (__0 => _n in (new Slice<GoInt>(0, 0, (5 : GoInt), (10 : GoInt)) : Slice<GoInt>)) {
+            for (__1 => _c in (new Slice<GoInt>(0, 0, (0 : GoInt), (1 : GoInt), (2 : GoInt), (6 : GoInt)) : Slice<GoInt>)) {
                 _b.run(stdgo.fmt.Fmt.sprintf(("%dx%d" : GoString), Go.toInterface(_n), Go.toInterface(_c)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                     {
                         var _i:GoInt = (0 : GoInt);
@@ -4255,7 +4256,7 @@ function benchmarkRepeatLarge(_b:Ref<stdgo.testing.Testing.B>):Void {
         {
             var _j:GoInt = (8 : GoInt);
             Go.cfor(_j <= (30 : GoInt), _j++, {
-                for (_0 => _k in (new Slice<GoInt>(0, 0, (1 : GoInt), (16 : GoInt), (4097 : GoInt)) : Slice<GoInt>)) {
+                for (__0 => _k in (new Slice<GoInt>(0, 0, (1 : GoInt), (16 : GoInt), (4097 : GoInt)) : Slice<GoInt>)) {
                     var _s:GoString = (_s.__slice__(0, _k) : GoString);
                     var _n:GoInt = ((1 : GoInt) << _j) / _k;
                     if (_n == ((0 : GoInt))) {
@@ -4279,10 +4280,10 @@ function benchmarkIndexAnyASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _cs:GoString = ("0123456789abcdefghijklmnopqrstuvwxyz0123456789abcdefghijklmnopqrstuvwxyz" : GoString);
         {
             var _k:GoInt = (1 : GoInt);
-            Go.cfor(_k <= (2048 : GoInt), _k = _k << (("4" : GoUInt64)), {
+            Go.cfor(_k <= (2048 : GoInt), _k = _k << ((4i64 : GoUInt64)), {
                 {
                     var _j:GoInt = (1 : GoInt);
-                    Go.cfor(_j <= (64 : GoInt), _j = _j << (("1" : GoUInt64)), {
+                    Go.cfor(_j <= (64 : GoInt), _j = _j << ((1i64 : GoUInt64)), {
                         _b.run(stdgo.fmt.Fmt.sprintf(("%d:%d" : GoString), Go.toInterface(_k), Go.toInterface(_j)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                             {
                                 var _i:GoInt = (0 : GoInt);
@@ -4301,10 +4302,10 @@ function benchmarkIndexAnyUTF8(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _cs:GoString = ("你好世界, hello world. 你好世界, hello world. 你好世界, hello world." : GoString);
         {
             var _k:GoInt = (1 : GoInt);
-            Go.cfor(_k <= (2048 : GoInt), _k = _k << (("4" : GoUInt64)), {
+            Go.cfor(_k <= (2048 : GoInt), _k = _k << ((4i64 : GoUInt64)), {
                 {
                     var _j:GoInt = (1 : GoInt);
-                    Go.cfor(_j <= (64 : GoInt), _j = _j << (("1" : GoUInt64)), {
+                    Go.cfor(_j <= (64 : GoInt), _j = _j << ((1i64 : GoUInt64)), {
                         _b.run(stdgo.fmt.Fmt.sprintf(("%d:%d" : GoString), Go.toInterface(_k), Go.toInterface(_j)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                             {
                                 var _i:GoInt = (0 : GoInt);
@@ -4323,10 +4324,10 @@ function benchmarkLastIndexAnyASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _cs:GoString = ("0123456789abcdefghijklmnopqrstuvwxyz0123456789abcdefghijklmnopqrstuvwxyz" : GoString);
         {
             var _k:GoInt = (1 : GoInt);
-            Go.cfor(_k <= (2048 : GoInt), _k = _k << (("4" : GoUInt64)), {
+            Go.cfor(_k <= (2048 : GoInt), _k = _k << ((4i64 : GoUInt64)), {
                 {
                     var _j:GoInt = (1 : GoInt);
-                    Go.cfor(_j <= (64 : GoInt), _j = _j << (("1" : GoUInt64)), {
+                    Go.cfor(_j <= (64 : GoInt), _j = _j << ((1i64 : GoUInt64)), {
                         _b.run(stdgo.fmt.Fmt.sprintf(("%d:%d" : GoString), Go.toInterface(_k), Go.toInterface(_j)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                             {
                                 var _i:GoInt = (0 : GoInt);
@@ -4345,10 +4346,10 @@ function benchmarkLastIndexAnyUTF8(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _cs:GoString = ("你好世界, hello world. 你好世界, hello world. 你好世界, hello world." : GoString);
         {
             var _k:GoInt = (1 : GoInt);
-            Go.cfor(_k <= (2048 : GoInt), _k = _k << (("4" : GoUInt64)), {
+            Go.cfor(_k <= (2048 : GoInt), _k = _k << ((4i64 : GoUInt64)), {
                 {
                     var _j:GoInt = (1 : GoInt);
-                    Go.cfor(_j <= (64 : GoInt), _j = _j << (("1" : GoUInt64)), {
+                    Go.cfor(_j <= (64 : GoInt), _j = _j << ((1i64 : GoUInt64)), {
                         _b.run(stdgo.fmt.Fmt.sprintf(("%d:%d" : GoString), Go.toInterface(_k), Go.toInterface(_j)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                             {
                                 var _i:GoInt = (0 : GoInt);
@@ -4366,10 +4367,10 @@ function benchmarkTrimASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _cs:GoString = ("0123456789abcdef" : GoString);
         {
             var _k:GoInt = (1 : GoInt);
-            Go.cfor(_k <= (4096 : GoInt), _k = _k << (("4" : GoUInt64)), {
+            Go.cfor(_k <= (4096 : GoInt), _k = _k << ((4i64 : GoUInt64)), {
                 {
                     var _j:GoInt = (1 : GoInt);
-                    Go.cfor(_j <= (16 : GoInt), _j = _j << (("1" : GoUInt64)), {
+                    Go.cfor(_j <= (16 : GoInt), _j = _j << ((1i64 : GoUInt64)), {
                         _b.run(stdgo.fmt.Fmt.sprintf(("%d:%d" : GoString), Go.toInterface(_k), Go.toInterface(_j)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                             var _x:GoString = repeat((_cs.__slice__(0, _j) : GoString), _k);
                             {
@@ -4395,7 +4396,7 @@ function benchmarkTrimByte(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkIndexPeriodic(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _key:GoString = ("aa" : GoString);
-        for (_0 => _skip in (new GoArray<GoInt>((2 : GoInt), (4 : GoInt), (8 : GoInt), (16 : GoInt), (32 : GoInt), (64 : GoInt)) : GoArray<GoInt>)) {
+        for (__0 => _skip in (new GoArray<GoInt>((2 : GoInt), (4 : GoInt), (8 : GoInt), (16 : GoInt), (32 : GoInt), (64 : GoInt)) : GoArray<GoInt>)) {
             _b.run(stdgo.fmt.Fmt.sprintf(("IndexPeriodic%d" : GoString), Go.toInterface(_skip)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 var _s:GoString = repeat(("a" : GoString) + repeat((" " : GoString), _skip - (1 : GoInt)), (65536 : GoInt) / _skip);
                 {
@@ -4427,7 +4428,7 @@ function benchmarkJoin(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkTrimSpace(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _tests = (new Slice<T__struct_13>(0, 0, ({ _name : ("NoTrim" : GoString), _input : ("typical" : GoString) } : T__struct_13), ({ _name : ("ASCII" : GoString), _input : ("  foo bar  " : GoString) } : T__struct_13), ({ _name : ("SomeNonASCII" : GoString), _input : ("    \u2000\t\r\n x\t\t\r\r\ny\n \u3000    " : GoString) } : T__struct_13), ({ _name : ("JustNonASCII" : GoString), _input : ("\u2000\u2000\u2000☺☺☺☺\u3000\u3000\u3000" : GoString) } : T__struct_13)) : Slice<T__struct_13>);
-        for (_0 => _test in _tests) {
+        for (__0 => _test in _tests) {
             _b.run(_test._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _i:GoInt = (0 : GoInt);

@@ -17,67 +17,67 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-final amd64 : ArchFamilyType = ((0 : GoInt) : ArchFamilyType);
+final amd64 : ArchFamilyType = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     
     
     
 **/
-final arm = ((0 : GoInt) : ArchFamilyType);
+final arm = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     
     
     
 **/
-final arm64 = ((0 : GoInt) : ArchFamilyType);
+final arm64 = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     
     
     
 **/
-final i386 = ((0 : GoInt) : ArchFamilyType);
+final i386 = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     
     
     
 **/
-final loong64 = ((0 : GoInt) : ArchFamilyType);
+final loong64 = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     
     
     
 **/
-final mips = ((0 : GoInt) : ArchFamilyType);
+final mips = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     
     
     
 **/
-final mips64 = ((0 : GoInt) : ArchFamilyType);
+final mips64 = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     
     
     
 **/
-final ppc64 = ((0 : GoInt) : ArchFamilyType);
+final ppc64 = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     
     
     
 **/
-final riscv64 = ((0 : GoInt) : ArchFamilyType);
+final riscv64 = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     
     
     
 **/
-final s390x = ((0 : GoInt) : ArchFamilyType);
+final s390x = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     
     
     
 **/
-final wasm = ((0 : GoInt) : ArchFamilyType);
+final wasm = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     // PtrSize is the size of a pointer in bytes - unsafe.Sizeof(uintptr(0)) but as an ideal constant.
     // It is also the size of the machine's native word size (that is, 4 on 32-bit systems, 8 on 64-bit).
@@ -90,7 +90,7 @@ final ptrSize = (0 : GoUInt64);
     
     
 **/
-final archFamily : ArchFamilyType = ((0 : GoInt) : ArchFamilyType);
+final archFamily : ArchFamilyType = ((0 : GoInt) : internal.goarch.Goarch.ArchFamilyType);
 /**
     // BigEndian reports whether the architecture is big-endian.
     

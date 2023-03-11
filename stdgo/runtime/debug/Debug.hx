@@ -57,17 +57,17 @@ private var __go2hxdoc__package : Bool;
     /**
         // Main describes the module that contains the main package for the binary.
     **/
-    public var _Main : Module = ({} : Module);
+    public var _Main : stdgo.runtime.debug.Debug.Module = ({} : stdgo.runtime.debug.Debug.Module);
     /**
         // Deps describes all the dependency modules, both direct and indirect,
         // that contributed packages to the build of this binary.
     **/
-    public var deps : Slice<Ref<Module>> = (null : Slice<Ref<Module>>);
+    public var deps : Slice<Ref<stdgo.runtime.debug.Debug.Module>> = (null : Slice<Ref<stdgo.runtime.debug.Debug.Module>>);
     /**
         // Settings describes the build settings used to build the binary.
     **/
-    public var settings : Slice<BuildSetting> = (null : Slice<BuildSetting>);
-    public function new(?goVersion:GoString, ?path:GoString, ?_Main:Module, ?deps:Slice<Ref<Module>>, ?settings:Slice<BuildSetting>) {
+    public var settings : Slice<stdgo.runtime.debug.Debug.BuildSetting> = (null : Slice<stdgo.runtime.debug.Debug.BuildSetting>);
+    public function new(?goVersion:GoString, ?path:GoString, ?_Main:stdgo.runtime.debug.Debug.Module, ?deps:Slice<Ref<stdgo.runtime.debug.Debug.Module>>, ?settings:Slice<stdgo.runtime.debug.Debug.BuildSetting>) {
         if (goVersion != null) this.goVersion = goVersion;
         if (path != null) this.path = path;
         if (_Main != null) this._Main = _Main;
@@ -88,8 +88,8 @@ private var __go2hxdoc__package : Bool;
     public var path : GoString = "";
     public var version : GoString = "";
     public var sum : GoString = "";
-    public var replace : Ref<Module> = (null : Ref<Module>);
-    public function new(?path:GoString, ?version:GoString, ?sum:GoString, ?replace:Ref<Module>) {
+    public var replace : Ref<stdgo.runtime.debug.Debug.Module> = (null : Ref<stdgo.runtime.debug.Debug.Module>);
+    public function new(?path:GoString, ?version:GoString, ?sum:GoString, ?replace:Ref<stdgo.runtime.debug.Debug.Module>) {
         if (path != null) this.path = path;
         if (version != null) this.version = version;
         if (sum != null) this.sum = sum;

@@ -348,8 +348,8 @@ typedef T_error = StructType & {
     public var count : GoInt64 = 0;
     public var cycles : GoInt64 = 0;
     @:embedded
-    public var stackRecord : StackRecord = ({} : StackRecord);
-    public function new(?count:GoInt64, ?cycles:GoInt64, ?stackRecord:StackRecord) {
+    public var stackRecord : stdgo.runtime.Runtime.StackRecord = ({} : stdgo.runtime.Runtime.StackRecord);
+    public function new(?count:GoInt64, ?cycles:GoInt64, ?stackRecord:stdgo.runtime.Runtime.StackRecord) {
         if (count != null) this.count = count;
         if (cycles != null) this.cycles = cycles;
         if (stackRecord != null) this.stackRecord = stackRecord;
@@ -715,7 +715,7 @@ bySize);
         // Func is the Func value of this call frame. This may be nil
         // for non-Go code or fully inlined functions.
     **/
-    public var func : Ref<Func> = (null : Ref<Func>);
+    public var func : Ref<stdgo.runtime.Runtime.Func> = (null : Ref<stdgo.runtime.Runtime.Func>);
     /**
         // Function is the package path-qualified function name of
         // this call frame. If non-empty, this string uniquely
@@ -738,7 +738,7 @@ bySize);
         // Func.Entry().
     **/
     public var entry : GoUIntptr = 0;
-    public function new(?pc:GoUIntptr, ?func:Ref<Func>, ?function_:GoString, ?file:GoString, ?line:GoInt, ?entry:GoUIntptr) {
+    public function new(?pc:GoUIntptr, ?func:Ref<stdgo.runtime.Runtime.Func>, ?function_:GoString, ?file:GoString, ?line:GoInt, ?entry:GoUIntptr) {
         if (pc != null) this.pc = pc;
         if (func != null) this.func = func;
         if (function_ != null) this.function_ = function_;

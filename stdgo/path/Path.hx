@@ -70,7 +70,7 @@ var errBadPattern = stdgo.errors.Errors.new_(("syntax error in pattern" : GoStri
     // is malformed.
 **/
 function match(_pattern:GoString, _name:GoString):{ var _0 : Bool; var _1 : Error; } {
-        return stdgo.internal.Macro.controlFlow({
+        stdgo.internal.Macro.controlFlow({
             var _matched:Bool = false, _err:Error = (null : Error);
             @:label("Pattern") while ((_pattern.length) > (0 : GoInt)) {
                 var _star:Bool = false;
@@ -117,7 +117,7 @@ function match(_pattern:GoString, _name:GoString):{ var _0 : Bool; var _1 : Erro
                         _pattern = __tmp__._2;
                     };
                     {
-                        var __tmp__ = _matchChunk(_chunk, Go.str()), _0:GoString = __tmp__._0, _1:Bool = __tmp__._1, _err:Error = __tmp__._2;
+                        var __tmp__ = _matchChunk(_chunk, Go.str()), __0:GoString = __tmp__._0, __1:Bool = __tmp__._1, _err:Error = __tmp__._2;
                         if (_err != null) {
                             return { _0 : false, _1 : _err };
                         };
@@ -127,13 +127,14 @@ function match(_pattern:GoString, _name:GoString):{ var _0 : Bool; var _1 : Erro
             };
             return { _0 : (_name.length) == ((0 : GoInt)), _1 : (null : Error) };
         });
+        throw "controlFlow did not return";
     }
 /**
     // scanChunk gets the next segment of pattern, which is a non-star string
     // possibly preceded by a star.
 **/
 private function _scanChunk(_pattern:GoString):{ var _0 : Bool; var _1 : GoString; var _2 : GoString; } {
-        return stdgo.internal.Macro.controlFlow({
+        stdgo.internal.Macro.controlFlow({
             var _star:Bool = false, _chunk:GoString = ("" : GoString), _rest:GoString = ("" : GoString);
             while ((_pattern.length > (0 : GoInt)) && (_pattern[(0 : GoInt)] == (42 : GoUInt8))) {
                 _pattern = (_pattern.__slice__((1 : GoInt)) : GoString);
@@ -174,6 +175,7 @@ private function _scanChunk(_pattern:GoString):{ var _0 : Bool; var _1 : GoStrin
             };
             return { _0 : _star, _1 : (_pattern.__slice__((0 : GoInt), _i) : GoString), _2 : (_pattern.__slice__(_i) : GoString) };
         });
+        throw "controlFlow did not return";
     }
 /**
     // matchChunk checks whether chunk matches the beginning of s.
@@ -216,7 +218,7 @@ private function _matchChunk(_chunk:GoString, _s:GoString):{ var _0 : GoString; 
                                     _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
                                     break;
                                 };
-                                var _0:GoRune = (0 : GoInt32), _1:GoRune = (0 : GoInt32), _hi:GoRune = _1, _lo:GoRune = _0;
+                                var __0:GoRune = (0 : GoInt32), __1:GoRune = (0 : GoInt32), _hi:GoRune = __1, _lo:GoRune = __0;
                                 {
                                     {
                                         var __tmp__ = _getEsc(_chunk);
@@ -257,7 +259,7 @@ private function _matchChunk(_chunk:GoString, _s:GoString):{ var _0 : GoString; 
                                 if (_s[(0 : GoInt)] == ((47 : GoUInt8))) {
                                     _failed = true;
                                 };
-                                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s), _0:GoInt32 = __tmp__._0, _n:GoInt = __tmp__._1;
+                                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s), __0:GoInt32 = __tmp__._0, _n:GoInt = __tmp__._1;
                                 _s = (_s.__slice__(_n) : GoString);
                             };
                             _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
@@ -346,8 +348,8 @@ function clean(_path:GoString):GoString {
         };
         var _rooted:Bool = _path[(0 : GoInt)] == ((47 : GoUInt8));
         var _n:GoInt = (_path.length);
-        var _out:T_lazybuf = ({ _s : _path } : T_lazybuf);
-        var _0:GoInt = (0 : GoInt), _1:GoInt = (0 : GoInt), _dotdot:GoInt = _1, _r:GoInt = _0;
+        var _out:stdgo.path.Path.T_lazybuf = ({ _s : _path } : T_lazybuf);
+        var __0:GoInt = (0 : GoInt), __1:GoInt = (0 : GoInt), _dotdot:GoInt = __1, _r:GoInt = __0;
         if (_rooted) {
             _out._append((47 : GoUInt8));
             {
@@ -423,14 +425,14 @@ function split(_path:GoString):{ var _0 : GoString; var _1 : GoString; } {
 function join(_elem:haxe.Rest<GoString>):GoString {
         var _elem = new Slice<GoString>(0, 0, ..._elem);
         var _size:GoInt = (0 : GoInt);
-        for (_0 => _e in _elem) {
+        for (__0 => _e in _elem) {
             _size = _size + ((_e.length));
         };
         if (_size == ((0 : GoInt))) {
             return Go.str();
         };
         var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), (_size + _elem.length) - (1 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
-        for (_1 => _e in _elem) {
+        for (__1 => _e in _elem) {
             if ((_buf.length > (0 : GoInt)) || (_e != Go.str())) {
                 if ((_buf.length) > (0 : GoInt)) {
                     _buf = _buf.__appendref__((47 : GoUInt8));
@@ -497,7 +499,7 @@ function isAbs(_path:GoString):Bool {
     // slash.
 **/
 function dir(_path:GoString):GoString {
-        var __tmp__ = split(_path), _dir:GoString = __tmp__._0, _0:GoString = __tmp__._1;
+        var __tmp__ = split(_path), _dir:GoString = __tmp__._0, __0:GoString = __tmp__._1;
         return clean(_dir);
     }
 class T_lazybuf_asInterface {

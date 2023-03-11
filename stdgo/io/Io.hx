@@ -122,38 +122,38 @@ var errOffset = _errOffset;
     
     // seek relative to the origin of the file
 **/
-final seekStart = ("0" : GoUInt64);
+final seekStart = (0i64 : GoUInt64);
 /**
     // Seek whence values.
     
     // seek relative to the current offset
 **/
-final seekCurrent = ("1" : GoUInt64);
+final seekCurrent = (1i64 : GoUInt64);
 /**
     // Seek whence values.
     
     // seek relative to the end
 **/
-final seekEnd = ("2" : GoUInt64);
+final seekEnd = (2i64 : GoUInt64);
 /**
     // discard implements ReaderFrom as an optimization so Copy to
     // io.Discard can avoid doing unnecessary work.
     
     
 **/
-private var _3 : ReaderFrom = Go.asInterface((new T_discard() : T_discard));
+private var __3 : ReaderFrom = Go.asInterface((new T_discard() : T_discard));
 /**
     
     
     
 **/
-private var _4 : WriterTo = Go.asInterface((null : Ref<T_multiReader>));
+private var __4 : WriterTo = Go.asInterface(((null : Ref<stdgo.io.Io.T_multiReader>) : Ref<T_multiReader>));
 /**
     
     
     
 **/
-private var _5 : StringWriter = Go.asInterface((null : Ref<T_multiWriter>));
+private var __5 : StringWriter = Go.asInterface(((null : Ref<stdgo.io.Io.T_multiWriter>) : Ref<T_multiWriter>));
 /**
     // Reader is the interface that wraps the basic Read method.
     //
@@ -552,9 +552,9 @@ typedef StringWriter = StructType & {
     
 **/
 @:structInit @:using(stdgo.io.Io.LimitedReader_static_extension) class LimitedReader {
-    public var r : Reader = (null : Reader);
+    public var r : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
     public var n : GoInt64 = 0;
-    public function new(?r:Reader, ?n:GoInt64) {
+    public function new(?r:stdgo.io.Io.Reader, ?n:GoInt64) {
         if (r != null) this.r = r;
         if (n != null) this.n = n;
     }
@@ -570,11 +570,11 @@ typedef StringWriter = StructType & {
     
 **/
 @:structInit @:using(stdgo.io.Io.SectionReader_static_extension) class SectionReader {
-    public var _r : ReaderAt = (null : ReaderAt);
+    public var _r : stdgo.io.Io.ReaderAt = (null : stdgo.io.Io.ReaderAt);
     public var _base : GoInt64 = 0;
     public var _off : GoInt64 = 0;
     public var _limit : GoInt64 = 0;
-    public function new(?_r:ReaderAt, ?_base:GoInt64, ?_off:GoInt64, ?_limit:GoInt64) {
+    public function new(?_r:stdgo.io.Io.ReaderAt, ?_base:GoInt64, ?_off:GoInt64, ?_limit:GoInt64) {
         if (_r != null) this._r = _r;
         if (_base != null) this._base = _base;
         if (_off != null) this._off = _off;
@@ -591,10 +591,10 @@ typedef StringWriter = StructType & {
     
 **/
 @:structInit @:using(stdgo.io.Io.OffsetWriter_static_extension) class OffsetWriter {
-    public var _w : WriterAt = (null : WriterAt);
+    public var _w : stdgo.io.Io.WriterAt = (null : stdgo.io.Io.WriterAt);
     public var _base : GoInt64 = 0;
     public var _off : GoInt64 = 0;
-    public function new(?_w:WriterAt, ?_base:GoInt64, ?_off:GoInt64) {
+    public function new(?_w:stdgo.io.Io.WriterAt, ?_base:GoInt64, ?_off:GoInt64) {
         if (_w != null) this._w = _w;
         if (_base != null) this._base = _base;
         if (_off != null) this._off = _off;
@@ -610,9 +610,9 @@ typedef StringWriter = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.io.Io.T_teeReader_static_extension) class T_teeReader {
-    public var _r : Reader = (null : Reader);
-    public var _w : Writer = (null : Writer);
-    public function new(?_r:Reader, ?_w:Writer) {
+    public var _r : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
+    public var _w : stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
+    public function new(?_r:stdgo.io.Io.Reader, ?_w:stdgo.io.Io.Writer) {
         if (_r != null) this._r = _r;
         if (_w != null) this._w = _w;
     }
@@ -640,8 +640,8 @@ typedef StringWriter = StructType & {
 **/
 @:structInit @:private @:using(stdgo.io.Io.T_nopCloser_static_extension) class T_nopCloser {
     @:embedded
-    public var reader : Reader = (null : Reader);
-    public function new(?reader:Reader) {
+    public var reader : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
+    public function new(?reader:stdgo.io.Io.Reader) {
         if (reader != null) this.reader = reader;
     }
     public function __underlying__() return Go.toInterface(this);
@@ -658,8 +658,8 @@ typedef StringWriter = StructType & {
 **/
 @:structInit @:private @:using(stdgo.io.Io.T_nopCloserWriterTo_static_extension) class T_nopCloserWriterTo {
     @:embedded
-    public var reader : Reader = (null : Reader);
-    public function new(?reader:Reader) {
+    public var reader : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
+    public function new(?reader:stdgo.io.Io.Reader) {
         if (reader != null) this.reader = reader;
     }
     public function __underlying__() return Go.toInterface(this);
@@ -687,8 +687,8 @@ typedef StringWriter = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.io.Io.T_multiReader_static_extension) class T_multiReader {
-    public var _readers : Slice<Reader> = (null : Slice<Reader>);
-    public function new(?_readers:Slice<Reader>) {
+    public var _readers : Slice<stdgo.io.Io.Reader> = (null : Slice<stdgo.io.Io.Reader>);
+    public function new(?_readers:Slice<stdgo.io.Io.Reader>) {
         if (_readers != null) this._readers = _readers;
     }
     public function __underlying__() return Go.toInterface(this);
@@ -702,8 +702,8 @@ typedef StringWriter = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.io.Io.T_multiWriter_static_extension) class T_multiWriter {
-    public var _writers : Slice<Writer> = (null : Slice<Writer>);
-    public function new(?_writers:Slice<Writer>) {
+    public var _writers : Slice<stdgo.io.Io.Writer> = (null : Slice<stdgo.io.Io.Writer>);
+    public function new(?_writers:Slice<stdgo.io.Io.Writer>) {
         if (_writers != null) this._writers = _writers;
     }
     public function __underlying__() return Go.toInterface(this);
@@ -750,9 +750,9 @@ typedef StringWriter = StructType & {
     public var _rdCh : Chan<GoInt> = (null : Chan<GoInt>);
     public var _once : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
     public var _done : Chan<T_discard> = (null : Chan<T_discard>);
-    public var _rerr : T_onceError = ({} : T_onceError);
-    public var _werr : T_onceError = ({} : T_onceError);
-    public function new(?_wrMu:stdgo.sync.Sync.Mutex, ?_wrCh:Chan<Slice<GoUInt8>>, ?_rdCh:Chan<GoInt>, ?_once:stdgo.sync.Sync.Once, ?_done:Chan<T_discard>, ?_rerr:T_onceError, ?_werr:T_onceError) {
+    public var _rerr : stdgo.io.Io.T_onceError = ({} : stdgo.io.Io.T_onceError);
+    public var _werr : stdgo.io.Io.T_onceError = ({} : stdgo.io.Io.T_onceError);
+    public function new(?_wrMu:stdgo.sync.Sync.Mutex, ?_wrCh:Chan<Slice<GoUInt8>>, ?_rdCh:Chan<GoInt>, ?_once:stdgo.sync.Sync.Once, ?_done:Chan<T_discard>, ?_rerr:stdgo.io.Io.T_onceError, ?_werr:stdgo.io.Io.T_onceError) {
         if (_wrMu != null) this._wrMu = _wrMu;
         if (_wrCh != null) this._wrCh = _wrCh;
         if (_rdCh != null) this._rdCh = _rdCh;
@@ -772,8 +772,8 @@ typedef StringWriter = StructType & {
     
 **/
 @:structInit @:using(stdgo.io.Io.PipeReader_static_extension) class PipeReader {
-    public var _p : Ref<T_pipe> = (null : Ref<T_pipe>);
-    public function new(?_p:Ref<T_pipe>) {
+    public var _p : Ref<stdgo.io.Io.T_pipe> = (null : Ref<stdgo.io.Io.T_pipe>);
+    public function new(?_p:Ref<stdgo.io.Io.T_pipe>) {
         if (_p != null) this._p = _p;
     }
     public function __underlying__() return Go.toInterface(this);
@@ -787,8 +787,8 @@ typedef StringWriter = StructType & {
     
 **/
 @:structInit @:using(stdgo.io.Io.PipeWriter_static_extension) class PipeWriter {
-    public var _p : Ref<T_pipe> = (null : Ref<T_pipe>);
-    public function new(?_p:Ref<T_pipe>) {
+    public var _p : Ref<stdgo.io.Io.T_pipe> = (null : Ref<stdgo.io.Io.T_pipe>);
+    public function new(?_p:Ref<stdgo.io.Io.T_pipe>) {
         if (_p != null) this._p = _p;
     }
     public function __underlying__() return Go.toInterface(this);
@@ -820,7 +820,7 @@ function writeString(_w:Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; }
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_w) : StringWriter)) : StringWriter), ok : true };
             } catch(_) {
-                { value : (null : StringWriter), ok : false };
+                { value : (null : stdgo.io.Io.StringWriter), ok : false };
             }, _sw = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _sw.writeString(_s);
@@ -940,7 +940,7 @@ private function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{ var
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_src) : WriterTo)) : WriterTo), ok : true };
             } catch(_) {
-                { value : (null : WriterTo), ok : false };
+                { value : (null : stdgo.io.Io.WriterTo), ok : false };
             }, _wt = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _wt.writeTo(_dst);
@@ -950,7 +950,7 @@ private function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{ var
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_dst) : ReaderFrom)) : ReaderFrom), ok : true };
             } catch(_) {
-                { value : (null : ReaderFrom), ok : false };
+                { value : (null : stdgo.io.Io.ReaderFrom), ok : false };
             }, _rt = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _rt.readFrom(_src);
@@ -962,10 +962,10 @@ private function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{ var
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(_src) : Ref<LimitedReader>)) : Ref<LimitedReader>), ok : true };
                 } catch(_) {
-                    { value : (null : Ref<LimitedReader>), ok : false };
+                    { value : (null : Ref<stdgo.io.Io.LimitedReader>), ok : false };
                 }, _l = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok && ((_size : GoInt64) > _l.n)) {
-                    if (_l.n < ("1" : GoInt64)) {
+                    if (_l.n < (1i64 : GoInt64)) {
                         _size = (1 : GoInt);
                     } else {
                         _size = (_l.n : GoInt);
@@ -1009,7 +1009,7 @@ private function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{ var
     // The underlying implementation is a *LimitedReader.
 **/
 function limitReader(_r:Reader, _n:GoInt64):Reader {
-        return Go.asInterface((Go.setRef((new LimitedReader(_r, _n) : LimitedReader)) : Ref<LimitedReader>));
+        return Go.asInterface((Go.setRef((new LimitedReader(_r, _n) : LimitedReader)) : Ref<stdgo.io.Io.LimitedReader>));
     }
 /**
     // NewSectionReader returns a SectionReader that reads from r
@@ -1018,19 +1018,19 @@ function limitReader(_r:Reader, _n:GoInt64):Reader {
 function newSectionReader(_r:ReaderAt, _off:GoInt64, _n:GoInt64):Ref<SectionReader> {
         var _remaining:GoInt64 = (0 : GoInt64);
         {};
-        if (_off <= ((("9223372036854775807" : GoInt64) : GoInt64) - _n)) {
+        if (_off <= ((9223372036854775807i64 : GoInt64) - _n)) {
             _remaining = _n + _off;
         } else {
-            _remaining = ("9223372036854775807" : GoInt64);
+            _remaining = (9223372036854775807i64 : GoInt64);
         };
-        return (Go.setRef((new SectionReader(_r, _off, _off, _remaining) : SectionReader)) : Ref<SectionReader>);
+        return (Go.setRef((new SectionReader(_r, _off, _off, _remaining) : SectionReader)) : Ref<stdgo.io.Io.SectionReader>);
     }
 /**
     // NewOffsetWriter returns an OffsetWriter that writes to w
     // starting at offset off.
 **/
 function newOffsetWriter(_w:WriterAt, _off:GoInt64):Ref<OffsetWriter> {
-        return (Go.setRef((new OffsetWriter(_w, _off, _off) : OffsetWriter)) : Ref<OffsetWriter>);
+        return (Go.setRef((new OffsetWriter(_w, _off, _off) : OffsetWriter)) : Ref<stdgo.io.Io.OffsetWriter>);
     }
 /**
     // TeeReader returns a Reader that writes to w what it reads from r.
@@ -1040,7 +1040,7 @@ function newOffsetWriter(_w:WriterAt, _off:GoInt64):Ref<OffsetWriter> {
     // Any error encountered while writing is reported as a read error.
 **/
 function teeReader(_r:Reader, _w:Writer):Reader {
-        return Go.asInterface((Go.setRef((new T_teeReader(_r, _w) : T_teeReader)) : Ref<T_teeReader>));
+        return Go.asInterface((Go.setRef((new T_teeReader(_r, _w) : T_teeReader)) : Ref<stdgo.io.Io.T_teeReader>));
     }
 /**
     // NopCloser returns a ReadCloser with a no-op Close method wrapping
@@ -1053,8 +1053,8 @@ function nopCloser(_r:Reader):ReadCloser {
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_r) : WriterTo)) : WriterTo), ok : true };
             } catch(_) {
-                { value : (null : WriterTo), ok : false };
-            }, _0 = __tmp__.value, _ok = __tmp__.ok;
+                { value : (null : stdgo.io.Io.WriterTo), ok : false };
+            }, __0 = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return Go.asInterface((new T_nopCloserWriterTo(_r) : T_nopCloserWriterTo));
             };
@@ -1091,9 +1091,9 @@ function readAll(_r:Reader):{ var _0 : Slice<GoByte>; var _1 : Error; } {
 **/
 function multiReader(_readers:haxe.Rest<Reader>):Reader {
         var _readers = new Slice<Reader>(0, 0, ..._readers);
-        var _r = new Slice<Reader>((_readers.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_readers.length : GoInt).toBasic()) (null : Reader)]);
+        var _r = new Slice<stdgo.io.Io.Reader>((_readers.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_readers.length : GoInt).toBasic()) (null : stdgo.io.Io.Reader)]);
         Go.copySlice(_r, _readers);
-        return Go.asInterface((Go.setRef((new T_multiReader(_r) : T_multiReader)) : Ref<T_multiReader>));
+        return Go.asInterface((Go.setRef((new T_multiReader(_r) : T_multiReader)) : Ref<stdgo.io.Io.T_multiReader>));
     }
 /**
     // MultiWriter creates a writer that duplicates its writes to all the
@@ -1105,13 +1105,13 @@ function multiReader(_readers:haxe.Rest<Reader>):Reader {
 **/
 function multiWriter(_writers:haxe.Rest<Writer>):Writer {
         var _writers = new Slice<Writer>(0, 0, ..._writers);
-        var _allWriters = new Slice<Writer>((0 : GoInt).toBasic(), (_writers.length), ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : Writer)]);
-        for (_0 => _w in _writers) {
+        var _allWriters = new Slice<stdgo.io.Io.Writer>((0 : GoInt).toBasic(), (_writers.length), ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : stdgo.io.Io.Writer)]);
+        for (__0 => _w in _writers) {
             {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(_w) : Ref<T_multiWriter>)) : Ref<T_multiWriter>), ok : true };
                 } catch(_) {
-                    { value : (null : Ref<T_multiWriter>), ok : false };
+                    { value : (null : Ref<stdgo.io.Io.T_multiWriter>), ok : false };
                 }, _mw = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     _allWriters = _allWriters.__appendref__(..._mw._writers.__toArray__());
@@ -1120,7 +1120,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
                 };
             };
         };
-        return Go.asInterface((Go.setRef((new T_multiWriter(_allWriters) : T_multiWriter)) : Ref<T_multiWriter>));
+        return Go.asInterface((Go.setRef((new T_multiWriter(_allWriters) : T_multiWriter)) : Ref<stdgo.io.Io.T_multiWriter>));
     }
 /**
     // Pipe creates a synchronous in-memory pipe.
@@ -1140,8 +1140,8 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
     // the individual calls will be gated sequentially.
 **/
 function pipe():{ var _0 : Ref<PipeReader>; var _1 : Ref<PipeWriter>; } {
-        var _p = (Go.setRef(({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> (null : Slice<GoUInt8>)), _rdCh : new Chan<GoInt>(0, () -> (0 : GoInt)), _done : new Chan<T_discard>(0, () -> ({} : T_discard)) } : T_pipe)) : Ref<T_pipe>);
-        return { _0 : (Go.setRef((new PipeReader(_p) : PipeReader)) : Ref<PipeReader>), _1 : (Go.setRef((new PipeWriter(_p) : PipeWriter)) : Ref<PipeWriter>) };
+        var _p = (Go.setRef(({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> (null : Slice<GoUInt8>)), _rdCh : new Chan<GoInt>(0, () -> (0 : GoInt)), _done : new Chan<T_discard>(0, () -> ({} : T_discard)) } : T_pipe)) : Ref<stdgo.io.Io.T_pipe>);
+        return { _0 : (Go.setRef((new PipeReader(_p) : PipeReader)) : Ref<stdgo.io.Io.PipeReader>), _1 : (Go.setRef((new PipeWriter(_p) : PipeWriter)) : Ref<stdgo.io.Io.PipeWriter>) };
     }
 class LimitedReader_asInterface {
     @:keep
@@ -1158,7 +1158,7 @@ class LimitedReader_asInterface {
     @:keep
     static public function read( _l:Ref<LimitedReader>, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        if (_l.n <= ("0" : GoInt64)) {
+        if (_l.n <= (0i64 : GoInt64)) {
             return { _0 : (0 : GoInt), _1 : eof };
         };
         if ((_p.length : GoInt64) > _l.n) {
@@ -1204,7 +1204,7 @@ class SectionReader_asInterface {
     @:keep
     static public function readAt( _s:Ref<SectionReader>, _p:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        if ((_off < (("0" : GoInt64) : GoInt64)) || (_off >= (_s._limit - _s._base))) {
+        if ((_off < (0i64 : GoInt64)) || (_off >= (_s._limit - _s._base))) {
             return { _0 : (0 : GoInt), _1 : eof };
         };
         _off = _off + (_s._base);
@@ -1235,10 +1235,12 @@ class SectionReader_asInterface {
                 _offset = _offset + (_s._off);
             } else if (__value__ == ((2 : GoInt))) {
                 _offset = _offset + (_s._limit);
+            } else {
+                return { _0 : (0i64 : GoInt64), _1 : _errWhence };
             };
         };
         if (_offset < _s._base) {
-            return { _0 : ("0" : GoInt64), _1 : _errOffset };
+            return { _0 : (0i64 : GoInt64), _1 : _errOffset };
         };
         _s._off = _offset;
         return { _0 : _offset - _s._base, _1 : (null : Error) };
@@ -1288,10 +1290,12 @@ class OffsetWriter_asInterface {
                 _offset = _offset + (_o._base);
             } else if (__value__ == ((1 : GoInt))) {
                 _offset = _offset + (_o._off);
+            } else {
+                return { _0 : (0i64 : GoInt64), _1 : _errWhence };
             };
         };
         if (_offset < _o._base) {
-            return { _0 : ("0" : GoInt64), _1 : _errOffset };
+            return { _0 : (0i64 : GoInt64), _1 : _errOffset };
         };
         _o._off = _offset;
         return { _0 : _offset - _o._base, _1 : (null : Error) };
@@ -1482,7 +1486,7 @@ class T_multiReader_asInterface {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(_r) : Ref<T_multiReader>)) : Ref<T_multiReader>), ok : true };
                 } catch(_) {
-                    { value : (null : Ref<T_multiReader>), ok : false };
+                    { value : (null : Ref<stdgo.io.Io.T_multiReader>), ok : false };
                 }, _subMr = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     {
@@ -1500,12 +1504,12 @@ class T_multiReader_asInterface {
             };
             _sum = _sum + (_n);
             if (_err != null) {
-                _mr._readers = (_mr._readers.__slice__(_i) : Slice<Reader>);
+                _mr._readers = (_mr._readers.__slice__(_i) : Slice<stdgo.io.Io.Reader>);
                 return { _0 : _sum, _1 : _err };
             };
-            _mr._readers[(_i : GoInt)] = (null : Reader);
+            _mr._readers[(_i : GoInt)] = (null : stdgo.io.Io.Reader);
         };
-        _mr._readers = (null : Slice<Reader>);
+        _mr._readers = (null : Slice<stdgo.io.Io.Reader>);
         return { _0 : _sum, _1 : (null : Error) };
     }
     @:keep
@@ -1522,7 +1526,7 @@ class T_multiReader_asInterface {
                     var __tmp__ = try {
                         { value : (Go.typeAssert((Go.toInterface(_mr._readers[(0 : GoInt)]) : Ref<T_multiReader>)) : Ref<T_multiReader>), ok : true };
                     } catch(_) {
-                        { value : (null : Ref<T_multiReader>), ok : false };
+                        { value : (null : Ref<stdgo.io.Io.T_multiReader>), ok : false };
                     }, _r = __tmp__.value, _ok = __tmp__.ok;
                     if (_ok) {
                         _mr._readers = _r._readers;
@@ -1537,7 +1541,7 @@ class T_multiReader_asInterface {
             };
             if (Go.toInterface(_err) == (Go.toInterface(eof))) {
                 _mr._readers[(0 : GoInt)] = Go.asInterface((new T_eofReader() : T_eofReader));
-                _mr._readers = (_mr._readers.__slice__((1 : GoInt)) : Slice<Reader>);
+                _mr._readers = (_mr._readers.__slice__((1 : GoInt)) : Slice<stdgo.io.Io.Reader>);
             };
             if ((_n > (0 : GoInt)) || (Go.toInterface(_err) != Go.toInterface(eof))) {
                 if ((Go.toInterface(_err) == Go.toInterface(eof)) && (_mr._readers.length > (0 : GoInt))) {
@@ -1567,12 +1571,12 @@ class T_multiWriter_asInterface {
     static public function writeString( _t:Ref<T_multiWriter>, _s:GoString):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
         var _p:Slice<GoByte> = (null : Slice<GoUInt8>);
-        for (_0 => _w in _t._writers) {
+        for (__0 => _w in _t._writers) {
             {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(_w) : StringWriter)) : StringWriter), ok : true };
                 } catch(_) {
-                    { value : (null : StringWriter), ok : false };
+                    { value : (null : stdgo.io.Io.StringWriter), ok : false };
                 }, _sw = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     {
@@ -1604,7 +1608,7 @@ class T_multiWriter_asInterface {
     @:keep
     static public function write( _t:Ref<T_multiWriter>, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
-        for (_0 => _w in _t._writers) {
+        for (__0 => _w in _t._writers) {
             {
                 var __tmp__ = _w.write(_p);
                 _n = __tmp__._0;

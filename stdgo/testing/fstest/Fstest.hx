@@ -17,13 +17,13 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-private var _2 : stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
+private var __2 : stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
 /**
     
     
     
 **/
-private var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
+private var __3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 /**
     // A MapFile describes a single file in a MapFS.
     
@@ -75,8 +75,8 @@ private var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 **/
 @:structInit @:private @:using(stdgo.testing.fstest.Fstest.T_noSub_static_extension) class T_noSub {
     @:embedded
-    public var mapFS : MapFS = (null : MapFS);
-    public function new(?mapFS:MapFS) {
+    public var mapFS : stdgo.testing.fstest.Fstest.MapFS = (null : stdgo.testing.fstest.Fstest.MapFS);
+    public function new(?mapFS:stdgo.testing.fstest.Fstest.MapFS) {
         if (mapFS != null) this.mapFS = mapFS;
     }
     public function __underlying__() return Go.toInterface(this);
@@ -101,8 +101,8 @@ private var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 **/
 @:structInit @:private @:using(stdgo.testing.fstest.Fstest.T_mapFileInfo_static_extension) class T_mapFileInfo {
     public var _name : GoString = "";
-    public var _f : Ref<MapFile> = (null : Ref<MapFile>);
-    public function new(?_name:GoString, ?_f:Ref<MapFile>) {
+    public var _f : Ref<stdgo.testing.fstest.Fstest.MapFile> = (null : Ref<stdgo.testing.fstest.Fstest.MapFile>);
+    public function new(?_name:GoString, ?_f:Ref<stdgo.testing.fstest.Fstest.MapFile>) {
         if (_name != null) this._name = _name;
         if (_f != null) this._f = _f;
     }
@@ -119,9 +119,9 @@ private var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 @:structInit @:private @:using(stdgo.testing.fstest.Fstest.T_openMapFile_static_extension) class T_openMapFile {
     public var _path : GoString = "";
     @:embedded
-    public var _mapFileInfo : T_mapFileInfo = ({} : T_mapFileInfo);
+    public var _mapFileInfo : stdgo.testing.fstest.Fstest.T_mapFileInfo = ({} : stdgo.testing.fstest.Fstest.T_mapFileInfo);
     public var _offset : GoInt64 = 0;
-    public function new(?_path:GoString, ?_mapFileInfo:T_mapFileInfo, ?_offset:GoInt64) {
+    public function new(?_path:GoString, ?_mapFileInfo:stdgo.testing.fstest.Fstest.T_mapFileInfo, ?_offset:GoInt64) {
         if (_path != null) this._path = _path;
         if (_mapFileInfo != null) this._mapFileInfo = _mapFileInfo;
         if (_offset != null) this._offset = _offset;
@@ -155,10 +155,10 @@ private var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 @:structInit @:private @:using(stdgo.testing.fstest.Fstest.T_mapDir_static_extension) class T_mapDir {
     public var _path : GoString = "";
     @:embedded
-    public var _mapFileInfo : T_mapFileInfo = ({} : T_mapFileInfo);
-    public var _entry : Slice<T_mapFileInfo> = (null : Slice<T_mapFileInfo>);
+    public var _mapFileInfo : stdgo.testing.fstest.Fstest.T_mapFileInfo = ({} : stdgo.testing.fstest.Fstest.T_mapFileInfo);
+    public var _entry : Slice<stdgo.testing.fstest.Fstest.T_mapFileInfo> = (null : Slice<stdgo.testing.fstest.Fstest.T_mapFileInfo>);
     public var _offset : GoInt = 0;
-    public function new(?_path:GoString, ?_mapFileInfo:T_mapFileInfo, ?_entry:Slice<T_mapFileInfo>, ?_offset:GoInt) {
+    public function new(?_path:GoString, ?_mapFileInfo:stdgo.testing.fstest.Fstest.T_mapFileInfo, ?_entry:Slice<stdgo.testing.fstest.Fstest.T_mapFileInfo>, ?_offset:GoInt) {
         if (_path != null) this._path = _path;
         if (_mapFileInfo != null) this._mapFileInfo = _mapFileInfo;
         if (_entry != null) this._entry = _entry;
@@ -225,7 +225,7 @@ private var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
     // iterating over the entire map, so a MapFS should typically be used with not more
     // than a few hundred entries or directory reads.
 **/
-@:named @:using(stdgo.testing.fstest.Fstest.MapFS_static_extension) typedef MapFS = GoMap<GoString, Ref<MapFile>>;
+@:named @:using(stdgo.testing.fstest.Fstest.MapFS_static_extension) typedef MapFS = GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>;
 function testMapFS(_t:Ref<stdgo.testing.Testing.T>):Void throw "testing.fstest.testMapFS is not yet implemented";
 function testMapFSChmodDot(_t:Ref<stdgo.testing.Testing.T>):Void throw "testing.fstest.testMapFSChmodDot is not yet implemented";
 /**

@@ -17,7 +17,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-final saiamag = ("8" : GoUInt64);
+final saiamag = (8i64 : GoUInt64);
 /**
     
     
@@ -41,799 +41,799 @@ final aiamagbig = ("<bigaf>\n" : GoString);
     
     
 **/
-final fl_HSZ_BIG = ("128" : GoUInt64);
+final fl_HSZ_BIG = (128i64 : GoUInt64);
 /**
     
     
     
 **/
-final ar_HSZ_BIG = ("112" : GoUInt64);
+final ar_HSZ_BIG = (112i64 : GoUInt64);
 /**
     
     
     
 **/
-final filhsz_32 = ("20" : GoUInt64);
+final filhsz_32 = (20i64 : GoUInt64);
 /**
     
     
     
 **/
-final filhsz_64 = ("24" : GoUInt64);
+final filhsz_64 = (24i64 : GoUInt64);
 /**
     
     
     // AIX 32-bit XCOFF
 **/
-final u802tocmagic = ("479" : GoUInt64);
+final u802tocmagic = (479i64 : GoUInt64);
 /**
     
     
     // AIX 64-bit XCOFF
 **/
-final u64_TOCMAGIC = ("503" : GoUInt64);
+final u64_TOCMAGIC = (503i64 : GoUInt64);
 /**
     // Flags that describe the type of the object file.
     
     
 **/
-final f_RELFLG = ("1" : GoUInt64);
+final f_RELFLG = (1i64 : GoUInt64);
 /**
     // Flags that describe the type of the object file.
     
     
 **/
-final f_EXEC = ("2" : GoUInt64);
+final f_EXEC = (2i64 : GoUInt64);
 /**
     // Flags that describe the type of the object file.
     
     
 **/
-final f_LNNO = ("4" : GoUInt64);
+final f_LNNO = (4i64 : GoUInt64);
 /**
     // Flags that describe the type of the object file.
     
     
 **/
-final f_FDPR_PROF = ("16" : GoUInt64);
+final f_FDPR_PROF = (16i64 : GoUInt64);
 /**
     // Flags that describe the type of the object file.
     
     
 **/
-final f_FDPR_OPTI = ("32" : GoUInt64);
+final f_FDPR_OPTI = (32i64 : GoUInt64);
 /**
     // Flags that describe the type of the object file.
     
     
 **/
-final f_DSA = ("64" : GoUInt64);
+final f_DSA = (64i64 : GoUInt64);
 /**
     // Flags that describe the type of the object file.
     
     
 **/
-final f_VARPG = ("256" : GoUInt64);
+final f_VARPG = (256i64 : GoUInt64);
 /**
     // Flags that describe the type of the object file.
     
     
 **/
-final f_DYNLOAD = ("4096" : GoUInt64);
+final f_DYNLOAD = (4096i64 : GoUInt64);
 /**
     // Flags that describe the type of the object file.
     
     
 **/
-final f_SHROBJ = ("8192" : GoUInt64);
+final f_SHROBJ = (8192i64 : GoUInt64);
 /**
     // Flags that describe the type of the object file.
     
     
 **/
-final f_LOADONLY = ("16384" : GoUInt64);
+final f_LOADONLY = (16384i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_DWARF = ("16" : GoUInt64);
+final styp_DWARF = (16i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_TEXT = ("32" : GoUInt64);
+final styp_TEXT = (32i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_DATA = ("64" : GoUInt64);
+final styp_DATA = (64i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_BSS = ("128" : GoUInt64);
+final styp_BSS = (128i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_EXCEPT = ("256" : GoUInt64);
+final styp_EXCEPT = (256i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_INFO = ("512" : GoUInt64);
+final styp_INFO = (512i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_TDATA = ("1024" : GoUInt64);
+final styp_TDATA = (1024i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_TBSS = ("2048" : GoUInt64);
+final styp_TBSS = (2048i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_LOADER = ("4096" : GoUInt64);
+final styp_LOADER = (4096i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_DEBUG = ("8192" : GoUInt64);
+final styp_DEBUG = (8192i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_TYPCHK = ("16384" : GoUInt64);
+final styp_TYPCHK = (16384i64 : GoUInt64);
 /**
     // Flags defining the section type.
     
     
 **/
-final styp_OVRFLO = ("32768" : GoUInt64);
+final styp_OVRFLO = (32768i64 : GoUInt64);
 /**
     
     
     // DWARF info section
 **/
-final ssubtyp_DWINFO = ("65536" : GoUInt64);
+final ssubtyp_DWINFO = (65536i64 : GoUInt64);
 /**
     
     
     // DWARF line-number section
 **/
-final ssubtyp_DWLINE = ("131072" : GoUInt64);
+final ssubtyp_DWLINE = (131072i64 : GoUInt64);
 /**
     
     
     // DWARF public names section
 **/
-final ssubtyp_DWPBNMS = ("196608" : GoUInt64);
+final ssubtyp_DWPBNMS = (196608i64 : GoUInt64);
 /**
     
     
     // DWARF public types section
 **/
-final ssubtyp_DWPBTYP = ("262144" : GoUInt64);
+final ssubtyp_DWPBTYP = (262144i64 : GoUInt64);
 /**
     
     
     // DWARF aranges section
 **/
-final ssubtyp_DWARNGE = ("327680" : GoUInt64);
+final ssubtyp_DWARNGE = (327680i64 : GoUInt64);
 /**
     
     
     // DWARF abbreviation section
 **/
-final ssubtyp_DWABREV = ("393216" : GoUInt64);
+final ssubtyp_DWABREV = (393216i64 : GoUInt64);
 /**
     
     
     // DWARF strings section
 **/
-final ssubtyp_DWSTR = ("458752" : GoUInt64);
+final ssubtyp_DWSTR = (458752i64 : GoUInt64);
 /**
     
     
     // DWARF ranges section
 **/
-final ssubtyp_DWRNGES = ("524288" : GoUInt64);
+final ssubtyp_DWRNGES = (524288i64 : GoUInt64);
 /**
     
     
     // DWARF location lists section
 **/
-final ssubtyp_DWLOC = ("589824" : GoUInt64);
+final ssubtyp_DWLOC = (589824i64 : GoUInt64);
 /**
     
     
     // DWARF frames section
 **/
-final ssubtyp_DWFRAME = ("655360" : GoUInt64);
+final ssubtyp_DWFRAME = (655360i64 : GoUInt64);
 /**
     
     
     // DWARF macros section
 **/
-final ssubtyp_DWMAC = ("720896" : GoUInt64);
+final ssubtyp_DWMAC = (720896i64 : GoUInt64);
 /**
     
     
     
 **/
-final symesz = ("18" : GoUInt64);
+final symesz = (18i64 : GoUInt64);
 /**
     // Nscnum
     
     
 **/
-final n_DEBUG = ("0" : GoUInt64);
+final n_DEBUG = (0i64 : GoUInt64);
 /**
     
     
     
 **/
-final n_ABS = ("0" : GoUInt64);
+final n_ABS = (0i64 : GoUInt64);
 /**
     
     
     
 **/
-final n_UNDEF = ("0" : GoUInt64);
+final n_UNDEF = (0i64 : GoUInt64);
 /**
     //Ntype
     
     
 **/
-final sym_V_INTERNAL = ("4096" : GoUInt64);
+final sym_V_INTERNAL = (4096i64 : GoUInt64);
 /**
     
     
     
 **/
-final sym_V_HIDDEN = ("8192" : GoUInt64);
+final sym_V_HIDDEN = (8192i64 : GoUInt64);
 /**
     
     
     
 **/
-final sym_V_PROTECTED = ("12288" : GoUInt64);
+final sym_V_PROTECTED = (12288i64 : GoUInt64);
 /**
     
     
     
 **/
-final sym_V_EXPORTED = ("16384" : GoUInt64);
+final sym_V_EXPORTED = (16384i64 : GoUInt64);
 /**
     
     
     // is function
 **/
-final sym_TYPE_FUNC = ("32" : GoUInt64);
+final sym_TYPE_FUNC = (32i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Symbol table entry marked for deletion
 **/
-final c_NULL = ("0" : GoUInt64);
+final c_NULL = (0i64 : GoUInt64);
 /**
     // Storage Class.
     
     // External symbol
 **/
-final c_EXT = ("2" : GoUInt64);
+final c_EXT = (2i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Static symbol
 **/
-final c_STAT = ("3" : GoUInt64);
+final c_STAT = (3i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Beginning or end of inner block
 **/
-final c_BLOCK = ("100" : GoUInt64);
+final c_BLOCK = (100i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Beginning or end of function
 **/
-final c_FCN = ("101" : GoUInt64);
+final c_FCN = (101i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Source file name and compiler information
 **/
-final c_FILE = ("103" : GoUInt64);
+final c_FILE = (103i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Unnamed external symbol
 **/
-final c_HIDEXT = ("107" : GoUInt64);
+final c_HIDEXT = (107i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Beginning of include file
 **/
-final c_BINCL = ("108" : GoUInt64);
+final c_BINCL = (108i64 : GoUInt64);
 /**
     // Storage Class.
     
     // End of include file
 **/
-final c_EINCL = ("109" : GoUInt64);
+final c_EINCL = (109i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Weak external symbol
 **/
-final c_WEAKEXT = ("111" : GoUInt64);
+final c_WEAKEXT = (111i64 : GoUInt64);
 /**
     // Storage Class.
     
     // DWARF symbol
 **/
-final c_DWARF = ("112" : GoUInt64);
+final c_DWARF = (112i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Global variable
 **/
-final c_GSYM = ("128" : GoUInt64);
+final c_GSYM = (128i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Automatic variable allocated on stack
 **/
-final c_LSYM = ("129" : GoUInt64);
+final c_LSYM = (129i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Argument to subroutine allocated on stack
 **/
-final c_PSYM = ("130" : GoUInt64);
+final c_PSYM = (130i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Register variable
 **/
-final c_RSYM = ("131" : GoUInt64);
+final c_RSYM = (131i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Argument to function or procedure stored in register
 **/
-final c_RPSYM = ("132" : GoUInt64);
+final c_RPSYM = (132i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Statically allocated symbol
 **/
-final c_STSYM = ("133" : GoUInt64);
+final c_STSYM = (133i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Beginning of common block
 **/
-final c_BCOMM = ("135" : GoUInt64);
+final c_BCOMM = (135i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Local member of common block
 **/
-final c_ECOML = ("136" : GoUInt64);
+final c_ECOML = (136i64 : GoUInt64);
 /**
     // Storage Class.
     
     // End of common block
 **/
-final c_ECOMM = ("137" : GoUInt64);
+final c_ECOMM = (137i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Declaration of object
 **/
-final c_DECL = ("140" : GoUInt64);
+final c_DECL = (140i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Alternate entry
 **/
-final c_ENTRY = ("141" : GoUInt64);
+final c_ENTRY = (141i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Function or procedure
 **/
-final c_FUN = ("142" : GoUInt64);
+final c_FUN = (142i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Beginning of static block
 **/
-final c_BSTAT = ("143" : GoUInt64);
+final c_BSTAT = (143i64 : GoUInt64);
 /**
     // Storage Class.
     
     // End of static block
 **/
-final c_ESTAT = ("144" : GoUInt64);
+final c_ESTAT = (144i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Global thread-local variable
 **/
-final c_GTLS = ("145" : GoUInt64);
+final c_GTLS = (145i64 : GoUInt64);
 /**
     // Storage Class.
     
     // Static thread-local variable
 **/
-final c_STTLS = ("146" : GoUInt64);
+final c_STTLS = (146i64 : GoUInt64);
 /**
     // Auxiliary type
     
     
 **/
-private final __AUX_EXCEPT = ("255" : GoUInt64);
+private final __AUX_EXCEPT = (255i64 : GoUInt64);
 /**
     // Auxiliary type
     
     
 **/
-private final __AUX_FCN = ("254" : GoUInt64);
+private final __AUX_FCN = (254i64 : GoUInt64);
 /**
     // Auxiliary type
     
     
 **/
-private final __AUX_SYM = ("253" : GoUInt64);
+private final __AUX_SYM = (253i64 : GoUInt64);
 /**
     // Auxiliary type
     
     
 **/
-private final __AUX_FILE = ("252" : GoUInt64);
+private final __AUX_FILE = (252i64 : GoUInt64);
 /**
     // Auxiliary type
     
     
 **/
-private final __AUX_CSECT = ("251" : GoUInt64);
+private final __AUX_CSECT = (251i64 : GoUInt64);
 /**
     // Auxiliary type
     
     
 **/
-private final __AUX_SECT = ("250" : GoUInt64);
+private final __AUX_SECT = (250i64 : GoUInt64);
 /**
     // Symbol type field.
     
     // External reference
 **/
-final xty_ER = ("0" : GoUInt64);
+final xty_ER = (0i64 : GoUInt64);
 /**
     // Symbol type field.
     
     // Section definition
 **/
-final xty_SD = ("1" : GoUInt64);
+final xty_SD = (1i64 : GoUInt64);
 /**
     // Symbol type field.
     
     // Label definition
 **/
-final xty_LD = ("2" : GoUInt64);
+final xty_LD = (2i64 : GoUInt64);
 /**
     // Symbol type field.
     
     // Common csect definition
 **/
-final xty_CM = ("3" : GoUInt64);
+final xty_CM = (3i64 : GoUInt64);
 /**
     // Defines for File auxiliary definitions: x_ftype field of x_file
     
     // Source File Name
 **/
-final xft_FN = ("0" : GoUInt64);
+final xft_FN = (0i64 : GoUInt64);
 /**
     // Defines for File auxiliary definitions: x_ftype field of x_file
     
     // Compile Time Stamp
 **/
-final xft_CT = ("1" : GoUInt64);
+final xft_CT = (1i64 : GoUInt64);
 /**
     // Defines for File auxiliary definitions: x_ftype field of x_file
     
     // Compiler Version Number
 **/
-final xft_CV = ("2" : GoUInt64);
+final xft_CV = (2i64 : GoUInt64);
 /**
     // Defines for File auxiliary definitions: x_ftype field of x_file
     
     // Compiler Defined Information
 **/
-final xft_CD = ("128" : GoUInt64);
+final xft_CD = (128i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Program code
 **/
-final xmc_PR = ("0" : GoUInt64);
+final xmc_PR = (0i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Read-only constant
 **/
-final xmc_RO = ("1" : GoUInt64);
+final xmc_RO = (1i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Debug dictionary table
 **/
-final xmc_DB = ("2" : GoUInt64);
+final xmc_DB = (2i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // TOC entry
 **/
-final xmc_TC = ("3" : GoUInt64);
+final xmc_TC = (3i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Unclassified
 **/
-final xmc_UA = ("4" : GoUInt64);
+final xmc_UA = (4i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Read/Write data
 **/
-final xmc_RW = ("5" : GoUInt64);
+final xmc_RW = (5i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Global linkage
 **/
-final xmc_GL = ("6" : GoUInt64);
+final xmc_GL = (6i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Extended operation
 **/
-final xmc_XO = ("7" : GoUInt64);
+final xmc_XO = (7i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // 32-bit supervisor call descriptor
 **/
-final xmc_SV = ("8" : GoUInt64);
+final xmc_SV = (8i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // BSS class
 **/
-final xmc_BS = ("9" : GoUInt64);
+final xmc_BS = (9i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Function descriptor
 **/
-final xmc_DS = ("10" : GoUInt64);
+final xmc_DS = (10i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Unnamed FORTRAN common
 **/
-final xmc_UC = ("11" : GoUInt64);
+final xmc_UC = (11i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // TOC anchor
 **/
-final xmc_TC0 = ("15" : GoUInt64);
+final xmc_TC0 = (15i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Scalar data entry in the TOC
 **/
-final xmc_TD = ("16" : GoUInt64);
+final xmc_TD = (16i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // 64-bit supervisor call descriptor
 **/
-final xmc_SV64 = ("17" : GoUInt64);
+final xmc_SV64 = (17i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Supervisor call descriptor for both 32-bit and 64-bit
 **/
-final xmc_SV3264 = ("18" : GoUInt64);
+final xmc_SV3264 = (18i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Read/Write thread-local data
 **/
-final xmc_TL = ("20" : GoUInt64);
+final xmc_TL = (20i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // Read/Write thread-local data (.tbss)
 **/
-final xmc_UL = ("21" : GoUInt64);
+final xmc_UL = (21i64 : GoUInt64);
 /**
     // Storage-mapping class.
     
     // TOC entry
 **/
-final xmc_TE = ("22" : GoUInt64);
+final xmc_TE = (22i64 : GoUInt64);
 /**
     
     
     
 **/
-final ldhdrsz_32 = ("32" : GoUInt64);
+final ldhdrsz_32 = (32i64 : GoUInt64);
 /**
     
     
     
 **/
-final ldhdrsz_64 = ("56" : GoUInt64);
+final ldhdrsz_64 = (56i64 : GoUInt64);
 /**
     
     
     // A(sym) Positive Relocation
 **/
-final r_POS = ("0" : GoUInt64);
+final r_POS = (0i64 : GoUInt64);
 /**
     
     
     // -A(sym) Negative Relocation
 **/
-final r_NEG = ("1" : GoUInt64);
+final r_NEG = (1i64 : GoUInt64);
 /**
     
     
     // A(sym-*) Relative to self
 **/
-final r_REL = ("2" : GoUInt64);
+final r_REL = (2i64 : GoUInt64);
 /**
     
     
     // A(sym-TOC) Relative to TOC
 **/
-final r_TOC = ("3" : GoUInt64);
+final r_TOC = (3i64 : GoUInt64);
 /**
     
     
     // A(sym-TOC) TOC Relative indirect load.
 **/
-final r_TRL = ("18" : GoUInt64);
+final r_TRL = (18i64 : GoUInt64);
 /**
     
     
     // A(sym-TOC) TOC Rel load address. modifiable inst
 **/
-final r_TRLA = ("19" : GoUInt64);
+final r_TRLA = (19i64 : GoUInt64);
 /**
     
     
     // A(external TOC of sym) Global Linkage
 **/
-final r_GL = ("5" : GoUInt64);
+final r_GL = (5i64 : GoUInt64);
 /**
     
     
     // A(local TOC of sym) Local object TOC address
 **/
-final r_TCL = ("6" : GoUInt64);
+final r_TCL = (6i64 : GoUInt64);
 /**
     
     
     // A(sym) Pos indirect load. modifiable instruction
 **/
-final r_RL = ("12" : GoUInt64);
+final r_RL = (12i64 : GoUInt64);
 /**
     
     
     // A(sym) Pos Load Address. modifiable instruction
 **/
-final r_RLA = ("13" : GoUInt64);
+final r_RLA = (13i64 : GoUInt64);
 /**
     
     
     // AL0(sym) Non relocating ref. No garbage collect
 **/
-final r_REF = ("15" : GoUInt64);
+final r_REF = (15i64 : GoUInt64);
 /**
     
     
     // A(sym) Branch absolute. Cannot modify instruction
 **/
-final r_BA = ("8" : GoUInt64);
+final r_BA = (8i64 : GoUInt64);
 /**
     
     
     // A(sym) Branch absolute. modifiable instruction
 **/
-final r_RBA = ("24" : GoUInt64);
+final r_RBA = (24i64 : GoUInt64);
 /**
     
     
     // A(sym-*) Branch rel to self. non modifiable
 **/
-final r_BR = ("10" : GoUInt64);
+final r_BR = (10i64 : GoUInt64);
 /**
     
     
     // A(sym-*) Branch rel to self. modifiable instr
 **/
-final r_RBR = ("26" : GoUInt64);
+final r_RBR = (26i64 : GoUInt64);
 /**
     
     
     // General-dynamic reference to TLS symbol
 **/
-final r_TLS = ("32" : GoUInt64);
+final r_TLS = (32i64 : GoUInt64);
 /**
     
     
     // Initial-exec reference to TLS symbol
 **/
-final r_TLS_IE = ("33" : GoUInt64);
+final r_TLS_IE = (33i64 : GoUInt64);
 /**
     
     
     // Local-dynamic reference to TLS symbol
 **/
-final r_TLS_LD = ("34" : GoUInt64);
+final r_TLS_LD = (34i64 : GoUInt64);
 /**
     
     
     // Local-exec reference to TLS symbol
 **/
-final r_TLS_LE = ("35" : GoUInt64);
+final r_TLS_LE = (35i64 : GoUInt64);
 /**
     
     
     // Module reference to TLS symbol
 **/
-final r_TLSM = ("36" : GoUInt64);
+final r_TLSM = (36i64 : GoUInt64);
 /**
     
     
     // Module reference to local (own) module
 **/
-final r_TLSML = ("37" : GoUInt64);
+final r_TLSML = (37i64 : GoUInt64);
 /**
     
     
     // Relative to TOC - high order bits
 **/
-final r_TOCU = ("48" : GoUInt64);
+final r_TOCU = (48i64 : GoUInt64);
 /**
     
     
     // Relative to TOC - low order bits
 **/
-final r_TOCL = ("49" : GoUInt64);
+final r_TOCL = (49i64 : GoUInt64);
 /**
     
     
@@ -897,10 +897,10 @@ final r_TOCL = ("49" : GoUInt64);
 **/
 @:structInit @:using(internal.xcoff.Xcoff.Archive_static_extension) class Archive {
     @:embedded
-    public var archiveHeader : ArchiveHeader = ({} : ArchiveHeader);
-    public var members : Slice<Ref<Member>> = (null : Slice<Ref<Member>>);
+    public var archiveHeader : internal.xcoff.Xcoff.ArchiveHeader = ({} : internal.xcoff.Xcoff.ArchiveHeader);
+    public var members : Slice<Ref<internal.xcoff.Xcoff.Member>> = (null : Slice<Ref<internal.xcoff.Xcoff.Member>>);
     public var _closer : stdgo.io.Io.Closer = (null : stdgo.io.Io.Closer);
-    public function new(?archiveHeader:ArchiveHeader, ?members:Slice<Ref<Member>>, ?_closer:stdgo.io.Io.Closer) {
+    public function new(?archiveHeader:internal.xcoff.Xcoff.ArchiveHeader, ?members:Slice<Ref<internal.xcoff.Xcoff.Member>>, ?_closer:stdgo.io.Io.Closer) {
         if (archiveHeader != null) this.archiveHeader = archiveHeader;
         if (members != null) this.members = members;
         if (_closer != null) this._closer = _closer;
@@ -932,9 +932,9 @@ final r_TOCL = ("49" : GoUInt64);
 **/
 @:structInit @:using(internal.xcoff.Xcoff.Member_static_extension) class Member {
     @:embedded
-    public var memberHeader : MemberHeader = ({} : MemberHeader);
+    public var memberHeader : internal.xcoff.Xcoff.MemberHeader = ({} : internal.xcoff.Xcoff.MemberHeader);
     public var _sr : Ref<stdgo.io.Io.SectionReader> = (null : Ref<stdgo.io.Io.SectionReader>);
-    public function new(?memberHeader:MemberHeader, ?_sr:Ref<stdgo.io.Io.SectionReader>) {
+    public function new(?memberHeader:internal.xcoff.Xcoff.MemberHeader, ?_sr:Ref<stdgo.io.Io.SectionReader>) {
         if (memberHeader != null) this.memberHeader = memberHeader;
         if (_sr != null) this._sr = _sr;
     }
@@ -992,12 +992,12 @@ final r_TOCL = ("49" : GoUInt64);
 **/
 @:structInit @:using(internal.xcoff.Xcoff.Section_static_extension) class Section {
     @:embedded
-    public var sectionHeader : SectionHeader = ({} : SectionHeader);
-    public var relocs : Slice<Reloc> = (null : Slice<Reloc>);
+    public var sectionHeader : internal.xcoff.Xcoff.SectionHeader = ({} : internal.xcoff.Xcoff.SectionHeader);
+    public var relocs : Slice<internal.xcoff.Xcoff.Reloc> = (null : Slice<internal.xcoff.Xcoff.Reloc>);
     @:embedded
     public var readerAt : stdgo.io.Io.ReaderAt = (null : stdgo.io.Io.ReaderAt);
     public var _sr : Ref<stdgo.io.Io.SectionReader> = (null : Ref<stdgo.io.Io.SectionReader>);
-    public function new(?sectionHeader:SectionHeader, ?relocs:Slice<Reloc>, ?readerAt:stdgo.io.Io.ReaderAt, ?_sr:Ref<stdgo.io.Io.SectionReader>) {
+    public function new(?sectionHeader:internal.xcoff.Xcoff.SectionHeader, ?relocs:Slice<internal.xcoff.Xcoff.Reloc>, ?readerAt:stdgo.io.Io.ReaderAt, ?_sr:Ref<stdgo.io.Io.SectionReader>) {
         if (sectionHeader != null) this.sectionHeader = sectionHeader;
         if (relocs != null) this.relocs = relocs;
         if (readerAt != null) this.readerAt = readerAt;
@@ -1054,9 +1054,9 @@ final r_TOCL = ("49" : GoUInt64);
     public var value : GoUInt64 = 0;
     public var sectionNumber : GoInt = 0;
     public var storageClass : GoInt = 0;
-    public var auxFcn : AuxiliaryFcn = ({} : AuxiliaryFcn);
-    public var auxCSect : AuxiliaryCSect = ({} : AuxiliaryCSect);
-    public function new(?name:GoString, ?value:GoUInt64, ?sectionNumber:GoInt, ?storageClass:GoInt, ?auxFcn:AuxiliaryFcn, ?auxCSect:AuxiliaryCSect) {
+    public var auxFcn : internal.xcoff.Xcoff.AuxiliaryFcn = ({} : internal.xcoff.Xcoff.AuxiliaryFcn);
+    public var auxCSect : internal.xcoff.Xcoff.AuxiliaryCSect = ({} : internal.xcoff.Xcoff.AuxiliaryCSect);
+    public function new(?name:GoString, ?value:GoUInt64, ?sectionNumber:GoInt, ?storageClass:GoInt, ?auxFcn:internal.xcoff.Xcoff.AuxiliaryFcn, ?auxCSect:internal.xcoff.Xcoff.AuxiliaryCSect) {
         if (name != null) this.name = name;
         if (value != null) this.value = value;
         if (sectionNumber != null) this.sectionNumber = sectionNumber;
@@ -1076,12 +1076,12 @@ final r_TOCL = ("49" : GoUInt64);
 **/
 @:structInit class Reloc {
     public var virtualAddress : GoUInt64 = 0;
-    public var symbol : Ref<Symbol> = (null : Ref<Symbol>);
+    public var symbol : Ref<internal.xcoff.Xcoff.Symbol> = (null : Ref<internal.xcoff.Xcoff.Symbol>);
     public var signed : Bool = false;
     public var instructionFixed : Bool = false;
     public var length_ : GoUInt8 = 0;
     public var type : GoUInt8 = 0;
-    public function new(?virtualAddress:GoUInt64, ?symbol:Ref<Symbol>, ?signed:Bool, ?instructionFixed:Bool, ?length_:GoUInt8, ?type:GoUInt8) {
+    public function new(?virtualAddress:GoUInt64, ?symbol:Ref<internal.xcoff.Xcoff.Symbol>, ?signed:Bool, ?instructionFixed:Bool, ?length_:GoUInt8, ?type:GoUInt8) {
         if (virtualAddress != null) this.virtualAddress = virtualAddress;
         if (symbol != null) this.symbol = symbol;
         if (signed != null) this.signed = signed;
@@ -1133,13 +1133,13 @@ final r_TOCL = ("49" : GoUInt64);
 **/
 @:structInit @:using(internal.xcoff.Xcoff.File_static_extension) class File {
     @:embedded
-    public var fileHeader : FileHeader = ({} : FileHeader);
-    public var sections : Slice<Ref<Section>> = (null : Slice<Ref<Section>>);
-    public var symbols : Slice<Ref<Symbol>> = (null : Slice<Ref<Symbol>>);
+    public var fileHeader : internal.xcoff.Xcoff.FileHeader = ({} : internal.xcoff.Xcoff.FileHeader);
+    public var sections : Slice<Ref<internal.xcoff.Xcoff.Section>> = (null : Slice<Ref<internal.xcoff.Xcoff.Section>>);
+    public var symbols : Slice<Ref<internal.xcoff.Xcoff.Symbol>> = (null : Slice<Ref<internal.xcoff.Xcoff.Symbol>>);
     public var stringTable : Slice<GoUInt8> = (null : Slice<GoUInt8>);
     public var libraryPaths : Slice<GoString> = (null : Slice<GoString>);
     public var _closer : stdgo.io.Io.Closer = (null : stdgo.io.Io.Closer);
-    public function new(?fileHeader:FileHeader, ?sections:Slice<Ref<Section>>, ?symbols:Slice<Ref<Symbol>>, ?stringTable:Slice<GoUInt8>, ?libraryPaths:Slice<GoString>, ?_closer:stdgo.io.Io.Closer) {
+    public function new(?fileHeader:internal.xcoff.Xcoff.FileHeader, ?sections:Slice<Ref<internal.xcoff.Xcoff.Section>>, ?symbols:Slice<Ref<internal.xcoff.Xcoff.Symbol>>, ?stringTable:Slice<GoUInt8>, ?libraryPaths:Slice<GoString>, ?_closer:stdgo.io.Io.Closer) {
         if (fileHeader != null) this.fileHeader = fileHeader;
         if (sections != null) this.sections = sections;
         if (symbols != null) this.symbols = symbols;
@@ -1656,7 +1656,7 @@ function openArchive(_name:GoString):{ var _0 : Ref<Archive>; var _1 : Error; } 
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
-        var __tmp__ = newArchive(Go.asInterface(_f)), _arch:Ref<Archive> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = newArchive(Go.asInterface(_f)), _arch:Ref<internal.xcoff.Xcoff.Archive> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _f.close();
             return { _0 : null, _1 : _err };
@@ -1671,15 +1671,15 @@ function newArchive(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<Archive>; var _1 : E
         var _parseDecimalBytes = function(_b:Slice<GoByte>):{ var _0 : GoInt64; var _1 : Error; } {
             return stdgo.strconv.Strconv.parseInt(stdgo.strings.Strings.trimSpace((_b : GoString)), (10 : GoInt), (64 : GoInt));
         };
-        var _sr = stdgo.io.Io.newSectionReader(_r, ("0" : GoInt64), ("9223372036854775807" : GoInt64));
+        var _sr = stdgo.io.Io.newSectionReader(_r, (0i64 : GoInt64), (9223372036854775807i64 : GoInt64));
         var _magic:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 8) (0 : GoUInt8)]);
         {
-            var __tmp__ = _sr.readAt((_magic.__slice__(0) : Slice<GoUInt8>), ("0" : GoInt64)), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _sr.readAt((_magic.__slice__(0) : Slice<GoUInt8>), (0i64 : GoInt64)), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
         };
-        var _arch = (Go.setRef(({} : Archive)) : Ref<Archive>);
+        var _arch = (Go.setRef(({} : internal.xcoff.Xcoff.Archive)) : Ref<internal.xcoff.Xcoff.Archive>);
         {
             final __value__ = ((_magic.__slice__(0) : Slice<GoUInt8>) : GoString);
             if (__value__ == (("<bigaf>\n" : GoString))) {
@@ -1690,15 +1690,15 @@ function newArchive(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<Archive>; var _1 : E
                 return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("unrecognised archive magic: 0x%x" : GoString), Go.toInterface(_magic)) };
             };
         };
-        var _fhdr:T_bigarFileHeader = ({} : T_bigarFileHeader);
+        var _fhdr:T_bigarFileHeader = ({} : internal.xcoff.Xcoff.T_bigarFileHeader);
         {
-            var __tmp__ = _sr.seek(("0" : GoInt64), (0 : GoInt)), _1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _sr.seek((0i64 : GoInt64), (0 : GoInt)), __1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
         };
         {
-            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface((Go.setRef(_fhdr) : Ref<T_bigarFileHeader>)));
+            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface((Go.setRef(_fhdr) : Ref<internal.xcoff.Xcoff.T_bigarFileHeader>)));
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
@@ -1707,7 +1707,7 @@ function newArchive(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<Archive>; var _1 : E
         if (_err != null) {
             return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("error parsing offset of first member in archive header(%q); %v" : GoString), Go.toInterface(_fhdr), Go.toInterface(_err)) };
         };
-        if (_off == (("0" : GoInt64))) {
+        if (_off == ((0i64 : GoInt64))) {
             return { _0 : _arch, _1 : (null : Error) };
         };
         var __tmp__ = _parseDecimalBytes((_fhdr.fllstmoff.__slice__(0) : Slice<GoUInt8>)), _lastoff:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
@@ -1716,19 +1716,19 @@ function newArchive(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<Archive>; var _1 : E
         };
         while (true) {
             {
-                var __tmp__ = _sr.seek(_off, (0 : GoInt)), _2:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = _sr.seek(_off, (0 : GoInt)), __2:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
             };
-            var _mhdr:T_bigarMemberHeader = ({} : T_bigarMemberHeader);
+            var _mhdr:T_bigarMemberHeader = ({} : internal.xcoff.Xcoff.T_bigarMemberHeader);
             {
-                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface((Go.setRef(_mhdr) : Ref<T_bigarMemberHeader>)));
+                var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface((Go.setRef(_mhdr) : Ref<internal.xcoff.Xcoff.T_bigarMemberHeader>)));
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
             };
-            var _member = (Go.setRef(({} : Member)) : Ref<Member>);
+            var _member = (Go.setRef(({} : internal.xcoff.Xcoff.Member)) : Ref<internal.xcoff.Xcoff.Member>);
             _arch.members = _arch.members.__appendref__(_member);
             var __tmp__ = _parseDecimalBytes((_mhdr.arsize.__slice__(0) : Slice<GoUInt8>)), _size:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -1747,11 +1747,11 @@ function newArchive(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<Archive>; var _1 : E
                 };
             };
             _member.memberHeader.name = (_name : GoString);
-            var _fileoff:GoInt64 = (_off + (("112" : GoInt64) : GoInt64)) + _namlen;
-            if (_fileoff & ("1" : GoInt64) != (("0" : GoInt64))) {
+            var _fileoff:GoInt64 = (_off + (112i64 : GoInt64)) + _namlen;
+            if (_fileoff & (1i64 : GoInt64) != ((0i64 : GoInt64))) {
                 _fileoff++;
                 {
-                    var __tmp__ = _sr.seek(("1" : GoInt64), (1 : GoInt)), _3:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                    var __tmp__ = _sr.seek((1i64 : GoInt64), (1 : GoInt)), __3:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                     if (_err != null) {
                         return { _0 : null, _1 : _err };
                     };
@@ -1767,7 +1767,7 @@ function newArchive(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<Archive>; var _1 : E
             if (((_fmag.__slice__(0) : Slice<GoUInt8>) : GoString) != (("`\n" : GoString))) {
                 return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("AIAFMAG not found after member header" : GoString)) };
             };
-            _fileoff = _fileoff + (("2" : GoInt64));
+            _fileoff = _fileoff + ((2i64 : GoInt64));
             _member._sr = stdgo.io.Io.newSectionReader(Go.asInterface(_sr), _fileoff, _size);
             if (_off == (_lastoff)) {
                 break;
@@ -1791,7 +1791,7 @@ function open(_name:GoString):{ var _0 : Ref<File>; var _1 : Error; } {
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
-        var __tmp__ = newFile(Go.asInterface(_f)), _ff:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = newFile(Go.asInterface(_f)), _ff:Ref<internal.xcoff.Xcoff.File> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _f.close();
             return { _0 : null, _1 : _err };
@@ -1815,7 +1815,7 @@ private function _cstring(_b:Slice<GoByte>):GoString {
     // getString extracts a string from an XCOFF string table.
 **/
 private function _getString(_st:Slice<GoByte>, _offset:GoUInt32):{ var _0 : GoString; var _1 : Bool; } {
-        if ((_offset < (("4" : GoUInt32) : GoUInt32)) || ((_offset : GoInt) >= _st.length)) {
+        if ((_offset < (4u32 : GoUInt32)) || ((_offset : GoInt) >= _st.length)) {
             return { _0 : Go.str(), _1 : false };
         };
         return { _0 : _cstring((_st.__slice__(_offset) : Slice<GoUInt8>)), _1 : true };
@@ -1824,8 +1824,8 @@ private function _getString(_st:Slice<GoByte>, _offset:GoUInt32):{ var _0 : GoSt
     // NewFile creates a new File for accessing an XCOFF binary in an underlying reader.
 **/
 function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; } {
-        return stdgo.internal.Macro.controlFlow({
-            var _sr = stdgo.io.Io.newSectionReader(_r, ("0" : GoInt64), ("9223372036854775807" : GoInt64));
+        stdgo.internal.Macro.controlFlow({
+            var _sr = stdgo.io.Io.newSectionReader(_r, (0i64 : GoInt64), (9223372036854775807i64 : GoInt64));
             var _magic:GoUInt16 = (0 : GoUInt16);
             {
                 var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(Go.pointer(_magic)));
@@ -1836,10 +1836,10 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
             if ((_magic != (479 : GoUInt16)) && (_magic != (503 : GoUInt16))) {
                 return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("unrecognised XCOFF magic: 0x%x" : GoString), Go.toInterface(_magic)) };
             };
-            var _f = (Go.setRef(({} : File)) : Ref<File>);
+            var _f = (Go.setRef(({} : internal.xcoff.Xcoff.File)) : Ref<internal.xcoff.Xcoff.File>);
             _f.fileHeader.targetMachine = _magic;
             {
-                var __tmp__ = _sr.seek(("0" : GoInt64), (0 : GoInt)), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = _sr.seek((0i64 : GoInt64), (0 : GoInt)), __0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
@@ -1852,7 +1852,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
             {
                 final __value__ = _f.fileHeader.targetMachine;
                 if (__value__ == ((479 : GoUInt16))) {
-                    var _fhdr = (Go.setRef(({} : FileHeader32)) : Ref<FileHeader32>);
+                    var _fhdr = (Go.setRef(({} : internal.xcoff.Xcoff.FileHeader32)) : Ref<internal.xcoff.Xcoff.FileHeader32>);
                     {
                         var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_fhdr));
                         if (_err != null) {
@@ -1865,7 +1865,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                     _opthdr = _fhdr.fopthdr;
                     _hdrsz = (20 : GoInt);
                 } else if (__value__ == ((503 : GoUInt16))) {
-                    var _fhdr = (Go.setRef(({} : FileHeader64)) : Ref<FileHeader64>);
+                    var _fhdr = (Go.setRef(({} : internal.xcoff.Xcoff.FileHeader64)) : Ref<internal.xcoff.Xcoff.FileHeader64>);
                     {
                         var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_fhdr));
                         if (_err != null) {
@@ -1879,12 +1879,12 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                     _hdrsz = (24 : GoInt);
                 };
             };
-            if ((_symptr == ("0" : GoUInt64)) || (_nsyms <= (0 : GoInt32))) {
+            if ((_symptr == (0i64 : GoUInt64)) || (_nsyms <= (0 : GoInt32))) {
                 return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("no symbol table" : GoString)) };
             };
-            var _offset:GoUInt64 = _symptr + ((_nsyms : GoUInt64) * (("18" : GoUInt64) : GoUInt64));
+            var _offset:GoUInt64 = _symptr + ((_nsyms : GoUInt64) * (18i64 : GoUInt64));
             {
-                var __tmp__ = _sr.seek((_offset : GoInt64), (0 : GoInt)), _1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = _sr.seek((_offset : GoInt64), (0 : GoInt)), __1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
@@ -1896,7 +1896,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                     return { _0 : null, _1 : _err };
                 };
             };
-            if (_l > ("4" : GoUInt32)) {
+            if (_l > (4u32 : GoUInt32)) {
                 var __tmp__ = internal.saferio.Saferio.readDataAt(Go.asInterface(_sr), (_l : GoUInt64), (_offset : GoInt64)), _st:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
@@ -1904,21 +1904,21 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                 _f.stringTable = _st;
             };
             {
-                var __tmp__ = _sr.seek((_hdrsz : GoInt64) + (_opthdr : GoInt64), (0 : GoInt)), _2:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = _sr.seek((_hdrsz : GoInt64) + (_opthdr : GoInt64), (0 : GoInt)), __2:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
             };
-            _f.sections = new Slice<Ref<Section>>((_nscns : GoInt).toBasic(), 0, ...[for (i in 0 ... (_nscns : GoInt).toBasic()) (null : Ref<Section>)]);
+            _f.sections = new Slice<Ref<internal.xcoff.Xcoff.Section>>((_nscns : GoInt).toBasic(), 0, ...[for (i in 0 ... (_nscns : GoInt).toBasic()) (null : Ref<internal.xcoff.Xcoff.Section>)]);
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < (_nscns : GoInt), _i++, {
                     var _scnptr:GoUInt64 = (0 : GoUInt64);
-                    var _s = (Go.setRef(({} : Section)) : Ref<Section>);
+                    var _s = (Go.setRef(({} : internal.xcoff.Xcoff.Section)) : Ref<internal.xcoff.Xcoff.Section>);
                     {
                         final __value__ = _f.fileHeader.targetMachine;
                         if (__value__ == ((479 : GoUInt16))) {
-                            var _shdr = (Go.setRef(({} : SectionHeader32)) : Ref<SectionHeader32>);
+                            var _shdr = (Go.setRef(({} : internal.xcoff.Xcoff.SectionHeader32)) : Ref<internal.xcoff.Xcoff.SectionHeader32>);
                             {
                                 var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_shdr));
                                 if (_err != null) {
@@ -1933,7 +1933,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                             _s.sectionHeader.relptr = (_shdr.srelptr : GoUInt64);
                             _s.sectionHeader.nreloc = (_shdr.snreloc : GoUInt32);
                         } else if (__value__ == ((503 : GoUInt16))) {
-                            var _shdr = (Go.setRef(({} : SectionHeader64)) : Ref<SectionHeader64>);
+                            var _shdr = (Go.setRef(({} : internal.xcoff.Xcoff.SectionHeader64)) : Ref<internal.xcoff.Xcoff.SectionHeader64>);
                             {
                                 var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_shdr));
                                 if (_err != null) {
@@ -1950,7 +1950,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                         };
                     };
                     var _r2:stdgo.io.Io.ReaderAt = _r;
-                    if (_scnptr == (("0" : GoUInt64))) {
+                    if (_scnptr == ((0i64 : GoUInt64))) {
                         _r2 = Go.asInterface((new T_zeroReaderAt() : T_zeroReaderAt));
                     };
                     _s._sr = stdgo.io.Io.newSectionReader(_r2, (_scnptr : GoInt64), (_s.sectionHeader.size : GoInt64));
@@ -1958,24 +1958,24 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                     _f.sections[(_i : GoInt)] = _s;
                 });
             };
-            var _idxToSym:GoMap<GoInt, Ref<Symbol>> = (new GoObjectMap<GoInt, Ref<Symbol>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Symbol", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "sectionNumber", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "storageClass", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "auxFcn", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("AuxiliaryFcn", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "size", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "auxCSect", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("AuxiliaryCSect", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "length_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "storageMappingClass", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "symbolType", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<GoInt, Ref<Symbol>>);
+            var _idxToSym:GoMap<GoInt, Ref<internal.xcoff.Xcoff.Symbol>> = (new GoObjectMap<GoInt, Ref<internal.xcoff.Xcoff.Symbol>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("internal.xcoff.Xcoff.Symbol", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "sectionNumber", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "storageClass", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "auxFcn", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("internal.xcoff.Xcoff.AuxiliaryFcn", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "size", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "auxCSect", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("internal.xcoff.Xcoff.AuxiliaryCSect", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "length_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "storageMappingClass", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "symbolType", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<GoInt, Ref<internal.xcoff.Xcoff.Symbol>>);
             {
-                var __tmp__ = _sr.seek((_symptr : GoInt64), (0 : GoInt)), _3:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = _sr.seek((_symptr : GoInt64), (0 : GoInt)), __3:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
             };
-            _f.symbols = new Slice<Ref<Symbol>>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : Ref<Symbol>)]);
+            _f.symbols = new Slice<Ref<internal.xcoff.Xcoff.Symbol>>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : Ref<internal.xcoff.Xcoff.Symbol>)]);
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < (_nsyms : GoInt), _i++, {
                     var _numaux:GoInt = (0 : GoInt);
-                    var _0:Bool = false, _1:Bool = false, _needAuxFcn:Bool = _1, _ok:Bool = _0;
-                    var _sym = (Go.setRef(({} : Symbol)) : Ref<Symbol>);
+                    var __0:Bool = false, __1:Bool = false, _needAuxFcn:Bool = __1, _ok:Bool = __0;
+                    var _sym = (Go.setRef(({} : internal.xcoff.Xcoff.Symbol)) : Ref<internal.xcoff.Xcoff.Symbol>);
                     {
                         final __value__ = _f.fileHeader.targetMachine;
                         if (__value__ == ((479 : GoUInt16))) {
-                            var _se = (Go.setRef(({} : SymEnt32)) : Ref<SymEnt32>);
+                            var _se = (Go.setRef(({} : internal.xcoff.Xcoff.SymEnt32)) : Ref<internal.xcoff.Xcoff.SymEnt32>);
                             {
                                 var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_se));
                                 if (_err != null) {
@@ -1991,7 +1991,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                             _sym.value = (_se.nvalue : GoUInt64);
                             _needAuxFcn = ((_se.ntype & (32 : GoUInt16)) != (0 : GoUInt16)) && (_numaux > (1 : GoInt));
                             var _zeroes:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_se.nname.__slice__(0, (4 : GoInt)) : Slice<GoUInt8>));
-                            if (_zeroes != (("0" : GoUInt32))) {
+                            if (_zeroes != ((0u32 : GoUInt32))) {
                                 _sym.name = _cstring((_se.nname.__slice__(0) : Slice<GoUInt8>));
                             } else {
                                 var _offset:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_se.nname.__slice__((4 : GoInt)) : Slice<GoUInt8>));
@@ -2005,7 +2005,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                                 };
                             };
                         } else if (__value__ == ((503 : GoUInt16))) {
-                            var _se = (Go.setRef(({} : SymEnt64)) : Ref<SymEnt64>);
+                            var _se = (Go.setRef(({} : internal.xcoff.Xcoff.SymEnt64)) : Ref<internal.xcoff.Xcoff.SymEnt64>);
                             {
                                 var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_se));
                                 if (_err != null) {
@@ -2040,7 +2040,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                         @:goto "skip";
                     };
                     if (_sym.sectionNumber == ((0 : GoInt))) {
-                        _sym.value = ("0" : GoUInt64);
+                        _sym.value = (0i64 : GoUInt64);
                     } else {
                         _sym.value = _sym.value - (_f.sections[(_sym.sectionNumber - (1 : GoInt) : GoInt)].sectionHeader.virtualAddress);
                     };
@@ -2049,7 +2049,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                         {
                             final __value__ = _f.fileHeader.targetMachine;
                             if (__value__ == ((479 : GoUInt16))) {
-                                var _aux = (Go.setRef(({} : AuxFcn32)) : Ref<AuxFcn32>);
+                                var _aux = (Go.setRef(({} : internal.xcoff.Xcoff.AuxFcn32)) : Ref<internal.xcoff.Xcoff.AuxFcn32>);
                                 {
                                     var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
                                     if (_err != null) {
@@ -2058,7 +2058,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                                 };
                                 _sym.auxFcn.size = (_aux.xfsize : GoInt64);
                             } else if (__value__ == ((503 : GoUInt16))) {
-                                var _aux = (Go.setRef(({} : AuxFcn64)) : Ref<AuxFcn64>);
+                                var _aux = (Go.setRef(({} : internal.xcoff.Xcoff.AuxFcn64)) : Ref<internal.xcoff.Xcoff.AuxFcn64>);
                                 {
                                     var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
                                     if (_err != null) {
@@ -2071,7 +2071,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                     };
                     if (!_needAuxFcn) {
                         {
-                            var __tmp__ = _sr.seek((_numaux - (1 : GoInt) : GoInt64) * ("18" : GoInt64), (1 : GoInt)), _4:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                            var __tmp__ = _sr.seek((_numaux - (1 : GoInt) : GoInt64) * (18i64 : GoInt64), (1 : GoInt)), __4:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
@@ -2082,7 +2082,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                     {
                         final __value__ = _f.fileHeader.targetMachine;
                         if (__value__ == ((479 : GoUInt16))) {
-                            var _aux = (Go.setRef(({} : AuxCSect32)) : Ref<AuxCSect32>);
+                            var _aux = (Go.setRef(({} : internal.xcoff.Xcoff.AuxCSect32)) : Ref<internal.xcoff.Xcoff.AuxCSect32>);
                             {
                                 var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
                                 if (_err != null) {
@@ -2093,7 +2093,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                             _sym.auxCSect.storageMappingClass = (_aux.xsmclas : GoInt);
                             _sym.auxCSect.length_ = (_aux.xscnlen : GoInt64);
                         } else if (__value__ == ((503 : GoUInt16))) {
-                            var _aux = (Go.setRef(({} : AuxCSect64)) : Ref<AuxCSect64>);
+                            var _aux = (Go.setRef(({} : internal.xcoff.Xcoff.AuxCSect64)) : Ref<internal.xcoff.Xcoff.AuxCSect64>);
                             {
                                 var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_aux));
                                 if (_err != null) {
@@ -2102,40 +2102,40 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                             };
                             _sym.auxCSect.symbolType = (_aux.xsmtyp & (7 : GoUInt8) : GoInt);
                             _sym.auxCSect.storageMappingClass = (_aux.xsmclas : GoInt);
-                            _sym.auxCSect.length_ = ((_aux.xscnlenhi : GoInt64) << (("32" : GoUInt64) : GoUInt64)) | (_aux.xscnlenlo : GoInt64);
+                            _sym.auxCSect.length_ = ((_aux.xscnlenhi : GoInt64) << (32i64 : GoUInt64)) | (_aux.xscnlenlo : GoInt64);
                         };
                     };
                     _f.symbols = _f.symbols.__appendref__(_sym);
                     @:label("skip") _i = _i + (_numaux);
                     {
-                        var __tmp__ = _sr.seek((_numaux : GoInt64) * ("18" : GoInt64), (1 : GoInt)), _5:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                        var __tmp__ = _sr.seek((_numaux : GoInt64) * (18i64 : GoInt64), (1 : GoInt)), __5:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };
                     };
                 });
             };
-            for (_6 => _sect in _f.sections) {
-                if ((_sect.sectionHeader.type != ("32" : GoUInt32)) && (_sect.sectionHeader.type != ("64" : GoUInt32))) {
+            for (__6 => _sect in _f.sections) {
+                if ((_sect.sectionHeader.type != (32u32 : GoUInt32)) && (_sect.sectionHeader.type != (64u32 : GoUInt32))) {
                     continue;
                 };
-                _sect.relocs = new Slice<Reloc>((_sect.sectionHeader.nreloc : GoInt).toBasic(), 0, ...[for (i in 0 ... (_sect.sectionHeader.nreloc : GoInt).toBasic()) ({} : Reloc)]);
-                if (_sect.sectionHeader.relptr == (("0" : GoUInt64))) {
+                _sect.relocs = new Slice<internal.xcoff.Xcoff.Reloc>((_sect.sectionHeader.nreloc : GoInt).toBasic(), 0, ...[for (i in 0 ... (_sect.sectionHeader.nreloc : GoInt).toBasic()) ({} : internal.xcoff.Xcoff.Reloc)]);
+                if (_sect.sectionHeader.relptr == ((0i64 : GoUInt64))) {
                     continue;
                 };
                 {
-                    var __tmp__ = _sr.seek((_sect.sectionHeader.relptr : GoInt64), (0 : GoInt)), _7:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+                    var __tmp__ = _sr.seek((_sect.sectionHeader.relptr : GoInt64), (0 : GoInt)), __7:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                     if (_err != null) {
                         return { _0 : null, _1 : _err };
                     };
                 };
                 {
-                    var _i:GoUInt32 = (("0" : GoUInt32) : GoUInt32);
+                    var _i:GoUInt32 = (0u32 : GoUInt32);
                     Go.cfor(_i < _sect.sectionHeader.nreloc, _i++, {
                         {
                             final __value__ = _f.fileHeader.targetMachine;
                             if (__value__ == ((479 : GoUInt16))) {
-                                var _rel = (Go.setRef(({} : Reloc32)) : Ref<Reloc32>);
+                                var _rel = (Go.setRef(({} : internal.xcoff.Xcoff.Reloc32)) : Ref<internal.xcoff.Xcoff.Reloc32>);
                                 {
                                     var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_rel));
                                     if (_err != null) {
@@ -2153,7 +2153,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
                                     _sect.relocs[(_i : GoInt)].instructionFixed = true;
                                 };
                             } else if (__value__ == ((503 : GoUInt16))) {
-                                var _rel = (Go.setRef(({} : Reloc64)) : Ref<Reloc64>);
+                                var _rel = (Go.setRef(({} : internal.xcoff.Xcoff.Reloc64)) : Ref<internal.xcoff.Xcoff.Reloc64>);
                                 {
                                     var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_rel));
                                     if (_err != null) {
@@ -2177,6 +2177,7 @@ function newFile(_r:stdgo.io.Io.ReaderAt):{ var _0 : Ref<File>; var _1 : Error; 
             };
             return { _0 : _f, _1 : (null : Error) };
         });
+        throw "controlFlow did not return";
     }
 class Archive_asInterface {
     /**
@@ -2209,7 +2210,7 @@ class Archive_asInterface {
     **/
     @:keep
     static public function getFile( _arch:Ref<Archive>, _name:GoString):{ var _0 : Ref<File>; var _1 : Error; } {
-        for (_0 => _mem in _arch.members) {
+        for (__0 => _mem in _arch.members) {
             if (_mem.memberHeader.name == (_name)) {
                 return newFile(Go.asInterface(_mem._sr));
             };
@@ -2266,7 +2267,7 @@ class Section_asInterface {
     @:keep
     static public function data( _s:Ref<Section>):{ var _0 : Slice<GoByte>; var _1 : Error; } {
         var _dat = new Slice<GoUInt8>((_s._sr.size() : GoInt).toBasic(), 0, ...[for (i in 0 ... (_s._sr.size() : GoInt).toBasic()) (0 : GoUInt8)]);
-        var __tmp__ = _s._sr.readAt(_dat, ("0" : GoInt64)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _s._sr.readAt(_dat, (0i64 : GoInt64)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_n == ((_dat.length))) {
             _err = (null : Error);
         };
@@ -2341,7 +2342,7 @@ class File_asInterface {
     **/
     @:keep
     static public function importedLibraries( _f:Ref<File>):{ var _0 : Slice<GoString>; var _1 : Error; } {
-        var _s = _f.sectionByType(("4096" : GoUInt32));
+        var _s = _f.sectionByType((4096u32 : GoUInt32));
         if (_s == null || (_s : Dynamic).__nil__) {
             return { _0 : (null : Slice<GoString>), _1 : (null : Error) };
         };
@@ -2356,14 +2357,14 @@ class File_asInterface {
     **/
     @:keep
     static public function importedSymbols( _f:Ref<File>):{ var _0 : Slice<ImportedSymbol>; var _1 : Error; } {
-        var _s = _f.sectionByType(("4096" : GoUInt32));
+        var _s = _f.sectionByType((4096u32 : GoUInt32));
         if (_s == null || (_s : Dynamic).__nil__) {
-            return { _0 : (null : Slice<ImportedSymbol>), _1 : (null : Error) };
+            return { _0 : (null : Slice<internal.xcoff.Xcoff.ImportedSymbol>), _1 : (null : Error) };
         };
         {
-            var __tmp__ = _s._sr.seek(("0" : GoInt64), (0 : GoInt)), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _s._sr.seek((0i64 : GoInt64), (0 : GoInt)), __0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                return { _0 : (null : Slice<internal.xcoff.Xcoff.ImportedSymbol>), _1 : _err };
             };
         };
         var _stlen:GoUInt32 = (0 : GoUInt32);
@@ -2373,23 +2374,23 @@ class File_asInterface {
         {
             final __value__ = _f.fileHeader.targetMachine;
             if (__value__ == ((479 : GoUInt16))) {
-                var _lhdr = (Go.setRef(({} : LoaderHeader32)) : Ref<LoaderHeader32>);
+                var _lhdr = (Go.setRef(({} : internal.xcoff.Xcoff.LoaderHeader32)) : Ref<internal.xcoff.Xcoff.LoaderHeader32>);
                 {
                     var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
                     if (_err != null) {
-                        return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                        return { _0 : (null : Slice<internal.xcoff.Xcoff.ImportedSymbol>), _1 : _err };
                     };
                 };
                 _stlen = _lhdr.lstlen;
                 _stoff = (_lhdr.lstoff : GoUInt64);
                 _nsyms = _lhdr.lnsyms;
-                _symoff = ("32" : GoUInt64);
+                _symoff = (32i64 : GoUInt64);
             } else if (__value__ == ((503 : GoUInt16))) {
-                var _lhdr = (Go.setRef(({} : LoaderHeader64)) : Ref<LoaderHeader64>);
+                var _lhdr = (Go.setRef(({} : internal.xcoff.Xcoff.LoaderHeader64)) : Ref<internal.xcoff.Xcoff.LoaderHeader64>);
                 {
                     var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
                     if (_err != null) {
-                        return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                        return { _0 : (null : Slice<internal.xcoff.Xcoff.ImportedSymbol>), _1 : _err };
                     };
                 };
                 _stlen = _lhdr.lstlen;
@@ -2399,29 +2400,29 @@ class File_asInterface {
             };
         };
         {
-            var __tmp__ = _s._sr.seek((_stoff : GoInt64), (0 : GoInt)), _1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _s._sr.seek((_stoff : GoInt64), (0 : GoInt)), __1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                return { _0 : (null : Slice<internal.xcoff.Xcoff.ImportedSymbol>), _1 : _err };
             };
         };
         var _st = new Slice<GoUInt8>((_stlen : GoInt).toBasic(), 0, ...[for (i in 0 ... (_stlen : GoInt).toBasic()) (0 : GoUInt8)]);
         {
-            var __tmp__ = stdgo.io.Io.readFull(Go.asInterface(_s._sr), _st), _2:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.io.Io.readFull(Go.asInterface(_s._sr), _st), __2:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                return { _0 : (null : Slice<internal.xcoff.Xcoff.ImportedSymbol>), _1 : _err };
             };
         };
         var __tmp__ = _f._readImportIDs(_s), _libs:Slice<GoString> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+            return { _0 : (null : Slice<internal.xcoff.Xcoff.ImportedSymbol>), _1 : _err };
         };
         {
-            var __tmp__ = _s._sr.seek((_symoff : GoInt64), (0 : GoInt)), _3:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _s._sr.seek((_symoff : GoInt64), (0 : GoInt)), __3:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                return { _0 : (null : Slice<internal.xcoff.Xcoff.ImportedSymbol>), _1 : _err };
             };
         };
-        var _all = new Slice<ImportedSymbol>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) ({} : ImportedSymbol)]);
+        var _all = new Slice<internal.xcoff.Xcoff.ImportedSymbol>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) ({} : internal.xcoff.Xcoff.ImportedSymbol)]);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_nsyms : GoInt), _i++, {
@@ -2431,18 +2432,18 @@ class File_asInterface {
                 {
                     final __value__ = _f.fileHeader.targetMachine;
                     if (__value__ == ((479 : GoUInt16))) {
-                        var _ldsym = (Go.setRef(({} : LoaderSymbol32)) : Ref<LoaderSymbol32>);
+                        var _ldsym = (Go.setRef(({} : internal.xcoff.Xcoff.LoaderSymbol32)) : Ref<internal.xcoff.Xcoff.LoaderSymbol32>);
                         {
                             var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_ldsym));
                             if (_err != null) {
-                                return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                                return { _0 : (null : Slice<internal.xcoff.Xcoff.ImportedSymbol>), _1 : _err };
                             };
                         };
                         if (_ldsym.lsmtype & (64 : GoInt8) == ((0 : GoInt8))) {
                             continue;
                         };
                         var _zeroes:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_ldsym.lname.__slice__(0, (4 : GoInt)) : Slice<GoUInt8>));
-                        if (_zeroes != (("0" : GoUInt32))) {
+                        if (_zeroes != ((0u32 : GoUInt32))) {
                             _name = _cstring((_ldsym.lname.__slice__(0) : Slice<GoUInt8>));
                         } else {
                             var _offset:GoUInt32 = stdgo.encoding.binary.Binary.bigEndian.uint32((_ldsym.lname.__slice__((4 : GoInt)) : Slice<GoUInt8>));
@@ -2457,11 +2458,11 @@ class File_asInterface {
                         };
                         _ifile = _ldsym.lifile;
                     } else if (__value__ == ((503 : GoUInt16))) {
-                        var _ldsym = (Go.setRef(({} : LoaderSymbol64)) : Ref<LoaderSymbol64>);
+                        var _ldsym = (Go.setRef(({} : internal.xcoff.Xcoff.LoaderSymbol64)) : Ref<internal.xcoff.Xcoff.LoaderSymbol64>);
                         {
                             var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_ldsym));
                             if (_err != null) {
-                                return { _0 : (null : Slice<ImportedSymbol>), _1 : _err };
+                                return { _0 : (null : Slice<internal.xcoff.Xcoff.ImportedSymbol>), _1 : _err };
                             };
                         };
                         if (_ldsym.lsmtype & (64 : GoInt8) == ((0 : GoInt8))) {
@@ -2478,12 +2479,12 @@ class File_asInterface {
                         _ifile = _ldsym.lifile;
                     };
                 };
-                var _sym:ImportedSymbol = ({} : ImportedSymbol);
+                var _sym:ImportedSymbol = ({} : internal.xcoff.Xcoff.ImportedSymbol);
                 _sym.name = _name;
                 if ((_ifile >= (1 : GoInt32)) && ((_ifile : GoInt) <= _libs.length)) {
                     _sym.library = _libs[(_ifile - (1 : GoInt32) : GoInt)];
                 };
-                _all = _all.__appendref__(_sym.__copy__());
+                _all = _all.__appendref__(_sym?.__copy__());
             });
         };
         return { _0 : _all, _1 : (null : Error) };
@@ -2495,7 +2496,7 @@ class File_asInterface {
     @:keep
     static public function _readImportIDs( _f:Ref<File>, _s:Ref<Section>):{ var _0 : Slice<GoString>; var _1 : Error; } {
         {
-            var __tmp__ = _s._sr.seek(("0" : GoInt64), (0 : GoInt)), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _s._sr.seek((0i64 : GoInt64), (0 : GoInt)), __0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : Slice<GoString>), _1 : _err };
             };
@@ -2506,7 +2507,7 @@ class File_asInterface {
         {
             final __value__ = _f.fileHeader.targetMachine;
             if (__value__ == ((479 : GoUInt16))) {
-                var _lhdr = (Go.setRef(({} : LoaderHeader32)) : Ref<LoaderHeader32>);
+                var _lhdr = (Go.setRef(({} : internal.xcoff.Xcoff.LoaderHeader32)) : Ref<internal.xcoff.Xcoff.LoaderHeader32>);
                 {
                     var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
                     if (_err != null) {
@@ -2517,7 +2518,7 @@ class File_asInterface {
                 _nimpid = _lhdr.lnimpid;
                 _impoff = (_lhdr.limpoff : GoUInt64);
             } else if (__value__ == ((503 : GoUInt16))) {
-                var _lhdr = (Go.setRef(({} : LoaderHeader64)) : Ref<LoaderHeader64>);
+                var _lhdr = (Go.setRef(({} : internal.xcoff.Xcoff.LoaderHeader64)) : Ref<internal.xcoff.Xcoff.LoaderHeader64>);
                 {
                     var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_s._sr), Go.asInterface(stdgo.encoding.binary.Binary.bigEndian), Go.toInterface(_lhdr));
                     if (_err != null) {
@@ -2530,14 +2531,14 @@ class File_asInterface {
             };
         };
         {
-            var __tmp__ = _s._sr.seek((_impoff : GoInt64), (0 : GoInt)), _1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _s._sr.seek((_impoff : GoInt64), (0 : GoInt)), __1:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : Slice<GoString>), _1 : _err };
             };
         };
         var _table = new Slice<GoUInt8>((_istlen : GoInt).toBasic(), 0, ...[for (i in 0 ... (_istlen : GoInt).toBasic()) (0 : GoUInt8)]);
         {
-            var __tmp__ = stdgo.io.Io.readFull(Go.asInterface(_s._sr), _table), _2:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.io.Io.readFull(Go.asInterface(_s._sr), _table), __2:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : Slice<GoString>), _1 : _err };
             };
@@ -2569,10 +2570,10 @@ class File_asInterface {
     }
     @:keep
     static public function dwarf( _f:Ref<File>):{ var _0 : Ref<stdgo.debug.dwarf.Dwarf.Data>; var _1 : Error; } {
-        var _subtypes:GoArray<GoUInt32> = (new GoArray<GoUInt32>(("393216" : GoUInt32), ("65536" : GoUInt32), ("131072" : GoUInt32), ("524288" : GoUInt32), ("458752" : GoUInt32)) : GoArray<GoUInt32>);
+        var _subtypes:GoArray<GoUInt32> = (new GoArray<GoUInt32>((393216u32 : GoUInt32), (65536u32 : GoUInt32), (131072u32 : GoUInt32), (524288u32 : GoUInt32), (458752u32 : GoUInt32)) : GoArray<GoUInt32>);
         var _dat:GoArray<Slice<GoByte>> = new GoArray<Slice<GoUInt8>>(...[for (i in 0 ... 5) (null : Slice<GoUInt8>)]);
         for (_i => _subtype in _subtypes) {
-            var _s = _f.sectionByType(("16" : GoUInt32) | _subtype);
+            var _s = _f.sectionByType((16u32 : GoUInt32) | _subtype);
             if (_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) {
                 var __tmp__ = _s.data(), _b:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
                 if ((_err != null) && ((_b.length : GoUInt64) < _s.sectionHeader.size)) {
@@ -2581,7 +2582,7 @@ class File_asInterface {
                 _dat[(_i : GoInt)] = _b;
             };
         };
-        var _0 = _dat[(0 : GoInt)], _1 = _dat[(1 : GoInt)], _2 = _dat[(2 : GoInt)], _3 = _dat[(3 : GoInt)], _4 = _dat[(4 : GoInt)], _str = _4, _ranges = _3, _line = _2, _info = _1, _abbrev = _0;
+        var __0 = _dat[(0 : GoInt)], __1 = _dat[(1 : GoInt)], __2 = _dat[(2 : GoInt)], __3 = _dat[(3 : GoInt)], __4 = _dat[(4 : GoInt)], _str = __4, _ranges = __3, _line = __2, _info = __1, _abbrev = __0;
         return stdgo.debug.dwarf.Dwarf.new_(_abbrev, (null : Slice<GoUInt8>), (null : Slice<GoUInt8>), _info, _line, (null : Slice<GoUInt8>), _ranges, _str);
     }
     /**
@@ -2589,7 +2590,7 @@ class File_asInterface {
     **/
     @:keep
     static public function csect( _f:Ref<File>, _name:GoString):Slice<GoByte> {
-        for (_0 => _sym in _f.symbols) {
+        for (__0 => _sym in _f.symbols) {
             if ((_sym.name == _name) && (_sym.auxCSect.symbolType == (1 : GoInt))) {
                 {
                     var _i:GoInt = _sym.sectionNumber - (1 : GoInt);
@@ -2597,7 +2598,7 @@ class File_asInterface {
                         var _s = _f.sections[(_i : GoInt)];
                         if ((_sym.value + (_sym.auxCSect.length_ : GoUInt64)) <= _s.sectionHeader.size) {
                             var _dat = new Slice<GoUInt8>((_sym.auxCSect.length_ : GoInt).toBasic(), 0, ...[for (i in 0 ... (_sym.auxCSect.length_ : GoInt).toBasic()) (0 : GoUInt8)]);
-                            var __tmp__ = _s._sr.readAt(_dat, (_sym.value : GoInt64)), _1:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+                            var __tmp__ = _s._sr.readAt(_dat, (_sym.value : GoInt64)), __1:GoInt = __tmp__._0, _err:Error = __tmp__._1;
                             if (_err != null) {
                                 return (null : Slice<GoUInt8>);
                             };
@@ -2616,7 +2617,7 @@ class File_asInterface {
     **/
     @:keep
     static public function sectionByType( _f:Ref<File>, _typ:GoUInt32):Ref<Section> {
-        for (_0 => _s in _f.sections) {
+        for (__0 => _s in _f.sections) {
             if (_s.sectionHeader.type == (_typ)) {
                 return _s;
             };
@@ -2631,7 +2632,7 @@ class File_asInterface {
     **/
     @:keep
     static public function section( _f:Ref<File>, _name:GoString):Ref<Section> {
-        for (_0 => _s in _f.sections) {
+        for (__0 => _s in _f.sections) {
             if ((_s.sectionHeader.name == _name) || ((_name.length > (8 : GoInt)) && (_s.sectionHeader.name == (_name.__slice__(0, (8 : GoInt)) : GoString)))) {
                 return _s;
             };

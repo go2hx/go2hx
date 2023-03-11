@@ -105,12 +105,12 @@ var goarm = _goarm();
 **/
 var experiment : ExperimentFlags = {
         var a = function():ExperimentFlags {
-            var __tmp__ = parseGOEXPERIMENT(goos, goarch, _envOr(("GOEXPERIMENT" : GoString), Go.str())), _flags:Ref<ExperimentFlags> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = parseGOEXPERIMENT(goos, goarch, _envOr(("GOEXPERIMENT" : GoString), Go.str())), _flags:Ref<internal.buildcfg.Buildcfg.ExperimentFlags> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 error = _err;
                 return (new ExperimentFlags() : ExperimentFlags);
             };
-            return (_flags : ExperimentFlags).__copy__();
+            return (_flags : internal.buildcfg.Buildcfg.ExperimentFlags)?.__copy__();
         };
         a();
     };
@@ -355,8 +355,8 @@ private function _goppc64():GoInt {
         return (("power8" : GoString)[(("power" : GoString).length : GoInt)] - (48 : GoUInt8) : GoInt);
     }
 private function _gowasm():T_gowasmFeatures {
-        var _f:T_gowasmFeatures = ({} : T_gowasmFeatures);
-        for (_0 => _opt in stdgo.strings.Strings.split(_envOr(("GOWASM" : GoString), Go.str()), ("," : GoString))) {
+        var _f:T_gowasmFeatures = ({} : internal.buildcfg.Buildcfg.T_gowasmFeatures);
+        for (__0 => _opt in stdgo.strings.Strings.split(_envOr(("GOWASM" : GoString), Go.str()), ("," : GoString))) {
             {
                 final __value__ = _opt;
                 if (__value__ == (("satconv" : GoString))) {
@@ -380,7 +380,7 @@ private function _toolTags():Slice<GoString> {
     }
 private function _experimentTags():Slice<GoString> {
         var _list:Slice<GoString> = (null : Slice<GoString>);
-        for (_0 => _exp in experiment.enabled()) {
+        for (__0 => _exp in experiment.enabled()) {
             _list = _list.__appendref__(("goexperiment." : GoString) + _exp);
         };
         return _list;
@@ -468,7 +468,7 @@ private function _gogoarchTags():Slice<GoString> {
     // TODO(mdempsky): Move to internal/goexperiment.
 **/
 function parseGOEXPERIMENT(_goos:GoString, _goarch:GoString, _goexp:GoString):{ var _0 : Ref<ExperimentFlags>; var _1 : Error; } {
-        var _0:Bool = false, _1:Bool = false, _regabiAlwaysOn:Bool = _1, _regabiSupported:Bool = _0;
+        var __0:Bool = false, __1:Bool = false, _regabiAlwaysOn:Bool = __1, _regabiSupported:Bool = __0;
         {
             final __value__ = _goarch;
             if (__value__ == (("amd64" : GoString)) || __value__ == (("arm64" : GoString)) || __value__ == (("ppc64le" : GoString)) || __value__ == (("ppc64" : GoString)) || __value__ == (("riscv64" : GoString))) {
@@ -477,15 +477,15 @@ function parseGOEXPERIMENT(_goos:GoString, _goarch:GoString, _goexp:GoString):{ 
             };
         };
         var _baseline:internal.goexperiment.Goexperiment.Flags = ({ unified : true, regabiWrappers : _regabiSupported, regabiArgs : _regabiSupported, coverageRedesign : true } : internal.goexperiment.Goexperiment.Flags);
-        var _flags = (Go.setRef(({ flags : _baseline.__copy__(), _baseline : _baseline.__copy__() } : ExperimentFlags)) : Ref<ExperimentFlags>);
+        var _flags = (Go.setRef(({ flags : _baseline?.__copy__(), _baseline : _baseline?.__copy__() } : ExperimentFlags)) : Ref<internal.buildcfg.Buildcfg.ExperimentFlags>);
         if (_goexp != (Go.str())) {
             var _names = (new GoObjectMap<GoString, Bool -> Void>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.signature(false, { get : () -> null }, { get : () -> null }, { get : () -> null }) }))) : GoMap<GoString, Bool -> Void>);
-            var _rv:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(Go.toInterface((Go.setRef(_flags.flags) : Ref<internal.goexperiment.Goexperiment.Flags>))).elem().__copy__();
+            var _rv:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(Go.toInterface((Go.setRef(_flags.flags) : Ref<internal.goexperiment.Goexperiment.Flags>))).elem()?.__copy__();
             var _rt:stdgo.reflect.Reflect.Type = _rv.type();
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < _rt.numField(), _i++, {
-                    var _field:stdgo.reflect.Reflect.Value = _rv.field(_i).__copy__();
+                    var _field:stdgo.reflect.Reflect.Value = _rv.field(_i)?.__copy__();
                     _names[stdgo.strings.Strings.toLower(_rt.field(_i).name)] = _field.setBool;
                 });
             };
@@ -493,7 +493,7 @@ function parseGOEXPERIMENT(_goos:GoString, _goarch:GoString, _goexp:GoString):{ 
                 _flags.flags.regabiWrappers = _v;
                 _flags.flags.regabiArgs = _v;
             };
-            for (_0 => _f in stdgo.strings.Strings.split(_goexp, ("," : GoString))) {
+            for (__0 => _f in stdgo.strings.Strings.split(_goexp, ("," : GoString))) {
                 if (_f == (Go.str())) {
                     continue;
                 };
@@ -538,10 +538,10 @@ function parseGOEXPERIMENT(_goos:GoString, _goarch:GoString, _goexp:GoString):{ 
 **/
 private function _expList(_exp:Ref<internal.goexperiment.Goexperiment.Flags>, _base:Ref<internal.goexperiment.Goexperiment.Flags>, _all:Bool):Slice<GoString> {
         var _list:Slice<GoString> = (null : Slice<GoString>);
-        var _rv:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(Go.toInterface(_exp)).elem().__copy__();
+        var _rv:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(Go.toInterface(_exp)).elem()?.__copy__();
         var _rBase:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
         if (_base != null && ((_base : Dynamic).__nil__ == null || !(_base : Dynamic).__nil__)) {
-            _rBase = stdgo.reflect.Reflect.valueOf(Go.toInterface(_base)).elem().__copy__();
+            _rBase = stdgo.reflect.Reflect.valueOf(Go.toInterface(_base)).elem()?.__copy__();
         };
         var _rt:stdgo.reflect.Reflect.Type = _rv.type();
         {

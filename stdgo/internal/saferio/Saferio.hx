@@ -22,7 +22,7 @@ private var __go2hxdoc__package : Bool;
     
     // 10M
 **/
-private final _chunk = ("10485760" : GoUInt64);
+private final _chunk = (10485760i64 : GoUInt64);
 /**
     // ReadData reads n bytes from the input stream, but avoids allocating
     // all n bytes if n is large. This avoids crashing the program by
@@ -33,12 +33,12 @@ private final _chunk = ("10485760" : GoUInt64);
     // ReadData returns io.ErrUnexpectedEOF.
 **/
 function readData(_r:stdgo.io.Io.Reader, _n:GoUInt64):{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        if (((_n : GoInt64) < (("0" : GoInt64) : GoInt64)) || (_n != ((_n : GoInt) : GoUInt64))) {
+        if (((_n : GoInt64) < (0i64 : GoInt64)) || (_n != ((_n : GoInt) : GoUInt64))) {
             return { _0 : (null : Slice<GoUInt8>), _1 : stdgo.io.Io.errUnexpectedEOF };
         };
-        if (_n < ("10485760" : GoUInt64)) {
+        if (_n < (10485760i64 : GoUInt64)) {
             var _buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt8)]);
-            var __tmp__ = stdgo.io.Io.readFull(_r, _buf), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.io.Io.readFull(_r, _buf), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : Slice<GoUInt8>), _1 : _err };
             };
@@ -46,12 +46,12 @@ function readData(_r:stdgo.io.Io.Reader, _n:GoUInt64):{ var _0 : Slice<GoByte>; 
         };
         var _buf:Slice<GoByte> = (null : Slice<GoUInt8>);
         var _buf1 = new Slice<GoUInt8>((10485760 : GoInt).toBasic(), 0, ...[for (i in 0 ... (10485760 : GoInt).toBasic()) (0 : GoUInt8)]);
-        while (_n > ("0" : GoUInt64)) {
+        while (_n > (0i64 : GoUInt64)) {
             var _next:GoUInt64 = _n;
-            if (_next > ("10485760" : GoUInt64)) {
-                _next = ("10485760" : GoUInt64);
+            if (_next > (10485760i64 : GoUInt64)) {
+                _next = (10485760i64 : GoUInt64);
             };
-            var __tmp__ = stdgo.io.Io.readFull(_r, (_buf1.__slice__(0, _next) : Slice<GoUInt8>)), _1:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.io.Io.readFull(_r, (_buf1.__slice__(0, _next) : Slice<GoUInt8>)), __1:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 if ((_buf.length > (0 : GoInt)) && (Go.toInterface(_err) == Go.toInterface(stdgo.io.Io.eof))) {
                     _err = stdgo.io.Io.errUnexpectedEOF;
@@ -69,14 +69,14 @@ function readData(_r:stdgo.io.Io.Reader, _n:GoUInt64):{ var _0 : Slice<GoByte>; 
     // by allocating all n bytes in cases where n is incorrect.
 **/
 function readDataAt(_r:stdgo.io.Io.ReaderAt, _n:GoUInt64, _off:GoInt64):{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        if (((_n : GoInt64) < (("0" : GoInt64) : GoInt64)) || (_n != ((_n : GoInt) : GoUInt64))) {
+        if (((_n : GoInt64) < (0i64 : GoInt64)) || (_n != ((_n : GoInt) : GoUInt64))) {
             return { _0 : (null : Slice<GoUInt8>), _1 : stdgo.io.Io.errUnexpectedEOF };
         };
-        if (_n < ("10485760" : GoUInt64)) {
+        if (_n < (10485760i64 : GoUInt64)) {
             var _buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt8)]);
-            var __tmp__ = _r.readAt(_buf, _off), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _r.readAt(_buf, _off), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
-                if ((Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof)) || (_n > (("0" : GoUInt64) : GoUInt64))) {
+                if ((Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof)) || (_n > (0i64 : GoUInt64))) {
                     return { _0 : (null : Slice<GoUInt8>), _1 : _err };
                 };
             };
@@ -84,12 +84,12 @@ function readDataAt(_r:stdgo.io.Io.ReaderAt, _n:GoUInt64, _off:GoInt64):{ var _0
         };
         var _buf:Slice<GoByte> = (null : Slice<GoUInt8>);
         var _buf1 = new Slice<GoUInt8>((10485760 : GoInt).toBasic(), 0, ...[for (i in 0 ... (10485760 : GoInt).toBasic()) (0 : GoUInt8)]);
-        while (_n > ("0" : GoUInt64)) {
+        while (_n > (0i64 : GoUInt64)) {
             var _next:GoUInt64 = _n;
-            if (_next > ("10485760" : GoUInt64)) {
-                _next = ("10485760" : GoUInt64);
+            if (_next > (10485760i64 : GoUInt64)) {
+                _next = (10485760i64 : GoUInt64);
             };
-            var __tmp__ = _r.readAt((_buf1.__slice__(0, _next) : Slice<GoUInt8>), _off), _1:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _r.readAt((_buf1.__slice__(0, _next) : Slice<GoUInt8>), _off), __1:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : Slice<GoUInt8>), _1 : _err };
             };
@@ -113,21 +113,21 @@ function readDataAt(_r:stdgo.io.Io.ReaderAt, _n:GoUInt64, _off:GoInt64):{ var _0
     // We use a pointer so that we can handle slices of interface type.
 **/
 function sliceCap(_v:AnyInterface, _c:GoUInt64):GoInt {
-        if (((_c : GoInt64) < (("0" : GoInt64) : GoInt64)) || (_c != ((_c : GoInt) : GoUInt64))) {
+        if (((_c : GoInt64) < (0i64 : GoInt64)) || (_c != ((_c : GoInt) : GoUInt64))) {
             return (-1 : GoInt);
         };
         var _typ:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(_v);
-        if (_typ.kind() != ((("22" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+        if (_typ.kind() != ((22u32 : stdgo.reflect.Reflect.Kind))) {
             throw Go.toInterface(("SliceCap called with non-pointer type" : GoString));
         };
         var _size:GoUInt64 = (_typ.elem().size() : GoUInt64);
-        if ((_size > (("0" : GoUInt64) : GoUInt64)) && (_c > ((("18446744073709551615" : GoUInt64) : GoUInt64) / _size))) {
+        if ((_size > (0i64 : GoUInt64)) && (_c > ((-1i64 : GoUInt64) / _size))) {
             return (-1 : GoInt);
         };
-        if ((_c * _size) > ("10485760" : GoUInt64)) {
-            _c = (("10485760" : GoUInt64) / _size : GoUInt64);
-            if (_c == (("0" : GoUInt64))) {
-                _c = ("1" : GoUInt64);
+        if ((_c * _size) > (10485760i64 : GoUInt64)) {
+            _c = ((10485760i64 : GoUInt64) / _size : GoUInt64);
+            if (_c == ((0i64 : GoUInt64))) {
+                _c = (1i64 : GoUInt64);
             };
         };
         return (_c : GoInt);

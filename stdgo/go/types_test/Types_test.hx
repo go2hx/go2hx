@@ -24,6 +24,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+import stdgo.go.types.Types;
 /**
     
     
@@ -172,76 +173,76 @@ private var _errRx = stdgo.regexp.Regexp.mustCompile(("^ *ERROR *\"?([^\"]*)\"?"
 private var _testExprs = (new Slice<stdgo.go.types_test.Types_test.T_testEntry>(
 0,
 0,
-_dup(("x" : GoString)).__copy__(),
-_dup(("true" : GoString)).__copy__(),
-_dup(("42" : GoString)).__copy__(),
-_dup(("3.1415" : GoString)).__copy__(),
-_dup(("2.71828i" : GoString)).__copy__(),
-_dup(("\'a\'" : GoString)).__copy__(),
-_dup(("\"foo\"" : GoString)).__copy__(),
-_dup(("`bar`" : GoString)).__copy__(),
+_dup(("x" : GoString))?.__copy__(),
+_dup(("true" : GoString))?.__copy__(),
+_dup(("42" : GoString))?.__copy__(),
+_dup(("3.1415" : GoString))?.__copy__(),
+_dup(("2.71828i" : GoString))?.__copy__(),
+_dup(("\'a\'" : GoString))?.__copy__(),
+_dup(("\"foo\"" : GoString))?.__copy__(),
+_dup(("`bar`" : GoString))?.__copy__(),
 (new stdgo.go.types_test.Types_test.T_testEntry(("func(){}" : GoString), ("(func() literal)" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
 (new stdgo.go.types_test.Types_test.T_testEntry(("func(x int) complex128 {}" : GoString), ("(func(x int) complex128 literal)" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
 (new stdgo.go.types_test.Types_test.T_testEntry(("[]int{1, 2, 3}" : GoString), ("[]int{…}" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
-_dup(("[1 << 10]byte" : GoString)).__copy__(),
-_dup(("[]int" : GoString)).__copy__(),
-_dup(("*int" : GoString)).__copy__(),
-_dup(("struct{x int}" : GoString)).__copy__(),
-_dup(("func()" : GoString)).__copy__(),
-_dup(("func(int, float32) string" : GoString)).__copy__(),
-_dup(("interface{m()}" : GoString)).__copy__(),
-_dup(("interface{m() string; n(x int)}" : GoString)).__copy__(),
-_dup(("interface{~int}" : GoString)).__copy__(),
-_dup(("map[string]int" : GoString)).__copy__(),
-_dup(("chan E" : GoString)).__copy__(),
-_dup(("<-chan E" : GoString)).__copy__(),
-_dup(("chan<- E" : GoString)).__copy__(),
-_dup(("interface{int}" : GoString)).__copy__(),
-_dup(("interface{~int}" : GoString)).__copy__(),
-_dup(("interface{~int}" : GoString)).__copy__(),
-_dup(("interface{int | string}" : GoString)).__copy__(),
-_dup(("interface{~int | ~string; float64; m()}" : GoString)).__copy__(),
-_dup(("interface{~T[int, string] | string}" : GoString)).__copy__(),
-_dup(("(x)" : GoString)).__copy__(),
-_dup(("x.f" : GoString)).__copy__(),
-_dup(("a[i]" : GoString)).__copy__(),
-_dup(("s[:]" : GoString)).__copy__(),
-_dup(("s[i:]" : GoString)).__copy__(),
-_dup(("s[:j]" : GoString)).__copy__(),
-_dup(("s[i:j]" : GoString)).__copy__(),
-_dup(("s[:j:k]" : GoString)).__copy__(),
-_dup(("s[i:j:k]" : GoString)).__copy__(),
-_dup(("x.(T)" : GoString)).__copy__(),
-_dup(("x.([10]int)" : GoString)).__copy__(),
-_dup(("x.([...]int)" : GoString)).__copy__(),
-_dup(("x.(struct{})" : GoString)).__copy__(),
-_dup(("x.(struct{x int; y, z float32; E})" : GoString)).__copy__(),
-_dup(("x.(func())" : GoString)).__copy__(),
-_dup(("x.(func(x int))" : GoString)).__copy__(),
-_dup(("x.(func() int)" : GoString)).__copy__(),
-_dup(("x.(func(x, y int, z float32) (r int))" : GoString)).__copy__(),
-_dup(("x.(func(a, b, c int))" : GoString)).__copy__(),
-_dup(("x.(func(x ...T))" : GoString)).__copy__(),
-_dup(("x.(interface{})" : GoString)).__copy__(),
-_dup(("x.(interface{m(); n(x int); E})" : GoString)).__copy__(),
-_dup(("x.(interface{m(); n(x int) T; E; F})" : GoString)).__copy__(),
-_dup(("x.(map[K]V)" : GoString)).__copy__(),
-_dup(("x.(chan E)" : GoString)).__copy__(),
-_dup(("x.(<-chan E)" : GoString)).__copy__(),
-_dup(("x.(chan<- chan int)" : GoString)).__copy__(),
-_dup(("x.(chan<- <-chan int)" : GoString)).__copy__(),
-_dup(("x.(<-chan chan int)" : GoString)).__copy__(),
-_dup(("x.(chan (<-chan int))" : GoString)).__copy__(),
-_dup(("f()" : GoString)).__copy__(),
-_dup(("f(x)" : GoString)).__copy__(),
-_dup(("int(x)" : GoString)).__copy__(),
-_dup(("f(x, x + y)" : GoString)).__copy__(),
-_dup(("f(s...)" : GoString)).__copy__(),
-_dup(("f(a, s...)" : GoString)).__copy__(),
-_dup(("*x" : GoString)).__copy__(),
-_dup(("&x" : GoString)).__copy__(),
-_dup(("x + y" : GoString)).__copy__(),
-_dup(("x + y << (2 * s)" : GoString)).__copy__()) : Slice<stdgo.go.types_test.Types_test.T_testEntry>);
+_dup(("[1 << 10]byte" : GoString))?.__copy__(),
+_dup(("[]int" : GoString))?.__copy__(),
+_dup(("*int" : GoString))?.__copy__(),
+_dup(("struct{x int}" : GoString))?.__copy__(),
+_dup(("func()" : GoString))?.__copy__(),
+_dup(("func(int, float32) string" : GoString))?.__copy__(),
+_dup(("interface{m()}" : GoString))?.__copy__(),
+_dup(("interface{m() string; n(x int)}" : GoString))?.__copy__(),
+_dup(("interface{~int}" : GoString))?.__copy__(),
+_dup(("map[string]int" : GoString))?.__copy__(),
+_dup(("chan E" : GoString))?.__copy__(),
+_dup(("<-chan E" : GoString))?.__copy__(),
+_dup(("chan<- E" : GoString))?.__copy__(),
+_dup(("interface{int}" : GoString))?.__copy__(),
+_dup(("interface{~int}" : GoString))?.__copy__(),
+_dup(("interface{~int}" : GoString))?.__copy__(),
+_dup(("interface{int | string}" : GoString))?.__copy__(),
+_dup(("interface{~int | ~string; float64; m()}" : GoString))?.__copy__(),
+_dup(("interface{~T[int, string] | string}" : GoString))?.__copy__(),
+_dup(("(x)" : GoString))?.__copy__(),
+_dup(("x.f" : GoString))?.__copy__(),
+_dup(("a[i]" : GoString))?.__copy__(),
+_dup(("s[:]" : GoString))?.__copy__(),
+_dup(("s[i:]" : GoString))?.__copy__(),
+_dup(("s[:j]" : GoString))?.__copy__(),
+_dup(("s[i:j]" : GoString))?.__copy__(),
+_dup(("s[:j:k]" : GoString))?.__copy__(),
+_dup(("s[i:j:k]" : GoString))?.__copy__(),
+_dup(("x.(T)" : GoString))?.__copy__(),
+_dup(("x.([10]int)" : GoString))?.__copy__(),
+_dup(("x.([...]int)" : GoString))?.__copy__(),
+_dup(("x.(struct{})" : GoString))?.__copy__(),
+_dup(("x.(struct{x int; y, z float32; E})" : GoString))?.__copy__(),
+_dup(("x.(func())" : GoString))?.__copy__(),
+_dup(("x.(func(x int))" : GoString))?.__copy__(),
+_dup(("x.(func() int)" : GoString))?.__copy__(),
+_dup(("x.(func(x, y int, z float32) (r int))" : GoString))?.__copy__(),
+_dup(("x.(func(a, b, c int))" : GoString))?.__copy__(),
+_dup(("x.(func(x ...T))" : GoString))?.__copy__(),
+_dup(("x.(interface{})" : GoString))?.__copy__(),
+_dup(("x.(interface{m(); n(x int); E})" : GoString))?.__copy__(),
+_dup(("x.(interface{m(); n(x int) T; E; F})" : GoString))?.__copy__(),
+_dup(("x.(map[K]V)" : GoString))?.__copy__(),
+_dup(("x.(chan E)" : GoString))?.__copy__(),
+_dup(("x.(<-chan E)" : GoString))?.__copy__(),
+_dup(("x.(chan<- chan int)" : GoString))?.__copy__(),
+_dup(("x.(chan<- <-chan int)" : GoString))?.__copy__(),
+_dup(("x.(<-chan chan int)" : GoString))?.__copy__(),
+_dup(("x.(chan (<-chan int))" : GoString))?.__copy__(),
+_dup(("f()" : GoString))?.__copy__(),
+_dup(("f(x)" : GoString))?.__copy__(),
+_dup(("int(x)" : GoString))?.__copy__(),
+_dup(("f(x, x + y)" : GoString))?.__copy__(),
+_dup(("f(s...)" : GoString))?.__copy__(),
+_dup(("f(a, s...)" : GoString))?.__copy__(),
+_dup(("*x" : GoString))?.__copy__(),
+_dup(("&x" : GoString))?.__copy__(),
+_dup(("x + y" : GoString))?.__copy__(),
+_dup(("x + y << (2 * s)" : GoString))?.__copy__()) : Slice<stdgo.go.types_test.Types_test.T_testEntry>);
 /**
     
     
@@ -344,64 +345,64 @@ private var _excluded = ({
 private var _independentTestTypes = (new Slice<stdgo.go.types_test.Types_test.T_testEntry>(
 0,
 0,
-_dup(("int" : GoString)).__copy__(),
-_dup(("float32" : GoString)).__copy__(),
-_dup(("string" : GoString)).__copy__(),
-_dup(("[10]int" : GoString)).__copy__(),
-_dup(("[]int" : GoString)).__copy__(),
-_dup(("[][]int" : GoString)).__copy__(),
-_dup(("struct{}" : GoString)).__copy__(),
-_dup(("struct{x int}" : GoString)).__copy__(),
+_dup(("int" : GoString))?.__copy__(),
+_dup(("float32" : GoString))?.__copy__(),
+_dup(("string" : GoString))?.__copy__(),
+_dup(("[10]int" : GoString))?.__copy__(),
+_dup(("[]int" : GoString))?.__copy__(),
+_dup(("[][]int" : GoString))?.__copy__(),
+_dup(("struct{}" : GoString))?.__copy__(),
+_dup(("struct{x int}" : GoString))?.__copy__(),
 (new stdgo.go.types_test.Types_test.T_testEntry(("struct {\n\t\tx, y int\n\t\tz float32 \"foo\"\n\t}" : GoString), ("struct{x int; y int; z float32 \"foo\"}" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
 (new stdgo.go.types_test.Types_test.T_testEntry(("struct {\n\t\tstring\n\t\telems []complex128\n\t}" : GoString), ("struct{string; elems []complex128}" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
-_dup(("*int" : GoString)).__copy__(),
-_dup(("***struct{}" : GoString)).__copy__(),
-_dup(("*struct{a int; b float32}" : GoString)).__copy__(),
-_dup(("func()" : GoString)).__copy__(),
-_dup(("func(x int)" : GoString)).__copy__(),
+_dup(("*int" : GoString))?.__copy__(),
+_dup(("***struct{}" : GoString))?.__copy__(),
+_dup(("*struct{a int; b float32}" : GoString))?.__copy__(),
+_dup(("func()" : GoString))?.__copy__(),
+_dup(("func(x int)" : GoString))?.__copy__(),
 (new stdgo.go.types_test.Types_test.T_testEntry(("func(x, y int)" : GoString), ("func(x int, y int)" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
 (new stdgo.go.types_test.Types_test.T_testEntry(("func(x, y int, z string)" : GoString), ("func(x int, y int, z string)" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
-_dup(("func(int)" : GoString)).__copy__(),
+_dup(("func(int)" : GoString))?.__copy__(),
 (new stdgo.go.types_test.Types_test.T_testEntry(("func(int, string, byte)" : GoString), ("func(int, string, byte)" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
-_dup(("func() int" : GoString)).__copy__(),
+_dup(("func() int" : GoString))?.__copy__(),
 (new stdgo.go.types_test.Types_test.T_testEntry(("func() (string)" : GoString), ("func() string" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
-_dup(("func() (u int)" : GoString)).__copy__(),
+_dup(("func() (u int)" : GoString))?.__copy__(),
 (new stdgo.go.types_test.Types_test.T_testEntry(("func() (u, v int, w string)" : GoString), ("func() (u int, v int, w string)" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
-_dup(("func(int) string" : GoString)).__copy__(),
-_dup(("func(x int) string" : GoString)).__copy__(),
-_dup(("func(x int) (u string)" : GoString)).__copy__(),
+_dup(("func(int) string" : GoString))?.__copy__(),
+_dup(("func(x int) string" : GoString))?.__copy__(),
+_dup(("func(x int) (u string)" : GoString))?.__copy__(),
 (new stdgo.go.types_test.Types_test.T_testEntry(("func(x, y int) (u string)" : GoString), ("func(x int, y int) (u string)" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
-_dup(("func(...int) string" : GoString)).__copy__(),
-_dup(("func(x ...int) string" : GoString)).__copy__(),
-_dup(("func(x ...int) (u string)" : GoString)).__copy__(),
+_dup(("func(...int) string" : GoString))?.__copy__(),
+_dup(("func(x ...int) string" : GoString))?.__copy__(),
+_dup(("func(x ...int) (u string)" : GoString))?.__copy__(),
 (new stdgo.go.types_test.Types_test.T_testEntry(("func(x int, y ...int) (u string)" : GoString), ("func(x int, y ...int) (u string)" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
-_dup(("interface{}" : GoString)).__copy__(),
-_dup(("interface{m()}" : GoString)).__copy__(),
-_dup(("interface{String() string; m(int) float32}" : GoString)).__copy__(),
-_dup(("interface{int | float32 | complex128}" : GoString)).__copy__(),
-_dup(("interface{int | ~float32 | ~complex128}" : GoString)).__copy__(),
-_dup(("any" : GoString)).__copy__(),
-_dup(("interface{comparable}" : GoString)).__copy__(),
-_dup(("map[string]int" : GoString)).__copy__(),
+_dup(("interface{}" : GoString))?.__copy__(),
+_dup(("interface{m()}" : GoString))?.__copy__(),
+_dup(("interface{String() string; m(int) float32}" : GoString))?.__copy__(),
+_dup(("interface{int | float32 | complex128}" : GoString))?.__copy__(),
+_dup(("interface{int | ~float32 | ~complex128}" : GoString))?.__copy__(),
+_dup(("any" : GoString))?.__copy__(),
+_dup(("interface{comparable}" : GoString))?.__copy__(),
+_dup(("map[string]int" : GoString))?.__copy__(),
 (new stdgo.go.types_test.Types_test.T_testEntry(("map[struct{x, y int}][]byte" : GoString), ("map[struct{x int; y int}][]byte" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry),
-_dup(("chan<- chan int" : GoString)).__copy__(),
-_dup(("chan<- <-chan int" : GoString)).__copy__(),
-_dup(("<-chan <-chan int" : GoString)).__copy__(),
-_dup(("chan (<-chan int)" : GoString)).__copy__(),
-_dup(("chan<- func()" : GoString)).__copy__(),
-_dup(("<-chan []func() int" : GoString)).__copy__()) : Slice<stdgo.go.types_test.Types_test.T_testEntry>);
+_dup(("chan<- chan int" : GoString))?.__copy__(),
+_dup(("chan<- <-chan int" : GoString))?.__copy__(),
+_dup(("<-chan <-chan int" : GoString))?.__copy__(),
+_dup(("chan (<-chan int)" : GoString))?.__copy__(),
+_dup(("chan<- func()" : GoString))?.__copy__(),
+_dup(("<-chan []func() int" : GoString))?.__copy__()) : Slice<stdgo.go.types_test.Types_test.T_testEntry>);
 /**
     // types that depend on other type declarations (src in TestTypes)
     
     
 **/
-private var _dependentTestTypes = (new Slice<stdgo.go.types_test.Types_test.T_testEntry>(0, 0, _dup(("interface{io.Reader; io.Writer}" : GoString)).__copy__(), _dup(("interface{m() int; io.Writer}" : GoString)).__copy__(), (new stdgo.go.types_test.Types_test.T_testEntry(("interface{m() interface{T}}" : GoString), ("interface{m() interface{p.T}}" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry)) : Slice<stdgo.go.types_test.Types_test.T_testEntry>);
+private var _dependentTestTypes = (new Slice<stdgo.go.types_test.Types_test.T_testEntry>(0, 0, _dup(("interface{io.Reader; io.Writer}" : GoString))?.__copy__(), _dup(("interface{m() int; io.Writer}" : GoString))?.__copy__(), (new stdgo.go.types_test.Types_test.T_testEntry(("interface{m() interface{T}}" : GoString), ("interface{m() interface{p.T}}" : GoString)) : stdgo.go.types_test.Types_test.T_testEntry)) : Slice<stdgo.go.types_test.Types_test.T_testEntry>);
 /**
     
     
     
 **/
-private final _errorfMinArgCount = ("4" : GoUInt64);
+private final _errorfMinArgCount = (4i64 : GoUInt64);
 /**
     
     
@@ -428,8 +429,8 @@ private typedef T__interface_0 = StructType & {
 **/
 @:structInit @:private class T_recordedInstance {
     public var ident : Ref<stdgo.go.ast.Ast.Ident> = (null : Ref<stdgo.go.ast.Ast.Ident>);
-    public var inst : Instance = ({} : Instance);
-    public function new(?ident:Ref<stdgo.go.ast.Ast.Ident>, ?inst:Instance) {
+    public var inst : stdgo.go.types.Types.Instance = ({} : stdgo.go.types.Types.Instance);
+    public function new(?ident:Ref<stdgo.go.ast.Ast.Ident>, ?inst:stdgo.go.types.Types.Instance) {
         if (ident != null) this.ident = ident;
         if (inst != null) this.inst = inst;
     }
@@ -510,9 +511,9 @@ private typedef T__interface_0 = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.go.types_test.Types_test.T_importHelper_static_extension) class T_importHelper {
-    public var _pkg : Ref<Package> = (null : Ref<Package>);
-    public var _fallback : Importer = (null : Importer);
-    public function new(?_pkg:Ref<Package>, ?_fallback:Importer) {
+    public var _pkg : Ref<stdgo.go.types.Types.Package> = (null : Ref<stdgo.go.types.Types.Package>);
+    public var _fallback : stdgo.go.types.Types.Importer = (null : stdgo.go.types.Types.Importer);
+    public function new(?_pkg:Ref<stdgo.go.types.Types.Package>, ?_fallback:stdgo.go.types.Types.Importer) {
         if (_pkg != null) this._pkg = _pkg;
         if (_fallback != null) this._fallback = _fallback;
     }
@@ -527,9 +528,9 @@ private typedef T__interface_0 = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.go.types_test.Types_test.T_resolveTestImporter_static_extension) class T_resolveTestImporter {
-    public var _importer : ImporterFrom = (null : ImporterFrom);
+    public var _importer : stdgo.go.types.Types.ImporterFrom = (null : stdgo.go.types.Types.ImporterFrom);
     public var _imported : GoMap<GoString, Bool> = (null : GoMap<GoString, Bool>);
-    public function new(?_importer:ImporterFrom, ?_imported:GoMap<GoString, Bool>) {
+    public function new(?_importer:stdgo.go.types.Types.ImporterFrom, ?_imported:GoMap<GoString, Bool>) {
         if (_importer != null) this._importer = _importer;
         if (_imported != null) this._imported = _imported;
     }
@@ -756,8 +757,8 @@ class T__struct_18_asInterface {
 
 }
 @:local @:using(stdgo.go.types_test.Types_test.T__struct_18_static_extension) private typedef T__struct_18 = {
-    public var _v : Type;
-    public var _t : Type;
+    public var _v : stdgo.go.types.Types.Type;
+    public var _t : stdgo.go.types.Types.Type;
     public var _want : Bool;
 };
 class T__struct_19_asInterface {
@@ -789,8 +790,8 @@ class T__struct_20_asInterface {
 
 }
 @:local @:using(stdgo.go.types_test.Types_test.T__struct_20_static_extension) private typedef T__struct_20 = {
-    public var _x : Type;
-    public var _y : Type;
+    public var _x : stdgo.go.types.Types.Type;
+    public var _y : stdgo.go.types.Types.Type;
     public var _want : Bool;
 };
 class T__struct_21_asInterface {
@@ -840,7 +841,7 @@ class T__struct_23_asInterface {
 }
 @:local @:using(stdgo.go.types_test.Types_test.T__struct_23_static_extension) private typedef T__struct_23 = {
     public var _src : GoString;
-    public var _targs : Slice<Type>;
+    public var _targs : Slice<stdgo.go.types.Types.Type>;
     public var _wantAt : GoInt;
 };
 class T__struct_24_asInterface {
@@ -857,7 +858,7 @@ class T__struct_24_asInterface {
 }
 @:local @:using(stdgo.go.types_test.Types_test.T__struct_24_static_extension) private typedef T__struct_24 = {
     public var _name : GoString;
-    public var _obj : Object;
+    public var _obj : stdgo.go.types.Types.Object;
 };
 class T__struct_25_asInterface {
     public function new(__self__, __type__) {
@@ -872,8 +873,8 @@ class T__struct_25_asInterface {
 
 }
 @:local @:using(stdgo.go.types_test.Types_test.T__struct_25_static_extension) private typedef T__struct_25 = {
-    public var v : Type;
-    public var t : Ref<Interface>;
+    public var v : stdgo.go.types.Types.Type;
+    public var t : Ref<stdgo.go.types.Types.Interface>;
     public var _want : Bool;
 };
 class T__struct_26_asInterface {
@@ -908,9 +909,9 @@ class T__struct_27_asInterface {
 @:local @:using(stdgo.go.types_test.Types_test.T__struct_27_static_extension) private typedef T__struct_27 = {
     public var _src : GoString;
     public var _name1 : GoString;
-    public var _targs1 : Slice<Type>;
+    public var _targs1 : Slice<stdgo.go.types.Types.Type>;
     public var _name2 : GoString;
-    public var _targs2 : Slice<Type>;
+    public var _targs2 : Slice<stdgo.go.types.Types.Type>;
     public var _wantEqual : Bool;
 };
 class T__struct_28_asInterface {
@@ -976,7 +977,7 @@ class T__struct_31_asInterface {
 }
 @:local @:using(stdgo.go.types_test.Types_test.T__struct_31_static_extension) private typedef T__struct_31 = {
     public var _name : GoString;
-    public var _typ : Type;
+    public var _typ : stdgo.go.types.Types.Type;
 };
 class T__struct_32_asInterface {
     public function new(__self__, __type__) {
@@ -991,7 +992,7 @@ class T__struct_32_asInterface {
 
 }
 @:local @:using(stdgo.go.types_test.Types_test.T__struct_32_static_extension) private typedef T__struct_32 = {
-    public var _name : Ref<TypeName>;
+    public var _name : Ref<stdgo.go.types.Types.TypeName>;
     public var _alias : Bool;
 };
 class T__struct_33_asInterface {
@@ -1007,13 +1008,13 @@ class T__struct_33_asInterface {
 
 }
 @:local @:using(stdgo.go.types_test.Types_test.T__struct_33_static_extension) private typedef T__struct_33 = {
-    public var _typ : Type;
-    public var _this : Ref<Package>;
+    public var _typ : stdgo.go.types.Types.Type;
+    public var _this : Ref<stdgo.go.types.Types.Package>;
     public var _want : GoString;
 };
-@:named @:using(stdgo.go.types_test.Types_test.T_testImporter_static_extension) private typedef T_testImporter = GoMap<GoString, Ref<Package>>;
+@:named @:using(stdgo.go.types_test.Types_test.T_testImporter_static_extension) private typedef T_testImporter = GoMap<GoString, Ref<stdgo.go.types.Types.Package>>;
 private function _parse(_fset:Ref<stdgo.go.token.Token.FileSet>, _filename:GoString, _src:GoString):{ var _0 : Ref<stdgo.go.ast.Ast.File>; var _1 : Error; } {
-        return stdgo.go.parser.Parser.parseFile(_fset, _filename, Go.toInterface(_src), (("0" : GoUInt) : stdgo.go.parser.Parser.Mode));
+        return stdgo.go.parser.Parser.parseFile(_fset, _filename, Go.toInterface(_src), (0u32 : stdgo.go.parser.Parser.Mode));
     }
 private function _mustParse(_fset:Ref<stdgo.go.token.Token.FileSet>, _filename:GoString, _src:GoString):Ref<stdgo.go.ast.Ast.File> {
         var __tmp__ = _parse(_fset, _filename, _src), _f:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
@@ -1028,11 +1029,11 @@ private function _typecheck(_path:GoString, _src:GoString, _info:Ref<Info>):{ va
         if (_f == null || (_f : Dynamic).__nil__) {
             return { _0 : null, _1 : _err };
         };
-        var _conf:Config = ({ error : function(_err:Error):Void {}, importer : stdgo.go.importer.Importer.default_() } : Config);
+        var _conf:stdgo.go.types.Types.Config = ({ error : function(_err:Error):Void {}, importer : stdgo.go.importer.Importer.default_() } : Config);
         return _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), _info);
     }
 private function _mustTypecheck(_path:GoString, _src:GoString, _info:Ref<Info>):Ref<Package> {
-        var __tmp__ = _typecheck(_path, _src, _info), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _typecheck(_path, _src, _info), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             throw Go.toInterface(_err);
         };
@@ -1101,9 +1102,9 @@ function testValuesInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("package f7b; var _            = -1e-2000i" : GoString), _expr : ("-1e-2000i" : GoString), _typ : ("complex128" : GoString), _val : ("(0 + 0i)" : GoString) } : T__struct_8),
 ({ _src : ("package g0; const (a = len([iota]int{}); b; c); const _ = c" : GoString), _expr : ("c" : GoString), _typ : ("int" : GoString), _val : ("2" : GoString) } : T__struct_8),
 ({ _src : ("package g1; var(j int32; s int; n = 1.0<<s == j)" : GoString), _expr : ("1.0" : GoString), _typ : ("int32" : GoString), _val : ("1" : GoString) } : T__struct_8)) : Slice<T__struct_8>);
-        for (_0 => _test in _tests) {
-            var _info:Info = ({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>) } : Info);
-            var _name:GoString = _mustTypecheck(("ValuesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<Info>)).name();
+        for (__0 => _test in _tests) {
+            var _info:stdgo.go.types.Types.Info = ({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>) } : Info);
+            var _name:GoString = _mustTypecheck(("ValuesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)).name();
             var _expr:stdgo.go.ast.Ast.Expr = (null : stdgo.go.ast.Ast.Expr);
             for (_e => _ in _info.types) {
                 if (exprString(_e) == (_test._expr)) {
@@ -1115,7 +1116,7 @@ function testValuesInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("package %s: no expression found for %s" : GoString), Go.toInterface(_name), Go.toInterface(_test._expr));
                 continue;
             };
-            var _tv:TypeAndValue = _info.types[_expr].__copy__();
+            var _tv:stdgo.go.types.Types.TypeAndValue = _info.types[_expr];
             {
                 var _got:GoString = (_tv.type.string() : GoString);
                 if (_got != (_test._typ)) {
@@ -1244,11 +1245,11 @@ function testTypesInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("package u3c; type _ interface{int | string | ~bool}" : GoString), _expr : ("int | string" : GoString), _typ : ("int | string" : GoString) } : T__struct_9),
 ({ _src : ("package u3c; type _ interface{int | string | ~bool}" : GoString), _expr : ("~bool" : GoString), _typ : ("~bool" : GoString) } : T__struct_9),
 ({ _src : ("package u3c; type _ interface{int | string | ~float64|~bool}" : GoString), _expr : ("int | string | ~float64" : GoString), _typ : ("int | string | ~float64" : GoString) } : T__struct_9)) : Slice<T__struct_9>);
-        for (_0 => _test in _tests) {
-            var _info:Info = ({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>) } : Info);
+        for (__0 => _test in _tests) {
+            var _info:stdgo.go.types.Types.Info = ({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>) } : Info);
             var _name:GoString = ("" : GoString);
             if (stdgo.strings.Strings.hasPrefix(_test._src, ("package broken_" : GoString))) {
-                var __tmp__ = _typecheck(("TypesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<Info>)), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = _typecheck(("TypesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err == null) {
                     _t.errorf(("package %s: expected to fail but passed" : GoString), Go.toInterface(_pkg.name()));
                     continue;
@@ -1257,9 +1258,9 @@ function testTypesInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
                     _name = _pkg.name();
                 };
             } else {
-                _name = _mustTypecheck(("TypesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<Info>)).name();
+                _name = _mustTypecheck(("TypesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)).name();
             };
-            var _typ:Type = (null : Type);
+            var _typ:Type = (null : stdgo.go.types.Types.Type);
             for (_e => _tv in _info.types) {
                 if (exprString(_e) == (_test._expr)) {
                     _typ = _tv.type;
@@ -1328,14 +1329,14 @@ function testInstanceInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("package dupltype1; type T[P ~int] struct{ x P }; func (r *T[Q]) add(z T[Q]) { r.x += z.x }" : GoString), _instances : (new Slice<stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst>(0, 0, (new stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst(("T" : GoString), (new Slice<GoString>(0, 0, ("Q" : GoString)) : Slice<GoString>), ("struct{x Q}" : GoString)) : stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst), (new stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst(("T" : GoString), (new Slice<GoString>(0, 0, ("Q" : GoString)) : Slice<GoString>), ("struct{x Q}" : GoString)) : stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst)) : Slice<stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst>) } : T__struct_10),
 ({ _src : ("package dupltype1; import \"lib\"; var x lib.T[int]; var y lib.T[int]; var z lib.T[string]" : GoString), _instances : (new Slice<stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst>(0, 0, (new stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst(("T" : GoString), (new Slice<GoString>(0, 0, ("int" : GoString)) : Slice<GoString>), ("[]int" : GoString)) : stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst), (new stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst(("T" : GoString), (new Slice<GoString>(0, 0, ("int" : GoString)) : Slice<GoString>), ("[]int" : GoString)) : stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst), (new stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst(("T" : GoString), (new Slice<GoString>(0, 0, ("string" : GoString)) : Slice<GoString>), ("[]string" : GoString)) : stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst)) : Slice<stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst>) } : T__struct_10),
 ({ _src : ("package issue51803; func foo[T any](T) {}; func _() { foo[int]( /* leave arg away on purpose */ ) }" : GoString), _instances : (new Slice<stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst>(0, 0, (new stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst(("foo" : GoString), (new Slice<GoString>(0, 0, ("int" : GoString)) : Slice<GoString>), ("func(int)" : GoString)) : stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst)) : Slice<stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst>) } : T__struct_10)) : Slice<T__struct_10>);
-        for (_0 => _test in _tests) {
-            var _imports:stdgo.go.types_test.Types_test.T_testImporter = (new GoObjectMap<GoString, Ref<Package>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types_test.Types_test.T_testImporter", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Package", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_path", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_scope", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_complete", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_imports", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Package", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_fake", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_cgo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }), false, { get : () -> null }))) : stdgo.go.types_test.Types_test.T_testImporter);
-            var _conf:Config = ({ error : function(_0:Error):Void {}, importer : Go.asInterface(_imports) } : Config);
-            var _instMap = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Instance>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Instance", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "typeArgs", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeList", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_types", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Instance>);
-            var _useMap = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>);
+        for (__0 => _test in _tests) {
+            var _imports:stdgo.go.types_test.Types_test.T_testImporter = (new GoObjectMap<GoString, Ref<stdgo.go.types.Types.Package>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types_test.Types_test.T_testImporter", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Package", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_path", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_scope", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_complete", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_imports", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Package", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_fake", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_cgo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }), false, { get : () -> null }))) : stdgo.go.types_test.Types_test.T_testImporter);
+            var _conf:stdgo.go.types.Types.Config = ({ error : function(_0:Error):Void {}, importer : Go.asInterface(_imports) } : Config);
+            var _instMap = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Instance>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Instance", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "typeArgs", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeList", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_types", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Instance>);
+            var _useMap = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>);
             var _makePkg = function(_src:GoString):Ref<Package> {
                 var _f = _mustParse(_fset, ("p.go" : GoString), _src);
-                var __tmp__ = _conf.check(Go.str(), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ instances : _instMap, uses : _useMap } : Info)) : Ref<Info>)), _pkg:Ref<Package> = __tmp__._0, _0:Error = __tmp__._1;
+                var __tmp__ = _conf.check(Go.str(), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ instances : _instMap, uses : _useMap } : Info)) : Ref<stdgo.go.types.Types.Info>)), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, __0:Error = __tmp__._1;
                 _imports[_pkg.name()] = _pkg;
                 return _pkg;
             };
@@ -1344,21 +1345,21 @@ function testInstanceInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.run(_pkg.name(), function(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var _instances = _sortedInstances(_instMap);
                 {
-                    var _0:GoInt = (_instances.length), _1:GoInt = (_test._instances.length), _want:GoInt = _1, _got:GoInt = _0;
+                    var __0:GoInt = (_instances.length), __1:GoInt = (_test._instances.length), _want:GoInt = __1, _got:GoInt = __0;
                     if (_got != (_want)) {
                         _t.fatalf(("got %d instances, want %d" : GoString), Go.toInterface(_got), Go.toInterface(_want));
                     };
                 };
                 for (_ii => _inst in _instances) {
-                    var _targs:Slice<Type> = (null : Slice<Type>);
+                    var _targs:Slice<Type> = (null : Slice<stdgo.go.types.Types.Type>);
                     {
                         var _i:GoInt = (0 : GoInt);
                         Go.cfor(_i < _inst.inst.typeArgs.len(), _i++, {
                             _targs = _targs.__appendref__(_inst.inst.typeArgs.at(_i));
                         });
                     };
-                    var _typ:Type = _inst.inst.type;
-                    var _testInst:stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst = _test._instances[(_ii : GoInt)].__copy__();
+                    var _typ:stdgo.go.types.Types.Type = _inst.inst.type;
+                    var _testInst:stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst = _test._instances[(_ii : GoInt)];
                     {
                         var _got:GoString = _inst.ident.name;
                         if (_got != (_testInst._name)) {
@@ -1382,16 +1383,16 @@ function testInstanceInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
                             _t.errorf(("package %s: got %s; want %s" : GoString), Go.toInterface(_pkg.name()), Go.toInterface(_got), Go.toInterface(_testInst._typ));
                         };
                     };
-                    var _ptype:Type = _useMap[_inst.ident].type();
+                    var _ptype:stdgo.go.types.Types.Type = _useMap[_inst.ident].type();
                     var __tmp__ = try {
                         { value : (Go.typeAssert((Go.toInterface(_ptype) : T__interface_0)) : T__interface_0), ok : true };
                     } catch(_) {
                         { value : (null : stdgo.go.types_test.Types_test.T__interface_0), ok : false };
-                    }, _lister = __tmp__.value, _0 = __tmp__.ok;
+                    }, _lister = __tmp__.value, __0 = __tmp__.ok;
                     if ((_lister == null) || (_lister.typeParams().len() == (0 : GoInt))) {
                         _t.fatalf(("info.Types[%v] = %v, want parameterized type" : GoString), Go.toInterface(Go.asInterface(_inst.ident)), Go.toInterface(_ptype));
                     };
-                    var __tmp__ = instantiate(null, _ptype, _targs, true), _inst2:Type = __tmp__._0, _err:Error = __tmp__._1;
+                    var __tmp__ = instantiate(null, _ptype, _targs, true), _inst2:stdgo.go.types.Types.Type = __tmp__._0, _err:Error = __tmp__._1;
                     if (_err != null) {
                         _t.errorf(("Instantiate(%v, %v) failed: %v" : GoString), Go.toInterface(_ptype), Go.toInterface(_targs), Go.toInterface(_err));
                     };
@@ -1405,7 +1406,7 @@ function testInstanceInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
 private function _sortedInstances(_m:GoMap<Ref<stdgo.go.ast.Ast.Ident>, Instance>):Slice<T_recordedInstance> {
         var _instances:Slice<T_recordedInstance> = (null : Slice<stdgo.go.types_test.Types_test.T_recordedInstance>);
         for (_id => _inst in _m) {
-            _instances = _instances.__appendref__((new T_recordedInstance(_id, _inst.__copy__()) : T_recordedInstance));
+            _instances = _instances.__appendref__((new T_recordedInstance(_id, _inst?.__copy__()) : T_recordedInstance));
         };
         stdgo.sort.Sort.slice(Go.toInterface(_instances), function(_i:GoInt, _j:GoInt):Bool {
             return _instances[(_i : GoInt)].ident.pos() < _instances[(_j : GoInt)].ident.pos();
@@ -1425,10 +1426,10 @@ function testDefsInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("package g0; type x[T any] int" : GoString), _obj : ("x" : GoString), _want : ("type g0.x[T any] int" : GoString) } : T__struct_11),
 ({ _src : ("package g1; func f[T any]() {}" : GoString), _obj : ("f" : GoString), _want : ("func g1.f[T any]()" : GoString) } : T__struct_11),
 ({ _src : ("package g2; type x[T any] int; func (*x[_]) m() {}" : GoString), _obj : ("m" : GoString), _want : ("func (*g2.x[_]).m()" : GoString) } : T__struct_11)) : Slice<T__struct_11>);
-        for (_0 => _test in _tests) {
-            var _info:Info = ({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>) } : Info);
-            var _name:GoString = _mustTypecheck(("DefsInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<Info>)).name();
-            var _def:Object = (null : Object);
+        for (__0 => _test in _tests) {
+            var _info:stdgo.go.types.Types.Info = ({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>) } : Info);
+            var _name:GoString = _mustTypecheck(("DefsInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)).name();
+            var _def:Object = (null : stdgo.go.types.Types.Object);
             for (_id => _obj in _info.defs) {
                 if (_id.name == (_test._obj)) {
                     _def = _obj;
@@ -1475,10 +1476,10 @@ function testUsesInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("package m10; type E[A any] interface{ m() }; type T[B any] interface{ E[B]; n() }; func _(t T[int]) { t.m() }" : GoString), _obj : ("m" : GoString), _want : ("func (m10.E[int]).m()" : GoString) } : T__struct_11),
 ({ _src : ("package m11; type T[A any] interface{ m(); n() }; func _(t1 T[int], t2 T[string]) { t1.m(); t2.n() }" : GoString), _obj : ("m" : GoString), _want : ("func (m11.T[int]).m()" : GoString) } : T__struct_11),
 ({ _src : ("package m12; type T[A any] interface{ m(); n() }; func _(t1 T[int], t2 T[string]) { t1.m(); t2.n() }" : GoString), _obj : ("n" : GoString), _want : ("func (m12.T[string]).n()" : GoString) } : T__struct_11)) : Slice<T__struct_11>);
-        for (_0 => _test in _tests) {
-            var _info:Info = ({ uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>) } : Info);
-            var _name:GoString = _mustTypecheck(("UsesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<Info>)).name();
-            var _use:Object = (null : Object);
+        for (__0 => _test in _tests) {
+            var _info:stdgo.go.types.Types.Info = ({ uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>) } : Info);
+            var _name:GoString = _mustTypecheck(("UsesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)).name();
+            var _use:Object = (null : stdgo.go.types.Types.Object);
             for (_id => _obj in _info.uses) {
                 if (_id.name == (_test._obj)) {
                     if (_use != null) {
@@ -1503,14 +1504,14 @@ function testGenericMethodInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _src:GoString = ("package p\n\ntype N[A any] int\n\nfunc (r N[B]) m() { r.m(); r.n() }\n\nfunc (r *N[C]) n() {  }\n" : GoString);
         var _fset = stdgo.go.token.Token.newFileSet();
         var _f = _mustParse(_fset, ("p.go" : GoString), _src);
-        var _info:Info = ({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>), uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>), selections : (new GoObjectMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<Selection>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.SelectorExpr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "x", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "sel", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Selection", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("SelectionKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_recv", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_index", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }) }, optional : false }, { name : "_indirect", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<Selection>>) } : Info);
-        var _conf:Config = ({} : Config);
-        var __tmp__ = _conf.check(("p" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(_info) : Ref<Info>)), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _info:stdgo.go.types.Types.Info = ({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>), uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>), selections : (new GoObjectMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<stdgo.go.types.Types.Selection>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.SelectorExpr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "x", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "sel", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Selection", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.SelectionKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_recv", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_index", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }) }, optional : false }, { name : "_indirect", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<stdgo.go.types.Types.Selection>>) } : Info);
+        var _conf:Config = ({} : stdgo.go.types.Types.Config);
+        var __tmp__ = _conf.check(("p" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
         var n = (Go.typeAssert((Go.toInterface(_pkg.scope().lookup(("N" : GoString)).type()) : Ref<Named>)) : Ref<Named>);
-        var _0 = n.method((0 : GoInt)), _1 = n.method((1 : GoInt)), _gn = _1, _gm = _0;
+        var __0 = n.method((0 : GoInt)), __1 = n.method((1 : GoInt)), _gn = __1, _gm = __0;
         if (_gm.name() == (("n" : GoString))) {
             {
                 final __tmp__0 = _gn;
@@ -1519,9 +1520,9 @@ function testGenericMethodInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _gn = __tmp__1;
             };
         };
-        var _0:Ref<Func> = (null : Ref<Func>), _1:Ref<Func> = (null : Ref<Func>), _dn:Ref<Func> = _1, _dm:Ref<Func> = _0;
-        var _0:Ref<Func> = (null : Ref<Func>), _1:Ref<Func> = (null : Ref<Func>), _dmn:Ref<Func> = _1, _dmm:Ref<Func> = _0;
-        for (_0 => _decl in _f.decls) {
+        var __0:Ref<Func> = (null : Ref<stdgo.go.types.Types.Func>), __1:Ref<Func> = (null : Ref<stdgo.go.types.Types.Func>), _dn:Ref<Func> = __1, _dm:Ref<Func> = __0;
+        var __0:Ref<Func> = (null : Ref<stdgo.go.types.Types.Func>), __1:Ref<Func> = (null : Ref<stdgo.go.types.Types.Func>), _dmn:Ref<Func> = __1, _dmm:Ref<Func> = __0;
+        for (__0 => _decl in _f.decls) {
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_decl) : Ref<stdgo.go.ast.Ast.FuncDecl>)) : Ref<stdgo.go.ast.Ast.FuncDecl>), ok : true };
             } catch(_) {
@@ -1546,8 +1547,8 @@ function testGenericMethodInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 var _sel = (Go.typeAssert((Go.toInterface(_call.fun) : Ref<stdgo.go.ast.Ast.SelectorExpr>)) : Ref<stdgo.go.ast.Ast.SelectorExpr>);
                                 var _use = (Go.typeAssert((Go.toInterface(_info.uses[_sel.sel]) : Ref<Func>)) : Ref<Func>);
                                 var _selection = _info.selections[_sel];
-                                if (_selection.kind() != ((1 : SelectionKind))) {
-                                    _t.errorf(("Selection kind = %v, want %v" : GoString), Go.toInterface(_selection.kind()), Go.toInterface((1 : SelectionKind)));
+                                if (_selection.kind() != ((1 : stdgo.go.types.Types.SelectionKind))) {
+                                    _t.errorf(("Selection kind = %v, want %v" : GoString), Go.toInterface(_selection.kind()), Go.toInterface((1 : stdgo.go.types.Types.SelectionKind)));
                                 };
                                 if (Go.toInterface(_selection.obj()) != (Go.toInterface(Go.asInterface(_use)))) {
                                     _t.errorf(("info.Selections contains %v, want %v" : GoString), Go.toInterface(_selection.obj()), Go.toInterface(Go.asInterface(_use)));
@@ -1607,9 +1608,9 @@ function testImplicitsInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("package t1; type T[A any] struct{}; func _(x interface{}) { switch t := x.(type) { case T[int]: _ = t } }" : GoString), _want : ("caseClause: var t t1.T[int]" : GoString) } : T__struct_12),
 ({ _src : ("package t2; type T[A any] struct{}; func _[P any](x interface{}) { switch t := x.(type) { case T[P]: _ = t } }" : GoString), _want : ("caseClause: var t t2.T[P]" : GoString) } : T__struct_12),
 ({ _src : ("package t3; func _[P any](x interface{}) { switch t := x.(type) { case P: _ = t } }" : GoString), _want : ("caseClause: var t P" : GoString) } : T__struct_12)) : Slice<T__struct_12>);
-        for (_0 => _test in _tests) {
-            var _info:Info = ({ implicits : (new GoObjectMap<stdgo.go.ast.Ast.Node, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Node, Object>) } : Info);
-            var _name:GoString = _mustTypecheck(("ImplicitsInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<Info>)).name();
+        for (__0 => _test in _tests) {
+            var _info:stdgo.go.types.Types.Info = ({ implicits : (new GoObjectMap<stdgo.go.ast.Ast.Node, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Node, stdgo.go.types.Types.Object>) } : Info);
+            var _name:GoString = _mustTypecheck(("ImplicitsInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)).name();
             if ((_info.implicits.length) > (1 : GoInt)) {
                 _t.errorf(("package %s: %d Implicits entries found" : GoString), Go.toInterface(_name), Go.toInterface((_info.implicits.length)));
                 continue;
@@ -1706,13 +1707,13 @@ function testPredicatesInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("package m6; func _(x int) {}" : GoString), _expr : ("x" : GoString), _pred : ("<missing>" : GoString) } : T__struct_13),
 ({ _src : ("package m6; func _()(x int) { return }" : GoString), _expr : ("x" : GoString), _pred : ("<missing>" : GoString) } : T__struct_13),
 ({ _src : ("package m6; type T int; func (x T) _() {}" : GoString), _expr : ("x" : GoString), _pred : ("<missing>" : GoString) } : T__struct_13)) : Slice<T__struct_13>);
-        for (_0 => _test in _tests) {
-            var _info:Info = ({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>) } : Info);
-            var _name:GoString = _mustTypecheck(("PredicatesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<Info>)).name();
+        for (__0 => _test in _tests) {
+            var _info:stdgo.go.types.Types.Info = ({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>) } : Info);
+            var _name:GoString = _mustTypecheck(("PredicatesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)).name();
             var _got:GoString = ("<missing>" : GoString);
             for (_e => _tv in _info.types) {
                 if (exprString(_e) == (_test._expr)) {
-                    _got = _predString(_tv.__copy__());
+                    _got = _predString(_tv?.__copy__());
                     break;
                 };
             };
@@ -1747,9 +1748,9 @@ function testScopesInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("package p18; func _(n int) { for i := 0; i < n; i++ { _ = i } }" : GoString), _scopes : (new Slice<GoString>(0, 0, ("file:" : GoString), ("func:n" : GoString), ("for:i" : GoString), ("block:" : GoString)) : Slice<GoString>) } : T__struct_14),
 ({ _src : ("package p19; func _(a []int) { for i := range a { _ = i} }" : GoString), _scopes : (new Slice<GoString>(0, 0, ("file:" : GoString), ("func:a" : GoString), ("range:i" : GoString), ("block:" : GoString)) : Slice<GoString>) } : T__struct_14),
 ({ _src : ("package p20; var s int; func _(a []int) { for i, x := range a { s += x; _ = i } }" : GoString), _scopes : (new Slice<GoString>(0, 0, ("file:" : GoString), ("func:a" : GoString), ("range:i x" : GoString), ("block:" : GoString)) : Slice<GoString>) } : T__struct_14)) : Slice<T__struct_14>);
-        for (_0 => _test in _tests) {
-            var _info:Info = ({ scopes : (new GoObjectMap<stdgo.go.ast.Ast.Node, Ref<Scope>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<stdgo.go.ast.Ast.Node, Ref<Scope>>) } : Info);
-            var _name:GoString = _mustTypecheck(("ScopesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<Info>)).name();
+        for (__0 => _test in _tests) {
+            var _info:stdgo.go.types.Types.Info = ({ scopes : (new GoObjectMap<stdgo.go.ast.Ast.Node, Ref<stdgo.go.types.Types.Scope>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<stdgo.go.ast.Ast.Node, Ref<stdgo.go.types.Types.Scope>>) } : Info);
+            var _name:GoString = _mustTypecheck(("ScopesInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)).name();
             if ((_info.scopes.length) != ((_test._scopes.length))) {
                 _t.errorf(("package %s: got %d scopes; want %d" : GoString), Go.toInterface(_name), Go.toInterface((_info.scopes.length)), Go.toInterface((_test._scopes.length)));
             };
@@ -1781,7 +1782,7 @@ function testScopesInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
                 var _desc:GoString = (_kind + (":" : GoString)) + stdgo.strings.Strings.join(_scope.names(), (" " : GoString));
                 var _found:Bool = false;
-                for (_1 => _d in _test._scopes) {
+                for (__1 => _d in _test._scopes) {
                     if (_desc == (_d)) {
                         _found = true;
                         break;
@@ -1815,9 +1816,9 @@ function testInitOrderInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("package p13\n\n\t\tvar (\n\t\t    v = t.m()\n\t\t    t = makeT(0)\n\t\t)\n\n\t\ttype T struct{}\n\n\t\tfunc (T) m() int { return 0 }\n\n\t\tfunc makeT(n int) T {\n\t\t    if n > 0 {\n\t\t        return makeT(n-1)\n\t\t    }\n\t\t    return T{}\n\t\t}" : GoString), _inits : (new Slice<GoString>(0, 0, ("t = makeT(0)" : GoString), ("v = t.m()" : GoString)) : Slice<GoString>) } : T__struct_15),
 ({ _src : ("package p14\n\n\t\tvar (\n\t\t    t = makeT(0)\n\t\t    v = t.m()\n\t\t)\n\n\t\ttype T struct{}\n\n\t\tfunc (T) m() int { return 0 }\n\n\t\tfunc makeT(n int) T {\n\t\t    if n > 0 {\n\t\t        return makeT(n-1)\n\t\t    }\n\t\t    return T{}\n\t\t}" : GoString), _inits : (new Slice<GoString>(0, 0, ("t = makeT(0)" : GoString), ("v = t.m()" : GoString)) : Slice<GoString>) } : T__struct_15),
 ({ _src : ("package p15\n\n\t\tvar y1 = f1()\n\n\t\tfunc f1() int { return g1() }\n\t\tfunc g1() int { f1(); return x1 }\n\n\t\tvar x1 = 0\n\n\t\tvar y2 = f2()\n\n\t\tfunc f2() int { return g2() }\n\t\tfunc g2() int { return x2 }\n\n\t\tvar x2 = 0" : GoString), _inits : (new Slice<GoString>(0, 0, ("x1 = 0" : GoString), ("y1 = f1()" : GoString), ("x2 = 0" : GoString), ("y2 = f2()" : GoString)) : Slice<GoString>) } : T__struct_15)) : Slice<T__struct_15>);
-        for (_0 => _test in _tests) {
-            var _info:Info = (new Info() : Info);
-            var _name:GoString = _mustTypecheck(("InitOrderInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<Info>)).name();
+        for (__0 => _test in _tests) {
+            var _info:stdgo.go.types.Types.Info = (new Info() : Info);
+            var _name:GoString = _mustTypecheck(("InitOrderInfo" : GoString), _test._src, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)).name();
             if ((_info.initOrder.length) != ((_test._inits.length))) {
                 _t.errorf(("package %s: got %d initializers; want %d" : GoString), Go.toInterface(_name), Go.toInterface((_info.initOrder.length)), Go.toInterface((_test._inits.length)));
                 continue;
@@ -1835,10 +1836,10 @@ function testMultiFileInitOrder(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
         var _fileA = _mustParse(_fset, Go.str(), ("package main; var a = 1" : GoString));
         var _fileB = _mustParse(_fset, Go.str(), ("package main; var b = 2" : GoString));
-        for (_0 => _test in (new Slice<T__struct_16>(0, 0, ({ _files : (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _fileA, _fileB) : Slice<Ref<stdgo.go.ast.Ast.File>>), _want : ("[a = 1 b = 2]" : GoString) } : T__struct_16), ({ _files : (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _fileB, _fileA) : Slice<Ref<stdgo.go.ast.Ast.File>>), _want : ("[b = 2 a = 1]" : GoString) } : T__struct_16)) : Slice<T__struct_16>)) {
-            var _info:Info = ({} : Info);
+        for (__0 => _test in (new Slice<T__struct_16>(0, 0, ({ _files : (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _fileA, _fileB) : Slice<Ref<stdgo.go.ast.Ast.File>>), _want : ("[a = 1 b = 2]" : GoString) } : T__struct_16), ({ _files : (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _fileB, _fileA) : Slice<Ref<stdgo.go.ast.Ast.File>>), _want : ("[b = 2 a = 1]" : GoString) } : T__struct_16)) : Slice<T__struct_16>)) {
+            var _info:Info = ({} : stdgo.go.types.Types.Info);
             {
-                var __tmp__ = (Go.setRef(({} : Config)) : Ref<Config>).check(("main" : GoString), _fset, _test._files, (Go.setRef(_info) : Ref<Info>)), _1:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = (Go.setRef(({} : stdgo.go.types.Types.Config)) : Ref<stdgo.go.types.Types.Config>).check(("main" : GoString), _fset, _test._files, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)), __1:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatal(Go.toInterface(_err));
                 };
@@ -1853,11 +1854,11 @@ function testMultiFileInitOrder(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testFiles(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _sources:Slice<GoString> = (new Slice<GoString>(0, 0, ("package p; type T struct{}; func (T) m1() {}" : GoString), ("package p; func (T) m2() {}; var x interface{ m1(); m2() } = T{}" : GoString), ("package p; func (T) m3() {}; var y interface{ m1(); m2(); m3() } = T{}" : GoString), ("package p" : GoString)) : Slice<GoString>);
-        var _conf:Config = ({} : Config);
+        var _conf:Config = ({} : stdgo.go.types.Types.Config);
         var _fset = stdgo.go.token.Token.newFileSet();
         var _pkg = newPackage(("p" : GoString), ("p" : GoString));
-        var _info:Info = ({} : Info);
-        var _check = newChecker((Go.setRef(_conf) : Ref<Config>), _fset, _pkg, (Go.setRef(_info) : Ref<Info>));
+        var _info:Info = ({} : stdgo.go.types.Types.Info);
+        var _check = newChecker((Go.setRef(_conf) : Ref<stdgo.go.types.Types.Config>), _fset, _pkg, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>));
         for (_i => _src in _sources) {
             var _filename:GoString = stdgo.fmt.Fmt.sprintf(("sources%d" : GoString), Go.toInterface(_i));
             var _f = _mustParse(_fset, _filename, _src);
@@ -1869,26 +1870,26 @@ function testFiles(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         var _vars:Slice<GoString> = (null : Slice<GoString>);
-        for (_0 => _init in _info.initOrder) {
-            for (_1 => _v in _init.lhs) {
+        for (__0 => _init in _info.initOrder) {
+            for (__1 => _v in _init.lhs) {
                 _vars = _vars.__appendref__(_v.name());
             };
         };
         {
-            var _0:GoString = stdgo.fmt.Fmt.sprint(Go.toInterface(_vars)), _1:GoString = ("[x y]" : GoString), _want:GoString = _1, _got:GoString = _0;
+            var __0:GoString = stdgo.fmt.Fmt.sprint(Go.toInterface(_vars)), __1:GoString = ("[x y]" : GoString), _want:GoString = __1, _got:GoString = __0;
             if (_got != (_want)) {
                 _t.errorf(("InitOrder == %s, want %s" : GoString), Go.toInterface(_got), Go.toInterface(_want));
             };
         };
     }
 function testSelection(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _selections = (new GoObjectMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<Selection>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.SelectorExpr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "x", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "sel", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Selection", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("SelectionKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_recv", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_index", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }) }, optional : false }, { name : "_indirect", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<Selection>>);
+        var _selections = (new GoObjectMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<stdgo.go.types.Types.Selection>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.SelectorExpr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "x", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "sel", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Selection", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.SelectionKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_recv", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_index", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }) }, optional : false }, { name : "_indirect", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<stdgo.go.types.Types.Selection>>);
         var _fset = stdgo.go.token.Token.newFileSet();
-        var _imports:stdgo.go.types_test.Types_test.T_testImporter = (new GoObjectMap<GoString, Ref<Package>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types_test.Types_test.T_testImporter", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Package", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_path", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_scope", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_complete", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_imports", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Package", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_fake", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_cgo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }), false, { get : () -> null }))) : stdgo.go.types_test.Types_test.T_testImporter);
-        var _conf:Config = ({ importer : Go.asInterface(_imports) } : Config);
+        var _imports:stdgo.go.types_test.Types_test.T_testImporter = (new GoObjectMap<GoString, Ref<stdgo.go.types.Types.Package>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types_test.Types_test.T_testImporter", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Package", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_path", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_scope", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_complete", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_imports", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Package", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_fake", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_cgo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }), false, { get : () -> null }))) : stdgo.go.types_test.Types_test.T_testImporter);
+        var _conf:stdgo.go.types.Types.Config = ({ importer : Go.asInterface(_imports) } : Config);
         var _makePkg:(GoString, GoString) -> Void = function(_path:GoString, _src:GoString):Void {
             var _f = _mustParse(_fset, _path + (".go" : GoString), _src);
-            var __tmp__ = _conf.check(_path, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ selections : _selections } : Info)) : Ref<Info>)), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _conf.check(_path, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ selections : _selections } : Info)) : Ref<stdgo.go.types.Types.Info>)), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -1968,7 +1969,7 @@ function testSelection(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _direct = ("->" : GoString);
             };
             var _got = (new GoArray<GoString>((_sel.string() : GoString), stdgo.fmt.Fmt.sprintf(("%s%v" : GoString), Go.toInterface(_direct), Go.toInterface(_sel.index()))) : GoArray<GoString>);
-            var _want = _wantOut[_syntax].__copy__();
+            var _want = _wantOut[_syntax]?.__copy__();
             if (!(_want.__toVector__() == _got.__toVector__())) {
                 _t.errorf(("%s: got %q; want %q" : GoString), Go.toInterface(_syntax), Go.toInterface(_got), Go.toInterface(_want));
             };
@@ -1976,11 +1977,11 @@ function testSelection(_t:Ref<stdgo.testing.Testing.T>):Void {
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_sel.type()) : Ref<Signature>)) : Ref<Signature>), ok : true };
             } catch(_) {
-                { value : (null : Ref<Signature>), ok : false };
-            }, _sig = __tmp__.value, _0 = __tmp__.ok;
-            if (_sel.kind() == ((1 : SelectionKind))) {
-                var _got:Type = _sig.recv().type();
-                var _want:Type = _sel.recv();
+                { value : (null : Ref<stdgo.go.types.Types.Signature>), ok : false };
+            }, _sig = __tmp__.value, __0 = __tmp__.ok;
+            if (_sel.kind() == ((1 : stdgo.go.types.Types.SelectionKind))) {
+                var _got:stdgo.go.types.Types.Type = _sig.recv().type();
+                var _want:stdgo.go.types.Types.Type = _sel.recv();
                 if (!identical(_got, _want)) {
                     _t.errorf(("%s: Recv() = %s, want %s" : GoString), Go.toInterface(_syntax), Go.toInterface(_got), Go.toInterface(_want));
                 };
@@ -1994,13 +1995,13 @@ function testSelection(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testIssue8518(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
-        var _imports:stdgo.go.types_test.Types_test.T_testImporter = (new GoObjectMap<GoString, Ref<Package>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types_test.Types_test.T_testImporter", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Package", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_path", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_scope", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_complete", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_imports", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Package", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_fake", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_cgo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }), false, { get : () -> null }))) : stdgo.go.types_test.Types_test.T_testImporter);
-        var _conf:Config = ({ error : function(_err:Error):Void {
+        var _imports:stdgo.go.types_test.Types_test.T_testImporter = (new GoObjectMap<GoString, Ref<stdgo.go.types.Types.Package>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types_test.Types_test.T_testImporter", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Package", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_path", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_scope", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_complete", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_imports", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Package", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_fake", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_cgo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }), false, { get : () -> null }))) : stdgo.go.types_test.Types_test.T_testImporter);
+        var _conf:stdgo.go.types.Types.Config = ({ error : function(_err:Error):Void {
             _t.log(Go.toInterface(_err));
         }, importer : Go.asInterface(_imports) } : Config);
         var _makePkg:(GoString, GoString) -> Void = function(_path:GoString, _src:GoString):Void {
             var _f = _mustParse(_fset, _path, _src);
-            var __tmp__ = _conf.check(_path, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _pkg:Ref<Package> = __tmp__._0, _0:Error = __tmp__._1;
+            var __tmp__ = _conf.check(_path, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, __0:Error = __tmp__._1;
             _imports[_path] = _pkg;
         };
         {};
@@ -2032,7 +2033,7 @@ function testLookupFieldOrMethodOnNil(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
                 a();
             });
-            lookupFieldOrMethod((null : Type), false, null, Go.str());
+            lookupFieldOrMethod((null : stdgo.go.types.Types.Type), false, null, Go.str());
             for (defer in __deferstack__) {
                 defer();
             };
@@ -2083,9 +2084,9 @@ function testLookupFieldOrMethod(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("var x T[int]; type T[P any] struct{}; func (*T[P]) f() {}" : GoString), _found : false, _index : (null : Slice<GoInt>), _indirect : true } : T__struct_17),
 ({ _src : ("var a T[int]; type ( T[P any] struct { *N[P] }; N[P any] struct { *T[P] } ); func (N[P]) f() {}" : GoString), _found : true, _index : (new Slice<GoInt>(0, 0, (0 : GoInt), (0 : GoInt)) : Slice<GoInt>), _indirect : true } : T__struct_17),
 ({ _src : ("var a T[int]; type ( T[P any] struct { *N[P] }; N[P any] struct { *T[P] } ); func (T[P]) f() {}" : GoString), _found : true, _index : (new Slice<GoInt>(0, 0, (0 : GoInt)) : Slice<GoInt>), _indirect : false } : T__struct_17)) : Slice<T__struct_17>);
-        for (_0 => _test in _tests) {
+        for (__0 => _test in _tests) {
             var _pkg = _mustTypecheck(("test" : GoString), ("package p;" : GoString) + _test._src, null);
-            var _obj:Object = _pkg.scope().lookup(("a" : GoString));
+            var _obj:stdgo.go.types.Types.Object = _pkg.scope().lookup(("a" : GoString));
             if (_obj == null) {
                 {
                     _obj = _pkg.scope().lookup(("x" : GoString));
@@ -2095,7 +2096,7 @@ function testLookupFieldOrMethod(_t:Ref<stdgo.testing.Testing.T>):Void {
                     };
                 };
             };
-            var __tmp__ = lookupFieldOrMethod(_obj.type(), _obj.name() == (("a" : GoString)), _pkg, ("f" : GoString)), _f:Object = __tmp__._0, _index:Slice<GoInt> = __tmp__._1, _indirect:Bool = __tmp__._2;
+            var __tmp__ = lookupFieldOrMethod(_obj.type(), _obj.name() == (("a" : GoString)), _pkg, ("f" : GoString)), _f:stdgo.go.types.Types.Object = __tmp__._0, _index:Slice<GoInt> = __tmp__._1, _indirect:Bool = __tmp__._2;
             if ((_f != null) != (_test._found)) {
                 if (_f == null) {
                     _t.errorf(("%s: got no object; want one" : GoString), Go.toInterface(_test._src));
@@ -2125,7 +2126,7 @@ function testLookupFieldOrMethod_RecursiveGeneric(_t:Ref<stdgo.testing.Testing.T
                 throw Go.toInterface(_err);
             };
         };
-        var t:Type = _pkg.scope().lookup(("Instance" : GoString)).type();
+        var t:stdgo.go.types.Types.Type = _pkg.scope().lookup(("Instance" : GoString)).type();
         lookupFieldOrMethod(t, false, _pkg, ("M" : GoString));
     }
 private function _sameSlice(_a:Slice<GoInt>, _b:Slice<GoInt>):Bool {
@@ -2145,13 +2146,13 @@ private function _sameSlice(_a:Slice<GoInt>, _b:Slice<GoInt>):Bool {
 **/
 function testScopeLookupParent(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
-        var _imports:stdgo.go.types_test.Types_test.T_testImporter = (new GoObjectMap<GoString, Ref<Package>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types_test.Types_test.T_testImporter", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Package", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_path", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_scope", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_complete", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_imports", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Package", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_fake", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_cgo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }), false, { get : () -> null }))) : stdgo.go.types_test.Types_test.T_testImporter);
-        var _conf:Config = ({ importer : Go.asInterface(_imports) } : Config);
-        var _info:Info = ({} : Info);
+        var _imports:stdgo.go.types_test.Types_test.T_testImporter = (new GoObjectMap<GoString, Ref<stdgo.go.types.Types.Package>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types_test.Types_test.T_testImporter", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Package", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_path", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_scope", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_complete", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_imports", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Package", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_fake", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_cgo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }), false, { get : () -> null }))) : stdgo.go.types_test.Types_test.T_testImporter);
+        var _conf:stdgo.go.types.Types.Config = ({ importer : Go.asInterface(_imports) } : Config);
+        var _info:Info = ({} : stdgo.go.types.Types.Info);
         var _makePkg = function(_path:GoString, _files:haxe.Rest<Ref<stdgo.go.ast.Ast.File>>):Void {
             var _err:Error = (null : Error);
             {
-                var __tmp__ = _conf.check(_path, _fset, _files, (Go.setRef(_info) : Ref<Info>));
+                var __tmp__ = _conf.check(_path, _fset, _files, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>));
                 _imports[_path] = __tmp__._0;
                 _err = __tmp__._1;
             };
@@ -2161,19 +2162,19 @@ function testScopeLookupParent(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
         _makePkg(("lib" : GoString), _mustParse(_fset, Go.str(), ("package lib; var X int" : GoString)));
         var _mainSrc:GoString = ("\n/*lib=pkgname:5*/ /*X=var:1*/ /*Pi=const:8*/ /*T=typename:9*/ /*Y=var:10*/ /*F=func:12*/\npackage main\n\nimport \"lib\"\nimport . \"lib\"\n\nconst Pi = 3.1415\ntype T struct{}\nvar Y, _ = lib.X, X\n\nfunc F(){\n\tconst pi, e = 3.1415, /*pi=undef*/ 2.71828 /*pi=const:13*/ /*e=const:13*/\n\ttype /*t=undef*/ t /*t=typename:14*/ *t\n\tprint(Y) /*Y=var:10*/\n\tx, Y := Y, /*x=undef*/ /*Y=var:10*/ Pi /*x=var:16*/ /*Y=var:16*/ ; _ = x; _ = Y\n\tvar F = /*F=func:12*/ F /*F=var:17*/ ; _ = F\n\n\tvar a []int\n\tfor i, x := range a /*i=undef*/ /*x=var:16*/ { _ = i; _ = x }\n\n\tvar i interface{}\n\tswitch y := i.(type) { /*y=undef*/\n\tcase /*y=undef*/ int /*y=var:23*/ :\n\tcase float32, /*y=undef*/ float64 /*y=var:23*/ :\n\tdefault /*y=var:23*/:\n\t\tprintln(y)\n\t}\n\t/*y=undef*/\n\n        switch int := i.(type) {\n        case /*int=typename:0*/ int /*int=var:31*/ :\n        \tprintln(int)\n        default /*int=var:31*/ :\n        }\n}\n/*main=undef*/\n" : GoString);
-        _info.uses = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>);
+        _info.uses = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>);
         var _f = _mustParse(_fset, Go.str(), _mainSrc);
         _makePkg(("main" : GoString), _f);
         var _mainScope = _imports[("main" : GoString)].scope();
         var _rx = stdgo.regexp.Regexp.mustCompile(("^/\\*(\\w*)=([\\w:]*)\\*/$$" : GoString));
-        for (_0 => _group in _f.comments) {
-            for (_1 => _comment in _group.list) {
+        for (__0 => _group in _f.comments) {
+            for (__1 => _comment in _group.list) {
                 var _m = _rx.findStringSubmatch(_comment.text);
                 if (_m == null) {
                     _t.errorf(("%s: bad comment: %s" : GoString), Go.toInterface(Go.asInterface(_fset.position(_comment.pos()))), Go.toInterface(_comment.text));
                     continue;
                 };
-                var _0:GoString = _m[(1 : GoInt)], _1:GoString = _m[(2 : GoInt)], _want:GoString = _1, _name:GoString = _0;
+                var __0:GoString = _m[(1 : GoInt)], __1:GoString = _m[(2 : GoInt)], _want:GoString = __1, _name:GoString = __0;
                 var _inner = _mainScope.innermost(_comment.pos());
                 if (_inner == null || (_inner : Dynamic).__nil__) {
                     _t.errorf(("%s: at %s: can\'t find innermost scope" : GoString), Go.toInterface(Go.asInterface(_fset.position(_comment.pos()))), Go.toInterface(_comment.text));
@@ -2181,7 +2182,7 @@ function testScopeLookupParent(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
                 var _got:GoString = ("undef" : GoString);
                 {
-                    var __tmp__ = _inner.lookupParent(_name, _comment.pos()), _2:Ref<Scope> = __tmp__._0, _obj:Object = __tmp__._1;
+                    var __tmp__ = _inner.lookupParent(_name, _comment.pos()), __2:Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _obj:stdgo.go.types.Types.Object = __tmp__._1;
                     if (_obj != null) {
                         var _kind:GoString = stdgo.strings.Strings.toLower(stdgo.strings.Strings.trimPrefix((stdgo.reflect.Reflect.typeOf(Go.toInterface(_obj)).string() : GoString), ("*types." : GoString)));
                         _got = stdgo.fmt.Fmt.sprintf(("%s:%d" : GoString), Go.toInterface(_kind), Go.toInterface(_fset.position(_obj.pos()).line));
@@ -2201,7 +2202,7 @@ function testScopeLookupParent(_t:Ref<stdgo.testing.Testing.T>):Void {
             if (_id.name == (("X" : GoString))) {
                 continue;
             };
-            var __tmp__ = _inner.lookupParent(_id.name, _id.pos()), _3:Ref<Scope> = __tmp__._0, _gotObj:Object = __tmp__._1;
+            var __tmp__ = _inner.lookupParent(_id.name, _id.pos()), __3:Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _gotObj:stdgo.go.types.Types.Object = __tmp__._1;
             if (Go.toInterface(_gotObj) != (Go.toInterface(_wantObj))) {
                 _t.errorf(("%s: got %v, want %v" : GoString), Go.toInterface(Go.asInterface(_fset.position(_id.pos()))), Go.toInterface(_gotObj), Go.toInterface(_wantObj));
                 continue;
@@ -2213,25 +2214,25 @@ function testScopeLookupParent(_t:Ref<stdgo.testing.Testing.T>):Void {
     // Helper function for use with TestIncompleteInterfaces only.
 **/
 private function _newDefined(_underlying:Type):Ref<Named> {
-        var _tname = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("T" : GoString), (null : Type));
-        return newNamed(_tname, _underlying, (null : Slice<Ref<Func>>));
+        var _tname = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("T" : GoString), (null : stdgo.go.types.Types.Type));
+        return newNamed(_tname, _underlying, (null : Slice<Ref<stdgo.go.types.Types.Func>>));
     }
 function testConvertibleTo(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in (new Slice<T__struct_18>(
+        for (__0 => _test in (new Slice<T__struct_18>(
 0,
 0,
-({ _v : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _t : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _want : true } : T__struct_18),
-({ _v : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _t : Go.asInterface(typ[((13 : BasicKind) : GoInt)]), _want : true } : T__struct_18),
-({ _v : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _t : Go.asInterface(typ[((17 : BasicKind) : GoInt)]), _want : true } : T__struct_18),
-({ _v : Go.asInterface(_newDefined(Go.asInterface(typ[((2 : BasicKind) : GoInt)]))), _t : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _want : true } : T__struct_18),
-({ _v : Go.asInterface(_newDefined(Go.asInterface((Go.setRef(({} : Struct)) : Ref<Struct>)))), _t : Go.asInterface((Go.setRef(({} : Struct)) : Ref<Struct>)), _want : true } : T__struct_18),
-({ _v : Go.asInterface(_newDefined(Go.asInterface(typ[((2 : BasicKind) : GoInt)]))), _t : Go.asInterface((Go.setRef(({} : Struct)) : Ref<Struct>)), _want : false } : T__struct_18),
-({ _v : Go.asInterface(typ[((20 : BasicKind) : GoInt)]), _t : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _want : true } : T__struct_18),
-({ _v : Go.asInterface(newSlice(Go.asInterface(typ[((2 : BasicKind) : GoInt)]))), _t : Go.asInterface(newArray(Go.asInterface(typ[((2 : BasicKind) : GoInt)]), ("10" : GoInt64))), _want : true } : T__struct_18),
-({ _v : Go.asInterface(newSlice(Go.asInterface(typ[((2 : BasicKind) : GoInt)]))), _t : Go.asInterface(newArray(Go.asInterface(typ[((7 : BasicKind) : GoInt)]), ("10" : GoInt64))), _want : false } : T__struct_18),
-({ _v : Go.asInterface(newSlice(Go.asInterface(typ[((2 : BasicKind) : GoInt)]))), _t : Go.asInterface(newPointer(Go.asInterface(newArray(Go.asInterface(typ[((2 : BasicKind) : GoInt)]), ("10" : GoInt64))))), _want : true } : T__struct_18),
-({ _v : Go.asInterface(newSlice(Go.asInterface(typ[((2 : BasicKind) : GoInt)]))), _t : Go.asInterface(newPointer(Go.asInterface(newArray(Go.asInterface(typ[((7 : BasicKind) : GoInt)]), ("10" : GoInt64))))), _want : false } : T__struct_18),
-({ _v : Go.asInterface(typ[((24 : BasicKind) : GoInt)]), _t : Go.asInterface(typ[((17 : BasicKind) : GoInt)]), _want : true } : T__struct_18)) : Slice<T__struct_18>)) {
+({ _v : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _t : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : true } : T__struct_18),
+({ _v : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _t : Go.asInterface(typ[((13 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : true } : T__struct_18),
+({ _v : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _t : Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : true } : T__struct_18),
+({ _v : Go.asInterface(_newDefined(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]))), _t : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : true } : T__struct_18),
+({ _v : Go.asInterface(_newDefined(Go.asInterface((Go.setRef(({} : stdgo.go.types.Types.Struct)) : Ref<stdgo.go.types.Types.Struct>)))), _t : Go.asInterface((Go.setRef(({} : stdgo.go.types.Types.Struct)) : Ref<stdgo.go.types.Types.Struct>)), _want : true } : T__struct_18),
+({ _v : Go.asInterface(_newDefined(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]))), _t : Go.asInterface((Go.setRef(({} : stdgo.go.types.Types.Struct)) : Ref<stdgo.go.types.Types.Struct>)), _want : false } : T__struct_18),
+({ _v : Go.asInterface(typ[((20 : stdgo.go.types.Types.BasicKind) : GoInt)]), _t : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : true } : T__struct_18),
+({ _v : Go.asInterface(newSlice(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]))), _t : Go.asInterface(newArray(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), (10i64 : GoInt64))), _want : true } : T__struct_18),
+({ _v : Go.asInterface(newSlice(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]))), _t : Go.asInterface(newArray(Go.asInterface(typ[((7 : stdgo.go.types.Types.BasicKind) : GoInt)]), (10i64 : GoInt64))), _want : false } : T__struct_18),
+({ _v : Go.asInterface(newSlice(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]))), _t : Go.asInterface(newPointer(Go.asInterface(newArray(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), (10i64 : GoInt64))))), _want : true } : T__struct_18),
+({ _v : Go.asInterface(newSlice(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]))), _t : Go.asInterface(newPointer(Go.asInterface(newArray(Go.asInterface(typ[((7 : stdgo.go.types.Types.BasicKind) : GoInt)]), (10i64 : GoInt64))))), _want : false } : T__struct_18),
+({ _v : Go.asInterface(typ[((24 : stdgo.go.types.Types.BasicKind) : GoInt)]), _t : Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : true } : T__struct_18)) : Slice<T__struct_18>)) {
             {
                 var _got:Bool = convertibleTo(_test._v, _test._t);
                 if (_got != (_test._want)) {
@@ -2241,7 +2242,7 @@ function testConvertibleTo(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testAssignableTo(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in (new Slice<T__struct_18>(0, 0, ({ _v : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _t : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _want : true } : T__struct_18), ({ _v : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _t : Go.asInterface(typ[((13 : BasicKind) : GoInt)]), _want : false } : T__struct_18), ({ _v : Go.asInterface(_newDefined(Go.asInterface(typ[((2 : BasicKind) : GoInt)]))), _t : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _want : false } : T__struct_18), ({ _v : Go.asInterface(_newDefined(Go.asInterface((Go.setRef(({} : Struct)) : Ref<Struct>)))), _t : Go.asInterface((Go.setRef(({} : Struct)) : Ref<Struct>)), _want : true } : T__struct_18), ({ _v : Go.asInterface(typ[((19 : BasicKind) : GoInt)]), _t : Go.asInterface(typ[((1 : BasicKind) : GoInt)]), _want : true } : T__struct_18), ({ _v : Go.asInterface(typ[((24 : BasicKind) : GoInt)]), _t : Go.asInterface(typ[((1 : BasicKind) : GoInt)]), _want : false } : T__struct_18), ({ _v : Go.asInterface(typ[((24 : BasicKind) : GoInt)]), _t : Go.asInterface(typ[((17 : BasicKind) : GoInt)]), _want : true } : T__struct_18), ({ _v : Go.asInterface(typ[((20 : BasicKind) : GoInt)]), _t : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _want : true } : T__struct_18)) : Slice<T__struct_18>)) {
+        for (__0 => _test in (new Slice<T__struct_18>(0, 0, ({ _v : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _t : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : true } : T__struct_18), ({ _v : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _t : Go.asInterface(typ[((13 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : false } : T__struct_18), ({ _v : Go.asInterface(_newDefined(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]))), _t : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : false } : T__struct_18), ({ _v : Go.asInterface(_newDefined(Go.asInterface((Go.setRef(({} : stdgo.go.types.Types.Struct)) : Ref<stdgo.go.types.Types.Struct>)))), _t : Go.asInterface((Go.setRef(({} : stdgo.go.types.Types.Struct)) : Ref<stdgo.go.types.Types.Struct>)), _want : true } : T__struct_18), ({ _v : Go.asInterface(typ[((19 : stdgo.go.types.Types.BasicKind) : GoInt)]), _t : Go.asInterface(typ[((1 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : true } : T__struct_18), ({ _v : Go.asInterface(typ[((24 : stdgo.go.types.Types.BasicKind) : GoInt)]), _t : Go.asInterface(typ[((1 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : false } : T__struct_18), ({ _v : Go.asInterface(typ[((24 : stdgo.go.types.Types.BasicKind) : GoInt)]), _t : Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : true } : T__struct_18), ({ _v : Go.asInterface(typ[((20 : stdgo.go.types.Types.BasicKind) : GoInt)]), _t : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : true } : T__struct_18)) : Slice<T__struct_18>)) {
             {
                 var _got:Bool = assignableTo(_test._v, _test._t);
                 if (_got != (_test._want)) {
@@ -2267,10 +2268,10 @@ function testIdentical(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("func X[P ~int](P){}; func Y[Q ~int](Q) {}" : GoString), _want : true } : T__struct_19),
 ({ _src : ("func X[P ~string](P){}; func Y[Q ~int](Q) {}" : GoString), _want : false } : T__struct_19),
 ({ _src : ("func X[P ~int]([]P){}; func Y[Q ~int]([]Q) {}" : GoString), _want : true } : T__struct_19)) : Slice<T__struct_19>);
-        for (_0 => _test in _tests) {
+        for (__0 => _test in _tests) {
             var _pkg = _mustTypecheck(("test" : GoString), ("package p;" : GoString) + _test._src, null);
-            var x:Object = _pkg.scope().lookup(("X" : GoString));
-            var y:Object = _pkg.scope().lookup(("Y" : GoString));
+            var x:stdgo.go.types.Types.Object = _pkg.scope().lookup(("X" : GoString));
+            var y:stdgo.go.types.Types.Object = _pkg.scope().lookup(("Y" : GoString));
             if ((x == null) || (y == null)) {
                 _t.fatal(Go.toInterface(("test must declare both X and Y" : GoString)));
             };
@@ -2283,7 +2284,7 @@ function testIdentical(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testIdentical_issue15173(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in (new Slice<T__struct_20>(0, 0, ({ _x : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _y : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _want : true } : T__struct_20), ({ _x : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _y : (null : Type), _want : false } : T__struct_20), ({ _x : (null : Type), _y : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), _want : false } : T__struct_20), ({ _x : (null : Type), _y : (null : Type), _want : true } : T__struct_20)) : Slice<T__struct_20>)) {
+        for (__0 => _test in (new Slice<T__struct_20>(0, 0, ({ _x : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _y : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : true } : T__struct_20), ({ _x : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _y : (null : stdgo.go.types.Types.Type), _want : false } : T__struct_20), ({ _x : (null : stdgo.go.types.Types.Type), _y : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), _want : false } : T__struct_20), ({ _x : (null : stdgo.go.types.Types.Type), _y : (null : stdgo.go.types.Types.Type), _want : true } : T__struct_20)) : Slice<T__struct_20>)) {
             {
                 var _got:Bool = identical(_test._x, _test._y);
                 if (_got != (_test._want)) {
@@ -2293,18 +2294,18 @@ function testIdentical_issue15173(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testIdenticalUnions(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _tname = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("myInt" : GoString), (null : Type));
-        var _myInt = newNamed(_tname, Go.asInterface(typ[((2 : BasicKind) : GoInt)]), (null : Slice<Ref<Func>>));
+        var _tname = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("myInt" : GoString), (null : stdgo.go.types.Types.Type));
+        var _myInt = newNamed(_tname, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), (null : Slice<Ref<stdgo.go.types.Types.Func>>));
         var _tmap = ({
-            final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<Term>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Term", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_tilde", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) })));
+            final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<stdgo.go.types.Types.Term>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Term", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_tilde", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) })));
             @:privateAccess x._keys = [("int" : GoString), ("~int" : GoString), ("string" : GoString), ("~string" : GoString), ("myInt" : GoString)];
-            @:privateAccess x._values = [newTerm(false, Go.asInterface(typ[((2 : BasicKind) : GoInt)])), newTerm(true, Go.asInterface(typ[((2 : BasicKind) : GoInt)])), newTerm(false, Go.asInterface(typ[((17 : BasicKind) : GoInt)])), newTerm(true, Go.asInterface(typ[((17 : BasicKind) : GoInt)])), newTerm(false, Go.asInterface(_myInt))];
+            @:privateAccess x._values = [newTerm(false, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])), newTerm(true, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])), newTerm(false, Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)])), newTerm(true, Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)])), newTerm(false, Go.asInterface(_myInt))];
             x;
-        } : stdgo.GoMap<GoString, Ref<Term>>);
+        } : stdgo.GoMap<GoString, Ref<stdgo.go.types.Types.Term>>);
         var _makeUnion = function(_s:GoString):Ref<Union> {
             var _parts = stdgo.strings.Strings.split(_s, ("|" : GoString));
-            var _terms:Slice<Ref<Term>> = (null : Slice<Ref<Term>>);
-            for (_0 => _p in _parts) {
+            var _terms:Slice<Ref<Term>> = (null : Slice<Ref<stdgo.go.types.Types.Term>>);
+            for (__0 => _p in _parts) {
                 var _term = _tmap[_p];
                 if (_term == null || (_term : Dynamic).__nil__) {
                     _t.fatalf(("missing term %q" : GoString), Go.toInterface(_p));
@@ -2313,7 +2314,7 @@ function testIdenticalUnions(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
             return newUnion(_terms);
         };
-        for (_0 => _test in (new Slice<T__struct_21>(0, 0, ({ _x : ("int|~int" : GoString), _y : ("~int" : GoString), _want : true } : T__struct_21), ({ _x : ("myInt|~int" : GoString), _y : ("~int" : GoString), _want : true } : T__struct_21), ({ _x : ("int|string" : GoString), _y : ("string|int" : GoString), _want : true } : T__struct_21), ({ _x : ("int|int|string" : GoString), _y : ("string|int" : GoString), _want : true } : T__struct_21), ({ _x : ("myInt|string" : GoString), _y : ("int|string" : GoString), _want : false } : T__struct_21)) : Slice<T__struct_21>)) {
+        for (__0 => _test in (new Slice<T__struct_21>(0, 0, ({ _x : ("int|~int" : GoString), _y : ("~int" : GoString), _want : true } : T__struct_21), ({ _x : ("myInt|~int" : GoString), _y : ("~int" : GoString), _want : true } : T__struct_21), ({ _x : ("int|string" : GoString), _y : ("string|int" : GoString), _want : true } : T__struct_21), ({ _x : ("int|int|string" : GoString), _y : ("string|int" : GoString), _want : true } : T__struct_21), ({ _x : ("myInt|string" : GoString), _y : ("int|string" : GoString), _want : false } : T__struct_21)) : Slice<T__struct_21>)) {
             var _x = _makeUnion(_test._x);
             var _y = _makeUnion(_test._y);
             {
@@ -2328,8 +2329,8 @@ function testIssue15305(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _fset = stdgo.go.token.Token.newFileSet();
         var _f = _mustParse(_fset, ("issue15305.go" : GoString), ("package p; func f() int16; var _ = f(undef)" : GoString));
-        var _conf:Config = ({ error : function(_err:Error):Void {} } : Config);
-        var _info = (Go.setRef(({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>) } : Info)) : Ref<Info>);
+        var _conf:stdgo.go.types.Types.Config = ({ error : function(_err:Error):Void {} } : Config);
+        var _info = (Go.setRef(({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>) } : Info)) : Ref<stdgo.go.types.Types.Info>);
         _conf.check(("p" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), _info);
         for (_e => _tv in _info.types) {
             {
@@ -2337,9 +2338,9 @@ function testIssue15305(_t:Ref<stdgo.testing.Testing.T>):Void {
                     { value : (Go.typeAssert((Go.toInterface(_e) : Ref<stdgo.go.ast.Ast.CallExpr>)) : Ref<stdgo.go.ast.Ast.CallExpr>), ok : true };
                 } catch(_) {
                     { value : (null : Ref<stdgo.go.ast.Ast.CallExpr>), ok : false };
-                }, _0 = __tmp__.value, _ok = __tmp__.ok;
+                }, __0 = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
-                    if (Go.toInterface(_tv.type) != (Go.toInterface(Go.asInterface(typ[((4 : BasicKind) : GoInt)])))) {
+                    if (Go.toInterface(_tv.type) != (Go.toInterface(Go.asInterface(typ[((4 : stdgo.go.types.Types.BasicKind) : GoInt)])))) {
                         _t.errorf(("CallExpr has type %v, want int16" : GoString), Go.toInterface(_tv.type));
                     };
                     return;
@@ -2354,18 +2355,18 @@ function testIssue15305(_t:Ref<stdgo.testing.Testing.T>):Void {
     // expressions.
 **/
 function testCompositeLitTypes(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in (new Slice<T__struct_22>(0, 0, ({ _lit : ("[16]byte{}" : GoString), _typ : ("[16]byte" : GoString) } : T__struct_22), ({ _lit : ("[...]byte{}" : GoString), _typ : ("[0]byte" : GoString) } : T__struct_22), ({ _lit : ("[...]int{1, 2, 3}" : GoString), _typ : ("[3]int" : GoString) } : T__struct_22), ({ _lit : ("[...]int{90: 0, 98: 1, 2}" : GoString), _typ : ("[100]int" : GoString) } : T__struct_22), ({ _lit : ("[]int{}" : GoString), _typ : ("[]int" : GoString) } : T__struct_22), ({ _lit : ("map[string]bool{\"foo\": true}" : GoString), _typ : ("map[string]bool" : GoString) } : T__struct_22), ({ _lit : ("struct{}{}" : GoString), _typ : ("struct{}" : GoString) } : T__struct_22), ({ _lit : ("struct{x, y int; z complex128}{}" : GoString), _typ : ("struct{x int; y int; z complex128}" : GoString) } : T__struct_22)) : Slice<T__struct_22>)) {
+        for (__0 => _test in (new Slice<T__struct_22>(0, 0, ({ _lit : ("[16]byte{}" : GoString), _typ : ("[16]byte" : GoString) } : T__struct_22), ({ _lit : ("[...]byte{}" : GoString), _typ : ("[0]byte" : GoString) } : T__struct_22), ({ _lit : ("[...]int{1, 2, 3}" : GoString), _typ : ("[3]int" : GoString) } : T__struct_22), ({ _lit : ("[...]int{90: 0, 98: 1, 2}" : GoString), _typ : ("[100]int" : GoString) } : T__struct_22), ({ _lit : ("[]int{}" : GoString), _typ : ("[]int" : GoString) } : T__struct_22), ({ _lit : ("map[string]bool{\"foo\": true}" : GoString), _typ : ("map[string]bool" : GoString) } : T__struct_22), ({ _lit : ("struct{}{}" : GoString), _typ : ("struct{}" : GoString) } : T__struct_22), ({ _lit : ("struct{x, y int; z complex128}{}" : GoString), _typ : ("struct{x int; y int; z complex128}" : GoString) } : T__struct_22)) : Slice<T__struct_22>)) {
             var _fset = stdgo.go.token.Token.newFileSet();
             var _f = _mustParse(_fset, _test._lit, ("package p; var _ = " : GoString) + _test._lit);
-            var _types = (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>);
+            var _types = (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>);
             {
-                var __tmp__ = (Go.setRef(({} : Config)) : Ref<Config>).check(("p" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ types : _types } : Info)) : Ref<Info>)), _1:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+                var __tmp__ = (Go.setRef(({} : stdgo.go.types.Types.Config)) : Ref<stdgo.go.types.Types.Config>).check(("p" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ types : _types } : Info)) : Ref<stdgo.go.types.Types.Info>)), __1:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatalf(("%s: %v" : GoString), Go.toInterface(_test._lit), Go.toInterface(_err));
                 };
             };
             var _cmptype:(stdgo.go.ast.Ast.Expr, GoString) -> Void = function(_x:stdgo.go.ast.Ast.Expr, _want:GoString):Void {
-                var __tmp__ = (_types != null && _types.__exists__(_x) ? { value : _types[_x], ok : true } : { value : ({} : TypeAndValue), ok : false }), _tv:TypeAndValue = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_types != null && _types.__exists__(_x) ? { value : _types[_x], ok : true } : { value : ({} : stdgo.go.types.Types.TypeAndValue), ok : false }), _tv:stdgo.go.types.Types.TypeAndValue = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (!_ok) {
                     _t.errorf(("%s: no Types entry found" : GoString), Go.toInterface(_test._lit));
                     return;
@@ -2394,9 +2395,9 @@ function testObjectParents(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _fset = stdgo.go.token.Token.newFileSet();
         var _f = _mustParse(_fset, ("src" : GoString), ("\npackage p\n\nconst C = 0\n\ntype T1 struct {\n\ta, b int\n\tT2\n}\n\ntype T2 interface {\n\tim1()\n\tim2()\n}\n\nfunc (T1) m1() {}\nfunc (*T1) m2() {}\n\nfunc f(x int) { y := x; print(y) }\n" : GoString));
-        var _info = (Go.setRef(({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>) } : Info)) : Ref<Info>);
+        var _info = (Go.setRef(({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>) } : Info)) : Ref<stdgo.go.types.Types.Info>);
         {
-            var __tmp__ = (Go.setRef(({} : Config)) : Ref<Config>).check(("p" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), _info), _0:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = (Go.setRef(({} : stdgo.go.types.Types.Config)) : Ref<stdgo.go.types.Types.Config>).check(("p" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), _info), __0:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -2412,12 +2413,12 @@ function testObjectParents(_t:Ref<stdgo.testing.Testing.T>):Void {
             {
                 final __type__ = _obj;
                 if (Go.typeEquals((__type__ : Ref<Var>))) {
-                    var _obj:Ref<Var> = __type__ == null ? (null : Ref<Var>) : __type__.__underlying__() == null ? (null : Ref<Var>) : __type__ == null ? (null : Ref<Var>) : __type__.__underlying__().value;
+                    var _obj:Ref<stdgo.go.types.Types.Var> = __type__ == null ? (null : Ref<stdgo.go.types.Types.Var>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.types.Types.Var>) : __type__ == null ? (null : Ref<stdgo.go.types.Types.Var>) : __type__.__underlying__().value;
                     if (_obj.isField()) {
                         _wantParent = false;
                     };
                 } else if (Go.typeEquals((__type__ : Ref<Func>))) {
-                    var _obj:Ref<Func> = __type__ == null ? (null : Ref<Func>) : __type__.__underlying__() == null ? (null : Ref<Func>) : __type__ == null ? (null : Ref<Func>) : __type__.__underlying__().value;
+                    var _obj:Ref<stdgo.go.types.Types.Func> = __type__ == null ? (null : Ref<stdgo.go.types.Types.Func>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.types.Types.Func>) : __type__ == null ? (null : Ref<stdgo.go.types.Types.Func>) : __type__.__underlying__().value;
                     if ((Go.typeAssert((Go.toInterface(_obj.type()) : Ref<Signature>)) : Ref<Signature>).recv() != null && (((Go.typeAssert((Go.toInterface(_obj.type()) : Ref<Signature>)) : Ref<Signature>).recv() : Dynamic).__nil__ == null || !((Go.typeAssert((Go.toInterface(_obj.type()) : Ref<Signature>)) : Ref<Signature>).recv() : Dynamic).__nil__)) {
                         _wantParent = false;
                     };
@@ -2441,16 +2442,16 @@ function testFailedImport(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
         var _f = _mustParse(_fset, ("src" : GoString), ("\npackage p\n\nimport foo \"go/types/thisdirectorymustnotexistotherwisethistestmayfail/foo\" // should only see an error here\n\nconst c = foo.C\ntype T = foo.T\nvar v T = c\nfunc f(x T) T { return foo.F(x) }\n" : GoString));
         var _files = (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>);
-        for (_0 => _compiler in (new Slice<GoString>(0, 0, ("gc" : GoString), ("gccgo" : GoString), ("source" : GoString)) : Slice<GoString>)) {
+        for (__0 => _compiler in (new Slice<GoString>(0, 0, ("gc" : GoString), ("gccgo" : GoString), ("source" : GoString)) : Slice<GoString>)) {
             var _errcount:GoInt = (0 : GoInt);
-            var _conf:Config = ({ error : function(_err:Error):Void {
+            var _conf:stdgo.go.types.Types.Config = ({ error : function(_err:Error):Void {
                 if ((_errcount > (0 : GoInt)) || !stdgo.strings.Strings.contains(_err.error(), ("could not import" : GoString))) {
                     _t.errorf(("for %s importer, got unexpected error: %v" : GoString), Go.toInterface(_compiler), Go.toInterface(_err));
                 };
                 _errcount++;
             }, importer : stdgo.go.importer.Importer.for_(_compiler, null) } : Config);
-            var _info = (Go.setRef(({ uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>) } : Info)) : Ref<Info>);
-            var __tmp__ = _conf.check(("p" : GoString), _fset, _files, _info), _pkg:Ref<Package> = __tmp__._0, _1:Error = __tmp__._1;
+            var _info = (Go.setRef(({ uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>) } : Info)) : Ref<stdgo.go.types.Types.Info>);
+            var __tmp__ = _conf.check(("p" : GoString), _fset, _files, _info), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, __1:Error = __tmp__._1;
             if (_pkg == null || (_pkg : Dynamic).__nil__) {
                 _t.errorf(("for %s importer, type-checking failed to return a package" : GoString), Go.toInterface(_compiler));
                 continue;
@@ -2471,7 +2472,7 @@ function testFailedImport(_t:Ref<stdgo.testing.Testing.T>):Void {
                         var __tmp__ = try {
                             { value : (Go.typeAssert((Go.toInterface(_obj) : Ref<PkgName>)) : Ref<PkgName>), ok : true };
                         } catch(_) {
-                            { value : (null : Ref<PkgName>), ok : false };
+                            { value : (null : Ref<stdgo.go.types.Types.PkgName>), ok : false };
                         }, _obj = __tmp__.value, _ok = __tmp__.ok;
                         if (_ok) {
                             if (_obj.imported() != (_imp)) {
@@ -2495,29 +2496,29 @@ function testInstantiate(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.fatalf(("expected 1 type parameter; found %d" : GoString), Go.toInterface(_n));
             };
         };
-        var __tmp__ = instantiate(null, Go.asInterface(t), (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), false), _res:Type = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = instantiate(null, Go.asInterface(t), (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), false), _res:stdgo.go.types.Types.Type = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
         {
-            var _p:Type = (Go.typeAssert((Go.toInterface(_res.underlying()) : Ref<Pointer_>)) : Ref<Pointer_>).elem();
+            var _p:stdgo.go.types.Types.Type = (Go.typeAssert((Go.toInterface(_res.underlying()) : Ref<Pointer_>)) : Ref<Pointer_>).elem();
             if (Go.toInterface(_p) != (Go.toInterface(_res))) {
                 _t.fatalf(("unexpected result type: %s points to %s" : GoString), Go.toInterface(_res), Go.toInterface(_p));
             };
         };
     }
 function testInstantiateErrors(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _tests = (new Slice<T__struct_23>(0, 0, ({ _src : ("type T[P interface{~string}] int" : GoString), _targs : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _wantAt : (0 : GoInt) } : T__struct_23), ({ _src : ("type T[P1 interface{int}, P2 interface{~string}] int" : GoString), _targs : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)]), Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _wantAt : (1 : GoInt) } : T__struct_23), ({ _src : ("type T[P1 any, P2 interface{~[]P1}] int" : GoString), _targs : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)]), Go.asInterface(newSlice(Go.asInterface(typ[((17 : BasicKind) : GoInt)])))) : Slice<Type>), _wantAt : (1 : GoInt) } : T__struct_23), ({ _src : ("type T[P1 interface{~[]P2}, P2 any] int" : GoString), _targs : (new Slice<Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((17 : BasicKind) : GoInt)]))), Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _wantAt : (0 : GoInt) } : T__struct_23)) : Slice<T__struct_23>);
-        for (_0 => _test in _tests) {
+        var _tests = (new Slice<T__struct_23>(0, 0, ({ _src : ("type T[P interface{~string}] int" : GoString), _targs : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _wantAt : (0 : GoInt) } : T__struct_23), ({ _src : ("type T[P1 interface{int}, P2 interface{~string}] int" : GoString), _targs : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _wantAt : (1 : GoInt) } : T__struct_23), ({ _src : ("type T[P1 any, P2 interface{~[]P1}] int" : GoString), _targs : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), Go.asInterface(newSlice(Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)])))) : Slice<stdgo.go.types.Types.Type>), _wantAt : (1 : GoInt) } : T__struct_23), ({ _src : ("type T[P1 interface{~[]P2}, P2 any] int" : GoString), _targs : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)]))), Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _wantAt : (0 : GoInt) } : T__struct_23)) : Slice<T__struct_23>);
+        for (__0 => _test in _tests) {
             var _src:GoString = ("package p; " : GoString) + _test._src;
             var _pkg = _mustTypecheck(("." : GoString), _src, null);
             var t = (Go.typeAssert((Go.toInterface(_pkg.scope().lookup(("T" : GoString)).type()) : Ref<Named>)) : Ref<Named>);
-            var __tmp__ = instantiate(null, Go.asInterface(t), _test._targs, true), _1:Type = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = instantiate(null, Go.asInterface(t), _test._targs, true), __1:stdgo.go.types.Types.Type = __tmp__._0, _err:Error = __tmp__._1;
             if (_err == null) {
                 _t.fatalf(("Instantiate(%v, %v) returned nil error, want non-nil" : GoString), Go.toInterface(Go.asInterface(t)), Go.toInterface(_test._targs));
             };
-            var _argErr:Ref<ArgumentError> = (null : Ref<ArgumentError>);
-            if (!stdgo.errors.Errors.as(_err, Go.toInterface((Go.setRef(_argErr) : Ref<Ref<ArgumentError>>)))) {
+            var _argErr:Ref<ArgumentError> = (null : Ref<stdgo.go.types.Types.ArgumentError>);
+            if (!stdgo.errors.Errors.as(_err, Go.toInterface((Go.setRef(_argErr) : Ref<Ref<stdgo.go.types.Types.ArgumentError>>)))) {
                 _t.fatalf(("Instantiate(%v, %v): error is not an *ArgumentError" : GoString), Go.toInterface(Go.asInterface(t)), Go.toInterface(_test._targs));
             };
             if (_argErr.index != (_test._wantAt)) {
@@ -2526,9 +2527,9 @@ function testInstantiateErrors(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testArgumentErrorUnwrapping(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _err:Error = Go.asInterface((Go.setRef(({ index : (1 : GoInt), err : Go.asInterface(({ msg : ("test" : GoString) } : T_error)) } : ArgumentError)) : Ref<ArgumentError>));
-        var _e:T_error = ({} : T_error);
-        if (!stdgo.errors.Errors.as(_err, Go.toInterface(Go.asInterface((Go.setRef(_e) : Ref<T_error>))))) {
+        var _err:Error = Go.asInterface((Go.setRef(({ index : (1 : GoInt), err : Go.asInterface(({ msg : ("test" : GoString) } : T_error)) } : ArgumentError)) : Ref<stdgo.go.types.Types.ArgumentError>));
+        var _e:T_error = ({} : stdgo.go.types.Types.T_error);
+        if (!stdgo.errors.Errors.as(_err, Go.toInterface(Go.asInterface((Go.setRef(_e) : Ref<stdgo.go.types.Types.T_error>))))) {
             _t.fatalf(("error %v does not wrap types.Error" : GoString), Go.toInterface(_err));
         };
         if (_e.msg != (("test" : GoString))) {
@@ -2536,13 +2537,13 @@ function testArgumentErrorUnwrapping(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testInstanceIdentity(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _imports:stdgo.go.types_test.Types_test.T_testImporter = (new GoObjectMap<GoString, Ref<Package>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types_test.Types_test.T_testImporter", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Package", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_path", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_scope", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_complete", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_imports", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Package", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_fake", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_cgo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }), false, { get : () -> null }))) : stdgo.go.types_test.Types_test.T_testImporter);
-        var _conf:Config = ({ importer : Go.asInterface(_imports) } : Config);
+        var _imports:stdgo.go.types_test.Types_test.T_testImporter = (new GoObjectMap<GoString, Ref<stdgo.go.types.Types.Package>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types_test.Types_test.T_testImporter", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Package", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_path", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_scope", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_complete", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_imports", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Package", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_fake", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_cgo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }), false, { get : () -> null }))) : stdgo.go.types_test.Types_test.T_testImporter);
+        var _conf:stdgo.go.types.Types.Config = ({ importer : Go.asInterface(_imports) } : Config);
         var _makePkg:GoString -> Void = function(_src:GoString):Void {
             var _fset = stdgo.go.token.Token.newFileSet();
             var _f = _mustParse(_fset, Go.str(), _src);
             var _name:GoString = _f.name.name;
-            var __tmp__ = _conf.check(_name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _conf.check(_name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -2551,8 +2552,8 @@ function testInstanceIdentity(_t:Ref<stdgo.testing.Testing.T>):Void {
         _makePkg(("package lib; type T[P any] struct{}" : GoString));
         _makePkg(("package a; import \"lib\"; var A lib.T[int]" : GoString));
         _makePkg(("package b; import \"lib\"; var B lib.T[int]" : GoString));
-        var _a:Object = _imports[("a" : GoString)].scope().lookup(("A" : GoString));
-        var _b:Object = _imports[("b" : GoString)].scope().lookup(("B" : GoString));
+        var _a:stdgo.go.types.Types.Object = _imports[("a" : GoString)].scope().lookup(("A" : GoString));
+        var _b:stdgo.go.types.Types.Object = _imports[("b" : GoString)].scope().lookup(("B" : GoString));
         if (!identical(_a.type(), _b.type())) {
             _t.errorf(("mismatching types: a.A: %s, b.B: %s" : GoString), Go.toInterface(_a.type()), Go.toInterface(_b.type()));
         };
@@ -2562,15 +2563,15 @@ function testInstanceIdentity(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testInstantiatedObjects(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
-        var _info = (Go.setRef(({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>) } : Info)) : Ref<Info>);
+        var _info = (Go.setRef(({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>) } : Info)) : Ref<stdgo.go.types.Types.Info>);
         var _fset = stdgo.go.token.Token.newFileSet();
         var _f = _mustParse(_fset, ("p.go" : GoString), ("\npackage p\n\ntype T[P any] struct {\n\tfield P\n}\n\nfunc (recv *T[Q]) concreteMethod(mParam Q) (mResult Q) { return }\n\ntype FT[P any] func(ftParam P) (ftResult P)\n\nfunc F[P any](fParam P) (fResult P){ return }\n\ntype I[P any] interface {\n\tinterfaceMethod(P)\n}\n\ntype R[P any] T[P]\n\nfunc (R[P]) m() {} // having a method triggers expansion of R\n\nvar (\n\tt T[int]\n\tft FT[int]\n\tf = F[int]\n\ti I[int]\n)\n\nfunc fn() {\n\tvar r R[int]\n\t_ = r\n}\n" : GoString));
-        var _conf:Config = (new Config() : Config);
-        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), _info), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _conf:stdgo.go.types.Types.Config = (new Config() : Config);
+        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), _info), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
-        var _lookup:GoString -> Type = function(_name:GoString):Type {
+        var _lookup:GoString -> stdgo.go.types.Types.Type = function(_name:GoString):Type {
             return _pkg.scope().lookup(_name).type();
         };
         var _fnScope = (Go.typeAssert((Go.toInterface(_pkg.scope().lookup(("fn" : GoString))) : Ref<Func>)) : Ref<Func>).scope();
@@ -2602,7 +2603,7 @@ function testInstantiatedObjects(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
             return true;
         });
-        for (_0 => _test in _tests) {
+        for (__0 => _test in _tests) {
             var _test:T__struct_24 = {
                 final x = _test;
                 ({ _name : x._name, _obj : x._obj } : T__struct_24);
@@ -2615,12 +2616,12 @@ function testInstantiatedObjects(_t:Ref<stdgo.testing.Testing.T>):Void {
                     };
                 };
                 var _ident = _idents[_test._name][(0 : GoInt)];
-                var _def:Object = _info.defs[_ident];
+                var _def:stdgo.go.types.Types.Object = _info.defs[_ident];
                 if (Go.toInterface(_def) == (Go.toInterface(_test._obj))) {
                     _t.fatalf(("info.Defs[%s] contains the test object" : GoString), Go.toInterface(_test._name));
                 };
                 {
-                    var _orig:Object = _originObject(_test._obj);
+                    var _orig:stdgo.go.types.Types.Object = _originObject(_test._obj);
                     if (Go.toInterface(_def) != (Go.toInterface(_orig))) {
                         _t.errorf(("info.Defs[%s] does not match obj.Origin()" : GoString), Go.toInterface(_test._name));
                     };
@@ -2650,10 +2651,10 @@ private function _originObject(_obj:Object):Object {
         {
             final __type__ = _obj;
             if (Go.typeEquals((__type__ : Ref<Var>))) {
-                var _obj:Ref<Var> = __type__ == null ? (null : Ref<Var>) : __type__.__underlying__() == null ? (null : Ref<Var>) : __type__ == null ? (null : Ref<Var>) : __type__.__underlying__().value;
+                var _obj:Ref<stdgo.go.types.Types.Var> = __type__ == null ? (null : Ref<stdgo.go.types.Types.Var>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.types.Types.Var>) : __type__ == null ? (null : Ref<stdgo.go.types.Types.Var>) : __type__.__underlying__().value;
                 return Go.asInterface(_obj.origin());
             } else if (Go.typeEquals((__type__ : Ref<Func>))) {
-                var _obj:Ref<Func> = __type__ == null ? (null : Ref<Func>) : __type__.__underlying__() == null ? (null : Ref<Func>) : __type__ == null ? (null : Ref<Func>) : __type__.__underlying__().value;
+                var _obj:Ref<stdgo.go.types.Types.Func> = __type__ == null ? (null : Ref<stdgo.go.types.Types.Func>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.types.Types.Func>) : __type__ == null ? (null : Ref<stdgo.go.types.Types.Func>) : __type__.__underlying__().value;
                 return Go.asInterface(_obj.origin());
             };
         };
@@ -2663,12 +2664,12 @@ function testImplements(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _fset = stdgo.go.token.Token.newFileSet();
         var _f = _mustParse(_fset, ("p.go" : GoString), ("\npackage p\n\ntype EmptyIface interface{}\n\ntype I interface {\n\tm()\n}\n\ntype C interface {\n\tm()\n\t~int\n}\n\ntype Integer interface{\n\tint8 | int16 | int32 | int64\n}\n\ntype EmptyTypeSet interface{\n\tInteger\n\t~string\n}\n\ntype N1 int\nfunc (N1) m() {}\n\ntype N2 int\nfunc (*N2) m() {}\n\ntype N3 int\nfunc (N3) m(int) {}\n\ntype N4 string\nfunc (N4) m()\n\ntype Bad Bad // invalid type\n" : GoString));
-        var _conf:Config = ({ error : function(_0:Error):Void {} } : Config);
-        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _pkg:Ref<Package> = __tmp__._0, _0:Error = __tmp__._1;
-        var _lookup:GoString -> Type = function(_tname:GoString):Type {
+        var _conf:stdgo.go.types.Types.Config = ({ error : function(_0:Error):Void {} } : Config);
+        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, __0:Error = __tmp__._1;
+        var _lookup:GoString -> stdgo.go.types.Types.Type = function(_tname:GoString):Type {
             return _pkg.scope().lookup(_tname).type();
         };
-        var _0:Ref<Interface> = (Go.typeAssert((Go.toInterface(_lookup(("EmptyIface" : GoString)).underlying()) : Ref<Interface>)) : Ref<Interface>), _1:Ref<Named> = (Go.typeAssert((Go.toInterface(_lookup(("I" : GoString))) : Ref<Named>)) : Ref<Named>), _2:Ref<Interface> = (Go.typeAssert((Go.toInterface(i.underlying()) : Ref<Interface>)) : Ref<Interface>), _3:Ref<Named> = (Go.typeAssert((Go.toInterface(_lookup(("C" : GoString))) : Ref<Named>)) : Ref<Named>), _4:Ref<Interface> = (Go.typeAssert((Go.toInterface(c.underlying()) : Ref<Interface>)) : Ref<Interface>), _5:Ref<Interface> = (Go.typeAssert((Go.toInterface(_lookup(("Integer" : GoString)).underlying()) : Ref<Interface>)) : Ref<Interface>), _6:Ref<Interface> = (Go.typeAssert((Go.toInterface(_lookup(("EmptyTypeSet" : GoString)).underlying()) : Ref<Interface>)) : Ref<Interface>), _7:Type = _lookup(("N1" : GoString)), _8:Ref<Pointer_> = newPointer(n1), _9:Type = _lookup(("N2" : GoString)), _10:Ref<Pointer_> = newPointer(n2), _11:Type = _lookup(("N3" : GoString)), _12:Type = _lookup(("N4" : GoString)), _13:Type = _lookup(("Bad" : GoString)), bad:Type = _13, n4:Type = _12, n3:Type = _11, n2p:Ref<Pointer_> = _10, n2:Type = _9, n1p:Ref<Pointer_> = _8, n1:Type = _7, emptyTypeSet:Ref<Interface> = _6, integer:Ref<Interface> = _5, ci:Ref<Interface> = _4, c:Ref<Named> = _3, ii:Ref<Interface> = _2, i:Ref<Named> = _1, emptyIface:Ref<Interface> = _0;
+        var __0:Ref<stdgo.go.types.Types.Interface> = (Go.typeAssert((Go.toInterface(_lookup(("EmptyIface" : GoString)).underlying()) : Ref<Interface>)) : Ref<Interface>), __1:Ref<stdgo.go.types.Types.Named> = (Go.typeAssert((Go.toInterface(_lookup(("I" : GoString))) : Ref<Named>)) : Ref<Named>), __2:Ref<stdgo.go.types.Types.Interface> = (Go.typeAssert((Go.toInterface(i.underlying()) : Ref<Interface>)) : Ref<Interface>), __3:Ref<stdgo.go.types.Types.Named> = (Go.typeAssert((Go.toInterface(_lookup(("C" : GoString))) : Ref<Named>)) : Ref<Named>), __4:Ref<stdgo.go.types.Types.Interface> = (Go.typeAssert((Go.toInterface(c.underlying()) : Ref<Interface>)) : Ref<Interface>), __5:Ref<stdgo.go.types.Types.Interface> = (Go.typeAssert((Go.toInterface(_lookup(("Integer" : GoString)).underlying()) : Ref<Interface>)) : Ref<Interface>), __6:Ref<stdgo.go.types.Types.Interface> = (Go.typeAssert((Go.toInterface(_lookup(("EmptyTypeSet" : GoString)).underlying()) : Ref<Interface>)) : Ref<Interface>), __7:stdgo.go.types.Types.Type = _lookup(("N1" : GoString)), __8:Ref<stdgo.go.types.Types.Pointer_> = newPointer(n1), __9:stdgo.go.types.Types.Type = _lookup(("N2" : GoString)), __10:Ref<stdgo.go.types.Types.Pointer_> = newPointer(n2), __11:stdgo.go.types.Types.Type = _lookup(("N3" : GoString)), __12:stdgo.go.types.Types.Type = _lookup(("N4" : GoString)), __13:stdgo.go.types.Types.Type = _lookup(("Bad" : GoString)), bad:stdgo.go.types.Types.Type = __13, n4:stdgo.go.types.Types.Type = __12, n3:stdgo.go.types.Types.Type = __11, n2p:Ref<stdgo.go.types.Types.Pointer_> = __10, n2:stdgo.go.types.Types.Type = __9, n1p:Ref<stdgo.go.types.Types.Pointer_> = __8, n1:stdgo.go.types.Types.Type = __7, emptyTypeSet:Ref<stdgo.go.types.Types.Interface> = __6, integer:Ref<stdgo.go.types.Types.Interface> = __5, ci:Ref<stdgo.go.types.Types.Interface> = __4, c:Ref<stdgo.go.types.Types.Named> = __3, ii:Ref<stdgo.go.types.Types.Interface> = __2, i:Ref<stdgo.go.types.Types.Named> = __1, emptyIface:Ref<stdgo.go.types.Types.Interface> = __0;
         var _tests = (new Slice<T__struct_25>(
 0,
 0,
@@ -2676,12 +2677,12 @@ function testImplements(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ v : Go.asInterface(i), t : ci, _want : false } : T__struct_25),
 ({ v : Go.asInterface(c), t : ii, _want : true } : T__struct_25),
 ({ v : Go.asInterface(c), t : ci, _want : true } : T__struct_25),
-({ v : Go.asInterface(typ[((3 : BasicKind) : GoInt)]), t : integer, _want : true } : T__struct_25),
-({ v : Go.asInterface(typ[((6 : BasicKind) : GoInt)]), t : integer, _want : true } : T__struct_25),
-({ v : Go.asInterface(typ[((17 : BasicKind) : GoInt)]), t : integer, _want : false } : T__struct_25),
+({ v : Go.asInterface(typ[((3 : stdgo.go.types.Types.BasicKind) : GoInt)]), t : integer, _want : true } : T__struct_25),
+({ v : Go.asInterface(typ[((6 : stdgo.go.types.Types.BasicKind) : GoInt)]), t : integer, _want : true } : T__struct_25),
+({ v : Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)]), t : integer, _want : false } : T__struct_25),
 ({ v : Go.asInterface(emptyTypeSet), t : ii, _want : true } : T__struct_25),
 ({ v : Go.asInterface(emptyTypeSet), t : emptyTypeSet, _want : true } : T__struct_25),
-({ v : Go.asInterface(typ[((2 : BasicKind) : GoInt)]), t : emptyTypeSet, _want : false } : T__struct_25),
+({ v : Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), t : emptyTypeSet, _want : false } : T__struct_25),
 ({ v : n1, t : ii, _want : true } : T__struct_25),
 ({ v : n1, t : ci, _want : true } : T__struct_25),
 ({ v : Go.asInterface(n1p), t : ii, _want : true } : T__struct_25),
@@ -2697,7 +2698,7 @@ function testImplements(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ v : bad, t : ii, _want : false } : T__struct_25),
 ({ v : bad, t : ci, _want : false } : T__struct_25),
 ({ v : bad, t : emptyIface, _want : true } : T__struct_25)) : Slice<T__struct_25>);
-        for (_1 => _test in _tests) {
+        for (__1 => _test in _tests) {
             {
                 var _got:Bool = implements_(_test.v, _test.t);
                 if (_got != (_test._want)) {
@@ -2705,14 +2706,14 @@ function testImplements(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
             var v = _test.t;
-            var t:Type = _test.v;
+            var t:stdgo.go.types.Types.Type = _test.v;
             var _want:Bool = false;
             {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(t.underlying()) : Ref<Interface>)) : Ref<Interface>), ok : true };
                 } catch(_) {
-                    { value : (null : Ref<Interface>), ok : false };
-                }, _2 = __tmp__.value, _ok = __tmp__.ok;
+                    { value : (null : Ref<stdgo.go.types.Types.Interface>), ok : false };
+                }, __2 = __tmp__.value, _ok = __tmp__.ok;
                 if ((_ok || implements_(t, v)) && (Go.toInterface(t) != Go.toInterface(bad))) {
                     _want = true;
                 };
@@ -2729,15 +2730,15 @@ function testMissingMethodAlternative(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _pkg = _mustTypecheck(("p.go" : GoString), ("\npackage p\ntype T interface {\n\tm()\n}\n\ntype V0 struct{}\nfunc (V0) m() {}\n\ntype V1 struct{}\n\ntype V2 struct{}\nfunc (V2) m() int\n\ntype V3 struct{}\nfunc (*V3) m()\n\ntype V4 struct{}\nfunc (V4) M()\n" : GoString), null);
         var t = (Go.typeAssert((Go.toInterface(_pkg.scope().lookup(("T" : GoString)).type().underlying()) : Ref<Interface>)) : Ref<Interface>);
-        var _lookup:GoString -> { var _0 : Ref<Func>; var _1 : Bool; } = function(_name:GoString):{ var _0 : Ref<Func>; var _1 : Bool; } {
+        var _lookup:GoString -> { var _0 : Ref<stdgo.go.types.Types.Func>; var _1 : Bool; } = function(_name:GoString):{ var _0 : Ref<Func>; var _1 : Bool; } {
             return missingMethod(_pkg.scope().lookup(_name).type(), t, true);
         };
-        var __tmp__ = _lookup(("V0" : GoString)), _method:Ref<Func> = __tmp__._0, _wrongType:Bool = __tmp__._1;
+        var __tmp__ = _lookup(("V0" : GoString)), _method:Ref<stdgo.go.types.Types.Func> = __tmp__._0, _wrongType:Bool = __tmp__._1;
         if (((_method != null) && ((_method : Dynamic).__nil__ == null || !(_method : Dynamic).__nil__)) || _wrongType) {
             _t.fatalf(("V0: got method = %v, wrongType = %v" : GoString), Go.toInterface(Go.asInterface(_method)), Go.toInterface(_wrongType));
         };
         var _checkMissingMethod:(GoString, Bool) -> Void = function(_tname:GoString, _reportWrongType:Bool):Void {
-            var __tmp__ = _lookup(_tname), _method:Ref<Func> = __tmp__._0, _wrongType:Bool = __tmp__._1;
+            var __tmp__ = _lookup(_tname), _method:Ref<stdgo.go.types.Types.Func> = __tmp__._0, _wrongType:Bool = __tmp__._1;
             if ((((_method == null) || (_method : Dynamic).__nil__) || (_method.name() != ("m" : GoString))) || (_wrongType != _reportWrongType)) {
                 _t.fatalf(("%s: got method = %v, wrongType = %v" : GoString), Go.toInterface(_tname), Go.toInterface(Go.asInterface(_method)), Go.toInterface(_wrongType));
             };
@@ -2755,29 +2756,29 @@ function testBuiltinSignatures(_t:Ref<stdgo.testing.Testing.T>):Void {
             @:privateAccess x._values = [true];
             x;
         } : stdgo.GoMap<GoString, Bool>);
-        for (_0 => _call in _builtinCalls) {
+        for (__0 => _call in _builtinCalls) {
             _testBuiltinSignature(_t, _call._name, _call._src, _call._sig);
             _seen[_call._name] = true;
         };
-        for (_1 => _name in universe.names()) {
+        for (__1 => _name in universe.names()) {
             {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(universe.lookup(_name)) : Ref<Builtin>)) : Ref<Builtin>), ok : true };
                 } catch(_) {
-                    { value : (null : Ref<Builtin>), ok : false };
-                }, _2 = __tmp__.value, _ok = __tmp__.ok;
+                    { value : (null : Ref<stdgo.go.types.Types.Builtin>), ok : false };
+                }, __2 = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok && !_seen[_name]) {
                     _t.errorf(("missing test for %s" : GoString), Go.toInterface(_name));
                 };
             };
         };
-        for (_3 => _name in unsafe.scope().names()) {
+        for (__3 => _name in unsafe.scope().names()) {
             {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(unsafe.scope().lookup(_name)) : Ref<Builtin>)) : Ref<Builtin>), ok : true };
                 } catch(_) {
-                    { value : (null : Ref<Builtin>), ok : false };
-                }, _4 = __tmp__.value, _ok = __tmp__.ok;
+                    { value : (null : Ref<stdgo.go.types.Types.Builtin>), ok : false };
+                }, __4 = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok && !_seen[_name]) {
                     _t.errorf(("missing test for unsafe.%s" : GoString), Go.toInterface(_name));
                 };
@@ -2786,16 +2787,16 @@ function testBuiltinSignatures(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 private function _testBuiltinSignature(_t:Ref<stdgo.testing.Testing.T>, _name:GoString, _src0:GoString, _want:GoString):Void {
         var _src:GoString = stdgo.fmt.Fmt.sprintf(("package p; import \"unsafe\"; type _ unsafe.Pointer /* use unsafe */; func _[P ~[]byte]() { %s }" : GoString), Go.toInterface(_src0));
-        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, Go.str(), Go.toInterface(_src), (("0" : GoUInt) : stdgo.go.parser.Parser.Mode)), _f:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, Go.str(), Go.toInterface(_src), (0u32 : stdgo.go.parser.Parser.Mode)), _f:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("%s: %s" : GoString), Go.toInterface(_src0), Go.toInterface(_err));
             return;
         };
-        var _conf:Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
-        var _uses = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>);
-        var _types = (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>);
+        var _conf:stdgo.go.types.Types.Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
+        var _uses = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>);
+        var _types = (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>);
         {
-            var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ types : _types, uses : _uses } : Info)) : Ref<Info>));
+            var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ types : _types, uses : _uses } : Info)) : Ref<stdgo.go.types.Types.Info>));
             _err = __tmp__._1;
         };
         if (_err != null) {
@@ -2810,7 +2811,7 @@ private function _testBuiltinSignature(_t:Ref<stdgo.testing.Testing.T>, _name:Go
                     { value : (Go.typeAssert((Go.toInterface(_x) : Ref<stdgo.go.ast.Ast.CallExpr>)) : Ref<stdgo.go.ast.Ast.CallExpr>), ok : true };
                 } catch(_) {
                     { value : (null : Ref<stdgo.go.ast.Ast.CallExpr>), ok : false };
-                }, _call = __tmp__.value, _0 = __tmp__.ok;
+                }, _call = __tmp__.value, __0 = __tmp__.ok;
                 if (_call != null && ((_call : Dynamic).__nil__ == null || !(_call : Dynamic).__nil__)) {
                     _fun = _call.fun;
                     _n++;
@@ -2822,7 +2823,7 @@ private function _testBuiltinSignature(_t:Ref<stdgo.testing.Testing.T>, _name:Go
             return;
         };
         while (true) {
-            var _typ:Type = _types[_fun].type;
+            var _typ:stdgo.go.types.Types.Type = _types[_fun].type;
             if (_typ == null) {
                 _t.errorf(("%s: no type recorded for %s" : GoString), Go.toInterface(_src0), Go.toInterface(exprString(_fun)));
                 return;
@@ -2838,7 +2839,7 @@ private function _testBuiltinSignature(_t:Ref<stdgo.testing.Testing.T>, _name:Go
                 final __type__ = _fun;
                 if (Go.typeEquals((__type__ : Ref<stdgo.go.ast.Ast.Ident>))) {
                     var _p:Ref<stdgo.go.ast.Ast.Ident> = __type__ == null ? (null : Ref<stdgo.go.ast.Ast.Ident>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.ast.Ast.Ident>) : __type__ == null ? (null : Ref<stdgo.go.ast.Ast.Ident>) : __type__.__underlying__().value;
-                    var _obj:Object = _uses[_p];
+                    var _obj:stdgo.go.types.Types.Object = _uses[_p];
                     if (_obj == null) {
                         _t.errorf(("%s: no object found for %s" : GoString), Go.toInterface(_src0), Go.toInterface(Go.asInterface(_p)));
                         return;
@@ -2846,8 +2847,8 @@ private function _testBuiltinSignature(_t:Ref<stdgo.testing.Testing.T>, _name:Go
                     var __tmp__ = try {
                         { value : (Go.typeAssert((Go.toInterface(_obj) : Ref<Builtin>)) : Ref<Builtin>), ok : true };
                     } catch(_) {
-                        { value : (null : Ref<Builtin>), ok : false };
-                    }, _bin = __tmp__.value, _1 = __tmp__.ok;
+                        { value : (null : Ref<stdgo.go.types.Types.Builtin>), ok : false };
+                    }, _bin = __tmp__.value, __1 = __tmp__.ok;
                     if (_bin == null || (_bin : Dynamic).__nil__) {
                         _t.errorf(("%s: %s does not denote a built-in" : GoString), Go.toInterface(_src0), Go.toInterface(Go.asInterface(_p)));
                         return;
@@ -2903,9 +2904,9 @@ private function _parseFiles(_t:Ref<stdgo.testing.Testing.T>, _filenames:Slice<G
                         { value : (Go.typeAssert((Go.toInterface(_err) : stdgo.go.scanner.Scanner.ErrorList)) : stdgo.go.scanner.Scanner.ErrorList), ok : true };
                     } catch(_) {
                         { value : new stdgo.go.scanner.Scanner.ErrorList(0, 0), ok : false };
-                    }, _list = __tmp__.value, _0 = __tmp__.ok;
+                    }, _list = __tmp__.value, __0 = __tmp__.ok;
                     if ((_list.length) > (0 : GoInt)) {
-                        for (_1 => _err in _list) {
+                        for (__1 => _err in _list) {
                             _errlist = _errlist.__appendref__(Go.asInterface(_err));
                         };
                     } else {
@@ -2924,13 +2925,13 @@ private function _parseFiles(_t:Ref<stdgo.testing.Testing.T>, _filenames:Slice<G
     // source for the parsed AST.
 **/
 private function _errMap(_t:Ref<stdgo.testing.Testing.T>, _files:Slice<Ref<stdgo.go.ast.Ast.File>>, _srcs:Slice<Slice<GoByte>>):GoMap<GoString, Slice<GoString>> {
-        return stdgo.internal.Macro.controlFlow({
+        stdgo.internal.Macro.controlFlow({
             var _errmap = (new GoObjectMap<GoString, Slice<GoString>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }) }))) : GoMap<GoString, Slice<GoString>>);
             for (_i => _file in _files) {
                 var _tok = _fset.file(_file.package_);
                 var _src = _srcs[(_i : GoInt)];
                 var _s:stdgo.go.scanner.Scanner.Scanner = ({} : stdgo.go.scanner.Scanner.Scanner);
-                _s.init(_tok, _src, null, (("1" : GoUInt) : stdgo.go.scanner.Scanner.Mode));
+                _s.init(_tok, _src, null, (1u32 : stdgo.go.scanner.Scanner.Mode));
                 var _prev:stdgo.go.token.Token.Pos = ((0 : GoInt) : stdgo.go.token.Token.Pos);
                 @:label("scanFile") while (true) {
                     var __tmp__ = _s.scan(), _pos:stdgo.go.token.Token.Pos = __tmp__._0, _tok:stdgo.go.token.Token.Token = __tmp__._1, _lit:GoString = __tmp__._2;
@@ -2977,9 +2978,10 @@ private function _errMap(_t:Ref<stdgo.testing.Testing.T>, _files:Slice<Ref<stdgo
             };
             return _errmap;
         });
+        throw "controlFlow did not return";
     }
 private function _eliminate(_t:Ref<stdgo.testing.Testing.T>, _errmap:GoMap<GoString, Slice<GoString>>, _errlist:Slice<Error>):Void {
-        for (_0 => _err in _errlist) {
+        for (__0 => _err in _errlist) {
             var __tmp__ = _splitError(_err), _pos:GoString = __tmp__._0, _gotMsg:GoString = __tmp__._1;
             var _list = _errmap[_pos];
             var _index:GoInt = (-1 : GoInt);
@@ -3050,19 +3052,19 @@ private function _testFiles(_t:Ref<stdgo.testing.Testing.T>, _sizes:Sizes, _file
         if ((_filenames.length) == ((0 : GoInt))) {
             _t.fatal(Go.toInterface(("no source files" : GoString)));
         };
-        var _conf:Config = ({} : Config);
+        var _conf:Config = ({} : stdgo.go.types.Types.Config);
         _conf.sizes = _sizes;
         var _flags = stdgo.flag.Flag.newFlagSet(Go.str(), (2 : stdgo.flag.Flag.ErrorHandling));
         _flags.stringVar(Go.pointer(_conf.goVersion), ("lang" : GoString), Go.str(), Go.str());
         _flags.boolVar(Go.pointer(_conf.fakeImportC), ("fakeImportC" : GoString), false, Go.str());
-        _flags.boolVar(_addrOldComparableSemantics((Go.setRef(_conf) : Ref<Config>)), ("oldComparableSemantics" : GoString), false, Go.str());
+        _flags.boolVar(_addrOldComparableSemantics((Go.setRef(_conf) : Ref<stdgo.go.types.Types.Config>)), ("oldComparableSemantics" : GoString), false, Go.str());
         {
             var _err:Error = _parseFlags(_filenames[(0 : GoInt)], _srcs[(0 : GoInt)], _flags);
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
         };
-        var __tmp__ = _parseFiles(_t, _filenames, _srcs, (("32" : GoUInt) : stdgo.go.parser.Parser.Mode)), _files:Slice<Ref<stdgo.go.ast.Ast.File>> = __tmp__._0, _errlist:Slice<Error> = __tmp__._1;
+        var __tmp__ = _parseFiles(_t, _filenames, _srcs, (32u32 : stdgo.go.parser.Parser.Mode)), _files:Slice<Ref<stdgo.go.ast.Ast.File>> = __tmp__._0, _errlist:Slice<Error> = __tmp__._1;
         var _pkgName:GoString = ("<no package>" : GoString);
         if ((_files.length) > (0 : GoInt)) {
             _pkgName = _files[(0 : GoInt)].name.name;
@@ -3070,7 +3072,7 @@ private function _testFiles(_t:Ref<stdgo.testing.Testing.T>, _sizes:Sizes, _file
         var _listErrors:Bool = _manual && !_verifyErrors.value;
         if (_listErrors && (_errlist.length > (0 : GoInt))) {
             _t.errorf(("--- %s:" : GoString), Go.toInterface(_pkgName));
-            for (_0 => _err in _errlist) {
+            for (__0 => _err in _errlist) {
                 _t.error(Go.toInterface(_err));
             };
         };
@@ -3127,16 +3129,16 @@ private function _testFiles(_t:Ref<stdgo.testing.Testing.T>, _sizes:Sizes, _file
         if (_listErrors) {
             return;
         };
-        for (_1 => _err in _errlist) {
+        for (__1 => _err in _errlist) {
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_err) : T_error)) : T_error), ok : true };
             } catch(_) {
-                { value : ({} : T_error), ok : false };
+                { value : ({} : stdgo.go.types.Types.T_error), ok : false };
             }, _err = __tmp__.value, _ok = __tmp__.ok;
             if (!_ok) {
                 continue;
             };
-            var _code:GoInt = _readCode(_err.__copy__());
+            var _code:GoInt = _readCode(_err?.__copy__());
             if (_code == ((0 : GoInt))) {
                 _t.errorf(("missing error code: %v" : GoString), Go.toInterface(Go.asInterface(_err)));
             };
@@ -3146,21 +3148,21 @@ private function _testFiles(_t:Ref<stdgo.testing.Testing.T>, _sizes:Sizes, _file
         if ((_errmap.length) > (0 : GoInt)) {
             _t.errorf(("--- %s: %d source positions with expected (but not reported) errors:" : GoString), Go.toInterface(_pkgName), Go.toInterface((_errmap.length)));
             for (_pos => _list in _errmap) {
-                for (_2 => _rx in _list) {
+                for (__2 => _rx in _list) {
                     _t.errorf(("%s: %q" : GoString), Go.toInterface(_pos), Go.toInterface(_rx));
                 };
             };
         };
     }
 private function _readCode(_err:T_error):GoInt {
-        var _v:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(_err))).__copy__();
+        var _v:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(_err)))?.__copy__();
         return (_v.fieldByName(("go116code" : GoString)).int_() : GoInt);
     }
 /**
     // addrOldComparableSemantics(conf) returns &conf.oldComparableSemantics (unexported field).
 **/
 private function _addrOldComparableSemantics(_conf:Ref<Config>):Pointer<Bool> {
-        var _v:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.indirect(stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(_conf))).__copy__()).__copy__();
+        var _v:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.indirect(stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(_conf)))?.__copy__())?.__copy__();
         return (_v.fieldByName(("oldComparableSemantics" : GoString)).addr().unsafePointer().__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) })) : Pointer<Bool>);
     }
 /**
@@ -3202,7 +3204,7 @@ function testManual(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testLongConstants(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _format:GoString = ("package longconst\n\nconst _ = %s /* ERROR constant overflow */ \nconst _ = %s // ERROR excessively long constant" : GoString);
         var _src:GoString = stdgo.fmt.Fmt.sprintf(_format, Go.toInterface(stdgo.strings.Strings.repeat(("1" : GoString), (9999 : GoInt))), Go.toInterface(stdgo.strings.Strings.repeat(("1" : GoString), (10001 : GoInt))));
-        _testFiles(_t, (null : Sizes), (new Slice<GoString>(0, 0, ("longconst.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (_src : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, (null : Importer));
+        _testFiles(_t, (null : stdgo.go.types.Types.Sizes), (new Slice<GoString>(0, 0, ("longconst.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (_src : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, (null : stdgo.go.types.Types.Importer));
     }
 /**
     // TestIndexRepresentability tests that constant index operands must
@@ -3211,11 +3213,11 @@ function testLongConstants(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testIndexRepresentability(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
-        _testFiles(_t, Go.asInterface((Go.setRef((new StdSizes(("4" : GoInt64), ("4" : GoInt64)) : StdSizes)) : Ref<StdSizes>)), (new Slice<GoString>(0, 0, ("index.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (("package index\n\nvar s []byte\nvar _ = s[int64 /* ERROR \"int64\\(1\\) << 40 \\(.*\\) overflows int\" */ (1) << 40]" : GoString) : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, (null : Importer));
+        _testFiles(_t, Go.asInterface((Go.setRef((new StdSizes((4i64 : GoInt64), (4i64 : GoInt64)) : StdSizes)) : Ref<stdgo.go.types.Types.StdSizes>)), (new Slice<GoString>(0, 0, ("index.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (("package index\n\nvar s []byte\nvar _ = s[int64 /* ERROR \"int64\\(1\\) << 40 \\(.*\\) overflows int\" */ (1) << 40]" : GoString) : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, (null : stdgo.go.types.Types.Importer));
     }
 function testIssue47243_TypedRHS(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
-        _testFiles(_t, Go.asInterface((Go.setRef((new StdSizes(("4" : GoInt64), ("4" : GoInt64)) : StdSizes)) : Ref<StdSizes>)), (new Slice<GoString>(0, 0, ("p.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (("package issue47243\n\nvar a uint64; var _ = a << uint64(4294967296)" : GoString) : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, (null : Importer));
+        _testFiles(_t, Go.asInterface((Go.setRef((new StdSizes((4i64 : GoInt64), (4i64 : GoInt64)) : StdSizes)) : Ref<stdgo.go.types.Types.StdSizes>)), (new Slice<GoString>(0, 0, ("p.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (("package issue47243\n\nvar a uint64; var _ = a << uint64(4294967296)" : GoString) : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, (null : stdgo.go.types.Types.Importer));
     }
 function testCheck(_t:Ref<stdgo.testing.Testing.T>):Void {
         defPredeclaredTestFuncs();
@@ -3241,7 +3243,7 @@ private function _testDirFiles(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _
             _t.error(Go.toInterface(_err));
             return;
         };
-        for (_0 => _fi in _fis) {
+        for (__0 => _fi in _fis) {
             var _path:GoString = stdgo.path.filepath.Filepath.join(_dir, _fi.name());
             if (_fi.isDir()) {
                 _testDir(_t, _path, _manual);
@@ -3260,7 +3262,7 @@ private function _testDir(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _manua
             return;
         };
         var _filenames:Slice<GoString> = (null : Slice<GoString>);
-        for (_0 => _fi in _fis) {
+        for (__0 => _fi in _fis) {
             _filenames = _filenames.__appendref__(stdgo.path.filepath.Filepath.join(_dir, _fi.name()));
         };
         _t.run(stdgo.path.filepath.Filepath.base(_dir), function(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -3279,7 +3281,7 @@ private function _testPkg(_t:Ref<stdgo.testing.Testing.T>, _filenames:Slice<GoSt
             };
             _srcs[(_i : GoInt)] = _src;
         };
-        _testFiles(_t, (null : Sizes), _filenames, _srcs, _manual, (null : Importer));
+        _testFiles(_t, (null : stdgo.go.types.Types.Sizes), _filenames, _srcs, _manual, (null : stdgo.go.types.Types.Importer));
     }
 /**
     // TestErrorCalls makes sure that check.errorf calls have at least
@@ -3291,13 +3293,13 @@ function testErrorCalls(_t:Ref<stdgo.testing.Testing.T>):Void {
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
-        for (_0 => _file in _files) {
+        for (__0 => _file in _files) {
             stdgo.go.ast.Ast.inspect(Go.asInterface(_file), function(_n:stdgo.go.ast.Ast.Node):Bool {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(_n) : Ref<stdgo.go.ast.Ast.CallExpr>)) : Ref<stdgo.go.ast.Ast.CallExpr>), ok : true };
                 } catch(_) {
                     { value : (null : Ref<stdgo.go.ast.Ast.CallExpr>), ok : false };
-                }, _call = __tmp__.value, _0 = __tmp__.ok;
+                }, _call = __tmp__.value, __0 = __tmp__.ok;
                 if (_call == null || (_call : Dynamic).__nil__) {
                     return true;
                 };
@@ -3305,7 +3307,7 @@ function testErrorCalls(_t:Ref<stdgo.testing.Testing.T>):Void {
                     { value : (Go.typeAssert((Go.toInterface(_call.fun) : Ref<stdgo.go.ast.Ast.SelectorExpr>)) : Ref<stdgo.go.ast.Ast.SelectorExpr>), ok : true };
                 } catch(_) {
                     { value : (null : Ref<stdgo.go.ast.Ast.SelectorExpr>), ok : false };
-                }, _selx = __tmp__.value, _1 = __tmp__.ok;
+                }, _selx = __tmp__.value, __1 = __tmp__.ok;
                 if (_selx == null || (_selx : Dynamic).__nil__) {
                     return true;
                 };
@@ -3337,7 +3339,7 @@ private function _isName(_n:stdgo.go.ast.Ast.Node, _name:GoString):Bool {
         return false;
     }
 private function _testEval(_t:Ref<stdgo.testing.Testing.T>, _fset:Ref<stdgo.go.token.Token.FileSet>, _pkg:Ref<Package>, _pos:stdgo.go.token.Token.Pos, _expr:GoString, _typ:Type, _typStr:GoString, _valStr:GoString):Void {
-        var __tmp__ = eval(_fset, _pkg, _pos, _expr), _gotTv:TypeAndValue = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = eval(_fset, _pkg, _pos, _expr), _gotTv:stdgo.go.types.Types.TypeAndValue = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("Eval(%q) failed: %s" : GoString), Go.toInterface(_expr), Go.toInterface(_err));
             return;
@@ -3368,21 +3370,21 @@ private function _testEval(_t:Ref<stdgo.testing.Testing.T>, _fset:Ref<stdgo.go.t
     }
 function testEvalBasic(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
-        for (_0 => _typ in (typ.__slice__((1 : BasicKind), (18 : BasicKind)) : Slice<Ref<Basic>>)) {
+        for (__0 => _typ in (typ.__slice__((1 : stdgo.go.types.Types.BasicKind), (18 : stdgo.go.types.Types.BasicKind)) : Slice<Ref<stdgo.go.types.Types.Basic>>)) {
             _testEval(_t, _fset, null, (0 : stdgo.go.token.Token.Pos), _typ.name(), Go.asInterface(_typ), Go.str(), Go.str());
         };
     }
 function testEvalComposite(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
-        for (_0 => _test in _independentTestTypes) {
-            _testEval(_t, _fset, null, (0 : stdgo.go.token.Token.Pos), _test._src, (null : Type), _test._str, Go.str());
+        for (__0 => _test in _independentTestTypes) {
+            _testEval(_t, _fset, null, (0 : stdgo.go.token.Token.Pos), _test._src, (null : stdgo.go.types.Types.Type), _test._str, Go.str());
         };
     }
 function testEvalArith(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _tests:Slice<GoString> = (new Slice<GoString>(0, 0, ("true" : GoString), ("false == false" : GoString), ("12345678 + 87654321 == 99999999" : GoString), ("10 * 20 == 200" : GoString), ("(1<<500)*2 >> 100 == 2<<400" : GoString), ("\"foo\" + \"bar\" == \"foobar\"" : GoString), ("\"abc\" <= \"bcd\"" : GoString), ("len([10]struct{}{}) == 2*5" : GoString)) : Slice<GoString>);
         var _fset = stdgo.go.token.Token.newFileSet();
-        for (_0 => _test in _tests) {
-            _testEval(_t, _fset, null, (0 : stdgo.go.token.Token.Pos), _test, Go.asInterface(typ[((19 : BasicKind) : GoInt)]), Go.str(), ("true" : GoString));
+        for (__0 => _test in _tests) {
+            _testEval(_t, _fset, null, (0 : stdgo.go.token.Token.Pos), _test, Go.asInterface(typ[((19 : stdgo.go.types.Types.BasicKind) : GoInt)]), Go.str(), ("true" : GoString));
         };
     }
 function testEvalPos(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -3391,25 +3393,25 @@ function testEvalPos(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
         var _files:Slice<Ref<stdgo.go.ast.Ast.File>> = (null : Slice<Ref<stdgo.go.ast.Ast.File>>);
         for (_i => _src in _sources) {
-            var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("p" : GoString), Go.toInterface(_src), (("4" : GoUInt) : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("p" : GoString), Go.toInterface(_src), (4u32 : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("could not parse file %d: %s" : GoString), Go.toInterface(_i), Go.toInterface(_err));
             };
             _files = _files.__appendref__(_file);
         };
-        var _conf:Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
-        var __tmp__ = _conf.check(("p" : GoString), _fset, _files, null), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _conf:stdgo.go.types.Types.Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
+        var __tmp__ = _conf.check(("p" : GoString), _fset, _files, null), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
-        for (_0 => _file in _files) {
-            for (_1 => _group in _file.comments) {
-                for (_2 => _comment in _group.list) {
+        for (__0 => _file in _files) {
+            for (__1 => _group in _file.comments) {
+                for (__2 => _comment in _group.list) {
                     var _s:GoString = _comment.text;
                     if (((_s.length >= (4 : GoInt)) && ((_s.__slice__(0, (2 : GoInt)) : GoString) == ("/*" : GoString))) && ((_s.__slice__((_s.length) - (2 : GoInt)) : GoString) == ("*/" : GoString))) {
                         var __tmp__ = _split((_s.__slice__((2 : GoInt), (_s.length) - (2 : GoInt)) : GoString), (", " : GoString)), _str:GoString = __tmp__._0, _typ:GoString = __tmp__._1;
                         var __tmp__ = _split(_str, ("=>" : GoString)), _str:GoString = __tmp__._0, _val:GoString = __tmp__._1;
-                        _testEval(_t, _fset, _pkg, _comment.pos(), _str, (null : Type), _typ, _val);
+                        _testEval(_t, _fset, _pkg, _comment.pos(), _str, (null : stdgo.go.types.Types.Type), _typ, _val);
                     };
                 };
             };
@@ -3419,32 +3421,32 @@ function testEvalPos(_t:Ref<stdgo.testing.Testing.T>):Void {
     // split splits string s at the first occurrence of s, trimming spaces.
 **/
 private function _split(_s:GoString, _sep:GoString):{ var _0 : GoString; var _1 : GoString; } {
-        var __tmp__ = stdgo.strings.Strings.cut(_s, _sep), _before:GoString = __tmp__._0, _after:GoString = __tmp__._1, _0:Bool = __tmp__._2;
+        var __tmp__ = stdgo.strings.Strings.cut(_s, _sep), _before:GoString = __tmp__._0, _after:GoString = __tmp__._1, __0:Bool = __tmp__._2;
         return { _0 : stdgo.strings.Strings.trimSpace(_before), _1 : stdgo.strings.Strings.trimSpace(_after) };
     }
 function testCheckExpr(_t:Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveGoBuild(Go.asInterface(_t));
         {};
         var _fset = stdgo.go.token.Token.newFileSet();
-        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("p" : GoString), Go.toInterface(("\npackage p\n\nimport \"fmt\"\n\nconst c = 3.0\ntype T []int\ntype S struct{ X int }\n\nfunc f(a int, s string) S {\n\t/* fmt.Println => func fmt.Println(a ...any) (n int, err error) */\n\t/* fmt.Stringer.String => func (fmt.Stringer).String() string */\n\tfmt.Println(\"calling f\")\n\n\tvar fmt struct{ Println int }\n\t/* fmt => var fmt struct{Println int} */\n\t/* fmt.Println => field Println int */\n\t/* f(1, \"\").X => field X int */\n\tfmt.Println = 1\n\n\t/* append => builtin append */\n\n\t/* new(S).X => field X int */\n\n\treturn S{}\n}" : GoString)), (("4" : GoUInt) : stdgo.go.parser.Parser.Mode)), _f:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("p" : GoString), Go.toInterface(("\npackage p\n\nimport \"fmt\"\n\nconst c = 3.0\ntype T []int\ntype S struct{ X int }\n\nfunc f(a int, s string) S {\n\t/* fmt.Println => func fmt.Println(a ...any) (n int, err error) */\n\t/* fmt.Stringer.String => func (fmt.Stringer).String() string */\n\tfmt.Println(\"calling f\")\n\n\tvar fmt struct{ Println int }\n\t/* fmt => var fmt struct{Println int} */\n\t/* fmt.Println => field Println int */\n\t/* f(1, \"\").X => field X int */\n\tfmt.Println = 1\n\n\t/* append => builtin append */\n\n\t/* new(S).X => field X int */\n\n\treturn S{}\n}" : GoString)), (4u32 : stdgo.go.parser.Parser.Mode)), _f:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
-        var _conf:Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
-        var __tmp__ = _conf.check(("p" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _conf:stdgo.go.types.Types.Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
+        var __tmp__ = _conf.check(("p" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
-        var _checkExpr:(stdgo.go.token.Token.Pos, GoString) -> { var _0 : Object; var _1 : Error; } = function(_pos:stdgo.go.token.Token.Pos, _str:GoString):{ var _0 : Object; var _1 : Error; } {
-            var __tmp__ = stdgo.go.parser.Parser.parseExprFrom(_fset, ("eval" : GoString), Go.toInterface(_str), (("0" : GoUInt) : stdgo.go.parser.Parser.Mode)), _expr:stdgo.go.ast.Ast.Expr = __tmp__._0, _err:Error = __tmp__._1;
+        var _checkExpr:(stdgo.go.token.Token.Pos, GoString) -> { var _0 : stdgo.go.types.Types.Object; var _1 : Error; } = function(_pos:stdgo.go.token.Token.Pos, _str:GoString):{ var _0 : Object; var _1 : Error; } {
+            var __tmp__ = stdgo.go.parser.Parser.parseExprFrom(_fset, ("eval" : GoString), Go.toInterface(_str), (0u32 : stdgo.go.parser.Parser.Mode)), _expr:stdgo.go.ast.Ast.Expr = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : (null : Object), _1 : _err };
+                return { _0 : (null : stdgo.go.types.Types.Object), _1 : _err };
             };
-            var _info = (Go.setRef(({ uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>), selections : (new GoObjectMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<Selection>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.SelectorExpr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "x", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "sel", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Selection", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("SelectionKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_recv", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_index", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }) }, optional : false }, { name : "_indirect", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<Selection>>) } : Info)) : Ref<Info>);
+            var _info = (Go.setRef(({ uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>), selections : (new GoObjectMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<stdgo.go.types.Types.Selection>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.SelectorExpr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "x", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "sel", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Selection", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.SelectionKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_recv", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_index", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }) }, optional : false }, { name : "_indirect", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<stdgo.go.types.Types.Selection>>) } : Info)) : Ref<stdgo.go.types.Types.Info>);
             {
                 var _err:Error = checkExpr(_fset, _pkg, _pos, _expr, _info);
                 if (_err != null) {
-                    return { _0 : (null : Object), _1 : stdgo.fmt.Fmt.errorf(("CheckExpr(%q) failed: %s" : GoString), Go.toInterface(_str), Go.toInterface(_err)) };
+                    return { _0 : (null : stdgo.go.types.Types.Object), _1 : stdgo.fmt.Fmt.errorf(("CheckExpr(%q) failed: %s" : GoString), Go.toInterface(_str), Go.toInterface(_err)) };
                 };
             };
             {
@@ -3452,7 +3454,7 @@ function testCheckExpr(_t:Ref<stdgo.testing.Testing.T>):Void {
                 if (Go.typeEquals((__type__ : Ref<stdgo.go.ast.Ast.Ident>))) {
                     var _expr:Ref<stdgo.go.ast.Ast.Ident> = __type__ == null ? (null : Ref<stdgo.go.ast.Ast.Ident>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.ast.Ast.Ident>) : __type__ == null ? (null : Ref<stdgo.go.ast.Ast.Ident>) : __type__.__underlying__().value;
                     {
-                        var __tmp__ = (_info.uses != null && _info.uses.__exists__(_expr) ? { value : _info.uses[_expr], ok : true } : { value : (null : Object), ok : false }), _obj:Object = __tmp__.value, _ok:Bool = __tmp__.ok;
+                        var __tmp__ = (_info.uses != null && _info.uses.__exists__(_expr) ? { value : _info.uses[_expr], ok : true } : { value : (null : stdgo.go.types.Types.Object), ok : false }), _obj:stdgo.go.types.Types.Object = __tmp__.value, _ok:Bool = __tmp__.ok;
                         if (_ok) {
                             return { _0 : _obj, _1 : (null : Error) };
                         };
@@ -3460,28 +3462,28 @@ function testCheckExpr(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } else if (Go.typeEquals((__type__ : Ref<stdgo.go.ast.Ast.SelectorExpr>))) {
                     var _expr:Ref<stdgo.go.ast.Ast.SelectorExpr> = __type__ == null ? (null : Ref<stdgo.go.ast.Ast.SelectorExpr>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.ast.Ast.SelectorExpr>) : __type__ == null ? (null : Ref<stdgo.go.ast.Ast.SelectorExpr>) : __type__.__underlying__().value;
                     {
-                        var __tmp__ = (_info.selections != null && _info.selections.__exists__(_expr) ? { value : _info.selections[_expr], ok : true } : { value : (null : Ref<Selection>), ok : false }), _sel:Ref<Selection> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                        var __tmp__ = (_info.selections != null && _info.selections.__exists__(_expr) ? { value : _info.selections[_expr], ok : true } : { value : (null : Ref<stdgo.go.types.Types.Selection>), ok : false }), _sel:Ref<stdgo.go.types.Types.Selection> = __tmp__.value, _ok:Bool = __tmp__.ok;
                         if (_ok) {
                             return { _0 : _sel.obj(), _1 : (null : Error) };
                         };
                     };
                     {
-                        var __tmp__ = (_info.uses != null && _info.uses.__exists__(_expr.sel) ? { value : _info.uses[_expr.sel], ok : true } : { value : (null : Object), ok : false }), _obj:Object = __tmp__.value, _ok:Bool = __tmp__.ok;
+                        var __tmp__ = (_info.uses != null && _info.uses.__exists__(_expr.sel) ? { value : _info.uses[_expr.sel], ok : true } : { value : (null : stdgo.go.types.Types.Object), ok : false }), _obj:stdgo.go.types.Types.Object = __tmp__.value, _ok:Bool = __tmp__.ok;
                         if (_ok) {
                             return { _0 : _obj, _1 : (null : Error) };
                         };
                     };
                 };
             };
-            return { _0 : (null : Object), _1 : stdgo.fmt.Fmt.errorf(("no object for %s" : GoString), Go.toInterface(_str)) };
+            return { _0 : (null : stdgo.go.types.Types.Object), _1 : stdgo.fmt.Fmt.errorf(("no object for %s" : GoString), Go.toInterface(_str)) };
         };
-        for (_0 => _group in _f.comments) {
-            for (_1 => _comment in _group.list) {
+        for (__0 => _group in _f.comments) {
+            for (__1 => _comment in _group.list) {
                 var _s:GoString = _comment.text;
                 if (((_s.length >= (4 : GoInt)) && stdgo.strings.Strings.hasPrefix(_s, ("/*" : GoString))) && stdgo.strings.Strings.hasSuffix(_s, ("*/" : GoString))) {
                     var _pos:stdgo.go.token.Token.Pos = _comment.pos();
                     var __tmp__ = _split((_s.__slice__((2 : GoInt), (_s.length) - (2 : GoInt)) : GoString), ("=>" : GoString)), _expr:GoString = __tmp__._0, _wantObj:GoString = __tmp__._1;
-                    var __tmp__ = _checkExpr(_pos, _expr), _obj:Object = __tmp__._0, _err:Error = __tmp__._1;
+                    var __tmp__ = _checkExpr(_pos, _expr), _obj:stdgo.go.types.Types.Object = __tmp__._0, _err:Error = __tmp__._1;
                     if (_err != null) {
                         _t.errorf(("%s: %s" : GoString), Go.toInterface(Go.asInterface(_fset.position(_pos))), Go.toInterface(_err));
                         continue;
@@ -3494,7 +3496,7 @@ function testCheckExpr(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testExprString(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (_0 => _test in _testExprs) {
+        for (__0 => _test in _testExprs) {
             var __tmp__ = stdgo.go.parser.Parser.parseExpr(_test._src), _x:stdgo.go.ast.Ast.Expr = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.errorf(("%s: %s" : GoString), Go.toInterface(_test._src), Go.toInterface(_err));
@@ -3511,16 +3513,16 @@ function testExprString(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testHilbert(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _src = _program(h.value, _out.value);
         if (_out.value != (Go.str())) {
-            stdgo.os.Os.writeFile(_out.value, _src, (("438" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
+            stdgo.os.Os.writeFile(_out.value, _src, (438u32 : stdgo.io.fs.Fs.FileMode));
             return;
         };
         var _fset = stdgo.go.token.Token.newFileSet();
-        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("hilbert.go" : GoString), Go.toInterface(_src), (("0" : GoUInt) : stdgo.go.parser.Parser.Mode)), _f:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("hilbert.go" : GoString), Go.toInterface(_src), (0u32 : stdgo.go.parser.Parser.Mode)), _f:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
         defPredeclaredTestFuncs();
-        var _conf:Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
+        var _conf:stdgo.go.types.Types.Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
         {
             var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null);
             _err = __tmp__._1;
@@ -3542,32 +3544,32 @@ private function _program(_n:GoInt, _out:GoString):Slice<GoByte> {
         return _g.bytes();
     }
 function testInstantiateEquality(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _emptySignature = newSignatureType(null, (null : Slice<Ref<TypeParam>>), (null : Slice<Ref<TypeParam>>), null, null, false);
+        var _emptySignature = newSignatureType(null, (null : Slice<Ref<stdgo.go.types.Types.TypeParam>>), (null : Slice<Ref<stdgo.go.types.Types.TypeParam>>), null, null, false);
         var _tests = (new Slice<T__struct_27>(
 0,
 0,
-({ _src : ("package basictype; type T[P any] int" : GoString), _name1 : ("T" : GoString), _targs1 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _name2 : ("T" : GoString), _targs2 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _wantEqual : true } : T__struct_27),
-({ _src : ("package differenttypeargs; type T[P any] int" : GoString), _name1 : ("T" : GoString), _targs1 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _name2 : ("T" : GoString), _targs2 : (new Slice<Type>(0, 0, Go.asInterface(typ[((17 : BasicKind) : GoInt)])) : Slice<Type>), _wantEqual : false } : T__struct_27),
-({ _src : ("package typeslice; type T[P any] int" : GoString), _name1 : ("T" : GoString), _targs1 : (new Slice<Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((2 : BasicKind) : GoInt)])))) : Slice<Type>), _name2 : ("T" : GoString), _targs2 : (new Slice<Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((2 : BasicKind) : GoInt)])))) : Slice<Type>), _wantEqual : true } : T__struct_27),
-({ _src : ("package equivalentinterfaces; type T[P any] int" : GoString), _name1 : ("T" : GoString), _targs1 : (new Slice<Type>(0, 0, Go.asInterface(newInterfaceType((new Slice<Ref<Func>>(0, 0, newFunc((0 : stdgo.go.token.Token.Pos), null, ("M" : GoString), _emptySignature)) : Slice<Ref<Func>>), (null : Slice<Type>)))) : Slice<Type>), _name2 : ("T" : GoString), _targs2 : (new Slice<Type>(0, 0, Go.asInterface(newInterfaceType((null : Slice<Ref<Func>>), (new Slice<Type>(0, 0, Go.asInterface(newInterfaceType((new Slice<Ref<Func>>(0, 0, newFunc((0 : stdgo.go.token.Token.Pos), null, ("M" : GoString), _emptySignature)) : Slice<Ref<Func>>), (null : Slice<Type>)))) : Slice<Type>)))) : Slice<Type>), _wantEqual : true } : T__struct_27),
-({ _src : ("package equivalenttypesets; type T[P any] int" : GoString), _name1 : ("T" : GoString), _targs1 : (new Slice<Type>(0, 0, Go.asInterface(newInterfaceType((null : Slice<Ref<Func>>), (new Slice<Type>(0, 0, Go.asInterface(newUnion((new Slice<Ref<Term>>(0, 0, newTerm(false, Go.asInterface(typ[((2 : BasicKind) : GoInt)])), newTerm(false, Go.asInterface(typ[((17 : BasicKind) : GoInt)]))) : Slice<Ref<Term>>)))) : Slice<Type>)))) : Slice<Type>), _name2 : ("T" : GoString), _targs2 : (new Slice<Type>(0, 0, Go.asInterface(newInterfaceType((null : Slice<Ref<Func>>), (new Slice<Type>(0, 0, Go.asInterface(newUnion((new Slice<Ref<Term>>(0, 0, newTerm(false, Go.asInterface(typ[((17 : BasicKind) : GoInt)])), newTerm(false, Go.asInterface(typ[((2 : BasicKind) : GoInt)]))) : Slice<Ref<Term>>)))) : Slice<Type>)))) : Slice<Type>), _wantEqual : true } : T__struct_27),
-({ _src : ("package basicfunc; func F[P any]() {}" : GoString), _name1 : ("F" : GoString), _targs1 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _name2 : ("F" : GoString), _targs2 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _wantEqual : true } : T__struct_27),
-({ _src : ("package funcslice; func F[P any]() {}" : GoString), _name1 : ("F" : GoString), _targs1 : (new Slice<Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((2 : BasicKind) : GoInt)])))) : Slice<Type>), _name2 : ("F" : GoString), _targs2 : (new Slice<Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((2 : BasicKind) : GoInt)])))) : Slice<Type>), _wantEqual : true } : T__struct_27),
-({ _src : ("package funcwithparams; func F[P any](x string) float64 { return 0 }" : GoString), _name1 : ("F" : GoString), _targs1 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _name2 : ("F" : GoString), _targs2 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _wantEqual : true } : T__struct_27),
-({ _src : ("package differentfuncargs; func F[P any](x string) float64 { return 0 }" : GoString), _name1 : ("F" : GoString), _targs1 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _name2 : ("F" : GoString), _targs2 : (new Slice<Type>(0, 0, Go.asInterface(typ[((17 : BasicKind) : GoInt)])) : Slice<Type>), _wantEqual : false } : T__struct_27),
-({ _src : ("package funcequality; func F1[P any](x int) {}; func F2[Q any](x int) {}" : GoString), _name1 : ("F1" : GoString), _targs1 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _name2 : ("F2" : GoString), _targs2 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _wantEqual : false } : T__struct_27),
-({ _src : ("package funcsymmetry; func F1[P any](x P) {}; func F2[Q any](x Q) {}" : GoString), _name1 : ("F1" : GoString), _targs1 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _name2 : ("F2" : GoString), _targs2 : (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), _wantEqual : false } : T__struct_27)) : Slice<T__struct_27>);
-        for (_0 => _test in _tests) {
+({ _src : ("package basictype; type T[P any] int" : GoString), _name1 : ("T" : GoString), _targs1 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _name2 : ("T" : GoString), _targs2 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _wantEqual : true } : T__struct_27),
+({ _src : ("package differenttypeargs; type T[P any] int" : GoString), _name1 : ("T" : GoString), _targs1 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _name2 : ("T" : GoString), _targs2 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _wantEqual : false } : T__struct_27),
+({ _src : ("package typeslice; type T[P any] int" : GoString), _name1 : ("T" : GoString), _targs1 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])))) : Slice<stdgo.go.types.Types.Type>), _name2 : ("T" : GoString), _targs2 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])))) : Slice<stdgo.go.types.Types.Type>), _wantEqual : true } : T__struct_27),
+({ _src : ("package equivalentinterfaces; type T[P any] int" : GoString), _name1 : ("T" : GoString), _targs1 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newInterfaceType((new Slice<Ref<stdgo.go.types.Types.Func>>(0, 0, newFunc((0 : stdgo.go.token.Token.Pos), null, ("M" : GoString), _emptySignature)) : Slice<Ref<stdgo.go.types.Types.Func>>), (null : Slice<stdgo.go.types.Types.Type>)))) : Slice<stdgo.go.types.Types.Type>), _name2 : ("T" : GoString), _targs2 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newInterfaceType((null : Slice<Ref<stdgo.go.types.Types.Func>>), (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newInterfaceType((new Slice<Ref<stdgo.go.types.Types.Func>>(0, 0, newFunc((0 : stdgo.go.token.Token.Pos), null, ("M" : GoString), _emptySignature)) : Slice<Ref<stdgo.go.types.Types.Func>>), (null : Slice<stdgo.go.types.Types.Type>)))) : Slice<stdgo.go.types.Types.Type>)))) : Slice<stdgo.go.types.Types.Type>), _wantEqual : true } : T__struct_27),
+({ _src : ("package equivalenttypesets; type T[P any] int" : GoString), _name1 : ("T" : GoString), _targs1 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newInterfaceType((null : Slice<Ref<stdgo.go.types.Types.Func>>), (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newUnion((new Slice<Ref<stdgo.go.types.Types.Term>>(0, 0, newTerm(false, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])), newTerm(false, Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)]))) : Slice<Ref<stdgo.go.types.Types.Term>>)))) : Slice<stdgo.go.types.Types.Type>)))) : Slice<stdgo.go.types.Types.Type>), _name2 : ("T" : GoString), _targs2 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newInterfaceType((null : Slice<Ref<stdgo.go.types.Types.Func>>), (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newUnion((new Slice<Ref<stdgo.go.types.Types.Term>>(0, 0, newTerm(false, Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)])), newTerm(false, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]))) : Slice<Ref<stdgo.go.types.Types.Term>>)))) : Slice<stdgo.go.types.Types.Type>)))) : Slice<stdgo.go.types.Types.Type>), _wantEqual : true } : T__struct_27),
+({ _src : ("package basicfunc; func F[P any]() {}" : GoString), _name1 : ("F" : GoString), _targs1 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _name2 : ("F" : GoString), _targs2 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _wantEqual : true } : T__struct_27),
+({ _src : ("package funcslice; func F[P any]() {}" : GoString), _name1 : ("F" : GoString), _targs1 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])))) : Slice<stdgo.go.types.Types.Type>), _name2 : ("F" : GoString), _targs2 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])))) : Slice<stdgo.go.types.Types.Type>), _wantEqual : true } : T__struct_27),
+({ _src : ("package funcwithparams; func F[P any](x string) float64 { return 0 }" : GoString), _name1 : ("F" : GoString), _targs1 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _name2 : ("F" : GoString), _targs2 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _wantEqual : true } : T__struct_27),
+({ _src : ("package differentfuncargs; func F[P any](x string) float64 { return 0 }" : GoString), _name1 : ("F" : GoString), _targs1 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _name2 : ("F" : GoString), _targs2 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _wantEqual : false } : T__struct_27),
+({ _src : ("package funcequality; func F1[P any](x int) {}; func F2[Q any](x int) {}" : GoString), _name1 : ("F1" : GoString), _targs1 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _name2 : ("F2" : GoString), _targs2 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _wantEqual : false } : T__struct_27),
+({ _src : ("package funcsymmetry; func F1[P any](x P) {}; func F2[Q any](x Q) {}" : GoString), _name1 : ("F1" : GoString), _targs1 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _name2 : ("F2" : GoString), _targs2 : (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), _wantEqual : false } : T__struct_27)) : Slice<T__struct_27>);
+        for (__0 => _test in _tests) {
             var _pkg = _mustTypecheck(("." : GoString), _test._src, null);
             _t.run(_pkg.name(), function(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var _ctxt = newContext();
-                var t1:Type = _pkg.scope().lookup(_test._name1).type();
-                var __tmp__ = instantiate(_ctxt, t1, _test._targs1, false), _res1:Type = __tmp__._0, _err:Error = __tmp__._1;
+                var t1:stdgo.go.types.Types.Type = _pkg.scope().lookup(_test._name1).type();
+                var __tmp__ = instantiate(_ctxt, t1, _test._targs1, false), _res1:stdgo.go.types.Types.Type = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatal(Go.toInterface(_err));
                 };
-                var t2:Type = _pkg.scope().lookup(_test._name2).type();
-                var __tmp__ = instantiate(_ctxt, t2, _test._targs2, false), _res2:Type = __tmp__._0, _err:Error = __tmp__._1;
+                var t2:stdgo.go.types.Types.Type = _pkg.scope().lookup(_test._name2).type();
+                var __tmp__ = instantiate(_ctxt, t2, _test._targs2, false), _res2:stdgo.go.types.Types.Type = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatal(Go.toInterface(_err));
                 };
@@ -3587,11 +3589,11 @@ function testInstantiateNonEquality(_t:Ref<stdgo.testing.Testing.T>):Void {
         var t1 = (Go.typeAssert((Go.toInterface(_pkg1.scope().lookup(("T" : GoString)).type()) : Ref<Named>)) : Ref<Named>);
         var t2 = (Go.typeAssert((Go.toInterface(_pkg2.scope().lookup(("T" : GoString)).type()) : Ref<Named>)) : Ref<Named>);
         var _ctxt = newContext();
-        var __tmp__ = instantiate(_ctxt, Go.asInterface(t1), (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), false), _res1:Type = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = instantiate(_ctxt, Go.asInterface(t1), (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), false), _res1:stdgo.go.types.Types.Type = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
-        var __tmp__ = instantiate(_ctxt, Go.asInterface(t2), (new Slice<Type>(0, 0, Go.asInterface(typ[((2 : BasicKind) : GoInt)])) : Slice<Type>), false), _res2:Type = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = instantiate(_ctxt, Go.asInterface(t2), (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>), false), _res2:stdgo.go.types.Types.Type = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
@@ -3605,16 +3607,16 @@ function testInstantiateNonEquality(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testMethodInstantiation(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _tests = (new Slice<T__struct_28>(0, 0, ({ _decl : ("func (r T[P]) m() P" : GoString), _want : ("func (T[int]).m() int" : GoString) } : T__struct_28), ({ _decl : ("func (r T[P]) m(P)" : GoString), _want : ("func (T[int]).m(int)" : GoString) } : T__struct_28), ({ _decl : ("func (r *T[P]) m(P)" : GoString), _want : ("func (*T[int]).m(int)" : GoString) } : T__struct_28), ({ _decl : ("func (r T[P]) m() T[P]" : GoString), _want : ("func (T[int]).m() T[int]" : GoString) } : T__struct_28), ({ _decl : ("func (r T[P]) m(T[P])" : GoString), _want : ("func (T[int]).m(T[int])" : GoString) } : T__struct_28), ({ _decl : ("func (r T[P]) m(T[P], P, string)" : GoString), _want : ("func (T[int]).m(T[int], int, string)" : GoString) } : T__struct_28), ({ _decl : ("func (r T[P]) m(T[P], T[string], T[int])" : GoString), _want : ("func (T[int]).m(T[int], T[string], T[int])" : GoString) } : T__struct_28)) : Slice<T__struct_28>);
-        for (_0 => _test in _tests) {
+        for (__0 => _test in _tests) {
             var _src:GoString = ("package p\n\ntype T[P any] struct{}\n\nvar X T[int]\n\n" : GoString) + _test._decl;
             var _pkg = _mustTypecheck(("." : GoString), _src, null);
             var _typ = newPointer(_pkg.scope().lookup(("X" : GoString)).type());
-            var __tmp__ = lookupFieldOrMethod(Go.asInterface(_typ), false, _pkg, ("m" : GoString)), _obj:Object = __tmp__._0, _1:Slice<GoInt> = __tmp__._1, _2:Bool = __tmp__._2;
+            var __tmp__ = lookupFieldOrMethod(Go.asInterface(_typ), false, _pkg, ("m" : GoString)), _obj:stdgo.go.types.Types.Object = __tmp__._0, __1:Slice<GoInt> = __tmp__._1, __2:Bool = __tmp__._2;
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_obj) : Ref<Func>)) : Ref<Func>), ok : true };
             } catch(_) {
-                { value : (null : Ref<Func>), ok : false };
-            }, _m = __tmp__.value, _3 = __tmp__.ok;
+                { value : (null : Ref<stdgo.go.types.Types.Func>), ok : false };
+            }, _m = __tmp__.value, __3 = __tmp__.ok;
             if (_m == null || (_m : Dynamic).__nil__) {
                 _t.fatalf(("LookupFieldOrMethod(%s, \"m\") = %v, want func m" : GoString), Go.toInterface(Go.asInterface(_typ)), Go.toInterface(_obj));
             };
@@ -3630,7 +3632,7 @@ function testImmutableSignatures(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _pkg = _mustTypecheck(("." : GoString), ("package p\n\ntype T[P any] struct{}\n\nfunc (T[P]) m() {}\n\nvar _ T[int]\n" : GoString), null);
         var _typ = (Go.typeAssert((Go.toInterface(_pkg.scope().lookup(("T" : GoString)).type()) : Ref<Named>)) : Ref<Named>);
-        var __tmp__ = lookupFieldOrMethod(Go.asInterface(_typ), false, _pkg, ("m" : GoString)), _obj:Object = __tmp__._0, _0:Slice<GoInt> = __tmp__._1, _1:Bool = __tmp__._2;
+        var __tmp__ = lookupFieldOrMethod(Go.asInterface(_typ), false, _pkg, ("m" : GoString)), _obj:stdgo.go.types.Types.Object = __tmp__._0, __0:Slice<GoInt> = __tmp__._1, __1:Bool = __tmp__._2;
         if (_obj == null) {
             _t.fatalf(("LookupFieldOrMethod(%s, \"m\") = %v, want func m" : GoString), Go.toInterface(Go.asInterface(_typ)), Go.toInterface(_obj));
         };
@@ -3647,7 +3649,7 @@ function testImmutableSignatures(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 private function _stripAnnotations(_s:GoString):GoString {
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-        for (_0 => _r in _s) {
+        for (__0 => _r in _s) {
             if ((_r < (8320 : GoInt32)) || ((8330 : GoInt32) <= _r)) {
                 _buf.writeRune(_r);
             };
@@ -3659,8 +3661,8 @@ private function _stripAnnotations(_s:GoString):GoString {
     }
 function testIssue5770(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _f = _mustParse(_fset, Go.str(), ("package p; type S struct{T}" : GoString));
-        var _conf:Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
-        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _0:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _conf:stdgo.go.types.Types.Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
+        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), __0:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         {};
         if ((_err == null) || !stdgo.strings.Strings.contains(_err.error(), ("undefined: T" : GoString))) {
             _t.errorf(("got: %v; want: %s" : GoString), Go.toInterface(_err), Go.toInterface(("undefined: T" : GoString)));
@@ -3668,10 +3670,10 @@ function testIssue5770(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testIssue5849(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _src:GoString = ("\npackage p\nvar (\n\ts uint\n\t_ = uint8(8)\n\t_ = uint16(16) << s\n\t_ = uint32(32 << s)\n\t_ = uint64(64 << s + s)\n\t_ = (interface{})(\"foo\")\n\t_ = (interface{})(nil)\n)" : GoString);
-        var _types = (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>);
-        _mustTypecheck(("p" : GoString), _src, (Go.setRef(({ types : _types } : Info)) : Ref<Info>));
+        var _types = (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>);
+        _mustTypecheck(("p" : GoString), _src, (Go.setRef(({ types : _types } : Info)) : Ref<stdgo.go.types.Types.Info>));
         for (_x => _tv in _types) {
-            var _want:Type = (null : Type);
+            var _want:Type = (null : stdgo.go.types.Types.Type);
             {
                 final __type__ = _x;
                 if (Go.typeEquals((__type__ : Ref<stdgo.go.ast.Ast.BasicLit>))) {
@@ -3679,21 +3681,21 @@ function testIssue5849(_t:Ref<stdgo.testing.Testing.T>):Void {
                     {
                         final __value__ = _x.value;
                         if (__value__ == (("8" : GoString))) {
-                            _want = Go.asInterface(typ[((8 : BasicKind) : GoInt)]);
+                            _want = Go.asInterface(typ[((8 : stdgo.go.types.Types.BasicKind) : GoInt)]);
                         } else if (__value__ == (("16" : GoString))) {
-                            _want = Go.asInterface(typ[((9 : BasicKind) : GoInt)]);
+                            _want = Go.asInterface(typ[((9 : stdgo.go.types.Types.BasicKind) : GoInt)]);
                         } else if (__value__ == (("32" : GoString))) {
-                            _want = Go.asInterface(typ[((10 : BasicKind) : GoInt)]);
+                            _want = Go.asInterface(typ[((10 : stdgo.go.types.Types.BasicKind) : GoInt)]);
                         } else if (__value__ == (("64" : GoString))) {
-                            _want = Go.asInterface(typ[((7 : BasicKind) : GoInt)]);
+                            _want = Go.asInterface(typ[((7 : stdgo.go.types.Types.BasicKind) : GoInt)]);
                         } else if (__value__ == (("\"foo\"" : GoString))) {
-                            _want = Go.asInterface(typ[((17 : BasicKind) : GoInt)]);
+                            _want = Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)]);
                         };
                     };
                 } else if (Go.typeEquals((__type__ : Ref<stdgo.go.ast.Ast.Ident>))) {
                     var _x:Ref<stdgo.go.ast.Ast.Ident> = __type__ == null ? (null : Ref<stdgo.go.ast.Ast.Ident>) : __type__.__underlying__() == null ? (null : Ref<stdgo.go.ast.Ast.Ident>) : __type__ == null ? (null : Ref<stdgo.go.ast.Ast.Ident>) : __type__.__underlying__().value;
                     if (_x.name == (("nil" : GoString))) {
-                        _want = Go.asInterface(typ[((25 : BasicKind) : GoInt)]);
+                        _want = Go.asInterface(typ[((25 : stdgo.go.types.Types.BasicKind) : GoInt)]);
                     };
                 };
             };
@@ -3704,9 +3706,9 @@ function testIssue5849(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testIssue6413(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _src:GoString = ("\npackage p\nfunc f() int {\n\tdefer f()\n\tgo f()\n\treturn 0\n}\n" : GoString);
-        var _types = (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>);
-        _mustTypecheck(("p" : GoString), _src, (Go.setRef(({ types : _types } : Info)) : Ref<Info>));
-        var _want = typ[((2 : BasicKind) : GoInt)];
+        var _types = (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>);
+        _mustTypecheck(("p" : GoString), _src, (Go.setRef(({ types : _types } : Info)) : Ref<stdgo.go.types.Types.Info>));
+        var _want = typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)];
         var _n:GoInt = (0 : GoInt);
         for (_x => _tv in _types) {
             {
@@ -3714,7 +3716,7 @@ function testIssue6413(_t:Ref<stdgo.testing.Testing.T>):Void {
                     { value : (Go.typeAssert((Go.toInterface(_x) : Ref<stdgo.go.ast.Ast.CallExpr>)) : Ref<stdgo.go.ast.Ast.CallExpr>), ok : true };
                 } catch(_) {
                     { value : (null : Ref<stdgo.go.ast.Ast.CallExpr>), ok : false };
-                }, _0 = __tmp__.value, _ok = __tmp__.ok;
+                }, __0 = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     if (Go.toInterface(_tv.type) != (Go.toInterface(Go.asInterface(_want)))) {
                         _t.errorf(("%s: got %s; want %s" : GoString), Go.toInterface(Go.asInterface(_fset.position(_x.pos()))), Go.toInterface(_tv.type), Go.toInterface(Go.asInterface(_want)));
@@ -3730,9 +3732,9 @@ function testIssue6413(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testIssue7245(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _src:GoString = ("\npackage p\nfunc (T) m() (res bool) { return }\ntype T struct{} // receiver type after method declaration\n" : GoString);
         var _f = _mustParse(_fset, Go.str(), _src);
-        var _conf:Config = ({} : Config);
-        var _defs = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>);
-        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ defs : _defs } : Info)) : Ref<Info>)), _0:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _conf:Config = ({} : stdgo.go.types.Types.Config);
+        var _defs = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>);
+        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ defs : _defs } : Info)) : Ref<stdgo.go.types.Types.Info>)), __0:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
@@ -3752,12 +3754,12 @@ function testIssue7827(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _f = _mustParse(_fset, Go.str(), ("\npackage p\nfunc _() {\n\tconst w = 1        // defs w\n        x, y := 2, 3       // defs x, y\n        w, x, z := 4, 5, 6 // uses w, x, defs z; error: cannot assign to w\n        _, _, _ = x, y, z  // uses x, y, z\n}\n" : GoString));
         {};
-        var _conf:Config = ({ error : function(_err:Error):Void {
+        var _conf:stdgo.go.types.Types.Config = ({ error : function(_err:Error):Void {
             _t.log(Go.toInterface(_err));
         } } : Config);
-        var _defs = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>);
-        var _uses = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>);
-        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ defs : _defs, uses : _uses } : Info)) : Ref<Info>)), _0:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _defs = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>);
+        var _uses = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>);
+        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(({ defs : _defs, uses : _uses } : Info)) : Ref<stdgo.go.types.Types.Info>)), __0:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         {
             var _s:GoString = stdgo.fmt.Fmt.sprint(Go.toInterface(_err));
             if (!stdgo.strings.Strings.hasSuffix(_s, ("cannot assign to w" : GoString))) {
@@ -3796,13 +3798,13 @@ function testIssue13898(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _f:(GoString, GoString) -> Void = function(_test:GoString, _src:GoString):Void {
             var _f = _mustParse(_fset, Go.str(), _src);
-            var _cfg:Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
-            var _info:Info = ({ uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>) } : Info);
-            var __tmp__ = _cfg.check(("main" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(_info) : Ref<Info>)), _0:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+            var _cfg:stdgo.go.types.Types.Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
+            var _info:stdgo.go.types.Types.Info = ({ uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>) } : Info);
+            var __tmp__ = _cfg.check(("main" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)), __0:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
-            var _pkg:Ref<Package> = (null : Ref<Package>);
+            var _pkg:Ref<Package> = (null : Ref<stdgo.go.types.Types.Package>);
             var _count:GoInt = (0 : GoInt);
             for (_id => _obj in _info.uses) {
                 if (_id.name == (("Pkg" : GoString))) {
@@ -3824,7 +3826,7 @@ function testIssue13898(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testIssue22525(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _f = _mustParse(_fset, Go.str(), ("package p; func f() { var a, b, c, d, e int }" : GoString));
         var _got:GoString = ("\n" : GoString);
-        var _conf:Config = ({ error : function(_err:Error):Void {
+        var _conf:stdgo.go.types.Types.Config = ({ error : function(_err:Error):Void {
             _got = _got + (_err.error() + ("\n" : GoString));
         } } : Config);
         _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null);
@@ -3835,18 +3837,18 @@ function testIssue22525(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testIssue25627(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
-        for (_0 => _src in (new Slice<GoString>(0, 0, ("struct { x Missing }" : GoString), ("struct { Missing }" : GoString), ("struct { *Missing }" : GoString), ("struct { unsafe.Pointer }" : GoString), ("struct { P }" : GoString), ("struct { *I }" : GoString), ("struct { a int; b Missing; *Missing }" : GoString)) : Slice<GoString>)) {
+        for (__0 => _src in (new Slice<GoString>(0, 0, ("struct { x Missing }" : GoString), ("struct { Missing }" : GoString), ("struct { *Missing }" : GoString), ("struct { unsafe.Pointer }" : GoString), ("struct { P }" : GoString), ("struct { *I }" : GoString), ("struct { a int; b Missing; *Missing }" : GoString)) : Slice<GoString>)) {
             var _f = _mustParse(_fset, Go.str(), ("package p; import \"unsafe\"; type P *struct{}; type I interface{}; type T " : GoString) + _src);
-            var _cfg:Config = ({ error : function(_err:Error):Void {}, importer : stdgo.go.importer.Importer.default_() } : Config);
-            var _info = (Go.setRef(({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>) } : Info)) : Ref<Info>);
-            var __tmp__ = _cfg.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), _info), _1:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+            var _cfg:stdgo.go.types.Types.Config = ({ error : function(_err:Error):Void {}, importer : stdgo.go.importer.Importer.default_() } : Config);
+            var _info = (Go.setRef(({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>) } : Info)) : Ref<stdgo.go.types.Types.Info>);
+            var __tmp__ = _cfg.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), _info), __1:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 {
                     var __tmp__ = try {
                         { value : (Go.typeAssert((Go.toInterface(_err) : T_error)) : T_error), ok : true };
                     } catch(_) {
-                        { value : ({} : T_error), ok : false };
-                    }, _2 = __tmp__.value, _ok = __tmp__.ok;
+                        { value : ({} : stdgo.go.types.Types.T_error), ok : false };
+                    }, __2 = __tmp__.value, _ok = __tmp__.ok;
                     if (!_ok) {
                         _t.fatal(Go.toInterface(_err));
                     };
@@ -3858,10 +3860,10 @@ function testIssue25627(_t:Ref<stdgo.testing.Testing.T>):Void {
                         { value : (Go.typeAssert((Go.toInterface(_n) : Ref<stdgo.go.ast.Ast.TypeSpec>)) : Ref<stdgo.go.ast.Ast.TypeSpec>), ok : true };
                     } catch(_) {
                         { value : (null : Ref<stdgo.go.ast.Ast.TypeSpec>), ok : false };
-                    }, _spec = __tmp__.value, _0 = __tmp__.ok;
+                    }, _spec = __tmp__.value, __0 = __tmp__.ok;
                     if (_spec != null && ((_spec : Dynamic).__nil__ == null || !(_spec : Dynamic).__nil__)) {
                         {
-                            var __tmp__ = (_info.types != null && _info.types.__exists__(_spec.type) ? { value : _info.types[_spec.type], ok : true } : { value : ({} : TypeAndValue), ok : false }), _tv:TypeAndValue = __tmp__.value, _ok:Bool = __tmp__.ok;
+                            var __tmp__ = (_info.types != null && _info.types.__exists__(_spec.type) ? { value : _info.types[_spec.type], ok : true } : { value : ({} : stdgo.go.types.Types.TypeAndValue), ok : false }), _tv:stdgo.go.types.Types.TypeAndValue = __tmp__.value, _ok:Bool = __tmp__.ok;
                             if (_ok && (_spec.name.name == ("T" : GoString))) {
                                 var _want:GoInt = stdgo.strings.Strings.count(_src, (";" : GoString)) + (1 : GoInt);
                                 {
@@ -3884,18 +3886,18 @@ function testIssue28005(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_i => _src in _sources) {
             _orig[(_i : GoInt)] = _mustParse(_fset, Go.str(), _src);
         };
-        for (_0 => _perm in (new Slice<GoArray<GoInt>>(0, 0, (new GoArray<GoInt>((0 : GoInt), (1 : GoInt), (2 : GoInt)) : GoArray<GoInt>), (new GoArray<GoInt>((0 : GoInt), (2 : GoInt), (1 : GoInt)) : GoArray<GoInt>), (new GoArray<GoInt>((1 : GoInt), (0 : GoInt), (2 : GoInt)) : GoArray<GoInt>), (new GoArray<GoInt>((1 : GoInt), (2 : GoInt), (0 : GoInt)) : GoArray<GoInt>), (new GoArray<GoInt>((2 : GoInt), (0 : GoInt), (1 : GoInt)) : GoArray<GoInt>), (new GoArray<GoInt>((2 : GoInt), (1 : GoInt), (0 : GoInt)) : GoArray<GoInt>)) : Slice<GoArray<GoInt>>)) {
+        for (__0 => _perm in (new Slice<GoArray<GoInt>>(0, 0, (new GoArray<GoInt>((0 : GoInt), (1 : GoInt), (2 : GoInt)) : GoArray<GoInt>), (new GoArray<GoInt>((0 : GoInt), (2 : GoInt), (1 : GoInt)) : GoArray<GoInt>), (new GoArray<GoInt>((1 : GoInt), (0 : GoInt), (2 : GoInt)) : GoArray<GoInt>), (new GoArray<GoInt>((1 : GoInt), (2 : GoInt), (0 : GoInt)) : GoArray<GoInt>), (new GoArray<GoInt>((2 : GoInt), (0 : GoInt), (1 : GoInt)) : GoArray<GoInt>), (new GoArray<GoInt>((2 : GoInt), (1 : GoInt), (0 : GoInt)) : GoArray<GoInt>)) : Slice<GoArray<GoInt>>)) {
             var _files = new Slice<Ref<stdgo.go.ast.Ast.File>>((_sources.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_sources.length : GoInt).toBasic()) (null : Ref<stdgo.go.ast.Ast.File>)]);
             for (_i in 0 ... _perm.length.toBasic()) {
                 _files[(_i : GoInt)] = _orig[(_perm[(_i : GoInt)] : GoInt)];
             };
-            var _conf:Config = ({} : Config);
-            var _info = (Go.setRef(({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>) } : Info)) : Ref<Info>);
-            var __tmp__ = _conf.check(Go.str(), _fset, _files, _info), _1:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+            var _conf:Config = ({} : stdgo.go.types.Types.Config);
+            var _info = (Go.setRef(({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>) } : Info)) : Ref<stdgo.go.types.Types.Info>);
+            var __tmp__ = _conf.check(Go.str(), _fset, _files, _info), __1:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
-            var _obj:Object = (null : Object);
+            var _obj:Object = (null : stdgo.go.types.Types.Object);
             for (_name => _def in _info.defs) {
                 if (_name.name == (("X" : GoString))) {
                     _obj = _def;
@@ -3919,15 +3921,15 @@ function testIssue28005(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testIssue28282(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _et:Type = universe.lookup(("error" : GoString)).type();
-        var _it = newInterfaceType((null : Slice<Ref<Func>>), (new Slice<Type>(0, 0, _et) : Slice<Type>));
+        var _et:stdgo.go.types.Types.Type = universe.lookup(("error" : GoString)).type();
+        var _it = newInterfaceType((null : Slice<Ref<stdgo.go.types.Types.Func>>), (new Slice<stdgo.go.types.Types.Type>(0, 0, _et) : Slice<stdgo.go.types.Types.Type>));
         _it.complete();
         var _want = (Go.typeAssert((Go.toInterface(_et.underlying()) : Ref<Interface>)) : Ref<Interface>).method((0 : GoInt));
         var _got = _it.method((0 : GoInt));
         if (_got != (_want)) {
             _t.fatalf(("%s.Method(0): got %q (%p); want %q (%p)" : GoString), Go.toInterface(Go.asInterface(_it)), Go.toInterface(Go.asInterface(_got)), Go.toInterface(Go.asInterface(_got)), Go.toInterface(Go.asInterface(_want)), Go.toInterface(Go.asInterface(_want)));
         };
-        var __tmp__ = lookupFieldOrMethod(_et, false, null, ("Error" : GoString)), _obj:Object = __tmp__._0, _0:Slice<GoInt> = __tmp__._1, _1:Bool = __tmp__._2;
+        var __tmp__ = lookupFieldOrMethod(_et, false, null, ("Error" : GoString)), _obj:stdgo.go.types.Types.Object = __tmp__._0, __0:Slice<GoInt> = __tmp__._1, __1:Bool = __tmp__._2;
         if (Go.toInterface(_obj) != (Go.toInterface(Go.asInterface(_want)))) {
             _t.fatalf(("%s.Lookup: got %q (%p); want %q (%p)" : GoString), Go.toInterface(_et), Go.toInterface(_obj), Go.toInterface(_obj), Go.toInterface(Go.asInterface(_want)), Go.toInterface(Go.asInterface(_want)));
         };
@@ -3944,12 +3946,12 @@ function testIssue29029(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _f2 = _mustParse(_fset, Go.str(), ("package p; var B interface { A }" : GoString));
         var _printInfo = function(_info:Ref<Info>):GoString {
             var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-            for (_0 => _obj in _info.defs) {
+            for (__0 => _obj in _info.defs) {
                 {
                     var __tmp__ = try {
                         { value : (Go.typeAssert((Go.toInterface(_obj) : Ref<Func>)) : Ref<Func>), ok : true };
                     } catch(_) {
-                        { value : (null : Ref<Func>), ok : false };
+                        { value : (null : Ref<stdgo.go.types.Types.Func>), ok : false };
                     }, _fn = __tmp__.value, _ok = __tmp__.ok;
                     if (_ok) {
                         stdgo.fmt.Fmt.fprintln(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.strings.Strings.Builder>)), Go.toInterface(Go.asInterface(_fn)));
@@ -3958,9 +3960,9 @@ function testIssue29029(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
             return (_buf.string() : GoString);
         };
-        var _conf:Config = ({} : Config);
-        var _info = (Go.setRef(({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>) } : Info)) : Ref<Info>);
-        var _check = newChecker((Go.setRef(_conf) : Ref<Config>), _fset, newPackage(Go.str(), ("p" : GoString)), _info);
+        var _conf:Config = ({} : stdgo.go.types.Types.Config);
+        var _info = (Go.setRef(({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>) } : Info)) : Ref<stdgo.go.types.Types.Info>);
+        var _check = newChecker((Go.setRef(_conf) : Ref<stdgo.go.types.Types.Config>), _fset, newPackage(Go.str(), ("p" : GoString)), _info);
         {
             var _err:Error = _check.files((new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f1, _f2) : Slice<Ref<stdgo.go.ast.Ast.File>>));
             if (_err != null) {
@@ -3968,8 +3970,8 @@ function testIssue29029(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         var _want:GoString = _printInfo(_info);
-        _info = (Go.setRef(({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>) } : Info)) : Ref<Info>);
-        _check = newChecker((Go.setRef(_conf) : Ref<Config>), _fset, newPackage(Go.str(), ("p" : GoString)), _info);
+        _info = (Go.setRef(({ defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>) } : Info)) : Ref<stdgo.go.types.Types.Info>);
+        _check = newChecker((Go.setRef(_conf) : Ref<stdgo.go.types.Types.Config>), _fset, newPackage(Go.str(), ("p" : GoString)), _info);
         {
             var _err:Error = _check.files((new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f1) : Slice<Ref<stdgo.go.ast.Ast.File>>));
             if (_err != null) {
@@ -3992,8 +3994,8 @@ function testIssue34151(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _a = _mustTypecheck(("a" : GoString), ("package a; type I interface{ M() }; type T struct { F interface { I } }" : GoString), null);
         var _bast = _mustParse(_fset, Go.str(), ("package b; import \"a\"; type T struct { F interface { a.I } }; var _ = a.T(T{})" : GoString));
-        var _conf:Config = ({ importer : Go.asInterface(({ _pkg : _a } : T_importHelper)) } : Config);
-        var __tmp__ = _conf.check(_bast.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _bast) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _b:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _conf:stdgo.go.types.Types.Config = ({ importer : Go.asInterface(({ _pkg : _a } : T_importHelper)) } : Config);
+        var __tmp__ = _conf.check(_bast.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _bast) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _b:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("package %s failed to typecheck: %v" : GoString), Go.toInterface(_b.name()), Go.toInterface(_err));
         };
@@ -4025,11 +4027,11 @@ function testIssue34921(_t:Ref<stdgo.testing.Testing.T>):Void {
                 a();
             });
             var _sources:Slice<GoString> = (new Slice<GoString>(0, 0, ("package a; type T int" : GoString), ("package b; import \"a\"; type T a.T" : GoString)) : Slice<GoString>);
-            var _pkg:Ref<Package> = (null : Ref<Package>);
-            for (_0 => _src in _sources) {
+            var _pkg:Ref<Package> = (null : Ref<stdgo.go.types.Types.Package>);
+            for (__0 => _src in _sources) {
                 var _f = _mustParse(_fset, Go.str(), _src);
-                var _conf:Config = ({ importer : Go.asInterface(({ _pkg : _pkg } : T_importHelper)) } : Config);
-                var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _res:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+                var _conf:stdgo.go.types.Types.Config = ({ importer : Go.asInterface(({ _pkg : _pkg } : T_importHelper)) } : Config);
+                var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _res:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     _t.errorf(("%q failed to typecheck: %v" : GoString), Go.toInterface(_src), Go.toInterface(_err));
                 };
@@ -4060,20 +4062,20 @@ function testIssue34921(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testIssue43088(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _n1 = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("T1" : GoString), (null : Type));
-        var t1 = newNamed(_n1, (null : Type), (null : Slice<Ref<Func>>));
-        var _n2 = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("T2" : GoString), (null : Type));
-        var t2 = newNamed(_n2, (null : Type), (null : Slice<Ref<Func>>));
-        var _s1 = newStruct((new Slice<Ref<Var>>(0, 0, newField((0 : stdgo.go.token.Token.Pos), null, ("_" : GoString), Go.asInterface(t2), false)) : Slice<Ref<Var>>), (null : Slice<GoString>));
+        var _n1 = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("T1" : GoString), (null : stdgo.go.types.Types.Type));
+        var t1 = newNamed(_n1, (null : stdgo.go.types.Types.Type), (null : Slice<Ref<stdgo.go.types.Types.Func>>));
+        var _n2 = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("T2" : GoString), (null : stdgo.go.types.Types.Type));
+        var t2 = newNamed(_n2, (null : stdgo.go.types.Types.Type), (null : Slice<Ref<stdgo.go.types.Types.Func>>));
+        var _s1 = newStruct((new Slice<Ref<stdgo.go.types.Types.Var>>(0, 0, newField((0 : stdgo.go.token.Token.Pos), null, ("_" : GoString), Go.asInterface(t2), false)) : Slice<Ref<stdgo.go.types.Types.Var>>), (null : Slice<GoString>));
         t1.setUnderlying(Go.asInterface(_s1));
-        var _s2 = newStruct((new Slice<Ref<Var>>(0, 0, newField((0 : stdgo.go.token.Token.Pos), null, ("_" : GoString), Go.asInterface(t2), false)) : Slice<Ref<Var>>), (null : Slice<GoString>));
-        var _s3 = newStruct((new Slice<Ref<Var>>(0, 0, newField((0 : stdgo.go.token.Token.Pos), null, ("_" : GoString), Go.asInterface(_s2), false)) : Slice<Ref<Var>>), (null : Slice<GoString>));
+        var _s2 = newStruct((new Slice<Ref<stdgo.go.types.Types.Var>>(0, 0, newField((0 : stdgo.go.token.Token.Pos), null, ("_" : GoString), Go.asInterface(t2), false)) : Slice<Ref<stdgo.go.types.Types.Var>>), (null : Slice<GoString>));
+        var _s3 = newStruct((new Slice<Ref<stdgo.go.types.Types.Var>>(0, 0, newField((0 : stdgo.go.token.Token.Pos), null, ("_" : GoString), Go.asInterface(_s2), false)) : Slice<Ref<stdgo.go.types.Types.Var>>), (null : Slice<GoString>));
         t2.setUnderlying(Go.asInterface(_s3));
         comparable(Go.asInterface(t1));
         comparable(Go.asInterface(t2));
     }
 function testIssue44515(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _typ:Type = unsafe.scope().lookup(("Pointer" : GoString)).type();
+        var _typ:stdgo.go.types.Types.Type = unsafe.scope().lookup(("Pointer" : GoString)).type();
         var _got:GoString = typeString(_typ, null);
         var _want:GoString = ("unsafe.Pointer" : GoString);
         if (_got != (_want)) {
@@ -4096,13 +4098,13 @@ function testIssue43124(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _a = _mustTypecheck(("a" : GoString), ("package a; import \"text/template\"; func F(template.Template) {}; func G(int) {}" : GoString), null);
         var _imp:stdgo.go.types_test.Types_test.T_importHelper = ({ _pkg : _a, _fallback : stdgo.go.importer.Importer.default_() } : T_importHelper);
-        _testFiles(_t, (null : Sizes), (new Slice<GoString>(0, 0, ("b.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (("\npackage b\n\nimport (\n\t\"a\"\n\t\"html/template\"\n)\n\nfunc _() {\n\t// Packages should be fully qualified when there is ambiguity within the\n\t// error string itself.\n\ta.F(template /* ERROR cannot use.*html/template.* as .*text/template */ .Template{})\n}\n" : GoString) : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, Go.asInterface(_imp));
-        _testFiles(_t, (null : Sizes), (new Slice<GoString>(0, 0, ("c.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (("\npackage c\n\nimport (\n\t\"a\"\n\t\"fmt\"\n\t\"html/template\"\n)\n\n// Issue #46905: make sure template is not the first package qualified.\nvar _ fmt.Stringer = 1 // ERROR cannot use 1.*as fmt\\.Stringer\n\n// Packages should be fully qualified when there is ambiguity in reachable\n// packages. In this case both a (and for that matter html/template) import\n// text/template.\nfunc _() { a.G(template /* ERROR cannot use .*html/template.*Template */ .Template{}) }\n" : GoString) : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, Go.asInterface(_imp));
-        _testFiles(_t, (null : Sizes), (new Slice<GoString>(0, 0, ("t.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (("\npackage template\n\nimport \"text/template\"\n\ntype T int\n\n// Verify that the current package name also causes disambiguation.\nvar _ T = template /* ERROR cannot use.*text/template.* as T value */.Template{}\n" : GoString) : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, Go.asInterface(_imp));
+        _testFiles(_t, (null : stdgo.go.types.Types.Sizes), (new Slice<GoString>(0, 0, ("b.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (("\npackage b\n\nimport (\n\t\"a\"\n\t\"html/template\"\n)\n\nfunc _() {\n\t// Packages should be fully qualified when there is ambiguity within the\n\t// error string itself.\n\ta.F(template /* ERROR cannot use.*html/template.* as .*text/template */ .Template{})\n}\n" : GoString) : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, Go.asInterface(_imp));
+        _testFiles(_t, (null : stdgo.go.types.Types.Sizes), (new Slice<GoString>(0, 0, ("c.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (("\npackage c\n\nimport (\n\t\"a\"\n\t\"fmt\"\n\t\"html/template\"\n)\n\n// Issue #46905: make sure template is not the first package qualified.\nvar _ fmt.Stringer = 1 // ERROR cannot use 1.*as fmt\\.Stringer\n\n// Packages should be fully qualified when there is ambiguity in reachable\n// packages. In this case both a (and for that matter html/template) import\n// text/template.\nfunc _() { a.G(template /* ERROR cannot use .*html/template.*Template */ .Template{}) }\n" : GoString) : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, Go.asInterface(_imp));
+        _testFiles(_t, (null : stdgo.go.types.Types.Sizes), (new Slice<GoString>(0, 0, ("t.go" : GoString)) : Slice<GoString>), (new Slice<Slice<GoUInt8>>(0, 0, (("\npackage template\n\nimport \"text/template\"\n\ntype T int\n\n// Verify that the current package name also causes disambiguation.\nvar _ T = template /* ERROR cannot use.*text/template.* as T value */.Template{}\n" : GoString) : Slice<GoByte>)) : Slice<Slice<GoUInt8>>), false, Go.asInterface(_imp));
     }
 function testIssue50646(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _anyType:Type = universe.lookup(("any" : GoString)).type();
-        var _comparableType:Type = universe.lookup(("comparable" : GoString)).type();
+        var _anyType:stdgo.go.types.Types.Type = universe.lookup(("any" : GoString)).type();
+        var _comparableType:stdgo.go.types.Types.Type = universe.lookup(("comparable" : GoString)).type();
         if (!comparable(_anyType)) {
             _t.error(Go.toInterface(("any is not a comparable type" : GoString)));
         };
@@ -4123,27 +4125,27 @@ function testIssue50646(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testIssue55030(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _makeSig:Type -> Void = function(_typ:Type):Void {
+        var _makeSig:stdgo.go.types.Types.Type -> Void = function(_typ:Type):Void {
             var _par = newVar((0 : stdgo.go.token.Token.Pos), null, Go.str(), _typ);
             var _params = newTuple(_par);
-            newSignatureType(null, (null : Slice<Ref<TypeParam>>), (null : Slice<Ref<TypeParam>>), _params, null, true);
+            newSignatureType(null, (null : Slice<Ref<stdgo.go.types.Types.TypeParam>>), (null : Slice<Ref<stdgo.go.types.Types.TypeParam>>), _params, null, true);
         };
-        _makeSig(Go.asInterface(newSlice(Go.asInterface(typ[((2 : BasicKind) : GoInt)]))));
-        _makeSig(Go.asInterface(typ[((17 : BasicKind) : GoInt)]));
+        _makeSig(Go.asInterface(newSlice(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]))));
+        _makeSig(Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)]));
         {
-            var p = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("P" : GoString), (null : Type));
-            _makeSig(Go.asInterface(newTypeParam(p, Go.asInterface(newInterfaceType((null : Slice<Ref<Func>>), (new Slice<Type>(0, 0, Go.asInterface(typ[((17 : BasicKind) : GoInt)])) : Slice<Type>))))));
-        };
-        {
-            var p = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("P" : GoString), (null : Type));
-            _makeSig(Go.asInterface(newTypeParam(p, Go.asInterface(newInterfaceType((null : Slice<Ref<Func>>), (new Slice<Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((2 : BasicKind) : GoInt)])))) : Slice<Type>))))));
+            var p = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("P" : GoString), (null : stdgo.go.types.Types.Type));
+            _makeSig(Go.asInterface(newTypeParam(p, Go.asInterface(newInterfaceType((null : Slice<Ref<stdgo.go.types.Types.Func>>), (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)])) : Slice<stdgo.go.types.Types.Type>))))));
         };
         {
-            var _t1 = newTerm(true, Go.asInterface(typ[((17 : BasicKind) : GoInt)]));
-            var _t2 = newTerm(false, Go.asInterface(newSlice(Go.asInterface(typ[((8 : BasicKind) : GoInt)]))));
-            var _u = newUnion((new Slice<Ref<Term>>(0, 0, _t1, _t2) : Slice<Ref<Term>>));
-            var p = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("P" : GoString), (null : Type));
-            _makeSig(Go.asInterface(newTypeParam(p, Go.asInterface(newInterfaceType((null : Slice<Ref<Func>>), (new Slice<Type>(0, 0, Go.asInterface(_u)) : Slice<Type>))))));
+            var p = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("P" : GoString), (null : stdgo.go.types.Types.Type));
+            _makeSig(Go.asInterface(newTypeParam(p, Go.asInterface(newInterfaceType((null : Slice<Ref<stdgo.go.types.Types.Func>>), (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(newSlice(Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])))) : Slice<stdgo.go.types.Types.Type>))))));
+        };
+        {
+            var _t1 = newTerm(true, Go.asInterface(typ[((17 : stdgo.go.types.Types.BasicKind) : GoInt)]));
+            var _t2 = newTerm(false, Go.asInterface(newSlice(Go.asInterface(typ[((8 : stdgo.go.types.Types.BasicKind) : GoInt)]))));
+            var _u = newUnion((new Slice<Ref<stdgo.go.types.Types.Term>>(0, 0, _t1, _t2) : Slice<Ref<stdgo.go.types.Types.Term>>));
+            var p = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("P" : GoString), (null : stdgo.go.types.Types.Type));
+            _makeSig(Go.asInterface(newTypeParam(p, Go.asInterface(newInterfaceType((null : Slice<Ref<stdgo.go.types.Types.Func>>), (new Slice<stdgo.go.types.Types.Type>(0, 0, Go.asInterface(_u)) : Slice<stdgo.go.types.Types.Type>))))));
         };
     }
 function testIssue51093(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -4160,10 +4162,10 @@ function testIssue51093(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _typ : ("~byte" : GoString), _val : ("1" : GoString) } : T__struct_29),
 ({ _typ : ("~int | ~float64 | complex128" : GoString), _val : ("1" : GoString) } : T__struct_29),
 ({ _typ : ("~uint64 | ~rune" : GoString), _val : ("\'X\'" : GoString) } : T__struct_29)) : Slice<T__struct_29>);
-        for (_0 => _test in _tests) {
+        for (__0 => _test in _tests) {
             var _src:GoString = stdgo.fmt.Fmt.sprintf(("package p; func _[P %s]() { _ = P(%s) }" : GoString), Go.toInterface(_test._typ), Go.toInterface(_test._val));
-            var _types = (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>);
-            _mustTypecheck(("p" : GoString), _src, (Go.setRef(({ types : _types } : Info)) : Ref<Info>));
+            var _types = (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>);
+            _mustTypecheck(("p" : GoString), _src, (Go.setRef(({ types : _types } : Info)) : Ref<stdgo.go.types.Types.Info>));
             var _n:GoInt = (0 : GoInt);
             for (_x => _tv in _types) {
                 {
@@ -4171,14 +4173,14 @@ function testIssue51093(_t:Ref<stdgo.testing.Testing.T>):Void {
                         { value : (Go.typeAssert((Go.toInterface(_x) : Ref<stdgo.go.ast.Ast.CallExpr>)) : Ref<stdgo.go.ast.Ast.CallExpr>), ok : true };
                     } catch(_) {
                         { value : (null : Ref<stdgo.go.ast.Ast.CallExpr>), ok : false };
-                    }, _x = __tmp__.value, _1 = __tmp__.ok;
+                    }, _x = __tmp__.value, __1 = __tmp__.ok;
                     if (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
                         _n++;
                         var __tmp__ = try {
                             { value : (Go.typeAssert((Go.toInterface(_tv.type) : Ref<TypeParam>)) : Ref<TypeParam>), ok : true };
                         } catch(_) {
-                            { value : (null : Ref<TypeParam>), ok : false };
-                        }, _tpar = __tmp__.value, _2 = __tmp__.ok;
+                            { value : (null : Ref<stdgo.go.types.Types.TypeParam>), ok : false };
+                        }, _tpar = __tmp__.value, __2 = __tmp__.ok;
                         if (_tpar == null || (_tpar : Dynamic).__nil__) {
                             _t.fatalf(("%s: got type %s, want type parameter" : GoString), Go.toInterface(exprString(Go.asInterface(_x))), Go.toInterface(_tv.type));
                         };
@@ -4206,8 +4208,8 @@ function testIssue54258(_t:Ref<stdgo.testing.Testing.T>):Void {
             var _re = stdgo.regexp.Regexp.mustCompile(_want);
             var _bpkg = _mustTypecheck(("b" : GoString), _b, null);
             var _mast = _mustParse(_fset, ("main.go" : GoString), main);
-            var _conf:Config = ({ importer : Go.asInterface(({ _pkg : _bpkg } : T_importHelper)) } : Config);
-            var __tmp__ = _conf.check(_mast.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _mast) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _0:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+            var _conf:stdgo.go.types.Types.Config = ({ importer : Go.asInterface(({ _pkg : _bpkg } : T_importHelper)) } : Config);
+            var __tmp__ = _conf.check(_mast.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _mast) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), __0:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err == null) {
                 _t.error(Go.toInterface(("Expected failure, but it did not" : GoString)));
             } else {
@@ -4219,7 +4221,7 @@ function testIssue54258(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
         };
-        for (_0 => _t in _tests) {
+        for (__0 => _t in _tests) {
             _test(_t.main, _t._b, _t._want);
         };
     }
@@ -4235,16 +4237,16 @@ function benchmarkLookupFieldOrMethod(_b:Ref<stdgo.testing.Testing.B>):Void {
         if (_err != null) {
             _b.fatal(Go.toInterface(_err));
         };
-        var _conf:Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
-        var __tmp__ = _conf.check(("http" : GoString), _fset, _files, null), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _conf:stdgo.go.types.Types.Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
+        var __tmp__ = _conf.check(("http" : GoString), _fset, _files, null), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _b.fatal(Go.toInterface(_err));
         };
         var _scope = _pkg.scope();
         var _names = _scope.names();
         var _lookup:() -> Void = function():Void {
-            for (_0 => _name in _names) {
-                var _typ:Type = _scope.lookup(_name).type();
+            for (__0 => _name in _names) {
+                var _typ:stdgo.go.types.Types.Type = _scope.lookup(_name).type();
                 lookupFieldOrMethod(_typ, true, _pkg, ("m" : GoString));
             };
         };
@@ -4361,14 +4363,14 @@ function testNewMethodSet(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var _fn = (Go.typeAssert((Go.toInterface(_pkg.scope().lookup(("g" : GoString))) : Ref<Func>)) : Ref<Func>);
                 _scope = _fn.scope();
             };
-            var _obj:Object = _scope.lookup(("a" : GoString));
+            var _obj:stdgo.go.types.Types.Object = _scope.lookup(("a" : GoString));
             if (_obj == null) {
                 _t.errorf(("%s: incorrect test case - no object a" : GoString), Go.toInterface(_src));
                 return;
             };
             var _ms = newMethodSet(_obj.type());
             {
-                var _0:GoInt = _ms.len(), _1:GoInt = (_methods.length), _want:GoInt = _1, _got:GoInt = _0;
+                var __0:GoInt = _ms.len(), __1:GoInt = (_methods.length), _want:GoInt = __1, _got:GoInt = __0;
                 if (_got != (_want)) {
                     _t.errorf(("%s: got %d methods, want %d" : GoString), Go.toInterface(_src), Go.toInterface(_got), Go.toInterface(_want));
                     return;
@@ -4377,19 +4379,19 @@ function testNewMethodSet(_t:Ref<stdgo.testing.Testing.T>):Void {
             for (_i => _m in _methods) {
                 var _sel = _ms.at(_i);
                 {
-                    var _0:GoString = _sel.obj().name(), _1:GoString = _m._name, _want:GoString = _1, _got:GoString = _0;
+                    var __0:GoString = _sel.obj().name(), __1:GoString = _m._name, _want:GoString = __1, _got:GoString = __0;
                     if (_got != (_want)) {
                         _t.errorf(("%s [method %d]: got name = %q at, want %q" : GoString), Go.toInterface(_src), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
                     };
                 };
                 {
-                    var _0 = _sel.index(), _1 = _m._index, _want = _1, _got = _0;
+                    var __0 = _sel.index(), __1 = _m._index, _want = __1, _got = __0;
                     if (!_sameSlice(_got, _want)) {
                         _t.errorf(("%s [method %d]: got index = %v, want %v" : GoString), Go.toInterface(_src), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
                     };
                 };
                 {
-                    var _0:Bool = _sel.indirect(), _1:Bool = _m._indirect, _want:Bool = _1, _got:Bool = _0;
+                    var __0:Bool = _sel.indirect(), __1:Bool = _m._indirect, _want:Bool = __1, _got:Bool = __0;
                     if (_got != (_want)) {
                         _t.errorf(("%s [method %d]: got indirect = %v, want %v" : GoString), Go.toInterface(_src), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
                     };
@@ -4409,7 +4411,7 @@ function testNewMethodSet(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testNewMethodSet_RecursiveGeneric(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _fset = stdgo.go.token.Token.newFileSet();
-        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("foo.go" : GoString), Go.toInterface(("\npackage pkg\n\ntype Tree[T any] struct {\n\t*Node[T]\n}\n\ntype Node[T any] struct {\n\t*Tree[T]\n}\n\ntype Instance = *Tree[int]\n" : GoString)), (("0" : GoUInt) : stdgo.go.parser.Parser.Mode)), _f:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("foo.go" : GoString), Go.toInterface(("\npackage pkg\n\ntype Tree[T any] struct {\n\t*Node[T]\n}\n\ntype Node[T any] struct {\n\t*Tree[T]\n}\n\ntype Instance = *Tree[int]\n" : GoString)), (0u32 : stdgo.go.parser.Parser.Mode)), _f:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             throw Go.toInterface(_err);
         };
@@ -4420,20 +4422,20 @@ function testNewMethodSet_RecursiveGeneric(_t:Ref<stdgo.testing.Testing.T>):Void
                 throw Go.toInterface(_err);
             };
         };
-        var t:Type = _pkg.scope().lookup(("Instance" : GoString)).type();
+        var t:stdgo.go.types.Types.Type = _pkg.scope().lookup(("Instance" : GoString)).type();
         newMethodSet(t);
     }
 private function _checkMono(_t:Ref<stdgo.testing.Testing.T>, _body:GoString):Error {
         var _fset = stdgo.go.token.Token.newFileSet();
-        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("x.go" : GoString), Go.toInterface(("package x; import `unsafe`; var _ unsafe.Pointer;\n" : GoString) + _body), (("0" : GoUInt) : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("x.go" : GoString), Go.toInterface(("package x; import `unsafe`; var _ unsafe.Pointer;\n" : GoString) + _body), (0u32 : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
         var _files = (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _file) : Slice<Ref<stdgo.go.ast.Ast.File>>);
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-        var _conf:Config = ({ error : function(_err:Error):Void {
+        var _conf:stdgo.go.types.Types.Config = ({ error : function(_err:Error):Void {
             stdgo.fmt.Fmt.fprintln(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.strings.Strings.Builder>)), Go.toInterface(_err));
-        }, importer : stdgo.go.importer.Importer.default_() } : Config);
+        }, importer : stdgo.go.importer.Importer.default_() } : stdgo.go.types.Types.Config);
         _conf.check(("x" : GoString), _fset, _files, null);
         if (_buf.len() == ((0 : GoInt))) {
             return (null : Error);
@@ -4465,10 +4467,10 @@ function testMonoBad(_t:Ref<stdgo.testing.Testing.T>):Void {
 function benchmarkNamed(_b:Ref<stdgo.testing.Testing.B>):Void {
         {};
         var _pkg = _mustTypecheck(("p" : GoString), ("\npackage p\n\ntype T struct {\n\tP int\n}\n\nfunc (T) M(int) {}\nfunc (T) N() (i int) { return }\n\ntype G[P any] struct {\n\tF P\n}\n\nfunc (G[P]) M(P) {}\nfunc (G[P]) N() (p P) { return }\n\ntype Inst = G[int]\n\t" : GoString), null);
-        var _0:Type = _pkg.scope().lookup(("T" : GoString)).type(), _1:Type = _pkg.scope().lookup(("G" : GoString)).type(), _2:Type = _pkg.scope().lookup(("Inst" : GoString)).type(), _3:Type = _mustInstantiate(Go.asInterface(_b), g, Go.asInterface(typ[((2 : BasicKind) : GoInt)])), userInst:Type = _3, srcInst:Type = _2, g:Type = _1, t:Type = _0;
+        var __0:stdgo.go.types.Types.Type = _pkg.scope().lookup(("T" : GoString)).type(), __1:stdgo.go.types.Types.Type = _pkg.scope().lookup(("G" : GoString)).type(), __2:stdgo.go.types.Types.Type = _pkg.scope().lookup(("Inst" : GoString)).type(), __3:stdgo.go.types.Types.Type = _mustInstantiate(Go.asInterface(_b), g, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])), userInst:stdgo.go.types.Types.Type = __3, srcInst:stdgo.go.types.Types.Type = __2, g:stdgo.go.types.Types.Type = __1, t:stdgo.go.types.Types.Type = __0;
         var _tests = (new Slice<T__struct_31>(0, 0, ({ _name : ("nongeneric" : GoString), _typ : t } : T__struct_31), ({ _name : ("generic" : GoString), _typ : g } : T__struct_31), ({ _name : ("src instance" : GoString), _typ : srcInst } : T__struct_31), ({ _name : ("user instance" : GoString), _typ : userInst } : T__struct_31)) : Slice<T__struct_31>);
         _b.run(("Underlying" : GoString), function(_b:Ref<stdgo.testing.Testing.B>):Void {
-            for (_0 => _test in _tests) {
+            for (__0 => _test in _tests) {
                 _b.run(_test._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                     _test._typ.underlying();
                     _b.resetTimer();
@@ -4482,7 +4484,7 @@ function benchmarkNamed(_b:Ref<stdgo.testing.Testing.B>):Void {
             };
         });
         _b.run(("NewMethodSet" : GoString), function(_b:Ref<stdgo.testing.Testing.B>):Void {
-            for (_0 => _test in _tests) {
+            for (__0 => _test in _tests) {
                 _b.run(_test._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
                     newMethodSet(_test._typ);
                     _b.resetTimer();
@@ -4498,7 +4500,7 @@ function benchmarkNamed(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 private function _mustInstantiate(_tb:stdgo.testing.Testing.TB, _orig:Type, _targs:haxe.Rest<Type>):Type {
         var _targs = new Slice<Type>(0, 0, ..._targs);
-        var __tmp__ = instantiate(null, _orig, _targs, true), _inst:Type = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = instantiate(null, _orig, _targs, true), _inst:stdgo.go.types.Types.Type = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _tb.fatal(Go.toInterface(_err));
         };
@@ -4541,35 +4543,35 @@ function testIsAlias(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         _check((Go.typeAssert((Go.toInterface(unsafe.scope().lookup(("Pointer" : GoString))) : Ref<TypeName>)) : Ref<TypeName>), false);
-        for (_0 => _name in universe.names()) {
+        for (__0 => _name in universe.names()) {
             {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(universe.lookup(_name)) : Ref<TypeName>)) : Ref<TypeName>), ok : true };
                 } catch(_) {
-                    { value : (null : Ref<TypeName>), ok : false };
-                }, _obj = __tmp__.value, _1 = __tmp__.ok;
+                    { value : (null : Ref<stdgo.go.types.Types.TypeName>), ok : false };
+                }, _obj = __tmp__.value, __1 = __tmp__.ok;
                 if (_obj != null && ((_obj : Dynamic).__nil__ == null || !(_obj : Dynamic).__nil__)) {
                     _check(_obj, ((_name == ("any" : GoString)) || (_name == ("byte" : GoString))) || (_name == ("rune" : GoString)));
                 };
             };
         };
         var _pkg = newPackage(("p" : GoString), ("p" : GoString));
-        var _t1 = newTypeName((0 : stdgo.go.token.Token.Pos), _pkg, ("t1" : GoString), (null : Type));
-        var _n1 = newNamed(_t1, Go.asInterface((Go.setRef(({} : Struct)) : Ref<Struct>)), (null : Slice<Ref<Func>>));
-        var _t5 = newTypeName((0 : stdgo.go.token.Token.Pos), _pkg, ("t5" : GoString), (null : Type));
-        newTypeParam(_t5, (null : Type));
-        for (_2 => _test in (new Slice<T__struct_32>(
+        var _t1 = newTypeName((0 : stdgo.go.token.Token.Pos), _pkg, ("t1" : GoString), (null : stdgo.go.types.Types.Type));
+        var _n1 = newNamed(_t1, Go.asInterface((Go.setRef(({} : stdgo.go.types.Types.Struct)) : Ref<stdgo.go.types.Types.Struct>)), (null : Slice<Ref<stdgo.go.types.Types.Func>>));
+        var _t5 = newTypeName((0 : stdgo.go.token.Token.Pos), _pkg, ("t5" : GoString), (null : stdgo.go.types.Types.Type));
+        newTypeParam(_t5, (null : stdgo.go.types.Types.Type));
+        for (__2 => _test in (new Slice<T__struct_32>(
 0,
 0,
-({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), null, ("t0" : GoString), (null : Type)), _alias : false } : T__struct_32),
-({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), _pkg, ("t0" : GoString), (null : Type)), _alias : false } : T__struct_32),
+({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), null, ("t0" : GoString), (null : stdgo.go.types.Types.Type)), _alias : false } : T__struct_32),
+({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), _pkg, ("t0" : GoString), (null : stdgo.go.types.Types.Type)), _alias : false } : T__struct_32),
 ({ _name : _t1, _alias : false } : T__struct_32),
-({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), null, ("t2" : GoString), Go.asInterface(newInterfaceType((null : Slice<Ref<Func>>), (null : Slice<Type>)))), _alias : true } : T__struct_32),
+({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), null, ("t2" : GoString), Go.asInterface(newInterfaceType((null : Slice<Ref<stdgo.go.types.Types.Func>>), (null : Slice<stdgo.go.types.Types.Type>)))), _alias : true } : T__struct_32),
 ({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), _pkg, ("t3" : GoString), Go.asInterface(_n1)), _alias : true } : T__struct_32),
-({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), null, ("t4" : GoString), Go.asInterface(typ[((5 : BasicKind) : GoInt)])), _alias : true } : T__struct_32),
-({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), null, ("int32" : GoString), Go.asInterface(typ[((5 : BasicKind) : GoInt)])), _alias : false } : T__struct_32),
-({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), _pkg, ("int32" : GoString), Go.asInterface(typ[((5 : BasicKind) : GoInt)])), _alias : true } : T__struct_32),
-({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), null, ("rune" : GoString), Go.asInterface(typ[((5 : BasicKind) : GoInt)])), _alias : true } : T__struct_32),
+({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), null, ("t4" : GoString), Go.asInterface(typ[((5 : stdgo.go.types.Types.BasicKind) : GoInt)])), _alias : true } : T__struct_32),
+({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), null, ("int32" : GoString), Go.asInterface(typ[((5 : stdgo.go.types.Types.BasicKind) : GoInt)])), _alias : false } : T__struct_32),
+({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), _pkg, ("int32" : GoString), Go.asInterface(typ[((5 : stdgo.go.types.Types.BasicKind) : GoInt)])), _alias : true } : T__struct_32),
+({ _name : newTypeName((0 : stdgo.go.token.Token.Pos), null, ("rune" : GoString), Go.asInterface(typ[((5 : stdgo.go.types.Types.BasicKind) : GoInt)])), _alias : true } : T__struct_32),
 ({ _name : _t5, _alias : false } : T__struct_32)) : Slice<T__struct_32>)) {
             _check(_test._name, _test._alias);
         };
@@ -4582,18 +4584,18 @@ function testEmbeddedMethod(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _fset = stdgo.go.token.Token.newFileSet();
         var _f = _mustParse(_fset, Go.str(), ("package p; type I interface { error }" : GoString));
-        var _conf:Config = ({} : Config);
-        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _conf:Config = ({} : stdgo.go.types.Types.Config);
+        var __tmp__ = _conf.check(_f.name.name, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), null), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatalf(("typecheck failed: %s" : GoString), Go.toInterface(_err));
         };
-        var _eface:Object = universe.lookup(("error" : GoString));
-        var __tmp__ = lookupFieldOrMethod(_eface.type(), false, null, ("Error" : GoString)), _orig:Object = __tmp__._0, _0:Slice<GoInt> = __tmp__._1, _1:Bool = __tmp__._2;
+        var _eface:stdgo.go.types.Types.Object = universe.lookup(("error" : GoString));
+        var __tmp__ = lookupFieldOrMethod(_eface.type(), false, null, ("Error" : GoString)), _orig:stdgo.go.types.Types.Object = __tmp__._0, __0:Slice<GoInt> = __tmp__._1, __1:Bool = __tmp__._2;
         if (_orig == null) {
             _t.fatalf(("original error.Error not found" : GoString));
         };
-        var _iface:Object = _pkg.scope().lookup(("I" : GoString));
-        var __tmp__ = lookupFieldOrMethod(_iface.type(), false, null, ("Error" : GoString)), _embed:Object = __tmp__._0, _2:Slice<GoInt> = __tmp__._1, _3:Bool = __tmp__._2;
+        var _iface:stdgo.go.types.Types.Object = _pkg.scope().lookup(("I" : GoString));
+        var __tmp__ = lookupFieldOrMethod(_iface.type(), false, null, ("Error" : GoString)), _embed:stdgo.go.types.Types.Object = __tmp__._0, __2:Slice<GoInt> = __tmp__._1, __3:Bool = __tmp__._2;
         if (_embed == null) {
             _t.fatalf(("embedded error.Error not found" : GoString));
         };
@@ -4603,9 +4605,9 @@ function testEmbeddedMethod(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testObjectString(_t:Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveGoBuild(Go.asInterface(_t));
-        for (_0 => _test in _testObjects) {
+        for (__0 => _test in _testObjects) {
             var _src:GoString = ("package p; " : GoString) + _test._src;
-            var __tmp__ = _typecheck(("<src>" : GoString), _src, null), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _typecheck(("<src>" : GoString), _src, null), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.errorf(("%s: %s" : GoString), Go.toInterface(_src), Go.toInterface(_err));
                 continue;
@@ -4615,7 +4617,7 @@ function testObjectString(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("%s: invalid object path %s" : GoString), Go.toInterface(_test._src), Go.toInterface(_test._obj));
                 continue;
             };
-            var __tmp__ = _pkg.scope().lookupParent(_names[(0 : GoInt)], (0 : stdgo.go.token.Token.Pos)), _1:Ref<Scope> = __tmp__._0, _obj:Object = __tmp__._1;
+            var __tmp__ = _pkg.scope().lookupParent(_names[(0 : GoInt)], (0 : stdgo.go.token.Token.Pos)), __1:Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _obj:stdgo.go.types.Types.Object = __tmp__._1;
             if (_obj == null) {
                 _t.errorf(("%s: %s not found" : GoString), Go.toInterface(_test._src), Go.toInterface(_names[(0 : GoInt)]));
                 continue;
@@ -4657,7 +4659,7 @@ private function _lookupTypeParamObj(_list:Ref<TypeParamList>, _name:GoString):O
                 };
             });
         };
-        return (null : Object);
+        return (null : stdgo.go.types.Types.Object);
     }
 function testResolveIdents(_t:Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveGoBuild(Go.asInterface(_t));
@@ -4669,19 +4671,19 @@ function testResolveIdents(_t:Ref<stdgo.testing.Testing.T>):Void {
             _files = _files.__appendref__(_mustParse(_fset, stdgo.fmt.Fmt.sprintf(("sources[%d]" : GoString), Go.toInterface(_i)), _src));
         };
         var _importer = (Go.setRef(({} : stdgo.go.types_test.Types_test.T_resolveTestImporter)) : Ref<stdgo.go.types_test.Types_test.T_resolveTestImporter>);
-        var _conf:Config = ({ importer : Go.asInterface(_importer) } : Config);
-        var _uses = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>);
-        var _defs = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>);
-        var __tmp__ = _conf.check(("testResolveIdents" : GoString), _fset, _files, (Go.setRef(({ defs : _defs, uses : _uses } : Info)) : Ref<Info>)), _0:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _conf:stdgo.go.types.Types.Config = ({ importer : Go.asInterface(_importer) } : Config);
+        var _uses = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>);
+        var _defs = (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>);
+        var __tmp__ = _conf.check(("testResolveIdents" : GoString), _fset, _files, (Go.setRef(({ defs : _defs, uses : _uses } : Info)) : Ref<stdgo.go.types.Types.Info>)), __0:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
-        for (_1 => _name in _pkgnames) {
+        for (__1 => _name in _pkgnames) {
             if (!_importer._imported[_name]) {
                 _t.errorf(("package %s not imported" : GoString), Go.toInterface(_name));
             };
         };
-        for (_2 => _f in _files) {
+        for (__2 => _f in _files) {
             stdgo.go.ast.Ast.inspect(Go.asInterface(_f), function(_n:stdgo.go.ast.Ast.Node):Bool {
                 {
                     var __tmp__ = try {
@@ -4697,7 +4699,7 @@ function testResolveIdents(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 { value : (null : Ref<stdgo.go.ast.Ast.Ident>), ok : false };
                             }, _x = __tmp__.value, _ok = __tmp__.ok;
                             if (_ok) {
-                                var _obj:Object = _uses[_x];
+                                var _obj:stdgo.go.types.Types.Object = _uses[_x];
                                 if (_obj == null) {
                                     _t.errorf(("%s: unresolved qualified identifier %s" : GoString), Go.toInterface(Go.asInterface(_fset.position(_x.pos()))), Go.toInterface(_x.name));
                                     return false;
@@ -4706,8 +4708,8 @@ function testResolveIdents(_t:Ref<stdgo.testing.Testing.T>):Void {
                                     var __tmp__ = try {
                                         { value : (Go.typeAssert((Go.toInterface(_obj) : Ref<PkgName>)) : Ref<PkgName>), ok : true };
                                     } catch(_) {
-                                        { value : (null : Ref<PkgName>), ok : false };
-                                    }, _0 = __tmp__.value, _ok = __tmp__.ok;
+                                        { value : (null : Ref<stdgo.go.types.Types.PkgName>), ok : false };
+                                    }, __0 = __tmp__.value, _ok = __tmp__.ok;
                                     if (_ok && (_uses[_s.sel] == null)) {
                                         _t.errorf(("%s: unresolved selector %s" : GoString), Go.toInterface(Go.asInterface(_fset.position(_s.sel.pos()))), Go.toInterface(_s.sel.name));
                                         return false;
@@ -4728,7 +4730,7 @@ function testResolveIdents(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         var _both:Slice<GoString> = (null : Slice<GoString>);
-        for (_3 => _f in _files) {
+        for (__3 => _f in _files) {
             stdgo.go.ast.Ast.inspect(Go.asInterface(_f), function(_n:stdgo.go.ast.Ast.Node):Bool {
                 {
                     var __tmp__ = try {
@@ -4739,14 +4741,14 @@ function testResolveIdents(_t:Ref<stdgo.testing.Testing.T>):Void {
                     if (_ok) {
                         var _objects:GoInt = (0 : GoInt);
                         {
-                            var __tmp__ = (_uses != null && _uses.__exists__(_x) ? { value : _uses[_x], ok : true } : { value : (null : Object), ok : false }), _0:Object = __tmp__.value, _found:Bool = __tmp__.ok;
+                            var __tmp__ = (_uses != null && _uses.__exists__(_x) ? { value : _uses[_x], ok : true } : { value : (null : stdgo.go.types.Types.Object), ok : false }), __0:stdgo.go.types.Types.Object = __tmp__.value, _found:Bool = __tmp__.ok;
                             if (_found) {
                                 _objects = _objects | ((1 : GoInt));
                                 if (_uses != null) _uses.__remove__(_x);
                             };
                         };
                         {
-                            var __tmp__ = (_defs != null && _defs.__exists__(_x) ? { value : _defs[_x], ok : true } : { value : (null : Object), ok : false }), _1:Object = __tmp__.value, _found:Bool = __tmp__.ok;
+                            var __tmp__ = (_defs != null && _defs.__exists__(_x) ? { value : _defs[_x], ok : true } : { value : (null : stdgo.go.types.Types.Object), ok : false }), __1:stdgo.go.types.Types.Object = __tmp__.value, _found:Bool = __tmp__.ok;
                             if (_found) {
                                 _objects = _objects | ((2 : GoInt));
                                 if (_defs != null) _defs.__remove__(_x);
@@ -4765,7 +4767,7 @@ function testResolveIdents(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
         stdgo.sort.Sort.strings(_both);
         {
-            var _0:GoString = stdgo.fmt.Fmt.sprint(Go.toInterface(_both)), _1:GoString = ("[Mutex Stringer error]" : GoString), _want:GoString = _1, _got:GoString = _0;
+            var __0:GoString = stdgo.fmt.Fmt.sprint(Go.toInterface(_both)), __1:GoString = ("[Mutex Stringer error]" : GoString), _want:GoString = __1, _got:GoString = __0;
             if (_got != (_want)) {
                 _t.errorf(("simultaneous uses/defs = %s, want %s" : GoString), Go.toInterface(_got), Go.toInterface(_want));
             };
@@ -4784,7 +4786,7 @@ function testSelf(_t:Ref<stdgo.testing.Testing.T>):Void {
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
-        var _conf:Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
+        var _conf:stdgo.go.types.Types.Config = ({ importer : stdgo.go.importer.Importer.default_() } : Config);
         {
             var __tmp__ = _conf.check(("go/types" : GoString), _fset, _files, null);
             _err = __tmp__._1;
@@ -4795,10 +4797,10 @@ function testSelf(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function benchmarkCheck(_b:Ref<stdgo.testing.Testing.B>):Void {
         stdgo.internal.testenv.Testenv.mustHaveGoBuild(Go.asInterface(_b));
-        for (_0 => _p in (new Slice<GoString>(0, 0, ("net/http" : GoString), ("go/parser" : GoString), ("go/constant" : GoString), ("runtime" : GoString), stdgo.path.filepath.Filepath.join(("go" : GoString), ("internal" : GoString), ("gcimporter" : GoString))) : Slice<GoString>)) {
+        for (__0 => _p in (new Slice<GoString>(0, 0, ("net/http" : GoString), ("go/parser" : GoString), ("go/constant" : GoString), ("runtime" : GoString), stdgo.path.filepath.Filepath.join(("go" : GoString), ("internal" : GoString), ("gcimporter" : GoString))) : Slice<GoString>)) {
             _b.run(stdgo.path.Path.base(_p), function(_b:Ref<stdgo.testing.Testing.B>):Void {
                 var _path:GoString = stdgo.path.filepath.Filepath.join((".." : GoString), (".." : GoString), _p);
-                for (_0 => _ignoreFuncBodies in (new Slice<Bool>(0, 0, false, true) : Slice<Bool>)) {
+                for (__0 => _ignoreFuncBodies in (new Slice<Bool>(0, 0, false, true) : Slice<Bool>)) {
                     var _name:GoString = ("funcbodies" : GoString);
                     if (_ignoreFuncBodies) {
                         _name = ("nofuncbodies" : GoString);
@@ -4827,17 +4829,17 @@ private function _runbench(_b:Ref<stdgo.testing.Testing.B>, _path:GoString, _ign
             return true;
         });
         _b.resetTimer();
-        var _start:stdgo.time.Time.Time = stdgo.time.Time.now().__copy__();
+        var _start:stdgo.time.Time.Time = stdgo.time.Time.now()?.__copy__();
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
-                var _conf:Config = ({ ignoreFuncBodies : _ignoreFuncBodies, importer : stdgo.go.importer.Importer.default_() } : Config);
-                var _info:Ref<Info> = (null : Ref<Info>);
+                var _conf:stdgo.go.types.Types.Config = ({ ignoreFuncBodies : _ignoreFuncBodies, importer : stdgo.go.importer.Importer.default_() } : Config);
+                var _info:Ref<Info> = (null : Ref<stdgo.go.types.Types.Info>);
                 if (_writeInfo) {
-                    _info = (Go.setRef(({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>), defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>), uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>), implicits : (new GoObjectMap<stdgo.go.ast.Ast.Node, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Node, Object>), selections : (new GoObjectMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<Selection>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.SelectorExpr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "x", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "sel", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Selection", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("SelectionKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_recv", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_index", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }) }, optional : false }, { name : "_indirect", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<Selection>>), scopes : (new GoObjectMap<stdgo.go.ast.Ast.Node, Ref<Scope>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<stdgo.go.ast.Ast.Node, Ref<Scope>>) } : Info)) : Ref<Info>);
+                    _info = (Go.setRef(({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>), defs : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>), uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>), implicits : (new GoObjectMap<stdgo.go.ast.Ast.Node, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Node, stdgo.go.types.Types.Object>), selections : (new GoObjectMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<stdgo.go.types.Types.Selection>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.SelectorExpr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "x", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "sel", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Selection", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.SelectionKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_recv", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "_index", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }) }, optional : false }, { name : "_indirect", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<stdgo.go.types.Types.Selection>>), scopes : (new GoObjectMap<stdgo.go.ast.Ast.Node, Ref<stdgo.go.types.Types.Scope>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_parent", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_children", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Scope", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }) }, optional : false }, { name : "_number", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_elems", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }) }, optional : false }, { name : "_pos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_end", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_isFunc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<stdgo.go.ast.Ast.Node, Ref<stdgo.go.types.Types.Scope>>) } : Info)) : Ref<stdgo.go.types.Types.Info>);
                 };
                 {
-                    var __tmp__ = _conf.check(_path, _fset, _files, _info), _8:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+                    var __tmp__ = _conf.check(_path, _fset, _files, _info), __8:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
                     if (_err != null) {
                         _b.fatal(Go.toInterface(_err));
                     };
@@ -4845,7 +4847,7 @@ private function _runbench(_b:Ref<stdgo.testing.Testing.B>, _path:GoString, _ign
             });
         };
         _b.stopTimer();
-        _b.reportMetric(((_lines : GoFloat64) * (_b.n : GoFloat64)) / stdgo.time.Time.since(_start.__copy__()).seconds(), ("lines/s" : GoString));
+        _b.reportMetric(((_lines : GoFloat64) * (_b.n : GoFloat64)) / stdgo.time.Time.since(_start?.__copy__()).seconds(), ("lines/s" : GoString));
     }
 private function _pkgFiles(_fset:Ref<stdgo.go.token.Token.FileSet>, _path:GoString):{ var _0 : Slice<Ref<stdgo.go.ast.Ast.File>>; var _1 : Error; } {
         var __tmp__ = _pkgFilenames(_path), _filenames:Slice<GoString> = __tmp__._0, _err:Error = __tmp__._1;
@@ -4853,8 +4855,8 @@ private function _pkgFiles(_fset:Ref<stdgo.go.token.Token.FileSet>, _path:GoStri
             return { _0 : (null : Slice<Ref<stdgo.go.ast.Ast.File>>), _1 : _err };
         };
         var _files:Slice<Ref<stdgo.go.ast.Ast.File>> = (null : Slice<Ref<stdgo.go.ast.Ast.File>>);
-        for (_0 => _filename in _filenames) {
-            var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, _filename, (null : AnyInterface), (("0" : GoUInt) : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
+        for (__0 => _filename in _filenames) {
+            var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, _filename, (null : AnyInterface), (0u32 : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : Slice<Ref<stdgo.go.ast.Ast.File>>), _1 : _err };
             };
@@ -4865,18 +4867,18 @@ private function _pkgFiles(_fset:Ref<stdgo.go.token.Token.FileSet>, _path:GoStri
 /**
     // findStructType typechecks src and returns the first struct type encountered.
 **/
-private function _findStructType(_t:Ref<stdgo.testing.Testing.T>, _src:GoString):Ref<Struct> {
-        return _findStructTypeConfig(_t, _src, (Go.setRef((new Config() : Config)) : Ref<Config>));
+private function _findStructType(_t:Ref<stdgo.testing.Testing.T>, _src:GoString):Ref<stdgo.go.types.Types.Struct> {
+        return _findStructTypeConfig(_t, _src, (Go.setRef((new stdgo.go.types.Types.Config() : stdgo.go.types.Types.Config)) : Ref<stdgo.go.types.Types.Config>));
     }
-private function _findStructTypeConfig(_t:Ref<stdgo.testing.Testing.T>, _src:GoString, _conf:Ref<Config>):Ref<Struct> {
-        var _types_ = (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>);
-        _mustTypecheck(("x" : GoString), _src, (Go.setRef(({ types : _types_ } : Info)) : Ref<Info>));
-        for (_0 => _tv in _types_) {
+private function _findStructTypeConfig(_t:Ref<stdgo.testing.Testing.T>, _src:GoString, _conf:Ref<stdgo.go.types.Types.Config>):Ref<stdgo.go.types.Types.Struct> {
+        var _types_ = (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>);
+        _mustTypecheck(("x" : GoString), _src, (Go.setRef(({ types : _types_ } : stdgo.go.types.Types.Info)) : Ref<stdgo.go.types.Types.Info>));
+        for (__0 => _tv in _types_) {
             {
                 var __tmp__ = try {
-                    { value : (Go.typeAssert((Go.toInterface(_tv.type) : Ref<Struct>)) : Ref<Struct>), ok : true };
+                    { value : (Go.typeAssert((Go.toInterface(_tv.type) : Ref<stdgo.go.types.Types.Struct>)) : Ref<stdgo.go.types.Types.Struct>), ok : true };
                 } catch(_) {
-                    { value : (null : Ref<Struct>), ok : false };
+                    { value : (null : Ref<stdgo.go.types.Types.Struct>), ok : false };
                 }, _ts = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     return _ts;
@@ -4892,17 +4894,17 @@ private function _findStructTypeConfig(_t:Ref<stdgo.testing.Testing.T>, _src:GoS
 function testMultipleSizeUse(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _ts = _findStructType(_t, ("\npackage main\n\ntype S struct {\n    i int\n    b bool\n    s string\n    n int\n}\n" : GoString));
-        var _sizes:StdSizes = ({ wordSize : ("4" : GoInt64), maxAlign : ("4" : GoInt64) } : StdSizes);
+        var _sizes:stdgo.go.types.Types.StdSizes = ({ wordSize : (4i64 : GoInt64), maxAlign : (4i64 : GoInt64) } : stdgo.go.types.Types.StdSizes);
         {
             var _got:GoInt64 = _sizes.sizeof(Go.asInterface(_ts));
-            if (_got != (("20" : GoInt64))) {
+            if (_got != ((20i64 : GoInt64))) {
                 _t.errorf(("Sizeof(%v) with WordSize 4 = %d want 20" : GoString), Go.toInterface(Go.asInterface(_ts)), Go.toInterface(_got));
             };
         };
-        _sizes = ({ wordSize : ("8" : GoInt64), maxAlign : ("8" : GoInt64) } : StdSizes);
+        _sizes = ({ wordSize : (8i64 : GoInt64), maxAlign : (8i64 : GoInt64) } : stdgo.go.types.Types.StdSizes);
         {
             var _got:GoInt64 = _sizes.sizeof(Go.asInterface(_ts));
-            if (_got != (("40" : GoInt64))) {
+            if (_got != ((40i64 : GoInt64))) {
                 _t.errorf(("Sizeof(%v) with WordSize 8 = %d want 40" : GoString), Go.toInterface(Go.asInterface(_ts)), Go.toInterface(_got));
             };
         };
@@ -4913,8 +4915,8 @@ function testMultipleSizeUse(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testAlignofNaclSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _ts = _findStructType(_t, ("\npackage main\n\nvar s struct {\n\tx *int\n\ty []byte\n}\n" : GoString));
-        var _sizes = (Go.setRef(({ wordSize : ("4" : GoInt64), maxAlign : ("8" : GoInt64) } : StdSizes)) : Ref<StdSizes>);
-        var _fields:Slice<Ref<Var>> = (null : Slice<Ref<Var>>);
+        var _sizes = (Go.setRef(({ wordSize : (4i64 : GoInt64), maxAlign : (8i64 : GoInt64) } : stdgo.go.types.Types.StdSizes)) : Ref<stdgo.go.types.Types.StdSizes>);
+        var _fields:Slice<Ref<stdgo.go.types.Types.Var>> = (null : Slice<Ref<stdgo.go.types.Types.Var>>);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _ts.numFields(), _i++, {
@@ -4922,7 +4924,7 @@ function testAlignofNaclSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
             });
         };
         var _offsets = _sizes.offsetsof(_fields);
-        if ((_offsets[(0 : GoInt)] != ("0" : GoInt64)) || (_offsets[(1 : GoInt)] != ("4" : GoInt64))) {
+        if ((_offsets[(0 : GoInt)] != (0i64 : GoInt64)) || (_offsets[(1 : GoInt)] != (4i64 : GoInt64))) {
             _t.errorf(("OffsetsOf(%v) = %v want %v" : GoString), Go.toInterface(Go.asInterface(_ts)), Go.toInterface(_offsets), Go.toInterface((new Slice<GoInt>(0, 0, (0 : GoInt), (4 : GoInt)) : Slice<GoInt>)));
         };
     }
@@ -4930,13 +4932,13 @@ function testIssue16902(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _fset = stdgo.go.token.Token.newFileSet();
         var _f = _mustParse(_fset, ("x.go" : GoString), ("\npackage a\n\nimport \"unsafe\"\n\nconst _ = unsafe.Offsetof(struct{ x int64 }{}.x)\n" : GoString));
-        var _info:Info = ({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, TypeAndValue>) } : Info);
-        var _conf:Config = ({ importer : stdgo.go.importer.Importer.default_(), sizes : Go.asInterface((Go.setRef(({ wordSize : ("8" : GoInt64), maxAlign : ("8" : GoInt64) } : StdSizes)) : Ref<StdSizes>)) } : Config);
-        var __tmp__ = _conf.check(("x" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(_info) : Ref<Info>)), _0:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var _info:stdgo.go.types.Types.Info = ({ types : (new GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.TypeAndValue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.T_operandMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind), false, { get : () -> null }) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.constant.Constant.Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }))) : GoMap<stdgo.go.ast.Ast.Expr, stdgo.go.types.Types.TypeAndValue>) } : stdgo.go.types.Types.Info);
+        var _conf:stdgo.go.types.Types.Config = ({ importer : stdgo.go.importer.Importer.default_(), sizes : Go.asInterface((Go.setRef(({ wordSize : (8i64 : GoInt64), maxAlign : (8i64 : GoInt64) } : stdgo.go.types.Types.StdSizes)) : Ref<stdgo.go.types.Types.StdSizes>)) } : stdgo.go.types.Types.Config);
+        var __tmp__ = _conf.check(("x" : GoString), _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _f) : Slice<Ref<stdgo.go.ast.Ast.File>>), (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>)), __0:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
-        for (_1 => _tv in _info.types) {
+        for (__1 => _tv in _info.types) {
             _conf.sizes.sizeof(_tv.type);
             _conf.sizes.alignof_(_tv.type);
         };
@@ -4947,12 +4949,12 @@ function testIssue16902(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testAtomicAlign(_t:Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveGoBuild(Go.asInterface(_t));
         {};
-        var _want = (new Slice<GoInt64>(0, 0, ("0" : GoInt64), ("8" : GoInt64), ("16" : GoInt64)) : Slice<GoInt64>);
-        for (_0 => _arch in (new Slice<GoString>(0, 0, ("386" : GoString), ("amd64" : GoString)) : Slice<GoString>)) {
+        var _want = (new Slice<GoInt64>(0, 0, (0i64 : GoInt64), (8i64 : GoInt64), (16i64 : GoInt64)) : Slice<GoInt64>);
+        for (__0 => _arch in (new Slice<GoString>(0, 0, ("386" : GoString), ("amd64" : GoString)) : Slice<GoString>)) {
             _t.run(_arch, function(_t:Ref<stdgo.testing.Testing.T>):Void {
-                var _conf:Config = ({ importer : stdgo.go.importer.Importer.default_(), sizes : stdgo.go.types.Types.sizesFor(("gc" : GoString), _arch) } : Config);
-                var _ts = _findStructTypeConfig(_t, ("\npackage main\n\nimport \"sync/atomic\"\n\nvar s struct {\n\tx int32\n\ty atomic.Int64\n\tz int64\n}\n" : GoString), (Go.setRef(_conf) : Ref<Config>));
-                var _fields:Slice<Ref<Var>> = (null : Slice<Ref<Var>>);
+                var _conf:stdgo.go.types.Types.Config = ({ importer : stdgo.go.importer.Importer.default_(), sizes : stdgo.go.types.Types.sizesFor(("gc" : GoString), _arch) } : stdgo.go.types.Types.Config);
+                var _ts = _findStructTypeConfig(_t, ("\npackage main\n\nimport \"sync/atomic\"\n\nvar s struct {\n\tx int32\n\ty atomic.Int64\n\tz int64\n}\n" : GoString), (Go.setRef(_conf) : Ref<stdgo.go.types.Types.Config>));
+                var _fields:Slice<Ref<stdgo.go.types.Types.Var>> = (null : Slice<Ref<stdgo.go.types.Types.Var>>);
                 {
                     var _i:GoInt = (0 : GoInt);
                     Go.cfor(_i < _ts.numFields(), _i++, {
@@ -4993,12 +4995,12 @@ private function _firstComment(_filename:GoString):GoString {
             };
             __deferstack__.unshift(() -> _f.close());
             var _src:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 4096) (0 : GoUInt8)]);
-            var __tmp__ = _f.read((_src.__slice__(0) : Slice<GoUInt8>)), _n:GoInt = __tmp__._0, _0:Error = __tmp__._1;
+            var __tmp__ = _f.read((_src.__slice__(0) : Slice<GoUInt8>)), _n:GoInt = __tmp__._0, __0:Error = __tmp__._1;
             var _first:GoString = ("" : GoString);
             var _s:stdgo.go.scanner.Scanner.Scanner = ({} : stdgo.go.scanner.Scanner.Scanner);
-            _s.init(_fset.addFile(Go.str(), _fset.base(), _n), (_src.__slice__(0, _n) : Slice<GoUInt8>), null, (("1" : GoUInt) : stdgo.go.scanner.Scanner.Mode));
+            _s.init(_fset.addFile(Go.str(), _fset.base(), _n), (_src.__slice__(0, _n) : Slice<GoUInt8>), null, (1u32 : stdgo.go.scanner.Scanner.Mode));
             while (true) {
-                var __tmp__ = _s.scan(), _1:stdgo.go.token.Token.Pos = __tmp__._0, _tok:stdgo.go.token.Token.Token = __tmp__._1, _lit:GoString = __tmp__._2;
+                var __tmp__ = _s.scan(), __1:stdgo.go.token.Token.Pos = __tmp__._0, _tok:stdgo.go.token.Token.Token = __tmp__._1, _lit:GoString = __tmp__._2;
                 {
                     final __value__ = _tok;
                     if (__value__ == ((2 : stdgo.go.token.Token.Token))) {
@@ -5058,11 +5060,11 @@ private function _testTestDir(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _
             _t.fatal(Go.toInterface(_err));
         };
         var _excluded = (new GoObjectMap<GoString, Bool>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }))) : GoMap<GoString, Bool>);
-        for (_0 => _filename in _ignore) {
+        for (__0 => _filename in _ignore) {
             _excluded[_filename] = true;
         };
         var _fset = stdgo.go.token.Token.newFileSet();
-        for (_1 => _f in _files) {
+        for (__1 => _f in _files) {
             if ((_f.isDir() || !stdgo.strings.Strings.hasSuffix(_f.name(), (".go" : GoString))) || _excluded[_f.name()]) {
                 continue;
             };
@@ -5087,7 +5089,7 @@ private function _testTestDir(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _
                                     break;
                                 } else if (__value__ == (("errorcheck" : GoString))) {
                                     _expectErrors = true;
-                                    for (_2 => _arg in (_fields.__slice__((1 : GoInt)) : Slice<GoString>)) {
+                                    for (__2 => _arg in (_fields.__slice__((1 : GoInt)) : Slice<GoString>)) {
                                         if (((_arg == ("-0" : GoString)) || (_arg == ("-+" : GoString))) || (_arg == ("-std" : GoString))) {
                                             _expectErrors = false;
                                             break;
@@ -5106,9 +5108,9 @@ private function _testTestDir(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _
                     };
                 };
             };
-            var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, _filename, (null : AnyInterface), (("0" : GoUInt) : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, _filename, (null : AnyInterface), (0u32 : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err == null) {
-                var _conf:Config = ({ goVersion : _goVersion, importer : _stdLibImporter } : Config);
+                var _conf:stdgo.go.types.Types.Config = ({ goVersion : _goVersion, importer : _stdLibImporter } : Config);
                 {
                     var __tmp__ = _conf.check(_filename, _fset, (new Slice<Ref<stdgo.go.ast.Ast.File>>(0, 0, _file) : Slice<Ref<stdgo.go.ast.Ast.File>>), null);
                     _err = __tmp__._1;
@@ -5179,8 +5181,8 @@ function testStdKen(_t:Ref<stdgo.testing.Testing.T>):Void {
 private function _typecheckFiles(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _filenames:Slice<GoString>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
         var _files:Slice<Ref<stdgo.go.ast.Ast.File>> = (null : Slice<Ref<stdgo.go.ast.Ast.File>>);
-        for (_0 => _filename in _filenames) {
-            var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, _filename, (null : AnyInterface), (("32" : GoUInt) : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
+        for (__0 => _filename in _filenames) {
+            var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, _filename, (null : AnyInterface), (32u32 : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 {
                     var __tmp__ = try {
@@ -5189,7 +5191,7 @@ private function _typecheckFiles(_t:Ref<stdgo.testing.Testing.T>, _path:GoString
                         { value : new stdgo.go.scanner.Scanner.ErrorList(0, 0), ok : false };
                     }, _list = __tmp__.value, _ok = __tmp__.ok;
                     if (_ok) {
-                        for (_1 => _err in _list) {
+                        for (__1 => _err in _list) {
                             _t.error(Go.toInterface(Go.asInterface(_err)));
                         };
                         return;
@@ -5206,17 +5208,17 @@ private function _typecheckFiles(_t:Ref<stdgo.testing.Testing.T>, _path:GoString
             };
             _files = _files.__appendref__(_file);
         };
-        var _conf:Config = ({ error : function(_err:Error):Void {
+        var _conf:stdgo.go.types.Types.Config = ({ error : function(_err:Error):Void {
             _t.helper();
             _t.error(Go.toInterface(_err));
         }, importer : _stdLibImporter } : Config);
-        var _info:Info = ({ uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, Object>) } : Info);
-        _conf.check(_path, _fset, _files, (Go.setRef(_info) : Ref<Info>));
+        var _info:stdgo.go.types.Types.Info = ({ uses : (new GoObjectMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Object", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }) }))) : GoMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Object>) } : Info);
+        _conf.check(_path, _fset, _files, (Go.setRef(_info) : Ref<stdgo.go.types.Types.Info>));
         var _errorError = (Go.typeAssert((Go.toInterface(universe.lookup(("error" : GoString)).type().underlying()) : Ref<Interface>)) : Ref<Interface>).explicitMethod((0 : GoInt));
         for (_id => _obj in _info.uses) {
             var _predeclared:Bool = (Go.toInterface(_obj) == Go.toInterface(universe.lookup(_obj.name()))) || (Go.toInterface(_obj) == Go.toInterface(Go.asInterface(_errorError)));
             if (_predeclared == ((_obj.pkg() != null && ((_obj.pkg() : Dynamic).__nil__ == null || !(_obj.pkg() : Dynamic).__nil__)))) {
-                var _posn:stdgo.go.token.Token.Position = _fset.position(_id.pos()).__copy__();
+                var _posn:stdgo.go.token.Token.Position = _fset.position(_id.pos())?.__copy__();
                 if (_predeclared) {
                     _t.errorf(("%s: predeclared object with package: %s" : GoString), Go.toInterface(Go.asInterface(_posn)), Go.toInterface(_obj));
                 } else {
@@ -5229,16 +5231,16 @@ private function _typecheckFiles(_t:Ref<stdgo.testing.Testing.T>, _path:GoString
     // pkgFilenames returns the list of package filenames for the given directory.
 **/
 private function _pkgFilenames(_dir:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } {
-        var _ctxt:stdgo.go.build.Build.Context = stdgo.go.build.Build.default_.__copy__();
+        var _ctxt:stdgo.go.build.Build.Context = stdgo.go.build.Build.default_?.__copy__();
         _ctxt.cgoEnabled = false;
-        var __tmp__ = _ctxt.importDir(_dir, (("0" : GoUInt) : stdgo.go.build.Build.ImportMode)), _pkg:Ref<stdgo.go.build.Build.Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _ctxt.importDir(_dir, (0u32 : stdgo.go.build.Build.ImportMode)), _pkg:Ref<stdgo.go.build.Build.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((Go.toInterface(_err) : Ref<stdgo.go.build.Build.NoGoError>)) : Ref<stdgo.go.build.Build.NoGoError>), ok : true };
                 } catch(_) {
                     { value : (null : Ref<stdgo.go.build.Build.NoGoError>), ok : false };
-                }, _0 = __tmp__.value, _nogo = __tmp__.ok;
+                }, __0 = __tmp__.value, _nogo = __tmp__.ok;
                 if (_nogo) {
                     return { _0 : (null : Slice<GoString>), _1 : (null : Error) };
                 };
@@ -5249,18 +5251,18 @@ private function _pkgFilenames(_dir:GoString):{ var _0 : Slice<GoString>; var _1
             return { _0 : (null : Slice<GoString>), _1 : (null : Error) };
         };
         var _filenames:Slice<GoString> = (null : Slice<GoString>);
-        for (_1 => _name in _pkg.goFiles) {
+        for (__1 => _name in _pkg.goFiles) {
             _filenames = _filenames.__appendref__(stdgo.path.filepath.Filepath.join(_pkg.dir, _name));
         };
-        for (_2 => _name in _pkg.testGoFiles) {
+        for (__2 => _name in _pkg.testGoFiles) {
             _filenames = _filenames.__appendref__(stdgo.path.filepath.Filepath.join(_pkg.dir, _name));
         };
         return { _0 : _filenames, _1 : (null : Error) };
     }
 private function _walkPkgDirs(_dir:GoString, _pkgh:(_dir:GoString, _filenames:Slice<GoString>) -> Void, _errh:(_args:haxe.Rest<AnyInterface>) -> Void):stdgo.time.Time.Duration {
-        var _w:stdgo.go.types_test.Types_test.T_walker = (new T_walker(stdgo.time.Time.now().__copy__(), (("10000000" : GoInt64) : stdgo.time.Time.Duration), _pkgh, _errh) : T_walker);
+        var _w:stdgo.go.types_test.Types_test.T_walker = (new T_walker(stdgo.time.Time.now()?.__copy__(), (10000000i64 : stdgo.time.Time.Duration), _pkgh, _errh) : T_walker);
         _w._walk(_dir);
-        return stdgo.time.Time.since(_w._start.__copy__());
+        return stdgo.time.Time.since(_w._start?.__copy__());
     }
 /**
     // dup returns a testEntry where both src and str are the same.
@@ -5273,19 +5275,19 @@ function testTypeString(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _tests:Slice<T_testEntry> = (null : Slice<stdgo.go.types_test.Types_test.T_testEntry>);
         _tests = _tests.__appendref__(..._independentTestTypes.__toArray__());
         _tests = _tests.__appendref__(..._dependentTestTypes.__toArray__());
-        for (_0 => _test in _tests) {
+        for (__0 => _test in _tests) {
             var _src:GoString = ("package p; import \"io\"; type _ io.Writer; type T " : GoString) + _test._src;
-            var __tmp__ = _typecheck(("<src>" : GoString), _src, null), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _typecheck(("<src>" : GoString), _src, null), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.errorf(("%s: %s" : GoString), Go.toInterface(_src), Go.toInterface(_err));
                 continue;
             };
-            var _obj:Object = _pkg.scope().lookup(("T" : GoString));
+            var _obj:stdgo.go.types.Types.Object = _pkg.scope().lookup(("T" : GoString));
             if (_obj == null) {
                 _t.errorf(("%s: T not found" : GoString), Go.toInterface(_test._src));
                 continue;
             };
-            var _typ:Type = _obj.type().underlying();
+            var _typ:stdgo.go.types.Types.Type = _obj.type().underlying();
             {
                 var _got:GoString = (_typ.string() : GoString);
                 if (_got != (_test._str)) {
@@ -5297,8 +5299,8 @@ function testTypeString(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testQualifiedTypeString(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _p = _mustTypecheck(("p.go" : GoString), ("package p; type T int" : GoString), null);
         var _q = _mustTypecheck(("q.go" : GoString), ("package q" : GoString), null);
-        var _pT:Type = _p.scope().lookup(("T" : GoString)).type();
-        for (_0 => _test in (new Slice<T__struct_33>(0, 0, ({ _typ : (null : Type), _this : null, _want : ("<nil>" : GoString) } : T__struct_33), ({ _typ : _pT, _this : null, _want : ("p.T" : GoString) } : T__struct_33), ({ _typ : _pT, _this : _p, _want : ("T" : GoString) } : T__struct_33), ({ _typ : _pT, _this : _q, _want : ("p.T" : GoString) } : T__struct_33), ({ _typ : Go.asInterface(newPointer(_pT)), _this : _p, _want : ("*T" : GoString) } : T__struct_33), ({ _typ : Go.asInterface(newPointer(_pT)), _this : _q, _want : ("*p.T" : GoString) } : T__struct_33)) : Slice<T__struct_33>)) {
+        var _pT:stdgo.go.types.Types.Type = _p.scope().lookup(("T" : GoString)).type();
+        for (__0 => _test in (new Slice<T__struct_33>(0, 0, ({ _typ : (null : stdgo.go.types.Types.Type), _this : null, _want : ("<nil>" : GoString) } : T__struct_33), ({ _typ : _pT, _this : null, _want : ("p.T" : GoString) } : T__struct_33), ({ _typ : _pT, _this : _p, _want : ("T" : GoString) } : T__struct_33), ({ _typ : _pT, _this : _q, _want : ("p.T" : GoString) } : T__struct_33), ({ _typ : Go.asInterface(newPointer(_pT)), _this : _p, _want : ("*T" : GoString) } : T__struct_33), ({ _typ : Go.asInterface(newPointer(_pT)), _this : _q, _want : ("*p.T" : GoString) } : T__struct_33)) : Slice<T__struct_33>)) {
             var _qualifier = function(_pkg:Ref<Package>):GoString {
                 if (_pkg != (_test._this)) {
                     return _pkg.name();
@@ -5657,14 +5659,14 @@ class T_resolveTestImporter_asInterface {
 @:keep @:allow(stdgo.go.types_test.Types_test.T_resolveTestImporter_asInterface) class T_resolveTestImporter_static_extension {
     @:keep
     static public function importFrom( _imp:Ref<T_resolveTestImporter>, _path:GoString, _srcDir:GoString, _mode:ImportMode):{ var _0 : Ref<Package>; var _1 : Error; } {
-        if (_mode != ((0 : ImportMode))) {
+        if (_mode != ((0 : stdgo.go.types.Types.ImportMode))) {
             throw Go.toInterface(("mode must be 0" : GoString));
         };
         if (_imp._importer == null) {
             _imp._importer = (Go.typeAssert((Go.toInterface(stdgo.go.importer.Importer.default_()) : ImporterFrom)) : ImporterFrom);
             _imp._imported = (new GoObjectMap<GoString, Bool>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }))) : GoMap<GoString, Bool>);
         };
-        var __tmp__ = _imp._importer.importFrom(_path, _srcDir, _mode), _pkg:Ref<Package> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _imp._importer.importFrom(_path, _srcDir, _mode), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
@@ -5690,7 +5692,7 @@ class T_walker_asInterface {
 @:keep @:allow(stdgo.go.types_test.Types_test.T_walker_asInterface) class T_walker_static_extension {
     @:keep
     static public function _walk( _w:Ref<T_walker>, _dir:GoString):Void {
-        if (stdgo.testing.Testing.short() && (stdgo.time.Time.since(_w._start.__copy__()) >= _w._dmax)) {
+        if (stdgo.testing.Testing.short() && (stdgo.time.Time.since(_w._start?.__copy__()) >= _w._dmax)) {
             return;
         };
         var __tmp__ = stdgo.os.Os.readDir(_dir), _files:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
@@ -5706,7 +5708,7 @@ class T_walker_asInterface {
         if (_pkgFiles != null) {
             _w._pkgh(_dir, _pkgFiles);
         };
-        for (_0 => _f in _files) {
+        for (__0 => _f in _files) {
             if (_f.isDir() && (_f.name() != ("testdata" : GoString))) {
                 _w._walk(stdgo.path.filepath.Filepath.join(_dir, _f.name()));
             };

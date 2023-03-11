@@ -282,6 +282,9 @@ private function close() {
 	}
 	for (type => suite in suites) {
 		final output:Array<String> = FileSystem.exists('tests/$type.json') ? Json.parse(File.getContent('tests/$type.json')) : [];
+		if (type == "std") {
+			output.remove("hl|strings"); // segfault test rely on interp target instead
+		}
 		final input:Array<String> = [];
 		log('--> $type');
 		log('      correct output: ' + calc(suite.correctCount, suite.count));

@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -45,9 +42,6 @@ function exampleErrReader():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Iotest.hx#L11>)
+[\(view code\)](<./Iotest.hx#L12>)
 
 

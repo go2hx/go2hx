@@ -28,9 +28,9 @@
 | [stdgo.internal.bytealg](./internal/bytealg/README.md) | ✅ | no |  |  |  |
 | [stdgo.internal.coverage.rtcov](./internal/coverage/rtcov/README.md) | ✅ | no |  |  |  |
 | [stdgo.internal.cpu](./internal/cpu/README.md) | ✅ | no |  |  |  |
-| [stdgo.internal.diff](./internal/diff/README.md) | ✅ | no |  |  |  |
+| [stdgo.internal.diff](./internal/diff/README.md) | ❌ | no |  |  |  |
 | [stdgo.internal.fmtsort](./internal/fmtsort/README.md) | ❌ | yes |  |  |  |
-| [stdgo.internal.goarch](./internal/goarch/README.md) | ✅ | no |  |  |  |
+| [stdgo.internal.goarch](./internal/goarch/README.md) | ❌ | no |  |  |  |
 | [stdgo.internal.godebug](./internal/godebug/README.md) | ✅ | no |  |  |  |
 | [stdgo.internal.goexperiment](./internal/goexperiment/README.md) | ✅ | no |  |  |  |
 | [stdgo.internal.goos](./internal/goos/README.md) | ✅ | no |  |  |  |
@@ -55,13 +55,13 @@
 | [stdgo.os](./os/README.md) | ❌ | yes |  |  |  |
 | [stdgo.path](./path/README.md) | ✅ | yes | ✅ | ✅ | ❌ |
 | [stdgo.reflect](./reflect/README.md) | ✅ | no |  |  |  |
-| [stdgo.regexp](./regexp/README.md) | ❌ | yes |  |  |  |
+| [stdgo.regexp](./regexp/README.md) | ✅ | yes | ❌ | ❌ | ❌ |
 | [stdgo.regexp.syntax](./regexp/syntax/README.md) | ✅ | yes | ❌ | ❌ | ❌ |
 | [stdgo.runtime](./runtime/README.md) | ✅ | no |  |  |  |
 | [stdgo.runtime.debug](./runtime/debug/README.md) | ✅ | no |  |  |  |
 | [stdgo.sort](./sort/README.md) | ✅ | yes | ✅ | ✅ | ❌ |
 | [stdgo.strconv](./strconv/README.md) | ✅ | yes | ✅ | ❌ | ❌ |
-| [stdgo.strings](./strings/README.md) | ✅ | yes | ✅ | ✅ | ❌ |
+| [stdgo.strings](./strings/README.md) | ✅ | yes | ❌ | ✅ | ❌ |
 | [stdgo.sync](./sync/README.md) | ❌ | yes |  |  |  |
 | [stdgo.sync.atomic](./sync/atomic/README.md) | ❌ | yes |  |  |  |
 | [stdgo.syscall](./syscall/README.md) | ❌ | yes |  |  |  |

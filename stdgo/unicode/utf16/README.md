@@ -6,34 +6,33 @@
 # Overview
 
 
+
 Package utf16 implements encoding and decoding of UTF\-16 sequences.  
-
-
 
 <details><summary>hl tests passed</summary>
 <p>
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=0.00010800361633300781))
+--- PASS: TestConstants (%!s(float64=4.696846008300781e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0005211830139160156))
+--- PASS: TestEncode (%!s(float64=0.00045299530029296875))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0004379749298095703))
+--- PASS: TestAppendRune (%!s(float64=0.001210927963256836))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=4.792213439941406e-05))
+--- PASS: TestEncodeRune (%!s(float64=1.6927719116210938e-05))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.000347137451171875))
+--- PASS: TestDecode (%!s(float64=0.0012080669403076172))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=2.8133392333984375e-05))
+--- PASS: TestDecodeRune (%!s(float64=1.71661376953125e-05))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=1.7881393432617188e-05))
+--- PASS: TestIsSurrogate (%!s(float64=1.0013580322265625e-05))
 
 ```
 </p>
@@ -44,25 +43,25 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=3.0994415283203125e-05))
+--- PASS: TestConstants (%!s(float64=2.5033950805664062e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0007600784301757812))
+--- PASS: TestEncode (%!s(float64=0.0005340576171875))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0006341934204101562))
+--- PASS: TestAppendRune (%!s(float64=0.0005168914794921875))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.00015497207641601562))
+--- PASS: TestEncodeRune (%!s(float64=6.890296936035156e-05))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0005249977111816406))
+--- PASS: TestDecode (%!s(float64=0.0003829002380371094))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=5.5789947509765625e-05))
+--- PASS: TestDecodeRune (%!s(float64=2.002716064453125e-05))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=2.5033950805664062e-05))
+--- PASS: TestIsSurrogate (%!s(float64=2.002716064453125e-05))
 
 ```
 </p>
@@ -111,18 +110,16 @@ final maxRune:stdgo.GoInt32 = ((1114111 : GoInt32))
 ```
 
 
+
 Extra names for constants so we can validate them during testing.  
-
-
 
 ```haxe
 final replacementChar:stdgo.GoInt32 = ((65533 : GoInt32))
 ```
 
 
+
 Extra names for constants so we can validate them during testing.  
-
-
 
 # Functions
 
@@ -140,11 +137,10 @@ function appendRune(_a:stdgo.Slice<stdgo.GoUInt16>, _r:stdgo.GoRune):stdgo.Slice
 ```
 
 
-AppendRune appends the UTF\-16 encoding of the Unicode code point r  
-to the end of p and returns the extended buffer. If the rune is not  
+
+AppendRune appends the UTF\-16 encoding of the Unicode code point r
+to the end of p and returns the extended buffer. If the rune is not
 a valid Unicode code point, it appends the encoding of U\+FFFD.  
-
-
 
 [\(view code\)](<./Utf16.hx#L129>)
 
@@ -157,10 +153,9 @@ function decode(_s:stdgo.Slice<stdgo.GoUInt16>):stdgo.Slice<stdgo.GoRune>
 ```
 
 
-Decode returns the Unicode code point sequence represented  
+
+Decode returns the Unicode code point sequence represented
 by the UTF\-16 encoding s.  
-
-
 
 [\(view code\)](<./Utf16.hx#L142>)
 
@@ -173,11 +168,10 @@ function decodeRune(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.GoRune
 ```
 
 
-DecodeRune returns the UTF\-16 decoding of a surrogate pair.  
-If the pair is not a valid UTF\-16 surrogate pair, DecodeRune returns  
+
+DecodeRune returns the UTF\-16 decoding of a surrogate pair.
+If the pair is not a valid UTF\-16 surrogate pair, DecodeRune returns
 the Unicode replacement code point U\+FFFD.  
-
-
 
 [\(view code\)](<./Utf16.hx#L77>)
 
@@ -190,9 +184,8 @@ function encode(_s:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoUInt16>
 ```
 
 
+
 Encode returns the UTF\-16 encoding of the Unicode code point sequence s.  
-
-
 
 [\(view code\)](<./Utf16.hx#L99>)
 
@@ -208,11 +201,10 @@ function encodeRune(_r:stdgo.GoRune):{
 ```
 
 
-EncodeRune returns the UTF\-16 surrogate pair r1, r2 for the given rune.  
-If the rune is not a valid Unicode code point or does not need encoding,  
+
+EncodeRune returns the UTF\-16 surrogate pair r1, r2 for the given rune.
+If the rune is not a valid Unicode code point or does not need encoding,
 EncodeRune returns U\+FFFD, U\+FFFD.  
-
-
 
 [\(view code\)](<./Utf16.hx#L88>)
 
@@ -225,10 +217,9 @@ function isSurrogate(_r:stdgo.GoRune):Bool
 ```
 
 
-IsSurrogate reports whether the specified Unicode code point  
+
+IsSurrogate reports whether the specified Unicode code point
 can appear in a surrogate pair.  
-
-
 
 [\(view code\)](<./Utf16.hx#L69>)
 

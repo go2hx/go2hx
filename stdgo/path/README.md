@@ -6,48 +6,46 @@
 # Overview
 
 
-Package path implements utility routines for manipulating slash\-separated  
+
+Package path implements utility routines for manipulating slash\-separated
 paths.  
 
 
-
-The path package should only be used for paths separated by forward  
-slashes, such as the paths in URLs. This package does not deal with  
-Windows paths with drive letters or backslashes; to manipulate  
+The path package should only be used for paths separated by forward
+slashes, such as the paths in URLs. This package does not deal with
+Windows paths with drive letters or backslashes; to manipulate
 operating system paths, use the path/filepath package.  
-
-
 
 <details><summary>hl tests passed</summary>
 <p>
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.0013189315795898438))
+--- PASS: TestMatch (%!s(float64=0.0010371208190917969))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.00022101402282714844))
+--- PASS: TestClean (%!s(float64=0.00015020370483398438))
 
 === RUN  TestCleanMallocs
---- PASS: TestCleanMallocs (%!s(float64=1.6927719116210938e-05))
+--- PASS: TestCleanMallocs (%!s(float64=9.059906005859375e-06))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestSplit (%!s(float64=1.811981201171875e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=6.985664367675781e-05))
+--- PASS: TestJoin (%!s(float64=5.507469177246094e-05))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=2.09808349609375e-05))
+--- PASS: TestExt (%!s(float64=1.5020370483398438e-05))
 
 === RUN  TestBase
---- PASS: TestBase (%!s(float64=2.5033950805664062e-05))
+--- PASS: TestBase (%!s(float64=1.811981201171875e-05))
 
 === RUN  TestDir
---- PASS: TestDir (%!s(float64=4.601478576660156e-05))
+--- PASS: TestDir (%!s(float64=4.291534423828125e-05))
 
 === RUN  TestIsAbs
---- PASS: TestIsAbs (%!s(float64=1.0013580322265625e-05))
+--- PASS: TestIsAbs (%!s(float64=7.867813110351562e-06))
 
 ```
 </p>
@@ -58,31 +56,31 @@ operating system paths, use the path/filepath package.
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.004902839660644531))
+--- PASS: TestMatch (%!s(float64=0.002735137939453125))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.0012769699096679688))
+--- PASS: TestClean (%!s(float64=0.001300811767578125))
 
 === RUN  TestCleanMallocs
---- PASS: TestCleanMallocs (%!s(float64=6.198883056640625e-05))
+--- PASS: TestCleanMallocs (%!s(float64=4.100799560546875e-05))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=5.7220458984375e-05))
+--- PASS: TestSplit (%!s(float64=4.38690185546875e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0003058910369873047))
+--- PASS: TestJoin (%!s(float64=0.0002579689025878906))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=4.696846008300781e-05))
+--- PASS: TestExt (%!s(float64=3.218650817871094e-05))
 
 === RUN  TestBase
---- PASS: TestBase (%!s(float64=9.799003601074219e-05))
+--- PASS: TestBase (%!s(float64=7.319450378417969e-05))
 
 === RUN  TestDir
---- PASS: TestDir (%!s(float64=0.00017404556274414062))
+--- PASS: TestDir (%!s(float64=0.00013399124145507812))
 
 === RUN  TestIsAbs
---- PASS: TestIsAbs (%!s(float64=4.410743713378906e-05))
+--- PASS: TestIsAbs (%!s(float64=2.193450927734375e-05))
 
 ```
 </p>
@@ -157,9 +155,8 @@ var errBadPattern:stdgo.Error
 ```
 
 
+
 ErrBadPattern indicates a pattern was malformed.  
-
-
 
 # Functions
 
@@ -177,12 +174,11 @@ function base(_path:stdgo.GoString):stdgo.GoString
 ```
 
 
-Base returns the last element of path.  
-Trailing slashes are removed before extracting the last element.  
-If the path is empty, Base returns ".".  
+
+Base returns the last element of path.
+Trailing slashes are removed before extracting the last element.
+If the path is empty, Base returns ".".
 If the path consists entirely of slashes, Base returns "/".  
-
-
 
 ### exampleBase
 
@@ -204,7 +200,7 @@ function exampleBase():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L466>)
+[\(view code\)](<./Path.hx#L468>)
 
 
 ## function clean
@@ -215,35 +211,30 @@ function clean(_path:stdgo.GoString):stdgo.GoString
 ```
 
 
-Clean returns the shortest path name equivalent to path  
-by purely lexical processing. It applies the following rules  
+
+Clean returns the shortest path name equivalent to path
+by purely lexical processing. It applies the following rules
 iteratively until no further processing can be done:  
 
-
-
-1. Replace multiple slashes with a single slash.  
-2. Eliminate each . path name element \(the current directory\).  
-3. Eliminate each inner .. path name element \(the parent directory\)  
-along with the non\-.. element that precedes it.  
-4. Eliminate .. elements that begin a rooted path:  
-that is, replace "/.." by "/" at the beginning of a path.  
-
-
+```
+  1. Replace multiple slashes with a single slash.
+  2. Eliminate each . path name element (the current directory).
+  3. Eliminate each inner .. path name element (the parent directory)
+     along with the non-.. element that precedes it.
+  4. Eliminate .. elements that begin a rooted path:
+     that is, replace "/.." by "/" at the beginning of a path.
+```
 
 The returned path ends in a slash only if it is the root "/".  
 
 
-
-If the result of this process is an empty string, Clean  
+If the result of this process is an empty string, Clean
 returns the string ".".  
 
 
-
-See also Rob Pike, “Lexical File Names in Plan 9 or  
-Getting Dot\-Dot Right,”  
+See also Rob Pike, “Lexical File Names in Plan 9 or
+Getting Dot\-Dot Right,”
 https://9p.io/sys/doc/lexnames.html  
-
-
 
 ### exampleClean
 
@@ -255,7 +246,7 @@ https://9p.io/sys/doc/lexnames.html
 ```haxe
 function exampleClean():Void {
         var _paths = (new Slice<GoString>(0, 0, ("a/c" : GoString), ("a//c" : GoString), ("a/c/." : GoString), ("a/c/b/.." : GoString), ("/../a/c" : GoString), ("/../a/b/../././/c" : GoString), Go.str()) : Slice<GoString>);
-        for (_0 => _p in _paths) {
+        for (__0 => _p in _paths) {
             stdgo.fmt.Fmt.printf(("Clean(%q) = %q\n" : GoString), Go.toInterface(_p), Go.toInterface(stdgo.path.Path.clean(_p)));
         };
     }
@@ -266,7 +257,7 @@ function exampleClean():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L343>)
+[\(view code\)](<./Path.hx#L345>)
 
 
 ## function dir
@@ -277,15 +268,14 @@ function dir(_path:stdgo.GoString):stdgo.GoString
 ```
 
 
-Dir returns all but the last element of path, typically the path's directory.  
-After dropping the final element using Split, the path is Cleaned and trailing  
-slashes are removed.  
-If the path is empty, Dir returns ".".  
-If the path consists entirely of slashes followed by non\-slash bytes, Dir  
-returns a single slash. In any other case, the returned path does not end in a  
+
+Dir returns all but the last element of path, typically the path's directory.
+After dropping the final element using Split, the path is Cleaned and trailing
+slashes are removed.
+If the path is empty, Dir returns ".".
+If the path consists entirely of slashes followed by non\-slash bytes, Dir
+returns a single slash. In any other case, the returned path does not end in a
 slash.  
-
-
 
 ### exampleDir
 
@@ -310,7 +300,7 @@ function exampleDir():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L499>)
+[\(view code\)](<./Path.hx#L501>)
 
 
 ## function ext
@@ -321,12 +311,11 @@ function ext(_path:stdgo.GoString):stdgo.GoString
 ```
 
 
-Ext returns the file name extension used by path.  
-The extension is the suffix beginning at the final dot  
-in the final slash\-separated element of path;  
+
+Ext returns the file name extension used by path.
+The extension is the suffix beginning at the final dot
+in the final slash\-separated element of path;
 it is empty if there is no dot.  
-
-
 
 ### exampleExt
 
@@ -348,7 +337,7 @@ function exampleExt():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L449>)
+[\(view code\)](<./Path.hx#L451>)
 
 
 ## function isAbs
@@ -359,9 +348,8 @@ function isAbs(_path:stdgo.GoString):Bool
 ```
 
 
+
 IsAbs reports whether the path is absolute.  
-
-
 
 ### exampleIsAbs
 
@@ -381,7 +369,7 @@ function exampleIsAbs():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L487>)
+[\(view code\)](<./Path.hx#L489>)
 
 
 ## function join
@@ -392,13 +380,12 @@ function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString
 ```
 
 
-Join joins any number of path elements into a single path,  
-separating them with slashes. Empty elements are ignored.  
-The result is Cleaned. However, if the argument list is  
-empty or all its elements are empty, Join returns  
+
+Join joins any number of path elements into a single path,
+separating them with slashes. Empty elements are ignored.
+The result is Cleaned. However, if the argument list is
+empty or all its elements are empty, Join returns
 an empty string.  
-
-
 
 ### exampleJoin
 
@@ -424,7 +411,7 @@ function exampleJoin():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L423>)
+[\(view code\)](<./Path.hx#L425>)
 
 
 ## function match
@@ -438,74 +425,31 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{
 ```
 
 
-Match reports whether name matches the shell pattern.  
+
+Match reports whether name matches the shell pattern.
 The pattern syntax is:  
 
+```
+	pattern:
+		{ term }
+	term:
+		'*'         matches any sequence of non-/ characters
+		'?'         matches any single non-/ character
+		'[' [ '^' ] { character-range } ']'
+		            character class (must be non-empty)
+		c           matches character c (c != '*', '?', '\\', '[')
+		'\\' c      matches character c
+```
+```
+	character-range:
+		c           matches character c (c != '\\', '-', ']')
+		'\\' c      matches character c
+		lo '-' hi   matches character c for lo <= c <= hi
+```
 
-
-
-
-
-pattern:  
-
-
-
-\{ term \}  
-
-
-
-term:  
-
-
-
-'\*'         matches any sequence of non\-/ characters  
-
-
-
-'?'         matches any single non\-/ character  
-
-
-
-'\[' \[ '^' \] \{ character\-range \} '\]'  
-
-
-
-character class \(must be non\-empty\)  
-
-
-
-c           matches character c \(c \!= '\*', '?', '\\\\', '\['\)  
-
-
-
-'\\\\' c      matches character c  
-
-
-
-
-
-
-character\-range:  
-
-
-
-c           matches character c \(c \!= '\\\\', '\-', '\]'\)  
-
-
-
-'\\\\' c      matches character c  
-
-
-
-lo '\-' hi   matches character c for lo \<= c \<= hi  
-
-
-
-Match requires pattern to match all of name, not just a substring.  
-The only possible returned error is ErrBadPattern, when pattern  
+Match requires pattern to match all of name, not just a substring.
+The only possible returned error is ErrBadPattern, when pattern
 is malformed.  
-
-
 
 ### exampleMatch
 
@@ -550,13 +494,12 @@ function split(_path:stdgo.GoString):{
 ```
 
 
-Split splits path immediately following the final slash,  
-separating it into a directory and file name component.  
-If there is no slash in path, Split returns an empty dir and  
-file set to path.  
+
+Split splits path immediately following the final slash,
+separating it into a directory and file name component.
+If there is no slash in path, Split returns an empty dir and
+file set to path.
 The returned values have the property that path = dir\+file.  
-
-
 
 ### exampleSplit
 
@@ -582,6 +525,6 @@ function exampleSplit():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L411>)
+[\(view code\)](<./Path.hx#L413>)
 
 

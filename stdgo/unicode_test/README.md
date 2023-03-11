@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -131,10 +128,7 @@ function exampleIsDigit():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L592>)
+[\(view code\)](<./Unicode.hx#L593>)
 
 
 ## function exampleIsLetter
@@ -145,10 +139,7 @@ function exampleIsLetter():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L600>)
+[\(view code\)](<./Unicode.hx#L601>)
 
 
 ## function exampleIsLower
@@ -159,10 +150,7 @@ function exampleIsLower():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L604>)
+[\(view code\)](<./Unicode.hx#L605>)
 
 
 ## function exampleIsNumber
@@ -173,10 +161,7 @@ function exampleIsNumber():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L596>)
+[\(view code\)](<./Unicode.hx#L597>)
 
 
 ## function exampleIsSpace
@@ -187,10 +172,7 @@ function exampleIsSpace():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L616>)
+[\(view code\)](<./Unicode.hx#L617>)
 
 
 ## function exampleIsTitle
@@ -201,10 +183,7 @@ function exampleIsTitle():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L612>)
+[\(view code\)](<./Unicode.hx#L613>)
 
 
 ## function exampleIsUpper
@@ -215,10 +194,7 @@ function exampleIsUpper():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L608>)
+[\(view code\)](<./Unicode.hx#L609>)
 
 
 ## function exampleSimpleFold
@@ -229,10 +205,7 @@ function exampleSimpleFold():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L551>)
+[\(view code\)](<./Unicode.hx#L552>)
 
 
 ## function exampleSpecialCase
@@ -243,10 +216,7 @@ function exampleSpecialCase():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L581>)
+[\(view code\)](<./Unicode.hx#L582>)
 
 
 ## function exampleTo
@@ -257,10 +227,7 @@ function exampleTo():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L559>)
+[\(view code\)](<./Unicode.hx#L560>)
 
 
 ## function exampleToLower
@@ -271,10 +238,7 @@ function exampleToLower():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L569>)
+[\(view code\)](<./Unicode.hx#L570>)
 
 
 ## function exampleToTitle
@@ -285,10 +249,7 @@ function exampleToTitle():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L573>)
+[\(view code\)](<./Unicode.hx#L574>)
 
 
 ## function exampleToUpper
@@ -299,10 +260,7 @@ function exampleToUpper():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L577>)
+[\(view code\)](<./Unicode.hx#L578>)
 
 
 ## function example\_is
@@ -313,12 +271,11 @@ function example_is():Void
 ```
 
 
-Functions starting with "Is" can be used to inspect which table of range a  
+
+Functions starting with "Is" can be used to inspect which table of range a
 rune belongs to. Note that runes may fit into more than one range.  
 
-
-
-[\(view code\)](<./Unicode.hx#L503>)
+[\(view code\)](<./Unicode.hx#L504>)
 
 
 ## function testCalibrate
@@ -329,10 +286,7 @@ function testCalibrate(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L931>)
+[\(view code\)](<./Unicode.hx#L932>)
 
 
 ## function testCategories
@@ -343,10 +297,7 @@ function testCategories(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L1093>)
+[\(view code\)](<./Unicode.hx#L1094>)
 
 
 ## function testDigit
@@ -357,10 +308,7 @@ function testDigit(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L474>)
+[\(view code\)](<./Unicode.hx#L475>)
 
 
 ## function testDigitOptimization
@@ -371,11 +319,10 @@ function testDigitOptimization(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
+
 Test that the special case in IsDigit agrees with the table  
 
-
-
-[\(view code\)](<./Unicode.hx#L489>)
+[\(view code\)](<./Unicode.hx#L490>)
 
 
 ## function testIsControlLatin1
@@ -386,10 +333,7 @@ function testIsControlLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L622>)
+[\(view code\)](<./Unicode.hx#L623>)
 
 
 ## function testIsGraphicLatin1
@@ -400,10 +344,7 @@ function testIsGraphicLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L702>)
+[\(view code\)](<./Unicode.hx#L703>)
 
 
 ## function testIsLetter
@@ -414,10 +355,7 @@ function testIsLetter(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L750>)
+[\(view code\)](<./Unicode.hx#L751>)
 
 
 ## function testIsLetterLatin1
@@ -428,10 +366,7 @@ function testIsLetterLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L639>)
+[\(view code\)](<./Unicode.hx#L640>)
 
 
 ## function testIsLowerLatin1
@@ -442,10 +377,7 @@ function testIsLowerLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L663>)
+[\(view code\)](<./Unicode.hx#L664>)
 
 
 ## function testIsPrintLatin1
@@ -456,10 +388,7 @@ function testIsPrintLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L687>)
+[\(view code\)](<./Unicode.hx#L688>)
 
 
 ## function testIsPunctLatin1
@@ -470,10 +399,7 @@ function testIsPunctLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L714>)
+[\(view code\)](<./Unicode.hx#L715>)
 
 
 ## function testIsSpace
@@ -484,10 +410,7 @@ function testIsSpace(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L838>)
+[\(view code\)](<./Unicode.hx#L839>)
 
 
 ## function testIsSpaceLatin1
@@ -498,10 +421,7 @@ function testIsSpaceLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L726>)
+[\(view code\)](<./Unicode.hx#L727>)
 
 
 ## function testIsSymbolLatin1
@@ -512,10 +432,7 @@ function testIsSymbolLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L738>)
+[\(view code\)](<./Unicode.hx#L739>)
 
 
 ## function testIsUpper
@@ -526,10 +443,7 @@ function testIsUpper(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L767>)
+[\(view code\)](<./Unicode.hx#L768>)
 
 
 ## function testIsUpperLatin1
@@ -540,10 +454,7 @@ function testIsUpperLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L651>)
+[\(view code\)](<./Unicode.hx#L652>)
 
 
 ## function testLatinOffset
@@ -554,10 +465,7 @@ function testLatinOffset(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L1016>)
+[\(view code\)](<./Unicode.hx#L1017>)
 
 
 ## function testLetterOptimizations
@@ -568,12 +476,11 @@ function testLetterOptimizations(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Check that the optimizations for IsLetter etc. agree with the tables.  
+
+Check that the optimizations for IsLetter etc. agree with the tables.
 We only need to check the Latin\-1 range.  
 
-
-
-[\(view code\)](<./Unicode.hx#L854>)
+[\(view code\)](<./Unicode.hx#L855>)
 
 
 ## function testNegativeRune
@@ -584,10 +491,7 @@ function testNegativeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L1038>)
+[\(view code\)](<./Unicode.hx#L1039>)
 
 
 ## function testNumberLatin1
@@ -598,10 +502,7 @@ function testNumberLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L675>)
+[\(view code\)](<./Unicode.hx#L676>)
 
 
 ## function testProperties
@@ -612,10 +513,7 @@ function testProperties(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L1114>)
+[\(view code\)](<./Unicode.hx#L1115>)
 
 
 ## function testSimpleFold
@@ -626,10 +524,7 @@ function testSimpleFold(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L910>)
+[\(view code\)](<./Unicode.hx#L911>)
 
 
 ## function testSpecialCaseNoMapping
@@ -640,10 +535,7 @@ function testSpecialCaseNoMapping(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L1030>)
+[\(view code\)](<./Unicode.hx#L1031>)
 
 
 ## function testTo
@@ -654,10 +546,7 @@ function testTo(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L797>)
+[\(view code\)](<./Unicode.hx#L798>)
 
 
 ## function testToLowerCase
@@ -668,10 +557,7 @@ function testToLowerCase(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L816>)
+[\(view code\)](<./Unicode.hx#L817>)
 
 
 ## function testToTitleCase
@@ -682,10 +568,7 @@ function testToTitleCase(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L827>)
+[\(view code\)](<./Unicode.hx#L828>)
 
 
 ## function testToUpperCase
@@ -696,10 +579,7 @@ function testToUpperCase(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L805>)
+[\(view code\)](<./Unicode.hx#L806>)
 
 
 ## function testTurkishCase
@@ -710,10 +590,7 @@ function testTurkishCase(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode.hx#L885>)
+[\(view code\)](<./Unicode.hx#L886>)
 
 
 # Classes
@@ -725,9 +602,6 @@ import stdgo.unicode_test.*
 
 
 ## class T
-
-
-
 
 
 ```haxe
@@ -748,9 +622,6 @@ function new(?_rune:stdgo.GoInt32, ?_script:stdgo.GoString):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Unicode_test.hx#L465>)
+[\(view code\)](<./Unicode_test.hx#L466>)
 
 

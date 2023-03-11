@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -79,9 +76,6 @@ function isNonblock(_fd:stdgo.GoInt):{
 ```
 
 
-
-
-
 [\(view code\)](<./Unix.hx#L20>)
 
 
@@ -94,9 +88,6 @@ function kernelVersion():{
 	_0:stdgo.GoInt;
 }
 ```
-
-
-
 
 
 [\(view code\)](<./Unix.hx#L11>)
@@ -113,9 +104,6 @@ function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:std
 ```
 
 
-
-
-
 [\(view code\)](<./Unix.hx#L12>)
 
 
@@ -128,9 +116,6 @@ function recvfromInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:std
 	_0:stdgo.GoInt;
 }
 ```
-
-
-
 
 
 [\(view code\)](<./Unix.hx#L13>)
@@ -149,9 +134,6 @@ function recvmsgInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.
 ```
 
 
-
-
-
 [\(view code\)](<./Unix.hx#L18>)
 
 
@@ -168,9 +150,6 @@ function recvmsgInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.
 ```
 
 
-
-
-
 [\(view code\)](<./Unix.hx#L19>)
 
 
@@ -183,9 +162,6 @@ function sendmsgNInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo
 	_0:stdgo.GoInt;
 }
 ```
-
-
-
 
 
 [\(view code\)](<./Unix.hx#L16>)
@@ -202,9 +178,6 @@ function sendmsgNInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo
 ```
 
 
-
-
-
 [\(view code\)](<./Unix.hx#L17>)
 
 
@@ -216,9 +189,6 @@ function sendtoInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo
 ```
 
 
-
-
-
 [\(view code\)](<./Unix.hx#L14>)
 
 
@@ -228,9 +198,6 @@ function sendtoInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo
 ```haxe
 function sendtoInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _to:stdgo.Ref<stdgo.syscall.SockaddrInet6>):stdgo.Error
 ```
-
-
-
 
 
 [\(view code\)](<./Unix.hx#L15>)

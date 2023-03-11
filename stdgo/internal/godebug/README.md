@@ -6,57 +6,29 @@
 # Overview
 
 
-Package godebug makes the settings in the $GODEBUG environment variable  
-available to other packages. These settings are often used for compatibility  
-tweaks, when we need to change a default behavior but want to let users  
-opt back in to the original. For example GODEBUG=http2server=0 disables  
+
+Package godebug makes the settings in the $GODEBUG environment variable
+available to other packages. These settings are often used for compatibility
+tweaks, when we need to change a default behavior but want to let users
+opt back in to the original. For example GODEBUG=http2server=0 disables
 HTTP/2 support in the net/http server.  
 
 
-
-In typical usage, code should declare a Setting as a global  
+In typical usage, code should declare a Setting as a global
 and then call Value each time the current setting value is needed:  
 
-
-
-
-
-
-var http2server = godebug.New\("http2server"\)  
-
-
-
-
-
-
-func ServeConn\(c net.Conn\) \{  
-
-
-
-if http2server.Value\(\) == "0" \{  
-
-
-
-disallow HTTP/2  
-
-
-
-...  
-
-
-
-\}  
-
-
-
-...  
-
-
-
-\}  
-
-
-
+```
+	var http2server = godebug.New("http2server")
+```
+```
+	func ServeConn(c net.Conn) {
+		if http2server.Value() == "0" {
+			disallow HTTP/2
+			...
+		}
+		...
+	}
+```
 # Index
 
 
@@ -88,9 +60,8 @@ function new_(_name:stdgo.GoString):stdgo.Ref<stdgo.internal.godebug.Setting>
 ```
 
 
+
 New returns a new Setting for the $GODEBUG setting with the given name.  
-
-
 
 [\(view code\)](<./Godebug.hx#L84>)
 
@@ -106,9 +77,8 @@ import stdgo.internal.godebug.*
 ## class Setting
 
 
+
 A Setting is a single setting in the $GODEBUG environment variable.  
-
-
 
 ```haxe
 var _name:stdgo.GoString
@@ -133,9 +103,6 @@ function new(?_name:stdgo.GoString, ?_once:stdgo.sync.Once, ?_value:stdgo.Ref<st
 ```
 
 
-
-
-
 [\(view code\)](<./Godebug.hx#L71>)
 
 
@@ -147,9 +114,8 @@ function name():stdgo.GoString
 ```
 
 
+
 Name returns the name of the setting.  
-
-
 
 [\(view code\)](<./Godebug.hx#L161>)
 
@@ -162,9 +128,8 @@ function string():stdgo.GoString
 ```
 
 
+
 String returns a printable form for the setting: name=value.  
-
-
 
 [\(view code\)](<./Godebug.hx#L156>)
 
@@ -177,17 +142,15 @@ function value():stdgo.GoString
 ```
 
 
+
 Value returns the current value for the GODEBUG setting s.  
 
 
-
-Value maintains an internal cache that is synchronized  
-with changes to the $GODEBUG environment variable,  
-making Value efficient to call as frequently as needed.  
-Clients should therefore typically not attempt their own  
+Value maintains an internal cache that is synchronized
+with changes to the $GODEBUG environment variable,
+making Value efficient to call as frequently as needed.
+Clients should therefore typically not attempt their own
 caching of Value's result.  
-
-
 
 [\(view code\)](<./Godebug.hx#L151>)
 

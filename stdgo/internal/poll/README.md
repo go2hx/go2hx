@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -27,18 +24,12 @@ import
 ## class FD
 
 
-
-
-
 ### FD function new
 
 
 ```haxe
 function new():Void
 ```
-
-
-
 
 
 [\(view code\)](<./Poll.hx#L5>)

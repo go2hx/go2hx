@@ -6,13 +6,11 @@
 # Overview
 
 
+
 Package quick implements utility functions to help with black box testing.  
 
 
-
 The testing/quick package is frozen and is not accepting new features.  
-
-
 
 <details><summary>hl tests failed</summary>
 <p>
@@ -28,7 +26,7 @@ Called from stdgo.testing.quick._Quick.$Quick_Fields_._arbitraryValues (stdgo/te
 Called from stdgo.testing.quick._Quick.$Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 480)
 Called from stdgo.testing.quick._Quick.$Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 686)
 Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
-Called from stdgo.testing.quick_test._Quick.$Quick_Fields_.main (stdgo/testing/quick_test/Quick.hx line 37)
+Called from stdgo.testing.quick_test._Quick.$Quick_Fields_.main (stdgo/testing/quick_test/Quick.hx line 38)
 ```
 </p>
 </details>
@@ -194,53 +192,24 @@ function check(_f:stdgo.AnyInterface, _config:stdgo.Ref<stdgo.testing.quick.Conf
 ```
 
 
-Check looks for an input to f, any function that returns bool,  
-such that f returns false. It calls f repeatedly, with arbitrary  
-values for each argument. If f returns false on a given input,  
-Check returns that input as a \*CheckError.  
+
+Check looks for an input to f, any function that returns bool,
+such that f returns false. It calls f repeatedly, with arbitrary
+values for each argument. If f returns false on a given input,
+Check returns that input as a \*CheckError.
 For example:  
 
-
-
-
-
-
-func TestOddMultipleOfThree\(t \*testing.T\) \{  
-
-
-
-f := func\(x int\) bool \{  
-
-
-
-y := OddMultipleOfThree\(x\)  
-
-
-
-return y%2 == 1 && y%3 == 0  
-
-
-
-\}  
-
-
-
-if err := quick.Check\(f, nil\); err \!= nil \{  
-
-
-
-t.Error\(err\)  
-
-
-
-\}  
-
-
-
-\}  
-
-
-
+```
+	func TestOddMultipleOfThree(t *testing.T) {
+		f := func(x int) bool {
+			y := OddMultipleOfThree(x)
+			return y%2 == 1 && y%3 == 0
+		}
+		if err := quick.Check(f, nil); err != nil {
+			t.Error(err)
+		}
+	}
+```
 [\(view code\)](<./Quick.hx#L422>)
 
 
@@ -252,12 +221,11 @@ function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.
 ```
 
 
-CheckEqual looks for an input on which f and g return different results.  
-It calls f and g repeatedly with arbitrary values for each argument.  
-If f and g return different answers, CheckEqual returns a \*CheckEqualError  
+
+CheckEqual looks for an input on which f and g return different results.
+It calls f and g repeatedly with arbitrary values for each argument.
+If f and g return different answers, CheckEqual returns a \*CheckEqualError
 describing the input and the outputs.  
-
-
 
 [\(view code\)](<./Quick.hx#L459>)
 
@@ -268,9 +236,6 @@ describing the input and the outputs.
 ```haxe
 function testCheckEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
-
-
-
 
 
 [\(view code\)](<./Quick.hx#L685>)
@@ -284,9 +249,6 @@ function testCheckProperty(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
 [\(view code\)](<./Quick.hx#L736>)
 
 
@@ -296,9 +258,6 @@ function testCheckProperty(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```haxe
 function testEmptyStruct(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
-
-
-
 
 
 [\(view code\)](<./Quick.hx#L842>)
@@ -312,9 +271,6 @@ function testFailure(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
 [\(view code\)](<./Quick.hx#L739>)
 
 
@@ -324,9 +280,6 @@ function testFailure(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```haxe
 function testInt64(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
-
-
-
 
 
 [\(view code\)](<./Quick.hx#L886>)
@@ -340,9 +293,6 @@ function testMutuallyRecursive(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
 [\(view code\)](<./Quick.hx#L848>)
 
 
@@ -354,11 +304,10 @@ function testNonZeroSliceAndMap(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Some serialization formats \(e.g. encoding/pem\) cannot distinguish  
-between a nil and an empty map or slice, so avoid generating the  
+
+Some serialization formats \(e.g. encoding/pem\) cannot distinguish
+between a nil and an empty map or slice, so avoid generating the
 zero value for these.  
-
-
 
 [\(view code\)](<./Quick.hx#L876>)
 
@@ -371,10 +320,9 @@ function testRecursive(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Recursive data structures didn't terminate.  
+
+Recursive data structures didn't terminate.
 Issues 8818 and 11148.  
-
-
 
 [\(view code\)](<./Quick.hx#L835>)
 
@@ -390,11 +338,10 @@ function value(_t:stdgo.reflect.Type, _rand:stdgo.Ref<stdgo.math.rand.Rand>):{
 ```
 
 
-Value returns an arbitrary value of the given type.  
-If the type implements the Generator interface, that will be used.  
+
+Value returns an arbitrary value of the given type.
+If the type implements the Generator interface, that will be used.
 Note: To create arbitrary values for structs, all the fields must be exported.  
-
-
 
 [\(view code\)](<./Quick.hx#L262>)
 
@@ -410,9 +357,6 @@ import stdgo.testing.quick.*
 ## class A
 
 
-
-
-
 ```haxe
 var b:stdgo.Ref<stdgo.testing.quick.B>
 ```
@@ -426,16 +370,10 @@ function new(?b:stdgo.Ref<stdgo.testing.quick.B>):Void
 ```
 
 
-
-
-
 [\(view code\)](<./Quick.hx#L168>)
 
 
 ## class B
-
-
-
 
 
 ```haxe
@@ -451,18 +389,14 @@ function new(?a:stdgo.Ref<stdgo.testing.quick.A>):Void
 ```
 
 
-
-
-
 [\(view code\)](<./Quick.hx#L183>)
 
 
 ## class CheckEqualError
 
 
+
 A CheckEqualError is the result CheckEqual finding an error.  
-
-
 
 ```haxe
 var checkError:stdgo.testing.quick.CheckError
@@ -487,9 +421,6 @@ function new(?checkError:stdgo.testing.quick.CheckError, ?out1:stdgo.Slice<stdgo
 ```
 
 
-
-
-
 [\(view code\)](<./Quick.hx#L118>)
 
 
@@ -501,18 +432,14 @@ function error():stdgo.GoString
 ```
 
 
-
-
-
 [\(view code\)](<./Quick.hx#L982>)
 
 
 ## class CheckError
 
 
+
 A CheckError is the result of Check finding an error.  
-
-
 
 ```haxe
 var count:stdgo.GoInt
@@ -532,9 +459,6 @@ function new(?count:Null<stdgo.GoInt>, ?in_:stdgo.Slice<stdgo.AnyInterface>):Voi
 ```
 
 
-
-
-
 [\(view code\)](<./Quick.hx#L99>)
 
 
@@ -546,50 +470,43 @@ function error():stdgo.GoString
 ```
 
 
-
-
-
 [\(view code\)](<./Quick.hx#L965>)
 
 
 ## class Config
 
 
+
 A Config structure contains options for running a test.  
-
-
 
 ```haxe
 var maxCount:stdgo.GoInt
 ```
 
 
-MaxCount sets the maximum number of iterations.  
+
+MaxCount sets the maximum number of iterations.
 If zero, MaxCountScale is used.  
-
-
 
 ```haxe
 var maxCountScale:stdgo.GoFloat64
 ```
 
 
-MaxCountScale is a non\-negative scale factor applied to the  
-default maximum.  
-A count of zero implies the default, which is usually 100  
+
+MaxCountScale is a non\-negative scale factor applied to the
+default maximum.
+A count of zero implies the default, which is usually 100
 but can be set by the \-quickchecks flag.  
-
-
 
 ```haxe
 var rand:stdgo.Ref<stdgo.math.rand.Rand>
 ```
 
 
-Rand specifies a source of random numbers.  
+
+Rand specifies a source of random numbers.
 If nil, a default pseudo\-random source will be used.  
-
-
 
 ### Config function new
 
@@ -597,9 +514,6 @@ If nil, a default pseudo\-random source will be used.
 ```haxe
 function new(?maxCount:Null<stdgo.GoInt>, ?maxCountScale:stdgo.GoFloat64, ?rand:stdgo.Ref<stdgo.math.rand.Rand>, ?values:(:stdgo.Slice<stdgo.reflect.Value>, :stdgo.Ref<stdgo.math.rand.Rand>):Void):Void
 ```
-
-
-
 
 
 [\(view code\)](<./Quick.hx#L80>)
@@ -613,12 +527,11 @@ function values(:stdgo.Slice<stdgo.reflect.Value>, :stdgo.Ref<stdgo.math.rand.Ra
 ```
 
 
-Values specifies a function to generate a slice of  
-arbitrary reflect.Values that are congruent with the  
-arguments to the function being tested.  
+
+Values specifies a function to generate a slice of
+arbitrary reflect.Values that are congruent with the
+arguments to the function being tested.
 If nil, the top\-level Value function is used to generate them.  
-
-
 
 ### Config function \_getMaxCount
 
@@ -628,10 +541,9 @@ function _getMaxCount():stdgo.GoInt
 ```
 
 
-getMaxCount returns the maximum number of iterations to run for a given  
+
+getMaxCount returns the maximum number of iterations to run for a given
 Config.  
-
-
 
 [\(view code\)](<./Quick.hx#L929>)
 
@@ -644,17 +556,13 @@ function _getRand():stdgo.Ref<stdgo.math.rand.Rand>
 ```
 
 
+
 getRand returns the \*rand.Rand to use for a given Config.  
-
-
 
 [\(view code\)](<./Quick.hx#L945>)
 
 
 ## class T\_testNonZeroSliceAndMap\_0\_\_\_localname\_\_\_Q
-
-
-
 
 
 ```haxe
@@ -675,16 +583,10 @@ function new(?m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?s:stdgo.Slice<stdgo.GoIn
 ```
 
 
-
-
-
 [\(view code\)](<./Quick.hx#L862>)
 
 
 ## class T\_testRecursive\_0\_\_\_localname\_\_\_R
-
-
-
 
 
 ```haxe
@@ -730,16 +632,10 @@ function new(?ptr:stdgo.Ref<stdgo.testing.quick.T_testRecursive_0___localname___
 ```
 
 
-
-
-
 [\(view code\)](<./Quick.hx#L817>)
 
 
 ## class TestStruct
-
-
-
 
 
 ```haxe
@@ -758,9 +654,6 @@ var b:stdgo.GoString
 ```haxe
 function new(?a:Null<stdgo.GoInt>, ?b:stdgo.GoString):Void
 ```
-
-
-
 
 
 [\(view code\)](<./Quick.hx#L136>)
@@ -784,9 +677,8 @@ typedef Generator = {
 ```
 
 
+
 A Generator can generate random values of its own type.  
-
-
 
 ## typedef SetupError
 
@@ -796,10 +688,9 @@ typedef SetupError = stdgo.GoString;
 ```
 
 
-A SetupError is the result of an error in the way that check is being  
+
+A SetupError is the result of an error in the way that check is being
 used, independent of the functions being tested.  
-
-
 
 ## typedef TestArrayAlias
 
@@ -807,9 +698,6 @@ used, independent of the functions being tested.
 ```haxe
 typedef TestArrayAlias = stdgo.GoArray<stdgo.GoUInt8>;
 ```
-
-
-
 
 
 ## typedef TestBoolAlias
@@ -820,18 +708,12 @@ typedef TestBoolAlias = Bool;
 ```
 
 
-
-
-
 ## typedef TestComplex128Alias
 
 
 ```haxe
 typedef TestComplex128Alias = stdgo.GoComplex128;
 ```
-
-
-
 
 
 ## typedef TestComplex64Alias
@@ -842,18 +724,12 @@ typedef TestComplex64Alias = stdgo.GoComplex64;
 ```
 
 
-
-
-
 ## typedef TestFloat32Alias
 
 
 ```haxe
 typedef TestFloat32Alias = stdgo.GoFloat32;
 ```
-
-
-
 
 
 ## typedef TestFloat64Alias
@@ -864,18 +740,12 @@ typedef TestFloat64Alias = stdgo.GoFloat64;
 ```
 
 
-
-
-
 ## typedef TestInt16Alias
 
 
 ```haxe
 typedef TestInt16Alias = stdgo.GoInt16;
 ```
-
-
-
 
 
 ## typedef TestInt32Alias
@@ -886,18 +756,12 @@ typedef TestInt32Alias = stdgo.GoInt32;
 ```
 
 
-
-
-
 ## typedef TestInt64Alias
 
 
 ```haxe
 typedef TestInt64Alias = stdgo.GoInt64;
 ```
-
-
-
 
 
 ## typedef TestInt8Alias
@@ -908,18 +772,12 @@ typedef TestInt8Alias = stdgo.GoInt8;
 ```
 
 
-
-
-
 ## typedef TestIntAlias
 
 
 ```haxe
 typedef TestIntAlias = stdgo.GoInt;
 ```
-
-
-
 
 
 ## typedef TestMapAlias
@@ -930,18 +788,12 @@ typedef TestMapAlias = stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>;
 ```
 
 
-
-
-
 ## typedef TestPtrAlias
 
 
 ```haxe
 typedef TestPtrAlias = stdgo.Pointer<stdgo.GoInt>;
 ```
-
-
-
 
 
 ## typedef TestSliceAlias
@@ -952,18 +804,12 @@ typedef TestSliceAlias = stdgo.Slice<stdgo.GoUInt8>;
 ```
 
 
-
-
-
 ## typedef TestStringAlias
 
 
 ```haxe
 typedef TestStringAlias = stdgo.GoString;
 ```
-
-
-
 
 
 ## typedef TestStructAlias
@@ -974,18 +820,12 @@ typedef TestStructAlias = stdgo.testing.quick.TestStruct;
 ```
 
 
-
-
-
 ## typedef TestUint16Alias
 
 
 ```haxe
 typedef TestUint16Alias = stdgo.GoUInt16;
 ```
-
-
-
 
 
 ## typedef TestUint32Alias
@@ -996,18 +836,12 @@ typedef TestUint32Alias = stdgo.GoUInt32;
 ```
 
 
-
-
-
 ## typedef TestUint64Alias
 
 
 ```haxe
 typedef TestUint64Alias = stdgo.GoUInt64;
 ```
-
-
-
 
 
 ## typedef TestUint8Alias
@@ -1018,9 +852,6 @@ typedef TestUint8Alias = stdgo.GoUInt8;
 ```
 
 
-
-
-
 ## typedef TestUintAlias
 
 
@@ -1029,17 +860,11 @@ typedef TestUintAlias = stdgo.GoUInt;
 ```
 
 
-
-
-
 ## typedef TestUintptrAlias
 
 
 ```haxe
 typedef TestUintptrAlias = stdgo.GoUIntptr;
 ```
-
-
-
 
 

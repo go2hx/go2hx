@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -81,10 +78,7 @@ function example():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L258>)
+[\(view code\)](<./Errors.hx#L259>)
 
 
 ## function exampleAs
@@ -95,10 +89,7 @@ function exampleAs():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L488>)
+[\(view code\)](<./Errors.hx#L489>)
 
 
 ## function exampleIs
@@ -109,10 +100,7 @@ function exampleIs():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L476>)
+[\(view code\)](<./Errors.hx#L477>)
 
 
 ## function exampleJoin
@@ -123,10 +111,7 @@ function exampleJoin():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L243>)
+[\(view code\)](<./Errors.hx#L244>)
 
 
 ## function exampleNew
@@ -137,10 +122,7 @@ function exampleNew():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L226>)
+[\(view code\)](<./Errors.hx#L227>)
 
 
 ## function exampleNew\_errorf
@@ -151,12 +133,11 @@ function exampleNew_errorf():Void
 ```
 
 
-The fmt package's Errorf function lets us use the package's formatting  
+
+The fmt package's Errorf function lets us use the package's formatting
 features to create descriptive error messages.  
 
-
-
-[\(view code\)](<./Errors.hx#L236>)
+[\(view code\)](<./Errors.hx#L237>)
 
 
 ## function exampleUnwrap
@@ -167,10 +148,7 @@ function exampleUnwrap():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L501>)
+[\(view code\)](<./Errors.hx#L502>)
 
 
 ## function testAs
@@ -181,10 +159,7 @@ function testAs(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L360>)
+[\(view code\)](<./Errors.hx#L361>)
 
 
 ## function testAsValidation
@@ -195,10 +170,7 @@ function testAsValidation(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L409>)
+[\(view code\)](<./Errors.hx#L410>)
 
 
 ## function testErrorMethod
@@ -209,10 +181,7 @@ function testErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L220>)
+[\(view code\)](<./Errors.hx#L221>)
 
 
 ## function testIs
@@ -223,10 +192,7 @@ function testIs(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L309>)
+[\(view code\)](<./Errors.hx#L310>)
 
 
 ## function testJoin
@@ -237,10 +203,7 @@ function testJoin(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L286>)
+[\(view code\)](<./Errors.hx#L287>)
 
 
 ## function testJoinErrorMethod
@@ -251,10 +214,7 @@ function testJoinErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L299>)
+[\(view code\)](<./Errors.hx#L300>)
 
 
 ## function testJoinReturnsNil
@@ -265,10 +225,7 @@ function testJoinReturnsNil(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L266>)
+[\(view code\)](<./Errors.hx#L267>)
 
 
 ## function testNewEqual
@@ -279,10 +236,7 @@ function testNewEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L208>)
+[\(view code\)](<./Errors.hx#L209>)
 
 
 ## function testUnwrap
@@ -293,10 +247,7 @@ function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors.hx#L463>)
+[\(view code\)](<./Errors.hx#L464>)
 
 
 # Classes
@@ -310,9 +261,8 @@ import stdgo.errors_test.*
 ## class MyError
 
 
+
 MyError is an error implementation that includes a time and message.  
-
-
 
 ```haxe
 var what:stdgo.GoString
@@ -332,10 +282,7 @@ function new(?when:stdgo.time.Time, ?what:stdgo.GoString):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Errors_test.hx#L51>)
+[\(view code\)](<./Errors_test.hx#L52>)
 
 
 ### MyError function error
@@ -346,9 +293,6 @@ function error():stdgo.GoString
 ```
 
 
-
-
-
-[\(view code\)](<./Errors_test.hx#L520>)
+[\(view code\)](<./Errors_test.hx#L521>)
 
 

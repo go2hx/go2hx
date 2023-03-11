@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -31,12 +28,11 @@ import
 ## class CovCounterBlob
 
 
-CovCounterBlob is a container for encapsulating a counter section  
-\(BSS variable\) for an instrumented Go module. Here "counters"  
-points to the counter payload and "len" is the number of uint32  
+
+CovCounterBlob is a container for encapsulating a counter section
+\(BSS variable\) for an instrumented Go module. Here "counters"
+points to the counter payload and "len" is the number of uint32
 entries in the section.  
-
-
 
 ```haxe
 var counters:stdgo.Pointer<stdgo.GoUInt32>
@@ -56,24 +52,20 @@ function new(?counters:stdgo.Pointer<stdgo.GoUInt32>, ?len:stdgo.GoUInt64):Void
 ```
 
 
-
-
-
 [\(view code\)](<./Rtcov.hx#L55>)
 
 
 ## class CovMetaBlob
 
 
-CovMetaBlob is a container for holding the meta\-data symbol \(an  
-RODATA variable\) for an instrumented Go package. Here "p" points to  
-the symbol itself, "len" is the length of the sym in bytes, and  
-"hash" is an md5sum for the sym computed by the compiler. When  
-the init function for a coverage\-instrumented package executes, it  
-will make a call into the runtime which will create a covMetaBlob  
+
+CovMetaBlob is a container for holding the meta\-data symbol \(an
+RODATA variable\) for an instrumented Go package. Here "p" points to
+the symbol itself, "len" is the length of the sym in bytes, and
+"hash" is an md5sum for the sym computed by the compiler. When
+the init function for a coverage\-instrumented package executes, it
+will make a call into the runtime which will create a covMetaBlob
 object for the package and chain it onto a global list.  
-
-
 
 ```haxe
 var counterGranularity:stdgo.GoUInt8
@@ -116,9 +108,6 @@ var pkgPath:stdgo.GoString
 ```haxe
 function new(?p:stdgo.Pointer<stdgo.GoUInt8>, ?len:stdgo.GoUInt32, ?hash:stdgo.GoArray<stdgo.GoUInt8>, ?pkgPath:stdgo.GoString, ?pkgID:Null<stdgo.GoInt>, ?counterMode:stdgo.GoUInt8, ?counterGranularity:stdgo.GoUInt8):Void
 ```
-
-
-
 
 
 [\(view code\)](<./Rtcov.hx#L30>)

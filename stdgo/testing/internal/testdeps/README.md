@@ -6,16 +6,14 @@
 # Overview
 
 
+
 Package testdeps provides access to dependencies needed by test execution.  
 
 
-
-This package is imported by the generated main package, which passes  
-TestDeps into testing.Main. This allows tests to use packages at run time  
-without making those packages direct dependencies of package testing.  
+This package is imported by the generated main package, which passes
+TestDeps into testing.Main. This allows tests to use packages at run time
+without making those packages direct dependencies of package testing.
 Direct dependencies of package testing are harder to write tests for.  
-
-
 
 # Index
 
@@ -67,9 +65,8 @@ var importPath:stdgo.GoString
 ```
 
 
+
 ImportPath is the import path of the testing binary, set by the generated main function.  
-
-
 
 # Classes
 
@@ -82,10 +79,9 @@ import stdgo.testing.internal.testdeps.*
 ## class TestDeps
 
 
-TestDeps is an implementation of the testing.testDeps interface,  
+
+TestDeps is an implementation of the testing.testDeps interface,
 suitable for passing to testing.MainStart.  
-
-
 
 ### TestDeps function new
 
@@ -93,9 +89,6 @@ suitable for passing to testing.MainStart.
 ```haxe
 function new():Void
 ```
-
-
-
 
 
 [\(view code\)](<./Testdeps.hx#L51>)
@@ -107,9 +100,6 @@ function new():Void
 ```haxe
 function checkCorpus( _vals:stdgo.Slice<stdgo.AnyInterface>, _types:stdgo.Slice<stdgo.reflect.Type>):stdgo.Error
 ```
-
-
-
 
 
 [\(view code\)](<./Testdeps.hx#L122>)
@@ -130,9 +120,6 @@ function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, 
 ```
 
 
-
-
-
 [\(view code\)](<./Testdeps.hx#L128>)
 
 
@@ -142,9 +129,6 @@ function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, 
 ```haxe
 function importPath():stdgo.GoString
 ```
-
-
-
 
 
 [\(view code\)](<./Testdeps.hx#L139>)
@@ -159,9 +143,6 @@ function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{
 	_0:Bool;
 }
 ```
-
-
-
 
 
 [\(view code\)](<./Testdeps.hx#L147>)
@@ -185,9 +166,6 @@ function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice<stdgo.reflect.Type>
 ```
 
 
-
-
-
 [\(view code\)](<./Testdeps.hx#L124>)
 
 
@@ -197,9 +175,6 @@ function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice<stdgo.reflect.Type>
 ```haxe
 function resetCoverage():Void
 ```
-
-
-
 
 
 [\(view code\)](<./Testdeps.hx#L120>)
@@ -213,9 +188,6 @@ function runFuzzWorker( _fn:()):stdgo.Error
 ```
 
 
-
-
-
 [\(view code\)](<./Testdeps.hx#L126>)
 
 
@@ -227,9 +199,8 @@ function setPanicOnExit0( _v:Bool):Void
 ```
 
 
+
 SetPanicOnExit0 tells the os package whether to panic on os.Exit\(0\).  
-
-
 
 [\(view code\)](<./Testdeps.hx#L133>)
 
@@ -240,9 +211,6 @@ SetPanicOnExit0 tells the os package whether to panic on os.Exit\(0\).
 ```haxe
 function snapshotCoverage():Void
 ```
-
-
-
 
 
 [\(view code\)](<./Testdeps.hx#L118>)
@@ -256,9 +224,6 @@ function startCPUProfile( _w:stdgo.io.Writer):stdgo.Error
 ```
 
 
-
-
-
 [\(view code\)](<./Testdeps.hx#L145>)
 
 
@@ -268,9 +233,6 @@ function startCPUProfile( _w:stdgo.io.Writer):stdgo.Error
 ```haxe
 function startTestLog( _w:stdgo.io.Writer):Void
 ```
-
-
-
 
 
 [\(view code\)](<./Testdeps.hx#L137>)
@@ -284,9 +246,6 @@ function stopCPUProfile():Void
 ```
 
 
-
-
-
 [\(view code\)](<./Testdeps.hx#L143>)
 
 
@@ -298,9 +257,6 @@ function stopTestLog():stdgo.Error
 ```
 
 
-
-
-
 [\(view code\)](<./Testdeps.hx#L135>)
 
 
@@ -310,9 +266,6 @@ function stopTestLog():stdgo.Error
 ```haxe
 function writeProfileTo( _name:stdgo.GoString, _w:stdgo.io.Writer, _debug:stdgo.GoInt):stdgo.Error
 ```
-
-
-
 
 
 [\(view code\)](<./Testdeps.hx#L141>)

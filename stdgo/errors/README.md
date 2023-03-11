@@ -6,161 +6,107 @@
 # Overview
 
 
-Package errors implements functions to manipulate errors.  
 
+Package errors implements functions to manipulate errors.  
 
 
 The New function creates errors whose only content is a text message.  
 
 
-
 An error e wraps another error if e's type has one of the methods  
 
+```
+	Unwrap() error
+	Unwrap() []error
+```
 
-
-
-
-
-Unwrap\(\) error  
-
-
-
-Unwrap\(\) \[\]error  
-
-
-
-If e.Unwrap\(\) returns a non\-nil error w or a slice containing w,  
-then we say that e wraps w. A nil error returned from e.Unwrap\(\)  
-indicates that e does not wrap any error. It is invalid for an  
+If e.Unwrap\(\) returns a non\-nil error w or a slice containing w,
+then we say that e wraps w. A nil error returned from e.Unwrap\(\)
+indicates that e does not wrap any error. It is invalid for an
 Unwrap method to return an \[\]error containing a nil error value.  
 
 
-
-An easy way to create wrapped errors is to call fmt.Errorf and apply  
+An easy way to create wrapped errors is to call fmt.Errorf and apply
 the %w verb to the error argument:  
 
+```
+	wrapsErr := fmt.Errorf("... %w ...", ..., err, ...)
+```
 
-
-
-
-
-wrapsErr := fmt.Errorf\("... %w ...", ..., err, ...\)  
-
-
-
-Successive unwrapping of an error creates a tree. The Is and As  
-functions inspect an error's tree by examining first the error  
-itself followed by the tree of each of its children in turn  
+Successive unwrapping of an error creates a tree. The Is and As
+functions inspect an error's tree by examining first the error
+itself followed by the tree of each of its children in turn
 \(pre\-order, depth\-first traversal\).  
 
 
-
-Is examines the tree of its first argument looking for an error that  
-matches the second. It reports whether it finds a match. It should be  
+Is examines the tree of its first argument looking for an error that
+matches the second. It reports whether it finds a match. It should be
 used in preference to simple equality checks:  
 
-
-
-
-
-
-if errors.Is\(err, fs.ErrExist\)  
-
-
+```
+	if errors.Is(err, fs.ErrExist)
+```
 
 is preferable to  
 
-
-
-
-
-
-if err == fs.ErrExist  
-
-
+```
+	if err == fs.ErrExist
+```
 
 because the former will succeed if err wraps fs.ErrExist.  
 
 
-
-As examines the tree of its first argument looking for an error that can be  
-assigned to its second argument, which must be a pointer. If it succeeds, it  
+As examines the tree of its first argument looking for an error that can be
+assigned to its second argument, which must be a pointer. If it succeeds, it
 performs the assignment and returns true. Otherwise, it returns false. The form  
 
-
-
-
-
-
-var perr \*fs.PathError  
-
-
-
-if errors.As\(err, &perr\) \{  
-
-
-
-fmt.Println\(perr.Path\)  
-
-
-
-\}  
-
-
+```
+	var perr *fs.PathError
+	if errors.As(err, &perr) {
+		fmt.Println(perr.Path)
+	}
+```
 
 is preferable to  
 
-
-
-
-
-
-if perr, ok := err.\(\*fs.PathError\); ok \{  
-
-
-
-fmt.Println\(perr.Path\)  
-
-
-
-\}  
-
-
+```
+	if perr, ok := err.(*fs.PathError); ok {
+		fmt.Println(perr.Path)
+	}
+```
 
 because the former will succeed if err wraps an \*fs.PathError.  
-
-
 
 <details><summary>hl tests passed</summary>
 <p>
 
 ```
 === RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=0.0001049041748046875))
+--- PASS: TestNewEqual (%!s(float64=9.393692016601562e-05))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=2.09808349609375e-05))
+--- PASS: TestErrorMethod (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestJoinReturnsNil
---- PASS: TestJoinReturnsNil (%!s(float64=2.5033950805664062e-05))
+--- PASS: TestJoinReturnsNil (%!s(float64=8.106231689453125e-06))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0016338825225830078))
+--- PASS: TestJoin (%!s(float64=0.001322031021118164))
 
 === RUN  TestJoinErrorMethod
---- PASS: TestJoinErrorMethod (%!s(float64=6.914138793945312e-05))
+--- PASS: TestJoinErrorMethod (%!s(float64=4.291534423828125e-05))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=0.00011110305786132812))
+--- PASS: TestIs (%!s(float64=8.20159912109375e-05))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.029392004013061523))
+--- PASS: TestAs (%!s(float64=0.02479410171508789))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0032241344451904297))
+--- PASS: TestAsValidation (%!s(float64=0.0019481182098388672))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.00021791458129882812))
+--- PASS: TestUnwrap (%!s(float64=0.0001270771026611328))
 
 ```
 </p>
@@ -174,28 +120,28 @@ because the former will succeed if err wraps an \*fs.PathError.
 --- PASS: TestNewEqual (%!s(float64=0.0001380443572998047))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=1.8835067749023438e-05))
+--- PASS: TestErrorMethod (%!s(float64=2.002716064453125e-05))
 
 === RUN  TestJoinReturnsNil
---- PASS: TestJoinReturnsNil (%!s(float64=3.409385681152344e-05))
+--- PASS: TestJoinReturnsNil (%!s(float64=3.0994415283203125e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0008389949798583984))
+--- PASS: TestJoin (%!s(float64=0.0007300376892089844))
 
 === RUN  TestJoinErrorMethod
---- PASS: TestJoinErrorMethod (%!s(float64=0.00015401840209960938))
+--- PASS: TestJoinErrorMethod (%!s(float64=0.00014495849609375))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=0.00026106834411621094))
+--- PASS: TestIs (%!s(float64=0.00034689903259277344))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.021588802337646484))
+--- PASS: TestAs (%!s(float64=0.0164639949798584))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0017240047454833984))
+--- PASS: TestAsValidation (%!s(float64=0.0012879371643066406))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.00021886825561523438))
+--- PASS: TestUnwrap (%!s(float64=0.00020813941955566406))
 
 ```
 </p>
@@ -249,33 +195,28 @@ function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool
 ```
 
 
-As finds the first error in err's tree that matches target, and if one is found, sets  
+
+As finds the first error in err's tree that matches target, and if one is found, sets
 target to that error value and returns true. Otherwise, it returns false.  
 
 
-
-The tree consists of err itself, followed by the errors obtained by repeatedly  
-calling Unwrap. When err wraps multiple errors, As examines err followed by a  
+The tree consists of err itself, followed by the errors obtained by repeatedly
+calling Unwrap. When err wraps multiple errors, As examines err followed by a
 depth\-first traversal of its children.  
 
 
-
-An error matches target if the error's concrete value is assignable to the value  
-pointed to by target, or if the error has a method As\(interface\{\}\) bool such that  
-As\(target\) returns true. In the latter case, the As method is responsible for  
+An error matches target if the error's concrete value is assignable to the value
+pointed to by target, or if the error has a method As\(interface\{\}\) bool such that
+As\(target\) returns true. In the latter case, the As method is responsible for
 setting target.  
 
 
-
-An error type might provide an As method so it can be treated as if it were a  
+An error type might provide an As method so it can be treated as if it were a
 different error type.  
 
 
-
-As panics if target is not a non\-nil pointer to either a type that implements  
+As panics if target is not a non\-nil pointer to either a type that implements
 error, or to any interface type.  
-
-
 
 ### exampleAs
 
@@ -287,7 +228,7 @@ error, or to any interface type.
 ```haxe
 function exampleAs():Void {
         {
-            var __tmp__ = stdgo.os.Os.open(("non-existing" : GoString)), _0:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.os.Os.open(("non-existing" : GoString)), __0:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : Ref<stdgo.io.fs.Fs.PathError>);
                 if (stdgo.errors.Errors.as(_err, Go.toInterface((Go.setRef(_pathError) : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
@@ -316,38 +257,29 @@ function is_(_err:stdgo.Error, _target:stdgo.Error):Bool
 ```
 
 
+
 Is reports whether any error in err's tree matches target.  
 
 
-
-The tree consists of err itself, followed by the errors obtained by repeatedly  
-calling Unwrap. When err wraps multiple errors, Is examines err followed by a  
+The tree consists of err itself, followed by the errors obtained by repeatedly
+calling Unwrap. When err wraps multiple errors, Is examines err followed by a
 depth\-first traversal of its children.  
 
 
-
-An error is considered to match a target if it is equal to that target or if  
+An error is considered to match a target if it is equal to that target or if
 it implements a method Is\(error\) bool such that Is\(target\) returns true.  
 
 
-
-An error type might provide an Is method so it can be treated as equivalent  
+An error type might provide an Is method so it can be treated as equivalent
 to an existing error. For example, if MyError defines  
 
+```
+	func (m MyError) Is(target error) bool { return target == fs.ErrExist }
+```
 
-
-
-
-
-func \(m MyError\) Is\(target error\) bool \{ return target == fs.ErrExist \}  
-
-
-
-then Is\(MyError\{\}, fs.ErrExist\) returns true. See syscall.Errno.Is for  
-an example in the standard library. An Is method should only shallowly  
+then Is\(MyError\{\}, fs.ErrExist\) returns true. See syscall.Errno.Is for
+an example in the standard library. An Is method should only shallowly
 compare err and the target and not call Unwrap on either.  
-
-
 
 [\(view code\)](<./Errors.hx#L225>)
 
@@ -360,14 +292,13 @@ function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error
 ```
 
 
-Join returns an error that wraps the given errors.  
-Any nil error values are discarded.  
-Join returns nil if errs contains no non\-nil values.  
-The error formats as the concatenation of the strings obtained  
-by calling the Error method of each element of errs, with a newline  
+
+Join returns an error that wraps the given errors.
+Any nil error values are discarded.
+Join returns nil if errs contains no non\-nil values.
+The error formats as the concatenation of the strings obtained
+by calling the Error method of each element of errs, with a newline
 between each string.  
-
-
 
 ### exampleJoin
 
@@ -407,10 +338,9 @@ function new_(_text:stdgo.GoString):stdgo.Error
 ```
 
 
-New returns an error that formats as the given text.  
+
+New returns an error that formats as the given text.
 Each call to New returns a distinct error value even if the text is identical.  
-
-
 
 [\(view code\)](<./Errors.hx#L158>)
 
@@ -423,15 +353,13 @@ function unwrap(_err:stdgo.Error):stdgo.Error
 ```
 
 
-Unwrap returns the result of calling the Unwrap method on err, if err's  
-type contains an Unwrap method returning error.  
+
+Unwrap returns the result of calling the Unwrap method on err, if err's
+type contains an Unwrap method returning error.
 Otherwise, Unwrap returns nil.  
 
 
-
 Unwrap returns nil if the Unwrap method returns \[\]error.  
-
-
 
 ### exampleUnwrap
 

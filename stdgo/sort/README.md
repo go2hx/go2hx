@@ -6,94 +6,93 @@
 # Overview
 
 
+
 Package sort provides primitives for sorting slices and user\-defined collections.  
-
-
 
 <details><summary>hl tests passed</summary>
 <p>
 
 ```
 === RUN  TestSearch
---- PASS: TestSearch (%!s(float64=0.00029397010803222656))
+--- PASS: TestSearch (%!s(float64=7.200241088867188e-05))
 
 === RUN  TestFind
---- PASS: TestFind (%!s(float64=3.719329833984375e-05))
+--- PASS: TestFind (%!s(float64=6.198883056640625e-05))
 
 === RUN  TestSearchEfficiency
---- PASS: TestSearchEfficiency (%!s(float64=0.02268505096435547))
+--- PASS: TestSearchEfficiency (%!s(float64=0.002658843994140625))
 
 === RUN  TestSearchWrappers
---- PASS: TestSearchWrappers (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestSearchWrappers (%!s(float64=1.0013580322265625e-05))
 
 === RUN  TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (%!s(float64=1.1920928955078125e-05))
+--- PASS: TestSearchWrappersDontAlloc (%!s(float64=5.9604644775390625e-06))
 
 === RUN  TestSearchExhaustive
---- PASS: TestSearchExhaustive (%!s(float64=0.048948049545288086))
+--- PASS: TestSearchExhaustive (%!s(float64=0.004395961761474609))
 
 === RUN  TestFindExhaustive
---- PASS: TestFindExhaustive (%!s(float64=0.09550118446350098))
+--- PASS: TestFindExhaustive (%!s(float64=0.010921001434326172))
 
 === RUN  TestSortIntSlice
---- PASS: TestSortIntSlice (%!s(float64=7.104873657226562e-05))
+--- PASS: TestSortIntSlice (%!s(float64=3.886222839355469e-05))
 
 === RUN  TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (%!s(float64=6.198883056640625e-05))
+--- PASS: TestSortFloat64Slice (%!s(float64=6.29425048828125e-05))
 
 === RUN  TestSortStringSlice
---- PASS: TestSortStringSlice (%!s(float64=7.104873657226562e-05))
+--- PASS: TestSortStringSlice (%!s(float64=7.390975952148438e-05))
 
 === RUN  TestInts
---- PASS: TestInts (%!s(float64=4.601478576660156e-05))
+--- PASS: TestInts (%!s(float64=0.0008921623229980469))
 
 === RUN  TestFloat64s
---- PASS: TestFloat64s (%!s(float64=5.698204040527344e-05))
+--- PASS: TestFloat64s (%!s(float64=7.915496826171875e-05))
 
 === RUN  TestStrings
---- PASS: TestStrings (%!s(float64=7.081031799316406e-05))
+--- PASS: TestStrings (%!s(float64=7.104873657226562e-05))
 
 === RUN  TestSlice
---- PASS: TestSlice (%!s(float64=0.0016438961029052734))
+--- PASS: TestSlice (%!s(float64=0.0002701282501220703))
 
 === RUN  TestSortLarge_Random
---- PASS: TestSortLarge_Random (%!s(float64=0.020678997039794922))
+--- PASS: TestSortLarge_Random (%!s(float64=0.015585899353027344))
 
 === RUN  TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (%!s(float64=7.987022399902344e-05))
+--- PASS: TestReverseSortIntSlice (%!s(float64=4.792213439941406e-05))
 
 === RUN  TestBreakPatterns
---- PASS: TestBreakPatterns (%!s(float64=0.00011610984802246094))
+--- PASS: TestBreakPatterns (%!s(float64=7.295608520507812e-05))
 
 === RUN  TestReverseRange
---- PASS: TestReverseRange (%!s(float64=3.0040740966796875e-05))
+--- PASS: TestReverseRange (%!s(float64=4.220008850097656e-05))
 
 === RUN  TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (%!s(float64=6.48670506477356))
+--- PASS: TestNonDeterministicComparison (%!s(float64=0.31139206886291504))
 
 === RUN  TestSortBM
---- PASS: TestSortBM (%!s(float64=1.3280179500579834))
+--- PASS: TestSortBM (%!s(float64=1.0656371116638184))
 
 === RUN  TestHeapsortBM
---- PASS: TestHeapsortBM (%!s(float64=1.5316460132598877))
+--- PASS: TestHeapsortBM (%!s(float64=1.216939926147461))
 
 === RUN  TestStableBM
---- PASS: TestStableBM (%!s(float64=1.806459903717041))
+--- PASS: TestStableBM (%!s(float64=1.164275884628296))
 
 === RUN  TestAdversary
---- PASS: TestAdversary (%!s(float64=0.0284268856048584))
+--- PASS: TestAdversary (%!s(float64=0.0218961238861084))
 
 === RUN  TestStableInts
---- PASS: TestStableInts (%!s(float64=3.814697265625e-05))
+--- PASS: TestStableInts (%!s(float64=2.9087066650390625e-05))
 
 === RUN  TestStability
---- PASS: TestStability (%!s(float64=0.029927968978881836))
+--- PASS: TestStability (%!s(float64=0.01634383201599121))
 
 === RUN  TestCountStableOps
---- PASS: TestCountStableOps (%!s(float64=0.46507692337036133))
+--- PASS: TestCountStableOps (%!s(float64=0.1726679801940918))
 
 === RUN  TestCountSortOps
---- PASS: TestCountSortOps (%!s(float64=0.04595804214477539))
+--- PASS: TestCountSortOps (%!s(float64=0.0361480712890625))
 
 ```
 </p>
@@ -104,85 +103,85 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 ```
 === RUN  TestSearch
---- PASS: TestSearch (%!s(float64=0.001734018325805664))
+--- PASS: TestSearch (%!s(float64=0.0006580352783203125))
 
 === RUN  TestFind
---- PASS: TestFind (%!s(float64=8.392333984375e-05))
+--- PASS: TestFind (%!s(float64=7.414817810058594e-05))
 
 === RUN  TestSearchEfficiency
---- PASS: TestSearchEfficiency (%!s(float64=0.10991382598876953))
+--- PASS: TestSearchEfficiency (%!s(float64=0.017184019088745117))
 
 === RUN  TestSearchWrappers
---- PASS: TestSearchWrappers (%!s(float64=3.1948089599609375e-05))
+--- PASS: TestSearchWrappers (%!s(float64=1.5020370483398438e-05))
 
 === RUN  TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (%!s(float64=2.384185791015625e-05))
+--- PASS: TestSearchWrappersDontAlloc (%!s(float64=1.2874603271484375e-05))
 
 === RUN  TestSearchExhaustive
---- PASS: TestSearchExhaustive (%!s(float64=0.2274000644683838))
+--- PASS: TestSearchExhaustive (%!s(float64=0.03667807579040527))
 
 === RUN  TestFindExhaustive
---- PASS: TestFindExhaustive (%!s(float64=0.519503116607666))
+--- PASS: TestFindExhaustive (%!s(float64=0.09626889228820801))
 
 === RUN  TestSortIntSlice
---- PASS: TestSortIntSlice (%!s(float64=0.0002658367156982422))
+--- PASS: TestSortIntSlice (%!s(float64=0.00021910667419433594))
 
 === RUN  TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (%!s(float64=0.0003719329833984375))
+--- PASS: TestSortFloat64Slice (%!s(float64=0.0003020763397216797))
 
 === RUN  TestSortStringSlice
---- PASS: TestSortStringSlice (%!s(float64=0.00015211105346679688))
+--- PASS: TestSortStringSlice (%!s(float64=0.00013184547424316406))
 
 === RUN  TestInts
---- PASS: TestInts (%!s(float64=0.0002079010009765625))
+--- PASS: TestInts (%!s(float64=0.00017404556274414062))
 
 === RUN  TestFloat64s
---- PASS: TestFloat64s (%!s(float64=0.00030493736267089844))
+--- PASS: TestFloat64s (%!s(float64=0.0002570152282714844))
 
 === RUN  TestStrings
---- PASS: TestStrings (%!s(float64=0.00019288063049316406))
+--- PASS: TestStrings (%!s(float64=0.00011801719665527344))
 
 === RUN  TestSlice
---- PASS: TestSlice (%!s(float64=0.0006589889526367188))
+--- PASS: TestSlice (%!s(float64=0.0005590915679931641))
 
 === RUN  TestSortLarge_Random
---- PASS: TestSortLarge_Random (%!s(float64=0.22009706497192383))
+--- PASS: TestSortLarge_Random (%!s(float64=0.16498088836669922))
 
 === RUN  TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (%!s(float64=0.0004849433898925781))
+--- PASS: TestReverseSortIntSlice (%!s(float64=0.0003879070281982422))
 
 === RUN  TestBreakPatterns
---- PASS: TestBreakPatterns (%!s(float64=0.0006499290466308594))
+--- PASS: TestBreakPatterns (%!s(float64=0.0003578662872314453))
 
 === RUN  TestReverseRange
---- PASS: TestReverseRange (%!s(float64=9.322166442871094e-05))
+--- PASS: TestReverseRange (%!s(float64=4.887580871582031e-05))
 
 === RUN  TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (%!s(float64=40.28963804244995))
+--- PASS: TestNonDeterministicComparison (%!s(float64=3.3530290126800537))
 
 === RUN  TestSortBM
---- PASS: TestSortBM (%!s(float64=2.978800058364868))
+--- PASS: TestSortBM (%!s(float64=2.3379759788513184))
 
 === RUN  TestHeapsortBM
---- PASS: TestHeapsortBM (%!s(float64=5.702522039413452))
+--- PASS: TestHeapsortBM (%!s(float64=4.581238031387329))
 
 === RUN  TestStableBM
---- PASS: TestStableBM (%!s(float64=6.021965980529785))
+--- PASS: TestStableBM (%!s(float64=3.790540933609009))
 
 === RUN  TestAdversary
---- PASS: TestAdversary (%!s(float64=0.320436954498291))
+--- PASS: TestAdversary (%!s(float64=0.2511560916900635))
 
 === RUN  TestStableInts
---- PASS: TestStableInts (%!s(float64=0.00026702880859375))
+--- PASS: TestStableInts (%!s(float64=0.0002238750457763672))
 
 === RUN  TestStability
---- PASS: TestStability (%!s(float64=0.23433685302734375))
+--- PASS: TestStability (%!s(float64=0.1326310634613037))
 
 === RUN  TestCountStableOps
---- PASS: TestCountStableOps (%!s(float64=3.1439859867095947))
+--- PASS: TestCountStableOps (%!s(float64=1.616886854171753))
 
 === RUN  TestCountSortOps
---- PASS: TestCountSortOps (%!s(float64=0.490598201751709))
+--- PASS: TestCountSortOps (%!s(float64=0.3771378993988037))
 
 ```
 </p>
@@ -298,63 +297,35 @@ function find(_n:stdgo.GoInt, _cmp:()):{
 ```
 
 
-Find uses binary search to find and return the smallest index i in \[0, n\)  
-at which cmp\(i\) \<= 0. If there is no such index i, Find returns i = n.  
-The found result is true if i \< n and cmp\(i\) == 0.  
+
+Find uses binary search to find and return the smallest index i in \[0, n\)
+at which cmp\(i\) \<= 0. If there is no such index i, Find returns i = n.
+The found result is true if i \< n and cmp\(i\) == 0.
 Find calls cmp\(i\) only for i in the range \[0, n\).  
 
 
-
-To permit binary search, Find requires that cmp\(i\) \> 0 for a leading  
-prefix of the range, cmp\(i\) == 0 in the middle, and cmp\(i\) \< 0 for  
-the final suffix of the range. \(Each subrange could be empty.\)  
-The usual way to establish this condition is to interpret cmp\(i\)  
-as a comparison of a desired target value t against entry i in an  
-underlying indexed data structure x, returning \<0, 0, and \>0  
+To permit binary search, Find requires that cmp\(i\) \> 0 for a leading
+prefix of the range, cmp\(i\) == 0 in the middle, and cmp\(i\) \< 0 for
+the final suffix of the range. \(Each subrange could be empty.\)
+The usual way to establish this condition is to interpret cmp\(i\)
+as a comparison of a desired target value t against entry i in an
+underlying indexed data structure x, returning \<0, 0, and \>0
 when t \< x\[i\], t == x\[i\], and t \> x\[i\], respectively.  
 
 
-
-For example, to look for a particular string in a sorted, random\-access  
+For example, to look for a particular string in a sorted, random\-access
 list of strings:  
 
-
-
-
-
-
-i, found := sort.Find\(x.Len\(\), func\(i int\) int \{  
-
-
-
-return strings.Compare\(target, x.At\(i\)\)  
-
-
-
-\}\)  
-
-
-
-if found \{  
-
-
-
-fmt.Printf\("found %s at entry %d\\n", target, i\)  
-
-
-
-\} else \{  
-
-
-
-fmt.Printf\("%s not found, would insert at %d", target, i\)  
-
-
-
-\}  
-
-
-
+```
+	i, found := sort.Find(x.Len(), func(i int) int {
+	    return strings.Compare(target, x.At(i))
+	})
+	if found {
+	    fmt.Printf("found %s at entry %d\n", target, i)
+	} else {
+	    fmt.Printf("%s not found, would insert at %d", target, i)
+	}
+```
 [\(view code\)](<./Sort.hx#L229>)
 
 
@@ -366,10 +337,9 @@ function float64s(_x:stdgo.Slice<stdgo.GoFloat64>):Void
 ```
 
 
-Float64s sorts a slice of float64s in increasing order.  
+
+Float64s sorts a slice of float64s in increasing order.
 Not\-a\-number \(NaN\) values are ordered before other values.  
-
-
 
 ### exampleFloat64s
 
@@ -405,10 +375,9 @@ function float64sAreSorted(_x:stdgo.Slice<stdgo.GoFloat64>):Bool
 ```
 
 
-Float64sAreSorted reports whether the slice x is sorted in increasing order,  
+
+Float64sAreSorted reports whether the slice x is sorted in increasing order,
 with not\-a\-number \(NaN\) values before any other values.  
-
-
 
 ### exampleFloat64sAreSorted
 
@@ -444,9 +413,6 @@ function heapsort(_data:stdgo.sort.Interface):Void
 ```
 
 
-
-
-
 [\(view code\)](<./Sort.hx#L134>)
 
 
@@ -458,9 +424,8 @@ function ints(_x:stdgo.Slice<stdgo.GoInt>):Void
 ```
 
 
+
 Ints sorts a slice of ints in increasing order.  
-
-
 
 ### exampleInts
 
@@ -493,9 +458,8 @@ function intsAreSorted(_x:stdgo.Slice<stdgo.GoInt>):Bool
 ```
 
 
+
 IntsAreSorted reports whether the slice x is sorted in increasing order.  
-
-
 
 ### exampleIntsAreSorted
 
@@ -531,9 +495,8 @@ function isSorted(_data:stdgo.sort.Interface):Bool
 ```
 
 
+
 IsSorted reports whether data is sorted.  
-
-
 
 [\(view code\)](<./Sort.hx#L349>)
 
@@ -546,9 +509,8 @@ function reverse(_data:stdgo.sort.Interface):stdgo.sort.Interface
 ```
 
 
+
 Reverse returns the reverse order for data.  
-
-
 
 ### exampleReverse
 
@@ -560,7 +522,7 @@ Reverse returns the reverse order for data.
 ```haxe
 function exampleReverse():Void {
         var _s = (new Slice<GoInt>(0, 0, (5 : GoInt), (2 : GoInt), (6 : GoInt), (3 : GoInt), (1 : GoInt), (4 : GoInt)) : Slice<GoInt>);
-        stdgo.sort.Sort.sort(stdgo.sort.Sort.reverse(Go.asInterface((_s : IntSlice))));
+        stdgo.sort.Sort.sort(stdgo.sort.Sort.reverse(Go.asInterface((_s : stdgo.sort.Sort.IntSlice))));
         stdgo.fmt.Fmt.println(Go.toInterface(_s));
     }
 ```
@@ -581,9 +543,6 @@ function reverseRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt
 ```
 
 
-
-
-
 [\(view code\)](<./Sort.hx#L137>)
 
 
@@ -595,126 +554,64 @@ function search(_n:stdgo.GoInt, _f:()):stdgo.GoInt
 ```
 
 
-Search uses binary search to find and return the smallest index i  
-in \[0, n\) at which f\(i\) is true, assuming that on the range \[0, n\),  
-f\(i\) == true implies f\(i\+1\) == true. That is, Search requires that  
-f is false for some \(possibly empty\) prefix of the input range \[0, n\)  
-and then true for the \(possibly empty\) remainder; Search returns  
-the first true index. If there is no such index, Search returns n.  
-\(Note that the "not found" return value is not \-1 as in, for instance,  
-strings.Index.\)  
+
+Search uses binary search to find and return the smallest index i
+in \[0, n\) at which f\(i\) is true, assuming that on the range \[0, n\),
+f\(i\) == true implies f\(i\+1\) == true. That is, Search requires that
+f is false for some \(possibly empty\) prefix of the input range \[0, n\)
+and then true for the \(possibly empty\) remainder; Search returns
+the first true index. If there is no such index, Search returns n.
+\(Note that the "not found" return value is not \-1 as in, for instance,
+strings.Index.\)
 Search calls f\(i\) only for i in the range \[0, n\).  
 
 
-
-A common use of Search is to find the index i for a value x in  
-a sorted, indexable data structure such as an array or slice.  
-In this case, the argument f, typically a closure, captures the value  
-to be searched for, and how the data structure is indexed and  
+A common use of Search is to find the index i for a value x in
+a sorted, indexable data structure such as an array or slice.
+In this case, the argument f, typically a closure, captures the value
+to be searched for, and how the data structure is indexed and
 ordered.  
 
 
-
-For instance, given a slice data sorted in ascending order,  
-the call Search\(len\(data\), func\(i int\) bool \{ return data\[i\] \>= 23 \}\)  
-returns the smallest index i such that data\[i\] \>= 23. If the caller  
-wants to find whether 23 is in the slice, it must test data\[i\] == 23  
+For instance, given a slice data sorted in ascending order,
+the call Search\(len\(data\), func\(i int\) bool \{ return data\[i\] \>= 23 \}\)
+returns the smallest index i such that data\[i\] \>= 23. If the caller
+wants to find whether 23 is in the slice, it must test data\[i\] == 23
 separately.  
 
 
-
-Searching data sorted in descending order would use the \<=  
+Searching data sorted in descending order would use the \<=
 operator instead of the \>= operator.  
 
 
-
-To complete the example above, the following code tries to find the value  
+To complete the example above, the following code tries to find the value
 x in an integer slice data sorted in ascending order:  
 
-
-
-
-
-
-x := 23  
-
-
-
-i := sort.Search\(len\(data\), func\(i int\) bool \{ return data\[i\] \>= x \}\)  
-
-
-
-if i \< len\(data\) && data\[i\] == x \{  
-
-
-
-x is present at data\[i\]  
-
-
-
-\} else \{  
-
-
-
-x is not present in data,  
-
-
-
-but i is the index where it would be inserted.  
-
-
-
-\}  
-
-
+```
+	x := 23
+	i := sort.Search(len(data), func(i int) bool { return data[i] >= x })
+	if i < len(data) && data[i] == x {
+		// x is present at data[i]
+	} else {
+		// x is not present in data,
+		// but i is the index where it would be inserted.
+	}
+```
 
 As a more whimsical example, this program guesses your number:  
 
-
-
-
-
-
-func GuessingGame\(\) \{  
-
-
-
-var s string  
-
-
-
-fmt.Printf\("Pick an integer from 0 to 100.\\n"\)  
-
-
-
-answer := sort.Search\(100, func\(i int\) bool \{  
-
-
-
-fmt.Printf\("Is your number \<= %d? ", i\)  
-
-
-
-fmt.Scanf\("%s", &s\)  
-
-
-
-return s \!= "" && s\[0\] == 'y'  
-
-
-
-\}\)  
-
-
-
-fmt.Printf\("Your number is %d.\\n", answer\)  
-
-
-
-\}  
-
-
-
+```
+	func GuessingGame() {
+		var s string
+		fmt.Printf("Pick an integer from 0 to 100.\n")
+		answer := sort.Search(100, func(i int) bool {
+			fmt.Printf("Is your number <= %d? ", i)
+			fmt.Scanf("%s", &s)
+			return s != "" && s[0] == 'y'
+		})
+		fmt.Printf("Your number is %d.\n", answer)
+	}
+```
 ### exampleSearch
 
 
@@ -804,12 +701,11 @@ function searchFloat64s(_a:stdgo.Slice<stdgo.GoFloat64>, _x:stdgo.GoFloat64):std
 ```
 
 
-SearchFloat64s searches for x in a sorted slice of float64s and returns the index  
-as specified by Search. The return value is the index to insert x if x is not  
-present \(it could be len\(a\)\).  
+
+SearchFloat64s searches for x in a sorted slice of float64s and returns the index
+as specified by Search. The return value is the index to insert x if x is not
+present \(it could be len\(a\)\).
 The slice must be sorted in ascending order.  
-
-
 
 ### exampleSearchFloat64s
 
@@ -846,12 +742,11 @@ function searchInts(_a:stdgo.Slice<stdgo.GoInt>, _x:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-SearchInts searches for x in a sorted slice of ints and returns the index  
-as specified by Search. The return value is the index to insert x if x is  
-not present \(it could be len\(a\)\).  
+
+SearchInts searches for x in a sorted slice of ints and returns the index
+as specified by Search. The return value is the index to insert x if x is
+not present \(it could be len\(a\)\).
 The slice must be sorted in ascending order.  
-
-
 
 ### exampleSearchInts
 
@@ -888,12 +783,11 @@ function searchStrings(_a:stdgo.Slice<stdgo.GoString>, _x:stdgo.GoString):stdgo.
 ```
 
 
-SearchStrings searches for x in a sorted slice of strings and returns the index  
-as specified by Search. The return value is the index to insert x if x is not  
-present \(it could be len\(a\)\).  
+
+SearchStrings searches for x in a sorted slice of strings and returns the index
+as specified by Search. The return value is the index to insert x if x is not
+present \(it could be len\(a\)\).
 The slice must be sorted in ascending order.  
-
-
 
 [\(view code\)](<./Sort.hx#L270>)
 
@@ -906,21 +800,18 @@ function slice(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Boo
 ```
 
 
-Slice sorts the slice x given the provided less function.  
+
+Slice sorts the slice x given the provided less function.
 It panics if x is not a slice.  
 
 
-
-The sort is not guaranteed to be stable: equal elements  
-may be reversed from their original order.  
+The sort is not guaranteed to be stable: equal elements
+may be reversed from their original order.
 For a stable sort, use SliceStable.  
 
 
-
-The less function must satisfy the same requirements as  
+The less function must satisfy the same requirements as
 the Interface type's Less method.  
-
-
 
 ### exampleSlice
 
@@ -959,10 +850,9 @@ function sliceIsSorted(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.Go
 ```
 
 
-SliceIsSorted reports whether the slice x is sorted according to the provided less function.  
+
+SliceIsSorted reports whether the slice x is sorted according to the provided less function.
 It panics if x is not a slice.  
-
-
 
 [\(view code\)](<./Sort.hx#L310>)
 
@@ -975,16 +865,14 @@ function sliceStable(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoIn
 ```
 
 
-SliceStable sorts the slice x using the provided less  
-function, keeping equal elements in their original order.  
+
+SliceStable sorts the slice x using the provided less
+function, keeping equal elements in their original order.
 It panics if x is not a slice.  
 
 
-
-The less function must satisfy the same requirements as  
+The less function must satisfy the same requirements as
 the Interface type's Less method.  
-
-
 
 ### exampleSliceStable
 
@@ -1023,11 +911,10 @@ function sort(_data:stdgo.sort.Interface):Void
 ```
 
 
-Sort sorts data in ascending order as determined by the Less method.  
-It makes one call to data.Len to determine n and O\(n\*log\(n\)\) calls to  
+
+Sort sorts data in ascending order as determined by the Less method.
+It makes one call to data.Len to determine n and O\(n\*log\(n\)\) calls to
 data.Less and data.Swap. The sort is not guaranteed to be stable.  
-
-
 
 [\(view code\)](<./Sort.hx#L328>)
 
@@ -1040,15 +927,13 @@ function stable(_data:stdgo.sort.Interface):Void
 ```
 
 
-Stable sorts data in ascending order as determined by the Less method,  
+
+Stable sorts data in ascending order as determined by the Less method,
 while keeping the original order of equal elements.  
 
 
-
-It makes one call to data.Len to determine n, O\(n\*log\(n\)\) calls to  
+It makes one call to data.Len to determine n, O\(n\*log\(n\)\) calls to
 data.Less and O\(n\*log\(n\)\*log\(n\)\) calls to data.Swap.  
-
-
 
 [\(view code\)](<./Sort.hx#L412>)
 
@@ -1061,9 +946,8 @@ function strings(_x:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
+
 Strings sorts a slice of strings in increasing order.  
-
-
 
 ### exampleStrings
 
@@ -1096,9 +980,8 @@ function stringsAreSorted(_x:stdgo.Slice<stdgo.GoString>):Bool
 ```
 
 
+
 StringsAreSorted reports whether the slice x is sorted in increasing order.  
-
-
 
 [\(view code\)](<./Sort.hx#L402>)
 
@@ -1119,10 +1002,9 @@ typedef Float64Slice = stdgo.Slice<stdgo.GoFloat64>;
 ```
 
 
-Float64Slice implements Interface for a \[\]float64, sorting in increasing order,  
+
+Float64Slice implements Interface for a \[\]float64, sorting in increasing order,
 with not\-a\-number \(NaN\) values ordered before other values.  
-
-
 
 ## typedef IntSlice
 
@@ -1132,9 +1014,8 @@ typedef IntSlice = stdgo.Slice<stdgo.GoInt>;
 ```
 
 
+
 IntSlice attaches the methods of Interface to \[\]int, sorting in increasing order.  
-
-
 
 ## typedef Interface
 
@@ -1148,10 +1029,9 @@ typedef Interface = {
 ```
 
 
-An implementation of Interface can be sorted by the routines in this package.  
+
+An implementation of Interface can be sorted by the routines in this package.
 The methods refer to elements of the underlying collection by integer index.  
-
-
 
 ## typedef StringSlice
 
@@ -1161,7 +1041,6 @@ typedef StringSlice = stdgo.Slice<stdgo.GoString>;
 ```
 
 
+
 StringSlice attaches the methods of Interface to \[\]string, sorting in increasing order.  
-
-
 

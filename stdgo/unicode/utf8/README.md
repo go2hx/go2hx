@@ -6,57 +6,56 @@
 # Overview
 
 
-Package utf8 implements functions and constants to support text encoded in  
-UTF\-8. It includes functions to translate between runes and UTF\-8 byte sequences.  
+
+Package utf8 implements functions and constants to support text encoded in
+UTF\-8. It includes functions to translate between runes and UTF\-8 byte sequences.
 See https://en.wikipedia.org/wiki/UTF-8  
-
-
 
 <details><summary>hl tests passed</summary>
 <p>
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=6.508827209472656e-05))
+--- PASS: TestConstants (%!s(float64=5.1975250244140625e-05))
 
 === RUN  TestFullRune
---- PASS: TestFullRune (%!s(float64=0.00014209747314453125))
+--- PASS: TestFullRune (%!s(float64=5.5789947509765625e-05))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.00031495094299316406))
+--- PASS: TestEncodeRune (%!s(float64=0.00011992454528808594))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0003859996795654297))
+--- PASS: TestAppendRune (%!s(float64=0.00014710426330566406))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=0.0007581710815429688))
+--- PASS: TestDecodeRune (%!s(float64=0.00015878677368164062))
 
 === RUN  TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (%!s(float64=2.3126602172851562e-05))
+--- PASS: TestDecodeSurrogateRune (%!s(float64=8.106231689453125e-06))
 
 === RUN  TestSequencing
---- PASS: TestSequencing (%!s(float64=0.34528398513793945))
+--- PASS: TestSequencing (%!s(float64=0.08606195449829102))
 
 === RUN  TestRuntimeConversion
---- PASS: TestRuntimeConversion (%!s(float64=0.0013871192932128906))
+--- PASS: TestRuntimeConversion (%!s(float64=0.00041103363037109375))
 
 === RUN  TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (%!s(float64=0.0003268718719482422))
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.00010991096496582031))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=2.384185791015625e-05))
+--- PASS: TestNegativeRune (%!s(float64=1.0013580322265625e-05))
 
 === RUN  TestRuneCount
---- PASS: TestRuneCount (%!s(float64=3.0040740966796875e-05))
+--- PASS: TestRuneCount (%!s(float64=1.3828277587890625e-05))
 
 === RUN  TestRuneLen
---- PASS: TestRuneLen (%!s(float64=7.152557373046875e-06))
+--- PASS: TestRuneLen (%!s(float64=8.821487426757812e-06))
 
 === RUN  TestValid
---- PASS: TestValid (%!s(float64=0.0001380443572998047))
+--- PASS: TestValid (%!s(float64=3.695487976074219e-05))
 
 === RUN  TestValidRune
---- PASS: TestValidRune (%!s(float64=1.1205673217773438e-05))
+--- PASS: TestValidRune (%!s(float64=5.9604644775390625e-06))
 
 ```
 </p>
@@ -67,46 +66,46 @@ See https://en.wikipedia.org/wiki/UTF-8
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=4.100799560546875e-05))
+--- PASS: TestConstants (%!s(float64=2.193450927734375e-05))
 
 === RUN  TestFullRune
---- PASS: TestFullRune (%!s(float64=0.0010030269622802734))
+--- PASS: TestFullRune (%!s(float64=0.0004470348358154297))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.0014271736145019531))
+--- PASS: TestEncodeRune (%!s(float64=0.0005459785461425781))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.002476930618286133))
+--- PASS: TestAppendRune (%!s(float64=0.0007870197296142578))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=0.0054128170013427734))
+--- PASS: TestDecodeRune (%!s(float64=0.0013887882232666016))
 
 === RUN  TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (%!s(float64=7.104873657226562e-05))
+--- PASS: TestDecodeSurrogateRune (%!s(float64=3.790855407714844e-05))
 
 === RUN  TestSequencing
---- PASS: TestSequencing (%!s(float64=1.7154200077056885))
+--- PASS: TestSequencing (%!s(float64=0.4780111312866211))
 
 === RUN  TestRuntimeConversion
---- PASS: TestRuntimeConversion (%!s(float64=0.009093999862670898))
+--- PASS: TestRuntimeConversion (%!s(float64=0.002897977828979492))
 
 === RUN  TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (%!s(float64=0.0016570091247558594))
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.0007009506225585938))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=0.00011682510375976562))
+--- PASS: TestNegativeRune (%!s(float64=4.1961669921875e-05))
 
 === RUN  TestRuneCount
---- PASS: TestRuneCount (%!s(float64=0.00016689300537109375))
+--- PASS: TestRuneCount (%!s(float64=0.00012922286987304688))
 
 === RUN  TestRuneLen
---- PASS: TestRuneLen (%!s(float64=2.8848648071289062e-05))
+--- PASS: TestRuneLen (%!s(float64=2.4080276489257812e-05))
 
 === RUN  TestValid
---- PASS: TestValid (%!s(float64=0.0009329319000244141))
+--- PASS: TestValid (%!s(float64=0.0003249645233154297))
 
 === RUN  TestValidRune
---- PASS: TestValidRune (%!s(float64=2.8848648071289062e-05))
+--- PASS: TestValidRune (%!s(float64=2.4080276489257812e-05))
 
 ```
 </p>
@@ -217,52 +216,44 @@ final maxRune:stdgo.GoInt32 = ((1114111 : GoInt32))
 ```
 
 
+
 Numbers fundamental to the encoding.  
 
 
-
 Maximum valid Unicode code point.  
-
-
 
 ```haxe
 final runeError:stdgo.GoInt32 = ((65533 : GoInt32))
 ```
 
 
-Numbers fundamental to the encoding.  
 
+Numbers fundamental to the encoding.  
 
 
 the "error" Rune or "Unicode replacement character"  
 
-
-
 ```haxe
-final runeSelf:stdgo.GoUInt64 = (("128" : GoUInt64))
+final runeSelf:stdgo.GoUInt64 = ((128i64 : GoUInt64))
 ```
 
 
-Numbers fundamental to the encoding.  
 
+Numbers fundamental to the encoding.  
 
 
 characters below RuneSelf are represented as themselves in a single byte.  
 
-
-
 ```haxe
-final utfmax:stdgo.GoUInt64 = (("4" : GoUInt64))
+final utfmax:stdgo.GoUInt64 = ((4i64 : GoUInt64))
 ```
+
 
 
 Numbers fundamental to the encoding.  
 
 
-
 maximum number of bytes of a UTF\-8 encoded Unicode character.  
-
-
 
 # Functions
 
@@ -280,11 +271,10 @@ function appendRune(_p:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdgo.Slice<s
 ```
 
 
-AppendRune appends the UTF\-8 encoding of r to the end of p and  
-returns the extended buffer. If the rune is out of range,  
+
+AppendRune appends the UTF\-8 encoding of r to the end of p and
+returns the extended buffer. If the rune is out of range,
 it appends the encoding of RuneError.  
-
-
 
 ### exampleAppendRune
 
@@ -321,18 +311,16 @@ function decodeLastRune(_p:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-DecodeLastRune unpacks the last UTF\-8 encoding in p and returns the rune and  
-its width in bytes. If p is empty it returns \(RuneError, 0\). Otherwise, if  
-the encoding is invalid, it returns \(RuneError, 1\). Both are impossible  
+
+DecodeLastRune unpacks the last UTF\-8 encoding in p and returns the rune and
+its width in bytes. If p is empty it returns \(RuneError, 0\). Otherwise, if
+the encoding is invalid, it returns \(RuneError, 1\). Both are impossible
 results for correct, non\-empty UTF\-8.  
 
 
-
-An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is  
-out of range, or is not the shortest possible UTF\-8 encoding for the  
+An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
+out of range, or is not the shortest possible UTF\-8 encoding for the
 value. No other validation is performed.  
-
-
 
 ### exampleDecodeLastRune
 
@@ -371,18 +359,16 @@ function decodeLastRuneInString(_s:stdgo.GoString):{
 ```
 
 
-DecodeLastRuneInString is like DecodeLastRune but its input is a string. If  
-s is empty it returns \(RuneError, 0\). Otherwise, if the encoding is invalid,  
-it returns \(RuneError, 1\). Both are impossible results for correct,  
+
+DecodeLastRuneInString is like DecodeLastRune but its input is a string. If
+s is empty it returns \(RuneError, 0\). Otherwise, if the encoding is invalid,
+it returns \(RuneError, 1\). Both are impossible results for correct,
 non\-empty UTF\-8.  
 
 
-
-An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is  
-out of range, or is not the shortest possible UTF\-8 encoding for the  
+An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
+out of range, or is not the shortest possible UTF\-8 encoding for the
 value. No other validation is performed.  
-
-
 
 ### exampleDecodeLastRuneInString
 
@@ -421,18 +407,16 @@ function decodeRune(_p:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-DecodeRune unpacks the first UTF\-8 encoding in p and returns the rune and  
-its width in bytes. If p is empty it returns \(RuneError, 0\). Otherwise, if  
-the encoding is invalid, it returns \(RuneError, 1\). Both are impossible  
+
+DecodeRune unpacks the first UTF\-8 encoding in p and returns the rune and
+its width in bytes. If p is empty it returns \(RuneError, 0\). Otherwise, if
+the encoding is invalid, it returns \(RuneError, 1\). Both are impossible
 results for correct, non\-empty UTF\-8.  
 
 
-
-An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is  
-out of range, or is not the shortest possible UTF\-8 encoding for the  
+An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
+out of range, or is not the shortest possible UTF\-8 encoding for the
 value. No other validation is performed.  
-
-
 
 ### exampleDecodeRune
 
@@ -471,18 +455,16 @@ function decodeRuneInString(_s:stdgo.GoString):{
 ```
 
 
-DecodeRuneInString is like DecodeRune but its input is a string. If s is  
-empty it returns \(RuneError, 0\). Otherwise, if the encoding is invalid, it  
-returns \(RuneError, 1\). Both are impossible results for correct, non\-empty  
+
+DecodeRuneInString is like DecodeRune but its input is a string. If s is
+empty it returns \(RuneError, 0\). Otherwise, if the encoding is invalid, it
+returns \(RuneError, 1\). Both are impossible results for correct, non\-empty
 UTF\-8.  
 
 
-
-An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is  
-out of range, or is not the shortest possible UTF\-8 encoding for the  
+An encoding is invalid if it is incorrect UTF\-8, encodes a rune that is
+out of range, or is not the shortest possible UTF\-8 encoding for the
 value. No other validation is performed.  
-
-
 
 ### exampleDecodeRuneInString
 
@@ -518,11 +500,10 @@ function encodeRune(_p:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdgo.GoInt
 ```
 
 
-EncodeRune writes into p \(which must be large enough\) the UTF\-8 encoding of the rune.  
-If the rune is out of range, it writes the encoding of RuneError.  
+
+EncodeRune writes into p \(which must be large enough\) the UTF\-8 encoding of the rune.
+If the rune is out of range, it writes the encoding of RuneError.
 It returns the number of bytes written.  
-
-
 
 ### exampleEncodeRune
 
@@ -580,10 +561,9 @@ function fullRune(_p:stdgo.Slice<stdgo.GoByte>):Bool
 ```
 
 
-FullRune reports whether the bytes in p begin with a full UTF\-8 encoding of a rune.  
+
+FullRune reports whether the bytes in p begin with a full UTF\-8 encoding of a rune.
 An invalid encoding is considered a full Rune since it will convert as a width\-1 error rune.  
-
-
 
 ### exampleFullRune
 
@@ -616,9 +596,8 @@ function fullRuneInString(_s:stdgo.GoString):Bool
 ```
 
 
+
 FullRuneInString is like FullRune but its input is a string.  
-
-
 
 ### exampleFullRuneInString
 
@@ -651,10 +630,9 @@ function runeCount(_p:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt
 ```
 
 
-RuneCount returns the number of runes in p. Erroneous and short  
+
+RuneCount returns the number of runes in p. Erroneous and short
 encodings are treated as single runes of width 1 byte.  
-
-
 
 ### exampleRuneCount
 
@@ -687,9 +665,8 @@ function runeCountInString(_s:stdgo.GoString):stdgo.GoInt
 ```
 
 
+
 RuneCountInString is like RuneCount but its input is a string.  
-
-
 
 ### exampleRuneCountInString
 
@@ -722,10 +699,9 @@ function runeLen(_r:stdgo.GoRune):stdgo.GoInt
 ```
 
 
-RuneLen returns the number of bytes required to encode the rune.  
+
+RuneLen returns the number of bytes required to encode the rune.
 It returns \-1 if the rune is not a valid value to encode in UTF\-8.  
-
-
 
 ### exampleRuneLen
 
@@ -757,11 +733,10 @@ function runeStart(_b:stdgo.GoByte):Bool
 ```
 
 
-RuneStart reports whether the byte could be the first byte of an encoded,  
-possibly invalid rune. Second and subsequent bytes always have the top two  
+
+RuneStart reports whether the byte could be the first byte of an encoded,
+possibly invalid rune. Second and subsequent bytes always have the top two
 bits set to 10.  
-
-
 
 ### exampleRuneStart
 
@@ -795,9 +770,8 @@ function valid(_p:stdgo.Slice<stdgo.GoByte>):Bool
 ```
 
 
+
 Valid reports whether p consists entirely of valid UTF\-8\-encoded runes.  
-
-
 
 ### exampleValid
 
@@ -831,10 +805,9 @@ function validRune(_r:stdgo.GoRune):Bool
 ```
 
 
-ValidRune reports whether r can be legally encoded as UTF\-8.  
+
+ValidRune reports whether r can be legally encoded as UTF\-8.
 Code points that are out of range or a surrogate half are illegal.  
-
-
 
 ### exampleValidRune
 
@@ -868,9 +841,8 @@ function validString(_s:stdgo.GoString):Bool
 ```
 
 
+
 ValidString reports whether s consists entirely of valid UTF\-8\-encoded runes.  
-
-
 
 ### exampleValidString
 

@@ -6,98 +6,97 @@
 # Overview
 
 
-Package unicode provides data and functions to test some properties of  
+
+Package unicode provides data and functions to test some properties of
 Unicode code points.  
-
-
 
 <details><summary>hl tests passed</summary>
 <p>
 
 ```
 === RUN  TestDigit
---- PASS: TestDigit (%!s(float64=0.00011992454528808594))
+--- PASS: TestDigit (%!s(float64=9.107589721679688e-05))
 
 === RUN  TestDigitOptimization
---- PASS: TestDigitOptimization (%!s(float64=5.0067901611328125e-05))
+--- PASS: TestDigitOptimization (%!s(float64=3.2901763916015625e-05))
 
 === RUN  TestIsControlLatin1
---- PASS: TestIsControlLatin1 (%!s(float64=0.00015282630920410156))
+--- PASS: TestIsControlLatin1 (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (%!s(float64=0.0002090930938720703))
+--- PASS: TestIsLetterLatin1 (%!s(float64=4.792213439941406e-05))
 
 === RUN  TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (%!s(float64=0.00021600723266601562))
+--- PASS: TestIsUpperLatin1 (%!s(float64=3.886222839355469e-05))
 
 === RUN  TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (%!s(float64=0.00018095970153808594))
+--- PASS: TestIsLowerLatin1 (%!s(float64=3.910064697265625e-05))
 
 === RUN  TestNumberLatin1
---- PASS: TestNumberLatin1 (%!s(float64=0.0001819133758544922))
+--- PASS: TestNumberLatin1 (%!s(float64=4.887580871582031e-05))
 
 === RUN  TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (%!s(float64=0.0007300376892089844))
+--- PASS: TestIsPrintLatin1 (%!s(float64=0.0004971027374267578))
 
 === RUN  TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (%!s(float64=0.0007309913635253906))
+--- PASS: TestIsGraphicLatin1 (%!s(float64=0.0005118846893310547))
 
 === RUN  TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (%!s(float64=0.0002701282501220703))
+--- PASS: TestIsPunctLatin1 (%!s(float64=0.00011205673217773438))
 
 === RUN  TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (%!s(float64=0.0001690387725830078))
+--- PASS: TestIsSpaceLatin1 (%!s(float64=4.100799560546875e-05))
 
 === RUN  TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (%!s(float64=0.0002200603485107422))
+--- PASS: TestIsSymbolLatin1 (%!s(float64=6.914138793945312e-05))
 
 === RUN  TestIsLetter
---- PASS: TestIsLetter (%!s(float64=0.00010800361633300781))
+--- PASS: TestIsLetter (%!s(float64=4.410743713378906e-05))
 
 === RUN  TestIsUpper
---- PASS: TestIsUpper (%!s(float64=6.413459777832031e-05))
+--- PASS: TestIsUpper (%!s(float64=2.9087066650390625e-05))
 
 === RUN  TestTo
---- PASS: TestTo (%!s(float64=0.0008800029754638672))
+--- PASS: TestTo (%!s(float64=4.601478576660156e-05))
 
 === RUN  TestToUpperCase
---- PASS: TestToUpperCase (%!s(float64=0.00025010108947753906))
+--- PASS: TestToUpperCase (%!s(float64=1.9073486328125e-05))
 
 === RUN  TestToLowerCase
---- PASS: TestToLowerCase (%!s(float64=0.00022602081298828125))
+--- PASS: TestToLowerCase (%!s(float64=2.3126602172851562e-05))
 
 === RUN  TestToTitleCase
---- PASS: TestToTitleCase (%!s(float64=0.0001900196075439453))
+--- PASS: TestToTitleCase (%!s(float64=1.811981201171875e-05))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=4.100799560546875e-05))
+--- PASS: TestIsSpace (%!s(float64=1.2874603271484375e-05))
 
 === RUN  TestLetterOptimizations
---- PASS: TestLetterOptimizations (%!s(float64=0.016417980194091797))
+--- PASS: TestLetterOptimizations (%!s(float64=0.0007901191711425781))
 
 === RUN  TestTurkishCase
---- PASS: TestTurkishCase (%!s(float64=0.0023849010467529297))
+--- PASS: TestTurkishCase (%!s(float64=0.00015211105346679688))
 
 === RUN  TestSimpleFold
---- PASS: TestSimpleFold (%!s(float64=0.0001971721649169922))
+--- PASS: TestSimpleFold (%!s(float64=6.103515625e-05))
 
 === RUN  TestCalibrate
 --- PASS: TestCalibrate (%!s(float64=5.0067901611328125e-06))
 
 === RUN  TestLatinOffset
---- PASS: TestLatinOffset (%!s(float64=0.1701030731201172))
+--- PASS: TestLatinOffset (%!s(float64=0.13448286056518555))
 
 === RUN  TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (%!s(float64=5.507469177246094e-05))
+--- PASS: TestSpecialCaseNoMapping (%!s(float64=3.3855438232421875e-05))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=0.004349946975708008))
+--- PASS: TestNegativeRune (%!s(float64=0.00139617919921875))
 
 === RUN  TestCategories
---- PASS: TestCategories (%!s(float64=0.04290199279785156))
+--- PASS: TestCategories (%!s(float64=0.03540205955505371))
 
 === RUN  TestProperties
---- PASS: TestProperties (%!s(float64=0.03739190101623535))
+--- PASS: TestProperties (%!s(float64=0.03154897689819336))
 
 ```
 </p>
@@ -108,88 +107,88 @@ Unicode code points.
 
 ```
 === RUN  TestDigit
---- PASS: TestDigit (%!s(float64=0.0010750293731689453))
+--- PASS: TestDigit (%!s(float64=0.001068115234375))
 
 === RUN  TestDigitOptimization
---- PASS: TestDigitOptimization (%!s(float64=0.0009441375732421875))
+--- PASS: TestDigitOptimization (%!s(float64=0.0008289813995361328))
 
 === RUN  TestIsControlLatin1
---- PASS: TestIsControlLatin1 (%!s(float64=0.0011320114135742188))
+--- PASS: TestIsControlLatin1 (%!s(float64=0.00048089027404785156))
 
 === RUN  TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (%!s(float64=0.0022110939025878906))
+--- PASS: TestIsLetterLatin1 (%!s(float64=0.0014050006866455078))
 
 === RUN  TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (%!s(float64=0.002096891403198242))
+--- PASS: TestIsUpperLatin1 (%!s(float64=0.001010894775390625))
 
 === RUN  TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (%!s(float64=0.003401041030883789))
+--- PASS: TestIsLowerLatin1 (%!s(float64=0.0010700225830078125))
 
 === RUN  TestNumberLatin1
---- PASS: TestNumberLatin1 (%!s(float64=0.0021789073944091797))
+--- PASS: TestNumberLatin1 (%!s(float64=0.001188039779663086))
 
 === RUN  TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (%!s(float64=0.00725102424621582))
+--- PASS: TestIsPrintLatin1 (%!s(float64=0.004024982452392578))
 
 === RUN  TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (%!s(float64=0.006535768508911133))
+--- PASS: TestIsGraphicLatin1 (%!s(float64=0.004313945770263672))
 
 === RUN  TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (%!s(float64=0.0030829906463623047))
+--- PASS: TestIsPunctLatin1 (%!s(float64=0.0018401145935058594))
 
 === RUN  TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (%!s(float64=0.0020749568939208984))
+--- PASS: TestIsSpaceLatin1 (%!s(float64=0.0010139942169189453))
 
 === RUN  TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (%!s(float64=0.0026509761810302734))
+--- PASS: TestIsSymbolLatin1 (%!s(float64=0.0014770030975341797))
 
 === RUN  TestIsLetter
---- PASS: TestIsLetter (%!s(float64=0.0010688304901123047))
+--- PASS: TestIsLetter (%!s(float64=0.0006821155548095703))
 
 === RUN  TestIsUpper
---- PASS: TestIsUpper (%!s(float64=0.0005459785461425781))
+--- PASS: TestIsUpper (%!s(float64=0.0004119873046875))
 
 === RUN  TestTo
---- PASS: TestTo (%!s(float64=0.0020110607147216797))
+--- PASS: TestTo (%!s(float64=0.0008420944213867188))
 
 === RUN  TestToUpperCase
---- PASS: TestToUpperCase (%!s(float64=0.000659942626953125))
+--- PASS: TestToUpperCase (%!s(float64=0.0002880096435546875))
 
 === RUN  TestToLowerCase
---- PASS: TestToLowerCase (%!s(float64=0.0006399154663085938))
+--- PASS: TestToLowerCase (%!s(float64=0.0002830028533935547))
 
 === RUN  TestToTitleCase
---- PASS: TestToTitleCase (%!s(float64=0.0006060600280761719))
+--- PASS: TestToTitleCase (%!s(float64=0.00026607513427734375))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=0.0002970695495605469))
+--- PASS: TestIsSpace (%!s(float64=0.00012993812561035156))
 
 === RUN  TestLetterOptimizations
---- PASS: TestLetterOptimizations (%!s(float64=0.03946185111999512))
+--- PASS: TestLetterOptimizations (%!s(float64=0.014902114868164062))
 
 === RUN  TestTurkishCase
---- PASS: TestTurkishCase (%!s(float64=0.003734111785888672))
+--- PASS: TestTurkishCase (%!s(float64=0.0013988018035888672))
 
 === RUN  TestSimpleFold
---- PASS: TestSimpleFold (%!s(float64=0.0009679794311523438))
+--- PASS: TestSimpleFold (%!s(float64=0.0004401206970214844))
 
 === RUN  TestCalibrate
 --- PASS: TestCalibrate (%!s(float64=8.106231689453125e-06))
 
 === RUN  TestLatinOffset
---- PASS: TestLatinOffset (%!s(float64=0.10301899909973145))
+--- PASS: TestLatinOffset (%!s(float64=0.08910298347473145))
 
 === RUN  TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (%!s(float64=0.0002307891845703125))
+--- PASS: TestSpecialCaseNoMapping (%!s(float64=0.00013899803161621094))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=0.02612781524658203))
+--- PASS: TestNegativeRune (%!s(float64=0.012742042541503906))
 
 === RUN  TestCategories
---- PASS: TestCategories (%!s(float64=0.02786087989807129))
+--- PASS: TestCategories (%!s(float64=0.02395796775817871))
 
 === RUN  TestProperties
---- PASS: TestProperties (%!s(float64=0.024922847747802734))
+--- PASS: TestProperties (%!s(float64=0.021541833877563477))
 
 ```
 </p>
@@ -310,100 +309,89 @@ import stdgo.unicode.Unicode
 
 
 ```haxe
-final lowerCase:stdgo.GoUInt64 = (("2" : GoUInt64))
+final lowerCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
 ```
 
 
+
 Indices into the Delta arrays inside CaseRanges for case mapping.  
-
-
 
 ```haxe
 final maxASCII:stdgo.GoInt32 = ((127 : GoInt32))
 ```
 
 
+
 maximum ASCII value.  
 
-
-
 ```haxe
-final maxCase:stdgo.GoUInt64 = (("2" : GoUInt64))
+final maxCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
 ```
 
 
+
 Indices into the Delta arrays inside CaseRanges for case mapping.  
-
-
 
 ```haxe
 final maxLatin1:stdgo.GoInt32 = ((255 : GoInt32))
 ```
 
 
+
 maximum Latin\-1 value.  
-
-
 
 ```haxe
 final maxRune:stdgo.GoInt32 = ((1114111 : GoInt32))
 ```
 
 
+
 Maximum valid Unicode code point.  
-
-
 
 ```haxe
 final replacementChar:stdgo.GoInt32 = ((65533 : GoInt32))
 ```
 
 
+
 Represents invalid code points.  
 
-
-
 ```haxe
-final titleCase:stdgo.GoUInt64 = (("2" : GoUInt64))
+final titleCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
 ```
+
 
 
 Indices into the Delta arrays inside CaseRanges for case mapping.  
 
-
-
 ```haxe
-final upperCase:stdgo.GoUInt64 = (("2" : GoUInt64))
+final upperCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
 ```
 
 
+
 Indices into the Delta arrays inside CaseRanges for case mapping.  
-
-
 
 ```haxe
 final upperLower:stdgo.GoInt32 = ((1114112 : GoInt32))
 ```
 
 
-If the Delta field of a CaseRange is UpperLower, it means  
-this CaseRange represents a sequence of the form \(say\)  
+
+If the Delta field of a CaseRange is UpperLower, it means
+this CaseRange represents a sequence of the form \(say\)
 Upper Lower Upper Lower.  
 
 
-
 \(Cannot be a valid delta.\)  
-
-
 
 ```haxe
 final version:stdgo.GoString = (("13.0.0" : GoString))
 ```
 
 
+
 Version is the Unicode edition from which the tables are derived.  
-
-
 
 # Variables
 
@@ -418,91 +406,77 @@ var adlam:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Adlam is the set of Unicode characters in script Adlam.  
-
-
 
 ```haxe
 var ahom:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Ahom is the set of Unicode characters in script Ahom.  
-
-
 
 ```haxe
 var anatolian_Hieroglyphs:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Anatolian\_Hieroglyphs is the set of Unicode characters in script Anatolian\_Hieroglyphs.  
-
-
 
 ```haxe
 var arabic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Arabic is the set of Unicode characters in script Arabic.  
-
-
 
 ```haxe
 var armenian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Armenian is the set of Unicode characters in script Armenian.  
-
-
 
 ```haxe
 var ascii_Hex_Digit:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 ASCII\_Hex\_Digit is the set of Unicode characters with property ASCII\_Hex\_Digit.  
-
-
 
 ```haxe
 var avestan:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Avestan is the set of Unicode characters in script Avestan.  
-
-
 
 ```haxe
 var azeriCase:stdgo.unicode.SpecialCase
@@ -514,2864 +488,2430 @@ var balinese:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Balinese is the set of Unicode characters in script Balinese.  
-
-
 
 ```haxe
 var bamum:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Bamum is the set of Unicode characters in script Bamum.  
-
-
 
 ```haxe
 var bassa_Vah:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Bassa\_Vah is the set of Unicode characters in script Bassa\_Vah.  
-
-
 
 ```haxe
 var batak:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Batak is the set of Unicode characters in script Batak.  
-
-
 
 ```haxe
 var bengali:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Bengali is the set of Unicode characters in script Bengali.  
-
-
 
 ```haxe
 var bhaiksuki:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Bhaiksuki is the set of Unicode characters in script Bhaiksuki.  
-
-
 
 ```haxe
 var bidi_Control:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Bidi\_Control is the set of Unicode characters with property Bidi\_Control.  
-
-
 
 ```haxe
 var bopomofo:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Bopomofo is the set of Unicode characters in script Bopomofo.  
-
-
 
 ```haxe
 var brahmi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Brahmi is the set of Unicode characters in script Brahmi.  
-
-
 
 ```haxe
 var braille:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Braille is the set of Unicode characters in script Braille.  
-
-
 
 ```haxe
 var buginese:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Buginese is the set of Unicode characters in script Buginese.  
-
-
 
 ```haxe
 var buhid:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Buhid is the set of Unicode characters in script Buhid.  
-
-
 
 ```haxe
 var c:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
-
-
 
 ```haxe
 var canadian_Aboriginal:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Canadian\_Aboriginal is the set of Unicode characters in script Canadian\_Aboriginal.  
-
-
 
 ```haxe
 var carian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Carian is the set of Unicode characters in script Carian.  
-
-
 
 ```haxe
 var caseRanges:stdgo.Slice<stdgo.unicode.CaseRange>
 ```
 
 
-CaseRanges is the table describing case mappings for all letters with  
+
+CaseRanges is the table describing case mappings for all letters with
 non\-self mappings.  
-
-
 
 ```haxe
 var categories:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.RangeTable>>
 ```
 
 
+
 Categories is the set of Unicode category tables.  
-
-
 
 ```haxe
 var caucasian_Albanian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Caucasian\_Albanian is the set of Unicode characters in script Caucasian\_Albanian.  
-
-
 
 ```haxe
 var cc:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Cc is the set of Unicode characters in category Cc \(Other, control\).  
-
-
 
 ```haxe
 var cf:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Cf is the set of Unicode characters in category Cf \(Other, format\).  
-
-
 
 ```haxe
 var chakma:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Chakma is the set of Unicode characters in script Chakma.  
-
-
 
 ```haxe
 var cham:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Cham is the set of Unicode characters in script Cham.  
-
-
 
 ```haxe
 var cherokee:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Cherokee is the set of Unicode characters in script Cherokee.  
-
-
 
 ```haxe
 var chorasmian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Chorasmian is the set of Unicode characters in script Chorasmian.  
-
-
 
 ```haxe
 var co:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Co is the set of Unicode characters in category Co \(Other, private use\).  
-
-
 
 ```haxe
 var common:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Common is the set of Unicode characters in script Common.  
-
-
 
 ```haxe
 var coptic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Coptic is the set of Unicode characters in script Coptic.  
-
-
 
 ```haxe
 var cs:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Cs is the set of Unicode characters in category Cs \(Other, surrogate\).  
-
-
 
 ```haxe
 var cuneiform:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Cuneiform is the set of Unicode characters in script Cuneiform.  
-
-
 
 ```haxe
 var cypriot:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Cypriot is the set of Unicode characters in script Cypriot.  
-
-
 
 ```haxe
 var cyrillic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Cyrillic is the set of Unicode characters in script Cyrillic.  
-
-
 
 ```haxe
 var dash:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Dash is the set of Unicode characters with property Dash.  
-
-
 
 ```haxe
 var deprecated:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Deprecated is the set of Unicode characters with property Deprecated.  
-
-
 
 ```haxe
 var deseret:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Deseret is the set of Unicode characters in script Deseret.  
-
-
 
 ```haxe
 var devanagari:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Devanagari is the set of Unicode characters in script Devanagari.  
-
-
 
 ```haxe
 var diacritic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Diacritic is the set of Unicode characters with property Diacritic.  
-
-
 
 ```haxe
 var digit:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Digit is the set of Unicode characters with the "decimal digit" property.  
-
-
 
 ```haxe
 var dives_Akuru:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Dives\_Akuru is the set of Unicode characters in script Dives\_Akuru.  
-
-
 
 ```haxe
 var dogra:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Dogra is the set of Unicode characters in script Dogra.  
-
-
 
 ```haxe
 var duployan:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Duployan is the set of Unicode characters in script Duployan.  
-
-
 
 ```haxe
 var egyptian_Hieroglyphs:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Egyptian\_Hieroglyphs is the set of Unicode characters in script Egyptian\_Hieroglyphs.  
-
-
 
 ```haxe
 var elbasan:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Elbasan is the set of Unicode characters in script Elbasan.  
-
-
 
 ```haxe
 var elymaic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Elymaic is the set of Unicode characters in script Elymaic.  
-
-
 
 ```haxe
 var ethiopic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Ethiopic is the set of Unicode characters in script Ethiopic.  
-
-
 
 ```haxe
 var extender:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Extender is the set of Unicode characters with property Extender.  
-
-
 
 ```haxe
 var foldCategory:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.RangeTable>>
 ```
 
 
-FoldCategory maps a category name to a table of  
-code points outside the category that are equivalent under  
-simple case folding to code points inside the category.  
+
+FoldCategory maps a category name to a table of
+code points outside the category that are equivalent under
+simple case folding to code points inside the category.
 If there is no entry for a category name, there are no such points.  
-
-
 
 ```haxe
 var foldScript:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.RangeTable>>
 ```
 
 
-FoldScript maps a script name to a table of  
-code points outside the script that are equivalent under  
-simple case folding to code points inside the script.  
+
+FoldScript maps a script name to a table of
+code points outside the script that are equivalent under
+simple case folding to code points inside the script.
 If there is no entry for a script name, there are no such points.  
-
-
 
 ```haxe
 var georgian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Georgian is the set of Unicode characters in script Georgian.  
-
-
 
 ```haxe
 var glagolitic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Glagolitic is the set of Unicode characters in script Glagolitic.  
-
-
 
 ```haxe
 var gothic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Gothic is the set of Unicode characters in script Gothic.  
-
-
 
 ```haxe
 var grantha:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Grantha is the set of Unicode characters in script Grantha.  
-
-
 
 ```haxe
 var graphicRanges:stdgo.Slice<stdgo.Ref<stdgo.unicode.RangeTable>>
 ```
 
 
+
 GraphicRanges defines the set of graphic characters according to Unicode.  
-
-
 
 ```haxe
 var greek:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Greek is the set of Unicode characters in script Greek.  
-
-
 
 ```haxe
 var gujarati:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Gujarati is the set of Unicode characters in script Gujarati.  
-
-
 
 ```haxe
 var gunjala_Gondi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Gunjala\_Gondi is the set of Unicode characters in script Gunjala\_Gondi.  
-
-
 
 ```haxe
 var gurmukhi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Gurmukhi is the set of Unicode characters in script Gurmukhi.  
-
-
 
 ```haxe
 var han:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Han is the set of Unicode characters in script Han.  
-
-
 
 ```haxe
 var hangul:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Hangul is the set of Unicode characters in script Hangul.  
-
-
 
 ```haxe
 var hanifi_Rohingya:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Hanifi\_Rohingya is the set of Unicode characters in script Hanifi\_Rohingya.  
-
-
 
 ```haxe
 var hanunoo:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Hanunoo is the set of Unicode characters in script Hanunoo.  
-
-
 
 ```haxe
 var hatran:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Hatran is the set of Unicode characters in script Hatran.  
-
-
 
 ```haxe
 var hebrew:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Hebrew is the set of Unicode characters in script Hebrew.  
-
-
 
 ```haxe
 var hex_Digit:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Hex\_Digit is the set of Unicode characters with property Hex\_Digit.  
-
-
 
 ```haxe
 var hiragana:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Hiragana is the set of Unicode characters in script Hiragana.  
-
-
 
 ```haxe
 var hyphen:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Hyphen is the set of Unicode characters with property Hyphen.  
-
-
 
 ```haxe
 var ideographic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Ideographic is the set of Unicode characters with property Ideographic.  
-
-
 
 ```haxe
 var ids_Binary_Operator:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 IDS\_Binary\_Operator is the set of Unicode characters with property IDS\_Binary\_Operator.  
-
-
 
 ```haxe
 var ids_Trinary_Operator:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 IDS\_Trinary\_Operator is the set of Unicode characters with property IDS\_Trinary\_Operator.  
-
-
 
 ```haxe
 var imperial_Aramaic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Imperial\_Aramaic is the set of Unicode characters in script Imperial\_Aramaic.  
-
-
 
 ```haxe
 var inherited:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Inherited is the set of Unicode characters in script Inherited.  
-
-
 
 ```haxe
 var inscriptional_Pahlavi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Inscriptional\_Pahlavi is the set of Unicode characters in script Inscriptional\_Pahlavi.  
-
-
 
 ```haxe
 var inscriptional_Parthian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Inscriptional\_Parthian is the set of Unicode characters in script Inscriptional\_Parthian.  
-
-
 
 ```haxe
 var javanese:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Javanese is the set of Unicode characters in script Javanese.  
-
-
 
 ```haxe
 var join_Control:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Join\_Control is the set of Unicode characters with property Join\_Control.  
-
-
 
 ```haxe
 var kaithi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Kaithi is the set of Unicode characters in script Kaithi.  
-
-
 
 ```haxe
 var kannada:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Kannada is the set of Unicode characters in script Kannada.  
-
-
 
 ```haxe
 var katakana:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Katakana is the set of Unicode characters in script Katakana.  
-
-
 
 ```haxe
 var kayah_Li:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Kayah\_Li is the set of Unicode characters in script Kayah\_Li.  
-
-
 
 ```haxe
 var kharoshthi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Kharoshthi is the set of Unicode characters in script Kharoshthi.  
-
-
 
 ```haxe
 var khitan_Small_Script:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Khitan\_Small\_Script is the set of Unicode characters in script Khitan\_Small\_Script.  
-
-
 
 ```haxe
 var khmer:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Khmer is the set of Unicode characters in script Khmer.  
-
-
 
 ```haxe
 var khojki:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Khojki is the set of Unicode characters in script Khojki.  
-
-
 
 ```haxe
 var khudawadi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Khudawadi is the set of Unicode characters in script Khudawadi.  
-
-
 
 ```haxe
 var l:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
-
-
 
 ```haxe
 var lao:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Lao is the set of Unicode characters in script Lao.  
-
-
 
 ```haxe
 var latin:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Latin is the set of Unicode characters in script Latin.  
-
-
 
 ```haxe
 var lepcha:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Lepcha is the set of Unicode characters in script Lepcha.  
-
-
 
 ```haxe
 var letter:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Letter/L is the set of Unicode letters, category L.  
-
-
 
 ```haxe
 var limbu:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Limbu is the set of Unicode characters in script Limbu.  
-
-
 
 ```haxe
 var linear_A:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Linear\_A is the set of Unicode characters in script Linear\_A.  
-
-
 
 ```haxe
 var linear_B:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Linear\_B is the set of Unicode characters in script Linear\_B.  
-
-
 
 ```haxe
 var lisu:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Lisu is the set of Unicode characters in script Lisu.  
-
-
 
 ```haxe
 var ll:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Ll is the set of Unicode characters in category Ll \(Letter, lowercase\).  
-
-
 
 ```haxe
 var lm:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Lm is the set of Unicode characters in category Lm \(Letter, modifier\).  
-
-
 
 ```haxe
 var lo:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Lo is the set of Unicode characters in category Lo \(Letter, other\).  
-
-
 
 ```haxe
 var logical_Order_Exception:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Logical\_Order\_Exception is the set of Unicode characters with property Logical\_Order\_Exception.  
-
-
 
 ```haxe
 var lower:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Lower is the set of Unicode lower case letters.  
-
-
 
 ```haxe
 var lt:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Lt is the set of Unicode characters in category Lt \(Letter, titlecase\).  
-
-
 
 ```haxe
 var lu:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Lu is the set of Unicode characters in category Lu \(Letter, uppercase\).  
-
-
 
 ```haxe
 var lycian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Lycian is the set of Unicode characters in script Lycian.  
-
-
 
 ```haxe
 var lydian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Lydian is the set of Unicode characters in script Lydian.  
-
-
 
 ```haxe
 var m:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
-
-
 
 ```haxe
 var mahajani:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Mahajani is the set of Unicode characters in script Mahajani.  
-
-
 
 ```haxe
 var makasar:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Makasar is the set of Unicode characters in script Makasar.  
-
-
 
 ```haxe
 var malayalam:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Malayalam is the set of Unicode characters in script Malayalam.  
-
-
 
 ```haxe
 var mandaic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Mandaic is the set of Unicode characters in script Mandaic.  
-
-
 
 ```haxe
 var manichaean:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Manichaean is the set of Unicode characters in script Manichaean.  
-
-
 
 ```haxe
 var marchen:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Marchen is the set of Unicode characters in script Marchen.  
-
-
 
 ```haxe
 var mark:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Mark/M is the set of Unicode mark characters, category M.  
-
-
 
 ```haxe
 var masaram_Gondi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Masaram\_Gondi is the set of Unicode characters in script Masaram\_Gondi.  
-
-
 
 ```haxe
 var mc:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Mc is the set of Unicode characters in category Mc \(Mark, spacing combining\).  
-
-
 
 ```haxe
 var me:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Me is the set of Unicode characters in category Me \(Mark, enclosing\).  
-
-
 
 ```haxe
 var medefaidrin:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Medefaidrin is the set of Unicode characters in script Medefaidrin.  
-
-
 
 ```haxe
 var meetei_Mayek:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Meetei\_Mayek is the set of Unicode characters in script Meetei\_Mayek.  
-
-
 
 ```haxe
 var mende_Kikakui:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Mende\_Kikakui is the set of Unicode characters in script Mende\_Kikakui.  
-
-
 
 ```haxe
 var meroitic_Cursive:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Meroitic\_Cursive is the set of Unicode characters in script Meroitic\_Cursive.  
-
-
 
 ```haxe
 var meroitic_Hieroglyphs:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Meroitic\_Hieroglyphs is the set of Unicode characters in script Meroitic\_Hieroglyphs.  
-
-
 
 ```haxe
 var miao:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Miao is the set of Unicode characters in script Miao.  
-
-
 
 ```haxe
 var mn:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Mn is the set of Unicode characters in category Mn \(Mark, nonspacing\).  
-
-
 
 ```haxe
 var modi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Modi is the set of Unicode characters in script Modi.  
-
-
 
 ```haxe
 var mongolian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Mongolian is the set of Unicode characters in script Mongolian.  
-
-
 
 ```haxe
 var mro:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Mro is the set of Unicode characters in script Mro.  
-
-
 
 ```haxe
 var multani:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Multani is the set of Unicode characters in script Multani.  
-
-
 
 ```haxe
 var myanmar:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Myanmar is the set of Unicode characters in script Myanmar.  
-
-
 
 ```haxe
 var n:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
-
-
 
 ```haxe
 var nabataean:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Nabataean is the set of Unicode characters in script Nabataean.  
-
-
 
 ```haxe
 var nandinagari:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Nandinagari is the set of Unicode characters in script Nandinagari.  
-
-
 
 ```haxe
 var nd:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Nd is the set of Unicode characters in category Nd \(Number, decimal digit\).  
-
-
 
 ```haxe
 var new_Tai_Lue:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 New\_Tai\_Lue is the set of Unicode characters in script New\_Tai\_Lue.  
-
-
 
 ```haxe
 var newa:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Newa is the set of Unicode characters in script Newa.  
-
-
 
 ```haxe
 var nko:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Nko is the set of Unicode characters in script Nko.  
-
-
 
 ```haxe
 var nl:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Nl is the set of Unicode characters in category Nl \(Number, letter\).  
-
-
 
 ```haxe
 var no:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 No is the set of Unicode characters in category No \(Number, other\).  
-
-
 
 ```haxe
 var noncharacter_Code_Point:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Noncharacter\_Code\_Point is the set of Unicode characters with property Noncharacter\_Code\_Point.  
-
-
 
 ```haxe
 var number:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Number/N is the set of Unicode number characters, category N.  
-
-
 
 ```haxe
 var nushu:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Nushu is the set of Unicode characters in script Nushu.  
-
-
 
 ```haxe
 var nyiakeng_Puachue_Hmong:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Nyiakeng\_Puachue\_Hmong is the set of Unicode characters in script Nyiakeng\_Puachue\_Hmong.  
-
-
 
 ```haxe
 var ogham:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Ogham is the set of Unicode characters in script Ogham.  
-
-
 
 ```haxe
 var ol_Chiki:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Ol\_Chiki is the set of Unicode characters in script Ol\_Chiki.  
-
-
 
 ```haxe
 var old_Hungarian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Old\_Hungarian is the set of Unicode characters in script Old\_Hungarian.  
-
-
 
 ```haxe
 var old_Italic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Old\_Italic is the set of Unicode characters in script Old\_Italic.  
-
-
 
 ```haxe
 var old_North_Arabian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Old\_North\_Arabian is the set of Unicode characters in script Old\_North\_Arabian.  
-
-
 
 ```haxe
 var old_Permic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Old\_Permic is the set of Unicode characters in script Old\_Permic.  
-
-
 
 ```haxe
 var old_Persian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Old\_Persian is the set of Unicode characters in script Old\_Persian.  
-
-
 
 ```haxe
 var old_Sogdian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Old\_Sogdian is the set of Unicode characters in script Old\_Sogdian.  
-
-
 
 ```haxe
 var old_South_Arabian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Old\_South\_Arabian is the set of Unicode characters in script Old\_South\_Arabian.  
-
-
 
 ```haxe
 var old_Turkic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Old\_Turkic is the set of Unicode characters in script Old\_Turkic.  
-
-
 
 ```haxe
 var oriya:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Oriya is the set of Unicode characters in script Oriya.  
-
-
 
 ```haxe
 var osage:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Osage is the set of Unicode characters in script Osage.  
-
-
 
 ```haxe
 var osmanya:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Osmanya is the set of Unicode characters in script Osmanya.  
-
-
 
 ```haxe
 var other:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Other/C is the set of Unicode control and special characters, category C.  
-
-
 
 ```haxe
 var other_Alphabetic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Other\_Alphabetic is the set of Unicode characters with property Other\_Alphabetic.  
-
-
 
 ```haxe
 var other_Default_Ignorable_Code_Point:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Other\_Default\_Ignorable\_Code\_Point is the set of Unicode characters with property Other\_Default\_Ignorable\_Code\_Point.  
-
-
 
 ```haxe
 var other_Grapheme_Extend:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Other\_Grapheme\_Extend is the set of Unicode characters with property Other\_Grapheme\_Extend.  
-
-
 
 ```haxe
 var other_ID_Continue:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Other\_ID\_Continue is the set of Unicode characters with property Other\_ID\_Continue.  
-
-
 
 ```haxe
 var other_ID_Start:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Other\_ID\_Start is the set of Unicode characters with property Other\_ID\_Start.  
-
-
 
 ```haxe
 var other_Lowercase:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Other\_Lowercase is the set of Unicode characters with property Other\_Lowercase.  
-
-
 
 ```haxe
 var other_Math:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Other\_Math is the set of Unicode characters with property Other\_Math.  
-
-
 
 ```haxe
 var other_Uppercase:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Other\_Uppercase is the set of Unicode characters with property Other\_Uppercase.  
-
-
 
 ```haxe
 var p:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
-
-
 
 ```haxe
 var pahawh_Hmong:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Pahawh\_Hmong is the set of Unicode characters in script Pahawh\_Hmong.  
-
-
 
 ```haxe
 var palmyrene:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Palmyrene is the set of Unicode characters in script Palmyrene.  
-
-
 
 ```haxe
 var pattern_Syntax:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Pattern\_Syntax is the set of Unicode characters with property Pattern\_Syntax.  
-
-
 
 ```haxe
 var pattern_White_Space:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Pattern\_White\_Space is the set of Unicode characters with property Pattern\_White\_Space.  
-
-
 
 ```haxe
 var pau_Cin_Hau:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Pau\_Cin\_Hau is the set of Unicode characters in script Pau\_Cin\_Hau.  
-
-
 
 ```haxe
 var pc:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Pc is the set of Unicode characters in category Pc \(Punctuation, connector\).  
-
-
 
 ```haxe
 var pd:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Pd is the set of Unicode characters in category Pd \(Punctuation, dash\).  
-
-
 
 ```haxe
 var pe:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Pe is the set of Unicode characters in category Pe \(Punctuation, close\).  
-
-
 
 ```haxe
 var pf:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Pf is the set of Unicode characters in category Pf \(Punctuation, final quote\).  
-
-
 
 ```haxe
 var phags_Pa:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Phags\_Pa is the set of Unicode characters in script Phags\_Pa.  
-
-
 
 ```haxe
 var phoenician:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Phoenician is the set of Unicode characters in script Phoenician.  
-
-
 
 ```haxe
 var pi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Pi is the set of Unicode characters in category Pi \(Punctuation, initial quote\).  
-
-
 
 ```haxe
 var po:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Po is the set of Unicode characters in category Po \(Punctuation, other\).  
-
-
 
 ```haxe
 var prepended_Concatenation_Mark:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Prepended\_Concatenation\_Mark is the set of Unicode characters with property Prepended\_Concatenation\_Mark.  
-
-
 
 ```haxe
 var printRanges:stdgo.Slice<stdgo.Ref<stdgo.unicode.RangeTable>>
 ```
 
 
-PrintRanges defines the set of printable characters according to Go.  
+
+PrintRanges defines the set of printable characters according to Go.
 ASCII space, U\+0020, is handled separately.  
-
-
 
 ```haxe
 var properties:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.RangeTable>>
 ```
 
 
+
 Properties is the set of Unicode property tables.  
-
-
 
 ```haxe
 var ps:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Ps is the set of Unicode characters in category Ps \(Punctuation, open\).  
-
-
 
 ```haxe
 var psalter_Pahlavi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Psalter\_Pahlavi is the set of Unicode characters in script Psalter\_Pahlavi.  
-
-
 
 ```haxe
 var punct:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Punct/P is the set of Unicode punctuation characters, category P.  
-
-
 
 ```haxe
 var quotation_Mark:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Quotation\_Mark is the set of Unicode characters with property Quotation\_Mark.  
-
-
 
 ```haxe
 var radical:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Radical is the set of Unicode characters with property Radical.  
-
-
 
 ```haxe
 var regional_Indicator:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Regional\_Indicator is the set of Unicode characters with property Regional\_Indicator.  
-
-
 
 ```haxe
 var rejang:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Rejang is the set of Unicode characters in script Rejang.  
-
-
 
 ```haxe
 var runic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Runic is the set of Unicode characters in script Runic.  
-
-
 
 ```haxe
 var s:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
-
-
 
 ```haxe
 var samaritan:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Samaritan is the set of Unicode characters in script Samaritan.  
-
-
 
 ```haxe
 var saurashtra:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Saurashtra is the set of Unicode characters in script Saurashtra.  
-
-
 
 ```haxe
 var sc:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Sc is the set of Unicode characters in category Sc \(Symbol, currency\).  
-
-
 
 ```haxe
 var scripts:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.RangeTable>>
 ```
 
 
+
 Scripts is the set of Unicode script tables.  
-
-
 
 ```haxe
 var sentence_Terminal:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Sentence\_Terminal is the set of Unicode characters with property Sentence\_Terminal.  
-
-
 
 ```haxe
 var sharada:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Sharada is the set of Unicode characters in script Sharada.  
-
-
 
 ```haxe
 var shavian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Shavian is the set of Unicode characters in script Shavian.  
-
-
 
 ```haxe
 var siddham:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Siddham is the set of Unicode characters in script Siddham.  
-
-
 
 ```haxe
 var signWriting:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 SignWriting is the set of Unicode characters in script SignWriting.  
-
-
 
 ```haxe
 var sinhala:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Sinhala is the set of Unicode characters in script Sinhala.  
-
-
 
 ```haxe
 var sk:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Sk is the set of Unicode characters in category Sk \(Symbol, modifier\).  
-
-
 
 ```haxe
 var sm:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Sm is the set of Unicode characters in category Sm \(Symbol, math\).  
-
-
 
 ```haxe
 var so:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 So is the set of Unicode characters in category So \(Symbol, other\).  
-
-
 
 ```haxe
 var soft_Dotted:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Soft\_Dotted is the set of Unicode characters with property Soft\_Dotted.  
-
-
 
 ```haxe
 var sogdian:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Sogdian is the set of Unicode characters in script Sogdian.  
-
-
 
 ```haxe
 var sora_Sompeng:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Sora\_Sompeng is the set of Unicode characters in script Sora\_Sompeng.  
-
-
 
 ```haxe
 var soyombo:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Soyombo is the set of Unicode characters in script Soyombo.  
-
-
 
 ```haxe
 var space:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Space/Z is the set of Unicode space characters, category Z.  
-
-
 
 ```haxe
 var sterm:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 STerm is an alias for Sentence\_Terminal.  
-
-
 
 ```haxe
 var sundanese:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Sundanese is the set of Unicode characters in script Sundanese.  
-
-
 
 ```haxe
 var syloti_Nagri:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Syloti\_Nagri is the set of Unicode characters in script Syloti\_Nagri.  
-
-
 
 ```haxe
 var symbol:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Symbol/S is the set of Unicode symbol characters, category S.  
-
-
 
 ```haxe
 var syriac:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Syriac is the set of Unicode characters in script Syriac.  
-
-
 
 ```haxe
 var tagalog:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Tagalog is the set of Unicode characters in script Tagalog.  
-
-
 
 ```haxe
 var tagbanwa:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Tagbanwa is the set of Unicode characters in script Tagbanwa.  
-
-
 
 ```haxe
 var tai_Le:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Tai\_Le is the set of Unicode characters in script Tai\_Le.  
-
-
 
 ```haxe
 var tai_Tham:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Tai\_Tham is the set of Unicode characters in script Tai\_Tham.  
-
-
 
 ```haxe
 var tai_Viet:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Tai\_Viet is the set of Unicode characters in script Tai\_Viet.  
-
-
 
 ```haxe
 var takri:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Takri is the set of Unicode characters in script Takri.  
-
-
 
 ```haxe
 var tamil:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Tamil is the set of Unicode characters in script Tamil.  
-
-
 
 ```haxe
 var tangut:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Tangut is the set of Unicode characters in script Tangut.  
-
-
 
 ```haxe
 var telugu:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Telugu is the set of Unicode characters in script Telugu.  
-
-
 
 ```haxe
 var terminal_Punctuation:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Terminal\_Punctuation is the set of Unicode characters with property Terminal\_Punctuation.  
-
-
 
 ```haxe
 var thaana:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Thaana is the set of Unicode characters in script Thaana.  
-
-
 
 ```haxe
 var thai:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Thai is the set of Unicode characters in script Thai.  
-
-
 
 ```haxe
 var tibetan:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Tibetan is the set of Unicode characters in script Tibetan.  
-
-
 
 ```haxe
 var tifinagh:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Tifinagh is the set of Unicode characters in script Tifinagh.  
-
-
 
 ```haxe
 var tirhuta:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Tirhuta is the set of Unicode characters in script Tirhuta.  
-
-
 
 ```haxe
 var title:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Title is the set of Unicode title case letters.  
-
-
 
 ```haxe
 var turkishCase:stdgo.unicode.SpecialCase
@@ -3383,191 +2923,162 @@ var ugaritic:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Ugaritic is the set of Unicode characters in script Ugaritic.  
-
-
 
 ```haxe
 var unified_Ideograph:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Unified\_Ideograph is the set of Unicode characters with property Unified\_Ideograph.  
-
-
 
 ```haxe
 var upper:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Upper is the set of Unicode upper case letters.  
-
-
 
 ```haxe
 var vai:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Vai is the set of Unicode characters in script Vai.  
-
-
 
 ```haxe
 var variation_Selector:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Variation\_Selector is the set of Unicode characters with property Variation\_Selector.  
-
-
 
 ```haxe
 var wancho:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Wancho is the set of Unicode characters in script Wancho.  
-
-
 
 ```haxe
 var warang_Citi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Warang\_Citi is the set of Unicode characters in script Warang\_Citi.  
-
-
 
 ```haxe
 var white_Space:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 White\_Space is the set of Unicode characters with property White\_Space.  
-
-
 
 ```haxe
 var yezidi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Yezidi is the set of Unicode characters in script Yezidi.  
-
-
 
 ```haxe
 var yi:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Yi is the set of Unicode characters in script Yi.  
-
-
 
 ```haxe
 var z:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
-
-
 
 ```haxe
 var zanabazar_Square:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Zanabazar\_Square is the set of Unicode characters in script Zanabazar\_Square.  
-
-
 
 ```haxe
 var zl:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Zl is the set of Unicode characters in category Zl \(Separator, line\).  
-
-
 
 ```haxe
 var zp:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Zp is the set of Unicode characters in category Zp \(Separator, paragraph\).  
-
-
 
 ```haxe
 var zs:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
+
 These variables have type \*RangeTable.  
 
 
-
 Zs is the set of Unicode characters in category Zs \(Separator, space\).  
-
-
 
 # Functions
 
@@ -3585,9 +3096,8 @@ function in_(_r:stdgo.GoRune, _ranges:haxe.Rest<stdgo.Ref<stdgo.unicode.RangeTab
 ```
 
 
+
 In reports whether the rune is a member of one of the ranges.  
-
-
 
 [\(view code\)](<./Unicode.hx#L9401>)
 
@@ -3600,11 +3110,10 @@ function isControl(_r:stdgo.GoRune):Bool
 ```
 
 
-IsControl reports whether the rune is a control character.  
-The C \(Other\) Unicode category includes more code points  
+
+IsControl reports whether the rune is a control character.
+The C \(Other\) Unicode category includes more code points
 such as surrogates; use Is\(C, r\) to test for them.  
-
-
 
 [\(view code\)](<./Unicode.hx#L9415>)
 
@@ -3617,9 +3126,8 @@ function isDigit(_r:stdgo.GoRune):Bool
 ```
 
 
+
 IsDigit reports whether the rune is a decimal digit.  
-
-
 
 ### exampleIsDigit
 
@@ -3651,11 +3159,10 @@ function isGraphic(_r:stdgo.GoRune):Bool
 ```
 
 
-IsGraphic reports whether the rune is defined as a Graphic by Unicode.  
-Such characters include letters, marks, numbers, punctuation, symbols, and  
+
+IsGraphic reports whether the rune is defined as a Graphic by Unicode.
+Such characters include letters, marks, numbers, punctuation, symbols, and
 spaces, from categories L, M, N, P, S, Zs.  
-
-
 
 [\(view code\)](<./Unicode.hx#L9367>)
 
@@ -3668,9 +3175,8 @@ function isLetter(_r:stdgo.GoRune):Bool
 ```
 
 
+
 IsLetter reports whether the rune is a letter \(category L\).  
-
-
 
 ### exampleIsLetter
 
@@ -3702,9 +3208,8 @@ function isLower(_r:stdgo.GoRune):Bool
 ```
 
 
+
 IsLower reports whether the rune is a lower case letter.  
-
-
 
 ### exampleIsLower
 
@@ -3736,9 +3241,8 @@ function isMark(_r:stdgo.GoRune):Bool
 ```
 
 
+
 IsMark reports whether the rune is a mark character \(category M\).  
-
-
 
 [\(view code\)](<./Unicode.hx#L9433>)
 
@@ -3751,9 +3255,8 @@ function isNumber(_r:stdgo.GoRune):Bool
 ```
 
 
+
 IsNumber reports whether the rune is a number \(category N\).  
-
-
 
 ### exampleIsNumber
 
@@ -3785,10 +3288,9 @@ function isOneOf(_ranges:stdgo.Slice<stdgo.Ref<stdgo.unicode.RangeTable>>, _r:st
 ```
 
 
-IsOneOf reports whether the rune is a member of one of the ranges.  
+
+IsOneOf reports whether the rune is a member of one of the ranges.
 The function "In" provides a nicer signature and should be used in preference to IsOneOf.  
-
-
 
 [\(view code\)](<./Unicode.hx#L9390>)
 
@@ -3801,13 +3303,12 @@ function isPrint(_r:stdgo.GoRune):Bool
 ```
 
 
-IsPrint reports whether the rune is defined as printable by Go. Such  
-characters include letters, marks, numbers, punctuation, symbols, and the  
-ASCII space character, from categories L, M, N, P, S and the ASCII space  
-character. This categorization is the same as IsGraphic except that the  
+
+IsPrint reports whether the rune is defined as printable by Go. Such
+characters include letters, marks, numbers, punctuation, symbols, and the
+ASCII space character, from categories L, M, N, P, S and the ASCII space
+character. This categorization is the same as IsGraphic except that the
 only spacing character is ASCII space, U\+0020.  
-
-
 
 [\(view code\)](<./Unicode.hx#L9380>)
 
@@ -3820,10 +3321,9 @@ function isPunct(_r:stdgo.GoRune):Bool
 ```
 
 
-IsPunct reports whether the rune is a Unicode punctuation character  
+
+IsPunct reports whether the rune is a Unicode punctuation character
 \(category P\).  
-
-
 
 [\(view code\)](<./Unicode.hx#L9449>)
 
@@ -3836,23 +3336,17 @@ function isSpace(_r:stdgo.GoRune):Bool
 ```
 
 
-IsSpace reports whether the rune is a space character as defined  
-by Unicode's White Space property; in the Latin\-1 space  
+
+IsSpace reports whether the rune is a space character as defined
+by Unicode's White Space property; in the Latin\-1 space
 this is  
 
+```
+	'\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).
+```
 
-
-
-
-
-'\\t', '\\n', '\\v', '\\f', '\\r', ' ', U\+0085 \(NEL\), U\+00A0 \(NBSP\).  
-
-
-
-Other definitions of spacing characters are set by category  
+Other definitions of spacing characters are set by category
 Z and property Pattern\_White\_Space.  
-
-
 
 ### exampleIsSpace
 
@@ -3886,9 +3380,8 @@ function isSymbol(_r:stdgo.GoRune):Bool
 ```
 
 
+
 IsSymbol reports whether the rune is a symbolic character.  
-
-
 
 [\(view code\)](<./Unicode.hx#L9480>)
 
@@ -3901,9 +3394,8 @@ function isTitle(_r:stdgo.GoRune):Bool
 ```
 
 
+
 IsTitle reports whether the rune is a title case letter.  
-
-
 
 ### exampleIsTitle
 
@@ -3935,9 +3427,8 @@ function isUpper(_r:stdgo.GoRune):Bool
 ```
 
 
+
 IsUpper reports whether the rune is an upper case letter.  
-
-
 
 ### exampleIsUpper
 
@@ -3969,9 +3460,8 @@ function is_(_rangeTab:stdgo.Ref<stdgo.unicode.RangeTable>, _r:stdgo.GoRune):Boo
 ```
 
 
+
 Is reports whether the rune is in the specified table of ranges.  
-
-
 
 [\(view code\)](<./Unicode.hx#L9553>)
 
@@ -3984,58 +3474,31 @@ function simpleFold(_r:stdgo.GoRune):stdgo.GoRune
 ```
 
 
-SimpleFold iterates over Unicode code points equivalent under  
-the Unicode\-defined simple case folding. Among the code points  
-equivalent to rune \(including rune itself\), SimpleFold returns the  
-smallest rune \> r if one exists, or else the smallest rune \>= 0.  
-If r is not a valid Unicode code point, SimpleFold\(r\) returns r.  
 
+SimpleFold iterates over Unicode code points equivalent under
+the Unicode\-defined simple case folding. Among the code points
+equivalent to rune \(including rune itself\), SimpleFold returns the
+smallest rune \> r if one exists, or else the smallest rune \>= 0.
+If r is not a valid Unicode code point, SimpleFold\(r\) returns r.  
 
 
 For example:  
 
-
-
-
-
-
-SimpleFold\('A'\) = 'a'  
-
-
-
-SimpleFold\('a'\) = 'A'  
-
-
-
-
-
-
-SimpleFold\('K'\) = 'k'  
-
-
-
-SimpleFold\('k'\) = '\\u212A' \(Kelvin symbol, K\)  
-
-
-
-SimpleFold\('\\u212A'\) = 'K'  
-
-
-
-
-
-
-SimpleFold\('1'\) = '1'  
-
-
-
-
-
-
-SimpleFold\(\-2\) = \-2  
-
-
-
+```
+	SimpleFold('A') = 'a'
+	SimpleFold('a') = 'A'
+```
+```
+	SimpleFold('K') = 'k'
+	SimpleFold('k') = '\u212A' (Kelvin symbol, K)
+	SimpleFold('\u212A') = 'K'
+```
+```
+	SimpleFold('1') = '1'
+```
+```
+	SimpleFold(-2) = -2
+```
 ### exampleSimpleFold
 
 
@@ -4070,9 +3533,8 @@ function to(__case:stdgo.GoInt, _r:stdgo.GoRune):stdgo.GoRune
 ```
 
 
+
 To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.  
-
-
 
 ### exampleTo
 
@@ -4110,9 +3572,8 @@ function toLower(_r:stdgo.GoRune):stdgo.GoRune
 ```
 
 
+
 ToLower maps the rune to lower case.  
-
-
 
 ### exampleToLower
 
@@ -4144,9 +3605,8 @@ function toTitle(_r:stdgo.GoRune):stdgo.GoRune
 ```
 
 
+
 ToTitle maps the rune to title case.  
-
-
 
 ### exampleToTitle
 
@@ -4178,9 +3638,8 @@ function toUpper(_r:stdgo.GoRune):stdgo.GoRune
 ```
 
 
+
 ToUpper maps the rune to upper case.  
-
-
 
 ### exampleToUpper
 
@@ -4215,27 +3674,21 @@ import stdgo.unicode.*
 ## class CaseRange
 
 
-CaseRange represents a range of Unicode code points for simple \(one  
-code point to one code point\) case conversion.  
-The range runs from Lo to Hi inclusive, with a fixed stride of 1. Deltas  
-are the number to add to the code point to reach the code point for a  
-different case for that character. They may be negative. If zero, it  
-means the character is in the corresponding case. There is a special  
-case representing sequences of alternating corresponding Upper and Lower  
+
+CaseRange represents a range of Unicode code points for simple \(one
+code point to one code point\) case conversion.
+The range runs from Lo to Hi inclusive, with a fixed stride of 1. Deltas
+are the number to add to the code point to reach the code point for a
+different case for that character. They may be negative. If zero, it
+means the character is in the corresponding case. There is a special
+case representing sequences of alternating corresponding Upper and Lower
 pairs. It appears with a fixed Delta of  
 
-
-
-
-
-
-\{UpperLower, UpperLower, UpperLower\}  
-
-
+```
+	{UpperLower, UpperLower, UpperLower}
+```
 
 The constant UpperLower has an otherwise impossible delta value.  
-
-
 
 ```haxe
 var delta:stdgo.unicode._Unicode.T_d
@@ -4260,19 +3713,15 @@ function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo.unicode._
 ```
 
 
-
-
-
 [\(view code\)](<./Unicode.hx#L9317>)
 
 
 ## class Range16
 
 
-Range16 represents of a range of 16\-bit Unicode code points. The range runs from Lo to Hi  
+
+Range16 represents of a range of 16\-bit Unicode code points. The range runs from Lo to Hi
 inclusive and has the specified stride.  
-
-
 
 ```haxe
 var hi:stdgo.GoUInt16
@@ -4297,20 +3746,16 @@ function new(?lo:stdgo.GoUInt16, ?hi:stdgo.GoUInt16, ?stride:stdgo.GoUInt16):Voi
 ```
 
 
-
-
-
 [\(view code\)](<./Unicode.hx#L9266>)
 
 
 ## class Range32
 
 
-Range32 represents of a range of Unicode code points and is used when one or  
-more of the values will not fit in 16 bits. The range runs from Lo to Hi  
+
+Range32 represents of a range of Unicode code points and is used when one or
+more of the values will not fit in 16 bits. The range runs from Lo to Hi
 inclusive and has the specified stride. Lo and Hi must always be \>= 1\<\<16.  
-
-
 
 ```haxe
 var hi:stdgo.GoUInt32
@@ -4335,22 +3780,18 @@ function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?stride:stdgo.GoUInt32):Voi
 ```
 
 
-
-
-
 [\(view code\)](<./Unicode.hx#L9287>)
 
 
 ## class RangeTable
 
 
-RangeTable defines a set of Unicode code points by listing the ranges of  
-code points within the set. The ranges are listed in two slices  
-to save space: a slice of 16\-bit ranges and a slice of 32\-bit ranges.  
-The two slices must be in sorted order and non\-overlapping.  
+
+RangeTable defines a set of Unicode code points by listing the ranges of
+code points within the set. The ranges are listed in two slices
+to save space: a slice of 16\-bit ranges and a slice of 32\-bit ranges.
+The two slices must be in sorted order and non\-overlapping.
 Also, R32 should contain only values \>= 0x10000 \(1\<\<16\).  
-
-
 
 ```haxe
 var latinOffset:stdgo.GoInt
@@ -4375,9 +3816,6 @@ function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.uni
 ```
 
 
-
-
-
 [\(view code\)](<./Unicode.hx#L9246>)
 
 
@@ -4397,8 +3835,7 @@ typedef SpecialCase = stdgo.Slice<stdgo.unicode.CaseRange>;
 ```
 
 
-SpecialCase represents language\-specific case mappings such as Turkish.  
+
+SpecialCase represents language\-specific case mappings such as Turkish.
 Methods of SpecialCase customize \(by overriding\) the standard mappings.  
-
-
 

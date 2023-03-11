@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -63,10 +60,7 @@ function exampleByteOrder_get():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Binary.hx#L96>)
+[\(view code\)](<./Binary.hx#L97>)
 
 
 ## function exampleByteOrder\_put
@@ -77,10 +71,7 @@ function exampleByteOrder_put():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Binary.hx#L90>)
+[\(view code\)](<./Binary.hx#L91>)
 
 
 ## function examplePutUvarint
@@ -91,10 +82,7 @@ function examplePutUvarint():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Binary.hx#L102>)
+[\(view code\)](<./Binary.hx#L103>)
 
 
 ## function examplePutVarint
@@ -105,10 +93,7 @@ function examplePutVarint():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Binary.hx#L109>)
+[\(view code\)](<./Binary.hx#L110>)
 
 
 ## function exampleRead
@@ -119,10 +104,7 @@ function exampleRead():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Binary.hx#L49>)
+[\(view code\)](<./Binary.hx#L50>)
 
 
 ## function exampleRead\_multi
@@ -133,10 +115,7 @@ function exampleRead_multi():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Binary.hx#L59>)
+[\(view code\)](<./Binary.hx#L60>)
 
 
 ## function exampleUvarint
@@ -147,10 +126,7 @@ function exampleUvarint():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Binary.hx#L127>)
+[\(view code\)](<./Binary.hx#L128>)
 
 
 ## function exampleVarint
@@ -161,10 +137,7 @@ function exampleVarint():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Binary.hx#L137>)
+[\(view code\)](<./Binary.hx#L138>)
 
 
 ## function exampleWrite
@@ -175,10 +148,7 @@ function exampleWrite():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Binary.hx#L29>)
+[\(view code\)](<./Binary.hx#L30>)
 
 
 ## function exampleWrite\_multi
@@ -189,9 +159,6 @@ function exampleWrite_multi():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Binary.hx#L38>)
+[\(view code\)](<./Binary.hx#L39>)
 
 

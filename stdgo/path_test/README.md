@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -101,10 +98,7 @@ function exampleBase():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L306>)
+[\(view code\)](<./Path.hx#L307>)
 
 
 ## function exampleClean
@@ -115,10 +109,7 @@ function exampleClean():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L311>)
+[\(view code\)](<./Path.hx#L312>)
 
 
 ## function exampleDir
@@ -129,10 +120,7 @@ function exampleDir():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L317>)
+[\(view code\)](<./Path.hx#L318>)
 
 
 ## function exampleExt
@@ -143,10 +131,7 @@ function exampleExt():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L325>)
+[\(view code\)](<./Path.hx#L326>)
 
 
 ## function exampleIsAbs
@@ -157,10 +142,7 @@ function exampleIsAbs():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L330>)
+[\(view code\)](<./Path.hx#L331>)
 
 
 ## function exampleJoin
@@ -171,10 +153,7 @@ function exampleJoin():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L333>)
+[\(view code\)](<./Path.hx#L334>)
 
 
 ## function exampleMatch
@@ -185,10 +164,7 @@ function exampleMatch():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L342>)
+[\(view code\)](<./Path.hx#L343>)
 
 
 ## function exampleSplit
@@ -199,10 +175,7 @@ function exampleSplit():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L356>)
+[\(view code\)](<./Path.hx#L357>)
 
 
 ## function testBase
@@ -213,10 +186,7 @@ function testBase(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L436>)
+[\(view code\)](<./Path.hx#L437>)
 
 
 ## function testClean
@@ -227,10 +197,7 @@ function testClean(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L373>)
+[\(view code\)](<./Path.hx#L374>)
 
 
 ## function testCleanMallocs
@@ -241,10 +208,7 @@ function testCleanMallocs(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L389>)
+[\(view code\)](<./Path.hx#L390>)
 
 
 ## function testDir
@@ -255,10 +219,7 @@ function testDir(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L446>)
+[\(view code\)](<./Path.hx#L447>)
 
 
 ## function testExt
@@ -269,10 +230,7 @@ function testExt(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L426>)
+[\(view code\)](<./Path.hx#L427>)
 
 
 ## function testIsAbs
@@ -283,10 +241,7 @@ function testIsAbs(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L456>)
+[\(view code\)](<./Path.hx#L457>)
 
 
 ## function testJoin
@@ -297,10 +252,7 @@ function testJoin(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L416>)
+[\(view code\)](<./Path.hx#L417>)
 
 
 ## function testMatch
@@ -311,10 +263,7 @@ function testMatch(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L365>)
+[\(view code\)](<./Path.hx#L366>)
 
 
 ## function testSplit
@@ -325,10 +274,7 @@ function testSplit(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path.hx#L406>)
+[\(view code\)](<./Path.hx#L407>)
 
 
 # Classes
@@ -340,9 +286,6 @@ import stdgo.path_test.*
 
 
 ## class ExtTest
-
-
-
 
 
 ```haxe
@@ -363,16 +306,10 @@ function new(?_path:stdgo.GoString, ?_ext:stdgo.GoString):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path_test.hx#L280>)
+[\(view code\)](<./Path_test.hx#L281>)
 
 
 ## class IsAbsTest
-
-
-
 
 
 ```haxe
@@ -393,16 +330,10 @@ function new(?_path:stdgo.GoString, ?_isAbs:Bool):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path_test.hx#L297>)
+[\(view code\)](<./Path_test.hx#L298>)
 
 
 ## class JoinTest
-
-
-
 
 
 ```haxe
@@ -423,16 +354,10 @@ function new(?_elem:stdgo.Slice<stdgo.GoString>, ?_path:stdgo.GoString):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path_test.hx#L263>)
+[\(view code\)](<./Path_test.hx#L264>)
 
 
 ## class MatchTest
-
-
-
 
 
 ```haxe
@@ -463,16 +388,10 @@ function new(?_pattern:stdgo.GoString, ?_s:stdgo.GoString, ?_match:Bool, ?_err:N
 ```
 
 
-
-
-
-[\(view code\)](<./Path_test.hx#L208>)
+[\(view code\)](<./Path_test.hx#L209>)
 
 
 ## class PathTest
-
-
-
 
 
 ```haxe
@@ -493,16 +412,10 @@ function new(?_path:stdgo.GoString, ?_result:stdgo.GoString):Void
 ```
 
 
-
-
-
-[\(view code\)](<./Path_test.hx#L227>)
+[\(view code\)](<./Path_test.hx#L228>)
 
 
 ## class SplitTest
-
-
-
 
 
 ```haxe
@@ -528,9 +441,6 @@ function new(?_path:stdgo.GoString, ?_dir:stdgo.GoString, ?_file:stdgo.GoString)
 ```
 
 
-
-
-
-[\(view code\)](<./Path_test.hx#L245>)
+[\(view code\)](<./Path_test.hx#L246>)
 
 

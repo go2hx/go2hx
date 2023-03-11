@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -55,10 +52,7 @@ function example():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Base64.hx#L11>)
+[\(view code\)](<./Base64.hx#L12>)
 
 
 ## function exampleEncoding\_Decode
@@ -69,10 +63,7 @@ function exampleEncoding_Decode():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Base64.hx#L42>)
+[\(view code\)](<./Base64.hx#L43>)
 
 
 ## function exampleEncoding\_DecodeString
@@ -83,10 +74,7 @@ function exampleEncoding_DecodeString():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Base64.hx#L33>)
+[\(view code\)](<./Base64.hx#L34>)
 
 
 ## function exampleEncoding\_Encode
@@ -97,10 +85,7 @@ function exampleEncoding_Encode():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Base64.hx#L27>)
+[\(view code\)](<./Base64.hx#L28>)
 
 
 ## function exampleEncoding\_EncodeToString
@@ -111,10 +96,7 @@ function exampleEncoding_EncodeToString():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Base64.hx#L22>)
+[\(view code\)](<./Base64.hx#L23>)
 
 
 ## function exampleNewEncoder
@@ -125,9 +107,6 @@ function exampleNewEncoder():Void
 ```
 
 
-
-
-
-[\(view code\)](<./Base64.hx#L53>)
+[\(view code\)](<./Base64.hx#L54>)
 
 

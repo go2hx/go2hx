@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -44,9 +41,6 @@ function alignof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-
-
-
 [\(view code\)](<./Unsafe.hx#L67>)
 
 
@@ -56,9 +50,6 @@ function alignof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```haxe
 function offsetof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
-
-
-
 
 
 [\(view code\)](<./Unsafe.hx#L63>)
@@ -72,9 +63,6 @@ function sizeof(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-
-
-
 [\(view code\)](<./Unsafe.hx#L59>)
 
 
@@ -84,9 +72,6 @@ function sizeof(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```haxe
 function sliceData(s:stdgo.Slice<sliceData.T>):stdgo.Slice<sliceData.T>
 ```
-
-
-
 
 
 [\(view code\)](<./Unsafe.hx#L75>)
@@ -100,9 +85,6 @@ function string(s:stdgo.GoString, len:stdgo.GoInt):stdgo.GoString
 ```
 
 
-
-
-
 [\(view code\)](<./Unsafe.hx#L78>)
 
 
@@ -112,9 +94,6 @@ function string(s:stdgo.GoString, len:stdgo.GoInt):stdgo.GoString
 ```haxe
 function stringData(s:stdgo.GoString):stdgo.GoString
 ```
-
-
-
 
 
 [\(view code\)](<./Unsafe.hx#L72>)
@@ -134,9 +113,6 @@ import stdgo.unsafe.*
 ```haxe
 typedef Pointer_ = stdgo.unsafe.UnsafePointer;
 ```
-
-
-
 
 
 # Abstracts

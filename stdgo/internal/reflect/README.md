@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -185,9 +182,6 @@ function _set(value:stdgo.reflect.Value):Void
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L822>)
 
 
@@ -197,9 +191,6 @@ function _set(value:stdgo.reflect.Value):Void
 ```haxe
 function asInterfaceValue(value:Dynamic, gt:stdgo.internal.reflect.GoType):Dynamic
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L643>)
@@ -213,9 +204,6 @@ function deepValueEqual(v1:stdgo.reflect.Value, v2:stdgo.reflect.Value, visited:
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L68>)
 
 
@@ -225,9 +213,6 @@ function deepValueEqual(v1:stdgo.reflect.Value, v2:stdgo.reflect.Value, visited:
 ```haxe
 function defaultValue(typ:stdgo.reflect.Type):Any
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L788>)
@@ -241,9 +226,6 @@ function defaultValueInternal(typ:stdgo.internal.reflect._Type):Any
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L837>)
 
 
@@ -253,9 +235,6 @@ function defaultValueInternal(typ:stdgo.internal.reflect._Type):Any
 ```haxe
 function directlyAssignable(t:stdgo.reflect.Type, v:stdgo.reflect.Type):Bool
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L156>)
@@ -269,9 +248,6 @@ function formatGoFieldName(name:String):String
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L44>)
 
 
@@ -281,9 +257,6 @@ function formatGoFieldName(name:String):String
 ```haxe
 function getElem(type:stdgo.internal.reflect.GoType):stdgo.internal.reflect.GoType
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L540>)
@@ -297,9 +270,6 @@ function getSignature(type:stdgo.internal.reflect.GoType):stdgo.internal.reflect
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L566>)
 
 
@@ -309,9 +279,6 @@ function getSignature(type:stdgo.internal.reflect.GoType):stdgo.internal.reflect
 ```haxe
 function getUnderlying(gt:stdgo.internal.reflect.GoType, ?once:Bool):Null<Null<stdgo.internal.reflect.GoType>>
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L743>)
@@ -325,9 +292,6 @@ function getUnderlyingRefNamed(gt:stdgo.internal.reflect.GoType, ?once:Bool):std
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L730>)
 
 
@@ -337,9 +301,6 @@ function getUnderlyingRefNamed(gt:stdgo.internal.reflect.GoType, ?once:Bool):std
 ```haxe
 function getVar(type:stdgo.internal.reflect.GoType):stdgo.internal.reflect.GoType
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L555>)
@@ -353,9 +314,6 @@ function implementsMethod(t:stdgo.reflect.Type, v:stdgo.reflect.Type):Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L358>)
 
 
@@ -365,9 +323,6 @@ function implementsMethod(t:stdgo.reflect.Type, v:stdgo.reflect.Type):Bool
 ```haxe
 function isAnyInterface(type:stdgo.internal.reflect.GoType):Bool
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L667>)
@@ -381,9 +336,6 @@ function isExported(name:String):Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L40>)
 
 
@@ -393,9 +345,6 @@ function isExported(name:String):Bool
 ```haxe
 function isInterface(type:stdgo.internal.reflect.GoType):Bool
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L678>)
@@ -409,9 +358,6 @@ function isInvalid(type:stdgo.internal.reflect.GoType):Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L520>)
 
 
@@ -421,9 +367,6 @@ function isInvalid(type:stdgo.internal.reflect.GoType):Bool
 ```haxe
 function isNamed(type:stdgo.internal.reflect.GoType):Bool
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L477>)
@@ -437,9 +380,6 @@ function isPointer(type:stdgo.internal.reflect.GoType):Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L593>)
 
 
@@ -449,9 +389,6 @@ function isPointer(type:stdgo.internal.reflect.GoType):Bool
 ```haxe
 function isPointerStruct(type:stdgo.internal.reflect.GoType):Bool
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L513>)
@@ -465,9 +402,6 @@ function isRef(type:stdgo.internal.reflect.GoType):Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L608>)
 
 
@@ -477,9 +411,6 @@ function isRef(type:stdgo.internal.reflect.GoType):Bool
 ```haxe
 function isRefValue(type:stdgo.internal.reflect.GoType):Bool
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L621>)
@@ -493,9 +424,6 @@ function isReflectTypeRef(type:stdgo.internal.reflect._Type):Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L617>)
 
 
@@ -505,9 +433,6 @@ function isReflectTypeRef(type:stdgo.internal.reflect._Type):Bool
 ```haxe
 function isSignature(type:stdgo.internal.reflect.GoType, ?underlyingBool:Bool):Bool
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L459>)
@@ -521,9 +446,6 @@ function isStruct(type:stdgo.internal.reflect.GoType):Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L501>)
 
 
@@ -533,9 +455,6 @@ function isStruct(type:stdgo.internal.reflect.GoType):Bool
 ```haxe
 function isTitle(string:String):Bool
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L497>)
@@ -549,9 +468,6 @@ function isUnsafePointer(type:stdgo.internal.reflect.GoType):Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L579>)
 
 
@@ -563,9 +479,6 @@ function namedUnderlying(obj:stdgo.AnyInterface):stdgo.AnyInterface
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L48>)
 
 
@@ -575,9 +488,6 @@ function namedUnderlying(obj:stdgo.AnyInterface):stdgo.AnyInterface
 ```haxe
 function pointerUnwrap(type:stdgo.internal.reflect.GoType):stdgo.internal.reflect.GoType
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L632>)
@@ -592,9 +502,6 @@ import stdgo.internal.reflect.*
 
 
 ## class FieldType
-
-
-
 
 
 ```haxe
@@ -630,9 +537,6 @@ function new(name:String, type:stdgo.internal.reflect._Reflect.Ref<stdgo.interna
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L428>)
 
 
@@ -644,16 +548,10 @@ function toString():String
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L435>)
 
 
 ## class MethodType
-
-
-
 
 
 ```haxe
@@ -679,9 +577,6 @@ function new(name:String, type:stdgo.internal.reflect._Reflect.Ref<stdgo.interna
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L407>)
 
 
@@ -693,16 +588,10 @@ function toString():String
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L417>)
 
 
 ## class \_Type
-
-
-
 
 
 ### \_Type function \_common
@@ -711,9 +600,6 @@ function toString():String
 ```haxe
 function _common():stdgo.internal.reflect.GoType
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L886>)
@@ -727,9 +613,6 @@ function new(gt:stdgo.internal.reflect.GoType):Void
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L880>)
 
 
@@ -739,9 +622,6 @@ function new(gt:stdgo.internal.reflect.GoType):Void
 ```haxe
 function _common():stdgo.internal.reflect._Reflect.Ref<Dynamic>
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L894>)
@@ -755,9 +635,6 @@ function _uncommon():stdgo.internal.reflect._Reflect.Ref<Dynamic>
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L891>)
 
 
@@ -767,9 +644,6 @@ function _uncommon():stdgo.internal.reflect._Reflect.Ref<Dynamic>
 ```haxe
 function align():stdgo.GoInt
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L1308>)
@@ -783,9 +657,6 @@ function assignableTo( _u:stdgo.reflect.Type):Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L1027>)
 
 
@@ -795,9 +666,6 @@ function assignableTo( _u:stdgo.reflect.Type):Bool
 ```haxe
 function bits():stdgo.GoInt
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L994>)
@@ -811,9 +679,6 @@ function chanDir():stdgo.reflect.ChanDir
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L992>)
 
 
@@ -823,9 +688,6 @@ function chanDir():stdgo.reflect.ChanDir
 ```haxe
 function comparable():Bool
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L1005>)
@@ -839,9 +701,6 @@ function convertibleTo( _u:stdgo.reflect.Type):Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L1025>)
 
 
@@ -851,9 +710,6 @@ function convertibleTo( _u:stdgo.reflect.Type):Bool
 ```haxe
 function elem():stdgo.reflect.Type
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L973>)
@@ -867,9 +723,6 @@ function field( _i:stdgo.GoInt):stdgo.reflect.StructField
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L949>)
 
 
@@ -881,9 +734,6 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L1305>)
 
 
@@ -893,9 +743,6 @@ function fieldAlign():stdgo.GoInt
 ```haxe
 function fieldByIndex( _index:stdgo.Slice<stdgo.GoInt>):stdgo.reflect.StructField
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L947>)
@@ -912,9 +759,6 @@ function fieldByName( _name:stdgo.GoString):{
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L944>)
 
 
@@ -929,9 +773,6 @@ function fieldByNameFunc( _match:()):{
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L941>)
 
 
@@ -941,9 +782,6 @@ function fieldByNameFunc( _match:()):{
 ```haxe
 function formatGoPath():String
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L1089>)
@@ -957,9 +795,6 @@ function implements_( _u:stdgo.reflect.Type):Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L1035>)
 
 
@@ -969,9 +804,6 @@ function implements_( _u:stdgo.reflect.Type):Bool
 ```haxe
 function in_( _i:stdgo.GoInt):stdgo.reflect.Type
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L929>)
@@ -985,9 +817,6 @@ function isVariadic():Bool
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L989>)
 
 
@@ -997,9 +826,6 @@ function isVariadic():Bool
 ```haxe
 function key():stdgo.reflect.Type
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L927>)
@@ -1013,9 +839,6 @@ function kind():stdgo.reflect.Kind
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L1045>)
 
 
@@ -1025,9 +848,6 @@ function kind():stdgo.reflect.Kind
 ```haxe
 function len():stdgo.GoInt
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L924>)
@@ -1041,9 +861,6 @@ function method( _0:stdgo.GoInt):stdgo.reflect.Method
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L1302>)
 
 
@@ -1053,9 +870,6 @@ function method( _0:stdgo.GoInt):stdgo.reflect.Method
 ```haxe
 function name():stdgo.GoString
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L1278>)
@@ -1069,9 +883,6 @@ function numField():stdgo.GoInt
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L912>)
 
 
@@ -1081,9 +892,6 @@ function numField():stdgo.GoInt
 ```haxe
 function numIn():stdgo.GoInt
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L902>)
@@ -1097,9 +905,6 @@ function numMethod():stdgo.GoInt
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L1280>)
 
 
@@ -1109,9 +914,6 @@ function numMethod():stdgo.GoInt
 ```haxe
 function numOut():stdgo.GoInt
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L900>)
@@ -1125,9 +927,6 @@ function out( _i:stdgo.GoInt):stdgo.reflect.Type
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L897>)
 
 
@@ -1137,9 +936,6 @@ function out( _i:stdgo.GoInt):stdgo.reflect.Type
 ```haxe
 function pkgPath():stdgo.GoString
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L1275>)
@@ -1153,9 +949,6 @@ function size():stdgo.GoUIntptr
 ```
 
 
-
-
-
 [\(view code\)](<./Reflect.hx#L1239>)
 
 
@@ -1165,9 +958,6 @@ function size():stdgo.GoUIntptr
 ```haxe
 function string():stdgo.GoString
 ```
-
-
-
 
 
 [\(view code\)](<./Reflect.hx#L1110>)

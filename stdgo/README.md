@@ -6,9 +6,6 @@
 # Overview
 
 
-
-
-
 # Index
 
 
@@ -231,9 +228,6 @@ import stdgo.*
 ## class AnyInterfaceData
 
 
-
-
-
 ```haxe
 var type:stdgo.internal.reflect._Type
 ```
@@ -252,10 +246,7 @@ function new(value:Any, type:stdgo.internal.reflect._Type):Void
 ```
 
 
-
-
-
-[\(view code\)](<./StdGoTypes.hx#L1775>)
+[\(view code\)](<./StdGoTypes.hx#L1726>)
 
 
 ### AnyInterfaceData function toString
@@ -266,16 +257,10 @@ function toString():String
 ```
 
 
-
-
-
-[\(view code\)](<./StdGoTypes.hx#L1781>)
+[\(view code\)](<./StdGoTypes.hx#L1732>)
 
 
 ## class ChanData
-
-
-
 
 
 ```haxe
@@ -296,9 +281,6 @@ function iterator():stdgo._Chan.ChanIterator<stdgo.ChanData.T>
 ```
 
 
-
-
-
 [\(view code\)](<./Chan.hx#L127>)
 
 
@@ -308,9 +290,6 @@ function iterator():stdgo._Chan.ChanIterator<stdgo.ChanData.T>
 ```haxe
 function keyValueIterator():stdgo._Chan.ChanKeyValueIterator<stdgo.ChanData.T>
 ```
-
-
-
 
 
 [\(view code\)](<./Chan.hx#L124>)
@@ -324,9 +303,6 @@ function new(length:stdgo.GoInt, defaultValue:():stdgo.ChanData.T):Void
 ```
 
 
-
-
-
 [\(view code\)](<./Chan.hx#L50>)
 
 
@@ -338,16 +314,10 @@ function toString():String
 ```
 
 
-
-
-
 [\(view code\)](<./Chan.hx#L129>)
 
 
 ## class Complex
-
-
-
 
 
 ```haxe
@@ -368,10 +338,7 @@ function new(r:stdgo.Complex.T, i:stdgo.Complex.T):Void
 ```
 
 
-
-
-
-[\(view code\)](<./StdGoTypes.hx#L232>)
+[\(view code\)](<./StdGoTypes.hx#L200>)
 
 
 ### Complex function toString
@@ -382,16 +349,10 @@ function toString():String
 ```
 
 
-
-
-
-[\(view code\)](<./StdGoTypes.hx#L238>)
+[\(view code\)](<./StdGoTypes.hx#L206>)
 
 
 ## class Go
-
-
-
 
 
 ```haxe
@@ -407,18 +368,12 @@ function asInterface(expr:Dynamic):Dynamic
 ```
 
 
-
-
-
 ### Go function cfor
 
 
 ```haxe
 function cfor(cond:Dynamic, post:Dynamic, expr:Dynamic):Dynamic
 ```
-
-
-
 
 
 ### Go function copySlice
@@ -429,18 +384,12 @@ function copySlice(dst:Dynamic, src:Dynamic):Dynamic
 ```
 
 
-
-
-
 ### Go function expectedValue
 
 
 ```haxe
 function expectedValue(value:Dynamic):Dynamic
 ```
-
-
-
 
 
 ### Go function map
@@ -451,18 +400,12 @@ function map(exprs:Dynamic):Dynamic
 ```
 
 
-
-
-
 ### Go function multireturn
 
 
 ```haxe
 function multireturn(expr:Dynamic):Dynamic
 ```
-
-
-
 
 
 ### Go function pointer
@@ -473,18 +416,12 @@ function pointer(expr:Dynamic, hasSet:Dynamic):Dynamic
 ```
 
 
-
-
-
 ### Go function routine
 
 
 ```haxe
 function routine(func:():Void):Void
 ```
-
-
-
 
 
 [\(view code\)](<./Go.hx#L23>)
@@ -498,18 +435,12 @@ function select(expr:Dynamic):Dynamic
 ```
 
 
-
-
-
 ### Go function setKeys
 
 
 ```haxe
 function setKeys(expr:Dynamic):Dynamic
 ```
-
-
-
 
 
 ### Go function setRef
@@ -520,9 +451,6 @@ function setRef(expr:Dynamic):Dynamic
 ```
 
 
-
-
-
 ### Go function str
 
 
@@ -531,18 +459,12 @@ function str(expr:Dynamic):Dynamic
 ```
 
 
-
-
-
 ### Go function string
 
 
 ```haxe
 function string(s:Dynamic):String
 ```
-
-
-
 
 
 [\(view code\)](<./Go.hx#L8>)
@@ -556,18 +478,12 @@ function toInterface(expr:Dynamic):Dynamic
 ```
 
 
-
-
-
 ### Go function typeAssert
 
 
 ```haxe
 function typeAssert(expr:Dynamic):Dynamic
 ```
-
-
-
 
 
 ### Go function typeEquals
@@ -578,18 +494,12 @@ function typeEquals(expr:Dynamic):Dynamic
 ```
 
 
-
-
-
 ### Go function typeFunction
 
 
 ```haxe
 function typeFunction(e:Dynamic):Dynamic
 ```
-
-
-
 
 
 ### Go function unquote
@@ -600,13 +510,7 @@ function unquote(qvalue:Dynamic):Dynamic
 ```
 
 
-
-
-
 ## class GoIntIterator
-
-
-
 
 
 ### GoIntIterator function hasNext
@@ -617,10 +521,7 @@ function hasNext():Bool
 ```
 
 
-
-
-
-[\(view code\)](<./StdGoTypes.hx#L1946>)
+[\(view code\)](<./StdGoTypes.hx#L1897>)
 
 
 ### GoIntIterator function new
@@ -631,10 +532,7 @@ function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
 ```
 
 
-
-
-
-[\(view code\)](<./StdGoTypes.hx#L1941>)
+[\(view code\)](<./StdGoTypes.hx#L1892>)
 
 
 ### GoIntIterator function next
@@ -645,16 +543,10 @@ function next():stdgo.GoInt
 ```
 
 
-
-
-
-[\(view code\)](<./StdGoTypes.hx#L1950>)
+[\(view code\)](<./StdGoTypes.hx#L1901>)
 
 
 ## class GoObjectMap
-
-
-
 
 
 ```haxe
@@ -670,10 +562,7 @@ function clear():Void
 ```
 
 
-
-
-
-[\(view code\)](<./GoMap.hx#L188>)
+[\(view code\)](<./GoMap.hx#L189>)
 
 
 ### GoObjectMap function copy
@@ -684,10 +573,7 @@ function copy():stdgo.GoObjectMap<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>
 ```
 
 
-
-
-
-[\(view code\)](<./GoMap.hx#L174>)
+[\(view code\)](<./GoMap.hx#L175>)
 
 
 ### GoObjectMap function defaultValue
@@ -696,9 +582,6 @@ function copy():stdgo.GoObjectMap<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>
 ```haxe
 function defaultValue():stdgo.GoObjectMap.V
 ```
-
-
-
 
 
 [\(view code\)](<./GoMap.hx#L129>)
@@ -712,10 +595,7 @@ function exists(key:stdgo.GoObjectMap.K):Bool
 ```
 
 
-
-
-
-[\(view code\)](<./GoMap.hx#L145>)
+[\(view code\)](<./GoMap.hx#L146>)
 
 
 ### GoObjectMap function get
@@ -726,10 +606,7 @@ function get(key:stdgo.GoObjectMap.K):Null<stdgo.GoObjectMap.V>
 ```
 
 
-
-
-
-[\(view code\)](<./GoMap.hx#L137>)
+[\(view code\)](<./GoMap.hx#L138>)
 
 
 ### GoObjectMap function iterator
@@ -740,10 +617,7 @@ function iterator():Iterator<stdgo.GoObjectMap.V>
 ```
 
 
-
-
-
-[\(view code\)](<./GoMap.hx#L168>)
+[\(view code\)](<./GoMap.hx#L169>)
 
 
 ### GoObjectMap function keyValueIterator
@@ -754,10 +628,7 @@ function keyValueIterator():KeyValueIterator<stdgo.GoObjectMap.K, stdgo.GoObject
 ```
 
 
-
-
-
-[\(view code\)](<./GoMap.hx#L170>)
+[\(view code\)](<./GoMap.hx#L171>)
 
 
 ### GoObjectMap function keys
@@ -768,10 +639,7 @@ function keys():Iterator<stdgo.GoObjectMap.K>
 ```
 
 
-
-
-
-[\(view code\)](<./GoMap.hx#L165>)
+[\(view code\)](<./GoMap.hx#L166>)
 
 
 ### GoObjectMap function new
@@ -780,9 +648,6 @@ function keys():Iterator<stdgo.GoObjectMap.K>
 ```haxe
 function new(t:stdgo.internal.reflect._Type):Void
 ```
-
-
-
 
 
 [\(view code\)](<./GoMap.hx#L95>)
@@ -796,10 +661,7 @@ function remove(key:stdgo.GoObjectMap.K):Bool
 ```
 
 
-
-
-
-[\(view code\)](<./GoMap.hx#L153>)
+[\(view code\)](<./GoMap.hx#L154>)
 
 
 ### GoObjectMap function set
@@ -808,9 +670,6 @@ function remove(key:stdgo.GoObjectMap.K):Bool
 ```haxe
 function set(key:stdgo.GoObjectMap.K, value:stdgo.GoObjectMap.V):Void
 ```
-
-
-
 
 
 [\(view code\)](<./GoMap.hx#L99>)
@@ -824,16 +683,10 @@ function toString():String
 ```
 
 
-
-
-
-[\(view code\)](<./GoMap.hx#L181>)
+[\(view code\)](<./GoMap.hx#L182>)
 
 
 ## class GoStringTools
-
-
-
 
 
 ### GoStringTools function indexOf
@@ -842,9 +695,6 @@ function toString():String
 ```haxe
 function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
-
-
-
 
 
 [\(view code\)](<./GoString.hx#L253>)
@@ -858,9 +708,6 @@ function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-
-
-
 [\(view code\)](<./GoString.hx#L250>)
 
 
@@ -870,9 +717,6 @@ function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```haxe
 function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString
 ```
-
-
-
 
 
 [\(view code\)](<./GoString.hx#L256>)
@@ -886,16 +730,10 @@ function toString(str:stdgo.GoString):String
 ```
 
 
-
-
-
 [\(view code\)](<./GoString.hx#L259>)
 
 
 ## class PointerData
-
-
-
 
 
 ```haxe
@@ -931,18 +769,12 @@ function assign():stdgo.PointerData.T
 ```
 
 
-
-
-
 ### PointerData function convert
 
 
 ```haxe
 function convert()
 ```
-
-
-
 
 
 ### PointerData function get
@@ -953,18 +785,12 @@ function get():stdgo.PointerData.T
 ```
 
 
-
-
-
 ### PointerData function new
 
 
 ```haxe
 function new(?get:():Null<stdgo.PointerData.T>, ?set:(value:stdgo.PointerData.T):stdgo.PointerData.T, ?hasSet:Bool, ?previous:stdgo.Pointer<Any>, ?underlying:Any, ?underlyingIndex:Any):Void
 ```
-
-
-
 
 
 [\(view code\)](<./Pointer.hx#L86>)
@@ -978,9 +804,6 @@ function set()
 ```
 
 
-
-
-
 ### PointerData function toString
 
 
@@ -989,16 +812,10 @@ function toString():String
 ```
 
 
-
-
-
 [\(view code\)](<./Pointer.hx#L101>)
 
 
 ## class SliceData
-
-
-
 
 
 ```haxe
@@ -1029,9 +846,6 @@ function get(index:Int):stdgo.SliceData.T
 ```
 
 
-
-
-
 [\(view code\)](<./Slice.hx#L266>)
 
 
@@ -1041,9 +855,6 @@ function get(index:Int):stdgo.SliceData.T
 ```haxe
 function grow():Void
 ```
-
-
-
 
 
 [\(view code\)](<./Slice.hx#L292>)
@@ -1057,9 +868,6 @@ function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void
 ```
 
 
-
-
-
 [\(view code\)](<./Slice.hx#L243>)
 
 
@@ -1069,9 +877,6 @@ function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void
 ```haxe
 function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T
 ```
-
-
-
 
 
 [\(view code\)](<./Slice.hx#L271>)
@@ -1085,9 +890,6 @@ function toArray():Array<stdgo.SliceData.T>
 ```
 
 
-
-
-
 [\(view code\)](<./Slice.hx#L276>)
 
 
@@ -1097,9 +899,6 @@ function toArray():Array<stdgo.SliceData.T>
 ```haxe
 function toString():String
 ```
-
-
-
 
 
 [\(view code\)](<./Slice.hx#L284>)
@@ -1113,16 +912,10 @@ function toVector():haxe.ds.Vector<stdgo.SliceData.T>
 ```
 
 
-
-
-
 [\(view code\)](<./Slice.hx#L280>)
 
 
 ## class VectorData
-
-
-
 
 
 ```haxe
@@ -1148,9 +941,6 @@ function get(i:Int):stdgo.VectorData.T
 ```
 
 
-
-
-
 [\(view code\)](<./GoArray.hx#L29>)
 
 
@@ -1160,9 +950,6 @@ function get(i:Int):stdgo.VectorData.T
 ```haxe
 function new(length:Int):Void
 ```
-
-
-
 
 
 [\(view code\)](<./GoArray.hx#L24>)
@@ -1176,9 +963,6 @@ function set(i:Int, value:stdgo.VectorData.T):stdgo.VectorData.T
 ```
 
 
-
-
-
 [\(view code\)](<./GoArray.hx#L32>)
 
 
@@ -1188,9 +972,6 @@ function set(i:Int, value:stdgo.VectorData.T):stdgo.VectorData.T
 ```haxe
 function toString():String
 ```
-
-
-
 
 
 [\(view code\)](<./GoArray.hx#L35>)
@@ -1212,18 +993,12 @@ typedef Complex128 = stdgo.Complex<stdgo._StdGoTypes.Float64>;
 ```
 
 
-
-
-
 ## typedef Complex64
 
 
 ```haxe
 typedef Complex64 = stdgo.Complex<stdgo._StdGoTypes.Float32>;
 ```
-
-
-
 
 
 ## typedef Error
@@ -1236,18 +1011,12 @@ typedef Error = {
 ```
 
 
-
-
-
 ## typedef GoByte
 
 
 ```haxe
 typedef GoByte = stdgo.GoUInt8;
 ```
-
-
-
 
 
 ## typedef GoFloat
@@ -1258,18 +1027,12 @@ typedef GoFloat = stdgo.GoFloat64;
 ```
 
 
-
-
-
 ## typedef GoInt
 
 
 ```haxe
 typedef GoInt = stdgo.GoInt32;
 ```
-
-
-
 
 
 ## typedef GoRune
@@ -1280,9 +1043,6 @@ typedef GoRune = stdgo.GoInt32;
 ```
 
 
-
-
-
 ## typedef GoUInt
 
 
@@ -1291,18 +1051,12 @@ typedef GoUInt = stdgo.GoUInt32;
 ```
 
 
-
-
-
 ## typedef InvalidType
 
 
 ```haxe
 typedef InvalidType = Dynamic;
 ```
-
-
-
 
 
 ## typedef MapAccess
@@ -1316,18 +1070,12 @@ typedef MapAccess = {
 ```
 
 
-
-
-
 ## typedef Ref
 
 
 ```haxe
 typedef Ref = stdgo.Ref.T;
 ```
-
-
-
 
 
 ## typedef StructType
@@ -1337,9 +1085,6 @@ typedef Ref = stdgo.Ref.T;
 typedef StructType = {
 };
 ```
-
-
-
 
 
 # Abstracts

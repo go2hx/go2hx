@@ -53,6 +53,7 @@ var hxml = "";
 var externBool = false;
 var exportBool = false;
 var varTraceBool = false;
+var funcTraceBool = false;
 
 function update() {
 	#if !js
@@ -65,6 +66,8 @@ function update() {
 		args = [lib, '--nocomments', '--out', 'stdgo', '--root', 'stdgo', '--norun'];
 		if (varTraceBool)
 			args.push("--vartrace");
+		if (funcTraceBool)
+			args.push("--funcTrace");
 		if (externBool)
 			args.push("--extern");
 		if (exportBool)
@@ -81,7 +84,6 @@ function update() {
 		if (!compiled) {
 			break;
 		}
-		trace(hxml);
 		libs.remove(lib);
 	}
 }
@@ -106,8 +108,7 @@ final noMain = [
 ];
 
 final externs = [
-	"syscall/js", "syscall", "os", "os/exec", "context", "testing", "testing/iotest", "testing/fstest", "testing/internal/testdeps",
-	"regexp/syntax", "regexp", "runtime", "runtime/debug", "reflect", "sync", "sync/atomic", "internal/godebug",
+	"syscall/js", "syscall", "os", "os/exec", "context", "testing", "testing/iotest", "testing/fstest", "testing/internal/testdeps", "runtime", "runtime/debug", "reflect", "sync", "sync/atomic", "internal/godebug",
 ];
 
 final exports = ["runtime", "runtime/debug", "reflect"];

@@ -162,6 +162,7 @@
     "crypto/internal/boring",
     "go/internal/gcimporter",
     "go/internal/typeparams",
+    "go/internal/gccgoimporter",
     "internal/abi",
     "internal/fuzz",
     "internal/pkgbits",

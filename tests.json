@@ -55,5 +55,8 @@
     "go/constant",
     "go/importer",
     "compress/zlib",
-    "internal/types/errors"
+    "internal/types/errors",
+    "path/filepath",
+    "compress/bzip2",
+    "encoding/hex"
 ]

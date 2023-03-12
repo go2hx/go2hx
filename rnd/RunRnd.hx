@@ -1,5 +1,6 @@
 package;
 
+import haxe.macro.Compiler;
 import haxe.Timer;
 import shared.Util;
 
@@ -9,9 +10,25 @@ function main() {
 		if (modules.length == 0)
 			throw "no exported path";
 		final mainPath = mainPath(modules);
-		final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --interp';
-		Sys.println(command);
-		Sys.command(command);
+		if (Compiler.getDefine("rnd_interp") != null) {
+			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --interp';
+			Sys.println(command);
+			Sys.command(command);
+		}else{
+			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath -hl runrnd.hl';
+			Sys.println(command);
+			Sys.command(command);
+			final profileBool = Compiler.getDefine("profile") != null;
+			final command = profileBool ? "hl --profile 10000 runrnd.hl" : "hl runrnd.hl";
+			Sys.println(command);
+			Sys.command(command);
+			if (profileBool) {
+				final command = "hl profiler.hl hlprofile.dump";
+				Sys.println(command);
+				Sys.command(command);
+
+			}
+		}
 		Sys.println("\n~~~~~~~~~~~~expected~~~~~~~~~~~~");
 		var command = testBool ? "test" : "run";
 		final wasm = false;

@@ -23,9 +23,10 @@ function main() {
 			Sys.println(command);
 			Sys.command(command);
 			if (profileBool) {
-				final command = "hl profiler.hl hlprofile.dump";
-				Sys.println(command);
-				Sys.command(command);
+				ProfileGen.run("hlprofile.dump");
+				//final command = "hl profiler.hl hlprofile.dump";
+				//Sys.println(command);
+				//Sys.command(command);
 
 			}
 		}

@@ -308,14 +308,14 @@ final list = [
 		return true;
 	},
 	"reflect.Value:mapRange" => macro {
-		return new MapIter(@:privateAccess _v.value.value);
+		return new MapIter(@:privateAccess _v.value.value, @:privateAccess _v.value.type);
 	},
 	"reflect.MapIter:key" => macro {
 		@:privateAccess if (_iter.keys == null) {
-			@:privateAccess _iter.keys = _iter.map.__keyArray__();
-			@:privateAccess _iter.values = _iter.map.__valueArray__();
+			@:privateAccess _iter.keys = [for (key in _iter.map.keys()) key];
+			@:privateAccess _iter.values = [for (key in _iter.map.iterator()) key];
 		}
-		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.map.__type__._common());
+		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.t._common());
 		final key = switch gt {
 				case mapType(_.get() => var keyType, _):
 					new stdgo.internal.reflect.Reflect._Type(keyType);
@@ -326,24 +326,24 @@ final list = [
 	},
 	"reflect.MapIter:value" => macro {
 		@:privateAccess if (_iter.keys == null) {
-			@:privateAccess _iter.keys = _iter.map.__keyArray__();
-			@:privateAccess _iter.values = _iter.map.__valueArray__();
-		}
-		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.map.__type__._common());
+            @:privateAccess _iter.keys = [for (key in _iter.map.keys()) key];
+            @:privateAccess _iter.values = [for (key in _iter.map.iterator()) key];
+        };
+        final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.t._common());
 		final value = switch gt {
-				case mapType(_, _.get() => valueType):
-					new stdgo.internal.reflect.Reflect._Type(valueType);
-				default:
-					throw "invalid mapType: " + gt;
-			}
-		return new Value(new AnyInterface(@:privateAccess _iter.values[_iter.index], value));
+			case mapType(_, _.get() => valueType):
+				new stdgo.internal.reflect.Reflect._Type(valueType);
+			default:
+				throw "invalid mapType: " + gt;
+		}
+        return new Value(new AnyInterface(@:privateAccess _iter.values[_iter.index], value));
 	},
 	"reflect.MapIter:next" => macro {
 		if (@:privateAccess _iter.map == null)
             return false;
 		@:privateAccess if (_iter.keys == null) {
-			@:privateAccess _iter.keys = _iter.map.__keyArray__();
-			@:privateAccess _iter.values = _iter.map.__valueArray__();
+			@:privateAccess _iter.keys = [for (key in _iter.map.keys()) key];
+			@:privateAccess _iter.values = [for (key in _iter.map.iterator()) key];
 		} else {
 			@:privateAccess _iter.index++;
 		}
@@ -1148,6 +1148,8 @@ final structs = [
 		var keys:Array<Dynamic>;
 		@:local
 		var values:Array<Dynamic>;
+		@:local
+		var t:stdgo.internal.reflect.Reflect._Type;
 		@:local
 		var index:Int = 0;
 	},

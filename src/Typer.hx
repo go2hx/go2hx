@@ -855,6 +855,7 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 			final index = makeExpr(info.switchIndex + 1);
 			(macro @:fallthrough {
 				__switchIndex__ = $index;
+				__run__ = true;
 				continue;
 			}).expr;
 		default:
@@ -1745,7 +1746,9 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 			expr = macro {
 				var __continue__ = false;
 				var __switchIndex__ = -1;
-				while (true) {
+				var __run__ = true;
+				while (__run__) {
+					__run__ = false;
 					$expr;
 					break;
 				}
@@ -1755,7 +1758,9 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		} else {
 			expr = macro {
 				var __switchIndex__ = -1;
-				while (true) {
+				var __run__ = true;
+				while (__run__) {
+					__run__ = false;
 					$expr;
 					break;
 				}
@@ -1885,7 +1890,7 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 			}
 			{
 				ok: true,
-				expr: macro($x != null && $x.__exists__($index) ? {value: $x[$index], ok: true} : {value: $value, ok: false}),
+				expr: macro($x != null && $x.exists($index) ? {value: $x[$index], ok: true} : {value: $value, ok: false}),
 			};
 		default:
 			{expr: e, ok: false};
@@ -3396,7 +3401,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								throw "first arg of delete builtin function not of type map: " + t;
 						}
 						return returnExpr(macro if ($e != null)
-							$e.__remove__($key));
+							$e.remove($key));
 					case "print":
 						genArgs(true, 0);
 						return returnExpr(macro trace($a{args}));
@@ -3465,7 +3470,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							default:
 								null;
 						}
-						var e = switch getUnderlying(type) {
+						final underlyingType = getUnderlying(type);
+						var e = switch underlyingType {
 							case sliceType(_.get() => elem):
 								var param = toComplexType(elem, info);
 								if (p == null) {
@@ -3478,25 +3484,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									return returnExpr(macro new $p(0, 0));
 								macro new $p($size, $cap, ...[for (i in 0...$size) $value]);
 							case mapType(_.get() => key, _.get() => value):
-								var t = toReflectType(type, info, [], true);
 								var keyType = toComplexType(key, info);
-								var value = toComplexType(value, info);
-								var isInt = false;
-								switch getUnderlying(key) {
-									case basic(kind):
-									// if (kind != string_kind) isInt = true;
-									default:
-								}
-								if (isInt) {
-									if (p == null)
-										p = {name: "Map", pack: [], params: [TPType(TPath({name: "Int", pack: []})), TPType(value)]};
-									macro new $p();
-								} else {
-									if (p == null)
-										p = {name: "GoMap", pack: [], params: [TPType(keyType), TPType(value)]};
-									final ct = TPath(p);
-									macro(new GoObjectMap<$keyType, $value>(new stdgo.internal.reflect.Reflect._Type($t)) : $ct);
-								}
+								var valueType = toComplexType(value, info);
+								createMap(underlyingType,keyType,valueType,[],info);
 							case chanType(dir, _.get() => elem):
 								var value = defaultValue(elem, info);
 								var param = toComplexType(elem, info);
@@ -4709,19 +4699,35 @@ private function compositeLitMapList(keyType:GoType, valueType:GoType, underlyin
 		}
 		return typeExpr(elt, info);
 	}
+	final exprs:Array<Expr> = [];
 	for (elt in expr.elts) {
-		keys.push(run(elt.key));
-		values.push(run(elt.value));
+		final key = run(elt.key);
+		final value = run(elt.value);
+		exprs.push(macro $key => $value);
 	}
-	final t = toReflectType(underlying, info, [], true);
-	final keyType = toComplexType(keyType, info);
-	final valueType = toComplexType(valueType, info);
+	final keyComplexType = toComplexType(keyType, info);
+	final valueComplexType = toComplexType(valueType, info);
+	return createMap(underlying,keyComplexType,valueComplexType,exprs,info);
+}
+
+private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:ComplexType, exprs:Array<Expr>, info:Info):Expr {
+	final k = getUnderlying(t);
+	final t = toReflectType(t, info, [], true);
+	switch k {
+		case structType(_):
+			return macro({
+				final x = new GoObjectMap<$keyComplexType, $valueComplexType>();
+				x.__setData__($e{macro $a{exprs}});
+				x.t = new stdgo.internal.reflect.Reflect._Type($t);
+				x;
+			} : GoMap<$keyComplexType, $valueComplexType>);
+		default:
+	}
 	return macro({
-		final x = new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(new stdgo.internal.reflect.Reflect._Type($t));
-		@:privateAccess x._keys = $a{keys};
-		@:privateAccess x._values = $a{values};
+		final x = new GoMap<$keyComplexType, $valueComplexType>();
+		x.__setInitData__($e{macro $a{exprs}});
 		x;
-	} : stdgo.GoMap<$keyType, $valueType>);
+	});
 }
 
 private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):Expr {

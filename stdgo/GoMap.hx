@@ -5,6 +5,7 @@ import stdgo.Pointer;
 import haxe.Constraints.IMap;
 import haxe.ds.IntMap;
 import haxe.ds.BalancedTree;
+import stdgo.StdGoTypes;
 
 @:transitive
 @:multiType(@:followWithAbstracts K)

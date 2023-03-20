@@ -176,7 +176,6 @@ class GoInt64Map<T> extends BalancedTree<GoInt64,T> {
 }
 
 class GoUInt64Map<T> extends BalancedTree<GoUInt64,T> {
-
 	override function compare(k1:GoUInt64, k2:GoUInt64):Int {
 		return if (k1 == k2) {
 			0;
@@ -190,25 +189,49 @@ class GoUInt64Map<T> extends BalancedTree<GoUInt64,T> {
 
 class GoFloat64Map<T> extends BalancedTree<GoFloat64,T> {
 	override function compare(k1:GoFloat64, k2:GoFloat64):Int {
-		return k1 == k2 ? 0 : 1;
+		return if (k1 == k2) {
+			0;
+		}else if (k1 > k2) {
+			1;
+		}else{
+			-1;
+		}
 	}
 }
 
 class GoComplex64Map<T> extends BalancedTree<GoComplex64,T> {
 	override function compare(k1:GoComplex64, k2:GoComplex64):Int {
-		return k1 == k2 ? 0 : 1;
+		return if (k1 == k2) {
+			0;
+		}else if (k1 > k2) {
+			1;
+		}else{
+			-1;
+		}
 	}
 }
 
 class GoComplex128Map<T> extends BalancedTree<GoComplex128,T> {
 	override function compare(k1:GoComplex128, k2:GoComplex128):Int {
-		return k1 == k2 ? 0 : 1;
+		return if (k1 == k2) {
+			0;
+		}else if (k1 > k2) {
+			1;
+		}else{
+			-1;
+		}
 	}
 }
 
 class GoFloat32Map<T> extends BalancedTree<GoFloat32,T> {
 	override function compare(k1:GoFloat32, k2:GoFloat32):Int {
-		return k1 == k2 ? 0 : 1;
+		return if (k1 == k2) {
+			0;
+		}else if (k1 > k2) {
+			1;
+		}else{
+			-1;
+		}
 	}
 }
 
@@ -224,54 +247,63 @@ class GoArrayMap<T,V> extends BalancedTree<GoArray<T>,V> {
 	}
 }
 
-class GoPointerMap<T,V> extends BalancedTree<Pointer<T>,V> {
-	override function compare(k1:Pointer<T>, k2:Pointer<T>):Int {
-		return k1 == k2 ? 0 : 1;
-	}
-}
-
-// Key needs to 
-class GoObjectMap<K,V> extends BalancedTree<K,V> {
+class GoObjectMap<K,V> extends BalancedTree<Dynamic,V> {
 	public var t:_Type;
-	override function compare(k1:K, k2:K):Int {
-		final k1 = new AnyInterface(k1,t);
-		final k2 = new AnyInterface(k2,t);
+	override function compare(k1:Dynamic, k2:Dynamic):Int {
 		#if nolinkstd
 		return 0;
 		#else
-		final k1Str = stdgo.fmt.Fmt.sprintf("%v", k1);
-		final k2Str = stdgo.fmt.Fmt.sprintf("%v",k2);
-		return if (k1Str == k2Str) {
-			0;
-		}else if (k1Str > k2Str) {
+		final k1:String = k1;
+		final k2:String = k2;
+		if (k1 == k2)
+			return 0;
+		return if (k1 > k2) {
 			1;
 		}else{
 			-1;
 		}
 		#end
+	}
+	override function set(key:Dynamic, value:V) {
+		key = stdgo.fmt.Fmt.sprintf("%v", new AnyInterface(key,t));
+		super.set(key, value);
+	}
+	override function get(key:Dynamic):Null<V> {
+		key = stdgo.fmt.Fmt.sprintf("%v", new AnyInterface(key,t));
+		return super.get(key);
 	}
 	public inline function __setData__(map:Map<K,V>) {
 		this.clear();
 		for (key => value in map) {
-			this.set(key,value);
+			set(key,value);
 		}
 	}
 }
 
-class GoAnyInterfaceMap<T> extends BalancedTree<AnyInterface,T> {
-	override function compare(k1:AnyInterface, k2:AnyInterface):Int {
+class GoAnyInterfaceMap<V> extends BalancedTree<Dynamic,V> {
+	override function compare(k1:Dynamic, k2:Dynamic):Int {
 		#if nolinkstd
 		return 0;
 		#else
-		final k1Str = stdgo.fmt.Fmt.sprintf("%v", k1);
-		final k2Str = stdgo.fmt.Fmt.sprintf("%v",k2);
-		return if (k1Str == k2Str) {
-			0;
-		}else if (k1Str > k2Str) {
+		final k1:String = k1;
+		final k2:String = k2;
+		if (k1 == k2)
+			return 0;
+		return if (k1 > k2) {
 			1;
 		}else{
 			-1;
 		}
 		#end
+	}
+	override function set(key:Dynamic, value:V) {
+		final key:AnyInterface = key;
+		final key = stdgo.fmt.Fmt.sprintf("%v", key);
+		super.set(key, value);
+	}
+	override function get(key:Dynamic):Null<V> {
+		final key:AnyInterface = key;
+		final key = stdgo.fmt.Fmt.sprintf("%v", key);
+		return super.get(key);
 	}
 }

@@ -4718,15 +4718,22 @@ private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:
 			throw "underlying t invalid type createMap";
 	};
 	final t = toReflectType(t, info, [], true);
+	var isObjectMap = false;
 	switch k {
+		case interfaceType(empty,_):
+			if (!empty)
+				isObjectMap = true;
 		case structType(_):
-			return macro({
-				final x = new GoObjectMap<$keyComplexType, $valueComplexType>();
-				x.__setData__($e{macro $a{exprs}});
-				x.t = new stdgo.internal.reflect.Reflect._Type($t);
-				cast x;
-			} : GoMap<$keyComplexType, $valueComplexType>);
+			isObjectMap = true;
 		default:
+	}
+	if (isObjectMap) {
+		return macro({
+			final x = new GoObjectMap<$keyComplexType, $valueComplexType>();
+			x.__setData__($e{macro $a{exprs}});
+			x.t = new stdgo.internal.reflect.Reflect._Type($t);
+			cast x;
+		} : GoMap<$keyComplexType, $valueComplexType>);
 	}
 	return macro({
 		final x = new GoMap<$keyComplexType, $valueComplexType>();

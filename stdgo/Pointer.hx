@@ -10,6 +10,11 @@ import stdgo.StdGoTypes.GoInt;
 abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 	public var value(get, set):T;
 
+	public var address(get,never):GoInt;
+
+	private function get_address():GoInt
+		return this.address;
+
 	private function get_value():T {
 		if (this.assign != null) {
 			value = this.assign();
@@ -82,6 +87,7 @@ class PointerData<T> {
 	public var assign:Void->T;
 	public var underlying:Any = null; // used for equality of pointers with the same slice/array/map/field
 	public var underlyingIndex:Any = null;
+	public var address:Int = 0;
 
 	public function new(?get, ?set, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {
 		if (get == null)
@@ -95,8 +101,14 @@ class PointerData<T> {
 
 		this.underlying = underlying;
 		this.underlyingIndex = underlyingIndex;
+		globalAddressMutex.acquire();
+		this.address = ++globalAddress;
+		globalAddressMutex.release();
 	}
 
 	public function toString():String
-		return "0x1";
+		return '0x$address';
 }
+
+var globalAddress = 0;
+final globalAddressMutex = #if !js new sys.thread.Mutex(); #else {acquire: () -> {}, release: () -> {}}; #end

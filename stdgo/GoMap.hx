@@ -1,5 +1,7 @@
 package stdgo;
 
+import stdgo.StdGoTypes.AnyInterface;
+import haxe.ds.ObjectMap;
 import stdgo.internal.reflect.Reflect._Type;
 import stdgo.Pointer;
 import haxe.Constraints.IMap;
@@ -127,23 +129,166 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		return v;
 	}
 
+	@:from static inline function fromStringMap<V>(map:GoStringMap<V>):GoMap<GoString, V> {
+		return cast map;
+	}
+
 	@:to
     static inline function toGoStringMap<K : GoString, V>(t : IMap<K, V>) : GoStringMap<V> {
         return new GoStringMap<V>();
     }
 
-	@:from static inline function fromStringMap<V>(map:GoStringMap<V>):GoMap<GoString, V> {
+	@:from static inline function fromIntMap<V>(map:GoIntMap<V>):GoMap<GoInt, V> {
 		return cast map;
 	}
 
-    @:to
-    static inline function toIntMap<K : GoInt, V>(t : IMap<K, V>) : IntMap<V> {
-        return new IntMap<V>();
+	@:to
+    static inline function toIntMap<K : GoInt, V>(t : IMap<K, V>) : GoIntMap<V> {
+        return new GoIntMap<V>();
     }
 
-	@:from static inline function fromIntMap<V>(map:IntMap<V>):GoMap<GoInt, V> {
+	@:from static inline function fromInt8Map<V>(map:GoInt8Map<V>):GoMap<GoInt8, V> {
 		return cast map;
 	}
+
+	@:to
+    static inline function toInt8Map<K : GoInt8, V>(t : IMap<K, V>) : GoInt8Map<V> {
+        return new GoInt8Map<V>();
+    }
+
+	@:from static inline function fromInt16Map<V>(map:GoInt16Map<V>):GoMap<GoInt16, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toInt16Map<K : GoInt16, V>(t : IMap<K, V>) : GoInt16Map<V> {
+        return new GoInt16Map<V>();
+    }
+
+	@:from static inline function fromInt32Map<V>(map:GoInt32Map<V>):GoMap<GoInt32, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toInt32Map<K : GoInt32, V>(t : IMap<K, V>) : GoInt32Map<V> {
+        return new GoInt32Map<V>();
+    }
+
+
+
+
+
+	@:from static inline function fromUIntMap<V>(map:GoUIntMap<V>):GoMap<GoUInt, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toUIntMap<K : GoUInt, V>(t : IMap<K, V>) : GoUIntMap<V> {
+        return new GoUIntMap<V>();
+    }
+
+	@:from static inline function fromUInt8Map<V>(map:GoUInt8Map<V>):GoMap<GoUInt8, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toUInt8Map<K : GoUInt8, V>(t : IMap<K, V>) : GoUInt8Map<V> {
+        return new GoInt8Map<V>();
+    }
+
+	@:from static inline function fromUInt16Map<V>(map:GoUInt16Map<V>):GoMap<GoUInt16, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toUInt16Map<K : GoUInt16, V>(t : IMap<K, V>) : GoUInt16Map<V> {
+        return new GoUInt16Map<V>();
+    }
+
+	@:from static inline function fromUInt32Map<V>(map:GoUInt32Map<V>):GoMap<GoUInt32, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toUInt32Map<K : GoUInt32, V>(t : IMap<K, V>) : GoUInt32Map<V> {
+        return new GoUInt32Map<V>();
+    }
+
+
+
+	@:from static inline function fromInt64Map<V>(map:GoInt64Map<V>):GoMap<GoInt64, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toInt64Map<K : GoInt64, V>(t : IMap<K, V>) : GoInt64Map<V> {
+        return new GoInt64Map<V>();
+    }
+
+	@:from static inline function fromUInt64Map<V>(map:GoUInt64Map<V>):GoMap<GoUInt64, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toUInt64Map<K : GoUInt64, V>(t : IMap<K, V>) : GoUInt64Map<V> {
+        return new GoUInt64Map<V>();
+    }
+
+	@:from static inline function fromFloatMap<V>(map:GoFloat64Map<V>):GoMap<GoFloat64, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toFloatMap<K : GoFloat, V>(t : IMap<K, V>) : GoFloat64Map<V> {
+        return new GoFloat64Map<V>();
+    }
+
+
+	@:from static inline function fromFloat64Map<V>(map:GoFloat64Map<V>):GoMap<GoFloat64, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toFloat64Map<K : GoFloat64, V>(t : IMap<K, V>) : GoFloatMap<V> {
+        return new GoFloatMap<V>();
+    }
+	
+
+	@:from static inline function fromFloat32Map<V>(map:GoFloat32Map<V>):GoMap<GoFloat32, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toFloat32Map<K : GoUInt64, V>(t : IMap<K, V>) : GoFloat64Map<V> {
+        return new GoFloat64Map<V>();
+    }
+
+	@:from static inline function fromComplex64Map<V>(map:GoComplex64Map<V>):GoMap<GoComplex64, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toComplex64Map<K : GoComplex64, V>(t : IMap<K, V>) : GoComplex64Map<V> {
+        return new GoComplex64Map<V>();
+    }
+
+	@:from static inline function fromComplex128Map<V>(map:GoComplex128Map<V>):GoMap<GoComplex128, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toComplex128Map<K : GoComplex128, V>(t : IMap<K, V>) : GoComplex128Map<V> {
+        return new GoComplex128Map<V>();
+    }
+
+	@:from static inline function fromAnyInterfaceMap<V>(map:GoAnyInterfaceMap<V>):GoMap<AnyInterface, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toAnyInterfaceMap<K : AnyInterface, V>(t : IMap<K, V>) : GoAnyInterfaceMap<V> {
+        return new GoAnyInterfaceMap<V>();
+    }
 }
 
 
@@ -198,33 +343,28 @@ class GoFloat64Map<T> extends BalancedTree<GoFloat64,T> {
 		}
 	}
 }
+// int
+typedef GoInt8Map<T> = IntMap<T>;
+typedef GoInt16Map<T> = IntMap<T>;
+typedef GoInt32Map<T> = IntMap<T>;
+typedef GoIntMap<T> = IntMap<T>;
+typedef GoUIntMap<T> = IntMap<T>;
 
-class GoComplex64Map<T> extends BalancedTree<GoComplex64,T> {
-	override function compare(k1:GoComplex64, k2:GoComplex64):Int {
-		return if (k1 == k2) {
-			0;
-		}else if (k1 > k2) {
-			1;
-		}else{
-			-1;
-		}
-	}
-}
+typedef GoUInt8Map<T> = IntMap<T>;
+typedef GoUInt16Map<T> = IntMap<T>;
+typedef GoUInt32Map<T> = IntMap<T>;
+
+typedef GoFloatMap<T> = GoFloat64Map<T>;
+typedef GoFloat32Map<T> = GoFloat64Map<T>;
+typedef GoComplex64Map<T> = GoComplex128Map<T>;
+
+// ref
+typedef GoRefMap<K,V> = GoObjectMap<stdgo.Ref<K>,V>;
+typedef GoPointerMap<K,V> = GoObjectMap<stdgo.Pointer<K>,V>;
+typedef GoChanMap<K,V> = GoObjectMap<stdgo.Chan<K>,V>;
 
 class GoComplex128Map<T> extends BalancedTree<GoComplex128,T> {
 	override function compare(k1:GoComplex128, k2:GoComplex128):Int {
-		return if (k1 == k2) {
-			0;
-		}else if (k1 > k2) {
-			1;
-		}else{
-			-1;
-		}
-	}
-}
-
-class GoFloat32Map<T> extends BalancedTree<GoFloat32,T> {
-	override function compare(k1:GoFloat32, k2:GoFloat32):Int {
 		return if (k1 == k2) {
 			0;
 		}else if (k1 > k2) {

@@ -1,6 +1,5 @@
 package stdgo;
 
-import stdgo.StdGoTypes;
 import stdgo.internal.reflect.Reflect._Type;
 import stdgo.Pointer;
 import haxe.Constraints.IMap;
@@ -218,12 +217,6 @@ class GoBoolMap<T> extends BalancedTree<Bool,T> {
 	}
 }
 
-class GoSliceMap<T,V> extends BalancedTree<Slice<T>,V> {
-	override function compare(k1:Slice<T>, k2:Slice<T>):Int {
-		return k1 == k2 ? 0 : 1;
-	}
-}
-
 class GoArrayMap<T,V> extends BalancedTree<GoArray<T>,V> {
 	override function compare(k1:GoArray<T>, k2:GoArray<T>):Int {
 		return k1 == k2 ? 0 : 1;
@@ -232,11 +225,6 @@ class GoArrayMap<T,V> extends BalancedTree<GoArray<T>,V> {
 
 class GoPointerMap<T,V> extends BalancedTree<Pointer<T>,V> {
 	override function compare(k1:Pointer<T>, k2:Pointer<T>):Int {
-		return k1 == k2 ? 0 : 1;
-	}
-}
-class RefMap<T, V> extends BalancedTree<Ref<T>,V> {
-	override function compare(k1:Ref<T>, k2:Ref<T>):Int {
 		return k1 == k2 ? 0 : 1;
 	}
 }

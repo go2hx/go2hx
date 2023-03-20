@@ -4711,7 +4711,12 @@ private function compositeLitMapList(keyType:GoType, valueType:GoType, underlyin
 }
 
 private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:ComplexType, exprs:Array<Expr>, info:Info):Expr {
-	final k = getUnderlying(t);
+	final k = switch getUnderlying(t) {
+		case mapType(_.get() => var keyType,_):
+			getUnderlying(keyType);
+		default:
+			throw "underlying t invalid type createMap";
+	};
 	final t = toReflectType(t, info, [], true);
 	switch k {
 		case structType(_):
@@ -4719,7 +4724,7 @@ private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:
 				final x = new GoObjectMap<$keyComplexType, $valueComplexType>();
 				x.__setData__($e{macro $a{exprs}});
 				x.t = new stdgo.internal.reflect.Reflect._Type($t);
-				x;
+				cast x;
 			} : GoMap<$keyComplexType, $valueComplexType>);
 		default:
 	}

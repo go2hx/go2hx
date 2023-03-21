@@ -5,7 +5,19 @@ import stdgo.StdGoTypes;
 
 using GoString.GoStringTools;
 
-abstract GoString(Bytes) from Bytes to Bytes {
+
+private class GoStringData {
+	public var bytes:Bytes;
+	public var offset:Int = 0;
+	public var length:Int = 0;
+	public inline function new(bytes,offset,length) {
+		this.bytes = bytes;
+		this.offset = offset;
+		this.length = length;
+	}
+}
+
+abstract GoString(GoStringData) from GoStringData {
 	public var length(get, never):GoInt;
 
 	function get_length():GoInt
@@ -18,10 +30,6 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		if (slice.length == 0)
 			return 0xFFFD;
 		return slice[0];
-	}
-
-	public inline function new(str:String = "") {
-		this = Bytes.ofString(str, UTF8);
 	}
 
 	private function setCode(code:Int):Int {
@@ -50,8 +58,13 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return bytes;
 	}
 
+	@:from
+	private static function ofBytes(x:Bytes):GoString {
+		return new GoStringData(x,0,x.length);
+	}
+
 	@:from static function ofString(x:String):GoString
-		return new GoString(x);
+		return Bytes.ofString(x);
 
 	@:from static function ofRune(x:GoRune):GoString {
 		if (x == 0x110000)
@@ -88,12 +101,12 @@ abstract GoString(Bytes) from Bytes to Bytes {
 
 	@:op([])
 	public function __get__(index:GoInt):GoByte
-		return this.get(index.toBasic());
+		return this.bytes.get(index.toBasic());
 
 	@:to public function __toSliceByte__():Slice<GoByte> {
 		var slice = new Slice<GoByte>(this.length, this.length);
 		for (i in 0...this.length) {
-			var value = this.get(i);
+			var value = this.bytes.get(i);
 			slice[i] = value;
 		}
 		return slice;

@@ -293,7 +293,7 @@ abstract GoMap<K, V>(IMap<K, V>) {
 
 
 
-class GoStringMap<T> extends BalancedTree<GoString,T> implements haxe.Constraints.IMap<GoString, T> {
+class GoStringMap<T> extends BalancedTree<GoString,T> {
 	override function compare(k1:GoString, k2:GoString):Int {
 		return if (k1 == k2) {
 			0;
@@ -393,8 +393,8 @@ class GoObjectMap<K,V> extends BalancedTree<Dynamic,V> {
 		#if nolinkstd
 		return 0;
 		#else
-		final k1:String = k1;
-		final k2:String = k2;
+		final k1:String = k1.ais;
+		final k2:String = k2.ais;
 		if (k1 == k2)
 			return 0;
 		return if (k1 > k2) {
@@ -405,18 +405,34 @@ class GoObjectMap<K,V> extends BalancedTree<Dynamic,V> {
 		#end
 	}
 	override function set(key:Dynamic, value:V) {
-		key = stdgo.fmt.Fmt.sprintf("%v", new AnyInterface(key,t));
+		final key = new GoAnyInterfaceMapKey(new AnyInterface(key,t));
 		super.set(key, value);
 	}
 	override function get(key:Dynamic):Null<V> {
-		key = stdgo.fmt.Fmt.sprintf("%v", new AnyInterface(key,t));
+		final key = new GoAnyInterfaceMapKey(new AnyInterface(key,t));
 		return super.get(key);
 	}
-	public inline function __setData__(map:Map<K,V>) {
+	public inline function __setData__(map:Map<Dynamic,V>) {
 		this.clear();
 		for (key => value in map) {
 			set(key,value);
 		}
+	}
+	override function keysLoop(node:TreeNode<Dynamic, V>, acc:Array<Dynamic>) {
+		if (node != null) {
+			keysLoop(node.left, acc);
+			acc.push(node.key.ai.value);
+			keysLoop(node.right, acc);
+		}
+	}
+}
+
+class GoAnyInterfaceMapKey {
+	public var ai:AnyInterface;
+	public var ais:String;
+	public function new(k:AnyInterface) {
+		ai = k;
+		ais = stdgo.fmt.Fmt.sprintf("%v",k);
 	}
 }
 
@@ -425,8 +441,8 @@ class GoAnyInterfaceMap<V> extends BalancedTree<Dynamic,V> {
 		#if nolinkstd
 		return 0;
 		#else
-		final k1:String = k1;
-		final k2:String = k2;
+		final k1:String = k1.ais;
+		final k2:String = k2.ais;
 		if (k1 == k2)
 			return 0;
 		return if (k1 > k2) {
@@ -437,13 +453,18 @@ class GoAnyInterfaceMap<V> extends BalancedTree<Dynamic,V> {
 		#end
 	}
 	override function set(key:Dynamic, value:V) {
-		final key:AnyInterface = key;
-		final key = stdgo.fmt.Fmt.sprintf("%v", key);
+		final key = new GoAnyInterfaceMapKey(key);
 		super.set(key, value);
 	}
 	override function get(key:Dynamic):Null<V> {
-		final key:AnyInterface = key;
-		final key = stdgo.fmt.Fmt.sprintf("%v", key);
+		final key = new GoAnyInterfaceMapKey(key);
 		return super.get(key);
+	}
+	override function keysLoop(node:TreeNode<Dynamic, V>, acc:Array<Dynamic>) {
+		if (node != null) {
+			keysLoop(node.left, acc);
+			acc.push(node.key.ai);
+			keysLoop(node.right, acc);
+		}
 	}
 }

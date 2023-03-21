@@ -289,6 +289,17 @@ abstract GoMap<K, V>(IMap<K, V>) {
     static inline function toAnyInterfaceMap<K : AnyInterface, V>(t : IMap<K, V>) : GoAnyInterfaceMap<V> {
         return new GoAnyInterfaceMap<V>();
     }
+
+
+	@:from static inline function fromRefMap<T,V>(map:GoRefMap<T,V>):GoMap<Ref<T>, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toRefMap<K, V>(t : IMap<Ref<K>, V>) : GoRefMap<K,V> {
+        return new GoRefMap<K,V>();
+    }
+
 }
 
 
@@ -359,9 +370,24 @@ typedef GoFloat32Map<T> = GoFloat64Map<T>;
 typedef GoComplex64Map<T> = GoComplex128Map<T>;
 
 // ref
-typedef GoRefMap<K,V> = GoObjectMap<stdgo.Ref<K>,V>;
-typedef GoPointerMap<K,V> = GoObjectMap<stdgo.Pointer<K>,V>;
-typedef GoChanMap<K,V> = GoObjectMap<stdgo.Chan<K>,V>;
+
+class GoRefMap<K,V> extends BalancedTree<Ref<K>,V> {
+	override function compare(k1:Ref<K>, k2:Ref<K>):Int {
+		return k1 == k2 ? 0 : 1;
+	}
+}
+
+class GoPointerMap<K,V> extends BalancedTree<Pointer<K>,V> {
+	override function compare(k1:Pointer<K>, k2:Pointer<K>):Int {
+		return k1 == k2 ? 0 : 1;
+	}
+}
+
+class GoChanMap<K,V> extends BalancedTree<Chan<K>,V> {
+	override function compare(k1:Chan<K>, k2:Chan<K>):Int {
+		return k1 == k2 ? 0 : 1;
+	}
+}
 
 class GoComplex128Map<T> extends BalancedTree<GoComplex128,T> {
 	override function compare(k1:GoComplex128, k2:GoComplex128):Int {

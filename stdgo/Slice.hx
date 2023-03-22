@@ -3,6 +3,7 @@ package stdgo;
 import haxe.Rest;
 import stdgo.StdGoTypes;
 
+@:forward(__append__)
 @:forward.new
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
@@ -114,6 +115,29 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return obj;
 	}
 
+	public inline function __appendref__(args:Rest<T>):Slice<T> {
+		if (this == null)
+			this = new SliceData<T>(0, 0);
+		final startOffset = this.length;
+		final growCapacity = args.length - this.capacity + this.length + this.offset + 1;
+		if (growCapacity <= 1) {
+			this.length += args.length;
+			for (i in 0...args.length) {
+				this.vector.set(startOffset + i, args[i]);
+			}
+			return this;
+		} else {
+			this.length += args.length;
+			this.capacity += growCapacity;
+			this.capacity += this.capacity >> 2;
+			this.grow(); // allocation
+			for (i in 0...args.length) {
+				this.vector.set(startOffset + i, args[i]);
+			}
+			return this;
+		}
+	}
+
 	public function __ref__():Slice<T> {
 		if (this == null)
 			return new SliceData<T>(0, 0);
@@ -127,30 +151,24 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return slice;
 	}
 
-	public inline function __appendref__(args:Rest<T>):Slice<T> {
-		if (this == null)
-			this = new SliceData<T>(0, 0);
-		final startOffset = this.length;
-		final growCapacity = args.length - this.capacity + this.length + this.offset + 1;
-		if (growCapacity <= 1) {
-			this.length += args.length;
-			for (i in 0...args.length) {
-				this.set(startOffset + i, args[i]);
-			}
-			return this;
-		} else {
-			this.length += args.length;
-			this.capacity += growCapacity;
-			this.capacity += this.capacity >> 2;
-			this.grow(); // allocation
-			for (i in 0...args.length) {
-				this.set(startOffset + i, args[i]);
-			}
-			return this;
+	/*public function __ref__():Slice<T> {
+		if (this == null) {
+			final slice = new SliceData<T>(0, -1);
+			if (slice.capacity == -1)
+				slice.capacity = 0;
+			return slice;
 		}
-	}
+		final slice = new SliceData<T>(0, -1);
+		slice.length = this.length;
+		slice.capacity = this.capacity;
+		slice.vector = this.vector;
+		slice.offset = this.offset;
+		if (slice.capacity == -1)
+			slice.capacity = 0;
+		return slice;
+	}*/
 
-	public function __append__(args:Rest<T>):Slice<T> {
+	/*public function __append__(args:Rest<T>):Slice<T> {
 		final slice:SliceData<T> = __ref__(); // no allocation
 		if (slice.capacity == -1) {
 			slice.capacity = 0;
@@ -177,7 +195,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 			slice.set(startOffset + i, args[i]);
 		}
 		return slice;
-	}
+	}*/
 
 	public function __toArray__() {
 		return this == null ? [] : this.toArray();
@@ -232,6 +250,7 @@ private class SliceIterator<T> {
 	}
 }
 
+@:generic
 class SliceData<T> {
 	public var vector:haxe.ds.Vector<T>;
 
@@ -254,6 +273,75 @@ class SliceData<T> {
 				vector.set(i, args[i]);
 		}
 	}
+
+	public inline function __append__(args:Rest<T>):Slice<T> {
+		final slice:SliceData<T> = new SliceData<T>(0, -1); // no allocation
+		slice.length = this.length;
+		slice.capacity = this.capacity;
+		slice.vector = this.vector;
+		slice.offset = this.offset;
+		if (slice.capacity == -1)
+			slice.capacity = 0;
+
+		final startOffset = slice.length;
+		final growCapacity = args.length - slice.capacity + slice.length + slice.offset + 1;
+		if (this.vector == null) {
+			slice.vector = new haxe.ds.Vector<T>(growCapacity);
+		}else{
+			//slice.vector = slice.vector.copy(); // allocation
+		}
+		if (growCapacity <= 1) {
+			slice.length += args.length;
+			for (i in 0...args.length) {
+				slice.vector.set(startOffset + i + slice.offset, args[i]);
+				// slice.set(startOffset + i, args[i]);
+			}
+			return slice;
+		}
+		slice.length += args.length;
+		slice.capacity += growCapacity;
+		slice.capacity += slice.capacity >> 2;
+		slice.vector = new haxe.ds.Vector<T>(slice.capacity);
+		haxe.ds.Vector.blit(cast this.vector,0,slice.vector,0,this.vector.length);
+		//slice.grow(); // allocation
+		for (i in 0...args.length) {
+			slice.vector.set(startOffset + i + slice.offset, args[i]);
+			//slice.set(startOffset + i, args[i]);
+		}
+		return slice;
+	}
+
+	/*public function __append__(args:Rest<T>):Slice<T> {
+		final slice = new SliceData<T>(0, -1);
+		slice.offset = 0;
+		slice.capacity = capacity;
+		slice.length = length;
+		if (slice.capacity == -1) {
+			slice.capacity = 0;
+		}
+		final startOffset = slice.length;
+		final growCapacity = args.length - slice.capacity + slice.length + slice.offset + 1;
+		slice.length += args.length;
+		if (growCapacity <= 1) {
+			slice.vector = slice.vector.copy(); // allocation
+			for (i in 0...args.length) {
+				slice.set(startOffset + i, args[i]);
+			}
+			return slice;
+		}
+		slice.capacity += growCapacity;
+		slice.capacity += slice.capacity >> 2;
+		slice.vector = new haxe.ds.Vector<T>(slice.capacity);
+		if (this.vector != null) {
+			//trace(slice.vector.toArray().toString());
+			//haxe.ds.Vector.blit(cast this.vector,0,slice.vector,0,this.vector.length);
+		}
+		for (i in 0...args.length) {
+			this.vector.set(startOffset + i, args[i]);
+			//slice.set(startOffset + i, args[i]);
+		}
+		return slice;
+	}*/
 
 	private function boundsCheck(i:Int) {
 		#if (!no_check_bounds && !(java || jvm || python || cs)) // checked all targets except php for native bounds checking.

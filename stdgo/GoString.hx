@@ -17,7 +17,7 @@ private class GoStringData {
 	}
 }
 
-abstract GoString(GoStringData) from GoStringData {
+abstract GoString(GoStringData) from GoStringData to GoStringData {
 	public var length(get, never):GoInt;
 
 	function get_length():GoInt
@@ -40,15 +40,15 @@ abstract GoString(GoStringData) from GoStringData {
 				code;
 		}
 	}
-
+	//#if hl removeZeros().toString().substr(this.offset,this.length); #else 
 	@:to public function __toString__():String {
-		return #if hl removeZeros().toString(); #else this.toString(); #end
+		return this.bytes.toString().substr(this.offset,this.length);
 	}
 
 	private function removeZeros():Bytes {
 		final list:Array<Int> = [];
 		for (i in 0...this.length) {
-			final byte = this.get(i);
+			final byte = this.bytes.get(this.offset + i);
 			if (byte != 0)
 				list.push(byte);
 		}
@@ -63,8 +63,10 @@ abstract GoString(GoStringData) from GoStringData {
 		return new GoStringData(x,0,x.length);
 	}
 
-	@:from static function ofString(x:String):GoString
-		return Bytes.ofString(x);
+	@:from static function ofString(x:String):GoString {
+		final b = haxe.io.Bytes.ofString(x);
+		return new GoStringData(b,0,b.length);
+	}
 
 	@:from static function ofRune(x:GoRune):GoString {
 		if (x == 0x110000)
@@ -101,13 +103,13 @@ abstract GoString(GoStringData) from GoStringData {
 
 	@:op([])
 	public function __get__(index:GoInt):GoByte
-		return this.bytes.get(index.toBasic());
+		return this.bytes.get(this.offset + index.toBasic());
 
 	@:to public function __toSliceByte__():Slice<GoByte> {
-		var slice = new Slice<GoByte>(this.length, this.length);
+		final slice = new Slice<GoByte>(this.length, this.length);
 		for (i in 0...this.length) {
-			var value = this.bytes.get(i);
-			slice[i] = value;
+			final value = this.bytes.get(this.offset + i);
+			slice.__vector__.set(slice.__offset__ + i, value);
 		}
 		return slice;
 	}
@@ -148,17 +150,9 @@ abstract GoString(GoStringData) from GoStringData {
 			return null;
 		if (end == -1)
 			end = this.length;
-		final pos = start.toBasic();
+		final pos = this.offset + start.toBasic();
 		final len = end.toBasic() - start.toBasic();
-		final bytes = Bytes.alloc(len);
-		try {
-			bytes.blit(0, this, pos, len);
-		} catch (e) {
-			trace(bytes.length, this.length, pos);
-			trace(start, end);
-			throw e;
-		}
-		return bytes;
+		return new GoStringData(this.bytes, pos, len);
 	}
 
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool
@@ -187,19 +181,21 @@ abstract GoString(GoStringData) from GoStringData {
 		return !eq(a, b);
 
 	@:op(A + B) static function add(a:GoString, b:GoString):GoString {
-		var bytes = Bytes.alloc(a.length.toBasic() + b.length.toBasic());
-		final len = a.length.toBasic();
-		bytes.blit(0, a, 0, len);
-		bytes.blit(len, b, 0, b.length.toBasic());
+		final a:GoStringData = a;
+		final b:GoStringData = b;
+		var bytes = Bytes.alloc(a.length + b.length);
+		final len = a.length;
+		bytes.blit(0, a.bytes, a.offset, len);
+		bytes.blit(len, b.bytes, b.offset, b.length);
 		return bytes;
 	}
 
 	@:op(A + B) static function addString(a:GoString, b:String):GoString {
-		return a + new GoString(b);
+		return a + (b : GoString);
 	}
 
 	@:op(A + B) static function addString2(a:String, b:GoString):GoString {
-		return new GoString(a) + b;
+		return (a : GoString) + b;
 	}
 }
 

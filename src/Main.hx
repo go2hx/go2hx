@@ -1,5 +1,6 @@
 package;
 
+import sys.FileSystem;
 import Network;
 import Typer.DataType;
 import haxe.Json;
@@ -46,10 +47,8 @@ final passthroughArgs = [
 	"--log",
 	"-test",
 	"--test",
-	"-extern",
-	"--extern",
-	"-externs",
-	"--externs"
+	"-nodeps",
+	"--nodeps",
 ];
 
 function run(args:Array<String>) {
@@ -84,8 +83,6 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-norun", "--norun"] => () -> instance.noRun = true, @doc("go test")
 		["-nocomments", "--nocomments"] => () -> instance.noComments = true, @doc("no comments")
 		["-test", "--test"] => () -> instance.test = true,
-		@doc("generate externs exported module fields only with no func exprs")
-		["-extern", "--extern", "-externs", "--externs"] => () -> instance.externBool = true,
 		["-vartrace", "--vartrace", "-varTrace", "--varTrace"] => () -> instance.varTraceBool = true,
 		["-functrace", "--functrace", "-funcTrace", "--funcTrace"] => () -> instance.funcTraceBool = true,
 		@doc("set output path or file location")
@@ -149,6 +146,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-timeout", "--timeout"] => d -> instance.defines.push('timeoutTest $d'),
 		@doc("Verbose output: log all tests as they are run. Also print all text from Log and Logf calls even if the test succeeds.")
 		["-v", "--v"] => () -> instance.defines.push("verboseTest"),
+		["-nodeps","--nodeps"] => () -> instance.noDeps = true,
 	]);
 	argHandler.parse(args);
 	for (i in 0...args.length) {
@@ -329,8 +327,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						Gen.create(Path.addTrailingSlash(instance.outputPath), module, instance.root);
 					}
 				}
+				if (instance.noDeps)
+					createBasePkgs(Path.addTrailingSlash(instance.outputPath),modules,cwd);
 				runBuildTools(modules, instance, programArgs);
-				// trace(modules[0].files[0].name, data.hxml, data.name);
 				Sys.setCwd(cwd);
 				onComplete(modules, instance.data);
 				#if nodejs
@@ -352,6 +351,39 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 		Sys.println("nodejs server started");
 	});
 	#end
+}
+
+private function createBasePkgs(outputPath:String,modules:Array<Typer.Module>, cwd:String) {
+	final pkgs = ["reflect/Reflect","Error", "internal/reflect/Reflect", "internal/reflectlite/Reflectlite", "GoString", "Slice", "Pointer", "internal/Async", "StdGoTypes", "Go", "Go.macro", "Chan", "GoMap", "Chan", "GoArray", "unsafe/Unsafe","testing/Testing","internal/Macro", "internal/Macro.macro", "internal/TypeInfo"];
+	final requires = ["strings", "internal/oserror", "path", "internal/poll", "syscall", "syscall/js", "time", "io/fs", "fmt", "errors","internal/fmtsort","io","math","os","reflect","sort","strconv","sync","unicode/utf8"];
+	for (module in modules) {
+		final path = StringTools.replace(module.name,"/",".");
+		if (requires.indexOf(path) != -1)
+			requires.remove(module.name);
+	}
+	for (require in requires) {
+		if (require == "time")
+			pkgs.push("time/Time.macro");
+		final index = require.lastIndexOf("/");
+		if (index != -1) {
+			require = require + "/" + require.charAt(index + 1).toUpperCase() + require.substring(index + 2);
+		}else{
+			require = require + "/" + require.charAt(0).toUpperCase() + require.substring(1);
+		}
+		pkgs.push(require);
+	}
+	for (pkg in pkgs) {
+		pkg = "stdgo/" + pkg;
+		final path = pkg;
+		final dir = Path.directory(outputPath + path);
+		if (!FileSystem.exists(dir))
+			FileSystem.createDirectory(dir);
+		File.saveBytes(outputPath + path + ".hx",File.getBytes(cwd + path + ".hx"));
+	}
+	if (!FileSystem.exists(outputPath + "haxe"))
+		FileSystem.createDirectory(outputPath + "haxe");
+	File.saveBytes(outputPath + "haxe/UInt64.hx",File.getBytes(cwd + "haxe/UInt64.hx"));
+	File.saveBytes(outputPath + "haxe/UInt64Helper.hx",File.getBytes(cwd + "haxe/UInt64Helper.hx"));
 }
 
 function targetLibs(target:String):String {
@@ -396,14 +428,29 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		}
 	}
 	final paths = mainPaths(modules);
-	final commands = ['-lib', 'go2hx'];
+	final commands = [];
+	if (!instance.noDeps) {
+		commands.push("-lib");
+		commands.push("go2hx");
+	}else{
+		final lines = File.getContent(cwd + "extraParams.hxml").split("\n");
+		for (line in lines) {
+			if (line != "") {
+				final parts = line.split(" ");
+				commands.push(parts[0]);
+				if (parts.length > 1)
+					commands.push(parts[1]);
+			}
+		}
+	}
 	var cp = instance.outputPath;
 	if (cp != "") {
 		commands.push("-cp");
 		commands.push(cp);
 	}
 	for (define in instance.defines) {
-		commands.push('-D $define');
+		commands.push("-D");
+		commands.push(define);
 	}
 	if (instance.target != "" && instance.target != "interp") {
 		final main = paths.length > 0 ? paths[0] : "";
@@ -422,8 +469,17 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 				commands = commands.concat(buildTarget(instance.target, "", main).split(" "));
 				commands = commands.concat(args);
 			}
-			Sys.println('haxe ' + commands.join(" "));
-			Sys.command('haxe ' + commands.join(" ")); // build without build file
+			final cliCommands = commands.copy();
+			if (instance.noDeps) {
+				final macroDefine = "--macro";
+				for (i in 0...cliCommands.length) {
+					if (i > 0 && cliCommands[i - 1] == macroDefine) {
+						cliCommands[i] = '"' + cliCommands[i] + '"';
+					}
+				}
+			}
+			Sys.println('haxe ' + cliCommands.join(" "));
+			Sys.command('haxe ' + cliCommands.join(" ")); // build without build file
 			final runCommand = runTarget(instance.target, instance.targetOutput, args, main);
 			if (runCommand != "") {
 				Sys.println(runCommand);
@@ -546,6 +602,7 @@ function compile(instance:InstanceData):Bool {
 
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
+
 		if (Typer.stdgoList.indexOf(path) != -1)
 			continue;
 		var command = 'go get $path';
@@ -596,6 +653,7 @@ function write(args:Array<String>, instance:InstanceData):Bool {
 final instanceCache = new Vector<InstanceData>(20);
 
 class InstanceData {
+	public var noDeps:Bool = false;
 	public var varTraceBool:Bool = false;
 	public var funcTraceBool:Bool = false;
 	public var args:Array<String> = [];

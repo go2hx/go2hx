@@ -350,7 +350,7 @@ class M {
 			final output = new StringBuf();
 			var t = new T_(output);
 			final stamp = Sys.time();
-			Sys.println("=== RUN  " + test.name);
+			Sys.println("=== RUN  " + test.name.toString());
 			try {
 				test.f(t);
 			} catch (e) {
@@ -522,7 +522,7 @@ typedef T_testDeps = StructType & {
 	public function startTestLog(_0:stdgo.io.Io.Writer):Void;
 	public function stopTestLog():Error;
 	public function writeProfileTo(_0:GoString, _1:stdgo.io.Io.Writer, _2:GoInt):Error;
-	public function coordinateFuzzing(_0:stdgo.time.Time.Duration, _1:GoInt64, _2:stdgo.time.Time.Duration, _3:GoInt64, _4:GoInt, _5:Slice<T_corpusEntry>,
+	public function coordinateFuzzing(_0:Dynamic, _1:GoInt64, _2:Dynamic, _3:GoInt64, _4:GoInt, _5:Slice<T_corpusEntry>,
 		_6:Slice<stdgo.reflect.Reflect.Type>, _7:GoString, _8:GoString):Error;
 	public function runFuzzWorker(_0:T_corpusEntry->Error):Error;
 	public function readCorpus(_0:GoString, _1:Slice<stdgo.reflect.Reflect.Type>):{var _0:Slice<T_corpusEntry>; var _1:Error;};

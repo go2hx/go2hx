@@ -31,7 +31,7 @@ final list = [
 	// stdgo/strings
 	"strings.Builder:_copyCheck" => macro _b._addr = _b,
 	// stdgo/time
-	"time:Sleep" => macro {
+	"time:sleep" => macro {
 		final seconds = _d.toFloat() / 1000000000;
 		#if sys
 		var ticks = Math.floor(seconds * 100);
@@ -592,7 +592,7 @@ final list = [
 			case stdgo.internal.reflect.Reflect.KindType.slice:
 				(value : Slice<Dynamic>).length;
 			case stdgo.internal.reflect.Reflect.KindType.map:
-				(value : GoMap<Dynamic, Dynamic>).length;
+				Lambda.count((value : haxe.Constraints.IMap<Dynamic, Dynamic>));
 			case stdgo.internal.reflect.Reflect.KindType.string:
 				(value : Dynamic).length;
 			default:
@@ -846,12 +846,15 @@ final list = [
 			case stdgo.internal.reflect.Reflect.KindType.slice:
 				var value:Slice<Dynamic> = @:privateAccess _v.value.value;
 				final x:Slice<Dynamic> = @:privateAccess _x.value.value;
-				value.__setData__(x);
+				//value.__setData__(x);
 				stdgo.internal.reflect.Reflect._set(_v);
 			case stdgo.internal.reflect.Reflect.KindType.map:
-				var value:GoMap<Dynamic,Dynamic> = @:privateAccess _v.value.value;
-				final x:GoMap<Dynamic,Dynamic> = @:privateAccess _x.value.value;
-				value.__setData__(x);
+				var value:haxe.Constraints.IMap<Dynamic,Dynamic> = @:privateAccess _v.value.value;
+				final x:haxe.Constraints.IMap<Dynamic,Dynamic> = @:privateAccess _x.value.value;
+				for (key => value in x) {
+					value.set(key, value);
+				}
+				//value.__setData__(x);
 				stdgo.internal.reflect.Reflect._set(_v);
 			default:
 				@:privateAccess _v.value = _x.value;
@@ -1103,6 +1106,7 @@ final list = [
 		return ((Go.toInterface((_b._buf : Ref<Slice<GoUInt8>>)) : stdgo.unsafe.Unsafe.UnsafePointer)
 		.__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({get: () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind)})) : Pointer<GoString>)
 			.value;
+		//return (_b._buf : Slice<GoUInt8>);
 	},
 	"strings:clone" => macro return _s,
 ];
@@ -1143,7 +1147,7 @@ final structs = [
 	},
 	"reflect:MapIter" => macro {
 		@:local
-		var map:stdgo.GoMap<Dynamic, Dynamic>;
+		var map:haxe.Constraints.IMap<Dynamic,Dynamic>;
 		@:local
 		var keys:Array<Dynamic>;
 		@:local

@@ -8,6 +8,10 @@ import sys.io.File;
 
 function create(outputPath:String, module:Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
+	if (Typer.stdgoList.contains(actualPath)) {
+		root = "stdgo";
+		actualPath = "stdgo/" + actualPath;
+	}
 	if (root.length > 0)
 		root += ".";
 	var pkgPath = 'package $root${module.path};\n';

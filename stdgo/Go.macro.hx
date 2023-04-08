@@ -1,5 +1,6 @@
 package stdgo;
 
+import haxe.macro.Type.TypeParameter;
 import haxe.Exception;
 import haxe.macro.ComplexTypeTools;
 import haxe.macro.Context;
@@ -403,7 +404,9 @@ class Go {
 	}
 		return run();
 }
-
+	/*
+		reference of an expression by returning a new expression that references the original one, but with additional modifications. The function can be used to create new objects, modify existing ones, or cast them into other types.
+	*/
 	public static macro function setRef(expr) {
 		var t = Context.typeof(expr);
 		function run() {
@@ -442,13 +445,19 @@ class Go {
 		}
 		function gen(isNull:Bool) {
 			return switch t {
-				case TAbstract(_.get() => at, _):
+				case TAbstract(_.get() => at, params):
 					final path = at.pack.join(".") + "." + at.name;
 					var value:Expr = null;
 					switch path {
 						case "stdgo.GoMap":
 							final t = gtDecode(t,expr,[]);
-							value = macro new GoObjectMap(new stdgo.internal.reflect.Reflect._Type($t));
+							final keyComplexType = Context.toComplexType(params[0]);
+							final valueComplexType = Context.toComplexType(params[1]);
+							value = macro ({
+								final x = new GoObjectMap<$keyComplexType,$valueComplexType>();
+								x.t = new stdgo.internal.reflect.Reflect._Type($t);
+								cast x;
+							} : GoMap<$keyComplexType,$valueComplexType>);
 						case "stdgo.Slice":
 							value = macro new Slice(0,-1);
 						case "stdgo.AnyInterface":
@@ -488,13 +497,15 @@ class Go {
 			default:
 		}
 		final valueNull = gen(false);
-		return macro {
+		final e = macro {
 			if ($expr == null) {
 				$valueNull;
 			}else{
 				$expr;
 			}
 		};
+		//trace(new haxe.macro.Printer().printExpr(e));
+		return e;
 	}
 
 	public static macro function toInterface(expr) {
@@ -558,7 +569,7 @@ class Go {
 			case TInst(t, params):
 				var t = t.get();
 				if (t.name == "String" && t.pack.length == 0)
-					expr = macro new GoString($expr);
+					expr = macro ($expr : GoString);
 			case TAnonymous(_.get() => a):
 				// trace(a.fields.map(field -> field.name));
 				for (field in a.fields) {
@@ -801,7 +812,7 @@ class Go {
 		var func = null;
 		func = function(expr:haxe.macro.Expr) {
 			return switch (expr.expr) {
-				case EContinue: macro {$post; $expr;}
+				case EContinue: macro @:mergeBlock {$post; $expr;}
 				case EWhile(_, _, _): expr;
 				case ECall(macro cfor, _): expr;
 				case EFor(_): expr;
@@ -1109,6 +1120,8 @@ class Go {
 					case "Void":
 						ret = macro stdgo.internal.reflect.Reflect.GoType.invalidType; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default: // used internally such as reflect.Kind
+						trace(t);
+						throw "issue";
 						Context.error('unknown abstract type: $sref', Context.currentPos());
 				}
 			case TInst(ref, params):

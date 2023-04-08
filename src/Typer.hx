@@ -6,9 +6,10 @@ import sys.io.File;
 import Types;
 import Ast.BasicKind;
 
-var stdgoList:Array<String> = haxe.Json.parse(File.getContent("./stdgo.json"));
-var excludesList:Array<String> = haxe.Json.parse(File.getContent("./excludes.json"));
-var externs:Bool = false;
+final stdgoList:Array<String> = haxe.Json.parse(File.getContent("./stdgo.json"));
+final excludesList:Array<String> = haxe.Json.parse(File.getContent("./excludes.json"));
+final exports:Array<String> = haxe.Json.parse(File.getContent("./stdgoExports.json"));
+final externs:Array<String> = haxe.Json.parse(File.getContent("./stdgoExterns.json"));
 
 final reserved = [
 	"iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function", "dynamic",
@@ -77,7 +78,6 @@ var printer = new Printer();
 function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 	final imports:Array<String> = [];
 	final noCommentsBool = instance.noComments;
-	final externBool = instance.externBool;
 	var list:Array<Module> = [];
 	var defaultImports:Array<ImportType> = [
 		{path: ["stdgo", "StdGoTypes"], alias: "", doc: ""},
@@ -100,6 +100,11 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
 			continue;
+		instance.externBool = false;
+		if (stdgoList.indexOf(pkg.path) != -1) {
+			if (externs.indexOf(pkg.path) != -1)
+				instance.externBool = true;
+		}
 		pkg.path = normalizePath(pkg.path);
 		pkg.path = toHaxePath(pkg.path);
 		var module:Module = {
@@ -530,6 +535,9 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				// trace(printer.printTypeDefinition(wrapper));
 			}
 		}
+		if (instance.externBool) {
+			module.path = "stdgo." + module.path;
+		}
 		// for (file in module.files)
 		//	trace(file.defs.map(def -> def.name));
 		list.push(module);
@@ -873,7 +881,7 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprD
 		if (isFunc && info.returnTypes.length > 0) {
 			final s = makeString("not implemented: " + info.funcName);
 			return (macro throw $s).expr;
-		}
+		}	
 		return (macro {}).expr;
 	}
 	return typeStmtList(stmt.list, info, isFunc);
@@ -1207,7 +1215,12 @@ private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:In
 			final underlying = getUnderlying(toType);
 			switch underlying {
 				case structType(fields):
-					return createNamedObjectDecl(fields, (field, _) -> macro $e.$field, info);
+					final expr = createNamedObjectDecl(fields, (field, _) -> macro e.$field, info);
+					final toComplexType = toComplexType(toType, info);
+					return macro {
+						final e = $e;
+						($expr : $toComplexType);
+					}
 				default:
 					throw "not a struct";
 			}
@@ -1588,7 +1601,7 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 				}
 			}
 			if (run) {
-				var e = macro($x.__toVector__() == $y.__toVector__());
+				var e = macro($x == $y);
 				switch op {
 					case OpNotEq:
 						return (macro !$e);
@@ -1952,7 +1965,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 		var isNamed = isNamed(fromType);
 		switch fromType {
 			case typeParam(_):
-			case basic(_):
+			case basic(basicKind):
 			case signature(_, _, _, _):
 			case interfaceType(_, _):
 			case sliceType(_), mapType(_, _), chanType(_, _): // pass by ref
@@ -2449,7 +2462,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					var x = typeExpr(stmt.lhs[i], info);
 					var y = typeExpr(stmt.rhs[i], info);
 					if (op == OpAssign) {
-						// __append__ -> __appendref__
+						// __append__ -> __append__
 						var callExpr:Expr = {expr: y.expr, pos: y.pos};
 						switch callExpr.expr {
 							case EParenthesis(e):
@@ -2461,14 +2474,6 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						switch x.expr {
 							case ECheckType(e,_):
 								x = e;
-							default:
-						}
-						switch callExpr.expr {
-							case ECall({expr: EField(e, field), pos: _}, params):
-								if (field == "__append__"
-									&& removeStrParens(printer.printExpr(e)) == removeStrParens(printer.printExpr(x))) {
-									y.expr = ECall({expr: EField(e, "__appendref__"), pos: null}, params);
-								}
 							default:
 						}
 						// remove Haxe compiler error: "Assigning a value to itself"
@@ -3482,7 +3487,20 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									value = macro Go.expectedValue();
 								if (size == null)
 									return returnExpr(macro new $p(0, 0));
-								macro new $p($size, $cap, ...[for (i in 0...$size) $value]);
+								switch getUnderlying(elem) {
+									case basic(kind):
+										switch kind {
+											case int8_kind, int16_kind, int32_kind, uint8_kind, uint16_kind, uint32_kind, float32_kind, float64_kind, untyped_float_kind, untyped_int_kind, int_kind, uint_kind:
+												return returnExpr(macro new $p($size, $cap).__setNumber32__());
+											case int64_kind, uint64_kind:
+												return returnExpr(macro new $p($size, $cap).__setNumber64__());
+											case string_kind:
+												return returnExpr(macro new $p($size, $cap).__setString__());
+											default:
+										}
+									default:
+								}
+								macro new $p($size, $cap);
 							case mapType(_.get() => key, _.get() => value):
 								var keyType = toComplexType(key, info);
 								var valueType = toComplexType(value, info);
@@ -4703,7 +4721,7 @@ private function compositeLitMapList(keyType:GoType, valueType:GoType, underlyin
 	for (elt in expr.elts) {
 		final key = run(elt.key);
 		final value = run(elt.value);
-		exprs.push(macro $key => $value);
+		exprs.push(macro x.set($key,$value));
 	}
 	final keyComplexType = toComplexType(keyType, info);
 	final valueComplexType = toComplexType(valueType, info);
@@ -4719,26 +4737,48 @@ private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:
 	};
 	final t = toReflectType(k, info, [], true);
 	var isObjectMap = false;
+	function createRefPointerMap(name:String) {
+		final keyElemComplexType = switch keyComplexType {
+			case TPath(p):
+				switch p.params[0] {
+					case TPType(ct):
+						ct;
+					default:
+						throw "invalid keyComplexType";
+				}
+			default:
+				throw "invalid keyComplexType";
+		}
+		final p:TypePath = {name: name, pack: [], params: [TPType(keyElemComplexType), TPType(valueComplexType)]};
+		return macro({
+			final x = new $p();
+			@:mergeBlock $b{exprs};
+			cast x;
+		} : GoMap<$keyComplexType, $valueComplexType>);
+	}
 	switch getUnderlying(k) {
 		case interfaceType(empty,_):
 			if (!empty)
 				isObjectMap = true;
 		case structType(_):
 			isObjectMap = true;
+		case pointerType(_):
+			return createRefPointerMap("GoPointerMap");
+		case refType(_):
+			return createRefPointerMap("GoRefMap");
 		default:
 	}
 	if (isObjectMap) {
 		return macro({
 			final x = new GoObjectMap<$keyComplexType, $valueComplexType>();
 			x.t = new stdgo.internal.reflect.Reflect._Type($t);
-			final d = $a{exprs};
-			x.__setData__(d);
+			@:mergeBlock $b{exprs};
 			cast x;
 		} : GoMap<$keyComplexType, $valueComplexType>);
 	}
 	return macro({
 		final x = new GoMap<$keyComplexType, $valueComplexType>();
-		x.__setInitData__($e{macro $a{exprs}});
+		@:mergeBlock $b{exprs};
 		x;
 	});
 }

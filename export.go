@@ -68,6 +68,15 @@ var excludesBytes []byte
 var fset *token.FileSet
 var stdgoList map[string]bool
 
+//go:embed stdgoExports.json
+var stdgoExportsBytes []byte
+
+//go:embed stdgoExterns.json
+var stdgoExternsBytes []byte
+
+var stdgoExterns map[string]bool
+var stdgoExports map[string]bool
+
 var excludes map[string]bool
 var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 var checker *types.Checker
@@ -76,22 +85,17 @@ var typeMap *typeutil.Map = nil
 var typeMapIndex uint32 = 0
 var hashMap map[uint32]map[string]interface{}
 var testBool = false
-var externBool = false
-var exportBool = false
+var noDepsBool = false
 
 func compile(params []string, excludesData []string, index string, debug bool) []byte {
 	args := []string{}
 	testBool = false
-	externBool = false
-	exportBool = false
 	for _, param := range params {
 		switch param {
 		case "-test", "--test":
 			testBool = true
-		case "-extern", "--extern", "-externs", "--externs":
-			externBool = true
-		case "-export", "--export", "-exports", "--exports":
-			exportBool = true
+		case "-nodeps", "--nodeps":
+			noDepsBool = true
 		default:
 			args = append(args, param)
 		}
@@ -125,8 +129,10 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 		excludes[exclude] = true
 	}
 	if len(initial) > 0 {
-		for exclude := range stdgoList {
-			excludes[exclude] = true
+		if !noDepsBool {
+			for exclude := range stdgoList {
+				excludes[exclude] = true
+			}
 		}
 		for _, pkg := range initial { //remove initial packages from exclude list
 			delete(excludes, pkg.PkgPath)
@@ -187,7 +193,7 @@ func main() {
 	if err != nil {
 		panic(err.Error())
 	}
-	list2 := make([]string, 150)
+	list2 := make([]string, 0, 150)
 	err = json.Unmarshal(stdgoListBytes, &list2)
 	if err != nil {
 		panic(err.Error())
@@ -195,6 +201,27 @@ func main() {
 	stdgoList = make(map[string]bool, len(list2))
 	for _, s := range list2 {
 		stdgoList[s] = true
+	}
+	externList := make([]string, 0, 150)
+	exportList := make([]string, 0, 150)
+
+	err = json.Unmarshal(stdgoExportsBytes, &exportList)
+	if err != nil {
+		panic(err.Error())
+	}
+	err = json.Unmarshal(stdgoExternsBytes, &externList)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	stdgoExports = make(map[string]bool, len(exportList))
+	stdgoExterns = make(map[string]bool, len(externList))
+
+	for _, s := range exportList {
+		stdgoExports[s] = true
+	}
+	for _, s := range externList {
+		stdgoExterns[s] = true
 	}
 	_, err = strconv.Atoi(port)
 	if err != nil { // not set to a port, test compile
@@ -531,10 +558,10 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 			}
 		}
 		mergePackage(list[i])
-		if exportBool {
+		if stdgoExports[list[i].PkgPath] {
 			ast.FileExports(list[i].Syntax[0])
 		}
-		if externBool && !strings.HasSuffix(list[i].PkgPath, "_test") && !strings.HasSuffix(list[i].PkgPath, ".test") { // remove function bodies
+		if (stdgoExterns[list[i].PkgPath]) && !strings.HasSuffix(list[i].PkgPath, "_test") && !strings.HasSuffix(list[i].PkgPath, ".test") { // remove function bodies
 			for _, file := range list[i].Syntax {
 				for _, d := range file.Decls {
 					switch f := d.(type) {

@@ -1,0 +1,17 @@
+[
+	"syscall/js",
+	"syscall",
+	"os",
+	"os/exec",
+	"context",
+	"testing",
+	"testing/iotest",
+	"testing/fstest",
+	"testing/internal/testdeps",
+	"runtime",
+	"runtime/debug",
+	"reflect",
+	"sync",
+	"sync/atomic",
+	"internal/godebug"
+]

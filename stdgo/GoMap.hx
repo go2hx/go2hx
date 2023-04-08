@@ -30,17 +30,11 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		If `key` already has a mapping, the previous value disappears.
 		If `key` is `null`, the result is unspecified.
 	**/
-	public inline function set(key:K, value:V)
+	@:op([]) public inline function set(key:K, value:V)
 		this.set(key, value);
 
 	public inline function __setData__(map:GoMap<K,V>) {
 		this.clear();
-		for (key => value in map) {
-			this.set(key,value);
-		}
-	}
-
-	public inline function __setInitData__(map:Map<K,V>) {
 		for (key => value in map) {
 			this.set(key,value);
 		}
@@ -122,11 +116,6 @@ abstract GoMap<K, V>(IMap<K, V>) {
 	**/
 	public inline function clear():Void {
 		this.clear();
-	}
-
-	@:arrayAccess @:noCompletion public inline function arrayWrite(k:K, v:V):V {
-		this.set(k, v);
-		return v;
 	}
 
 	@:from static inline function fromStringMap<V>(map:GoStringMap<V>):GoMap<GoString, V> {
@@ -234,13 +223,13 @@ abstract GoMap<K, V>(IMap<K, V>) {
         return new GoUInt64Map<V>();
     }
 
-	@:from static inline function fromFloatMap<V>(map:GoFloat64Map<V>):GoMap<GoFloat64, V> {
+	@:from static inline function fromFloatMap<V>(map:GoFloatMap<V>):GoMap<GoFloat, V> {
 		return cast map;
 	}
 
 	@:to
-    static inline function toFloatMap<K : GoFloat, V>(t : IMap<K, V>) : GoFloat64Map<V> {
-        return new GoFloat64Map<V>();
+    static inline function toFloatMap<K : GoFloat, V>(t : IMap<K, V>) : GoFloatMap<V> {
+        return new GoFloatMap<V>();
     }
 
 
@@ -249,8 +238,8 @@ abstract GoMap<K, V>(IMap<K, V>) {
 	}
 
 	@:to
-    static inline function toFloat64Map<K : GoFloat64, V>(t : IMap<K, V>) : GoFloatMap<V> {
-        return new GoFloatMap<V>();
+    static inline function toFloat64Map<K : GoFloat64, V>(t : IMap<K, V>) : GoFloat64Map<V> {
+        return new GoFloat64Map<V>();
     }
 	
 
@@ -259,8 +248,8 @@ abstract GoMap<K, V>(IMap<K, V>) {
 	}
 
 	@:to
-    static inline function toFloat32Map<K : GoUInt64, V>(t : IMap<K, V>) : GoFloat64Map<V> {
-        return new GoFloat64Map<V>();
+    static inline function toFloat32Map<K : GoFloat32, V>(t : IMap<K, V>) : GoFloat32Map<V> {
+        return new GoFloat32Map<V>();
     }
 
 	@:from static inline function fromComplex64Map<V>(map:GoComplex64Map<V>):GoMap<GoComplex64, V> {
@@ -289,17 +278,6 @@ abstract GoMap<K, V>(IMap<K, V>) {
     static inline function toAnyInterfaceMap<K : AnyInterface, V>(t : IMap<K, V>) : GoAnyInterfaceMap<V> {
         return new GoAnyInterfaceMap<V>();
     }
-
-
-	@:from static inline function fromRefMap<T,V>(map:GoRefMap<T,V>):GoMap<Ref<T>, V> {
-		return cast map;
-	}
-
-	@:to
-    static inline function toRefMap<K, V>(t : IMap<Ref<K>, V>) : GoRefMap<K,V> {
-        return new GoRefMap<K,V>();
-    }
-
 }
 
 
@@ -438,12 +416,6 @@ class GoObjectMap<K,V> extends BalancedTree<Dynamic,V> {
 		final key = new GoAnyInterfaceMapKey(new AnyInterface(key,t));
 		return super.get(key);
 	}
-	public inline function __setData__(map:Map<Dynamic,V>) {
-		this.clear();
-		for (key => value in map) {
-			set(key,value);
-		}
-	}
 	override function keysLoop(node:TreeNode<Dynamic, V>, acc:Array<Dynamic>) {
 		if (node != null) {
 			keysLoop(node.left, acc);
@@ -458,7 +430,11 @@ class GoAnyInterfaceMapKey {
 	public var ais:String;
 	public function new(k:AnyInterface) {
 		ai = k;
+		#if nolinkstd
+		ais = "";
+		#else
 		ais = stdgo.fmt.Fmt.sprintf("%v",k);
+		#end
 	}
 }
 

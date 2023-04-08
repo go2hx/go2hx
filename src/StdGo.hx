@@ -50,8 +50,6 @@ var instance:Main.InstanceData = null;
 var compiled:Bool = false;
 var args:Array<String> = [];
 var hxml = "";
-var externBool = false;
-var exportBool = false;
 var varTraceBool = false;
 var funcTraceBool = false;
 
@@ -60,18 +58,12 @@ function update() {
 	Main.update();
 	#end
 	for (lib in libs) {
-		externBool = externs.indexOf(lib) != -1;
-		exportBool = exports.indexOf(lib) != -1;
 		hxml = "stdgo/" + sanatize(lib);
-		args = [lib, '--nocomments', '--out', 'stdgo', '--root', 'stdgo', '--norun'];
+		args = [lib, '--nocomments', '--out', '.', '--norun'];
 		if (varTraceBool)
 			args.push("--vartrace");
 		if (funcTraceBool)
 			args.push("--funcTrace");
-		if (externBool)
-			args.push("--extern");
-		if (exportBool)
-			args.push("--export");
 		if (noMain.indexOf(lib) == -1) {
 			args.push('--hxml');
 			args.push(hxml);
@@ -106,9 +98,3 @@ final noMain = [
 	"internal/types/errors",
 	"internal/godebug",
 ];
-
-final externs = [
-	"syscall/js", "syscall", "os", "os/exec", "context", "testing", "testing/iotest", "testing/fstest", "testing/internal/testdeps", "runtime", "runtime/debug", "reflect", "sync", "sync/atomic", "internal/godebug",
-];
-
-final exports = ["runtime", "runtime/debug", "reflect"];

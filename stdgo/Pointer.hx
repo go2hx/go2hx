@@ -1,8 +1,5 @@
 package stdgo;
 
-import haxe.Constraints.Constructible;
-import haxe.ds.Either;
-import haxe.macro.Context;
 import stdgo.StdGoTypes.GoInt;
 
 @:forward.new
@@ -89,7 +86,7 @@ class PointerData<T> {
 	public var underlyingIndex:Any = null;
 	public var address:Int = 0;
 
-	public function new(?get, ?set, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {
+	public inline function new(?get, ?set, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {
 		if (get == null)
 			get = () -> null;
 		if (set == null)

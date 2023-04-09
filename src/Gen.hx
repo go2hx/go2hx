@@ -8,7 +8,10 @@ import sys.io.File;
 
 function create(outputPath:String, module:Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
-	if (Typer.stdgoList.contains(actualPath)) {
+	var testPath = actualPath;
+	if (testPath.substring(testPath.length - 5) == "_test")
+		testPath = testPath.substring(0, testPath.length - 5);
+	if (Typer.stdgoList.contains(testPath)) {
 		root = "stdgo";
 		actualPath = "stdgo/" + actualPath;
 	}

@@ -1,6 +1,7 @@
 --macro define('go2hx')
 --macro stdgo.internal.Macro.init()
 -D js-es=6
+-D message-reporting=pretty
 -D source-map
 -D shallow-expose
 -D keep-inline-positions

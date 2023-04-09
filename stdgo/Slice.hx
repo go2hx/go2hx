@@ -161,7 +161,7 @@ private class SliceIterator<T> {
 	}
 }
 
-@:generic
+//@:generic
 class SliceData<T> {
 	public var vector:haxe.ds.Vector<T>;
 

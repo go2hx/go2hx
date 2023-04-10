@@ -118,6 +118,15 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		this.clear();
 	}
 
+	@:from static inline function fromBoolMap<V>(map:GoBoolMap<V>):GoMap<Bool, V> {
+		return cast map;
+	}
+
+	@:to
+    static inline function toGoBoolMap<K : Bool, V>(t : IMap<K, V>) : GoBoolMap<V> {
+        return new GoBoolMap<V>();
+    }
+
 	@:from static inline function fromStringMap<V>(map:GoStringMap<V>):GoMap<GoString, V> {
 		return cast map;
 	}

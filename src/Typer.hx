@@ -4719,8 +4719,10 @@ private function compositeLitMapList(keyType:GoType, valueType:GoType, underlyin
 	}
 	final exprs:Array<Expr> = [];
 	for (elt in expr.elts) {
-		final key = run(elt.key);
-		final value = run(elt.value);
+		final eltKeyType = typeof(elt.key, info, false);
+		final eltValueType = typeof(elt.value, info, false);
+		final key = assignTranslate(eltKeyType,keyType,run(elt.key),info, false);
+		final value = assignTranslate(eltValueType,valueType,run(elt.value),info,false);
 		exprs.push(macro x.set($key,$value));
 	}
 	final keyComplexType = toComplexType(keyType, info);

@@ -451,8 +451,9 @@ class InternalTest {
 	public var name:GoString = "";
 	public var f:T_->Void = null;
 
-	public function new(name:GoString, f:T_->Void) {
-		this.name = name;
+	public function new(?name:GoString, ?f:T_->Void) {
+		if (name != null)
+			this.name = name;
 		this.f = f;
 	}
 

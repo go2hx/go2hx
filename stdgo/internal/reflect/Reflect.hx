@@ -962,7 +962,7 @@ class _Type {
 						pkgPath: module,
 						type: new _Type_asInterface(Go.pointer(t),t),
 						tag: field.tag,
-						index: new Slice(_i, _i),
+						index: new Slice(_i, _i, null),
 						anonymous: field.embedded,
 					};
 				default:

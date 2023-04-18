@@ -6,7 +6,7 @@ final list = [
 			panic(err)
 		}
 		return b*/
-		return new Slice<GoByte>(0,0);
+		return new Slice<GoByte>(0,0, null).__setNumber32__();
 	},
 	// stdgo/errors
 	"errors:_errorType" => macro stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface((null : Ref<Error>))).elem(),
@@ -21,11 +21,11 @@ final list = [
 		}
 	},
 	"os:_runtime_args" => macro {
-		@:define("js") return new Slice<GoString>(0, 0);
+		@:define("js") return new Slice<GoString>(0, 0, null).__setString__();
 		@:define("sys") {
 			final args:Array<GoString> = Sys.args().map(arg -> (arg : GoString));
 			args.unshift(Sys.getCwd());
-			return new Slice<GoString>(0, 0, ...args);
+			return new Slice<GoString>(0, 0, null, ...args).__setString__();
 		};
 	},
 	// stdgo/strings
@@ -113,7 +113,7 @@ final list = [
 		if (min != 0) {
 			name += ":" + Std.string(min);
 		}
-		_localLoc._zone = new Slice<T_zone>(0, 0, ...[{_name: (name : GoString), _offset: offset, _isDST: false}]);
+		_localLoc._zone = new Slice<T_zone>(0, 0, () -> new T_zone(), ...[{_name: (name : GoString), _offset: offset, _isDST: false}]);
 	},
 	// stdgo/math
 	"math:trunc" => macro return _x > 0 ? floor(_x) : ceil(_x),
@@ -290,7 +290,7 @@ final list = [
 	"reflect:makeSlice" => macro {
 		// (_typ:Type, _len:GoInt, _cap:GoInt)
 		final value = stdgo.internal.reflect.Reflect.defaultValue(_typ);
-		final slice = new Slice(0,_cap.toBasic(), ...[for (i in 0..._len.toBasic()) value]);
+		final slice = new Slice(0,_cap.toBasic(), () -> value, ...[for (i in 0..._len.toBasic()) value]);
 		final t = @:privateAccess (cast _typ : stdgo.internal.reflect.Reflect._Type_asInterface).__type__;
 		return new Value(new AnyInterface(slice,t));
 	},

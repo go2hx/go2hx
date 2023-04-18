@@ -94,7 +94,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		if (high == -1)
 			high = length.toBasic();
 		var length = high - low;
-		final obj = new stdgo.Slice.SliceData<T>(0, -1);
+		final obj = new stdgo.Slice.SliceData<T>(0, -1,null);
 		obj.offset = offset;
 		if (max != -1) {
 			obj.capacity = max - low;

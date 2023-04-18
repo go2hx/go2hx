@@ -307,6 +307,14 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			if (info.global.initBlock.length > 0) {
 				// info.global.initBlock.unshift(macro trace(stdgo.internal.type.Type.names));
 				var block = toExpr(EBlock(info.global.initBlock));
+				final pathString = makeString(info.global.path);
+				if (info.global.varTraceBool) {
+					block = macro {
+						trace("start init func: " + $pathString);
+						$block;
+						trace("end init func: " + $pathString);
+					}
+				}
 				block = mapReturnToThrow(block);
 				data.defs.push({
 					name: "_",
@@ -1921,7 +1929,7 @@ private function cleanType(type:GoType):GoType {
 	}
 }
 
-private function argsTranslate(args:Array<FunctionArg>, block:Expr):Expr {
+private function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:Ast.FieldList, info:Info):Expr {
 	switch block.expr {
 		case EBlock(exprs):
 			for (arg in args) {
@@ -1931,7 +1939,9 @@ private function argsTranslate(args:Array<FunctionArg>, block:Expr):Expr {
 							final name = arg.name;
 							switch p.params[0] {
 								case TPType(ct):
-									exprs.unshift(macro var $name = new Slice<$ct>(0, 0, ...$i{name}));
+									final elemType = typeof(argsFields.list[argsFields.list.length - 1].type,info,false);
+									final restExpr = defaultValue(getElem(elemType),info);
+									exprs.unshift(macro var $name = new Slice<$ct>(0, 0, () -> $restExpr, ...$i{name}));
 								default:
 							}
 						}
@@ -3486,21 +3496,23 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								if (value == null)
 									value = macro Go.expectedValue();
 								if (size == null)
-									return returnExpr(macro new $p(0, 0));
+									return returnExpr(macro new $p(0, 0, () -> $value));
 								switch getUnderlying(elem) {
+									case structType(_):
+										return returnExpr(macro new $p($size, $cap, () -> $value));
 									case basic(kind):
 										switch kind {
 											case int8_kind, int16_kind, int32_kind, uint8_kind, uint16_kind, uint32_kind, float32_kind, float64_kind, untyped_float_kind, untyped_int_kind, int_kind, uint_kind:
-												return returnExpr(macro new $p($size, $cap).__setNumber32__());
+												return returnExpr(macro new $p($size, $cap, null).__setNumber32__());
 											case int64_kind, uint64_kind:
-												return returnExpr(macro new $p($size, $cap).__setNumber64__());
+												return returnExpr(macro new $p($size, $cap, null).__setNumber64__());
 											case string_kind:
-												return returnExpr(macro new $p($size, $cap).__setString__());
+												return returnExpr(macro new $p($size, $cap, null).__setString__());
 											default:
 										}
 									default:
 								}
-								macro new $p($size, $cap);
+								macro new $p($size, $cap, () -> $value);
 							case mapType(_.get() => key, _.get() => value):
 								var keyType = toComplexType(key, info);
 								var valueType = toComplexType(value, info);
@@ -4731,26 +4743,20 @@ private function compositeLitMapList(keyType:GoType, valueType:GoType, underlyin
 }
 
 private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:ComplexType, exprs:Array<Expr>, info:Info):Expr {
-	final k = switch getUnderlying(t) {
-		case mapType(_.get() => var keyType,_):
-			keyType;
+	var k:GoType = null;
+	var v:GoType = null;
+	switch getUnderlying(t) {
+		case mapType(_.get() => var keyType,_.get() => var valueType):
+			k = keyType;
+			v = valueType;
 		default:
 			throw "underlying t invalid type createMap";
-	};
-	final t = toReflectType(k, info, [], true);
+	}
+	final keyT = toReflectType(k, info, [], true);
+	final defaultValueExpr = defaultValue(v, info, true);
 	var isObjectMap = false;
 	function createRefPointerMap(name:String) {
-		final keyElemComplexType = switch keyComplexType {
-			case TPath(p):
-				switch p.params[0] {
-					case TPType(ct):
-						ct;
-					default:
-						throw "invalid keyComplexType";
-				}
-			default:
-				throw "invalid keyComplexType";
-		}
+		final keyElemComplexType = keyComplexType;
 		final p:TypePath = {name: name, pack: [], params: [TPType(keyElemComplexType), TPType(valueComplexType)]};
 		return macro({
 			final x = new $p();
@@ -4758,10 +4764,19 @@ private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:
 			cast x;
 		} : GoMap<$keyComplexType, $valueComplexType>);
 	}
-	switch getUnderlying(k) {
+	final uk = getUnderlying(k);
+	switch uk {
 		case interfaceType(empty,_):
-			if (!empty)
+			if (!empty) {
 				isObjectMap = true;
+			}else{
+				return macro ({
+					final x = new GoAnyInterfaceMap<$keyComplexType, $valueComplexType>();
+					x.__defaultValue__ = () -> $defaultValueExpr;
+					@:mergeBlock $b{exprs};
+					cast x;
+				} : GoMap<$keyComplexType, $valueComplexType>);
+			}
 		case structType(_):
 			isObjectMap = true;
 		case pointerType(_):
@@ -4773,7 +4788,8 @@ private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:
 	if (isObjectMap) {
 		return macro({
 			final x = new GoObjectMap<$keyComplexType, $valueComplexType>();
-			x.t = new stdgo.internal.reflect.Reflect._Type($t);
+			x.t = new stdgo.internal.reflect.Reflect._Type($keyT);
+			x.__defaultValue__ = () -> $defaultValueExpr;
 			@:mergeBlock $b{exprs};
 			cast x;
 		} : GoMap<$keyComplexType, $valueComplexType>);
@@ -4787,6 +4803,7 @@ private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:
 
 private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):Expr {
 	final p = getTypePath(toComplexType(underlying, info));
+	var value = defaultValue(elem, info, false);
 	if (keyValueBool) {
 		var exprs:Array<{expr:Expr, index:Int}> = [];
 		function run(elt:Ast.Expr, index:Int) {
@@ -4807,9 +4824,7 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 			}
 			index++;
 		}
-		var length = makeExpr(len);
-		final elem = elem;
-		var value = defaultValue(elem, info, false);
+		var length = makeExpr(len);	
 		var sets:Array<Expr> = [];
 		var max = 0;
 		for (i in 0...exprs.length) {
@@ -4823,7 +4838,7 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 		sets.push(macro s);
 		if (len == -1) {
 			length = makeExpr(max + 1);
-			return toExpr(EBlock([macro var s:$ct = new $p(0, 0, ...([for (i in 0...$length) $value]))].concat(sets)));
+			return toExpr(EBlock([macro var s:$ct = new $p(0, 0, () -> $value, ...([for (i in 0...$length) $value]))].concat(sets)));
 		} else {
 			return toExpr(EBlock([macro var s:$ct = new $p(...[for (i in 0...$length) $value])].concat(sets)));
 		}
@@ -4844,6 +4859,7 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 		}
 		if (len == -1 || len == exprs.length) {
 			if (len == -1) {
+				exprs.unshift(macro () -> $value);
 				exprs.unshift(macro 0);
 				exprs.unshift(macro 0);
 			}
@@ -5387,7 +5403,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		block = patch;
 	}
 
-	block = argsTranslate(args, block);
+	block = argsTranslate(args, block, decl.type.params, info);
 
 	info.restricted = [];
 	if (info.gotoSystem) {
@@ -5945,9 +5961,10 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 						e = createNamedObjectDecl(fields, (_, type) -> defaultValue(type, info), info);
 					}
 					macro($e : $ct);
-				case sliceType(_):
+				case sliceType(_.get() => elem):
 					var t = namedTypePath(path, info);
-					macro new $t(0, 0);
+					final elem = defaultValue(elem, info);
+					macro new $t(0, 0, () -> $elem);
 				case arrayType(_.get() => elem, len):
 					final t = namedTypePath(path, info);
 					final elem = defaultValue(elem, info);

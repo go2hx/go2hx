@@ -459,7 +459,7 @@ class Go {
 								cast x;
 							} : GoMap<$keyComplexType,$valueComplexType>);
 						case "stdgo.Slice":
-							value = macro new Slice(0,-1);
+							value = macro new Slice(0,-1,null);
 						case "stdgo.AnyInterface":
 							// force cast into
 							value = macro new AnyInterface(null,new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));

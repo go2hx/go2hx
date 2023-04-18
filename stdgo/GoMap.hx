@@ -402,6 +402,7 @@ class GoArrayMap<T,V> extends BalancedTree<GoArray<T>,V> {
 
 class GoObjectMap<K,V> extends BalancedTree<Dynamic,V> {
 	public var t:_Type;
+	public var __defaultValue__:Void->V;
 	override function compare(k1:Dynamic, k2:Dynamic):Int {
 		#if nolinkstd
 		return 0;
@@ -421,9 +422,19 @@ class GoObjectMap<K,V> extends BalancedTree<Dynamic,V> {
 		final key = new GoAnyInterfaceMapKey(new AnyInterface(key,t));
 		super.set(key, value);
 	}
-	override function get(key:Dynamic):Null<V> {
+	override function get(key:Dynamic):V {
 		final key = new GoAnyInterfaceMapKey(new AnyInterface(key,t));
-		return super.get(key);
+		var node = root;
+		while (node != null) {
+			var c = compare(key, node.key);
+			if (c == 0)
+				return node.value;
+			if (c < 0)
+				node = node.left;
+			else
+				node = node.right;
+		}
+		return __defaultValue__();
 	}
 	override function keysLoop(node:TreeNode<Dynamic, V>, acc:Array<Dynamic>) {
 		if (node != null) {
@@ -448,6 +459,7 @@ class GoAnyInterfaceMapKey {
 }
 
 class GoAnyInterfaceMap<V> extends BalancedTree<Dynamic,V> {
+	public var __defaultValue__:Void->V;
 	override function compare(k1:Dynamic, k2:Dynamic):Int {
 		#if nolinkstd
 		return 0;
@@ -467,9 +479,19 @@ class GoAnyInterfaceMap<V> extends BalancedTree<Dynamic,V> {
 		final key = new GoAnyInterfaceMapKey(key);
 		super.set(key, value);
 	}
-	override function get(key:Dynamic):Null<V> {
+	override function get(key:Dynamic):V {
 		final key = new GoAnyInterfaceMapKey(key);
-		return super.get(key);
+		var node = root;
+		while (node != null) {
+			var c = compare(key, node.key);
+			if (c == 0)
+				return node.value;
+			if (c < 0)
+				node = node.left;
+			else
+				node = node.right;
+		}
+		return __defaultValue__();
 	}
 	override function keysLoop(node:TreeNode<Dynamic, V>, acc:Array<Dynamic>) {
 		if (node != null) {

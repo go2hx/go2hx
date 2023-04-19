@@ -822,11 +822,9 @@ class Go {
 		}
 		expr = func(expr);
 		#end
-		var exprMacro = macro {
-			while ($cond) {
-				$expr;
-				$post;
-			}
+		var exprMacro = macro while ($cond) {
+			$expr;
+			$post;
 		};
 		return exprMacro;
 	}

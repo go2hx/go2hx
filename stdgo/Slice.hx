@@ -2,7 +2,7 @@ package stdgo;
 
 import haxe.Rest;
 import stdgo.StdGoTypes;
-@:forward(__append__,__slice__, __setNumber32__,__setNumber64__,__setString__, __ref__)
+@:forward(__append__, __setNumber32__,__setNumber64__,__setString__, __ref__)
 @:forward.new
 //@:generic
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
@@ -14,6 +14,12 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	public function keyValueIterator():SliceKeyValueIterator<T>
 		return new SliceKeyValueIterator<T>(this);
+
+	public function __slice__(low:GoInt, high:GoInt=-1,max:GoInt=-1):Slice<T> {
+		if (this == null)
+			return null;
+		return this.__slice__(low,high,max);
+	}
 
 	@:from
 	public static function fromStringRunes(str:String):Slice<GoRune> {
@@ -30,7 +36,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return new Slice<GoByte>(0, 0, ...[
 			for (i in 0...bytes.length)
 				bytes.get(i)
-		]);
+		]).__setNumber32__();
 	}
 
 	@:to
@@ -48,7 +54,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	@:from
 	public static function fromVector<T>(vector:haxe.ds.Vector<T>):Slice<T> {
-		final data = new SliceData<T>(0, -1);
+		final data = new SliceData<T>(0, -1, null);
 		data.vector = vector;
 		data.length = vector.length;
 		data.capacity = vector.length;
@@ -80,7 +86,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	@:from
 	private static function fromArrayPointer<T>(ptr:Pointer<GoArray<T>>):Slice<T> {
 		final vector = ptr.value.__toVector__();
-		var slice = new SliceData<T>(vector.length, vector.length);
+		var slice = new SliceData<T>(vector.length, vector.length, null);
 		return slice;
 	}
 
@@ -92,7 +98,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this == null ? 0 : this.capacity;
 	}
 
-	@:op([]) public function __get__(index:GoInt):T {
+	@:op([]) public inline function __get__(index:GoInt):T {
 		return this.get(index.toBasic());
 	}
 
@@ -120,10 +126,11 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		this.vector = data.vector;
 		this.offset = data.offset;
 		this.__nil__ = false;
+		#if !target.static
 		@:privateAccess data.isNumber32 = data.isNumber32;
 		@:privateAccess data.isNumber64 = data.isNumber64;
 		@:privateAccess data.isString = data.isString;
-		//this.__setNumber32__ = 
+		#end
 	}
 }
 
@@ -163,33 +170,41 @@ private class SliceIterator<T> {
 
 //@:generic
 class SliceData<T> {
-	public var vector:haxe.ds.Vector<T>;
+	public var vector:haxe.ds.Vector<T> = null;
 
 	public var offset:Int = 0;
 	public var length:Int = 0;
 	public var capacity:Int = 0;
 	public var __nil__:Bool = false;
+	#if !target.static
 	var isNumber32:Bool = false;
 	var isNumber64:Bool = false;
 	var isString:Bool = false;
+	#end
 
 
-	public function __setNumber32__():Slice<T> {
+	public inline function __setNumber32__():Slice<T> {
+		#if !target.static
 		this.isNumber32 = true;
+		#end
 		return this;
 	}
-	public function __setNumber64__():Slice<T> {
+	public inline function __setNumber64__():Slice<T> {
+		#if !target.static
 		this.isNumber64 = true;
+		#end
 		return this;
 	}
-	public function __setString__():Slice<T> {
+	public inline function __setString__():Slice<T> {
+		#if !target.static
 		this.isString = true;
+		#end
 		return this;
 	}
 
 	
 
-	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
+	public function new(length:Int, capacity:Int, args:Rest<T>) {
 		if (capacity != -1) {
 			final vectorLength = if (args.length > capacity) {
 				args.length;
@@ -206,9 +221,12 @@ class SliceData<T> {
 		}
 	}
 
-	public inline function __ref__():SliceData<T> {
-		if (this == null)
-			return new SliceData<T>(0,0);
+	public function __ref__():SliceData<T> {
+		if (this == null) {
+			final s = new SliceData<T>(0,-1);
+			s.capacity = 0;
+			return s;
+		}
 		final slice = new SliceData<T>(0, -1); // no allocation
 		slice.length = this.length;
 		slice.capacity = this.capacity;
@@ -216,15 +234,15 @@ class SliceData<T> {
 		slice.offset = this.offset;
 		if (slice.capacity == -1)
 			slice.capacity = 0;
+		#if !target.static
 		slice.isNumber32 = this.isNumber32;
 		slice.isNumber64 = this.isNumber64;
 		slice.isString = this.isString;
+		#end
 		return slice;
 	}
 
-	public inline function __slice__(low:GoInt, high:GoInt = -1, max:GoInt = -1):Slice<T> {
-		if (this == null)
-			return null;
+	public function __slice__(low:GoInt, high:GoInt = -1, max:GoInt = -1):Slice<T> {
 		var offset = low;
 		if (high == -1)
 			high = length;
@@ -273,14 +291,19 @@ class SliceData<T> {
 	}
 
 	public inline function get(index:Int):T {
-		//boundsCheck(index);
-		if (isNumber64)
-			return vector.get(index + offset) ?? cast haxe.Int64.make(0,0);
-		if (isNumber32)
-			return vector.get(index + offset) ?? cast 0;
-		if (isString)
-			return vector.get(index + offset) ?? cast haxe.io.Bytes.alloc(0);
+		#if !target.static
+		if (isNumber64) {
+			return vector.get(index + offset) ?? untyped haxe.Int64.make(0,0);
+		}else if (isNumber32) {
+			return vector.get(index + offset) ?? untyped 0;
+		} else if (isString) {
+			return vector.get(index + offset) ?? untyped haxe.io.Bytes.alloc(0);
+		}else{
+			return vector.get(index + offset);
+		}
+		#else
 		return vector.get(index + offset);
+		#end
 	}
 
 	public inline function set(index:Int, value:T):T {

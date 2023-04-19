@@ -4771,7 +4771,7 @@ private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:
 				isObjectMap = true;
 			}else{
 				return macro ({
-					final x = new GoAnyInterfaceMap<$keyComplexType, $valueComplexType>();
+					final x = new GoAnyInterfaceMap<$valueComplexType>();
 					x.__defaultValue__ = () -> $defaultValueExpr;
 					@:mergeBlock $b{exprs};
 					cast x;

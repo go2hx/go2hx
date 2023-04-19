@@ -169,6 +169,7 @@ private class SliceIterator<T> {
 }
 
 //@:generic
+@:struct
 class SliceData<T> {
 	public var vector:haxe.ds.Vector<T> = null;
 
@@ -204,7 +205,7 @@ class SliceData<T> {
 
 	
 
-	public function new(length:Int, capacity:Int, args:Rest<T>) {
+	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
 		if (capacity != -1) {
 			final vectorLength = if (args.length > capacity) {
 				args.length;
@@ -221,7 +222,7 @@ class SliceData<T> {
 		}
 	}
 
-	public function __ref__():SliceData<T> {
+	public inline function __ref__():SliceData<T> {
 		if (this == null) {
 			final s = new SliceData<T>(0,-1);
 			s.capacity = 0;
@@ -242,7 +243,7 @@ class SliceData<T> {
 		return slice;
 	}
 
-	public function __slice__(low:GoInt, high:GoInt = -1, max:GoInt = -1):Slice<T> {
+	public inline function __slice__(low:GoInt, high:GoInt = -1, max:GoInt = -1):Slice<T> {
 		var offset = low;
 		if (high == -1)
 			high = length;
@@ -311,17 +312,17 @@ class SliceData<T> {
 		return vector.set(index + offset, value);
 	}
 
-	public function toArray():Array<T> { // unrolling
+	public inline function toArray():Array<T> { // unrolling
 		return [for (i in 0...length) vector.get(i + offset)];
 	}
 
-	public function toVector():haxe.ds.Vector<T> {
+	public inline function toVector():haxe.ds.Vector<T> {
 		final vectorObj = new haxe.ds.Vector<T>(length);
 		haxe.ds.Vector.blit(vector, offset, vectorObj, 0, length);
 		return vectorObj;
 	}
 
-	public function toString():String {
+	public inline function toString():String {
 		#if !macro
 		return "[" + [for (i in offset...offset + length) Go.string(vector[i])].join(" ") + "]";
 		#else

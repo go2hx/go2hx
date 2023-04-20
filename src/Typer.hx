@@ -4777,7 +4777,7 @@ private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:
 					cast x;
 				} : GoMap<$keyComplexType, $valueComplexType>);
 			}
-		case structType(_):
+		case structType(_), arrayType(_):
 			isObjectMap = true;
 		case pointerType(_):
 			return createRefPointerMap("GoPointerMap");

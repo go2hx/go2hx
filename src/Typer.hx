@@ -334,12 +334,18 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			}
 			data.imports = data.imports.concat(defaultImports);
 			final _test = "_test";
-			if (StringTools.endsWith(module.path,_test)) {
+			if (StringTools.endsWith(module.path, _test)) {
 				var path = module.path;
-				path = path.substr(0,path.length - _test.length);
-				path = StringTools.replace(path,".","/");
+				path = path.substr(0, path.length - _test.length);
+				path = StringTools.replace(path, ".", "/");
 				path = '"$path"';
-				typeImport({path: path, name: ".", endPos: 0, doc: null, comment: null},info);
+				typeImport({
+					path: path,
+					name: ".",
+					endPos: 0,
+					doc: null,
+					comment: null
+				}, info);
 			}
 
 			if (pkgDoc != "")
@@ -889,7 +895,7 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprD
 		if (isFunc && info.returnTypes.length > 0) {
 			final s = makeString("not implemented: " + info.funcName);
 			return (macro throw $s).expr;
-		}	
+		}
 		return (macro {}).expr;
 	}
 	return typeStmtList(stmt.list, info, isFunc);
@@ -922,7 +928,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		final e = ret;
 		var catchBlock:Array<Expr> = [macro var exe:Dynamic = __exception__.native];
 		catchBlock.push(macro if ((exe is haxe.ValueException))
-				exe = exe.value);
+			exe = exe.value);
 		catchBlock.push(macro if (!(exe is AnyInterfaceData)) {
 			exe = Go.toInterface(__exception__.message);
 		});
@@ -1570,7 +1576,8 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 					case OpEq:
 						return macro $value == null || ($value : Dynamic).__nil__;
 					default:
-						return macro $value != null && (($value : Dynamic).__nil__ == null || (!($value : Dynamic).__nil__));
+						return macro $value != null && (($value : Dynamic).__nil__ == null || (!($value : Dynamic).__nil__))
+							;
 				}
 			default:
 		}
@@ -1813,7 +1820,7 @@ private function hasBreak(expr:Expr):Bool {
 			hasBreakBool = true;
 			return;
 		default:
-			haxe.macro.ExprTools.iter(expr,f);
+			haxe.macro.ExprTools.iter(expr, f);
 	}
 	f(expr);
 	return hasBreakBool;
@@ -2180,7 +2187,8 @@ private function goTypesEqual(a:GoType, b:GoType) {
 			}
 		case refType(_.get() => elem), pointerType(_.get() => elem), sliceType(_.get() => elem):
 			switch b {
-				case refType(_.get() => elem2), pointerType(_.get() => elem2), sliceType(_.get() => elem2): a.getIndex() == b.getIndex() && goTypesEqual(elem, elem2);
+				case refType(_.get() => elem2), pointerType(_.get() => elem2), sliceType(_.get() => elem2): a.getIndex() == b.getIndex() && goTypesEqual(elem,
+						elem2);
 				default:
 					false;
 			}
@@ -2480,7 +2488,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						// remove checkType from x in x = y
 						x = escapeParens(x);
 						switch x.expr {
-							case ECheckType(e,_):
+							case ECheckType(e, _):
 								x = e;
 							default:
 						}
@@ -2519,10 +2527,10 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						// set underlying not the ref
 						final underlyingType = getUnderlying(toType);
 						switch underlyingType {
-							case interfaceType(empty,methods):
+							case interfaceType(empty, methods):
 								if (empty) {
 									return (macro $x.__setData__($y)).expr;
-								}else{
+								} else {
 									final exprs:Array<Expr> = [
 										for (field in methods) {
 											final field = field.name;
@@ -2532,7 +2540,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 									exprs.unshift(macro var __tmp__ = $y);
 									return (macro $b{exprs}).expr;
 								}
-							case sliceType(_), mapType(_,_):
+							case sliceType(_), mapType(_, _):
 								return (macro $x.__setData__($y)).expr;
 							case structType(fields):
 								final exprs:Array<Expr> = [
@@ -2616,7 +2624,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					var e = typeExpr(stmt.lhs[i], info);
 					e = escapeParens(e);
 					switch e.expr {
-						case ECheckType(e2,_):
+						case ECheckType(e2, _):
 							e = e2;
 						default:
 					}
@@ -3454,9 +3462,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								var value = defaultValue(t, info);
 								if (!isRefValue(t)) {
 									value = macro Go.pointer($value);
-								}else{
-									final ct = TPath({name: "Ref", pack: [], params: [TPType(toComplexType(t,info))]});
-									value = macro (Go.setRef($value) : $ct);
+								} else {
+									final ct = TPath({name: "Ref", pack: [], params: [TPType(toComplexType(t, info))]});
+									value = macro(Go.setRef($value) : $ct);
 								}
 								return returnExpr(value).expr;
 							default:
@@ -3486,11 +3494,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						final underlyingType = getUnderlying(type);
 						var e = switch underlyingType {
 							case sliceType(_.get() => elem):
-								genSlice(elem,size,cap,returnExpr, info);
+								genSlice(elem, size, cap, returnExpr, info);
 							case mapType(_.get() => key, _.get() => value):
 								var keyType = toComplexType(key, info);
 								var valueType = toComplexType(value, info);
-								createMap(underlyingType,keyType,valueType,[],info);
+								createMap(underlyingType, keyType, valueType, [], info);
 							case chanType(dir, _.get() => elem):
 								var value = defaultValue(elem, info);
 								var param = toComplexType(elem, info);
@@ -3526,10 +3534,11 @@ private function genSlice(elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Exp
 		return returnExpr(macro new $p(0, 0));
 	switch getUnderlying(elem) {
 		case structType(_):
-			return returnExpr(macro new $p($size, $cap));
+			return returnExpr(macro new $p($size, $cap, ...[for (i in 0...($size > $cap ? $size : $cap : GoInt).toBasic()) $value]));
 		case basic(kind):
 			switch kind {
-				case int8_kind, int16_kind, int32_kind, uint8_kind, uint16_kind, uint32_kind, float32_kind, float64_kind, untyped_float_kind, untyped_int_kind, int_kind, uint_kind:
+				case int8_kind, int16_kind, int32_kind, uint8_kind, uint16_kind, uint32_kind, float32_kind, float64_kind, untyped_float_kind,
+					untyped_int_kind, int_kind, uint_kind:
 					return returnExpr(macro new $p($size, $cap).__setNumber32__());
 				case int64_kind, uint64_kind:
 					return returnExpr(macro new $p($size, $cap).__setNumber64__());
@@ -3630,7 +3639,7 @@ private function toAnyInterface(x:Expr, t:GoType, info:Info):Expr {
 		case basic(kind):
 			switch kind {
 				case untyped_nil_kind:
-					return macro (null : AnyInterface);
+					return macro(null : AnyInterface);
 				default:
 			}
 		default:
@@ -4077,7 +4086,7 @@ private function toHaxePath(path:String):String {
 
 private function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
 	final startCommandLineArg = "command-line-arguments.";
-	if (path.substr(0,startCommandLineArg.length) == startCommandLineArg) {
+	if (path.substr(0, startCommandLineArg.length) == startCommandLineArg) {
 		path = path.substr(startCommandLineArg.length);
 	}
 
@@ -4270,28 +4279,28 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 					makeString(rawEscapeSequences(expr.value));
 				}
 			case FLOAT:
-				final e = toExpr(EConst(CFloat(expr.value,"f64")));
-				macro ($e : GoFloat64);
+				final e = toExpr(EConst(CFloat(expr.value, "f64")));
+				macro($e : GoFloat64);
 			case IMAG:
 				final index = expr.value.indexOf("i");
 				var imagFloat = expr.value.substr(0, index);
 				var realFloat = expr.value.substr(index + 1);
-				final imag = toExpr(EConst(CFloat(imagFloat,"f64")));
-				final real = toExpr(EConst(CFloat(realFloat,"f64")));
+				final imag = toExpr(EConst(CFloat(imagFloat, "f64")));
+				final real = toExpr(EConst(CFloat(realFloat, "f64")));
 				macro new GoComplex128($real, $imag);
 			case INT:
-				var e = toExpr(EConst(CInt(expr.value,"i32")));
+				var e = toExpr(EConst(CInt(expr.value, "i32")));
 				e;
 			default:
 				throw "unknown token: " + expr.token;
 		}
-		final t = typeof(expr.type,info,false);
+		final t = typeof(expr.type, info, false);
 		switch t {
 			case basic(_):
 			case invalidType:
 			default:
-				final ct = toComplexType(t,info);
-				e = macro ($e : $ct);
+				final ct = toComplexType(t, info);
+				e = macro($e : $ct);
 		}
 		return e.expr;
 	}
@@ -4314,12 +4323,12 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			case basic(uint64_kind):
 				final value = haxe.UInt64Helper.parseString(expr.value);
 				final s = @:privateAccess (value : haxe.Int64).toString();
-				EConst(CInt(s,"i64"));
+				EConst(CInt(s, "i64"));
 			case basic(int64_kind):
-				EConst(CInt(expr.value,"i64"));
+				EConst(CInt(expr.value, "i64"));
 			case basic(uint32_kind), basic(uint_kind):
 				final value = haxe.Int64Helper.parseString(expr.value);
-				EConst(CInt(Std.string(value.low),kind));
+				EConst(CInt(Std.string(value.low), kind));
 			default:
 				EConst(CInt(expr.value));
 		});
@@ -4330,8 +4339,8 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		final index = expr.value.indexOf("i");
 		var imagFloat = expr.value.substr(0, index);
 		var realFloat = expr.value.substr(index + 1);
-		final imag = toExpr(EConst(CFloat(imagFloat,"f64")));
-		final real = toExpr(EConst(CFloat(realFloat,"f64")));
+		final imag = toExpr(EConst(CFloat(imagFloat, "f64")));
+		final real = toExpr(EConst(CFloat(realFloat, "f64")));
 		(macro new GoComplex128($real, $imag)).expr;
 	} else {
 		trace(expr);
@@ -4519,7 +4528,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 			case refType(_):
 				final t = typeof(expr, info, false);
 				final ct = toComplexType(t, info);
-				return (macro (Go.setRef($x) : $ct)).expr;
+				return (macro(Go.setRef($x) : $ct)).expr;
 			case pointerType(_):
 				return (macro Go.pointer($x)).expr;
 			default:
@@ -4733,20 +4742,20 @@ private function compositeLitMapList(keyType:GoType, valueType:GoType, underlyin
 	for (elt in expr.elts) {
 		final eltKeyType = typeof(elt.key, info, false);
 		final eltValueType = typeof(elt.value, info, false);
-		final key = assignTranslate(eltKeyType,keyType,run(elt.key),info, false);
-		final value = assignTranslate(eltValueType,valueType,run(elt.value),info,false);
-		exprs.push(macro x.set($key,$value));
+		final key = assignTranslate(eltKeyType, keyType, run(elt.key), info, false);
+		final value = assignTranslate(eltValueType, valueType, run(elt.value), info, false);
+		exprs.push(macro x.set($key, $value));
 	}
 	final keyComplexType = toComplexType(keyType, info);
 	final valueComplexType = toComplexType(valueType, info);
-	return createMap(underlying,keyComplexType,valueComplexType,exprs,info);
+	return createMap(underlying, keyComplexType, valueComplexType, exprs, info);
 }
 
-private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:ComplexType, exprs:Array<Expr>, info:Info):Expr {
+private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexType:ComplexType, exprs:Array<Expr>, info:Info):Expr {
 	var k:GoType = null;
 	var v:GoType = null;
 	switch getUnderlying(t) {
-		case mapType(_.get() => var keyType,_.get() => var valueType):
+		case mapType(_.get() => var keyType, _.get() => var valueType):
 			k = keyType;
 			v = valueType;
 		default:
@@ -4766,11 +4775,11 @@ private function createMap(t:GoType,keyComplexType:ComplexType,valueComplexType:
 	}
 	final uk = getUnderlying(k);
 	switch uk {
-		case interfaceType(empty,_):
+		case interfaceType(empty, _):
 			if (!empty) {
 				isObjectMap = true;
-			}else{
-				return macro ({
+			} else {
+				return macro({
 					final x = new GoAnyInterfaceMap<$valueComplexType>();
 					x.__defaultValue__ = () -> $defaultValueExpr;
 					@:mergeBlock $b{exprs};
@@ -4824,7 +4833,7 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 			}
 			index++;
 		}
-		var length = makeExpr(len);	
+		var length = makeExpr(len);
 		var sets:Array<Expr> = [];
 		var max = 0;
 		for (i in 0...exprs.length) {
@@ -5123,16 +5132,16 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			if (expr.x.x.id == "Ident") {
 				isStar = true;
 				expr.x.x.kind;
-			}else if (expr.x.x.id == "SelectorExpr") {
+			} else if (expr.x.x.id == "SelectorExpr") {
 				isStar = true;
 				expr.x.x.sel.kind;
-			}else{
+			} else {
 				-1;
 			}
 		case "SelectorExpr":
 			if (expr.x.sel.id == "Ident") {
 				expr.x.sel.kind;
-			}else{
+			} else {
 				-1;
 			}
 		case "Ident":
@@ -5147,13 +5156,13 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			expr.x = expr.x.x;
 		switch expr.x.id {
 			case "Ident":
-				x = macro $i{className(expr.x.name,info) + "_static_extension"};
+				x = macro $i{className(expr.x.name, info) + "_static_extension"};
 			case "SelectorExpr":
 				final sel = nameIdent(expr.x.sel.name, false, false, info);
-				final xType = typeExprType(expr.x,info);
+				final xType = typeExprType(expr.x, info);
 				switch xType {
 					case TPath(p):
-						final name = p.pack.join(".") + "." + className(expr.x.sel.name,info) + "_static_extension"; 
+						final name = p.pack.join(".") + "." + className(expr.x.sel.name, info) + "_static_extension";
 						x = macro $i{name};
 					default:
 				}
@@ -5277,9 +5286,9 @@ private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	final t = typeof(expr.x, info, false);
 	if (!isPointer(t)) {
-		final t = typeof(expr,info,false);
-		final ct = toComplexType(t,info);
-		return (macro ($x : $ct)).expr;
+		final t = typeof(expr, info, false);
+		final ct = toComplexType(t, info);
+		return (macro($x : $ct)).expr;
 	}
 	return (macro $x.value).expr; // pointer code
 }
@@ -5408,12 +5417,12 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	if (info.gotoSystem) {
 		var e = macro stdgo.internal.Macro.controlFlow($block);
 		if (decl.type.results != null && decl.type.results.list.length > 0) {
-			//final ret = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
+			// final ret = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
 			block = macro {
 				$e;
 				throw "controlFlow did not return";
 			};
-		}else{
+		} else {
 			block = macro {
 				$e;
 			};
@@ -5802,7 +5811,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				$block;
 				trace("end func: " + ${makeExpr(name)});
 			}
-	}
+		}
 	if (nonGenericParams.length > 0) {
 		params = params.concat(nonGenericParams);
 	}
@@ -5913,7 +5922,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 		case mapType(_.get() => key, _.get() => value):
 			final key = toComplexType(key, info);
 			final value = toComplexType(value, info);
-			macro (null : GoMap<$key,$value>);
+			macro(null : GoMap<$key, $value>);
 		case sliceType(_.get() => elem):
 			final t = toComplexType(elem, info);
 			macro(null : Slice<$t>);
@@ -6315,8 +6324,8 @@ private function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field 
 
 private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var name = className(spec.name.name, info);
-	//info.renameIdents[spec.name.name] = name + "_static_extension";
-	//info.classNames[spec.name.name] = name + "_static_extension";
+	// info.renameIdents[spec.name.name] = name + "_static_extension";
+	// info.classNames[spec.name.name] = name + "_static_extension";
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getDocComment(spec, spec) + getSource(spec, info);

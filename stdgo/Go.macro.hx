@@ -116,6 +116,7 @@ class Go {
 		};
 		return e;
 	}
+
 	public static macro function str(exprs:Array<Expr>):Expr {
 		var length = 0;
 		var index = 0;
@@ -135,7 +136,7 @@ class Go {
 				default:
 			}
 		}
-		final e = macro ({
+		final e = macro({
 			final b = new haxe.io.BytesBuffer();
 			$b{exprs};
 			b.getBytes();
@@ -281,8 +282,9 @@ class Go {
 		}
 		final t = gtDecode(t, null, []);
 		final t = macro new stdgo.internal.reflect.Reflect._Type($t);
-		return macro stdgo.internal.reflect.Reflect.defaultValue(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer($t),$t));
+		return macro stdgo.internal.reflect.Reflect.defaultValue(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer($t), $t));
 	}
+
 	public static macro function asInterface(expr) {
 		// trace(new haxe.macro.Printer().printExpr(expr));
 		var t = Context.typeof(expr);
@@ -296,7 +298,7 @@ class Go {
 		final rt = macro new stdgo.internal.reflect.Reflect._Type($gt);
 		var self:Expr = {expr: expr.expr, pos: expr.pos};
 		var selfPointer = false;
-		function f(ct:{name:String,pack:Array<String>,module:String},params:Array<haxe.macro.Type>):Expr {
+		function f(ct:{name:String, pack:Array<String>, module:String}, params:Array<haxe.macro.Type>):Expr {
 			function createTypePath(s:String = "_asInterface") {
 				final module = ct.module.split(".");
 				final p:TypePath = {
@@ -318,78 +320,78 @@ class Go {
 			}
 			final printer = new haxe.macro.Printer();
 			final p = createTypePath();
-		p.params = null;
-		var s = printer.printTypePath(p);
-		final t = Context.getType(printer.printTypePath(p));
-		final p = createTypePath("_static_extension");
-		p.params = null;
-		switch t {
-			case TInst(_.get() => t, params):
-				final asInterfacePointer = t.meta.has(":pointer");
-				if (params != null && params.length > 0) { // has params
-					final p = createTypePath();
-					final exprs = [macro final __self__ = new $p($expr, $rt)];
-					final fields = t.fields.get();
-					for (field in fields) {
-						if (field.name == "__underlying__" || field.name == "__self__" || field.name == "__type__")
-							continue;
-						final isPointer = field.meta.has(":pointer");
-						final methodName = field.name;
-						switch field.type {
-							case TFun(args, ret):
-								final callArgs = args.map(arg -> macro $i{arg.name});
-								if (isPointer) {
-									if (!selfPointer) {
-										callArgs.unshift(macro Go.pointer($expr));
-									} else {
-										callArgs.unshift(macro $expr);
+			p.params = null;
+			var s = printer.printTypePath(p);
+			final t = Context.getType(printer.printTypePath(p));
+			final p = createTypePath("_static_extension");
+			p.params = null;
+			switch t {
+				case TInst(_.get() => t, params):
+					final asInterfacePointer = t.meta.has(":pointer");
+					if (params != null && params.length > 0) { // has params
+						final p = createTypePath();
+						final exprs = [macro final __self__ = new $p($expr, $rt)];
+						final fields = t.fields.get();
+						for (field in fields) {
+							if (field.name == "__underlying__" || field.name == "__self__" || field.name == "__type__")
+								continue;
+							final isPointer = field.meta.has(":pointer");
+							final methodName = field.name;
+							switch field.type {
+								case TFun(args, ret):
+									final callArgs = args.map(arg -> macro $i{arg.name});
+									if (isPointer) {
+										if (!selfPointer) {
+											callArgs.unshift(macro Go.pointer($expr));
+										} else {
+											callArgs.unshift(macro $expr);
+										}
 									}
-								}
-								// callArgs.unshift(self);
-								var e = macro $self.value.$methodName($a{callArgs});
-								// trace("e: " + printer.printExpr(e));
-								if (!isVoid(ret))
-									e = macro return $e;
-								final f = {
-									expr: EFunction(FAnonymous, {
-										expr: e,
-										args: args.map(arg -> ({name: arg.name, type: Context.toComplexType(arg.t)} : FunctionArg)),
-										ret: Context.toComplexType(ret),
-									}),
-									pos: Context.currentPos(),
-								}
-								exprs.push(macro __self__.$methodName = $f);
-							default:
-								throw "invalid field type: " + field.type;
+									// callArgs.unshift(self);
+									var e = macro $self.value.$methodName($a{callArgs});
+									// trace("e: " + printer.printExpr(e));
+									if (!isVoid(ret))
+										e = macro return $e;
+									final f = {
+										expr: EFunction(FAnonymous, {
+											expr: e,
+											args: args.map(arg -> ({name: arg.name, type: Context.toComplexType(arg.t)} : FunctionArg)),
+											ret: Context.toComplexType(ret),
+										}),
+										pos: Context.currentPos(),
+									}
+									exprs.push(macro __self__.$methodName = $f);
+								default:
+									throw "invalid field type: " + field.type;
+							}
 						}
+						exprs.push(macro __self__);
+						return macro $b{exprs};
+					} else {
+						final p = createTypePath();
+						if (!selfPointer)
+							expr = macro Go.pointer($expr);
+						final e = macro new $p($expr, $rt);
+						// trace(new haxe.macro.Printer().printExpr(e));
+						return e;
 					}
-					exprs.push(macro __self__);
-					return macro $b{exprs};
-				} else {
-					final p = createTypePath();
-					if (!selfPointer)
-						expr = macro Go.pointer($expr);
-					final e = macro new $p($expr, $rt);
-					//trace(new haxe.macro.Printer().printExpr(e));
-					return e;
-				}
-			default:
-				Context.error("invalid type: " + t, Context.currentPos());
-				return null;
+				default:
+					Context.error("invalid type: " + t, Context.currentPos());
+					return null;
+			}
 		}
-	}
 		function run():Expr {
 			return switch t {
 				case TType(_.get() => ct, params):
 					if (ct.name == "Ref" && ct.pack != null && ct.pack.length == 1 && ct.pack[0] == "stdgo") {
 						t = params[0];
-						//selfPointer = true;
+						// selfPointer = true;
 						return run();
 					}
-					f(ct,params);
+					f(ct, params);
 				case TInst(_.get() => ct, params):
-					f(ct,params);
-				case TAbstract(_.get() => ct,params):
+					f(ct, params);
+				case TAbstract(_.get() => ct, params):
 					if (ct.name == "Pointer" && ct.pack != null && ct.pack[0] == "stdgo") {
 						t = params[0];
 						selfPointer = true;
@@ -400,13 +402,14 @@ class Go {
 				default:
 					Context.error("invalid type: " + t, Context.currentPos());
 					null;
+			}
 		}
-	}
 		return run();
-}
+	}
+
 	/*
 		reference of an expression by returning a new expression that references the original one, but with additional modifications. The function can be used to create new objects, modify existing ones, or cast them into other types.
-	*/
+	 */
 	public static macro function setRef(expr) {
 		var t = Context.typeof(expr);
 		function run() {
@@ -450,19 +453,19 @@ class Go {
 					var value:Expr = null;
 					switch path {
 						case "stdgo.GoMap":
-							final t = gtDecode(t,expr,[]);
+							final t = gtDecode(t, expr, []);
 							final keyComplexType = Context.toComplexType(params[0]);
 							final valueComplexType = Context.toComplexType(params[1]);
-							value = macro ({
-								final x = new GoObjectMap<$keyComplexType,$valueComplexType>();
+							value = macro({
+								final x = new GoObjectMap<$keyComplexType, $valueComplexType>();
 								x.t = new stdgo.internal.reflect.Reflect._Type($t);
 								cast x;
-							} : GoMap<$keyComplexType,$valueComplexType>);
+							} : GoMap<$keyComplexType, $valueComplexType>);
 						case "stdgo.Slice":
-							value = macro new Slice(0,-1,null);
+							value = macro new Slice(0, -1, null);
 						case "stdgo.AnyInterface":
 							// force cast into
-							value = macro new AnyInterface(null,new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
+							value = macro new AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
 						default:
 							throw "invalid path tabstract setRef: " + path;
 					}
@@ -492,7 +495,7 @@ class Go {
 		}
 		switch expr.expr {
 			case EConst(CIdent(s)):
-				if (s == "null") 
+				if (s == "null")
 					return gen(true);
 			default:
 		}
@@ -500,11 +503,11 @@ class Go {
 		final e = macro {
 			if ($expr == null) {
 				$valueNull;
-			}else{
+			} else {
 				$expr;
 			}
 		};
-		//trace(new haxe.macro.Printer().printExpr(e));
+		// trace(new haxe.macro.Printer().printExpr(e));
 		return e;
 	}
 
@@ -513,8 +516,8 @@ class Go {
 		switch expr.expr {
 			case EConst(CIdent(s)):
 				if (s == "null")
-					return macro new AnyInterface(null,new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
-				default:
+					return macro new AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
+			default:
 		}
 		if (expectedType != null) {
 			var error = false;
@@ -569,16 +572,14 @@ class Go {
 			case TInst(t, params):
 				var t = t.get();
 				if (t.name == "String" && t.pack.length == 0)
-					expr = macro ($expr : GoString);
+					expr = macro($expr : GoString);
 			case TAnonymous(_.get() => a):
 				// trace(a.fields.map(field -> field.name));
 				for (field in a.fields) {
 					if (field.name == "__underlying__") {
 						final gt = macro stdgo.internal.reflect.Reflect.GoType.basic(untyped_nil_kind);
 						return macro $expr == null ? new stdgo.StdGoTypes.AnyInterface(null,
-							new stdgo.internal.reflect.Reflect._Type($gt)) : new stdgo.StdGoTypes.AnyInterface($expr,
-								$expr.__underlying__()
-								.type);
+							new stdgo.internal.reflect.Reflect._Type($gt)) : new stdgo.StdGoTypes.AnyInterface($expr, $expr.__underlying__().type);
 					}
 				}
 			default:
@@ -620,7 +621,7 @@ class Go {
 						switch typ {
 							case TClass(cl):
 								final className = std.Type.getClassName(cl);
-								if (StringTools.endsWith(className,"_asInterface")) {
+								if (StringTools.endsWith(className, "_asInterface")) {
 									asInterface = true;
 								} else if (className == "stdgo.PointerData") {
 									isPointer = true;
@@ -630,17 +631,17 @@ class Go {
 						}
 						if (asInterface) {
 							($e.value : $t);
-						}else{
+						} else {
 							var gt = $e.type._common();
 							if (isPointer) {
 								gt = stdgo.internal.reflect.Reflect.getElem(gt);
 							}
-							(stdgo.internal.reflect.Reflect.asInterfaceValue($e.value,gt) : $t);
+							(stdgo.internal.reflect.Reflect.asInterfaceValue($e.value, gt) : $t);
 						}
 					} else {
 						if (($e.value : Dynamic).__underlying__ == null) {
 							($e.value : $t);
-						}else{
+						} else {
 							var value:Dynamic = ($e.value : Dynamic).__underlying__().value;
 							if (!(value is PointerData) && t.kind() == 22) {
 								(Go.pointer(value) : $t);
@@ -678,10 +679,12 @@ class Go {
 					try {
 						final b = t.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(t2), t2));
 						if (b) {
-							if (t2.kind() != stdgo.internal.reflect.Reflect.KindType.pointer && t.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(t)) {
+							if (t2.kind() != stdgo.internal.reflect.Reflect.KindType.pointer
+								&& t.kind() == stdgo.internal.reflect.Reflect.KindType.pointer
+								&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(t)) {
 								if ((untyped ($e : Dynamic).value is PointerData)) {
 									final gt = stdgo.internal.reflect.Reflect.getElem(t._common());
-									untyped $e.value = stdgo.internal.reflect.Reflect.asInterfaceValue(($e.value : Pointer<Dynamic>).value,gt);
+									untyped $e.value = stdgo.internal.reflect.Reflect.asInterfaceValue(($e.value : Pointer<Dynamic>).value, gt);
 								}
 							}
 						}
@@ -756,10 +759,10 @@ class Go {
 					Context.typeof(e);
 					e;
 				} catch (_) {
-					//final path = new haxe.macro.Printer().printExpr(expr);
+					// final path = new haxe.macro.Printer().printExpr(expr);
 					macro null;
 				}
-				//trace(new haxe.macro.Printer().printExpr(expr));
+				// trace(new haxe.macro.Printer().printExpr(expr));
 				return macro {
 					final underlying = $e;
 					final underlyingIndex = $v{field};
@@ -812,7 +815,10 @@ class Go {
 		var func = null;
 		func = function(expr:haxe.macro.Expr) {
 			return switch (expr.expr) {
-				case EContinue: macro @:mergeBlock {$post; $expr;}
+				case EContinue: macro @:mergeBlock {
+						$post;
+						$expr;
+					}
 				case EWhile(_, _, _): expr;
 				case ECall(macro cfor, _): expr;
 				case EFor(_): expr;
@@ -839,8 +845,9 @@ class Go {
 		}
 		return pTypes;
 	}
+
 	// this stays in macro only context
-	static final nameTypes:Map<String,Expr> = [];
+	static final nameTypes:Map<String, Expr> = [];
 
 	public static function gtDecode(t:haxe.macro.Type, expr:Expr, marked:Map<String, Bool>, recv:Expr = null):Expr {
 		final marked = marked.copy();
@@ -882,7 +889,10 @@ class Go {
 								if (nameTypes.exists(path))
 									return macro stdgo.internal.TypeInfo.names[$v{path}];
 								if (marked.exists(path)) {
-									ret = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, {get: () -> null});
+									ret = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, [], stdgo.internal.reflect.Reflect.GoType.invalidType,
+										false, {
+											get: () -> null
+										});
 								} else {
 									marked[path] = true;
 									final a = a.get();
@@ -910,7 +920,7 @@ class Go {
 										}
 										final fields = macro $a{fields};
 										return macro stdgo.internal.reflect.Reflect.GoType.structType($fields);
-									}else{
+									} else {
 										final methods:Array<Expr> = [];
 										for (field in a.fields) {
 											switch field.name {
@@ -924,7 +934,9 @@ class Go {
 										}
 										final empty = methods.length == 0;
 										Go.nameTypes[path] = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods},
-											stdgo.internal.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}), false, {get: () -> null});
+											stdgo.internal.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}), false, {
+												get: () -> null
+											});
 										final e = macro stdgo.internal.TypeInfo.names[$v{path}];
 										e.pos = Context.currentPos();
 										return e;
@@ -937,7 +949,9 @@ class Go {
 									final path = createPath(ref.module, ref.name);
 									if (marked.exists(path)) {
 										ret = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, [],
-											stdgo.internal.reflect.Reflect.GoType.invalidType, false, {get: () -> null});
+											stdgo.internal.reflect.Reflect.GoType.invalidType, false, {
+												get: () -> null
+											});
 									} else {
 										marked[path] = true;
 										if (Go.nameTypes.exists(path))
@@ -949,9 +963,7 @@ class Go {
 										var extensionType = null;
 										try {
 											extensionType = Context.getType(extensionPath);
-										}catch(_) {
-
-										}
+										} catch (_) {}
 										if (extensionType != null) {
 											final extension = switch extensionType {
 												case TInst(_.get() => t, _):
@@ -989,18 +1001,19 @@ class Go {
 										}
 										var isInvalidNamed = false;
 										switch type {
-											case TInst(_,_):
+											case TInst(_, _):
 												isInvalidNamed = true;
-											case TType(_.get() => t,_):
+											case TType(_.get() => t, _):
 												isInvalidNamed = t.meta.has(":named") || t.meta.has(":param");
-											case TAbstract(_.get() => t,_):
+											case TAbstract(_.get() => t, _):
 												isInvalidNamed = t.module == "stdgo.GoArray";
 											default:
 										}
-										final e = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType,false, {get: () -> null});
+										final e = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType, false,
+											{get: () -> null});
 										if (isInvalidNamed) {
 											return e;
-										}else{
+										} else {
 											Go.nameTypes[path] = e;
 											return macro stdgo.internal.TypeInfo.names[$v{path}];
 										}
@@ -1020,17 +1033,16 @@ class Go {
 						if (expr != null) { // check for stdgo.reflect.Value
 							final t = Context.follow(Context.typeof(expr));
 							switch t {
-								case TInst(_.get() => ct,_):
+								case TInst(_.get() => ct, _):
 									if (ct.pack != null && ct.pack[0] == "stdgo" && ct.pack[1] == "reflect" && ct.name == "Value") {
 										len = macro $expr.len().toBasic();
 									}
 								case TFun(_):
-								case TAbstract(_.get() => ct,_):
-										if (ct.pack != null && ct.pack[0] == "stdgo" && ct.name == "Chan") {
-											len = macro $expr.length.toBasic();
-										}
+								case TAbstract(_.get() => ct, _):
+									if (ct.pack != null && ct.pack[0] == "stdgo" && ct.name == "Chan") {
+										len = macro $expr.length.toBasic();
+									}
 								default:
-									
 							}
 						}
 						final param = gtParams(params, marked)[0];
@@ -1043,22 +1055,20 @@ class Go {
 						if (expr != null) { // check for stdgo.reflect.Value
 							final t = Context.follow(Context.typeof(expr));
 							switch t {
-								case TInst(_.get() => ct,_):
+								case TInst(_.get() => ct, _):
 									if (ct.pack != null && ct.pack[0] == "stdgo" && ct.pack[1] == "reflect" && ct.name == "Value") {
 										len = macro $expr.len().toBasic();
 									}
 								case TFun(_):
-								case TAbstract(_.get() => ct,_):
-										if (ct.pack != null && ct.pack[0] == "stdgo" && ct.name == "GoArray") {
-											len = macro $expr.length.toBasic();
-										}
+								case TAbstract(_.get() => ct, _):
+									if (ct.pack != null && ct.pack[0] == "stdgo" && ct.name == "GoArray") {
+										len = macro $expr.length.toBasic();
+									}
 								default:
-									
 							}
 						}
 						final param = gtParams(params, marked)[0];
-						ret = macro stdgo.internal.reflect.Reflect.GoType.arrayType({get: () -> $param},
-							$len);
+						ret = macro stdgo.internal.reflect.Reflect.GoType.arrayType({get: () -> $param}, $len);
 					case "stdgo.Pointer":
 						final param = gtParams(params, marked)[0];
 						ret = macro stdgo.internal.reflect.Reflect.GoType.pointerType({get: () -> $param});
@@ -1305,7 +1315,7 @@ class Go {
 				default:
 					final fieldName = field.name;
 					if (fieldName == "__self__") {
-						return macro @:privateAccess $expr.__type__._common();//__underlying__().type._common();
+						return macro @:privateAccess $expr.__type__._common(); // __underlying__().type._common();
 					}
 					if (fieldName == "__t__") {
 						underlyingType = field.type;
@@ -1323,7 +1333,7 @@ class Go {
 		if (ref.meta.has(":named") && underlyingType != null) {
 			t = gtDecode(underlyingType, expr, marked);
 		}
-		Go.nameTypes[path] = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $t,false,{get: () -> null});
+		Go.nameTypes[path] = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $t, false, {get: () -> null});
 		return macro stdgo.internal.TypeInfo.names[$v{path}];
 	}
 	#end
@@ -1424,7 +1434,9 @@ class Go {
 						// trace($a{conds});
 						if ($selectCond)
 							break;
+						#if !js
 						Sys.sleep(0.01);
+						#end
 						stdgo.internal.Async.tick();
 					});
 					exprs.push(select);

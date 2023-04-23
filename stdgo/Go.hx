@@ -2,10 +2,10 @@ package stdgo;
 
 import haxe.macro.Expr;
 
-
 class Go {
 	public static var recover_exception:stdgo.StdGoTypes.AnyInterface = null;
-    public static function string(s:Dynamic):String {
+
+	public static function string(s:Dynamic):String {
 		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
 			s = s.value;
 		}
@@ -19,7 +19,8 @@ class Go {
 			'$s';
 		}
 	}
-    // GOROUTINE
+
+	// GOROUTINE
 	public static function routine(func:Void->Void) {
 		#if js
 		js.Syntax.code("var __a__ = async function() {
@@ -31,20 +32,36 @@ class Go {
 		});
 		#end
 	}
-    public static macro function map(exprs:Array<Expr>):Expr;
-    public static macro function copySlice<T>(dst:Expr,src:Expr):Expr;
-    public static macro function unquote(qvalue:Expr):Expr;
-    public static macro function typeFunction(e:Expr):Expr;
-    public static macro function expectedValue(value):Expr;
-    public static macro function typeAssert(expr:Expr):Expr;
-    public static macro function typeEquals(expr:Expr):Expr;
-    public static macro function pointer(expr:Expr,hasSet:Bool=false):Expr;
-    public static macro function asInterface(expr:Expr):Expr;
-    public static macro function toInterface(expr:Expr):Expr;
-    public static macro function str(expr:Expr):Expr;
-    public static macro function cfor(cond,post,expr):Expr;
-    public static macro function setKeys(expr:Expr):Expr;
-    public static macro function select(expr:Expr):Expr;
-    public static macro function multireturn(expr:Expr):Expr;
+
+	public static macro function map(exprs:Array<Expr>):Expr;
+
+	public static macro function copySlice<T>(dst:Expr, src:Expr):Expr;
+
+	public static macro function unquote(qvalue:Expr):Expr;
+
+	public static macro function typeFunction(e:Expr):Expr;
+
+	public static macro function expectedValue(value):Expr;
+
+	public static macro function typeAssert(expr:Expr):Expr;
+
+	public static macro function typeEquals(expr:Expr):Expr;
+
+	public static macro function pointer(expr:Expr, hasSet:Bool = false):Expr;
+
+	public static macro function asInterface(expr:Expr):Expr;
+
+	public static macro function toInterface(expr:Expr):Expr;
+
+	public static macro function str(expr:Expr):Expr;
+
+	public static macro function cfor(cond, post, expr):Expr;
+
+	public static macro function setKeys(expr:Expr):Expr;
+
+	public static macro function select(expr:Expr):Expr;
+
+	public static macro function multireturn(expr:Expr):Expr;
+
 	public static macro function setRef(expr:Expr):Expr;
 }

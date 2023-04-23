@@ -1946,7 +1946,7 @@ private function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:A
 							final name = arg.name;
 							switch p.params[0] {
 								case TPType(ct):
-									exprs.unshift(macro var $name = new Slice<$ct>(0, 0, ...$i{name}));
+									exprs.unshift(macro var $name = new Slice<$ct>($i{name}.length, 0, ...$i{name}));
 								default:
 							}
 						}
@@ -4847,7 +4847,10 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 		sets.push(macro s);
 		if (len == -1) {
 			length = makeExpr(max + 1);
-			return toExpr(EBlock([macro var s:$ct = new $p(0, 0, ...([for (i in 0...$length) $value]))].concat(sets)));
+			//final e = macro new $p($length, $length, ...([for (i in 0...$length) $value]));
+			final e = genSlice(elem, length,macro 0,e -> e,info);
+			sets.unshift(macro var s = $e);
+			return macro $b{sets};
 		} else {
 			return toExpr(EBlock([macro var s:$ct = new $p(...[for (i in 0...$length) $value])].concat(sets)));
 		}
@@ -4868,8 +4871,9 @@ private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, under
 		}
 		if (len == -1 || len == exprs.length) {
 			if (len == -1) {
-				exprs.unshift(macro 0);
-				exprs.unshift(macro 0);
+				final len = makeExpr(exprs.length);
+				exprs.unshift(len);
+				exprs.unshift(len);
 			}
 			return macro(new $p($a{exprs}) : $ct);
 		}

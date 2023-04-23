@@ -2,9 +2,10 @@ package stdgo;
 
 import haxe.Rest;
 import stdgo.StdGoTypes;
-@:forward(__append__, __setNumber32__,__setNumber64__,__setString__, __ref__)
+
+@:forward(__append__, __setNumber32__, __setNumber64__, __setString__, __ref__)
 @:forward.new
-//@:generic
+// @:generic
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;
@@ -15,10 +16,10 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public function keyValueIterator():SliceKeyValueIterator<T>
 		return new SliceKeyValueIterator<T>(this);
 
-	public function __slice__(low:GoInt, high:GoInt=-1,max:GoInt=-1):Slice<T> {
+	public function __slice__(low:GoInt, high:GoInt = -1, max:GoInt = -1):Slice<T> {
 		if (this == null)
 			return null;
-		return this.__slice__(low,high,max);
+		return this.__slice__(low, high, max);
 	}
 
 	@:from
@@ -49,7 +50,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	@:from
 	public static function fromArray<T>(array:Array<T>):Slice<T> {
-		return new Slice(0, 0, ...array);
+		return new Slice(array.length, array.length, ...array);
 	}
 
 	@:from
@@ -62,7 +63,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	}
 
 	public var __vector__(get, set):haxe.ds.Vector<T>;
-	public var __offset__(get,never):Int;
+	public var __offset__(get, never):Int;
 
 	function get___offset__() {
 		return @:privateAccess this.offset;
@@ -120,7 +121,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	public inline function __setData__(data:SliceData<T>) {
 		if (this == null)
-			this = new Slice<T>(0,-1);
+			this = new Slice<T>(0, -1);
 		this.length = data.length;
 		this.capacity = data.capacity;
 		this.vector = data.vector;
@@ -168,7 +169,8 @@ private class SliceIterator<T> {
 	}
 }
 
-//@:generic
+// @:generic
+
 @:struct
 class SliceData<T> {
 	public var vector:haxe.ds.Vector<T> = null;
@@ -177,12 +179,12 @@ class SliceData<T> {
 	public var length:Int = 0;
 	public var capacity:Int = 0;
 	public var __nil__:Bool = false;
+
 	#if !target.static
 	var isNumber32:Bool = false;
 	var isNumber64:Bool = false;
 	var isString:Bool = false;
 	#end
-
 
 	public inline function __setNumber32__():Slice<T> {
 		#if !target.static
@@ -190,12 +192,14 @@ class SliceData<T> {
 		#end
 		return this;
 	}
+
 	public inline function __setNumber64__():Slice<T> {
 		#if !target.static
 		this.isNumber64 = true;
 		#end
 		return this;
 	}
+
 	public inline function __setString__():Slice<T> {
 		#if !target.static
 		this.isString = true;
@@ -203,18 +207,14 @@ class SliceData<T> {
 		return this;
 	}
 
-	
-
 	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
 		if (capacity != -1) {
-			final vectorLength = if (args.length > capacity) {
-				args.length;
-			} else if (length > capacity) {
+			final vectorLength = if (length > capacity) {
 				length;
 			} else {
 				capacity;
 			}
-			this.length = length > args.length ? length : args.length;
+			this.length = length;
 			this.capacity = vectorLength;
 			vector = new haxe.ds.Vector<T>(vectorLength);
 			for (i in 0...args.length)
@@ -224,7 +224,7 @@ class SliceData<T> {
 
 	public inline function __ref__():SliceData<T> {
 		if (this == null) {
-			final s = new SliceData<T>(0,-1);
+			final s = new SliceData<T>(0, -1);
 			s.capacity = 0;
 			return s;
 		}
@@ -294,12 +294,12 @@ class SliceData<T> {
 	public inline function get(index:Int):T {
 		#if !target.static
 		if (isNumber64) {
-			return vector.get(index + offset) ?? untyped haxe.Int64.make(0,0);
-		}else if (isNumber32) {
+			return vector.get(index + offset) ?? untyped haxe.Int64.make(0, 0);
+		} else if (isNumber32) {
 			return vector.get(index + offset) ?? untyped 0;
 		} else if (isString) {
 			return vector.get(index + offset) ?? untyped haxe.io.Bytes.alloc(0);
-		}else{
+		} else {
 			return vector.get(index + offset);
 		}
 		#else
@@ -329,6 +329,7 @@ class SliceData<T> {
 		return "";
 		#end
 	}
+
 	public inline function grow() {
 		if (vector == null) {
 			vector = new haxe.ds.Vector<T>(capacity);

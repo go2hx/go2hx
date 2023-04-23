@@ -333,7 +333,7 @@ class M {
 
 	public var chatty:Bool = true;
 
-	public function new(deps, tests, benchmarks, examples) {
+	public function new(deps:T_testDeps, tests:Slice<InternalTest>, benchmarks:Slice<InternalBenchmark>, examples:Slice<InternalExample>) {
 		this.deps = deps;
 		this.tests = tests;
 		this.benchmarks = benchmarks;

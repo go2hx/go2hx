@@ -5,7 +5,7 @@ import stdgo.StdGoTypes;
 
 @:forward(__append__, __setNumber32__, __setNumber64__, __setString__, __ref__)
 @:forward.new
-// @:generic
+@:generic
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;
@@ -98,8 +98,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	private function get_capacity():GoInt {
 		return this == null ? 0 : this.capacity;
 	}
-
-	@:op([]) public inline function __get__(index:GoInt):T {
+	// if this is inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32 on stdgo/Math TestNextafter32 
+	@:op([]) public function __get__(index:GoInt):T {
 		return this.get(index.toBasic());
 	}
 
@@ -146,8 +146,8 @@ private class SliceKeyValueIterator<T> {
 	public inline function hasNext() {
 		return pos < slice.length;
 	}
-
-	public inline function next() {
+	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32 on stdgo/Math TestFloat32Sqrt
+	public function next():{key:GoInt, value:T} {
 		return {key: (pos : GoInt), value: slice.__vector__.get(slice.__offset__ + pos++)};
 	}
 }
@@ -163,8 +163,8 @@ private class SliceIterator<T> {
 	public inline function hasNext() {
 		return pos < slice.length;
 	}
-
-	public inline function next() {
+	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32
+	public function next():T {
 		return slice.__vector__.get(slice.__offset__ + pos++);
 	}
 }

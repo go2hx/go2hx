@@ -3,7 +3,7 @@ package stdgo;
 import haxe.Rest;
 import stdgo.StdGoTypes;
 
-@:forward(__append__, __setNumber32__, __setNumber64__, __setString__, __ref__)
+@:forward(__append__, __ref__)
 @:forward.new
 @:generic
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
@@ -15,6 +15,27 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	public function keyValueIterator():SliceKeyValueIterator<T>
 		return new SliceKeyValueIterator<T>(this);
+
+	public inline function __setNumber32__():Slice<T> {
+		#if !target.static
+		this.isNumber32 = true;
+		#end
+		return this;
+	}
+
+	public inline function __setNumber64__():Slice<T> {
+		#if !target.static
+		this.isNumber64 = true;
+		#end
+		return this;
+	}
+
+	public inline function __setString__():Slice<T> {
+		#if !target.static
+		this.isString = true;
+		#end
+		return this;
+	}
 
 	public function __slice__(low:GoInt, high:GoInt = -1, max:GoInt = -1):Slice<T> {
 		if (this == null)
@@ -134,7 +155,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		#end
 	}
 }
-
+@:generic
 private class SliceKeyValueIterator<T> {
 	var pos:Int = 0;
 	var slice:Slice<T>;
@@ -151,8 +172,8 @@ private class SliceKeyValueIterator<T> {
 		return {key: (pos : GoInt), value: slice.__vector__.get(slice.__offset__ + pos++)};
 	}
 }
-
-private class SliceIterator<T> {
+@:generic
+class SliceIterator<T> {
 	var pos:Int = 0;
 	var slice:Slice<T>;
 
@@ -164,7 +185,7 @@ private class SliceIterator<T> {
 		return pos < slice.length;
 	}
 	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32
-	public function next():T {
+	public inline function next():T {
 		return slice.__vector__.get(slice.__offset__ + pos++);
 	}
 }
@@ -172,6 +193,7 @@ private class SliceIterator<T> {
 // @:generic
 
 @:struct
+@:generic
 class SliceData<T> {
 	public var vector:haxe.ds.Vector<T> = null;
 
@@ -185,27 +207,6 @@ class SliceData<T> {
 	var isNumber64:Bool = false;
 	var isString:Bool = false;
 	#end
-
-	public inline function __setNumber32__():Slice<T> {
-		#if !target.static
-		this.isNumber32 = true;
-		#end
-		return this;
-	}
-
-	public inline function __setNumber64__():Slice<T> {
-		#if !target.static
-		this.isNumber64 = true;
-		#end
-		return this;
-	}
-
-	public inline function __setString__():Slice<T> {
-		#if !target.static
-		this.isString = true;
-		#end
-		return this;
-	}
 
 	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
 		if (capacity != -1) {
@@ -221,7 +222,6 @@ class SliceData<T> {
 				vector.set(i, args[i]);
 		}
 	}
-
 	public inline function __ref__():SliceData<T> {
 		if (this == null) {
 			final s = new SliceData<T>(0, -1);

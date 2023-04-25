@@ -3,9 +3,9 @@ package stdgo;
 import haxe.Rest;
 import stdgo.StdGoTypes;
 
-@:forward(__append__, __ref__)
+@:forward(__ref__)
 @:forward.new
-@:generic
+//@:generic
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;
@@ -16,23 +16,29 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public function keyValueIterator():SliceKeyValueIterator<T>
 		return new SliceKeyValueIterator<T>(this);
 
+	public inline function __append__(args:Rest<T>):Slice<T> {
+		if (this == null)
+			return args.toArray();
+		return this.__append__(...args);
+	}
+
 	public inline function __setNumber32__():Slice<T> {
 		#if !target.static
-		this.isNumber32 = true;
+		@:privateAccess this.isNumber32 = true;
 		#end
 		return this;
 	}
 
 	public inline function __setNumber64__():Slice<T> {
 		#if !target.static
-		this.isNumber64 = true;
+		@:privateAccess this.isNumber64 = true;
 		#end
 		return this;
 	}
 
 	public inline function __setString__():Slice<T> {
 		#if !target.static
-		this.isString = true;
+		@:privateAccess this.isString = true;
 		#end
 		return this;
 	}
@@ -155,7 +161,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		#end
 	}
 }
-@:generic
+
 private class SliceKeyValueIterator<T> {
 	var pos:Int = 0;
 	var slice:Slice<T>;
@@ -172,8 +178,8 @@ private class SliceKeyValueIterator<T> {
 		return {key: (pos : GoInt), value: slice.__vector__.get(slice.__offset__ + pos++)};
 	}
 }
-@:generic
-class SliceIterator<T> {
+
+private class SliceIterator<T> {
 	var pos:Int = 0;
 	var slice:Slice<T>;
 
@@ -185,7 +191,7 @@ class SliceIterator<T> {
 		return pos < slice.length;
 	}
 	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32
-	public inline function next():T {
+	public function next():T {
 		return slice.__vector__.get(slice.__offset__ + pos++);
 	}
 }
@@ -193,7 +199,6 @@ class SliceIterator<T> {
 // @:generic
 
 @:struct
-@:generic
 class SliceData<T> {
 	public var vector:haxe.ds.Vector<T> = null;
 
@@ -222,6 +227,7 @@ class SliceData<T> {
 				vector.set(i, args[i]);
 		}
 	}
+
 	public inline function __ref__():SliceData<T> {
 		if (this == null) {
 			final s = new SliceData<T>(0, -1);
@@ -247,13 +253,13 @@ class SliceData<T> {
 		var offset = low;
 		if (high == -1)
 			high = length;
+		if (max == -1)
+			max = capacity;
 		var length = high - low;
+		var capacity = max - low;
 		final obj:SliceData<T> = __ref__();
-
 		obj.offset = this.offset + offset;
-		if (max != -1) {
-			obj.capacity = max - low;
-		}
+		obj.capacity = capacity;
 		obj.length = length;
 		return obj;
 	}
@@ -272,11 +278,12 @@ class SliceData<T> {
 			}
 			return slice;
 		}
-		slice.length += args.length;
 		slice.capacity += growCapacity;
 		// grow by 50%
 		slice.capacity += slice.capacity >> 2;
 		slice.grow(); // allocation
+		slice.length += args.length;
+
 		for (i in 0...args.length) {
 			slice.vector.set(startOffset + i + slice.offset, args[i]);
 		}
@@ -335,10 +342,9 @@ class SliceData<T> {
 			vector = new haxe.ds.Vector<T>(capacity);
 			return;
 		}
-		if (vector.length >= capacity)
-			return;
 		var dest = new haxe.ds.Vector<T>(capacity);
-		haxe.ds.Vector.blit(vector, 0, dest, 0, vector.length);
+		haxe.ds.Vector.blit(vector, offset, dest, 0, length);
 		this.vector = dest;
+		this.offset = 0;
 	}
 }

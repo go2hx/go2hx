@@ -15,8 +15,8 @@ import stdgo.sync.Sync;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+32,
+32,
 (new stdgo.testing.Testing.InternalTest(("TestCondSignal" : GoString), stdgo.sync_test.Sync_test.testCondSignal) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestCondSignalGenerations" : GoString), stdgo.sync_test.Sync_test.testCondSignalGenerations) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestCondBroadcast" : GoString), stdgo.sync_test.Sync_test.testCondBroadcast) : stdgo.testing.Testing.InternalTest),
@@ -55,8 +55,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+60,
+60,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkCond1" : GoString), stdgo.sync_test.Sync_test.benchmarkCond1) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkCond2" : GoString), stdgo.sync_test.Sync_test.benchmarkCond2) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkCond4" : GoString), stdgo.sync_test.Sync_test.benchmarkCond4) : stdgo.testing.Testing.InternalBenchmark),
@@ -128,7 +128,7 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
     
 **/
-private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0, (new stdgo.testing.Testing.InternalExample(("ExamplePool" : GoString), stdgo.sync_test.Sync_test.examplePool, ("2006-01-02T15:04:05Z path=/search?q=flowers\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleOnce" : GoString), stdgo.sync_test.Sync_test.exampleOnce, ("Only once\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
+private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(2, 2, (new stdgo.testing.Testing.InternalExample(("ExamplePool" : GoString), stdgo.sync_test.Sync_test.examplePool, ("2006-01-02T15:04:05Z path=/search?q=flowers\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleOnce" : GoString), stdgo.sync_test.Sync_test.exampleOnce, ("Only once\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
 private function main():Void {
         var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

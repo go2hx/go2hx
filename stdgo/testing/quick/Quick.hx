@@ -369,7 +369,7 @@ private function _sizedValue(_t:stdgo.reflect.Reflect.Type, _rand:Ref<stdgo.math
                     };
                 } else if (__value__ == ((24u32 : stdgo.reflect.Reflect.Kind))) {
                     var _numChars:GoInt = _rand.intn((50 : GoInt));
-                    var _codePoints = new Slice<GoInt32>((_numChars : GoInt).toBasic(), 0, ...[for (i in 0 ... (_numChars : GoInt).toBasic()) (0 : GoInt32)]);
+                    var _codePoints = new Slice<GoInt32>((_numChars : GoInt).toBasic(), 0).__setNumber32__();
                     {
                         var _i:GoInt = (0 : GoInt);
                         Go.cfor(_i < _numChars, _i++, {
@@ -433,7 +433,7 @@ function check(_f:AnyInterface, _config:Ref<Config>):Error {
         if (_fType.out((0 : GoInt)).kind() != ((1u32 : stdgo.reflect.Reflect.Kind))) {
             return Go.asInterface(((("function does not return a bool" : GoString) : stdgo.testing.quick.Quick.SetupError) : SetupError));
         };
-        var _arguments = new Slice<stdgo.reflect.Reflect.Value>((_fType.numIn() : GoInt).toBasic(), 0, ...[for (i in 0 ... (_fType.numIn() : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
+        var _arguments = new Slice<stdgo.reflect.Reflect.Value>((_fType.numIn() : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_fType.numIn() : GoInt).toBasic() > 0 ? (_fType.numIn() : GoInt).toBasic() : 0 : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
         var _rand = _config._getRand();
         var _maxCount:GoInt = _config._getMaxCount();
         {
@@ -471,7 +471,7 @@ function checkEqual(_f:AnyInterface, _g:AnyInterface, _config:Ref<Config>):Error
         if (!((_xType.string() : String) == (_yType.string() : String))) {
             return Go.asInterface(((("functions have different types" : GoString) : stdgo.testing.quick.Quick.SetupError) : SetupError));
         };
-        var _arguments = new Slice<stdgo.reflect.Reflect.Value>((_xType.numIn() : GoInt).toBasic(), 0, ...[for (i in 0 ... (_xType.numIn() : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
+        var _arguments = new Slice<stdgo.reflect.Reflect.Value>((_xType.numIn() : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_xType.numIn() : GoInt).toBasic() > 0 ? (_xType.numIn() : GoInt).toBasic() : 0 : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
         var _rand = _config._getRand();
         var _maxCount:GoInt = _config._getMaxCount();
         {
@@ -528,14 +528,14 @@ private function _functionAndType(_f:AnyInterface):{ var _0 : stdgo.reflect.Refl
         return { _0 : _v, _1 : _t, _2 : _ok };
     }
 private function _toInterfaces(_values:Slice<stdgo.reflect.Reflect.Value>):Slice<AnyInterface> {
-        var _ret = new Slice<AnyInterface>((_values.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_values.length : GoInt).toBasic()) (null : AnyInterface)]);
+        var _ret = new Slice<AnyInterface>((_values.length : GoInt).toBasic(), 0);
         for (_i => _v in _values) {
             _ret[(_i : GoInt)] = _v.interface_();
         };
         return _ret;
     }
 private function _toString(_interfaces:Slice<AnyInterface>):GoString {
-        var _s = new Slice<GoString>((_interfaces.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_interfaces.length : GoInt).toBasic()) ("" : GoString)]);
+        var _s = new Slice<GoString>((_interfaces.length : GoInt).toBasic(), 0).__setString__();
         for (_i => _v in _interfaces) {
             _s[(_i : GoInt)] = stdgo.fmt.Fmt.sprintf(("%#v" : GoString), _v);
         };

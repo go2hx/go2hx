@@ -15,8 +15,8 @@ import stdgo.math.bits.Bits;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+26,
+26,
 (new stdgo.testing.Testing.InternalTest(("TestUintSize" : GoString), stdgo.math.bits_test.Bits_test.testUintSize) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestLeadingZeros" : GoString), stdgo.math.bits_test.Bits_test.testLeadingZeros) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestTrailingZeros" : GoString), stdgo.math.bits_test.Bits_test.testTrailingZeros) : stdgo.testing.Testing.InternalTest),
@@ -49,8 +49,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+43,
+43,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLeadingZeros" : GoString), stdgo.math.bits_test.Bits_test.benchmarkLeadingZeros) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLeadingZeros8" : GoString), stdgo.math.bits_test.Bits_test.benchmarkLeadingZeros8) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLeadingZeros16" : GoString), stdgo.math.bits_test.Bits_test.benchmarkLeadingZeros16) : stdgo.testing.Testing.InternalBenchmark),
@@ -106,8 +106,8 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+36,
+36,
 (new stdgo.testing.Testing.InternalExample(("ExampleAdd32" : GoString), stdgo.math.bits_test.Bits_test.exampleAdd32, ("[33 12] + [21 23] = [54 35] (carry bit was 0)\n[1 2147483648] + [1 2147483648] = [3 0] (carry bit was 1)\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleAdd64" : GoString), stdgo.math.bits_test.Bits_test.exampleAdd64, ("[33 12] + [21 23] = [54 35] (carry bit was 0)\n[1 9223372036854775808] + [1 9223372036854775808] = [3 0] (carry bit was 1)\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleSub32" : GoString), stdgo.math.bits_test.Bits_test.exampleSub32, ("[33 23] - [21 12] = [12 11] (carry bit was 0)\n[3 2147483647] - [1 2147483648] = [1 4294967295] (carry bit was 1)\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

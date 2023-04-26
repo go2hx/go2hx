@@ -15,8 +15,8 @@ import stdgo.bufio.Bufio;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+79,
+79,
 (new stdgo.testing.Testing.InternalTest(("TestReaderSimple" : GoString), stdgo.bufio_test.Bufio_test.testReaderSimple) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestReader" : GoString), stdgo.bufio_test.Bufio_test.testReader) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestZeroReader" : GoString), stdgo.bufio_test.Bufio_test.testZeroReader) : stdgo.testing.Testing.InternalTest),
@@ -102,8 +102,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+11,
+11,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReaderCopyOptimal" : GoString), stdgo.bufio_test.Bufio_test.benchmarkReaderCopyOptimal) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReaderCopyUnoptimal" : GoString), stdgo.bufio_test.Bufio_test.benchmarkReaderCopyUnoptimal) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReaderCopyNoWriteTo" : GoString), stdgo.bufio_test.Bufio_test.benchmarkReaderCopyNoWriteTo) : stdgo.testing.Testing.InternalBenchmark),
@@ -126,7 +126,7 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
     
 **/
-private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0, (new stdgo.testing.Testing.InternalExample(("ExampleWriter" : GoString), stdgo.bufio_test.Bufio_test.exampleWriter, ("Hello, world!\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleWriter_AvailableBuffer" : GoString), stdgo.bufio_test.Bufio_test.exampleWriter_AvailableBuffer, ("1 2 3 4\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleScanner_Bytes" : GoString), stdgo.bufio_test.Bufio_test.exampleScanner_Bytes, ("true\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleScanner_words" : GoString), stdgo.bufio_test.Bufio_test.exampleScanner_words, ("15\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleScanner_custom" : GoString), stdgo.bufio_test.Bufio_test.exampleScanner_custom, ("1234\n5678\nInvalid input: strconv.ParseInt: parsing \"1234567901234567890\": value out of range\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleScanner_emptyFinalToken" : GoString), stdgo.bufio_test.Bufio_test.exampleScanner_emptyFinalToken, ("\"1\" \"2\" \"3\" \"4\" \"\"\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
+private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(6, 6, (new stdgo.testing.Testing.InternalExample(("ExampleWriter" : GoString), stdgo.bufio_test.Bufio_test.exampleWriter, ("Hello, world!\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleWriter_AvailableBuffer" : GoString), stdgo.bufio_test.Bufio_test.exampleWriter_AvailableBuffer, ("1 2 3 4\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleScanner_Bytes" : GoString), stdgo.bufio_test.Bufio_test.exampleScanner_Bytes, ("true\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleScanner_words" : GoString), stdgo.bufio_test.Bufio_test.exampleScanner_words, ("15\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleScanner_custom" : GoString), stdgo.bufio_test.Bufio_test.exampleScanner_custom, ("1234\n5678\nInvalid input: strconv.ParseInt: parsing \"1234567901234567890\": value out of range\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleScanner_emptyFinalToken" : GoString), stdgo.bufio_test.Bufio_test.exampleScanner_emptyFinalToken, ("\"1\" \"2\" \"3\" \"4\" \"\"\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
 private function main():Void {
         var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

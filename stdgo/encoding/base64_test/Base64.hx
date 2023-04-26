@@ -15,8 +15,8 @@ import stdgo.encoding.base64.Base64;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+17,
+17,
 (new stdgo.testing.Testing.InternalTest(("TestEncode" : GoString), stdgo.encoding.base64.Base64.testEncode) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestEncoder" : GoString), stdgo.encoding.base64.Base64.testEncoder) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestEncoderBuffering" : GoString), stdgo.encoding.base64.Base64.testEncoderBuffering) : stdgo.testing.Testing.InternalTest),
@@ -39,7 +39,7 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
     
 **/
-private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkEncodeToString" : GoString), stdgo.encoding.base64.Base64.benchmarkEncodeToString) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkDecodeString" : GoString), stdgo.encoding.base64.Base64.benchmarkDecodeString) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkNewEncoding" : GoString), stdgo.encoding.base64.Base64.benchmarkNewEncoding) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
+private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(3, 3, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkEncodeToString" : GoString), stdgo.encoding.base64.Base64.benchmarkEncodeToString) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkDecodeString" : GoString), stdgo.encoding.base64.Base64.benchmarkDecodeString) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkNewEncoding" : GoString), stdgo.encoding.base64.Base64.benchmarkNewEncoding) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 /**
     
     
@@ -51,7 +51,7 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
     
 **/
-private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0, (new stdgo.testing.Testing.InternalExample(("Example" : GoString), stdgo.encoding.base64_test.Base64_test.example, ("SGVsbG8sIOS4lueVjA==\nHello, 世界\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleEncoding_EncodeToString" : GoString), stdgo.encoding.base64_test.Base64_test.exampleEncoding_EncodeToString, ("YW55ICsgb2xkICYgZGF0YQ==\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleEncoding_Encode" : GoString), stdgo.encoding.base64_test.Base64_test.exampleEncoding_Encode, ("SGVsbG8sIHdvcmxkIQ==\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleEncoding_DecodeString" : GoString), stdgo.encoding.base64_test.Base64_test.exampleEncoding_DecodeString, ("\"some data with \\x00 and \\ufeff\"\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleEncoding_Decode" : GoString), stdgo.encoding.base64_test.Base64_test.exampleEncoding_Decode, ("\"Hello, world!\"\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleNewEncoder" : GoString), stdgo.encoding.base64_test.Base64_test.exampleNewEncoder, ("Zm9vAGJhcg==\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
+private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(6, 6, (new stdgo.testing.Testing.InternalExample(("Example" : GoString), stdgo.encoding.base64_test.Base64_test.example, ("SGVsbG8sIOS4lueVjA==\nHello, 世界\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleEncoding_EncodeToString" : GoString), stdgo.encoding.base64_test.Base64_test.exampleEncoding_EncodeToString, ("YW55ICsgb2xkICYgZGF0YQ==\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleEncoding_Encode" : GoString), stdgo.encoding.base64_test.Base64_test.exampleEncoding_Encode, ("SGVsbG8sIHdvcmxkIQ==\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleEncoding_DecodeString" : GoString), stdgo.encoding.base64_test.Base64_test.exampleEncoding_DecodeString, ("\"some data with \\x00 and \\ufeff\"\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleEncoding_Decode" : GoString), stdgo.encoding.base64_test.Base64_test.exampleEncoding_Decode, ("\"Hello, world!\"\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleNewEncoder" : GoString), stdgo.encoding.base64_test.Base64_test.exampleNewEncoder, ("Zm9vAGJhcg==\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
 private function main():Void {
         var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

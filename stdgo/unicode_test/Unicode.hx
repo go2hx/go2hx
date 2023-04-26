@@ -15,8 +15,8 @@ import stdgo.unicode.Unicode;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+28,
+28,
 (new stdgo.testing.Testing.InternalTest(("TestDigit" : GoString), stdgo.unicode_test.Unicode_test.testDigit) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestDigitOptimization" : GoString), stdgo.unicode_test.Unicode_test.testDigitOptimization) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestIsControlLatin1" : GoString), stdgo.unicode_test.Unicode_test.testIsControlLatin1) : stdgo.testing.Testing.InternalTest),
@@ -63,8 +63,8 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+14,
+14,
 (new stdgo.testing.Testing.InternalExample(("Example_is" : GoString), stdgo.unicode_test.Unicode_test.example_is, ("For \'\\b\':\n\tis control rune\n\tis not printable rune\nFor \'5\':\n\tis digit rune\n\tis graphic rune\n\tis number rune\n\tis printable rune\nFor \'Ὂ\':\n\tis graphic rune\n\tis letter rune\n\tis printable rune\n\tis upper case rune\nFor \'g\':\n\tis graphic rune\n\tis letter rune\n\tis lower case rune\n\tis printable rune\nFor \'̀\':\n\tis graphic rune\n\tis mark rune\n\tis printable rune\nFor \'9\':\n\tis digit rune\n\tis graphic rune\n\tis number rune\n\tis printable rune\nFor \'!\':\n\tis graphic rune\n\tis printable rune\n\tis punct rune\nFor \' \':\n\tis graphic rune\n\tis printable rune\n\tis space rune\nFor \'℃\':\n\tis graphic rune\n\tis printable rune\n\tis symbol rune\nFor \'ᾭ\':\n\tis graphic rune\n\tis letter rune\n\tis printable rune\n\tis title case rune\nFor \'G\':\n\tis graphic rune\n\tis letter rune\n\tis printable rune\n\tis upper case rune\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleSimpleFold" : GoString), stdgo.unicode_test.Unicode_test.exampleSimpleFold, ("U+0061 \'a\'\nU+0041 \'A\'\nU+006B \'k\'\nU+212A \'K\'\nU+004B \'K\'\nU+0031 \'1\'\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleTo" : GoString), stdgo.unicode_test.Unicode_test.exampleTo, ("U+0047 \'G\'\nU+0067 \'g\'\nU+0047 \'G\'\nU+0047 \'G\'\nU+0067 \'g\'\nU+0047 \'G\'\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

@@ -15,8 +15,8 @@ import stdgo.os.Os;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+122,
+122,
 (new stdgo.testing.Testing.InternalTest(("TestExpand" : GoString), stdgo.os_test.Os_test.testExpand) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestConsistentEnviron" : GoString), stdgo.os_test.Os_test.testConsistentEnviron) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestUnsetenv" : GoString), stdgo.os_test.Os_test.testUnsetenv) : stdgo.testing.Testing.InternalTest),
@@ -145,8 +145,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+10,
+10,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkExpand" : GoString), stdgo.os_test.Os_test.benchmarkExpand) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReaddirname" : GoString), stdgo.os_test.Os_test.benchmarkReaddirname) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReaddir" : GoString), stdgo.os_test.Os_test.benchmarkReaddir) : stdgo.testing.Testing.InternalBenchmark),
@@ -168,7 +168,7 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
     
 **/
-private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0, (new stdgo.testing.Testing.InternalExample(("ExampleErrNotExist" : GoString), stdgo.os_test.Os_test.exampleErrNotExist, ("file does not exist\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleExpand" : GoString), stdgo.os_test.Os_test.exampleExpand, ("Good morning, Gopher!\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleExpandEnv" : GoString), stdgo.os_test.Os_test.exampleExpandEnv, ("gopher lives in /usr/gopher.\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleLookupEnv" : GoString), stdgo.os_test.Os_test.exampleLookupEnv, ("SOME_KEY=value\nEMPTY_KEY=\nMISSING_KEY not set\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleGetenv" : GoString), stdgo.os_test.Os_test.exampleGetenv, ("gopher lives in /usr/gopher.\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleReadFile" : GoString), stdgo.os_test.Os_test.exampleReadFile, ("Hello, Gophers!\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
+private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(6, 6, (new stdgo.testing.Testing.InternalExample(("ExampleErrNotExist" : GoString), stdgo.os_test.Os_test.exampleErrNotExist, ("file does not exist\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleExpand" : GoString), stdgo.os_test.Os_test.exampleExpand, ("Good morning, Gopher!\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleExpandEnv" : GoString), stdgo.os_test.Os_test.exampleExpandEnv, ("gopher lives in /usr/gopher.\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleLookupEnv" : GoString), stdgo.os_test.Os_test.exampleLookupEnv, ("SOME_KEY=value\nEMPTY_KEY=\nMISSING_KEY not set\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleGetenv" : GoString), stdgo.os_test.Os_test.exampleGetenv, ("gopher lives in /usr/gopher.\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleReadFile" : GoString), stdgo.os_test.Os_test.exampleReadFile, ("Hello, Gophers!\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
 private function main():Void {
         var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         stdgo.os_test.Os_test.testMain(_m);

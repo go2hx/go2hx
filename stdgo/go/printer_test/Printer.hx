@@ -15,8 +15,8 @@ import stdgo.go.printer.Printer;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+16,
+16,
 (new stdgo.testing.Testing.InternalTest(("TestFiles" : GoString), stdgo.go.printer.Printer.testFiles) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestLineComments" : GoString), stdgo.go.printer.Printer.testLineComments) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestBadNodes" : GoString), stdgo.go.printer.Printer.testBadNodes) : stdgo.testing.Testing.InternalTest),
@@ -38,7 +38,7 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
     
 **/
-private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPrintFile" : GoString), stdgo.go.printer.Printer.benchmarkPrintFile) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPrintDecl" : GoString), stdgo.go.printer.Printer.benchmarkPrintDecl) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
+private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(2, 2, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPrintFile" : GoString), stdgo.go.printer.Printer.benchmarkPrintFile) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPrintDecl" : GoString), stdgo.go.printer.Printer.benchmarkPrintDecl) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 /**
     
     
@@ -50,7 +50,7 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
     
 **/
-private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0, (new stdgo.testing.Testing.InternalExample(("ExampleFprint" : GoString), stdgo.go.printer_test.Printer_test.exampleFprint, ("funcAST, fset := parseFunc(\"example_test.go\", \"printSelf\")\n\nvar buf bytes.Buffer\nprinter.Fprint(&buf, fset, funcAST.Body)\n\ns := buf.String()\ns = s[1 : len(s)-1]\ns = strings.TrimSpace(strings.ReplaceAll(s, \"\\n\\t\", \"\\n\"))\n\nfmt.Println(s)\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
+private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(1, 1, (new stdgo.testing.Testing.InternalExample(("ExampleFprint" : GoString), stdgo.go.printer_test.Printer_test.exampleFprint, ("funcAST, fset := parseFunc(\"example_test.go\", \"printSelf\")\n\nvar buf bytes.Buffer\nprinter.Fprint(&buf, fset, funcAST.Body)\n\ns := buf.String()\ns = s[1 : len(s)-1]\ns = strings.TrimSpace(strings.ReplaceAll(s, \"\\n\\t\", \"\\n\"))\n\nfmt.Println(s)\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
 private function main():Void {
         var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

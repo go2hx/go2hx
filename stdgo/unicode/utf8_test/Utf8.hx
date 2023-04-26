@@ -15,8 +15,8 @@ import stdgo.unicode.utf8.Utf8;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+14,
+14,
 (new stdgo.testing.Testing.InternalTest(("TestConstants" : GoString), stdgo.unicode.utf8_test.Utf8_test.testConstants) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestFullRune" : GoString), stdgo.unicode.utf8_test.Utf8_test.testFullRune) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestEncodeRune" : GoString), stdgo.unicode.utf8_test.Utf8_test.testEncodeRune) : stdgo.testing.Testing.InternalTest),
@@ -37,8 +37,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+21,
+21,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkRuneCountTenASCIIChars" : GoString), stdgo.unicode.utf8_test.Utf8_test.benchmarkRuneCountTenASCIIChars) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkRuneCountTenJapaneseChars" : GoString), stdgo.unicode.utf8_test.Utf8_test.benchmarkRuneCountTenJapaneseChars) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkRuneCountInStringTenASCIIChars" : GoString), stdgo.unicode.utf8_test.Utf8_test.benchmarkRuneCountInStringTenASCIIChars) : stdgo.testing.Testing.InternalBenchmark),
@@ -72,8 +72,8 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+16,
+16,
 (new stdgo.testing.Testing.InternalExample(("ExampleDecodeLastRune" : GoString), stdgo.unicode.utf8_test.Utf8_test.exampleDecodeLastRune, ("界 3\n世 3\n  1\n, 1\no 1\nl 1\nl 1\ne 1\nH 1\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleDecodeLastRuneInString" : GoString), stdgo.unicode.utf8_test.Utf8_test.exampleDecodeLastRuneInString, ("界 3\n世 3\n  1\n, 1\no 1\nl 1\nl 1\ne 1\nH 1\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleDecodeRune" : GoString), stdgo.unicode.utf8_test.Utf8_test.exampleDecodeRune, ("H 1\ne 1\nl 1\nl 1\no 1\n, 1\n  1\n世 3\n界 3\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

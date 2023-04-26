@@ -32,13 +32,13 @@ import stdgo.crypto.rand.Rand;
 **/
 function exampleRead():Void {
         var _c:GoInt = (10 : GoInt);
-        var _b = new Slice<GoUInt8>((_c : GoInt).toBasic(), 0, ...[for (i in 0 ... (_c : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((_c : GoInt).toBasic(), 0).__setNumber32__();
         var __tmp__ = stdgo.crypto.rand.Rand.read(_b), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             stdgo.fmt.Fmt.println(Go.toInterface(("error:" : GoString)), Go.toInterface(_err));
             return;
         };
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equal(_b, new Slice<GoUInt8>((_c : GoInt).toBasic(), 0, ...[for (i in 0 ... (_c : GoInt).toBasic()) (0 : GoUInt8)]))));
+        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equal(_b, new Slice<GoUInt8>((_c : GoInt).toBasic(), 0).__setNumber32__())));
     }
 /**
     // https://golang.org/issue/6849.

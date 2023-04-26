@@ -678,22 +678,25 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
 **/
 @:structInit @:using(stdgo.reflect.Reflect.MapIter_static_extension) class MapIter {
     @:local
-    var map : stdgo.GoMap<Dynamic, Dynamic>;
+    var map : haxe.Constraints.IMap<Dynamic, Dynamic>;
     @:local
     var keys : Array<Dynamic>;
     @:local
     var values : Array<Dynamic>;
     @:local
+    var t : stdgo.internal.reflect.Reflect._Type;
+    @:local
     var index : Int = 0;
-    public function new(?map:stdgo.GoMap<Dynamic, Dynamic>, ?keys:Array<Dynamic>, ?values:Array<Dynamic>, ?index:Int) {
+    public function new(?map:haxe.Constraints.IMap<Dynamic, Dynamic>, ?keys:Array<Dynamic>, ?values:Array<Dynamic>, ?t:stdgo.internal.reflect.Reflect._Type, ?index:Int) {
         if (map != null) this.map = map;
         if (keys != null) this.keys = keys;
         if (values != null) this.values = values;
+        if (t != null) this.t = t;
         if (index != null) this.index = index;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new MapIter(map, keys, values, index);
+        return new MapIter(map, keys, values, t, index);
     }
 }
 /**
@@ -1004,7 +1007,7 @@ function select(_cases:Slice<SelectCase>):{ var _0 : GoInt; var _1 : Value; var 
 **/
 function makeSlice(_typ:Type, _len:GoInt, _cap:GoInt):Value {
         final value = stdgo.internal.reflect.Reflect.defaultValue(_typ);
-        final slice = new Slice(0, _cap.toBasic(), ...[for (i in 0 ... _len.toBasic()) value]);
+        final slice = new Slice(_len, _cap.toBasic(), ...[for (i in 0 ... _len.toBasic()) value]);
         final t = @:privateAccess (cast _typ : stdgo.internal.reflect.Reflect._Type_asInterface).__type__;
         return new Value(new AnyInterface(slice, t));
     }
@@ -2138,12 +2141,13 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
             case stdgo.internal.reflect.Reflect.KindType.slice:
                 var value:Slice<Dynamic> = @:privateAccess _v.value.value;
 final x:Slice<Dynamic> = @:privateAccess _x.value.value;
-value.__setData__(x);
 stdgo.internal.reflect.Reflect._set(_v);
             case stdgo.internal.reflect.Reflect.KindType.map:
-                var value:GoMap<Dynamic, Dynamic> = @:privateAccess _v.value.value;
-final x:GoMap<Dynamic, Dynamic> = @:privateAccess _x.value.value;
-value.__setData__(x);
+                var value:haxe.Constraints.IMap<Dynamic, Dynamic> = @:privateAccess _v.value.value;
+final x:haxe.Constraints.IMap<Dynamic, Dynamic> = @:privateAccess _x.value.value;
+for (key => value in x) {
+                value.set(key, value);
+            };
 stdgo.internal.reflect.Reflect._set(_v);
             default:
                 @:privateAccess _v.value = _x.value;
@@ -2264,7 +2268,7 @@ stdgo.internal.reflect.Reflect._set(_v);
     **/
     @:keep
     static public function mapRange( _v:Value):Ref<MapIter> {
-        return new MapIter(@:privateAccess _v.value.value);
+        return new MapIter(@:privateAccess _v.value.value, @:privateAccess _v.value.type);
     }
     /**
         // SetIterValue assigns to v the value of iter's current map entry.
@@ -2329,7 +2333,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
             case stdgo.internal.reflect.Reflect.KindType.slice:
                 (value : Slice<Dynamic>).length;
             case stdgo.internal.reflect.Reflect.KindType.map:
-                (value : GoMap<Dynamic, Dynamic>).length;
+                Lambda.count((value : haxe.Constraints.IMap<Dynamic, Dynamic>));
             case stdgo.internal.reflect.Reflect.KindType.string:
                 (value : Dynamic).length;
             default:
@@ -2924,8 +2928,8 @@ class MapIter_asInterface {
     static public function next( _iter:Ref<MapIter>):Bool {
         if (@:privateAccess _iter.map == null) return false;
         @:privateAccess if (_iter.keys == null) {
-            @:privateAccess _iter.keys = _iter.map.__keyArray__();
-            @:privateAccess _iter.values = _iter.map.__valueArray__();
+            @:privateAccess _iter.keys = [for (key in _iter.map.keys()) key];
+            @:privateAccess _iter.values = [for (key in _iter.map.iterator()) key];
         } else {
             @:privateAccess _iter.index++;
         };
@@ -2937,10 +2941,10 @@ class MapIter_asInterface {
     @:keep
     static public function value( _iter:Ref<MapIter>):Value {
         @:privateAccess if (_iter.keys == null) {
-            @:privateAccess _iter.keys = _iter.map.__keyArray__();
-            @:privateAccess _iter.values = _iter.map.__valueArray__();
+            @:privateAccess _iter.keys = [for (key in _iter.map.keys()) key];
+            @:privateAccess _iter.values = [for (key in _iter.map.iterator()) key];
         };
-        final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.map.__type__._common());
+        final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.t._common());
         final value = switch gt {
             case mapType(_, _.get() => valueType):
                 new stdgo.internal.reflect.Reflect._Type(valueType);
@@ -2955,10 +2959,10 @@ class MapIter_asInterface {
     @:keep
     static public function key( _iter:Ref<MapIter>):Value {
         @:privateAccess if (_iter.keys == null) {
-            @:privateAccess _iter.keys = _iter.map.__keyArray__();
-            @:privateAccess _iter.values = _iter.map.__valueArray__();
+            @:privateAccess _iter.keys = [for (key in _iter.map.keys()) key];
+            @:privateAccess _iter.values = [for (key in _iter.map.iterator()) key];
         };
-        final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.map.__type__._common());
+        final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.t._common());
         final key = switch gt {
             case mapType(_.get() => var keyType, _):
                 new stdgo.internal.reflect.Reflect._Type(keyType);

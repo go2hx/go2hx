@@ -15,8 +15,8 @@ import stdgo.strconv.Strconv;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+56,
+56,
 (new stdgo.testing.Testing.InternalTest(("TestParseBool" : GoString), stdgo.strconv_test.Strconv_test.testParseBool) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestFormatBool" : GoString), stdgo.strconv_test.Strconv_test.testFormatBool) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestAppendBool" : GoString), stdgo.strconv_test.Strconv_test.testAppendBool) : stdgo.testing.Testing.InternalTest),
@@ -79,8 +79,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+29,
+29,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAtof64Decimal" : GoString), stdgo.strconv_test.Strconv_test.benchmarkAtof64Decimal) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAtof64Float" : GoString), stdgo.strconv_test.Strconv_test.benchmarkAtof64Float) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAtof64FloatExp" : GoString), stdgo.strconv_test.Strconv_test.benchmarkAtof64FloatExp) : stdgo.testing.Testing.InternalBenchmark),
@@ -122,8 +122,8 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+30,
+30,
 (new stdgo.testing.Testing.InternalExample(("ExampleAppendBool" : GoString), stdgo.strconv_test.Strconv_test.exampleAppendBool, ("bool:true\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleAppendFloat" : GoString), stdgo.strconv_test.Strconv_test.exampleAppendFloat, ("float32:3.1415927E+00\nfloat64:3.1415926535E+00\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleAppendInt" : GoString), stdgo.strconv_test.Strconv_test.exampleAppendInt, ("int (base 10):-42\nint (base 16):-2a\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

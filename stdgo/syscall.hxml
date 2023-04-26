@@ -1,3 +1,3 @@
 -m stdgo.syscall_test.Syscall
 -lib go2hx
--cp stdgo
+-cp .

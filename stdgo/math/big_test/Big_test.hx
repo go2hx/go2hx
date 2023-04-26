@@ -746,148 +746,120 @@ private function _checkAliasingTwoArgs(_t:Ref<stdgo.testing.Testing.T>, _f:(_v:R
     }
 function testAliasing(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_name => _f in ({
-            final x = new stdgo.GoMap.GoObjectMap<GoString, AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) })));
-            @:privateAccess x._keys = [
-("Abs" : GoString),
-("Add" : GoString),
-("And" : GoString),
-("AndNot" : GoString),
-("Div" : GoString),
-("Exp-XY" : GoString),
-("Exp-XZ" : GoString),
-("Exp-YZ" : GoString),
-("GCD" : GoString),
-("GCD-X" : GoString),
-("GCD-Y" : GoString),
-("Lsh" : GoString),
-("Mod" : GoString),
-("ModInverse" : GoString),
-("ModSqrt" : GoString),
-("Mul" : GoString),
-("Neg" : GoString),
-("Not" : GoString),
-("Or" : GoString),
-("Quo" : GoString),
-("Rand" : GoString),
-("Rem" : GoString),
-("Rsh" : GoString),
-("Set" : GoString),
-("SetBit" : GoString),
-("Sqrt" : GoString),
-("Sub" : GoString),
-("Xor" : GoString)];
-            @:privateAccess x._values = [
-function(_v:T_bigInt, _x:T_bigInt):Bool {
-                return _checkAliasingOneArg(_t, stdgo.math.big.Big.Int__static_extension.abs, _v.int_, _x.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.add, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.and, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.andNot, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.div, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt, _z:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>, _y:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
-                    return _v.exp(_x, _y, _z.int_);
-                }, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt, _z:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>, _z:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
-                    return _v.exp(_x, _y.int_, _z);
-                }, _v.int_, _x.int_, _z.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt, _z:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _y:Ref<stdgo.math.big.Big.Int_>, _z:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
-                    return _v.exp(_x.int_, _y, _z);
-                }, _v.int_, _y.int_, _z.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>, _y:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
-                    return _v.gcd(null, null, _x, _y);
-                }, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                var __0 = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>), __1 = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>), _b = __1, _a = __0;
-                return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>, _y:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
-                    _a.gcd(_v, _b, _x, _y);
-                    return _v;
-                }, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                var __0 = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>), __1 = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>), _b = __1, _a = __0;
-                return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>, _y:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
-                    _a.gcd(_b, _v, _x, _y);
-                    return _v;
-                }, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _n:T_smallUint):Bool {
-                return _checkAliasingOneArg(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
-                    return _v.lsh(_x, _n._uint);
-                }, _v.int_, _x.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.mod, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.modInverse, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _p:T_prime):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.modSqrt, _v.int_, _x.int_, _p.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.mul, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt):Bool {
-                return _checkAliasingOneArg(_t, stdgo.math.big.Big.Int__static_extension.neg, _v.int_, _x.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt):Bool {
-                return _checkAliasingOneArg(_t, stdgo.math.big.Big.Int__static_extension.not, _v.int_, _x.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.or, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.quo, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _seed:GoInt64):Bool {
-                return _checkAliasingOneArg(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
-                    var _rnd = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(_seed));
-                    return _v.rand(_rnd, _x);
-                }, _v.int_, _x.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.rem, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _n:T_smallUint):Bool {
-                return _checkAliasingOneArg(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
-                    return _v.rsh(_x, _n._uint);
-                }, _v.int_, _x.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt):Bool {
-                return _checkAliasingOneArg(_t, stdgo.math.big.Big.Int__static_extension.set, _v.int_, _x.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _i:T_smallUint, _b:T_zeroOrOne):Bool {
-                return _checkAliasingOneArg(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
-                    return _v.setBit(_x, (_i._uint : GoInt), _b._uint);
-                }, _v.int_, _x.int_);
-            },
-function(_v:T_bigInt, _x:T_positiveInt):Bool {
-                return _checkAliasingOneArg(_t, stdgo.math.big.Big.Int__static_extension.sqrt, _v.int_, _x.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.sub, _v.int_, _x.int_, _y.int_);
-            },
-function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.xor, _v.int_, _x.int_, _y.int_);
-            }];
+            final x = new GoMap<GoString, AnyInterface>();
+            @:mergeBlock {
+                x.set(("Abs" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt):Bool {
+                    return _checkAliasingOneArg(_t, stdgo.math.big.Big.Int__static_extension.abs, _v.int_, _x.int_);
+                }));
+                x.set(("Add" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.add, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("And" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.and, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("AndNot" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.andNot, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("Div" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.div, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("Exp-XY" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt, _z:T_notZeroInt):Bool {
+                    return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>, _y:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
+                        return _v.exp(_x, _y, _z.int_);
+                    }, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("Exp-XZ" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt, _z:T_notZeroInt):Bool {
+                    return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>, _z:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
+                        return _v.exp(_x, _y.int_, _z);
+                    }, _v.int_, _x.int_, _z.int_);
+                }));
+                x.set(("Exp-YZ" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt, _z:T_notZeroInt):Bool {
+                    return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _y:Ref<stdgo.math.big.Big.Int_>, _z:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
+                        return _v.exp(_x.int_, _y, _z);
+                    }, _v.int_, _y.int_, _z.int_);
+                }));
+                x.set(("GCD" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
+                    return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>, _y:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
+                        return _v.gcd(null, null, _x, _y);
+                    }, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("GCD-X" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
+                    var __0 = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>), __1 = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>), _b = __1, _a = __0;
+                    return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>, _y:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
+                        _a.gcd(_v, _b, _x, _y);
+                        return _v;
+                    }, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("GCD-Y" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
+                    var __0 = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>), __1 = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>), _b = __1, _a = __0;
+                    return _checkAliasingTwoArgs(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>, _y:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
+                        _a.gcd(_b, _v, _x, _y);
+                        return _v;
+                    }, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("Lsh" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _n:T_smallUint):Bool {
+                    return _checkAliasingOneArg(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
+                        return _v.lsh(_x, _n._uint);
+                    }, _v.int_, _x.int_);
+                }));
+                x.set(("Mod" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.mod, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("ModInverse" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.modInverse, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("ModSqrt" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _p:T_prime):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.modSqrt, _v.int_, _x.int_, _p.int_);
+                }));
+                x.set(("Mul" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.mul, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("Neg" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt):Bool {
+                    return _checkAliasingOneArg(_t, stdgo.math.big.Big.Int__static_extension.neg, _v.int_, _x.int_);
+                }));
+                x.set(("Not" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt):Bool {
+                    return _checkAliasingOneArg(_t, stdgo.math.big.Big.Int__static_extension.not, _v.int_, _x.int_);
+                }));
+                x.set(("Or" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.or, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("Quo" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.quo, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("Rand" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _seed:GoInt64):Bool {
+                    return _checkAliasingOneArg(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
+                        var _rnd = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(_seed));
+                        return _v.rand(_rnd, _x);
+                    }, _v.int_, _x.int_);
+                }));
+                x.set(("Rem" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_notZeroInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.rem, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("Rsh" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _n:T_smallUint):Bool {
+                    return _checkAliasingOneArg(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
+                        return _v.rsh(_x, _n._uint);
+                    }, _v.int_, _x.int_);
+                }));
+                x.set(("Set" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt):Bool {
+                    return _checkAliasingOneArg(_t, stdgo.math.big.Big.Int__static_extension.set, _v.int_, _x.int_);
+                }));
+                x.set(("SetBit" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _i:T_smallUint, _b:T_zeroOrOne):Bool {
+                    return _checkAliasingOneArg(_t, function(_v:Ref<stdgo.math.big.Big.Int_>, _x:Ref<stdgo.math.big.Big.Int_>):Ref<stdgo.math.big.Big.Int_> {
+                        return _v.setBit(_x, (_i._uint : GoInt), _b._uint);
+                    }, _v.int_, _x.int_);
+                }));
+                x.set(("Sqrt" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_positiveInt):Bool {
+                    return _checkAliasingOneArg(_t, stdgo.math.big.Big.Int__static_extension.sqrt, _v.int_, _x.int_);
+                }));
+                x.set(("Sub" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.sub, _v.int_, _x.int_, _y.int_);
+                }));
+                x.set(("Xor" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
+                    return _checkAliasingTwoArgs(_t, stdgo.math.big.Big.Int__static_extension.xor, _v.int_, _x.int_, _y.int_);
+                }));
+            };
             x;
-        } : stdgo.GoMap<GoString, AnyInterface>)) {
+        })) {
             _t.run(_name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var _scale:GoFloat64 = (1 : GoFloat64);
                 {
@@ -1057,7 +1029,7 @@ function exampleFloat_shift():Void {
 function exampleFloat_Cmp():Void {
         var _inf:GoFloat64 = stdgo.math.Math.inf((1 : GoInt));
         var _zero:GoFloat64 = (0 : GoFloat64);
-        var _operands = (new Slice<GoFloat64>(0, 0, -_inf, (-1.2 : GoFloat64), -_zero, (0 : GoFloat64), (1.2 : GoFloat64), _inf) : Slice<GoFloat64>);
+        var _operands = (new Slice<GoFloat64>(6, 6, -_inf, (-1.2 : GoFloat64), -_zero, (0 : GoFloat64), (1.2 : GoFloat64), _inf) : Slice<GoFloat64>);
         stdgo.fmt.Fmt.println(Go.toInterface(("   x     y  cmp" : GoString)));
         stdgo.fmt.Fmt.println(Go.toInterface(("---------------" : GoString)));
         for (__0 => _x64 in _operands) {
@@ -1070,7 +1042,7 @@ function exampleFloat_Cmp():Void {
         };
     }
 function exampleRoundingMode():Void {
-        var _operands = (new Slice<GoFloat64>(0, 0, (2.6 : GoFloat64), (2.5 : GoFloat64), (2.1 : GoFloat64), (-2.1 : GoFloat64), (-2.5 : GoFloat64), (-2.6 : GoFloat64)) : Slice<GoFloat64>);
+        var _operands = (new Slice<GoFloat64>(6, 6, (2.6 : GoFloat64), (2.5 : GoFloat64), (2.1 : GoFloat64), (-2.1 : GoFloat64), (-2.5 : GoFloat64), (-2.6 : GoFloat64)) : Slice<GoFloat64>);
         stdgo.fmt.Fmt.print(Go.toInterface(("   x" : GoString)));
         {
             var _mode:stdgo.math.big.Big.RoundingMode = (0 : stdgo.math.big.Big.RoundingMode);

@@ -36,8 +36,8 @@ private var _floatVal0 = (new T_floatVal(_newFloat()) : T_floatVal);
     
 **/
 private var _intTests = (new Slice<GoString>(
-0,
-0,
+28,
+28,
 ("0_123 = 0123" : GoString),
 ("0123_456 = 0123456" : GoString),
 ("1_234 = 1234" : GoString),
@@ -72,8 +72,8 @@ private var _intTests = (new Slice<GoString>(
     
 **/
 private var _floatTests = (new Slice<GoString>(
-0,
-0,
+36,
+36,
 ("1_2_3. = 123." : GoString),
 ("0_123. = 123." : GoString),
 ("0_0e0 = 0." : GoString),
@@ -116,8 +116,8 @@ private var _floatTests = (new Slice<GoString>(
     
 **/
 private var _imagTests = (new Slice<GoString>(
-0,
-0,
+12,
+12,
 ("1_234i = 1234i" : GoString),
 ("1_234_567i = 1234567i" : GoString),
 ("0.i = 0i" : GoString),
@@ -136,8 +136,8 @@ private var _imagTests = (new Slice<GoString>(
     
 **/
 private var _opTests = (new Slice<GoString>(
-0,
-0,
+105,
+105,
 ("+ 0 = 0" : GoString),
 ("+ ? = ?" : GoString),
 ("- 1 = -1" : GoString),
@@ -261,8 +261,8 @@ private var _issue14262 = ("\"بموجب الشروط التالية نسب ال
     
 **/
 private var _stringTests = (new Slice<T__struct_1>(
-0,
-0,
+33,
+33,
 ({ _input : Go.str(), _short : ("unknown" : GoString), _exact : ("unknown" : GoString) } : T__struct_1),
 ({ _input : ("0x" : GoString), _short : ("unknown" : GoString), _exact : ("unknown" : GoString) } : T__struct_1),
 ({ _input : ("\'" : GoString), _short : ("unknown" : GoString), _exact : ("unknown" : GoString) } : T__struct_1),
@@ -302,55 +302,37 @@ private var _stringTests = (new Slice<T__struct_1>(
     
 **/
 private var _optab = ({
-        final x = new stdgo.GoMap.GoObjectMap<GoString, stdgo.go.token.Token.Token>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Token", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) })));
-        @:privateAccess x._keys = [
-("!" : GoString),
-("+" : GoString),
-("-" : GoString),
-("*" : GoString),
-("/" : GoString),
-("%" : GoString),
-("<<" : GoString),
-(">>" : GoString),
-("&" : GoString),
-("|" : GoString),
-("^" : GoString),
-("&^" : GoString),
-("==" : GoString),
-("!=" : GoString),
-("<" : GoString),
-("<=" : GoString),
-(">" : GoString),
-(">=" : GoString)];
-        @:privateAccess x._values = [
-(43 : stdgo.go.token.Token.Token),
-(12 : stdgo.go.token.Token.Token),
-(13 : stdgo.go.token.Token.Token),
-(14 : stdgo.go.token.Token.Token),
-(15 : stdgo.go.token.Token.Token),
-(16 : stdgo.go.token.Token.Token),
-(20 : stdgo.go.token.Token.Token),
-(21 : stdgo.go.token.Token.Token),
-(17 : stdgo.go.token.Token.Token),
-(18 : stdgo.go.token.Token.Token),
-(19 : stdgo.go.token.Token.Token),
-(22 : stdgo.go.token.Token.Token),
-(39 : stdgo.go.token.Token.Token),
-(44 : stdgo.go.token.Token.Token),
-(40 : stdgo.go.token.Token.Token),
-(45 : stdgo.go.token.Token.Token),
-(41 : stdgo.go.token.Token.Token),
-(46 : stdgo.go.token.Token.Token)];
+        final x = new GoMap<GoString, stdgo.go.token.Token.Token>();
+        @:mergeBlock {
+            x.set(("!" : GoString), (43 : stdgo.go.token.Token.Token));
+            x.set(("+" : GoString), (12 : stdgo.go.token.Token.Token));
+            x.set(("-" : GoString), (13 : stdgo.go.token.Token.Token));
+            x.set(("*" : GoString), (14 : stdgo.go.token.Token.Token));
+            x.set(("/" : GoString), (15 : stdgo.go.token.Token.Token));
+            x.set(("%" : GoString), (16 : stdgo.go.token.Token.Token));
+            x.set(("<<" : GoString), (20 : stdgo.go.token.Token.Token));
+            x.set((">>" : GoString), (21 : stdgo.go.token.Token.Token));
+            x.set(("&" : GoString), (17 : stdgo.go.token.Token.Token));
+            x.set(("|" : GoString), (18 : stdgo.go.token.Token.Token));
+            x.set(("^" : GoString), (19 : stdgo.go.token.Token.Token));
+            x.set(("&^" : GoString), (22 : stdgo.go.token.Token.Token));
+            x.set(("==" : GoString), (39 : stdgo.go.token.Token.Token));
+            x.set(("!=" : GoString), (44 : stdgo.go.token.Token.Token));
+            x.set(("<" : GoString), (40 : stdgo.go.token.Token.Token));
+            x.set(("<=" : GoString), (45 : stdgo.go.token.Token.Token));
+            x.set((">" : GoString), (41 : stdgo.go.token.Token.Token));
+            x.set((">=" : GoString), (46 : stdgo.go.token.Token.Token));
+        };
         x;
-    } : stdgo.GoMap<GoString, stdgo.go.token.Token.Token>);
+    });
 /**
     
     
     
 **/
 private var _fracTests = (new Slice<GoString>(
-0,
-0,
+9,
+9,
 ("0" : GoString),
 ("1" : GoString),
 ("-1" : GoString),
@@ -365,13 +347,13 @@ private var _fracTests = (new Slice<GoString>(
     
     
 **/
-private var _bytesTests = (new Slice<GoString>(0, 0, ("0" : GoString), ("1" : GoString), ("123456789" : GoString), ("123456789012345678901234567890123456789012345678901234567890" : GoString)) : Slice<GoString>);
+private var _bytesTests = (new Slice<GoString>(4, 4, ("0" : GoString), ("1" : GoString), ("123456789" : GoString), ("123456789012345678901234567890123456789012345678901234567890" : GoString)) : Slice<GoString>);
 /**
     
     
     
 **/
-private var _bitLenTests = (new Slice<T__struct_2>(0, 0, ({ _val : (0i64 : GoInt64), _want : (0 : GoInt) } : T__struct_2), ({ _val : (1i64 : GoInt64), _want : (1 : GoInt) } : T__struct_2), ({ _val : (-16i64 : GoInt64), _want : (5 : GoInt) } : T__struct_2), ({ _val : (2305843009213693952i64 : GoInt64), _want : (62 : GoInt) } : T__struct_2), ({ _val : (4611686018427387904i64 : GoInt64), _want : (63 : GoInt) } : T__struct_2), ({ _val : (-4611686018427387904i64 : GoInt64), _want : (63 : GoInt) } : T__struct_2), ({ _val : (-9223372036854775808i64 : GoInt64), _want : (64 : GoInt) } : T__struct_2)) : Slice<T__struct_2>);
+private var _bitLenTests = (new Slice<T__struct_2>(7, 7, ({ _val : (0i64 : GoInt64), _want : (0 : GoInt) } : T__struct_2), ({ _val : (1i64 : GoInt64), _want : (1 : GoInt) } : T__struct_2), ({ _val : (-16i64 : GoInt64), _want : (5 : GoInt) } : T__struct_2), ({ _val : (2305843009213693952i64 : GoInt64), _want : (62 : GoInt) } : T__struct_2), ({ _val : (4611686018427387904i64 : GoInt64), _want : (63 : GoInt) } : T__struct_2), ({ _val : (-4611686018427387904i64 : GoInt64), _want : (63 : GoInt) } : T__struct_2), ({ _val : (-9223372036854775808i64 : GoInt64), _want : (64 : GoInt) } : T__struct_2)) : Slice<T__struct_2>);
 /**
     
     
@@ -1214,7 +1196,7 @@ function bytes(_x:Value):Slice<GoByte> {
             };
         };
         var _words = _t._val.bits();
-        var _bytes = new Slice<GoUInt8>(((_words.length) * (4 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_words.length) * (4 : GoInt) : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _bytes = new Slice<GoUInt8>(((_words.length) * (4 : GoInt) : GoInt).toBasic(), 0).__setNumber32__();
         var _i:GoInt = (0 : GoInt);
         for (__0 => _w in _words) {
             {
@@ -1236,7 +1218,7 @@ function bytes(_x:Value):Slice<GoByte> {
     // binary representation. An empty byte slice argument represents 0.
 **/
 function makeFromBytes(_bytes:Slice<GoByte>):Value {
-        var _words = new Slice<stdgo.math.big.Big.Word>(((_bytes.length + (3 : GoInt)) / (4 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_bytes.length + (3 : GoInt)) / (4 : GoInt) : GoInt).toBasic()) ((0 : GoUInt) : stdgo.math.big.Big.Word)]);
+        var _words = new Slice<stdgo.math.big.Big.Word>(((_bytes.length + (3 : GoInt)) / (4 : GoInt) : GoInt).toBasic(), 0).__setNumber32__();
         var _i:GoInt = (0 : GoInt);
         var _w:stdgo.math.big.Big.Word = ((0 : GoUInt) : stdgo.math.big.Big.Word);
         var _s:GoUInt = (0 : GoUInt);
@@ -2116,7 +2098,7 @@ function testOps(_t:Ref<stdgo.testing.Testing.T>):Void {
                     continue;
                 };
             };
-            var __tmp__ = (_optab != null && _optab.__exists__(_a[(_i : GoInt)]) ? { value : _optab[_a[(_i : GoInt)]], ok : true } : { value : ((0 : GoInt) : stdgo.go.token.Token.Token), ok : false }), _op:stdgo.go.token.Token.Token = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_optab != null && _optab.exists(_a[(_i : GoInt)]) ? { value : _optab[_a[(_i : GoInt)]], ok : true } : { value : ((0 : GoInt) : stdgo.go.token.Token.Token), ok : false }), _op:stdgo.go.token.Token.Token = __tmp__.value, _ok:Bool = __tmp__.ok;
             if (!_ok) {
                 throw Go.toInterface(("missing optab entry for " : GoString) + _a[(_i : GoInt)]);
             };
@@ -2343,7 +2325,7 @@ function testBytes(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testUnknown(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _u:stdgo.go.constant.Constant.Value = makeUnknown();
-        var _values:Slice<stdgo.go.constant.Constant.Value> = (new Slice<stdgo.go.constant.Constant.Value>(0, 0, _u, makeBool(false), makeString(Go.str()), makeInt64((1i64 : GoInt64)), makeFromLiteral(("\'\'" : GoString), (8 : stdgo.go.token.Token.Token), (0u32 : GoUInt)), makeFromLiteral(("-1234567890123456789012345678901234567890" : GoString), (5 : stdgo.go.token.Token.Token), (0u32 : GoUInt)), makeFloat64((1.2 : GoFloat64)), makeImag(makeFloat64((1.2 : GoFloat64)))) : Slice<stdgo.go.constant.Constant.Value>);
+        var _values:Slice<stdgo.go.constant.Constant.Value> = (new Slice<stdgo.go.constant.Constant.Value>(8, 8, _u, makeBool(false), makeString(Go.str()), makeInt64((1i64 : GoInt64)), makeFromLiteral(("\'\'" : GoString), (8 : stdgo.go.token.Token.Token), (0u32 : GoUInt)), makeFromLiteral(("-1234567890123456789012345678901234567890" : GoString), (5 : stdgo.go.token.Token.Token), (0u32 : GoUInt)), makeFloat64((1.2 : GoFloat64)), makeImag(makeFloat64((1.2 : GoFloat64)))) : Slice<stdgo.go.constant.Constant.Value>);
         for (__0 => _val in _values) {
             var __0:stdgo.go.constant.Constant.Value = _val, __1:stdgo.go.constant.Constant.Value = _u, _y:stdgo.go.constant.Constant.Value = __1, _x:stdgo.go.constant.Constant.Value = __0;
             for (_i in 0 ... (new GoArray<GoInt>(...([].concat([for (i in 0 ... 2) (0 : GoInt)]))) : GoArray<GoInt>).length.toBasic()) {
@@ -2373,8 +2355,8 @@ function testUnknown(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testMakeFloat64(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _zero:GoFloat64 = (0 : GoFloat64);
         for (__0 => _arg in (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-3.4028234663852886e+38 : GoFloat64),
 (-10 : GoFloat64),
 (-0.5 : GoFloat64),
@@ -2394,7 +2376,7 @@ _zero,
                 _t.errorf(("%v: got %v (exact = %v)" : GoString), Go.toInterface(_arg), Go.toInterface(_got), Go.toInterface(_exact));
             };
         };
-        for (_sign in 0 ... (new Slice<GoInt>(0, 0, (-1 : GoInt), (1 : GoInt)) : Slice<GoInt>).length.toBasic()) {
+        for (_sign in 0 ... (new Slice<GoInt>(2, 2, (-1 : GoInt), (1 : GoInt)) : Slice<GoInt>).length.toBasic()) {
             var _arg:GoFloat64 = stdgo.math.Math.inf(_sign);
             var _val:stdgo.go.constant.Constant.Value = makeFloat64(_arg);
             if (_val.kind() != ((0 : stdgo.go.constant.Constant.Kind))) {
@@ -2407,8 +2389,8 @@ private function _dup(_k:Kind, _x:AnyInterface):T_makeTestCase {
     }
 function testMake(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in (new Slice<stdgo.go.constant.Constant.T_makeTestCase>(
-0,
-0,
+9,
+9,
 (new stdgo.go.constant.Constant.T_makeTestCase((1 : stdgo.go.constant.Constant.Kind), Go.toInterface(false), Go.toInterface(false)) : stdgo.go.constant.Constant.T_makeTestCase),
 (new stdgo.go.constant.Constant.T_makeTestCase((2 : stdgo.go.constant.Constant.Kind), Go.toInterface(("hello" : GoString)), Go.toInterface(("hello" : GoString))) : stdgo.go.constant.Constant.T_makeTestCase),
 (new stdgo.go.constant.Constant.T_makeTestCase((3 : stdgo.go.constant.Constant.Kind), Go.toInterface((1i64 : GoInt64)), Go.toInterface((1i64 : GoInt64))) : stdgo.go.constant.Constant.T_makeTestCase),

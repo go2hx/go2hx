@@ -21,8 +21,8 @@ private var __go2hxdoc__package : Bool;
     
 **/
 private var _golden = (new Slice<stdgo.crypto.sha1.Sha1.T_sha1Test>(
-0,
-0,
+32,
+32,
 (new stdgo.crypto.sha1.Sha1.T_sha1Test(("76245dbf96f661bd221046197ab8b9f063f11bad" : GoString), ("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n" : GoString), Go.str("sha",
 1,
 "\x0B",
@@ -2320,7 +2320,7 @@ private var _golden = (new Slice<stdgo.crypto.sha1.Sha1.T_sha1Test>(
     
     
 **/
-private var _largeUnmarshalTests = (new Slice<stdgo.crypto.sha1.Sha1.T_unmarshalTest>(0, 0, ({ _state : Go.str("sha",
+private var _largeUnmarshalTests = (new Slice<stdgo.crypto.sha1.Sha1.T_unmarshalTest>(2, 2, ({ _state : Go.str("sha",
 1,
 19,
 188,
@@ -2398,7 +2398,7 @@ private var _bench = new_();
     
     
 **/
-private var _buf = new Slice<GoUInt8>((8192 : GoInt).toBasic(), 0, ...[for (i in 0 ... (8192 : GoInt).toBasic()) (0 : GoUInt8)]);
+private var _buf = new Slice<GoUInt8>((8192 : GoInt).toBasic(), 0).__setNumber32__();
 /**
     
     
@@ -2701,7 +2701,7 @@ function testBlockGeneric(_t:Ref<stdgo.testing.Testing.T>):Void {
             var _i:GoInt = (1 : GoInt);
             Go.cfor(_i < (30 : GoInt), _i++, {
                 var __0 = (Go.typeAssert((Go.toInterface(new_()) : Ref<T_digest>)) : Ref<T_digest>), __1 = (Go.typeAssert((Go.toInterface(new_()) : Ref<T_digest>)) : Ref<T_digest>), _asm = __1, _gen = __0;
-                var _buf = new Slice<GoUInt8>(((64 : GoInt) * _i : GoInt).toBasic(), 0, ...[for (i in 0 ... ((64 : GoInt) * _i : GoInt).toBasic()) (0 : GoUInt8)]);
+                var _buf = new Slice<GoUInt8>(((64 : GoInt) * _i : GoInt).toBasic(), 0).__setNumber32__();
                 stdgo.crypto.rand.Rand.read(_buf);
                 _blockGeneric(_gen, _buf);
                 _block(_asm, _buf);
@@ -2785,7 +2785,7 @@ function testAllocations(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.skip(Go.toInterface(("BoringCrypto doesn\'t allocate the same way as stdlib" : GoString)));
         };
         var _in = (("hello, world!" : GoString) : Slice<GoByte>);
-        var _out = new Slice<GoUInt8>((0 : GoInt).toBasic(), (20 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _out = new Slice<GoUInt8>((0 : GoInt).toBasic(), (20 : GoInt)).__setNumber32__();
         var _h:stdgo.hash.Hash.Hash = new_();
         var _n:GoInt = (stdgo.testing.Testing.allocsPerRun((10 : GoInt), function():Void {
             _h.reset();
@@ -2797,7 +2797,7 @@ function testAllocations(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 private function _benchmarkSize(_b:Ref<stdgo.testing.Testing.B>, _size:GoInt):Void {
-        var _sum = new Slice<GoUInt8>((_bench.size() : GoInt).toBasic(), 0, ...[for (i in 0 ... (_bench.size() : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _sum = new Slice<GoUInt8>((_bench.size() : GoInt).toBasic(), 0).__setNumber32__();
         _b.run(("New" : GoString), function(_b:Ref<stdgo.testing.Testing.B>):Void {
             _b.reportAllocs();
             _b.setBytes((_size : GoInt64));
@@ -3183,14 +3183,14 @@ class T_digest_asInterface {
     }
     @:keep
     static public function marshalBinary( _d:Ref<T_digest>):{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), (96 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
-        _b = _b.__appendref__(...Go.str("sha", 1).__toArray__());
+        var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), (96 : GoInt)).__setNumber32__();
+        _b = (_b.__append__(...Go.str("sha", 1).__toArray__()));
         _b = stdgo.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(0 : GoInt)]);
         _b = stdgo.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(1 : GoInt)]);
         _b = stdgo.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(2 : GoInt)]);
         _b = stdgo.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(3 : GoInt)]);
         _b = stdgo.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(4 : GoInt)]);
-        _b = _b.__appendref__(...(_d._x.__slice__(0, _d._nx) : Slice<GoUInt8>).__toArray__());
+        _b = (_b.__append__(...(_d._x.__slice__(0, _d._nx) : Slice<GoUInt8>).__toArray__()));
         _b = (_b.__slice__(0, (_b.length + _d._x.length) - _d._nx) : Slice<GoUInt8>);
         _b = stdgo.encoding.binary.Binary.bigEndian.appendUint64(_b, _d._len);
         return { _0 : _b, _1 : (null : Error) };

@@ -15,8 +15,8 @@ import stdgo.math.big.Big;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+185,
+185,
 (new stdgo.testing.Testing.InternalTest(("TestFunVV" : GoString), stdgo.math.big.Big.testFunVV) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestFunVW" : GoString), stdgo.math.big.Big.testFunVW) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestFunVWExt" : GoString), stdgo.math.big.Big.testFunVWExt) : stdgo.testing.Testing.InternalTest),
@@ -208,8 +208,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+64,
+64,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAddVV" : GoString), stdgo.math.big.Big.benchmarkAddVV) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkSubVV" : GoString), stdgo.math.big.Big.benchmarkSubVV) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAddVW" : GoString), stdgo.math.big.Big.benchmarkAddVW) : stdgo.testing.Testing.InternalBenchmark),
@@ -279,15 +279,15 @@ private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
     
     
 **/
-private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0, 0, (new stdgo.testing.Testing.InternalFuzzTarget(("FuzzExpMont" : GoString), stdgo.math.big.Big.fuzzExpMont) : stdgo.testing.Testing.InternalFuzzTarget)) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
+private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(1, 1, (new stdgo.testing.Testing.InternalFuzzTarget(("FuzzExpMont" : GoString), stdgo.math.big.Big.fuzzExpMont) : stdgo.testing.Testing.InternalFuzzTarget)) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
 /**
     
     
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+13,
+13,
 (new stdgo.testing.Testing.InternalExample(("Example_eConvergents" : GoString), stdgo.math.big_test.Big_test.example_eConvergents, ("2/1           = 2.00000000\n3/1           = 3.00000000\n8/3           = 2.66666667\n11/4          = 2.75000000\n19/7          = 2.71428571\n87/32         = 2.71875000\n106/39        = 2.71794872\n193/71        = 2.71830986\n1264/465      = 2.71827957\n1457/536      = 2.71828358\n2721/1001     = 2.71828172\n23225/8544    = 2.71828184\n25946/9545    = 2.71828182\n49171/18089   = 2.71828183\n517656/190435 = 2.71828183\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleRat_SetString" : GoString), stdgo.math.big_test.Big_test.exampleRat_SetString, ("3.142\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleInt_SetString" : GoString), stdgo.math.big_test.Big_test.exampleInt_SetString, ("420\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

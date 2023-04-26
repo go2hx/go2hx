@@ -14,7 +14,7 @@ import stdgo.go.importer.Importer;
     
     
 **/
-private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0, (new stdgo.testing.Testing.InternalTest(("TestForCompiler" : GoString), stdgo.go.importer.Importer.testForCompiler) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
+private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(1, 1, (new stdgo.testing.Testing.InternalTest(("TestForCompiler" : GoString), stdgo.go.importer.Importer.testForCompiler) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
 /**
     
     

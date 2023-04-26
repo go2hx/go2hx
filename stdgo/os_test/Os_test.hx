@@ -23,8 +23,8 @@ import stdgo.os.Os;
     
 **/
 private var _expandTests = (new Slice<T__struct_1>(
-0,
-0,
+18,
+18,
 ({ _in : Go.str(), _out : Go.str() } : T__struct_1),
 ({ _in : ("$$*" : GoString), _out : ("all the args" : GoString) } : T__struct_1),
 ({ _in : ("$$$$" : GoString), _out : ("PID" : GoString) } : T__struct_1),
@@ -49,8 +49,8 @@ private var _expandTests = (new Slice<T__struct_1>(
     
 **/
 private var _isExistTests = (new Slice<stdgo.os_test.Os_test.T_isExistTest>(
-0,
-0,
+13,
+13,
 (new stdgo.os_test.Os_test.T_isExistTest(Go.asInterface((Go.setRef(({ err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), false, false) : stdgo.os_test.Os_test.T_isExistTest),
 (new stdgo.os_test.Os_test.T_isExistTest(Go.asInterface((Go.setRef(({ err : stdgo.io.fs.Fs.errPermission } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), false, false) : stdgo.os_test.Os_test.T_isExistTest),
 (new stdgo.os_test.Os_test.T_isExistTest(Go.asInterface((Go.setRef(({ err : stdgo.io.fs.Fs.errExist } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), true, false) : stdgo.os_test.Os_test.T_isExistTest),
@@ -69,13 +69,13 @@ private var _isExistTests = (new Slice<stdgo.os_test.Os_test.T_isExistTest>(
     
     
 **/
-private var _isPermissionTests = (new Slice<stdgo.os_test.Os_test.T_isPermissionTest>(0, 0, (new stdgo.os_test.Os_test.T_isPermissionTest((null : Error), false) : stdgo.os_test.Os_test.T_isPermissionTest), (new stdgo.os_test.Os_test.T_isPermissionTest(Go.asInterface((Go.setRef(({ err : stdgo.io.fs.Fs.errPermission } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), true) : stdgo.os_test.Os_test.T_isPermissionTest), (new stdgo.os_test.Os_test.T_isPermissionTest(Go.asInterface((Go.setRef(({ err : stdgo.io.fs.Fs.errPermission } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), true) : stdgo.os_test.Os_test.T_isPermissionTest)) : Slice<stdgo.os_test.Os_test.T_isPermissionTest>);
+private var _isPermissionTests = (new Slice<stdgo.os_test.Os_test.T_isPermissionTest>(3, 3, (new stdgo.os_test.Os_test.T_isPermissionTest((null : Error), false) : stdgo.os_test.Os_test.T_isPermissionTest), (new stdgo.os_test.Os_test.T_isPermissionTest(Go.asInterface((Go.setRef(({ err : stdgo.io.fs.Fs.errPermission } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), true) : stdgo.os_test.Os_test.T_isPermissionTest), (new stdgo.os_test.Os_test.T_isPermissionTest(Go.asInterface((Go.setRef(({ err : stdgo.io.fs.Fs.errPermission } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), true) : stdgo.os_test.Os_test.T_isPermissionTest)) : Slice<stdgo.os_test.Os_test.T_isPermissionTest>);
 /**
     
     
     
 **/
-private var _dot = (new Slice<GoString>(0, 0, ("dir_unix.go" : GoString), ("env.go" : GoString), ("error.go" : GoString), ("file.go" : GoString), ("os_test.go" : GoString), ("types.go" : GoString), ("stat_darwin.go" : GoString), ("stat_linux.go" : GoString)) : Slice<GoString>);
+private var _dot = (new Slice<GoString>(8, 8, ("dir_unix.go" : GoString), ("env.go" : GoString), ("error.go" : GoString), ("file.go" : GoString), ("os_test.go" : GoString), ("types.go" : GoString), ("stat_darwin.go" : GoString), ("stat_linux.go" : GoString)) : Slice<GoString>);
 /**
     
     
@@ -85,18 +85,20 @@ private var _sysdir = {
         var a = function():Ref<T_sysDir> {
             {
                 var __switchIndex__ = -1;
-                while (true) {
+                var __run__ = true;
+                while (__run__) {
+                    __run__ = false;
                     {
                         final __value__ = ("js" : GoString);
                         if (__value__ == (("android" : GoString))) {
-                            return (Go.setRef((new T_sysDir(("/system/lib" : GoString), (new Slice<GoString>(0, 0, ("libmedia.so" : GoString), ("libpowermanager.so" : GoString)) : Slice<GoString>)) : T_sysDir)) : Ref<stdgo.os_test.Os_test.T_sysDir>);
+                            return (Go.setRef((new T_sysDir(("/system/lib" : GoString), (new Slice<GoString>(2, 2, ("libmedia.so" : GoString), ("libpowermanager.so" : GoString)) : Slice<GoString>)) : T_sysDir)) : Ref<stdgo.os_test.Os_test.T_sysDir>);
                             break;
                         } else if (__value__ == (("ios" : GoString))) {
                             var __tmp__ = stdgo.syscall.Syscall.getwd(), _wd:GoString = __tmp__._0, _err:Error = __tmp__._1;
                             if (_err != null) {
                                 _wd = _err.error();
                             };
-                            var _sd = (Go.setRef((new T_sysDir(stdgo.path.filepath.Filepath.join(_wd, (".." : GoString), (".." : GoString)), (new Slice<GoString>(0, 0, ("ResourceRules.plist" : GoString), ("Info.plist" : GoString)) : Slice<GoString>)) : T_sysDir)) : Ref<stdgo.os_test.Os_test.T_sysDir>);
+                            var _sd = (Go.setRef((new T_sysDir(stdgo.path.filepath.Filepath.join(_wd, (".." : GoString), (".." : GoString)), (new Slice<GoString>(2, 2, ("ResourceRules.plist" : GoString), ("Info.plist" : GoString)) : Slice<GoString>)) : T_sysDir)) : Ref<stdgo.os_test.Os_test.T_sysDir>);
                             var _found:Bool = true;
                             for (__0 => _f in _sd._files) {
                                 var _path:GoString = stdgo.path.filepath.Filepath.join(_sd._name, _f);
@@ -113,17 +115,17 @@ private var _sysdir = {
                             };
                             break;
                         } else if (__value__ == (("windows" : GoString))) {
-                            return (Go.setRef((new T_sysDir(getenv(("SystemRoot" : GoString)) + ("\\system32\\drivers\\etc" : GoString), (new Slice<GoString>(0, 0, ("networks" : GoString), ("protocol" : GoString), ("services" : GoString)) : Slice<GoString>)) : T_sysDir)) : Ref<stdgo.os_test.Os_test.T_sysDir>);
+                            return (Go.setRef((new T_sysDir(getenv(("SystemRoot" : GoString)) + ("\\system32\\drivers\\etc" : GoString), (new Slice<GoString>(3, 3, ("networks" : GoString), ("protocol" : GoString), ("services" : GoString)) : Slice<GoString>)) : T_sysDir)) : Ref<stdgo.os_test.Os_test.T_sysDir>);
                             break;
                         } else if (__value__ == (("plan9" : GoString))) {
-                            return (Go.setRef((new T_sysDir(("/lib/ndb" : GoString), (new Slice<GoString>(0, 0, ("common" : GoString), ("local" : GoString)) : Slice<GoString>)) : T_sysDir)) : Ref<stdgo.os_test.Os_test.T_sysDir>);
+                            return (Go.setRef((new T_sysDir(("/lib/ndb" : GoString), (new Slice<GoString>(2, 2, ("common" : GoString), ("local" : GoString)) : Slice<GoString>)) : T_sysDir)) : Ref<stdgo.os_test.Os_test.T_sysDir>);
                             break;
                         };
                     };
                     break;
                 };
             };
-            return (Go.setRef((new T_sysDir(("/etc" : GoString), (new Slice<GoString>(0, 0, ("group" : GoString), ("hosts" : GoString), ("passwd" : GoString)) : Slice<GoString>)) : T_sysDir)) : Ref<stdgo.os_test.Os_test.T_sysDir>);
+            return (Go.setRef((new T_sysDir(("/etc" : GoString), (new Slice<GoString>(3, 3, ("group" : GoString), ("hosts" : GoString), ("passwd" : GoString)) : Slice<GoString>)) : T_sysDir)) : Ref<stdgo.os_test.Os_test.T_sysDir>);
         };
         a();
     };
@@ -144,7 +146,7 @@ private var _sfname = _sysdir._files[(0 : GoInt)];
     
     
 **/
-private var _openErrorTests = (new Slice<stdgo.os_test.Os_test.T_openErrorTest>(0, 0, (new stdgo.os_test.Os_test.T_openErrorTest(_sfdir + ("/no-such-file" : GoString), (0 : GoInt), Go.asInterface((2 : stdgo.syscall.Syscall.Errno))) : stdgo.os_test.Os_test.T_openErrorTest), (new stdgo.os_test.Os_test.T_openErrorTest(_sfdir, (1 : GoInt), Go.asInterface((21 : stdgo.syscall.Syscall.Errno))) : stdgo.os_test.Os_test.T_openErrorTest), (new stdgo.os_test.Os_test.T_openErrorTest(((_sfdir + ("/" : GoString)) + _sfname) + ("/no-such-file" : GoString), (1 : GoInt), Go.asInterface((20 : stdgo.syscall.Syscall.Errno))) : stdgo.os_test.Os_test.T_openErrorTest)) : Slice<stdgo.os_test.Os_test.T_openErrorTest>);
+private var _openErrorTests = (new Slice<stdgo.os_test.Os_test.T_openErrorTest>(3, 3, (new stdgo.os_test.Os_test.T_openErrorTest(_sfdir + ("/no-such-file" : GoString), (0 : GoInt), Go.asInterface((2 : stdgo.syscall.Syscall.Errno))) : stdgo.os_test.Os_test.T_openErrorTest), (new stdgo.os_test.Os_test.T_openErrorTest(_sfdir, (1 : GoInt), Go.asInterface((21 : stdgo.syscall.Syscall.Errno))) : stdgo.os_test.Os_test.T_openErrorTest), (new stdgo.os_test.Os_test.T_openErrorTest(((_sfdir + ("/" : GoString)) + _sfname) + ("/no-such-file" : GoString), (1 : GoInt), Go.asInterface((20 : stdgo.syscall.Syscall.Errno))) : stdgo.os_test.Os_test.T_openErrorTest)) : Slice<stdgo.os_test.Os_test.T_openErrorTest>);
 /**
     
     
@@ -157,8 +159,8 @@ private var _testLargeWrite = stdgo.flag.Flag.bool_(("large_write" : GoString), 
     
 **/
 private var _nilFileMethodTests = (new Slice<T__struct_3>(
-0,
-0,
+15,
+15,
 ({ _name : ("Chdir" : GoString), _f : function(_f:Ref<File>):Error {
         return _f.chdir();
     } } : T__struct_3),
@@ -172,11 +174,11 @@ private var _nilFileMethodTests = (new Slice<T__struct_3>(
         return _f.chown((0 : GoInt), (0 : GoInt));
     } } : T__struct_3),
 ({ _name : ("Read" : GoString), _f : function(_f:Ref<File>):Error {
-        var __tmp__ = _f.read(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)])), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _f.read(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0).__setNumber32__()), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         return _err;
     } } : T__struct_3),
 ({ _name : ("ReadAt" : GoString), _f : function(_f:Ref<File>):Error {
-        var __tmp__ = _f.readAt(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]), (0i64 : GoInt64)), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _f.readAt(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0).__setNumber32__(), (0i64 : GoInt64)), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         return _err;
     } } : T__struct_3),
 ({ _name : ("Readdir" : GoString), _f : function(_f:Ref<File>):Error {
@@ -202,11 +204,11 @@ private var _nilFileMethodTests = (new Slice<T__struct_3>(
         return _f.truncate((0i64 : GoInt64));
     } } : T__struct_3),
 ({ _name : ("Write" : GoString), _f : function(_f:Ref<File>):Error {
-        var __tmp__ = _f.write(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)])), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _f.write(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0).__setNumber32__()), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         return _err;
     } } : T__struct_3),
 ({ _name : ("WriteAt" : GoString), _f : function(_f:Ref<File>):Error {
-        var __tmp__ = _f.writeAt(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]), (0i64 : GoInt64)), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = _f.writeAt(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0).__setNumber32__(), (0i64 : GoInt64)), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         return _err;
     } } : T__struct_3),
 ({ _name : ("WriteString" : GoString), _f : function(_f:Ref<File>):Error {
@@ -1334,7 +1336,7 @@ function testExecutable(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _cmd = (Go.setRef((new stdgo.os.exec.Exec.Cmd() : stdgo.os.exec.Exec.Cmd)) : Ref<stdgo.os.exec.Exec.Cmd>);
         _cmd.dir = _dir;
         _cmd.path = _fn;
-        _cmd.args = (new Slice<GoString>(0, 0, ("-" : GoString), ("-test.run=XXXX" : GoString)) : Slice<GoString>);
+        _cmd.args = (new Slice<GoString>(2, 2, ("-" : GoString), ("-test.run=XXXX" : GoString)) : Slice<GoString>);
         if (false) {
             _cmd.args[(0 : GoInt)] = _fn;
         };
@@ -1712,12 +1714,12 @@ function testRead0(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.fatal(Go.toInterface(("open failed:" : GoString)), Go.toInterface(_err));
             };
             __deferstack__.unshift(() -> _f.close());
-            var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
+            var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), 0).__setNumber32__();
             var __tmp__ = _f.read(_b), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if ((_n != (0 : GoInt)) || (_err != null)) {
                 _t.errorf(("Read(0) = %d, %v, want 0, nil" : GoString), Go.toInterface(_n), Go.toInterface(_err));
             };
-            _b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0, ...[for (i in 0 ... (100 : GoInt).toBasic()) (0 : GoUInt8)]);
+            _b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0).__setNumber32__();
             {
                 var __tmp__ = _f.read(_b);
                 _n = __tmp__._0;
@@ -1760,7 +1762,7 @@ function testReadClosed(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.fatal(Go.toInterface(("open failed:" : GoString)), Go.toInterface(_err));
         };
         _file.close();
-        var _b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0, ...[for (i in 0 ... (100 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0).__setNumber32__();
         {
             var __tmp__ = _file.read(_b);
             _err = __tmp__._1;
@@ -2090,7 +2092,7 @@ function benchmarkLstatDir(_b:Ref<stdgo.testing.Testing.B>):Void {
     // Read the directory one entry at a time.
 **/
 private function _smallReaddirnames(_file:Ref<File>, _length:GoInt, _t:Ref<stdgo.testing.Testing.T>):Slice<GoString> {
-        var _names = new Slice<GoString>((_length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_length : GoInt).toBasic()) ("" : GoString)]);
+        var _names = new Slice<GoString>((_length : GoInt).toBasic(), 0).__setString__();
         var _count:GoInt = (0 : GoInt);
         while (true) {
             var __tmp__ = _file.readdirnames((1 : GoInt)), _d:Slice<GoString> = __tmp__._0, _err:Error = __tmp__._1;
@@ -2246,7 +2248,7 @@ function testReaddirNValues(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
         };
-        for (__0 => _fn in (new Slice<(GoInt, GoInt, Error) -> Void>(0, 0, _readdirExpect, _readdirnamesExpect, _readDirExpect) : Slice<(GoInt, GoInt, Error) -> Void>)) {
+        for (__0 => _fn in (new Slice<(GoInt, GoInt, Error) -> Void>(3, 3, _readdirExpect, _readdirnamesExpect, _readDirExpect) : Slice<(GoInt, GoInt, Error) -> Void>)) {
             _openDir();
             _fn((0 : GoInt), (105 : GoInt), (null : Error));
             _fn((0 : GoInt), (0 : GoInt), (null : Error));
@@ -2348,7 +2350,7 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return _fis;
             };
             var _names = function(_fis:Slice<FileInfo>):Slice<GoString> {
-                var _s = new Slice<GoString>((_fis.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_fis.length : GoInt).toBasic()) ("" : GoString)]);
+                var _s = new Slice<GoString>((_fis.length : GoInt).toBasic(), 0).__setString__();
                 for (_i => _fi in _fis) {
                     _s[(_i : GoInt)] = _fi.name();
                 };
@@ -2356,14 +2358,14 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return _s;
             };
             {
-                var __0 = _names(_mustReadDir(("initial readdir" : GoString))), __1 = (new Slice<GoString>(0, 0, ("good1" : GoString), ("good2" : GoString), ("x" : GoString)) : Slice<GoString>), _want = __1, _got = __0;
+                var __0 = _names(_mustReadDir(("initial readdir" : GoString))), __1 = (new Slice<GoString>(3, 3, ("good1" : GoString), ("good2" : GoString), ("x" : GoString)) : Slice<GoString>), _want = __1, _got = __0;
                 if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_got), Go.toInterface(_want))) {
                     _t.errorf(("initial readdir got %q; want %q" : GoString), Go.toInterface(_got), Go.toInterface(_want));
                 };
             };
             _xerr = errNotExist;
             {
-                var __0 = _names(_mustReadDir(("with x disappearing" : GoString))), __1 = (new Slice<GoString>(0, 0, ("good1" : GoString), ("good2" : GoString)) : Slice<GoString>), _want = __1, _got = __0;
+                var __0 = _names(_mustReadDir(("with x disappearing" : GoString))), __1 = (new Slice<GoString>(2, 2, ("good1" : GoString), ("good2" : GoString)) : Slice<GoString>), _want = __1, _got = __0;
                 if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_got), Go.toInterface(_want))) {
                     _t.errorf(("with x disappearing, got %q; want %q" : GoString), Go.toInterface(_got), Go.toInterface(_want));
                 };
@@ -2970,7 +2972,7 @@ function testRenameToDirFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testRenameCaseDifference(_pt:Ref<stdgo.testing.Testing.T>):Void {
         var __0:GoString = ("renameFROM" : GoString), __1:GoString = ("RENAMEfrom" : GoString), _to:GoString = __1, _from:GoString = __0;
-        var _tests = (new Slice<T__struct_2>(0, 0, ({ _name : ("dir" : GoString), _create : function():Error {
+        var _tests = (new Slice<T__struct_2>(2, 2, ({ _name : ("dir" : GoString), _create : function():Error {
             return mkdir(_from, (511u32 : stdgo.io.fs.Fs.FileMode));
         } } : T__struct_2), ({ _name : ("file" : GoString), _create : function():Error {
             var __tmp__ = create(_from), _fd:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
@@ -3056,7 +3058,7 @@ private function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoSt
                 _t.fatalf(("Pipe: %v" : GoString), Go.toInterface(_err));
             };
             __deferstack__.unshift(() -> _r.close());
-            var _attr = (Go.setRef(({ dir : _dir, files : (new Slice<Ref<stdgo.os.Os.File>>(0, 0, null, _w, stderr) : Slice<Ref<stdgo.os.Os.File>>) } : ProcAttr)) : Ref<stdgo.os.Os.ProcAttr>);
+            var _attr = (Go.setRef(({ dir : _dir, files : (new Slice<Ref<stdgo.os.Os.File>>(3, 3, null, _w, stderr) : Slice<Ref<stdgo.os.Os.File>>) } : ProcAttr)) : Ref<stdgo.os.Os.ProcAttr>);
             var __tmp__ = startProcess(_cmd, _args, _attr), _p:Ref<stdgo.os.Os.Process> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("StartProcess: %v" : GoString), Go.toInterface(_err));
@@ -3068,7 +3070,7 @@ private function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoSt
             var __tmp__ = stat(stdgo.strings.Strings.trimSpace(_output)), _fi1:stdgo.io.fs.Fs.FileInfo = __tmp__._0, __0:Error = __tmp__._1;
             var __tmp__ = stat(_expect), _fi2:stdgo.io.fs.Fs.FileInfo = __tmp__._0, __1:Error = __tmp__._1;
             if (!sameFile(_fi1, _fi2)) {
-                _t.errorf(("exec %q returned %q wanted %q" : GoString), Go.toInterface(stdgo.strings.Strings.join(((new Slice<GoString>(0, 0, _cmd) : Slice<GoString>).__append__(..._args.__toArray__())), (" " : GoString))), Go.toInterface(_output), Go.toInterface(_expect));
+                _t.errorf(("exec %q returned %q wanted %q" : GoString), Go.toInterface(stdgo.strings.Strings.join(((new Slice<GoString>(1, 1, _cmd) : Slice<GoString>).__append__(..._args.__toArray__())), (" " : GoString))), Go.toInterface(_output), Go.toInterface(_expect));
             };
             _p.wait_();
             for (defer in __deferstack__) {
@@ -3106,7 +3108,7 @@ function testStartProcess(_t:Ref<stdgo.testing.Testing.T>):Void {
             } else if (__value__ == (("windows" : GoString))) {
                 _cmd = getenv(("COMSPEC" : GoString));
                 _dir = getenv(("SystemRoot" : GoString));
-                _args = (new Slice<GoString>(0, 0, ("/c" : GoString), ("cd" : GoString)) : Slice<GoString>);
+                _args = (new Slice<GoString>(2, 2, ("/c" : GoString), ("cd" : GoString)) : Slice<GoString>);
             } else {
                 var _err:Error = (null : Error);
                 {
@@ -3123,7 +3125,7 @@ function testStartProcess(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         var __tmp__ = stdgo.path.filepath.Filepath.split(_cmd), _cmddir:GoString = __tmp__._0, _cmdbase:GoString = __tmp__._1;
-        _args = ((new Slice<GoString>(0, 0, _cmdbase) : Slice<GoString>).__append__(..._args.__toArray__()));
+        _args = ((new Slice<GoString>(1, 1, _cmdbase) : Slice<GoString>).__append__(..._args.__toArray__()));
         _exec(_t, _dir, _cmd, _args, _dir);
         _exec(_t, _cmddir, _cmdbase, _args, _cmddir);
     }
@@ -3485,16 +3487,16 @@ function testChdirAndGetwd(_t:Ref<stdgo.testing.Testing.T>):Void {
         if (_err != null) {
             _t.fatalf(("Open .: %s" : GoString), Go.toInterface(_err));
         };
-        var _dirs = (new Slice<GoString>(0, 0, ("/" : GoString), ("/usr/bin" : GoString), ("/tmp" : GoString)) : Slice<GoString>);
+        var _dirs = (new Slice<GoString>(3, 3, ("/" : GoString), ("/usr/bin" : GoString), ("/tmp" : GoString)) : Slice<GoString>);
         {
             final __value__ = ("js" : GoString);
             if (__value__ == (("android" : GoString))) {
-                _dirs = (new Slice<GoString>(0, 0, ("/system/bin" : GoString)) : Slice<GoString>);
+                _dirs = (new Slice<GoString>(1, 1, ("/system/bin" : GoString)) : Slice<GoString>);
             } else if (__value__ == (("plan9" : GoString))) {
-                _dirs = (new Slice<GoString>(0, 0, ("/" : GoString), ("/usr" : GoString)) : Slice<GoString>);
+                _dirs = (new Slice<GoString>(2, 2, ("/" : GoString), ("/usr" : GoString)) : Slice<GoString>);
             } else if (__value__ == (("ios" : GoString))) {
                 _dirs = (null : Slice<GoString>);
-                for (__0 => _d in (new Slice<GoString>(0, 0, ("d1" : GoString), ("d2" : GoString)) : Slice<GoString>)) {
+                for (__0 => _d in (new Slice<GoString>(2, 2, ("d1" : GoString), ("d2" : GoString)) : Slice<GoString>)) {
                     var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), _d), _dir:GoString = __tmp__._0, _err:Error = __tmp__._1;
                     if (_err != null) {
                         _t.fatalf(("TempDir: %v" : GoString), Go.toInterface(_err));
@@ -3507,7 +3509,7 @@ function testChdirAndGetwd(_t:Ref<stdgo.testing.Testing.T>):Void {
                     if (_err != null) {
                         _t.fatalf(("EvalSymlinks: %v" : GoString), Go.toInterface(_err));
                     };
-                    _dirs = _dirs.__appendref__(_dir);
+                    _dirs = (_dirs.__append__(_dir));
                 };
             };
         };
@@ -3696,8 +3698,8 @@ function testSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
             stdgo.io.Io.writeString(Go.asInterface(_f), ("hello, world\n" : GoString));
             {};
             var _tests:Slice<stdgo.os_test.Os_test.T_testSeek_0___localname___test> = (new Slice<stdgo.os_test.Os_test.T_testSeek_0___localname___test>(
-0,
-0,
+12,
+12,
 (new stdgo.os_test.Os_test.T_testSeek_0___localname___test((0i64 : GoInt64), (1 : GoInt), (("hello, world\n" : GoString).length : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
 (new stdgo.os_test.Os_test.T_testSeek_0___localname___test((0i64 : GoInt64), (0 : GoInt), (0i64 : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
 (new stdgo.os_test.Os_test.T_testSeek_0___localname___test((5i64 : GoInt64), (0 : GoInt), (5i64 : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
@@ -3858,11 +3860,11 @@ private function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
                 };
                 _t.fatal(Go.toInterface(_err));
             };
-            var _argv = (new Slice<GoString>(0, 0, ("hostname" : GoString)) : Slice<GoString>);
+            var _argv = (new Slice<GoString>(1, 1, ("hostname" : GoString)) : Slice<GoString>);
             if (false) {
-                _argv = (new Slice<GoString>(0, 0, ("hostname" : GoString), ("-s" : GoString)) : Slice<GoString>);
+                _argv = (new Slice<GoString>(2, 2, ("hostname" : GoString), ("-s" : GoString)) : Slice<GoString>);
             };
-            var __tmp__ = startProcess(_path, _argv, (Go.setRef(({ files : (new Slice<Ref<stdgo.os.Os.File>>(0, 0, null, _w, stderr) : Slice<Ref<stdgo.os.Os.File>>) } : ProcAttr)) : Ref<stdgo.os.Os.ProcAttr>)), _p:Ref<stdgo.os.Os.Process> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = startProcess(_path, _argv, (Go.setRef(({ files : (new Slice<Ref<stdgo.os.Os.File>>(3, 3, null, _w, stderr) : Slice<Ref<stdgo.os.Os.File>>) } : ProcAttr)) : Ref<stdgo.os.Os.ProcAttr>)), _p:Ref<stdgo.os.Os.Process> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -3971,7 +3973,7 @@ function testReadAt(_t:Ref<stdgo.testing.Testing.T>):Void {
             __deferstack__.unshift(() -> _f.close());
             {};
             stdgo.io.Io.writeString(Go.asInterface(_f), ("hello, world\n" : GoString));
-            var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0, ...[for (i in 0 ... (5 : GoInt).toBasic()) (0 : GoUInt8)]);
+            var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0).__setNumber32__();
             var __tmp__ = _f.readAt(_b, (7i64 : GoInt64)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if ((_err != null) || (_n != (_b.length))) {
                 _t.fatalf(("ReadAt 7: %d, %v" : GoString), Go.toInterface(_n), Go.toInterface(_err));
@@ -4021,7 +4023,7 @@ function testReadAtOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
             {};
             stdgo.io.Io.writeString(Go.asInterface(_f), ("hello, world\n" : GoString));
             _f.seek((0i64 : GoInt64), (0 : GoInt));
-            var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0, ...[for (i in 0 ... (5 : GoInt).toBasic()) (0 : GoUInt8)]);
+            var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0).__setNumber32__();
             var __tmp__ = _f.readAt(_b, (7i64 : GoInt64)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if ((_err != null) || (_n != (_b.length))) {
                 _t.fatalf(("ReadAt 7: %d, %v" : GoString), Go.toInterface(_n), Go.toInterface(_err));
@@ -4079,7 +4081,7 @@ function testReadAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
             {};
             stdgo.io.Io.writeString(Go.asInterface(_f), ("hello, world\n" : GoString));
             _f.seek((0i64 : GoInt64), (0 : GoInt));
-            var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0, ...[for (i in 0 ... (5 : GoInt).toBasic()) (0 : GoUInt8)]);
+            var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0).__setNumber32__();
             var __tmp__ = _f.readAt(_b, (-10i64 : GoInt64)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             {};
             if (!stdgo.strings.Strings.contains(stdgo.fmt.Fmt.sprint(Go.toInterface(_err)), ("negative offset" : GoString)) || (_n != (0 : GoInt))) {
@@ -4463,7 +4465,7 @@ function testLargeWriteToConsole(_t:Ref<stdgo.testing.Testing.T>):Void {
         if (!_testLargeWrite.value) {
             _t.skip(Go.toInterface(("skipping console-flooding test; enable with -large_write" : GoString)));
         };
-        var _b = new Slice<GoUInt8>((32000 : GoInt).toBasic(), 0, ...[for (i in 0 ... (32000 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((32000 : GoInt).toBasic(), 0).__setNumber32__();
         for (_i in 0 ... _b.length.toBasic()) {
             _b[(_i : GoInt)] = (46 : GoUInt8);
         };
@@ -4619,7 +4621,7 @@ function testReadAtEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
                 __deferstack__.unshift(() -> remove(_a0));
             };
             __deferstack__.unshift(() -> _f.close());
-            var __tmp__ = _f.readAt(new Slice<GoUInt8>((10 : GoInt).toBasic(), 0, ...[for (i in 0 ... (10 : GoInt).toBasic()) (0 : GoUInt8)]), (0i64 : GoInt64)), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = _f.readAt(new Slice<GoUInt8>((10 : GoInt).toBasic(), 0).__setNumber32__(), (0i64 : GoInt64)), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             {
                 final __value__ = _err;
                 if (Go.toInterface(__value__) == (Go.toInterface(stdgo.io.Io.eof))) {} else if (__value__ == null) {
@@ -4670,7 +4672,7 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
                     a(_a0);
                 });
             };
-            var _sizes = (new Slice<GoInt>(0, 0, (247 : GoInt), (248 : GoInt), (249 : GoInt), (400 : GoInt)) : Slice<GoInt>);
+            var _sizes = (new Slice<GoInt>(4, 4, (247 : GoInt), (248 : GoInt), (249 : GoInt), (400 : GoInt)) : Slice<GoInt>);
             while ((_tmpdir.length) < (400 : GoInt)) {
                 _tmpdir = _tmpdir + (("/dir3456789" : GoString));
             };
@@ -4703,7 +4705,7 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
                             _t.fatalf(("Chtimes failed: %v" : GoString), Go.toInterface(_err));
                         };
                     };
-                    var _names = (new Slice<GoString>(0, 0, ("bar.txt" : GoString)) : Slice<GoString>);
+                    var _names = (new Slice<GoString>(1, 1, ("bar.txt" : GoString)) : Slice<GoString>);
                     if (stdgo.internal.testenv.Testenv.hasSymlink()) {
                         {
                             var _err:Error = symlink(_sizedTempDir + ("/bar.txt" : GoString), _sizedTempDir + ("/symlink.txt" : GoString));
@@ -4711,7 +4713,7 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 _t.fatalf(("Symlink failed: %v" : GoString), Go.toInterface(_err));
                             };
                         };
-                        _names = _names.__appendref__(("symlink.txt" : GoString));
+                        _names = (_names.__append__(("symlink.txt" : GoString)));
                     };
                     if (stdgo.internal.testenv.Testenv.hasLink()) {
                         {
@@ -4720,9 +4722,9 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 _t.fatalf(("Link failed: %v" : GoString), Go.toInterface(_err));
                             };
                         };
-                        _names = _names.__appendref__(("link.txt" : GoString));
+                        _names = (_names.__append__(("link.txt" : GoString)));
                     };
-                    for (__0 => _wantSize in (new Slice<GoInt64>(0, 0, (_data.length : GoInt64), (0i64 : GoInt64)) : Slice<GoInt64>)) {
+                    for (__0 => _wantSize in (new Slice<GoInt64>(2, 2, (_data.length : GoInt64), (0i64 : GoInt64)) : Slice<GoInt64>)) {
                         for (__1 => _name in _names) {
                             var _path:GoString = (_sizedTempDir + ("/" : GoString)) + _name;
                             var __tmp__ = stat(_path), _dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:Error = __tmp__._1;
@@ -5015,8 +5017,8 @@ function testPipeThreads(_t:Ref<stdgo.testing.Testing.T>):Void {
             if (false) {
                 _threads = (50 : GoInt);
             };
-            var _r = new Slice<Ref<stdgo.os.Os.File>>((_threads : GoInt).toBasic(), 0, ...[for (i in 0 ... (_threads : GoInt).toBasic()) (null : Ref<stdgo.os.Os.File>)]);
-            var _w = new Slice<Ref<stdgo.os.Os.File>>((_threads : GoInt).toBasic(), 0, ...[for (i in 0 ... (_threads : GoInt).toBasic()) (null : Ref<stdgo.os.Os.File>)]);
+            var _r = new Slice<Ref<stdgo.os.Os.File>>((_threads : GoInt).toBasic(), 0);
+            var _w = new Slice<Ref<stdgo.os.Os.File>>((_threads : GoInt).toBasic(), 0);
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < _threads, _i++, {
@@ -5076,7 +5078,7 @@ function testPipeThreads(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < _threads, _i++, {
                     {
-                        var __tmp__ = _w[(_i : GoInt)].write((new Slice<GoUInt8>(0, 0, (0 : GoUInt8)) : Slice<GoUInt8>)), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+                        var __tmp__ = _w[(_i : GoInt)].write((new Slice<GoUInt8>(1, 1, (0 : GoUInt8)) : Slice<GoUInt8>)), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
                         if (_err != null) {
                             _t.error(Go.toInterface(_err));
                         };
@@ -5375,7 +5377,7 @@ function testDirFSRootDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testDirFSEmptyDir(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _d:stdgo.io.fs.Fs.FS = dirFS(Go.str());
         var __tmp__ = stdgo.os.Os.getwd(), _cwd:GoString = __tmp__._0, __0:Error = __tmp__._1;
-        for (__1 => _path in (new Slice<GoString>(0, 0, ("testdata/dirfs/a" : GoString), stdgo.path.filepath.Filepath.toSlash(_cwd) + ("/testdata/dirfs/a" : GoString)) : Slice<GoString>)) {
+        for (__1 => _path in (new Slice<GoString>(2, 2, ("testdata/dirfs/a" : GoString), stdgo.path.filepath.Filepath.toSlash(_cwd) + ("/testdata/dirfs/a" : GoString)) : Slice<GoString>)) {
             var __tmp__ = _d.open(_path), __2:stdgo.io.fs.Fs.File = __tmp__._0, _err:Error = __tmp__._1;
             if (_err == null) {
                 _t.fatalf(("DirFS(\"\").Open(%q) succeeded" : GoString), Go.toInterface(_path));
@@ -6066,7 +6068,7 @@ private function _newFileTest(_t:Ref<stdgo.testing.Testing.T>, _blocking:Bool):V
             if (true) {
                 _t.skipf(("syscall.Pipe is not available on %s." : GoString), Go.toInterface(("js" : GoString)));
             };
-            var _p = new Slice<GoInt>((2 : GoInt).toBasic(), 0, ...[for (i in 0 ... (2 : GoInt).toBasic()) (0 : GoInt)]);
+            var _p = new Slice<GoInt>((2 : GoInt).toBasic(), 0).__setNumber32__();
             {
                 var _err:Error = stdgo.syscall.Syscall.pipe(_p);
                 if (_err != null) {
@@ -6097,7 +6099,7 @@ private function _newFileTest(_t:Ref<stdgo.testing.Testing.T>, _blocking:Bool):V
             if (!_blocking) {
                 _timeToWrite = (1000000000i64 : stdgo.time.Time.Duration);
             };
-            var _b = new Slice<GoUInt8>((1 : GoInt).toBasic(), 0, ...[for (i in 0 ... (1 : GoInt).toBasic()) (0 : GoUInt8)]);
+            var _b = new Slice<GoUInt8>((1 : GoInt).toBasic(), 0).__setNumber32__();
             var _timer = stdgo.time.Time.afterFunc(_timeToWrite, function():Void {
                 stdgo.syscall.Syscall.write(_p[(1 : GoInt)], (("a" : GoString) : Slice<GoByte>));
             });
@@ -6148,8 +6150,8 @@ function testNewFileNonBlock(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testSplitPath(_t:Ref<stdgo.testing.Testing.T>):Void {
         _t.parallel();
         for (__0 => _tt in (new Slice<T__struct_5>(
-0,
-0,
+15,
+15,
 ({ _path : ("a" : GoString), _wantDir : ("." : GoString), _wantBase : ("a" : GoString) } : T__struct_5),
 ({ _path : ("a/" : GoString), _wantDir : ("." : GoString), _wantBase : ("a" : GoString) } : T__struct_5),
 ({ _path : ("a//" : GoString), _wantDir : ("." : GoString), _wantBase : ("a" : GoString) } : T__struct_5),
@@ -6574,7 +6576,7 @@ function testRemoveAll(_t:Ref<stdgo.testing.Testing.T>):Void {
                     _t.fatalf(("MkdirAll %q: %s" : GoString), Go.toInterface(_dpath), Go.toInterface(_err));
                 };
             };
-            for (__1 => _s in (new Slice<GoString>(0, 0, _fpath, _dpath + ("/file1" : GoString), _path + ("/zzz" : GoString)) : Slice<GoString>)) {
+            for (__1 => _s in (new Slice<GoString>(3, 3, _fpath, _dpath + ("/file1" : GoString), _path + ("/zzz" : GoString)) : Slice<GoString>)) {
                 {
                     var __tmp__ = create(_s);
                     _fd = __tmp__._0;
@@ -6593,7 +6595,7 @@ function testRemoveAll(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
             removeAll(_path);
             chmod(_dpath, (511u32 : stdgo.io.fs.Fs.FileMode));
-            for (__2 => _s in (new Slice<GoString>(0, 0, _fpath, _path + ("/zzz" : GoString)) : Slice<GoString>)) {
+            for (__2 => _s in (new Slice<GoString>(2, 2, _fpath, _path + ("/zzz" : GoString)) : Slice<GoString>)) {
                 {
                     {
                         var __tmp__ = lstat(_s);
@@ -6665,7 +6667,9 @@ function testRemoveAllLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
         try {
             {
                 var __switchIndex__ = -1;
-                while (true) {
+                var __run__ = true;
+                while (__run__) {
+                    __run__ = false;
                     {
                         final __value__ = ("js" : GoString);
                         if (__value__ == (("aix" : GoString)) || __value__ == (("darwin" : GoString)) || __value__ == (("ios" : GoString)) || __value__ == (("dragonfly" : GoString)) || __value__ == (("freebsd" : GoString)) || __value__ == (("linux" : GoString)) || __value__ == (("netbsd" : GoString)) || __value__ == (("openbsd" : GoString)) || __value__ == (("illumos" : GoString)) || __value__ == (("solaris" : GoString))) {
@@ -6808,7 +6812,7 @@ function testRemoveAllDotDot(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.error(Go.toInterface(_err));
             };
         };
-        for (__0 => _dir in (new Slice<GoString>(0, 0, _subsubdir, _subdir) : Slice<GoString>)) {
+        for (__0 => _dir in (new Slice<GoString>(2, 2, _subsubdir, _subdir) : Slice<GoString>)) {
             {
                 var __tmp__ = stat(_dir), __1:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err == null) {
@@ -6891,8 +6895,8 @@ function testRemoveAllButReadOnlyAndPathError(_t:Ref<stdgo.testing.Testing.T>):V
             _t.parallel();
             var _tempDir:GoString = _t.tempDir();
             var _dirs = (new Slice<GoString>(
-0,
-0,
+9,
+9,
 ("a" : GoString),
 ("a/x" : GoString),
 ("a/x/1" : GoString),
@@ -6902,7 +6906,7 @@ function testRemoveAllButReadOnlyAndPathError(_t:Ref<stdgo.testing.Testing.T>):V
 ("c" : GoString),
 ("c/z" : GoString),
 ("c/z/3" : GoString)) : Slice<GoString>);
-            var _readonly = (new Slice<GoString>(0, 0, ("b" : GoString)) : Slice<GoString>);
+            var _readonly = (new Slice<GoString>(1, 1, ("b" : GoString)) : Slice<GoString>);
             var _inReadonly:GoString -> Bool = function(_d:GoString):Bool {
                 for (__0 => _ro in _readonly) {
                     if (_d == (_ro)) {
@@ -7130,7 +7134,7 @@ function testOpenFileLimit(_t:Ref<stdgo.testing.Testing.T>):Void {
                     _t.error(Go.toInterface(_err));
                     break;
                 };
-                _files = _files.__appendref__(_f);
+                _files = (_files.__append__(_f));
             });
         };
         for (__0 => _f in _files) {
@@ -7487,7 +7491,7 @@ function testCreateTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testCreateTempPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _tests = (new Slice<T__struct_6>(0, 0, ({ _pattern : ("tempfile_test" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : Go.str() } : T__struct_6), ({ _pattern : ("tempfile_test*" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : Go.str() } : T__struct_6), ({ _pattern : ("tempfile_test*xyz" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : ("xyz" : GoString) } : T__struct_6)) : Slice<T__struct_6>);
+            var _tests = (new Slice<T__struct_6>(3, 3, ({ _pattern : ("tempfile_test" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : Go.str() } : T__struct_6), ({ _pattern : ("tempfile_test*" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : Go.str() } : T__struct_6), ({ _pattern : ("tempfile_test*xyz" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : ("xyz" : GoString) } : T__struct_6)) : Slice<T__struct_6>);
             for (__0 => _test in _tests) {
                 var __tmp__ = createTemp(Go.str(), _test._pattern), _f:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
@@ -7540,7 +7544,7 @@ function testCreateTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
                 __deferstack__.unshift(() -> removeAll(_a0));
             };
             {};
-            var _tests = (new Slice<T__struct_7>(0, 0, ({ _pattern : ("ioutil*test" : GoString), _wantErr : false } : T__struct_7), ({ _pattern : ("tempfile_test*foo" : GoString), _wantErr : false } : T__struct_7), ({ _pattern : ("tempfile_test/foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test*/foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test/*foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("/tempfile_test/*foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test*foo/" : GoString), _wantErr : true } : T__struct_7)) : Slice<T__struct_7>);
+            var _tests = (new Slice<T__struct_7>(7, 7, ({ _pattern : ("ioutil*test" : GoString), _wantErr : false } : T__struct_7), ({ _pattern : ("tempfile_test*foo" : GoString), _wantErr : false } : T__struct_7), ({ _pattern : ("tempfile_test/foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test*/foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test/*foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("/tempfile_test/*foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test*foo/" : GoString), _wantErr : true } : T__struct_7)) : Slice<T__struct_7>);
             for (__0 => _tt in _tests) {
                 _t.run(_tt._pattern, function(_t:Ref<stdgo.testing.Testing.T>):Void {
                     var __deferstack__:Array<Void -> Void> = [];
@@ -7613,7 +7617,7 @@ function testMkdirTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
         if ((_name != Go.str()) || (_err == null)) {
             _t.errorf(("MkdirTemp(`/_not_exists_`, `foo`) = %v, %v" : GoString), Go.toInterface(_name), Go.toInterface(_err));
         };
-        var _tests = (new Slice<T__struct_8>(0, 0, ({ _pattern : ("tempfile_test" : GoString), _wantPrefix : ("tempfile_test" : GoString), _wantSuffix : Go.str() } : T__struct_8), ({ _pattern : ("tempfile_test*" : GoString), _wantPrefix : ("tempfile_test" : GoString), _wantSuffix : Go.str() } : T__struct_8), ({ _pattern : ("tempfile_test*xyz" : GoString), _wantPrefix : ("tempfile_test" : GoString), _wantSuffix : ("xyz" : GoString) } : T__struct_8)) : Slice<T__struct_8>);
+        var _tests = (new Slice<T__struct_8>(3, 3, ({ _pattern : ("tempfile_test" : GoString), _wantPrefix : ("tempfile_test" : GoString), _wantSuffix : Go.str() } : T__struct_8), ({ _pattern : ("tempfile_test*" : GoString), _wantPrefix : ("tempfile_test" : GoString), _wantSuffix : Go.str() } : T__struct_8), ({ _pattern : ("tempfile_test*xyz" : GoString), _wantPrefix : ("tempfile_test" : GoString), _wantSuffix : ("xyz" : GoString) } : T__struct_8)) : Slice<T__struct_8>);
         var _dir:GoString = stdgo.path.filepath.Filepath.clean(tempDir());
         var _runTestMkdirTemp = function(_t:Ref<stdgo.testing.Testing.T>, _pattern:GoString, _wantRePat:GoString):Void {
             var __deferstack__:Array<Void -> Void> = [];
@@ -7731,7 +7735,7 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
                 __deferstack__.unshift(() -> removeAll(_a0));
             };
             {};
-            var _tests = (new Slice<T__struct_7>(0, 0, ({ _pattern : ("ioutil*test" : GoString), _wantErr : false } : T__struct_7), ({ _pattern : ("tempfile_test*foo" : GoString), _wantErr : false } : T__struct_7), ({ _pattern : ("tempfile_test/foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test*/foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test/*foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("/tempfile_test/*foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test*foo/" : GoString), _wantErr : true } : T__struct_7)) : Slice<T__struct_7>);
+            var _tests = (new Slice<T__struct_7>(7, 7, ({ _pattern : ("ioutil*test" : GoString), _wantErr : false } : T__struct_7), ({ _pattern : ("tempfile_test*foo" : GoString), _wantErr : false } : T__struct_7), ({ _pattern : ("tempfile_test/foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test*/foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test/*foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("/tempfile_test/*foo" : GoString), _wantErr : true } : T__struct_7), ({ _pattern : ("tempfile_test*foo/" : GoString), _wantErr : true } : T__struct_7)) : Slice<T__struct_7>);
             for (__0 => _tt in _tests) {
                 _t.run(_tt._pattern, function(_t:Ref<stdgo.testing.Testing.T>):Void {
                     var __tmp__ = mkdirTemp(_tmpDir, _tt._pattern), __0:GoString = __tmp__._0, _err:Error = __tmp__._1;
@@ -7773,8 +7777,8 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 @:keep var _ = {
         try {
-            _isExistTests = _isExistTests.__appendref__(({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : Ref<stdgo.os.Os.LinkError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : Ref<stdgo.os.Os.LinkError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), _is : true, _isnot : false } : T_isExistTest));
-            _isPermissionTests = _isPermissionTests.__appendref__(({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), _want : false } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : Ref<stdgo.os.Os.LinkError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : Ref<stdgo.os.Os.LinkError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : Ref<stdgo.os.Os.LinkError>)), _want : false } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), _want : false } : T_isPermissionTest));
+            _isExistTests = (_isExistTests.__append__(({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : Ref<stdgo.os.Os.LinkError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : Ref<stdgo.os.Os.LinkError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), _is : true, _isnot : false } : T_isExistTest)));
+            _isPermissionTests = (_isPermissionTests.__append__(({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : Ref<stdgo.io.fs.Fs.PathError>)), _want : false } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : Ref<stdgo.os.Os.LinkError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : Ref<stdgo.os.Os.LinkError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : Ref<stdgo.os.Os.LinkError>)), _want : false } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), _want : true } : T_isPermissionTest), ({ _err : Go.asInterface((Go.setRef(({ err : Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : Ref<stdgo.os.Os.SyscallError>)), _want : false } : T_isPermissionTest)));
             {
                 var _e:GoString = stdgo.os.Os.getenv(("OSTEST_OUTPUT_EXECPATH" : GoString));
                 if (_e != (Go.str())) {

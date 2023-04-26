@@ -77,21 +77,21 @@ private var _bslice = (_barray.__slice__(0) : Slice<stdgo.fmt_test.Fmt_test.T_re
     
     
 **/
-private var _byteStringerSlice = (new Slice<stdgo.fmt_test.Fmt_test.T_byteStringer>(0, 0, (104 : stdgo.fmt_test.Fmt_test.T_byteStringer), (101 : stdgo.fmt_test.Fmt_test.T_byteStringer), (108 : stdgo.fmt_test.Fmt_test.T_byteStringer), (108 : stdgo.fmt_test.Fmt_test.T_byteStringer), (111 : stdgo.fmt_test.Fmt_test.T_byteStringer)) : Slice<stdgo.fmt_test.Fmt_test.T_byteStringer>);
+private var _byteStringerSlice = (new Slice<stdgo.fmt_test.Fmt_test.T_byteStringer>(5, 5, (104 : stdgo.fmt_test.Fmt_test.T_byteStringer), (101 : stdgo.fmt_test.Fmt_test.T_byteStringer), (108 : stdgo.fmt_test.Fmt_test.T_byteStringer), (108 : stdgo.fmt_test.Fmt_test.T_byteStringer), (111 : stdgo.fmt_test.Fmt_test.T_byteStringer)) : Slice<stdgo.fmt_test.Fmt_test.T_byteStringer>);
 /**
     
     
     
 **/
-private var _byteFormatterSlice = (new Slice<stdgo.fmt_test.Fmt_test.T_byteFormatter>(0, 0, (104 : stdgo.fmt_test.Fmt_test.T_byteFormatter), (101 : stdgo.fmt_test.Fmt_test.T_byteFormatter), (108 : stdgo.fmt_test.Fmt_test.T_byteFormatter), (108 : stdgo.fmt_test.Fmt_test.T_byteFormatter), (111 : stdgo.fmt_test.Fmt_test.T_byteFormatter)) : Slice<stdgo.fmt_test.Fmt_test.T_byteFormatter>);
+private var _byteFormatterSlice = (new Slice<stdgo.fmt_test.Fmt_test.T_byteFormatter>(5, 5, (104 : stdgo.fmt_test.Fmt_test.T_byteFormatter), (101 : stdgo.fmt_test.Fmt_test.T_byteFormatter), (108 : stdgo.fmt_test.Fmt_test.T_byteFormatter), (108 : stdgo.fmt_test.Fmt_test.T_byteFormatter), (111 : stdgo.fmt_test.Fmt_test.T_byteFormatter)) : Slice<stdgo.fmt_test.Fmt_test.T_byteFormatter>);
 /**
     
     
     
 **/
 private var _fmtTests = (new Slice<T__struct_2>(
-0,
-0,
+768,
+768,
 ({ _fmt : ("%d" : GoString), _val : Go.toInterface((12345 : GoInt)), _out : ("12345" : GoString) } : T__struct_2),
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface((12345 : GoInt)), _out : ("12345" : GoString) } : T__struct_2),
 ({ _fmt : ("%t" : GoString), _val : Go.toInterface(true), _out : ("true" : GoString) } : T__struct_2),
@@ -566,29 +566,29 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface((new GoArray<GoUInt8>((123 : GoUInt8)) : GoArray<GoUInt8>)), _out : ("[123]" : GoString) } : T__struct_2),
 ({ _fmt : ("%012v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>)), _out : ("[]" : GoString) } : T__struct_2),
 ({ _fmt : ("%#012v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>)), _out : ("[]byte{}" : GoString) } : T__struct_2),
-({ _fmt : ("%6v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[     1     11    111]" : GoString) } : T__struct_2),
-({ _fmt : ("%06v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[000001 000011 000111]" : GoString) } : T__struct_2),
-({ _fmt : ("%-6v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[1      11     111   ]" : GoString) } : T__struct_2),
-({ _fmt : ("%-06v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[1      11     111   ]" : GoString) } : T__struct_2),
-({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{0x1, 0xb, 0x6f}" : GoString) } : T__struct_2),
-({ _fmt : ("%#6v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{   0x1,    0xb,   0x6f}" : GoString) } : T__struct_2),
-({ _fmt : ("%#06v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{0x000001, 0x00000b, 0x00006f}" : GoString) } : T__struct_2),
-({ _fmt : ("%#-6v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{0x1   , 0xb   , 0x6f  }" : GoString) } : T__struct_2),
-({ _fmt : ("%#-06v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{0x1   , 0xb   , 0x6f  }" : GoString) } : T__struct_2),
-({ _fmt : ("% v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[ 1  11  111]" : GoString) } : T__struct_2),
+({ _fmt : ("%6v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[     1     11    111]" : GoString) } : T__struct_2),
+({ _fmt : ("%06v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[000001 000011 000111]" : GoString) } : T__struct_2),
+({ _fmt : ("%-6v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[1      11     111   ]" : GoString) } : T__struct_2),
+({ _fmt : ("%-06v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[1      11     111   ]" : GoString) } : T__struct_2),
+({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{0x1, 0xb, 0x6f}" : GoString) } : T__struct_2),
+({ _fmt : ("%#6v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{   0x1,    0xb,   0x6f}" : GoString) } : T__struct_2),
+({ _fmt : ("%#06v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{0x000001, 0x00000b, 0x00006f}" : GoString) } : T__struct_2),
+({ _fmt : ("%#-6v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{0x1   , 0xb   , 0x6f  }" : GoString) } : T__struct_2),
+({ _fmt : ("%#-06v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{0x1   , 0xb   , 0x6f  }" : GoString) } : T__struct_2),
+({ _fmt : ("% v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[ 1  11  111]" : GoString) } : T__struct_2),
 ({ _fmt : ("%+v" : GoString), _val : Go.toInterface((new GoArray<GoUInt8>((1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : GoArray<GoUInt8>)), _out : ("[1 11 111]" : GoString) } : T__struct_2),
-({ _fmt : ("%# -6v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{ 0x1  ,  0xb  ,  0x6f }" : GoString) } : T__struct_2),
+({ _fmt : ("%# -6v" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[]byte{ 0x1  ,  0xb  ,  0x6f }" : GoString) } : T__struct_2),
 ({ _fmt : ("%#+-6v" : GoString), _val : Go.toInterface((new GoArray<GoUInt8>((1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : GoArray<GoUInt8>)), _out : ("[3]uint8{0x1   , 0xb   , 0x6f  }" : GoString) } : T__struct_2),
-({ _fmt : ("% d" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[ 1  11  111]" : GoString) } : T__struct_2),
+({ _fmt : ("% d" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[ 1  11  111]" : GoString) } : T__struct_2),
 ({ _fmt : ("%+d" : GoString), _val : Go.toInterface((new GoArray<GoUInt8>((1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : GoArray<GoUInt8>)), _out : ("[+1 +11 +111]" : GoString) } : T__struct_2),
-({ _fmt : ("%# -6d" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[ 1      11     111  ]" : GoString) } : T__struct_2),
+({ _fmt : ("%# -6d" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[ 1      11     111  ]" : GoString) } : T__struct_2),
 ({ _fmt : ("%#+-6d" : GoString), _val : Go.toInterface((new GoArray<GoUInt8>((1 : GoUInt8), (11 : GoUInt8), (111 : GoUInt8)) : GoArray<GoUInt8>)), _out : ("[+1     +11    +111  ]" : GoString) } : T__struct_2),
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface((1.2345678 : GoFloat64)), _out : ("1.2345678" : GoString) } : T__struct_2),
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface(((1.2345678 : GoFloat64) : GoFloat32)), _out : ("1.2345678" : GoString) } : T__struct_2),
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface(((1f64 : GoFloat64) + new GoComplex128(0f64, 2f64))), _out : ("(1+2i)" : GoString) } : T__struct_2),
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface(((1f64 : GoFloat64) + new GoComplex128(0f64, 2f64) : GoComplex64)), _out : ("(1+2i)" : GoString) } : T__struct_2),
-({ _fmt : ("%v" : GoString), _val : Go.toInterface((new A((1 : GoInt), (2u32 : GoUInt), ("a" : GoString), (new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt)) : Slice<GoInt>)) : A)), _out : ("{1 2 a [1 2]}" : GoString) } : T__struct_2),
-({ _fmt : ("%+v" : GoString), _val : Go.toInterface((new A((1 : GoInt), (2u32 : GoUInt), ("a" : GoString), (new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt)) : Slice<GoInt>)) : A)), _out : ("{i:1 j:2 s:a x:[1 2]}" : GoString) } : T__struct_2),
+({ _fmt : ("%v" : GoString), _val : Go.toInterface((new A((1 : GoInt), (2u32 : GoUInt), ("a" : GoString), (new Slice<GoInt>(2, 2, (1 : GoInt), (2 : GoInt)) : Slice<GoInt>)) : A)), _out : ("{1 2 a [1 2]}" : GoString) } : T__struct_2),
+({ _fmt : ("%+v" : GoString), _val : Go.toInterface((new A((1 : GoInt), (2u32 : GoUInt), ("a" : GoString), (new Slice<GoInt>(2, 2, (1 : GoInt), (2 : GoInt)) : Slice<GoInt>)) : A)), _out : ("{i:1 j:2 s:a x:[1 2]}" : GoString) } : T__struct_2),
 ({ _fmt : ("%+v" : GoString), _val : Go.toInterface((new B((1 : stdgo.fmt_test.Fmt_test.I), (2 : GoInt)) : B)), _out : ("{I:<1> j:2}" : GoString) } : T__struct_2),
 ({ _fmt : ("%+v" : GoString), _val : Go.toInterface((new C((1 : GoInt), (new B((2 : stdgo.fmt_test.Fmt_test.I), (3 : GoInt)) : B)) : C)), _out : ("{i:1 B:{I:<2> j:3}}" : GoString) } : T__struct_2),
 ({ _fmt : ("%s" : GoString), _val : Go.toInterface(Go.asInterface(((23 : stdgo.fmt_test.Fmt_test.I) : I))), _out : ("<23>" : GoString) } : T__struct_2),
@@ -598,25 +598,27 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%# x" : GoString), _val : Go.toInterface(Go.asInterface(((23 : stdgo.fmt_test.Fmt_test.I) : I))), _out : ("0x3c 0x32 0x33 0x3e" : GoString) } : T__struct_2),
 ({ _fmt : ("%d" : GoString), _val : Go.toInterface(Go.asInterface(((23 : stdgo.fmt_test.Fmt_test.I) : I))), _out : ("23" : GoString) } : T__struct_2),
 ({ _fmt : ("%s" : GoString), _val : Go.toInterface(Go.asInterface(stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(((23 : stdgo.fmt_test.Fmt_test.I) : I)))))), _out : ("<23>" : GoString) } : T__struct_2),
-({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new A((1 : GoInt), (2u32 : GoUInt), ("a" : GoString), (new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt)) : Slice<GoInt>)) : A)), _out : ("fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" : GoString) } : T__struct_2),
+({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new A((1 : GoInt), (2u32 : GoUInt), ("a" : GoString), (new Slice<GoInt>(2, 2, (1 : GoInt), (2 : GoInt)) : Slice<GoInt>)) : A)), _out : ("fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(Go.pointer((0 : GoUInt8))), _out : ("(*uint8)(0xPTR)" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(testFmtInterface), _out : ("(func(*testing.T))(0xPTR)" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(new Chan<GoInt>(0, () -> (0 : GoInt))), _out : ("(chan int)(0xPTR)" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((-1i64 : GoUInt64)), _out : ("0xffffffffffffffff" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((1000000000 : GoInt)), _out : ("1000000000" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoString, GoInt>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) })));
-        @:privateAccess x._keys = [("a" : GoString)];
-        @:privateAccess x._values = [(1 : GoInt)];
+        final x = new GoMap<GoString, GoInt>();
+        @:mergeBlock {
+            x.set(("a" : GoString), (1 : GoInt));
+        };
         x;
-    } : stdgo.GoMap<GoString, GoInt>)), _out : ("map[string]int{\"a\":1}" : GoString) } : T__struct_2),
+    })), _out : ("map[string]int{\"a\":1}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoString, stdgo.fmt_test.Fmt_test.B>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.fmt_test.Fmt_test.B", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "i", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.fmt_test.Fmt_test.I", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "_j", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) })));
-        @:privateAccess x._keys = [("a" : GoString)];
-        @:privateAccess x._values = [(new stdgo.fmt_test.Fmt_test.B((1 : stdgo.fmt_test.Fmt_test.I), (2 : GoInt)) : stdgo.fmt_test.Fmt_test.B)];
+        final x = new GoMap<GoString, stdgo.fmt_test.Fmt_test.B>();
+        @:mergeBlock {
+            x.set(("a" : GoString), (new stdgo.fmt_test.Fmt_test.B((1 : stdgo.fmt_test.Fmt_test.I), (2 : GoInt)) : stdgo.fmt_test.Fmt_test.B));
+        };
         x;
-    } : stdgo.GoMap<GoString, stdgo.fmt_test.Fmt_test.B>)), _out : ("map[string]fmt_test.B{\"a\":fmt_test.B{I:1, j:2}}" : GoString) } : T__struct_2),
-({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new Slice<GoString>(0, 0, ("a" : GoString), ("b" : GoString)) : Slice<GoString>)), _out : ("[]string{\"a\", \"b\"}" : GoString) } : T__struct_2),
+    })), _out : ("map[string]fmt_test.B{\"a\":fmt_test.B{I:1, j:2}}" : GoString) } : T__struct_2),
+({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new Slice<GoString>(2, 2, ("a" : GoString), ("b" : GoString)) : Slice<GoString>)), _out : ("[]string{\"a\", \"b\"}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new SI() : SI)), _out : ("fmt_test.SI{I:interface {}(nil)}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((null : Slice<GoInt>)), _out : ("[]int(nil)" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new Slice<GoInt>(0, 0) : Slice<GoInt>)), _out : ("[]int{}" : GoString) } : T__struct_2),
@@ -626,11 +628,10 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((Go.setRef(_iarray) : Ref<GoArray<AnyInterface>>)), _out : ("&[4]interface {}{1, \"hello\", 2.5, interface {}(nil)}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(((null : GoMap<GoInt, GoUInt8>) : GoMap<GoInt, GoByte>)), _out : ("map[int]uint8(nil)" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoInt, GoUInt8>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) })));
-        @:privateAccess x._keys = [];
-        @:privateAccess x._values = [];
+        final x = new GoMap<GoInt, GoUInt8>();
+        @:mergeBlock {};
         x;
-    } : stdgo.GoMap<GoInt, GoUInt8>)), _out : ("map[int]uint8{}" : GoString) } : T__struct_2),
+    })), _out : ("map[int]uint8{}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(("foo" : GoString)), _out : ("\"foo\"" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(_barray), _out : ("[5]fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(_bslice), _out : ("[]fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}" : GoString) } : T__struct_2),
@@ -651,39 +652,39 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((Go.setRef((new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>)) : Ref<Slice<GoUInt8>>)), _out : ("&[]uint8{}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new GoArray<GoUInt8>(...([].concat([for (i in 0 ... 3) (0 : GoUInt8)]))) : GoArray<GoUInt8>)), _out : ("[3]uint8{0x0, 0x0, 0x0}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new GoArray<GoUInt8>(...([].concat([for (i in 0 ... 3) (0 : GoUInt8)]))) : GoArray<GoUInt8>)), _out : ("[3]uint8{0x0, 0x0, 0x0}" : GoString) } : T__struct_2),
-({ _fmt : ("%#x" : GoString), _val : Go.toInterface((new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt), (15 : GoInt)) : Slice<GoInt>)), _out : ("[0x1 0x2 0xf]" : GoString) } : T__struct_2),
-({ _fmt : ("%x" : GoString), _val : Go.toInterface((new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt), (15 : GoInt)) : Slice<GoInt>)), _out : ("[1 2 f]" : GoString) } : T__struct_2),
-({ _fmt : ("%d" : GoString), _val : Go.toInterface((new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt), (15 : GoInt)) : Slice<GoInt>)), _out : ("[1 2 15]" : GoString) } : T__struct_2),
-({ _fmt : ("%d" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (2 : GoUInt8), (15 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[1 2 15]" : GoString) } : T__struct_2),
-({ _fmt : ("%q" : GoString), _val : Go.toInterface((new Slice<GoString>(0, 0, ("a" : GoString), ("b" : GoString)) : Slice<GoString>)), _out : ("[\"a\" \"b\"]" : GoString) } : T__struct_2),
-({ _fmt : ("% 02x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8)) : Slice<GoUInt8>)), _out : ("01" : GoString) } : T__struct_2),
-({ _fmt : ("% 02x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (2 : GoUInt8), (3 : GoUInt8)) : Slice<GoUInt8>)), _out : ("01 02 03" : GoString) } : T__struct_2),
+({ _fmt : ("%#x" : GoString), _val : Go.toInterface((new Slice<GoInt>(3, 3, (1 : GoInt), (2 : GoInt), (15 : GoInt)) : Slice<GoInt>)), _out : ("[0x1 0x2 0xf]" : GoString) } : T__struct_2),
+({ _fmt : ("%x" : GoString), _val : Go.toInterface((new Slice<GoInt>(3, 3, (1 : GoInt), (2 : GoInt), (15 : GoInt)) : Slice<GoInt>)), _out : ("[1 2 f]" : GoString) } : T__struct_2),
+({ _fmt : ("%d" : GoString), _val : Go.toInterface((new Slice<GoInt>(3, 3, (1 : GoInt), (2 : GoInt), (15 : GoInt)) : Slice<GoInt>)), _out : ("[1 2 15]" : GoString) } : T__struct_2),
+({ _fmt : ("%d" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (2 : GoUInt8), (15 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[1 2 15]" : GoString) } : T__struct_2),
+({ _fmt : ("%q" : GoString), _val : Go.toInterface((new Slice<GoString>(2, 2, ("a" : GoString), ("b" : GoString)) : Slice<GoString>)), _out : ("[\"a\" \"b\"]" : GoString) } : T__struct_2),
+({ _fmt : ("% 02x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(1, 1, (1 : GoUInt8)) : Slice<GoUInt8>)), _out : ("01" : GoString) } : T__struct_2),
+({ _fmt : ("% 02x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (2 : GoUInt8), (3 : GoUInt8)) : Slice<GoUInt8>)), _out : ("01 02 03" : GoString) } : T__struct_2),
 ({ _fmt : ("%2x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>)), _out : ("  " : GoString) } : T__struct_2),
 ({ _fmt : ("%#2x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>)), _out : ("  " : GoString) } : T__struct_2),
 ({ _fmt : ("% 02x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>)), _out : ("00" : GoString) } : T__struct_2),
 ({ _fmt : ("%# 02x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>)), _out : ("00" : GoString) } : T__struct_2),
 ({ _fmt : ("%-2x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>)), _out : ("  " : GoString) } : T__struct_2),
 ({ _fmt : ("%-02x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>)), _out : ("  " : GoString) } : T__struct_2),
-({ _fmt : ("%8x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("      ab" : GoString) } : T__struct_2),
-({ _fmt : ("% 8x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("      ab" : GoString) } : T__struct_2),
-({ _fmt : ("%#8x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("    0xab" : GoString) } : T__struct_2),
-({ _fmt : ("%# 8x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("    0xab" : GoString) } : T__struct_2),
-({ _fmt : ("%08x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("000000ab" : GoString) } : T__struct_2),
-({ _fmt : ("% 08x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("000000ab" : GoString) } : T__struct_2),
-({ _fmt : ("%#08x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("00000xab" : GoString) } : T__struct_2),
-({ _fmt : ("%# 08x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("00000xab" : GoString) } : T__struct_2),
-({ _fmt : ("%10x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("      abcd" : GoString) } : T__struct_2),
-({ _fmt : ("% 10x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("     ab cd" : GoString) } : T__struct_2),
-({ _fmt : ("%#10x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("    0xabcd" : GoString) } : T__struct_2),
-({ _fmt : ("%# 10x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : (" 0xab 0xcd" : GoString) } : T__struct_2),
-({ _fmt : ("%010x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("000000abcd" : GoString) } : T__struct_2),
-({ _fmt : ("% 010x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("00000ab cd" : GoString) } : T__struct_2),
-({ _fmt : ("%#010x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("00000xabcd" : GoString) } : T__struct_2),
-({ _fmt : ("%# 010x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("00xab 0xcd" : GoString) } : T__struct_2),
-({ _fmt : ("%-10X" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("AB        " : GoString) } : T__struct_2),
-({ _fmt : ("% -010X" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("AB        " : GoString) } : T__struct_2),
-({ _fmt : ("%#-10X" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("0XABCD    " : GoString) } : T__struct_2),
-({ _fmt : ("%# -010X" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("0XAB 0XCD " : GoString) } : T__struct_2),
+({ _fmt : ("%8x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(1, 1, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("      ab" : GoString) } : T__struct_2),
+({ _fmt : ("% 8x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(1, 1, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("      ab" : GoString) } : T__struct_2),
+({ _fmt : ("%#8x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(1, 1, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("    0xab" : GoString) } : T__struct_2),
+({ _fmt : ("%# 8x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(1, 1, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("    0xab" : GoString) } : T__struct_2),
+({ _fmt : ("%08x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(1, 1, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("000000ab" : GoString) } : T__struct_2),
+({ _fmt : ("% 08x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(1, 1, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("000000ab" : GoString) } : T__struct_2),
+({ _fmt : ("%#08x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(1, 1, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("00000xab" : GoString) } : T__struct_2),
+({ _fmt : ("%# 08x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(1, 1, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("00000xab" : GoString) } : T__struct_2),
+({ _fmt : ("%10x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("      abcd" : GoString) } : T__struct_2),
+({ _fmt : ("% 10x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("     ab cd" : GoString) } : T__struct_2),
+({ _fmt : ("%#10x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("    0xabcd" : GoString) } : T__struct_2),
+({ _fmt : ("%# 10x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : (" 0xab 0xcd" : GoString) } : T__struct_2),
+({ _fmt : ("%010x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("000000abcd" : GoString) } : T__struct_2),
+({ _fmt : ("% 010x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("00000ab cd" : GoString) } : T__struct_2),
+({ _fmt : ("%#010x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("00000xabcd" : GoString) } : T__struct_2),
+({ _fmt : ("%# 010x" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("00xab 0xcd" : GoString) } : T__struct_2),
+({ _fmt : ("%-10X" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(1, 1, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("AB        " : GoString) } : T__struct_2),
+({ _fmt : ("% -010X" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(1, 1, (171 : GoUInt8)) : Slice<GoUInt8>)), _out : ("AB        " : GoString) } : T__struct_2),
+({ _fmt : ("%#-10X" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("0XABCD    " : GoString) } : T__struct_2),
+({ _fmt : ("%# -010X" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (171 : GoUInt8), (205 : GoUInt8)) : Slice<GoUInt8>)), _out : ("0XAB 0XCD " : GoString) } : T__struct_2),
 ({ _fmt : ("%2x" : GoString), _val : Go.toInterface(Go.str()), _out : ("  " : GoString) } : T__struct_2),
 ({ _fmt : ("%#2x" : GoString), _val : Go.toInterface(Go.str()), _out : ("  " : GoString) } : T__struct_2),
 ({ _fmt : ("% 02x" : GoString), _val : Go.toInterface(Go.str()), _out : ("00" : GoString) } : T__struct_2),
@@ -724,12 +725,12 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%X" : GoString), _val : Go.toInterface(((17i64 : stdgo.fmt_test.Fmt_test.T_renamedUint64) : T_renamedUint64)), _out : ("11" : GoString) } : T__struct_2),
 ({ _fmt : ("%o" : GoString), _val : Go.toInterface(((18 : stdgo.fmt_test.Fmt_test.T_renamedUintptr) : T_renamedUintptr)), _out : ("22" : GoString) } : T__struct_2),
 ({ _fmt : ("%x" : GoString), _val : Go.toInterface(((("thing" : GoString) : stdgo.fmt_test.Fmt_test.T_renamedString) : T_renamedString)), _out : ("7468696e67" : GoString) } : T__struct_2),
-({ _fmt : ("%d" : GoString), _val : Go.toInterface(((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (2 : GoUInt8), (15 : GoUInt8)) : Slice<GoUInt8>) : T_renamedBytes)), _out : ("[1 2 15]" : GoString) } : T__struct_2),
+({ _fmt : ("%d" : GoString), _val : Go.toInterface(((new Slice<GoUInt8>(3, 3, (1 : GoUInt8), (2 : GoUInt8), (15 : GoUInt8)) : Slice<GoUInt8>) : T_renamedBytes)), _out : ("[1 2 15]" : GoString) } : T__struct_2),
 ({ _fmt : ("%q" : GoString), _val : Go.toInterface(((("hello" : GoString) : Slice<GoByte>) : T_renamedBytes)), _out : ("\"hello\"" : GoString) } : T__struct_2),
-({ _fmt : ("%x" : GoString), _val : Go.toInterface((new Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>(0, 0, (104 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (101 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (111 : stdgo.fmt_test.Fmt_test.T_renamedUint8)) : Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>)), _out : ("68656c6c6f" : GoString) } : T__struct_2),
-({ _fmt : ("%X" : GoString), _val : Go.toInterface((new Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>(0, 0, (104 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (101 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (111 : stdgo.fmt_test.Fmt_test.T_renamedUint8)) : Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>)), _out : ("68656C6C6F" : GoString) } : T__struct_2),
-({ _fmt : ("%s" : GoString), _val : Go.toInterface((new Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>(0, 0, (104 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (101 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (111 : stdgo.fmt_test.Fmt_test.T_renamedUint8)) : Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>)), _out : ("hello" : GoString) } : T__struct_2),
-({ _fmt : ("%q" : GoString), _val : Go.toInterface((new Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>(0, 0, (104 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (101 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (111 : stdgo.fmt_test.Fmt_test.T_renamedUint8)) : Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>)), _out : ("\"hello\"" : GoString) } : T__struct_2),
+({ _fmt : ("%x" : GoString), _val : Go.toInterface((new Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>(5, 5, (104 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (101 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (111 : stdgo.fmt_test.Fmt_test.T_renamedUint8)) : Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>)), _out : ("68656c6c6f" : GoString) } : T__struct_2),
+({ _fmt : ("%X" : GoString), _val : Go.toInterface((new Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>(5, 5, (104 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (101 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (111 : stdgo.fmt_test.Fmt_test.T_renamedUint8)) : Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>)), _out : ("68656C6C6F" : GoString) } : T__struct_2),
+({ _fmt : ("%s" : GoString), _val : Go.toInterface((new Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>(5, 5, (104 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (101 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (111 : stdgo.fmt_test.Fmt_test.T_renamedUint8)) : Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>)), _out : ("hello" : GoString) } : T__struct_2),
+({ _fmt : ("%q" : GoString), _val : Go.toInterface((new Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>(5, 5, (104 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (101 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (108 : stdgo.fmt_test.Fmt_test.T_renamedUint8), (111 : stdgo.fmt_test.Fmt_test.T_renamedUint8)) : Slice<stdgo.fmt_test.Fmt_test.T_renamedUint8>)), _out : ("\"hello\"" : GoString) } : T__struct_2),
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface(((22 : GoFloat64) : T_renamedFloat32)), _out : ("22" : GoString) } : T__struct_2),
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface(((33 : GoFloat64) : T_renamedFloat64)), _out : ("33" : GoString) } : T__struct_2),
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface(((3f64 : GoFloat64) + new GoComplex128(0f64, 4f64) : T_renamedComplex64)), _out : ("(3+4i)" : GoString) } : T__struct_2),
@@ -756,7 +757,11 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%8.2p" : GoString), _val : Go.toInterface((null : Pointer<GoInt>)), _out : ("    0x00" : GoString) } : T__struct_2),
 ({ _fmt : ("%-20.16p" : GoString), _val : Go.toInterface(Go.pointer(_intVar)), _out : ("0xPTR  " : GoString) } : T__struct_2),
 ({ _fmt : ("%p" : GoString), _val : Go.toInterface(new Chan<GoInt>(0, () -> (0 : GoInt))), _out : ("0xPTR" : GoString) } : T__struct_2),
-({ _fmt : ("%p" : GoString), _val : Go.toInterface((new GoObjectMap<GoInt, GoInt>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }))) : GoMap<GoInt, GoInt>)), _out : ("0xPTR" : GoString) } : T__struct_2),
+({ _fmt : ("%p" : GoString), _val : Go.toInterface(({
+        final x = new GoMap<GoInt, GoInt>();
+        @:mergeBlock {};
+        x;
+    })), _out : ("0xPTR" : GoString) } : T__struct_2),
 ({ _fmt : ("%p" : GoString), _val : Go.toInterface(function():Void {}), _out : ("0xPTR" : GoString) } : T__struct_2),
 ({ _fmt : ("%p" : GoString), _val : Go.toInterface((27 : GoInt)), _out : ("%!p(int=27)" : GoString) } : T__struct_2),
 ({ _fmt : ("%p" : GoString), _val : (null : AnyInterface), _out : ("%!p(<nil>)" : GoString) } : T__struct_2),
@@ -787,11 +792,13 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%184467440737095516170v" : GoString), _val : Go.toInterface((0 : GoInt)), _out : ("%!(NOVERB)%!(EXTRA int=0)" : GoString) } : T__struct_2),
 ({ _fmt : ("%010.2" : GoString), _val : Go.toInterface(("12345" : GoString)), _out : ("%!(NOVERB)%!(EXTRA string=12345)" : GoString) } : T__struct_2),
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoFloat64, GoInt>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(float64_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) })));
-        @:privateAccess x._keys = [naN, naN];
-        @:privateAccess x._values = [(1 : GoInt), (1 : GoInt)];
+        final x = new GoMap<GoFloat64, GoInt>();
+        @:mergeBlock {
+            x.set(naN, (1 : GoInt));
+            x.set(naN, (1 : GoInt));
+        };
         x;
-    } : stdgo.GoMap<GoFloat64, GoInt>)), _out : ("map[NaN:1 NaN:1]" : GoString) } : T__struct_2),
+    })), _out : ("map[NaN:1 NaN:1]" : GoString) } : T__struct_2),
 ({ _fmt : ("%.2f" : GoString), _val : Go.toInterface((1 : GoFloat64)), _out : ("1.00" : GoString) } : T__struct_2),
 ({ _fmt : ("%.2f" : GoString), _val : Go.toInterface((-1 : GoFloat64)), _out : ("-1.00" : GoString) } : T__struct_2),
 ({ _fmt : ("% .2f" : GoString), _val : Go.toInterface((1 : GoFloat64)), _out : (" 1.00" : GoString) } : T__struct_2),
@@ -818,14 +825,14 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%+07.2f" : GoString), _val : Go.toInterface(((-1f64 : GoFloat64) + new GoComplex128(0f64, -2f64))), _out : ("(-001.00-002.00i)" : GoString) } : T__struct_2),
 ({ _fmt : ("%0-5s" : GoString), _val : Go.toInterface(("abc" : GoString)), _out : ("abc  " : GoString) } : T__struct_2),
 ({ _fmt : ("%-05.1f" : GoString), _val : Go.toInterface((1 : GoFloat64)), _out : ("1.0  " : GoString) } : T__struct_2),
-({ _fmt : ("%06v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(0, 0, Go.toInterface((10 : GoFloat64)), Go.toInterface((10 : GoInt))) : Slice<AnyInterface>)), _out : ("[000010 000010]" : GoString) } : T__struct_2),
-({ _fmt : ("%06v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(0, 0, Go.toInterface((-10 : GoFloat64)), Go.toInterface((10 : GoInt))) : Slice<AnyInterface>)), _out : ("[-00010 000010]" : GoString) } : T__struct_2),
-({ _fmt : ("%06v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(0, 0, Go.toInterface(((10f64 : GoFloat64) + new GoComplex128(0f64, 10f64))), Go.toInterface((10 : GoInt))) : Slice<AnyInterface>)), _out : ("[(000010+00010i) 000010]" : GoString) } : T__struct_2),
-({ _fmt : ("%06v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(0, 0, Go.toInterface(((-10f64 : GoFloat64) + new GoComplex128(0f64, 10f64))), Go.toInterface((10 : GoInt))) : Slice<AnyInterface>)), _out : ("[(-00010+00010i) 000010]" : GoString) } : T__struct_2),
-({ _fmt : ("%03.6v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(0, 0, Go.toInterface((1 : GoInt)), Go.toInterface((2 : GoFloat64)), Go.toInterface(("x" : GoString))) : Slice<AnyInterface>)), _out : ("[000001 002 00x]" : GoString) } : T__struct_2),
-({ _fmt : ("%03.0v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(0, 0, Go.toInterface((0 : GoInt)), Go.toInterface((2 : GoFloat64)), Go.toInterface(("x" : GoString))) : Slice<AnyInterface>)), _out : ("[    002 000]" : GoString) } : T__struct_2),
-({ _fmt : ("%v" : GoString), _val : Go.toInterface((new Slice<GoComplex64>(0, 0, ((1f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((2f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((3f64 : GoFloat64) + new GoComplex128(0f64, 0f64))) : Slice<GoComplex64>)), _out : ("[(1+0i) (2+0i) (3+0i)]" : GoString) } : T__struct_2),
-({ _fmt : ("%v" : GoString), _val : Go.toInterface((new Slice<GoComplex128>(0, 0, ((1f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((2f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((3f64 : GoFloat64) + new GoComplex128(0f64, 0f64))) : Slice<GoComplex128>)), _out : ("[(1+0i) (2+0i) (3+0i)]" : GoString) } : T__struct_2),
+({ _fmt : ("%06v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(2, 2, Go.toInterface((10 : GoFloat64)), Go.toInterface((10 : GoInt))) : Slice<AnyInterface>)), _out : ("[000010 000010]" : GoString) } : T__struct_2),
+({ _fmt : ("%06v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(2, 2, Go.toInterface((-10 : GoFloat64)), Go.toInterface((10 : GoInt))) : Slice<AnyInterface>)), _out : ("[-00010 000010]" : GoString) } : T__struct_2),
+({ _fmt : ("%06v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(2, 2, Go.toInterface(((10f64 : GoFloat64) + new GoComplex128(0f64, 10f64))), Go.toInterface((10 : GoInt))) : Slice<AnyInterface>)), _out : ("[(000010+00010i) 000010]" : GoString) } : T__struct_2),
+({ _fmt : ("%06v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(2, 2, Go.toInterface(((-10f64 : GoFloat64) + new GoComplex128(0f64, 10f64))), Go.toInterface((10 : GoInt))) : Slice<AnyInterface>)), _out : ("[(-00010+00010i) 000010]" : GoString) } : T__struct_2),
+({ _fmt : ("%03.6v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(3, 3, Go.toInterface((1 : GoInt)), Go.toInterface((2 : GoFloat64)), Go.toInterface(("x" : GoString))) : Slice<AnyInterface>)), _out : ("[000001 002 00x]" : GoString) } : T__struct_2),
+({ _fmt : ("%03.0v" : GoString), _val : Go.toInterface((new Slice<AnyInterface>(3, 3, Go.toInterface((0 : GoInt)), Go.toInterface((2 : GoFloat64)), Go.toInterface(("x" : GoString))) : Slice<AnyInterface>)), _out : ("[    002 000]" : GoString) } : T__struct_2),
+({ _fmt : ("%v" : GoString), _val : Go.toInterface((new Slice<GoComplex64>(3, 3, ((1f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((2f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((3f64 : GoFloat64) + new GoComplex128(0f64, 0f64))) : Slice<GoComplex64>)), _out : ("[(1+0i) (2+0i) (3+0i)]" : GoString) } : T__struct_2),
+({ _fmt : ("%v" : GoString), _val : Go.toInterface((new Slice<GoComplex128>(3, 3, ((1f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((2f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((3f64 : GoFloat64) + new GoComplex128(0f64, 0f64))) : Slice<GoComplex128>)), _out : ("[(1+0i) (2+0i) (3+0i)]" : GoString) } : T__struct_2),
 ({ _fmt : ("%." : GoString), _val : Go.toInterface((3 : GoInt)), _out : ("%!.(int=3)" : GoString) } : T__struct_2),
 ({ _fmt : ("%+10.2f" : GoString), _val : Go.toInterface(((104.66f64 : GoFloat64) + new GoComplex128(0f64, 440.51f64))), _out : ("(   +104.66   +440.51i)" : GoString) } : T__struct_2),
 ({ _fmt : ("%+10.2f" : GoString), _val : Go.toInterface(((-104.66f64 : GoFloat64) + new GoComplex128(0f64, 440.51f64))), _out : ("(   -104.66   +440.51i)" : GoString) } : T__struct_2),
@@ -862,8 +869,8 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%☠" : GoString), _val : (null : AnyInterface), _out : ("%!☠(<nil>)" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface((0 : GoInt)), _out : ("%!☠(int=0)" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface((0u32 : GoUInt)), _out : ("%!☠(uint=0)" : GoString) } : T__struct_2),
-({ _fmt : ("%☠" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (0 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[%!☠(uint8=0) %!☠(uint8=1)]" : GoString) } : T__struct_2),
-({ _fmt : ("%☠" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (0 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[%!☠(uint8=0) %!☠(uint8=1)]" : GoString) } : T__struct_2),
+({ _fmt : ("%☠" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (0 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[%!☠(uint8=0) %!☠(uint8=1)]" : GoString) } : T__struct_2),
+({ _fmt : ("%☠" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(2, 2, (0 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[%!☠(uint8=0) %!☠(uint8=1)]" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface((new GoArray<GoUInt8>((0 : GoUInt8)) : GoArray<GoUInt8>)), _out : ("[%!☠(uint8=0)]" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface((new GoArray<GoUInt8>((0 : GoUInt8)) : GoArray<GoUInt8>)), _out : ("[%!☠(uint8=0)]" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface(("hello" : GoString)), _out : ("%!☠(string=hello)" : GoString) } : T__struct_2),
@@ -876,63 +883,64 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface(function():Void {}), _out : ("%!☠(func()=0xPTR)" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface(Go.asInterface(stdgo.reflect.Reflect.valueOf(Go.toInterface(((0 : stdgo.fmt_test.Fmt_test.T_renamedInt) : T_renamedInt))))), _out : ("%!☠(fmt_test.renamedInt=0)" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface((new SI(Go.toInterface(((0 : stdgo.fmt_test.Fmt_test.T_renamedInt) : T_renamedInt))) : SI)), _out : ("{%!☠(fmt_test.renamedInt=0)}" : GoString) } : T__struct_2),
-({ _fmt : ("%☠" : GoString), _val : Go.toInterface((Go.setRef((new Slice<AnyInterface>(0, 0, Go.toInterface(Go.asInterface(((1 : stdgo.fmt_test.Fmt_test.I) : I))), Go.toInterface(Go.asInterface(((2 : stdgo.fmt_test.Fmt_test.G) : G)))) : Slice<AnyInterface>)) : Ref<Slice<AnyInterface>>)), _out : ("&[%!☠(fmt_test.I=1) %!☠(fmt_test.G=2)]" : GoString) } : T__struct_2),
-({ _fmt : ("%☠" : GoString), _val : Go.toInterface((new SI(Go.toInterface((Go.setRef((new Slice<AnyInterface>(0, 0, Go.toInterface(Go.asInterface(((1 : stdgo.fmt_test.Fmt_test.I) : I))), Go.toInterface(Go.asInterface(((2 : stdgo.fmt_test.Fmt_test.G) : G)))) : Slice<AnyInterface>)) : Ref<Slice<AnyInterface>>))) : SI)), _out : ("{%!☠(*[]interface {}=&[1 2])}" : GoString) } : T__struct_2),
+({ _fmt : ("%☠" : GoString), _val : Go.toInterface((Go.setRef((new Slice<AnyInterface>(2, 2, Go.toInterface(Go.asInterface(((1 : stdgo.fmt_test.Fmt_test.I) : I))), Go.toInterface(Go.asInterface(((2 : stdgo.fmt_test.Fmt_test.G) : G)))) : Slice<AnyInterface>)) : Ref<Slice<AnyInterface>>)), _out : ("&[%!☠(fmt_test.I=1) %!☠(fmt_test.G=2)]" : GoString) } : T__struct_2),
+({ _fmt : ("%☠" : GoString), _val : Go.toInterface((new SI(Go.toInterface((Go.setRef((new Slice<AnyInterface>(2, 2, Go.toInterface(Go.asInterface(((1 : stdgo.fmt_test.Fmt_test.I) : I))), Go.toInterface(Go.asInterface(((2 : stdgo.fmt_test.Fmt_test.G) : G)))) : Slice<AnyInterface>)) : Ref<Slice<AnyInterface>>))) : SI)), _out : ("{%!☠(*[]interface {}=&[1 2])}" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface(Go.asInterface((new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value))), _out : ("<invalid reflect.Value>" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoFloat64, GoInt>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(float64_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) })));
-        @:privateAccess x._keys = [naN];
-        @:privateAccess x._values = [(1 : GoInt)];
+        final x = new GoMap<GoFloat64, GoInt>();
+        @:mergeBlock {
+            x.set(naN, (1 : GoInt));
+        };
         x;
-    } : stdgo.GoMap<GoFloat64, GoInt>)), _out : ("map[%!☠(float64=NaN):%!☠(int=1)]" : GoString) } : T__struct_2)) : Slice<T__struct_2>);
+    })), _out : ("map[%!☠(float64=NaN):%!☠(int=1)]" : GoString) } : T__struct_2)) : Slice<T__struct_2>);
 /**
     
     
     
 **/
 private var _reorderTests = (new Slice<T__struct_3>(
-0,
-0,
-({ _fmt : ("%[1]d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("1" : GoString) } : T__struct_3),
-({ _fmt : ("%[2]d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("1" : GoString) } : T__struct_3),
-({ _fmt : ("%[2]d %[1]d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((1 : GoInt)), Go.toInterface((2 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("2 1" : GoString) } : T__struct_3),
-({ _fmt : ("%[2]*[1]d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((2 : GoInt)), Go.toInterface((5 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("    2" : GoString) } : T__struct_3),
-({ _fmt : ("%6.2f" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : (" 12.00" : GoString) } : T__struct_3),
-({ _fmt : ("%[3]*.[2]*[1]f" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((12 : GoFloat64)), Go.toInterface((2 : GoInt)), Go.toInterface((6 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : (" 12.00" : GoString) } : T__struct_3),
-({ _fmt : ("%[1]*.[2]*[3]f" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((6 : GoInt)), Go.toInterface((2 : GoInt)), Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : (" 12.00" : GoString) } : T__struct_3),
-({ _fmt : ("%10f" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : (" 12.000000" : GoString) } : T__struct_3),
-({ _fmt : ("%[1]*[3]f" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((10 : GoInt)), Go.toInterface((99 : GoInt)), Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : (" 12.000000" : GoString) } : T__struct_3),
-({ _fmt : ("%.6f" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : ("12.000000" : GoString) } : T__struct_3),
-({ _fmt : ("%.[1]*[3]f" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((6 : GoInt)), Go.toInterface((99 : GoInt)), Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : ("12.000000" : GoString) } : T__struct_3),
-({ _fmt : ("%6.f" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : ("    12" : GoString) } : T__struct_3),
-({ _fmt : ("%[1]*.[3]f" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((6 : GoInt)), Go.toInterface((3 : GoInt)), Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : ("    12" : GoString) } : T__struct_3),
-({ _fmt : ("%d %d %d %#[1]o %#o %#o" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((11 : GoInt)), Go.toInterface((12 : GoInt)), Go.toInterface((13 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("11 12 13 013 014 015" : GoString) } : T__struct_3),
-({ _fmt : ("%[d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
-({ _fmt : ("%]d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!](int=2)d%!(EXTRA int=1)" : GoString) } : T__struct_3),
-({ _fmt : ("%[]d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
-({ _fmt : ("%[-3]d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
-({ _fmt : ("%[99]d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
-({ _fmt : ("%[3]" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)" : GoString) } : T__struct_3),
-({ _fmt : ("%[1].2d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((5 : GoInt)), Go.toInterface((6 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
-({ _fmt : ("%[1]2d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
-({ _fmt : ("%3.[2]d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((7 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
-({ _fmt : ("%.[2]d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((7 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
-({ _fmt : ("%d %d %d %#[1]o %#o %#o %#o" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((11 : GoInt)), Go.toInterface((12 : GoInt)), Go.toInterface((13 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("11 12 13 013 014 015 %!o(MISSING)" : GoString) } : T__struct_3),
-({ _fmt : ("%[5]d %[2]d %d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((1 : GoInt)), Go.toInterface((2 : GoInt)), Go.toInterface((3 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX) 2 3" : GoString) } : T__struct_3),
-({ _fmt : ("%d %[3]d %d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((1 : GoInt)), Go.toInterface((2 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("1 %!d(BADINDEX) 2" : GoString) } : T__struct_3),
+32,
+32,
+({ _fmt : ("%[1]d" : GoString), _val : (new Slice<AnyInterface>(1, 1, Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("1" : GoString) } : T__struct_3),
+({ _fmt : ("%[2]d" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("1" : GoString) } : T__struct_3),
+({ _fmt : ("%[2]d %[1]d" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((1 : GoInt)), Go.toInterface((2 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("2 1" : GoString) } : T__struct_3),
+({ _fmt : ("%[2]*[1]d" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((2 : GoInt)), Go.toInterface((5 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("    2" : GoString) } : T__struct_3),
+({ _fmt : ("%6.2f" : GoString), _val : (new Slice<AnyInterface>(1, 1, Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : (" 12.00" : GoString) } : T__struct_3),
+({ _fmt : ("%[3]*.[2]*[1]f" : GoString), _val : (new Slice<AnyInterface>(3, 3, Go.toInterface((12 : GoFloat64)), Go.toInterface((2 : GoInt)), Go.toInterface((6 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : (" 12.00" : GoString) } : T__struct_3),
+({ _fmt : ("%[1]*.[2]*[3]f" : GoString), _val : (new Slice<AnyInterface>(3, 3, Go.toInterface((6 : GoInt)), Go.toInterface((2 : GoInt)), Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : (" 12.00" : GoString) } : T__struct_3),
+({ _fmt : ("%10f" : GoString), _val : (new Slice<AnyInterface>(1, 1, Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : (" 12.000000" : GoString) } : T__struct_3),
+({ _fmt : ("%[1]*[3]f" : GoString), _val : (new Slice<AnyInterface>(3, 3, Go.toInterface((10 : GoInt)), Go.toInterface((99 : GoInt)), Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : (" 12.000000" : GoString) } : T__struct_3),
+({ _fmt : ("%.6f" : GoString), _val : (new Slice<AnyInterface>(1, 1, Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : ("12.000000" : GoString) } : T__struct_3),
+({ _fmt : ("%.[1]*[3]f" : GoString), _val : (new Slice<AnyInterface>(3, 3, Go.toInterface((6 : GoInt)), Go.toInterface((99 : GoInt)), Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : ("12.000000" : GoString) } : T__struct_3),
+({ _fmt : ("%6.f" : GoString), _val : (new Slice<AnyInterface>(1, 1, Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : ("    12" : GoString) } : T__struct_3),
+({ _fmt : ("%[1]*.[3]f" : GoString), _val : (new Slice<AnyInterface>(3, 3, Go.toInterface((6 : GoInt)), Go.toInterface((3 : GoInt)), Go.toInterface((12 : GoFloat64))) : stdgo.fmt_test.Fmt_test.SE), _out : ("    12" : GoString) } : T__struct_3),
+({ _fmt : ("%d %d %d %#[1]o %#o %#o" : GoString), _val : (new Slice<AnyInterface>(3, 3, Go.toInterface((11 : GoInt)), Go.toInterface((12 : GoInt)), Go.toInterface((13 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("11 12 13 013 014 015" : GoString) } : T__struct_3),
+({ _fmt : ("%[d" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
+({ _fmt : ("%]d" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!](int=2)d%!(EXTRA int=1)" : GoString) } : T__struct_3),
+({ _fmt : ("%[]d" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
+({ _fmt : ("%[-3]d" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
+({ _fmt : ("%[99]d" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
+({ _fmt : ("%[3]" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)" : GoString) } : T__struct_3),
+({ _fmt : ("%[1].2d" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((5 : GoInt)), Go.toInterface((6 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
+({ _fmt : ("%[1]2d" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((2 : GoInt)), Go.toInterface((1 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
+({ _fmt : ("%3.[2]d" : GoString), _val : (new Slice<AnyInterface>(1, 1, Go.toInterface((7 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
+({ _fmt : ("%.[2]d" : GoString), _val : (new Slice<AnyInterface>(1, 1, Go.toInterface((7 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX)" : GoString) } : T__struct_3),
+({ _fmt : ("%d %d %d %#[1]o %#o %#o %#o" : GoString), _val : (new Slice<AnyInterface>(3, 3, Go.toInterface((11 : GoInt)), Go.toInterface((12 : GoInt)), Go.toInterface((13 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("11 12 13 013 014 015 %!o(MISSING)" : GoString) } : T__struct_3),
+({ _fmt : ("%[5]d %[2]d %d" : GoString), _val : (new Slice<AnyInterface>(3, 3, Go.toInterface((1 : GoInt)), Go.toInterface((2 : GoInt)), Go.toInterface((3 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!d(BADINDEX) 2 3" : GoString) } : T__struct_3),
+({ _fmt : ("%d %[3]d %d" : GoString), _val : (new Slice<AnyInterface>(2, 2, Go.toInterface((1 : GoInt)), Go.toInterface((2 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("1 %!d(BADINDEX) 2" : GoString) } : T__struct_3),
 ({ _fmt : ("%.[]" : GoString), _val : (new Slice<AnyInterface>(0, 0) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!](BADINDEX)" : GoString) } : T__struct_3),
-({ _fmt : ("%.-3d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((42 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!-(int=42)3d" : GoString) } : T__struct_3),
-({ _fmt : ("%2147483648d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((42 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)%!(EXTRA int=42)" : GoString) } : T__struct_3),
-({ _fmt : ("%-2147483648d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((42 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)%!(EXTRA int=42)" : GoString) } : T__struct_3),
-({ _fmt : ("%.2147483648d" : GoString), _val : (new Slice<AnyInterface>(0, 0, Go.toInterface((42 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)%!(EXTRA int=42)" : GoString) } : T__struct_3)) : Slice<T__struct_3>);
+({ _fmt : ("%.-3d" : GoString), _val : (new Slice<AnyInterface>(1, 1, Go.toInterface((42 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!-(int=42)3d" : GoString) } : T__struct_3),
+({ _fmt : ("%2147483648d" : GoString), _val : (new Slice<AnyInterface>(1, 1, Go.toInterface((42 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)%!(EXTRA int=42)" : GoString) } : T__struct_3),
+({ _fmt : ("%-2147483648d" : GoString), _val : (new Slice<AnyInterface>(1, 1, Go.toInterface((42 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)%!(EXTRA int=42)" : GoString) } : T__struct_3),
+({ _fmt : ("%.2147483648d" : GoString), _val : (new Slice<AnyInterface>(1, 1, Go.toInterface((42 : GoInt))) : stdgo.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)%!(EXTRA int=42)" : GoString) } : T__struct_3)) : Slice<T__struct_3>);
 /**
     
     
     
 **/
 private var _mallocTest = (new Slice<T__struct_4>(
-0,
-0,
+13,
+13,
 ({ _count : (0 : GoInt), _desc : ("Sprintf(\"\")" : GoString), _fn : function():Void {
         sprintf(Go.str());
     } } : T__struct_4),
@@ -983,8 +991,8 @@ private var _mallocTest = (new Slice<T__struct_4>(
     
 **/
 private var _flagtests = (new Slice<T__struct_5>(
-0,
-0,
+12,
+12,
 ({ _in : ("%a" : GoString), _out : ("[%a]" : GoString) } : T__struct_5),
 ({ _in : ("%-a" : GoString), _out : ("[%-a]" : GoString) } : T__struct_5),
 ({ _in : ("%+a" : GoString), _out : ("[%+a]" : GoString) } : T__struct_5),
@@ -1003,8 +1011,8 @@ private var _flagtests = (new Slice<T__struct_5>(
     
 **/
 private var _startests = (new Slice<T__struct_7>(
-0,
-0,
+23,
+23,
 ({ _fmt : ("%*d" : GoString), _in : _args(Go.toInterface((4 : GoInt)), Go.toInterface((42 : GoInt))), _out : ("  42" : GoString) } : T__struct_7),
 ({ _fmt : ("%-*d" : GoString), _in : _args(Go.toInterface((4 : GoInt)), Go.toInterface((42 : GoInt))), _out : ("42  " : GoString) } : T__struct_7),
 ({ _fmt : ("%*d" : GoString), _in : _args(Go.toInterface((-4 : GoInt)), Go.toInterface((42 : GoInt))), _out : ("42  " : GoString) } : T__struct_7),
@@ -1034,15 +1042,15 @@ private var _startests = (new Slice<T__struct_7>(
     
 **/
 private var _panictests = (new Slice<T__struct_8>(
-0,
-0,
+10,
+10,
 ({ _fmt : ("%s" : GoString), _in : Go.toInterface(Go.asInterface(((null : Ref<stdgo.fmt_test.Fmt_test.PanicS>) : Ref<PanicS>))), _out : ("<nil>" : GoString) } : T__struct_8),
 ({ _fmt : ("%s" : GoString), _in : Go.toInterface(Go.asInterface((new PanicS(Go.toInterface(stdgo.io.Io.errUnexpectedEOF)) : PanicS))), _out : ("%!s(PANIC=String method: unexpected EOF)" : GoString) } : T__struct_8),
 ({ _fmt : ("%s" : GoString), _in : Go.toInterface(Go.asInterface((new PanicS(Go.toInterface((3 : GoInt))) : PanicS))), _out : ("%!s(PANIC=String method: 3)" : GoString) } : T__struct_8),
 ({ _fmt : ("%#v" : GoString), _in : Go.toInterface(Go.asInterface(((null : Ref<stdgo.fmt_test.Fmt_test.PanicGo>) : Ref<PanicGo>))), _out : ("<nil>" : GoString) } : T__struct_8),
 ({ _fmt : ("%#v" : GoString), _in : Go.toInterface(Go.asInterface((new PanicGo(Go.toInterface(stdgo.io.Io.errUnexpectedEOF)) : PanicGo))), _out : ("%!v(PANIC=GoString method: unexpected EOF)" : GoString) } : T__struct_8),
 ({ _fmt : ("%#v" : GoString), _in : Go.toInterface(Go.asInterface((new PanicGo(Go.toInterface((3 : GoInt))) : PanicGo))), _out : ("%!v(PANIC=GoString method: 3)" : GoString) } : T__struct_8),
-({ _fmt : ("%#v" : GoString), _in : Go.toInterface((new Slice<AnyInterface>(0, 0, Go.toInterface(Go.asInterface((new PanicGo(Go.toInterface((3 : GoInt))) : PanicGo))), Go.toInterface(Go.asInterface((new PanicGo(Go.toInterface((3 : GoInt))) : PanicGo)))) : Slice<AnyInterface>)), _out : ("[]interface {}{%!v(PANIC=GoString method: 3), %!v(PANIC=GoString method: 3)}" : GoString) } : T__struct_8),
+({ _fmt : ("%#v" : GoString), _in : Go.toInterface((new Slice<AnyInterface>(2, 2, Go.toInterface(Go.asInterface((new PanicGo(Go.toInterface((3 : GoInt))) : PanicGo))), Go.toInterface(Go.asInterface((new PanicGo(Go.toInterface((3 : GoInt))) : PanicGo)))) : Slice<AnyInterface>)), _out : ("[]interface {}{%!v(PANIC=GoString method: 3), %!v(PANIC=GoString method: 3)}" : GoString) } : T__struct_8),
 ({ _fmt : ("%s" : GoString), _in : Go.toInterface(Go.asInterface(((null : Ref<stdgo.fmt_test.Fmt_test.PanicF>) : Ref<PanicF>))), _out : ("<nil>" : GoString) } : T__struct_8),
 ({ _fmt : ("%s" : GoString), _in : Go.toInterface(Go.asInterface((new PanicF(Go.toInterface(stdgo.io.Io.errUnexpectedEOF)) : PanicF))), _out : ("%!s(PANIC=Format method: unexpected EOF)" : GoString) } : T__struct_8),
 ({ _fmt : ("%s" : GoString), _in : Go.toInterface(Go.asInterface((new PanicF(Go.toInterface((3 : GoInt))) : PanicF))), _out : ("%!s(PANIC=Format method: 3)" : GoString) } : T__struct_8)) : Slice<T__struct_8>);
@@ -1058,8 +1066,8 @@ private var _recurCount = (0 : GoInt);
     
 **/
 private var _formatterFlagTests = (new Slice<T__struct_9>(
-0,
-0,
+48,
+48,
 ({ _in : ("%a" : GoString), _val : Go.toInterface(Go.asInterface((new T_flagPrinter() : T_flagPrinter))), _out : ("[%a]" : GoString) } : T__struct_9),
 ({ _in : ("%-a" : GoString), _val : Go.toInterface(Go.asInterface((new T_flagPrinter() : T_flagPrinter))), _out : ("[%-a]" : GoString) } : T__struct_9),
 ({ _in : ("%+a" : GoString), _val : Go.toInterface(Go.asInterface((new T_flagPrinter() : T_flagPrinter))), _out : ("[%+a]" : GoString) } : T__struct_9),
@@ -1114,8 +1122,8 @@ private var _formatterFlagTests = (new Slice<T__struct_9>(
     
 **/
 private var _scanTests = (new Slice<stdgo.fmt_test.Fmt_test.ScanTest>(
-0,
-0,
+86,
+86,
 (new stdgo.fmt_test.Fmt_test.ScanTest(("T\n" : GoString), Go.toInterface(Go.pointer(_boolVal)), Go.toInterface(true)) : stdgo.fmt_test.Fmt_test.ScanTest),
 (new stdgo.fmt_test.Fmt_test.ScanTest(("F\n" : GoString), Go.toInterface(Go.pointer(_boolVal)), Go.toInterface(false)) : stdgo.fmt_test.Fmt_test.ScanTest),
 (new stdgo.fmt_test.Fmt_test.ScanTest(("21\n" : GoString), Go.toInterface(Go.pointer(_intVal)), Go.toInterface((21 : GoInt))) : stdgo.fmt_test.Fmt_test.ScanTest),
@@ -1208,8 +1216,8 @@ private var _scanTests = (new Slice<stdgo.fmt_test.Fmt_test.ScanTest>(
     
 **/
 private var _scanfTests = (new Slice<stdgo.fmt_test.Fmt_test.ScanfTest>(
-0,
-0,
+168,
+168,
 (new stdgo.fmt_test.Fmt_test.ScanfTest(("%v" : GoString), ("TRUE\n" : GoString), Go.toInterface(Go.pointer(_boolVal)), Go.toInterface(true)) : stdgo.fmt_test.Fmt_test.ScanfTest),
 (new stdgo.fmt_test.Fmt_test.ScanfTest(("%t" : GoString), ("false\n" : GoString), Go.toInterface(Go.pointer(_boolVal)), Go.toInterface(false)) : stdgo.fmt_test.Fmt_test.ScanfTest),
 (new stdgo.fmt_test.Fmt_test.ScanfTest(("%v" : GoString), ("-71\n" : GoString), Go.toInterface(Go.pointer(_intVal)), Go.toInterface((-71 : GoInt))) : stdgo.fmt_test.Fmt_test.ScanfTest),
@@ -1384,8 +1392,8 @@ private var _scanfTests = (new Slice<stdgo.fmt_test.Fmt_test.ScanfTest>(
     
 **/
 private var _overflowTests = (new Slice<stdgo.fmt_test.Fmt_test.ScanTest>(
-0,
-0,
+11,
+11,
 (new stdgo.fmt_test.Fmt_test.ScanTest(("128" : GoString), Go.toInterface(Go.pointer(_int8Val)), Go.toInterface((0 : GoInt))) : stdgo.fmt_test.Fmt_test.ScanTest),
 (new stdgo.fmt_test.Fmt_test.ScanTest(("32768" : GoString), Go.toInterface(Go.pointer(_int16Val)), Go.toInterface((0 : GoInt))) : stdgo.fmt_test.Fmt_test.ScanTest),
 (new stdgo.fmt_test.Fmt_test.ScanTest(("-129" : GoString), Go.toInterface(Go.pointer(_int8Val)), Go.toInterface((0 : GoInt))) : stdgo.fmt_test.Fmt_test.ScanTest),
@@ -1403,8 +1411,8 @@ private var _overflowTests = (new Slice<stdgo.fmt_test.Fmt_test.ScanTest>(
     
 **/
 private var _multiTests = (new Slice<stdgo.fmt_test.Fmt_test.ScanfMultiTest>(
-0,
-0,
+26,
+26,
 (new stdgo.fmt_test.Fmt_test.ScanfMultiTest(Go.str(), Go.str(), (new Slice<AnyInterface>(0, 0) : Slice<AnyInterface>), (new Slice<AnyInterface>(0, 0) : Slice<AnyInterface>), Go.str()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
 (new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%d" : GoString), ("23" : GoString), _args(Go.toInterface(Go.pointer(_i))), _args(Go.toInterface((23 : GoInt))), Go.str()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
 (new stdgo.fmt_test.Fmt_test.ScanfMultiTest(("%2s%3s" : GoString), ("22333" : GoString), _args(Go.toInterface(Go.pointer(_s)), Go.toInterface(Go.pointer(_t))), _args(Go.toInterface(("22" : GoString)), Go.toInterface(("333" : GoString))), Go.str()) : stdgo.fmt_test.Fmt_test.ScanfMultiTest),
@@ -1436,7 +1444,7 @@ private var _multiTests = (new Slice<stdgo.fmt_test.Fmt_test.ScanfMultiTest>(
     
     
 **/
-private var _readers = (new Slice<T__struct_11>(0, 0, ({ _name : ("StringReader" : GoString), _f : function(_s:GoString):stdgo.io.Io.Reader {
+private var _readers = (new Slice<T__struct_11>(4, 4, ({ _name : ("StringReader" : GoString), _f : function(_s:GoString):stdgo.io.Io.Reader {
         return Go.asInterface(stdgo.strings.Strings.newReader(_s));
     } } : T__struct_11), ({ _name : ("ReaderOnly" : GoString), _f : function(_s:GoString):stdgo.io.Io.Reader {
         return Go.asInterface(({ reader : Go.asInterface(stdgo.strings.Strings.newReader(_s)) } : T__struct_12));
@@ -1451,8 +1459,8 @@ private var _readers = (new Slice<T__struct_11>(0, 0, ({ _name : ("StringReader"
     
 **/
 private var _eofTests = (new Slice<T__struct_13>(
-0,
-0,
+17,
+17,
 ({ _format : ("%s" : GoString), _v : Go.toInterface(Go.pointer(_stringVal)) } : T__struct_13),
 ({ _format : ("%q" : GoString), _v : Go.toInterface(Go.pointer(_stringVal)) } : T__struct_13),
 ({ _format : ("%x" : GoString), _v : Go.toInterface(Go.pointer(_stringVal)) } : T__struct_13),
@@ -2597,8 +2605,8 @@ function testErrorf(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _noVetErrorf = stdgo.fmt.Fmt.errorf;
         var _wrapped:Error = stdgo.errors.Errors.new_(("inner error" : GoString));
         for (__0 => _test in (new Slice<T__struct_0>(
-0,
-0,
+16,
+16,
 ({ _err : stdgo.fmt.Fmt.errorf(("%w" : GoString), Go.toInterface(_wrapped)), _wantText : ("inner error" : GoString), _wantUnwrap : _wrapped, _wantSplit : (null : Slice<Error>) } : T__struct_0),
 ({ _err : stdgo.fmt.Fmt.errorf(("added context: %w" : GoString), Go.toInterface(_wrapped)), _wantText : ("added context: inner error" : GoString), _wantUnwrap : _wrapped, _wantSplit : (null : Slice<Error>) } : T__struct_0),
 ({ _err : stdgo.fmt.Fmt.errorf(("%w with added context" : GoString), Go.toInterface(_wrapped)), _wantText : ("inner error with added context" : GoString), _wantUnwrap : _wrapped, _wantSplit : (null : Slice<Error>) } : T__struct_0),
@@ -2608,12 +2616,12 @@ function testErrorf(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _err : stdgo.fmt.Fmt.errorf(("added context: %v" : GoString), Go.toInterface(_wrapped)), _wantText : ("added context: inner error" : GoString), _wantUnwrap : (null : Error), _wantSplit : (null : Slice<Error>) } : T__struct_0),
 ({ _err : stdgo.fmt.Fmt.errorf(("%v with added context" : GoString), Go.toInterface(_wrapped)), _wantText : ("inner error with added context" : GoString), _wantUnwrap : (null : Error), _wantSplit : (null : Slice<Error>) } : T__struct_0),
 ({ _err : _noVetErrorf(("%w is not an error" : GoString), Go.toInterface(("not-an-error" : GoString))), _wantText : ("%!w(string=not-an-error) is not an error" : GoString), _wantUnwrap : (null : Error), _wantSplit : (null : Slice<Error>) } : T__struct_0),
-({ _err : _noVetErrorf(("wrapped two errors: %w %w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped two errors: 1 2" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(0, 0, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
-({ _err : _noVetErrorf(("wrapped three errors: %w %w %w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped three errors: 1 2 3" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(0, 0, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
-({ _err : _noVetErrorf(("wrapped nil error: %w %w %w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), (null : AnyInterface), Go.toInterface(Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped nil error: 1 %!w(<nil>) 2" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(0, 0, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
-({ _err : _noVetErrorf(("wrapped one non-error: %w %w %w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(("not-an-error" : GoString)), Go.toInterface(Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped one non-error: 1 %!w(string=not-an-error) 3" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(0, 0, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
-({ _err : stdgo.fmt.Fmt.errorf(("wrapped errors out of order: %[3]w %[2]w %[1]w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped errors out of order: 3 2 1" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(0, 0, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
-({ _err : stdgo.fmt.Fmt.errorf(("wrapped several times: %[1]w %[1]w %[2]w %[1]w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped several times: 1 1 2 1" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(0, 0, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
+({ _err : _noVetErrorf(("wrapped two errors: %w %w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped two errors: 1 2" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(2, 2, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
+({ _err : _noVetErrorf(("wrapped three errors: %w %w %w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped three errors: 1 2 3" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(3, 3, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
+({ _err : _noVetErrorf(("wrapped nil error: %w %w %w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), (null : AnyInterface), Go.toInterface(Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped nil error: 1 %!w(<nil>) 2" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(2, 2, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
+({ _err : _noVetErrorf(("wrapped one non-error: %w %w %w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(("not-an-error" : GoString)), Go.toInterface(Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped one non-error: 1 %!w(string=not-an-error) 3" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(2, 2, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
+({ _err : stdgo.fmt.Fmt.errorf(("wrapped errors out of order: %[3]w %[2]w %[1]w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped errors out of order: 3 2 1" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(3, 3, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("3" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
+({ _err : stdgo.fmt.Fmt.errorf(("wrapped several times: %[1]w %[1]w %[2]w %[1]w" : GoString), Go.toInterface(Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))), Go.toInterface(Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)))), _wantText : ("wrapped several times: 1 1 2 1" : GoString), _wantUnwrap : (null : Error), _wantSplit : (new Slice<Error>(2, 2, Go.asInterface(((("1" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString)), Go.asInterface(((("2" : GoString) : stdgo.fmt_test.Fmt_test.T_errString) : T_errString))) : Slice<Error>) } : T__struct_0),
 ({ _err : stdgo.fmt.Fmt.errorf(("%w" : GoString), (null : AnyInterface)), _wantText : ("%!w(<nil>)" : GoString), _wantUnwrap : (null : Error), _wantSplit : (null : Slice<Error>) } : T__struct_0)) : Slice<T__struct_0>)) {
             {
                 var __0:Error = stdgo.errors.Errors.unwrap(_test._err), __1:Error = _test._wantUnwrap, _want:Error = __1, _got:Error = __0;
@@ -2789,11 +2797,13 @@ function example_formats():Void {
         var _placeholders:GoString = ("foo \"bar\"" : GoString);
         stdgo.fmt.Fmt.printf(("%v %s %q %#q\n" : GoString), Go.toInterface(_placeholders), Go.toInterface(_placeholders), Go.toInterface(_placeholders), Go.toInterface(_placeholders));
         var _isLegume = ({
-            final x = new stdgo.GoMap.GoObjectMap<GoString, Bool>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) })));
-            @:privateAccess x._keys = [("peanut" : GoString), ("dachshund" : GoString)];
-            @:privateAccess x._values = [true, false];
+            final x = new GoMap<GoString, Bool>();
+            @:mergeBlock {
+                x.set(("peanut" : GoString), true);
+                x.set(("dachshund" : GoString), false);
+            };
             x;
-        } : stdgo.GoMap<GoString, Bool>);
+        });
         stdgo.fmt.Fmt.printf(("%v %#v\n" : GoString), Go.toInterface(_isLegume), Go.toInterface(_isLegume));
         var _person:T__struct_1 = ({ name : ("Kim" : GoString), age : (22 : GoInt) } : T__struct_1);
         stdgo.fmt.Fmt.printf(("%v %+v %#v\n" : GoString), Go.toInterface(Go.asInterface(_person)), Go.toInterface(Go.asInterface(_person)), Go.toInterface(Go.asInterface(_person)));
@@ -2881,8 +2891,8 @@ function testSprintf(_t:Ref<stdgo.testing.Testing.T>):Void {
     // thing as if done by hand with two singleton prints.
 **/
 function testComplexFormatting(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _yesNo:Slice<Bool> = (new Slice<Bool>(0, 0, true, false) : Slice<Bool>);
-        var _values:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1 : GoFloat64), (0 : GoFloat64), (-1 : GoFloat64), _posInf, _negInf, naN) : Slice<GoFloat64>);
+        var _yesNo:Slice<Bool> = (new Slice<Bool>(2, 2, true, false) : Slice<Bool>);
+        var _values:Slice<GoFloat64> = (new Slice<GoFloat64>(6, 6, (1 : GoFloat64), (0 : GoFloat64), (-1 : GoFloat64), _posInf, _negInf, naN) : Slice<GoFloat64>);
         for (__0 => _plus in _yesNo) {
             for (__1 => _zero in _yesNo) {
                 for (__2 => _space in _yesNo) {
@@ -3052,12 +3062,13 @@ function benchmarkSprintfStringer(_b:Ref<stdgo.testing.Testing.B>):Void {
         });
     }
 function benchmarkSprintfStructure(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _s = (Go.setRef((new Slice<AnyInterface>(0, 0, Go.toInterface((new SI(Go.toInterface((12345 : GoInt))) : SI)), Go.toInterface(({
-            final x = new stdgo.GoMap.GoObjectMap<GoInt, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-            @:privateAccess x._keys = [(0 : GoInt)];
-            @:privateAccess x._values = [("hello" : GoString)];
+        var _s = (Go.setRef((new Slice<AnyInterface>(2, 2, Go.toInterface((new SI(Go.toInterface((12345 : GoInt))) : SI)), Go.toInterface(({
+            final x = new GoMap<GoInt, GoString>();
+            @:mergeBlock {
+                x.set((0 : GoInt), ("hello" : GoString));
+            };
             x;
-        } : stdgo.GoMap<GoInt, GoString>))) : Slice<AnyInterface>)) : Ref<Slice<AnyInterface>>);
+        }))) : Slice<AnyInterface>)) : Ref<Slice<AnyInterface>>);
         _b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
             while (_pb.next()) {
                 sprintf(("%#v" : GoString), Go.toInterface(_s));
@@ -3157,7 +3168,7 @@ function testStructPrinter(_t:Ref<stdgo.testing.Testing.T>):Void {
         _s._a = ("abc" : GoString);
         _s._b = ("def" : GoString);
         _s._c = (123 : GoInt);
-        var _tests:Slice<T__struct_6> = (new Slice<T__struct_6>(0, 0, ({ _fmt : ("%v" : GoString), _out : ("{abc def 123}" : GoString) } : T__struct_6), ({ _fmt : ("%+v" : GoString), _out : ("{a:abc b:def c:123}" : GoString) } : T__struct_6), ({ _fmt : ("%#v" : GoString), _out : ("fmt_test.T{a:\"abc\", b:\"def\", c:123}" : GoString) } : T__struct_6)) : Slice<T__struct_6>);
+        var _tests:Slice<T__struct_6> = (new Slice<T__struct_6>(3, 3, ({ _fmt : ("%v" : GoString), _out : ("{abc def 123}" : GoString) } : T__struct_6), ({ _fmt : ("%+v" : GoString), _out : ("{a:abc b:def c:123}" : GoString) } : T__struct_6), ({ _fmt : ("%#v" : GoString), _out : ("fmt_test.T{a:\"abc\", b:\"def\", c:123}" : GoString) } : T__struct_6)) : Slice<T__struct_6>);
         for (__0 => _tt in _tests) {
             var _out:GoString = sprintf(_tt._fmt, Go.toInterface(_s));
             if (_out != (_tt._out)) {
@@ -3175,7 +3186,7 @@ function testSlicePrinter(_t:Ref<stdgo.testing.Testing.T>):Void {
         if (_s != (("[]" : GoString))) {
             _t.errorf(("empty slice printed as %q not %q" : GoString), Go.toInterface(_s), Go.toInterface(("[]" : GoString)));
         };
-        _slice = (new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt), (3 : GoInt)) : Slice<GoInt>);
+        _slice = (new Slice<GoInt>(3, 3, (1 : GoInt), (2 : GoInt), (3 : GoInt)) : Slice<GoInt>);
         _s = sprint(Go.toInterface(_slice));
         if (_s != (("[1 2 3]" : GoString))) {
             _t.errorf(("slice: got %q expected %q" : GoString), Go.toInterface(_s), Go.toInterface(("[1 2 3]" : GoString)));
@@ -3205,18 +3216,25 @@ private function _presentInMap(_s:GoString, _a:Slice<GoString>, _t:Ref<stdgo.tes
         };
     }
 function testMapPrinter(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _m0 = (new GoObjectMap<GoInt, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }))) : GoMap<GoInt, GoString>);
+        var _m0 = ({
+            final x = new GoMap<GoInt, GoString>();
+            @:mergeBlock {};
+            x;
+        });
         var _s:GoString = sprint(Go.toInterface(_m0));
         if (_s != (("map[]" : GoString))) {
             _t.errorf(("empty map printed as %q not %q" : GoString), Go.toInterface(_s), Go.toInterface(("map[]" : GoString)));
         };
         var _m1 = ({
-            final x = new stdgo.GoMap.GoObjectMap<GoInt, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-            @:privateAccess x._keys = [(1 : GoInt), (2 : GoInt), (3 : GoInt)];
-            @:privateAccess x._values = [("one" : GoString), ("two" : GoString), ("three" : GoString)];
+            final x = new GoMap<GoInt, GoString>();
+            @:mergeBlock {
+                x.set((1 : GoInt), ("one" : GoString));
+                x.set((2 : GoInt), ("two" : GoString));
+                x.set((3 : GoInt), ("three" : GoString));
+            };
             x;
-        } : stdgo.GoMap<GoInt, GoString>);
-        var _a = (new Slice<GoString>(0, 0, ("1:one" : GoString), ("2:two" : GoString), ("3:three" : GoString)) : Slice<GoString>);
+        });
+        var _a = (new Slice<GoString>(3, 3, ("1:one" : GoString), ("2:two" : GoString), ("3:three" : GoString)) : Slice<GoString>);
         _presentInMap(sprintf(("%v" : GoString), Go.toInterface(_m1)), _a, _t);
         _presentInMap(sprint(Go.toInterface(_m1)), _a, _t);
         if (!stdgo.strings.Strings.hasPrefix(sprint(Go.toInterface((Go.setRef(_m1) : Ref<GoMap<GoInt, GoString>>))), ("&" : GoString))) {
@@ -3232,7 +3250,11 @@ function testEmptyMap(_t:Ref<stdgo.testing.Testing.T>):Void {
         if (_s != (("map[]" : GoString))) {
             _t.errorf(("nil map printed as %q not %q" : GoString), Go.toInterface(_s), Go.toInterface(("map[]" : GoString)));
         };
-        _m = (new GoObjectMap<GoString, GoInt>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }))) : GoMap<GoString, GoInt>);
+        _m = ({
+            final x = new GoMap<GoString, GoInt>();
+            @:mergeBlock {};
+            x;
+        });
         _s = sprint(Go.toInterface(_m));
         if (_s != (("map[]" : GoString))) {
             _t.errorf(("empty map printed as %q not %q" : GoString), Go.toInterface(_s), Go.toInterface(("map[]" : GoString)));
@@ -3280,7 +3302,7 @@ function testFormatterPrintln(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 private function _args(_a:haxe.Rest<AnyInterface>):Slice<AnyInterface> {
-        var _a = new Slice<AnyInterface>(0, 0, ..._a);
+        var _a = new Slice<AnyInterface>(_a.length, 0, ..._a);
         return _a;
     }
 function testWidthAndPrecision(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -3372,7 +3394,7 @@ function testFormatterFlags(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testParsenum(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _testCases = (new Slice<T__struct_10>(0, 0, ({ _s : ("a123" : GoString), _start : (0 : GoInt), _end : (4 : GoInt), _num : (0 : GoInt), _isnum : false, _newi : (0 : GoInt) } : T__struct_10), ({ _s : ("1234" : GoString), _start : (1 : GoInt), _end : (1 : GoInt), _num : (0 : GoInt), _isnum : false, _newi : (1 : GoInt) } : T__struct_10), ({ _s : ("123a" : GoString), _start : (0 : GoInt), _end : (4 : GoInt), _num : (123 : GoInt), _isnum : true, _newi : (3 : GoInt) } : T__struct_10), ({ _s : ("12a3" : GoString), _start : (0 : GoInt), _end : (4 : GoInt), _num : (12 : GoInt), _isnum : true, _newi : (2 : GoInt) } : T__struct_10), ({ _s : ("1234" : GoString), _start : (0 : GoInt), _end : (4 : GoInt), _num : (1234 : GoInt), _isnum : true, _newi : (4 : GoInt) } : T__struct_10), ({ _s : ("1a234" : GoString), _start : (1 : GoInt), _end : (3 : GoInt), _num : (0 : GoInt), _isnum : false, _newi : (1 : GoInt) } : T__struct_10)) : Slice<T__struct_10>);
+        var _testCases = (new Slice<T__struct_10>(6, 6, ({ _s : ("a123" : GoString), _start : (0 : GoInt), _end : (4 : GoInt), _num : (0 : GoInt), _isnum : false, _newi : (0 : GoInt) } : T__struct_10), ({ _s : ("1234" : GoString), _start : (1 : GoInt), _end : (1 : GoInt), _num : (0 : GoInt), _isnum : false, _newi : (1 : GoInt) } : T__struct_10), ({ _s : ("123a" : GoString), _start : (0 : GoInt), _end : (4 : GoInt), _num : (123 : GoInt), _isnum : true, _newi : (3 : GoInt) } : T__struct_10), ({ _s : ("12a3" : GoString), _start : (0 : GoInt), _end : (4 : GoInt), _num : (12 : GoInt), _isnum : true, _newi : (2 : GoInt) } : T__struct_10), ({ _s : ("1234" : GoString), _start : (0 : GoInt), _end : (4 : GoInt), _num : (1234 : GoInt), _isnum : true, _newi : (4 : GoInt) } : T__struct_10), ({ _s : ("1a234" : GoString), _start : (1 : GoInt), _end : (3 : GoInt), _num : (0 : GoInt), _isnum : false, _newi : (1 : GoInt) } : T__struct_10)) : Slice<T__struct_10>);
         for (__0 => _tt in _testCases) {
             var __tmp__ = parsenum(_tt._s, _tt._start, _tt._end), _num:GoInt = __tmp__._0, _isnum:Bool = __tmp__._1, _newi:GoInt = __tmp__._2;
             if (((_num != _tt._num) || (_isnum != _tt._isnum)) || (_newi != _tt._newi)) {
@@ -3381,7 +3403,7 @@ function testParsenum(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testAppendf(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0, ...[for (i in 0 ... (100 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0).__setNumber32__();
         _b = (_b.__slice__(0, Go.copySlice(_b, ("hello " : GoString))) : Slice<GoUInt8>);
         var _got = appendf(_b, ("world, %d" : GoString), Go.toInterface((23 : GoInt)));
         if ((_got : GoString) != (("hello world, 23" : GoString))) {
@@ -3392,7 +3414,7 @@ function testAppendf(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testAppend(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0, ...[for (i in 0 ... (100 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0).__setNumber32__();
         _b = (_b.__slice__(0, Go.copySlice(_b, ("hello " : GoString))) : Slice<GoUInt8>);
         var _got = append(_b, Go.toInterface(("world" : GoString)), Go.toInterface((", " : GoString)), Go.toInterface((23 : GoInt)));
         if ((_got : GoString) != (("hello world, 23" : GoString))) {
@@ -3403,7 +3425,7 @@ function testAppend(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testAppendln(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0, ...[for (i in 0 ... (100 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0).__setNumber32__();
         _b = (_b.__slice__(0, Go.copySlice(_b, ("hello " : GoString))) : Slice<GoUInt8>);
         var _got = appendln(_b, Go.toInterface(("world," : GoString)), Go.toInterface((23 : GoInt)));
         if ((_got : GoString) != (("hello world, 23\n" : GoString))) {
@@ -3522,7 +3544,7 @@ private function _verifyNaN(_str:GoString, _t:Ref<stdgo.testing.Testing.T>):Void
         };
     }
 function testNaN(_t:Ref<stdgo.testing.Testing.T>):Void {
-        for (__0 => _s in (new Slice<GoString>(0, 0, ("nan" : GoString), ("NAN" : GoString), ("NaN" : GoString)) : Slice<GoString>)) {
+        for (__0 => _s in (new Slice<GoString>(3, 3, ("nan" : GoString), ("NAN" : GoString), ("NaN" : GoString)) : Slice<GoString>)) {
             _verifyNaN(_s, _t);
         };
     }
@@ -3548,8 +3570,8 @@ private function _verifyInf(_str:GoString, _t:Ref<stdgo.testing.Testing.T>):Void
     }
 function testInf(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _s in (new Slice<GoString>(
-0,
-0,
+9,
+9,
 ("inf" : GoString),
 ("+inf" : GoString),
 ("-inf" : GoString),
@@ -3563,7 +3585,7 @@ function testInf(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 private function _testScanfMulti(_t:Ref<stdgo.testing.Testing.T>, _f:GoString -> stdgo.io.Io.Reader):Void {
-        var _sliceType:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(Go.toInterface(new Slice<AnyInterface>((1 : GoInt).toBasic(), 0, ...[for (i in 0 ... (1 : GoInt).toBasic()) (null : AnyInterface)])));
+        var _sliceType:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(Go.toInterface(new Slice<AnyInterface>((1 : GoInt).toBasic(), 0)));
         for (__0 => _test in _multiTests) {
             var _r:stdgo.io.Io.Reader = _f(_test._text);
             var __tmp__ = fscanf(_r, _test._format, ..._test._in.__toArray__()), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -4074,7 +4096,7 @@ function testHexBytes(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testScanNewlinesAreSpaces(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __0:GoInt = (0 : GoInt), __1:GoInt = (0 : GoInt), _b:GoInt = __1, _a:GoInt = __0;
-        var _tests:Slice<T__struct_14> = (new Slice<T__struct_14>(0, 0, ({ _name : ("newlines" : GoString), _text : ("1\n2\n" : GoString), _count : (2 : GoInt) } : T__struct_14), ({ _name : ("no final newline" : GoString), _text : ("1\n2" : GoString), _count : (2 : GoInt) } : T__struct_14), ({ _name : ("newlines with spaces " : GoString), _text : ("1  \n  2  \n" : GoString), _count : (2 : GoInt) } : T__struct_14), ({ _name : ("no final newline with spaces" : GoString), _text : ("1  \n  2" : GoString), _count : (2 : GoInt) } : T__struct_14)) : Slice<T__struct_14>);
+        var _tests:Slice<T__struct_14> = (new Slice<T__struct_14>(4, 4, ({ _name : ("newlines" : GoString), _text : ("1\n2\n" : GoString), _count : (2 : GoInt) } : T__struct_14), ({ _name : ("no final newline" : GoString), _text : ("1\n2" : GoString), _count : (2 : GoInt) } : T__struct_14), ({ _name : ("newlines with spaces " : GoString), _text : ("1  \n  2  \n" : GoString), _count : (2 : GoInt) } : T__struct_14), ({ _name : ("no final newline with spaces" : GoString), _text : ("1  \n  2" : GoString), _count : (2 : GoInt) } : T__struct_14)) : Slice<T__struct_14>);
         for (__0 => _test in _tests) {
             var __tmp__ = sscan(_test._text, Go.toInterface(Go.pointer(_a)), Go.toInterface(Go.pointer(_b))), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_n != (_test._count)) {
@@ -4087,7 +4109,7 @@ function testScanNewlinesAreSpaces(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testScanlnNewlinesTerminate(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __0:GoInt = (0 : GoInt), __1:GoInt = (0 : GoInt), _b:GoInt = __1, _a:GoInt = __0;
-        var _tests:Slice<T__struct_15> = (new Slice<T__struct_15>(0, 0, ({ _name : ("one line one item" : GoString), _text : ("1\n" : GoString), _count : (1 : GoInt), _ok : false } : T__struct_15), ({ _name : ("one line two items with spaces " : GoString), _text : ("   1 2    \n" : GoString), _count : (2 : GoInt), _ok : true } : T__struct_15), ({ _name : ("one line two items no newline" : GoString), _text : ("   1 2" : GoString), _count : (2 : GoInt), _ok : true } : T__struct_15), ({ _name : ("two lines two items" : GoString), _text : ("1\n2\n" : GoString), _count : (1 : GoInt), _ok : false } : T__struct_15)) : Slice<T__struct_15>);
+        var _tests:Slice<T__struct_15> = (new Slice<T__struct_15>(4, 4, ({ _name : ("one line one item" : GoString), _text : ("1\n" : GoString), _count : (1 : GoInt), _ok : false } : T__struct_15), ({ _name : ("one line two items with spaces " : GoString), _text : ("   1 2    \n" : GoString), _count : (2 : GoInt), _ok : true } : T__struct_15), ({ _name : ("one line two items no newline" : GoString), _text : ("   1 2" : GoString), _count : (2 : GoInt), _ok : true } : T__struct_15), ({ _name : ("two lines two items" : GoString), _text : ("1\n2\n" : GoString), _count : (1 : GoInt), _ok : false } : T__struct_15)) : Slice<T__struct_15>);
         for (__0 => _test in _tests) {
             var __tmp__ = sscanln(_test._text, Go.toInterface(Go.pointer(_a)), Go.toInterface(Go.pointer(_b))), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_n != (_test._count)) {
@@ -4104,8 +4126,8 @@ function testScanlnNewlinesTerminate(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testScanfNewlineMatchFormat(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __0:GoInt = (0 : GoInt), __1:GoInt = (0 : GoInt), _b:GoInt = __1, _a:GoInt = __0;
         var _tests:Slice<T__struct_16> = (new Slice<T__struct_16>(
-0,
-0,
+40,
+40,
 ({ _name : ("newline in both" : GoString), _text : ("1\n2" : GoString), _format : ("%d\n%d\n" : GoString), _count : (2 : GoInt), _ok : true } : T__struct_16),
 ({ _name : ("newline in input" : GoString), _text : ("1\n2" : GoString), _format : ("%d %d" : GoString), _count : (1 : GoInt), _ok : false } : T__struct_16),
 ({ _name : ("space-newline in input" : GoString), _text : ("1 \n2" : GoString), _format : ("%d %d" : GoString), _count : (1 : GoInt), _ok : false } : T__struct_16),
@@ -4196,7 +4218,11 @@ private function _mkState(_w:GoInt, _p:GoInt, _flags:GoString):T_testState {
             _s._prec = _p;
             _s._precOK = true;
         };
-        _s._flag = (new GoObjectMap<GoInt, Bool>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }))) : GoMap<GoInt, Bool>);
+        _s._flag = ({
+            final x = new GoMap<GoInt, Bool>();
+            @:mergeBlock {};
+            x;
+        });
         for (__0 => _c in _flags) {
             _s._flag[(_c : GoInt)] = true;
         };
@@ -4204,8 +4230,8 @@ private function _mkState(_w:GoInt, _p:GoInt, _flags:GoString):T_testState {
     }
 function testFormatString(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _tests:Slice<T__struct_17> = (new Slice<T__struct_17>(
-0,
-0,
+10,
+10,
 ({ _width : (-1000 : GoInt), _prec : (-1000 : GoInt), _flags : Go.str(), _result : ("%x" : GoString) } : T__struct_17),
 ({ _width : (-1000 : GoInt), _prec : (3 : GoInt), _flags : Go.str(), _result : ("%.3x" : GoString) } : T__struct_17),
 ({ _width : (3 : GoInt), _prec : (-1000 : GoInt), _flags : Go.str(), _result : ("%3x" : GoString) } : T__struct_17),
@@ -4787,7 +4813,7 @@ class TwoLines_asInterface {
     @:keep
     @:pointer
     static public function scan(____:TwoLines,  _t:Pointer<TwoLines>, _state:ScanState, _verb:GoRune):Error {
-        var _chars = new Slice<GoInt32>((0 : GoInt).toBasic(), (100 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoInt32)]);
+        var _chars = new Slice<GoInt32>((0 : GoInt).toBasic(), (100 : GoInt)).__setNumber32__();
         {
             var _nlCount:GoInt = (0 : GoInt);
             while (_nlCount < (2 : GoInt)) {
@@ -4795,7 +4821,7 @@ class TwoLines_asInterface {
                 if (_err != null) {
                     return _err;
                 };
-                _chars = _chars.__appendref__(_c);
+                _chars = (_chars.__append__(_c));
                 if (_c == ((10 : GoInt32))) {
                     _nlCount++;
                 };

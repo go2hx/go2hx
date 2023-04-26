@@ -15,8 +15,8 @@ import stdgo.fmt.Fmt;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+51,
+51,
 (new stdgo.testing.Testing.InternalTest(("TestErrorf" : GoString), stdgo.fmt_test.Fmt_test.testErrorf) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestFmtInterface" : GoString), stdgo.fmt_test.Fmt_test.testFmtInterface) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestSprintf" : GoString), stdgo.fmt_test.Fmt_test.testSprintf) : stdgo.testing.Testing.InternalTest),
@@ -74,8 +74,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+25,
+25,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkSprintfPadding" : GoString), stdgo.fmt_test.Fmt_test.benchmarkSprintfPadding) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkSprintfEmpty" : GoString), stdgo.fmt_test.Fmt_test.benchmarkSprintfEmpty) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkSprintfString" : GoString), stdgo.fmt_test.Fmt_test.benchmarkSprintfString) : stdgo.testing.Testing.InternalBenchmark),
@@ -113,8 +113,8 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+17,
+17,
 (new stdgo.testing.Testing.InternalExample(("ExampleErrorf" : GoString), stdgo.fmt_test.Fmt_test.exampleErrorf, ("user \"bueller\" (id 17) not found\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleFscanf" : GoString), stdgo.fmt_test.Fmt_test.exampleFscanf, ("5 true gophers\n3\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleFscanln" : GoString), stdgo.fmt_test.Fmt_test.exampleFscanln, ("3: dmr, 1771, 1.618034\n3: ken, 271828, 3.141590\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

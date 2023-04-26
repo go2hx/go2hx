@@ -88,7 +88,7 @@ function testRead(_t:Ref<stdgo.testing.Testing.T>):Void {
         if (stdgo.testing.Testing.short()) {
             _n = (100000 : GoInt);
         };
-        var _b = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0).__setNumber32__();
         var __tmp__ = stdgo.io.Io.readFull(reader, _b), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if ((_n != (_b.length)) || (_err != null)) {
             _t.fatalf(("ReadFull(buf) = %d, %s" : GoString), Go.toInterface(_n), Go.toInterface(_err));
@@ -102,7 +102,7 @@ function testRead(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testReadEmpty(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var __tmp__ = reader.read(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)])), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = reader.read(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0).__setNumber32__()), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if ((_n != (0 : GoInt)) || (_err != null)) {
             _t.fatalf(("Read(make([]byte, 0)) = %d, %v" : GoString), Go.toInterface(_n), Go.toInterface(_err));
         };
@@ -128,7 +128,7 @@ function prime(_rand:stdgo.io.Io.Reader, _bits:GoInt):{ var _0 : Ref<stdgo.math.
         if (_b == ((0u32 : GoUInt))) {
             _b = (8u32 : GoUInt);
         };
-        var _bytes = new Slice<GoUInt8>(((_bits + (7 : GoInt)) / (8 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_bits + (7 : GoInt)) / (8 : GoInt) : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _bytes = new Slice<GoUInt8>(((_bits + (7 : GoInt)) / (8 : GoInt) : GoInt).toBasic(), 0).__setNumber32__();
         var _p = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>);
         while (true) {
             {
@@ -172,7 +172,7 @@ function int_(_rand:stdgo.io.Io.Reader, _max:Ref<stdgo.math.big.Big.Int_>):{ var
         if (_b == ((0u32 : GoUInt))) {
             _b = (8u32 : GoUInt);
         };
-        var _bytes = new Slice<GoUInt8>((_k : GoInt).toBasic(), 0, ...[for (i in 0 ... (_k : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _bytes = new Slice<GoUInt8>((_k : GoInt).toBasic(), 0).__setNumber32__();
         while (true) {
             {
                 var __tmp__ = stdgo.io.Io.readFull(_rand, _bytes);

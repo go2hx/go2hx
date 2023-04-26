@@ -15,8 +15,8 @@ import stdgo.go.types.Types;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+122,
+122,
 (new stdgo.testing.Testing.InternalTest(("TestContextHashCollisions" : GoString), stdgo.go.types.Types.testContextHashCollisions) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestError" : GoString), stdgo.go.types.Types.testError) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestStripAnnotations" : GoString), stdgo.go.types.Types.testStripAnnotations) : stdgo.testing.Testing.InternalTest),
@@ -144,7 +144,7 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
     
 **/
-private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLookupFieldOrMethod" : GoString), stdgo.go.types_test.Types_test.benchmarkLookupFieldOrMethod) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkNamed" : GoString), stdgo.go.types_test.Types_test.benchmarkNamed) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkCheck" : GoString), stdgo.go.types_test.Types_test.benchmarkCheck) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
+private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(3, 3, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLookupFieldOrMethod" : GoString), stdgo.go.types_test.Types_test.benchmarkLookupFieldOrMethod) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkNamed" : GoString), stdgo.go.types_test.Types_test.benchmarkNamed) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkCheck" : GoString), stdgo.go.types_test.Types_test.benchmarkCheck) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 /**
     
     

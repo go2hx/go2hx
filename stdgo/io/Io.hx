@@ -90,7 +90,7 @@ var discard : Writer = Go.asInterface((new T_discard() : T_discard));
     
 **/
 private var _blackHolePool = ({ new_ : function():AnyInterface {
-        var _b = new Slice<GoUInt8>((8192 : GoInt).toBasic(), 0, ...[for (i in 0 ... (8192 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((8192 : GoInt).toBasic(), 0).__setNumber32__();
         return Go.toInterface((Go.setRef(_b) : Ref<Slice<GoUInt8>>));
     } } : stdgo.sync.Sync.Pool);
 /**
@@ -972,7 +972,7 @@ private function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{ var
                     };
                 };
             };
-            _buf = new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0 ... (_size : GoInt).toBasic()) (0 : GoUInt8)]);
+            _buf = new Slice<GoUInt8>((_size : GoInt).toBasic(), 0).__setNumber32__();
         };
         while (true) {
             var __tmp__ = _src.read(_buf), _nr:GoInt = __tmp__._0, _er:Error = __tmp__._1;
@@ -1068,7 +1068,7 @@ function nopCloser(_r:Reader):ReadCloser {
     // as an error to be reported.
 **/
 function readAll(_r:Reader):{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), (512 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), (512 : GoInt)).__setNumber32__();
         while (true) {
             if ((_b.length) == (_b.capacity)) {
                 _b = ((_b.__append__((0 : GoUInt8))).__slice__(0, (_b.length)) : Slice<GoUInt8>);
@@ -1090,8 +1090,8 @@ function readAll(_r:Reader):{ var _0 : Slice<GoByte>; var _1 : Error; } {
     // return a non-nil, non-EOF error, Read will return that error.
 **/
 function multiReader(_readers:haxe.Rest<Reader>):Reader {
-        var _readers = new Slice<Reader>(0, 0, ..._readers);
-        var _r = new Slice<stdgo.io.Io.Reader>((_readers.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_readers.length : GoInt).toBasic()) (null : stdgo.io.Io.Reader)]);
+        var _readers = new Slice<Reader>(_readers.length, 0, ..._readers);
+        var _r = new Slice<stdgo.io.Io.Reader>((_readers.length : GoInt).toBasic(), 0);
         Go.copySlice(_r, _readers);
         return Go.asInterface((Go.setRef((new T_multiReader(_r) : T_multiReader)) : Ref<stdgo.io.Io.T_multiReader>));
     }
@@ -1104,8 +1104,8 @@ function multiReader(_readers:haxe.Rest<Reader>):Reader {
     // stops and returns the error; it does not continue down the list.
 **/
 function multiWriter(_writers:haxe.Rest<Writer>):Writer {
-        var _writers = new Slice<Writer>(0, 0, ..._writers);
-        var _allWriters = new Slice<stdgo.io.Io.Writer>((0 : GoInt).toBasic(), (_writers.length), ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : stdgo.io.Io.Writer)]);
+        var _writers = new Slice<Writer>(_writers.length, 0, ..._writers);
+        var _allWriters = new Slice<stdgo.io.Io.Writer>((0 : GoInt).toBasic(), (_writers.length));
         for (__0 => _w in _writers) {
             {
                 var __tmp__ = try {
@@ -1114,9 +1114,9 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
                     { value : (null : Ref<stdgo.io.Io.T_multiWriter>), ok : false };
                 }, _mw = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
-                    _allWriters = _allWriters.__appendref__(..._mw._writers.__toArray__());
+                    _allWriters = (_allWriters.__append__(..._mw._writers.__toArray__()));
                 } else {
-                    _allWriters = _allWriters.__appendref__(_w);
+                    _allWriters = (_allWriters.__append__(_w));
                 };
             };
         };
@@ -1515,7 +1515,7 @@ class T_multiReader_asInterface {
     @:keep
     static public function writeTo( _mr:Ref<T_multiReader>, _w:Writer):{ var _0 : GoInt64; var _1 : Error; } {
         var _sum:GoInt64 = (0 : GoInt64), _err:Error = (null : Error);
-        return _mr._writeToWithBuffer(_w, new Slice<GoUInt8>((32768 : GoInt).toBasic(), 0, ...[for (i in 0 ... (32768 : GoInt).toBasic()) (0 : GoUInt8)]));
+        return _mr._writeToWithBuffer(_w, new Slice<GoUInt8>((32768 : GoInt).toBasic(), 0).__setNumber32__());
     }
     @:keep
     static public function read( _mr:Ref<T_multiReader>, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {

@@ -22,8 +22,8 @@ private var __go2hxdoc__package : Bool;
     
 **/
 private var _vc26 = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((4.9790119248836735f64 : GoFloat64) + new GoComplex128(0f64, 7.738872474578105f64)),
 ((7.738872474578105f64 : GoFloat64) + new GoComplex128(0f64, -0.2768800571920016f64)),
 ((-0.2768800571920016f64 : GoFloat64) + new GoComplex128(0f64, -5.010603618271075f64)),
@@ -40,8 +40,8 @@ private var _vc26 = (new Slice<GoComplex128>(
     
 **/
 private var _vc = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((4.9790119248836735f64 : GoFloat64) + new GoComplex128(0f64, 7.738872474578105f64)),
 ((7.738872474578105f64 : GoFloat64) + new GoComplex128(0f64, -0.2768800571920016f64)),
 ((-0.2768800571920016f64 : GoFloat64) + new GoComplex128(0f64, -5.010603618271075f64)),
@@ -58,8 +58,8 @@ private var _vc = (new Slice<GoComplex128>(
     
 **/
 private var _abs = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (9.202212066993265 : GoFloat64),
 (7.743823974229611 : GoFloat64),
 (5.018247820255775 : GoFloat64),
@@ -76,8 +76,8 @@ private var _abs = (new Slice<GoFloat64>(
     
 **/
 private var _acos = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((1.0017679804707456f64 : GoFloat64) + new GoComplex128(0f64, -2.9138232718554953f64)),
 ((0.036064276120414074f64 : GoFloat64) + new GoComplex128(0f64, 2.735858443457626f64)),
 ((1.6249365462333796f64 : GoFloat64) + new GoComplex128(0f64, 2.3159537454335903f64)),
@@ -94,8 +94,8 @@ private var _acos = (new Slice<GoComplex128>(
     
 **/
 private var _acosh = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((2.9138232718554953f64 : GoFloat64) + new GoComplex128(0f64, 1.0017679804707456f64)),
 ((2.735858443457626f64 : GoFloat64) + new GoComplex128(0f64, -0.036064276120414074f64)),
 ((2.3159537454335903f64 : GoFloat64) + new GoComplex128(0f64, -1.6249365462333796f64)),
@@ -112,8 +112,8 @@ private var _acosh = (new Slice<GoComplex128>(
     
 **/
 private var _asin = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((0.569028346324151f64 : GoFloat64) + new GoComplex128(0f64, 2.9138232718554953f64)),
 ((1.5347320506744826f64 : GoFloat64) + new GoComplex128(0f64, -2.735858443457626f64)),
 ((-0.05414021943848305f64 : GoFloat64) + new GoComplex128(0f64, -2.3159537454335903f64)),
@@ -130,8 +130,8 @@ private var _asin = (new Slice<GoComplex128>(
     
 **/
 private var _asinh = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((2.9113760469415295f64 : GoFloat64) + new GoComplex128(0f64, 0.9963945954570432f64)),
 ((2.744175542399426f64 : GoFloat64) + new GoComplex128(0f64, -0.0354683087890005f64)),
 ((-2.296213646252069f64 : GoFloat64) + new GoComplex128(0f64, -1.5144663565690153f64)),
@@ -148,8 +148,8 @@ private var _asinh = (new Slice<GoComplex128>(
     
 **/
 private var _atan = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((1.5115747079332742f64 : GoFloat64) + new GoComplex128(0f64, 0.0913244036039545f64)),
 ((1.4424504323482603f64 : GoFloat64) + new GoComplex128(0f64, -0.004541613264280391f64)),
 ((-1.5593488703630534f64 : GoFloat64) + new GoComplex128(0f64, -0.20163295409248363f64)),
@@ -166,8 +166,8 @@ private var _atan = (new Slice<GoComplex128>(
     
 **/
 private var _atanh = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((0.05837502793896851f64 : GoFloat64) + new GoComplex128(0f64, 1.4793488495105334f64)),
 ((0.1297734349779038f64 : GoFloat64) + new GoComplex128(0f64, -1.5661009410463562f64)),
 ((-0.010576456067347252f64 : GoFloat64) + new GoComplex128(0f64, -1.3743698658402284f64)),
@@ -184,8 +184,8 @@ private var _atanh = (new Slice<GoComplex128>(
     
 **/
 private var _conj = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((4.9790119248836735f64 : GoFloat64) + new GoComplex128(0f64, -7.738872474578105f64)),
 ((7.738872474578105f64 : GoFloat64) + new GoComplex128(0f64, 0.2768800571920016f64)),
 ((-0.2768800571920016f64 : GoFloat64) + new GoComplex128(0f64, 5.010603618271075f64)),
@@ -202,8 +202,8 @@ private var _conj = (new Slice<GoComplex128>(
     
 **/
 private var _cos = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((302.4540920601484f64 : GoFloat64) + new GoComplex128(0f64, 1107.3797572517071f64)),
 ((0.1192858682649065f64 : GoFloat64) + new GoComplex128(0f64, 0.27857554122333067f64)),
 ((72.1443943045283f64 : GoFloat64) + new GoComplex128(0f64, -20.500129667076045f64)),
@@ -220,8 +220,8 @@ private var _cos = (new Slice<GoComplex128>(
     
 **/
 private var _cosh = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((8.346383835230183f64 : GoFloat64) + new GoComplex128(0f64, 72.18105788642585f64)),
 ((1104.2196737991937f64 : GoFloat64) + new GoComplex128(0f64, -313.79638689277573f64)),
 ((0.30514852067737014f64 : GoFloat64) + new GoComplex128(0f64, -0.26805384730105297f64)),
@@ -238,8 +238,8 @@ private var _cosh = (new Slice<GoComplex128>(
     
 **/
 private var _exp = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((16.691977368646707f64 : GoFloat64) + new GoComplex128(0f64, 144.36895109507662f64)),
 ((2208.4389286252585f64 : GoFloat64) + new GoComplex128(0f64, -627.5928928490921f64)),
 ((0.22275382731227752f64 : GoFloat64) + new GoComplex128(0f64, 0.724682840283342f64)),
@@ -256,8 +256,8 @@ private var _exp = (new Slice<GoComplex128>(
     
 **/
 private var _log = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((2.2194438972179196f64 : GoFloat64) + new GoComplex128(0f64, 0.999091150469193f64)),
 ((2.046895619115417f64 : GoFloat64) + new GoComplex128(0f64, -0.03576257502185697f64)),
 ((1.613080832985386f64 : GoFloat64) + new GoComplex128(0f64, -1.625999007401906f64)),
@@ -274,8 +274,8 @@ private var _log = (new Slice<GoComplex128>(
     
 **/
 private var _log10 = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((0.9638922374555904f64 : GoFloat64) + new GoComplex128(0f64, 0.43389977356714193f64)),
 ((0.8889554724137658f64 : GoFloat64) + new GoComplex128(0f64, -0.015531488990643548f64)),
 ((0.7005521046294542f64 : GoFloat64) + new GoComplex128(0f64, -0.7061623964948124f64)),
@@ -292,8 +292,8 @@ private var _log10 = (new Slice<GoComplex128>(
     
 **/
 private var _polar = (new Slice<stdgo.math.cmplx.Cmplx.T_ff>(
-0,
-0,
+10,
+10,
 (new stdgo.math.cmplx.Cmplx.T_ff((9.202212066993265 : GoFloat64), (0.999091150469193 : GoFloat64)) : stdgo.math.cmplx.Cmplx.T_ff),
 (new stdgo.math.cmplx.Cmplx.T_ff((7.743823974229611 : GoFloat64), (-0.03576257502185697 : GoFloat64)) : stdgo.math.cmplx.Cmplx.T_ff),
 (new stdgo.math.cmplx.Cmplx.T_ff((5.018247820255775 : GoFloat64), (-1.625999007401906 : GoFloat64)) : stdgo.math.cmplx.Cmplx.T_ff),
@@ -310,8 +310,8 @@ private var _polar = (new Slice<stdgo.math.cmplx.Cmplx.T_ff>(
     
 **/
 private var _pow = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((-2.4999567391975295f64 : GoFloat64) + new GoComplex128(0f64, 1.7597517243356502f64)),
 ((73570.94338218117f64 : GoFloat64) + new GoComplex128(0f64, -50899.73412479152f64)),
 ((13.207772960677685f64 : GoFloat64) + new GoComplex128(0f64, -31.656219143339015f64)),
@@ -328,8 +328,8 @@ private var _pow = (new Slice<GoComplex128>(
     
 **/
 private var _sin = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((-1107.3801774240233f64 : GoFloat64) + new GoComplex128(0f64, 302.45397730025024f64)),
 ((1.031703752140076f64 : GoFloat64) + new GoComplex128(0f64, -0.03220897979992957f64)),
 ((-20.50195209727143f64 : GoFloat64) + new GoComplex128(0f64, -72.1379813482408f64)),
@@ -346,8 +346,8 @@ private var _sin = (new Slice<GoComplex128>(
     
 **/
 private var _sinh = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((8.345593533416526f64 : GoFloat64) + new GoComplex128(0f64, 72.18789320865079f64)),
 ((1104.2192548260646f64 : GoFloat64) + new GoComplex128(0f64, -313.79650595631637f64)),
 ((-0.08239469336509264f64 : GoFloat64) + new GoComplex128(0f64, 0.9927366875843949f64)),
@@ -364,8 +364,8 @@ private var _sinh = (new Slice<GoComplex128>(
     
 **/
 private var _sqrt = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((2.662820308608613f64 : GoFloat64) + new GoComplex128(0f64, 1.4531345674282186f64)),
 ((2.7823278427251985f64 : GoFloat64) + new GoComplex128(0f64, -0.049756907317005224f64)),
 ((1.5397025302089642f64 : GoFloat64) + new GoComplex128(0f64, -1.6271336573016637f64)),
@@ -382,8 +382,8 @@ private var _sqrt = (new Slice<GoComplex128>(
     
 **/
 private var _tan = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((-1.928757919086441e-07f64 : GoFloat64) + new GoComplex128(0f64, 1.000000326749917f64)),
 ((1.2424126853641837f64 : GoFloat64) + new GoComplex128(0f64, -3.171496938831334f64)),
 ((-4.67451262515878e-05f64 : GoFloat64) + new GoComplex128(0f64, -0.9999243922526396f64)),
@@ -400,8 +400,8 @@ private var _tan = (new Slice<GoComplex128>(
     
 **/
 private var _tanh = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((1.0000921981225144f64 : GoFloat64) + new GoComplex128(0f64, 2.160986245871518e-05f64)),
 ((0.9999996772753199f64 : GoFloat64) + new GoComplex128(0f64, -1.9953763222959658e-07f64)),
 ((-1.7654857395480372f64 : GoFloat64) + new GoComplex128(0f64, 1.7024216325552852f64)),
@@ -418,8 +418,8 @@ private var _tanh = (new Slice<GoComplex128>(
     
 **/
 private var _hugeIn = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((2.68435456e+08f64 : GoFloat64) + new GoComplex128(0f64, 0f64)),
 ((5.36870912e+08f64 : GoFloat64) + new GoComplex128(0f64, 0f64)),
 ((1.073741824e+09f64 : GoFloat64) + new GoComplex128(0f64, 0f64)),
@@ -437,8 +437,8 @@ private var _hugeIn = (new Slice<GoComplex128>(
     
 **/
 private var _tanHuge = (new Slice<GoComplex128>(
-0,
-0,
+10,
+10,
 ((5.956418979396394f64 : GoFloat64) + new GoComplex128(0f64, 0f64)),
 ((-0.3455106923343039f64 : GoFloat64) + new GoComplex128(0f64, 0f64)),
 ((-0.7846966133192004f64 : GoFloat64) + new GoComplex128(0f64, 0f64)),
@@ -466,33 +466,33 @@ private var _nan = stdgo.math.Math.naN();
     
     
 **/
-private var _vcAbsSC = (new Slice<GoComplex128>(0, 0, naN()) : Slice<GoComplex128>);
+private var _vcAbsSC = (new Slice<GoComplex128>(1, 1, naN()) : Slice<GoComplex128>);
 /**
     
     
     
 **/
-private var _absSC = (new Slice<GoFloat64>(0, 0, stdgo.math.Math.naN()) : Slice<GoFloat64>);
+private var _absSC = (new Slice<GoFloat64>(1, 1, stdgo.math.Math.naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vcConjSC = (new Slice<GoComplex128>(0, 0, naN()) : Slice<GoComplex128>);
+private var _vcConjSC = (new Slice<GoComplex128>(1, 1, naN()) : Slice<GoComplex128>);
 /**
     
     
     
 **/
-private var _conjSC = (new Slice<GoComplex128>(0, 0, naN()) : Slice<GoComplex128>);
+private var _conjSC = (new Slice<GoComplex128>(1, 1, naN()) : Slice<GoComplex128>);
 /**
     
     
     
 **/
 private var _vcIsNaNSC = (new Slice<GoComplex128>(
-0,
-0,
+9,
+9,
 new GoComplex128(stdgo.math.Math.inf((-1 : GoInt)), stdgo.math.Math.inf((-1 : GoInt))),
 new GoComplex128(stdgo.math.Math.inf((-1 : GoInt)), stdgo.math.Math.naN()),
 new GoComplex128(stdgo.math.Math.naN(), stdgo.math.Math.inf((-1 : GoInt))),
@@ -508,8 +508,8 @@ new GoComplex128(stdgo.math.Math.naN(), stdgo.math.Math.naN())) : Slice<GoComple
     
 **/
 private var _isNaNSC = (new Slice<Bool>(
-0,
-0,
+9,
+9,
 false,
 false,
 false,
@@ -524,25 +524,25 @@ true) : Slice<Bool>);
     
     
 **/
-private var _vcPolarSC = (new Slice<GoComplex128>(0, 0, naN()) : Slice<GoComplex128>);
+private var _vcPolarSC = (new Slice<GoComplex128>(1, 1, naN()) : Slice<GoComplex128>);
 /**
     
     
     
 **/
-private var _polarSC = (new Slice<stdgo.math.cmplx.Cmplx.T_ff>(0, 0, (new stdgo.math.cmplx.Cmplx.T_ff(stdgo.math.Math.naN(), stdgo.math.Math.naN()) : stdgo.math.cmplx.Cmplx.T_ff)) : Slice<stdgo.math.cmplx.Cmplx.T_ff>);
+private var _polarSC = (new Slice<stdgo.math.cmplx.Cmplx.T_ff>(1, 1, (new stdgo.math.cmplx.Cmplx.T_ff(stdgo.math.Math.naN(), stdgo.math.Math.naN()) : stdgo.math.cmplx.Cmplx.T_ff)) : Slice<stdgo.math.cmplx.Cmplx.T_ff>);
 /**
     
     
     
 **/
-private var _vcPowSC = (new Slice<GoArray<GoComplex128>>(0, 0, (new GoArray<GoComplex128>(naN(), naN()) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), naN()) : GoArray<GoComplex128>)) : Slice<GoArray<GoComplex128>>);
+private var _vcPowSC = (new Slice<GoArray<GoComplex128>>(2, 2, (new GoArray<GoComplex128>(naN(), naN()) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), naN()) : GoArray<GoComplex128>)) : Slice<GoArray<GoComplex128>>);
 /**
     
     
     
 **/
-private var _powSC = (new Slice<GoComplex128>(0, 0, naN(), naN()) : Slice<GoComplex128>);
+private var _powSC = (new Slice<GoComplex128>(2, 2, naN(), naN()) : Slice<GoComplex128>);
 /**
     
     
@@ -555,8 +555,8 @@ private var _zero = (0 : GoFloat64);
     
 **/
 private var _acosSC = (new Slice<T__struct_0>(
-0,
-0,
+15,
+15,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128((1.5707963267948966 : GoFloat64), -_zero) } : T__struct_0),
 ({ _in : new GoComplex128(-_zero, _zero), _want : new GoComplex128((1.5707963267948966 : GoFloat64), -_zero) } : T__struct_0),
 ({ _in : new GoComplex128(_zero, _nan), _want : new GoComplex128((1.5707963267948966 : GoFloat64), _nan) } : T__struct_0),
@@ -578,8 +578,8 @@ private var _acosSC = (new Slice<T__struct_0>(
     
 **/
 private var _acoshSC = (new Slice<T__struct_0>(
-0,
-0,
+13,
+13,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128(_zero, (1.5707963267948966 : GoFloat64)) } : T__struct_0),
 ({ _in : new GoComplex128(-_zero, _zero), _want : new GoComplex128(_zero, (1.5707963267948966 : GoFloat64)) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _inf), _want : new GoComplex128(_inf, (1.5707963267948966 : GoFloat64)) } : T__struct_0),
@@ -599,8 +599,8 @@ private var _acoshSC = (new Slice<T__struct_0>(
     
 **/
 private var _asinSC = (new Slice<T__struct_0>(
-0,
-0,
+10,
+10,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128(_zero, _zero) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _inf), _want : new GoComplex128((0 : GoFloat64), _inf) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _nan), _want : naN() } : T__struct_0),
@@ -617,8 +617,8 @@ private var _asinSC = (new Slice<T__struct_0>(
     
 **/
 private var _asinhSC = (new Slice<T__struct_0>(
-0,
-0,
+10,
+10,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128(_zero, _zero) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _inf), _want : new GoComplex128(_inf, (1.5707963267948966 : GoFloat64)) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _nan), _want : naN() } : T__struct_0),
@@ -635,8 +635,8 @@ private var _asinhSC = (new Slice<T__struct_0>(
     
 **/
 private var _atanSC = (new Slice<T__struct_0>(
-0,
-0,
+11,
+11,
 ({ _in : new GoComplex128((0 : GoFloat64), _zero), _want : new GoComplex128((0 : GoFloat64), _zero) } : T__struct_0),
 ({ _in : new GoComplex128((0 : GoFloat64), _nan), _want : naN() } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _zero), _want : new GoComplex128((0.7853981633974483 : GoFloat64), _zero) } : T__struct_0),
@@ -654,8 +654,8 @@ private var _atanSC = (new Slice<T__struct_0>(
     
 **/
 private var _atanhSC = (new Slice<T__struct_0>(
-0,
-0,
+11,
+11,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128(_zero, _zero) } : T__struct_0),
 ({ _in : new GoComplex128(_zero, _nan), _want : new GoComplex128(_zero, _nan) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _zero), _want : new GoComplex128(_inf, _zero) } : T__struct_0),
@@ -673,8 +673,8 @@ private var _atanhSC = (new Slice<T__struct_0>(
     
 **/
 private var _cosSC = (new Slice<T__struct_0>(
-0,
-0,
+13,
+13,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128((1 : GoFloat64), -_zero) } : T__struct_0),
 ({ _in : new GoComplex128(_zero, _inf), _want : new GoComplex128(_inf, -_zero) } : T__struct_0),
 ({ _in : new GoComplex128(_zero, _nan), _want : new GoComplex128(_nan, _zero) } : T__struct_0),
@@ -694,8 +694,8 @@ private var _cosSC = (new Slice<T__struct_0>(
     
 **/
 private var _coshSC = (new Slice<T__struct_0>(
-0,
-0,
+13,
+13,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128((1 : GoFloat64), _zero) } : T__struct_0),
 ({ _in : new GoComplex128(_zero, _inf), _want : new GoComplex128(_nan, _zero) } : T__struct_0),
 ({ _in : new GoComplex128(_zero, _nan), _want : new GoComplex128(_nan, _zero) } : T__struct_0),
@@ -715,8 +715,8 @@ private var _coshSC = (new Slice<T__struct_0>(
     
 **/
 private var _expSC = (new Slice<T__struct_0>(
-0,
-0,
+15,
+15,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128((1 : GoFloat64), _zero) } : T__struct_0),
 ({ _in : new GoComplex128(-_zero, _zero), _want : new GoComplex128((1 : GoFloat64), _zero) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _inf), _want : naN() } : T__struct_0),
@@ -738,8 +738,8 @@ private var _expSC = (new Slice<T__struct_0>(
     
 **/
 private var _logSC = (new Slice<T__struct_0>(
-0,
-0,
+13,
+13,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128(-_inf, _zero) } : T__struct_0),
 ({ _in : new GoComplex128(-_zero, _zero), _want : new GoComplex128(-_inf, (3.141592653589793 : GoFloat64)) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _inf), _want : new GoComplex128(_inf, (1.5707963267948966 : GoFloat64)) } : T__struct_0),
@@ -759,8 +759,8 @@ private var _logSC = (new Slice<T__struct_0>(
     
 **/
 private var _log10SC = (new Slice<T__struct_0>(
-0,
-0,
+13,
+13,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128(-_inf, _zero) } : T__struct_0),
 ({ _in : new GoComplex128(-_zero, _zero), _want : new GoComplex128(-_inf, (1.3643763538418412 : GoFloat64)) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _inf), _want : new GoComplex128(_inf, (0.6821881769209206 : GoFloat64)) } : T__struct_0),
@@ -780,8 +780,8 @@ private var _log10SC = (new Slice<T__struct_0>(
     
 **/
 private var _sinSC = (new Slice<T__struct_0>(
-0,
-0,
+13,
+13,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128(_zero, _zero) } : T__struct_0),
 ({ _in : new GoComplex128(_zero, _inf), _want : new GoComplex128(_zero, _inf) } : T__struct_0),
 ({ _in : new GoComplex128(_zero, _nan), _want : new GoComplex128(_zero, _nan) } : T__struct_0),
@@ -801,8 +801,8 @@ private var _sinSC = (new Slice<T__struct_0>(
     
 **/
 private var _sinhSC = (new Slice<T__struct_0>(
-0,
-0,
+13,
+13,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128(_zero, _zero) } : T__struct_0),
 ({ _in : new GoComplex128(_zero, _inf), _want : new GoComplex128(_zero, _nan) } : T__struct_0),
 ({ _in : new GoComplex128(_zero, _nan), _want : new GoComplex128(_zero, _nan) } : T__struct_0),
@@ -822,8 +822,8 @@ private var _sinhSC = (new Slice<T__struct_0>(
     
 **/
 private var _sqrtSC = (new Slice<T__struct_0>(
-0,
-0,
+11,
+11,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128(_zero, _zero) } : T__struct_0),
 ({ _in : new GoComplex128(-_zero, _zero), _want : new GoComplex128(_zero, _zero) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _inf), _want : new GoComplex128(_inf, _inf) } : T__struct_0),
@@ -841,8 +841,8 @@ private var _sqrtSC = (new Slice<T__struct_0>(
     
 **/
 private var _tanSC = (new Slice<T__struct_0>(
-0,
-0,
+11,
+11,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128(_zero, _zero) } : T__struct_0),
 ({ _in : new GoComplex128(_zero, _nan), _want : new GoComplex128(_zero, _nan) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _inf), _want : new GoComplex128(_zero, (1 : GoFloat64)) } : T__struct_0),
@@ -860,8 +860,8 @@ private var _tanSC = (new Slice<T__struct_0>(
     
 **/
 private var _tanhSC = (new Slice<T__struct_0>(
-0,
-0,
+10,
+10,
 ({ _in : new GoComplex128(_zero, _zero), _want : new GoComplex128(_zero, _zero) } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _inf), _want : naN() } : T__struct_0),
 ({ _in : new GoComplex128((1 : GoFloat64), _nan), _want : naN() } : T__struct_0),
@@ -883,7 +883,7 @@ private var _eps = (1.1102230246251565e-16 : GoFloat64);
     
     
 **/
-private var _branchPoints = (new Slice<GoArray<GoComplex128>>(0, 0, (new GoArray<GoComplex128>(new GoComplex128((2 : GoFloat64), _zero), new GoComplex128((2 : GoFloat64), _eps)) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128((2 : GoFloat64), -_zero), new GoComplex128((2 : GoFloat64), -_eps)) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128((-2 : GoFloat64), _zero), new GoComplex128((-2 : GoFloat64), _eps)) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128((-2 : GoFloat64), -_zero), new GoComplex128((-2 : GoFloat64), -_eps)) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128(_zero, (2 : GoFloat64)), new GoComplex128(_eps, (2 : GoFloat64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128(-_zero, (2 : GoFloat64)), new GoComplex128(-_eps, (2 : GoFloat64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128(_zero, (-2 : GoFloat64)), new GoComplex128(_eps, (-2 : GoFloat64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128(-_zero, (-2 : GoFloat64)), new GoComplex128(-_eps, (-2 : GoFloat64))) : GoArray<GoComplex128>)) : Slice<GoArray<GoComplex128>>);
+private var _branchPoints = (new Slice<GoArray<GoComplex128>>(8, 8, (new GoArray<GoComplex128>(new GoComplex128((2 : GoFloat64), _zero), new GoComplex128((2 : GoFloat64), _eps)) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128((2 : GoFloat64), -_zero), new GoComplex128((2 : GoFloat64), -_eps)) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128((-2 : GoFloat64), _zero), new GoComplex128((-2 : GoFloat64), _eps)) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128((-2 : GoFloat64), -_zero), new GoComplex128((-2 : GoFloat64), -_eps)) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128(_zero, (2 : GoFloat64)), new GoComplex128(_eps, (2 : GoFloat64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128(-_zero, (2 : GoFloat64)), new GoComplex128(-_eps, (2 : GoFloat64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128(_zero, (-2 : GoFloat64)), new GoComplex128(_eps, (-2 : GoFloat64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(new GoComplex128(-_zero, (-2 : GoFloat64)), new GoComplex128(-_eps, (-2 : GoFloat64))) : GoArray<GoComplex128>)) : Slice<GoArray<GoComplex128>>);
 /**
     
     
@@ -1644,7 +1644,7 @@ function testPolar(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testPow(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _zero:GoComplex128 = new GoComplex128((0i64 : GoUInt64), (0i64 : GoUInt64));
-        var _zeroPowers = (new Slice<GoArray<GoComplex128>>(0, 0, (new GoArray<GoComplex128>(((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((1f64 : GoFloat64) + new GoComplex128(0f64, 0f64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(((1.5f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(((-1.5f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), new GoComplex128(stdgo.math.Math.inf((0 : GoInt)), (0 : GoFloat64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(((-1.5f64 : GoFloat64) + new GoComplex128(0f64, 1.5f64)), inf()) : GoArray<GoComplex128>)) : Slice<GoArray<GoComplex128>>);
+        var _zeroPowers = (new Slice<GoArray<GoComplex128>>(4, 4, (new GoArray<GoComplex128>(((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((1f64 : GoFloat64) + new GoComplex128(0f64, 0f64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(((1.5f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ((0f64 : GoFloat64) + new GoComplex128(0f64, 0f64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(((-1.5f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), new GoComplex128(stdgo.math.Math.inf((0 : GoInt)), (0 : GoFloat64))) : GoArray<GoComplex128>), (new GoArray<GoComplex128>(((-1.5f64 : GoFloat64) + new GoComplex128(0f64, 1.5f64)), inf()) : GoArray<GoComplex128>)) : Slice<GoArray<GoComplex128>>);
         for (__0 => _zp in _zeroPowers) {
             {
                 var _f:GoComplex128 = pow(_zero, _zp[(0 : GoInt)]);

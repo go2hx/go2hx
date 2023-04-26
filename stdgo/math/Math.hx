@@ -3548,7 +3548,9 @@ function lgamma(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
         };
         {
             var __switchIndex__ = -1;
-            while (true) {
+            var __run__ = true;
+            while (__run__) {
+                __run__ = false;
                 if ((_x == (1 : GoFloat64)) || (_x == (2 : GoFloat64))) {
                     _lgamma = (0 : GoFloat64);
                     return { _0 : _lgamma, _1 : _sign };
@@ -3613,13 +3615,16 @@ function lgamma(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
                     var _z:GoFloat64 = (1 : GoFloat64);
                     {
                         var __switchIndex__ = -1;
-                        while (true) {
+                        var __run__ = true;
+                        while (__run__) {
+                            __run__ = false;
                             {
                                 final __value__ = _i;
                                 if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (7 : GoInt)))) {
                                     _z = _z * ((_y + (6 : GoFloat64)));
                                     @:fallthrough {
                                         __switchIndex__ = 1;
+                                        __run__ = true;
                                         continue;
                                     };
                                     break;
@@ -3627,6 +3632,7 @@ function lgamma(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
                                     _z = _z * ((_y + (5 : GoFloat64)));
                                     @:fallthrough {
                                         __switchIndex__ = 2;
+                                        __run__ = true;
                                         continue;
                                     };
                                     break;
@@ -3634,6 +3640,7 @@ function lgamma(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
                                     _z = _z * ((_y + (4 : GoFloat64)));
                                     @:fallthrough {
                                         __switchIndex__ = 3;
+                                        __run__ = true;
                                         continue;
                                     };
                                     break;
@@ -3641,6 +3648,7 @@ function lgamma(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
                                     _z = _z * ((_y + (3 : GoFloat64)));
                                     @:fallthrough {
                                         __switchIndex__ = 4;
+                                        __run__ = true;
                                         continue;
                                     };
                                     break;

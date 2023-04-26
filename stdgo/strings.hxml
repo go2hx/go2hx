@@ -1,3 +1,3 @@
 -m stdgo.strings_test.Strings
 -lib go2hx
--cp stdgo
+-cp .

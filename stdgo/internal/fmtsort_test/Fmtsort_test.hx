@@ -21,8 +21,8 @@ private var _chans = _makeChans();
     
 **/
 private var _compareTests = (new Slice<Slice<stdgo.reflect.Reflect.Value>>(
-0,
-0,
+23,
+23,
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0 : GoInt))), Go.toInterface((-1 : GoInt)), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0 : GoInt8))), Go.toInterface((-1 : GoInt)), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt))),
 _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface((0 : GoInt16))), Go.toInterface((-1 : GoInt)), Go.toInterface((0 : GoInt)), Go.toInterface((1 : GoInt))),
@@ -52,59 +52,86 @@ _ct(stdgo.reflect.Reflect.typeOf(Go.toInterface(Go.toInterface((0 : GoInt)))), _
     
 **/
 private var _sortTests = (new Slice<stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest>(
-0,
-0,
+11,
+11,
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoInt, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-        @:privateAccess x._keys = [(7 : GoInt), (-3 : GoInt)];
-        @:privateAccess x._values = [("bar" : GoString), ("foo" : GoString)];
+        final x = new GoMap<GoInt, GoString>();
+        @:mergeBlock {
+            x.set((7 : GoInt), ("bar" : GoString));
+            x.set((-3 : GoInt), ("foo" : GoString));
+        };
         x;
-    } : stdgo.GoMap<GoInt, GoString>)), ("-3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    })), ("-3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoUInt8, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-        @:privateAccess x._keys = [(7 : GoUInt8), (3 : GoUInt8)];
-        @:privateAccess x._values = [("bar" : GoString), ("foo" : GoString)];
+        final x = new GoMap<GoUInt8, GoString>();
+        @:mergeBlock {
+            x.set((7 : GoUInt8), ("bar" : GoString));
+            x.set((3 : GoUInt8), ("foo" : GoString));
+        };
         x;
-    } : stdgo.GoMap<GoUInt8, GoString>)), ("3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    })), ("3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoString, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-        @:privateAccess x._keys = [("7" : GoString), ("3" : GoString)];
-        @:privateAccess x._values = [("bar" : GoString), ("foo" : GoString)];
+        final x = new GoMap<GoString, GoString>();
+        @:mergeBlock {
+            x.set(("7" : GoString), ("bar" : GoString));
+            x.set(("3" : GoString), ("foo" : GoString));
+        };
         x;
-    } : stdgo.GoMap<GoString, GoString>)), ("3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    })), ("3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoFloat64, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(float64_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-        @:privateAccess x._keys = [(7 : GoFloat64), (-3 : GoFloat64), stdgo.math.Math.naN(), stdgo.math.Math.inf((0 : GoInt))];
-        @:privateAccess x._values = [("bar" : GoString), ("foo" : GoString), ("nan" : GoString), ("inf" : GoString)];
+        final x = new GoMap<GoFloat64, GoString>();
+        @:mergeBlock {
+            x.set((7 : GoFloat64), ("bar" : GoString));
+            x.set((-3 : GoFloat64), ("foo" : GoString));
+            x.set(stdgo.math.Math.naN(), ("nan" : GoString));
+            x.set(stdgo.math.Math.inf((0 : GoInt)), ("inf" : GoString));
+        };
         x;
-    } : stdgo.GoMap<GoFloat64, GoString>)), ("NaN:nan -3:foo 7:bar +Inf:inf" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    })), ("NaN:nan -3:foo 7:bar +Inf:inf" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoComplex128, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(complex128_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-        @:privateAccess x._keys = [((7f64 : GoFloat64) + new GoComplex128(0f64, 2f64)), ((7f64 : GoFloat64) + new GoComplex128(0f64, 1f64)), ((-3f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), new GoComplex128(stdgo.math.Math.naN(), (0 : GoFloat64)), new GoComplex128(stdgo.math.Math.inf((0 : GoInt)), (0 : GoFloat64))];
-        @:privateAccess x._values = [("bar2" : GoString), ("bar" : GoString), ("foo" : GoString), ("nan" : GoString), ("inf" : GoString)];
+        final x = new GoMap<GoComplex128, GoString>();
+        @:mergeBlock {
+            x.set(((7f64 : GoFloat64) + new GoComplex128(0f64, 2f64)), ("bar2" : GoString));
+            x.set(((7f64 : GoFloat64) + new GoComplex128(0f64, 1f64)), ("bar" : GoString));
+            x.set(((-3f64 : GoFloat64) + new GoComplex128(0f64, 0f64)), ("foo" : GoString));
+            x.set(new GoComplex128(stdgo.math.Math.naN(), (0 : GoFloat64)), ("nan" : GoString));
+            x.set(new GoComplex128(stdgo.math.Math.inf((0 : GoInt)), (0 : GoFloat64)), ("inf" : GoString));
+        };
         x;
-    } : stdgo.GoMap<GoComplex128, GoString>)), ("(NaN+0i):nan (-3+0i):foo (7+1i):bar (7+2i):bar2 (+Inf+0i):inf" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    })), ("(NaN+0i):nan (-3+0i):foo (7+1i):bar (7+2i):bar2 (+Inf+0i):inf" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<Bool, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-        @:privateAccess x._keys = [true, false];
-        @:privateAccess x._values = [("true" : GoString), ("false" : GoString)];
+        final x = new GoMap<Bool, GoString>();
+        @:mergeBlock {
+            x.set(true, ("true" : GoString));
+            x.set(false, ("false" : GoString));
+        };
         x;
-    } : stdgo.GoMap<Bool, GoString>)), ("false:false true:true" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    })), ("false:false true:true" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(_chanMap()), ("CHAN0:0 CHAN1:1 CHAN2:2" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(_pointerMap()), ("PTR0:0 PTR1:1 PTR2:2" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(_unsafePointerMap()), ("UNSAFEPTR0:0 UNSAFEPTR1:1 UNSAFEPTR2:2" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<stdgo.internal.fmtsort_test.Fmtsort_test.T_toy, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.fmtsort_test.Fmtsort_test.T_toy", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "a", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_b", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-        @:privateAccess x._keys = [@:invalid_compositelit_null null, @:invalid_compositelit_null null, @:invalid_compositelit_null null];
-        @:privateAccess x._values = [("72" : GoString), ("71" : GoString), ("34" : GoString)];
-        x;
-    } : stdgo.GoMap<stdgo.internal.fmtsort_test.Fmtsort_test.T_toy, GoString>)), ("{3 4}:34 {7 1}:71 {7 2}:72" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+        final x = new GoObjectMap<stdgo.internal.fmtsort_test.Fmtsort_test.T_toy, GoString>();
+        x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.fmtsort_test.Fmtsort_test.T_toy", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "a", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_b", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }));
+        x.__defaultValue__ = () -> ("" : GoString);
+        @:mergeBlock {
+            x.set(@:invalid_compositelit_null null, ("72" : GoString));
+            x.set(@:invalid_compositelit_null null, ("71" : GoString));
+            x.set(@:invalid_compositelit_null null, ("34" : GoString));
+        };
+        cast x;
+    } : GoMap<stdgo.internal.fmtsort_test.Fmtsort_test.T_toy, GoString>)), ("{3 4}:34 {7 1}:71 {7 2}:72" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoArray<GoInt>, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, 2) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-        @:privateAccess x._keys = [@:invalid_compositelit_null null, @:invalid_compositelit_null null, @:invalid_compositelit_null null];
-        @:privateAccess x._values = [("72" : GoString), ("71" : GoString), ("34" : GoString)];
-        x;
-    } : stdgo.GoMap<GoArray<GoInt>, GoString>)), ("[3 4]:34 [7 1]:71 [7 2]:72" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest)) : Slice<stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest>);
+        final x = new GoObjectMap<GoArray<GoInt>, GoString>();
+        x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, 2));
+        x.__defaultValue__ = () -> ("" : GoString);
+        @:mergeBlock {
+            x.set(@:invalid_compositelit_null null, ("72" : GoString));
+            x.set(@:invalid_compositelit_null null, ("71" : GoString));
+            x.set(@:invalid_compositelit_null null, ("34" : GoString));
+        };
+        cast x;
+    } : GoMap<GoArray<GoInt>, GoString>)), ("[3 4]:34 [7 1]:71 [7 2]:72" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest)) : Slice<stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest>);
 /**
     
     
@@ -168,8 +195,8 @@ class T__struct_0_asInterface {
     public var _y : GoInt;
 };
 private function _ct(_typ:stdgo.reflect.Reflect.Type, _args:haxe.Rest<AnyInterface>):Slice<stdgo.reflect.Reflect.Value> {
-        var _args = new Slice<AnyInterface>(0, 0, ..._args);
-        var _value = new Slice<stdgo.reflect.Reflect.Value>((_args.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_args.length : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
+        var _args = new Slice<AnyInterface>(_args.length, 0, ..._args);
+        var _value = new Slice<stdgo.reflect.Reflect.Value>((_args.length : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_args.length : GoInt).toBasic() > 0 ? (_args.length : GoInt).toBasic() : 0 : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
         for (_i => _v in _args) {
             var _x:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_v)?.__copy__();
             if (!_x.isValid()) {
@@ -265,14 +292,18 @@ private function _sprintKey(_key:stdgo.reflect.Reflect.Value):GoString {
         };
     }
 private function _makeChans():Slice<Chan<GoInt>> {
-        var _cs = (new Slice<Chan<GoInt>>(0, 0, new Chan<GoInt>(0, () -> (0 : GoInt)), new Chan<GoInt>(0, () -> (0 : GoInt)), new Chan<GoInt>(0, () -> (0 : GoInt))) : Slice<Chan<GoInt>>);
+        var _cs = (new Slice<Chan<GoInt>>(3, 3, new Chan<GoInt>(0, () -> (0 : GoInt)), new Chan<GoInt>(0, () -> (0 : GoInt)), new Chan<GoInt>(0, () -> (0 : GoInt))) : Slice<Chan<GoInt>>);
         stdgo.sort.Sort.slice(Go.toInterface(_cs), function(_i:GoInt, _j:GoInt):Bool {
             return (stdgo.reflect.Reflect.valueOf(Go.toInterface(_cs[(_i : GoInt)])).unsafePointer().__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : GoUIntptr) < (stdgo.reflect.Reflect.valueOf(Go.toInterface(_cs[(_j : GoInt)])).unsafePointer().__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : GoUIntptr);
         });
         return _cs;
     }
 private function _pointerMap():GoMap<Pointer<GoInt>, GoString> {
-        var _m = (new GoObjectMap<Pointer<GoInt>, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }))) : GoMap<Pointer<GoInt>, GoString>);
+        var _m = ({
+            final x = new GoPointerMap<Pointer<GoInt>, GoString>();
+            @:mergeBlock {};
+            cast x;
+        } : GoMap<Pointer<GoInt>, GoString>);
         {
             var _i:GoInt = (2 : GoInt);
             Go.cfor(_i >= (0 : GoInt), _i--, {
@@ -282,7 +313,11 @@ private function _pointerMap():GoMap<Pointer<GoInt>, GoString> {
         return _m;
     }
 private function _unsafePointerMap():GoMap<stdgo.unsafe.Unsafe.UnsafePointer, GoString> {
-        var _m = (new GoObjectMap<stdgo.unsafe.Unsafe.UnsafePointer, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }))) : GoMap<stdgo.unsafe.Unsafe.UnsafePointer, GoString>);
+        var _m = ({
+            final x = new GoMap<stdgo.unsafe.Unsafe.UnsafePointer, GoString>();
+            @:mergeBlock {};
+            x;
+        });
         {
             var _i:GoInt = (2 : GoInt);
             Go.cfor(_i >= (0 : GoInt), _i--, {
@@ -292,7 +327,11 @@ private function _unsafePointerMap():GoMap<stdgo.unsafe.Unsafe.UnsafePointer, Go
         return _m;
     }
 private function _chanMap():GoMap<Chan<GoInt>, GoString> {
-        var _m = (new GoObjectMap<Chan<GoInt>, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.chanType(undefined, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }))) : GoMap<Chan<GoInt>, GoString>);
+        var _m = ({
+            final x = new GoMap<Chan<GoInt>, GoString>();
+            @:mergeBlock {};
+            x;
+        });
         {
             var _i:GoInt = (2 : GoInt);
             Go.cfor(_i >= (0 : GoInt), _i--, {
@@ -311,45 +350,30 @@ function testOrder(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testInterface(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _m = ({
-            final x = new stdgo.GoMap.GoObjectMap<AnyInterface, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-            @:privateAccess x._keys = [
-(new GoArray<GoInt>((1 : GoInt), (0 : GoInt)) : GoArray<GoInt>),
-(new GoArray<GoInt>((0 : GoInt), (1 : GoInt)) : GoArray<GoInt>),
-true,
-false,
-(3.1 : GoFloat64),
-(2.1 : GoFloat64),
-(1.1 : GoFloat64),
-stdgo.math.Math.naN(),
-(3 : GoInt),
-(2 : GoInt),
-(1 : GoInt),
-("c" : GoString),
-("b" : GoString),
-("a" : GoString),
-({ _x : (1 : GoInt), _y : (0 : GoInt) } : T__struct_0),
-({ _x : (0 : GoInt), _y : (1 : GoInt) } : T__struct_0)];
-            @:privateAccess x._values = [
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str(),
-Go.str()];
-            x;
-        } : stdgo.GoMap<AnyInterface, GoString>);
+            final x = new GoAnyInterfaceMap<GoString>();
+            x.__defaultValue__ = () -> ("" : GoString);
+            @:mergeBlock {
+                x.set(Go.toInterface((new GoArray<GoInt>((1 : GoInt), (0 : GoInt)) : GoArray<GoInt>)), Go.str());
+                x.set(Go.toInterface((new GoArray<GoInt>((0 : GoInt), (1 : GoInt)) : GoArray<GoInt>)), Go.str());
+                x.set(Go.toInterface(true), Go.str());
+                x.set(Go.toInterface(false), Go.str());
+                x.set(Go.toInterface((3.1 : GoFloat64)), Go.str());
+                x.set(Go.toInterface((2.1 : GoFloat64)), Go.str());
+                x.set(Go.toInterface((1.1 : GoFloat64)), Go.str());
+                x.set(Go.toInterface(stdgo.math.Math.naN()), Go.str());
+                x.set(Go.toInterface((3 : GoInt)), Go.str());
+                x.set(Go.toInterface((2 : GoInt)), Go.str());
+                x.set(Go.toInterface((1 : GoInt)), Go.str());
+                x.set(Go.toInterface(("c" : GoString)), Go.str());
+                x.set(Go.toInterface(("b" : GoString)), Go.str());
+                x.set(Go.toInterface(("a" : GoString)), Go.str());
+                x.set(Go.toInterface(Go.asInterface(({ _x : (1 : GoInt), _y : (0 : GoInt) } : T__struct_0))), Go.str());
+                x.set(Go.toInterface(Go.asInterface(({ _x : (0 : GoInt), _y : (1 : GoInt) } : T__struct_0))), Go.str());
+            };
+            cast x;
+        } : GoMap<AnyInterface, GoString>);
         var _got:GoString = _sprint(Go.toInterface(_m));
-        var _typeGroups = (new Slice<GoString>(0, 0, ("NaN: 1.1: 2.1: 3.1:" : GoString), ("false: true:" : GoString), ("1: 2: 3:" : GoString), ("a: b: c:" : GoString), ("[0 1]: [1 0]:" : GoString), ("{0 1}: {1 0}:" : GoString)) : Slice<GoString>);
+        var _typeGroups = (new Slice<GoString>(6, 6, ("NaN: 1.1: 2.1: 3.1:" : GoString), ("false: true:" : GoString), ("1: 2: 3:" : GoString), ("a: b: c:" : GoString), ("[0 1]: [1 0]:" : GoString), ("{0 1}: {1 0}:" : GoString)) : Slice<GoString>);
         for (__0 => _g in _typeGroups) {
             if (!stdgo.strings.Strings.contains(_got, _g)) {
                 _t.errorf(("sorted map should contain %q" : GoString), Go.toInterface(_g));

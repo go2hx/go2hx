@@ -15,8 +15,8 @@ import stdgo.regexp.Regexp;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+43,
+43,
 (new stdgo.testing.Testing.InternalTest(("TestGoodCompile" : GoString), stdgo.regexp.Regexp.testGoodCompile) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestBadCompile" : GoString), stdgo.regexp.Regexp.testBadCompile) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestMatch" : GoString), stdgo.regexp.Regexp.testMatch) : stdgo.testing.Testing.InternalTest),
@@ -66,8 +66,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+27,
+27,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkFind" : GoString), stdgo.regexp.Regexp.benchmarkFind) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkFindAllNoMatches" : GoString), stdgo.regexp.Regexp.benchmarkFindAllNoMatches) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkFindString" : GoString), stdgo.regexp.Regexp.benchmarkFindString) : stdgo.testing.Testing.InternalBenchmark),
@@ -107,8 +107,8 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+31,
+31,
 (new stdgo.testing.Testing.InternalExample(("Example" : GoString), stdgo.regexp_test.Regexp_test.example, ("true\ntrue\nfalse\nfalse\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleMatch" : GoString), stdgo.regexp_test.Regexp_test.exampleMatch, ("true <nil>\nfalse <nil>\nfalse error parsing regexp: missing closing ): `a(b`\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleMatchString" : GoString), stdgo.regexp_test.Regexp_test.exampleMatchString, ("true <nil>\nfalse <nil>\nfalse error parsing regexp: missing closing ): `a(b`\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

@@ -147,7 +147,9 @@ private function _scanChunk(_pattern:GoString):{ var _0 : Bool; var _1 : GoStrin
                 Go.cfor(_i < (_pattern.length), _i++, {
                     {
                         var __switchIndex__ = -1;
-                        while (true) {
+                        var __run__ = true;
+                        while (__run__) {
+                            __run__ = false;
                             {
                                 final __value__ = _pattern[(_i : GoInt)];
                                 if (__value__ == ((92 : GoUInt8))) {
@@ -191,7 +193,9 @@ private function _matchChunk(_chunk:GoString, _s:GoString):{ var _0 : GoString; 
             };
             {
                 var __switchIndex__ = -1;
-                while (true) {
+                var __run__ = true;
+                while (__run__) {
+                    __run__ = false;
                     {
                         final __value__ = _chunk[(0 : GoInt)];
                         if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (91 : GoUInt8)))) {
@@ -272,6 +276,7 @@ private function _matchChunk(_chunk:GoString, _s:GoString):{ var _0 : GoString; 
                             };
                             @:fallthrough {
                                 __switchIndex__ = 3;
+                                __run__ = true;
                                 continue;
                             };
                             break;
@@ -423,7 +428,7 @@ function split(_path:GoString):{ var _0 : GoString; var _1 : GoString; } {
     // an empty string.
 **/
 function join(_elem:haxe.Rest<GoString>):GoString {
-        var _elem = new Slice<GoString>(0, 0, ..._elem);
+        var _elem = new Slice<GoString>(_elem.length, 0, ..._elem);
         var _size:GoInt = (0 : GoInt);
         for (__0 => _e in _elem) {
             _size = _size + ((_e.length));
@@ -431,13 +436,13 @@ function join(_elem:haxe.Rest<GoString>):GoString {
         if (_size == ((0 : GoInt))) {
             return Go.str();
         };
-        var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), (_size + _elem.length) - (1 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), (_size + _elem.length) - (1 : GoInt)).__setNumber32__();
         for (__1 => _e in _elem) {
             if ((_buf.length > (0 : GoInt)) || (_e != Go.str())) {
                 if ((_buf.length) > (0 : GoInt)) {
-                    _buf = _buf.__appendref__((47 : GoUInt8));
+                    _buf = (_buf.__append__((47 : GoUInt8)));
                 };
-                _buf = _buf.__appendref__(..._e.__toArray__());
+                _buf = (_buf.__append__(..._e.__toArray__()));
             };
         };
         return clean((_buf : GoString));
@@ -532,7 +537,7 @@ class T_lazybuf_asInterface {
                 _b._w++;
                 return;
             };
-            _b._buf = new Slice<GoUInt8>((_b._s.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_b._s.length : GoInt).toBasic()) (0 : GoUInt8)]);
+            _b._buf = new Slice<GoUInt8>((_b._s.length : GoInt).toBasic(), 0).__setNumber32__();
             Go.copySlice(_b._buf, (_b._s.__slice__(0, _b._w) : GoString));
         };
         _b._buf[(_b._w : GoInt)] = _c;

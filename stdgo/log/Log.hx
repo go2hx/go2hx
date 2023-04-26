@@ -33,8 +33,8 @@ private var _std = new_(Go.asInterface(stdgo.os.Os.stderr), Go.str(), (3 : GoInt
     
 **/
 private var _tests = (new Slice<stdgo.log.Log.T_tester>(
-0,
-0,
+14,
+14,
 (new stdgo.log.Log.T_tester((0 : GoInt), Go.str(), Go.str()) : stdgo.log.Log.T_tester),
 (new stdgo.log.Log.T_tester((0 : GoInt), ("XXX" : GoString), ("XXX" : GoString)) : stdgo.log.Log.T_tester),
 (new stdgo.log.Log.T_tester((1 : GoInt), Go.str(), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] " : GoString)) : stdgo.log.Log.T_tester),
@@ -363,7 +363,7 @@ function writer():stdgo.io.Io.Writer {
     // Arguments are handled in the manner of fmt.Print.
 **/
 function print(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         if (_std._isDiscard.load()) {
             return;
         };
@@ -374,7 +374,7 @@ function print(_v:haxe.Rest<AnyInterface>):Void {
     // Arguments are handled in the manner of fmt.Printf.
 **/
 function printf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         if (_std._isDiscard.load()) {
             return;
         };
@@ -385,7 +385,7 @@ function printf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
     // Arguments are handled in the manner of fmt.Println.
 **/
 function println(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         if (_std._isDiscard.load()) {
             return;
         };
@@ -395,7 +395,7 @@ function println(_v:haxe.Rest<AnyInterface>):Void {
     // Fatal is equivalent to Print() followed by a call to os.Exit(1).
 **/
 function fatal(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         _std.output((2 : GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
         Sys.exit((1 : GoInt));
     }
@@ -403,7 +403,7 @@ function fatal(_v:haxe.Rest<AnyInterface>):Void {
     // Fatalf is equivalent to Printf() followed by a call to os.Exit(1).
 **/
 function fatalf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         _std.output((2 : GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
         Sys.exit((1 : GoInt));
     }
@@ -411,7 +411,7 @@ function fatalf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
     // Fatalln is equivalent to Println() followed by a call to os.Exit(1).
 **/
 function fatalln(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         _std.output((2 : GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
         Sys.exit((1 : GoInt));
     }
@@ -419,7 +419,7 @@ function fatalln(_v:haxe.Rest<AnyInterface>):Void {
     // Panic is equivalent to Print() followed by a call to panic().
 **/
 function panic(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         var _s:GoString = stdgo.fmt.Fmt.sprint(..._v.__toArray__());
         _std.output((2 : GoInt), _s);
         throw Go.toInterface(_s);
@@ -428,7 +428,7 @@ function panic(_v:haxe.Rest<AnyInterface>):Void {
     // Panicf is equivalent to Printf() followed by a call to panic().
 **/
 function panicf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         var _s:GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__());
         _std.output((2 : GoInt), _s);
         throw Go.toInterface(_s);
@@ -437,7 +437,7 @@ function panicf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
     // Panicln is equivalent to Println() followed by a call to panic().
 **/
 function panicln(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         var _s:GoString = stdgo.fmt.Fmt.sprintln(..._v.__toArray__());
         _std.output((2 : GoInt), _s);
         throw Go.toInterface(_s);
@@ -600,7 +600,7 @@ function testDiscard(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function benchmarkItoa(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _dst = new Slice<GoUInt8>((0 : GoInt).toBasic(), (64 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _dst = new Slice<GoUInt8>((0 : GoInt).toBasic(), (64 : GoInt)).__setNumber32__();
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
@@ -940,7 +940,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function panicln( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         var _s:GoString = stdgo.fmt.Fmt.sprintln(..._v.__toArray__());
         _l.output((2 : GoInt), _s);
         throw Go.toInterface(_s);
@@ -950,7 +950,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function panicf( _l:Ref<Logger>, _format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         var _s:GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__());
         _l.output((2 : GoInt), _s);
         throw Go.toInterface(_s);
@@ -960,7 +960,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function panic( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         var _s:GoString = stdgo.fmt.Fmt.sprint(..._v.__toArray__());
         _l.output((2 : GoInt), _s);
         throw Go.toInterface(_s);
@@ -970,7 +970,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function fatalln( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         _l.output((2 : GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
         Sys.exit((1 : GoInt));
     }
@@ -979,7 +979,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function fatalf( _l:Ref<Logger>, _format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         _l.output((2 : GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
         Sys.exit((1 : GoInt));
     }
@@ -988,7 +988,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function fatal( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         _l.output((2 : GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
         Sys.exit((1 : GoInt));
     }
@@ -998,7 +998,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function println( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         if (_l._isDiscard.load()) {
             return;
         };
@@ -1010,7 +1010,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function print( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         if (_l._isDiscard.load()) {
             return;
         };
@@ -1022,7 +1022,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function printf( _l:Ref<Logger>, _format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(0, 0, ..._v);
+        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
         if (_l._isDiscard.load()) {
             return;
         };
@@ -1062,9 +1062,9 @@ class Logger_asInterface {
             };
             _l._buf = (_l._buf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>);
             _l._formatHeader((Go.setRef(_l._buf) : Ref<Slice<GoUInt8>>), _now?.__copy__(), _file, _line);
-            _l._buf = _l._buf.__appendref__(..._s.__toArray__());
+            _l._buf = (_l._buf.__append__(..._s.__toArray__()));
             if ((_s.length == (0 : GoInt)) || (_s[((_s.length) - (1 : GoInt) : GoInt)] != (10 : GoUInt8))) {
-                _l._buf = _l._buf.__appendref__((10 : GoUInt8));
+                _l._buf = (_l._buf.__append__((10 : GoUInt8)));
             };
             var __tmp__ = _l._out.write(_l._buf), __28:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             {

@@ -14,7 +14,7 @@ import stdgo.syscall.Syscall;
     
     
 **/
-private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0, (new stdgo.testing.Testing.InternalTest(("TestEnv" : GoString), stdgo.syscall_test.Syscall_test.testEnv) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestExecErrPermutedFds" : GoString), stdgo.syscall_test.Syscall_test.testExecErrPermutedFds) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestGettimeofday" : GoString), stdgo.syscall_test.Syscall_test.testGettimeofday) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
+private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(3, 3, (new stdgo.testing.Testing.InternalTest(("TestEnv" : GoString), stdgo.syscall_test.Syscall_test.testEnv) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestExecErrPermutedFds" : GoString), stdgo.syscall_test.Syscall_test.testExecErrPermutedFds) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestGettimeofday" : GoString), stdgo.syscall_test.Syscall_test.testGettimeofday) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
 /**
     
     

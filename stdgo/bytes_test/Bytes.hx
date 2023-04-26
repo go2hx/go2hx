@@ -15,8 +15,8 @@ import stdgo.bytes.Bytes;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+85,
+85,
 (new stdgo.testing.Testing.InternalTest(("TestNewBuffer" : GoString), stdgo.bytes_test.Bytes_test.testNewBuffer) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestNewBufferString" : GoString), stdgo.bytes_test.Bytes_test.testNewBufferString) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestBasicOperations" : GoString), stdgo.bytes_test.Bytes_test.testBasicOperations) : stdgo.testing.Testing.InternalTest),
@@ -108,8 +108,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+56,
+56,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadString" : GoString), stdgo.bytes_test.Bytes_test.benchmarkReadString) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteByte" : GoString), stdgo.bytes_test.Bytes_test.benchmarkWriteByte) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteRune" : GoString), stdgo.bytes_test.Bytes_test.benchmarkWriteRune) : stdgo.testing.Testing.InternalBenchmark),
@@ -178,8 +178,8 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+53,
+53,
 (new stdgo.testing.Testing.InternalExample(("ExampleBuffer" : GoString), stdgo.bytes_test.Bytes_test.exampleBuffer, ("Hello world!\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleBuffer_reader" : GoString), stdgo.bytes_test.Bytes_test.exampleBuffer_reader, ("Gophers rule!\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleBuffer_Bytes" : GoString), stdgo.bytes_test.Bytes_test.exampleBuffer_Bytes, ("hello world\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

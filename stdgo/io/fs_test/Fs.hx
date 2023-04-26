@@ -15,8 +15,8 @@ import stdgo.io.fs.Fs;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+12,
+12,
 (new stdgo.testing.Testing.InternalTest(("TestValidPath" : GoString), stdgo.io.fs_test.Fs_test.testValidPath) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestGlob" : GoString), stdgo.io.fs_test.Fs_test.testGlob) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestGlobError" : GoString), stdgo.io.fs_test.Fs_test.testGlobError) : stdgo.testing.Testing.InternalTest),

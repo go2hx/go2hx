@@ -15,8 +15,8 @@ import stdgo.crypto.rand.Rand;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+10,
+10,
 (new stdgo.testing.Testing.InternalTest(("TestRead" : GoString), stdgo.crypto.rand.Rand.testRead) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestReadEmpty" : GoString), stdgo.crypto.rand.Rand.testReadEmpty) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestPrimeSmall" : GoString), stdgo.crypto.rand_test.Rand_test.testPrimeSmall) : stdgo.testing.Testing.InternalTest),
@@ -32,7 +32,7 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
     
 **/
-private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPrime" : GoString), stdgo.crypto.rand_test.Rand_test.benchmarkPrime) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
+private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(1, 1, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPrime" : GoString), stdgo.crypto.rand_test.Rand_test.benchmarkPrime) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 /**
     
     
@@ -44,7 +44,7 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
     
 **/
-private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0, (new stdgo.testing.Testing.InternalExample(("ExampleRead" : GoString), stdgo.crypto.rand_test.Rand_test.exampleRead, ("false\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
+private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(1, 1, (new stdgo.testing.Testing.InternalExample(("ExampleRead" : GoString), stdgo.crypto.rand_test.Rand_test.exampleRead, ("false\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
 private function main():Void {
         var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

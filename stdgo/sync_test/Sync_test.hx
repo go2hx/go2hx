@@ -35,7 +35,7 @@ private var _mapOps = (new GoArray<stdgo.sync_test.Sync_test.T_mapOp>((("Load" :
     
     
 **/
-private var _misuseTests = (new Slice<T__struct_2>(0, 0, ({ _name : ("Mutex.Unlock" : GoString), _f : function():Void {
+private var _misuseTests = (new Slice<T__struct_2>(8, 8, ({ _name : ("Mutex.Unlock" : GoString), _f : function():Void {
         var _mu:Mutex = ({} : stdgo.sync.Sync.Mutex);
         _mu.unlock();
     } } : T__struct_2), ({ _name : ("Mutex.Unlock2" : GoString), _f : function():Void {
@@ -451,7 +451,7 @@ function testCondBroadcast(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _m.lock();
                 _c.broadcast();
                 _m.unlock();
-                var _seen = new Slice<Bool>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) false]);
+                var _seen = new Slice<Bool>((_n : GoInt).toBasic(), 0);
                 {
                     var _i:GoInt = (0 : GoInt);
                     Go.cfor(_i < _n, _i++, {
@@ -713,7 +713,7 @@ function examplePool():Void {
 **/
 function exampleWaitGroup():Void {
         var _wg:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
-        var _urls:Slice<GoString> = (new Slice<GoString>(0, 0, ("http://www.golang.org/" : GoString), ("http://www.google.com/" : GoString), ("http://www.example.com/" : GoString)) : Slice<GoString>);
+        var _urls:Slice<GoString> = (new Slice<GoString>(3, 3, ("http://www.golang.org/" : GoString), ("http://www.google.com/" : GoString), ("http://www.example.com/" : GoString)) : Slice<GoString>);
         for (__0 => _url in _urls) {
             _wg.add((1 : GoInt));
             Go.routine(() -> {
@@ -1281,7 +1281,7 @@ function benchmarkCompareAndDeleteMostlyMisses(_b:Ref<stdgo.testing.Testing.B>):
         } } : T_bench));
     }
 private function _randValue(_r:Ref<stdgo.math.rand.Rand.Rand>):AnyInterface {
-        var _b = new Slice<GoUInt8>((_r.intn((4 : GoInt)) : GoInt).toBasic(), 0, ...[for (i in 0 ... (_r.intn((4 : GoInt)) : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((_r.intn((4 : GoInt)) : GoInt).toBasic(), 0).__setNumber32__();
         for (_i in 0 ... _b.length.toBasic()) {
             _b[(_i : GoInt)] = (97 : GoUInt8) + (stdgo.math.rand.Rand.intn((26 : GoInt)) : GoByte);
         };
@@ -1291,9 +1291,14 @@ private function _applyCalls(_m:T_mapInterface, _calls:Slice<T_mapCall>):{ var _
         var _results:Slice<T_mapResult> = (null : Slice<stdgo.sync_test.Sync_test.T_mapResult>), _final:GoMap<AnyInterface, AnyInterface> = (null : GoMap<AnyInterface, AnyInterface>);
         for (__0 => _c in _calls) {
             var __tmp__ = _c._apply(_m), _v:AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
-            _results = _results.__appendref__((new T_mapResult(_v, _ok) : T_mapResult));
+            _results = (_results.__append__((new T_mapResult(_v, _ok) : T_mapResult)));
         };
-        _final = (new GoObjectMap<AnyInterface, AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }))) : GoMap<AnyInterface, AnyInterface>);
+        _final = ({
+            final x = new GoAnyInterfaceMap<AnyInterface>();
+            x.__defaultValue__ = () -> (null : AnyInterface);
+            @:mergeBlock {};
+            cast x;
+        } : GoMap<AnyInterface, AnyInterface>);
         _m.range(function(_k:AnyInterface, _v:AnyInterface):Bool {
             _final[_k] = _v;
             return true;
@@ -1413,7 +1418,11 @@ function testConcurrentRange(_t:Ref<stdgo.testing.Testing.T>):Void {
             {
                 var _n:GoInt = _iters;
                 Go.cfor(_n > (0 : GoInt), _n--, {
-                    var _seen = (new GoObjectMap<GoInt64, Bool>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }))) : GoMap<GoInt64, Bool>);
+                    var _seen = ({
+                        final x = new GoMap<GoInt64, Bool>();
+                        @:mergeBlock {};
+                        x;
+                    });
                     _m.range(function(_ki:AnyInterface, _vi:AnyInterface):Bool {
                         var __0:GoInt64 = (Go.typeAssert((_ki : GoInt64)) : GoInt64), __1:GoInt64 = (Go.typeAssert((_vi : GoInt64)) : GoInt64), _v:GoInt64 = __1, _k:GoInt64 = __0;
                         if (_v % _k != ((0i64 : GoInt64))) {
@@ -2213,7 +2222,7 @@ private function _testPoolDequeue(_t:Ref<stdgo.testing.Testing.T>, _d:PoolDequeu
         if (stdgo.testing.Testing.short()) {
             n = (1000 : GoInt);
         };
-        var _have = new Slice<GoInt32>((n : GoInt).toBasic(), 0, ...[for (i in 0 ... (n : GoInt).toBasic()) (0 : GoInt32)]);
+        var _have = new Slice<GoInt32>((n : GoInt).toBasic(), 0).__setNumber32__();
         var _stop:GoInt32 = (0 : GoInt32);
         var _wg:WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
         var _record:GoInt -> Void = function(_val:GoInt):Void {
@@ -2358,7 +2367,7 @@ function benchmarkPoolSTW(_b:Ref<stdgo.testing.Testing.B>):Void {
                     };
                     stdgo.runtime.Runtime.gc();
                     stdgo.runtime.Runtime.readMemStats((Go.setRef(_mstats) : Ref<stdgo.runtime.Runtime.MemStats>));
-                    _pauses = _pauses.__appendref__(_mstats.pauseNs[((_mstats.numGC + (255u32 : GoUInt32)) % (256u32 : GoUInt32) : GoInt)]);
+                    _pauses = (_pauses.__append__(_mstats.pauseNs[((_mstats.numGC + (255u32 : GoUInt32)) % (256u32 : GoUInt32) : GoInt)]));
                 });
             };
             stdgo.sort.Sort.slice(Go.toInterface(_pauses), function(_i:GoInt, _j:GoInt):Bool {
@@ -2398,7 +2407,7 @@ function benchmarkPoolSTW(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkPoolExpensiveNew(_b:Ref<stdgo.testing.Testing.B>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _globalSink = Go.toInterface(new Slice<GoUInt8>((8388608 : GoInt).toBasic(), 0, ...[for (i in 0 ... (8388608 : GoInt).toBasic()) (0 : GoUInt8)]));
+            _globalSink = Go.toInterface(new Slice<GoUInt8>((8388608 : GoInt).toBasic(), 0).__setNumber32__());
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     _globalSink = (null : AnyInterface);
@@ -2415,12 +2424,12 @@ function benchmarkPoolExpensiveNew(_b:Ref<stdgo.testing.Testing.B>):Void {
             var __0:stdgo.runtime.Runtime.MemStats = ({} : stdgo.runtime.Runtime.MemStats), __1:stdgo.runtime.Runtime.MemStats = ({} : stdgo.runtime.Runtime.MemStats), _mstats2:stdgo.runtime.Runtime.MemStats = __1, _mstats1:stdgo.runtime.Runtime.MemStats = __0;
             stdgo.runtime.Runtime.readMemStats((Go.setRef(_mstats1) : Ref<stdgo.runtime.Runtime.MemStats>));
             _b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
-                var _items = new Slice<AnyInterface>((100 : GoInt).toBasic(), 0, ...[for (i in 0 ... (100 : GoInt).toBasic()) (null : AnyInterface)]);
+                var _items = new Slice<AnyInterface>((100 : GoInt).toBasic(), 0);
                 var _sink:Slice<GoByte> = (null : Slice<GoUInt8>);
                 while (_pb.next()) {
                     for (_i in 0 ... _items.length.toBasic()) {
                         _items[(_i : GoInt)] = _p.get();
-                        _sink = new Slice<GoUInt8>((32768 : GoInt).toBasic(), 0, ...[for (i in 0 ... (32768 : GoInt).toBasic()) (0 : GoUInt8)]);
+                        _sink = new Slice<GoUInt8>((32768 : GoInt).toBasic(), 0).__setNumber32__();
                     };
                     for (_i => _v in _items) {
                         _p.put(_v);
@@ -3232,9 +3241,9 @@ class RWMutexMap_asInterface {
     @:keep
     static public function range( _m:Ref<RWMutexMap>, _f:(_key:AnyInterface, _value:AnyInterface) -> Bool):Void {
         _m._mu.rlock();
-        var _keys = new Slice<AnyInterface>((0 : GoInt).toBasic(), (_m._dirty.length), ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : AnyInterface)]);
+        var _keys = new Slice<AnyInterface>((0 : GoInt).toBasic(), (_m._dirty.length));
         for (_k => _ in _m._dirty) {
-            _keys = _keys.__appendref__(_k);
+            _keys = (_keys.__append__(_k));
         };
         _m._mu.runlock();
         for (__16 => _k in _keys) {
@@ -3262,9 +3271,9 @@ class RWMutexMap_asInterface {
                     return false;
                 };
             };
-            var __tmp__ = (_m._dirty != null && _m._dirty.__exists__(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
             if (_loaded && (_value == _old)) {
-                if (_m._dirty != null) _m._dirty.__remove__(_key);
+                if (_m._dirty != null) _m._dirty.remove(_key);
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -3317,7 +3326,7 @@ class RWMutexMap_asInterface {
                     return false;
                 };
             };
-            var __tmp__ = (_m._dirty != null && _m._dirty.__exists__(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
             if (_loaded && (_value == _old)) {
                 _m._dirty[_key] = _new;
                 {
@@ -3360,7 +3369,7 @@ class RWMutexMap_asInterface {
     @:keep
     static public function delete( _m:Ref<RWMutexMap>, _key:AnyInterface):Void {
         _m._mu.lock();
-        if (_m._dirty != null) _m._dirty.__remove__(_key);
+        if (_m._dirty != null) _m._dirty.remove(_key);
         _m._mu.unlock();
     }
     @:keep
@@ -3368,7 +3377,7 @@ class RWMutexMap_asInterface {
         var _value:AnyInterface = (null : AnyInterface), _loaded:Bool = false;
         _m._mu.lock();
         {
-            var __tmp__ = (_m._dirty != null && _m._dirty.__exists__(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
             _value = __tmp__.value;
             _loaded = __tmp__.ok;
         };
@@ -3376,7 +3385,7 @@ class RWMutexMap_asInterface {
             _m._mu.unlock();
             return { _0 : (null : AnyInterface), _1 : false };
         };
-        if (_m._dirty != null) _m._dirty.__remove__(_key);
+        if (_m._dirty != null) _m._dirty.remove(_key);
         _m._mu.unlock();
         return { _0 : _value, _1 : _loaded };
     }
@@ -3385,10 +3394,15 @@ class RWMutexMap_asInterface {
         var _previous:AnyInterface = (null : AnyInterface), _loaded:Bool = false;
         _m._mu.lock();
         if (_m._dirty == null) {
-            _m._dirty = (new GoObjectMap<AnyInterface, AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }))) : GoMap<AnyInterface, AnyInterface>);
+            _m._dirty = ({
+                final x = new GoAnyInterfaceMap<AnyInterface>();
+                x.__defaultValue__ = () -> (null : AnyInterface);
+                @:mergeBlock {};
+                cast x;
+            } : GoMap<AnyInterface, AnyInterface>);
         };
         {
-            var __tmp__ = (_m._dirty != null && _m._dirty.__exists__(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
             _previous = __tmp__.value;
             _loaded = __tmp__.ok;
         };
@@ -3401,14 +3415,19 @@ class RWMutexMap_asInterface {
         var _actual:AnyInterface = (null : AnyInterface), _loaded:Bool = false;
         _m._mu.lock();
         {
-            var __tmp__ = (_m._dirty != null && _m._dirty.__exists__(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
             _actual = __tmp__.value;
             _loaded = __tmp__.ok;
         };
         if (!_loaded) {
             _actual = _value;
             if (_m._dirty == null) {
-                _m._dirty = (new GoObjectMap<AnyInterface, AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }))) : GoMap<AnyInterface, AnyInterface>);
+                _m._dirty = ({
+                    final x = new GoAnyInterfaceMap<AnyInterface>();
+                    x.__defaultValue__ = () -> (null : AnyInterface);
+                    @:mergeBlock {};
+                    cast x;
+                } : GoMap<AnyInterface, AnyInterface>);
             };
             _m._dirty[_key] = _value;
         };
@@ -3419,7 +3438,12 @@ class RWMutexMap_asInterface {
     static public function store( _m:Ref<RWMutexMap>, _key:AnyInterface, _value:AnyInterface):Void {
         _m._mu.lock();
         if (_m._dirty == null) {
-            _m._dirty = (new GoObjectMap<AnyInterface, AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }))) : GoMap<AnyInterface, AnyInterface>);
+            _m._dirty = ({
+                final x = new GoAnyInterfaceMap<AnyInterface>();
+                x.__defaultValue__ = () -> (null : AnyInterface);
+                @:mergeBlock {};
+                cast x;
+            } : GoMap<AnyInterface, AnyInterface>);
         };
         _m._dirty[_key] = _value;
         _m._mu.unlock();
@@ -3429,7 +3453,7 @@ class RWMutexMap_asInterface {
         var _value:AnyInterface = (null : AnyInterface), _ok:Bool = false;
         _m._mu.rlock();
         {
-            var __tmp__ = (_m._dirty != null && _m._dirty.__exists__(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
+            var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
             _value = __tmp__.value;
             _ok = __tmp__.ok;
         };
@@ -3474,7 +3498,12 @@ class DeepCopyMap_asInterface {
         } catch(_) {
             { value : (null : GoMap<AnyInterface, AnyInterface>), ok : false };
         }, _clean = __tmp__.value, __0 = __tmp__.ok;
-        var _dirty = (new GoObjectMap<AnyInterface, AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }))) : GoMap<AnyInterface, AnyInterface>);
+        var _dirty = ({
+            final x = new GoAnyInterfaceMap<AnyInterface>();
+            x.__defaultValue__ = () -> (null : AnyInterface);
+            @:mergeBlock {};
+            cast x;
+        } : GoMap<AnyInterface, AnyInterface>);
         for (_k => _v in _clean) {
             _dirty[_k] = _v;
         };
@@ -3504,7 +3533,7 @@ class DeepCopyMap_asInterface {
                 { value : (null : GoMap<AnyInterface, AnyInterface>), ok : false };
             }, _clean = __tmp__.value, __0 = __tmp__.ok;
             {
-                var __tmp__ = (_clean != null && _clean.__exists__(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _previous:AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _previous:AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (!_ok || (_previous != _old)) {
                     return false;
                 };
@@ -3512,9 +3541,9 @@ class DeepCopyMap_asInterface {
             _m._mu.lock();
             __deferstack__.unshift(() -> _m._mu.unlock());
             var _dirty = _m._dirty();
-            var __tmp__ = (_dirty != null && _dirty.__exists__(_key) ? { value : _dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
+            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { value : _dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
             if (_loaded && (_value == _old)) {
-                if (_dirty != null) _dirty.__remove__(_key);
+                if (_dirty != null) _dirty.remove(_key);
                 _m._clean.store(Go.toInterface(_dirty));
                 {
                     for (defer in __deferstack__) {
@@ -3564,7 +3593,7 @@ class DeepCopyMap_asInterface {
                 { value : (null : GoMap<AnyInterface, AnyInterface>), ok : false };
             }, _clean = __tmp__.value, __0 = __tmp__.ok;
             {
-                var __tmp__ = (_clean != null && _clean.__exists__(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _previous:AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _previous:AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (!_ok || (_previous != _old)) {
                     return false;
                 };
@@ -3572,7 +3601,7 @@ class DeepCopyMap_asInterface {
             _m._mu.lock();
             __deferstack__.unshift(() -> _m._mu.unlock());
             var _dirty = _m._dirty();
-            var __tmp__ = (_dirty != null && _dirty.__exists__(_key) ? { value : _dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
+            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { value : _dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _value:AnyInterface = __tmp__.value, _loaded:Bool = __tmp__.ok;
             if (_loaded && (_value == _old)) {
                 _dirty[_key] = _new;
                 _m._clean.store(Go.toInterface(_dirty));
@@ -3617,7 +3646,7 @@ class DeepCopyMap_asInterface {
     static public function delete( _m:Ref<DeepCopyMap>, _key:AnyInterface):Void {
         _m._mu.lock();
         var _dirty = _m._dirty();
-        if (_dirty != null) _dirty.__remove__(_key);
+        if (_dirty != null) _dirty.remove(_key);
         _m._clean.store(Go.toInterface(_dirty));
         _m._mu.unlock();
     }
@@ -3627,11 +3656,11 @@ class DeepCopyMap_asInterface {
         _m._mu.lock();
         var _dirty = _m._dirty();
         {
-            var __tmp__ = (_dirty != null && _dirty.__exists__(_key) ? { value : _dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
+            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { value : _dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
             _value = __tmp__.value;
             _loaded = __tmp__.ok;
         };
-        if (_dirty != null) _dirty.__remove__(_key);
+        if (_dirty != null) _dirty.remove(_key);
         _m._clean.store(Go.toInterface(_dirty));
         _m._mu.unlock();
         return { _0 : _value, _1 : _loaded };
@@ -3642,7 +3671,7 @@ class DeepCopyMap_asInterface {
         _m._mu.lock();
         var _dirty = _m._dirty();
         {
-            var __tmp__ = (_dirty != null && _dirty.__exists__(_key) ? { value : _dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
+            var __tmp__ = (_dirty != null && _dirty.exists(_key) ? { value : _dirty[_key], ok : true } : { value : (null : AnyInterface), ok : false });
             _previous = __tmp__.value;
             _loaded = __tmp__.ok;
         };
@@ -3660,7 +3689,7 @@ class DeepCopyMap_asInterface {
             { value : (null : GoMap<AnyInterface, AnyInterface>), ok : false };
         }, _clean = __tmp__.value, __0 = __tmp__.ok;
         {
-            var __tmp__ = (_clean != null && _clean.__exists__(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false });
+            var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false });
             _actual = __tmp__.value;
             _loaded = __tmp__.ok;
         };
@@ -3677,7 +3706,7 @@ class DeepCopyMap_asInterface {
             _clean = __tmp__.value;
         };
         {
-            var __tmp__ = (_clean != null && _clean.__exists__(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false });
+            var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false });
             _actual = __tmp__.value;
             _loaded = __tmp__.ok;
         };
@@ -3707,7 +3736,7 @@ class DeepCopyMap_asInterface {
             { value : (null : GoMap<AnyInterface, AnyInterface>), ok : false };
         }, _clean = __tmp__.value, __0 = __tmp__.ok;
         {
-            var __tmp__ = (_clean != null && _clean.__exists__(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false });
+            var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false });
             _value = __tmp__.value;
             _ok = __tmp__.ok;
         };

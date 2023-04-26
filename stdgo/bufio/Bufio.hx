@@ -364,7 +364,7 @@ function newReaderSize(_rd:stdgo.io.Io.Reader, _size:GoInt):Ref<Reader> {
             _size = (16 : GoInt);
         };
         var _r = (Go.setRef(({} : stdgo.bufio.Bufio.Reader)) : Ref<stdgo.bufio.Bufio.Reader>);
-        _r._reset(new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0 ... (_size : GoInt).toBasic()) (0 : GoUInt8)]), _rd);
+        _r._reset(new Slice<GoUInt8>((_size : GoInt).toBasic(), 0).__setNumber32__(), _rd);
         return _r;
     }
 /**
@@ -390,7 +390,7 @@ function newWriterSize(_w:stdgo.io.Io.Writer, _size:GoInt):Ref<Writer> {
         if (_size <= (0 : GoInt)) {
             _size = (4096 : GoInt);
         };
-        return (Go.setRef(({ _buf : new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0 ... (_size : GoInt).toBasic()) (0 : GoUInt8)]), _wr : _w } : Writer)) : Ref<stdgo.bufio.Bufio.Writer>);
+        return (Go.setRef(({ _buf : new Slice<GoUInt8>((_size : GoInt).toBasic(), 0).__setNumber32__(), _wr : _w } : Writer)) : Ref<stdgo.bufio.Bufio.Writer>);
     }
 /**
     // NewWriter returns a new Writer whose buffer has the default size.
@@ -832,7 +832,7 @@ class Reader_asInterface {
     @:keep
     static public function readBytes( _b:Ref<Reader>, _delim:GoByte):{ var _0 : Slice<GoByte>; var _1 : Error; } {
         var __tmp__ = _b._collectFragments(_delim), _full:Slice<Slice<GoUInt8>> = __tmp__._0, _frag:Slice<GoUInt8> = __tmp__._1, _n:GoInt = __tmp__._2, _err:Error = __tmp__._3;
-        var _buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0).__setNumber32__();
         _n = (0 : GoInt);
         for (_i in 0 ... _full.length.toBasic()) {
             _n = _n + (Go.copySlice((_buf.__slice__(_n) : Slice<GoUInt8>), _full[(_i : GoInt)]));
@@ -868,7 +868,7 @@ class Reader_asInterface {
                 break;
             };
             var _buf = stdgo.bytes.Bytes.clone(_frag);
-            _fullBuffers = _fullBuffers.__appendref__(_buf);
+            _fullBuffers = (_fullBuffers.__append__(_buf));
             _totalLen = _totalLen + ((_buf.length));
         };
         _totalLen = _totalLen + ((_frag.length));
@@ -1264,7 +1264,7 @@ class Reader_asInterface {
     @:keep
     static public function reset( _b:Ref<Reader>, _r:stdgo.io.Io.Reader):Void {
         if (_b._buf == null) {
-            _b._buf = new Slice<GoUInt8>((4096 : GoInt).toBasic(), 0, ...[for (i in 0 ... (4096 : GoInt).toBasic()) (0 : GoUInt8)]);
+            _b._buf = new Slice<GoUInt8>((4096 : GoInt).toBasic(), 0).__setNumber32__();
         };
         _b._reset(_b._buf, _r);
     }
@@ -1607,7 +1607,7 @@ class Writer_asInterface {
     @:keep
     static public function reset( _b:Ref<Writer>, _w:stdgo.io.Io.Writer):Void {
         if (_b._buf == null) {
-            _b._buf = new Slice<GoUInt8>((4096 : GoInt).toBasic(), 0, ...[for (i in 0 ... (4096 : GoInt).toBasic()) (0 : GoUInt8)]);
+            _b._buf = new Slice<GoUInt8>((4096 : GoInt).toBasic(), 0).__setNumber32__();
         };
         _b._err = (null : Error);
         _b._n = (0 : GoInt);
@@ -1936,7 +1936,7 @@ class Scanner_asInterface {
                 if (_newSize > _s._maxTokenSize) {
                     _newSize = _s._maxTokenSize;
                 };
-                var _newBuf = new Slice<GoUInt8>((_newSize : GoInt).toBasic(), 0, ...[for (i in 0 ... (_newSize : GoInt).toBasic()) (0 : GoUInt8)]);
+                var _newBuf = new Slice<GoUInt8>((_newSize : GoInt).toBasic(), 0).__setNumber32__();
                 Go.copySlice(_newBuf, (_s._buf.__slice__(_s._start, _s._end) : Slice<GoUInt8>));
                 _s._buf = _newBuf;
                 _s._end = _s._end - (_s._start);
@@ -2008,7 +2008,7 @@ class Scanner_asInterface {
             throw Go.toInterface(("bad max token size" : GoString));
         };
         if (_n < (_s._buf.length)) {
-            _s._buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt8)]);
+            _s._buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0).__setNumber32__();
         };
         _s._maxTokenSize = _n;
     }

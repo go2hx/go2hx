@@ -15,8 +15,8 @@ import stdgo.math.Math;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+75,
+75,
 (new stdgo.testing.Testing.InternalTest(("TestNaN" : GoString), stdgo.math_test.Math_test.testNaN) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestAcos" : GoString), stdgo.math_test.Math_test.testAcos) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestAcosh" : GoString), stdgo.math_test.Math_test.testAcosh) : stdgo.testing.Testing.InternalTest),
@@ -98,8 +98,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+72,
+72,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAcos" : GoString), stdgo.math_test.Math_test.benchmarkAcos) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAcosh" : GoString), stdgo.math_test.Math_test.benchmarkAcosh) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAsin" : GoString), stdgo.math_test.Math_test.benchmarkAsin) : stdgo.testing.Testing.InternalBenchmark),
@@ -184,8 +184,8 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+35,
+35,
 (new stdgo.testing.Testing.InternalExample(("ExampleAcos" : GoString), stdgo.math_test.Math_test.exampleAcos, ("0.00\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleAcosh" : GoString), stdgo.math_test.Math_test.exampleAcosh, ("0.00\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleAsin" : GoString), stdgo.math_test.Math_test.exampleAsin, ("0.00\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

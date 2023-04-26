@@ -15,8 +15,8 @@ import stdgo.sync.atomic.Atomic;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+76,
+76,
 (new stdgo.testing.Testing.InternalTest(("TestSwapInt32" : GoString), stdgo.sync.atomic_test.Atomic_test.testSwapInt32) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestSwapInt32Method" : GoString), stdgo.sync.atomic_test.Atomic_test.testSwapInt32Method) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestSwapUint32" : GoString), stdgo.sync.atomic_test.Atomic_test.testSwapUint32) : stdgo.testing.Testing.InternalTest),
@@ -98,7 +98,7 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
     
 **/
-private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkValueRead" : GoString), stdgo.sync.atomic_test.Atomic_test.benchmarkValueRead) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
+private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(1, 1, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkValueRead" : GoString), stdgo.sync.atomic_test.Atomic_test.benchmarkValueRead) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 /**
     
     

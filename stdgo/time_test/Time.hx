@@ -15,8 +15,8 @@ import stdgo.time.Time;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+126,
+126,
 (new stdgo.testing.Testing.InternalTest(("TestNextStdChunk" : GoString), stdgo.time_test.Time_test.testNextStdChunk) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestRFC3339Conversion" : GoString), stdgo.time_test.Time_test.testRFC3339Conversion) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestAppendInt" : GoString), stdgo.time_test.Time_test.testAppendInt) : stdgo.testing.Testing.InternalTest),
@@ -149,8 +149,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+35,
+35,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAfterFunc" : GoString), stdgo.time_test.Time_test.benchmarkAfterFunc) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAfter" : GoString), stdgo.time_test.Time_test.benchmarkAfter) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkStop" : GoString), stdgo.time_test.Time_test.benchmarkStop) : stdgo.testing.Testing.InternalBenchmark),
@@ -191,15 +191,15 @@ private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
     
     
 **/
-private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0, 0, (new stdgo.testing.Testing.InternalFuzzTarget(("FuzzFormatRFC3339" : GoString), stdgo.time_test.Time_test.fuzzFormatRFC3339) : stdgo.testing.Testing.InternalFuzzTarget), (new stdgo.testing.Testing.InternalFuzzTarget(("FuzzParseRFC3339" : GoString), stdgo.time_test.Time_test.fuzzParseRFC3339) : stdgo.testing.Testing.InternalFuzzTarget)) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
+private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(2, 2, (new stdgo.testing.Testing.InternalFuzzTarget(("FuzzFormatRFC3339" : GoString), stdgo.time_test.Time_test.fuzzFormatRFC3339) : stdgo.testing.Testing.InternalFuzzTarget), (new stdgo.testing.Testing.InternalFuzzTarget(("FuzzParseRFC3339" : GoString), stdgo.time_test.Time_test.fuzzParseRFC3339) : stdgo.testing.Testing.InternalFuzzTarget)) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
 /**
     
     
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+35,
+35,
 (new stdgo.testing.Testing.InternalExample(("ExampleDuration_Round" : GoString), stdgo.time_test.Time_test.exampleDuration_Round, ("d.Round(   1ns) = 1h15m30.918273645s\nd.Round(   1µs) = 1h15m30.918274s\nd.Round(   1ms) = 1h15m30.918s\nd.Round(    1s) = 1h15m31s\nd.Round(    2s) = 1h15m30s\nd.Round(  1m0s) = 1h16m0s\nd.Round( 10m0s) = 1h20m0s\nd.Round(1h0m0s) = 1h0m0s\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleDuration_String" : GoString), stdgo.time_test.Time_test.exampleDuration_String, ("1h2m0.3s\n300ms\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleDuration_Truncate" : GoString), stdgo.time_test.Time_test.exampleDuration_Truncate, ("d.Truncate(   1ns) = 1h15m30.918273645s\nd.Truncate(   1µs) = 1h15m30.918273s\nd.Truncate(   1ms) = 1h15m30.918s\nd.Truncate(    1s) = 1h15m30s\nd.Truncate(    2s) = 1h15m30s\nd.Truncate(  1m0s) = 1h15m0s\nd.Truncate( 10m0s) = 1h10m0s\nd.Truncate(1h0m0s) = 1h0m0s\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

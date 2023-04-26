@@ -17,8 +17,8 @@ import stdgo.path.Path;
     
 **/
 private var _matchTests = (new Slice<stdgo.path_test.Path_test.MatchTest>(
-0,
-0,
+56,
+56,
 (new stdgo.path_test.Path_test.MatchTest(("abc" : GoString), ("abc" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
 (new stdgo.path_test.Path_test.MatchTest(("*" : GoString), ("abc" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
 (new stdgo.path_test.Path_test.MatchTest(("*c" : GoString), ("abc" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
@@ -81,8 +81,8 @@ private var _matchTests = (new Slice<stdgo.path_test.Path_test.MatchTest>(
     
 **/
 private var _cleantests = (new Slice<stdgo.path_test.Path_test.PathTest>(
-0,
-0,
+36,
+36,
 (new stdgo.path_test.Path_test.PathTest(Go.str(), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
 (new stdgo.path_test.Path_test.PathTest(("abc" : GoString), ("abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
 (new stdgo.path_test.Path_test.PathTest(("abc/def" : GoString), ("abc/def" : GoString)) : stdgo.path_test.Path_test.PathTest),
@@ -124,40 +124,40 @@ private var _cleantests = (new Slice<stdgo.path_test.Path_test.PathTest>(
     
     
 **/
-private var _splittests = (new Slice<stdgo.path_test.Path_test.SplitTest>(0, 0, (new stdgo.path_test.Path_test.SplitTest(("a/b" : GoString), ("a/" : GoString), ("b" : GoString)) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a/b/" : GoString), ("a/b/" : GoString), Go.str()) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a/" : GoString), ("a/" : GoString), Go.str()) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a" : GoString), Go.str(), ("a" : GoString)) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("/" : GoString), ("/" : GoString), Go.str()) : stdgo.path_test.Path_test.SplitTest)) : Slice<stdgo.path_test.Path_test.SplitTest>);
+private var _splittests = (new Slice<stdgo.path_test.Path_test.SplitTest>(5, 5, (new stdgo.path_test.Path_test.SplitTest(("a/b" : GoString), ("a/" : GoString), ("b" : GoString)) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a/b/" : GoString), ("a/b/" : GoString), Go.str()) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a/" : GoString), ("a/" : GoString), Go.str()) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a" : GoString), Go.str(), ("a" : GoString)) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("/" : GoString), ("/" : GoString), Go.str()) : stdgo.path_test.Path_test.SplitTest)) : Slice<stdgo.path_test.Path_test.SplitTest>);
 /**
     
     
     
 **/
 private var _jointests = (new Slice<stdgo.path_test.Path_test.JoinTest>(
-0,
-0,
+11,
+11,
 (new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0) : Slice<GoString>), Go.str()) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, Go.str()) : Slice<GoString>), Go.str()) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, ("a" : GoString)) : Slice<GoString>), ("a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, ("a" : GoString), ("b" : GoString)) : Slice<GoString>), ("a/b" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, ("a" : GoString), Go.str()) : Slice<GoString>), ("a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, Go.str(), ("b" : GoString)) : Slice<GoString>), ("b" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, ("/" : GoString), ("a" : GoString)) : Slice<GoString>), ("/a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, ("/" : GoString), Go.str()) : Slice<GoString>), ("/" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, ("a/" : GoString), ("b" : GoString)) : Slice<GoString>), ("a/b" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, ("a/" : GoString), Go.str()) : Slice<GoString>), ("a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, Go.str(), Go.str()) : Slice<GoString>), Go.str()) : stdgo.path_test.Path_test.JoinTest)) : Slice<stdgo.path_test.Path_test.JoinTest>);
+(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(1, 1, Go.str()) : Slice<GoString>), Go.str()) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(1, 1, ("a" : GoString)) : Slice<GoString>), ("a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("a" : GoString), ("b" : GoString)) : Slice<GoString>), ("a/b" : GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("a" : GoString), Go.str()) : Slice<GoString>), ("a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, Go.str(), ("b" : GoString)) : Slice<GoString>), ("b" : GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("/" : GoString), ("a" : GoString)) : Slice<GoString>), ("/a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("/" : GoString), Go.str()) : Slice<GoString>), ("/" : GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("a/" : GoString), ("b" : GoString)) : Slice<GoString>), ("a/b" : GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("a/" : GoString), Go.str()) : Slice<GoString>), ("a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, Go.str(), Go.str()) : Slice<GoString>), Go.str()) : stdgo.path_test.Path_test.JoinTest)) : Slice<stdgo.path_test.Path_test.JoinTest>);
 /**
     
     
     
 **/
-private var _exttests = (new Slice<stdgo.path_test.Path_test.ExtTest>(0, 0, (new stdgo.path_test.Path_test.ExtTest(("path.go" : GoString), (".go" : GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("path.pb.go" : GoString), (".go" : GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/b" : GoString), Go.str()) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/b.go" : GoString), (".go" : GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/" : GoString), Go.str()) : stdgo.path_test.Path_test.ExtTest)) : Slice<stdgo.path_test.Path_test.ExtTest>);
+private var _exttests = (new Slice<stdgo.path_test.Path_test.ExtTest>(5, 5, (new stdgo.path_test.Path_test.ExtTest(("path.go" : GoString), (".go" : GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("path.pb.go" : GoString), (".go" : GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/b" : GoString), Go.str()) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/b.go" : GoString), (".go" : GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/" : GoString), Go.str()) : stdgo.path_test.Path_test.ExtTest)) : Slice<stdgo.path_test.Path_test.ExtTest>);
 /**
     
     
     
 **/
 private var _basetests = (new Slice<stdgo.path_test.Path_test.PathTest>(
-0,
-0,
+11,
+11,
 (new stdgo.path_test.Path_test.PathTest(Go.str(), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
 (new stdgo.path_test.Path_test.PathTest(("." : GoString), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
 (new stdgo.path_test.Path_test.PathTest(("/." : GoString), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
@@ -175,8 +175,8 @@ private var _basetests = (new Slice<stdgo.path_test.Path_test.PathTest>(
     
 **/
 private var _dirtests = (new Slice<stdgo.path_test.Path_test.PathTest>(
-0,
-0,
+13,
+13,
 (new stdgo.path_test.Path_test.PathTest(Go.str(), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
 (new stdgo.path_test.Path_test.PathTest(("." : GoString), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
 (new stdgo.path_test.Path_test.PathTest(("/." : GoString), ("/" : GoString)) : stdgo.path_test.Path_test.PathTest),
@@ -195,7 +195,7 @@ private var _dirtests = (new Slice<stdgo.path_test.Path_test.PathTest>(
     
     
 **/
-private var _isAbsTests = (new Slice<stdgo.path_test.Path_test.IsAbsTest>(0, 0, (new stdgo.path_test.Path_test.IsAbsTest(Go.str(), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/" : GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/usr/bin/gcc" : GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest((".." : GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/a/../bb" : GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("." : GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("./" : GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("lala" : GoString), false) : stdgo.path_test.Path_test.IsAbsTest)) : Slice<stdgo.path_test.Path_test.IsAbsTest>);
+private var _isAbsTests = (new Slice<stdgo.path_test.Path_test.IsAbsTest>(8, 8, (new stdgo.path_test.Path_test.IsAbsTest(Go.str(), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/" : GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/usr/bin/gcc" : GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest((".." : GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/a/../bb" : GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("." : GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("./" : GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("lala" : GoString), false) : stdgo.path_test.Path_test.IsAbsTest)) : Slice<stdgo.path_test.Path_test.IsAbsTest>);
 /**
     
     
@@ -310,7 +310,7 @@ function exampleBase():Void {
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str())));
     }
 function exampleClean():Void {
-        var _paths = (new Slice<GoString>(0, 0, ("a/c" : GoString), ("a//c" : GoString), ("a/c/." : GoString), ("a/c/b/.." : GoString), ("/../a/c" : GoString), ("/../a/b/../././/c" : GoString), Go.str()) : Slice<GoString>);
+        var _paths = (new Slice<GoString>(7, 7, ("a/c" : GoString), ("a//c" : GoString), ("a/c/." : GoString), ("a/c/b/.." : GoString), ("/../a/c" : GoString), ("/../a/b/../././/c" : GoString), Go.str()) : Slice<GoString>);
         for (__0 => _p in _paths) {
             stdgo.fmt.Fmt.printf(("Clean(%q) = %q\n" : GoString), Go.toInterface(_p), Go.toInterface(stdgo.path.Path.clean(_p)));
         };

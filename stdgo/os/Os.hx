@@ -1460,11 +1460,11 @@ private function _fixRootDirectory(_p:GoString):GoString throw "os._fixRootDirec
 **/
 function pipe():{ var _0 : Ref<File>; var _1 : Ref<File>; var _2 : Error; } throw "os.pipe is not yet implemented";
 private function _runtime_args():Slice<GoString> {
-        #if js return new Slice<GoString>(0, 0) #else null #end;
+        #if js return new Slice<GoString>(0, 0).__setString__() #else null #end;
         #if sys {
             final args:Array<GoString> = Sys.args().map(arg -> (arg : GoString));
             args.unshift(Sys.getCwd());
-            return new Slice<GoString>(0, 0, ...args);
+            return new Slice<GoString>(args.length, args.length, ...args).__setString__();
         } #else null #end;
     }
 /**

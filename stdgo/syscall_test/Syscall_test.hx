@@ -32,8 +32,8 @@ function testEnv(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testExecErrPermutedFds(_t:Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
-        var _attr = (Go.setRef(({ files : (new Slice<Ref<stdgo.os.Os.File>>(0, 0, stdgo.os.Os.stdin, stdgo.os.Os.stderr, stdgo.os.Os.stdout) : Slice<Ref<stdgo.os.Os.File>>) } : stdgo.os.Os.ProcAttr)) : Ref<stdgo.os.Os.ProcAttr>);
-        var __tmp__ = stdgo.os.Os.startProcess(("/" : GoString), (new Slice<GoString>(0, 0, ("/" : GoString)) : Slice<GoString>), _attr), __0:Ref<stdgo.os.Os.Process> = __tmp__._0, _err:Error = __tmp__._1;
+        var _attr = (Go.setRef(({ files : (new Slice<Ref<stdgo.os.Os.File>>(3, 3, stdgo.os.Os.stdin, stdgo.os.Os.stderr, stdgo.os.Os.stdout) : Slice<Ref<stdgo.os.Os.File>>) } : stdgo.os.Os.ProcAttr)) : Ref<stdgo.os.Os.ProcAttr>);
+        var __tmp__ = stdgo.os.Os.startProcess(("/" : GoString), (new Slice<GoString>(1, 1, ("/" : GoString)) : Slice<GoString>), _attr), __0:Ref<stdgo.os.Os.Process> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err == null) {
             _t.fatalf(("StartProcess of invalid program returned err = nil" : GoString));
         };

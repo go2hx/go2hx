@@ -18,7 +18,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-private var __TurkishCase = (new Slice<stdgo.unicode.Unicode.CaseRange>(0, 0, (new CaseRange((73u32 : GoUInt32), (73u32 : GoUInt32), (new GoArray<GoInt32>((0 : GoInt32), (232 : GoInt32), (0 : GoInt32)) : stdgo.unicode.Unicode.T_d)) : CaseRange), (new CaseRange((105u32 : GoUInt32), (105u32 : GoUInt32), (new GoArray<GoInt32>((199 : GoInt32), (0 : GoInt32), (199 : GoInt32)) : stdgo.unicode.Unicode.T_d)) : CaseRange), (new CaseRange((304u32 : GoUInt32), (304u32 : GoUInt32), (new GoArray<GoInt32>((0 : GoInt32), (-199 : GoInt32), (0 : GoInt32)) : stdgo.unicode.Unicode.T_d)) : CaseRange), (new CaseRange((305u32 : GoUInt32), (305u32 : GoUInt32), (new GoArray<GoInt32>((-232 : GoInt32), (0 : GoInt32), (-232 : GoInt32)) : stdgo.unicode.Unicode.T_d)) : CaseRange)) : stdgo.unicode.Unicode.SpecialCase);
+private var __TurkishCase = (new Slice<stdgo.unicode.Unicode.CaseRange>(4, 4, (new CaseRange((73u32 : GoUInt32), (73u32 : GoUInt32), (new GoArray<GoInt32>((0 : GoInt32), (232 : GoInt32), (0 : GoInt32)) : stdgo.unicode.Unicode.T_d)) : CaseRange), (new CaseRange((105u32 : GoUInt32), (105u32 : GoUInt32), (new GoArray<GoInt32>((199 : GoInt32), (0 : GoInt32), (199 : GoInt32)) : stdgo.unicode.Unicode.T_d)) : CaseRange), (new CaseRange((304u32 : GoUInt32), (304u32 : GoUInt32), (new GoArray<GoInt32>((0 : GoInt32), (-199 : GoInt32), (0 : GoInt32)) : stdgo.unicode.Unicode.T_d)) : CaseRange), (new CaseRange((305u32 : GoUInt32), (305u32 : GoUInt32), (new GoArray<GoInt32>((-232 : GoInt32), (0 : GoInt32), (-232 : GoInt32)) : stdgo.unicode.Unicode.T_d)) : CaseRange)) : stdgo.unicode.Unicode.SpecialCase);
 /**
     
     
@@ -37,8 +37,8 @@ var azeriCase : SpecialCase = __TurkishCase;
     
 **/
 private var __C = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+14,
+14,
 (new stdgo.unicode.Unicode.Range16((0 : GoUInt16), (31 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((127 : GoUInt16), (159 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((173 : GoUInt16), (1536 : GoUInt16), (1363 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -52,21 +52,21 @@ private var __C = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
 (new stdgo.unicode.Unicode.Range16((8294 : GoUInt16), (8303 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((55296 : GoUInt16), (63743 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65279 : GoUInt16), (65529 : GoUInt16), (250 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65530 : GoUInt16), (65531 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69821u32 : GoUInt32), (69837u32 : GoUInt32), (16u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((78896u32 : GoUInt32), (78904u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113824u32 : GoUInt32), (113827u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119155u32 : GoUInt32), (119162u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917505u32 : GoUInt32), (917536u32 : GoUInt32), (31u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917537u32 : GoUInt32), (917631u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((983040u32 : GoUInt32), (1048573u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((1048576u32 : GoUInt32), (1114109u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (2 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65530 : GoUInt16), (65531 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(8, 8, (new stdgo.unicode.Unicode.Range32((69821u32 : GoUInt32), (69837u32 : GoUInt32), (16u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((78896u32 : GoUInt32), (78904u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113824u32 : GoUInt32), (113827u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119155u32 : GoUInt32), (119162u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917505u32 : GoUInt32), (917536u32 : GoUInt32), (31u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917537u32 : GoUInt32), (917631u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((983040u32 : GoUInt32), (1048573u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((1048576u32 : GoUInt32), (1114109u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (2 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Cc = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((0 : GoUInt16), (31 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((127 : GoUInt16), (159 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (2 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Cc = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((0 : GoUInt16), (31 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((127 : GoUInt16), (159 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (2 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Cf = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+11,
+11,
 (new stdgo.unicode.Unicode.Range16((173 : GoUInt16), (1536 : GoUInt16), (1363 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1537 : GoUInt16), (1541 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1564 : GoUInt16), (1757 : GoUInt16), (193 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -77,27 +77,27 @@ private var __Cf = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((8288 : GoUInt16), (8292 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((8294 : GoUInt16), (8303 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65279 : GoUInt16), (65529 : GoUInt16), (250 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65530 : GoUInt16), (65531 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69821u32 : GoUInt32), (69837u32 : GoUInt32), (16u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((78896u32 : GoUInt32), (78904u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113824u32 : GoUInt32), (113827u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119155u32 : GoUInt32), (119162u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917505u32 : GoUInt32), (917536u32 : GoUInt32), (31u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917537u32 : GoUInt32), (917631u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65530 : GoUInt16), (65531 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(6, 6, (new stdgo.unicode.Unicode.Range32((69821u32 : GoUInt32), (69837u32 : GoUInt32), (16u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((78896u32 : GoUInt32), (78904u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113824u32 : GoUInt32), (113827u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119155u32 : GoUInt32), (119162u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917505u32 : GoUInt32), (917536u32 : GoUInt32), (31u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917537u32 : GoUInt32), (917631u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Co = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((57344 : GoUInt16), (63743 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((983040u32 : GoUInt32), (1048573u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((1048576u32 : GoUInt32), (1114109u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Co = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((57344 : GoUInt16), (63743 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((983040u32 : GoUInt32), (1048573u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((1048576u32 : GoUInt32), (1114109u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Cs = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((55296 : GoUInt16), (57343 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Cs = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((55296 : GoUInt16), (57343 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __L = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+359,
+359,
 (new stdgo.unicode.Unicode.Range16((65 : GoUInt16), (90 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((97 : GoUInt16), (122 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((170 : GoUInt16), (181 : GoUInt16), (11 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -457,8 +457,8 @@ private var __L = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
 (new stdgo.unicode.Unicode.Range16((65482 : GoUInt16), (65487 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65490 : GoUInt16), (65495 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65498 : GoUInt16), (65500 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+227,
+227,
 (new stdgo.unicode.Unicode.Range32((65536u32 : GoUInt32), (65547u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65549u32 : GoUInt32), (65574u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65576u32 : GoUInt32), (65594u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -692,8 +692,8 @@ private var __L = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
     
 **/
 private var __Ll = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+122,
+122,
 (new stdgo.unicode.Unicode.Range16((97 : GoUInt16), (122 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((181 : GoUInt16), (223 : GoUInt16), (42 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((224 : GoUInt16), (246 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -816,8 +816,8 @@ private var __Ll = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((64256 : GoUInt16), (64262 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((64275 : GoUInt16), (64279 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65345 : GoUInt16), (65370 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+34,
+34,
 (new stdgo.unicode.Unicode.Range32((66600u32 : GoUInt32), (66639u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((66776u32 : GoUInt32), (66811u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((68800u32 : GoUInt32), (68850u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -858,8 +858,8 @@ private var __Ll = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
     
 **/
 private var __Lm = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+40,
+40,
 (new stdgo.unicode.Unicode.Range16((688 : GoUInt16), (705 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((710 : GoUInt16), (721 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((736 : GoUInt16), (740 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -899,15 +899,15 @@ private var __Lm = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((43763 : GoUInt16), (43764 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((43868 : GoUInt16), (43871 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((43881 : GoUInt16), (65392 : GoUInt16), (21511 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65438 : GoUInt16), (65439 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((92992u32 : GoUInt32), (92995u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94099u32 : GoUInt32), (94111u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94176u32 : GoUInt32), (94177u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94179u32 : GoUInt32), (123191u32 : GoUInt32), (29012u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123192u32 : GoUInt32), (123197u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125259u32 : GoUInt32), (125259u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65438 : GoUInt16), (65439 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(6, 6, (new stdgo.unicode.Unicode.Range32((92992u32 : GoUInt32), (92995u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94099u32 : GoUInt32), (94111u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94176u32 : GoUInt32), (94177u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94179u32 : GoUInt32), (123191u32 : GoUInt32), (29012u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123192u32 : GoUInt32), (123197u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125259u32 : GoUInt32), (125259u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Lo = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+279,
+279,
 (new stdgo.unicode.Unicode.Range16((170 : GoUInt16), (186 : GoUInt16), (16 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((443 : GoUInt16), (448 : GoUInt16), (5 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((449 : GoUInt16), (451 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -1187,8 +1187,8 @@ private var __Lo = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((65482 : GoUInt16), (65487 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65490 : GoUInt16), (65495 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65498 : GoUInt16), (65500 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+184,
+184,
 (new stdgo.unicode.Unicode.Range32((65536u32 : GoUInt32), (65547u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65549u32 : GoUInt32), (65574u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65576u32 : GoUInt32), (65594u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -1378,15 +1378,15 @@ private var __Lo = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
     
     
 **/
-private var __Lt = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((453 : GoUInt16), (459 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((498 : GoUInt16), (8072 : GoUInt16), (7574 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8073 : GoUInt16), (8079 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8088 : GoUInt16), (8095 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8104 : GoUInt16), (8111 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8124 : GoUInt16), (8140 : GoUInt16), (16 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8188 : GoUInt16), (8188 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Lt = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(7, 7, (new stdgo.unicode.Unicode.Range16((453 : GoUInt16), (459 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((498 : GoUInt16), (8072 : GoUInt16), (7574 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8073 : GoUInt16), (8079 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8088 : GoUInt16), (8095 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8104 : GoUInt16), (8111 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8124 : GoUInt16), (8140 : GoUInt16), (16 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8188 : GoUInt16), (8188 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Lu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+108,
+108,
 (new stdgo.unicode.Unicode.Range16((65 : GoUInt16), (90 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((192 : GoUInt16), (214 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((216 : GoUInt16), (222 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -1495,8 +1495,8 @@ private var __Lu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((42949 : GoUInt16), (42951 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((42953 : GoUInt16), (42997 : GoUInt16), (44 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65313 : GoUInt16), (65338 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+36,
+36,
 (new stdgo.unicode.Unicode.Range32((66560u32 : GoUInt32), (66599u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((66736u32 : GoUInt32), (66771u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((68736u32 : GoUInt32), (68786u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -1539,8 +1539,8 @@ private var __Lu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
     
 **/
 private var __M = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+180,
+180,
 (new stdgo.unicode.Unicode.Range16((768 : GoUInt16), (879 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1155 : GoUInt16), (1161 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1425 : GoUInt16), (1469 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -1721,8 +1721,8 @@ private var __M = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
 (new stdgo.unicode.Unicode.Range16((64286 : GoUInt16), (65024 : GoUInt16), (738 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65025 : GoUInt16), (65039 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65056 : GoUInt16), (65071 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+101,
+101,
 (new stdgo.unicode.Unicode.Range32((66045u32 : GoUInt32), (66272u32 : GoUInt32), (227u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((66422u32 : GoUInt32), (66426u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((68097u32 : GoUInt32), (68099u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -1830,8 +1830,8 @@ private var __M = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
     
 **/
 private var __Mc = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+96,
+96,
 (new stdgo.unicode.Unicode.Range16((2307 : GoUInt16), (2363 : GoUInt16), (56 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2366 : GoUInt16), (2368 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2377 : GoUInt16), (2380 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -1928,8 +1928,8 @@ private var __Mc = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((44004 : GoUInt16), (44006 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((44007 : GoUInt16), (44009 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((44010 : GoUInt16), (44012 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+57,
+57,
 (new stdgo.unicode.Unicode.Range32((69632u32 : GoUInt32), (69634u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((69762u32 : GoUInt32), (69808u32 : GoUInt32), (46u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((69809u32 : GoUInt32), (69810u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -1992,15 +1992,15 @@ private var __Mc = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
     
     
 **/
-private var __Me = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((1160 : GoUInt16), (1161 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6846 : GoUInt16), (8413 : GoUInt16), (1567 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8414 : GoUInt16), (8416 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8418 : GoUInt16), (8420 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((42608 : GoUInt16), (42610 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Me = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(5, 5, (new stdgo.unicode.Unicode.Range16((1160 : GoUInt16), (1161 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6846 : GoUInt16), (8413 : GoUInt16), (1567 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8414 : GoUInt16), (8416 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8418 : GoUInt16), (8420 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((42608 : GoUInt16), (42610 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Mn = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+182,
+182,
 (new stdgo.unicode.Unicode.Range16((768 : GoUInt16), (879 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1155 : GoUInt16), (1159 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1425 : GoUInt16), (1469 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -2183,8 +2183,8 @@ private var __Mn = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((44013 : GoUInt16), (64286 : GoUInt16), (20273 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65024 : GoUInt16), (65039 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65056 : GoUInt16), (65071 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+110,
+110,
 (new stdgo.unicode.Unicode.Range32((66045u32 : GoUInt32), (66272u32 : GoUInt32), (227u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((66422u32 : GoUInt32), (66426u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((68097u32 : GoUInt32), (68099u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -2301,8 +2301,8 @@ private var __Mn = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
     
 **/
 private var __N = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+66,
+66,
 (new stdgo.unicode.Unicode.Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((178 : GoUInt16), (179 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((185 : GoUInt16), (188 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -2369,8 +2369,8 @@ private var __N = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
 (new stdgo.unicode.Unicode.Range16((43600 : GoUInt16), (43609 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((44016 : GoUInt16), (44025 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65296 : GoUInt16), (65305 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+65,
+65,
 (new stdgo.unicode.Unicode.Range32((65799u32 : GoUInt32), (65843u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65856u32 : GoUInt32), (65912u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65930u32 : GoUInt32), (65931u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -2442,8 +2442,8 @@ private var __N = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
     
 **/
 private var __Nd = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+37,
+37,
 (new stdgo.unicode.Unicode.Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1632 : GoUInt16), (1641 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1776 : GoUInt16), (1785 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -2481,8 +2481,8 @@ private var __Nd = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((43600 : GoUInt16), (43609 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((44016 : GoUInt16), (44025 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65296 : GoUInt16), (65305 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+24,
+24,
 (new stdgo.unicode.Unicode.Range32((66720u32 : GoUInt32), (66729u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((68912u32 : GoUInt32), (68921u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((69734u32 : GoUInt32), (69743u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -2512,15 +2512,15 @@ private var __Nd = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
     
     
 **/
-private var __Nl = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((5870 : GoUInt16), (5872 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8544 : GoUInt16), (8578 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8581 : GoUInt16), (8584 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12295 : GoUInt16), (12321 : GoUInt16), (26 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12322 : GoUInt16), (12329 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12344 : GoUInt16), (12346 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((42726 : GoUInt16), (42735 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((65856u32 : GoUInt32), (65908u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66369u32 : GoUInt32), (66378u32 : GoUInt32), (9u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66513u32 : GoUInt32), (66517u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((74752u32 : GoUInt32), (74862u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Nl = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(7, 7, (new stdgo.unicode.Unicode.Range16((5870 : GoUInt16), (5872 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8544 : GoUInt16), (8578 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8581 : GoUInt16), (8584 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12295 : GoUInt16), (12321 : GoUInt16), (26 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12322 : GoUInt16), (12329 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12344 : GoUInt16), (12346 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((42726 : GoUInt16), (42735 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(4, 4, (new stdgo.unicode.Unicode.Range32((65856u32 : GoUInt32), (65908u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66369u32 : GoUInt32), (66378u32 : GoUInt32), (9u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66513u32 : GoUInt32), (66517u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((74752u32 : GoUInt32), (74862u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __No = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+28,
+28,
 (new stdgo.unicode.Unicode.Range16((178 : GoUInt16), (179 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((185 : GoUInt16), (188 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((189 : GoUInt16), (190 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -2549,8 +2549,8 @@ private var __No = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((12928 : GoUInt16), (12937 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((12977 : GoUInt16), (12991 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((43056 : GoUInt16), (43061 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+42,
+42,
 (new stdgo.unicode.Unicode.Range32((65799u32 : GoUInt32), (65843u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65909u32 : GoUInt32), (65912u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65930u32 : GoUInt32), (65931u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -2599,8 +2599,8 @@ private var __No = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
     
 **/
 private var __P = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+114,
+114,
 (new stdgo.unicode.Unicode.Range16((33 : GoUInt16), (35 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((37 : GoUInt16), (42 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((44 : GoUInt16), (47 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -2715,8 +2715,8 @@ private var __P = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
 (new stdgo.unicode.Unicode.Range16((65343 : GoUInt16), (65371 : GoUInt16), (28 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65373 : GoUInt16), (65375 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65376 : GoUInt16), (65381 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+47,
+47,
 (new stdgo.unicode.Unicode.Range32((65792u32 : GoUInt32), (65794u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((66463u32 : GoUInt32), (66512u32 : GoUInt32), (49u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((66927u32 : GoUInt32), (67671u32 : GoUInt32), (744u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -2769,15 +2769,15 @@ private var __P = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
     
     
 **/
-private var __Pc = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((95 : GoUInt16), (8255 : GoUInt16), (8160 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8256 : GoUInt16), (8276 : GoUInt16), (20 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65075 : GoUInt16), (65076 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65101 : GoUInt16), (65103 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65343 : GoUInt16), (65343 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Pc = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(5, 5, (new stdgo.unicode.Unicode.Range16((95 : GoUInt16), (8255 : GoUInt16), (8160 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8256 : GoUInt16), (8276 : GoUInt16), (20 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65075 : GoUInt16), (65076 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65101 : GoUInt16), (65103 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65343 : GoUInt16), (65343 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Pd = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+11,
+11,
 (new stdgo.unicode.Unicode.Range16((45 : GoUInt16), (1418 : GoUInt16), (1373 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1470 : GoUInt16), (5120 : GoUInt16), (3650 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((6150 : GoUInt16), (8208 : GoUInt16), (2058 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -2788,15 +2788,15 @@ private var __Pd = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((12336 : GoUInt16), (12448 : GoUInt16), (112 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65073 : GoUInt16), (65074 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65112 : GoUInt16), (65123 : GoUInt16), (11 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65293 : GoUInt16), (65293 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69293u32 : GoUInt32), (69293u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65293 : GoUInt16), (65293 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((69293u32 : GoUInt32), (69293u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Pe = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+22,
+22,
 (new stdgo.unicode.Unicode.Range16((41 : GoUInt16), (93 : GoUInt16), (52 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((125 : GoUInt16), (3899 : GoUInt16), (3774 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3901 : GoUInt16), (5788 : GoUInt16), (1887 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -2824,21 +2824,21 @@ private var __Pe = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
     
     
 **/
-private var __Pf = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((187 : GoUInt16), (8217 : GoUInt16), (8030 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8221 : GoUInt16), (8250 : GoUInt16), (29 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11779 : GoUInt16), (11781 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11786 : GoUInt16), (11789 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11805 : GoUInt16), (11809 : GoUInt16), (4 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Pf = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(5, 5, (new stdgo.unicode.Unicode.Range16((187 : GoUInt16), (8217 : GoUInt16), (8030 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8221 : GoUInt16), (8250 : GoUInt16), (29 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11779 : GoUInt16), (11781 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11786 : GoUInt16), (11789 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11805 : GoUInt16), (11809 : GoUInt16), (4 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Pi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((171 : GoUInt16), (8216 : GoUInt16), (8045 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8219 : GoUInt16), (8220 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8223 : GoUInt16), (8249 : GoUInt16), (26 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11778 : GoUInt16), (11780 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11785 : GoUInt16), (11788 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11804 : GoUInt16), (11808 : GoUInt16), (4 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Pi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(6, 6, (new stdgo.unicode.Unicode.Range16((171 : GoUInt16), (8216 : GoUInt16), (8045 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8219 : GoUInt16), (8220 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8223 : GoUInt16), (8249 : GoUInt16), (26 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11778 : GoUInt16), (11780 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11785 : GoUInt16), (11788 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11804 : GoUInt16), (11808 : GoUInt16), (4 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Po = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+112,
+112,
 (new stdgo.unicode.Unicode.Range16((33 : GoUInt16), (35 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((37 : GoUInt16), (39 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((42 : GoUInt16), (46 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -2951,8 +2951,8 @@ private var __Po = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((65312 : GoUInt16), (65340 : GoUInt16), (28 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65377 : GoUInt16), (65380 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65381 : GoUInt16), (65381 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+46,
+46,
 (new stdgo.unicode.Unicode.Range32((65792u32 : GoUInt32), (65794u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((66463u32 : GoUInt32), (66512u32 : GoUInt32), (49u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((66927u32 : GoUInt32), (67671u32 : GoUInt32), (744u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -3005,8 +3005,8 @@ private var __Po = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
     
 **/
 private var __Ps = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+25,
+25,
 (new stdgo.unicode.Unicode.Range16((40 : GoUInt16), (91 : GoUInt16), (51 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((123 : GoUInt16), (3898 : GoUInt16), (3775 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3900 : GoUInt16), (5787 : GoUInt16), (1887 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -3038,8 +3038,8 @@ private var __Ps = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
     
 **/
 private var __S = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+126,
+126,
 (new stdgo.unicode.Unicode.Range16((36 : GoUInt16), (43 : GoUInt16), (7 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((60 : GoUInt16), (62 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((94 : GoUInt16), (96 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -3166,8 +3166,8 @@ private var __S = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
 (new stdgo.unicode.Unicode.Range16((65504 : GoUInt16), (65510 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65512 : GoUInt16), (65518 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65532 : GoUInt16), (65533 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+72,
+72,
 (new stdgo.unicode.Unicode.Range32((65847u32 : GoUInt32), (65855u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65913u32 : GoUInt32), (65929u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65932u32 : GoUInt32), (65934u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -3246,8 +3246,8 @@ private var __S = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
     
 **/
 private var __Sc = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+13,
+13,
 (new stdgo.unicode.Unicode.Range16((36 : GoUInt16), (162 : GoUInt16), (126 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((163 : GoUInt16), (165 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1423 : GoUInt16), (1547 : GoUInt16), (124 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -3260,15 +3260,15 @@ private var __Sc = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((43064 : GoUInt16), (65020 : GoUInt16), (21956 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65129 : GoUInt16), (65284 : GoUInt16), (155 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65504 : GoUInt16), (65505 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65509 : GoUInt16), (65510 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((73693u32 : GoUInt32), (73696u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123647u32 : GoUInt32), (126128u32 : GoUInt32), (2481u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (2 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65509 : GoUInt16), (65510 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((73693u32 : GoUInt32), (73696u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123647u32 : GoUInt32), (126128u32 : GoUInt32), (2481u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (2 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Sk = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+24,
+24,
 (new stdgo.unicode.Unicode.Range16((94 : GoUInt16), (96 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((168 : GoUInt16), (175 : GoUInt16), (7 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((180 : GoUInt16), (184 : GoUInt16), (4 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -3292,15 +3292,15 @@ private var __Sk = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((43883 : GoUInt16), (64434 : GoUInt16), (20551 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((64435 : GoUInt16), (64449 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65342 : GoUInt16), (65344 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65507 : GoUInt16), (65507 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((127995u32 : GoUInt32), (127999u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (3 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65507 : GoUInt16), (65507 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((127995u32 : GoUInt32), (127999u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (3 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Sm = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+43,
+43,
 (new stdgo.unicode.Unicode.Range16((43 : GoUInt16), (60 : GoUInt16), (17 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((61 : GoUInt16), (62 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((124 : GoUInt16), (126 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -3343,15 +3343,15 @@ private var __Sm = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((65309 : GoUInt16), (65310 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65372 : GoUInt16), (65374 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65506 : GoUInt16), (65513 : GoUInt16), (7 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65514 : GoUInt16), (65516 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((120513u32 : GoUInt32), (120539u32 : GoUInt32), (26u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((120571u32 : GoUInt32), (120597u32 : GoUInt32), (26u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((120629u32 : GoUInt32), (120655u32 : GoUInt32), (26u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((120687u32 : GoUInt32), (120713u32 : GoUInt32), (26u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((120745u32 : GoUInt32), (120771u32 : GoUInt32), (26u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((126704u32 : GoUInt32), (126705u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (5 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65514 : GoUInt16), (65516 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(6, 6, (new stdgo.unicode.Unicode.Range32((120513u32 : GoUInt32), (120539u32 : GoUInt32), (26u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((120571u32 : GoUInt32), (120597u32 : GoUInt32), (26u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((120629u32 : GoUInt32), (120655u32 : GoUInt32), (26u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((120687u32 : GoUInt32), (120713u32 : GoUInt32), (26u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((120745u32 : GoUInt32), (120771u32 : GoUInt32), (26u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((126704u32 : GoUInt32), (126705u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (5 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __So = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+97,
+97,
 (new stdgo.unicode.Unicode.Range16((166 : GoUInt16), (169 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((174 : GoUInt16), (176 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1154 : GoUInt16), (1421 : GoUInt16), (267 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -3449,8 +3449,8 @@ private var __So = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
 (new stdgo.unicode.Unicode.Range16((65512 : GoUInt16), (65517 : GoUInt16), (5 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65518 : GoUInt16), (65532 : GoUInt16), (14 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65533 : GoUInt16), (65533 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+67,
+67,
 (new stdgo.unicode.Unicode.Range32((65847u32 : GoUInt32), (65855u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65913u32 : GoUInt32), (65929u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65932u32 : GoUInt32), (65934u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -3523,25 +3523,25 @@ private var __So = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>
     
     
 **/
-private var __Z = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((32 : GoUInt16), (160 : GoUInt16), (128 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5760 : GoUInt16), (8192 : GoUInt16), (2432 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8193 : GoUInt16), (8202 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8232 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8239 : GoUInt16), (8287 : GoUInt16), (48 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12288 : GoUInt16), (12288 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (1 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Z = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(6, 6, (new stdgo.unicode.Unicode.Range16((32 : GoUInt16), (160 : GoUInt16), (128 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5760 : GoUInt16), (8192 : GoUInt16), (2432 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8193 : GoUInt16), (8202 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8232 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8239 : GoUInt16), (8287 : GoUInt16), (48 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12288 : GoUInt16), (12288 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (1 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Zl = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((8232 : GoUInt16), (8232 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Zl = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((8232 : GoUInt16), (8232 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Zp = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((8233 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Zp = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((8233 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Zs = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((32 : GoUInt16), (160 : GoUInt16), (128 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5760 : GoUInt16), (8192 : GoUInt16), (2432 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8193 : GoUInt16), (8202 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8239 : GoUInt16), (8287 : GoUInt16), (48 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12288 : GoUInt16), (12288 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (1 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Zs = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(5, 5, (new stdgo.unicode.Unicode.Range16((32 : GoUInt16), (160 : GoUInt16), (128 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5760 : GoUInt16), (8192 : GoUInt16), (2432 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8193 : GoUInt16), (8202 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8239 : GoUInt16), (8287 : GoUInt16), (48 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12288 : GoUInt16), (12288 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (1 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     // These variables have type *RangeTable.
     
@@ -3788,7 +3788,7 @@ var s = __S;
     
     
 **/
-var printRanges = (new Slice<Ref<stdgo.unicode.Unicode.RangeTable>>(0, 0, l, m, n, p, s) : Slice<Ref<stdgo.unicode.Unicode.RangeTable>>);
+var printRanges = (new Slice<Ref<stdgo.unicode.Unicode.RangeTable>>(5, 5, l, m, n, p, s) : Slice<Ref<stdgo.unicode.Unicode.RangeTable>>);
 /**
     // These variables have type *RangeTable.
     
@@ -3836,116 +3836,80 @@ var zs = __Zs;
     
     
 **/
-var graphicRanges = (new Slice<Ref<stdgo.unicode.Unicode.RangeTable>>(0, 0, l, m, n, p, s, zs) : Slice<Ref<stdgo.unicode.Unicode.RangeTable>>);
+var graphicRanges = (new Slice<Ref<stdgo.unicode.Unicode.RangeTable>>(6, 6, l, m, n, p, s, zs) : Slice<Ref<stdgo.unicode.Unicode.RangeTable>>);
 /**
     // Categories is the set of Unicode category tables.
     
     
 **/
 var categories = ({
-    final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.RangeTable", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.Range16", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "hi", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "stride", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "r32", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.Range32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "hi", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "stride", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "latinOffset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) }) })));
-    @:privateAccess x._keys = [
-("C" : GoString),
-("Cc" : GoString),
-("Cf" : GoString),
-("Co" : GoString),
-("Cs" : GoString),
-("L" : GoString),
-("Ll" : GoString),
-("Lm" : GoString),
-("Lo" : GoString),
-("Lt" : GoString),
-("Lu" : GoString),
-("M" : GoString),
-("Mc" : GoString),
-("Me" : GoString),
-("Mn" : GoString),
-("N" : GoString),
-("Nd" : GoString),
-("Nl" : GoString),
-("No" : GoString),
-("P" : GoString),
-("Pc" : GoString),
-("Pd" : GoString),
-("Pe" : GoString),
-("Pf" : GoString),
-("Pi" : GoString),
-("Po" : GoString),
-("Ps" : GoString),
-("S" : GoString),
-("Sc" : GoString),
-("Sk" : GoString),
-("Sm" : GoString),
-("So" : GoString),
-("Z" : GoString),
-("Zl" : GoString),
-("Zp" : GoString),
-("Zs" : GoString)];
-    @:privateAccess x._values = [
-c,
-cc,
-cf,
-co,
-cs,
-l,
-ll,
-lm,
-lo,
-lt,
-lu,
-m,
-mc,
-me,
-mn,
-n,
-nd,
-nl,
-no,
-p,
-pc,
-pd,
-pe,
-pf,
-pi,
-po,
-ps,
-s,
-sc,
-sk,
-sm,
-so,
-z,
-zl,
-zp,
-zs];
+    final x = new GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>();
+    @:mergeBlock {
+        x.set(("C" : GoString), c);
+        x.set(("Cc" : GoString), cc);
+        x.set(("Cf" : GoString), cf);
+        x.set(("Co" : GoString), co);
+        x.set(("Cs" : GoString), cs);
+        x.set(("L" : GoString), l);
+        x.set(("Ll" : GoString), ll);
+        x.set(("Lm" : GoString), lm);
+        x.set(("Lo" : GoString), lo);
+        x.set(("Lt" : GoString), lt);
+        x.set(("Lu" : GoString), lu);
+        x.set(("M" : GoString), m);
+        x.set(("Mc" : GoString), mc);
+        x.set(("Me" : GoString), me);
+        x.set(("Mn" : GoString), mn);
+        x.set(("N" : GoString), n);
+        x.set(("Nd" : GoString), nd);
+        x.set(("Nl" : GoString), nl);
+        x.set(("No" : GoString), no);
+        x.set(("P" : GoString), p);
+        x.set(("Pc" : GoString), pc);
+        x.set(("Pd" : GoString), pd);
+        x.set(("Pe" : GoString), pe);
+        x.set(("Pf" : GoString), pf);
+        x.set(("Pi" : GoString), pi);
+        x.set(("Po" : GoString), po);
+        x.set(("Ps" : GoString), ps);
+        x.set(("S" : GoString), s);
+        x.set(("Sc" : GoString), sc);
+        x.set(("Sk" : GoString), sk);
+        x.set(("Sm" : GoString), sm);
+        x.set(("So" : GoString), so);
+        x.set(("Z" : GoString), z);
+        x.set(("Zl" : GoString), zl);
+        x.set(("Zp" : GoString), zp);
+        x.set(("Zs" : GoString), zs);
+    };
     x;
-} : stdgo.GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>);
+});
 /**
     
     
     
 **/
-private var __Adlam = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((125184u32 : GoUInt32), (125259u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125264u32 : GoUInt32), (125273u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125278u32 : GoUInt32), (125279u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Adlam = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((125184u32 : GoUInt32), (125259u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125264u32 : GoUInt32), (125273u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125278u32 : GoUInt32), (125279u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Ahom = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((71424u32 : GoUInt32), (71450u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71453u32 : GoUInt32), (71467u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71472u32 : GoUInt32), (71487u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Ahom = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((71424u32 : GoUInt32), (71450u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71453u32 : GoUInt32), (71467u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71472u32 : GoUInt32), (71487u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Anatolian_Hieroglyphs = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((82944u32 : GoUInt32), (83526u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Anatolian_Hieroglyphs = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((82944u32 : GoUInt32), (83526u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Arabic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+21,
+21,
 (new stdgo.unicode.Unicode.Range16((1536 : GoUInt16), (1540 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1542 : GoUInt16), (1547 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1549 : GoUInt16), (1562 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -3967,8 +3931,8 @@ private var __Arabic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Rang
 (new stdgo.unicode.Unicode.Range16((65008 : GoUInt16), (65021 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65136 : GoUInt16), (65140 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65142 : GoUInt16), (65276 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+26,
+26,
 (new stdgo.unicode.Unicode.Range32((69216u32 : GoUInt32), (69246u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((126464u32 : GoUInt32), (126467u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((126469u32 : GoUInt32), (126495u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -4000,45 +3964,45 @@ private var __Arabic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Rang
     
     
 **/
-private var __Armenian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((1329 : GoUInt16), (1366 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1369 : GoUInt16), (1418 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1421 : GoUInt16), (1423 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64275 : GoUInt16), (64279 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Armenian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(4, 4, (new stdgo.unicode.Unicode.Range16((1329 : GoUInt16), (1366 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1369 : GoUInt16), (1418 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1421 : GoUInt16), (1423 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64275 : GoUInt16), (64279 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Avestan = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68352u32 : GoUInt32), (68405u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68409u32 : GoUInt32), (68415u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Avestan = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((68352u32 : GoUInt32), (68405u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68409u32 : GoUInt32), (68415u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Balinese = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((6912 : GoUInt16), (6987 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6992 : GoUInt16), (7036 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Balinese = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((6912 : GoUInt16), (6987 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6992 : GoUInt16), (7036 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Bamum = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((42656 : GoUInt16), (42743 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((92160u32 : GoUInt32), (92728u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Bamum = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((42656 : GoUInt16), (42743 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((92160u32 : GoUInt32), (92728u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Bassa_Vah = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((92880u32 : GoUInt32), (92909u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((92912u32 : GoUInt32), (92917u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Bassa_Vah = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((92880u32 : GoUInt32), (92909u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((92912u32 : GoUInt32), (92917u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Batak = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((7104 : GoUInt16), (7155 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7164 : GoUInt16), (7167 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Batak = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((7104 : GoUInt16), (7155 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7164 : GoUInt16), (7167 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Bengali = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+14,
+14,
 (new stdgo.unicode.Unicode.Range16((2432 : GoUInt16), (2435 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2437 : GoUInt16), (2444 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2447 : GoUInt16), (2448 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4058,87 +4022,87 @@ private var __Bengali = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Ran
     
     
 **/
-private var __Bhaiksuki = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((72704u32 : GoUInt32), (72712u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72714u32 : GoUInt32), (72758u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72760u32 : GoUInt32), (72773u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72784u32 : GoUInt32), (72812u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Bhaiksuki = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(4, 4, (new stdgo.unicode.Unicode.Range32((72704u32 : GoUInt32), (72712u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72714u32 : GoUInt32), (72758u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72760u32 : GoUInt32), (72773u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72784u32 : GoUInt32), (72812u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Bopomofo = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((746 : GoUInt16), (747 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12549 : GoUInt16), (12591 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12704 : GoUInt16), (12735 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Bopomofo = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((746 : GoUInt16), (747 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12549 : GoUInt16), (12591 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12704 : GoUInt16), (12735 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Brahmi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69632u32 : GoUInt32), (69709u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69714u32 : GoUInt32), (69743u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69759u32 : GoUInt32), (69759u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Brahmi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((69632u32 : GoUInt32), (69709u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69714u32 : GoUInt32), (69743u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69759u32 : GoUInt32), (69759u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Braille = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((10240 : GoUInt16), (10495 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Braille = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((10240 : GoUInt16), (10495 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Buginese = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((6656 : GoUInt16), (6683 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6686 : GoUInt16), (6687 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Buginese = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((6656 : GoUInt16), (6683 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6686 : GoUInt16), (6687 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Buhid = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((5952 : GoUInt16), (5971 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Buhid = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((5952 : GoUInt16), (5971 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Canadian_Aboriginal = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((5120 : GoUInt16), (5759 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6320 : GoUInt16), (6389 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Canadian_Aboriginal = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((5120 : GoUInt16), (5759 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6320 : GoUInt16), (6389 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Carian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66208u32 : GoUInt32), (66256u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Carian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((66208u32 : GoUInt32), (66256u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Caucasian_Albanian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66864u32 : GoUInt32), (66915u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66927u32 : GoUInt32), (66927u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Caucasian_Albanian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((66864u32 : GoUInt32), (66915u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66927u32 : GoUInt32), (66927u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Chakma = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69888u32 : GoUInt32), (69940u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69942u32 : GoUInt32), (69959u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Chakma = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((69888u32 : GoUInt32), (69940u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69942u32 : GoUInt32), (69959u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Cham = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((43520 : GoUInt16), (43574 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43584 : GoUInt16), (43597 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43600 : GoUInt16), (43609 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43612 : GoUInt16), (43615 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Cham = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(4, 4, (new stdgo.unicode.Unicode.Range16((43520 : GoUInt16), (43574 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43584 : GoUInt16), (43597 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43600 : GoUInt16), (43609 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43612 : GoUInt16), (43615 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Cherokee = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((5024 : GoUInt16), (5109 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5112 : GoUInt16), (5117 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43888 : GoUInt16), (43967 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Cherokee = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((5024 : GoUInt16), (5109 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5112 : GoUInt16), (5117 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43888 : GoUInt16), (43967 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Chorasmian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69552u32 : GoUInt32), (69579u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Chorasmian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((69552u32 : GoUInt32), (69579u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Common = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+82,
+82,
 (new stdgo.unicode.Unicode.Range16((0 : GoUInt16), (64 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((91 : GoUInt16), (96 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((123 : GoUInt16), (169 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4221,8 +4185,8 @@ private var __Common = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Rang
 (new stdgo.unicode.Unicode.Range16((65505 : GoUInt16), (65510 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65512 : GoUInt16), (65518 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65529 : GoUInt16), (65533 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+82,
+82,
 (new stdgo.unicode.Unicode.Range32((65792u32 : GoUInt32), (65794u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65799u32 : GoUInt32), (65843u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((65847u32 : GoUInt32), (65855u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -4310,81 +4274,81 @@ private var __Common = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Rang
     
     
 **/
-private var __Coptic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((994 : GoUInt16), (1007 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11392 : GoUInt16), (11507 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11513 : GoUInt16), (11519 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Coptic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((994 : GoUInt16), (1007 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11392 : GoUInt16), (11507 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11513 : GoUInt16), (11519 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Cuneiform = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((73728u32 : GoUInt32), (74649u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((74752u32 : GoUInt32), (74862u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((74864u32 : GoUInt32), (74868u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((74880u32 : GoUInt32), (75075u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Cuneiform = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(4, 4, (new stdgo.unicode.Unicode.Range32((73728u32 : GoUInt32), (74649u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((74752u32 : GoUInt32), (74862u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((74864u32 : GoUInt32), (74868u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((74880u32 : GoUInt32), (75075u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Cypriot = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((67584u32 : GoUInt32), (67589u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67592u32 : GoUInt32), (67594u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67595u32 : GoUInt32), (67637u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67639u32 : GoUInt32), (67640u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67644u32 : GoUInt32), (67647u32 : GoUInt32), (3u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Cypriot = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(5, 5, (new stdgo.unicode.Unicode.Range32((67584u32 : GoUInt32), (67589u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67592u32 : GoUInt32), (67594u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67595u32 : GoUInt32), (67637u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67639u32 : GoUInt32), (67640u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67644u32 : GoUInt32), (67647u32 : GoUInt32), (3u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Cyrillic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((1024 : GoUInt16), (1156 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1159 : GoUInt16), (1327 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7296 : GoUInt16), (7304 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7467 : GoUInt16), (7544 : GoUInt16), (77 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11744 : GoUInt16), (11775 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((42560 : GoUInt16), (42655 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65070 : GoUInt16), (65071 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Cyrillic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(7, 7, (new stdgo.unicode.Unicode.Range16((1024 : GoUInt16), (1156 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1159 : GoUInt16), (1327 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7296 : GoUInt16), (7304 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7467 : GoUInt16), (7544 : GoUInt16), (77 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11744 : GoUInt16), (11775 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((42560 : GoUInt16), (42655 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65070 : GoUInt16), (65071 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Deseret = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66560u32 : GoUInt32), (66639u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Deseret = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((66560u32 : GoUInt32), (66639u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Devanagari = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((2304 : GoUInt16), (2384 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2389 : GoUInt16), (2403 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2406 : GoUInt16), (2431 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43232 : GoUInt16), (43263 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Devanagari = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(4, 4, (new stdgo.unicode.Unicode.Range16((2304 : GoUInt16), (2384 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2389 : GoUInt16), (2403 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2406 : GoUInt16), (2431 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43232 : GoUInt16), (43263 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Dives_Akuru = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((71936u32 : GoUInt32), (71942u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71945u32 : GoUInt32), (71948u32 : GoUInt32), (3u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71949u32 : GoUInt32), (71955u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71957u32 : GoUInt32), (71958u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71960u32 : GoUInt32), (71989u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71991u32 : GoUInt32), (71992u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71995u32 : GoUInt32), (72006u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72016u32 : GoUInt32), (72025u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Dives_Akuru = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(8, 8, (new stdgo.unicode.Unicode.Range32((71936u32 : GoUInt32), (71942u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71945u32 : GoUInt32), (71948u32 : GoUInt32), (3u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71949u32 : GoUInt32), (71955u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71957u32 : GoUInt32), (71958u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71960u32 : GoUInt32), (71989u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71991u32 : GoUInt32), (71992u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71995u32 : GoUInt32), (72006u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72016u32 : GoUInt32), (72025u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Dogra = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((71680u32 : GoUInt32), (71739u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Dogra = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((71680u32 : GoUInt32), (71739u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Duployan = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((113664u32 : GoUInt32), (113770u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113776u32 : GoUInt32), (113788u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113792u32 : GoUInt32), (113800u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113808u32 : GoUInt32), (113817u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113820u32 : GoUInt32), (113823u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Duployan = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(5, 5, (new stdgo.unicode.Unicode.Range32((113664u32 : GoUInt32), (113770u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113776u32 : GoUInt32), (113788u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113792u32 : GoUInt32), (113800u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113808u32 : GoUInt32), (113817u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((113820u32 : GoUInt32), (113823u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Egyptian_Hieroglyphs = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((77824u32 : GoUInt32), (78894u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((78896u32 : GoUInt32), (78904u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Egyptian_Hieroglyphs = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((77824u32 : GoUInt32), (78894u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((78896u32 : GoUInt32), (78904u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Elbasan = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66816u32 : GoUInt32), (66855u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Elbasan = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((66816u32 : GoUInt32), (66855u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Elymaic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69600u32 : GoUInt32), (69622u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Elymaic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((69600u32 : GoUInt32), (69622u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Ethiopic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+32,
+32,
 (new stdgo.unicode.Unicode.Range16((4608 : GoUInt16), (4680 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((4682 : GoUInt16), (4685 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((4688 : GoUInt16), (4694 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4422,27 +4386,27 @@ private var __Ethiopic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Ra
     
     
 **/
-private var __Georgian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((4256 : GoUInt16), (4293 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4295 : GoUInt16), (4301 : GoUInt16), (6 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4304 : GoUInt16), (4346 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4348 : GoUInt16), (4351 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7312 : GoUInt16), (7354 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7357 : GoUInt16), (7359 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11520 : GoUInt16), (11557 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11559 : GoUInt16), (11565 : GoUInt16), (6 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Georgian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(8, 8, (new stdgo.unicode.Unicode.Range16((4256 : GoUInt16), (4293 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4295 : GoUInt16), (4301 : GoUInt16), (6 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4304 : GoUInt16), (4346 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4348 : GoUInt16), (4351 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7312 : GoUInt16), (7354 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7357 : GoUInt16), (7359 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11520 : GoUInt16), (11557 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11559 : GoUInt16), (11565 : GoUInt16), (6 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Glagolitic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((11264 : GoUInt16), (11310 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11312 : GoUInt16), (11358 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((122880u32 : GoUInt32), (122886u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((122888u32 : GoUInt32), (122904u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((122907u32 : GoUInt32), (122913u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((122915u32 : GoUInt32), (122916u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((122918u32 : GoUInt32), (122922u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Glagolitic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((11264 : GoUInt16), (11310 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11312 : GoUInt16), (11358 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(5, 5, (new stdgo.unicode.Unicode.Range32((122880u32 : GoUInt32), (122886u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((122888u32 : GoUInt32), (122904u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((122907u32 : GoUInt32), (122913u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((122915u32 : GoUInt32), (122916u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((122918u32 : GoUInt32), (122922u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Gothic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66352u32 : GoUInt32), (66378u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Gothic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((66352u32 : GoUInt32), (66378u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Grantha = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+14,
+14,
 (new stdgo.unicode.Unicode.Range32((70400u32 : GoUInt32), (70403u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((70405u32 : GoUInt32), (70412u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((70415u32 : GoUInt32), (70416u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -4463,8 +4427,8 @@ private var __Grantha = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Ran
     
 **/
 private var __Greek = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+29,
+29,
 (new stdgo.unicode.Unicode.Range16((880 : GoUInt16), (883 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((885 : GoUInt16), (887 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((890 : GoUInt16), (893 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4493,15 +4457,15 @@ private var __Greek = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range
 (new stdgo.unicode.Unicode.Range16((8157 : GoUInt16), (8175 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((8178 : GoUInt16), (8180 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((8182 : GoUInt16), (8190 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((8486 : GoUInt16), (43877 : GoUInt16), (35391 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((65856u32 : GoUInt32), (65934u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65952u32 : GoUInt32), (119296u32 : GoUInt32), (53344u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119297u32 : GoUInt32), (119365u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((8486 : GoUInt16), (43877 : GoUInt16), (35391 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((65856u32 : GoUInt32), (65934u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65952u32 : GoUInt32), (119296u32 : GoUInt32), (53344u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119297u32 : GoUInt32), (119365u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Gujarati = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+14,
+14,
 (new stdgo.unicode.Unicode.Range16((2689 : GoUInt16), (2691 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2693 : GoUInt16), (2701 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2703 : GoUInt16), (2705 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4521,15 +4485,15 @@ private var __Gujarati = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Ra
     
     
 **/
-private var __Gunjala_Gondi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((73056u32 : GoUInt32), (73061u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73063u32 : GoUInt32), (73064u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73066u32 : GoUInt32), (73102u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73104u32 : GoUInt32), (73105u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73107u32 : GoUInt32), (73112u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73120u32 : GoUInt32), (73129u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Gunjala_Gondi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(6, 6, (new stdgo.unicode.Unicode.Range32((73056u32 : GoUInt32), (73061u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73063u32 : GoUInt32), (73064u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73066u32 : GoUInt32), (73102u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73104u32 : GoUInt32), (73105u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73107u32 : GoUInt32), (73112u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73120u32 : GoUInt32), (73129u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Gurmukhi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+16,
+16,
 (new stdgo.unicode.Unicode.Range16((2561 : GoUInt16), (2563 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2565 : GoUInt16), (2570 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2575 : GoUInt16), (2576 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4552,8 +4516,8 @@ private var __Gurmukhi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Ra
     
 **/
 private var __Han = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+10,
+10,
 (new stdgo.unicode.Unicode.Range16((11904 : GoUInt16), (11929 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((11931 : GoUInt16), (12019 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((12032 : GoUInt16), (12245 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4563,15 +4527,15 @@ private var __Han = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16
 (new stdgo.unicode.Unicode.Range16((13312 : GoUInt16), (19903 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((19968 : GoUInt16), (40956 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((63744 : GoUInt16), (64109 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((64112 : GoUInt16), (64217 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((94192u32 : GoUInt32), (94193u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((131072u32 : GoUInt32), (173789u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((173824u32 : GoUInt32), (177972u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((177984u32 : GoUInt32), (178205u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((178208u32 : GoUInt32), (183969u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((183984u32 : GoUInt32), (191456u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((194560u32 : GoUInt32), (195101u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((196608u32 : GoUInt32), (201546u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((64112 : GoUInt16), (64217 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(8, 8, (new stdgo.unicode.Unicode.Range32((94192u32 : GoUInt32), (94193u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((131072u32 : GoUInt32), (173789u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((173824u32 : GoUInt32), (177972u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((177984u32 : GoUInt32), (178205u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((178208u32 : GoUInt32), (183969u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((183984u32 : GoUInt32), (191456u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((194560u32 : GoUInt32), (195101u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((196608u32 : GoUInt32), (201546u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Hangul = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+14,
+14,
 (new stdgo.unicode.Unicode.Range16((4352 : GoUInt16), (4607 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((12334 : GoUInt16), (12335 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((12593 : GoUInt16), (12686 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4591,27 +4555,27 @@ private var __Hangul = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Rang
     
     
 **/
-private var __Hanifi_Rohingya = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68864u32 : GoUInt32), (68903u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68912u32 : GoUInt32), (68921u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Hanifi_Rohingya = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((68864u32 : GoUInt32), (68903u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68912u32 : GoUInt32), (68921u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Hanunoo = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((5920 : GoUInt16), (5940 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Hanunoo = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((5920 : GoUInt16), (5940 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Hatran = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((67808u32 : GoUInt32), (67826u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67828u32 : GoUInt32), (67829u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67835u32 : GoUInt32), (67839u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Hatran = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((67808u32 : GoUInt32), (67826u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67828u32 : GoUInt32), (67829u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67835u32 : GoUInt32), (67839u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Hebrew = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+9,
+9,
 (new stdgo.unicode.Unicode.Range16((1425 : GoUInt16), (1479 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1488 : GoUInt16), (1514 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1519 : GoUInt16), (1524 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4626,21 +4590,21 @@ private var __Hebrew = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Rang
     
     
 **/
-private var __Hiragana = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((12353 : GoUInt16), (12438 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12445 : GoUInt16), (12447 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((110593u32 : GoUInt32), (110878u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((110928u32 : GoUInt32), (110930u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((127488u32 : GoUInt32), (127488u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Hiragana = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((12353 : GoUInt16), (12438 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12445 : GoUInt16), (12447 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((110593u32 : GoUInt32), (110878u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((110928u32 : GoUInt32), (110930u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((127488u32 : GoUInt32), (127488u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Imperial_Aramaic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((67648u32 : GoUInt32), (67669u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67671u32 : GoUInt32), (67679u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Imperial_Aramaic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((67648u32 : GoUInt32), (67669u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67671u32 : GoUInt32), (67679u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Inherited = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+19,
+19,
 (new stdgo.unicode.Unicode.Range16((768 : GoUInt16), (879 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1157 : GoUInt16), (1158 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1611 : GoUInt16), (1621 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4659,39 +4623,39 @@ private var __Inherited = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.R
 (new stdgo.unicode.Unicode.Range16((12330 : GoUInt16), (12333 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((12441 : GoUInt16), (12442 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65024 : GoUInt16), (65039 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65056 : GoUInt16), (65069 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66045u32 : GoUInt32), (66272u32 : GoUInt32), (227u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70459u32 : GoUInt32), (119143u32 : GoUInt32), (48684u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119144u32 : GoUInt32), (119145u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119163u32 : GoUInt32), (119170u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119173u32 : GoUInt32), (119179u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119210u32 : GoUInt32), (119213u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917760u32 : GoUInt32), (917999u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65056 : GoUInt16), (65069 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(7, 7, (new stdgo.unicode.Unicode.Range32((66045u32 : GoUInt32), (66272u32 : GoUInt32), (227u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70459u32 : GoUInt32), (119143u32 : GoUInt32), (48684u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119144u32 : GoUInt32), (119145u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119163u32 : GoUInt32), (119170u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119173u32 : GoUInt32), (119179u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119210u32 : GoUInt32), (119213u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917760u32 : GoUInt32), (917999u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Inscriptional_Pahlavi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68448u32 : GoUInt32), (68466u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68472u32 : GoUInt32), (68479u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Inscriptional_Pahlavi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((68448u32 : GoUInt32), (68466u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68472u32 : GoUInt32), (68479u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Inscriptional_Parthian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68416u32 : GoUInt32), (68437u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68440u32 : GoUInt32), (68447u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Inscriptional_Parthian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((68416u32 : GoUInt32), (68437u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68440u32 : GoUInt32), (68447u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Javanese = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((43392 : GoUInt16), (43469 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43472 : GoUInt16), (43481 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43486 : GoUInt16), (43487 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Javanese = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((43392 : GoUInt16), (43469 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43472 : GoUInt16), (43481 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43486 : GoUInt16), (43487 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Kaithi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69760u32 : GoUInt32), (69825u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69837u32 : GoUInt32), (69837u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Kaithi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((69760u32 : GoUInt32), (69825u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69837u32 : GoUInt32), (69837u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Kannada = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+13,
+13,
 (new stdgo.unicode.Unicode.Range16((3200 : GoUInt16), (3212 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3214 : GoUInt16), (3216 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3218 : GoUInt16), (3240 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4710,51 +4674,51 @@ private var __Kannada = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Ran
     
     
 **/
-private var __Katakana = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((12449 : GoUInt16), (12538 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12541 : GoUInt16), (12543 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12784 : GoUInt16), (12799 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((13008 : GoUInt16), (13054 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((13056 : GoUInt16), (13143 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65382 : GoUInt16), (65391 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65393 : GoUInt16), (65437 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((110592u32 : GoUInt32), (110948u32 : GoUInt32), (356u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((110949u32 : GoUInt32), (110951u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Katakana = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(7, 7, (new stdgo.unicode.Unicode.Range16((12449 : GoUInt16), (12538 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12541 : GoUInt16), (12543 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12784 : GoUInt16), (12799 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((13008 : GoUInt16), (13054 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((13056 : GoUInt16), (13143 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65382 : GoUInt16), (65391 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65393 : GoUInt16), (65437 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((110592u32 : GoUInt32), (110948u32 : GoUInt32), (356u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((110949u32 : GoUInt32), (110951u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Kayah_Li = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((43264 : GoUInt16), (43309 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43311 : GoUInt16), (43311 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Kayah_Li = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((43264 : GoUInt16), (43309 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43311 : GoUInt16), (43311 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Kharoshthi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68096u32 : GoUInt32), (68099u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68101u32 : GoUInt32), (68102u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68108u32 : GoUInt32), (68115u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68117u32 : GoUInt32), (68119u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68121u32 : GoUInt32), (68149u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68152u32 : GoUInt32), (68154u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68159u32 : GoUInt32), (68168u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68176u32 : GoUInt32), (68184u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Kharoshthi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(8, 8, (new stdgo.unicode.Unicode.Range32((68096u32 : GoUInt32), (68099u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68101u32 : GoUInt32), (68102u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68108u32 : GoUInt32), (68115u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68117u32 : GoUInt32), (68119u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68121u32 : GoUInt32), (68149u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68152u32 : GoUInt32), (68154u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68159u32 : GoUInt32), (68168u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68176u32 : GoUInt32), (68184u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Khitan_Small_Script = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((94180u32 : GoUInt32), (101120u32 : GoUInt32), (6940u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((101121u32 : GoUInt32), (101589u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Khitan_Small_Script = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((94180u32 : GoUInt32), (101120u32 : GoUInt32), (6940u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((101121u32 : GoUInt32), (101589u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Khmer = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((6016 : GoUInt16), (6109 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6112 : GoUInt16), (6121 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6128 : GoUInt16), (6137 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6624 : GoUInt16), (6655 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Khmer = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(4, 4, (new stdgo.unicode.Unicode.Range16((6016 : GoUInt16), (6109 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6112 : GoUInt16), (6121 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6128 : GoUInt16), (6137 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6624 : GoUInt16), (6655 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Khojki = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((70144u32 : GoUInt32), (70161u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70163u32 : GoUInt32), (70206u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Khojki = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((70144u32 : GoUInt32), (70161u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70163u32 : GoUInt32), (70206u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Khudawadi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((70320u32 : GoUInt32), (70378u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70384u32 : GoUInt32), (70393u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Khudawadi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((70320u32 : GoUInt32), (70378u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70384u32 : GoUInt32), (70393u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Lao = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+11,
+11,
 (new stdgo.unicode.Unicode.Range16((3713 : GoUInt16), (3714 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3716 : GoUInt16), (3718 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3719 : GoUInt16), (3722 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4772,8 +4736,8 @@ private var __Lao = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16
     
 **/
 private var __Latin = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+29,
+29,
 (new stdgo.unicode.Unicode.Range16((65 : GoUInt16), (90 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((97 : GoUInt16), (122 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((170 : GoUInt16), (186 : GoUInt16), (16 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -4808,261 +4772,261 @@ private var __Latin = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range
     
     
 **/
-private var __Lepcha = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((7168 : GoUInt16), (7223 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7227 : GoUInt16), (7241 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7245 : GoUInt16), (7247 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Lepcha = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((7168 : GoUInt16), (7223 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7227 : GoUInt16), (7241 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7245 : GoUInt16), (7247 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Limbu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((6400 : GoUInt16), (6430 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6432 : GoUInt16), (6443 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6448 : GoUInt16), (6459 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6464 : GoUInt16), (6468 : GoUInt16), (4 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6469 : GoUInt16), (6479 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Limbu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(5, 5, (new stdgo.unicode.Unicode.Range16((6400 : GoUInt16), (6430 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6432 : GoUInt16), (6443 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6448 : GoUInt16), (6459 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6464 : GoUInt16), (6468 : GoUInt16), (4 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6469 : GoUInt16), (6479 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Linear_A = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((67072u32 : GoUInt32), (67382u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67392u32 : GoUInt32), (67413u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67424u32 : GoUInt32), (67431u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Linear_A = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((67072u32 : GoUInt32), (67382u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67392u32 : GoUInt32), (67413u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67424u32 : GoUInt32), (67431u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Linear_B = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((65536u32 : GoUInt32), (65547u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65549u32 : GoUInt32), (65574u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65576u32 : GoUInt32), (65594u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65596u32 : GoUInt32), (65597u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65599u32 : GoUInt32), (65613u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65616u32 : GoUInt32), (65629u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65664u32 : GoUInt32), (65786u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Linear_B = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(7, 7, (new stdgo.unicode.Unicode.Range32((65536u32 : GoUInt32), (65547u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65549u32 : GoUInt32), (65574u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65576u32 : GoUInt32), (65594u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65596u32 : GoUInt32), (65597u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65599u32 : GoUInt32), (65613u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65616u32 : GoUInt32), (65629u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((65664u32 : GoUInt32), (65786u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Lisu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((42192 : GoUInt16), (42239 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((73648u32 : GoUInt32), (73648u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Lisu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((42192 : GoUInt16), (42239 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((73648u32 : GoUInt32), (73648u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Lycian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66176u32 : GoUInt32), (66204u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Lycian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((66176u32 : GoUInt32), (66204u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Lydian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((67872u32 : GoUInt32), (67897u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67903u32 : GoUInt32), (67903u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Lydian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((67872u32 : GoUInt32), (67897u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67903u32 : GoUInt32), (67903u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Mahajani = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69968u32 : GoUInt32), (70006u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Mahajani = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((69968u32 : GoUInt32), (70006u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Makasar = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((73440u32 : GoUInt32), (73464u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Makasar = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((73440u32 : GoUInt32), (73464u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Malayalam = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((3328 : GoUInt16), (3340 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3342 : GoUInt16), (3344 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3346 : GoUInt16), (3396 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3398 : GoUInt16), (3400 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3402 : GoUInt16), (3407 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3412 : GoUInt16), (3427 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3430 : GoUInt16), (3455 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Malayalam = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(7, 7, (new stdgo.unicode.Unicode.Range16((3328 : GoUInt16), (3340 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3342 : GoUInt16), (3344 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3346 : GoUInt16), (3396 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3398 : GoUInt16), (3400 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3402 : GoUInt16), (3407 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3412 : GoUInt16), (3427 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3430 : GoUInt16), (3455 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Mandaic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((2112 : GoUInt16), (2139 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2142 : GoUInt16), (2142 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Mandaic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((2112 : GoUInt16), (2139 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2142 : GoUInt16), (2142 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Manichaean = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68288u32 : GoUInt32), (68326u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68331u32 : GoUInt32), (68342u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Manichaean = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((68288u32 : GoUInt32), (68326u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68331u32 : GoUInt32), (68342u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Marchen = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((72816u32 : GoUInt32), (72847u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72850u32 : GoUInt32), (72871u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72873u32 : GoUInt32), (72886u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Marchen = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((72816u32 : GoUInt32), (72847u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72850u32 : GoUInt32), (72871u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72873u32 : GoUInt32), (72886u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Masaram_Gondi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((72960u32 : GoUInt32), (72966u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72968u32 : GoUInt32), (72969u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72971u32 : GoUInt32), (73014u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73018u32 : GoUInt32), (73020u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73021u32 : GoUInt32), (73023u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73024u32 : GoUInt32), (73031u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73040u32 : GoUInt32), (73049u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Masaram_Gondi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(7, 7, (new stdgo.unicode.Unicode.Range32((72960u32 : GoUInt32), (72966u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72968u32 : GoUInt32), (72969u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72971u32 : GoUInt32), (73014u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73018u32 : GoUInt32), (73020u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73021u32 : GoUInt32), (73023u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73024u32 : GoUInt32), (73031u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73040u32 : GoUInt32), (73049u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Medefaidrin = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((93760u32 : GoUInt32), (93850u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Medefaidrin = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((93760u32 : GoUInt32), (93850u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Meetei_Mayek = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((43744 : GoUInt16), (43766 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43968 : GoUInt16), (44013 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((44016 : GoUInt16), (44025 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Meetei_Mayek = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((43744 : GoUInt16), (43766 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43968 : GoUInt16), (44013 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((44016 : GoUInt16), (44025 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Mende_Kikakui = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((124928u32 : GoUInt32), (125124u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125127u32 : GoUInt32), (125142u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Mende_Kikakui = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((124928u32 : GoUInt32), (125124u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125127u32 : GoUInt32), (125142u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Meroitic_Cursive = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68000u32 : GoUInt32), (68023u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68028u32 : GoUInt32), (68047u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68050u32 : GoUInt32), (68095u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Meroitic_Cursive = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((68000u32 : GoUInt32), (68023u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68028u32 : GoUInt32), (68047u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68050u32 : GoUInt32), (68095u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Meroitic_Hieroglyphs = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((67968u32 : GoUInt32), (67999u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Meroitic_Hieroglyphs = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((67968u32 : GoUInt32), (67999u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Miao = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((93952u32 : GoUInt32), (94026u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94031u32 : GoUInt32), (94087u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94095u32 : GoUInt32), (94111u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Miao = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((93952u32 : GoUInt32), (94026u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94031u32 : GoUInt32), (94087u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94095u32 : GoUInt32), (94111u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Modi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((71168u32 : GoUInt32), (71236u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71248u32 : GoUInt32), (71257u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Modi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((71168u32 : GoUInt32), (71236u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71248u32 : GoUInt32), (71257u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Mongolian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((6144 : GoUInt16), (6145 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6148 : GoUInt16), (6150 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6151 : GoUInt16), (6158 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6160 : GoUInt16), (6169 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6176 : GoUInt16), (6264 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6272 : GoUInt16), (6314 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((71264u32 : GoUInt32), (71276u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Mongolian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(6, 6, (new stdgo.unicode.Unicode.Range16((6144 : GoUInt16), (6145 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6148 : GoUInt16), (6150 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6151 : GoUInt16), (6158 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6160 : GoUInt16), (6169 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6176 : GoUInt16), (6264 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6272 : GoUInt16), (6314 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((71264u32 : GoUInt32), (71276u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Mro = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((92736u32 : GoUInt32), (92766u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((92768u32 : GoUInt32), (92777u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((92782u32 : GoUInt32), (92783u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Mro = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((92736u32 : GoUInt32), (92766u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((92768u32 : GoUInt32), (92777u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((92782u32 : GoUInt32), (92783u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Multani = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((70272u32 : GoUInt32), (70278u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70280u32 : GoUInt32), (70282u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70283u32 : GoUInt32), (70285u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70287u32 : GoUInt32), (70301u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70303u32 : GoUInt32), (70313u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Multani = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(5, 5, (new stdgo.unicode.Unicode.Range32((70272u32 : GoUInt32), (70278u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70280u32 : GoUInt32), (70282u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70283u32 : GoUInt32), (70285u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70287u32 : GoUInt32), (70301u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70303u32 : GoUInt32), (70313u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Myanmar = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((4096 : GoUInt16), (4255 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43488 : GoUInt16), (43518 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43616 : GoUInt16), (43647 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Myanmar = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((4096 : GoUInt16), (4255 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43488 : GoUInt16), (43518 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43616 : GoUInt16), (43647 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Nabataean = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((67712u32 : GoUInt32), (67742u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67751u32 : GoUInt32), (67759u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Nabataean = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((67712u32 : GoUInt32), (67742u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67751u32 : GoUInt32), (67759u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Nandinagari = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((72096u32 : GoUInt32), (72103u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72106u32 : GoUInt32), (72151u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72154u32 : GoUInt32), (72164u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Nandinagari = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((72096u32 : GoUInt32), (72103u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72106u32 : GoUInt32), (72151u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72154u32 : GoUInt32), (72164u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __New_Tai_Lue = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((6528 : GoUInt16), (6571 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6576 : GoUInt16), (6601 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6608 : GoUInt16), (6618 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6622 : GoUInt16), (6623 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __New_Tai_Lue = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(4, 4, (new stdgo.unicode.Unicode.Range16((6528 : GoUInt16), (6571 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6576 : GoUInt16), (6601 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6608 : GoUInt16), (6618 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6622 : GoUInt16), (6623 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Newa = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((70656u32 : GoUInt32), (70747u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70749u32 : GoUInt32), (70753u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Newa = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((70656u32 : GoUInt32), (70747u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70749u32 : GoUInt32), (70753u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Nko = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((1984 : GoUInt16), (2042 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2045 : GoUInt16), (2047 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Nko = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((1984 : GoUInt16), (2042 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2045 : GoUInt16), (2047 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Nushu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((94177u32 : GoUInt32), (110960u32 : GoUInt32), (16783u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((110961u32 : GoUInt32), (111355u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Nushu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((94177u32 : GoUInt32), (110960u32 : GoUInt32), (16783u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((110961u32 : GoUInt32), (111355u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Nyiakeng_Puachue_Hmong = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((123136u32 : GoUInt32), (123180u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123184u32 : GoUInt32), (123197u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123200u32 : GoUInt32), (123209u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123214u32 : GoUInt32), (123215u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Nyiakeng_Puachue_Hmong = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(4, 4, (new stdgo.unicode.Unicode.Range32((123136u32 : GoUInt32), (123180u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123184u32 : GoUInt32), (123197u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123200u32 : GoUInt32), (123209u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123214u32 : GoUInt32), (123215u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Ogham = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((5760 : GoUInt16), (5788 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Ogham = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((5760 : GoUInt16), (5788 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Ol_Chiki = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((7248 : GoUInt16), (7295 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Ol_Chiki = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((7248 : GoUInt16), (7295 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Old_Hungarian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68736u32 : GoUInt32), (68786u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68800u32 : GoUInt32), (68850u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68858u32 : GoUInt32), (68863u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Old_Hungarian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((68736u32 : GoUInt32), (68786u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68800u32 : GoUInt32), (68850u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68858u32 : GoUInt32), (68863u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Old_Italic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66304u32 : GoUInt32), (66339u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66349u32 : GoUInt32), (66351u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Old_Italic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((66304u32 : GoUInt32), (66339u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66349u32 : GoUInt32), (66351u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Old_North_Arabian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68224u32 : GoUInt32), (68255u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Old_North_Arabian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((68224u32 : GoUInt32), (68255u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Old_Permic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66384u32 : GoUInt32), (66426u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Old_Permic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((66384u32 : GoUInt32), (66426u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Old_Persian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66464u32 : GoUInt32), (66499u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66504u32 : GoUInt32), (66517u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Old_Persian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((66464u32 : GoUInt32), (66499u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66504u32 : GoUInt32), (66517u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Old_Sogdian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69376u32 : GoUInt32), (69415u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Old_Sogdian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((69376u32 : GoUInt32), (69415u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Old_South_Arabian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68192u32 : GoUInt32), (68223u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Old_South_Arabian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((68192u32 : GoUInt32), (68223u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Old_Turkic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68608u32 : GoUInt32), (68680u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Old_Turkic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((68608u32 : GoUInt32), (68680u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Oriya = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+14,
+14,
 (new stdgo.unicode.Unicode.Range16((2817 : GoUInt16), (2819 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2821 : GoUInt16), (2828 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2831 : GoUInt16), (2832 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -5082,105 +5046,105 @@ private var __Oriya = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range
     
     
 **/
-private var __Osage = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66736u32 : GoUInt32), (66771u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66776u32 : GoUInt32), (66811u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Osage = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((66736u32 : GoUInt32), (66771u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66776u32 : GoUInt32), (66811u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Osmanya = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66688u32 : GoUInt32), (66717u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66720u32 : GoUInt32), (66729u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Osmanya = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((66688u32 : GoUInt32), (66717u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66720u32 : GoUInt32), (66729u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Pahawh_Hmong = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((92928u32 : GoUInt32), (92997u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93008u32 : GoUInt32), (93017u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93019u32 : GoUInt32), (93025u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93027u32 : GoUInt32), (93047u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93053u32 : GoUInt32), (93071u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Pahawh_Hmong = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(5, 5, (new stdgo.unicode.Unicode.Range32((92928u32 : GoUInt32), (92997u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93008u32 : GoUInt32), (93017u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93019u32 : GoUInt32), (93025u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93027u32 : GoUInt32), (93047u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93053u32 : GoUInt32), (93071u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Palmyrene = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((67680u32 : GoUInt32), (67711u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Palmyrene = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((67680u32 : GoUInt32), (67711u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Pau_Cin_Hau = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((72384u32 : GoUInt32), (72440u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Pau_Cin_Hau = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((72384u32 : GoUInt32), (72440u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Phags_Pa = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((43072 : GoUInt16), (43127 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Phags_Pa = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((43072 : GoUInt16), (43127 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Phoenician = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((67840u32 : GoUInt32), (67867u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67871u32 : GoUInt32), (67871u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Phoenician = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((67840u32 : GoUInt32), (67867u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((67871u32 : GoUInt32), (67871u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Psalter_Pahlavi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((68480u32 : GoUInt32), (68497u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68505u32 : GoUInt32), (68508u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68521u32 : GoUInt32), (68527u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Psalter_Pahlavi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((68480u32 : GoUInt32), (68497u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68505u32 : GoUInt32), (68508u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68521u32 : GoUInt32), (68527u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Rejang = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((43312 : GoUInt16), (43347 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43359 : GoUInt16), (43359 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Rejang = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((43312 : GoUInt16), (43347 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43359 : GoUInt16), (43359 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Runic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((5792 : GoUInt16), (5866 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5870 : GoUInt16), (5880 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Runic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((5792 : GoUInt16), (5866 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5870 : GoUInt16), (5880 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Samaritan = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((2048 : GoUInt16), (2093 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2096 : GoUInt16), (2110 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Samaritan = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((2048 : GoUInt16), (2093 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2096 : GoUInt16), (2110 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Saurashtra = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((43136 : GoUInt16), (43205 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43214 : GoUInt16), (43225 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Saurashtra = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((43136 : GoUInt16), (43205 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43214 : GoUInt16), (43225 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Sharada = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((70016u32 : GoUInt32), (70111u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Sharada = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((70016u32 : GoUInt32), (70111u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Shavian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66640u32 : GoUInt32), (66687u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Shavian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((66640u32 : GoUInt32), (66687u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Siddham = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((71040u32 : GoUInt32), (71093u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71096u32 : GoUInt32), (71133u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Siddham = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((71040u32 : GoUInt32), (71093u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71096u32 : GoUInt32), (71133u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __SignWriting = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((120832u32 : GoUInt32), (121483u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((121499u32 : GoUInt32), (121503u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((121505u32 : GoUInt32), (121519u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __SignWriting = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((120832u32 : GoUInt32), (121483u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((121499u32 : GoUInt32), (121503u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((121505u32 : GoUInt32), (121519u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Sinhala = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+12,
+12,
 (new stdgo.unicode.Unicode.Range16((3457 : GoUInt16), (3459 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3461 : GoUInt16), (3478 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3482 : GoUInt16), (3505 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -5192,87 +5156,87 @@ private var __Sinhala = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Ran
 (new stdgo.unicode.Unicode.Range16((3542 : GoUInt16), (3544 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3545 : GoUInt16), (3551 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3558 : GoUInt16), (3567 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((3570 : GoUInt16), (3572 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((70113u32 : GoUInt32), (70132u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((3570 : GoUInt16), (3572 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((70113u32 : GoUInt32), (70132u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Sogdian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69424u32 : GoUInt32), (69465u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Sogdian = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((69424u32 : GoUInt32), (69465u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Sora_Sompeng = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69840u32 : GoUInt32), (69864u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69872u32 : GoUInt32), (69881u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Sora_Sompeng = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((69840u32 : GoUInt32), (69864u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69872u32 : GoUInt32), (69881u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Soyombo = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((72272u32 : GoUInt32), (72354u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Soyombo = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((72272u32 : GoUInt32), (72354u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Sundanese = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((7040 : GoUInt16), (7103 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7360 : GoUInt16), (7367 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Sundanese = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((7040 : GoUInt16), (7103 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((7360 : GoUInt16), (7367 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Syloti_Nagri = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((43008 : GoUInt16), (43052 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Syloti_Nagri = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((43008 : GoUInt16), (43052 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Syriac = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((1792 : GoUInt16), (1805 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1807 : GoUInt16), (1866 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1869 : GoUInt16), (1871 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2144 : GoUInt16), (2154 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Syriac = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(4, 4, (new stdgo.unicode.Unicode.Range16((1792 : GoUInt16), (1805 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1807 : GoUInt16), (1866 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1869 : GoUInt16), (1871 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2144 : GoUInt16), (2154 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Tagalog = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((5888 : GoUInt16), (5900 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5902 : GoUInt16), (5908 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Tagalog = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((5888 : GoUInt16), (5900 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5902 : GoUInt16), (5908 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Tagbanwa = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((5984 : GoUInt16), (5996 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5998 : GoUInt16), (6000 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6002 : GoUInt16), (6003 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Tagbanwa = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((5984 : GoUInt16), (5996 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((5998 : GoUInt16), (6000 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6002 : GoUInt16), (6003 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Tai_Le = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((6480 : GoUInt16), (6509 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6512 : GoUInt16), (6516 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Tai_Le = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((6480 : GoUInt16), (6509 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6512 : GoUInt16), (6516 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Tai_Tham = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((6688 : GoUInt16), (6750 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6752 : GoUInt16), (6780 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6783 : GoUInt16), (6793 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6800 : GoUInt16), (6809 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6816 : GoUInt16), (6829 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Tai_Tham = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(5, 5, (new stdgo.unicode.Unicode.Range16((6688 : GoUInt16), (6750 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6752 : GoUInt16), (6780 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6783 : GoUInt16), (6793 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6800 : GoUInt16), (6809 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6816 : GoUInt16), (6829 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Tai_Viet = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((43648 : GoUInt16), (43714 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43739 : GoUInt16), (43743 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Tai_Viet = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((43648 : GoUInt16), (43714 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43739 : GoUInt16), (43743 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Takri = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((71296u32 : GoUInt32), (71352u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71360u32 : GoUInt32), (71369u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Takri = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((71296u32 : GoUInt32), (71352u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71360u32 : GoUInt32), (71369u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Tamil = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+15,
+15,
 (new stdgo.unicode.Unicode.Range16((2946 : GoUInt16), (2947 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2949 : GoUInt16), (2954 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2958 : GoUInt16), (2960 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -5287,21 +5251,21 @@ private var __Tamil = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range
 (new stdgo.unicode.Unicode.Range16((3014 : GoUInt16), (3016 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3018 : GoUInt16), (3021 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3024 : GoUInt16), (3031 : GoUInt16), (7 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((3046 : GoUInt16), (3066 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((73664u32 : GoUInt32), (73713u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73727u32 : GoUInt32), (73727u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((3046 : GoUInt16), (3066 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((73664u32 : GoUInt32), (73713u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((73727u32 : GoUInt32), (73727u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Tangut = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((94176u32 : GoUInt32), (94208u32 : GoUInt32), (32u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94209u32 : GoUInt32), (100343u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((100352u32 : GoUInt32), (101119u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((101632u32 : GoUInt32), (101640u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Tangut = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(4, 4, (new stdgo.unicode.Unicode.Range32((94176u32 : GoUInt32), (94208u32 : GoUInt32), (32u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94209u32 : GoUInt32), (100343u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((100352u32 : GoUInt32), (101119u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((101632u32 : GoUInt32), (101640u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Telugu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+12,
+12,
 (new stdgo.unicode.Unicode.Range16((3072 : GoUInt16), (3084 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3086 : GoUInt16), (3088 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3090 : GoUInt16), (3112 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -5319,73 +5283,73 @@ private var __Telugu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Rang
     
     
 **/
-private var __Thaana = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((1920 : GoUInt16), (1969 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Thaana = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((1920 : GoUInt16), (1969 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Thai = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((3585 : GoUInt16), (3642 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3648 : GoUInt16), (3675 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Thai = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((3585 : GoUInt16), (3642 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3648 : GoUInt16), (3675 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Tibetan = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((3840 : GoUInt16), (3911 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3913 : GoUInt16), (3948 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3953 : GoUInt16), (3991 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3993 : GoUInt16), (4028 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4030 : GoUInt16), (4044 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4046 : GoUInt16), (4052 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4057 : GoUInt16), (4058 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Tibetan = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(7, 7, (new stdgo.unicode.Unicode.Range16((3840 : GoUInt16), (3911 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3913 : GoUInt16), (3948 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3953 : GoUInt16), (3991 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3993 : GoUInt16), (4028 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4030 : GoUInt16), (4044 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4046 : GoUInt16), (4052 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4057 : GoUInt16), (4058 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Tifinagh = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((11568 : GoUInt16), (11623 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11631 : GoUInt16), (11632 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11647 : GoUInt16), (11647 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Tifinagh = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((11568 : GoUInt16), (11623 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11631 : GoUInt16), (11632 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11647 : GoUInt16), (11647 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Tirhuta = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((70784u32 : GoUInt32), (70855u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70864u32 : GoUInt32), (70873u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Tirhuta = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((70784u32 : GoUInt32), (70855u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70864u32 : GoUInt32), (70873u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Ugaritic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66432u32 : GoUInt32), (66461u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66463u32 : GoUInt32), (66463u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Ugaritic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((66432u32 : GoUInt32), (66461u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66463u32 : GoUInt32), (66463u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Vai = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((42240 : GoUInt16), (42539 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Vai = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((42240 : GoUInt16), (42539 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Wancho = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((123584u32 : GoUInt32), (123641u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123647u32 : GoUInt32), (123647u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Wancho = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((123584u32 : GoUInt32), (123641u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123647u32 : GoUInt32), (123647u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Warang_Citi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((71840u32 : GoUInt32), (71922u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71935u32 : GoUInt32), (71935u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Warang_Citi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(2, 2, (new stdgo.unicode.Unicode.Range32((71840u32 : GoUInt32), (71922u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71935u32 : GoUInt32), (71935u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Yezidi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69248u32 : GoUInt32), (69289u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69291u32 : GoUInt32), (69293u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69296u32 : GoUInt32), (69297u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Yezidi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((69248u32 : GoUInt32), (69289u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69291u32 : GoUInt32), (69293u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((69296u32 : GoUInt32), (69297u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Yi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((40960 : GoUInt16), (42124 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((42128 : GoUInt16), (42182 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Yi = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((40960 : GoUInt16), (42124 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((42128 : GoUInt16), (42182 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Zanabazar_Square = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((72192u32 : GoUInt32), (72263u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Zanabazar_Square = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((72192u32 : GoUInt32), (72263u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     // These variables have type *RangeTable.
     
@@ -6328,343 +6292,187 @@ var zanabazar_Square = __Zanabazar_Square;
     
 **/
 var scripts = ({
-    final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.RangeTable", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.Range16", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "hi", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "stride", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "r32", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.Range32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "hi", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "stride", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "latinOffset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) }) })));
-    @:privateAccess x._keys = [
-("Adlam" : GoString),
-("Ahom" : GoString),
-("Anatolian_Hieroglyphs" : GoString),
-("Arabic" : GoString),
-("Armenian" : GoString),
-("Avestan" : GoString),
-("Balinese" : GoString),
-("Bamum" : GoString),
-("Bassa_Vah" : GoString),
-("Batak" : GoString),
-("Bengali" : GoString),
-("Bhaiksuki" : GoString),
-("Bopomofo" : GoString),
-("Brahmi" : GoString),
-("Braille" : GoString),
-("Buginese" : GoString),
-("Buhid" : GoString),
-("Canadian_Aboriginal" : GoString),
-("Carian" : GoString),
-("Caucasian_Albanian" : GoString),
-("Chakma" : GoString),
-("Cham" : GoString),
-("Cherokee" : GoString),
-("Chorasmian" : GoString),
-("Common" : GoString),
-("Coptic" : GoString),
-("Cuneiform" : GoString),
-("Cypriot" : GoString),
-("Cyrillic" : GoString),
-("Deseret" : GoString),
-("Devanagari" : GoString),
-("Dives_Akuru" : GoString),
-("Dogra" : GoString),
-("Duployan" : GoString),
-("Egyptian_Hieroglyphs" : GoString),
-("Elbasan" : GoString),
-("Elymaic" : GoString),
-("Ethiopic" : GoString),
-("Georgian" : GoString),
-("Glagolitic" : GoString),
-("Gothic" : GoString),
-("Grantha" : GoString),
-("Greek" : GoString),
-("Gujarati" : GoString),
-("Gunjala_Gondi" : GoString),
-("Gurmukhi" : GoString),
-("Han" : GoString),
-("Hangul" : GoString),
-("Hanifi_Rohingya" : GoString),
-("Hanunoo" : GoString),
-("Hatran" : GoString),
-("Hebrew" : GoString),
-("Hiragana" : GoString),
-("Imperial_Aramaic" : GoString),
-("Inherited" : GoString),
-("Inscriptional_Pahlavi" : GoString),
-("Inscriptional_Parthian" : GoString),
-("Javanese" : GoString),
-("Kaithi" : GoString),
-("Kannada" : GoString),
-("Katakana" : GoString),
-("Kayah_Li" : GoString),
-("Kharoshthi" : GoString),
-("Khitan_Small_Script" : GoString),
-("Khmer" : GoString),
-("Khojki" : GoString),
-("Khudawadi" : GoString),
-("Lao" : GoString),
-("Latin" : GoString),
-("Lepcha" : GoString),
-("Limbu" : GoString),
-("Linear_A" : GoString),
-("Linear_B" : GoString),
-("Lisu" : GoString),
-("Lycian" : GoString),
-("Lydian" : GoString),
-("Mahajani" : GoString),
-("Makasar" : GoString),
-("Malayalam" : GoString),
-("Mandaic" : GoString),
-("Manichaean" : GoString),
-("Marchen" : GoString),
-("Masaram_Gondi" : GoString),
-("Medefaidrin" : GoString),
-("Meetei_Mayek" : GoString),
-("Mende_Kikakui" : GoString),
-("Meroitic_Cursive" : GoString),
-("Meroitic_Hieroglyphs" : GoString),
-("Miao" : GoString),
-("Modi" : GoString),
-("Mongolian" : GoString),
-("Mro" : GoString),
-("Multani" : GoString),
-("Myanmar" : GoString),
-("Nabataean" : GoString),
-("Nandinagari" : GoString),
-("New_Tai_Lue" : GoString),
-("Newa" : GoString),
-("Nko" : GoString),
-("Nushu" : GoString),
-("Nyiakeng_Puachue_Hmong" : GoString),
-("Ogham" : GoString),
-("Ol_Chiki" : GoString),
-("Old_Hungarian" : GoString),
-("Old_Italic" : GoString),
-("Old_North_Arabian" : GoString),
-("Old_Permic" : GoString),
-("Old_Persian" : GoString),
-("Old_Sogdian" : GoString),
-("Old_South_Arabian" : GoString),
-("Old_Turkic" : GoString),
-("Oriya" : GoString),
-("Osage" : GoString),
-("Osmanya" : GoString),
-("Pahawh_Hmong" : GoString),
-("Palmyrene" : GoString),
-("Pau_Cin_Hau" : GoString),
-("Phags_Pa" : GoString),
-("Phoenician" : GoString),
-("Psalter_Pahlavi" : GoString),
-("Rejang" : GoString),
-("Runic" : GoString),
-("Samaritan" : GoString),
-("Saurashtra" : GoString),
-("Sharada" : GoString),
-("Shavian" : GoString),
-("Siddham" : GoString),
-("SignWriting" : GoString),
-("Sinhala" : GoString),
-("Sogdian" : GoString),
-("Sora_Sompeng" : GoString),
-("Soyombo" : GoString),
-("Sundanese" : GoString),
-("Syloti_Nagri" : GoString),
-("Syriac" : GoString),
-("Tagalog" : GoString),
-("Tagbanwa" : GoString),
-("Tai_Le" : GoString),
-("Tai_Tham" : GoString),
-("Tai_Viet" : GoString),
-("Takri" : GoString),
-("Tamil" : GoString),
-("Tangut" : GoString),
-("Telugu" : GoString),
-("Thaana" : GoString),
-("Thai" : GoString),
-("Tibetan" : GoString),
-("Tifinagh" : GoString),
-("Tirhuta" : GoString),
-("Ugaritic" : GoString),
-("Vai" : GoString),
-("Wancho" : GoString),
-("Warang_Citi" : GoString),
-("Yezidi" : GoString),
-("Yi" : GoString),
-("Zanabazar_Square" : GoString)];
-    @:privateAccess x._values = [
-adlam,
-ahom,
-anatolian_Hieroglyphs,
-arabic,
-armenian,
-avestan,
-balinese,
-bamum,
-bassa_Vah,
-batak,
-bengali,
-bhaiksuki,
-bopomofo,
-brahmi,
-braille,
-buginese,
-buhid,
-canadian_Aboriginal,
-carian,
-caucasian_Albanian,
-chakma,
-cham,
-cherokee,
-chorasmian,
-common,
-coptic,
-cuneiform,
-cypriot,
-cyrillic,
-deseret,
-devanagari,
-dives_Akuru,
-dogra,
-duployan,
-egyptian_Hieroglyphs,
-elbasan,
-elymaic,
-ethiopic,
-georgian,
-glagolitic,
-gothic,
-grantha,
-greek,
-gujarati,
-gunjala_Gondi,
-gurmukhi,
-han,
-hangul,
-hanifi_Rohingya,
-hanunoo,
-hatran,
-hebrew,
-hiragana,
-imperial_Aramaic,
-inherited,
-inscriptional_Pahlavi,
-inscriptional_Parthian,
-javanese,
-kaithi,
-kannada,
-katakana,
-kayah_Li,
-kharoshthi,
-khitan_Small_Script,
-khmer,
-khojki,
-khudawadi,
-lao,
-latin,
-lepcha,
-limbu,
-linear_A,
-linear_B,
-lisu,
-lycian,
-lydian,
-mahajani,
-makasar,
-malayalam,
-mandaic,
-manichaean,
-marchen,
-masaram_Gondi,
-medefaidrin,
-meetei_Mayek,
-mende_Kikakui,
-meroitic_Cursive,
-meroitic_Hieroglyphs,
-miao,
-modi,
-mongolian,
-mro,
-multani,
-myanmar,
-nabataean,
-nandinagari,
-new_Tai_Lue,
-newa,
-nko,
-nushu,
-nyiakeng_Puachue_Hmong,
-ogham,
-ol_Chiki,
-old_Hungarian,
-old_Italic,
-old_North_Arabian,
-old_Permic,
-old_Persian,
-old_Sogdian,
-old_South_Arabian,
-old_Turkic,
-oriya,
-osage,
-osmanya,
-pahawh_Hmong,
-palmyrene,
-pau_Cin_Hau,
-phags_Pa,
-phoenician,
-psalter_Pahlavi,
-rejang,
-runic,
-samaritan,
-saurashtra,
-sharada,
-shavian,
-siddham,
-signWriting,
-sinhala,
-sogdian,
-sora_Sompeng,
-soyombo,
-sundanese,
-syloti_Nagri,
-syriac,
-tagalog,
-tagbanwa,
-tai_Le,
-tai_Tham,
-tai_Viet,
-takri,
-tamil,
-tangut,
-telugu,
-thaana,
-thai,
-tibetan,
-tifinagh,
-tirhuta,
-ugaritic,
-vai,
-wancho,
-warang_Citi,
-yezidi,
-yi,
-zanabazar_Square];
+    final x = new GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>();
+    @:mergeBlock {
+        x.set(("Adlam" : GoString), adlam);
+        x.set(("Ahom" : GoString), ahom);
+        x.set(("Anatolian_Hieroglyphs" : GoString), anatolian_Hieroglyphs);
+        x.set(("Arabic" : GoString), arabic);
+        x.set(("Armenian" : GoString), armenian);
+        x.set(("Avestan" : GoString), avestan);
+        x.set(("Balinese" : GoString), balinese);
+        x.set(("Bamum" : GoString), bamum);
+        x.set(("Bassa_Vah" : GoString), bassa_Vah);
+        x.set(("Batak" : GoString), batak);
+        x.set(("Bengali" : GoString), bengali);
+        x.set(("Bhaiksuki" : GoString), bhaiksuki);
+        x.set(("Bopomofo" : GoString), bopomofo);
+        x.set(("Brahmi" : GoString), brahmi);
+        x.set(("Braille" : GoString), braille);
+        x.set(("Buginese" : GoString), buginese);
+        x.set(("Buhid" : GoString), buhid);
+        x.set(("Canadian_Aboriginal" : GoString), canadian_Aboriginal);
+        x.set(("Carian" : GoString), carian);
+        x.set(("Caucasian_Albanian" : GoString), caucasian_Albanian);
+        x.set(("Chakma" : GoString), chakma);
+        x.set(("Cham" : GoString), cham);
+        x.set(("Cherokee" : GoString), cherokee);
+        x.set(("Chorasmian" : GoString), chorasmian);
+        x.set(("Common" : GoString), common);
+        x.set(("Coptic" : GoString), coptic);
+        x.set(("Cuneiform" : GoString), cuneiform);
+        x.set(("Cypriot" : GoString), cypriot);
+        x.set(("Cyrillic" : GoString), cyrillic);
+        x.set(("Deseret" : GoString), deseret);
+        x.set(("Devanagari" : GoString), devanagari);
+        x.set(("Dives_Akuru" : GoString), dives_Akuru);
+        x.set(("Dogra" : GoString), dogra);
+        x.set(("Duployan" : GoString), duployan);
+        x.set(("Egyptian_Hieroglyphs" : GoString), egyptian_Hieroglyphs);
+        x.set(("Elbasan" : GoString), elbasan);
+        x.set(("Elymaic" : GoString), elymaic);
+        x.set(("Ethiopic" : GoString), ethiopic);
+        x.set(("Georgian" : GoString), georgian);
+        x.set(("Glagolitic" : GoString), glagolitic);
+        x.set(("Gothic" : GoString), gothic);
+        x.set(("Grantha" : GoString), grantha);
+        x.set(("Greek" : GoString), greek);
+        x.set(("Gujarati" : GoString), gujarati);
+        x.set(("Gunjala_Gondi" : GoString), gunjala_Gondi);
+        x.set(("Gurmukhi" : GoString), gurmukhi);
+        x.set(("Han" : GoString), han);
+        x.set(("Hangul" : GoString), hangul);
+        x.set(("Hanifi_Rohingya" : GoString), hanifi_Rohingya);
+        x.set(("Hanunoo" : GoString), hanunoo);
+        x.set(("Hatran" : GoString), hatran);
+        x.set(("Hebrew" : GoString), hebrew);
+        x.set(("Hiragana" : GoString), hiragana);
+        x.set(("Imperial_Aramaic" : GoString), imperial_Aramaic);
+        x.set(("Inherited" : GoString), inherited);
+        x.set(("Inscriptional_Pahlavi" : GoString), inscriptional_Pahlavi);
+        x.set(("Inscriptional_Parthian" : GoString), inscriptional_Parthian);
+        x.set(("Javanese" : GoString), javanese);
+        x.set(("Kaithi" : GoString), kaithi);
+        x.set(("Kannada" : GoString), kannada);
+        x.set(("Katakana" : GoString), katakana);
+        x.set(("Kayah_Li" : GoString), kayah_Li);
+        x.set(("Kharoshthi" : GoString), kharoshthi);
+        x.set(("Khitan_Small_Script" : GoString), khitan_Small_Script);
+        x.set(("Khmer" : GoString), khmer);
+        x.set(("Khojki" : GoString), khojki);
+        x.set(("Khudawadi" : GoString), khudawadi);
+        x.set(("Lao" : GoString), lao);
+        x.set(("Latin" : GoString), latin);
+        x.set(("Lepcha" : GoString), lepcha);
+        x.set(("Limbu" : GoString), limbu);
+        x.set(("Linear_A" : GoString), linear_A);
+        x.set(("Linear_B" : GoString), linear_B);
+        x.set(("Lisu" : GoString), lisu);
+        x.set(("Lycian" : GoString), lycian);
+        x.set(("Lydian" : GoString), lydian);
+        x.set(("Mahajani" : GoString), mahajani);
+        x.set(("Makasar" : GoString), makasar);
+        x.set(("Malayalam" : GoString), malayalam);
+        x.set(("Mandaic" : GoString), mandaic);
+        x.set(("Manichaean" : GoString), manichaean);
+        x.set(("Marchen" : GoString), marchen);
+        x.set(("Masaram_Gondi" : GoString), masaram_Gondi);
+        x.set(("Medefaidrin" : GoString), medefaidrin);
+        x.set(("Meetei_Mayek" : GoString), meetei_Mayek);
+        x.set(("Mende_Kikakui" : GoString), mende_Kikakui);
+        x.set(("Meroitic_Cursive" : GoString), meroitic_Cursive);
+        x.set(("Meroitic_Hieroglyphs" : GoString), meroitic_Hieroglyphs);
+        x.set(("Miao" : GoString), miao);
+        x.set(("Modi" : GoString), modi);
+        x.set(("Mongolian" : GoString), mongolian);
+        x.set(("Mro" : GoString), mro);
+        x.set(("Multani" : GoString), multani);
+        x.set(("Myanmar" : GoString), myanmar);
+        x.set(("Nabataean" : GoString), nabataean);
+        x.set(("Nandinagari" : GoString), nandinagari);
+        x.set(("New_Tai_Lue" : GoString), new_Tai_Lue);
+        x.set(("Newa" : GoString), newa);
+        x.set(("Nko" : GoString), nko);
+        x.set(("Nushu" : GoString), nushu);
+        x.set(("Nyiakeng_Puachue_Hmong" : GoString), nyiakeng_Puachue_Hmong);
+        x.set(("Ogham" : GoString), ogham);
+        x.set(("Ol_Chiki" : GoString), ol_Chiki);
+        x.set(("Old_Hungarian" : GoString), old_Hungarian);
+        x.set(("Old_Italic" : GoString), old_Italic);
+        x.set(("Old_North_Arabian" : GoString), old_North_Arabian);
+        x.set(("Old_Permic" : GoString), old_Permic);
+        x.set(("Old_Persian" : GoString), old_Persian);
+        x.set(("Old_Sogdian" : GoString), old_Sogdian);
+        x.set(("Old_South_Arabian" : GoString), old_South_Arabian);
+        x.set(("Old_Turkic" : GoString), old_Turkic);
+        x.set(("Oriya" : GoString), oriya);
+        x.set(("Osage" : GoString), osage);
+        x.set(("Osmanya" : GoString), osmanya);
+        x.set(("Pahawh_Hmong" : GoString), pahawh_Hmong);
+        x.set(("Palmyrene" : GoString), palmyrene);
+        x.set(("Pau_Cin_Hau" : GoString), pau_Cin_Hau);
+        x.set(("Phags_Pa" : GoString), phags_Pa);
+        x.set(("Phoenician" : GoString), phoenician);
+        x.set(("Psalter_Pahlavi" : GoString), psalter_Pahlavi);
+        x.set(("Rejang" : GoString), rejang);
+        x.set(("Runic" : GoString), runic);
+        x.set(("Samaritan" : GoString), samaritan);
+        x.set(("Saurashtra" : GoString), saurashtra);
+        x.set(("Sharada" : GoString), sharada);
+        x.set(("Shavian" : GoString), shavian);
+        x.set(("Siddham" : GoString), siddham);
+        x.set(("SignWriting" : GoString), signWriting);
+        x.set(("Sinhala" : GoString), sinhala);
+        x.set(("Sogdian" : GoString), sogdian);
+        x.set(("Sora_Sompeng" : GoString), sora_Sompeng);
+        x.set(("Soyombo" : GoString), soyombo);
+        x.set(("Sundanese" : GoString), sundanese);
+        x.set(("Syloti_Nagri" : GoString), syloti_Nagri);
+        x.set(("Syriac" : GoString), syriac);
+        x.set(("Tagalog" : GoString), tagalog);
+        x.set(("Tagbanwa" : GoString), tagbanwa);
+        x.set(("Tai_Le" : GoString), tai_Le);
+        x.set(("Tai_Tham" : GoString), tai_Tham);
+        x.set(("Tai_Viet" : GoString), tai_Viet);
+        x.set(("Takri" : GoString), takri);
+        x.set(("Tamil" : GoString), tamil);
+        x.set(("Tangut" : GoString), tangut);
+        x.set(("Telugu" : GoString), telugu);
+        x.set(("Thaana" : GoString), thaana);
+        x.set(("Thai" : GoString), thai);
+        x.set(("Tibetan" : GoString), tibetan);
+        x.set(("Tifinagh" : GoString), tifinagh);
+        x.set(("Tirhuta" : GoString), tirhuta);
+        x.set(("Ugaritic" : GoString), ugaritic);
+        x.set(("Vai" : GoString), vai);
+        x.set(("Wancho" : GoString), wancho);
+        x.set(("Warang_Citi" : GoString), warang_Citi);
+        x.set(("Yezidi" : GoString), yezidi);
+        x.set(("Yi" : GoString), yi);
+        x.set(("Zanabazar_Square" : GoString), zanabazar_Square);
+    };
     x;
-} : stdgo.GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>);
+});
 /**
     
     
     
 **/
-private var __ASCII_Hex_Digit = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65 : GoUInt16), (70 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((97 : GoUInt16), (102 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (3 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __ASCII_Hex_Digit = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65 : GoUInt16), (70 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((97 : GoUInt16), (102 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (3 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Bidi_Control = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((1564 : GoUInt16), (8206 : GoUInt16), (6642 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8207 : GoUInt16), (8234 : GoUInt16), (27 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8235 : GoUInt16), (8238 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8294 : GoUInt16), (8297 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Bidi_Control = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(4, 4, (new stdgo.unicode.Unicode.Range16((1564 : GoUInt16), (8206 : GoUInt16), (6642 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8207 : GoUInt16), (8234 : GoUInt16), (27 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8235 : GoUInt16), (8238 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8294 : GoUInt16), (8297 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Dash = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+13,
+13,
 (new stdgo.unicode.Unicode.Range16((45 : GoUInt16), (1418 : GoUInt16), (1373 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1470 : GoUInt16), (5120 : GoUInt16), (3650 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((6150 : GoUInt16), (8208 : GoUInt16), (2058 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -6677,21 +6485,21 @@ private var __Dash = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range1
 (new stdgo.unicode.Unicode.Range16((12336 : GoUInt16), (12448 : GoUInt16), (112 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65073 : GoUInt16), (65074 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65112 : GoUInt16), (65123 : GoUInt16), (11 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65293 : GoUInt16), (65293 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69293u32 : GoUInt32), (69293u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65293 : GoUInt16), (65293 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((69293u32 : GoUInt32), (69293u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Deprecated = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((329 : GoUInt16), (1651 : GoUInt16), (1322 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3959 : GoUInt16), (3961 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6051 : GoUInt16), (6052 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8298 : GoUInt16), (8303 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((9001 : GoUInt16), (9002 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((917505u32 : GoUInt32), (917505u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Deprecated = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(5, 5, (new stdgo.unicode.Unicode.Range16((329 : GoUInt16), (1651 : GoUInt16), (1322 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3959 : GoUInt16), (3961 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6051 : GoUInt16), (6052 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8298 : GoUInt16), (8303 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((9001 : GoUInt16), (9002 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((917505u32 : GoUInt32), (917505u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Diacritic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+107,
+107,
 (new stdgo.unicode.Unicode.Range16((94 : GoUInt16), (96 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((168 : GoUInt16), (175 : GoUInt16), (7 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((180 : GoUInt16), (183 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -6799,8 +6607,8 @@ private var __Diacritic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.R
 (new stdgo.unicode.Unicode.Range16((65342 : GoUInt16), (65344 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65392 : GoUInt16), (65438 : GoUInt16), (46 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65439 : GoUInt16), (65507 : GoUInt16), (68 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+39,
+39,
 (new stdgo.unicode.Unicode.Range32((66272u32 : GoUInt32), (68325u32 : GoUInt32), (2053u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((68326u32 : GoUInt32), (68898u32 : GoUInt32), (572u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((68899u32 : GoUInt32), (68903u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -6846,8 +6654,8 @@ private var __Diacritic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.R
     
 **/
 private var __Extender = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+15,
+15,
 (new stdgo.unicode.Unicode.Range16((183 : GoUInt16), (720 : GoUInt16), (537 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((721 : GoUInt16), (1600 : GoUInt16), (879 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2042 : GoUInt16), (2901 : GoUInt16), (859 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -6862,39 +6670,39 @@ private var __Extender = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Ra
 (new stdgo.unicode.Unicode.Range16((43471 : GoUInt16), (43494 : GoUInt16), (23 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((43632 : GoUInt16), (43741 : GoUInt16), (109 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((43763 : GoUInt16), (43764 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65392 : GoUInt16), (65392 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((70493u32 : GoUInt32), (71110u32 : GoUInt32), (617u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71111u32 : GoUInt32), (71112u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72344u32 : GoUInt32), (92994u32 : GoUInt32), (20650u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((92995u32 : GoUInt32), (94176u32 : GoUInt32), (1181u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94177u32 : GoUInt32), (94179u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123196u32 : GoUInt32), (123197u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125252u32 : GoUInt32), (125254u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65392 : GoUInt16), (65392 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(7, 7, (new stdgo.unicode.Unicode.Range32((70493u32 : GoUInt32), (71110u32 : GoUInt32), (617u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71111u32 : GoUInt32), (71112u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((72344u32 : GoUInt32), (92994u32 : GoUInt32), (20650u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((92995u32 : GoUInt32), (94176u32 : GoUInt32), (1181u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((94177u32 : GoUInt32), (94179u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((123196u32 : GoUInt32), (123197u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125252u32 : GoUInt32), (125254u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Hex_Digit = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65 : GoUInt16), (70 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((97 : GoUInt16), (102 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65296 : GoUInt16), (65305 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65313 : GoUInt16), (65318 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65345 : GoUInt16), (65350 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (3 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Hex_Digit = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(6, 6, (new stdgo.unicode.Unicode.Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65 : GoUInt16), (70 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((97 : GoUInt16), (102 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65296 : GoUInt16), (65305 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65313 : GoUInt16), (65318 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65345 : GoUInt16), (65350 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (3 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Hyphen = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((45 : GoUInt16), (173 : GoUInt16), (128 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1418 : GoUInt16), (6150 : GoUInt16), (4732 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8208 : GoUInt16), (8209 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11799 : GoUInt16), (12539 : GoUInt16), (740 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65123 : GoUInt16), (65293 : GoUInt16), (170 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65381 : GoUInt16), (65381 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (1 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Hyphen = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(6, 6, (new stdgo.unicode.Unicode.Range16((45 : GoUInt16), (173 : GoUInt16), (128 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1418 : GoUInt16), (6150 : GoUInt16), (4732 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8208 : GoUInt16), (8209 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11799 : GoUInt16), (12539 : GoUInt16), (740 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65123 : GoUInt16), (65293 : GoUInt16), (170 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65381 : GoUInt16), (65381 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (1 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __IDS_Binary_Operator = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((12272 : GoUInt16), (12273 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12276 : GoUInt16), (12283 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __IDS_Binary_Operator = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((12272 : GoUInt16), (12273 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12276 : GoUInt16), (12283 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __IDS_Trinary_Operator = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((12274 : GoUInt16), (12275 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __IDS_Trinary_Operator = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((12274 : GoUInt16), (12275 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Ideographic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((12294 : GoUInt16), (12295 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12321 : GoUInt16), (12329 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12344 : GoUInt16), (12346 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((13312 : GoUInt16), (19903 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((19968 : GoUInt16), (40956 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((63744 : GoUInt16), (64109 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64112 : GoUInt16), (64217 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+private var __Ideographic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(7, 7, (new stdgo.unicode.Unicode.Range16((12294 : GoUInt16), (12295 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12321 : GoUInt16), (12329 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12344 : GoUInt16), (12346 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((13312 : GoUInt16), (19903 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((19968 : GoUInt16), (40956 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((63744 : GoUInt16), (64109 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64112 : GoUInt16), (64217 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
+12,
+12,
 (new stdgo.unicode.Unicode.Range32((94180u32 : GoUInt32), (94208u32 : GoUInt32), (28u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((94209u32 : GoUInt32), (100343u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((100352u32 : GoUInt32), (101589u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -6912,21 +6720,21 @@ private var __Ideographic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode
     
     
 **/
-private var __Join_Control = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((8204 : GoUInt16), (8205 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Join_Control = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((8204 : GoUInt16), (8205 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Logical_Order_Exception = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((3648 : GoUInt16), (3652 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3776 : GoUInt16), (3780 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6581 : GoUInt16), (6583 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6586 : GoUInt16), (43701 : GoUInt16), (37115 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43702 : GoUInt16), (43705 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43707 : GoUInt16), (43708 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Logical_Order_Exception = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(6, 6, (new stdgo.unicode.Unicode.Range16((3648 : GoUInt16), (3652 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((3776 : GoUInt16), (3780 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6581 : GoUInt16), (6583 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6586 : GoUInt16), (43701 : GoUInt16), (37115 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43702 : GoUInt16), (43705 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((43707 : GoUInt16), (43708 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Noncharacter_Code_Point = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((64976 : GoUInt16), (65007 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65534 : GoUInt16), (65535 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+private var __Noncharacter_Code_Point = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((64976 : GoUInt16), (65007 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65534 : GoUInt16), (65535 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
+16,
+16,
 (new stdgo.unicode.Unicode.Range32((131070u32 : GoUInt32), (131071u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((196606u32 : GoUInt32), (196607u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((262142u32 : GoUInt32), (262143u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -6949,8 +6757,8 @@ private var __Noncharacter_Code_Point = (Go.setRef(({ r16 : (new Slice<stdgo.uni
     
 **/
 private var __Other_Alphabetic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+146,
+146,
 (new stdgo.unicode.Unicode.Range16((837 : GoUInt16), (1456 : GoUInt16), (619 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1457 : GoUInt16), (1469 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1471 : GoUInt16), (1473 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -7097,8 +6905,8 @@ private var __Other_Alphabetic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Un
 (new stdgo.unicode.Unicode.Range16((43765 : GoUInt16), (44003 : GoUInt16), (238 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((44004 : GoUInt16), (44010 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((64286 : GoUInt16), (64286 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+75,
+75,
 (new stdgo.unicode.Unicode.Range32((66422u32 : GoUInt32), (66426u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((68097u32 : GoUInt32), (68099u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((68101u32 : GoUInt32), (68102u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -7179,15 +6987,15 @@ private var __Other_Alphabetic = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Un
     
     
 **/
-private var __Other_Default_Ignorable_Code_Point = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((847 : GoUInt16), (4447 : GoUInt16), (3600 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4448 : GoUInt16), (6068 : GoUInt16), (1620 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6069 : GoUInt16), (8293 : GoUInt16), (2224 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12644 : GoUInt16), (65440 : GoUInt16), (52796 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65520 : GoUInt16), (65528 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((917504u32 : GoUInt32), (917506u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917507u32 : GoUInt32), (917535u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917632u32 : GoUInt32), (917759u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((918000u32 : GoUInt32), (921599u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Other_Default_Ignorable_Code_Point = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(5, 5, (new stdgo.unicode.Unicode.Range16((847 : GoUInt16), (4447 : GoUInt16), (3600 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4448 : GoUInt16), (6068 : GoUInt16), (1620 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6069 : GoUInt16), (8293 : GoUInt16), (2224 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12644 : GoUInt16), (65440 : GoUInt16), (52796 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65520 : GoUInt16), (65528 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(4, 4, (new stdgo.unicode.Unicode.Range32((917504u32 : GoUInt32), (917506u32 : GoUInt32), (2u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917507u32 : GoUInt32), (917535u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917632u32 : GoUInt32), (917759u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((918000u32 : GoUInt32), (921599u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Other_Grapheme_Extend = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+10,
+10,
 (new stdgo.unicode.Unicode.Range16((2494 : GoUInt16), (2519 : GoUInt16), (25 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((2878 : GoUInt16), (2903 : GoUInt16), (25 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((3006 : GoUInt16), (3031 : GoUInt16), (25 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -7197,27 +7005,27 @@ private var __Other_Grapheme_Extend = (Go.setRef(({ r16 : (new Slice<stdgo.unico
 (new stdgo.unicode.Unicode.Range16((3551 : GoUInt16), (6965 : GoUInt16), (3414 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((8204 : GoUInt16), (12334 : GoUInt16), (4130 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((12335 : GoUInt16), (65438 : GoUInt16), (53103 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65439 : GoUInt16), (65439 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((70462u32 : GoUInt32), (70487u32 : GoUInt32), (25u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70832u32 : GoUInt32), (70845u32 : GoUInt32), (13u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71087u32 : GoUInt32), (71984u32 : GoUInt32), (897u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119141u32 : GoUInt32), (119150u32 : GoUInt32), (9u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119151u32 : GoUInt32), (119154u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917536u32 : GoUInt32), (917631u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65439 : GoUInt16), (65439 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(6, 6, (new stdgo.unicode.Unicode.Range32((70462u32 : GoUInt32), (70487u32 : GoUInt32), (25u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((70832u32 : GoUInt32), (70845u32 : GoUInt32), (13u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71087u32 : GoUInt32), (71984u32 : GoUInt32), (897u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119141u32 : GoUInt32), (119150u32 : GoUInt32), (9u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((119151u32 : GoUInt32), (119154u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((917536u32 : GoUInt32), (917631u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Other_ID_Continue = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((183 : GoUInt16), (903 : GoUInt16), (720 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4969 : GoUInt16), (4977 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6618 : GoUInt16), (6618 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Other_ID_Continue = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((183 : GoUInt16), (903 : GoUInt16), (720 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((4969 : GoUInt16), (4977 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((6618 : GoUInt16), (6618 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Other_ID_Start = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((6277 : GoUInt16), (6278 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8472 : GoUInt16), (8494 : GoUInt16), (22 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12443 : GoUInt16), (12444 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Other_ID_Start = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((6277 : GoUInt16), (6278 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8472 : GoUInt16), (8494 : GoUInt16), (22 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12443 : GoUInt16), (12444 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Other_Lowercase = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+17,
+17,
 (new stdgo.unicode.Unicode.Range16((170 : GoUInt16), (186 : GoUInt16), (16 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((688 : GoUInt16), (696 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((704 : GoUInt16), (705 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -7241,8 +7049,8 @@ private var __Other_Lowercase = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Uni
     
 **/
 private var __Other_Math = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+63,
+63,
 (new stdgo.unicode.Unicode.Range16((94 : GoUInt16), (976 : GoUInt16), (882 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((977 : GoUInt16), (978 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((981 : GoUInt16), (1008 : GoUInt16), (27 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -7306,8 +7114,8 @@ private var __Other_Math = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.
 (new stdgo.unicode.Unicode.Range16((65121 : GoUInt16), (65123 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65128 : GoUInt16), (65340 : GoUInt16), (212 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65342 : GoUInt16), (65342 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+55,
+55,
 (new stdgo.unicode.Unicode.Range32((119808u32 : GoUInt32), (119892u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((119894u32 : GoUInt32), (119964u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((119966u32 : GoUInt32), (119967u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -7368,15 +7176,15 @@ private var __Other_Math = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.
     
     
 **/
-private var __Other_Uppercase = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((8544 : GoUInt16), (8559 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((9398 : GoUInt16), (9423 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((127280u32 : GoUInt32), (127305u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((127312u32 : GoUInt32), (127337u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((127344u32 : GoUInt32), (127369u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Other_Uppercase = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((8544 : GoUInt16), (8559 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((9398 : GoUInt16), (9423 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(3, 3, (new stdgo.unicode.Unicode.Range32((127280u32 : GoUInt32), (127305u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((127312u32 : GoUInt32), (127337u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((127344u32 : GoUInt32), (127369u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Pattern_Syntax = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+24,
+24,
 (new stdgo.unicode.Unicode.Range16((33 : GoUInt16), (47 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((58 : GoUInt16), (64 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((91 : GoUInt16), (94 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -7406,21 +7214,21 @@ private var __Pattern_Syntax = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unic
     
     
 **/
-private var __Pattern_White_Space = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((9 : GoUInt16), (13 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((32 : GoUInt16), (133 : GoUInt16), (101 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8206 : GoUInt16), (8207 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8232 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (2 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Pattern_White_Space = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(4, 4, (new stdgo.unicode.Unicode.Range16((9 : GoUInt16), (13 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((32 : GoUInt16), (133 : GoUInt16), (101 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8206 : GoUInt16), (8207 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8232 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (2 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Prepended_Concatenation_Mark = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((1536 : GoUInt16), (1541 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1757 : GoUInt16), (1807 : GoUInt16), (50 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2274 : GoUInt16), (2274 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((69821u32 : GoUInt32), (69837u32 : GoUInt32), (16u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Prepended_Concatenation_Mark = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((1536 : GoUInt16), (1541 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((1757 : GoUInt16), (1807 : GoUInt16), (50 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((2274 : GoUInt16), (2274 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((69821u32 : GoUInt32), (69837u32 : GoUInt32), (16u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Quotation_Mark = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+10,
+10,
 (new stdgo.unicode.Unicode.Range16((34 : GoUInt16), (39 : GoUInt16), (5 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((171 : GoUInt16), (187 : GoUInt16), (16 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((8216 : GoUInt16), (8223 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -7436,21 +7244,21 @@ private var __Quotation_Mark = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unic
     
     
 **/
-private var __Radical = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((11904 : GoUInt16), (11929 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11931 : GoUInt16), (12019 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12032 : GoUInt16), (12245 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Radical = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(3, 3, (new stdgo.unicode.Unicode.Range16((11904 : GoUInt16), (11929 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((11931 : GoUInt16), (12019 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12032 : GoUInt16), (12245 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Regional_Indicator = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((127462u32 : GoUInt32), (127487u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Regional_Indicator = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((127462u32 : GoUInt32), (127487u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var __Sentence_Terminal = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+36,
+36,
 (new stdgo.unicode.Unicode.Range16((33 : GoUInt16), (46 : GoUInt16), (13 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((63 : GoUInt16), (1417 : GoUInt16), (1354 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((1566 : GoUInt16), (1567 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -7487,8 +7295,8 @@ private var __Sentence_Terminal = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.U
 (new stdgo.unicode.Unicode.Range16((65110 : GoUInt16), (65111 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65281 : GoUInt16), (65294 : GoUInt16), (13 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65311 : GoUInt16), (65377 : GoUInt16), (66 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+25,
+25,
 (new stdgo.unicode.Unicode.Range32((68182u32 : GoUInt32), (68183u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((69461u32 : GoUInt32), (69465u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((69703u32 : GoUInt32), (69704u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -7520,8 +7328,8 @@ private var __Sentence_Terminal = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.U
     
 **/
 private var __Soft_Dotted = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+10,
+10,
 (new stdgo.unicode.Unicode.Range16((105 : GoUInt16), (106 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((303 : GoUInt16), (585 : GoUInt16), (282 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((616 : GoUInt16), (669 : GoUInt16), (53 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -7532,8 +7340,8 @@ private var __Soft_Dotted = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode
 (new stdgo.unicode.Unicode.Range16((7725 : GoUInt16), (7883 : GoUInt16), (158 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((8305 : GoUInt16), (8520 : GoUInt16), (215 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((8521 : GoUInt16), (11388 : GoUInt16), (2867 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+13,
+13,
 (new stdgo.unicode.Unicode.Range32((119842u32 : GoUInt32), (119843u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((119894u32 : GoUInt32), (119895u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((119946u32 : GoUInt32), (119947u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -7553,8 +7361,8 @@ private var __Soft_Dotted = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode
     
 **/
 private var __Terminal_Punctuation = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+53,
+53,
 (new stdgo.unicode.Unicode.Range16((33 : GoUInt16), (44 : GoUInt16), (11 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((46 : GoUInt16), (58 : GoUInt16), (12 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((59 : GoUInt16), (63 : GoUInt16), (4 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -7608,8 +7416,8 @@ private var __Terminal_Punctuation = (Go.setRef(({ r16 : (new Slice<stdgo.unicod
 (new stdgo.unicode.Unicode.Range16((65294 : GoUInt16), (65306 : GoUInt16), (12 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65307 : GoUInt16), (65311 : GoUInt16), (4 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((65377 : GoUInt16), (65380 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(
-0,
-0,
+35,
+35,
 (new stdgo.unicode.Unicode.Range32((66463u32 : GoUInt32), (66512u32 : GoUInt32), (49u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((67671u32 : GoUInt32), (67871u32 : GoUInt32), (200u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
 (new stdgo.unicode.Unicode.Range32((68182u32 : GoUInt32), (68183u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32),
@@ -7650,19 +7458,19 @@ private var __Terminal_Punctuation = (Go.setRef(({ r16 : (new Slice<stdgo.unicod
     
     
 **/
-private var __Unified_Ideograph = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((13312 : GoUInt16), (19903 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((19968 : GoUInt16), (40956 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64014 : GoUInt16), (64015 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64017 : GoUInt16), (64019 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64020 : GoUInt16), (64031 : GoUInt16), (11 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64033 : GoUInt16), (64035 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64036 : GoUInt16), (64039 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64040 : GoUInt16), (64041 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((131072u32 : GoUInt32), (173789u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((173824u32 : GoUInt32), (177972u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((177984u32 : GoUInt32), (178205u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((178208u32 : GoUInt32), (183969u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((183984u32 : GoUInt32), (191456u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((196608u32 : GoUInt32), (201546u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Unified_Ideograph = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(8, 8, (new stdgo.unicode.Unicode.Range16((13312 : GoUInt16), (19903 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((19968 : GoUInt16), (40956 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64014 : GoUInt16), (64015 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64017 : GoUInt16), (64019 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64020 : GoUInt16), (64031 : GoUInt16), (11 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64033 : GoUInt16), (64035 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64036 : GoUInt16), (64039 : GoUInt16), (3 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((64040 : GoUInt16), (64041 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(6, 6, (new stdgo.unicode.Unicode.Range32((131072u32 : GoUInt32), (173789u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((173824u32 : GoUInt32), (177972u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((177984u32 : GoUInt32), (178205u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((178208u32 : GoUInt32), (183969u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((183984u32 : GoUInt32), (191456u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((196608u32 : GoUInt32), (201546u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __Variation_Selector = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((6155 : GoUInt16), (6157 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65024 : GoUInt16), (65039 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((917760u32 : GoUInt32), (917999u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __Variation_Selector = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((6155 : GoUInt16), (6157 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((65024 : GoUInt16), (65039 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(1, 1, (new stdgo.unicode.Unicode.Range32((917760u32 : GoUInt32), (917999u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var __White_Space = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((9 : GoUInt16), (13 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((32 : GoUInt16), (133 : GoUInt16), (101 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((160 : GoUInt16), (5760 : GoUInt16), (5600 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8192 : GoUInt16), (8202 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8232 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8239 : GoUInt16), (8287 : GoUInt16), (48 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12288 : GoUInt16), (12288 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (2 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var __White_Space = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(7, 7, (new stdgo.unicode.Unicode.Range16((9 : GoUInt16), (13 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((32 : GoUInt16), (133 : GoUInt16), (101 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((160 : GoUInt16), (5760 : GoUInt16), (5600 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8192 : GoUInt16), (8202 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8232 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8239 : GoUInt16), (8287 : GoUInt16), (48 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((12288 : GoUInt16), (12288 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), latinOffset : (2 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     // These variables have type *RangeTable.
     
@@ -7879,89 +7687,54 @@ var white_Space = __White_Space;
     
 **/
 var properties = ({
-    final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.RangeTable", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.Range16", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "hi", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "stride", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "r32", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.Range32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "hi", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "stride", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "latinOffset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) }) })));
-    @:privateAccess x._keys = [
-("ASCII_Hex_Digit" : GoString),
-("Bidi_Control" : GoString),
-("Dash" : GoString),
-("Deprecated" : GoString),
-("Diacritic" : GoString),
-("Extender" : GoString),
-("Hex_Digit" : GoString),
-("Hyphen" : GoString),
-("IDS_Binary_Operator" : GoString),
-("IDS_Trinary_Operator" : GoString),
-("Ideographic" : GoString),
-("Join_Control" : GoString),
-("Logical_Order_Exception" : GoString),
-("Noncharacter_Code_Point" : GoString),
-("Other_Alphabetic" : GoString),
-("Other_Default_Ignorable_Code_Point" : GoString),
-("Other_Grapheme_Extend" : GoString),
-("Other_ID_Continue" : GoString),
-("Other_ID_Start" : GoString),
-("Other_Lowercase" : GoString),
-("Other_Math" : GoString),
-("Other_Uppercase" : GoString),
-("Pattern_Syntax" : GoString),
-("Pattern_White_Space" : GoString),
-("Prepended_Concatenation_Mark" : GoString),
-("Quotation_Mark" : GoString),
-("Radical" : GoString),
-("Regional_Indicator" : GoString),
-("Sentence_Terminal" : GoString),
-("STerm" : GoString),
-("Soft_Dotted" : GoString),
-("Terminal_Punctuation" : GoString),
-("Unified_Ideograph" : GoString),
-("Variation_Selector" : GoString),
-("White_Space" : GoString)];
-    @:privateAccess x._values = [
-ascii_Hex_Digit,
-bidi_Control,
-dash,
-deprecated,
-diacritic,
-extender,
-hex_Digit,
-hyphen,
-ids_Binary_Operator,
-ids_Trinary_Operator,
-ideographic,
-join_Control,
-logical_Order_Exception,
-noncharacter_Code_Point,
-other_Alphabetic,
-other_Default_Ignorable_Code_Point,
-other_Grapheme_Extend,
-other_ID_Continue,
-other_ID_Start,
-other_Lowercase,
-other_Math,
-other_Uppercase,
-pattern_Syntax,
-pattern_White_Space,
-prepended_Concatenation_Mark,
-quotation_Mark,
-radical,
-regional_Indicator,
-sentence_Terminal,
-sentence_Terminal,
-soft_Dotted,
-terminal_Punctuation,
-unified_Ideograph,
-variation_Selector,
-white_Space];
+    final x = new GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>();
+    @:mergeBlock {
+        x.set(("ASCII_Hex_Digit" : GoString), ascii_Hex_Digit);
+        x.set(("Bidi_Control" : GoString), bidi_Control);
+        x.set(("Dash" : GoString), dash);
+        x.set(("Deprecated" : GoString), deprecated);
+        x.set(("Diacritic" : GoString), diacritic);
+        x.set(("Extender" : GoString), extender);
+        x.set(("Hex_Digit" : GoString), hex_Digit);
+        x.set(("Hyphen" : GoString), hyphen);
+        x.set(("IDS_Binary_Operator" : GoString), ids_Binary_Operator);
+        x.set(("IDS_Trinary_Operator" : GoString), ids_Trinary_Operator);
+        x.set(("Ideographic" : GoString), ideographic);
+        x.set(("Join_Control" : GoString), join_Control);
+        x.set(("Logical_Order_Exception" : GoString), logical_Order_Exception);
+        x.set(("Noncharacter_Code_Point" : GoString), noncharacter_Code_Point);
+        x.set(("Other_Alphabetic" : GoString), other_Alphabetic);
+        x.set(("Other_Default_Ignorable_Code_Point" : GoString), other_Default_Ignorable_Code_Point);
+        x.set(("Other_Grapheme_Extend" : GoString), other_Grapheme_Extend);
+        x.set(("Other_ID_Continue" : GoString), other_ID_Continue);
+        x.set(("Other_ID_Start" : GoString), other_ID_Start);
+        x.set(("Other_Lowercase" : GoString), other_Lowercase);
+        x.set(("Other_Math" : GoString), other_Math);
+        x.set(("Other_Uppercase" : GoString), other_Uppercase);
+        x.set(("Pattern_Syntax" : GoString), pattern_Syntax);
+        x.set(("Pattern_White_Space" : GoString), pattern_White_Space);
+        x.set(("Prepended_Concatenation_Mark" : GoString), prepended_Concatenation_Mark);
+        x.set(("Quotation_Mark" : GoString), quotation_Mark);
+        x.set(("Radical" : GoString), radical);
+        x.set(("Regional_Indicator" : GoString), regional_Indicator);
+        x.set(("Sentence_Terminal" : GoString), sentence_Terminal);
+        x.set(("STerm" : GoString), sentence_Terminal);
+        x.set(("Soft_Dotted" : GoString), soft_Dotted);
+        x.set(("Terminal_Punctuation" : GoString), terminal_Punctuation);
+        x.set(("Unified_Ideograph" : GoString), unified_Ideograph);
+        x.set(("Variation_Selector" : GoString), variation_Selector);
+        x.set(("White_Space" : GoString), white_Space);
+    };
     x;
-} : stdgo.GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>);
+});
 /**
     
     
     
 **/
 private var __CaseRanges = (new Slice<stdgo.unicode.Unicode.CaseRange>(
-0,
-0,
+319,
+319,
 (new stdgo.unicode.Unicode.CaseRange((65u32 : GoUInt32), (90u32 : GoUInt32), (new GoArray<GoInt32>((0 : GoInt32), (32 : GoInt32), (0 : GoInt32)) : stdgo.unicode.Unicode.T_d)) : stdgo.unicode.Unicode.CaseRange),
 (new stdgo.unicode.Unicode.CaseRange((97u32 : GoUInt32), (122u32 : GoUInt32), (new GoArray<GoInt32>((-32 : GoInt32), (0 : GoInt32), (-32 : GoInt32)) : stdgo.unicode.Unicode.T_d)) : stdgo.unicode.Unicode.CaseRange),
 (new stdgo.unicode.Unicode.CaseRange((181u32 : GoUInt32), (181u32 : GoUInt32), (new GoArray<GoInt32>((743 : GoInt32), (0 : GoInt32), (743 : GoInt32)) : stdgo.unicode.Unicode.T_d)) : stdgo.unicode.Unicode.CaseRange),
@@ -8693,8 +8466,8 @@ private var _asciiFold = (new GoArray<GoUInt16>(
     
 **/
 private var _caseOrbit = (new Slice<stdgo.unicode.Unicode.T_foldPair>(
-0,
-0,
+88,
+88,
 (new stdgo.unicode.Unicode.T_foldPair((75 : GoUInt16), (107 : GoUInt16)) : stdgo.unicode.Unicode.T_foldPair),
 (new stdgo.unicode.Unicode.T_foldPair((83 : GoUInt16), (115 : GoUInt16)) : stdgo.unicode.Unicode.T_foldPair),
 (new stdgo.unicode.Unicode.T_foldPair((107 : GoUInt16), (8490 : GoUInt16)) : stdgo.unicode.Unicode.T_foldPair),
@@ -8788,15 +8561,15 @@ private var _caseOrbit = (new Slice<stdgo.unicode.Unicode.T_foldPair>(
     
     
 **/
-private var _foldL = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((837 : GoUInt16), (837 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var _foldL = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((837 : GoUInt16), (837 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var _foldLl = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+107,
+107,
 (new stdgo.unicode.Unicode.Range16((65 : GoUInt16), (90 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((192 : GoUInt16), (214 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((216 : GoUInt16), (222 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -8903,15 +8676,15 @@ private var _foldLl = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range
 (new stdgo.unicode.Unicode.Range16((42946 : GoUInt16), (42948 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((42949 : GoUInt16), (42951 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((42953 : GoUInt16), (42997 : GoUInt16), (44 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65313 : GoUInt16), (65338 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66560u32 : GoUInt32), (66599u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66736u32 : GoUInt32), (66771u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68736u32 : GoUInt32), (68786u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71840u32 : GoUInt32), (71871u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93760u32 : GoUInt32), (93791u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125184u32 : GoUInt32), (125217u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (3 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65313 : GoUInt16), (65338 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(6, 6, (new stdgo.unicode.Unicode.Range32((66560u32 : GoUInt32), (66599u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66736u32 : GoUInt32), (66771u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68736u32 : GoUInt32), (68786u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71840u32 : GoUInt32), (71871u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93760u32 : GoUInt32), (93791u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125184u32 : GoUInt32), (125217u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (3 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
 private var _foldLt = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+9,
+9,
 (new stdgo.unicode.Unicode.Range16((452 : GoUInt16), (454 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((455 : GoUInt16), (457 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((458 : GoUInt16), (460 : GoUInt16), (2 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -8927,8 +8700,8 @@ private var _foldLt = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range
     
 **/
 private var _foldLu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(
-0,
-0,
+108,
+108,
 (new stdgo.unicode.Unicode.Range16((97 : GoUInt16), (122 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((181 : GoUInt16), (223 : GoUInt16), (42 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((224 : GoUInt16), (246 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
@@ -9036,19 +8809,19 @@ private var _foldLu = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range
 (new stdgo.unicode.Unicode.Range16((42954 : GoUInt16), (42998 : GoUInt16), (44 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((43859 : GoUInt16), (43888 : GoUInt16), (29 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
 (new stdgo.unicode.Unicode.Range16((43889 : GoUInt16), (43967 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16),
-(new stdgo.unicode.Unicode.Range16((65345 : GoUInt16), (65370 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(0, 0, (new stdgo.unicode.Unicode.Range32((66600u32 : GoUInt32), (66639u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66776u32 : GoUInt32), (66811u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68800u32 : GoUInt32), (68850u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71872u32 : GoUInt32), (71903u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93792u32 : GoUInt32), (93823u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125218u32 : GoUInt32), (125251u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (4 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+(new stdgo.unicode.Unicode.Range16((65345 : GoUInt16), (65370 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>), r32 : (new Slice<stdgo.unicode.Unicode.Range32>(6, 6, (new stdgo.unicode.Unicode.Range32((66600u32 : GoUInt32), (66639u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((66776u32 : GoUInt32), (66811u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((68800u32 : GoUInt32), (68850u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((71872u32 : GoUInt32), (71903u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((93792u32 : GoUInt32), (93823u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32), (new stdgo.unicode.Unicode.Range32((125218u32 : GoUInt32), (125251u32 : GoUInt32), (1u32 : GoUInt32)) : stdgo.unicode.Unicode.Range32)) : Slice<stdgo.unicode.Unicode.Range32>), latinOffset : (4 : GoInt) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var _foldM = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var _foldM = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var _foldMn = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var _foldMn = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     // FoldCategory maps a category name to a table of
     // code points outside the category that are equivalent under
@@ -9058,29 +8831,35 @@ private var _foldMn = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range
     
 **/
 var foldCategory = ({
-    final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.RangeTable", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.Range16", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "hi", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "stride", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "r32", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.Range32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "hi", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "stride", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "latinOffset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) }) })));
-    @:privateAccess x._keys = [("L" : GoString), ("Ll" : GoString), ("Lt" : GoString), ("Lu" : GoString), ("M" : GoString), ("Mn" : GoString)];
-    @:privateAccess x._values = [_foldL, _foldLl, _foldLt, _foldLu, _foldM, _foldMn];
+    final x = new GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>();
+    @:mergeBlock {
+        x.set(("L" : GoString), _foldL);
+        x.set(("Ll" : GoString), _foldLl);
+        x.set(("Lt" : GoString), _foldLt);
+        x.set(("Lu" : GoString), _foldLu);
+        x.set(("M" : GoString), _foldM);
+        x.set(("Mn" : GoString), _foldMn);
+    };
     x;
-} : stdgo.GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>);
+});
 /**
     
     
     
 **/
-private var _foldCommon = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((924 : GoUInt16), (956 : GoUInt16), (32 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var _foldCommon = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((924 : GoUInt16), (956 : GoUInt16), (32 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var _foldGreek = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((181 : GoUInt16), (837 : GoUInt16), (656 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var _foldGreek = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(1, 1, (new stdgo.unicode.Unicode.Range16((181 : GoUInt16), (837 : GoUInt16), (656 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     
     
     
 **/
-private var _foldInherited = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(0, 0, (new stdgo.unicode.Unicode.Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
+private var _foldInherited = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range16>(2, 2, (new stdgo.unicode.Unicode.Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : stdgo.unicode.Unicode.Range16), (new stdgo.unicode.Unicode.Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : stdgo.unicode.Unicode.Range16)) : Slice<stdgo.unicode.Unicode.Range16>) } : RangeTable)) : Ref<stdgo.unicode.Unicode.RangeTable>);
 /**
     // FoldScript maps a script name to a table of
     // code points outside the script that are equivalent under
@@ -9090,11 +8869,14 @@ private var _foldInherited = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicod
     
 **/
 var foldScript = ({
-    final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.RangeTable", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.Range16", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "hi", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "stride", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "r32", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.unicode.Unicode.Range32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "hi", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "stride", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "latinOffset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) }) })));
-    @:privateAccess x._keys = [("Common" : GoString), ("Greek" : GoString), ("Inherited" : GoString)];
-    @:privateAccess x._values = [_foldCommon, _foldGreek, _foldInherited];
+    final x = new GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>();
+    @:mergeBlock {
+        x.set(("Common" : GoString), _foldCommon);
+        x.set(("Greek" : GoString), _foldGreek);
+        x.set(("Inherited" : GoString), _foldInherited);
+    };
     x;
-} : stdgo.GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>);
+});
 /**
     // Bit masks for each code point under U+0100, for fast lookup.
     
@@ -9399,7 +9181,7 @@ function isOneOf(_ranges:Slice<Ref<RangeTable>>, _r:GoRune):Bool {
     // In reports whether the rune is a member of one of the ranges.
 **/
 function in_(_r:GoRune, _ranges:haxe.Rest<Ref<RangeTable>>):Bool {
-        var _ranges = new Slice<Ref<RangeTable>>(0, 0, ..._ranges);
+        var _ranges = new Slice<Ref<RangeTable>>(_ranges.length, 0, ..._ranges);
         for (__0 => _inside in _ranges) {
             if (is_(_inside, _r)) {
                 return true;

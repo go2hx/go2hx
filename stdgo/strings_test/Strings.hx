@@ -15,8 +15,8 @@ import stdgo.strings.Strings;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+66,
+66,
 (new stdgo.testing.Testing.InternalTest(("TestBuilder" : GoString), stdgo.strings_test.Strings_test.testBuilder) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestBuilderString" : GoString), stdgo.strings_test.Strings_test.testBuilderString) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestBuilderReset" : GoString), stdgo.strings_test.Strings_test.testBuilderReset) : stdgo.testing.Testing.InternalTest),
@@ -89,8 +89,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+64,
+64,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkBuildString_Builder" : GoString), stdgo.strings_test.Strings_test.benchmarkBuildString_Builder) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkBuildString_ByteBuffer" : GoString), stdgo.strings_test.Strings_test.benchmarkBuildString_ByteBuffer) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkClone" : GoString), stdgo.strings_test.Strings_test.benchmarkClone) : stdgo.testing.Testing.InternalBenchmark),
@@ -167,8 +167,8 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+47,
+47,
 (new stdgo.testing.Testing.InternalExample(("ExampleBuilder" : GoString), stdgo.strings_test.Strings_test.exampleBuilder, ("3...2...1...ignition\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleCompare" : GoString), stdgo.strings_test.Strings_test.exampleCompare, ("-1\n0\n1\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleContains" : GoString), stdgo.strings_test.Strings_test.exampleContains, ("true\nfalse\ntrue\ntrue\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

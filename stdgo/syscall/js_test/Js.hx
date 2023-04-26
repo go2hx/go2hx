@@ -15,8 +15,8 @@ import stdgo.syscall.js.Js;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+32,
+32,
 (new stdgo.testing.Testing.InternalTest(("TestBool" : GoString), stdgo.syscall.js_test.Js_test.testBool) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestString" : GoString), stdgo.syscall.js_test.Js_test.testString) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestInt" : GoString), stdgo.syscall.js_test.Js_test.testInt) : stdgo.testing.Testing.InternalTest),
@@ -54,7 +54,7 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
     
 **/
-private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkDOM" : GoString), stdgo.syscall.js_test.Js_test.benchmarkDOM) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
+private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(1, 1, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkDOM" : GoString), stdgo.syscall.js_test.Js_test.benchmarkDOM) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 /**
     
     

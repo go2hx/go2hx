@@ -15,8 +15,8 @@ import stdgo.regexp.syntax.Syntax;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+11,
+11,
 (new stdgo.testing.Testing.InternalTest(("TestParseSimple" : GoString), stdgo.regexp.syntax.Syntax.testParseSimple) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestParseFoldCase" : GoString), stdgo.regexp.syntax.Syntax.testParseFoldCase) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestParseLiteral" : GoString), stdgo.regexp.syntax.Syntax.testParseLiteral) : stdgo.testing.Testing.InternalTest),
@@ -33,7 +33,7 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
     
 **/
-private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkEmptyOpContext" : GoString), stdgo.regexp.syntax.Syntax.benchmarkEmptyOpContext) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
+private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(1, 1, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkEmptyOpContext" : GoString), stdgo.regexp.syntax.Syntax.benchmarkEmptyOpContext) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 /**
     
     

@@ -14,7 +14,7 @@ import stdgo.internal.fmtsort.Fmtsort;
     
     
 **/
-private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0, (new stdgo.testing.Testing.InternalTest(("TestCompare" : GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testCompare) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestOrder" : GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testOrder) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestInterface" : GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testInterface) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
+private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(3, 3, (new stdgo.testing.Testing.InternalTest(("TestCompare" : GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testCompare) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestOrder" : GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testOrder) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestInterface" : GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testInterface) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
 /**
     
     

@@ -701,7 +701,7 @@ private function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{ var
                     return { _0 : (null : Slice<GoString>), _1 : (null : Error) };
                 };
             };
-            return { _0 : (new Slice<GoString>(0, 0, _pattern) : Slice<GoString>), _1 : (null : Error) };
+            return { _0 : (new Slice<GoString>(1, 1, _pattern) : Slice<GoString>), _1 : (null : Error) };
         };
         var __tmp__ = stdgo.path.Path.split(_pattern), _dir:GoString = __tmp__._0, _file:GoString = __tmp__._1;
         _dir = _cleanGlobPath(_dir);
@@ -765,7 +765,7 @@ private function _glob(_fs:FS, _dir:GoString, _pattern:GoString, _matches:Slice<
                 return { _0 : _m, _1 : _err };
             };
             if (_matched) {
-                _m = _m.__appendref__(stdgo.path.Path.join(_dir, _n));
+                _m = (_m.__append__(stdgo.path.Path.join(_dir, _n)));
             };
         };
         return { _0 : _m, _1 : _e };
@@ -909,7 +909,7 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
                     };
                 };
             };
-            var _data = new Slice<GoUInt8>((0 : GoInt).toBasic(), _size + (1 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
+            var _data = new Slice<GoUInt8>((0 : GoInt).toBasic(), _size + (1 : GoInt)).__setNumber32__();
             while (true) {
                 if ((_data.length) >= _data.capacity) {
                     var _d = ((_data.__slice__(0, _data.capacity) : Slice<GoUInt8>).__append__((0 : GoUInt8)));
@@ -1235,7 +1235,7 @@ class T_subFS_asInterface {
             };
         };
         if (_pattern == (("." : GoString))) {
-            return { _0 : (new Slice<GoString>(0, 0, ("." : GoString)) : Slice<GoString>), _1 : (null : Error) };
+            return { _0 : (new Slice<GoString>(1, 1, ("." : GoString)) : Slice<GoString>), _1 : (null : Error) };
         };
         var _full:GoString = (_f._dir + ("/" : GoString)) + _pattern;
         var __tmp__ = stdgo.io.fs.Fs.glob(_f._fsys, _full), _list:Slice<GoString> = __tmp__._0, _err:Error = __tmp__._1;

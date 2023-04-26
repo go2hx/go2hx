@@ -15,8 +15,8 @@ import stdgo.io.Io;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+52,
+52,
 (new stdgo.testing.Testing.InternalTest(("TestCopy" : GoString), stdgo.io_test.Io_test.testCopy) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestCopyNegative" : GoString), stdgo.io_test.Io_test.testCopyNegative) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestCopyBuffer" : GoString), stdgo.io_test.Io_test.testCopyBuffer) : stdgo.testing.Testing.InternalTest),
@@ -74,7 +74,7 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
     
 **/
-private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkCopyNSmall" : GoString), stdgo.io_test.Io_test.benchmarkCopyNSmall) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkCopyNLarge" : GoString), stdgo.io_test.Io_test.benchmarkCopyNLarge) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
+private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(2, 2, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkCopyNSmall" : GoString), stdgo.io_test.Io_test.benchmarkCopyNSmall) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkCopyNLarge" : GoString), stdgo.io_test.Io_test.benchmarkCopyNLarge) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 /**
     
     
@@ -87,8 +87,8 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+18,
+18,
 (new stdgo.testing.Testing.InternalExample(("ExampleCopy" : GoString), stdgo.io_test.Io_test.exampleCopy, ("some io.Reader stream to be read\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleCopyBuffer" : GoString), stdgo.io_test.Io_test.exampleCopyBuffer, ("first reader\nsecond reader\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleCopyN" : GoString), stdgo.io_test.Io_test.exampleCopyN, ("some\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

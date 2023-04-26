@@ -15,8 +15,8 @@ import stdgo.math.cmplx.Cmplx;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+24,
+24,
 (new stdgo.testing.Testing.InternalTest(("TestAbs" : GoString), stdgo.math.cmplx.Cmplx.testAbs) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestAcos" : GoString), stdgo.math.cmplx.Cmplx.testAcos) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestAcosh" : GoString), stdgo.math.cmplx.Cmplx.testAcosh) : stdgo.testing.Testing.InternalTest),
@@ -47,8 +47,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+22,
+22,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAbs" : GoString), stdgo.math.cmplx.Cmplx.benchmarkAbs) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAcos" : GoString), stdgo.math.cmplx.Cmplx.benchmarkAcos) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAcosh" : GoString), stdgo.math.cmplx.Cmplx.benchmarkAcosh) : stdgo.testing.Testing.InternalBenchmark),
@@ -82,7 +82,7 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
     
 **/
-private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0, (new stdgo.testing.Testing.InternalExample(("ExampleAbs" : GoString), stdgo.math.cmplx_test.Cmplx_test.exampleAbs, ("5.0\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleExp" : GoString), stdgo.math.cmplx_test.Cmplx_test.exampleExp, ("(0.0+0.0i)\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExamplePolar" : GoString), stdgo.math.cmplx_test.Cmplx_test.examplePolar, ("r: 2.0, θ: 0.5*π\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
+private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(3, 3, (new stdgo.testing.Testing.InternalExample(("ExampleAbs" : GoString), stdgo.math.cmplx_test.Cmplx_test.exampleAbs, ("5.0\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExampleExp" : GoString), stdgo.math.cmplx_test.Cmplx_test.exampleExp, ("(0.0+0.0i)\n" : GoString), false) : stdgo.testing.Testing.InternalExample), (new stdgo.testing.Testing.InternalExample(("ExamplePolar" : GoString), stdgo.math.cmplx_test.Cmplx_test.examplePolar, ("r: 2.0, θ: 0.5*π\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
 private function main():Void {
         var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

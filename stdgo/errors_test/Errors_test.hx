@@ -287,7 +287,7 @@ function testJoinReturnsNil(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testJoin(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _err1:Error = stdgo.errors.Errors.new_(("err1" : GoString));
         var _err2:Error = stdgo.errors.Errors.new_(("err2" : GoString));
-        for (__0 => _test in (new Slice<T__struct_0>(0, 0, ({ _errs : (new Slice<Error>(0, 0, _err1) : Slice<Error>), _want : (new Slice<Error>(0, 0, _err1) : Slice<Error>) } : T__struct_0), ({ _errs : (new Slice<Error>(0, 0, _err1, _err2) : Slice<Error>), _want : (new Slice<Error>(0, 0, _err1, _err2) : Slice<Error>) } : T__struct_0), ({ _errs : (new Slice<Error>(0, 0, _err1, (null : Error), _err2) : Slice<Error>), _want : (new Slice<Error>(0, 0, _err1, _err2) : Slice<Error>) } : T__struct_0)) : Slice<T__struct_0>)) {
+        for (__0 => _test in (new Slice<T__struct_0>(3, 3, ({ _errs : (new Slice<Error>(1, 1, _err1) : Slice<Error>), _want : (new Slice<Error>(1, 1, _err1) : Slice<Error>) } : T__struct_0), ({ _errs : (new Slice<Error>(2, 2, _err1, _err2) : Slice<Error>), _want : (new Slice<Error>(2, 2, _err1, _err2) : Slice<Error>) } : T__struct_0), ({ _errs : (new Slice<Error>(3, 3, _err1, (null : Error), _err2) : Slice<Error>), _want : (new Slice<Error>(2, 2, _err1, _err2) : Slice<Error>) } : T__struct_0)) : Slice<T__struct_0>)) {
             var _got = (Go.typeAssert((Go.toInterface(stdgo.errors.Errors.join(..._test._errs.__toArray__())) : T__interface_4)) : T__interface_4).unwrap();
             if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_got), Go.toInterface(_test._want))) {
                 _t.errorf(("Join(%v) = %v; want %v" : GoString), Go.toInterface(_test._errs), Go.toInterface(_got), Go.toInterface(_test._want));
@@ -300,7 +300,7 @@ function testJoin(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testJoinErrorMethod(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _err1:Error = stdgo.errors.Errors.new_(("err1" : GoString));
         var _err2:Error = stdgo.errors.Errors.new_(("err2" : GoString));
-        for (__0 => _test in (new Slice<T__struct_1>(0, 0, ({ _errs : (new Slice<Error>(0, 0, _err1) : Slice<Error>), _want : ("err1" : GoString) } : T__struct_1), ({ _errs : (new Slice<Error>(0, 0, _err1, _err2) : Slice<Error>), _want : ("err1\nerr2" : GoString) } : T__struct_1), ({ _errs : (new Slice<Error>(0, 0, _err1, (null : Error), _err2) : Slice<Error>), _want : ("err1\nerr2" : GoString) } : T__struct_1)) : Slice<T__struct_1>)) {
+        for (__0 => _test in (new Slice<T__struct_1>(3, 3, ({ _errs : (new Slice<Error>(1, 1, _err1) : Slice<Error>), _want : ("err1" : GoString) } : T__struct_1), ({ _errs : (new Slice<Error>(2, 2, _err1, _err2) : Slice<Error>), _want : ("err1\nerr2" : GoString) } : T__struct_1), ({ _errs : (new Slice<Error>(3, 3, _err1, (null : Error), _err2) : Slice<Error>), _want : ("err1\nerr2" : GoString) } : T__struct_1)) : Slice<T__struct_1>)) {
             var _got:GoString = stdgo.errors.Errors.join(..._test._errs.__toArray__()).error();
             if (_got != (_test._want)) {
                 _t.errorf(("Join(%v).Error() = %q; want %q" : GoString), Go.toInterface(_test._errs), Go.toInterface(_got), Go.toInterface(_test._want));
@@ -316,8 +316,8 @@ function testIs(_t:Ref<stdgo.testing.Testing.T>):Void {
             return (Go.toInterface(_err) == Go.toInterface(_err1)) || (Go.toInterface(_err) == Go.toInterface(_err3));
         }) : T_poser)) : Ref<stdgo.errors_test.Errors_test.T_poser>);
         var _testCases = (new Slice<T__struct_2>(
-0,
-0,
+29,
+29,
 ({ _err : (null : Error), _target : (null : Error), _match : true } : T__struct_2),
 ({ _err : _err1, _target : (null : Error), _match : false } : T__struct_2),
 ({ _err : _err1, _target : _err1, _match : true } : T__struct_2),
@@ -337,16 +337,16 @@ function testIs(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _err : Go.asInterface((new T_errorUncomparable() : T_errorUncomparable)), _target : _err1, _match : false } : T__struct_2),
 ({ _err : Go.asInterface((Go.setRef((new T_errorUncomparable() : T_errorUncomparable)) : Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)), _target : _err1, _match : false } : T__struct_2),
 ({ _err : Go.asInterface((new Slice<Error>(0, 0) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : false } : T__struct_2),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, _err1, _err3) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, _err3, _err1) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, _err1, _err3) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.errors.Errors.new_(("x" : GoString)), _match : false } : T__struct_2),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, _err3, Go.asInterface(_errb)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.asInterface(_errb), _match : true } : T__struct_2),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, _err3, Go.asInterface(_errb)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.asInterface(_erra), _match : true } : T__struct_2),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, _err3, Go.asInterface(_errb)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, Go.asInterface(_errb), _err3) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, Go.asInterface(_poser)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, Go.asInterface(_poser)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err3, _match : true } : T__struct_2),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, (null : Error)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : (null : Error), _match : false } : T__struct_2)) : Slice<T__struct_2>);
+({ _err : Go.asInterface((new Slice<Error>(2, 2, _err1, _err3) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
+({ _err : Go.asInterface((new Slice<Error>(2, 2, _err3, _err1) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
+({ _err : Go.asInterface((new Slice<Error>(2, 2, _err1, _err3) : stdgo.errors_test.Errors_test.T_multiErr)), _target : stdgo.errors.Errors.new_(("x" : GoString)), _match : false } : T__struct_2),
+({ _err : Go.asInterface((new Slice<Error>(2, 2, _err3, Go.asInterface(_errb)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.asInterface(_errb), _match : true } : T__struct_2),
+({ _err : Go.asInterface((new Slice<Error>(2, 2, _err3, Go.asInterface(_errb)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.asInterface(_erra), _match : true } : T__struct_2),
+({ _err : Go.asInterface((new Slice<Error>(2, 2, _err3, Go.asInterface(_errb)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
+({ _err : Go.asInterface((new Slice<Error>(2, 2, Go.asInterface(_errb), _err3) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
+({ _err : Go.asInterface((new Slice<Error>(1, 1, Go.asInterface(_poser)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err1, _match : true } : T__struct_2),
+({ _err : Go.asInterface((new Slice<Error>(1, 1, Go.asInterface(_poser)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : _err3, _match : true } : T__struct_2),
+({ _err : Go.asInterface((new Slice<Error>(1, 1, (null : Error)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : (null : Error), _match : false } : T__struct_2)) : Slice<T__struct_2>);
         for (__0 => _tc in _testCases) {
             _t.run(Go.str(), function(_t:Ref<stdgo.testing.Testing.T>):Void {
                 {
@@ -366,8 +366,8 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __tmp__ = stdgo.os.Os.open(("non-existing" : GoString)), __0:Ref<stdgo.os.Os.File> = __tmp__._0, _errF:Error = __tmp__._1;
         var _poserErr = (Go.setRef((new T_poser(("oh no" : GoString), null) : T_poser)) : Ref<stdgo.errors_test.Errors_test.T_poser>);
         var _testCases = (new Slice<T__struct_3>(
-0,
-0,
+18,
+18,
 ({ _err : (null : Error), _target : Go.toInterface((Go.setRef(_errP) : Ref<Ref<stdgo.io.fs.Fs.PathError>>)), _match : false, _want : (null : AnyInterface) } : T__struct_3),
 ({ _err : Go.asInterface((new T_wrapped(("pitied the fool" : GoString), Go.asInterface((new T_errorT(("T" : GoString)) : T_errorT))) : T_wrapped)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : Go.toInterface(Go.asInterface((new T_errorT(("T" : GoString)) : T_errorT))) } : T__struct_3),
 ({ _err : _errF, _target : Go.toInterface((Go.setRef(_errP) : Ref<Ref<stdgo.io.fs.Fs.PathError>>)), _match : true, _want : Go.toInterface(_errF) } : T__struct_3),
@@ -380,12 +380,12 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _err : _errF, _target : Go.toInterface((Go.setRef(_timeout) : Ref<T__interface_5>)), _match : true, _want : Go.toInterface(_errF) } : T__struct_3),
 ({ _err : Go.asInterface((new T_wrapped(("path error" : GoString), _errF) : T_wrapped)), _target : Go.toInterface((Go.setRef(_timeout) : Ref<T__interface_5>)), _match : true, _want : Go.toInterface(_errF) } : T__struct_3),
 ({ _err : Go.asInterface((new Slice<Error>(0, 0) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : false, _want : (null : AnyInterface) } : T__struct_3),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, stdgo.errors.Errors.new_(("a" : GoString)), Go.asInterface((new T_errorT(("T" : GoString)) : T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : Go.toInterface(Go.asInterface((new T_errorT(("T" : GoString)) : T_errorT))) } : T__struct_3),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, Go.asInterface((new T_errorT(("T" : GoString)) : T_errorT)), stdgo.errors.Errors.new_(("a" : GoString))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : Go.toInterface(Go.asInterface((new T_errorT(("T" : GoString)) : T_errorT))) } : T__struct_3),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, Go.asInterface((new T_errorT(("a" : GoString)) : T_errorT)), Go.asInterface((new T_errorT(("b" : GoString)) : T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : Go.toInterface(Go.asInterface((new T_errorT(("a" : GoString)) : T_errorT))) } : T__struct_3),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, Go.asInterface((new Slice<Error>(0, 0, stdgo.errors.Errors.new_(("a" : GoString)), Go.asInterface((new T_errorT(("a" : GoString)) : T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), Go.asInterface((new T_errorT(("b" : GoString)) : T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : Go.toInterface(Go.asInterface((new T_errorT(("a" : GoString)) : T_errorT))) } : T__struct_3),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, Go.asInterface((new T_wrapped(("path error" : GoString), _errF) : T_wrapped))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface((Go.setRef(_timeout) : Ref<T__interface_5>)), _match : true, _want : Go.toInterface(_errF) } : T__struct_3),
-({ _err : Go.asInterface((new Slice<Error>(0, 0, (null : Error)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : false, _want : (null : AnyInterface) } : T__struct_3)) : Slice<T__struct_3>);
+({ _err : Go.asInterface((new Slice<Error>(2, 2, stdgo.errors.Errors.new_(("a" : GoString)), Go.asInterface((new T_errorT(("T" : GoString)) : T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : Go.toInterface(Go.asInterface((new T_errorT(("T" : GoString)) : T_errorT))) } : T__struct_3),
+({ _err : Go.asInterface((new Slice<Error>(2, 2, Go.asInterface((new T_errorT(("T" : GoString)) : T_errorT)), stdgo.errors.Errors.new_(("a" : GoString))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : Go.toInterface(Go.asInterface((new T_errorT(("T" : GoString)) : T_errorT))) } : T__struct_3),
+({ _err : Go.asInterface((new Slice<Error>(2, 2, Go.asInterface((new T_errorT(("a" : GoString)) : T_errorT)), Go.asInterface((new T_errorT(("b" : GoString)) : T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : Go.toInterface(Go.asInterface((new T_errorT(("a" : GoString)) : T_errorT))) } : T__struct_3),
+({ _err : Go.asInterface((new Slice<Error>(2, 2, Go.asInterface((new Slice<Error>(2, 2, stdgo.errors.Errors.new_(("a" : GoString)), Go.asInterface((new T_errorT(("a" : GoString)) : T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), Go.asInterface((new T_errorT(("b" : GoString)) : T_errorT))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : true, _want : Go.toInterface(Go.asInterface((new T_errorT(("a" : GoString)) : T_errorT))) } : T__struct_3),
+({ _err : Go.asInterface((new Slice<Error>(1, 1, Go.asInterface((new T_wrapped(("path error" : GoString), _errF) : T_wrapped))) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface((Go.setRef(_timeout) : Ref<T__interface_5>)), _match : true, _want : Go.toInterface(_errF) } : T__struct_3),
+({ _err : Go.asInterface((new Slice<Error>(1, 1, (null : Error)) : stdgo.errors_test.Errors_test.T_multiErr)), _target : Go.toInterface(Go.asInterface((Go.setRef(_errT) : Ref<stdgo.errors_test.Errors_test.T_errorT>))), _match : false, _want : (null : AnyInterface) } : T__struct_3)) : Slice<T__struct_3>);
         for (_i => _tc in _testCases) {
             var _name:GoString = stdgo.fmt.Fmt.sprintf(("%d:As(Errorf(..., %v), %v)" : GoString), Go.toInterface(_i), Go.toInterface(_tc._err), _tc._target);
             var _rtarget:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_tc._target)?.__copy__();
@@ -409,7 +409,7 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testAsValidation(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _s:GoString = ("" : GoString);
-        var _testCases = (new Slice<AnyInterface>(0, 0, (null : AnyInterface), Go.toInterface((null : Pointer<GoInt>)), Go.toInterface(("error" : GoString)), Go.toInterface(Go.pointer(_s))) : Slice<AnyInterface>);
+        var _testCases = (new Slice<AnyInterface>(4, 4, (null : AnyInterface), Go.toInterface((null : Pointer<GoInt>)), Go.toInterface(("error" : GoString)), Go.toInterface(Go.pointer(_s))) : Slice<AnyInterface>);
         var _err:Error = stdgo.errors.Errors.new_(("error" : GoString));
         for (__0 => _tc in _testCases) {
             _t.run(stdgo.fmt.Fmt.sprintf(("%T(%v)" : GoString), _tc, _tc), function(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -464,7 +464,7 @@ function testAsValidation(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testUnwrap(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _err1:Error = stdgo.errors.Errors.new_(("1" : GoString));
         var _erra:stdgo.errors_test.Errors_test.T_wrapped = (new T_wrapped(("wrap 2" : GoString), _err1) : T_wrapped);
-        var _testCases = (new Slice<T__struct_4>(0, 0, ({ _err : (null : Error), _want : (null : Error) } : T__struct_4), ({ _err : Go.asInterface((new T_wrapped(("wrapped" : GoString), (null : Error)) : T_wrapped)), _want : (null : Error) } : T__struct_4), ({ _err : _err1, _want : (null : Error) } : T__struct_4), ({ _err : Go.asInterface(_erra), _want : _err1 } : T__struct_4), ({ _err : Go.asInterface((new T_wrapped(("wrap 3" : GoString), Go.asInterface(_erra)) : T_wrapped)), _want : Go.asInterface(_erra) } : T__struct_4)) : Slice<T__struct_4>);
+        var _testCases = (new Slice<T__struct_4>(5, 5, ({ _err : (null : Error), _want : (null : Error) } : T__struct_4), ({ _err : Go.asInterface((new T_wrapped(("wrapped" : GoString), (null : Error)) : T_wrapped)), _want : (null : Error) } : T__struct_4), ({ _err : _err1, _want : (null : Error) } : T__struct_4), ({ _err : Go.asInterface(_erra), _want : _err1 } : T__struct_4), ({ _err : Go.asInterface((new T_wrapped(("wrap 3" : GoString), Go.asInterface(_erra)) : T_wrapped)), _want : Go.asInterface(_erra) } : T__struct_4)) : Slice<T__struct_4>);
         for (__0 => _tc in _testCases) {
             {
                 var _got:Error = stdgo.errors.Errors.unwrap(_tc._err);

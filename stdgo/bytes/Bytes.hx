@@ -199,7 +199,7 @@ private function _growSlice(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
             if (_c < ((2 : GoInt) * _b.capacity)) {
                 _c = (2 : GoInt) * _b.capacity;
             };
-            var _b2 = (((null : Slice<GoUInt8>) : Slice<GoByte>).__append__(...new Slice<GoUInt8>((_c : GoInt).toBasic(), 0, ...[for (i in 0 ... (_c : GoInt).toBasic()) (0 : GoUInt8)]).__toArray__()));
+            var _b2 = (((null : Slice<GoUInt8>) : Slice<GoByte>).__append__(...new Slice<GoUInt8>((_c : GoInt).toBasic(), 0).__setNumber32__().__toArray__()));
             Go.copySlice(_b2, _b);
             {
                 for (defer in __deferstack__) {
@@ -280,7 +280,7 @@ private function _explode(_s:Slice<GoByte>, _n:GoInt):Slice<Slice<GoByte>> {
         if ((_n <= (0 : GoInt)) || (_n > _s.length)) {
             _n = (_s.length);
         };
-        var _a = new Slice<Slice<GoUInt8>>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (null : Slice<GoUInt8>)]);
+        var _a = new Slice<Slice<GoUInt8>>((_n : GoInt).toBasic(), 0);
         var _size:GoInt = (0 : GoInt);
         var _na:GoInt = (0 : GoInt);
         while ((_s.length) > (0 : GoInt)) {
@@ -636,7 +636,7 @@ private function _genSplit(_s:Slice<GoByte>, _sep:Slice<GoByte>, _sepSave:GoInt,
         if (_n > (_s.length + (1 : GoInt))) {
             _n = (_s.length) + (1 : GoInt);
         };
-        var _a = new Slice<Slice<GoUInt8>>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (null : Slice<GoUInt8>)]);
+        var _a = new Slice<Slice<GoUInt8>>((_n : GoInt).toBasic(), 0);
         _n--;
         var _i:GoInt = (0 : GoInt);
         while (_i < _n) {
@@ -722,7 +722,7 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
         if (_setBits >= (128 : GoUInt8)) {
             return fieldsFunc(_s, stdgo.unicode.Unicode.isSpace);
         };
-        var _a = new Slice<Slice<GoUInt8>>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (null : Slice<GoUInt8>)]);
+        var _a = new Slice<Slice<GoUInt8>>((_n : GoInt).toBasic(), 0);
         var _na:GoInt = (0 : GoInt);
         var _fieldStart:GoInt = (0 : GoInt);
         var _i:GoInt = (0 : GoInt);
@@ -777,7 +777,7 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
 **/
 function fieldsFunc(_s:Slice<GoByte>, _f:GoRune -> Bool):Slice<Slice<GoByte>> {
         {};
-        var _spans = new Slice<stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span>((0 : GoInt).toBasic(), (32 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) ({} : stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span)]);
+        var _spans = new Slice<stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span>((0 : GoInt).toBasic(), (32 : GoInt), ...[for (i in 0 ... ((0 : GoInt).toBasic() > (32 : GoInt) ? (0 : GoInt).toBasic() : (32 : GoInt) : GoInt).toBasic()) ({} : stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span)]);
         var _start:GoInt = (-1 : GoInt);
         {
             var _i:GoInt = (0 : GoInt);
@@ -793,7 +793,7 @@ function fieldsFunc(_s:Slice<GoByte>, _f:GoRune -> Bool):Slice<Slice<GoByte>> {
                 };
                 if (_f(_r)) {
                     if (_start >= (0 : GoInt)) {
-                        _spans = _spans.__appendref__((new T_fieldsFunc_0___localname___span(_start, _i) : T_fieldsFunc_0___localname___span));
+                        _spans = (_spans.__append__((new T_fieldsFunc_0___localname___span(_start, _i) : T_fieldsFunc_0___localname___span)));
                         _start = (-1 : GoInt);
                     };
                 } else {
@@ -805,9 +805,9 @@ function fieldsFunc(_s:Slice<GoByte>, _f:GoRune -> Bool):Slice<Slice<GoByte>> {
             };
         };
         if (_start >= (0 : GoInt)) {
-            _spans = _spans.__appendref__((new T_fieldsFunc_0___localname___span(_start, (_s.length)) : T_fieldsFunc_0___localname___span));
+            _spans = (_spans.__append__((new T_fieldsFunc_0___localname___span(_start, (_s.length)) : T_fieldsFunc_0___localname___span)));
         };
-        var _a = new Slice<Slice<GoUInt8>>((_spans.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_spans.length : GoInt).toBasic()) (null : Slice<GoUInt8>)]);
+        var _a = new Slice<Slice<GoUInt8>>((_spans.length : GoInt).toBasic(), 0);
         for (_i => _span in _spans) {
             _a[(_i : GoInt)] = (_s.__slice__(_span._start, _span._end, _span._end) : Slice<GoUInt8>);
         };
@@ -828,7 +828,7 @@ function join(_s:Slice<Slice<GoByte>>, _sep:Slice<GoByte>):Slice<GoByte> {
         for (__0 => _v in _s) {
             _n = _n + ((_v.length));
         };
-        var _b = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0).__setNumber32__();
         var _bp:GoInt = Go.copySlice(_b, _s[(0 : GoInt)]);
         for (__1 => _v in (_s.__slice__((1 : GoInt)) : Slice<Slice<GoUInt8>>)) {
             _bp = _bp + (Go.copySlice((_b.__slice__(_bp) : Slice<GoUInt8>), _sep));
@@ -855,7 +855,7 @@ function hasSuffix(_s:Slice<GoByte>, _suffix:Slice<GoByte>):Bool {
     // output are interpreted as UTF-8-encoded code points.
 **/
 function map(_mapping:(_r:GoRune) -> GoRune, _s:Slice<GoByte>):Slice<GoByte> {
-        var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), (_s.length), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), (_s.length)).__setNumber32__();
         {
             var _i:GoInt = (0 : GoInt);
             while (_i < (_s.length)) {
@@ -904,7 +904,7 @@ function repeat(_b:Slice<GoByte>, _count:GoInt):Slice<GoByte> {
                 _chunkMax = (_b.length);
             };
         };
-        var _nb = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _nb = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0).__setNumber32__();
         var _bp:GoInt = Go.copySlice(_nb, _b);
         while (_bp < (_nb.length)) {
             var _chunk:GoInt = _bp;
@@ -936,7 +936,7 @@ function toUpper(_s:Slice<GoByte>):Slice<GoByte> {
             if (!_hasLower) {
                 return ((Go.str() : Slice<GoByte>).__append__(..._s.__toArray__()));
             };
-            var _b = new Slice<GoUInt8>((_s.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_s.length : GoInt).toBasic()) (0 : GoUInt8)]);
+            var _b = new Slice<GoUInt8>((_s.length : GoInt).toBasic(), 0).__setNumber32__();
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < (_s.length), _i++, {
@@ -972,7 +972,7 @@ function toLower(_s:Slice<GoByte>):Slice<GoByte> {
             if (!_hasUpper) {
                 return ((Go.str() : Slice<GoByte>).__append__(..._s.__toArray__()));
             };
-            var _b = new Slice<GoUInt8>((_s.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_s.length : GoInt).toBasic()) (0 : GoUInt8)]);
+            var _b = new Slice<GoUInt8>((_s.length : GoInt).toBasic(), 0).__setNumber32__();
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < (_s.length), _i++, {
@@ -1019,7 +1019,7 @@ function toTitleSpecial(_c:stdgo.unicode.Unicode.SpecialCase, _s:Slice<GoByte>):
     // representing invalid UTF-8 replaced with the bytes in replacement, which may be empty.
 **/
 function toValidUTF8(_s:Slice<GoByte>, _replacement:Slice<GoByte>):Slice<GoByte> {
-        var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), (_s.length) + (_replacement.length), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), (_s.length) + (_replacement.length)).__setNumber32__();
         var _invalid:Bool = false;
         {
             var _i:GoInt = (0 : GoInt);
@@ -1028,7 +1028,7 @@ function toValidUTF8(_s:Slice<GoByte>, _replacement:Slice<GoByte>):Slice<GoByte>
                 if (_c < (128 : GoUInt8)) {
                     _i++;
                     _invalid = false;
-                    _b = _b.__appendref__(_c);
+                    _b = (_b.__append__(_c));
                     continue;
                 };
                 var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune((_s.__slice__(_i) : Slice<GoUInt8>)), __0:GoInt32 = __tmp__._0, _wid:GoInt = __tmp__._1;
@@ -1036,12 +1036,12 @@ function toValidUTF8(_s:Slice<GoByte>, _replacement:Slice<GoByte>):Slice<GoByte>
                     _i++;
                     if (!_invalid) {
                         _invalid = true;
-                        _b = _b.__appendref__(..._replacement.__toArray__());
+                        _b = (_b.__append__(..._replacement.__toArray__()));
                     };
                     continue;
                 };
                 _invalid = false;
-                _b = _b.__appendref__(...(_s.__slice__(_i, _i + _wid) : Slice<GoUInt8>).__toArray__());
+                _b = (_b.__append__(...(_s.__slice__(_i, _i + _wid) : Slice<GoUInt8>).__toArray__()));
                 _i = _i + (_wid);
             };
         };
@@ -1406,7 +1406,7 @@ function trimSpace(_s:Slice<GoByte>):Slice<GoByte> {
     // It returns a slice of runes (Unicode code points) equivalent to s.
 **/
 function runes(_s:Slice<GoByte>):Slice<GoRune> {
-        var _t = new Slice<GoInt32>((stdgo.unicode.utf8.Utf8.runeCount(_s) : GoInt).toBasic(), 0, ...[for (i in 0 ... (stdgo.unicode.utf8.Utf8.runeCount(_s) : GoInt).toBasic()) (0 : GoInt32)]);
+        var _t = new Slice<GoInt32>((stdgo.unicode.utf8.Utf8.runeCount(_s) : GoInt).toBasic(), 0).__setNumber32__();
         var _i:GoInt = (0 : GoInt);
         while ((_s.length) > (0 : GoInt)) {
             var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune(_s), _r:GoInt32 = __tmp__._0, _l:GoInt = __tmp__._1;
@@ -1435,7 +1435,7 @@ function replace(_s:Slice<GoByte>, _old:Slice<GoByte>, _new:Slice<GoByte>, _n:Go
         if ((_n < (0 : GoInt)) || (_m < _n)) {
             _n = _m;
         };
-        var _t = new Slice<GoUInt8>(((_s.length) + (_n * (_new.length - _old.length)) : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_s.length) + (_n * (_new.length - _old.length)) : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _t = new Slice<GoUInt8>(((_s.length) + (_n * (_new.length - _old.length)) : GoInt).toBasic(), 0).__setNumber32__();
         var _w:GoInt = (0 : GoInt);
         var _start:GoInt = (0 : GoInt);
         {
@@ -1949,7 +1949,7 @@ class Buffer_asInterface {
     static public function readBytes( _b:Ref<Buffer>, _delim:GoByte):{ var _0 : Slice<GoByte>; var _1 : Error; } {
         var _line:Slice<GoByte> = (null : Slice<GoUInt8>), _err:Error = (null : Error);
         var __tmp__ = _b._readSlice(_delim), _slice:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
-        _line = _line.__appendref__(..._slice.__toArray__());
+        _line = (_line.__append__(..._slice.__toArray__()));
         return { _0 : _line, _1 : _err };
     }
     /**
@@ -2228,7 +2228,7 @@ class Buffer_asInterface {
             };
         };
         if ((_b._buf == null) && (_n <= (64 : GoInt))) {
-            _b._buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), (64 : GoInt), ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt8)]);
+            _b._buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), (64 : GoInt)).__setNumber32__();
             return (0 : GoInt);
         };
         var _c:GoInt = _b._buf.capacity;

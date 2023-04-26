@@ -167,7 +167,7 @@ function new_(_text:GoString):Error {
     // between each string.
 **/
 function join(_errs:haxe.Rest<Error>):Error {
-        var _errs = new Slice<Error>(0, 0, ..._errs);
+        var _errs = new Slice<Error>(_errs.length, 0, ..._errs);
         var _n:GoInt = (0 : GoInt);
         for (__0 => _err in _errs) {
             if (_err != null) {
@@ -177,10 +177,10 @@ function join(_errs:haxe.Rest<Error>):Error {
         if (_n == ((0 : GoInt))) {
             return (null : Error);
         };
-        var _e = (Go.setRef(({ _errs : new Slice<Error>((0 : GoInt).toBasic(), _n, ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : Error)]) } : T_joinError)) : Ref<stdgo.errors.Errors.T_joinError>);
+        var _e = (Go.setRef(({ _errs : new Slice<Error>((0 : GoInt).toBasic(), _n) } : T_joinError)) : Ref<stdgo.errors.Errors.T_joinError>);
         for (__1 => _err in _errs) {
             if (_err != null) {
-                _e._errs = _e._errs.__appendref__(_err);
+                _e._errs = (_e._errs.__append__(_err));
             };
         };
         return Go.asInterface(_e);
@@ -377,9 +377,9 @@ class T_joinError_asInterface {
         var _b:Slice<GoByte> = (null : Slice<GoUInt8>);
         for (_i => _err in _e._errs) {
             if (_i > (0 : GoInt)) {
-                _b = _b.__appendref__((10 : GoUInt8));
+                _b = (_b.__append__((10 : GoUInt8)));
             };
-            _b = _b.__appendref__(..._err.error().__toArray__());
+            _b = (_b.__append__(..._err.error().__toArray__()));
         };
         return (_b : GoString);
     }

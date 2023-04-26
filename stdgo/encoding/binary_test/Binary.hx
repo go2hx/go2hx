@@ -15,8 +15,8 @@ import stdgo.encoding.binary.Binary;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+27,
+27,
 (new stdgo.testing.Testing.InternalTest(("TestLittleEndianRead" : GoString), stdgo.encoding.binary.Binary.testLittleEndianRead) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestLittleEndianWrite" : GoString), stdgo.encoding.binary.Binary.testLittleEndianWrite) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestLittleEndianPtrWrite" : GoString), stdgo.encoding.binary.Binary.testLittleEndianPtrWrite) : stdgo.testing.Testing.InternalTest),
@@ -50,8 +50,8 @@ private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
     
 **/
 private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
-0,
-0,
+26,
+26,
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadSlice1000Int32s" : GoString), stdgo.encoding.binary.Binary.benchmarkReadSlice1000Int32s) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadStruct" : GoString), stdgo.encoding.binary.Binary.benchmarkReadStruct) : stdgo.testing.Testing.InternalBenchmark),
 (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteStruct" : GoString), stdgo.encoding.binary.Binary.benchmarkWriteStruct) : stdgo.testing.Testing.InternalBenchmark),
@@ -90,8 +90,8 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
 **/
 private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
-0,
-0,
+10,
+10,
 (new stdgo.testing.Testing.InternalExample(("ExampleWrite" : GoString), stdgo.encoding.binary_test.Binary_test.exampleWrite, ("18 2d 44 54 fb 21 09 40\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleWrite_multi" : GoString), stdgo.encoding.binary_test.Binary_test.exampleWrite_multi, ("beefcafe\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
 (new stdgo.testing.Testing.InternalExample(("ExampleRead" : GoString), stdgo.encoding.binary_test.Binary_test.exampleRead, ("3.141592653589793\n" : GoString), false) : stdgo.testing.Testing.InternalExample),

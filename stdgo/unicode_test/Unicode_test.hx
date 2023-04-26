@@ -19,8 +19,8 @@ import stdgo.unicode.Unicode;
     
 **/
 private var _testDigit = (new Slice<GoInt32>(
-0,
-0,
+56,
+56,
 (48 : GoInt32),
 (57 : GoInt32),
 (1633 : GoInt32),
@@ -83,8 +83,8 @@ private var _testDigit = (new Slice<GoInt32>(
     
 **/
 private var _testLetter = (new Slice<GoInt32>(
-0,
-0,
+32,
+32,
 (65 : GoInt32),
 (97 : GoInt32),
 (170 : GoInt32),
@@ -123,8 +123,8 @@ private var _testLetter = (new Slice<GoInt32>(
     
 **/
 private var _upperTest = (new Slice<GoInt32>(
-0,
-0,
+22,
+22,
 (65 : GoInt32),
 (192 : GoInt32),
 (216 : GoInt32),
@@ -153,8 +153,8 @@ private var _upperTest = (new Slice<GoInt32>(
     
 **/
 private var _notupperTest = (new Slice<GoInt32>(
-0,
-0,
+11,
+11,
 (64 : GoInt32),
 (91 : GoInt32),
 (97 : GoInt32),
@@ -172,8 +172,8 @@ private var _notupperTest = (new Slice<GoInt32>(
     
 **/
 private var _letterTest = (new Slice<GoInt32>(
-0,
-0,
+32,
+32,
 (65 : GoInt32),
 (97 : GoInt32),
 (170 : GoInt32),
@@ -212,8 +212,8 @@ private var _letterTest = (new Slice<GoInt32>(
     
 **/
 private var _notletterTest = (new Slice<GoInt32>(
-0,
-0,
+9,
+9,
 (32 : GoInt32),
 (53 : GoInt32),
 (885 : GoInt32),
@@ -229,8 +229,8 @@ private var _notletterTest = (new Slice<GoInt32>(
     
 **/
 private var _spaceTest = (new Slice<GoInt32>(
-0,
-0,
+10,
+10,
 (9 : GoInt32),
 (10 : GoInt32),
 (11 : GoInt32),
@@ -247,8 +247,8 @@ private var _spaceTest = (new Slice<GoInt32>(
     
 **/
 private var _caseTest = (new Slice<stdgo.unicode_test.Unicode_test.T_caseT>(
-0,
-0,
+77,
+77,
 (new stdgo.unicode_test.Unicode_test.T_caseT((-1 : GoInt), (10 : GoInt32), (65533 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
 (new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (-1 : GoInt32), (-1 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
 (new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (1073741824 : GoInt32), (1073741824 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
@@ -332,8 +332,8 @@ private var _caseTest = (new Slice<stdgo.unicode_test.Unicode_test.T_caseT>(
     
 **/
 private var _simpleFoldTests = (new Slice<GoString>(
-0,
-0,
+9,
+9,
 ("Aa" : GoString),
 ("δΔ" : GoString),
 ("KkK" : GoString),
@@ -355,8 +355,8 @@ private var _calibrate = stdgo.flag.Flag.bool_(("calibrate" : GoString), false, 
     
 **/
 private var _inCategoryTest = (new Slice<stdgo.unicode_test.Unicode_test.T>(
-0,
-0,
+36,
+36,
 (new stdgo.unicode_test.Unicode_test.T((129 : GoInt32), ("Cc" : GoString)) : stdgo.unicode_test.Unicode_test.T),
 (new stdgo.unicode_test.Unicode_test.T((8203 : GoInt32), ("Cf" : GoString)) : stdgo.unicode_test.Unicode_test.T),
 (new stdgo.unicode_test.Unicode_test.T((983040 : GoInt32), ("Co" : GoString)) : stdgo.unicode_test.Unicode_test.T),
@@ -399,8 +399,8 @@ private var _inCategoryTest = (new Slice<stdgo.unicode_test.Unicode_test.T>(
     
 **/
 private var _inPropTest = (new Slice<stdgo.unicode_test.Unicode_test.T>(
-0,
-0,
+35,
+35,
 (new stdgo.unicode_test.Unicode_test.T((70 : GoInt32), ("ASCII_Hex_Digit" : GoString)) : stdgo.unicode_test.Unicode_test.T),
 (new stdgo.unicode_test.Unicode_test.T((8207 : GoInt32), ("Bidi_Control" : GoString)) : stdgo.unicode_test.Unicode_test.T),
 (new stdgo.unicode_test.Unicode_test.T((8722 : GoInt32), ("Dash" : GoString)) : stdgo.unicode_test.Unicode_test.T),
@@ -980,7 +980,7 @@ private function _fakeTable(_n:GoInt):Slice<Range16> {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _n, _i++, {
-                _r16 = _r16.__appendref__((new Range16(((_i * (5 : GoInt)) + (10 : GoInt) : GoUInt16), ((_i * (5 : GoInt)) + (12 : GoInt) : GoUInt16), (1 : GoUInt16)) : Range16));
+                _r16 = (_r16.__append__((new Range16(((_i * (5 : GoInt)) + (10 : GoInt) : GoUInt16), ((_i * (5 : GoInt)) + (12 : GoInt) : GoUInt16), (1 : GoUInt16)) : Range16)));
             });
         };
         return _r16;
@@ -1015,7 +1015,7 @@ private function _binary(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         return false;
     }
 function testLatinOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _maps:Slice<GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>> = (new Slice<GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>>(0, 0, categories, foldCategory, foldScript, properties, scripts) : Slice<GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>>);
+        var _maps:Slice<GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>> = (new Slice<GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>>(5, 5, categories, foldCategory, foldScript, properties, scripts) : Slice<GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>>);
         for (__0 => _m in _maps) {
             for (_name => _tab in _m) {
                 var _i:GoInt = (0 : GoInt);
@@ -1030,14 +1030,14 @@ function testLatinOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testSpecialCaseNoMapping(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _noChangeForCapitalA:stdgo.unicode.Unicode.CaseRange = (new CaseRange((65u32 : GoUInt32), (65u32 : GoUInt32), (new GoArray<GoInt32>((0 : GoInt32), (0 : GoInt32), (0 : GoInt32)) : GoArray<GoInt32>)) : CaseRange);
-        var _got:GoString = stdgo.strings.Strings.toLowerSpecial(((new Slice<stdgo.unicode.Unicode.CaseRange>(0, 0, _noChangeForCapitalA?.__copy__()) : Slice<stdgo.unicode.Unicode.CaseRange>) : SpecialCase), ("ABC" : GoString));
+        var _got:GoString = stdgo.strings.Strings.toLowerSpecial(((new Slice<stdgo.unicode.Unicode.CaseRange>(1, 1, _noChangeForCapitalA?.__copy__()) : Slice<stdgo.unicode.Unicode.CaseRange>) : SpecialCase), ("ABC" : GoString));
         var _want:GoString = ("Abc" : GoString);
         if (_got != (_want)) {
             _t.errorf(("got %q; want %q" : GoString), Go.toInterface(_got), Go.toInterface(_want));
         };
     }
 function testNegativeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _nonLatin1 = (new Slice<GoUInt32>(0, 0, (256u32 : GoUInt32), (257u32 : GoUInt32), (453u32 : GoUInt32), (768u32 : GoUInt32), (1632u32 : GoUInt32), (894u32 : GoUInt32), (706u32 : GoUInt32), (5760u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _nonLatin1 = (new Slice<GoUInt32>(8, 8, (256u32 : GoUInt32), (257u32 : GoUInt32), (453u32 : GoUInt32), (768u32 : GoUInt32), (1632u32 : GoUInt32), (894u32 : GoUInt32), (706u32 : GoUInt32), (5760u32 : GoUInt32)) : Slice<GoUInt32>);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < ((255 : GoInt) + _nonLatin1.length), _i++, {
@@ -1092,13 +1092,17 @@ function testNegativeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testCategories(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _notTested = (new GoObjectMap<GoString, Bool>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }))) : GoMap<GoString, Bool>);
+        var _notTested = ({
+            final x = new GoMap<GoString, Bool>();
+            @:mergeBlock {};
+            x;
+        });
         for (_k => _ in categories) {
             _notTested[_k] = true;
         };
         for (__0 => _test in _inCategoryTest) {
             {
-                var __tmp__ = (categories != null && categories.__exists__(_test._script) ? { value : categories[_test._script], ok : true } : { value : (null : Ref<stdgo.unicode.Unicode.RangeTable>), ok : false }), __1:Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (categories != null && categories.exists(_test._script) ? { value : categories[_test._script], ok : true } : { value : (null : Ref<stdgo.unicode.Unicode.RangeTable>), ok : false }), __1:Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (!_ok) {
                     _t.fatal(Go.toInterface(_test._script), Go.toInterface(("not a known category" : GoString)));
                 };
@@ -1106,20 +1110,24 @@ function testCategories(_t:Ref<stdgo.testing.Testing.T>):Void {
             if (!is_(categories[_test._script], _test._rune)) {
                 _t.errorf(("IsCategory(%U, %s) = false, want true" : GoString), Go.toInterface(_test._rune), Go.toInterface(_test._script));
             };
-            if (_notTested != null) _notTested.__remove__(_test._script);
+            if (_notTested != null) _notTested.remove(_test._script);
         };
         for (_k => _ in _notTested) {
             _t.error(Go.toInterface(("category not tested:" : GoString)), Go.toInterface(_k));
         };
     }
 function testProperties(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _notTested = (new GoObjectMap<GoString, Bool>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }))) : GoMap<GoString, Bool>);
+        var _notTested = ({
+            final x = new GoMap<GoString, Bool>();
+            @:mergeBlock {};
+            x;
+        });
         for (_k => _ in properties) {
             _notTested[_k] = true;
         };
         for (__0 => _test in _inPropTest) {
             {
-                var __tmp__ = (properties != null && properties.__exists__(_test._script) ? { value : properties[_test._script], ok : true } : { value : (null : Ref<stdgo.unicode.Unicode.RangeTable>), ok : false }), __1:Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (properties != null && properties.exists(_test._script) ? { value : properties[_test._script], ok : true } : { value : (null : Ref<stdgo.unicode.Unicode.RangeTable>), ok : false }), __1:Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (!_ok) {
                     _t.fatal(Go.toInterface(_test._script), Go.toInterface(("not a known prop" : GoString)));
                 };
@@ -1127,7 +1135,7 @@ function testProperties(_t:Ref<stdgo.testing.Testing.T>):Void {
             if (!is_(properties[_test._script], _test._rune)) {
                 _t.errorf(("IsCategory(%U, %s) = false, want true" : GoString), Go.toInterface(_test._rune), Go.toInterface(_test._script));
             };
-            if (_notTested != null) _notTested.__remove__(_test._script);
+            if (_notTested != null) _notTested.remove(_test._script);
         };
         for (_k => _ in _notTested) {
             _t.error(Go.toInterface(("property not tested:" : GoString)), Go.toInterface(_k));

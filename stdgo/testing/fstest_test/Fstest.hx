@@ -14,7 +14,7 @@ import stdgo.testing.fstest.Fstest;
     
     
 **/
-private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0, (new stdgo.testing.Testing.InternalTest(("TestMapFS" : GoString), stdgo.testing.fstest.Fstest.testMapFS) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestMapFSChmodDot" : GoString), stdgo.testing.fstest.Fstest.testMapFSChmodDot) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestSymlink" : GoString), stdgo.testing.fstest.Fstest.testSymlink) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestDash" : GoString), stdgo.testing.fstest.Fstest.testDash) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
+private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(4, 4, (new stdgo.testing.Testing.InternalTest(("TestMapFS" : GoString), stdgo.testing.fstest.Fstest.testMapFS) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestMapFSChmodDot" : GoString), stdgo.testing.fstest.Fstest.testMapFSChmodDot) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestSymlink" : GoString), stdgo.testing.fstest.Fstest.testSymlink) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestDash" : GoString), stdgo.testing.fstest.Fstest.testDash) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
 /**
     
     

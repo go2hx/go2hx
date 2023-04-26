@@ -699,8 +699,8 @@ function testReverse(_t:Ref<stdgo.testing.Testing.T>):Void {
             });
         };
         for (__0 => _test in (new Slice<T__struct_0>(
-0,
-0,
+18,
+18,
 ({ _x : (0i64 : GoUInt64), _r : (0i64 : GoUInt64) } : T__struct_0),
 ({ _x : (1i64 : GoUInt64), _r : (-9223372036854775808i64 : GoUInt64) } : T__struct_0),
 ({ _x : (2i64 : GoUInt64), _r : (4611686018427387904i64 : GoUInt64) } : T__struct_0),
@@ -815,8 +815,8 @@ function benchmarkReverse64(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function testReverseBytes(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in (new Slice<T__struct_0>(
-0,
-0,
+9,
+9,
 ({ _x : (0i64 : GoUInt64), _r : (0i64 : GoUInt64) } : T__struct_0),
 ({ _x : (1i64 : GoUInt64), _r : (72057594037927936i64 : GoUInt64) } : T__struct_0),
 ({ _x : (291i64 : GoUInt64), _r : (2522297266304188416i64 : GoUInt64) } : T__struct_0),
@@ -966,8 +966,8 @@ function testAddSubUint(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         for (__0 => _a in (new Slice<T__struct_1>(
-0,
-0,
+11,
+11,
 ({ _x : (0u32 : GoUInt), _y : (0u32 : GoUInt), _c : (0u32 : GoUInt), _z : (0u32 : GoUInt), _cout : (0u32 : GoUInt) } : T__struct_1),
 ({ _x : (0u32 : GoUInt), _y : (1u32 : GoUInt), _c : (0u32 : GoUInt), _z : (1u32 : GoUInt), _cout : (0u32 : GoUInt) } : T__struct_1),
 ({ _x : (0u32 : GoUInt), _y : (0u32 : GoUInt), _c : (1u32 : GoUInt), _z : (1u32 : GoUInt), _cout : (0u32 : GoUInt) } : T__struct_1),
@@ -1005,8 +1005,8 @@ function testAddSubUint32(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         for (__0 => _a in (new Slice<T__struct_2>(
-0,
-0,
+11,
+11,
 ({ _x : (0u32 : GoUInt32), _y : (0u32 : GoUInt32), _c : (0u32 : GoUInt32), _z : (0u32 : GoUInt32), _cout : (0u32 : GoUInt32) } : T__struct_2),
 ({ _x : (0u32 : GoUInt32), _y : (1u32 : GoUInt32), _c : (0u32 : GoUInt32), _z : (1u32 : GoUInt32), _cout : (0u32 : GoUInt32) } : T__struct_2),
 ({ _x : (0u32 : GoUInt32), _y : (0u32 : GoUInt32), _c : (1u32 : GoUInt32), _z : (1u32 : GoUInt32), _cout : (0u32 : GoUInt32) } : T__struct_2),
@@ -1032,8 +1032,8 @@ function testAddSubUint64(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         for (__0 => _a in (new Slice<T__struct_3>(
-0,
-0,
+11,
+11,
 ({ _x : (0i64 : GoUInt64), _y : (0i64 : GoUInt64), _c : (0i64 : GoUInt64), _z : (0i64 : GoUInt64), _cout : (0i64 : GoUInt64) } : T__struct_3),
 ({ _x : (0i64 : GoUInt64), _y : (1i64 : GoUInt64), _c : (0i64 : GoUInt64), _z : (1i64 : GoUInt64), _cout : (0i64 : GoUInt64) } : T__struct_3),
 ({ _x : (0i64 : GoUInt64), _y : (0i64 : GoUInt64), _c : (1i64 : GoUInt64), _z : (1i64 : GoUInt64), _cout : (0i64 : GoUInt64) } : T__struct_3),
@@ -1064,7 +1064,7 @@ function testAddSubUint64(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testAdd64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _tests = (new Slice<(GoUInt64, GoUInt64) -> GoUInt64>(0, 0, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
+        var _tests = (new Slice<(GoUInt64, GoUInt64) -> GoUInt64>(5, 5, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
             var __tmp__ = add64(_a, _b, (0i64 : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
             if (_c > (0i64 : GoUInt64)) {
                 throw Go.toInterface(("overflow" : GoString));
@@ -1154,7 +1154,7 @@ function testAdd64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testSub64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _tests = (new Slice<(GoUInt64, GoUInt64) -> GoUInt64>(0, 0, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
+        var _tests = (new Slice<(GoUInt64, GoUInt64) -> GoUInt64>(5, 5, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
             var __tmp__ = sub64(_a, _b, (0i64 : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
             if (_c > (0i64 : GoUInt64)) {
                 throw Go.toInterface(("overflow" : GoString));
@@ -1256,7 +1256,7 @@ function testMulDiv(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("%s: got q:r = %#x:%#x; want %#x:%#x" : GoString), Go.toInterface(_msg), Go.toInterface(_q1), Go.toInterface(_r1), Go.toInterface(_q), Go.toInterface(_r));
             };
         };
-        for (__0 => _a in (new Slice<T__struct_4>(0, 0, ({ _x : (-2147483648u32 : GoUInt), _y : (2u32 : GoUInt), _hi : (1u32 : GoUInt), _lo : (0u32 : GoUInt), _r : (1u32 : GoUInt) } : T__struct_4), ({ _x : (-1u32 : GoUInt), _y : (-1u32 : GoUInt), _hi : (-2u32 : GoUInt), _lo : (1u32 : GoUInt), _r : (42u32 : GoUInt) } : T__struct_4)) : Slice<T__struct_4>)) {
+        for (__0 => _a in (new Slice<T__struct_4>(2, 2, ({ _x : (-2147483648u32 : GoUInt), _y : (2u32 : GoUInt), _hi : (1u32 : GoUInt), _lo : (0u32 : GoUInt), _r : (1u32 : GoUInt) } : T__struct_4), ({ _x : (-1u32 : GoUInt), _y : (-1u32 : GoUInt), _hi : (-2u32 : GoUInt), _lo : (1u32 : GoUInt), _r : (42u32 : GoUInt) } : T__struct_4)) : Slice<T__struct_4>)) {
             _testMul(("Mul" : GoString), mul, _a._x, _a._y, _a._hi, _a._lo);
             _testMul(("Mul symmetric" : GoString), mul, _a._y, _a._x, _a._hi, _a._lo);
             _testDiv(("Div" : GoString), div, _a._hi, _a._lo + _a._r, _a._y, _a._x, _a._r);
@@ -1288,7 +1288,7 @@ function testMulDiv32(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("%s: got q:r = %#x:%#x; want %#x:%#x" : GoString), Go.toInterface(_msg), Go.toInterface(_q1), Go.toInterface(_r1), Go.toInterface(_q), Go.toInterface(_r));
             };
         };
-        for (__0 => _a in (new Slice<T__struct_5>(0, 0, ({ _x : (-2147483648u32 : GoUInt32), _y : (2u32 : GoUInt32), _hi : (1u32 : GoUInt32), _lo : (0u32 : GoUInt32), _r : (1u32 : GoUInt32) } : T__struct_5), ({ _x : (-998376820u32 : GoUInt32), _y : (50911u32 : GoUInt32), _hi : (39076u32 : GoUInt32), _lo : (-1719302156u32 : GoUInt32), _r : (13u32 : GoUInt32) } : T__struct_5), ({ _x : (-1u32 : GoUInt32), _y : (-1u32 : GoUInt32), _hi : (-2u32 : GoUInt32), _lo : (1u32 : GoUInt32), _r : (42u32 : GoUInt32) } : T__struct_5)) : Slice<T__struct_5>)) {
+        for (__0 => _a in (new Slice<T__struct_5>(3, 3, ({ _x : (-2147483648u32 : GoUInt32), _y : (2u32 : GoUInt32), _hi : (1u32 : GoUInt32), _lo : (0u32 : GoUInt32), _r : (1u32 : GoUInt32) } : T__struct_5), ({ _x : (-998376820u32 : GoUInt32), _y : (50911u32 : GoUInt32), _hi : (39076u32 : GoUInt32), _lo : (-1719302156u32 : GoUInt32), _r : (13u32 : GoUInt32) } : T__struct_5), ({ _x : (-1u32 : GoUInt32), _y : (-1u32 : GoUInt32), _hi : (-2u32 : GoUInt32), _lo : (1u32 : GoUInt32), _r : (42u32 : GoUInt32) } : T__struct_5)) : Slice<T__struct_5>)) {
             _testMul(("Mul32" : GoString), mul32, _a._x, _a._y, _a._hi, _a._lo);
             _testMul(("Mul32 symmetric" : GoString), mul32, _a._y, _a._x, _a._hi, _a._lo);
             _testDiv(("Div32" : GoString), div32, _a._hi, _a._lo + _a._r, _a._y, _a._x, _a._r);
@@ -1308,7 +1308,7 @@ function testMulDiv64(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("%s: got q:r = %#x:%#x; want %#x:%#x" : GoString), Go.toInterface(_msg), Go.toInterface(_q1), Go.toInterface(_r1), Go.toInterface(_q), Go.toInterface(_r));
             };
         };
-        for (__0 => _a in (new Slice<T__struct_6>(0, 0, ({ _x : (-9223372036854775808i64 : GoUInt64), _y : (2i64 : GoUInt64), _hi : (1i64 : GoUInt64), _lo : (0i64 : GoUInt64), _r : (1i64 : GoUInt64) } : T__struct_6), ({ _x : (15241578750190521i64 : GoUInt64), _y : (975461057789971041i64 : GoUInt64), _hi : (805972396572648i64 : GoUInt64), _lo : (-7073286711136648423i64 : GoUInt64), _r : (13i64 : GoUInt64) } : T__struct_6), ({ _x : (-1i64 : GoUInt64), _y : (-1i64 : GoUInt64), _hi : (-2i64 : GoUInt64), _lo : (1i64 : GoUInt64), _r : (42i64 : GoUInt64) } : T__struct_6)) : Slice<T__struct_6>)) {
+        for (__0 => _a in (new Slice<T__struct_6>(3, 3, ({ _x : (-9223372036854775808i64 : GoUInt64), _y : (2i64 : GoUInt64), _hi : (1i64 : GoUInt64), _lo : (0i64 : GoUInt64), _r : (1i64 : GoUInt64) } : T__struct_6), ({ _x : (15241578750190521i64 : GoUInt64), _y : (975461057789971041i64 : GoUInt64), _hi : (805972396572648i64 : GoUInt64), _lo : (-7073286711136648423i64 : GoUInt64), _r : (13i64 : GoUInt64) } : T__struct_6), ({ _x : (-1i64 : GoUInt64), _y : (-1i64 : GoUInt64), _hi : (-2i64 : GoUInt64), _lo : (1i64 : GoUInt64), _r : (42i64 : GoUInt64) } : T__struct_6)) : Slice<T__struct_6>)) {
             _testMul(("Mul64" : GoString), mul64, _a._x, _a._y, _a._hi, _a._lo);
             _testMul(("Mul64 symmetric" : GoString), mul64, _a._y, _a._x, _a._hi, _a._lo);
             _testDiv(("Div64" : GoString), div64, _a._hi, _a._lo + _a._r, _a._y, _a._x, _a._r);
@@ -1688,7 +1688,7 @@ function testRem64(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testRem64Overflow(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var rem64Tests = (new Slice<T__struct_7>(0, 0, ({ _hi : (42i64 : GoUInt64), _lo : (1119i64 : GoUInt64), _y : (42i64 : GoUInt64), _rem : (27i64 : GoUInt64) } : T__struct_7), ({ _hi : (42i64 : GoUInt64), _lo : (1119i64 : GoUInt64), _y : (38i64 : GoUInt64), _rem : (9i64 : GoUInt64) } : T__struct_7), ({ _hi : (42i64 : GoUInt64), _lo : (1119i64 : GoUInt64), _y : (26i64 : GoUInt64), _rem : (23i64 : GoUInt64) } : T__struct_7), ({ _hi : (469i64 : GoUInt64), _lo : (0i64 : GoUInt64), _y : (467i64 : GoUInt64), _rem : (271i64 : GoUInt64) } : T__struct_7), ({ _hi : (469i64 : GoUInt64), _lo : (0i64 : GoUInt64), _y : (113i64 : GoUInt64), _rem : (58i64 : GoUInt64) } : T__struct_7), ({ _hi : (111111i64 : GoUInt64), _lo : (111111i64 : GoUInt64), _y : (1171i64 : GoUInt64), _rem : (803i64 : GoUInt64) } : T__struct_7), ({ _hi : (3968194946088682615i64 : GoUInt64), _lo : (3192705705065114702i64 : GoUInt64), _y : (1000037i64 : GoUInt64), _rem : (56067i64 : GoUInt64) } : T__struct_7)) : Slice<T__struct_7>);
+        var rem64Tests = (new Slice<T__struct_7>(7, 7, ({ _hi : (42i64 : GoUInt64), _lo : (1119i64 : GoUInt64), _y : (42i64 : GoUInt64), _rem : (27i64 : GoUInt64) } : T__struct_7), ({ _hi : (42i64 : GoUInt64), _lo : (1119i64 : GoUInt64), _y : (38i64 : GoUInt64), _rem : (9i64 : GoUInt64) } : T__struct_7), ({ _hi : (42i64 : GoUInt64), _lo : (1119i64 : GoUInt64), _y : (26i64 : GoUInt64), _rem : (23i64 : GoUInt64) } : T__struct_7), ({ _hi : (469i64 : GoUInt64), _lo : (0i64 : GoUInt64), _y : (467i64 : GoUInt64), _rem : (271i64 : GoUInt64) } : T__struct_7), ({ _hi : (469i64 : GoUInt64), _lo : (0i64 : GoUInt64), _y : (113i64 : GoUInt64), _rem : (58i64 : GoUInt64) } : T__struct_7), ({ _hi : (111111i64 : GoUInt64), _lo : (111111i64 : GoUInt64), _y : (1171i64 : GoUInt64), _rem : (803i64 : GoUInt64) } : T__struct_7), ({ _hi : (3968194946088682615i64 : GoUInt64), _lo : (3192705705065114702i64 : GoUInt64), _y : (1000037i64 : GoUInt64), _rem : (56067i64 : GoUInt64) } : T__struct_7)) : Slice<T__struct_7>);
         for (__0 => _rt in rem64Tests) {
             if (_rt._hi < _rt._y) {
                 _t.fatalf(("Rem64(%v, %v, %v) is not a test with quo overflow" : GoString), Go.toInterface(_rt._hi), Go.toInterface(_rt._lo), Go.toInterface(_rt._y));
@@ -1932,14 +1932,14 @@ function benchmarkDiv64(_b:Ref<stdgo.testing.Testing.B>):Void {
         output = (_q + _r : GoInt);
     }
 function exampleAdd32():Void {
-        var _n1 = (new Slice<GoUInt32>(0, 0, (33u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
-        var _n2 = (new Slice<GoUInt32>(0, 0, (21u32 : GoUInt32), (23u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n1 = (new Slice<GoUInt32>(2, 2, (33u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n2 = (new Slice<GoUInt32>(2, 2, (21u32 : GoUInt32), (23u32 : GoUInt32)) : Slice<GoUInt32>);
         var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0u32 : GoUInt32)), _d1:GoUInt32 = __tmp__._0, _carry:GoUInt32 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry), _d0:GoUInt32 = __tmp__._0, __0:GoUInt32 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
+        var _nsum = (new Slice<GoUInt32>(2, 2, _d0, _d1) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
-        _n1 = (new Slice<GoUInt32>(0, 0, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
-        _n2 = (new Slice<GoUInt32>(0, 0, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n1 = (new Slice<GoUInt32>(2, 2, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n2 = (new Slice<GoUInt32>(2, 2, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
         {
             var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0u32 : GoUInt32));
             _d1 = __tmp__._0;
@@ -1949,18 +1949,18 @@ function exampleAdd32():Void {
             var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry);
             _d0 = __tmp__._0;
         };
-        _nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
+        _nsum = (new Slice<GoUInt32>(2, 2, _d0, _d1) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
     }
 function exampleAdd64():Void {
-        var _n1 = (new Slice<GoUInt64>(0, 0, (33i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
-        var _n2 = (new Slice<GoUInt64>(0, 0, (21i64 : GoUInt64), (23i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n1 = (new Slice<GoUInt64>(2, 2, (33i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n2 = (new Slice<GoUInt64>(2, 2, (21i64 : GoUInt64), (23i64 : GoUInt64)) : Slice<GoUInt64>);
         var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0i64 : GoUInt64)), _d1:GoUInt64 = __tmp__._0, _carry:GoUInt64 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry), _d0:GoUInt64 = __tmp__._0, __0:GoUInt64 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
+        var _nsum = (new Slice<GoUInt64>(2, 2, _d0, _d1) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
-        _n1 = (new Slice<GoUInt64>(0, 0, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
-        _n2 = (new Slice<GoUInt64>(0, 0, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n1 = (new Slice<GoUInt64>(2, 2, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n2 = (new Slice<GoUInt64>(2, 2, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
         {
             var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0i64 : GoUInt64));
             _d1 = __tmp__._0;
@@ -1970,18 +1970,18 @@ function exampleAdd64():Void {
             var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry);
             _d0 = __tmp__._0;
         };
-        _nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
+        _nsum = (new Slice<GoUInt64>(2, 2, _d0, _d1) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
     }
 function exampleSub32():Void {
-        var _n1 = (new Slice<GoUInt32>(0, 0, (33u32 : GoUInt32), (23u32 : GoUInt32)) : Slice<GoUInt32>);
-        var _n2 = (new Slice<GoUInt32>(0, 0, (21u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n1 = (new Slice<GoUInt32>(2, 2, (33u32 : GoUInt32), (23u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n2 = (new Slice<GoUInt32>(2, 2, (21u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
         var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0u32 : GoUInt32)), _d1:GoUInt32 = __tmp__._0, _carry:GoUInt32 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry), _d0:GoUInt32 = __tmp__._0, __0:GoUInt32 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
+        var _nsum = (new Slice<GoUInt32>(2, 2, _d0, _d1) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
-        _n1 = (new Slice<GoUInt32>(0, 0, (3u32 : GoUInt32), (2147483647u32 : GoUInt32)) : Slice<GoUInt32>);
-        _n2 = (new Slice<GoUInt32>(0, 0, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n1 = (new Slice<GoUInt32>(2, 2, (3u32 : GoUInt32), (2147483647u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n2 = (new Slice<GoUInt32>(2, 2, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
         {
             var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0u32 : GoUInt32));
             _d1 = __tmp__._0;
@@ -1991,18 +1991,18 @@ function exampleSub32():Void {
             var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry);
             _d0 = __tmp__._0;
         };
-        _nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
+        _nsum = (new Slice<GoUInt32>(2, 2, _d0, _d1) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
     }
 function exampleSub64():Void {
-        var _n1 = (new Slice<GoUInt64>(0, 0, (33i64 : GoUInt64), (23i64 : GoUInt64)) : Slice<GoUInt64>);
-        var _n2 = (new Slice<GoUInt64>(0, 0, (21i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n1 = (new Slice<GoUInt64>(2, 2, (33i64 : GoUInt64), (23i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n2 = (new Slice<GoUInt64>(2, 2, (21i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
         var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0i64 : GoUInt64)), _d1:GoUInt64 = __tmp__._0, _carry:GoUInt64 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry), _d0:GoUInt64 = __tmp__._0, __0:GoUInt64 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
+        var _nsum = (new Slice<GoUInt64>(2, 2, _d0, _d1) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
-        _n1 = (new Slice<GoUInt64>(0, 0, (3i64 : GoUInt64), (9223372036854775807i64 : GoUInt64)) : Slice<GoUInt64>);
-        _n2 = (new Slice<GoUInt64>(0, 0, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n1 = (new Slice<GoUInt64>(2, 2, (3i64 : GoUInt64), (9223372036854775807i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n2 = (new Slice<GoUInt64>(2, 2, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
         {
             var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0i64 : GoUInt64));
             _d1 = __tmp__._0;
@@ -2012,71 +2012,71 @@ function exampleSub64():Void {
             var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry);
             _d0 = __tmp__._0;
         };
-        _nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
+        _nsum = (new Slice<GoUInt64>(2, 2, _d0, _d1) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
     }
 function exampleMul32():Void {
-        var _n1 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
-        var _n2 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n1 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n2 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
         var __tmp__ = stdgo.math.bits.Bits.mul32(_n1[(1 : GoInt)], _n2[(1 : GoInt)]), _hi:GoUInt32 = __tmp__._0, _lo:GoUInt32 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt32>(0, 0, _hi, _lo) : Slice<GoUInt32>);
+        var _nsum = (new Slice<GoUInt32>(2, 2, _hi, _lo) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-        _n1 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
-        _n2 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (2u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n1 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n2 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (2u32 : GoUInt32)) : Slice<GoUInt32>);
         {
             var __tmp__ = stdgo.math.bits.Bits.mul32(_n1[(1 : GoInt)], _n2[(1 : GoInt)]);
             _hi = __tmp__._0;
             _lo = __tmp__._1;
         };
-        _nsum = (new Slice<GoUInt32>(0, 0, _hi, _lo) : Slice<GoUInt32>);
+        _nsum = (new Slice<GoUInt32>(2, 2, _hi, _lo) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
     }
 function exampleMul64():Void {
-        var _n1 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
-        var _n2 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n1 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n2 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
         var __tmp__ = stdgo.math.bits.Bits.mul64(_n1[(1 : GoInt)], _n2[(1 : GoInt)]), _hi:GoUInt64 = __tmp__._0, _lo:GoUInt64 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt64>(0, 0, _hi, _lo) : Slice<GoUInt64>);
+        var _nsum = (new Slice<GoUInt64>(2, 2, _hi, _lo) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-        _n1 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
-        _n2 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (2i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n1 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n2 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (2i64 : GoUInt64)) : Slice<GoUInt64>);
         {
             var __tmp__ = stdgo.math.bits.Bits.mul64(_n1[(1 : GoInt)], _n2[(1 : GoInt)]);
             _hi = __tmp__._0;
             _lo = __tmp__._1;
         };
-        _nsum = (new Slice<GoUInt64>(0, 0, _hi, _lo) : Slice<GoUInt64>);
+        _nsum = (new Slice<GoUInt64>(2, 2, _hi, _lo) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
     }
 function exampleDiv32():Void {
-        var _n1 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (6u32 : GoUInt32)) : Slice<GoUInt32>);
-        var _n2 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (3u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n1 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (6u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n2 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (3u32 : GoUInt32)) : Slice<GoUInt32>);
         var __tmp__ = stdgo.math.bits.Bits.div32(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]), _quo:GoUInt32 = __tmp__._0, _rem:GoUInt32 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt32>(0, 0, _quo, _rem) : Slice<GoUInt32>);
+        var _nsum = (new Slice<GoUInt32>(2, 2, _quo, _rem) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-        _n1 = (new Slice<GoUInt32>(0, 0, (2u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
-        _n2 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n1 = (new Slice<GoUInt32>(2, 2, (2u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n2 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
         {
             var __tmp__ = stdgo.math.bits.Bits.div32(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]);
             _quo = __tmp__._0;
             _rem = __tmp__._1;
         };
-        _nsum = (new Slice<GoUInt32>(0, 0, _quo, _rem) : Slice<GoUInt32>);
+        _nsum = (new Slice<GoUInt32>(2, 2, _quo, _rem) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
     }
 function exampleDiv64():Void {
-        var _n1 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (6i64 : GoUInt64)) : Slice<GoUInt64>);
-        var _n2 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (3i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n1 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (6i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n2 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (3i64 : GoUInt64)) : Slice<GoUInt64>);
         var __tmp__ = stdgo.math.bits.Bits.div64(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]), _quo:GoUInt64 = __tmp__._0, _rem:GoUInt64 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt64>(0, 0, _quo, _rem) : Slice<GoUInt64>);
+        var _nsum = (new Slice<GoUInt64>(2, 2, _quo, _rem) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-        _n1 = (new Slice<GoUInt64>(0, 0, (2i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
-        _n2 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n1 = (new Slice<GoUInt64>(2, 2, (2i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n2 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
         {
             var __tmp__ = stdgo.math.bits.Bits.div64(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]);
             _quo = __tmp__._0;
             _rem = __tmp__._1;
         };
-        _nsum = (new Slice<GoUInt64>(0, 0, _quo, _rem) : Slice<GoUInt64>);
+        _nsum = (new Slice<GoUInt64>(2, 2, _quo, _rem) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
     }
 function exampleLeadingZeros8():Void {

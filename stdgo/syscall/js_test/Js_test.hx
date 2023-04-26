@@ -20,7 +20,7 @@ private var _dummys = stdgo.syscall.js.Js.global().call(("eval" : GoString), Go.
     
     
 **/
-private var _copyTests = (new Slice<T__struct_1>(0, 0, ({ _srcLen : (5 : GoInt), _dstLen : (3 : GoInt), _copyLen : (3 : GoInt) } : T__struct_1), ({ _srcLen : (3 : GoInt), _dstLen : (5 : GoInt), _copyLen : (3 : GoInt) } : T__struct_1), ({ _srcLen : (0 : GoInt), _dstLen : (0 : GoInt), _copyLen : (0 : GoInt) } : T__struct_1)) : Slice<T__struct_1>);
+private var _copyTests = (new Slice<T__struct_1>(3, 3, ({ _srcLen : (5 : GoInt), _dstLen : (3 : GoInt), _copyLen : (3 : GoInt) } : T__struct_1), ({ _srcLen : (3 : GoInt), _dstLen : (5 : GoInt), _copyLen : (3 : GoInt) } : T__struct_1), ({ _srcLen : (0 : GoInt), _dstLen : (0 : GoInt), _copyLen : (0 : GoInt) } : T__struct_1)) : Slice<T__struct_1>);
 class T__struct_0_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;
@@ -455,7 +455,7 @@ function testType(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testValueOf(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _a:stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.valueOf(Go.toInterface((new Slice<AnyInterface>(0, 0, Go.toInterface((0 : GoInt)), Go.toInterface((new Slice<AnyInterface>(0, 0, Go.toInterface((0 : GoInt)), Go.toInterface((42 : GoInt)), Go.toInterface((0 : GoInt))) : Slice<AnyInterface>)), Go.toInterface((0 : GoInt))) : Slice<AnyInterface>)))?.__copy__();
+        var _a:stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.valueOf(Go.toInterface((new Slice<AnyInterface>(3, 3, Go.toInterface((0 : GoInt)), Go.toInterface((new Slice<AnyInterface>(3, 3, Go.toInterface((0 : GoInt)), Go.toInterface((42 : GoInt)), Go.toInterface((0 : GoInt))) : Slice<AnyInterface>)), Go.toInterface((0 : GoInt))) : Slice<AnyInterface>)))?.__copy__();
         {
             var _got:GoInt = _a.index((1 : GoInt)).index((1 : GoInt)).int_();
             if (_got != ((42 : GoInt))) {
@@ -463,16 +463,18 @@ function testValueOf(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         var _o:stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.valueOf(Go.toInterface(({
-            final x = new stdgo.GoMap.GoObjectMap<GoString, AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) })));
-            @:privateAccess x._keys = [("x" : GoString)];
-            @:privateAccess x._values = [({
-                final x = new stdgo.GoMap.GoObjectMap<GoString, AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) })));
-                @:privateAccess x._keys = [("y" : GoString)];
-                @:privateAccess x._values = [(42 : GoInt)];
-                x;
-            } : stdgo.GoMap<GoString, AnyInterface>)];
+            final x = new GoMap<GoString, AnyInterface>();
+            @:mergeBlock {
+                x.set(("x" : GoString), Go.toInterface(({
+                    final x = new GoMap<GoString, AnyInterface>();
+                    @:mergeBlock {
+                        x.set(("y" : GoString), Go.toInterface((42 : GoInt)));
+                    };
+                    x;
+                })));
+            };
             x;
-        } : stdgo.GoMap<GoString, AnyInterface>)))?.__copy__();
+        })))?.__copy__();
         {
             var _got:GoInt = _o.get(("x" : GoString)).get(("y" : GoString)).int_();
             if (_got != ((42 : GoInt))) {
@@ -636,8 +638,8 @@ function exampleFuncOf():Void {
 function testTruthy(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _want:Bool = true;
         for (__0 => _key in (new Slice<GoString>(
-0,
-0,
+14,
+14,
 ("someBool" : GoString),
 ("someString" : GoString),
 ("someInt" : GoString),
@@ -787,7 +789,7 @@ function testCopyBytesToGo(_t:Ref<stdgo.testing.Testing.T>):Void {
                 if (_tt._srcLen >= (2 : GoInt)) {
                     _src.setIndex((1 : GoInt), Go.toInterface((42 : GoInt)));
                 };
-                var _dst = new Slice<GoUInt8>((_tt._dstLen : GoInt).toBasic(), 0, ...[for (i in 0 ... (_tt._dstLen : GoInt).toBasic()) (0 : GoUInt8)]);
+                var _dst = new Slice<GoUInt8>((_tt._dstLen : GoInt).toBasic(), 0).__setNumber32__();
                 {
                     var __0:GoInt = stdgo.syscall.js.Js.copyBytesToGo(_dst, _src?.__copy__()), __1:GoInt = _tt._copyLen, _want:GoInt = __1, _got:GoInt = __0;
                     if (_got != (_want)) {
@@ -808,7 +810,7 @@ function testCopyBytesToGo(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testCopyBytesToJS(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tt in _copyTests) {
             _t.run(stdgo.fmt.Fmt.sprintf(("%d-to-%d" : GoString), Go.toInterface(_tt._srcLen), Go.toInterface(_tt._dstLen)), function(_t:Ref<stdgo.testing.Testing.T>):Void {
-                var _src = new Slice<GoUInt8>((_tt._srcLen : GoInt).toBasic(), 0, ...[for (i in 0 ... (_tt._srcLen : GoInt).toBasic()) (0 : GoUInt8)]);
+                var _src = new Slice<GoUInt8>((_tt._srcLen : GoInt).toBasic(), 0).__setNumber32__();
                 if (_tt._srcLen >= (2 : GoInt)) {
                     _src[(1 : GoInt)] = (42 : GoUInt8);
                 };

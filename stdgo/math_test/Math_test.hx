@@ -18,8 +18,8 @@ import stdgo.math.Math;
     
 **/
 private var _vf = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (4.9790119248836735 : GoFloat64),
 (7.738872474578105 : GoFloat64),
 (-0.2768800571920016 : GoFloat64),
@@ -40,8 +40,8 @@ private var _vf = (new Slice<GoFloat64>(
     
 **/
 private var _acos = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (1.0496193546107222 : GoFloat64),
 (0.6858401281366443 : GoFloat64),
 (1.598487871457716 : GoFloat64),
@@ -58,8 +58,8 @@ private var _acos = (new Slice<GoFloat64>(
     
 **/
 private var _acosh = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (2.474334700415901 : GoFloat64),
 (2.857638534429277 : GoFloat64),
 (0.7279696150298106 : GoFloat64),
@@ -76,8 +76,8 @@ private var _acosh = (new Slice<GoFloat64>(
     
 **/
 private var _asin = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.5211769721841744 : GoFloat64),
 (0.8849561986582524 : GoFloat64),
 (-0.027691544662819412 : GoFloat64),
@@ -94,8 +94,8 @@ private var _asin = (new Slice<GoFloat64>(
     
 **/
 private var _asinh = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (2.3083139124923524 : GoFloat64),
 (2.743551594301594 : GoFloat64),
 (-0.2734590853488009 : GoFloat64),
@@ -112,8 +112,8 @@ private var _asinh = (new Slice<GoFloat64>(
     
 **/
 private var _atan = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (1.3725902621296215 : GoFloat64),
 (1.442290609645298 : GoFloat64),
 (-0.27011324359471756 : GoFloat64),
@@ -130,8 +130,8 @@ private var _atan = (new Slice<GoFloat64>(
     
 **/
 private var _atanh = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.5465116371225194 : GoFloat64),
 (1.0299474112843112 : GoFloat64),
 (-0.027695084420740135 : GoFloat64),
@@ -148,8 +148,8 @@ private var _atanh = (new Slice<GoFloat64>(
     
 **/
 private var _atan2 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (1.1088291730037005 : GoFloat64),
 (0.9121818318871581 : GoFloat64),
 (1.5984772603216204 : GoFloat64),
@@ -166,8 +166,8 @@ private var _atan2 = (new Slice<GoFloat64>(
     
 **/
 private var _cbrt = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (1.7075799841925094 : GoFloat64),
 (1.9779982212970353 : GoFloat64),
 (-0.6517742901777991 : GoFloat64),
@@ -184,8 +184,8 @@ private var _cbrt = (new Slice<GoFloat64>(
     
 **/
 private var _ceil = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (5 : GoFloat64),
 (8 : GoFloat64),
 copysign((0 : GoFloat64), (-1 : GoFloat64)),
@@ -202,8 +202,8 @@ copysign((0 : GoFloat64), (-1 : GoFloat64)),
     
 **/
 private var _copysign = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-4.9790119248836735 : GoFloat64),
 (-7.738872474578105 : GoFloat64),
 (-0.2768800571920016 : GoFloat64),
@@ -220,8 +220,8 @@ private var _copysign = (new Slice<GoFloat64>(
     
 **/
 private var _cos = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.2634752140995199 : GoFloat64),
 (0.11485512608482198 : GoFloat64),
 (0.9619129732564077 : GoFloat64),
@@ -238,8 +238,8 @@ private var _cos = (new Slice<GoFloat64>(
     
 **/
 private var _cosLarge = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.26347521411855596 : GoFloat64),
 (0.1148551260555431 : GoFloat64),
 (0.961912973266489 : GoFloat64),
@@ -256,8 +256,8 @@ private var _cosLarge = (new Slice<GoFloat64>(
     
 **/
 private var _cosh = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (72.66879694221284 : GoFloat64),
 (1147.9413465659254 : GoFloat64),
 (1.038576790876642 : GoFloat64),
@@ -274,8 +274,8 @@ private var _cosh = (new Slice<GoFloat64>(
     
 **/
 private var _erf = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.5186535481773871 : GoFloat64),
 (0.726238758341373 : GoFloat64),
 (-0.0312345868828131 : GoFloat64),
@@ -292,8 +292,8 @@ private var _erf = (new Slice<GoFloat64>(
     
 **/
 private var _erfc = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.481346451822613 : GoFloat64),
 (0.27376124165862703 : GoFloat64),
 (1.031234586882813 : GoFloat64),
@@ -310,8 +310,8 @@ private var _erfc = (new Slice<GoFloat64>(
     
 **/
 private var _erfinv = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.47460376733580334 : GoFloat64),
 (0.8559054432692111 : GoFloat64),
 (-0.024542783057170732 : GoFloat64),
@@ -328,8 +328,8 @@ private var _erfinv = (new Slice<GoFloat64>(
     
 **/
 private var _exp = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (145.33071302642136 : GoFloat64),
 (2295.882257569445 : GoFloat64),
 (0.7581454257485166 : GoFloat64),
@@ -346,8 +346,8 @@ private var _exp = (new Slice<GoFloat64>(
     
 **/
 private var _expm1 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.05105047796122957 : GoFloat64),
 (0.08046199708567343 : GoFloat64),
 (-0.00276497097889164 : GoFloat64),
@@ -364,8 +364,8 @@ private var _expm1 = (new Slice<GoFloat64>(
     
 **/
 private var _expm1Large = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (4.2031418113550844e+21 : GoFloat64),
 (4.0690789717473863e+33 : GoFloat64),
 (-0.9372627915981363 : GoFloat64),
@@ -382,8 +382,8 @@ private var _expm1Large = (new Slice<GoFloat64>(
     
 **/
 private var _exp2 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (31.53783946328629 : GoFloat64),
 (213.61549283756233 : GoFloat64),
 (0.8253740256218556 : GoFloat64),
@@ -400,8 +400,8 @@ private var _exp2 = (new Slice<GoFloat64>(
     
 **/
 private var _fabs = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (4.9790119248836735 : GoFloat64),
 (7.738872474578105 : GoFloat64),
 (0.2768800571920016 : GoFloat64),
@@ -418,8 +418,8 @@ private var _fabs = (new Slice<GoFloat64>(
     
 **/
 private var _fdim = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (4.9790119248836735 : GoFloat64),
 (7.738872474578105 : GoFloat64),
 (0 : GoFloat64),
@@ -436,8 +436,8 @@ private var _fdim = (new Slice<GoFloat64>(
     
 **/
 private var _floor = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (4 : GoFloat64),
 (7 : GoFloat64),
 (-1 : GoFloat64),
@@ -454,8 +454,8 @@ private var _floor = (new Slice<GoFloat64>(
     
 **/
 private var _fmod = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.041976150232653 : GoFloat64),
 (2.2611275254218954 : GoFloat64),
 (0.032317941087942614 : GoFloat64),
@@ -472,8 +472,8 @@ private var _fmod = (new Slice<GoFloat64>(
     
 **/
 private var _frexp = (new Slice<stdgo.math_test.Math_test.T_fi>(
-0,
-0,
+10,
+10,
 (new stdgo.math_test.Math_test.T_fi((0.6223764906104592 : GoFloat64), (3 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 (new stdgo.math_test.Math_test.T_fi((0.9673590593222631 : GoFloat64), (3 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 (new stdgo.math_test.Math_test.T_fi((-0.5537601143840032 : GoFloat64), (-1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
@@ -490,8 +490,8 @@ private var _frexp = (new Slice<stdgo.math_test.Math_test.T_fi>(
     
 **/
 private var _gamma = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (23.254348370739965 : GoFloat64),
 (2991.153837155317 : GoFloat64),
 (-4.561154336726758 : GoFloat64),
@@ -508,8 +508,8 @@ private var _gamma = (new Slice<GoFloat64>(
     
 **/
 private var _j0 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-0.18444682230601672 : GoFloat64),
 (0.22735366890633196 : GoFloat64),
 (0.9809259936157051 : GoFloat64),
@@ -526,8 +526,8 @@ private var _j0 = (new Slice<GoFloat64>(
     
 **/
 private var _j1 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-0.32515263952952034 : GoFloat64),
 (0.18935817114305156 : GoFloat64),
 (-0.13711761352467242 : GoFloat64),
@@ -544,8 +544,8 @@ private var _j1 = (new Slice<GoFloat64>(
     
 **/
 private var _j2 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.0538375189201378 : GoFloat64),
 (-0.17841678003393208 : GoFloat64),
 (0.009521746934916465 : GoFloat64),
@@ -562,8 +562,8 @@ private var _j2 = (new Slice<GoFloat64>(
     
 **/
 private var _jM3 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-0.3684042080996403 : GoFloat64),
 (0.28157665936340887 : GoFloat64),
 (0.00044010054808419485 : GoFloat64),
@@ -580,8 +580,8 @@ private var _jM3 = (new Slice<GoFloat64>(
     
 **/
 private var _lgamma = (new Slice<stdgo.math_test.Math_test.T_fi>(
-0,
-0,
+10,
+10,
 (new stdgo.math_test.Math_test.T_fi((3.1464921412445457 : GoFloat64), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 (new stdgo.math_test.Math_test.T_fi((8.003414490659127 : GoFloat64), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 (new stdgo.math_test.Math_test.T_fi((1.5175757355097796 : GoFloat64), (-1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
@@ -598,8 +598,8 @@ private var _lgamma = (new Slice<stdgo.math_test.Math_test.T_fi>(
     
 **/
 private var _log = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (1.605231462693063 : GoFloat64),
 (2.046256001870877 : GoFloat64),
 (-1.2841708730962658 : GoFloat64),
@@ -616,8 +616,8 @@ private var _log = (new Slice<GoFloat64>(
     
 **/
 private var _logb = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (2 : GoFloat64),
 (2 : GoFloat64),
 (-2 : GoFloat64),
@@ -634,8 +634,8 @@ private var _logb = (new Slice<GoFloat64>(
     
 **/
 private var _log10 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.6971431664250829 : GoFloat64),
 (0.8886776901739321 : GoFloat64),
 (-0.5577083240065893 : GoFloat64),
@@ -652,8 +652,8 @@ private var _log10 = (new Slice<GoFloat64>(
     
 **/
 private var _log1p = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.04859025775979779 : GoFloat64),
 (0.07454026596522587 : GoFloat64),
 (-0.0027726407903942672 : GoFloat64),
@@ -670,8 +670,8 @@ private var _log1p = (new Slice<GoFloat64>(
     
 **/
 private var _log2 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (2.315859470706219 : GoFloat64),
 (2.9521233862883918 : GoFloat64),
 (-1.852666950270033 : GoFloat64),
@@ -688,8 +688,8 @@ private var _log2 = (new Slice<GoFloat64>(
     
 **/
 private var _modf = (new Slice<GoArray<GoFloat64>>(
-0,
-0,
+10,
+10,
 (new GoArray<GoFloat64>((4 : GoFloat64), (0.9790119248836735 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>((7 : GoFloat64), (0.7388724745781046 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(copysign((0 : GoFloat64), (-1 : GoFloat64)), (-0.2768800571920016 : GoFloat64)) : GoArray<GoFloat64>),
@@ -706,8 +706,8 @@ private var _modf = (new Slice<GoArray<GoFloat64>>(
     
 **/
 private var _nextafter32 = (new Slice<GoFloat32>(
-0,
-0,
+10,
+10,
 (4.979012489318848 : GoFloat64),
 (7.73887300491333 : GoFloat64),
 (-0.27688002586364746 : GoFloat64),
@@ -724,8 +724,8 @@ private var _nextafter32 = (new Slice<GoFloat32>(
     
 **/
 private var _nextafter64 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (4.979011924883674 : GoFloat64),
 (7.7388724745781055 : GoFloat64),
 (-0.27688005719200154 : GoFloat64),
@@ -742,8 +742,8 @@ private var _nextafter64 = (new Slice<GoFloat64>(
     
 **/
 private var _pow = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (95282.23263164841 : GoFloat64),
 (5.48115993529999e+07 : GoFloat64),
 (0.528591217158944 : GoFloat64),
@@ -760,8 +760,8 @@ private var _pow = (new Slice<GoFloat64>(
     
 **/
 private var _remainder = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.041976150232653 : GoFloat64),
 (2.2611275254218954 : GoFloat64),
 (0.032317941087942614 : GoFloat64),
@@ -778,8 +778,8 @@ private var _remainder = (new Slice<GoFloat64>(
     
 **/
 private var _round = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (5 : GoFloat64),
 (8 : GoFloat64),
 copysign((0 : GoFloat64), (-1 : GoFloat64)),
@@ -796,8 +796,8 @@ copysign((0 : GoFloat64), (-1 : GoFloat64)),
     
 **/
 private var _signbit = (new Slice<Bool>(
-0,
-0,
+10,
+10,
 false,
 false,
 true,
@@ -814,8 +814,8 @@ true) : Slice<Bool>);
     
 **/
 private var _sin = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-0.9646661658600928 : GoFloat64),
 (0.9933822527164654 : GoFloat64),
 (-0.27335587039794396 : GoFloat64),
@@ -832,8 +832,8 @@ private var _sin = (new Slice<GoFloat64>(
     
 **/
 private var _sinLarge = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-0.9646661658548936 : GoFloat64),
 (0.9933822527198507 : GoFloat64),
 (-0.273355870362469 : GoFloat64),
@@ -850,8 +850,8 @@ private var _sinLarge = (new Slice<GoFloat64>(
     
 **/
 private var _sinh = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (72.66191608420853 : GoFloat64),
 (1147.9409110035194 : GoFloat64),
 (-0.28043136512812517 : GoFloat64),
@@ -868,8 +868,8 @@ private var _sinh = (new Slice<GoFloat64>(
     
 **/
 private var _sqrt = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (2.2313699659365485 : GoFloat64),
 (2.7818829009464263 : GoFloat64),
 (0.5261939349631479 : GoFloat64),
@@ -886,8 +886,8 @@ private var _sqrt = (new Slice<GoFloat64>(
     
 **/
 private var _tan = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-3.6613165650402277 : GoFloat64),
 (8.649002326485975 : GoFloat64),
 (-0.28417941955033615 : GoFloat64),
@@ -904,8 +904,8 @@ private var _tan = (new Slice<GoFloat64>(
     
 **/
 private var _tanLarge = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-3.6613165647559653 : GoFloat64),
 (8.649002328720254 : GoFloat64),
 (-0.28417941951047826 : GoFloat64),
@@ -922,8 +922,8 @@ private var _tanLarge = (new Slice<GoFloat64>(
     
 **/
 private var _tanh = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.9999053120693634 : GoFloat64),
 (0.9999996205708529 : GoFloat64),
 (-0.2700150509731868 : GoFloat64),
@@ -940,8 +940,8 @@ private var _tanh = (new Slice<GoFloat64>(
     
 **/
 private var _trunc = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (4 : GoFloat64),
 (7 : GoFloat64),
 copysign((0 : GoFloat64), (-1 : GoFloat64)),
@@ -958,8 +958,8 @@ copysign((0 : GoFloat64), (-1 : GoFloat64)),
     
 **/
 private var _y0 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-0.30533991537807886 : GoFloat64),
 (0.17437227649515233 : GoFloat64),
 (-0.8622178126367883 : GoFloat64),
@@ -976,8 +976,8 @@ private var _y0 = (new Slice<GoFloat64>(
     
 **/
 private var _y1 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.1549421373745792 : GoFloat64),
 (-0.21659551420811451 : GoFloat64),
 (-2.4644949631241895 : GoFloat64),
@@ -994,8 +994,8 @@ private var _y1 = (new Slice<GoFloat64>(
     
 **/
 private var _y2 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0.3675780219390304 : GoFloat64),
 (-0.23034826393250118 : GoFloat64),
 (-16.939677983817727 : GoFloat64),
@@ -1012,8 +1012,8 @@ private var _y2 = (new Slice<GoFloat64>(
     
 **/
 private var _yM3 = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-0.1403598442109485 : GoFloat64),
 (-0.09753513961779207 : GoFloat64),
 (242.2577599455558 : GoFloat64),
@@ -1029,69 +1029,69 @@ private var _yM3 = (new Slice<GoFloat64>(
     
     
 **/
-private var _vfacosSC = (new Slice<GoFloat64>(0, 0, (-3.141592653589793 : GoFloat64), (1 : GoFloat64), (3.141592653589793 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _vfacosSC = (new Slice<GoFloat64>(4, 4, (-3.141592653589793 : GoFloat64), (1 : GoFloat64), (3.141592653589793 : GoFloat64), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _acosSC = (new Slice<GoFloat64>(0, 0, naN(), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _acosSC = (new Slice<GoFloat64>(4, 4, naN(), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfacoshSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0.5 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfacoshSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), (0.5 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _acoshSC = (new Slice<GoFloat64>(0, 0, naN(), naN(), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _acoshSC = (new Slice<GoFloat64>(5, 5, naN(), naN(), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfasinSC = (new Slice<GoFloat64>(0, 0, (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (3.141592653589793 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _vfasinSC = (new Slice<GoFloat64>(5, 5, (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (3.141592653589793 : GoFloat64), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _asinSC = (new Slice<GoFloat64>(0, 0, naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _asinSC = (new Slice<GoFloat64>(5, 5, naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfasinhSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfasinhSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _asinhSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _asinhSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfatanSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfatanSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _atanSC = (new Slice<GoFloat64>(0, 0, (-1.5707963267948966 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1.5707963267948966 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _atanSC = (new Slice<GoFloat64>(5, 5, (-1.5707963267948966 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1.5707963267948966 : GoFloat64), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
 private var _vfatanhSC = (new Slice<GoFloat64>(
-0,
-0,
+9,
+9,
 inf((-1 : GoInt)),
 (-3.141592653589793 : GoFloat64),
 (-1 : GoFloat64),
@@ -1107,8 +1107,8 @@ naN()) : Slice<GoFloat64>);
     
 **/
 private var _atanhSC = (new Slice<GoFloat64>(
-0,
-0,
+9,
+9,
 naN(),
 naN(),
 inf((-1 : GoInt)),
@@ -1124,8 +1124,8 @@ naN()) : Slice<GoFloat64>);
     
 **/
 private var _vfatan2SC = (new Slice<GoArray<GoFloat64>>(
-0,
-0,
+37,
+37,
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((-1 : GoInt))) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), (0 : GoFloat64)) : GoArray<GoFloat64>),
@@ -1169,8 +1169,8 @@ private var _vfatan2SC = (new Slice<GoArray<GoFloat64>>(
     
 **/
 private var _atan2SC = (new Slice<GoFloat64>(
-0,
-0,
+37,
+37,
 (-2.356194490192345 : GoFloat64),
 (-1.5707963267948966 : GoFloat64),
 (-1.5707963267948966 : GoFloat64),
@@ -1213,117 +1213,117 @@ naN()) : Slice<GoFloat64>);
     
     
 **/
-private var _vfcbrtSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfcbrtSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _cbrtSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _cbrtSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfceilSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfceilSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _ceilSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _ceilSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfcopysignSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfcopysignSC = (new Slice<GoFloat64>(3, 3, inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _copysignSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((-1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _copysignSC = (new Slice<GoFloat64>(3, 3, inf((-1 : GoInt)), inf((-1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfcosSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfcosSC = (new Slice<GoFloat64>(3, 3, inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _cosSC = (new Slice<GoFloat64>(0, 0, naN(), naN(), naN()) : Slice<GoFloat64>);
+private var _cosSC = (new Slice<GoFloat64>(3, 3, naN(), naN(), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfcoshSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfcoshSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _coshSC = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), (1 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _coshSC = (new Slice<GoFloat64>(5, 5, inf((1 : GoInt)), (1 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vferfSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (-1000 : GoFloat64), (1000 : GoFloat64)) : Slice<GoFloat64>);
+private var _vferfSC = (new Slice<GoFloat64>(7, 7, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (-1000 : GoFloat64), (1000 : GoFloat64)) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _erfSC = (new Slice<GoFloat64>(0, 0, (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1 : GoFloat64), naN(), (-1 : GoFloat64), (1 : GoFloat64)) : Slice<GoFloat64>);
+private var _erfSC = (new Slice<GoFloat64>(7, 7, (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1 : GoFloat64), naN(), (-1 : GoFloat64), (1 : GoFloat64)) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vferfcSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((1 : GoInt)), naN(), (-1000 : GoFloat64), (1000 : GoFloat64)) : Slice<GoFloat64>);
+private var _vferfcSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), inf((1 : GoInt)), naN(), (-1000 : GoFloat64), (1000 : GoFloat64)) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _erfcSC = (new Slice<GoFloat64>(0, 0, (2 : GoFloat64), (0 : GoFloat64), naN(), (2 : GoFloat64), (0 : GoFloat64)) : Slice<GoFloat64>);
+private var _erfcSC = (new Slice<GoFloat64>(5, 5, (2 : GoFloat64), (0 : GoFloat64), naN(), (2 : GoFloat64), (0 : GoFloat64)) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vferfinvSC = (new Slice<GoFloat64>(0, 0, (1 : GoFloat64), (-1 : GoFloat64), (0 : GoFloat64), inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vferfinvSC = (new Slice<GoFloat64>(6, 6, (1 : GoFloat64), (-1 : GoFloat64), (0 : GoFloat64), inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _erfinvSC = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN(), naN()) : Slice<GoFloat64>);
+private var _erfinvSC = (new Slice<GoFloat64>(6, 6, inf((1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN(), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vferfcinvSC = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (2 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), inf((-1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vferfcinvSC = (new Slice<GoFloat64>(6, 6, (0 : GoFloat64), (2 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), inf((-1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _erfcinvSC = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN(), naN()) : Slice<GoFloat64>);
+private var _erfcinvSC = (new Slice<GoFloat64>(6, 6, inf((1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN(), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
 private var _vfexpSC = (new Slice<GoFloat64>(
-0,
-0,
+11,
+11,
 inf((-1 : GoInt)),
 (-2000 : GoFloat64),
 (2000 : GoFloat64),
@@ -1341,8 +1341,8 @@ naN(),
     
 **/
 private var _expSC = (new Slice<GoFloat64>(
-0,
-0,
+11,
+11,
 (0 : GoFloat64),
 (0 : GoFloat64),
 inf((1 : GoInt)),
@@ -1359,45 +1359,45 @@ inf((1 : GoInt)),
     
     
 **/
-private var _vfexp2SC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-2000 : GoFloat64), (2000 : GoFloat64), inf((1 : GoInt)), naN(), (1024 : GoFloat64), (-1073.99999999999 : GoFloat64), (3.725290298461915e-09 : GoFloat64)) : Slice<GoFloat64>);
+private var _vfexp2SC = (new Slice<GoFloat64>(8, 8, inf((-1 : GoInt)), (-2000 : GoFloat64), (2000 : GoFloat64), inf((1 : GoInt)), naN(), (1024 : GoFloat64), (-1073.99999999999 : GoFloat64), (3.725290298461915e-09 : GoFloat64)) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _exp2SC = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), naN(), inf((1 : GoInt)), (5e-324 : GoFloat64), (1.0000000025821745 : GoFloat64)) : Slice<GoFloat64>);
+private var _exp2SC = (new Slice<GoFloat64>(8, 8, (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), naN(), inf((1 : GoInt)), (5e-324 : GoFloat64), (1.0000000025821745 : GoFloat64)) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfexpm1SC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-710 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (710 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfexpm1SC = (new Slice<GoFloat64>(7, 7, inf((-1 : GoInt)), (-710 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (710 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _expm1SC = (new Slice<GoFloat64>(0, 0, (-1 : GoFloat64), (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _expm1SC = (new Slice<GoFloat64>(7, 7, (-1 : GoFloat64), (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vffabsSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vffabsSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _fabsSC = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _fabsSC = (new Slice<GoFloat64>(5, 5, inf((1 : GoInt)), (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
 private var _vffdimSC = (new Slice<GoArray<GoFloat64>>(
-0,
-0,
+15,
+15,
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((-1 : GoInt))) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((1 : GoInt))) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), naN()) : GoArray<GoFloat64>),
@@ -1425,8 +1425,8 @@ private var _nan = float64frombits((-2251799813685248i64 : GoUInt64));
     
 **/
 private var _vffdim2SC = (new Slice<GoArray<GoFloat64>>(
-0,
-0,
+15,
+15,
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((-1 : GoInt))) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((1 : GoInt))) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), _nan) : GoArray<GoFloat64>),
@@ -1448,8 +1448,8 @@ private var _vffdim2SC = (new Slice<GoArray<GoFloat64>>(
     
 **/
 private var _fdimSC = (new Slice<GoFloat64>(
-0,
-0,
+15,
+15,
 naN(),
 (0 : GoFloat64),
 naN(),
@@ -1471,8 +1471,8 @@ naN()) : Slice<GoFloat64>);
     
 **/
 private var _fmaxSC = (new Slice<GoFloat64>(
-0,
-0,
+15,
+15,
 inf((-1 : GoInt)),
 inf((1 : GoInt)),
 naN(),
@@ -1494,8 +1494,8 @@ naN()) : Slice<GoFloat64>);
     
 **/
 private var _fminSC = (new Slice<GoFloat64>(
-0,
-0,
+15,
+15,
 inf((-1 : GoInt)),
 inf((-1 : GoInt)),
 inf((-1 : GoInt)),
@@ -1517,8 +1517,8 @@ naN()) : Slice<GoFloat64>);
     
 **/
 private var _vffmodSC = (new Slice<GoArray<GoFloat64>>(
-0,
-0,
+34,
+34,
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((-1 : GoInt))) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), (0 : GoFloat64)) : GoArray<GoFloat64>),
@@ -1559,8 +1559,8 @@ private var _vffmodSC = (new Slice<GoArray<GoFloat64>>(
     
 **/
 private var _fmodSC = (new Slice<GoFloat64>(
-0,
-0,
+34,
+34,
 naN(),
 naN(),
 naN(),
@@ -1600,21 +1600,21 @@ naN()) : Slice<GoFloat64>);
     
     
 **/
-private var _vffrexpSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vffrexpSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _frexpSC = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0, (new stdgo.math_test.Math_test.T_fi(inf((-1 : GoInt)), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(naN(), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
+private var _frexpSC = (new Slice<stdgo.math_test.Math_test.T_fi>(5, 5, (new stdgo.math_test.Math_test.T_fi(inf((-1 : GoInt)), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(naN(), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
 /**
     
     
     
 **/
 private var _vfgamma = (new Slice<GoArray<GoFloat64>>(
-0,
-0,
+71,
+71,
 (new GoArray<GoFloat64>(inf((1 : GoInt)), inf((1 : GoInt))) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), naN()) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>((0 : GoFloat64), inf((1 : GoInt))) : GoArray<GoFloat64>),
@@ -1692,8 +1692,8 @@ private var _vfgamma = (new Slice<GoArray<GoFloat64>>(
     
 **/
 private var _vfhypotSC = (new Slice<GoArray<GoFloat64>>(
-0,
-0,
+19,
+19,
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((-1 : GoInt))) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), (0 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((1 : GoInt))) : GoArray<GoFloat64>),
@@ -1719,8 +1719,8 @@ private var _vfhypotSC = (new Slice<GoArray<GoFloat64>>(
     
 **/
 private var _hypotSC = (new Slice<GoFloat64>(
-0,
-0,
+19,
+19,
 inf((1 : GoInt)),
 inf((1 : GoInt)),
 inf((1 : GoInt)),
@@ -1745,45 +1745,45 @@ naN()) : Slice<GoFloat64>);
     
     
 **/
-private var _ilogbSC = (new Slice<GoInt>(0, 0, (2147483647 : GoInt), (-2147483648 : GoInt), (2147483647 : GoInt), (2147483647 : GoInt)) : Slice<GoInt>);
+private var _ilogbSC = (new Slice<GoInt>(4, 4, (2147483647 : GoInt), (-2147483648 : GoInt), (2147483647 : GoInt), (2147483647 : GoInt)) : Slice<GoInt>);
 /**
     
     
     
 **/
-private var _vfj0SC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfj0SC = (new Slice<GoFloat64>(4, 4, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _j0SC = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (1 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _j0SC = (new Slice<GoFloat64>(4, 4, (0 : GoFloat64), (1 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _j1SC = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _j1SC = (new Slice<GoFloat64>(4, 4, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _j2SC = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _j2SC = (new Slice<GoFloat64>(4, 4, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _jM3SC = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _jM3SC = (new Slice<GoFloat64>(4, 4, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
 private var _vfldexpSC = (new Slice<stdgo.math_test.Math_test.T_fi>(
-0,
-0,
+13,
+13,
 (new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 (new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (-1075 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 (new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (1024 : GoInt)) : stdgo.math_test.Math_test.T_fi),
@@ -1803,8 +1803,8 @@ private var _vfldexpSC = (new Slice<stdgo.math_test.Math_test.T_fi>(
     
 **/
 private var _ldexpSC = (new Slice<GoFloat64>(
-0,
-0,
+13,
+13,
 (0 : GoFloat64),
 (0 : GoFloat64),
 (0 : GoFloat64),
@@ -1823,69 +1823,69 @@ inf((1 : GoInt)),
     
     
 **/
-private var _vflgammaSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3 : GoFloat64), (0 : GoFloat64), (1 : GoFloat64), (2 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vflgammaSC = (new Slice<GoFloat64>(7, 7, inf((-1 : GoInt)), (-3 : GoFloat64), (0 : GoFloat64), (1 : GoFloat64), (2 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _lgammaSC = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0, (new stdgo.math_test.Math_test.T_fi(inf((-1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(naN(), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
+private var _lgammaSC = (new Slice<stdgo.math_test.Math_test.T_fi>(7, 7, (new stdgo.math_test.Math_test.T_fi(inf((-1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi(naN(), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
 /**
     
     
     
 **/
-private var _vflogSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vflogSC = (new Slice<GoFloat64>(7, 7, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _logSC = (new Slice<GoFloat64>(0, 0, naN(), naN(), inf((-1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _logSC = (new Slice<GoFloat64>(7, 7, naN(), naN(), inf((-1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vflogbSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vflogbSC = (new Slice<GoFloat64>(4, 4, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _logbSC = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _logbSC = (new Slice<GoFloat64>(4, 4, inf((1 : GoInt)), inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vflog1pSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (4.503599627370496e+15 : GoFloat64)) : Slice<GoFloat64>);
+private var _vflog1pSC = (new Slice<GoFloat64>(8, 8, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (4.503599627370496e+15 : GoFloat64)) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _log1pSC = (new Slice<GoFloat64>(0, 0, naN(), naN(), inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (36.04365338911715 : GoFloat64)) : Slice<GoFloat64>);
+private var _log1pSC = (new Slice<GoFloat64>(8, 8, naN(), naN(), inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (36.04365338911715 : GoFloat64)) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfmodfSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfmodfSC = (new Slice<GoFloat64>(4, 4, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _modfSC = (new Slice<GoArray<GoFloat64>>(0, 0, (new GoArray<GoFloat64>(inf((-1 : GoInt)), naN()) : GoArray<GoFloat64>), (new GoArray<GoFloat64>(copysign((0 : GoFloat64), (-1 : GoFloat64)), copysign((0 : GoFloat64), (-1 : GoFloat64))) : GoArray<GoFloat64>), (new GoArray<GoFloat64>(inf((1 : GoInt)), naN()) : GoArray<GoFloat64>), (new GoArray<GoFloat64>(naN(), naN()) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
+private var _modfSC = (new Slice<GoArray<GoFloat64>>(4, 4, (new GoArray<GoFloat64>(inf((-1 : GoInt)), naN()) : GoArray<GoFloat64>), (new GoArray<GoFloat64>(copysign((0 : GoFloat64), (-1 : GoFloat64)), copysign((0 : GoFloat64), (-1 : GoFloat64))) : GoArray<GoFloat64>), (new GoArray<GoFloat64>(inf((1 : GoInt)), naN()) : GoArray<GoFloat64>), (new GoArray<GoFloat64>(naN(), naN()) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 /**
     
     
     
 **/
 private var _vfnextafter32SC = (new Slice<GoArray<GoFloat32>>(
-0,
-0,
+10,
+10,
 (new GoArray<GoFloat32>((0 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat32>),
 (new GoArray<GoFloat32>((0 : GoFloat64), (copysign((0 : GoFloat64), (-1 : GoFloat64)) : GoFloat32)) : GoArray<GoFloat32>),
 (new GoArray<GoFloat32>((0 : GoFloat64), (-1 : GoFloat64)) : GoArray<GoFloat32>),
@@ -1902,8 +1902,8 @@ private var _vfnextafter32SC = (new Slice<GoArray<GoFloat32>>(
     
 **/
 private var _nextafter32SC = (new Slice<GoFloat32>(
-0,
-0,
+10,
+10,
 (0 : GoFloat64),
 (0 : GoFloat64),
 (-1.401298464324817e-45 : GoFloat64),
@@ -1920,8 +1920,8 @@ private var _nextafter32SC = (new Slice<GoFloat32>(
     
 **/
 private var _vfnextafter64SC = (new Slice<GoArray<GoFloat64>>(
-0,
-0,
+10,
+10,
 (new GoArray<GoFloat64>((0 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>((0 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64))) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>((0 : GoFloat64), (-1 : GoFloat64)) : GoArray<GoFloat64>),
@@ -1938,8 +1938,8 @@ private var _vfnextafter64SC = (new Slice<GoArray<GoFloat64>>(
     
 **/
 private var _nextafter64SC = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (0 : GoFloat64),
 (0 : GoFloat64),
 (-5e-324 : GoFloat64),
@@ -1956,8 +1956,8 @@ naN()) : Slice<GoFloat64>);
     
 **/
 private var _vfpowSC = (new Slice<GoArray<GoFloat64>>(
-0,
-0,
+71,
+71,
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), (-3 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>(inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64))) : GoArray<GoFloat64>),
@@ -2035,8 +2035,8 @@ private var _vfpowSC = (new Slice<GoArray<GoFloat64>>(
     
 **/
 private var _powSC = (new Slice<GoFloat64>(
-0,
-0,
+71,
+71,
 (0 : GoFloat64),
 copysign((0 : GoFloat64), (-1 : GoFloat64)),
 (1 : GoFloat64),
@@ -2114,8 +2114,8 @@ inf((1 : GoInt))) : Slice<GoFloat64>);
     
 **/
 private var _vfpow10SC = (new Slice<GoInt>(
-0,
-0,
+15,
+15,
 (-2147483648 : GoInt),
 (-324 : GoInt),
 (-323 : GoInt),
@@ -2137,8 +2137,8 @@ private var _vfpow10SC = (new Slice<GoInt>(
     
 **/
 private var _pow10SC = (new Slice<GoFloat64>(
-0,
-0,
+15,
+15,
 (0 : GoFloat64),
 (0 : GoFloat64),
 (1e-323 : GoFloat64),
@@ -2160,8 +2160,8 @@ inf((1 : GoInt))) : Slice<GoFloat64>);
     
 **/
 private var _vfroundSC = (new Slice<GoArray<GoFloat64>>(
-0,
-0,
+13,
+13,
 (new GoArray<GoFloat64>((0 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>((1.390671161567e-309 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>((0.49999999999999994 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
@@ -2181,8 +2181,8 @@ private var _vfroundSC = (new Slice<GoArray<GoFloat64>>(
     
 **/
 private var _vfroundEvenSC = (new Slice<GoArray<GoFloat64>>(
-0,
-0,
+13,
+13,
 (new GoArray<GoFloat64>((0 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>((1.390671161567e-309 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
 (new GoArray<GoFloat64>((0.49999999999999994 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
@@ -2201,111 +2201,111 @@ private var _vfroundEvenSC = (new Slice<GoArray<GoFloat64>>(
     
     
 **/
-private var _vfsignbitSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfsignbitSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _signbitSC = (new Slice<Bool>(0, 0, true, true, false, false, false) : Slice<Bool>);
+private var _signbitSC = (new Slice<Bool>(5, 5, true, true, false, false, false) : Slice<Bool>);
 /**
     
     
     
 **/
-private var _vfsinSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfsinSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _sinSC = (new Slice<GoFloat64>(0, 0, naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _sinSC = (new Slice<GoFloat64>(5, 5, naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfsinhSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfsinhSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _sinhSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _sinhSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfsqrtSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), float64frombits((2i64 : GoUInt64))) : Slice<GoFloat64>);
+private var _vfsqrtSC = (new Slice<GoFloat64>(7, 7, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), float64frombits((2i64 : GoUInt64))) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _sqrtSC = (new Slice<GoFloat64>(0, 0, naN(), naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (3.1434555694052576e-162 : GoFloat64)) : Slice<GoFloat64>);
+private var _sqrtSC = (new Slice<GoFloat64>(7, 7, naN(), naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (3.1434555694052576e-162 : GoFloat64)) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vftanhSC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vftanhSC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _tanhSC = (new Slice<GoFloat64>(0, 0, (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _tanhSC = (new Slice<GoFloat64>(5, 5, (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1 : GoFloat64), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vfy0SC = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (-1 : GoFloat64)) : Slice<GoFloat64>);
+private var _vfy0SC = (new Slice<GoFloat64>(5, 5, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (-1 : GoFloat64)) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _y0SC = (new Slice<GoFloat64>(0, 0, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _y0SC = (new Slice<GoFloat64>(5, 5, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _y1SC = (new Slice<GoFloat64>(0, 0, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _y1SC = (new Slice<GoFloat64>(5, 5, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _y2SC = (new Slice<GoFloat64>(0, 0, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _y2SC = (new Slice<GoFloat64>(5, 5, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _yM3SC = (new Slice<GoFloat64>(0, 0, naN(), inf((1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _yM3SC = (new Slice<GoFloat64>(5, 5, naN(), inf((1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _vffrexpBC = (new Slice<GoFloat64>(0, 0, (2.2250738585072014e-308 : GoFloat64), (2.225073858507201e-308 : GoFloat64), (5e-324 : GoFloat64), (1.7976931348623157e+308 : GoFloat64), (-2.2250738585072014e-308 : GoFloat64), (-2.225073858507201e-308 : GoFloat64), (-5e-324 : GoFloat64), (-1.7976931348623157e+308 : GoFloat64)) : Slice<GoFloat64>);
+private var _vffrexpBC = (new Slice<GoFloat64>(8, 8, (2.2250738585072014e-308 : GoFloat64), (2.225073858507201e-308 : GoFloat64), (5e-324 : GoFloat64), (1.7976931348623157e+308 : GoFloat64), (-2.2250738585072014e-308 : GoFloat64), (-2.225073858507201e-308 : GoFloat64), (-5e-324 : GoFloat64), (-1.7976931348623157e+308 : GoFloat64)) : Slice<GoFloat64>);
 /**
     
     
     
 **/
-private var _frexpBC = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0, (new stdgo.math_test.Math_test.T_fi((0.5 : GoFloat64), (-1021 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0.9999999999999998 : GoFloat64), (-1022 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0.5 : GoFloat64), (-1073 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0.9999999999999999 : GoFloat64), (1024 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((-0.5 : GoFloat64), (-1021 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((-0.9999999999999998 : GoFloat64), (-1022 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((-0.5 : GoFloat64), (-1073 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((-0.9999999999999999 : GoFloat64), (1024 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
+private var _frexpBC = (new Slice<stdgo.math_test.Math_test.T_fi>(8, 8, (new stdgo.math_test.Math_test.T_fi((0.5 : GoFloat64), (-1021 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0.9999999999999998 : GoFloat64), (-1022 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0.5 : GoFloat64), (-1073 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((0.9999999999999999 : GoFloat64), (1024 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((-0.5 : GoFloat64), (-1021 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((-0.9999999999999998 : GoFloat64), (-1022 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((-0.5 : GoFloat64), (-1073 : GoInt)) : stdgo.math_test.Math_test.T_fi), (new stdgo.math_test.Math_test.T_fi((-0.9999999999999999 : GoFloat64), (1024 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
 /**
     
     
     
 **/
 private var _vfldexpBC = (new Slice<stdgo.math_test.Math_test.T_fi>(
-0,
-0,
+10,
+10,
 (new stdgo.math_test.Math_test.T_fi((2.2250738585072014e-308 : GoFloat64), (-52 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 (new stdgo.math_test.Math_test.T_fi((2.225073858507201e-308 : GoFloat64), (-51 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 (new stdgo.math_test.Math_test.T_fi((5e-324 : GoFloat64), (1074 : GoInt)) : stdgo.math_test.Math_test.T_fi),
@@ -2322,8 +2322,8 @@ private var _vfldexpBC = (new Slice<stdgo.math_test.Math_test.T_fi>(
     
 **/
 private var _ldexpBC = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (5e-324 : GoFloat64),
 (1e-323 : GoFloat64),
 (1 : GoFloat64),
@@ -2339,7 +2339,7 @@ inf((-1 : GoInt)),
     
     
 **/
-private var _logbBC = (new Slice<GoFloat64>(0, 0, (-1022 : GoFloat64), (-1023 : GoFloat64), (-1074 : GoFloat64), (1023 : GoFloat64), (-1022 : GoFloat64), (-1023 : GoFloat64), (-1074 : GoFloat64), (1023 : GoFloat64)) : Slice<GoFloat64>);
+private var _logbBC = (new Slice<GoFloat64>(8, 8, (-1022 : GoFloat64), (-1023 : GoFloat64), (-1074 : GoFloat64), (1023 : GoFloat64), (-1022 : GoFloat64), (-1023 : GoFloat64), (-1074 : GoFloat64), (1023 : GoFloat64)) : Slice<GoFloat64>);
 /**
     // Test cases were generated with Berkeley TestFloat-3e/testfloat_gen.
     // http://www.jhauser.us/arithmetic/TestFloat.html.
@@ -2348,8 +2348,8 @@ private var _logbBC = (new Slice<GoFloat64>(0, 0, (-1022 : GoFloat64), (-1023 : 
     
 **/
 private var _fmaC = (new Slice<T__struct_0>(
-0,
-0,
+39,
+39,
 ({ _x : (-3.999999999999087 : GoFloat64), _y : (-1.1123914289620494e-16 : GoFloat64), _z : (-7.999877929687506 : GoFloat64), _want : (-7.999877929687505 : GoFloat64) } : T__struct_0),
 ({ _x : (-262112.0000004768 : GoFloat64), _y : (-0.06251525855623184 : GoFloat64), _z : (1.1102230248837136e-16 : GoFloat64), _want : (16385.99945072085 : GoFloat64) } : T__struct_0),
 ({ _x : (-6.462348523533467e-27 : GoFloat64), _y : (-2.3763644720331857e-211 : GoFloat64), _z : (4.000000000931324 : GoFloat64), _want : (4.000000000931324 : GoFloat64) } : T__struct_0),
@@ -2395,8 +2395,8 @@ private var _fmaC = (new Slice<T__struct_0>(
     
 **/
 private var _sqrt32 = (new Slice<GoFloat32>(
-0,
-0,
+12,
+12,
 (0 : GoFloat64),
 (copysign((0 : GoFloat64), (-1 : GoFloat64)) : GoFloat32),
 (naN() : GoFloat32),
@@ -2420,7 +2420,7 @@ var portableFMA = fma;
     
     
 **/
-private var _floatTests = (new Slice<stdgo.math_test.Math_test.T_floatTest>(0, 0, (new stdgo.math_test.Math_test.T_floatTest(Go.toInterface((1.7976931348623157e+308 : GoFloat64)), ("MaxFloat64" : GoString), ("1.7976931348623157e+308" : GoString)) : stdgo.math_test.Math_test.T_floatTest), (new stdgo.math_test.Math_test.T_floatTest(Go.toInterface((5e-324 : GoFloat64)), ("SmallestNonzeroFloat64" : GoString), ("5e-324" : GoString)) : stdgo.math_test.Math_test.T_floatTest), (new stdgo.math_test.Math_test.T_floatTest(Go.toInterface(((3.4028234663852886e+38 : GoFloat64) : GoFloat32)), ("MaxFloat32" : GoString), ("3.4028235e+38" : GoString)) : stdgo.math_test.Math_test.T_floatTest), (new stdgo.math_test.Math_test.T_floatTest(Go.toInterface(((1.401298464324817e-45 : GoFloat64) : GoFloat32)), ("SmallestNonzeroFloat32" : GoString), ("1e-45" : GoString)) : stdgo.math_test.Math_test.T_floatTest)) : Slice<stdgo.math_test.Math_test.T_floatTest>);
+private var _floatTests = (new Slice<stdgo.math_test.Math_test.T_floatTest>(4, 4, (new stdgo.math_test.Math_test.T_floatTest(Go.toInterface((1.7976931348623157e+308 : GoFloat64)), ("MaxFloat64" : GoString), ("1.7976931348623157e+308" : GoString)) : stdgo.math_test.Math_test.T_floatTest), (new stdgo.math_test.Math_test.T_floatTest(Go.toInterface((5e-324 : GoFloat64)), ("SmallestNonzeroFloat64" : GoString), ("5e-324" : GoString)) : stdgo.math_test.Math_test.T_floatTest), (new stdgo.math_test.Math_test.T_floatTest(Go.toInterface(((3.4028234663852886e+38 : GoFloat64) : GoFloat32)), ("MaxFloat32" : GoString), ("3.4028235e+38" : GoString)) : stdgo.math_test.Math_test.T_floatTest), (new stdgo.math_test.Math_test.T_floatTest(Go.toInterface(((1.401298464324817e-45 : GoFloat64) : GoFloat32)), ("SmallestNonzeroFloat32" : GoString), ("1e-45" : GoString)) : stdgo.math_test.Math_test.T_floatTest)) : Slice<stdgo.math_test.Math_test.T_floatTest>);
 /**
     
     
@@ -2487,8 +2487,8 @@ private var _roundUint32 = (5u32 : GoUInt32);
     
 **/
 private var _trigHuge = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (2.68435456e+08 : GoFloat64),
 (5.36870912e+08 : GoFloat64),
 (1.073741824e+09 : GoFloat64),
@@ -2508,8 +2508,8 @@ private var _trigHuge = (new Slice<GoFloat64>(
     
 **/
 private var _cosHuge = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-0.16556897949057875 : GoFloat64),
 (-0.9451738260608966 : GoFloat64),
 (0.7867071229411882 : GoFloat64),
@@ -2526,8 +2526,8 @@ private var _cosHuge = (new Slice<GoFloat64>(
     
 **/
 private var _sinHuge = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (-0.9861982118369756 : GoFloat64),
 (0.3265676630185633 : GoFloat64),
 (-0.6173264150460421 : GoFloat64),
@@ -2544,8 +2544,8 @@ private var _sinHuge = (new Slice<GoFloat64>(
     
 **/
 private var _tanHuge = (new Slice<GoFloat64>(
-0,
-0,
+10,
+10,
 (5.956418979396394 : GoFloat64),
 (-0.3455106923343039 : GoFloat64),
 (-0.7846966133192004 : GoFloat64),
@@ -4489,13 +4489,13 @@ function testLargeTan(_t:Ref<stdgo.testing.Testing.T>):Void {
     // below reduceThreshold.
 **/
 function testTrigReduce(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _inputs = new Slice<GoFloat64>((_vf.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_vf.length : GoInt).toBasic()) (0 : GoFloat64)]);
+        var _inputs = new Slice<GoFloat64>((_vf.length : GoInt).toBasic(), 0).__setNumber32__();
         Go.copySlice(_inputs, _vf);
         var _large:GoFloat64 = (314159.26535897935 : GoFloat64);
         for (__0 => _v in _vf) {
-            _inputs = _inputs.__appendref__(_v + _large);
+            _inputs = (_inputs.__append__(_v + _large));
         };
-        _inputs = _inputs.__appendref__((3.141592653589793 : GoFloat64), nextafter((5.36870912e+08 : GoFloat64), (0 : GoFloat64)));
+        _inputs = (_inputs.__append__((3.141592653589793 : GoFloat64), nextafter((5.36870912e+08 : GoFloat64), (0 : GoFloat64))));
         for (__1 => _x in _inputs) {
             var __tmp__ = trigReduce(_x), _j:GoUInt64 = __tmp__._0, _z:GoFloat64 = __tmp__._1;
             var _xred:GoFloat64 = ((_j : GoFloat64) * (0.7853981633974483 : GoFloat64)) + _z;

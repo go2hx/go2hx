@@ -48,38 +48,38 @@ private var _objKindStrings = {
     
 **/
 private var _comments = (new Slice<T__struct_0>(
-0,
-0,
-({ _list : (new Slice<GoString>(0, 0, ("//" : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("//   " : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("//" : GoString), ("//" : GoString), ("//   " : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("// foo   " : GoString)) : Slice<GoString>), _text : ("foo\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("//" : GoString), ("//" : GoString), ("// foo" : GoString)) : Slice<GoString>), _text : ("foo\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("// foo  bar  " : GoString)) : Slice<GoString>), _text : ("foo  bar\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("// foo" : GoString), ("// bar" : GoString)) : Slice<GoString>), _text : ("foo\nbar\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("// foo" : GoString), ("//" : GoString), ("//" : GoString), ("//" : GoString), ("// bar" : GoString)) : Slice<GoString>), _text : ("foo\n\nbar\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("// foo" : GoString), ("/* bar */" : GoString)) : Slice<GoString>), _text : ("foo\n bar\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("//" : GoString), ("//" : GoString), ("//" : GoString), ("// foo" : GoString), ("//" : GoString), ("//" : GoString), ("//" : GoString)) : Slice<GoString>), _text : ("foo\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("/**/" : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("/*   */" : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("/**/" : GoString), ("/**/" : GoString), ("/*   */" : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("/* Foo   */" : GoString)) : Slice<GoString>), _text : (" Foo\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("/* Foo  Bar  */" : GoString)) : Slice<GoString>), _text : (" Foo  Bar\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("/* Foo*/" : GoString), ("/* Bar*/" : GoString)) : Slice<GoString>), _text : (" Foo\n Bar\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("/* Foo*/" : GoString), ("/**/" : GoString), ("/**/" : GoString), ("/**/" : GoString), ("// Bar" : GoString)) : Slice<GoString>), _text : (" Foo\n\nBar\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("/* Foo*/" : GoString), ("/*\n*/" : GoString), ("//" : GoString), ("/*\n*/" : GoString), ("// Bar" : GoString)) : Slice<GoString>), _text : (" Foo\n\nBar\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("/* Foo*/" : GoString), ("// Bar" : GoString)) : Slice<GoString>), _text : (" Foo\nBar\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("/* Foo\n Bar*/" : GoString)) : Slice<GoString>), _text : (" Foo\n Bar\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("// foo" : GoString), ("//go:noinline" : GoString), ("// bar" : GoString), ("//:baz" : GoString)) : Slice<GoString>), _text : ("foo\nbar\n:baz\n" : GoString) } : T__struct_0),
-({ _list : (new Slice<GoString>(0, 0, ("// foo" : GoString), ("//lint123:ignore" : GoString), ("// bar" : GoString)) : Slice<GoString>), _text : ("foo\nbar\n" : GoString) } : T__struct_0)) : Slice<T__struct_0>);
+22,
+22,
+({ _list : (new Slice<GoString>(1, 1, ("//" : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
+({ _list : (new Slice<GoString>(1, 1, ("//   " : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
+({ _list : (new Slice<GoString>(3, 3, ("//" : GoString), ("//" : GoString), ("//   " : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
+({ _list : (new Slice<GoString>(1, 1, ("// foo   " : GoString)) : Slice<GoString>), _text : ("foo\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(3, 3, ("//" : GoString), ("//" : GoString), ("// foo" : GoString)) : Slice<GoString>), _text : ("foo\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(1, 1, ("// foo  bar  " : GoString)) : Slice<GoString>), _text : ("foo  bar\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(2, 2, ("// foo" : GoString), ("// bar" : GoString)) : Slice<GoString>), _text : ("foo\nbar\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(5, 5, ("// foo" : GoString), ("//" : GoString), ("//" : GoString), ("//" : GoString), ("// bar" : GoString)) : Slice<GoString>), _text : ("foo\n\nbar\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(2, 2, ("// foo" : GoString), ("/* bar */" : GoString)) : Slice<GoString>), _text : ("foo\n bar\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(7, 7, ("//" : GoString), ("//" : GoString), ("//" : GoString), ("// foo" : GoString), ("//" : GoString), ("//" : GoString), ("//" : GoString)) : Slice<GoString>), _text : ("foo\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(1, 1, ("/**/" : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
+({ _list : (new Slice<GoString>(1, 1, ("/*   */" : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
+({ _list : (new Slice<GoString>(3, 3, ("/**/" : GoString), ("/**/" : GoString), ("/*   */" : GoString)) : Slice<GoString>), _text : Go.str() } : T__struct_0),
+({ _list : (new Slice<GoString>(1, 1, ("/* Foo   */" : GoString)) : Slice<GoString>), _text : (" Foo\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(1, 1, ("/* Foo  Bar  */" : GoString)) : Slice<GoString>), _text : (" Foo  Bar\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(2, 2, ("/* Foo*/" : GoString), ("/* Bar*/" : GoString)) : Slice<GoString>), _text : (" Foo\n Bar\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(5, 5, ("/* Foo*/" : GoString), ("/**/" : GoString), ("/**/" : GoString), ("/**/" : GoString), ("// Bar" : GoString)) : Slice<GoString>), _text : (" Foo\n\nBar\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(5, 5, ("/* Foo*/" : GoString), ("/*\n*/" : GoString), ("//" : GoString), ("/*\n*/" : GoString), ("// Bar" : GoString)) : Slice<GoString>), _text : (" Foo\n\nBar\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(2, 2, ("/* Foo*/" : GoString), ("// Bar" : GoString)) : Slice<GoString>), _text : (" Foo\nBar\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(1, 1, ("/* Foo\n Bar*/" : GoString)) : Slice<GoString>), _text : (" Foo\n Bar\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(4, 4, ("// foo" : GoString), ("//go:noinline" : GoString), ("// bar" : GoString), ("//:baz" : GoString)) : Slice<GoString>), _text : ("foo\nbar\n:baz\n" : GoString) } : T__struct_0),
+({ _list : (new Slice<GoString>(3, 3, ("// foo" : GoString), ("//lint123:ignore" : GoString), ("// bar" : GoString)) : Slice<GoString>), _text : ("foo\nbar\n" : GoString) } : T__struct_0)) : Slice<T__struct_0>);
 /**
     
     
     
 **/
 private var _isDirectiveTests = (new Slice<T__struct_1>(
-0,
-0,
+15,
+15,
 ({ _in : ("abc" : GoString), _ok : false } : T__struct_1),
 ({ _in : ("go:inline" : GoString), _ok : true } : T__struct_1),
 ({ _in : ("Go:inline" : GoString), _ok : false } : T__struct_1),
@@ -101,8 +101,8 @@ private var _isDirectiveTests = (new Slice<T__struct_1>(
     
 **/
 private var _tests = (new Slice<T__struct_2>(
-0,
-0,
+18,
+18,
 ({ _x : (null : AnyInterface), _s : ("0  nil" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface(true), _s : ("0  true" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface((42 : GoInt)), _s : ("0  42" : GoString) } : T__struct_2),
@@ -110,23 +110,25 @@ private var _tests = (new Slice<T__struct_2>(
 ({ _x : Go.toInterface(((1f64 : GoFloat64) + new GoComplex128(0f64, 2.718f64))), _s : ("0  (1+2.718i)" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface(("foobar" : GoString)), _s : ("0  \"foobar\"" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<stdgo.go.ast.Ast.Expr, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.named("Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) })));
-        @:privateAccess x._keys = [];
-        @:privateAccess x._values = [];
-        x;
-    } : stdgo.GoMap<stdgo.go.ast.Ast.Expr, GoString>)), _s : ("0  map[ast.Expr]string (len = 0) {}" : GoString) } : T__struct_2),
+        final x = new GoObjectMap<stdgo.go.ast.Ast.Expr, GoString>();
+        x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.named("Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
+        x.__defaultValue__ = () -> ("" : GoString);
+        @:mergeBlock {};
+        cast x;
+    } : GoMap<stdgo.go.ast.Ast.Expr, GoString>)), _s : ("0  map[ast.Expr]string (len = 0) {}" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface(({
-        final x = new stdgo.GoMap.GoObjectMap<GoString, GoInt>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) })));
-        @:privateAccess x._keys = [("a" : GoString)];
-        @:privateAccess x._values = [(1 : GoInt)];
+        final x = new GoMap<GoString, GoInt>();
+        @:mergeBlock {
+            x.set(("a" : GoString), (1 : GoInt));
+        };
         x;
-    } : stdgo.GoMap<GoString, GoInt>)), _s : ("0  map[string]int (len = 1) {\n\t\t1  .  \"a\": 1\n\t\t2  }" : GoString) } : T__struct_2),
+    })), _s : ("0  map[string]int (len = 1) {\n\t\t1  .  \"a\": 1\n\t\t2  }" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface(Go.pointer((0 : GoInt))), _s : ("0  *0" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface((new GoArray<GoInt>() : GoArray<GoInt>)), _s : ("0  [0]int {}" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface((new GoArray<GoInt>((1 : GoInt), (2 : GoInt), (3 : GoInt)) : GoArray<GoInt>)), _s : ("0  [3]int {\n\t\t1  .  0: 1\n\t\t2  .  1: 2\n\t\t3  .  2: 3\n\t\t4  }" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface((new GoArray<GoInt>((42 : GoInt)) : GoArray<GoInt>)), _s : ("0  [1]int {\n\t\t1  .  0: 42\n\t\t2  }" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface((new Slice<GoInt>(0, 0) : Slice<GoInt>)), _s : ("0  []int (len = 0) {}" : GoString) } : T__struct_2),
-({ _x : Go.toInterface((new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt), (3 : GoInt)) : Slice<GoInt>)), _s : ("0  []int (len = 3) {\n\t\t1  .  0: 1\n\t\t2  .  1: 2\n\t\t3  .  2: 3\n\t\t4  }" : GoString) } : T__struct_2),
+({ _x : Go.toInterface((new Slice<GoInt>(3, 3, (1 : GoInt), (2 : GoInt), (3 : GoInt)) : Slice<GoInt>)), _s : ("0  []int (len = 3) {\n\t\t1  .  0: 1\n\t\t2  .  1: 2\n\t\t3  .  2: 3\n\t\t4  }" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface(Go.asInterface(({  } : T__struct_3))), _s : ("0  struct {} {}" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface(Go.asInterface(({ _x : (7 : GoInt) } : T__struct_4))), _s : ("0  struct { x int } {}" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface(Go.asInterface(({ x : (42 : GoInt), _y : (991 : GoInt) } : T__struct_5))), _s : ("0  struct { X int; y int } {\n\t\t1  .  X: 42\n\t\t2  }" : GoString) } : T__struct_2),
@@ -1874,7 +1876,7 @@ function isExported(_name:GoString):Bool {
     }
 function testCommentText(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_i => _c in _comments) {
-            var _list = new Slice<Ref<stdgo.go.ast.Ast.Comment>>((_c._list.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_c._list.length : GoInt).toBasic()) (null : Ref<stdgo.go.ast.Ast.Comment>)]);
+            var _list = new Slice<Ref<stdgo.go.ast.Ast.Comment>>((_c._list.length : GoInt).toBasic(), 0);
             for (_i => _s in _c._list) {
                 _list[(_i : GoInt)] = (Go.setRef(({ text : _s } : Comment)) : Ref<stdgo.go.ast.Ast.Comment>);
             };
@@ -1917,7 +1919,7 @@ private function _nodeList(_n:Node):Slice<Node> {
                     return false;
                 };
             };
-            _list = _list.__appendref__(_n);
+            _list = (_list.__append__(_n));
             return true;
         });
         return _list;
@@ -1943,14 +1945,20 @@ function newCommentMap(_fset:Ref<stdgo.go.token.Token.FileSet>, _node:Node, _com
         if ((_comments.length) == ((0 : GoInt))) {
             return null;
         };
-        var _cmap:stdgo.go.ast.Ast.CommentMap = (new GoObjectMap<stdgo.go.ast.Ast.Node, Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.CommentMap", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.named("Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.CommentGroup", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "list", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Comment", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "slash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "text", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }]), false, { get : () -> null }) }) }) }, optional : false }]), false, { get : () -> null }) }) }) }), false, { get : () -> null }))) : stdgo.go.ast.Ast.CommentMap);
-        var _tmp = new Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>((_comments.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_comments.length : GoInt).toBasic()) (null : Ref<stdgo.go.ast.Ast.CommentGroup>)]);
+        var _cmap:stdgo.go.ast.Ast.CommentMap = ({
+            final x = new GoObjectMap<stdgo.go.ast.Ast.Node, Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>>();
+            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.named("Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
+            x.__defaultValue__ = () -> (null : Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>);
+            @:mergeBlock {};
+            cast x;
+        } : GoMap<stdgo.go.ast.Ast.Node, Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>>);
+        var _tmp = new Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>((_comments.length : GoInt).toBasic(), 0);
         Go.copySlice(_tmp, _comments);
         _sortComments(_tmp);
         var _r:stdgo.go.ast.Ast.T_commentListReader = ({ _fset : _fset, _list : _tmp } : T_commentListReader);
         _r._next();
         var _nodes = _nodeList(_node);
-        _nodes = _nodes.__appendref__((null : stdgo.go.ast.Ast.Node));
+        _nodes = (_nodes.__append__((null : stdgo.go.ast.Ast.Node)));
         var __0:Node = (null : stdgo.go.ast.Ast.Node), __1:stdgo.go.token.Token.Position = ({} : stdgo.go.token.Token.Position), __2:Node = (null : stdgo.go.ast.Ast.Node), __3:stdgo.go.token.Token.Position = ({} : stdgo.go.token.Token.Position), __4:T_nodeStack = new stdgo.go.ast.Ast.T_nodeStack(0, 0), _stack:T_nodeStack = __4, _pgend:stdgo.go.token.Token.Position = __3, _pg:Node = __2, _pend:stdgo.go.token.Token.Position = __1, _p:Node = __0;
         for (__0 => _q in _nodes) {
             var _qpos:stdgo.go.token.Token.Position = ({} : stdgo.go.token.Token.Position);
@@ -2380,7 +2388,7 @@ function mergePackageFiles(_pkg:Ref<Package>, _mode:MergeMode):Ref<File> {
         var _ndocs:GoInt = (0 : GoInt);
         var _ncomments:GoInt = (0 : GoInt);
         var _ndecls:GoInt = (0 : GoInt);
-        var _filenames = new Slice<GoString>((_pkg.files.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_pkg.files.length : GoInt).toBasic()) ("" : GoString)]);
+        var _filenames = new Slice<GoString>((_pkg.files.length : GoInt).toBasic(), 0).__setString__();
         var __0:stdgo.go.token.Token.Pos = ((0 : GoInt) : stdgo.go.token.Token.Pos), __1:stdgo.go.token.Token.Pos = ((0 : GoInt) : stdgo.go.token.Token.Pos), _maxPos:stdgo.go.token.Token.Pos = __1, _minPos:stdgo.go.token.Token.Pos = __0;
         var _i:GoInt = (0 : GoInt);
         for (_filename => _f in _pkg.files) {
@@ -2402,7 +2410,7 @@ function mergePackageFiles(_pkg:Ref<Package>, _mode:MergeMode):Ref<File> {
         var _doc:Ref<CommentGroup> = (null : Ref<stdgo.go.ast.Ast.CommentGroup>);
         var _pos:stdgo.go.token.Token.Pos = ((0 : GoInt) : stdgo.go.token.Token.Pos);
         if (_ndocs > (0 : GoInt)) {
-            var _list = new Slice<Ref<stdgo.go.ast.Ast.Comment>>((_ndocs - (1 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0 ... (_ndocs - (1 : GoInt) : GoInt).toBasic()) (null : Ref<stdgo.go.ast.Ast.Comment>)]);
+            var _list = new Slice<Ref<stdgo.go.ast.Ast.Comment>>((_ndocs - (1 : GoInt) : GoInt).toBasic(), 0);
             var _i:GoInt = (0 : GoInt);
             for (__0 => _filename in _filenames) {
                 var _f = _pkg.files[_filename];
@@ -2424,8 +2432,12 @@ function mergePackageFiles(_pkg:Ref<Package>, _mode:MergeMode):Ref<File> {
         };
         var _decls:Slice<Decl> = (null : Slice<stdgo.go.ast.Ast.Decl>);
         if (_ndecls > (0 : GoInt)) {
-            _decls = new Slice<stdgo.go.ast.Ast.Decl>((_ndecls : GoInt).toBasic(), 0, ...[for (i in 0 ... (_ndecls : GoInt).toBasic()) (null : stdgo.go.ast.Ast.Decl)]);
-            var _funcs = (new GoObjectMap<GoString, GoInt>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }))) : GoMap<GoString, GoInt>);
+            _decls = new Slice<stdgo.go.ast.Ast.Decl>((_ndecls : GoInt).toBasic(), 0);
+            var _funcs = ({
+                final x = new GoMap<GoString, GoInt>();
+                @:mergeBlock {};
+                x;
+            });
             var _i:GoInt = (0 : GoInt);
             var _n:GoInt = (0 : GoInt);
             for (__2 => _filename in _filenames) {
@@ -2441,7 +2453,7 @@ function mergePackageFiles(_pkg:Ref<Package>, _mode:MergeMode):Ref<File> {
                             if (_isFun) {
                                 var _name:GoString = _nameOf(_f);
                                 {
-                                    var __tmp__ = (_funcs != null && _funcs.__exists__(_name) ? { value : _funcs[_name], ok : true } : { value : (0 : GoInt), ok : false }), _j:GoInt = __tmp__.value, _exists:Bool = __tmp__.ok;
+                                    var __tmp__ = (_funcs != null && _funcs.exists(_name) ? { value : _funcs[_name], ok : true } : { value : (0 : GoInt), ok : false }), _j:GoInt = __tmp__.value, _exists:Bool = __tmp__.ok;
                                     if (_exists) {
                                         if ((_decls[(_j : GoInt)] != null) && ((Go.typeAssert((Go.toInterface(_decls[(_j : GoInt)]) : Ref<FuncDecl>)) : Ref<FuncDecl>).doc == null) || ((Go.typeAssert((Go.toInterface(_decls[(_j : GoInt)]) : Ref<FuncDecl>)) : Ref<FuncDecl>).doc : Dynamic).__nil__) {
                                             _decls[(_j : GoInt)] = (null : stdgo.go.ast.Ast.Decl);
@@ -2473,14 +2485,18 @@ function mergePackageFiles(_pkg:Ref<Package>, _mode:MergeMode):Ref<File> {
         };
         var _imports:Slice<Ref<ImportSpec>> = (null : Slice<Ref<stdgo.go.ast.Ast.ImportSpec>>);
         if (_mode & (4u32 : stdgo.go.ast.Ast.MergeMode) != ((0u32 : stdgo.go.ast.Ast.MergeMode))) {
-            var _seen = (new GoObjectMap<GoString, Bool>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }))) : GoMap<GoString, Bool>);
+            var _seen = ({
+                final x = new GoMap<GoString, Bool>();
+                @:mergeBlock {};
+                x;
+            });
             for (__5 => _filename in _filenames) {
                 var _f = _pkg.files[_filename];
                 for (__6 => _imp in _f.imports) {
                     {
                         var _path:GoString = _imp.path.value;
                         if (!_seen[_path]) {
-                            _imports = _imports.__appendref__(_imp);
+                            _imports = (_imports.__append__(_imp));
                             _seen[_path] = true;
                         };
                     };
@@ -2489,12 +2505,12 @@ function mergePackageFiles(_pkg:Ref<Package>, _mode:MergeMode):Ref<File> {
         } else {
             for (__7 => _filename in _filenames) {
                 var _f = _pkg.files[_filename];
-                _imports = _imports.__appendref__(..._f.imports.__toArray__());
+                _imports = (_imports.__append__(..._f.imports.__toArray__()));
             };
         };
         var _comments:Slice<Ref<CommentGroup>> = (null : Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>);
         if (_mode & (2u32 : stdgo.go.ast.Ast.MergeMode) == ((0u32 : stdgo.go.ast.Ast.MergeMode))) {
-            _comments = new Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>((_ncomments : GoInt).toBasic(), 0, ...[for (i in 0 ... (_ncomments : GoInt).toBasic()) (null : Ref<stdgo.go.ast.Ast.CommentGroup>)]);
+            _comments = new Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>((_ncomments : GoInt).toBasic(), 0);
             var _i:GoInt = (0 : GoInt);
             for (__8 => _filename in _filenames) {
                 var _f = _pkg.files[_filename];
@@ -2524,11 +2540,11 @@ function sortImports(_fset:Ref<stdgo.go.token.Token.FileSet>, _f:Ref<File>):Void
             var _specs = (_d.specs.__slice__(0, (0 : GoInt)) : Slice<stdgo.go.ast.Ast.Spec>);
             for (_j => _s in _d.specs) {
                 if ((_j > _i) && (_lineAt(_fset, _s.pos()) > ((1 : GoInt) + _lineAt(_fset, _d.specs[(_j - (1 : GoInt) : GoInt)].end())))) {
-                    _specs = _specs.__appendref__(..._sortSpecs(_fset, _f, (_d.specs.__slice__(_i, _j) : Slice<stdgo.go.ast.Ast.Spec>)).__toArray__());
+                    _specs = (_specs.__append__(..._sortSpecs(_fset, _f, (_d.specs.__slice__(_i, _j) : Slice<stdgo.go.ast.Ast.Spec>)).__toArray__()));
                     _i = _j;
                 };
             };
-            _specs = _specs.__appendref__(..._sortSpecs(_fset, _f, (_d.specs.__slice__(_i) : Slice<stdgo.go.ast.Ast.Spec>)).__toArray__());
+            _specs = (_specs.__append__(..._sortSpecs(_fset, _f, (_d.specs.__slice__(_i) : Slice<stdgo.go.ast.Ast.Spec>)).__toArray__()));
             _d.specs = _specs;
             if ((_d.specs.length) > (0 : GoInt)) {
                 var _lastSpec:stdgo.go.ast.Ast.Spec = _d.specs[((_d.specs.length) - (1 : GoInt) : GoInt)];
@@ -2578,7 +2594,7 @@ private function _sortSpecs(_fset:Ref<stdgo.go.token.Token.FileSet>, _f:Ref<File
         if ((_specs.length) <= (1 : GoInt)) {
             return _specs;
         };
-        var _pos = new Slice<stdgo.go.ast.Ast.T_posSpan>((_specs.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_specs.length : GoInt).toBasic()) ({} : stdgo.go.ast.Ast.T_posSpan)]);
+        var _pos = new Slice<stdgo.go.ast.Ast.T_posSpan>((_specs.length : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_specs.length : GoInt).toBasic() > 0 ? (_specs.length : GoInt).toBasic() : 0 : GoInt).toBasic()) ({} : stdgo.go.ast.Ast.T_posSpan)]);
         for (_i => _s in _specs) {
             _pos[(_i : GoInt)] = (new T_posSpan(_s.pos(), _s.end()) : T_posSpan);
         };
@@ -2613,11 +2629,10 @@ private function _sortSpecs(_fset:Ref<stdgo.go.token.Token.FileSet>, _f:Ref<File
             _comments = (_f.comments.__slice__(_first, _last + (1 : GoInt)) : Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>);
         };
         var _importComments = ({
-            final x = new stdgo.GoMap.GoObjectMap<Ref<stdgo.go.ast.Ast.ImportSpec>, Slice<stdgo.go.ast.Ast.T_cgPos>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ImportSpec", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "doc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.CommentGroup", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "list", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Comment", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "slash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "text", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }]), false, { get : () -> null }) }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Ident", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "namePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "obj", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "path", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.BasicLit", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "valuePos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Token", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "value", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "comment", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.CommentGroup", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "list", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Comment", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "slash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "text", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }]), false, { get : () -> null }) }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "endPos", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.T_cgPos", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_left", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_cg", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.CommentGroup", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "list", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Comment", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "slash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "text", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }]), false, { get : () -> null }) }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) })));
-            @:privateAccess x._keys = [];
-            @:privateAccess x._values = [];
-            x;
-        } : stdgo.GoMap<Ref<stdgo.go.ast.Ast.ImportSpec>, Slice<stdgo.go.ast.Ast.T_cgPos>>);
+            final x = new GoRefMap<Ref<stdgo.go.ast.Ast.ImportSpec>, Slice<stdgo.go.ast.Ast.T_cgPos>>();
+            @:mergeBlock {};
+            cast x;
+        } : GoMap<Ref<stdgo.go.ast.Ast.ImportSpec>, Slice<stdgo.go.ast.Ast.T_cgPos>>);
         var _specIndex:GoInt = (0 : GoInt);
         for (__0 => _g in _comments) {
             while (((_specIndex + (1 : GoInt)) < _specs.length) && (_pos[(_specIndex + (1 : GoInt) : GoInt)].start <= _g.pos())) {
@@ -2631,7 +2646,7 @@ private function _sortSpecs(_fset:Ref<stdgo.go.token.Token.FileSet>, _f:Ref<File
                 _left = true;
             };
             var _s = (Go.typeAssert((Go.toInterface(_specs[(_specIndex : GoInt)]) : Ref<ImportSpec>)) : Ref<ImportSpec>);
-            _importComments[_s] = _importComments[_s].__appendref__(({ _left : _left, _cg : _g } : T_cgPos));
+            _importComments[_s] = (_importComments[_s].__append__(({ _left : _left, _cg : _g } : T_cgPos)));
         };
         stdgo.sort.Sort.slice(Go.toInterface(_specs), function(_i:GoInt, _j:GoInt):Bool {
             var _ipath:GoString = _importPath(_specs[(_i : GoInt)]);
@@ -2649,7 +2664,7 @@ private function _sortSpecs(_fset:Ref<stdgo.go.token.Token.FileSet>, _f:Ref<File
         var _deduped = (_specs.__slice__(0, (0 : GoInt)) : Slice<stdgo.go.ast.Ast.Spec>);
         for (_i => _s in _specs) {
             if ((_i == (_specs.length - (1 : GoInt))) || !_collapse(_s, _specs[(_i + (1 : GoInt) : GoInt)])) {
-                _deduped = _deduped.__appendref__(_s);
+                _deduped = (_deduped.__append__(_s));
             } else {
                 var _p:stdgo.go.token.Token.Pos = _s.pos();
                 _fset.file(_p).mergeLine(_lineAt(_fset, _p));
@@ -2709,7 +2724,12 @@ private function _fprint(_w:stdgo.io.Io.Writer, _fset:Ref<stdgo.go.token.Token.F
         var __deferstack__:Array<Void -> Void> = [];
         var _err:Error = (null : Error);
         try {
-            var _p:stdgo.go.ast.Ast.T_printer = ({ _output : _w, _fset : _fset, _filter : _f, _ptrmap : (new GoObjectMap<AnyInterface, GoInt>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }))) : GoMap<AnyInterface, GoInt>), _last : (10 : GoUInt8) } : T_printer);
+            var _p:stdgo.go.ast.Ast.T_printer = ({ _output : _w, _fset : _fset, _filter : _f, _ptrmap : ({
+                final x = new GoAnyInterfaceMap<GoInt>();
+                x.__defaultValue__ = () -> (0 : GoInt);
+                @:mergeBlock {};
+                cast x;
+            } : GoMap<AnyInterface, GoInt>), _last : (10 : GoUInt8) } : T_printer);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     {
@@ -2848,7 +2868,11 @@ function newPackage(_fset:Ref<stdgo.go.token.Token.FileSet>, _files:GoMap<GoStri
                 _p._declare(_pkgScope, null, _obj);
             };
         };
-        var _imports = (new GoObjectMap<GoString, Ref<stdgo.go.ast.Ast.Object>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<GoString, Ref<stdgo.go.ast.Ast.Object>>);
+        var _imports = ({
+            final x = new GoMap<GoString, Ref<stdgo.go.ast.Ast.Object>>();
+            @:mergeBlock {};
+            x;
+        });
         for (__10 => _file in _files) {
             if (_file.name.name != (_pkgName)) {
                 continue;
@@ -2904,7 +2928,11 @@ function newPackage(_fset:Ref<stdgo.go.token.Token.FileSet>, _files:GoMap<GoStri
 **/
 function newScope(_outer:Ref<Scope>):Ref<Scope> {
         {};
-        return (Go.setRef((new Scope(_outer, (new GoObjectMap<GoString, Ref<stdgo.go.ast.Ast.Object>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Object", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "kind", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.ObjKind", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "decl", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "type", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) }))) : GoMap<GoString, Ref<stdgo.go.ast.Ast.Object>>)) : Scope)) : Ref<stdgo.go.ast.Ast.Scope>);
+        return (Go.setRef((new Scope(_outer, ({
+            final x = new GoMap<GoString, Ref<stdgo.go.ast.Ast.Object>>();
+            @:mergeBlock {};
+            x;
+        })) : Scope)) : Ref<stdgo.go.ast.Ast.Scope>);
     }
 /**
     // NewObj creates a new object of a given kind and name.
@@ -3327,16 +3355,18 @@ class CommentGroup_asInterface {
         if (_g == null || (_g : Dynamic).__nil__) {
             return Go.str();
         };
-        var _comments = new Slice<GoString>((_g.list.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_g.list.length : GoInt).toBasic()) ("" : GoString)]);
+        var _comments = new Slice<GoString>((_g.list.length : GoInt).toBasic(), 0).__setString__();
         for (_i => _c in _g.list) {
             _comments[(_i : GoInt)] = _c.text;
         };
-        var _lines = new Slice<GoString>((0 : GoInt).toBasic(), (10 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) ("" : GoString)]);
+        var _lines = new Slice<GoString>((0 : GoInt).toBasic(), (10 : GoInt)).__setString__();
         for (__0 => _c in _comments) {
             {
                 var __continue__ = false;
                 var __switchIndex__ = -1;
-                while (true) {
+                var __run__ = true;
+                while (__run__) {
+                    __run__ = false;
                     {
                         final __value__ = _c[(1 : GoInt)];
                         if (__value__ == ((47 : GoUInt8))) {
@@ -3366,7 +3396,7 @@ class CommentGroup_asInterface {
             };
             var _cl = stdgo.strings.Strings.split(_c, ("\n" : GoString));
             for (__1 => _l in _cl) {
-                _lines = _lines.__appendref__(_stripTrailingWhitespace(_l));
+                _lines = (_lines.__append__(_stripTrailingWhitespace(_l)));
             };
         };
         var _n:GoInt = (0 : GoInt);
@@ -3378,7 +3408,7 @@ class CommentGroup_asInterface {
         };
         _lines = (_lines.__slice__((0 : GoInt), _n) : Slice<GoString>);
         if ((_n > (0 : GoInt)) && (_lines[(_n - (1 : GoInt) : GoInt)] != Go.str())) {
-            _lines = _lines.__appendref__(Go.str());
+            _lines = (_lines.__append__(Go.str()));
         };
         return stdgo.strings.Strings.join(_lines, ("\n" : GoString));
     }
@@ -5104,7 +5134,7 @@ class T_printer_asInterface {
                 _p._printf(("*" : GoString));
                 var _ptr:AnyInterface = _x.interface_();
                 {
-                    var __tmp__ = (_p._ptrmap != null && _p._ptrmap.__exists__(_ptr) ? { value : _p._ptrmap[_ptr], ok : true } : { value : (0 : GoInt), ok : false }), _line:GoInt = __tmp__.value, _exists:Bool = __tmp__.ok;
+                    var __tmp__ = (_p._ptrmap != null && _p._ptrmap.exists(_ptr) ? { value : _p._ptrmap[_ptr], ok : true } : { value : (0 : GoInt), ok : false }), _line:GoInt = __tmp__.value, _exists:Bool = __tmp__.ok;
                     if (_exists) {
                         _p._printf(("(obj @ %d)" : GoString), Go.toInterface(_line));
                     } else {
@@ -5207,7 +5237,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _printf( _p:Ref<T_printer>, _format:GoString, _args:haxe.Rest<AnyInterface>):Void {
-        var _args = new Slice<AnyInterface>(0, 0, ..._args);
+        var _args = new Slice<AnyInterface>(_args.length, 0, ..._args);
         {
             var __tmp__ = stdgo.fmt.Fmt.fprintf(Go.asInterface(_p), _format, ..._args.__toArray__()), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -5300,7 +5330,7 @@ class T_pkgBuilder_asInterface {
     }
     @:keep
     static public function _errorf( _p:Ref<T_pkgBuilder>, _pos:stdgo.go.token.Token.Pos, _format:GoString, _args:haxe.Rest<AnyInterface>):Void {
-        var _args = new Slice<AnyInterface>(0, 0, ..._args);
+        var _args = new Slice<AnyInterface>(_args.length, 0, ..._args);
         _p._error(_pos, stdgo.fmt.Fmt.sprintf(_format, ..._args.__toArray__()));
     }
     @:keep
@@ -5536,7 +5566,7 @@ class CommentMap_asInterface {
     static public function string( _cmap:CommentMap):GoString {
         var _nodes:Slice<Node> = (null : Slice<stdgo.go.ast.Ast.Node>);
         for (_node => _ in _cmap) {
-            _nodes = _nodes.__appendref__(_node);
+            _nodes = (_nodes.__append__(_node));
         };
         stdgo.sort.Sort.sort(Go.asInterface((_nodes : T_byInterval)));
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
@@ -5567,9 +5597,9 @@ class CommentMap_asInterface {
     **/
     @:keep
     static public function comments( _cmap:CommentMap):Slice<Ref<CommentGroup>> {
-        var _list = new Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>((0 : GoInt).toBasic(), (_cmap.length), ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : Ref<stdgo.go.ast.Ast.CommentGroup>)]);
+        var _list = new Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>((0 : GoInt).toBasic(), (_cmap.length));
         for (__0 => _e in _cmap) {
-            _list = _list.__appendref__(..._e.__toArray__());
+            _list = (_list.__append__(..._e.__toArray__()));
         };
         _sortComments(_list);
         return _list;
@@ -5581,7 +5611,13 @@ class CommentMap_asInterface {
     **/
     @:keep
     static public function filter( _cmap:CommentMap, _node:Node):CommentMap {
-        var _umap:stdgo.go.ast.Ast.CommentMap = (new GoObjectMap<stdgo.go.ast.Ast.Node, Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.CommentMap", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.named("Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.CommentGroup", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "list", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Comment", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "slash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.token.Token.Pos", [], stdgo.internal.reflect.Reflect.GoType.basic(int_kind), false, { get : () -> null }) }, optional : false }, { name : "text", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }]), false, { get : () -> null }) }) }) }, optional : false }]), false, { get : () -> null }) }) }) }), false, { get : () -> null }))) : stdgo.go.ast.Ast.CommentMap);
+        var _umap:stdgo.go.ast.Ast.CommentMap = ({
+            final x = new GoObjectMap<stdgo.go.ast.Ast.Node, Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>>();
+            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.named("Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
+            x.__defaultValue__ = () -> (null : Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>);
+            @:mergeBlock {};
+            cast x;
+        } : GoMap<stdgo.go.ast.Ast.Node, Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>>);
         inspect(_node, function(_n:Node):Bool {
             {
                 var _g = _cmap[_n];
@@ -5603,8 +5639,8 @@ class CommentMap_asInterface {
         {
             var _list = _cmap[_old];
             if ((_list.length) > (0 : GoInt)) {
-                if (_cmap != null) _cmap.__remove__(_old);
-                _cmap[_new] = _cmap[_new].__appendref__(..._list.__toArray__());
+                if (_cmap != null) _cmap.remove(_old);
+                _cmap[_new] = (_cmap[_new].__append__(..._list.__toArray__()));
             };
         };
         return _new;
@@ -5613,9 +5649,9 @@ class CommentMap_asInterface {
     static public function _addComment( _cmap:CommentMap, _n:Node, _c:Ref<CommentGroup>):Void {
         var _list = _cmap[_n];
         if ((_list.length) == ((0 : GoInt))) {
-            _list = (new Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>(0, 0, _c) : Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>);
+            _list = (new Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>(1, 1, _c) : Slice<Ref<stdgo.go.ast.Ast.CommentGroup>>);
         } else {
-            _list = _list.__appendref__(_c);
+            _list = (_list.__append__(_c));
         };
         _cmap[_n] = _list;
     }

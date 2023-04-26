@@ -35,7 +35,7 @@ function exampleBinaryOp():Void {
         stdgo.fmt.Fmt.println(Go.toInterface(_c));
     }
 function exampleUnaryOp():Void {
-        var _vs = (new Slice<stdgo.go.constant.Constant.Value>(0, 0, stdgo.go.constant.Constant.makeBool(true), stdgo.go.constant.Constant.makeFloat64((2.7 : GoFloat64)), stdgo.go.constant.Constant.makeUint64((42i64 : GoUInt64))) : Slice<stdgo.go.constant.Constant.Value>);
+        var _vs = (new Slice<stdgo.go.constant.Constant.Value>(3, 3, stdgo.go.constant.Constant.makeBool(true), stdgo.go.constant.Constant.makeFloat64((2.7 : GoFloat64)), stdgo.go.constant.Constant.makeUint64((42i64 : GoUInt64))) : Slice<stdgo.go.constant.Constant.Value>);
         for (_i => _v in _vs) {
             {
                 final __value__ = _v.kind();
@@ -53,7 +53,7 @@ function exampleUnaryOp():Void {
         };
     }
 function exampleCompare():Void {
-        var _vs = (new Slice<stdgo.go.constant.Constant.Value>(0, 0, stdgo.go.constant.Constant.makeString(("Z" : GoString)), stdgo.go.constant.Constant.makeString(("bacon" : GoString)), stdgo.go.constant.Constant.makeString(("go" : GoString)), stdgo.go.constant.Constant.makeString(("Frame" : GoString)), stdgo.go.constant.Constant.makeString(("defer" : GoString)), stdgo.go.constant.Constant.makeFromLiteral(("\"a\"" : GoString), (9 : stdgo.go.token.Token.Token), (0u32 : GoUInt))) : Slice<stdgo.go.constant.Constant.Value>);
+        var _vs = (new Slice<stdgo.go.constant.Constant.Value>(6, 6, stdgo.go.constant.Constant.makeString(("Z" : GoString)), stdgo.go.constant.Constant.makeString(("bacon" : GoString)), stdgo.go.constant.Constant.makeString(("go" : GoString)), stdgo.go.constant.Constant.makeString(("Frame" : GoString)), stdgo.go.constant.Constant.makeString(("defer" : GoString)), stdgo.go.constant.Constant.makeFromLiteral(("\"a\"" : GoString), (9 : stdgo.go.token.Token.Token), (0u32 : GoUInt))) : Slice<stdgo.go.constant.Constant.Value>);
         stdgo.sort.Sort.slice(Go.toInterface(_vs), function(_i:GoInt, _j:GoInt):Bool {
             return stdgo.go.constant.Constant.compare(_vs[(_i : GoInt)], (45 : stdgo.go.token.Token.Token), _vs[(_j : GoInt)]);
         });
@@ -70,8 +70,8 @@ function exampleSign():Void {
             return stdgo.go.constant.Constant.binaryOp(_a, (12 : stdgo.go.token.Token.Token), _b);
         };
         var _vs = (new Slice<stdgo.go.constant.Constant.Value>(
-0,
-0,
+10,
+10,
 _negOne,
 _mkComplex(_zero, _negOne),
 _mkComplex(_one, _negOne),

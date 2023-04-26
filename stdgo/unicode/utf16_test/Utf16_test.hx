@@ -15,9 +15,9 @@ import stdgo.unicode.utf16.Utf16;
     
     
 **/
-private var _encodeTests = (new Slice<stdgo.unicode.utf16_test.Utf16_test.T_encodeTest>(0, 0, (new stdgo.unicode.utf16_test.Utf16_test.T_encodeTest((new Slice<GoInt32>(0, 0, (1 : GoInt32), (2 : GoInt32), (3 : GoInt32), (4 : GoInt32)) : Slice<GoInt32>), (new Slice<GoUInt16>(0, 0, (1 : GoUInt16), (2 : GoUInt16), (3 : GoUInt16), (4 : GoUInt16)) : Slice<GoUInt16>)) : stdgo.unicode.utf16_test.Utf16_test.T_encodeTest), (new stdgo.unicode.utf16_test.Utf16_test.T_encodeTest((new Slice<GoInt32>(0, 0, (65535 : GoInt32), (65536 : GoInt32), (65537 : GoInt32), (74565 : GoInt32), (1114111 : GoInt32)) : Slice<GoInt32>), (new Slice<GoUInt16>(
-0,
-0,
+private var _encodeTests = (new Slice<stdgo.unicode.utf16_test.Utf16_test.T_encodeTest>(3, 3, (new stdgo.unicode.utf16_test.Utf16_test.T_encodeTest((new Slice<GoInt32>(4, 4, (1 : GoInt32), (2 : GoInt32), (3 : GoInt32), (4 : GoInt32)) : Slice<GoInt32>), (new Slice<GoUInt16>(4, 4, (1 : GoUInt16), (2 : GoUInt16), (3 : GoUInt16), (4 : GoUInt16)) : Slice<GoUInt16>)) : stdgo.unicode.utf16_test.Utf16_test.T_encodeTest), (new stdgo.unicode.utf16_test.Utf16_test.T_encodeTest((new Slice<GoInt32>(5, 5, (65535 : GoInt32), (65536 : GoInt32), (65537 : GoInt32), (74565 : GoInt32), (1114111 : GoInt32)) : Slice<GoInt32>), (new Slice<GoUInt16>(
+9,
+9,
 (65535 : GoUInt16),
 (55296 : GoUInt16),
 (56320 : GoUInt16),
@@ -26,15 +26,15 @@ private var _encodeTests = (new Slice<stdgo.unicode.utf16_test.Utf16_test.T_enco
 (55304 : GoUInt16),
 (57157 : GoUInt16),
 (56319 : GoUInt16),
-(57343 : GoUInt16)) : Slice<GoUInt16>)) : stdgo.unicode.utf16_test.Utf16_test.T_encodeTest), (new stdgo.unicode.utf16_test.Utf16_test.T_encodeTest((new Slice<GoInt32>(0, 0, (97 : GoInt32), (98 : GoInt32), (55295 : GoInt32), (55296 : GoInt32), (57343 : GoInt32), (57344 : GoInt32), (1114112 : GoInt32), (-1 : GoInt32)) : Slice<GoInt32>), (new Slice<GoUInt16>(0, 0, (97 : GoUInt16), (98 : GoUInt16), (55295 : GoUInt16), (65533 : GoUInt16), (65533 : GoUInt16), (57344 : GoUInt16), (65533 : GoUInt16), (65533 : GoUInt16)) : Slice<GoUInt16>)) : stdgo.unicode.utf16_test.Utf16_test.T_encodeTest)) : Slice<stdgo.unicode.utf16_test.Utf16_test.T_encodeTest>);
+(57343 : GoUInt16)) : Slice<GoUInt16>)) : stdgo.unicode.utf16_test.Utf16_test.T_encodeTest), (new stdgo.unicode.utf16_test.Utf16_test.T_encodeTest((new Slice<GoInt32>(8, 8, (97 : GoInt32), (98 : GoInt32), (55295 : GoInt32), (55296 : GoInt32), (57343 : GoInt32), (57344 : GoInt32), (1114112 : GoInt32), (-1 : GoInt32)) : Slice<GoInt32>), (new Slice<GoUInt16>(8, 8, (97 : GoUInt16), (98 : GoUInt16), (55295 : GoUInt16), (65533 : GoUInt16), (65533 : GoUInt16), (57344 : GoUInt16), (65533 : GoUInt16), (65533 : GoUInt16)) : Slice<GoUInt16>)) : stdgo.unicode.utf16_test.Utf16_test.T_encodeTest)) : Slice<stdgo.unicode.utf16_test.Utf16_test.T_encodeTest>);
 /**
     
     
     
 **/
-private var _decodeTests = (new Slice<stdgo.unicode.utf16_test.Utf16_test.T_decodeTest>(0, 0, (new stdgo.unicode.utf16_test.Utf16_test.T_decodeTest((new Slice<GoUInt16>(0, 0, (1 : GoUInt16), (2 : GoUInt16), (3 : GoUInt16), (4 : GoUInt16)) : Slice<GoUInt16>), (new Slice<GoInt32>(0, 0, (1 : GoInt32), (2 : GoInt32), (3 : GoInt32), (4 : GoInt32)) : Slice<GoInt32>)) : stdgo.unicode.utf16_test.Utf16_test.T_decodeTest), (new stdgo.unicode.utf16_test.Utf16_test.T_decodeTest((new Slice<GoUInt16>(
-0,
-0,
+private var _decodeTests = (new Slice<stdgo.unicode.utf16_test.Utf16_test.T_decodeTest>(4, 4, (new stdgo.unicode.utf16_test.Utf16_test.T_decodeTest((new Slice<GoUInt16>(4, 4, (1 : GoUInt16), (2 : GoUInt16), (3 : GoUInt16), (4 : GoUInt16)) : Slice<GoUInt16>), (new Slice<GoInt32>(4, 4, (1 : GoInt32), (2 : GoInt32), (3 : GoInt32), (4 : GoInt32)) : Slice<GoInt32>)) : stdgo.unicode.utf16_test.Utf16_test.T_decodeTest), (new stdgo.unicode.utf16_test.Utf16_test.T_decodeTest((new Slice<GoUInt16>(
+9,
+9,
 (65535 : GoUInt16),
 (55296 : GoUInt16),
 (56320 : GoUInt16),
@@ -43,21 +43,21 @@ private var _decodeTests = (new Slice<stdgo.unicode.utf16_test.Utf16_test.T_deco
 (55304 : GoUInt16),
 (57157 : GoUInt16),
 (56319 : GoUInt16),
-(57343 : GoUInt16)) : Slice<GoUInt16>), (new Slice<GoInt32>(0, 0, (65535 : GoInt32), (65536 : GoInt32), (65537 : GoInt32), (74565 : GoInt32), (1114111 : GoInt32)) : Slice<GoInt32>)) : stdgo.unicode.utf16_test.Utf16_test.T_decodeTest), (new stdgo.unicode.utf16_test.Utf16_test.T_decodeTest((new Slice<GoUInt16>(0, 0, (55296 : GoUInt16), (97 : GoUInt16)) : Slice<GoUInt16>), (new Slice<GoInt32>(0, 0, (65533 : GoInt32), (97 : GoInt32)) : Slice<GoInt32>)) : stdgo.unicode.utf16_test.Utf16_test.T_decodeTest), (new stdgo.unicode.utf16_test.Utf16_test.T_decodeTest((new Slice<GoUInt16>(0, 0, (57343 : GoUInt16)) : Slice<GoUInt16>), (new Slice<GoInt32>(0, 0, (65533 : GoInt32)) : Slice<GoInt32>)) : stdgo.unicode.utf16_test.Utf16_test.T_decodeTest)) : Slice<stdgo.unicode.utf16_test.Utf16_test.T_decodeTest>);
+(57343 : GoUInt16)) : Slice<GoUInt16>), (new Slice<GoInt32>(5, 5, (65535 : GoInt32), (65536 : GoInt32), (65537 : GoInt32), (74565 : GoInt32), (1114111 : GoInt32)) : Slice<GoInt32>)) : stdgo.unicode.utf16_test.Utf16_test.T_decodeTest), (new stdgo.unicode.utf16_test.Utf16_test.T_decodeTest((new Slice<GoUInt16>(2, 2, (55296 : GoUInt16), (97 : GoUInt16)) : Slice<GoUInt16>), (new Slice<GoInt32>(2, 2, (65533 : GoInt32), (97 : GoInt32)) : Slice<GoInt32>)) : stdgo.unicode.utf16_test.Utf16_test.T_decodeTest), (new stdgo.unicode.utf16_test.Utf16_test.T_decodeTest((new Slice<GoUInt16>(1, 1, (57343 : GoUInt16)) : Slice<GoUInt16>), (new Slice<GoInt32>(1, 1, (65533 : GoInt32)) : Slice<GoInt32>)) : stdgo.unicode.utf16_test.Utf16_test.T_decodeTest)) : Slice<stdgo.unicode.utf16_test.Utf16_test.T_decodeTest>);
 /**
     
     
     
 **/
-private var _decodeRuneTests = (new Slice<T__struct_0>(0, 0, ({ _r1 : (55296 : GoInt32), _r2 : (56320 : GoInt32), _want : (65536 : GoInt32) } : T__struct_0), ({ _r1 : (55296 : GoInt32), _r2 : (56321 : GoInt32), _want : (65537 : GoInt32) } : T__struct_0), ({ _r1 : (55304 : GoInt32), _r2 : (57157 : GoInt32), _want : (74565 : GoInt32) } : T__struct_0), ({ _r1 : (56319 : GoInt32), _r2 : (57343 : GoInt32), _want : (1114111 : GoInt32) } : T__struct_0), ({ _r1 : (55296 : GoInt32), _r2 : (97 : GoInt32), _want : (65533 : GoInt32) } : T__struct_0)) : Slice<T__struct_0>);
+private var _decodeRuneTests = (new Slice<T__struct_0>(5, 5, ({ _r1 : (55296 : GoInt32), _r2 : (56320 : GoInt32), _want : (65536 : GoInt32) } : T__struct_0), ({ _r1 : (55296 : GoInt32), _r2 : (56321 : GoInt32), _want : (65537 : GoInt32) } : T__struct_0), ({ _r1 : (55304 : GoInt32), _r2 : (57157 : GoInt32), _want : (74565 : GoInt32) } : T__struct_0), ({ _r1 : (56319 : GoInt32), _r2 : (57343 : GoInt32), _want : (1114111 : GoInt32) } : T__struct_0), ({ _r1 : (55296 : GoInt32), _r2 : (97 : GoInt32), _want : (65533 : GoInt32) } : T__struct_0)) : Slice<T__struct_0>);
 /**
     
     
     
 **/
 private var _surrogateTests = (new Slice<T__struct_1>(
-0,
-0,
+11,
+11,
 ({ _r : (122 : GoInt32), _want : false } : T__struct_1),
 ({ _r : (27700 : GoInt32), _want : false } : T__struct_1),
 ({ _r : (65279 : GoInt32), _want : false } : T__struct_1),
@@ -226,8 +226,8 @@ function testIsSurrogate(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function benchmarkDecodeValidASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _data = (new Slice<GoUInt16>(
-0,
-0,
+11,
+11,
 (104 : GoUInt16),
 (101 : GoUInt16),
 (108 : GoUInt16),
@@ -248,8 +248,8 @@ function benchmarkDecodeValidASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkDecodeValidJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _data = (new Slice<GoUInt16>(
-0,
-0,
+9,
+9,
 (26085 : GoUInt16),
 (26412 : GoUInt16),
 (35486 : GoUInt16),
@@ -267,8 +267,8 @@ function benchmarkDecodeValidJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):Void
         };
     }
 function benchmarkDecodeRune(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _rs = new Slice<GoInt32>((10 : GoInt).toBasic(), 0, ...[for (i in 0 ... (10 : GoInt).toBasic()) (0 : GoInt32)]);
-        for (_i => _u in (new Slice<GoInt32>(0, 0, (120016 : GoInt32), (120017 : GoInt32), (120018 : GoInt32), (120019 : GoInt32), (120020 : GoInt32)) : Slice<GoInt32>)) {
+        var _rs = new Slice<GoInt32>((10 : GoInt).toBasic(), 0).__setNumber32__();
+        for (_i => _u in (new Slice<GoInt32>(5, 5, (120016 : GoInt32), (120017 : GoInt32), (120018 : GoInt32), (120019 : GoInt32), (120020 : GoInt32)) : Slice<GoInt32>)) {
             {
                 var __tmp__ = encodeRune(_u);
                 _rs[((2 : GoInt) * _i : GoInt)] = __tmp__._0;
@@ -289,7 +289,7 @@ function benchmarkDecodeRune(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function benchmarkEncodeValidASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _data = (new Slice<GoInt32>(0, 0, (104 : GoInt32), (101 : GoInt32), (108 : GoInt32), (108 : GoInt32), (111 : GoInt32)) : Slice<GoInt32>);
+        var _data = (new Slice<GoInt32>(5, 5, (104 : GoInt32), (101 : GoInt32), (108 : GoInt32), (108 : GoInt32), (111 : GoInt32)) : Slice<GoInt32>);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
@@ -298,7 +298,7 @@ function benchmarkEncodeValidASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function benchmarkEncodeValidJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _data = (new Slice<GoInt32>(0, 0, (26085 : GoInt32), (26412 : GoInt32), (35486 : GoInt32)) : Slice<GoInt32>);
+        var _data = (new Slice<GoInt32>(3, 3, (26085 : GoInt32), (26412 : GoInt32), (35486 : GoInt32)) : Slice<GoInt32>);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
@@ -307,8 +307,8 @@ function benchmarkEncodeValidJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):Void
         };
     }
 function benchmarkAppendRuneValidASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _data = (new Slice<GoInt32>(0, 0, (104 : GoInt32), (101 : GoInt32), (108 : GoInt32), (108 : GoInt32), (111 : GoInt32)) : Slice<GoInt32>);
-        var _a = new Slice<GoUInt16>((0 : GoInt).toBasic(), (_data.length) * (2 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt16)]);
+        var _data = (new Slice<GoInt32>(5, 5, (104 : GoInt32), (101 : GoInt32), (108 : GoInt32), (108 : GoInt32), (111 : GoInt32)) : Slice<GoInt32>);
+        var _a = new Slice<GoUInt16>((0 : GoInt).toBasic(), (_data.length) * (2 : GoInt)).__setNumber32__();
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
@@ -320,8 +320,8 @@ function benchmarkAppendRuneValidASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function benchmarkAppendRuneValidJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _data = (new Slice<GoInt32>(0, 0, (26085 : GoInt32), (26412 : GoInt32), (35486 : GoInt32)) : Slice<GoInt32>);
-        var _a = new Slice<GoUInt16>((0 : GoInt).toBasic(), (_data.length) * (2 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt16)]);
+        var _data = (new Slice<GoInt32>(3, 3, (26085 : GoInt32), (26412 : GoInt32), (35486 : GoInt32)) : Slice<GoInt32>);
+        var _a = new Slice<GoUInt16>((0 : GoInt).toBasic(), (_data.length) * (2 : GoInt)).__setNumber32__();
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
@@ -336,7 +336,7 @@ function benchmarkEncodeRune(_b:Ref<stdgo.testing.Testing.B>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
-                for (__8 => _u in (new Slice<GoInt32>(0, 0, (120016 : GoInt32), (120017 : GoInt32), (120018 : GoInt32), (120019 : GoInt32), (120020 : GoInt32)) : Slice<GoInt32>)) {
+                for (__8 => _u in (new Slice<GoInt32>(5, 5, (120016 : GoInt32), (120017 : GoInt32), (120018 : GoInt32), (120019 : GoInt32), (120020 : GoInt32)) : Slice<GoInt32>)) {
                     encodeRune(_u);
                 };
             });

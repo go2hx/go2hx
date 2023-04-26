@@ -15,8 +15,8 @@ import stdgo.hash.Hash;
     
 **/
 private var _marshalTests = (new Slice<T__struct_0>(
-0,
-0,
+17,
+17,
 ({ _name : ("adler32" : GoString), _new : function():stdgo.hash.Hash.Hash {
         return stdgo.hash.adler32.Adler32.new_();
     }, _golden : _fromHex(("61646c01460a789d" : GoString)) } : T__struct_0),
@@ -115,7 +115,7 @@ private function _fromHex(_s:GoString):Slice<GoByte> {
 function testMarshalHash(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tt in _marshalTests) {
             _t.run(_tt._name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
-                var _buf = new Slice<GoUInt8>((256 : GoInt).toBasic(), 0, ...[for (i in 0 ... (256 : GoInt).toBasic()) (0 : GoUInt8)]);
+                var _buf = new Slice<GoUInt8>((256 : GoInt).toBasic(), 0).__setNumber32__();
                 for (_i in 0 ... _buf.length.toBasic()) {
                     _buf[(_i : GoInt)] = (_i : GoByte);
                 };

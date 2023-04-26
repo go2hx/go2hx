@@ -61,12 +61,12 @@ function sort(_mapValue:stdgo.reflect.Reflect.Value):Ref<SortedMap> {
             return null;
         };
         var _n:GoInt = _mapValue.len();
-        var _key = new Slice<stdgo.reflect.Reflect.Value>((0 : GoInt).toBasic(), _n, ...[for (i in 0 ... (0 : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
-        var _value = new Slice<stdgo.reflect.Reflect.Value>((0 : GoInt).toBasic(), _n, ...[for (i in 0 ... (0 : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
+        var _key = new Slice<stdgo.reflect.Reflect.Value>((0 : GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : GoInt).toBasic() > _n ? (0 : GoInt).toBasic() : _n : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
+        var _value = new Slice<stdgo.reflect.Reflect.Value>((0 : GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : GoInt).toBasic() > _n ? (0 : GoInt).toBasic() : _n : GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
         var _iter = _mapValue.mapRange();
         while (_iter.next()) {
-            _key = _key.__appendref__(_iter.key()?.__copy__());
-            _value = _value.__appendref__(_iter.value()?.__copy__());
+            _key = (_key.__append__(_iter.key()?.__copy__()));
+            _value = (_value.__append__(_iter.value()?.__copy__()));
         };
         var _sorted = (Go.setRef(({ key : _key, value : _value } : SortedMap)) : Ref<stdgo.internal.fmtsort.Fmtsort.SortedMap>);
         stdgo.sort.Sort.stable(Go.asInterface(_sorted));

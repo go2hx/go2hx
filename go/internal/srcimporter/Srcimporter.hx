@@ -1,4 +1,4 @@
-package stdgo.go.internal.srcimporter;
+package go.internal.srcimporter;
 import stdgo.StdGoTypes;
 import stdgo.Error;
 import stdgo.Go;
@@ -93,7 +93,7 @@ class Importer_asInterface {
 @:keep @:allow(go.internal.srcimporter.Srcimporter.Importer_asInterface) class Importer_static_extension {
     @:keep
     static public function _joinPath( _p:Ref<Importer>, _elem:haxe.Rest<GoString>):GoString {
-        var _elem = new Slice<GoString>(0, 0, ..._elem);
+        var _elem = new Slice<GoString>(_elem.length, 0, ..._elem);
         {
             var _f = _p._ctxt.joinPath;
             if (_f != null) {
@@ -132,22 +132,22 @@ class Importer_asInterface {
             if (_p._ctxt.goroot != (Go.str())) {
                 _goCmd = stdgo.path.filepath.Filepath.join(_p._ctxt.goroot, ("bin" : GoString), ("go" : GoString));
             };
-            var _args = (new Slice<GoString>(0, 0, _goCmd, ("tool" : GoString), ("cgo" : GoString), ("-objdir" : GoString), _tmpdir) : Slice<GoString>);
+            var _args = (new Slice<GoString>(5, 5, _goCmd, ("tool" : GoString), ("cgo" : GoString), ("-objdir" : GoString), _tmpdir) : Slice<GoString>);
             if (_bp.goroot) {
                 {
                     final __value__ = _bp.importPath;
                     if (__value__ == (("runtime/cgo" : GoString))) {
-                        _args = _args.__appendref__(("-import_runtime_cgo=false" : GoString), ("-import_syscall=false" : GoString));
+                        _args = (_args.__append__(("-import_runtime_cgo=false" : GoString), ("-import_syscall=false" : GoString)));
                     } else if (__value__ == (("runtime/race" : GoString))) {
-                        _args = _args.__appendref__(("-import_syscall=false" : GoString));
+                        _args = (_args.__append__(("-import_syscall=false" : GoString)));
                     };
                 };
             };
-            _args = _args.__appendref__(("--" : GoString));
-            _args = _args.__appendref__(...stdgo.strings.Strings.fields(stdgo.os.Os.getenv(("CGO_CPPFLAGS" : GoString))).__toArray__());
-            _args = _args.__appendref__(..._bp.cgoCPPFLAGS.__toArray__());
+            _args = (_args.__append__(("--" : GoString)));
+            _args = (_args.__append__(...stdgo.strings.Strings.fields(stdgo.os.Os.getenv(("CGO_CPPFLAGS" : GoString))).__toArray__()));
+            _args = (_args.__append__(..._bp.cgoCPPFLAGS.__toArray__()));
             if ((_bp.cgoPkgConfig.length) > (0 : GoInt)) {
-                var _cmd = stdgo.os.exec.Exec.command(("pkg-config" : GoString), ...((new Slice<GoString>(0, 0, ("--cflags" : GoString)) : Slice<GoString>).__append__(..._bp.cgoPkgConfig.__toArray__())).__toArray__());
+                var _cmd = stdgo.os.exec.Exec.command(("pkg-config" : GoString), ...((new Slice<GoString>(1, 1, ("--cflags" : GoString)) : Slice<GoString>).__append__(..._bp.cgoPkgConfig.__toArray__())).__toArray__());
                 var __tmp__ = _cmd.output(), _out:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     {
@@ -157,12 +157,12 @@ class Importer_asInterface {
                         return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("pkg-config --cflags: %w" : GoString), Go.toInterface(_err)) };
                     };
                 };
-                _args = _args.__appendref__(...stdgo.strings.Strings.fields((_out : GoString)).__toArray__());
+                _args = (_args.__append__(...stdgo.strings.Strings.fields((_out : GoString)).__toArray__()));
             };
-            _args = _args.__appendref__(("-I" : GoString), _tmpdir);
-            _args = _args.__appendref__(...stdgo.strings.Strings.fields(stdgo.os.Os.getenv(("CGO_CFLAGS" : GoString))).__toArray__());
-            _args = _args.__appendref__(..._bp.cgoCFLAGS.__toArray__());
-            _args = _args.__appendref__(..._bp.cgoFiles.__toArray__());
+            _args = (_args.__append__(("-I" : GoString), _tmpdir));
+            _args = (_args.__append__(...stdgo.strings.Strings.fields(stdgo.os.Os.getenv(("CGO_CFLAGS" : GoString))).__toArray__()));
+            _args = (_args.__append__(..._bp.cgoCFLAGS.__toArray__()));
+            _args = (_args.__append__(..._bp.cgoFiles.__toArray__()));
             var _cmd = stdgo.os.exec.Exec.command(_args[(0 : GoInt)], ...(_args.__slice__((1 : GoInt)) : Slice<GoString>).__toArray__());
             _cmd.dir = _bp.dir;
             {
@@ -214,8 +214,8 @@ class Importer_asInterface {
                 return stdgo.os.Os.open(_name);
             };
         };
-        var _files = new Slice<Ref<stdgo.go.ast.Ast.File>>((_filenames.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_filenames.length : GoInt).toBasic()) (null : Ref<stdgo.go.ast.Ast.File>)]);
-        var _errors = new Slice<Error>((_filenames.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_filenames.length : GoInt).toBasic()) (null : Error)]);
+        var _files = new Slice<Ref<stdgo.go.ast.Ast.File>>((_filenames.length : GoInt).toBasic(), 0);
+        var _errors = new Slice<Error>((_filenames.length : GoInt).toBasic(), 0);
         var _wg:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
         _wg.add((_filenames.length));
         for (_i => _filename in _filenames) {
@@ -323,8 +323,8 @@ class Importer_asInterface {
                 a();
             });
             var _filenames:Slice<GoString> = (null : Slice<GoString>);
-            _filenames = _filenames.__appendref__(..._bp.goFiles.__toArray__());
-            _filenames = _filenames.__appendref__(..._bp.cgoFiles.__toArray__());
+            _filenames = (_filenames.__append__(..._bp.goFiles.__toArray__()));
+            _filenames = (_filenames.__append__(..._bp.cgoFiles.__toArray__()));
             var __tmp__ = _p._parseFiles(_bp.dir, _filenames), _files:Slice<Ref<stdgo.go.ast.Ast.File>> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 {
@@ -354,7 +354,7 @@ class Importer_asInterface {
                             return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("error processing cgo for package %q: %w" : GoString), Go.toInterface(_bp.importPath), Go.toInterface(_err)) };
                         };
                     };
-                    _files = _files.__appendref__(_file);
+                    _files = (_files.__append__(_file));
                 };
             };
             {

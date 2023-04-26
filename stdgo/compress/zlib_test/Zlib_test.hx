@@ -18,8 +18,8 @@ function exampleNewWriter():Void {
     }
 function exampleNewReader():Void {
         var _buff = (new Slice<GoUInt8>(
-0,
-0,
+25,
+25,
 (120 : GoUInt8),
 (156 : GoUInt8),
 (202 : GoUInt8),

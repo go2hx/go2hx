@@ -26,7 +26,7 @@ var _fe = __tmp__5._9;
     
     
 **/
-private var _testSeeds = (new Slice<GoInt64>(0, 0, (1i64 : GoInt64), (1754801282i64 : GoInt64), (1698661970i64 : GoInt64), (1550503961i64 : GoInt64)) : Slice<GoInt64>);
+private var _testSeeds = (new Slice<GoInt64>(4, 4, (1i64 : GoInt64), (1754801282i64 : GoInt64), (1698661970i64 : GoInt64), (1550503961i64 : GoInt64)) : Slice<GoInt64>);
 /**
     
     
@@ -39,8 +39,8 @@ private var _printgolden = stdgo.flag.Flag.bool_(("printgolden" : GoString), fal
     
 **/
 private var _regressGolden = (new Slice<AnyInterface>(
-0,
-0,
+280,
+280,
 Go.toInterface((4.668112973579268 : GoFloat64)),
 Go.toInterface((0.1601593871172866 : GoFloat64)),
 Go.toInterface((3.0465834105636 : GoFloat64)),
@@ -242,12 +242,12 @@ Go.toInterface((0.0182029289376123 : GoFloat64)),
 Go.toInterface((-0.6820951356608795 : GoFloat64)),
 Go.toInterface((-0.5987943422687668 : GoFloat64)),
 Go.toInterface((new Slice<GoInt>(0, 0) : Slice<GoInt>)),
-Go.toInterface((new Slice<GoInt>(0, 0, (0 : GoInt)) : Slice<GoInt>)),
-Go.toInterface((new Slice<GoInt>(0, 0, (0 : GoInt), (4 : GoInt), (1 : GoInt), (3 : GoInt), (2 : GoInt)) : Slice<GoInt>)),
-Go.toInterface((new Slice<GoInt>(0, 0, (3 : GoInt), (1 : GoInt), (0 : GoInt), (4 : GoInt), (7 : GoInt), (5 : GoInt), (2 : GoInt), (6 : GoInt)) : Slice<GoInt>)),
+Go.toInterface((new Slice<GoInt>(1, 1, (0 : GoInt)) : Slice<GoInt>)),
+Go.toInterface((new Slice<GoInt>(5, 5, (0 : GoInt), (4 : GoInt), (1 : GoInt), (3 : GoInt), (2 : GoInt)) : Slice<GoInt>)),
+Go.toInterface((new Slice<GoInt>(8, 8, (3 : GoInt), (1 : GoInt), (0 : GoInt), (4 : GoInt), (7 : GoInt), (5 : GoInt), (2 : GoInt), (6 : GoInt)) : Slice<GoInt>)),
 Go.toInterface((new Slice<GoInt>(
-0,
-0,
+9,
+9,
 (5 : GoInt),
 (0 : GoInt),
 (3 : GoInt),
@@ -258,8 +258,8 @@ Go.toInterface((new Slice<GoInt>(
 (1 : GoInt),
 (8 : GoInt)) : Slice<GoInt>)),
 Go.toInterface((new Slice<GoInt>(
-0,
-0,
+10,
+10,
 (4 : GoInt),
 (5 : GoInt),
 (0 : GoInt),
@@ -271,8 +271,8 @@ Go.toInterface((new Slice<GoInt>(
 (8 : GoInt),
 (7 : GoInt)) : Slice<GoInt>)),
 Go.toInterface((new Slice<GoInt>(
-0,
-0,
+16,
+16,
 (14 : GoInt),
 (2 : GoInt),
 (0 : GoInt),
@@ -290,12 +290,12 @@ Go.toInterface((new Slice<GoInt>(
 (15 : GoInt),
 (10 : GoInt)) : Slice<GoInt>)),
 Go.toInterface((new Slice<GoInt>(0, 0) : Slice<GoInt>)),
-Go.toInterface((new Slice<GoInt>(0, 0, (0 : GoInt)) : Slice<GoInt>)),
-Go.toInterface((new Slice<GoInt>(0, 0, (3 : GoInt), (0 : GoInt), (1 : GoInt), (2 : GoInt), (4 : GoInt)) : Slice<GoInt>)),
-Go.toInterface((new Slice<GoInt>(0, 0, (5 : GoInt), (1 : GoInt), (2 : GoInt), (0 : GoInt), (4 : GoInt), (7 : GoInt), (3 : GoInt), (6 : GoInt)) : Slice<GoInt>)),
+Go.toInterface((new Slice<GoInt>(1, 1, (0 : GoInt)) : Slice<GoInt>)),
+Go.toInterface((new Slice<GoInt>(5, 5, (3 : GoInt), (0 : GoInt), (1 : GoInt), (2 : GoInt), (4 : GoInt)) : Slice<GoInt>)),
+Go.toInterface((new Slice<GoInt>(8, 8, (5 : GoInt), (1 : GoInt), (2 : GoInt), (0 : GoInt), (4 : GoInt), (7 : GoInt), (3 : GoInt), (6 : GoInt)) : Slice<GoInt>)),
 Go.toInterface((new Slice<GoInt>(
-0,
-0,
+9,
+9,
 (4 : GoInt),
 (0 : GoInt),
 (6 : GoInt),
@@ -306,8 +306,8 @@ Go.toInterface((new Slice<GoInt>(
 (7 : GoInt),
 (3 : GoInt)) : Slice<GoInt>)),
 Go.toInterface((new Slice<GoInt>(
-0,
-0,
+10,
+10,
 (8 : GoInt),
 (6 : GoInt),
 (1 : GoInt),
@@ -319,8 +319,8 @@ Go.toInterface((new Slice<GoInt>(
 (9 : GoInt),
 (0 : GoInt)) : Slice<GoInt>)),
 Go.toInterface((new Slice<GoInt>(
-0,
-0,
+16,
+16,
 (0 : GoInt),
 (3 : GoInt),
 (13 : GoInt),
@@ -338,12 +338,12 @@ Go.toInterface((new Slice<GoInt>(
 (5 : GoInt),
 (11 : GoInt)) : Slice<GoInt>)),
 Go.toInterface((new Slice<GoInt>(0, 0) : Slice<GoInt>)),
-Go.toInterface((new Slice<GoInt>(0, 0, (0 : GoInt)) : Slice<GoInt>)),
-Go.toInterface((new Slice<GoInt>(0, 0, (0 : GoInt), (4 : GoInt), (2 : GoInt), (1 : GoInt), (3 : GoInt)) : Slice<GoInt>)),
-Go.toInterface((new Slice<GoInt>(0, 0, (2 : GoInt), (1 : GoInt), (7 : GoInt), (0 : GoInt), (6 : GoInt), (3 : GoInt), (4 : GoInt), (5 : GoInt)) : Slice<GoInt>)),
+Go.toInterface((new Slice<GoInt>(1, 1, (0 : GoInt)) : Slice<GoInt>)),
+Go.toInterface((new Slice<GoInt>(5, 5, (0 : GoInt), (4 : GoInt), (2 : GoInt), (1 : GoInt), (3 : GoInt)) : Slice<GoInt>)),
+Go.toInterface((new Slice<GoInt>(8, 8, (2 : GoInt), (1 : GoInt), (7 : GoInt), (0 : GoInt), (6 : GoInt), (3 : GoInt), (4 : GoInt), (5 : GoInt)) : Slice<GoInt>)),
 Go.toInterface((new Slice<GoInt>(
-0,
-0,
+9,
+9,
 (8 : GoInt),
 (7 : GoInt),
 (5 : GoInt),
@@ -354,8 +354,8 @@ Go.toInterface((new Slice<GoInt>(
 (1 : GoInt),
 (2 : GoInt)) : Slice<GoInt>)),
 Go.toInterface((new Slice<GoInt>(
-0,
-0,
+10,
+10,
 (1 : GoInt),
 (0 : GoInt),
 (2 : GoInt),
@@ -366,12 +366,12 @@ Go.toInterface((new Slice<GoInt>(
 (8 : GoInt),
 (3 : GoInt),
 (4 : GoInt)) : Slice<GoInt>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (1 : GoUInt8)) : Slice<GoUInt8>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (148 : GoUInt8), (253 : GoUInt8), (194 : GoUInt8), (250 : GoUInt8), (47 : GoUInt8), (252 : GoUInt8), (192 : GoUInt8)) : Slice<GoUInt8>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (65 : GoUInt8), (211 : GoUInt8), (255 : GoUInt8), (18 : GoUInt8), (4 : GoUInt8), (91 : GoUInt8), (115 : GoUInt8), (200 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(1, 1, (1 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(7, 7, (148 : GoUInt8), (253 : GoUInt8), (194 : GoUInt8), (250 : GoUInt8), (47 : GoUInt8), (252 : GoUInt8), (192 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(8, 8, (65 : GoUInt8), (211 : GoUInt8), (255 : GoUInt8), (18 : GoUInt8), (4 : GoUInt8), (91 : GoUInt8), (115 : GoUInt8), (200 : GoUInt8)) : Slice<GoUInt8>)),
 Go.toInterface((new Slice<GoUInt8>(
-0,
-0,
+9,
+9,
 (110 : GoUInt8),
 (79 : GoUInt8),
 (249 : GoUInt8),
@@ -382,8 +382,8 @@ Go.toInterface((new Slice<GoUInt8>(
 (238 : GoUInt8),
 (232 : GoUInt8)) : Slice<GoUInt8>)),
 Go.toInterface((new Slice<GoUInt8>(
-0,
-0,
+10,
+10,
 (42 : GoUInt8),
 (189 : GoUInt8),
 (244 : GoUInt8),
@@ -394,12 +394,12 @@ Go.toInterface((new Slice<GoUInt8>(
 (251 : GoUInt8),
 (24 : GoUInt8),
 (13 : GoUInt8)) : Slice<GoUInt8>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (175 : GoUInt8)) : Slice<GoUInt8>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (72 : GoUInt8), (167 : GoUInt8), (158 : GoUInt8), (224 : GoUInt8), (177 : GoUInt8), (13 : GoUInt8), (57 : GoUInt8)) : Slice<GoUInt8>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (70 : GoUInt8), (81 : GoUInt8), (133 : GoUInt8), (15 : GoUInt8), (212 : GoUInt8), (161 : GoUInt8), (120 : GoUInt8), (137 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(1, 1, (175 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(7, 7, (72 : GoUInt8), (167 : GoUInt8), (158 : GoUInt8), (224 : GoUInt8), (177 : GoUInt8), (13 : GoUInt8), (57 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(8, 8, (70 : GoUInt8), (81 : GoUInt8), (133 : GoUInt8), (15 : GoUInt8), (212 : GoUInt8), (161 : GoUInt8), (120 : GoUInt8), (137 : GoUInt8)) : Slice<GoUInt8>)),
 Go.toInterface((new Slice<GoUInt8>(
-0,
-0,
+9,
+9,
 (46 : GoUInt8),
 (226 : GoUInt8),
 (133 : GoUInt8),
@@ -410,8 +410,8 @@ Go.toInterface((new Slice<GoUInt8>(
 (85 : GoUInt8),
 (120 : GoUInt8)) : Slice<GoUInt8>)),
 Go.toInterface((new Slice<GoUInt8>(
-0,
-0,
+10,
+10,
 (8 : GoUInt8),
 (117 : GoUInt8),
 (214 : GoUInt8),
@@ -422,12 +422,12 @@ Go.toInterface((new Slice<GoUInt8>(
 (208 : GoUInt8),
 (222 : GoUInt8),
 (107 : GoUInt8)) : Slice<GoUInt8>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (248 : GoUInt8)) : Slice<GoUInt8>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (249 : GoUInt8), (180 : GoUInt8), (76 : GoUInt8), (232 : GoUInt8), (95 : GoUInt8), (240 : GoUInt8), (68 : GoUInt8)) : Slice<GoUInt8>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (198 : GoUInt8), (177 : GoUInt8), (248 : GoUInt8), (59 : GoUInt8), (142 : GoUInt8), (136 : GoUInt8), (59 : GoUInt8), (191 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(1, 1, (248 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(7, 7, (249 : GoUInt8), (180 : GoUInt8), (76 : GoUInt8), (232 : GoUInt8), (95 : GoUInt8), (240 : GoUInt8), (68 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(8, 8, (198 : GoUInt8), (177 : GoUInt8), (248 : GoUInt8), (59 : GoUInt8), (142 : GoUInt8), (136 : GoUInt8), (59 : GoUInt8), (191 : GoUInt8)) : Slice<GoUInt8>)),
 Go.toInterface((new Slice<GoUInt8>(
-0,
-0,
+9,
+9,
 (133 : GoUInt8),
 (122 : GoUInt8),
 (171 : GoUInt8),
@@ -438,8 +438,8 @@ Go.toInterface((new Slice<GoUInt8>(
 (199 : GoUInt8),
 (66 : GoUInt8)) : Slice<GoUInt8>)),
 Go.toInterface((new Slice<GoUInt8>(
-0,
-0,
+10,
+10,
 (156 : GoUInt8),
 (50 : GoUInt8),
 (243 : GoUInt8),
@@ -450,12 +450,12 @@ Go.toInterface((new Slice<GoUInt8>(
 (248 : GoUInt8),
 (86 : GoUInt8),
 (246 : GoUInt8)) : Slice<GoUInt8>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (89 : GoUInt8)) : Slice<GoUInt8>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (193 : GoUInt8), (143 : GoUInt8), (13 : GoUInt8), (206 : GoUInt8), (204 : GoUInt8), (119 : GoUInt8), (199 : GoUInt8)) : Slice<GoUInt8>)),
-Go.toInterface((new Slice<GoUInt8>(0, 0, (94 : GoUInt8), (122 : GoUInt8), (129 : GoUInt8), (191 : GoUInt8), (222 : GoUInt8), (39 : GoUInt8), (95 : GoUInt8), (103 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(1, 1, (89 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(7, 7, (193 : GoUInt8), (143 : GoUInt8), (13 : GoUInt8), (206 : GoUInt8), (204 : GoUInt8), (119 : GoUInt8), (199 : GoUInt8)) : Slice<GoUInt8>)),
+Go.toInterface((new Slice<GoUInt8>(8, 8, (94 : GoUInt8), (122 : GoUInt8), (129 : GoUInt8), (191 : GoUInt8), (222 : GoUInt8), (39 : GoUInt8), (95 : GoUInt8), (103 : GoUInt8)) : Slice<GoUInt8>)),
 Go.toInterface((new Slice<GoUInt8>(
-0,
-0,
+9,
+9,
 (207 : GoUInt8),
 (226 : GoUInt8),
 (66 : GoUInt8),
@@ -466,8 +466,8 @@ Go.toInterface((new Slice<GoUInt8>(
 (243 : GoUInt8),
 (237 : GoUInt8)) : Slice<GoUInt8>)),
 Go.toInterface((new Slice<GoUInt8>(
-0,
-0,
+10,
+10,
 (226 : GoUInt8),
 (214 : GoUInt8),
 (190 : GoUInt8),
@@ -568,7 +568,7 @@ function testAuto(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (10 : GoInt), _i++, {
-                _out = _out.__appendref__(int63());
+                _out = (_out.__append__(int63()));
             });
         };
         seed((1i64 : GoInt64));
@@ -588,8 +588,8 @@ function testAuto(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function example():Void {
         var _answers = (new Slice<GoString>(
-0,
-0,
+20,
+20,
 ("It is certain" : GoString),
 ("It is decidedly so" : GoString),
 ("Without a doubt" : GoString),
@@ -722,7 +722,7 @@ function testConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                             var __deferstack__:Array<Void -> Void> = [];
                             try {
                                 __deferstack__.unshift(() -> _wg.done());
-                                var _buf = new Slice<GoUInt8>((997 : GoInt).toBasic(), 0, ...[for (i in 0 ... (997 : GoInt).toBasic()) (0 : GoUInt8)]);
+                                var _buf = new Slice<GoUInt8>((997 : GoInt).toBasic(), 0).__setNumber32__();
                                 {
                                     var _j:GoInt = (0 : GoInt);
                                     Go.cfor(_j < (10 : GoInt), _j++, {
@@ -849,7 +849,7 @@ private function _checkSampleSliceDistributions(_t:Ref<stdgo.testing.Testing.T>,
     }
 private function _generateNormalSamples(_nsamples:GoInt, _mean:GoFloat64, _stddev:GoFloat64, _seed:GoInt64):Slice<GoFloat64> {
         var _r = new_(newSource(_seed));
-        var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0, ...[for (i in 0 ... (_nsamples : GoInt).toBasic()) (0 : GoFloat64)]);
+        var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0).__setNumber32__();
         for (_i in 0 ... _samples.length.toBasic()) {
             _samples[(_i : GoInt)] = (_r.normFloat64() * _stddev) + _mean;
         };
@@ -894,7 +894,7 @@ function testNonStandardNormalValues(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 private function _generateExponentialSamples(_nsamples:GoInt, _rate:GoFloat64, _seed:GoInt64):Slice<GoFloat64> {
         var _r = new_(newSource(_seed));
-        var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0, ...[for (i in 0 ... (_nsamples : GoInt).toBasic()) (0 : GoFloat64)]);
+        var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0).__setNumber32__();
         for (_i in 0 ... _samples.length.toBasic()) {
             _samples[(_i : GoInt)] = _r.expFloat64() / _rate;
         };
@@ -932,9 +932,9 @@ private function _initNorm():{ var _0 : Slice<GoUInt32>; var _1 : Slice<GoFloat3
         var _testKn:Slice<GoUInt32> = (null : Slice<GoUInt32>), _testWn:Slice<GoFloat32> = (null : Slice<GoFloat32>), _testFn:Slice<GoFloat32> = (null : Slice<GoFloat32>);
         {};
         var __0:GoFloat64 = _rn, __1:GoFloat64 = _dn, __2:GoFloat64 = (0.00991256303526217 : GoFloat64), _vn:GoFloat64 = __2, _tn:GoFloat64 = __1, _dn:GoFloat64 = __0;
-        _testKn = new Slice<GoUInt32>((128 : GoInt).toBasic(), 0, ...[for (i in 0 ... (128 : GoInt).toBasic()) (0 : GoUInt32)]);
-        _testWn = new Slice<GoFloat32>((128 : GoInt).toBasic(), 0, ...[for (i in 0 ... (128 : GoInt).toBasic()) (0 : GoFloat32)]);
-        _testFn = new Slice<GoFloat32>((128 : GoInt).toBasic(), 0, ...[for (i in 0 ... (128 : GoInt).toBasic()) (0 : GoFloat32)]);
+        _testKn = new Slice<GoUInt32>((128 : GoInt).toBasic(), 0).__setNumber32__();
+        _testWn = new Slice<GoFloat32>((128 : GoInt).toBasic(), 0).__setNumber32__();
+        _testFn = new Slice<GoFloat32>((128 : GoInt).toBasic(), 0).__setNumber32__();
         var _q:GoFloat64 = _vn / stdgo.math.Math.exp(((-0.5 : GoFloat64) * _dn) * _dn);
         _testKn[(0 : GoInt)] = ((_dn / _q) * (2.147483648e+09 : GoFloat64) : GoUInt32);
         _testKn[(1 : GoInt)] = (0u32 : GoUInt32);
@@ -958,9 +958,9 @@ private function _initExp():{ var _0 : Slice<GoUInt32>; var _1 : Slice<GoFloat32
         var _testKe:Slice<GoUInt32> = (null : Slice<GoUInt32>), _testWe:Slice<GoFloat32> = (null : Slice<GoFloat32>), _testFe:Slice<GoFloat32> = (null : Slice<GoFloat32>);
         {};
         var __0:GoFloat64 = _re, __1:GoFloat64 = _de, __2:GoFloat64 = (0.003949659822581557 : GoFloat64), _ve:GoFloat64 = __2, _te:GoFloat64 = __1, _de:GoFloat64 = __0;
-        _testKe = new Slice<GoUInt32>((256 : GoInt).toBasic(), 0, ...[for (i in 0 ... (256 : GoInt).toBasic()) (0 : GoUInt32)]);
-        _testWe = new Slice<GoFloat32>((256 : GoInt).toBasic(), 0, ...[for (i in 0 ... (256 : GoInt).toBasic()) (0 : GoFloat32)]);
-        _testFe = new Slice<GoFloat32>((256 : GoInt).toBasic(), 0, ...[for (i in 0 ... (256 : GoInt).toBasic()) (0 : GoFloat32)]);
+        _testKe = new Slice<GoUInt32>((256 : GoInt).toBasic(), 0).__setNumber32__();
+        _testWe = new Slice<GoFloat32>((256 : GoInt).toBasic(), 0).__setNumber32__();
+        _testFe = new Slice<GoFloat32>((256 : GoInt).toBasic(), 0).__setNumber32__();
         var _q:GoFloat64 = _ve / stdgo.math.Math.exp(-_de);
         _testKe[(0 : GoInt)] = ((_de / _q) * (4.294967296e+09 : GoFloat64) : GoUInt32);
         _testKe[(1 : GoInt)] = (0u32 : GoUInt32);
@@ -1089,7 +1089,7 @@ function testFloat32(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 private function _testReadUniformity(_t:Ref<stdgo.testing.Testing.T>, _n:GoInt, _seed:GoInt64):Void {
         var _r = new_(newSource(_seed));
-        var _buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0).__setNumber32__();
         var __tmp__ = _r.read(_buf), _nRead:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("Read err %v" : GoString), Go.toInterface(_err));
@@ -1099,14 +1099,14 @@ private function _testReadUniformity(_t:Ref<stdgo.testing.Testing.T>, _n:GoInt, 
         };
         var __0:GoFloat64 = (127.5 : GoFloat64), __1:GoFloat64 = (256 : GoFloat64) / stdgo.math.Math.sqrt((12 : GoFloat64)), __2:GoFloat64 = _stddev / stdgo.math.Math.sqrt((_n : GoFloat64)), _errorScale:GoFloat64 = __2, _stddev:GoFloat64 = __1, _mean:GoFloat64 = __0;
         var _expected = (Go.setRef((new T_statsResults(_mean, _stddev, (0.1 : GoFloat64) * _errorScale, (0.08 : GoFloat64) * _errorScale) : T_statsResults)) : Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
-        var _samples = new Slice<GoFloat64>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoFloat64)]);
+        var _samples = new Slice<GoFloat64>((_n : GoInt).toBasic(), 0).__setNumber32__();
         for (_i => _val in _buf) {
             _samples[(_i : GoInt)] = (_val : GoFloat64);
         };
         _checkSampleDistribution(_t, _samples, _expected);
     }
 function testReadUniformity(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _testBufferSizes = (new Slice<GoInt>(0, 0, (2 : GoInt), (4 : GoInt), (7 : GoInt), (64 : GoInt), (1024 : GoInt), (65536 : GoInt), (1048576 : GoInt)) : Slice<GoInt>);
+        var _testBufferSizes = (new Slice<GoInt>(7, 7, (2 : GoInt), (4 : GoInt), (7 : GoInt), (64 : GoInt), (1024 : GoInt), (65536 : GoInt), (1048576 : GoInt)) : Slice<GoInt>);
         for (__0 => _seed in _testSeeds) {
             for (__1 => _n in _testBufferSizes) {
                 _testReadUniformity(_t, _n, _seed);
@@ -1115,7 +1115,7 @@ function testReadUniformity(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReadEmpty(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _r = new_(newSource((1i64 : GoInt64)));
-        var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), 0).__setNumber32__();
         var __tmp__ = _r.read(_buf), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("Read err into empty buffer; %v" : GoString), Go.toInterface(_err));
@@ -1126,13 +1126,13 @@ function testReadEmpty(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReadByOneByte(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _r = new_(newSource((1i64 : GoInt64)));
-        var _b1 = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0, ...[for (i in 0 ... (100 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b1 = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0).__setNumber32__();
         var __tmp__ = stdgo.io.Io.readFull(stdgo.testing.iotest.Iotest.oneByteReader(Go.asInterface(_r)), _b1), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("read by one byte: %v" : GoString), Go.toInterface(_err));
         };
         _r = new_(newSource((1i64 : GoInt64)));
-        var _b2 = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0, ...[for (i in 0 ... (100 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b2 = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0).__setNumber32__();
         {
             var __tmp__ = _r.read(_b2);
             _err = __tmp__._1;
@@ -1146,13 +1146,13 @@ function testReadByOneByte(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReadSeedReset(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _r = new_(newSource((42i64 : GoInt64)));
-        var _b1 = new Slice<GoUInt8>((128 : GoInt).toBasic(), 0, ...[for (i in 0 ... (128 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b1 = new Slice<GoUInt8>((128 : GoInt).toBasic(), 0).__setNumber32__();
         var __tmp__ = _r.read(_b1), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("read: %v" : GoString), Go.toInterface(_err));
         };
         _r.seed((42i64 : GoInt64));
-        var _b2 = new Slice<GoUInt8>((128 : GoInt).toBasic(), 0, ...[for (i in 0 ... (128 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _b2 = new Slice<GoUInt8>((128 : GoInt).toBasic(), 0).__setNumber32__();
         {
             var __tmp__ = _r.read(_b2);
             _err = __tmp__._1;
@@ -1220,7 +1220,7 @@ function testUniformFactorial(_t:Ref<stdgo.testing.Testing.T>):Void {
                             _nfact = _nfact * (_i);
                         });
                     };
-                    var _p = new Slice<GoInt>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoInt)]);
+                    var _p = new Slice<GoInt>((_n : GoInt).toBasic(), 0).__setNumber32__();
                     var _tests = (new GoArray<T__struct_0>(({ _name : ("Int31n" : GoString), _fn : function():GoInt {
                         return (_r.int31n((_nfact : GoInt32)) : GoInt);
                     } } : T__struct_0), ({ _name : ("int31n" : GoString), _fn : function():GoInt {
@@ -1247,10 +1247,10 @@ function testUniformFactorial(_t:Ref<stdgo.testing.Testing.T>):Void {
                             if (_nsamples < (200 : GoInt)) {
                                 _nsamples = (200 : GoInt);
                             };
-                            var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0, ...[for (i in 0 ... (_nsamples : GoInt).toBasic()) (0 : GoFloat64)]);
+                            var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0).__setNumber32__();
                             for (_i in 0 ... _samples.length.toBasic()) {
                                 {};
-                                var _counts = new Slice<GoInt>((_nfact : GoInt).toBasic(), 0, ...[for (i in 0 ... (_nfact : GoInt).toBasic()) (0 : GoInt)]);
+                                var _counts = new Slice<GoInt>((_nfact : GoInt).toBasic(), 0).__setNumber32__();
                                 {
                                     var _i:GoInt = (0 : GoInt);
                                     Go.cfor(_i < (1000 : GoInt), _i++, {
@@ -1370,7 +1370,7 @@ function benchmarkPerm30ViaShuffle(_b:Ref<stdgo.testing.Testing.B>):Void {
         {
             var _n:GoInt = _b.n;
             Go.cfor(_n > (0 : GoInt), _n--, {
-                var _p = new Slice<GoInt>((30 : GoInt).toBasic(), 0, ...[for (i in 0 ... (30 : GoInt).toBasic()) (0 : GoInt)]);
+                var _p = new Slice<GoInt>((30 : GoInt).toBasic(), 0).__setNumber32__();
                 for (_i in 0 ... _p.length.toBasic()) {
                     _p[(_i : GoInt)] = _i;
                 };
@@ -1404,7 +1404,7 @@ function benchmarkShuffleOverhead(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkRead3(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _r = new_(newSource((1i64 : GoInt64)));
-        var _buf = new Slice<GoUInt8>((3 : GoInt).toBasic(), 0, ...[for (i in 0 ... (3 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _buf = new Slice<GoUInt8>((3 : GoInt).toBasic(), 0).__setNumber32__();
         _b.resetTimer();
         {
             var _n:GoInt = _b.n;
@@ -1415,7 +1415,7 @@ function benchmarkRead3(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkRead64(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _r = new_(newSource((1i64 : GoInt64)));
-        var _buf = new Slice<GoUInt8>((64 : GoInt).toBasic(), 0, ...[for (i in 0 ... (64 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _buf = new Slice<GoUInt8>((64 : GoInt).toBasic(), 0).__setNumber32__();
         _b.resetTimer();
         {
             var _n:GoInt = _b.n;
@@ -1426,7 +1426,7 @@ function benchmarkRead64(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkRead1000(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _r = new_(newSource((1i64 : GoInt64)));
-        var _buf = new Slice<GoUInt8>((1000 : GoInt).toBasic(), 0, ...[for (i in 0 ... (1000 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _buf = new Slice<GoUInt8>((1000 : GoInt).toBasic(), 0).__setNumber32__();
         _b.resetTimer();
         {
             var _n:GoInt = _b.n;
@@ -1437,8 +1437,8 @@ function benchmarkRead1000(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _int32s:Slice<GoInt32> = (new Slice<GoInt32>(
-0,
-0,
+9,
+9,
 (1 : GoInt32),
 (10 : GoInt32),
 (32 : GoInt32),
@@ -1449,8 +1449,8 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 (2147483646 : GoInt32),
 (2147483647 : GoInt32)) : Slice<GoInt32>);
         var _int64s:Slice<GoInt64> = (new Slice<GoInt64>(
-0,
-0,
+13,
+13,
 (1i64 : GoInt64),
 (10i64 : GoInt64),
 (32i64 : GoInt64),
@@ -1464,8 +1464,8 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 (1152921504606846976i64 : GoInt64),
 (9223372036854775806i64 : GoInt64),
 (9223372036854775807i64 : GoInt64)) : Slice<GoInt64>);
-        var _permSizes:Slice<GoInt> = (new Slice<GoInt>(0, 0, (0 : GoInt), (1 : GoInt), (5 : GoInt), (8 : GoInt), (9 : GoInt), (10 : GoInt), (16 : GoInt)) : Slice<GoInt>);
-        var _readBufferSizes:Slice<GoInt> = (new Slice<GoInt>(0, 0, (1 : GoInt), (7 : GoInt), (8 : GoInt), (9 : GoInt), (10 : GoInt)) : Slice<GoInt>);
+        var _permSizes:Slice<GoInt> = (new Slice<GoInt>(7, 7, (0 : GoInt), (1 : GoInt), (5 : GoInt), (8 : GoInt), (9 : GoInt), (10 : GoInt), (16 : GoInt)) : Slice<GoInt>);
+        var _readBufferSizes:Slice<GoInt> = (new Slice<GoInt>(5, 5, (1 : GoInt), (7 : GoInt), (8 : GoInt), (9 : GoInt), (10 : GoInt)) : Slice<GoInt>);
         var _r = new_(newSource((0i64 : GoInt64)));
         var _rv:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface(_r)))?.__copy__();
         var _n:GoInt = _rv.numMethod();
@@ -1493,7 +1493,9 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
                             {
                                 var __continue__ = false;
                                 var __switchIndex__ = -1;
-                                while (true) {
+                                var __run__ = true;
+                                while (__run__) {
+                                    __run__ = false;
                                     {
                                         final __value__ = _mt.in_((0 : GoInt)).kind();
                                         if (__value__ == ((2u32 : stdgo.reflect.Reflect.Kind))) {
@@ -1524,7 +1526,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
                                         } else if (__value__ == ((23u32 : stdgo.reflect.Reflect.Kind))) {
                                             if (_m.name == (("Read" : GoString))) {
                                                 var _n:GoInt = _readBufferSizes[(_repeat % (_readBufferSizes.length) : GoInt)];
-                                                _x = Go.toInterface(new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoUInt8)]));
+                                                _x = Go.toInterface(new Slice<GoUInt8>((_n : GoInt).toBasic(), 0).__setNumber32__());
                                             };
                                             break;
                                         } else {
@@ -1536,7 +1538,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 if (__continue__) continue;
                             };
                             _argstr = stdgo.fmt.Fmt.sprint(_x);
-                            _args = _args.__appendref__(stdgo.reflect.Reflect.valueOf(_x)?.__copy__());
+                            _args = (_args.__append__(stdgo.reflect.Reflect.valueOf(_x)?.__copy__()));
                         };
                         var _out:AnyInterface = (null : AnyInterface);
                         _out = _mv.call(_args)[(0 : GoInt)].interface_();

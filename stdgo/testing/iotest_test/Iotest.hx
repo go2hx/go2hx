@@ -15,8 +15,8 @@ import stdgo.testing.iotest.Iotest;
     
 **/
 private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-0,
-0,
+15,
+15,
 (new stdgo.testing.Testing.InternalTest(("TestWriteLogger" : GoString), stdgo.testing.iotest.Iotest.testWriteLogger) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestWriteLogger_errorOnWrite" : GoString), stdgo.testing.iotest.Iotest.testWriteLogger_errorOnWrite) : stdgo.testing.Testing.InternalTest),
 (new stdgo.testing.Testing.InternalTest(("TestReadLogger" : GoString), stdgo.testing.iotest.Iotest.testReadLogger) : stdgo.testing.Testing.InternalTest),
@@ -49,7 +49,7 @@ private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(
     
     
 **/
-private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0, (new stdgo.testing.Testing.InternalExample(("ExampleErrReader" : GoString), stdgo.testing.iotest_test.Iotest_test.exampleErrReader, ("n:   0\nerr: \"custom error\"\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
+private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(1, 1, (new stdgo.testing.Testing.InternalExample(("ExampleErrReader" : GoString), stdgo.testing.iotest_test.Iotest_test.exampleErrReader, ("n:   0\nerr: \"custom error\"\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
 private function main():Void {
         var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());

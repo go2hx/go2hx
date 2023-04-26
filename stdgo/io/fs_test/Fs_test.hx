@@ -22,8 +22,8 @@ import stdgo.io.fs.Fs;
     
 **/
 private var _isValidPathTests = (new Slice<T__struct_0>(
-0,
-0,
+23,
+23,
 ({ _name : ("." : GoString), _ok : true } : T__struct_0),
 ({ _name : ("x" : GoString), _ok : true } : T__struct_0),
 ({ _name : ("x/y" : GoString), _ok : true } : T__struct_0),
@@ -52,24 +52,26 @@ private var _isValidPathTests = (new Slice<T__struct_0>(
     
     
 **/
-private var _globTests = (new Slice<T__struct_1>(0, 0, ({ _fs : stdgo.os.Os.dirFS(("." : GoString)), _pattern : ("glob.go" : GoString), _result : ("glob.go" : GoString) } : T__struct_1), ({ _fs : stdgo.os.Os.dirFS(("." : GoString)), _pattern : ("gl?b.go" : GoString), _result : ("glob.go" : GoString) } : T__struct_1), ({ _fs : stdgo.os.Os.dirFS(("." : GoString)), _pattern : ("gl\\ob.go" : GoString), _result : ("glob.go" : GoString) } : T__struct_1), ({ _fs : stdgo.os.Os.dirFS(("." : GoString)), _pattern : ("*" : GoString), _result : ("glob.go" : GoString) } : T__struct_1), ({ _fs : stdgo.os.Os.dirFS((".." : GoString)), _pattern : ("*/glob.go" : GoString), _result : ("fs/glob.go" : GoString) } : T__struct_1)) : Slice<T__struct_1>);
+private var _globTests = (new Slice<T__struct_1>(5, 5, ({ _fs : stdgo.os.Os.dirFS(("." : GoString)), _pattern : ("glob.go" : GoString), _result : ("glob.go" : GoString) } : T__struct_1), ({ _fs : stdgo.os.Os.dirFS(("." : GoString)), _pattern : ("gl?b.go" : GoString), _result : ("glob.go" : GoString) } : T__struct_1), ({ _fs : stdgo.os.Os.dirFS(("." : GoString)), _pattern : ("gl\\ob.go" : GoString), _result : ("glob.go" : GoString) } : T__struct_1), ({ _fs : stdgo.os.Os.dirFS(("." : GoString)), _pattern : ("*" : GoString), _result : ("glob.go" : GoString) } : T__struct_1), ({ _fs : stdgo.os.Os.dirFS((".." : GoString)), _pattern : ("*/glob.go" : GoString), _result : ("fs/glob.go" : GoString) } : T__struct_1)) : Slice<T__struct_1>);
 /**
     
     
     
 **/
 private var _testFsys = ({
-        final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.testing.fstest.Fstest.MapFile", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }, { name : "mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.io.fs.Fs.FileMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind), false, { get : () -> null }) }, optional : false }, { name : "modTime", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.Time", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_wall", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "_ext", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_loc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.Location", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_zone", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.T_zone", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_offset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_isDST", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_tx", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.T_zoneTrans", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_when", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_index", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }, optional : false }, { name : "_isstd", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_isutc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_extend", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_cacheStart", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_cacheEnd", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_cacheZone", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.T_zone", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_offset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_isDST", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "sys", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) })));
-        @:privateAccess x._keys = [("hello.txt" : GoString), ("sub/goodbye.txt" : GoString)];
-        @:privateAccess x._values = [({ data : (("hello, world" : GoString) : Slice<GoByte>), mode : (302u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS), ({ data : (("goodbye, world" : GoString) : Slice<GoByte>), mode : (302u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS)];
+        final x = new GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>();
+        @:mergeBlock {
+            x.set(("hello.txt" : GoString), ({ data : (("hello, world" : GoString) : Slice<GoByte>), mode : (302u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
+            x.set(("sub/goodbye.txt" : GoString), ({ data : (("goodbye, world" : GoString) : Slice<GoByte>), mode : (302u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
+        };
         x;
-    } : stdgo.GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>);
+    });
 /**
     
     
     
 **/
-private var _tree = (Go.setRef((new Node(("testdata" : GoString), (new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(0, 0, (new stdgo.io.fs_test.Fs_test.Node(("a" : GoString), (null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("b" : GoString), (new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(0, 0) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("c" : GoString), (null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("d" : GoString), (new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(0, 0, (new stdgo.io.fs_test.Fs_test.Node(("x" : GoString), (null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("y" : GoString), (new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(0, 0) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("z" : GoString), (new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(0, 0, (new stdgo.io.fs_test.Fs_test.Node(("u" : GoString), (null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("v" : GoString), (null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node)) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node)) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node)) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : Node)) : Ref<stdgo.io.fs_test.Fs_test.Node>);
+private var _tree = (Go.setRef((new Node(("testdata" : GoString), (new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(4, 4, (new stdgo.io.fs_test.Fs_test.Node(("a" : GoString), (null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("b" : GoString), (new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(0, 0) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("c" : GoString), (null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("d" : GoString), (new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(3, 3, (new stdgo.io.fs_test.Fs_test.Node(("x" : GoString), (null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("y" : GoString), (new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(0, 0) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("z" : GoString), (new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(2, 2, (new stdgo.io.fs_test.Fs_test.Node(("u" : GoString), (null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node), (new stdgo.io.fs_test.Fs_test.Node(("v" : GoString), (null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node)) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node)) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node)) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : Node)) : Ref<stdgo.io.fs_test.Fs_test.Node>);
 /**
     
     
@@ -283,7 +285,7 @@ function testGlob(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("Glob(%#q) = %#v want %v" : GoString), Go.toInterface(_tt._pattern), Go.toInterface(_matches), Go.toInterface(_tt._result));
             };
         };
-        for (__1 => _pattern in (new Slice<GoString>(0, 0, ("no_match" : GoString), ("../*/no_match" : GoString), ("\\*" : GoString)) : Slice<GoString>)) {
+        for (__1 => _pattern in (new Slice<GoString>(3, 3, ("no_match" : GoString), ("../*/no_match" : GoString), ("\\*" : GoString)) : Slice<GoString>)) {
             var __tmp__ = glob(stdgo.os.Os.dirFS(("." : GoString)), _pattern), _matches:Slice<GoString> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.errorf(("Glob error for %q: %s" : GoString), Go.toInterface(_pattern), Go.toInterface(_err));
@@ -295,7 +297,7 @@ function testGlob(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testGlobError(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _bad = (new Slice<GoString>(0, 0, ("[]" : GoString), ("nonexist/[]" : GoString)) : Slice<GoString>);
+        var _bad = (new Slice<GoString>(2, 2, ("[]" : GoString), ("nonexist/[]" : GoString)) : Slice<GoString>);
         for (__0 => _pattern in _bad) {
             var __tmp__ = glob(stdgo.os.Os.dirFS(("." : GoString)), _pattern), __1:Slice<GoString> = __tmp__._0, _err:Error = __tmp__._1;
             if (Go.toInterface(_err) != (Go.toInterface(stdgo.path.Path.errBadPattern))) {
@@ -324,7 +326,7 @@ function testGlobMethod(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _check = function(_desc:GoString, _names:Slice<GoString>, _err:Error):Void {
             _t.helper();
             if (((_err != null) || (_names.length != (1 : GoInt))) || (_names[(0 : GoInt)] != ("hello.txt" : GoString))) {
-                _t.errorf(("Glob(%s) = %v, %v, want %v, nil" : GoString), Go.toInterface(_desc), Go.toInterface(_names), Go.toInterface(_err), Go.toInterface((new Slice<GoString>(0, 0, ("hello.txt" : GoString)) : Slice<GoString>)));
+                _t.errorf(("Glob(%s) = %v, %v, want %v, nil" : GoString), Go.toInterface(_desc), Go.toInterface(_names), Go.toInterface(_err), Go.toInterface((new Slice<GoString>(1, 1, ("hello.txt" : GoString)) : Slice<GoString>)));
             };
         };
         var __tmp__ = glob(Go.asInterface((new T_globOnly(Go.asInterface(_testFsys)) : T_globOnly)), ("*.txt" : GoString)), _names:Slice<GoString> = __tmp__._0, _err:Error = __tmp__._1;
@@ -342,9 +344,9 @@ function testReadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
             if ((((_err != null) || (_dirs.length != (2 : GoInt))) || (_dirs[(0 : GoInt)].name() != ("hello.txt" : GoString))) || (_dirs[(1 : GoInt)].name() != ("sub" : GoString))) {
                 var _names:Slice<GoString> = (null : Slice<GoString>);
                 for (__0 => _d in _dirs) {
-                    _names = _names.__appendref__(_d.name());
+                    _names = (_names.__append__(_d.name()));
                 };
-                _t.errorf(("ReadDir(%s) = %v, %v, want %v, nil" : GoString), Go.toInterface(_desc), Go.toInterface(_names), Go.toInterface(_err), Go.toInterface((new Slice<GoString>(0, 0, ("hello.txt" : GoString), ("sub" : GoString)) : Slice<GoString>)));
+                _t.errorf(("ReadDir(%s) = %v, %v, want %v, nil" : GoString), Go.toInterface(_desc), Go.toInterface(_names), Go.toInterface(_err), Go.toInterface((new Slice<GoString>(2, 2, ("hello.txt" : GoString), ("sub" : GoString)) : Slice<GoString>)));
             };
         };
         var __tmp__ = readDir(Go.asInterface((new T_readDirOnly(Go.asInterface(_testFsys)) : T_readDirOnly)), ("." : GoString)), _dirs:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
@@ -368,12 +370,14 @@ function testReadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testFileInfoToDirEntry(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _testFs:stdgo.testing.fstest.Fstest.MapFS = ({
-            final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.testing.fstest.Fstest.MapFile", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }, { name : "mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.io.fs.Fs.FileMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind), false, { get : () -> null }) }, optional : false }, { name : "modTime", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.Time", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_wall", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "_ext", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_loc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.Location", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_zone", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.T_zone", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_offset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_isDST", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_tx", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.T_zoneTrans", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_when", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_index", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }, optional : false }, { name : "_isstd", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_isutc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_extend", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_cacheStart", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_cacheEnd", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_cacheZone", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.T_zone", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_offset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_isDST", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "sys", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) })));
-            @:privateAccess x._keys = [("notadir.txt" : GoString), ("adir" : GoString)];
-            @:privateAccess x._values = [({ data : (("hello, world" : GoString) : Slice<GoByte>), mode : (0u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS), ({ data : (null : Slice<GoUInt8>), mode : (-2147483648u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS)];
+            final x = new GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>();
+            @:mergeBlock {
+                x.set(("notadir.txt" : GoString), ({ data : (("hello, world" : GoString) : Slice<GoByte>), mode : (0u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
+                x.set(("adir" : GoString), ({ data : (null : Slice<GoUInt8>), mode : (-2147483648u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
+            };
             x;
-        } : stdgo.GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>);
-        var _tests = (new Slice<T__struct_2>(0, 0, ({ _path : ("notadir.txt" : GoString), _wantMode : (0u32 : stdgo.io.fs.Fs.FileMode), _wantDir : false } : T__struct_2), ({ _path : ("adir" : GoString), _wantMode : (-2147483648u32 : stdgo.io.fs.Fs.FileMode), _wantDir : true } : T__struct_2)) : Slice<T__struct_2>);
+        });
+        var _tests = (new Slice<T__struct_2>(2, 2, ({ _path : ("notadir.txt" : GoString), _wantMode : (0u32 : stdgo.io.fs.Fs.FileMode), _wantDir : false } : T__struct_2), ({ _path : ("adir" : GoString), _wantMode : (-2147483648u32 : stdgo.io.fs.Fs.FileMode), _wantDir : true } : T__struct_2)) : Slice<T__struct_2>);
         for (__0 => _test in _tests) {
             var _test:T__struct_2 = {
                 final x = _test;
@@ -467,9 +471,9 @@ function testSub(_t:Ref<stdgo.testing.Testing.T>):Void {
             if (((_err != null) || (_dirs.length != (1 : GoInt))) || (_dirs[(0 : GoInt)].name() != ("goodbye.txt" : GoString))) {
                 var _names:Slice<GoString> = (null : Slice<GoString>);
                 for (__0 => _d in _dirs) {
-                    _names = _names.__appendref__(_d.name());
+                    _names = (_names.__append__(_d.name()));
                 };
-                _t.errorf(("ReadDir(%s, \".\") = %v, %v, want %v, nil" : GoString), Go.toInterface(_desc), Go.toInterface(_names), Go.toInterface(_err), Go.toInterface((new Slice<GoString>(0, 0, ("goodbye.txt" : GoString)) : Slice<GoString>)));
+                _t.errorf(("ReadDir(%s, \".\") = %v, %v, want %v, nil" : GoString), Go.toInterface(_desc), Go.toInterface(_names), Go.toInterface(_err), Go.toInterface((new Slice<GoString>(1, 1, ("goodbye.txt" : GoString)) : Slice<GoString>)));
             };
         };
         var __tmp__ = sub(Go.asInterface((new T_subOnly(Go.asInterface(_testFsys)) : T_subOnly)), ("sub" : GoString)), _sub:stdgo.io.fs.Fs.FS = __tmp__._0, _err:Error = __tmp__._1;
@@ -507,11 +511,10 @@ private function _walkTree(_n:Ref<Node>, _path:GoString, _f:(_path:GoString, _n:
     }
 private function _makeTree():FS {
         var _fsys:stdgo.testing.fstest.Fstest.MapFS = ({
-            final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.testing.fstest.Fstest.MapFile", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "data", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, optional : false }, { name : "mode", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.io.fs.Fs.FileMode", [], stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind), false, { get : () -> null }) }, optional : false }, { name : "modTime", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.Time", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_wall", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "_ext", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_loc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.Location", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_zone", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.T_zone", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_offset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_isDST", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_tx", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.T_zoneTrans", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_when", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_index", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }, optional : false }, { name : "_isstd", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }, { name : "_isutc", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_extend", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_cacheStart", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_cacheEnd", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }, { name : "_cacheZone", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.time.Time.T_zone", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "_offset", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_isDST", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "sys", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }]), false, { get : () -> null }) }) })));
-            @:privateAccess x._keys = [];
-            @:privateAccess x._values = [];
+            final x = new GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>();
+            @:mergeBlock {};
             x;
-        } : stdgo.GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>);
+        });
         _walkTree(_tree, _tree._name, function(_path:GoString, _n:Ref<Node>):Void {
             if (_n._entries == null) {
                 _fsys[_path] = (Go.setRef((new stdgo.testing.fstest.Fstest.MapFile() : stdgo.testing.fstest.Fstest.MapFile)) : Ref<stdgo.testing.fstest.Fstest.MapFile>);
@@ -561,7 +564,7 @@ function testWalkDir(_t:Ref<stdgo.testing.Testing.T>):Void {
                 __deferstack__.unshift(() -> stdgo.os.Os.chdir(_a0));
             };
             var _fsys:stdgo.io.fs.Fs.FS = _makeTree();
-            var _errors = new Slice<Error>((0 : GoInt).toBasic(), (10 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (null : Error)]);
+            var _errors = new Slice<Error>((0 : GoInt).toBasic(), (10 : GoInt));
             var _clear:Bool = true;
             var _markFn:(GoString, stdgo.io.fs.Fs.DirEntry, Error) -> Error = function(_path:GoString, _entry:DirEntry, _err:Error):Error {
                 return _mark(_entry, _err, (Go.setRef(_errors) : Ref<Slice<Error>>), _clear);
@@ -607,7 +610,7 @@ function testIssue51617(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _dir:GoString = _t.tempDir();
-            for (__0 => _sub in (new Slice<GoString>(0, 0, ("a" : GoString), stdgo.path.filepath.Filepath.join(("a" : GoString), ("bad" : GoString)), stdgo.path.filepath.Filepath.join(("a" : GoString), ("next" : GoString))) : Slice<GoString>)) {
+            for (__0 => _sub in (new Slice<GoString>(3, 3, ("a" : GoString), stdgo.path.filepath.Filepath.join(("a" : GoString), ("bad" : GoString)), stdgo.path.filepath.Filepath.join(("a" : GoString), ("next" : GoString))) : Slice<GoString>)) {
                 {
                     var _err:Error = stdgo.os.Os.mkdir(stdgo.path.filepath.Filepath.join(_dir, _sub), (493u32 : stdgo.io.fs.Fs.FileMode));
                     if (_err != null) {
@@ -633,14 +636,14 @@ function testIssue51617(_t:Ref<stdgo.testing.Testing.T>):Void {
                     return stdgo.path.filepath.Filepath.skipDir;
                 };
                 if (_d.isDir()) {
-                    _saw = _saw.__appendref__(_path);
+                    _saw = (_saw.__append__(_path));
                 };
                 return (null : Error);
             });
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
-            var _want = (new Slice<GoString>(0, 0, ("." : GoString), ("a" : GoString), ("a/bad" : GoString), ("a/next" : GoString)) : Slice<GoString>);
+            var _want = (new Slice<GoString>(4, 4, ("." : GoString), ("a" : GoString), ("a/bad" : GoString), ("a/next" : GoString)) : Slice<GoString>);
             if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_saw), Go.toInterface(_want))) {
                 _t.errorf(("got directories %v, want %v" : GoString), Go.toInterface(_saw), Go.toInterface(_want));
             };

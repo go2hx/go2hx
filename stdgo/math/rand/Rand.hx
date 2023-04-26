@@ -2441,7 +2441,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function perm( _r:Ref<Rand>, _n:GoInt):Slice<GoInt> {
-        var _m = new Slice<GoInt>((_n : GoInt).toBasic(), 0, ...[for (i in 0 ... (_n : GoInt).toBasic()) (0 : GoInt)]);
+        var _m = new Slice<GoInt>((_n : GoInt).toBasic(), 0).__setNumber32__();
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _n, _i++, {

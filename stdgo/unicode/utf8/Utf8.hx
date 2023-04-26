@@ -748,7 +748,9 @@ function encodeRune(_p:Slice<GoByte>, _r:GoRune):GoInt {
             var _i:GoUInt32 = (_r : GoUInt32);
             {
                 var __switchIndex__ = -1;
-                while (true) {
+                var __run__ = true;
+                while (__run__) {
+                    __run__ = false;
                     if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_i <= (127u32 : GoUInt32)))) {
                         _p[(0 : GoInt)] = (_r : GoByte);
                         return (1 : GoInt);
@@ -765,6 +767,7 @@ function encodeRune(_p:Slice<GoByte>, _r:GoRune):GoInt {
                         _r = (65533 : GoInt32);
                         @:fallthrough {
                             __switchIndex__ = 3;
+                            __run__ = true;
                             continue;
                         };
                         break;
@@ -807,7 +810,9 @@ private function _appendRuneNonASCII(_p:Slice<GoByte>, _r:GoRune):Slice<GoByte> 
             var _i:GoUInt32 = (_r : GoUInt32);
             {
                 var __switchIndex__ = -1;
-                while (true) {
+                var __run__ = true;
+                while (__run__) {
+                    __run__ = false;
                     if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_i <= (2047u32 : GoUInt32)))) {
                         return (_p.__append__((192 : GoUInt8) | (_r >> (6i64 : GoUInt64) : GoByte), (128 : GoUInt8) | ((_r : GoByte) & (63 : GoUInt8))));
                         break;
@@ -816,6 +821,7 @@ private function _appendRuneNonASCII(_p:Slice<GoByte>, _r:GoRune):Slice<GoByte> 
                         _r = (65533 : GoInt32);
                         @:fallthrough {
                             __switchIndex__ = 2;
+                            __run__ = true;
                             continue;
                         };
                         break;

@@ -9,6 +9,10 @@
 # Index
 
 
+- [Constants](<#constants>)
+
+- [Variables](<#variables>)
+
 - [class AnyInterfaceData](<#class-anyinterfacedata>)
 
   - [`function new(value:Any, type:stdgo.internal.reflect._Type):Void`](<#anyinterfacedata-function-new>)
@@ -69,6 +73,42 @@
 
   - [`function unquote(qvalue:Dynamic):Dynamic`](<#go-function-unquote>)
 
+- [class GoAnyInterfaceMap](<#class-goanyinterfacemap>)
+
+  - [`function get(key:Dynamic):stdgo.GoAnyInterfaceMap.V`](<#goanyinterfacemap-function-get>)
+
+  - [`function new():Void`](<#goanyinterfacemap-function-new>)
+
+  - [`function set(key:Dynamic, value:stdgo.GoAnyInterfaceMap.V):Void`](<#goanyinterfacemap-function-set>)
+
+- [class GoAnyInterfaceMapKey](<#class-goanyinterfacemapkey>)
+
+  - [`function new(k:stdgo.AnyInterface):Void`](<#goanyinterfacemapkey-function-new>)
+
+- [class GoArrayMap](<#class-goarraymap>)
+
+  - [`function new():Void`](<#goarraymap-function-new>)
+
+- [class GoBoolMap](<#class-goboolmap>)
+
+  - [`function new():Void`](<#goboolmap-function-new>)
+
+- [class GoChanMap](<#class-gochanmap>)
+
+  - [`function new():Void`](<#gochanmap-function-new>)
+
+- [class GoComplex128Map](<#class-gocomplex128map>)
+
+  - [`function new():Void`](<#gocomplex128map-function-new>)
+
+- [class GoFloat64Map](<#class-gofloat64map>)
+
+  - [`function new():Void`](<#gofloat64map-function-new>)
+
+- [class GoInt64Map](<#class-goint64map>)
+
+  - [`function new():Void`](<#goint64map-function-new>)
+
 - [class GoIntIterator](<#class-gointiterator>)
 
   - [`function hasNext():Bool`](<#gointiterator-function-hasnext>)
@@ -79,29 +119,25 @@
 
 - [class GoObjectMap](<#class-goobjectmap>)
 
-  - [`function clear():Void`](<#goobjectmap-function-clear>)
+  - [`function get(key:Dynamic):stdgo.GoObjectMap.V`](<#goobjectmap-function-get>)
 
-  - [`function copy():stdgo.GoObjectMap<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>`](<#goobjectmap-function-copy>)
+  - [`function new():Void`](<#goobjectmap-function-new>)
 
-  - [`function defaultValue():stdgo.GoObjectMap.V`](<#goobjectmap-function-defaultvalue>)
+  - [`function set(key:Dynamic, value:stdgo.GoObjectMap.V):Void`](<#goobjectmap-function-set>)
 
-  - [`function exists(key:stdgo.GoObjectMap.K):Bool`](<#goobjectmap-function-exists>)
+- [class GoPointerMap](<#class-gopointermap>)
 
-  - [`function get(key:stdgo.GoObjectMap.K):Null<stdgo.GoObjectMap.V>`](<#goobjectmap-function-get>)
+  - [`function new():Void`](<#gopointermap-function-new>)
 
-  - [`function iterator():Iterator<stdgo.GoObjectMap.V>`](<#goobjectmap-function-iterator>)
+- [class GoRefMap](<#class-gorefmap>)
 
-  - [`function keyValueIterator():KeyValueIterator<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>`](<#goobjectmap-function-keyvalueiterator>)
+  - [`function new():Void`](<#gorefmap-function-new>)
 
-  - [`function keys():Iterator<stdgo.GoObjectMap.K>`](<#goobjectmap-function-keys>)
+- [class GoStringMap](<#class-gostringmap>)
 
-  - [`function new(t:stdgo.internal.reflect._Type):Void`](<#goobjectmap-function-new>)
+  - [`function new():Void`](<#gostringmap-function-new>)
 
-  - [`function remove(key:stdgo.GoObjectMap.K):Bool`](<#goobjectmap-function-remove>)
-
-  - [`function set(key:stdgo.GoObjectMap.K, value:stdgo.GoObjectMap.V):Void`](<#goobjectmap-function-set>)
-
-  - [`function toString():String`](<#goobjectmap-function-tostring>)
+  - [`function remove(key:stdgo.GoString):Bool`](<#gostringmap-function-remove>)
 
 - [class GoStringTools](<#class-gostringtools>)
 
@@ -112,6 +148,10 @@
   - [`function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString`](<#gostringtools-function-substr>)
 
   - [`function toString(str:stdgo.GoString):String`](<#gostringtools-function-tostring>)
+
+- [class GoUInt64Map](<#class-gouint64map>)
+
+  - [`function new():Void`](<#gouint64map-function-new>)
 
 - [class PointerData](<#class-pointerdata>)
 
@@ -161,13 +201,35 @@
 
 - [typedef GoByte](<#typedef-gobyte>)
 
+- [typedef GoComplex64Map](<#typedef-gocomplex64map>)
+
 - [typedef GoFloat](<#typedef-gofloat>)
 
+- [typedef GoFloat32Map](<#typedef-gofloat32map>)
+
+- [typedef GoFloatMap](<#typedef-gofloatmap>)
+
 - [typedef GoInt](<#typedef-goint>)
+
+- [typedef GoInt16Map](<#typedef-goint16map>)
+
+- [typedef GoInt32Map](<#typedef-goint32map>)
+
+- [typedef GoInt8Map](<#typedef-goint8map>)
+
+- [typedef GoIntMap](<#typedef-gointmap>)
 
 - [typedef GoRune](<#typedef-gorune>)
 
 - [typedef GoUInt](<#typedef-gouint>)
+
+- [typedef GoUInt16Map](<#typedef-gouint16map>)
+
+- [typedef GoUInt32Map](<#typedef-gouint32map>)
+
+- [typedef GoUInt8Map](<#typedef-gouint8map>)
+
+- [typedef GoUIntMap](<#typedef-gouintmap>)
 
 - [typedef InvalidType](<#typedef-invalidtype>)
 
@@ -216,6 +278,32 @@
 - [abstract GoUInt64](<#abstract-gouint64>)
 
 - [abstract AnyInterface](<#abstract-anyinterface>)
+
+# Constants
+
+
+```haxe
+import stdgo.StdGoTypes
+```
+
+
+```haxe
+final globalAddressMutex:sys.thread.Mutex = new sys.thread.Mutex()
+```
+
+
+# Variables
+
+
+```haxe
+import stdgo.StdGoTypes
+```
+
+
+```haxe
+var globalAddress:Int
+```
+
 
 # Classes
 
@@ -424,7 +512,7 @@ function routine(func:():Void):Void
 ```
 
 
-[\(view code\)](<./Go.hx#L23>)
+[\(view code\)](<./Go.hx#L24>)
 
 
 ### Go function select
@@ -510,6 +598,150 @@ function unquote(qvalue:Dynamic):Dynamic
 ```
 
 
+## class GoAnyInterfaceMap
+
+
+### GoAnyInterfaceMap function get
+
+
+```haxe
+function get(key:Dynamic):stdgo.GoAnyInterfaceMap.V
+```
+
+
+[\(view code\)](<./GoMap.hx#L482>)
+
+
+### GoAnyInterfaceMap function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L461>)
+
+
+### GoAnyInterfaceMap function set
+
+
+```haxe
+function set(key:Dynamic, value:stdgo.GoAnyInterfaceMap.V):Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L478>)
+
+
+## class GoAnyInterfaceMapKey
+
+
+```haxe
+var ai:stdgo.AnyInterface
+```
+
+
+```haxe
+var ais:String
+```
+
+
+### GoAnyInterfaceMapKey function new
+
+
+```haxe
+function new(k:stdgo.AnyInterface):Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L451>)
+
+
+## class GoArrayMap
+
+
+### GoArrayMap function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L397>)
+
+
+## class GoBoolMap
+
+
+### GoBoolMap function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L391>)
+
+
+## class GoChanMap
+
+
+### GoChanMap function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L373>)
+
+
+## class GoComplex128Map
+
+
+### GoComplex128Map function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L379>)
+
+
+## class GoFloat64Map
+
+
+### GoFloat64Map function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L333>)
+
+
+## class GoInt64Map
+
+
+### GoInt64Map function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L309>)
+
+
 ## class GoIntIterator
 
 
@@ -554,136 +786,90 @@ var t:stdgo.internal.reflect._Type
 ```
 
 
-### GoObjectMap function clear
-
-
-```haxe
-function clear():Void
-```
-
-
-[\(view code\)](<./GoMap.hx#L189>)
-
-
-### GoObjectMap function copy
-
-
-```haxe
-function copy():stdgo.GoObjectMap<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>
-```
-
-
-[\(view code\)](<./GoMap.hx#L175>)
-
-
-### GoObjectMap function defaultValue
-
-
-```haxe
-function defaultValue():stdgo.GoObjectMap.V
-```
-
-
-[\(view code\)](<./GoMap.hx#L129>)
-
-
-### GoObjectMap function exists
-
-
-```haxe
-function exists(key:stdgo.GoObjectMap.K):Bool
-```
-
-
-[\(view code\)](<./GoMap.hx#L146>)
-
-
 ### GoObjectMap function get
 
 
 ```haxe
-function get(key:stdgo.GoObjectMap.K):Null<stdgo.GoObjectMap.V>
+function get(key:Dynamic):stdgo.GoObjectMap.V
 ```
 
 
-[\(view code\)](<./GoMap.hx#L138>)
-
-
-### GoObjectMap function iterator
-
-
-```haxe
-function iterator():Iterator<stdgo.GoObjectMap.V>
-```
-
-
-[\(view code\)](<./GoMap.hx#L169>)
-
-
-### GoObjectMap function keyValueIterator
-
-
-```haxe
-function keyValueIterator():KeyValueIterator<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>
-```
-
-
-[\(view code\)](<./GoMap.hx#L171>)
-
-
-### GoObjectMap function keys
-
-
-```haxe
-function keys():Iterator<stdgo.GoObjectMap.K>
-```
-
-
-[\(view code\)](<./GoMap.hx#L166>)
+[\(view code\)](<./GoMap.hx#L425>)
 
 
 ### GoObjectMap function new
 
 
 ```haxe
-function new(t:stdgo.internal.reflect._Type):Void
+function new():Void
 ```
 
 
-[\(view code\)](<./GoMap.hx#L95>)
-
-
-### GoObjectMap function remove
-
-
-```haxe
-function remove(key:stdgo.GoObjectMap.K):Bool
-```
-
-
-[\(view code\)](<./GoMap.hx#L154>)
+[\(view code\)](<./GoMap.hx#L403>)
 
 
 ### GoObjectMap function set
 
 
 ```haxe
-function set(key:stdgo.GoObjectMap.K, value:stdgo.GoObjectMap.V):Void
+function set(key:Dynamic, value:stdgo.GoObjectMap.V):Void
 ```
 
 
-[\(view code\)](<./GoMap.hx#L99>)
+[\(view code\)](<./GoMap.hx#L421>)
 
 
-### GoObjectMap function toString
+## class GoPointerMap
+
+
+### GoPointerMap function new
 
 
 ```haxe
-function toString():String
+function new():Void
 ```
 
 
-[\(view code\)](<./GoMap.hx#L182>)
+[\(view code\)](<./GoMap.hx#L367>)
+
+
+## class GoRefMap
+
+
+### GoRefMap function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L361>)
+
+
+## class GoStringMap
+
+
+### GoStringMap function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L294>)
+
+
+### GoStringMap function remove
+
+
+```haxe
+function remove(key:stdgo.GoString):Bool
+```
+
+
+[\(view code\)](<./GoMap.hx#L304>)
 
 
 ## class GoStringTools
@@ -697,7 +883,7 @@ function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L253>)
+[\(view code\)](<./GoString.hx#L262>)
 
 
 ### GoStringTools function lastIndexOf
@@ -708,7 +894,7 @@ function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L250>)
+[\(view code\)](<./GoString.hx#L259>)
 
 
 ### GoStringTools function substr
@@ -719,7 +905,7 @@ function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString
 ```
 
 
-[\(view code\)](<./GoString.hx#L256>)
+[\(view code\)](<./GoString.hx#L265>)
 
 
 ### GoStringTools function toString
@@ -730,10 +916,29 @@ function toString(str:stdgo.GoString):String
 ```
 
 
-[\(view code\)](<./GoString.hx#L259>)
+[\(view code\)](<./GoString.hx#L268>)
+
+
+## class GoUInt64Map
+
+
+### GoUInt64Map function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./GoMap.hx#L321>)
 
 
 ## class PointerData
+
+
+```haxe
+var address:Int
+```
 
 
 ```haxe
@@ -793,7 +998,7 @@ function new(?get:():Null<stdgo.PointerData.T>, ?set:(value:stdgo.PointerData.T)
 ```
 
 
-[\(view code\)](<./Pointer.hx#L86>)
+[\(view code\)](<./Pointer.hx#L89>)
 
 
 ### PointerData function set
@@ -812,7 +1017,7 @@ function toString():String
 ```
 
 
-[\(view code\)](<./Pointer.hx#L101>)
+[\(view code\)](<./Pointer.hx#L107>)
 
 
 ## class SliceData
@@ -846,7 +1051,7 @@ function get(index:Int):stdgo.SliceData.T
 ```
 
 
-[\(view code\)](<./Slice.hx#L266>)
+[\(view code\)](<./Slice.hx#L303>)
 
 
 ### SliceData function grow
@@ -857,7 +1062,7 @@ function grow():Void
 ```
 
 
-[\(view code\)](<./Slice.hx#L292>)
+[\(view code\)](<./Slice.hx#L342>)
 
 
 ### SliceData function new
@@ -868,7 +1073,7 @@ function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void
 ```
 
 
-[\(view code\)](<./Slice.hx#L243>)
+[\(view code\)](<./Slice.hx#L218>)
 
 
 ### SliceData function set
@@ -879,7 +1084,7 @@ function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T
 ```
 
 
-[\(view code\)](<./Slice.hx#L271>)
+[\(view code\)](<./Slice.hx#L319>)
 
 
 ### SliceData function toArray
@@ -890,7 +1095,7 @@ function toArray():Array<stdgo.SliceData.T>
 ```
 
 
-[\(view code\)](<./Slice.hx#L276>)
+[\(view code\)](<./Slice.hx#L324>)
 
 
 ### SliceData function toString
@@ -901,7 +1106,7 @@ function toString():String
 ```
 
 
-[\(view code\)](<./Slice.hx#L284>)
+[\(view code\)](<./Slice.hx#L334>)
 
 
 ### SliceData function toVector
@@ -912,7 +1117,7 @@ function toVector():haxe.ds.Vector<stdgo.SliceData.T>
 ```
 
 
-[\(view code\)](<./Slice.hx#L280>)
+[\(view code\)](<./Slice.hx#L328>)
 
 
 ## class VectorData
@@ -1019,6 +1224,14 @@ typedef GoByte = stdgo.GoUInt8;
 ```
 
 
+## typedef GoComplex64Map
+
+
+```haxe
+typedef GoComplex64Map = stdgo.GoComplex128Map<stdgo.GoComplex64Map.T>;
+```
+
+
 ## typedef GoFloat
 
 
@@ -1027,11 +1240,59 @@ typedef GoFloat = stdgo.GoFloat64;
 ```
 
 
+## typedef GoFloat32Map
+
+
+```haxe
+typedef GoFloat32Map = stdgo.GoFloat64Map<stdgo.GoFloat32Map.T>;
+```
+
+
+## typedef GoFloatMap
+
+
+```haxe
+typedef GoFloatMap = stdgo.GoFloat64Map<stdgo.GoFloatMap.T>;
+```
+
+
 ## typedef GoInt
 
 
 ```haxe
 typedef GoInt = stdgo.GoInt32;
+```
+
+
+## typedef GoInt16Map
+
+
+```haxe
+typedef GoInt16Map = haxe.ds.IntMap<stdgo.GoInt16Map.T>;
+```
+
+
+## typedef GoInt32Map
+
+
+```haxe
+typedef GoInt32Map = haxe.ds.IntMap<stdgo.GoInt32Map.T>;
+```
+
+
+## typedef GoInt8Map
+
+
+```haxe
+typedef GoInt8Map = haxe.ds.IntMap<stdgo.GoInt8Map.T>;
+```
+
+
+## typedef GoIntMap
+
+
+```haxe
+typedef GoIntMap = haxe.ds.IntMap<stdgo.GoIntMap.T>;
 ```
 
 
@@ -1048,6 +1309,38 @@ typedef GoRune = stdgo.GoInt32;
 
 ```haxe
 typedef GoUInt = stdgo.GoUInt32;
+```
+
+
+## typedef GoUInt16Map
+
+
+```haxe
+typedef GoUInt16Map = haxe.ds.IntMap<stdgo.GoUInt16Map.T>;
+```
+
+
+## typedef GoUInt32Map
+
+
+```haxe
+typedef GoUInt32Map = haxe.ds.IntMap<stdgo.GoUInt32Map.T>;
+```
+
+
+## typedef GoUInt8Map
+
+
+```haxe
+typedef GoUInt8Map = haxe.ds.IntMap<stdgo.GoUInt8Map.T>;
+```
+
+
+## typedef GoUIntMap
+
+
+```haxe
+typedef GoUIntMap = haxe.ds.IntMap<stdgo.GoUIntMap.T>;
 ```
 
 

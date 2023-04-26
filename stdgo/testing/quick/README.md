@@ -19,7 +19,7 @@ The testing/quick package is frozen and is not accepting new features.
 Error: Command failed with error 1
 === RUN  TestCheckEqual
 Exception: Null access .__name__
-Called from stdgo.reflect.$Value_static_extension.set (stdgo/reflect/Reflect.hx line 2097)
+Called from stdgo.reflect.$Value_static_extension.set (stdgo/reflect/Reflect.hx line 2100)
 Called from stdgo.testing.quick._Quick.$Quick_Fields_._sizedValue (stdgo/testing/quick/Quick.hx line 367)
 Called from stdgo.testing.quick._Quick.$Quick_Fields_.value (stdgo/testing/quick/Quick.hx line 264)
 Called from stdgo.testing.quick._Quick.$Quick_Fields_._arbitraryValues (stdgo/testing/quick/Quick.hx line 508)
@@ -42,7 +42,7 @@ Called from stdgo.testing.quick._Quick.Quick_Fields_.checkEqual (stdgo/testing/q
 Called from stdgo.testing.quick._Quick.Quick_Fields_._arbitraryValues (stdgo/testing/quick/Quick.hx line 508 column 35)
 Called from stdgo.testing.quick._Quick.Quick_Fields_.value (stdgo/testing/quick/Quick.hx line 264 column 16)
 Called from stdgo.testing.quick._Quick.Quick_Fields_._sizedValue (stdgo/testing/quick/Quick.hx line 367 column 29)
-Called from stdgo.reflect.Value_static_extension.set (stdgo/reflect/Reflect.hx line 2098 column 17)
+Called from stdgo.reflect.Value_static_extension.set (stdgo/reflect/Reflect.hx line 2101 column 17)
 Called from StringTools.endsWith (/home/runner/haxe/versions/1cbe856/std/StringTools.hx line 264 column 14)
 ```
 </p>

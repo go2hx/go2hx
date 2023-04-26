@@ -123,7 +123,7 @@ function count(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L254>)
+[\(view code\)](<./Bytealg.hx#L242>)
 
 
 ## function countString
@@ -134,7 +134,7 @@ function countString(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L263>)
+[\(view code\)](<./Bytealg.hx#L251>)
 
 
 ## function cutover
@@ -151,7 +151,7 @@ before switching over to Index.
 n is the number of bytes processed so far.
 See the bytes.Index implementation for details.  
 
-[\(view code\)](<./Bytealg.hx#L315>)
+[\(view code\)](<./Bytealg.hx#L303>)
 
 
 ## function equal
@@ -172,7 +172,7 @@ Equal is equivalent to bytes.Equal.
 It is provided here for convenience,
 because some packages cannot depend on bytes.  
 
-[\(view code\)](<./Bytealg.hx#L284>)
+[\(view code\)](<./Bytealg.hx#L272>)
 
 
 ## function hashStr
@@ -259,7 +259,7 @@ function index(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):stdgo
 Index returns the index of the first instance of b in a, or \-1 if b is not present in a.
 Requires 2 \<= len\(b\) \<= MaxLen.  
 
-[\(view code\)](<./Bytealg.hx#L299>)
+[\(view code\)](<./Bytealg.hx#L287>)
 
 
 ## function indexByte
@@ -273,7 +273,7 @@ function indexByte(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
 
 go:noescape  
 
-[\(view code\)](<./Bytealg.hx#L321>)
+[\(view code\)](<./Bytealg.hx#L309>)
 
 
 ## function indexByteString
@@ -287,7 +287,7 @@ function indexByteString(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
 
 go:noescape  
 
-[\(view code\)](<./Bytealg.hx#L330>)
+[\(view code\)](<./Bytealg.hx#L318>)
 
 
 ## function indexRabinKarp
@@ -332,6 +332,6 @@ function indexString(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
 IndexString returns the index of the first instance of b in a, or \-1 if b is not present in a.
 Requires 2 \<= len\(b\) \<= MaxLen.  
 
-[\(view code\)](<./Bytealg.hx#L306>)
+[\(view code\)](<./Bytealg.hx#L294>)
 
 

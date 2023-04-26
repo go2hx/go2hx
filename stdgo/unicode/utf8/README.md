@@ -16,46 +16,46 @@ See https://en.wikipedia.org/wiki/UTF-8
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=5.1975250244140625e-05))
+--- PASS: TestConstants (%!s(float64=4.696846008300781e-05))
 
 === RUN  TestFullRune
---- PASS: TestFullRune (%!s(float64=5.5789947509765625e-05))
+--- PASS: TestFullRune (%!s(float64=0.00014901161193847656))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.00011992454528808594))
+--- PASS: TestEncodeRune (%!s(float64=0.0003159046173095703))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.00014710426330566406))
+--- PASS: TestAppendRune (%!s(float64=0.000225067138671875))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=0.00015878677368164062))
+--- PASS: TestDecodeRune (%!s(float64=0.00024700164794921875))
 
 === RUN  TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (%!s(float64=8.106231689453125e-06))
+--- PASS: TestDecodeSurrogateRune (%!s(float64=2.6941299438476562e-05))
 
 === RUN  TestSequencing
---- PASS: TestSequencing (%!s(float64=0.08606195449829102))
+--- PASS: TestSequencing (%!s(float64=0.0786738395690918))
 
 === RUN  TestRuntimeConversion
---- PASS: TestRuntimeConversion (%!s(float64=0.00041103363037109375))
+--- PASS: TestRuntimeConversion (%!s(float64=0.0005769729614257812))
 
 === RUN  TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (%!s(float64=0.00010991096496582031))
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.00026416778564453125))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=1.0013580322265625e-05))
+--- PASS: TestNegativeRune (%!s(float64=2.193450927734375e-05))
 
 === RUN  TestRuneCount
---- PASS: TestRuneCount (%!s(float64=1.3828277587890625e-05))
+--- PASS: TestRuneCount (%!s(float64=2.2172927856445312e-05))
 
 === RUN  TestRuneLen
---- PASS: TestRuneLen (%!s(float64=8.821487426757812e-06))
+--- PASS: TestRuneLen (%!s(float64=5.1975250244140625e-05))
 
 === RUN  TestValid
---- PASS: TestValid (%!s(float64=3.695487976074219e-05))
+--- PASS: TestValid (%!s(float64=5.793571472167969e-05))
 
 === RUN  TestValidRune
---- PASS: TestValidRune (%!s(float64=5.9604644775390625e-06))
+--- PASS: TestValidRune (%!s(float64=2.5987625122070312e-05))
 
 ```
 </p>
@@ -66,46 +66,46 @@ See https://en.wikipedia.org/wiki/UTF-8
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=2.193450927734375e-05))
+--- PASS: TestConstants (%!s(float64=2.4080276489257812e-05))
 
 === RUN  TestFullRune
---- PASS: TestFullRune (%!s(float64=0.0004470348358154297))
+--- PASS: TestFullRune (%!s(float64=0.0005490779876708984))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.0005459785461425781))
+--- PASS: TestEncodeRune (%!s(float64=0.0006389617919921875))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0007870197296142578))
+--- PASS: TestAppendRune (%!s(float64=0.001085042953491211))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=0.0013887882232666016))
+--- PASS: TestDecodeRune (%!s(float64=0.001714944839477539))
 
 === RUN  TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (%!s(float64=3.790855407714844e-05))
+--- PASS: TestDecodeSurrogateRune (%!s(float64=4.601478576660156e-05))
 
 === RUN  TestSequencing
---- PASS: TestSequencing (%!s(float64=0.4780111312866211))
+--- PASS: TestSequencing (%!s(float64=0.5451788902282715))
 
 === RUN  TestRuntimeConversion
---- PASS: TestRuntimeConversion (%!s(float64=0.002897977828979492))
+--- PASS: TestRuntimeConversion (%!s(float64=0.0027899742126464844))
 
 === RUN  TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (%!s(float64=0.0007009506225585938))
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.0007851123809814453))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=4.1961669921875e-05))
+--- PASS: TestNegativeRune (%!s(float64=5.602836608886719e-05))
 
 === RUN  TestRuneCount
---- PASS: TestRuneCount (%!s(float64=0.00012922286987304688))
+--- PASS: TestRuneCount (%!s(float64=0.000102996826171875))
 
 === RUN  TestRuneLen
---- PASS: TestRuneLen (%!s(float64=2.4080276489257812e-05))
+--- PASS: TestRuneLen (%!s(float64=3.600120544433594e-05))
 
 === RUN  TestValid
---- PASS: TestValid (%!s(float64=0.0003249645233154297))
+--- PASS: TestValid (%!s(float64=0.00037097930908203125))
 
 === RUN  TestValidRune
---- PASS: TestValidRune (%!s(float64=2.4080276489257812e-05))
+--- PASS: TestValidRune (%!s(float64=2.5987625122070312e-05))
 
 ```
 </p>
@@ -297,7 +297,7 @@ function exampleAppendRune():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L799>)
+[\(view code\)](<./Utf8.hx#L802>)
 
 
 ## function decodeLastRune
@@ -515,7 +515,7 @@ It returns the number of bytes written.
 ```haxe
 function exampleEncodeRune():Void {
         var _r:GoInt32 = (19990 : GoInt32);
-        var _buf = new Slice<GoUInt8>((3 : GoInt).toBasic(), 0, ...[for (i in 0 ... (3 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _buf = new Slice<GoUInt8>((3 : GoInt).toBasic(), 0).__setNumber32__();
         var _n:GoInt = stdgo.unicode.utf8.Utf8.encodeRune(_buf, _r);
         stdgo.fmt.Fmt.println(Go.toInterface(_buf));
         stdgo.fmt.Fmt.println(Go.toInterface(_n));
@@ -536,9 +536,9 @@ function exampleEncodeRune():Void {
 
 ```haxe
 function exampleEncodeRune_outOfRange():Void {
-        var _runes = (new Slice<GoInt32>(0, 0, (-1 : GoInt32), (1114112 : GoInt32), (65533 : GoInt32)) : Slice<GoInt32>);
+        var _runes = (new Slice<GoInt32>(3, 3, (-1 : GoInt32), (1114112 : GoInt32), (65533 : GoInt32)) : Slice<GoInt32>);
         for (_i => _c in _runes) {
-            var _buf = new Slice<GoUInt8>((3 : GoInt).toBasic(), 0, ...[for (i in 0 ... (3 : GoInt).toBasic()) (0 : GoUInt8)]);
+            var _buf = new Slice<GoUInt8>((3 : GoInt).toBasic(), 0).__setNumber32__();
             var _size:GoInt = stdgo.unicode.utf8.Utf8.encodeRune(_buf, _c);
             stdgo.fmt.Fmt.printf(("%d: %d %[2]s %d\n" : GoString), Go.toInterface(_i), Go.toInterface(_buf), Go.toInterface(_size));
         };
@@ -574,7 +574,7 @@ An invalid encoding is considered a full Rune since it will convert as a width\-
 
 ```haxe
 function exampleFullRune():Void {
-        var _buf = (new Slice<GoUInt8>(0, 0, (228 : GoUInt8), (184 : GoUInt8), (150 : GoUInt8)) : Slice<GoUInt8>);
+        var _buf = (new Slice<GoUInt8>(3, 3, (228 : GoUInt8), (184 : GoUInt8), (150 : GoUInt8)) : Slice<GoUInt8>);
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.fullRune(_buf)));
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.fullRune((_buf.__slice__(0, (2 : GoInt)) : Slice<GoUInt8>))));
     }
@@ -654,7 +654,7 @@ function exampleRuneCount():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L840>)
+[\(view code\)](<./Utf8.hx#L846>)
 
 
 ## function runeCountInString
@@ -688,7 +688,7 @@ function exampleRuneCountInString():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L887>)
+[\(view code\)](<./Utf8.hx#L893>)
 
 
 ## function runeLen
@@ -759,7 +759,7 @@ function exampleRuneStart():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L935>)
+[\(view code\)](<./Utf8.hx#L941>)
 
 
 ## function valid
@@ -783,7 +783,7 @@ Valid reports whether p consists entirely of valid UTF\-8\-encoded runes.
 ```haxe
 function exampleValid():Void {
         var _valid = (("Hello, 世界" : GoString) : Slice<GoByte>);
-        var _invalid = (new Slice<GoUInt8>(0, 0, (255 : GoUInt8), (254 : GoUInt8), (253 : GoUInt8)) : Slice<GoUInt8>);
+        var _invalid = (new Slice<GoUInt8>(3, 3, (255 : GoUInt8), (254 : GoUInt8), (253 : GoUInt8)) : Slice<GoUInt8>);
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.valid(_valid)));
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.valid(_invalid)));
     }
@@ -794,7 +794,7 @@ function exampleValid():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L941>)
+[\(view code\)](<./Utf8.hx#L947>)
 
 
 ## function validRune
@@ -830,7 +830,7 @@ function exampleValidRune():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L1045>)
+[\(view code\)](<./Utf8.hx#L1051>)
 
 
 ## function validString
@@ -854,7 +854,7 @@ ValidString reports whether s consists entirely of valid UTF\-8\-encoded runes.
 ```haxe
 function exampleValidString():Void {
         var _valid:GoString = ("Hello, 世界" : GoString);
-        var _invalid:GoString = ((new Slice<GoUInt8>(0, 0, (255 : GoUInt8), (254 : GoUInt8), (253 : GoUInt8)) : Slice<GoUInt8>) : GoString);
+        var _invalid:GoString = ((new Slice<GoUInt8>(3, 3, (255 : GoUInt8), (254 : GoUInt8), (253 : GoUInt8)) : Slice<GoUInt8>) : GoString);
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_valid)));
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_invalid)));
     }
@@ -865,6 +865,6 @@ function exampleValidString():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L993>)
+[\(view code\)](<./Utf8.hx#L999>)
 
 

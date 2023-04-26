@@ -675,8 +675,8 @@ If the buffer is too small, PutUvarint will panic.
 
 ```haxe
 function examplePutUvarint():Void {
-        var _buf = new Slice<GoUInt8>((10 : GoInt).toBasic(), 0, ...[for (i in 0 ... (10 : GoInt).toBasic()) (0 : GoUInt8)]);
-        for (__0 => _x in (new Slice<GoUInt64>(0, 0, (1i64 : GoUInt64), (2i64 : GoUInt64), (127i64 : GoUInt64), (128i64 : GoUInt64), (255i64 : GoUInt64), (256i64 : GoUInt64)) : Slice<GoUInt64>)) {
+        var _buf = new Slice<GoUInt8>((10 : GoInt).toBasic(), 0).__setNumber32__();
+        for (__0 => _x in (new Slice<GoUInt64>(6, 6, (1i64 : GoUInt64), (2i64 : GoUInt64), (127i64 : GoUInt64), (128i64 : GoUInt64), (255i64 : GoUInt64), (256i64 : GoUInt64)) : Slice<GoUInt64>)) {
             var _n:GoInt = stdgo.encoding.binary.Binary.putUvarint(_buf, _x);
             stdgo.fmt.Fmt.printf(("%x\n" : GoString), Go.toInterface((_buf.__slice__(0, _n) : Slice<GoUInt8>)));
         };
@@ -712,10 +712,10 @@ If the buffer is too small, PutVarint will panic.
 
 ```haxe
 function examplePutVarint():Void {
-        var _buf = new Slice<GoUInt8>((10 : GoInt).toBasic(), 0, ...[for (i in 0 ... (10 : GoInt).toBasic()) (0 : GoUInt8)]);
+        var _buf = new Slice<GoUInt8>((10 : GoInt).toBasic(), 0).__setNumber32__();
         for (__0 => _x in (new Slice<GoInt64>(
-0,
-0,
+9,
+9,
 (-65i64 : GoInt64),
 (-64i64 : GoInt64),
 (-2i64 : GoInt64),
@@ -776,7 +776,7 @@ Read returns ErrUnexpectedEOF.
 ```haxe
 function exampleRead():Void {
         var _pi:GoFloat64 = (0 : GoFloat64);
-        var _b = (new Slice<GoUInt8>(0, 0, (24 : GoUInt8), (45 : GoUInt8), (68 : GoUInt8), (84 : GoUInt8), (251 : GoUInt8), (33 : GoUInt8), (9 : GoUInt8), (64 : GoUInt8)) : Slice<GoUInt8>);
+        var _b = (new Slice<GoUInt8>(8, 8, (24 : GoUInt8), (45 : GoUInt8), (68 : GoUInt8), (84 : GoUInt8), (251 : GoUInt8), (33 : GoUInt8), (9 : GoUInt8), (64 : GoUInt8)) : Slice<GoUInt8>);
         var _buf = stdgo.bytes.Bytes.newReader(_b);
         var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), Go.toInterface(Go.pointer(_pi)));
         if (_err != null) {
@@ -801,8 +801,8 @@ function exampleRead():Void {
 ```haxe
 function exampleRead_multi():Void {
         var _b = (new Slice<GoUInt8>(
-0,
-0,
+14,
+14,
 (24 : GoUInt8),
 (45 : GoUInt8),
 (68 : GoUInt8),
@@ -1227,7 +1227,7 @@ and the number of bytes n is \<= 0 meaning:
 
 ```haxe
 function exampleUvarint():Void {
-        var _inputs = (new Slice<Slice<GoUInt8>>(0, 0, (new Slice<GoUInt8>(0, 0, (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(0, 0, (2 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(0, 0, (127 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(0, 0, (128 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(0, 0, (255 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(0, 0, (128 : GoUInt8), (2 : GoUInt8)) : Slice<GoUInt8>)) : Slice<Slice<GoUInt8>>);
+        var _inputs = (new Slice<Slice<GoUInt8>>(6, 6, (new Slice<GoUInt8>(1, 1, (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(1, 1, (2 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(1, 1, (127 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(2, 2, (128 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(2, 2, (255 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(2, 2, (128 : GoUInt8), (2 : GoUInt8)) : Slice<GoUInt8>)) : Slice<Slice<GoUInt8>>);
         for (__0 => _b in _inputs) {
             var __tmp__ = stdgo.encoding.binary.Binary.uvarint(_b), _x:GoUInt64 = __tmp__._0, _n:GoInt = __tmp__._1;
             if (_n != ((_b.length))) {
@@ -1277,17 +1277,17 @@ and the number of bytes n is \<= 0 with the following meaning:
 ```haxe
 function exampleVarint():Void {
         var _inputs = (new Slice<Slice<GoUInt8>>(
-0,
-0,
-(new Slice<GoUInt8>(0, 0, (129 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(0, 0, (127 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(0, 0, (3 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(0, 0, (1 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(0, 0, (0 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(0, 0, (2 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(0, 0, (4 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(0, 0, (126 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(0, 0, (128 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>)) : Slice<Slice<GoUInt8>>);
+9,
+9,
+(new Slice<GoUInt8>(2, 2, (129 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>),
+(new Slice<GoUInt8>(1, 1, (127 : GoUInt8)) : Slice<GoUInt8>),
+(new Slice<GoUInt8>(1, 1, (3 : GoUInt8)) : Slice<GoUInt8>),
+(new Slice<GoUInt8>(1, 1, (1 : GoUInt8)) : Slice<GoUInt8>),
+(new Slice<GoUInt8>(1, 1, (0 : GoUInt8)) : Slice<GoUInt8>),
+(new Slice<GoUInt8>(1, 1, (2 : GoUInt8)) : Slice<GoUInt8>),
+(new Slice<GoUInt8>(1, 1, (4 : GoUInt8)) : Slice<GoUInt8>),
+(new Slice<GoUInt8>(1, 1, (126 : GoUInt8)) : Slice<GoUInt8>),
+(new Slice<GoUInt8>(2, 2, (128 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>)) : Slice<Slice<GoUInt8>>);
         for (__0 => _b in _inputs) {
             var __tmp__ = stdgo.encoding.binary.Binary.varint(_b), _x:GoInt64 = __tmp__._0, _n:GoInt = __tmp__._1;
             if (_n != ((_b.length))) {
@@ -1358,7 +1358,7 @@ function exampleWrite():Void {
 ```haxe
 function exampleWrite_multi():Void {
         var _buf = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
-        var _data:Slice<AnyInterface> = (new Slice<AnyInterface>(0, 0, Go.toInterface((61374 : GoUInt16)), Go.toInterface((-54 : GoInt8)), Go.toInterface((254 : GoUInt8))) : Slice<AnyInterface>);
+        var _data:Slice<AnyInterface> = (new Slice<AnyInterface>(3, 3, Go.toInterface((61374 : GoUInt16)), Go.toInterface((-54 : GoInt8)), Go.toInterface((254 : GoUInt8))) : Slice<AnyInterface>);
         for (__0 => _v in _data) {
             var _err:Error = stdgo.encoding.binary.Binary.write(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), _v);
             if (_err != null) {

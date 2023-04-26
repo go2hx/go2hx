@@ -22,82 +22,82 @@ architecture and the Go release.
 
 ```
 === RUN  TestUintSize
---- PASS: TestUintSize (%!s(float64=4.38690185546875e-05))
+--- PASS: TestUintSize (%!s(float64=4.9114227294921875e-05))
 
 === RUN  TestLeadingZeros
---- PASS: TestLeadingZeros (%!s(float64=0.10925483703613281))
+--- PASS: TestLeadingZeros (%!s(float64=0.12102890014648438))
 
 === RUN  TestTrailingZeros
---- PASS: TestTrailingZeros (%!s(float64=0.034835100173950195))
+--- PASS: TestTrailingZeros (%!s(float64=0.038865089416503906))
 
 === RUN  TestOnesCount
---- PASS: TestOnesCount (%!s(float64=0.3091859817504883))
+--- PASS: TestOnesCount (%!s(float64=0.33957409858703613))
 
 === RUN  TestRotateLeft
---- PASS: TestRotateLeft (%!s(float64=0.00034499168395996094))
+--- PASS: TestRotateLeft (%!s(float64=0.00037384033203125))
 
 === RUN  TestReverse
---- PASS: TestReverse (%!s(float64=0.0044100284576416016))
+--- PASS: TestReverse (%!s(float64=0.005239963531494141))
 
 === RUN  TestReverseBytes
---- PASS: TestReverseBytes (%!s(float64=8.702278137207031e-05))
+--- PASS: TestReverseBytes (%!s(float64=0.00010704994201660156))
 
 === RUN  TestLen
---- PASS: TestLen (%!s(float64=0.10381793975830078))
+--- PASS: TestLen (%!s(float64=0.12158203125))
 
 === RUN  TestAddSubUint
---- PASS: TestAddSubUint (%!s(float64=8.58306884765625e-05))
+--- PASS: TestAddSubUint (%!s(float64=0.00011706352233886719))
 
 === RUN  TestAddSubUint32
---- PASS: TestAddSubUint32 (%!s(float64=4.00543212890625e-05))
+--- PASS: TestAddSubUint32 (%!s(float64=6.985664367675781e-05))
 
 === RUN  TestAddSubUint64
---- PASS: TestAddSubUint64 (%!s(float64=0.0001270771026611328))
+--- PASS: TestAddSubUint64 (%!s(float64=0.00017309188842773438))
 
 === RUN  TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (%!s(float64=0.00019788742065429688))
+--- PASS: TestAdd64OverflowPanic (%!s(float64=0.0003159046173095703))
 
 === RUN  TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (%!s(float64=0.00021505355834960938))
+--- PASS: TestSub64OverflowPanic (%!s(float64=0.00019598007202148438))
 
 === RUN  TestMulDiv
---- PASS: TestMulDiv (%!s(float64=0.00026988983154296875))
+--- PASS: TestMulDiv (%!s(float64=0.00030684471130371094))
 
 === RUN  TestMulDiv32
---- PASS: TestMulDiv32 (%!s(float64=0.00018787384033203125))
+--- PASS: TestMulDiv32 (%!s(float64=0.0002770423889160156))
 
 === RUN  TestMulDiv64
---- PASS: TestMulDiv64 (%!s(float64=0.00067901611328125))
+--- PASS: TestMulDiv64 (%!s(float64=0.0008170604705810547))
 
 === RUN  TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (%!s(float64=5.91278076171875e-05))
+--- PASS: TestDivPanicOverflow (%!s(float64=8.0108642578125e-05))
 
 === RUN  TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (%!s(float64=5.602836608886719e-05))
+--- PASS: TestDiv32PanicOverflow (%!s(float64=7.009506225585938e-05))
 
 === RUN  TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (%!s(float64=4.601478576660156e-05))
+--- PASS: TestDiv64PanicOverflow (%!s(float64=8.392333984375e-05))
 
 === RUN  TestDivPanicZero
---- PASS: TestDivPanicZero (%!s(float64=5.507469177246094e-05))
+--- PASS: TestDivPanicZero (%!s(float64=8.416175842285156e-05))
 
 === RUN  TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (%!s(float64=4.696846008300781e-05))
+--- PASS: TestDiv32PanicZero (%!s(float64=7.200241088867188e-05))
 
 === RUN  TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (%!s(float64=5.1975250244140625e-05))
+--- PASS: TestDiv64PanicZero (%!s(float64=5.984306335449219e-05))
 
 === RUN  TestRem32
---- PASS: TestRem32 (%!s(float64=0.052126169204711914))
+--- PASS: TestRem32 (%!s(float64=0.05732107162475586))
 
 === RUN  TestRem32Overflow
---- PASS: TestRem32Overflow (%!s(float64=0.0607759952545166))
+--- PASS: TestRem32Overflow (%!s(float64=0.06640911102294922))
 
 === RUN  TestRem64
---- PASS: TestRem64 (%!s(float64=0.23027300834655762))
+--- PASS: TestRem64 (%!s(float64=0.2518031597137451))
 
 === RUN  TestRem64Overflow
---- PASS: TestRem64Overflow (%!s(float64=0.0011839866638183594))
+--- PASS: TestRem64Overflow (%!s(float64=0.00039005279541015625))
 
 ```
 </p>
@@ -108,82 +108,82 @@ architecture and the Go release.
 
 ```
 === RUN  TestUintSize
---- PASS: TestUintSize (%!s(float64=2.5987625122070312e-05))
+--- PASS: TestUintSize (%!s(float64=3.3855438232421875e-05))
 
 === RUN  TestLeadingZeros
---- PASS: TestLeadingZeros (%!s(float64=0.3707900047302246))
+--- PASS: TestLeadingZeros (%!s(float64=0.4590270519256592))
 
 === RUN  TestTrailingZeros
---- PASS: TestTrailingZeros (%!s(float64=0.2690761089324951))
+--- PASS: TestTrailingZeros (%!s(float64=0.3249521255493164))
 
 === RUN  TestOnesCount
---- PASS: TestOnesCount (%!s(float64=1.0793118476867676))
+--- PASS: TestOnesCount (%!s(float64=1.5288751125335693))
 
 === RUN  TestRotateLeft
---- PASS: TestRotateLeft (%!s(float64=0.005917072296142578))
+--- PASS: TestRotateLeft (%!s(float64=0.007486104965209961))
 
 === RUN  TestReverse
---- PASS: TestReverse (%!s(float64=0.011947154998779297))
+--- PASS: TestReverse (%!s(float64=0.015126228332519531))
 
 === RUN  TestReverseBytes
---- PASS: TestReverseBytes (%!s(float64=0.0007941722869873047))
+--- PASS: TestReverseBytes (%!s(float64=0.0008800029754638672))
 
 === RUN  TestLen
---- PASS: TestLen (%!s(float64=0.3568270206451416))
+--- PASS: TestLen (%!s(float64=0.44239091873168945))
 
 === RUN  TestAddSubUint
---- PASS: TestAddSubUint (%!s(float64=0.0005691051483154297))
+--- PASS: TestAddSubUint (%!s(float64=0.00080108642578125))
 
 === RUN  TestAddSubUint32
---- PASS: TestAddSubUint32 (%!s(float64=0.0002989768981933594))
+--- PASS: TestAddSubUint32 (%!s(float64=0.0003299713134765625))
 
 === RUN  TestAddSubUint64
---- PASS: TestAddSubUint64 (%!s(float64=0.0008530616760253906))
+--- PASS: TestAddSubUint64 (%!s(float64=0.0018508434295654297))
 
 === RUN  TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (%!s(float64=0.0004870891571044922))
+--- PASS: TestAdd64OverflowPanic (%!s(float64=0.0007231235504150391))
 
 === RUN  TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (%!s(float64=0.00042510032653808594))
+--- PASS: TestSub64OverflowPanic (%!s(float64=0.0006241798400878906))
 
 === RUN  TestMulDiv
---- PASS: TestMulDiv (%!s(float64=0.0015552043914794922))
+--- PASS: TestMulDiv (%!s(float64=0.0019109249114990234))
 
 === RUN  TestMulDiv32
---- PASS: TestMulDiv32 (%!s(float64=0.0010039806365966797))
+--- PASS: TestMulDiv32 (%!s(float64=0.0012769699096679688))
 
 === RUN  TestMulDiv64
---- PASS: TestMulDiv64 (%!s(float64=0.004063129425048828))
+--- PASS: TestMulDiv64 (%!s(float64=0.005263090133666992))
 
 === RUN  TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (%!s(float64=0.0001888275146484375))
+--- PASS: TestDivPanicOverflow (%!s(float64=0.00023102760314941406))
 
 === RUN  TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (%!s(float64=8.58306884765625e-05))
+--- PASS: TestDiv32PanicOverflow (%!s(float64=8.893013000488281e-05))
 
 === RUN  TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (%!s(float64=8.606910705566406e-05))
+--- PASS: TestDiv64PanicOverflow (%!s(float64=0.000102996826171875))
 
 === RUN  TestDivPanicZero
---- PASS: TestDivPanicZero (%!s(float64=0.0001399517059326172))
+--- PASS: TestDivPanicZero (%!s(float64=0.00011396408081054688))
 
 === RUN  TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (%!s(float64=9.202957153320312e-05))
+--- PASS: TestDiv32PanicZero (%!s(float64=9.989738464355469e-05))
 
 === RUN  TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (%!s(float64=8.106231689453125e-05))
+--- PASS: TestDiv64PanicZero (%!s(float64=9.107589721679688e-05))
 
 === RUN  TestRem32
---- PASS: TestRem32 (%!s(float64=0.20317697525024414))
+--- PASS: TestRem32 (%!s(float64=0.24940204620361328))
 
 === RUN  TestRem32Overflow
---- PASS: TestRem32Overflow (%!s(float64=0.24133706092834473))
+--- PASS: TestRem32Overflow (%!s(float64=0.27663683891296387))
 
 === RUN  TestRem64
---- PASS: TestRem64 (%!s(float64=0.9215891361236572))
+--- PASS: TestRem64 (%!s(float64=1.0534517765045166))
 
 === RUN  TestRem64Overflow
---- PASS: TestRem64Overflow (%!s(float64=0.001986980438232422))
+--- PASS: TestRem64Overflow (%!s(float64=0.0020999908447265625))
 
 ```
 </p>
@@ -492,14 +492,14 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleAdd32():Void {
-        var _n1 = (new Slice<GoUInt32>(0, 0, (33u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
-        var _n2 = (new Slice<GoUInt32>(0, 0, (21u32 : GoUInt32), (23u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n1 = (new Slice<GoUInt32>(2, 2, (33u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n2 = (new Slice<GoUInt32>(2, 2, (21u32 : GoUInt32), (23u32 : GoUInt32)) : Slice<GoUInt32>);
         var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0u32 : GoUInt32)), _d1:GoUInt32 = __tmp__._0, _carry:GoUInt32 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry), _d0:GoUInt32 = __tmp__._0, __0:GoUInt32 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
+        var _nsum = (new Slice<GoUInt32>(2, 2, _d0, _d1) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
-        _n1 = (new Slice<GoUInt32>(0, 0, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
-        _n2 = (new Slice<GoUInt32>(0, 0, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n1 = (new Slice<GoUInt32>(2, 2, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n2 = (new Slice<GoUInt32>(2, 2, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
         {
             var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0u32 : GoUInt32));
             _d1 = __tmp__._0;
@@ -509,7 +509,7 @@ function exampleAdd32():Void {
             var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry);
             _d0 = __tmp__._0;
         };
-        _nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
+        _nsum = (new Slice<GoUInt32>(2, 2, _d0, _d1) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
     }
 ```
@@ -550,14 +550,14 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleAdd64():Void {
-        var _n1 = (new Slice<GoUInt64>(0, 0, (33i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
-        var _n2 = (new Slice<GoUInt64>(0, 0, (21i64 : GoUInt64), (23i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n1 = (new Slice<GoUInt64>(2, 2, (33i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n2 = (new Slice<GoUInt64>(2, 2, (21i64 : GoUInt64), (23i64 : GoUInt64)) : Slice<GoUInt64>);
         var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0i64 : GoUInt64)), _d1:GoUInt64 = __tmp__._0, _carry:GoUInt64 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry), _d0:GoUInt64 = __tmp__._0, __0:GoUInt64 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
+        var _nsum = (new Slice<GoUInt64>(2, 2, _d0, _d1) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
-        _n1 = (new Slice<GoUInt64>(0, 0, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
-        _n2 = (new Slice<GoUInt64>(0, 0, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n1 = (new Slice<GoUInt64>(2, 2, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n2 = (new Slice<GoUInt64>(2, 2, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
         {
             var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0i64 : GoUInt64));
             _d1 = __tmp__._0;
@@ -567,7 +567,7 @@ function exampleAdd64():Void {
             var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry);
             _d0 = __tmp__._0;
         };
-        _nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
+        _nsum = (new Slice<GoUInt64>(2, 2, _d0, _d1) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
     }
 ```
@@ -626,19 +626,19 @@ Div32 panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\).
 
 ```haxe
 function exampleDiv32():Void {
-        var _n1 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (6u32 : GoUInt32)) : Slice<GoUInt32>);
-        var _n2 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (3u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n1 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (6u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n2 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (3u32 : GoUInt32)) : Slice<GoUInt32>);
         var __tmp__ = stdgo.math.bits.Bits.div32(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]), _quo:GoUInt32 = __tmp__._0, _rem:GoUInt32 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt32>(0, 0, _quo, _rem) : Slice<GoUInt32>);
+        var _nsum = (new Slice<GoUInt32>(2, 2, _quo, _rem) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-        _n1 = (new Slice<GoUInt32>(0, 0, (2u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
-        _n2 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n1 = (new Slice<GoUInt32>(2, 2, (2u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n2 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
         {
             var __tmp__ = stdgo.math.bits.Bits.div32(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]);
             _quo = __tmp__._0;
             _rem = __tmp__._1;
         };
-        _nsum = (new Slice<GoUInt32>(0, 0, _quo, _rem) : Slice<GoUInt32>);
+        _nsum = (new Slice<GoUInt32>(2, 2, _quo, _rem) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
     }
 ```
@@ -677,19 +677,19 @@ Div64 panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\).
 
 ```haxe
 function exampleDiv64():Void {
-        var _n1 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (6i64 : GoUInt64)) : Slice<GoUInt64>);
-        var _n2 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (3i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n1 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (6i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n2 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (3i64 : GoUInt64)) : Slice<GoUInt64>);
         var __tmp__ = stdgo.math.bits.Bits.div64(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]), _quo:GoUInt64 = __tmp__._0, _rem:GoUInt64 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt64>(0, 0, _quo, _rem) : Slice<GoUInt64>);
+        var _nsum = (new Slice<GoUInt64>(2, 2, _quo, _rem) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-        _n1 = (new Slice<GoUInt64>(0, 0, (2i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
-        _n2 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n1 = (new Slice<GoUInt64>(2, 2, (2i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n2 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
         {
             var __tmp__ = stdgo.math.bits.Bits.div64(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]);
             _quo = __tmp__._0;
             _rem = __tmp__._1;
         };
-        _nsum = (new Slice<GoUInt64>(0, 0, _quo, _rem) : Slice<GoUInt64>);
+        _nsum = (new Slice<GoUInt64>(2, 2, _quo, _rem) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
     }
 ```
@@ -1036,19 +1036,19 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleMul32():Void {
-        var _n1 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
-        var _n2 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n1 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n2 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
         var __tmp__ = stdgo.math.bits.Bits.mul32(_n1[(1 : GoInt)], _n2[(1 : GoInt)]), _hi:GoUInt32 = __tmp__._0, _lo:GoUInt32 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt32>(0, 0, _hi, _lo) : Slice<GoUInt32>);
+        var _nsum = (new Slice<GoUInt32>(2, 2, _hi, _lo) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-        _n1 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
-        _n2 = (new Slice<GoUInt32>(0, 0, (0u32 : GoUInt32), (2u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n1 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n2 = (new Slice<GoUInt32>(2, 2, (0u32 : GoUInt32), (2u32 : GoUInt32)) : Slice<GoUInt32>);
         {
             var __tmp__ = stdgo.math.bits.Bits.mul32(_n1[(1 : GoInt)], _n2[(1 : GoInt)]);
             _hi = __tmp__._0;
             _lo = __tmp__._1;
         };
-        _nsum = (new Slice<GoUInt32>(0, 0, _hi, _lo) : Slice<GoUInt32>);
+        _nsum = (new Slice<GoUInt32>(2, 2, _hi, _lo) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
     }
 ```
@@ -1089,19 +1089,19 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleMul64():Void {
-        var _n1 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
-        var _n2 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n1 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n2 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
         var __tmp__ = stdgo.math.bits.Bits.mul64(_n1[(1 : GoInt)], _n2[(1 : GoInt)]), _hi:GoUInt64 = __tmp__._0, _lo:GoUInt64 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt64>(0, 0, _hi, _lo) : Slice<GoUInt64>);
+        var _nsum = (new Slice<GoUInt64>(2, 2, _hi, _lo) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-        _n1 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
-        _n2 = (new Slice<GoUInt64>(0, 0, (0i64 : GoUInt64), (2i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n1 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n2 = (new Slice<GoUInt64>(2, 2, (0i64 : GoUInt64), (2i64 : GoUInt64)) : Slice<GoUInt64>);
         {
             var __tmp__ = stdgo.math.bits.Bits.mul64(_n1[(1 : GoInt)], _n2[(1 : GoInt)]);
             _hi = __tmp__._0;
             _lo = __tmp__._1;
         };
-        _nsum = (new Slice<GoUInt64>(0, 0, _hi, _lo) : Slice<GoUInt64>);
+        _nsum = (new Slice<GoUInt64>(2, 2, _hi, _lo) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
     }
 ```
@@ -1813,14 +1813,14 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleSub32():Void {
-        var _n1 = (new Slice<GoUInt32>(0, 0, (33u32 : GoUInt32), (23u32 : GoUInt32)) : Slice<GoUInt32>);
-        var _n2 = (new Slice<GoUInt32>(0, 0, (21u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n1 = (new Slice<GoUInt32>(2, 2, (33u32 : GoUInt32), (23u32 : GoUInt32)) : Slice<GoUInt32>);
+        var _n2 = (new Slice<GoUInt32>(2, 2, (21u32 : GoUInt32), (12u32 : GoUInt32)) : Slice<GoUInt32>);
         var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0u32 : GoUInt32)), _d1:GoUInt32 = __tmp__._0, _carry:GoUInt32 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry), _d0:GoUInt32 = __tmp__._0, __0:GoUInt32 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
+        var _nsum = (new Slice<GoUInt32>(2, 2, _d0, _d1) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
-        _n1 = (new Slice<GoUInt32>(0, 0, (3u32 : GoUInt32), (2147483647u32 : GoUInt32)) : Slice<GoUInt32>);
-        _n2 = (new Slice<GoUInt32>(0, 0, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n1 = (new Slice<GoUInt32>(2, 2, (3u32 : GoUInt32), (2147483647u32 : GoUInt32)) : Slice<GoUInt32>);
+        _n2 = (new Slice<GoUInt32>(2, 2, (1u32 : GoUInt32), (-2147483648u32 : GoUInt32)) : Slice<GoUInt32>);
         {
             var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0u32 : GoUInt32));
             _d1 = __tmp__._0;
@@ -1830,7 +1830,7 @@ function exampleSub32():Void {
             var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry);
             _d0 = __tmp__._0;
         };
-        _nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
+        _nsum = (new Slice<GoUInt32>(2, 2, _d0, _d1) : Slice<GoUInt32>);
         stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
     }
 ```
@@ -1871,14 +1871,14 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleSub64():Void {
-        var _n1 = (new Slice<GoUInt64>(0, 0, (33i64 : GoUInt64), (23i64 : GoUInt64)) : Slice<GoUInt64>);
-        var _n2 = (new Slice<GoUInt64>(0, 0, (21i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n1 = (new Slice<GoUInt64>(2, 2, (33i64 : GoUInt64), (23i64 : GoUInt64)) : Slice<GoUInt64>);
+        var _n2 = (new Slice<GoUInt64>(2, 2, (21i64 : GoUInt64), (12i64 : GoUInt64)) : Slice<GoUInt64>);
         var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0i64 : GoUInt64)), _d1:GoUInt64 = __tmp__._0, _carry:GoUInt64 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry), _d0:GoUInt64 = __tmp__._0, __0:GoUInt64 = __tmp__._1;
-        var _nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
+        var _nsum = (new Slice<GoUInt64>(2, 2, _d0, _d1) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
-        _n1 = (new Slice<GoUInt64>(0, 0, (3i64 : GoUInt64), (9223372036854775807i64 : GoUInt64)) : Slice<GoUInt64>);
-        _n2 = (new Slice<GoUInt64>(0, 0, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n1 = (new Slice<GoUInt64>(2, 2, (3i64 : GoUInt64), (9223372036854775807i64 : GoUInt64)) : Slice<GoUInt64>);
+        _n2 = (new Slice<GoUInt64>(2, 2, (1i64 : GoUInt64), (-9223372036854775808i64 : GoUInt64)) : Slice<GoUInt64>);
         {
             var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0i64 : GoUInt64));
             _d1 = __tmp__._0;
@@ -1888,7 +1888,7 @@ function exampleSub64():Void {
             var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry);
             _d0 = __tmp__._0;
         };
-        _nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
+        _nsum = (new Slice<GoUInt64>(2, 2, _d0, _d1) : Slice<GoUInt64>);
         stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
     }
 ```

@@ -80,175 +80,175 @@ Unquote and UnquoteChar unquote Go string and rune literals.
 
 ```
 === RUN  TestParseBool
---- PASS: TestParseBool (%!s(float64=0.00015807151794433594))
+--- PASS: TestParseBool (%!s(float64=0.00017905235290527344))
 
 === RUN  TestFormatBool
---- PASS: TestFormatBool (%!s(float64=2.8133392333984375e-05))
+--- PASS: TestFormatBool (%!s(float64=2.288818359375e-05))
 
 === RUN  TestAppendBool
---- PASS: TestAppendBool (%!s(float64=8.320808410644531e-05))
+--- PASS: TestAppendBool (%!s(float64=3.2901763916015625e-05))
 
 === RUN  TestParseComplex
---- PASS: TestParseComplex (%!s(float64=0.05992293357849121))
+--- PASS: TestParseComplex (%!s(float64=0.06781697273254395))
 
 === RUN  TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.0001399517059326172))
+--- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.00014901161193847656))
 
 === RUN  TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (%!s(float64=0.2600700855255127))
+--- PASS: TestParseFloatPrefix (%!s(float64=0.32250094413757324))
 
 === RUN  TestAtof
---- PASS: TestAtof (%!s(float64=0.2816958427429199))
+--- PASS: TestAtof (%!s(float64=0.3443741798400879))
 
 === RUN  TestAtofSlow
---- PASS: TestAtofSlow (%!s(float64=0.5930771827697754))
+--- PASS: TestAtofSlow (%!s(float64=0.7292368412017822))
 
 === RUN  TestAtofRandom
-strconv_test/Strconv_test.hx:2228: testAtofRandom skip function
---- PASS: TestAtofRandom (%!s(float64=3.2901763916015625e-05))
+strconv_test/Strconv_test.hx:2230: testAtofRandom skip function
+--- PASS: TestAtofRandom (%!s(float64=3.1948089599609375e-05))
 
 === RUN  TestRoundTrip
---- PASS: TestRoundTrip (%!s(float64=0.0021080970764160156))
+--- PASS: TestRoundTrip (%!s(float64=0.002897977828979492))
 
 === RUN  TestRoundTrip32
---- PASS: TestRoundTrip32 (%!s(float64=2.003303050994873))
+--- PASS: TestRoundTrip32 (%!s(float64=2.4718430042266846))
 
 === RUN  TestParseFloatIncorrectBitSize
---- PASS: TestParseFloatIncorrectBitSize (%!s(float64=5.91278076171875e-05))
+--- PASS: TestParseFloatIncorrectBitSize (%!s(float64=7.200241088867188e-05))
 
 === RUN  TestParseUint32
---- PASS: TestParseUint32 (%!s(float64=0.000308990478515625))
+--- PASS: TestParseUint32 (%!s(float64=0.0005540847778320312))
 
 === RUN  TestParseUint64
---- PASS: TestParseUint64 (%!s(float64=0.00039887428283691406))
+--- PASS: TestParseUint64 (%!s(float64=0.0005600452423095703))
 
 === RUN  TestParseUint64Base
---- PASS: TestParseUint64Base (%!s(float64=0.0063550472259521484))
+--- PASS: TestParseUint64Base (%!s(float64=0.007629871368408203))
 
 === RUN  TestParseInt32
---- PASS: TestParseInt32 (%!s(float64=0.0006971359252929688))
+--- PASS: TestParseInt32 (%!s(float64=0.002894163131713867))
 
 === RUN  TestParseInt64
---- PASS: TestParseInt64 (%!s(float64=0.0006678104400634766))
+--- PASS: TestParseInt64 (%!s(float64=0.0011360645294189453))
 
 === RUN  TestParseInt64Base
---- PASS: TestParseInt64Base (%!s(float64=0.0052700042724609375))
+--- PASS: TestParseInt64Base (%!s(float64=0.008444070816040039))
 
 === RUN  TestParseUint
---- PASS: TestParseUint (%!s(float64=0.0002148151397705078))
+--- PASS: TestParseUint (%!s(float64=0.0002841949462890625))
 
 === RUN  TestParseInt
---- PASS: TestParseInt (%!s(float64=0.0008640289306640625))
+--- PASS: TestParseInt (%!s(float64=0.0010421276092529297))
 
 === RUN  TestAtoi
---- PASS: TestAtoi (%!s(float64=0.0006101131439208984))
+--- PASS: TestAtoi (%!s(float64=0.002730131149291992))
 
 === RUN  TestParseIntBitSize
---- PASS: TestParseIntBitSize (%!s(float64=0.0003600120544433594))
+--- PASS: TestParseIntBitSize (%!s(float64=0.000576019287109375))
 
 === RUN  TestParseUintBitSize
---- PASS: TestParseUintBitSize (%!s(float64=0.00026702880859375))
+--- PASS: TestParseUintBitSize (%!s(float64=0.00033402442932128906))
 
 === RUN  TestParseIntBase
---- PASS: TestParseIntBase (%!s(float64=0.0005249977111816406))
+--- PASS: TestParseIntBase (%!s(float64=0.002359151840209961))
 
 === RUN  TestParseUintBase
---- PASS: TestParseUintBase (%!s(float64=0.0014979839324951172))
+--- PASS: TestParseUintBase (%!s(float64=0.0004608631134033203))
 
 === RUN  TestNumError
---- PASS: TestNumError (%!s(float64=5.2928924560546875e-05))
+--- PASS: TestNumError (%!s(float64=7.104873657226562e-05))
 
 === RUN  TestNumErrorUnwrap
---- PASS: TestNumErrorUnwrap (%!s(float64=0.0001049041748046875))
+--- PASS: TestNumErrorUnwrap (%!s(float64=0.00010418891906738281))
 
 === RUN  TestFormatComplex
---- PASS: TestFormatComplex (%!s(float64=0.002209901809692383))
+--- PASS: TestFormatComplex (%!s(float64=0.003103017807006836))
 
 === RUN  TestFormatComplexInvalidBitSize
---- PASS: TestFormatComplexInvalidBitSize (%!s(float64=3.2901763916015625e-05))
+--- PASS: TestFormatComplexInvalidBitSize (%!s(float64=3.910064697265625e-05))
 
 === RUN  TestDecimalShift
---- PASS: TestDecimalShift (%!s(float64=0.0019009113311767578))
+--- PASS: TestDecimalShift (%!s(float64=0.0008358955383300781))
 
 === RUN  TestDecimalRound
---- PASS: TestDecimalRound (%!s(float64=0.00640106201171875))
+--- PASS: TestDecimalRound (%!s(float64=0.008656978607177734))
 
 === RUN  TestDecimalRoundedInteger
---- PASS: TestDecimalRoundedInteger (%!s(float64=0.0007460117340087891))
+--- PASS: TestDecimalRoundedInteger (%!s(float64=0.0009360313415527344))
 
 === RUN  TestFp
-strconv_test/Strconv_test.hx:3194: testFp skip function
---- PASS: TestFp (%!s(float64=2.193450927734375e-05))
+strconv_test/Strconv_test.hx:3196: testFp skip function
+--- PASS: TestFp (%!s(float64=2.5987625122070312e-05))
 
 === RUN  TestFtoa
---- PASS: TestFtoa (%!s(float64=0.03448987007141113))
+--- PASS: TestFtoa (%!s(float64=0.040196895599365234))
 
 === RUN  TestFtoaPowersOfTwo
-strconv_test/Strconv_test.hx:3318: testFtoaPowersOfTwo skip function
---- PASS: TestFtoaPowersOfTwo (%!s(float64=1.8835067749023438e-05))
+strconv_test/Strconv_test.hx:3320: testFtoaPowersOfTwo skip function
+--- PASS: TestFtoaPowersOfTwo (%!s(float64=2.6941299438476562e-05))
 
 === RUN  TestFtoaRandom
---- PASS: TestFtoaRandom (%!s(float64=0.4090139865875244))
+--- PASS: TestFtoaRandom (%!s(float64=0.5670130252838135))
 
 === RUN  TestFormatFloatInvalidBitSize
---- PASS: TestFormatFloatInvalidBitSize (%!s(float64=3.314018249511719e-05))
+--- PASS: TestFormatFloatInvalidBitSize (%!s(float64=4.00543212890625e-05))
 
 === RUN  TestMulByLog2Log10
---- PASS: TestMulByLog2Log10 (%!s(float64=0.00033593177795410156))
+--- PASS: TestMulByLog2Log10 (%!s(float64=0.0004150867462158203))
 
 === RUN  TestMulByLog10Log2
---- PASS: TestMulByLog10Log2 (%!s(float64=0.000102996826171875))
+--- PASS: TestMulByLog10Log2 (%!s(float64=0.00013113021850585938))
 
 === RUN  TestItoa
---- PASS: TestItoa (%!s(float64=0.004008054733276367))
+--- PASS: TestItoa (%!s(float64=0.0035238265991210938))
 
 === RUN  TestUitoa
---- PASS: TestUitoa (%!s(float64=0.0007040500640869141))
+--- PASS: TestUitoa (%!s(float64=0.002714872360229492))
 
 === RUN  TestFormatUintVarlen
---- PASS: TestFormatUintVarlen (%!s(float64=0.0015010833740234375))
+--- PASS: TestFormatUintVarlen (%!s(float64=0.0005309581756591797))
 
 === RUN  TestIsPrint
---- PASS: TestIsPrint (%!s(float64=5.517416954040527))
+--- PASS: TestIsPrint (%!s(float64=9.917333841323853))
 
 === RUN  TestIsGraphic
---- PASS: TestIsGraphic (%!s(float64=5.519183874130249))
+--- PASS: TestIsGraphic (%!s(float64=10.442453861236572))
 
 === RUN  TestQuote
---- PASS: TestQuote (%!s(float64=0.0002970695495605469))
+--- PASS: TestQuote (%!s(float64=0.00034499168395996094))
 
 === RUN  TestQuoteToASCII
---- PASS: TestQuoteToASCII (%!s(float64=0.0002460479736328125))
+--- PASS: TestQuoteToASCII (%!s(float64=0.00031304359436035156))
 
 === RUN  TestQuoteToGraphic
---- PASS: TestQuoteToGraphic (%!s(float64=0.00027108192443847656))
+--- PASS: TestQuoteToGraphic (%!s(float64=0.0003490447998046875))
 
 === RUN  TestQuoteRune
---- PASS: TestQuoteRune (%!s(float64=0.0001819133758544922))
+--- PASS: TestQuoteRune (%!s(float64=0.00028204917907714844))
 
 === RUN  TestQuoteRuneToASCII
---- PASS: TestQuoteRuneToASCII (%!s(float64=0.0001800060272216797))
+--- PASS: TestQuoteRuneToASCII (%!s(float64=0.00030303001403808594))
 
 === RUN  TestQuoteRuneToGraphic
---- PASS: TestQuoteRuneToGraphic (%!s(float64=0.0001900196075439453))
+--- PASS: TestQuoteRuneToGraphic (%!s(float64=0.00024700164794921875))
 
 === RUN  TestCanBackquote
---- PASS: TestCanBackquote (%!s(float64=0.00014209747314453125))
+--- PASS: TestCanBackquote (%!s(float64=0.000125885009765625))
 
 === RUN  TestUnquote
---- PASS: TestUnquote (%!s(float64=0.003226041793823242))
+--- PASS: TestUnquote (%!s(float64=0.003640890121459961))
 
 === RUN  TestUnquoteInvalidUTF8
---- PASS: TestUnquoteInvalidUTF8 (%!s(float64=0.00021314620971679688))
+--- PASS: TestUnquoteInvalidUTF8 (%!s(float64=0.0001571178436279297))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=0.25275301933288574))
+--- PASS: TestCountMallocs (%!s(float64=0.14620018005371094))
 
 === RUN  TestAllocationsFromBytes
---- PASS: TestAllocationsFromBytes (%!s(float64=0.00010395050048828125))
+--- PASS: TestAllocationsFromBytes (%!s(float64=2.288818359375e-05))
 
 === RUN  TestErrorPrefixes
---- PASS: TestErrorPrefixes (%!s(float64=0.00019693374633789062))
+--- PASS: TestErrorPrefixes (%!s(float64=0.0002560615539550781))
 
 ```
 </p>
@@ -259,35 +259,35 @@ strconv_test/Strconv_test.hx:3318: testFtoaPowersOfTwo skip function
 
 ```
 === RUN  TestParseBool
---- PASS: TestParseBool (%!s(float64=0.0002961158752441406))
+--- PASS: TestParseBool (%!s(float64=0.00035500526428222656))
 
 === RUN  TestFormatBool
---- PASS: TestFormatBool (%!s(float64=6.890296936035156e-05))
+--- PASS: TestFormatBool (%!s(float64=4.982948303222656e-05))
 
 === RUN  TestAppendBool
---- PASS: TestAppendBool (%!s(float64=6.103515625e-05))
+--- PASS: TestAppendBool (%!s(float64=7.510185241699219e-05))
 
 === RUN  TestParseComplex
---- PASS: TestParseComplex (%!s(float64=0.7527198791503906))
+--- PASS: TestParseComplex (%!s(float64=0.920586109161377))
 
 === RUN  TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.0009500980377197266))
+--- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.001049041748046875))
 
 === RUN  TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (%!s(float64=3.6250669956207275))
+--- PASS: TestParseFloatPrefix (%!s(float64=4.591464996337891))
 
 === RUN  TestAtof
---- PASS: TestAtof (%!s(float64=2.4795238971710205))
+--- PASS: TestAtof (%!s(float64=2.815110921859741))
 
 === RUN  TestAtofSlow
---- PASS: TestAtofSlow (%!s(float64=7.570896863937378))
+--- PASS: TestAtofSlow (%!s(float64=9.129573106765747))
 
 === RUN  TestAtofRandom
-strconv_test/Strconv_test.hx:2228: testAtofRandom skip function
+strconv_test/Strconv_test.hx:2230: testAtofRandom skip function
 --- PASS: TestAtofRandom (%!s(float64=1.811981201171875e-05))
 
 === RUN  TestRoundTrip
---- PASS: TestRoundTrip (%!s(float64=0.015762805938720703))
+--- PASS: TestRoundTrip (%!s(float64=0.01829695701599121))
 
 === RUN  TestRoundTrip32
 ParseFloat("-2.44997e-05", 32) = -2.44997e-05, not a float32 (nearest is -2.44997e-05)
@@ -614,7 +614,7 @@ function exampleAppendFloat():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3574>)
+[\(view code\)](<./Strconv.hx#L3582>)
 
 
 ## function appendInt
@@ -652,7 +652,7 @@ function exampleAppendInt():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4573>)
+[\(view code\)](<./Strconv.hx#L4581>)
 
 
 ## function appendQuote
@@ -687,7 +687,7 @@ function exampleAppendQuote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4849>)
+[\(view code\)](<./Strconv.hx#L4862>)
 
 
 ## function appendQuoteRune
@@ -722,7 +722,7 @@ function exampleAppendQuoteRune():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4897>)
+[\(view code\)](<./Strconv.hx#L4910>)
 
 
 ## function appendQuoteRuneToASCII
@@ -757,7 +757,7 @@ function exampleAppendQuoteRuneToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4915>)
+[\(view code\)](<./Strconv.hx#L4928>)
 
 
 ## function appendQuoteRuneToGraphic
@@ -772,7 +772,7 @@ function appendQuoteRuneToGraphic(_dst:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRun
 AppendQuoteRuneToGraphic appends a single\-quoted Go character literal representing the rune,
 as generated by QuoteRuneToGraphic, to dst and returns the extended buffer.  
 
-[\(view code\)](<./Strconv.hx#L4933>)
+[\(view code\)](<./Strconv.hx#L4946>)
 
 
 ## function appendQuoteToASCII
@@ -807,7 +807,7 @@ function exampleAppendQuoteToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4864>)
+[\(view code\)](<./Strconv.hx#L4877>)
 
 
 ## function appendQuoteToGraphic
@@ -822,7 +822,7 @@ function appendQuoteToGraphic(_dst:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString)
 AppendQuoteToGraphic appends a double\-quoted Go string literal representing s,
 as generated by QuoteToGraphic, to dst and returns the extended buffer.  
 
-[\(view code\)](<./Strconv.hx#L4880>)
+[\(view code\)](<./Strconv.hx#L4893>)
 
 
 ## function appendUint
@@ -860,7 +860,7 @@ function exampleAppendUint():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4587>)
+[\(view code\)](<./Strconv.hx#L4595>)
 
 
 ## function atoi
@@ -901,7 +901,7 @@ function exampleAtoi():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3197>)
+[\(view code\)](<./Strconv.hx#L3205>)
 
 
 ## function baseError
@@ -958,7 +958,7 @@ function exampleCanBackquote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4941>)
+[\(view code\)](<./Strconv.hx#L4954>)
 
 
 ## function formatBool
@@ -1013,7 +1013,7 @@ The format fmt and precision prec have the same meaning as in FormatFloat.
 It rounds the result assuming that the original was obtained from a complex
 value of bitSize bits, which must be 64 for complex64 and 128 for complex128.  
 
-[\(view code\)](<./Strconv.hx#L3285>)
+[\(view code\)](<./Strconv.hx#L3293>)
 
 
 ## function formatFloat
@@ -1072,7 +1072,7 @@ function exampleFormatFloat():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3567>)
+[\(view code\)](<./Strconv.hx#L3575>)
 
 
 ## function formatInt
@@ -1110,7 +1110,7 @@ function exampleFormatInt():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4556>)
+[\(view code\)](<./Strconv.hx#L4564>)
 
 
 ## function formatUint
@@ -1148,7 +1148,7 @@ function exampleFormatUint():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4544>)
+[\(view code\)](<./Strconv.hx#L4552>)
 
 
 ## function isGraphic
@@ -1187,7 +1187,7 @@ function exampleIsGraphic():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L5322>)
+[\(view code\)](<./Strconv.hx#L5339>)
 
 
 ## function isPrint
@@ -1224,7 +1224,7 @@ function exampleIsPrint():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L5286>)
+[\(view code\)](<./Strconv.hx#L5303>)
 
 
 ## function itoa
@@ -1258,7 +1258,7 @@ function exampleItoa():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4566>)
+[\(view code\)](<./Strconv.hx#L4574>)
 
 
 ## function mulByLog10Log2
@@ -1269,7 +1269,7 @@ function mulByLog10Log2(_x:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4536>)
+[\(view code\)](<./Strconv.hx#L4544>)
 
 
 ## function mulByLog2Log10
@@ -1280,7 +1280,7 @@ function mulByLog2Log10(_x:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4533>)
+[\(view code\)](<./Strconv.hx#L4541>)
 
 
 ## function newDecimal
@@ -1291,7 +1291,7 @@ function newDecimal(_i:stdgo.GoUInt64):stdgo.Ref<stdgo.strconv.T_decimal>
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4520>)
+[\(view code\)](<./Strconv.hx#L4528>)
 
 
 ## function parseBool
@@ -1495,7 +1495,7 @@ function exampleParseFloat():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L2991>)
+[\(view code\)](<./Strconv.hx#L2999>)
 
 
 ## function parseFloatPrefix
@@ -1510,7 +1510,7 @@ function parseFloatPrefix(_s:stdgo.GoString, _bitSize:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4530>)
+[\(view code\)](<./Strconv.hx#L4538>)
 
 
 ## function parseInt
@@ -1599,7 +1599,7 @@ function exampleParseInt():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3153>)
+[\(view code\)](<./Strconv.hx#L3161>)
 
 
 ## function parseUint
@@ -1649,7 +1649,7 @@ function exampleParseUint():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3050>)
+[\(view code\)](<./Strconv.hx#L3058>)
 
 
 ## function quote
@@ -1685,7 +1685,7 @@ function exampleQuote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4842>)
+[\(view code\)](<./Strconv.hx#L4855>)
 
 
 ## function quoteRune
@@ -1722,7 +1722,7 @@ function exampleQuoteRune():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4890>)
+[\(view code\)](<./Strconv.hx#L4903>)
 
 
 ## function quoteRuneToASCII
@@ -1760,7 +1760,7 @@ function exampleQuoteRuneToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4908>)
+[\(view code\)](<./Strconv.hx#L4921>)
 
 
 ## function quoteRuneToGraphic
@@ -1804,7 +1804,7 @@ function exampleQuoteRuneToGraphic():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4926>)
+[\(view code\)](<./Strconv.hx#L4939>)
 
 
 ## function quoteToASCII
@@ -1839,7 +1839,7 @@ function exampleQuoteToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4857>)
+[\(view code\)](<./Strconv.hx#L4870>)
 
 
 ## function quoteToGraphic
@@ -1879,7 +1879,7 @@ function exampleQuoteToGraphic():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4873>)
+[\(view code\)](<./Strconv.hx#L4886>)
 
 
 ## function quotedPrefix
@@ -1897,7 +1897,7 @@ function quotedPrefix(_s:stdgo.GoString):{
 QuotedPrefix returns the quoted string \(as understood by Unquote\) at the prefix of s.
 If s does not start with a valid quoted string, QuotedPrefix returns an error.  
 
-[\(view code\)](<./Strconv.hx#L5127>)
+[\(view code\)](<./Strconv.hx#L5142>)
 
 
 ## function setOptimize
@@ -1908,7 +1908,7 @@ function setOptimize(_b:Bool):Bool
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4525>)
+[\(view code\)](<./Strconv.hx#L4533>)
 
 
 ## function unquote
@@ -1972,7 +1972,7 @@ function exampleUnquote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L5138>)
+[\(view code\)](<./Strconv.hx#L5153>)
 
 
 ## function unquoteChar
@@ -2030,7 +2030,7 @@ function exampleUnquoteChar():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4988>)
+[\(view code\)](<./Strconv.hx#L5001>)
 
 
 # Classes
@@ -2081,7 +2081,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strconv.hx#L5360>)
+[\(view code\)](<./Strconv.hx#L5377>)
 
 
 ### NumError function unwrap
@@ -2092,6 +2092,6 @@ function unwrap():stdgo.Error
 ```
 
 
-[\(view code\)](<./Strconv.hx#L5356>)
+[\(view code\)](<./Strconv.hx#L5373>)
 
 

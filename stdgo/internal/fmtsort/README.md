@@ -1,9 +1,6 @@
 # Module stdgo.internal.fmtsort has compilation errors, please do not use:
 ```
-stdgo/internal/fmtsort_test/Fmtsort_test.hx:295: characters 206-215 : Unknown identifier : undefined
-stdgo/internal/fmtsort_test/Fmtsort_test.hx:295: characters 206-215 : ... For function argument 'dir'
-stdgo/internal/fmtsort_test/Fmtsort_test.hx:295: characters 206-215 : ... For function argument 'key'
-stdgo/internal/fmtsort_test/Fmtsort_test.hx:295: characters 206-215 : ... For function argument 't'
+stdgo/internal/fmtsort_test/Fmtsort_test.hx:331: characters 23-57 : Abstract stdgo.GoMap has no @:to function that accepts haxe.IMap<stdgo.Chan<stdgo.GoInt>, stdgo.GoString>
 
 ```
 

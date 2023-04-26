@@ -478,93 +478,13 @@ bufio.NewReader.
 ```
 Error: Command failed with error 1
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.01758408546447754))
+--- PASS: TestErrorf (%!s(float64=0.01935601234436035))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.0003330707550048828))
+--- PASS: TestFmtInterface (%!s(float64=0.0002529621124267578))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.3108670711517334))
-
-=== RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=1.1703150272369385))
-
-=== RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.010281085968017578))
-
-=== RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=1.1920928955078125e-05))
-
-=== RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.008460044860839844))
-
-=== RUN  TestStructPrinter
---- PASS: TestStructPrinter (%!s(float64=0.0055310726165771484))
-
-=== RUN  TestSlicePrinter
---- PASS: TestSlicePrinter (%!s(float64=0.0025649070739746094))
-
-=== RUN  TestMapPrinter
---- PASS: TestMapPrinter (%!s(float64=0.00569605827331543))
-
-=== RUN  TestEmptyMap
---- PASS: TestEmptyMap (%!s(float64=0.0005509853363037109))
-
-=== RUN  TestBlank
---- PASS: TestBlank (%!s(float64=0.0010650157928466797))
-
-=== RUN  TestBlankln
---- PASS: TestBlankln (%!s(float64=0.0018510818481445312))
-
-=== RUN  TestFormatterPrintln
---- PASS: TestFormatterPrintln (%!s(float64=0.003159046173095703))
-
-=== RUN  TestWidthAndPrecision
---- PASS: TestWidthAndPrecision (%!s(float64=0.005574941635131836))
-
-=== RUN  TestPanics
-fmt_test/Fmt_test.hx:3295: testPanics skip function
---- PASS: TestPanics (%!s(float64=2.5987625122070312e-05))
-
-=== RUN  TestBadVerbRecursion
---- PASS: TestBadVerbRecursion (%!s(float64=0.00037598609924316406))
-
-=== RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=0.14023303985595703))
-
-=== RUN  TestNilDoesNotBecomeTyped
---- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0009400844573974609))
-
-=== RUN  TestFormatterFlags
---- PASS: TestFormatterFlags (%!s(float64=0.0344998836517334))
-
-=== RUN  TestParsenum
---- PASS: TestParsenum (%!s(float64=2.002716064453125e-05))
-
-=== RUN  TestAppendf
---- PASS: TestAppendf (%!s(float64=0.0001499652862548828))
-
-=== RUN  TestAppend
---- PASS: TestAppend (%!s(float64=0.0006461143493652344))
-
-=== RUN  TestAppendln
---- PASS: TestAppendln (%!s(float64=0.0002779960632324219))
-
-=== RUN  TestScan
---- PASS: TestScan (%!s(float64=5.0067901611328125e-06))
-
-=== RUN  TestScanln
---- PASS: TestScanln (%!s(float64=9.059906005859375e-06))
-
-=== RUN  TestScanf
-Exception: regexp.mustCompile is not yet implemented
-Called from stdgo.fmt.$T_ss_static_extension.~_doScanf.1 (stdgo/fmt/Fmt.hx line 3771)
-Called from stdgo.fmt.$T_ss_static_extension._doScanf (stdgo/fmt/Fmt.hx line 3853)
-Called from stdgo.fmt._Fmt.$Fmt_Fields_.fscanf (stdgo/fmt/Fmt.hx line 1536)
-Called from stdgo.fmt._Fmt.$Fmt_Fields_.sscanf (stdgo/fmt/Fmt.hx line 1489)
-Called from stdgo.fmt_test._Fmt_test.$Fmt_test_Fields_.testScanf (stdgo/fmt_test/Fmt_test.hx line 3467)
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
-Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 137)
+Sprintf("%s", []) = "" want "abc"
 ```
 </p>
 </details>
@@ -573,87 +493,46 @@ Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 13
 <p>
 
 ```
-Invalid_argument("index out of bounds")
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.013501882553100586))
+--- PASS: TestErrorf (%!s(float64=0.01323699951171875))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.0002880096435546875))
+--- PASS: TestFmtInterface (%!s(float64=0.0002868175506591797))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.3947927951812744))
+--- PASS: TestSprintf (%!s(float64=0.4443650245666504))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=2.5708749294281006))
+--- PASS: TestComplexFormatting (%!s(float64=2.8869259357452393))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.020434141159057617))
+--- PASS: TestReorder (%!s(float64=0.023540973663330078))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=2.8848648071289062e-05))
+--- PASS: TestCountMallocs (%!s(float64=3.0040740966796875e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.008337020874023438))
+--- PASS: TestFlagParser (%!s(float64=0.00977015495300293))
 
 === RUN  TestStructPrinter
---- PASS: TestStructPrinter (%!s(float64=0.0042688846588134766))
+--- PASS: TestStructPrinter (%!s(float64=0.005015134811401367))
 
 === RUN  TestSlicePrinter
---- PASS: TestSlicePrinter (%!s(float64=0.0014050006866455078))
+--- PASS: TestSlicePrinter (%!s(float64=0.00168609619140625))
 
 === RUN  TestMapPrinter
---- PASS: TestMapPrinter (%!s(float64=0.004333972930908203))
+--- PASS: TestMapPrinter (%!s(float64=0.005520820617675781))
 
 === RUN  TestEmptyMap
---- PASS: TestEmptyMap (%!s(float64=0.0007340908050537109))
-
-=== RUN  TestBlank
---- PASS: TestBlank (%!s(float64=0.0008041858673095703))
-
-=== RUN  TestBlankln
---- PASS: TestBlankln (%!s(float64=0.0007500648498535156))
-
-=== RUN  TestFormatterPrintln
---- PASS: TestFormatterPrintln (%!s(float64=0.0021059513092041016))
-
-=== RUN  TestWidthAndPrecision
---- PASS: TestWidthAndPrecision (%!s(float64=0.005635976791381836))
-
-=== RUN  TestPanics
-fmt_test/Fmt_test.hx:3295: testPanics skip function
---- PASS: TestPanics (%!s(float64=1.7881393432617188e-05))
-
-=== RUN  TestBadVerbRecursion
---- PASS: TestBadVerbRecursion (%!s(float64=0.0005729198455810547))
-
-=== RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=3.0497190952301025))
-
-=== RUN  TestNilDoesNotBecomeTyped
---- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0008580684661865234))
-
-=== RUN  TestFormatterFlags
---- PASS: TestFormatterFlags (%!s(float64=0.03263378143310547))
-
-=== RUN  TestParsenum
---- PASS: TestParsenum (%!s(float64=4.506111145019531e-05))
-
-=== RUN  TestAppendf
---- PASS: TestAppendf (%!s(float64=0.0002980232238769531))
-
-=== RUN  TestAppend
---- PASS: TestAppend (%!s(float64=0.0005118846893310547))
-
-=== RUN  TestAppendln
---- PASS: TestAppendln (%!s(float64=0.000492095947265625))
-
-=== RUN  TestScan
---- PASS: TestScan (%!s(float64=1.4066696166992188e-05))
-
-=== RUN  TestScanln
---- PASS: TestScanln (%!s(float64=1.2874603271484375e-05))
-
-=== RUN  TestScanf
+Exception: Null Access
+Called from stdgo.fmt_test._Fmt_test.Fmt_test_Fields_.testEmptyMap (stdgo/fmt_test/Fmt_test.hx line 3249 column 27)
+Called from stdgo.fmt._Fmt.Fmt_Fields_.sprint (stdgo/fmt/Fmt.hx line 1244 column 9)
+Called from stdgo.fmt.T_pp_static_extension._doPrint (stdgo/fmt/Fmt.hx line 2478 column 13)
+Called from stdgo.fmt.T_pp_static_extension._printArg (stdgo/fmt/Fmt.hx line 3088 column 21)
+Called from stdgo.fmt.T_pp_static_extension._printValue (stdgo/fmt/Fmt.hx line 2843 column 43)
+Called from stdgo.internal.fmtsort._Fmtsort.Fmtsort_Fields_.sort (stdgo/internal/fmtsort/Fmtsort.hx line 63 column 24)
+Called from stdgo.reflect.Value_static_extension.len (stdgo/reflect/Reflect.hx line 2336 column 17)
+Called from Lambda.count (/home/runner/haxe/versions/1cbe856/std/Lambda.hx line 212 column 14)
 ```
 </p>
 </details>

@@ -14,85 +14,85 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 ```
 === RUN  TestSearch
---- PASS: TestSearch (%!s(float64=7.200241088867188e-05))
+--- PASS: TestSearch (%!s(float64=0.00011682510375976562))
 
 === RUN  TestFind
---- PASS: TestFind (%!s(float64=6.198883056640625e-05))
+--- PASS: TestFind (%!s(float64=5.1021575927734375e-05))
 
 === RUN  TestSearchEfficiency
---- PASS: TestSearchEfficiency (%!s(float64=0.002658843994140625))
+--- PASS: TestSearchEfficiency (%!s(float64=0.0034089088439941406))
 
 === RUN  TestSearchWrappers
---- PASS: TestSearchWrappers (%!s(float64=1.0013580322265625e-05))
+--- PASS: TestSearchWrappers (%!s(float64=2.288818359375e-05))
 
 === RUN  TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (%!s(float64=5.9604644775390625e-06))
+--- PASS: TestSearchWrappersDontAlloc (%!s(float64=3.409385681152344e-05))
 
 === RUN  TestSearchExhaustive
---- PASS: TestSearchExhaustive (%!s(float64=0.004395961761474609))
+--- PASS: TestSearchExhaustive (%!s(float64=0.005148887634277344))
 
 === RUN  TestFindExhaustive
---- PASS: TestFindExhaustive (%!s(float64=0.010921001434326172))
+--- PASS: TestFindExhaustive (%!s(float64=0.012759923934936523))
 
 === RUN  TestSortIntSlice
---- PASS: TestSortIntSlice (%!s(float64=3.886222839355469e-05))
+--- PASS: TestSortIntSlice (%!s(float64=5.507469177246094e-05))
 
 === RUN  TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (%!s(float64=6.29425048828125e-05))
+--- PASS: TestSortFloat64Slice (%!s(float64=5.412101745605469e-05))
 
 === RUN  TestSortStringSlice
---- PASS: TestSortStringSlice (%!s(float64=7.390975952148438e-05))
+--- PASS: TestSortStringSlice (%!s(float64=5.793571472167969e-05))
 
 === RUN  TestInts
---- PASS: TestInts (%!s(float64=0.0008921623229980469))
+--- PASS: TestInts (%!s(float64=4.696846008300781e-05))
 
 === RUN  TestFloat64s
---- PASS: TestFloat64s (%!s(float64=7.915496826171875e-05))
+--- PASS: TestFloat64s (%!s(float64=4.291534423828125e-05))
 
 === RUN  TestStrings
---- PASS: TestStrings (%!s(float64=7.104873657226562e-05))
+--- PASS: TestStrings (%!s(float64=5.4836273193359375e-05))
 
 === RUN  TestSlice
---- PASS: TestSlice (%!s(float64=0.0002701282501220703))
+--- PASS: TestSlice (%!s(float64=0.00045013427734375))
 
 === RUN  TestSortLarge_Random
---- PASS: TestSortLarge_Random (%!s(float64=0.015585899353027344))
+--- PASS: TestSortLarge_Random (%!s(float64=0.02441883087158203))
 
 === RUN  TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (%!s(float64=4.792213439941406e-05))
+--- PASS: TestReverseSortIntSlice (%!s(float64=7.295608520507812e-05))
 
 === RUN  TestBreakPatterns
---- PASS: TestBreakPatterns (%!s(float64=7.295608520507812e-05))
+--- PASS: TestBreakPatterns (%!s(float64=5.698204040527344e-05))
 
 === RUN  TestReverseRange
---- PASS: TestReverseRange (%!s(float64=4.220008850097656e-05))
+--- PASS: TestReverseRange (%!s(float64=3.3855438232421875e-05))
 
 === RUN  TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (%!s(float64=0.31139206886291504))
+--- PASS: TestNonDeterministicComparison (%!s(float64=0.37073493003845215))
 
 === RUN  TestSortBM
---- PASS: TestSortBM (%!s(float64=1.0656371116638184))
+--- PASS: TestSortBM (%!s(float64=1.2161369323730469))
 
 === RUN  TestHeapsortBM
---- PASS: TestHeapsortBM (%!s(float64=1.216939926147461))
+--- PASS: TestHeapsortBM (%!s(float64=1.3812170028686523))
 
 === RUN  TestStableBM
---- PASS: TestStableBM (%!s(float64=1.164275884628296))
+--- PASS: TestStableBM (%!s(float64=1.315342903137207))
 
 === RUN  TestAdversary
---- PASS: TestAdversary (%!s(float64=0.0218961238861084))
+--- PASS: TestAdversary (%!s(float64=0.02616405487060547))
 
 === RUN  TestStableInts
---- PASS: TestStableInts (%!s(float64=2.9087066650390625e-05))
+--- PASS: TestStableInts (%!s(float64=3.1948089599609375e-05))
 
 === RUN  TestStability
---- PASS: TestStability (%!s(float64=0.01634383201599121))
+--- PASS: TestStability (%!s(float64=0.023280858993530273))
 
 === RUN  TestCountStableOps
---- PASS: TestCountStableOps (%!s(float64=0.1726679801940918))
+--- PASS: TestCountStableOps (%!s(float64=0.17797112464904785))
 
 === RUN  TestCountSortOps
---- PASS: TestCountSortOps (%!s(float64=0.0361480712890625))
+--- PASS: TestCountSortOps (%!s(float64=0.040101051330566406))
 
 ```
 </p>
@@ -103,85 +103,85 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 ```
 === RUN  TestSearch
---- PASS: TestSearch (%!s(float64=0.0006580352783203125))
+--- PASS: TestSearch (%!s(float64=0.0003230571746826172))
 
 === RUN  TestFind
---- PASS: TestFind (%!s(float64=7.414817810058594e-05))
+--- PASS: TestFind (%!s(float64=0.0001239776611328125))
 
 === RUN  TestSearchEfficiency
---- PASS: TestSearchEfficiency (%!s(float64=0.017184019088745117))
+--- PASS: TestSearchEfficiency (%!s(float64=0.01810002326965332))
 
 === RUN  TestSearchWrappers
---- PASS: TestSearchWrappers (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestSearchWrappers (%!s(float64=2.4080276489257812e-05))
 
 === RUN  TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (%!s(float64=1.2874603271484375e-05))
+--- PASS: TestSearchWrappersDontAlloc (%!s(float64=9.775161743164062e-06))
 
 === RUN  TestSearchExhaustive
---- PASS: TestSearchExhaustive (%!s(float64=0.03667807579040527))
+--- PASS: TestSearchExhaustive (%!s(float64=0.03905606269836426))
 
 === RUN  TestFindExhaustive
---- PASS: TestFindExhaustive (%!s(float64=0.09626889228820801))
+--- PASS: TestFindExhaustive (%!s(float64=0.10685086250305176))
 
 === RUN  TestSortIntSlice
---- PASS: TestSortIntSlice (%!s(float64=0.00021910667419433594))
+--- PASS: TestSortIntSlice (%!s(float64=0.00022101402282714844))
 
 === RUN  TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (%!s(float64=0.0003020763397216797))
+--- PASS: TestSortFloat64Slice (%!s(float64=0.00022101402282714844))
 
 === RUN  TestSortStringSlice
---- PASS: TestSortStringSlice (%!s(float64=0.00013184547424316406))
+--- PASS: TestSortStringSlice (%!s(float64=0.00016617774963378906))
 
 === RUN  TestInts
---- PASS: TestInts (%!s(float64=0.00017404556274414062))
+--- PASS: TestInts (%!s(float64=0.00016117095947265625))
 
 === RUN  TestFloat64s
---- PASS: TestFloat64s (%!s(float64=0.0002570152282714844))
+--- PASS: TestFloat64s (%!s(float64=0.0002028942108154297))
 
 === RUN  TestStrings
---- PASS: TestStrings (%!s(float64=0.00011801719665527344))
+--- PASS: TestStrings (%!s(float64=0.0001327991485595703))
 
 === RUN  TestSlice
---- PASS: TestSlice (%!s(float64=0.0005590915679931641))
+--- PASS: TestSlice (%!s(float64=0.0007009506225585938))
 
 === RUN  TestSortLarge_Random
---- PASS: TestSortLarge_Random (%!s(float64=0.16498088836669922))
+--- PASS: TestSortLarge_Random (%!s(float64=0.15633702278137207))
 
 === RUN  TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (%!s(float64=0.0003879070281982422))
+--- PASS: TestReverseSortIntSlice (%!s(float64=0.000392913818359375))
 
 === RUN  TestBreakPatterns
---- PASS: TestBreakPatterns (%!s(float64=0.0003578662872314453))
+--- PASS: TestBreakPatterns (%!s(float64=0.0003788471221923828))
 
 === RUN  TestReverseRange
---- PASS: TestReverseRange (%!s(float64=4.887580871582031e-05))
+--- PASS: TestReverseRange (%!s(float64=5.0067901611328125e-05))
 
 === RUN  TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (%!s(float64=3.3530290126800537))
+--- PASS: TestNonDeterministicComparison (%!s(float64=4.260884046554565))
 
 === RUN  TestSortBM
---- PASS: TestSortBM (%!s(float64=2.3379759788513184))
+--- PASS: TestSortBM (%!s(float64=2.188143014907837))
 
 === RUN  TestHeapsortBM
---- PASS: TestHeapsortBM (%!s(float64=4.581238031387329))
+--- PASS: TestHeapsortBM (%!s(float64=4.205377101898193))
 
 === RUN  TestStableBM
---- PASS: TestStableBM (%!s(float64=3.790540933609009))
+--- PASS: TestStableBM (%!s(float64=3.439589023590088))
 
 === RUN  TestAdversary
---- PASS: TestAdversary (%!s(float64=0.2511560916900635))
+--- PASS: TestAdversary (%!s(float64=0.18977808952331543))
 
 === RUN  TestStableInts
---- PASS: TestStableInts (%!s(float64=0.0002238750457763672))
+--- PASS: TestStableInts (%!s(float64=0.0001671314239501953))
 
 === RUN  TestStability
---- PASS: TestStability (%!s(float64=0.1326310634613037))
+--- PASS: TestStability (%!s(float64=0.11386299133300781))
 
 === RUN  TestCountStableOps
---- PASS: TestCountStableOps (%!s(float64=1.616886854171753))
+--- PASS: TestCountStableOps (%!s(float64=1.4882171154022217))
 
 === RUN  TestCountSortOps
---- PASS: TestCountSortOps (%!s(float64=0.3771378993988037))
+--- PASS: TestCountSortOps (%!s(float64=0.33365416526794434))
 
 ```
 </p>
@@ -350,10 +350,10 @@ Not\-a\-number \(NaN\) values are ordered before other values.
 
 ```haxe
 function exampleFloat64s():Void {
-        var _s = (new Slice<GoFloat64>(0, 0, (5.2 : GoFloat64), (-1.3 : GoFloat64), (0.7 : GoFloat64), (-3.8 : GoFloat64), (2.6 : GoFloat64)) : Slice<GoFloat64>);
+        var _s = (new Slice<GoFloat64>(5, 5, (5.2 : GoFloat64), (-1.3 : GoFloat64), (0.7 : GoFloat64), (-3.8 : GoFloat64), (2.6 : GoFloat64)) : Slice<GoFloat64>);
         stdgo.sort.Sort.float64s(_s);
         stdgo.fmt.Fmt.println(Go.toInterface(_s));
-        _s = (new Slice<GoFloat64>(0, 0, stdgo.math.Math.inf((1 : GoInt)), stdgo.math.Math.naN(), stdgo.math.Math.inf((-1 : GoInt)), (0 : GoFloat64)) : Slice<GoFloat64>);
+        _s = (new Slice<GoFloat64>(4, 4, stdgo.math.Math.inf((1 : GoInt)), stdgo.math.Math.naN(), stdgo.math.Math.inf((-1 : GoInt)), (0 : GoFloat64)) : Slice<GoFloat64>);
         stdgo.sort.Sort.float64s(_s);
         stdgo.fmt.Fmt.println(Go.toInterface(_s));
     }
@@ -388,11 +388,11 @@ with not\-a\-number \(NaN\) values before any other values.
 
 ```haxe
 function exampleFloat64sAreSorted():Void {
-        var _s = (new Slice<GoFloat64>(0, 0, (0.7 : GoFloat64), (1.3 : GoFloat64), (2.6 : GoFloat64), (3.8 : GoFloat64), (5.2 : GoFloat64)) : Slice<GoFloat64>);
+        var _s = (new Slice<GoFloat64>(5, 5, (0.7 : GoFloat64), (1.3 : GoFloat64), (2.6 : GoFloat64), (3.8 : GoFloat64), (5.2 : GoFloat64)) : Slice<GoFloat64>);
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.sort.Sort.float64sAreSorted(_s)));
-        _s = (new Slice<GoFloat64>(0, 0, (5.2 : GoFloat64), (3.8 : GoFloat64), (2.6 : GoFloat64), (1.3 : GoFloat64), (0.7 : GoFloat64)) : Slice<GoFloat64>);
+        _s = (new Slice<GoFloat64>(5, 5, (5.2 : GoFloat64), (3.8 : GoFloat64), (2.6 : GoFloat64), (1.3 : GoFloat64), (0.7 : GoFloat64)) : Slice<GoFloat64>);
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.sort.Sort.float64sAreSorted(_s)));
-        _s = (new Slice<GoFloat64>(0, 0, (5.2 : GoFloat64), (1.3 : GoFloat64), (0.7 : GoFloat64), (3.8 : GoFloat64), (2.6 : GoFloat64)) : Slice<GoFloat64>);
+        _s = (new Slice<GoFloat64>(5, 5, (5.2 : GoFloat64), (1.3 : GoFloat64), (0.7 : GoFloat64), (3.8 : GoFloat64), (2.6 : GoFloat64)) : Slice<GoFloat64>);
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.sort.Sort.float64sAreSorted(_s)));
     }
 ```
@@ -436,7 +436,7 @@ Ints sorts a slice of ints in increasing order.
 
 ```haxe
 function exampleInts():Void {
-        var _s = (new Slice<GoInt>(0, 0, (5 : GoInt), (2 : GoInt), (6 : GoInt), (3 : GoInt), (1 : GoInt), (4 : GoInt)) : Slice<GoInt>);
+        var _s = (new Slice<GoInt>(6, 6, (5 : GoInt), (2 : GoInt), (6 : GoInt), (3 : GoInt), (1 : GoInt), (4 : GoInt)) : Slice<GoInt>);
         stdgo.sort.Sort.ints(_s);
         stdgo.fmt.Fmt.println(Go.toInterface(_s));
     }
@@ -470,11 +470,11 @@ IntsAreSorted reports whether the slice x is sorted in increasing order.
 
 ```haxe
 function exampleIntsAreSorted():Void {
-        var _s = (new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt), (3 : GoInt), (4 : GoInt), (5 : GoInt), (6 : GoInt)) : Slice<GoInt>);
+        var _s = (new Slice<GoInt>(6, 6, (1 : GoInt), (2 : GoInt), (3 : GoInt), (4 : GoInt), (5 : GoInt), (6 : GoInt)) : Slice<GoInt>);
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.sort.Sort.intsAreSorted(_s)));
-        _s = (new Slice<GoInt>(0, 0, (6 : GoInt), (5 : GoInt), (4 : GoInt), (3 : GoInt), (2 : GoInt), (1 : GoInt)) : Slice<GoInt>);
+        _s = (new Slice<GoInt>(6, 6, (6 : GoInt), (5 : GoInt), (4 : GoInt), (3 : GoInt), (2 : GoInt), (1 : GoInt)) : Slice<GoInt>);
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.sort.Sort.intsAreSorted(_s)));
-        _s = (new Slice<GoInt>(0, 0, (3 : GoInt), (2 : GoInt), (4 : GoInt), (1 : GoInt), (5 : GoInt)) : Slice<GoInt>);
+        _s = (new Slice<GoInt>(5, 5, (3 : GoInt), (2 : GoInt), (4 : GoInt), (1 : GoInt), (5 : GoInt)) : Slice<GoInt>);
         stdgo.fmt.Fmt.println(Go.toInterface(stdgo.sort.Sort.intsAreSorted(_s)));
     }
 ```
@@ -521,7 +521,7 @@ Reverse returns the reverse order for data.
 
 ```haxe
 function exampleReverse():Void {
-        var _s = (new Slice<GoInt>(0, 0, (5 : GoInt), (2 : GoInt), (6 : GoInt), (3 : GoInt), (1 : GoInt), (4 : GoInt)) : Slice<GoInt>);
+        var _s = (new Slice<GoInt>(6, 6, (5 : GoInt), (2 : GoInt), (6 : GoInt), (3 : GoInt), (1 : GoInt), (4 : GoInt)) : Slice<GoInt>);
         stdgo.sort.Sort.sort(stdgo.sort.Sort.reverse(Go.asInterface((_s : stdgo.sort.Sort.IntSlice))));
         stdgo.fmt.Fmt.println(Go.toInterface(_s));
     }
@@ -622,8 +622,8 @@ As a more whimsical example, this program guesses your number:
 ```haxe
 function exampleSearch():Void {
         var _a = (new Slice<GoInt>(
-0,
-0,
+10,
+10,
 (1 : GoInt),
 (3 : GoInt),
 (6 : GoInt),
@@ -661,8 +661,8 @@ function exampleSearch():Void {
 ```haxe
 function exampleSearch_descendingOrder():Void {
         var _a = (new Slice<GoInt>(
-0,
-0,
+10,
+10,
 (55 : GoInt),
 (45 : GoInt),
 (36 : GoInt),
@@ -716,7 +716,7 @@ The slice must be sorted in ascending order.
 
 ```haxe
 function exampleSearchFloat64s():Void {
-        var _a = (new Slice<GoFloat64>(0, 0, (1 : GoFloat64), (2 : GoFloat64), (3.3 : GoFloat64), (4.6 : GoFloat64), (6.1 : GoFloat64), (7.2 : GoFloat64), (8 : GoFloat64)) : Slice<GoFloat64>);
+        var _a = (new Slice<GoFloat64>(7, 7, (1 : GoFloat64), (2 : GoFloat64), (3.3 : GoFloat64), (4.6 : GoFloat64), (6.1 : GoFloat64), (7.2 : GoFloat64), (8 : GoFloat64)) : Slice<GoFloat64>);
         var _x:GoFloat64 = (2 : GoFloat64);
         var _i:GoInt = stdgo.sort.Sort.searchFloat64s(_a, _x);
         stdgo.fmt.Fmt.printf(("found %g at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
@@ -757,7 +757,7 @@ The slice must be sorted in ascending order.
 
 ```haxe
 function exampleSearchInts():Void {
-        var _a = (new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt), (3 : GoInt), (4 : GoInt), (6 : GoInt), (7 : GoInt), (8 : GoInt)) : Slice<GoInt>);
+        var _a = (new Slice<GoInt>(7, 7, (1 : GoInt), (2 : GoInt), (3 : GoInt), (4 : GoInt), (6 : GoInt), (7 : GoInt), (8 : GoInt)) : Slice<GoInt>);
         var _x:GoInt = (2 : GoInt);
         var _i:GoInt = stdgo.sort.Sort.searchInts(_a, _x);
         stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
@@ -822,7 +822,7 @@ the Interface type's Less method.
 
 ```haxe
 function exampleSlice():Void {
-        var _people = (new Slice<Person>(0, 0, (new Person(("Gopher" : GoString), (7 : GoInt)) : Person), (new Person(("Alice" : GoString), (55 : GoInt)) : Person), (new Person(("Vera" : GoString), (24 : GoInt)) : Person), (new Person(("Bob" : GoString), (75 : GoInt)) : Person)) : Slice<Person>);
+        var _people = (new Slice<Person>(4, 4, (new Person(("Gopher" : GoString), (7 : GoInt)) : Person), (new Person(("Alice" : GoString), (55 : GoInt)) : Person), (new Person(("Vera" : GoString), (24 : GoInt)) : Person), (new Person(("Bob" : GoString), (75 : GoInt)) : Person)) : Slice<Person>);
         stdgo.sort.Sort.slice(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
             return _people[(_i : GoInt)].name < _people[(_j : GoInt)].name;
         });
@@ -883,7 +883,7 @@ the Interface type's Less method.
 
 ```haxe
 function exampleSliceStable():Void {
-        var _people = (new Slice<Person>(0, 0, (new Person(("Alice" : GoString), (25 : GoInt)) : Person), (new Person(("Elizabeth" : GoString), (75 : GoInt)) : Person), (new Person(("Alice" : GoString), (75 : GoInt)) : Person), (new Person(("Bob" : GoString), (75 : GoInt)) : Person), (new Person(("Alice" : GoString), (75 : GoInt)) : Person), (new Person(("Bob" : GoString), (25 : GoInt)) : Person), (new Person(("Colin" : GoString), (25 : GoInt)) : Person), (new Person(("Elizabeth" : GoString), (25 : GoInt)) : Person)) : Slice<Person>);
+        var _people = (new Slice<Person>(8, 8, (new Person(("Alice" : GoString), (25 : GoInt)) : Person), (new Person(("Elizabeth" : GoString), (75 : GoInt)) : Person), (new Person(("Alice" : GoString), (75 : GoInt)) : Person), (new Person(("Bob" : GoString), (75 : GoInt)) : Person), (new Person(("Alice" : GoString), (75 : GoInt)) : Person), (new Person(("Bob" : GoString), (25 : GoInt)) : Person), (new Person(("Colin" : GoString), (25 : GoInt)) : Person), (new Person(("Elizabeth" : GoString), (25 : GoInt)) : Person)) : Slice<Person>);
         stdgo.sort.Sort.sliceStable(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
             return _people[(_i : GoInt)].name < _people[(_j : GoInt)].name;
         });
@@ -958,7 +958,7 @@ Strings sorts a slice of strings in increasing order.
 
 ```haxe
 function exampleStrings():Void {
-        var _s = (new Slice<GoString>(0, 0, ("Go" : GoString), ("Bravo" : GoString), ("Gopher" : GoString), ("Alpha" : GoString), ("Grin" : GoString), ("Delta" : GoString)) : Slice<GoString>);
+        var _s = (new Slice<GoString>(6, 6, ("Go" : GoString), ("Bravo" : GoString), ("Gopher" : GoString), ("Alpha" : GoString), ("Grin" : GoString), ("Delta" : GoString)) : Slice<GoString>);
         stdgo.sort.Sort.strings(_s);
         stdgo.fmt.Fmt.println(Go.toInterface(_s));
     }

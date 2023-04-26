@@ -1,4 +1,4 @@
-# Module stdgo.path has compilation errors, please do not use:
+# Module stdgo.path.filepath has compilation errors, please do not use:
 ```
 stdgo/path/filepath_test/Filepath_test.hx:1167: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv
 stdgo/path/filepath_test/Filepath_test.hx:2034: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv

@@ -157,7 +157,7 @@
 
   - [`function f()`](<#internaltest-function-f>)
 
-  - [`function new(name:stdgo.GoString, f:()):Void`](<#internaltest-function-new>)
+  - [`function new(?name:stdgo.GoString, ?f:()):Void`](<#internaltest-function-new>)
 
 - [class M](<#class-m>)
 
@@ -239,7 +239,7 @@ function allocsPerRun(_runs:stdgo.GoInt, f:():Void):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Testing.hx#L511>)
+[\(view code\)](<./Testing.hx#L512>)
 
 
 ## function benchmark
@@ -250,7 +250,7 @@ function benchmark(f:()):stdgo.testing.BenchmarkResult
 ```
 
 
-[\(view code\)](<./Testing.hx#L503>)
+[\(view code\)](<./Testing.hx#L504>)
 
 
 ## function coverMode
@@ -261,7 +261,7 @@ function coverMode():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testing.hx#L501>)
+[\(view code\)](<./Testing.hx#L502>)
 
 
 ## function mainStart
@@ -272,7 +272,7 @@ function mainStart(deps:stdgo.testing.T_testDeps, tests:stdgo.Slice<stdgo.testin
 ```
 
 
-[\(view code\)](<./Testing.hx#L466>)
+[\(view code\)](<./Testing.hx#L467>)
 
 
 ## function short
@@ -283,7 +283,7 @@ function short():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L508>)
+[\(view code\)](<./Testing.hx#L509>)
 
 
 ## function verbose
@@ -294,7 +294,7 @@ function verbose():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L514>)
+[\(view code\)](<./Testing.hx#L515>)
 
 
 # Classes
@@ -1054,7 +1054,7 @@ function f()
 
 
 ```haxe
-function new(name:stdgo.GoString, f:()):Void
+function new(?name:stdgo.GoString, ?f:()):Void
 ```
 
 
@@ -1431,7 +1431,7 @@ typedef T_testDeps = {
 		_0:Bool;
 	};
 	public function importPath():stdgo.GoString;
-	public function coordinateFuzzing(_0:stdgo.time.Duration, _1:stdgo.GoInt64, _2:stdgo.time.Duration, _3:stdgo.GoInt64, _4:stdgo.GoInt, _5:stdgo.Slice<stdgo.testing.T_corpusEntry>, _6:stdgo.Slice<stdgo.reflect.Type>, _7:stdgo.GoString, _8:stdgo.GoString):stdgo.Error;
+	public function coordinateFuzzing(_0:Dynamic, _1:stdgo.GoInt64, _2:Dynamic, _3:stdgo.GoInt64, _4:stdgo.GoInt, _5:stdgo.Slice<stdgo.testing.T_corpusEntry>, _6:stdgo.Slice<stdgo.reflect.Type>, _7:stdgo.GoString, _8:stdgo.GoString):stdgo.Error;
 	public function checkCorpus(_0:stdgo.Slice<stdgo.AnyInterface>, _1:stdgo.Slice<stdgo.reflect.Type>):stdgo.Error;
 };
 ```

@@ -172,9 +172,7 @@ Unicode character classes are those in unicode.Categories and unicode.Scripts.
 ```
 Error: Command failed with error 1
 === RUN  TestParseSimple
-Exception: regexp.syntax.testParseSimple is not yet implemented
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
-Called from stdgo.regexp.syntax_test._Syntax.$Syntax_Fields_.main (stdgo/regexp/syntax_test/Syntax.hx line 51)
+Parse(`$$`).Dump() = `cat{eol{}eol{}}` want `eol{}`
 ```
 </p>
 </details>
@@ -184,8 +182,7 @@ Called from stdgo.regexp.syntax_test._Syntax.$Syntax_Fields_.main (stdgo/regexp/
 
 ```
 === RUN  TestParseSimple
-Exception: regexp.syntax.testParseSimple is not yet implemented
-Called from stdgo.regexp.syntax._Syntax.Syntax_Fields_.testParseSimple (stdgo/regexp/syntax/Syntax.hx line 1300 column 64)
+Parse(`$$`).Dump() = `cat{eol{}eol{}}` want `eol{}`
 ```
 </p>
 </details>
@@ -310,7 +307,7 @@ import stdgo.regexp.syntax.Syntax
 
 
 ```haxe
-final classNL:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final classNL:stdgo.regexp.syntax.Flags = ((512 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -318,7 +315,7 @@ final classNL:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.synt
 allow character classes like \[^a\-z\] and \[\[:space:\]\] to match newline  
 
 ```haxe
-final dotNL:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final dotNL:stdgo.regexp.syntax.Flags = ((512 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -326,37 +323,37 @@ final dotNL:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax
 allow . to match newline  
 
 ```haxe
-final emptyBeginLine:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.EmptyOp))
+final emptyBeginLine:stdgo.regexp.syntax.EmptyOp = ((32 : stdgo.regexp.syntax.Syntax.EmptyOp))
 ```
 
 
 ```haxe
-final emptyBeginText:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.EmptyOp))
+final emptyBeginText:stdgo.regexp.syntax.EmptyOp = ((32 : stdgo.regexp.syntax.Syntax.EmptyOp))
 ```
 
 
 ```haxe
-final emptyEndLine:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.EmptyOp))
+final emptyEndLine:stdgo.regexp.syntax.EmptyOp = ((32 : stdgo.regexp.syntax.Syntax.EmptyOp))
 ```
 
 
 ```haxe
-final emptyEndText:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.EmptyOp))
+final emptyEndText:stdgo.regexp.syntax.EmptyOp = ((32 : stdgo.regexp.syntax.Syntax.EmptyOp))
 ```
 
 
 ```haxe
-final emptyNoWordBoundary:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.EmptyOp))
+final emptyNoWordBoundary:stdgo.regexp.syntax.EmptyOp = ((32 : stdgo.regexp.syntax.Syntax.EmptyOp))
 ```
 
 
 ```haxe
-final emptyWordBoundary:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.EmptyOp))
+final emptyWordBoundary:stdgo.regexp.syntax.EmptyOp = ((32 : stdgo.regexp.syntax.Syntax.EmptyOp))
 ```
 
 
 ```haxe
-final errInternalError:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInternalError:stdgo.regexp.syntax.ErrorCode = (((("regexp/syntax: internal error" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
@@ -364,7 +361,7 @@ final errInternalError:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : std
 Unexpected error  
 
 ```haxe
-final errInvalidCharClass:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidCharClass:stdgo.regexp.syntax.ErrorCode = (((("invalid character class" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
@@ -372,77 +369,77 @@ final errInvalidCharClass:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : 
 Parse errors  
 
 ```haxe
-final errInvalidCharRange:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidCharRange:stdgo.regexp.syntax.ErrorCode = (((("invalid character class range" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidEscape:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidEscape:stdgo.regexp.syntax.ErrorCode = (((("invalid escape sequence" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidNamedCapture:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidNamedCapture:stdgo.regexp.syntax.ErrorCode = (((("invalid named capture" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidPerlOp:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidPerlOp:stdgo.regexp.syntax.ErrorCode = (((("invalid or unsupported Perl syntax" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidRepeatOp:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidRepeatOp:stdgo.regexp.syntax.ErrorCode = (((("invalid nested repetition operator" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidRepeatSize:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidRepeatSize:stdgo.regexp.syntax.ErrorCode = (((("invalid repeat count" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidUTF8:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidUTF8:stdgo.regexp.syntax.ErrorCode = (((("invalid UTF-8" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errLarge:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errLarge:stdgo.regexp.syntax.ErrorCode = (((("expression too large" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errMissingBracket:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errMissingBracket:stdgo.regexp.syntax.ErrorCode = (((("missing closing ]" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errMissingParen:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errMissingParen:stdgo.regexp.syntax.ErrorCode = (((("missing closing )" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errMissingRepeatArgument:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errMissingRepeatArgument:stdgo.regexp.syntax.ErrorCode = (((("missing argument to repetition operator" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errNestingDepth:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errNestingDepth:stdgo.regexp.syntax.ErrorCode = (((("expression nests too deeply" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errTrailingBackslash:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errTrailingBackslash:stdgo.regexp.syntax.ErrorCode = (((("trailing backslash at end of expression" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errUnexpectedParen:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errUnexpectedParen:stdgo.regexp.syntax.ErrorCode = (((("unexpected )" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final foldCase:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final foldCase:stdgo.regexp.syntax.Flags = ((512 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -450,62 +447,62 @@ final foldCase:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syn
 case\-insensitive match  
 
 ```haxe
-final instAlt:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.InstOp))
+final instAlt:stdgo.regexp.syntax.InstOp = ((10 : stdgo.regexp.syntax.Syntax.InstOp))
 ```
 
 
 ```haxe
-final instAltMatch:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.InstOp))
+final instAltMatch:stdgo.regexp.syntax.InstOp = ((10 : stdgo.regexp.syntax.Syntax.InstOp))
 ```
 
 
 ```haxe
-final instCapture:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.InstOp))
+final instCapture:stdgo.regexp.syntax.InstOp = ((10 : stdgo.regexp.syntax.Syntax.InstOp))
 ```
 
 
 ```haxe
-final instEmptyWidth:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.InstOp))
+final instEmptyWidth:stdgo.regexp.syntax.InstOp = ((10 : stdgo.regexp.syntax.Syntax.InstOp))
 ```
 
 
 ```haxe
-final instFail:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.InstOp))
+final instFail:stdgo.regexp.syntax.InstOp = ((10 : stdgo.regexp.syntax.Syntax.InstOp))
 ```
 
 
 ```haxe
-final instMatch:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.InstOp))
+final instMatch:stdgo.regexp.syntax.InstOp = ((10 : stdgo.regexp.syntax.Syntax.InstOp))
 ```
 
 
 ```haxe
-final instNop:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.InstOp))
+final instNop:stdgo.regexp.syntax.InstOp = ((10 : stdgo.regexp.syntax.Syntax.InstOp))
 ```
 
 
 ```haxe
-final instRune:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.InstOp))
+final instRune:stdgo.regexp.syntax.InstOp = ((10 : stdgo.regexp.syntax.Syntax.InstOp))
 ```
 
 
 ```haxe
-final instRune1:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.InstOp))
+final instRune1:stdgo.regexp.syntax.InstOp = ((10 : stdgo.regexp.syntax.Syntax.InstOp))
 ```
 
 
 ```haxe
-final instRuneAny:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.InstOp))
+final instRuneAny:stdgo.regexp.syntax.InstOp = ((10 : stdgo.regexp.syntax.Syntax.InstOp))
 ```
 
 
 ```haxe
-final instRuneAnyNotNL:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.InstOp))
+final instRuneAnyNotNL:stdgo.regexp.syntax.InstOp = ((10 : stdgo.regexp.syntax.Syntax.InstOp))
 ```
 
 
 ```haxe
-final literal:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final literal:stdgo.regexp.syntax.Flags = ((512 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -513,12 +510,12 @@ final literal:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.synt
 treat pattern as literal string  
 
 ```haxe
-final matchNL:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final matchNL:stdgo.regexp.syntax.Flags = ((12 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
 ```haxe
-final nonGreedy:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final nonGreedy:stdgo.regexp.syntax.Flags = ((512 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -526,7 +523,7 @@ final nonGreedy:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.sy
 make repetition operators default to non\-greedy  
 
 ```haxe
-final oneLine:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final oneLine:stdgo.regexp.syntax.Flags = ((512 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -534,7 +531,7 @@ final oneLine:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.synt
 treat ^ and $ as only matching at beginning and end of text  
 
 ```haxe
-final opAlternate:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opAlternate:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -542,7 +539,7 @@ final opAlternate:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.synt
 matches alternation of Subs  
 
 ```haxe
-final opAnyChar:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opAnyChar:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -550,7 +547,7 @@ final opAnyChar:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax
 matches any character  
 
 ```haxe
-final opAnyCharNotNL:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opAnyCharNotNL:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -558,7 +555,7 @@ final opAnyCharNotNL:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.s
 matches any character except newline  
 
 ```haxe
-final opBeginLine:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opBeginLine:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -566,7 +563,7 @@ final opBeginLine:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.synt
 matches empty string at beginning of line  
 
 ```haxe
-final opBeginText:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opBeginText:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -574,7 +571,7 @@ final opBeginText:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.synt
 matches empty string at beginning of text  
 
 ```haxe
-final opCapture:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opCapture:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -582,7 +579,7 @@ final opCapture:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax
 capturing subexpression with index Cap, optional name Name  
 
 ```haxe
-final opCharClass:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opCharClass:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -590,7 +587,7 @@ final opCharClass:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.synt
 matches Runes interpreted as range pair list  
 
 ```haxe
-final opConcat:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opConcat:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -598,7 +595,7 @@ final opConcat:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.
 matches concatenation of Subs  
 
 ```haxe
-final opEmptyMatch:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opEmptyMatch:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -606,7 +603,7 @@ final opEmptyMatch:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syn
 matches empty string  
 
 ```haxe
-final opEndLine:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opEndLine:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -614,7 +611,7 @@ final opEndLine:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax
 matches empty string at end of line  
 
 ```haxe
-final opEndText:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opEndText:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -622,7 +619,7 @@ final opEndText:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax
 matches empty string at end of text  
 
 ```haxe
-final opLiteral:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opLiteral:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -630,7 +627,7 @@ final opLiteral:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax
 matches Runes sequence  
 
 ```haxe
-final opNoMatch:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opNoMatch:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -638,7 +635,7 @@ final opNoMatch:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax
 matches no strings  
 
 ```haxe
-final opNoWordBoundary:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opNoWordBoundary:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -646,7 +643,7 @@ final opNoWordBoundary:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp
 matches word non\-boundary \`\\B\`  
 
 ```haxe
-final opPlus:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opPlus:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -654,7 +651,7 @@ final opPlus:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Sy
 matches Sub\[0\] one or more times  
 
 ```haxe
-final opQuest:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opQuest:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -662,7 +659,7 @@ final opQuest:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.S
 matches Sub\[0\] zero or one times  
 
 ```haxe
-final opRepeat:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opRepeat:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -670,7 +667,7 @@ final opRepeat:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.
 matches Sub\[0\] at least Min times, at most Max \(Max == \-1 is no limit\)  
 
 ```haxe
-final opStar:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opStar:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -678,7 +675,7 @@ final opStar:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Sy
 matches Sub\[0\] zero or more times  
 
 ```haxe
-final opWordBoundary:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.syntax.Syntax.Op))
+final opWordBoundary:stdgo.regexp.syntax.Op = ((19 : stdgo.regexp.syntax.Syntax.Op))
 ```
 
 
@@ -686,7 +683,7 @@ final opWordBoundary:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : stdgo.regexp.s
 matches word boundary \`\\b\`  
 
 ```haxe
-final perl:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final perl:stdgo.regexp.syntax.Flags = ((212 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -694,7 +691,7 @@ final perl:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.
 as close to Perl as possible  
 
 ```haxe
-final perlX:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final perlX:stdgo.regexp.syntax.Flags = ((512 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -702,7 +699,7 @@ final perlX:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax
 allow Perl extensions  
 
 ```haxe
-final posix:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final posix:stdgo.regexp.syntax.Flags = ((0 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -710,7 +707,7 @@ final posix:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax
 POSIX syntax  
 
 ```haxe
-final simple:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final simple:stdgo.regexp.syntax.Flags = ((512 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -718,7 +715,7 @@ final simple:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.synta
 regexp contains no counted repetition  
 
 ```haxe
-final unicodeGroups:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final unicodeGroups:stdgo.regexp.syntax.Flags = ((512 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -726,7 +723,7 @@ final unicodeGroups:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regex
 allow \\p\{Han\}, \\P\{Han\} for Unicode group and negation  
 
 ```haxe
-final wasDollar:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : stdgo.regexp.syntax.Syntax.Flags))
+final wasDollar:stdgo.regexp.syntax.Flags = ((512 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -749,7 +746,7 @@ function benchmarkEmptyOpContext(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1346>)
+[\(view code\)](<./Syntax.hx#L2902>)
 
 
 ## function compile
@@ -767,7 +764,7 @@ function compile(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):{
 Compile compiles the regexp into a program to be executed.
 The regexp should have been simplified already \(returned from re.Simplify\).  
 
-[\(view code\)](<./Syntax.hx#L1194>)
+[\(view code\)](<./Syntax.hx#L1621>)
 
 
 ## function emptyOpContext
@@ -786,7 +783,7 @@ at the beginning of the text.
 Passing r2 == \-1 indicates that the position is
 at the end of the text.  
 
-[\(view code\)](<./Syntax.hx#L1334>)
+[\(view code\)](<./Syntax.hx#L2803>)
 
 
 ## function isWordChar
@@ -802,7 +799,7 @@ IsWordChar reports whether r is considered a “word character”
 during the evaluation of the \\b and \\B zero\-width assertions.
 These assertions are ASCII\-only: the word characters are \[A\-Za\-z0\-9\_\].  
 
-[\(view code\)](<./Syntax.hx#L1340>)
+[\(view code\)](<./Syntax.hx#L2830>)
 
 
 ## function parse
@@ -821,7 +818,7 @@ Parse parses a regular expression string s, controlled by the specified
 Flags, and returns a regular expression parse tree. The syntax is
 described in the top\-level comment.  
 
-[\(view code\)](<./Syntax.hx#L1221>)
+[\(view code\)](<./Syntax.hx#L1724>)
 
 
 ## function testAppendRangeCollapse
@@ -832,7 +829,7 @@ function testAppendRangeCollapse(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1323>)
+[\(view code\)](<./Syntax.hx#L2705>)
 
 
 ## function testCompile
@@ -843,7 +840,7 @@ function testCompile(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1345>)
+[\(view code\)](<./Syntax.hx#L2892>)
 
 
 ## function testFoldConstants
@@ -854,7 +851,7 @@ function testFoldConstants(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1322>)
+[\(view code\)](<./Syntax.hx#L2687>)
 
 
 ## function testParseFoldCase
@@ -865,7 +862,7 @@ function testParseFoldCase(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1301>)
+[\(view code\)](<./Syntax.hx#L2521>)
 
 
 ## function testParseInvalidRegexps
@@ -876,7 +873,7 @@ function testParseInvalidRegexps(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1324>)
+[\(view code\)](<./Syntax.hx#L2718>)
 
 
 ## function testParseLiteral
@@ -887,7 +884,7 @@ function testParseLiteral(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1302>)
+[\(view code\)](<./Syntax.hx#L2524>)
 
 
 ## function testParseMatchNL
@@ -898,7 +895,7 @@ function testParseMatchNL(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1303>)
+[\(view code\)](<./Syntax.hx#L2527>)
 
 
 ## function testParseNoMatchNL
@@ -909,7 +906,7 @@ function testParseNoMatchNL(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1304>)
+[\(view code\)](<./Syntax.hx#L2530>)
 
 
 ## function testParseSimple
@@ -920,7 +917,7 @@ function testParseSimple(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1300>)
+[\(view code\)](<./Syntax.hx#L2518>)
 
 
 ## function testSimplify
@@ -931,7 +928,7 @@ function testSimplify(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1370>)
+[\(view code\)](<./Syntax.hx#L3165>)
 
 
 ## function testToStringEquivalentParse
@@ -942,7 +939,7 @@ function testToStringEquivalentParse(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1325>)
+[\(view code\)](<./Syntax.hx#L2762>)
 
 
 # Classes
@@ -987,7 +984,7 @@ function new(?op:Null<stdgo.regexp.syntax.InstOp>, ?out:stdgo.GoUInt32, ?arg:std
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1093>)
+[\(view code\)](<./Syntax.hx#L1518>)
 
 
 ### Inst function \_op
@@ -1001,7 +998,7 @@ function _op():stdgo.regexp.syntax.InstOp
 
 op returns i.Op but merges all the Rune special cases into InstRune  
 
-[\(view code\)](<./Syntax.hx#L2018>)
+[\(view code\)](<./Syntax.hx#L5325>)
 
 
 ### Inst function matchEmptyWidth
@@ -1017,7 +1014,7 @@ MatchEmptyWidth reports whether the instruction matches
 an empty string between the runes before and after.
 It should only be called when i.Op == InstEmptyWidth.  
 
-[\(view code\)](<./Syntax.hx#L1998>)
+[\(view code\)](<./Syntax.hx#L5226>)
 
 
 ### Inst function matchRune
@@ -1032,7 +1029,7 @@ function matchRune( _r:stdgo.GoRune):Bool
 MatchRune reports whether the instruction matches \(and consumes\) r.
 It should only be called when i.Op == InstRune.  
 
-[\(view code\)](<./Syntax.hx#L2013>)
+[\(view code\)](<./Syntax.hx#L5318>)
 
 
 ### Inst function matchRunePos
@@ -1050,7 +1047,7 @@ If so, MatchRunePos returns the index of the matching rune pair
 If not, MatchRunePos returns \-1.
 MatchRunePos should only be called when i.Op == InstRune.  
 
-[\(view code\)](<./Syntax.hx#L2007>)
+[\(view code\)](<./Syntax.hx#L5253>)
 
 
 ### Inst function string
@@ -1061,7 +1058,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1991>)
+[\(view code\)](<./Syntax.hx#L5215>)
 
 
 ## class Prog
@@ -1093,7 +1090,7 @@ function new(?inst:stdgo.Slice<stdgo.regexp.syntax.Inst>, ?start:Null<stdgo.GoIn
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1073>)
+[\(view code\)](<./Syntax.hx#L1498>)
 
 
 ### Prog function \_skipNop
@@ -1107,7 +1104,7 @@ function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref<stdgo.regexp.syntax.Inst>
 
 skipNop follows any no\-op or capturing instructions.  
 
-[\(view code\)](<./Syntax.hx#L1947>)
+[\(view code\)](<./Syntax.hx#L5161>)
 
 
 ### Prog function prefix
@@ -1126,7 +1123,7 @@ Prefix returns a literal string that all matches for the
 regexp must start with. Complete is true if the prefix
 is the entire match.  
 
-[\(view code\)](<./Syntax.hx#L1942>)
+[\(view code\)](<./Syntax.hx#L5144>)
 
 
 ### Prog function startCond
@@ -1141,7 +1138,7 @@ function startCond():stdgo.regexp.syntax.EmptyOp
 StartCond returns the leading empty\-width conditions that must
 be true in any match. It returns ^EmptyOp\(0\) if no matches are possible.  
 
-[\(view code\)](<./Syntax.hx#L1935>)
+[\(view code\)](<./Syntax.hx#L5103>)
 
 
 ### Prog function string
@@ -1152,7 +1149,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1949>)
+[\(view code\)](<./Syntax.hx#L5169>)
 
 
 ## class Regexp
@@ -1219,7 +1216,7 @@ function new(?op:Null<stdgo.regexp.syntax.Op>, ?flags:Null<stdgo.regexp.syntax.F
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1120>)
+[\(view code\)](<./Syntax.hx#L1545>)
 
 
 ### Regexp function \_capNames
@@ -1230,7 +1227,7 @@ function _capNames( _names:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2072>)
+[\(view code\)](<./Syntax.hx#L5483>)
 
 
 ### Regexp function capNames
@@ -1244,7 +1241,7 @@ function capNames():stdgo.Slice<stdgo.GoString>
 
 CapNames walks the regexp to find the names of capturing groups.  
 
-[\(view code\)](<./Syntax.hx#L2077>)
+[\(view code\)](<./Syntax.hx#L5495>)
 
 
 ### Regexp function equal
@@ -1258,7 +1255,7 @@ function equal( _y:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Bool
 
 Equal reports whether x and y have identical structure.  
 
-[\(view code\)](<./Syntax.hx#L2089>)
+[\(view code\)](<./Syntax.hx#L5529>)
 
 
 ### Regexp function maxCap
@@ -1272,7 +1269,7 @@ function maxCap():stdgo.GoInt
 
 MaxCap walks the regexp to find the maximum capture index.  
 
-[\(view code\)](<./Syntax.hx#L2082>)
+[\(view code\)](<./Syntax.hx#L5504>)
 
 
 ### Regexp function simplify
@@ -1292,7 +1289,7 @@ may have been duplicated or removed. For example, the simplified form
 for /\(x\)\{1,2\}/ is /\(x\)\(x\)?/ but both parentheses capture as $1.
 The returned regexp may share structure with or be the original.  
 
-[\(view code\)](<./Syntax.hx#L2070>)
+[\(view code\)](<./Syntax.hx#L5386>)
 
 
 ### Regexp function string
@@ -1303,7 +1300,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2084>)
+[\(view code\)](<./Syntax.hx#L5520>)
 
 
 ## class T\_error
@@ -1331,7 +1328,7 @@ function new(?code:Null<stdgo.regexp.syntax.ErrorCode>, ?expr:stdgo.GoString):Vo
 ```
 
 
-[\(view code\)](<./Syntax.hx#L957>)
+[\(view code\)](<./Syntax.hx#L1382>)
 
 
 ### T\_error function error
@@ -1342,7 +1339,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1484>)
+[\(view code\)](<./Syntax.hx#L3486>)
 
 
 # Typedefs

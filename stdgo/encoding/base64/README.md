@@ -635,7 +635,7 @@ The encoding pads the output to a multiple of 4 bytes,
 so Encode is not appropriate for use on individual blocks
 of a large data stream. Use NewEncoder\(\) instead.  
 
-[\(view code\)](<./Base64.hx#L1706>)
+[\(view code\)](<./Base64.hx#L1710>)
 
 
 ### Encoding function encodeToString
@@ -649,7 +649,7 @@ function encodeToString( _src:stdgo.Slice<stdgo.GoByte>):stdgo.GoString
 
 EncodeToString returns the base64 encoding of src.  
 
-[\(view code\)](<./Base64.hx#L1692>)
+[\(view code\)](<./Base64.hx#L1696>)
 
 
 ### Encoding function encodedLen
@@ -664,7 +664,7 @@ function encodedLen( _n:stdgo.GoInt):stdgo.GoInt
 EncodedLen returns the length in bytes of the base64 encoding
 of an input buffer of length n.  
 
-[\(view code\)](<./Base64.hx#L1682>)
+[\(view code\)](<./Base64.hx#L1686>)
 
 
 ### Encoding function strict
@@ -684,7 +684,7 @@ trailing padding bits are zero, as described in RFC 4648 section 3.5.
 Note that the input is still malleable, as new line characters
 \(CR and LF\) are still ignored.  
 
-[\(view code\)](<./Base64.hx#L1756>)
+[\(view code\)](<./Base64.hx#L1760>)
 
 
 ### Encoding function withPadding
@@ -702,7 +702,7 @@ The padding character must not be '\\r' or '\\n', must not
 be contained in the encoding's alphabet and must be a rune equal or
 below '\\xff'.  
 
-[\(view code\)](<./Base64.hx#L1768>)
+[\(view code\)](<./Base64.hx#L1772>)
 
 
 # Typedefs

@@ -15,9 +15,9 @@ stdgo/time_test/Time_test.hx:3603: characters 196-266 : ... For function argumen
 stdgo/time_test/Time_test.hx:3564: lines 3564-3572 : ... Called from macro here
 stdgo/time_test/Time_test.hx:3907: characters 58-76 : Module stdgo.testing.Testing does not define type T_asInterface
 stdgo/time_test/Time_test.hx:3907: characters 58-76 : ... For function argument 't'
-stdgo/time_test/Time_test.hx:4249: characters 269-327 : invalid type: TAbstract(stdgo.GoInt64,[])
-stdgo/time_test/Time_test.hx:4249: characters 269-327 : ... For function argument '_a'
-stdgo/math/big/Big.hx:19614: characters 13-98 : Cannot modify the abstract value, store it into a local first
+stdgo/time_test/Time_test.hx:4249: characters 267-325 : invalid type: TAbstract(stdgo.GoInt64,[])
+stdgo/time_test/Time_test.hx:4249: characters 267-325 : ... For function argument '_a'
+stdgo/math/big/Big.hx:19641: characters 13-98 : Cannot modify the abstract value, store it into a local first
 
 ```
 

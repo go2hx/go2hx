@@ -17,7 +17,7 @@ Annex G IEC 60559\-compatible complex arithmetic.
 ```
 Error: Command failed with error 1
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=4.506111145019531e-05))
+--- PASS: TestAbs (%!s(float64=5.698204040527344e-05))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
@@ -30,7 +30,7 @@ Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
 
 ```
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=8.511543273925781e-05))
+--- PASS: TestAbs (%!s(float64=8.296966552734375e-05))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)

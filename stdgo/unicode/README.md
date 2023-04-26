@@ -15,88 +15,88 @@ Unicode code points.
 
 ```
 === RUN  TestDigit
---- PASS: TestDigit (%!s(float64=9.107589721679688e-05))
+--- PASS: TestDigit (%!s(float64=0.00014781951904296875))
 
 === RUN  TestDigitOptimization
---- PASS: TestDigitOptimization (%!s(float64=3.2901763916015625e-05))
+--- PASS: TestDigitOptimization (%!s(float64=4.9114227294921875e-05))
 
 === RUN  TestIsControlLatin1
---- PASS: TestIsControlLatin1 (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestIsControlLatin1 (%!s(float64=2.2172927856445312e-05))
 
 === RUN  TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (%!s(float64=4.792213439941406e-05))
+--- PASS: TestIsLetterLatin1 (%!s(float64=5.507469177246094e-05))
 
 === RUN  TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (%!s(float64=3.886222839355469e-05))
+--- PASS: TestIsUpperLatin1 (%!s(float64=5.698204040527344e-05))
 
 === RUN  TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (%!s(float64=3.910064697265625e-05))
+--- PASS: TestIsLowerLatin1 (%!s(float64=0.0001327991485595703))
 
 === RUN  TestNumberLatin1
---- PASS: TestNumberLatin1 (%!s(float64=4.887580871582031e-05))
+--- PASS: TestNumberLatin1 (%!s(float64=5.316734313964844e-05))
 
 === RUN  TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (%!s(float64=0.0004971027374267578))
+--- PASS: TestIsPrintLatin1 (%!s(float64=0.0009160041809082031))
 
 === RUN  TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (%!s(float64=0.0005118846893310547))
+--- PASS: TestIsGraphicLatin1 (%!s(float64=0.0013849735260009766))
 
 === RUN  TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (%!s(float64=0.00011205673217773438))
+--- PASS: TestIsPunctLatin1 (%!s(float64=0.00014781951904296875))
 
 === RUN  TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (%!s(float64=4.100799560546875e-05))
+--- PASS: TestIsSpaceLatin1 (%!s(float64=4.506111145019531e-05))
 
 === RUN  TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (%!s(float64=6.914138793945312e-05))
+--- PASS: TestIsSymbolLatin1 (%!s(float64=7.605552673339844e-05))
 
 === RUN  TestIsLetter
---- PASS: TestIsLetter (%!s(float64=4.410743713378906e-05))
+--- PASS: TestIsLetter (%!s(float64=0.00013709068298339844))
 
 === RUN  TestIsUpper
---- PASS: TestIsUpper (%!s(float64=2.9087066650390625e-05))
+--- PASS: TestIsUpper (%!s(float64=0.00011992454528808594))
 
 === RUN  TestTo
---- PASS: TestTo (%!s(float64=4.601478576660156e-05))
+--- PASS: TestTo (%!s(float64=9.012222290039062e-05))
 
 === RUN  TestToUpperCase
---- PASS: TestToUpperCase (%!s(float64=1.9073486328125e-05))
+--- PASS: TestToUpperCase (%!s(float64=7.104873657226562e-05))
 
 === RUN  TestToLowerCase
---- PASS: TestToLowerCase (%!s(float64=2.3126602172851562e-05))
+--- PASS: TestToLowerCase (%!s(float64=7.390975952148438e-05))
 
 === RUN  TestToTitleCase
---- PASS: TestToTitleCase (%!s(float64=1.811981201171875e-05))
+--- PASS: TestToTitleCase (%!s(float64=6.699562072753906e-05))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=1.2874603271484375e-05))
+--- PASS: TestIsSpace (%!s(float64=4.696846008300781e-05))
 
 === RUN  TestLetterOptimizations
---- PASS: TestLetterOptimizations (%!s(float64=0.0007901191711425781))
+--- PASS: TestLetterOptimizations (%!s(float64=0.0008540153503417969))
 
 === RUN  TestTurkishCase
---- PASS: TestTurkishCase (%!s(float64=0.00015211105346679688))
+--- PASS: TestTurkishCase (%!s(float64=0.0016410350799560547))
 
 === RUN  TestSimpleFold
---- PASS: TestSimpleFold (%!s(float64=6.103515625e-05))
+--- PASS: TestSimpleFold (%!s(float64=9.608268737792969e-05))
 
 === RUN  TestCalibrate
---- PASS: TestCalibrate (%!s(float64=5.0067901611328125e-06))
+--- PASS: TestCalibrate (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestLatinOffset
---- PASS: TestLatinOffset (%!s(float64=0.13448286056518555))
+--- PASS: TestLatinOffset (%!s(float64=0.0012907981872558594))
 
 === RUN  TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (%!s(float64=3.3855438232421875e-05))
+--- PASS: TestSpecialCaseNoMapping (%!s(float64=4.482269287109375e-05))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=0.00139617919921875))
+--- PASS: TestNegativeRune (%!s(float64=0.0029129981994628906))
 
 === RUN  TestCategories
---- PASS: TestCategories (%!s(float64=0.03540205955505371))
+--- PASS: TestCategories (%!s(float64=0.00238800048828125))
 
 === RUN  TestProperties
---- PASS: TestProperties (%!s(float64=0.03154897689819336))
+--- PASS: TestProperties (%!s(float64=0.0009458065032958984))
 
 ```
 </p>
@@ -107,88 +107,88 @@ Unicode code points.
 
 ```
 === RUN  TestDigit
---- PASS: TestDigit (%!s(float64=0.001068115234375))
+--- PASS: TestDigit (%!s(float64=0.001007080078125))
 
 === RUN  TestDigitOptimization
---- PASS: TestDigitOptimization (%!s(float64=0.0008289813995361328))
+--- PASS: TestDigitOptimization (%!s(float64=0.0008180141448974609))
 
 === RUN  TestIsControlLatin1
---- PASS: TestIsControlLatin1 (%!s(float64=0.00048089027404785156))
+--- PASS: TestIsControlLatin1 (%!s(float64=0.0005400180816650391))
 
 === RUN  TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (%!s(float64=0.0014050006866455078))
+--- PASS: TestIsLetterLatin1 (%!s(float64=0.0013020038604736328))
 
 === RUN  TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (%!s(float64=0.001010894775390625))
+--- PASS: TestIsUpperLatin1 (%!s(float64=0.0011398792266845703))
 
 === RUN  TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (%!s(float64=0.0010700225830078125))
+--- PASS: TestIsLowerLatin1 (%!s(float64=0.0012149810791015625))
 
 === RUN  TestNumberLatin1
---- PASS: TestNumberLatin1 (%!s(float64=0.001188039779663086))
+--- PASS: TestNumberLatin1 (%!s(float64=0.0013120174407958984))
 
 === RUN  TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (%!s(float64=0.004024982452392578))
+--- PASS: TestIsPrintLatin1 (%!s(float64=0.0043218135833740234))
 
 === RUN  TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (%!s(float64=0.004313945770263672))
+--- PASS: TestIsGraphicLatin1 (%!s(float64=0.004498004913330078))
 
 === RUN  TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (%!s(float64=0.0018401145935058594))
+--- PASS: TestIsPunctLatin1 (%!s(float64=0.0018069744110107422))
 
 === RUN  TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (%!s(float64=0.0010139942169189453))
+--- PASS: TestIsSpaceLatin1 (%!s(float64=0.0011239051818847656))
 
 === RUN  TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (%!s(float64=0.0014770030975341797))
+--- PASS: TestIsSymbolLatin1 (%!s(float64=0.0016529560089111328))
 
 === RUN  TestIsLetter
---- PASS: TestIsLetter (%!s(float64=0.0006821155548095703))
+--- PASS: TestIsLetter (%!s(float64=0.0008099079132080078))
 
 === RUN  TestIsUpper
---- PASS: TestIsUpper (%!s(float64=0.0004119873046875))
+--- PASS: TestIsUpper (%!s(float64=0.00037384033203125))
 
 === RUN  TestTo
---- PASS: TestTo (%!s(float64=0.0008420944213867188))
+--- PASS: TestTo (%!s(float64=0.0008959770202636719))
 
 === RUN  TestToUpperCase
---- PASS: TestToUpperCase (%!s(float64=0.0002880096435546875))
+--- PASS: TestToUpperCase (%!s(float64=0.0002808570861816406))
 
 === RUN  TestToLowerCase
---- PASS: TestToLowerCase (%!s(float64=0.0002830028533935547))
+--- PASS: TestToLowerCase (%!s(float64=0.00029587745666503906))
 
 === RUN  TestToTitleCase
---- PASS: TestToTitleCase (%!s(float64=0.00026607513427734375))
+--- PASS: TestToTitleCase (%!s(float64=0.0002779960632324219))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=0.00012993812561035156))
+--- PASS: TestIsSpace (%!s(float64=0.00014901161193847656))
 
 === RUN  TestLetterOptimizations
---- PASS: TestLetterOptimizations (%!s(float64=0.014902114868164062))
+--- PASS: TestLetterOptimizations (%!s(float64=0.016471147537231445))
 
 === RUN  TestTurkishCase
---- PASS: TestTurkishCase (%!s(float64=0.0013988018035888672))
+--- PASS: TestTurkishCase (%!s(float64=0.0014529228210449219))
 
 === RUN  TestSimpleFold
---- PASS: TestSimpleFold (%!s(float64=0.0004401206970214844))
+--- PASS: TestSimpleFold (%!s(float64=0.0005300045013427734))
 
 === RUN  TestCalibrate
---- PASS: TestCalibrate (%!s(float64=8.106231689453125e-06))
+--- PASS: TestCalibrate (%!s(float64=6.9141387939453125e-06))
 
 === RUN  TestLatinOffset
---- PASS: TestLatinOffset (%!s(float64=0.08910298347473145))
+--- PASS: TestLatinOffset (%!s(float64=0.0035741329193115234))
 
 === RUN  TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (%!s(float64=0.00013899803161621094))
+--- PASS: TestSpecialCaseNoMapping (%!s(float64=0.00015306472778320312))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=0.012742042541503906))
+--- PASS: TestNegativeRune (%!s(float64=0.014183998107910156))
 
 === RUN  TestCategories
---- PASS: TestCategories (%!s(float64=0.02395796775817871))
+--- PASS: TestCategories (%!s(float64=0.0026330947875976562))
 
 === RUN  TestProperties
---- PASS: TestProperties (%!s(float64=0.021541833877563477))
+--- PASS: TestProperties (%!s(float64=0.003180980682373047))
 
 ```
 </p>
@@ -3099,7 +3099,7 @@ function in_(_r:stdgo.GoRune, _ranges:haxe.Rest<stdgo.Ref<stdgo.unicode.RangeTab
 
 In reports whether the rune is a member of one of the ranges.  
 
-[\(view code\)](<./Unicode.hx#L9401>)
+[\(view code\)](<./Unicode.hx#L9183>)
 
 
 ## function isControl
@@ -3115,7 +3115,7 @@ IsControl reports whether the rune is a control character.
 The C \(Other\) Unicode category includes more code points
 such as surrogates; use Is\(C, r\) to test for them.  
 
-[\(view code\)](<./Unicode.hx#L9415>)
+[\(view code\)](<./Unicode.hx#L9197>)
 
 
 ## function isDigit
@@ -3148,7 +3148,7 @@ function exampleIsDigit():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9356>)
+[\(view code\)](<./Unicode.hx#L9138>)
 
 
 ## function isGraphic
@@ -3164,7 +3164,7 @@ IsGraphic reports whether the rune is defined as a Graphic by Unicode.
 Such characters include letters, marks, numbers, punctuation, symbols, and
 spaces, from categories L, M, N, P, S, Zs.  
 
-[\(view code\)](<./Unicode.hx#L9367>)
+[\(view code\)](<./Unicode.hx#L9149>)
 
 
 ## function isLetter
@@ -3197,7 +3197,7 @@ function exampleIsLetter():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9424>)
+[\(view code\)](<./Unicode.hx#L9206>)
 
 
 ## function isLower
@@ -3230,7 +3230,7 @@ function exampleIsLower():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9590>)
+[\(view code\)](<./Unicode.hx#L9372>)
 
 
 ## function isMark
@@ -3244,7 +3244,7 @@ function isMark(_r:stdgo.GoRune):Bool
 
 IsMark reports whether the rune is a mark character \(category M\).  
 
-[\(view code\)](<./Unicode.hx#L9433>)
+[\(view code\)](<./Unicode.hx#L9215>)
 
 
 ## function isNumber
@@ -3277,7 +3277,7 @@ function exampleIsNumber():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9439>)
+[\(view code\)](<./Unicode.hx#L9221>)
 
 
 ## function isOneOf
@@ -3292,7 +3292,7 @@ function isOneOf(_ranges:stdgo.Slice<stdgo.Ref<stdgo.unicode.RangeTable>>, _r:st
 IsOneOf reports whether the rune is a member of one of the ranges.
 The function "In" provides a nicer signature and should be used in preference to IsOneOf.  
 
-[\(view code\)](<./Unicode.hx#L9390>)
+[\(view code\)](<./Unicode.hx#L9172>)
 
 
 ## function isPrint
@@ -3310,7 +3310,7 @@ ASCII space character, from categories L, M, N, P, S and the ASCII space
 character. This categorization is the same as IsGraphic except that the
 only spacing character is ASCII space, U\+0020.  
 
-[\(view code\)](<./Unicode.hx#L9380>)
+[\(view code\)](<./Unicode.hx#L9162>)
 
 
 ## function isPunct
@@ -3325,7 +3325,7 @@ function isPunct(_r:stdgo.GoRune):Bool
 IsPunct reports whether the rune is a Unicode punctuation character
 \(category P\).  
 
-[\(view code\)](<./Unicode.hx#L9449>)
+[\(view code\)](<./Unicode.hx#L9231>)
 
 
 ## function isSpace
@@ -3369,7 +3369,7 @@ function exampleIsSpace():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9465>)
+[\(view code\)](<./Unicode.hx#L9247>)
 
 
 ## function isSymbol
@@ -3383,7 +3383,7 @@ function isSymbol(_r:stdgo.GoRune):Bool
 
 IsSymbol reports whether the rune is a symbolic character.  
 
-[\(view code\)](<./Unicode.hx#L9480>)
+[\(view code\)](<./Unicode.hx#L9262>)
 
 
 ## function isTitle
@@ -3416,7 +3416,7 @@ function exampleIsTitle():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9599>)
+[\(view code\)](<./Unicode.hx#L9381>)
 
 
 ## function isUpper
@@ -3449,7 +3449,7 @@ function exampleIsUpper():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9581>)
+[\(view code\)](<./Unicode.hx#L9363>)
 
 
 ## function is\_
@@ -3463,7 +3463,7 @@ function is_(_rangeTab:stdgo.Ref<stdgo.unicode.RangeTable>, _r:stdgo.GoRune):Boo
 
 Is reports whether the rune is in the specified table of ranges.  
 
-[\(view code\)](<./Unicode.hx#L9553>)
+[\(view code\)](<./Unicode.hx#L9335>)
 
 
 ## function simpleFold
@@ -3522,7 +3522,7 @@ function exampleSimpleFold():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9700>)
+[\(view code\)](<./Unicode.hx#L9482>)
 
 
 ## function to
@@ -3561,7 +3561,7 @@ function exampleTo():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9637>)
+[\(view code\)](<./Unicode.hx#L9419>)
 
 
 ## function toLower
@@ -3594,7 +3594,7 @@ function exampleToLower():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9659>)
+[\(view code\)](<./Unicode.hx#L9441>)
 
 
 ## function toTitle
@@ -3627,7 +3627,7 @@ function exampleToTitle():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9671>)
+[\(view code\)](<./Unicode.hx#L9453>)
 
 
 ## function toUpper
@@ -3660,7 +3660,7 @@ function exampleToUpper():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9647>)
+[\(view code\)](<./Unicode.hx#L9429>)
 
 
 # Classes
@@ -3713,7 +3713,7 @@ function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo.unicode._
 ```
 
 
-[\(view code\)](<./Unicode.hx#L9317>)
+[\(view code\)](<./Unicode.hx#L9099>)
 
 
 ## class Range16
@@ -3746,7 +3746,7 @@ function new(?lo:stdgo.GoUInt16, ?hi:stdgo.GoUInt16, ?stride:stdgo.GoUInt16):Voi
 ```
 
 
-[\(view code\)](<./Unicode.hx#L9266>)
+[\(view code\)](<./Unicode.hx#L9048>)
 
 
 ## class Range32
@@ -3780,7 +3780,7 @@ function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?stride:stdgo.GoUInt32):Voi
 ```
 
 
-[\(view code\)](<./Unicode.hx#L9287>)
+[\(view code\)](<./Unicode.hx#L9069>)
 
 
 ## class RangeTable
@@ -3816,7 +3816,7 @@ function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.uni
 ```
 
 
-[\(view code\)](<./Unicode.hx#L9246>)
+[\(view code\)](<./Unicode.hx#L9028>)
 
 
 # Typedefs

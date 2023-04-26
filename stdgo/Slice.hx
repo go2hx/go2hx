@@ -17,8 +17,10 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return new SliceKeyValueIterator<T>(this);
 
 	public inline function __append__(args:Rest<T>):Slice<T> {
-		if (this == null)
-			return args.toArray();
+		if (this == null) {
+			final vector = new haxe.ds.Vector<T>(args.length * 2);
+			return new SliceData<T>(args.length, vector.length, ...args);
+		}
 		return this.__append__(...args);
 	}
 
@@ -142,7 +144,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this == null ? [] : this.toArray();
 	}
 
-	public function __toVector__() {
+	public inline function __toVector__() {
 		return this.toVector();
 	}
 
@@ -323,7 +325,7 @@ class SliceData<T> {
 		return [for (i in 0...length) vector.get(i + offset)];
 	}
 
-	public inline function toVector():haxe.ds.Vector<T> {
+	public function toVector():haxe.ds.Vector<T> {
 		final vectorObj = new haxe.ds.Vector<T>(length);
 		haxe.ds.Vector.blit(vector, offset, vectorObj, 0, length);
 		return vectorObj;

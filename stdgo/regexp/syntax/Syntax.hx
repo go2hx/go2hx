@@ -213,7 +213,8 @@ private var _code3 = (new Slice<GoInt32>(8, 8, (48 : GoInt32), (57 : GoInt32), (
     
 **/
 private var _perlGroup = ({
-        final x = new GoMap<GoString, stdgo.regexp.syntax.Syntax.T_charGroup>();
+        final x = new stdgo.GoMap.GoStringMap<stdgo.regexp.syntax.Syntax.T_charGroup>();
+        x.__defaultValue__ = () -> ({} : stdgo.regexp.syntax.Syntax.T_charGroup);
         @:mergeBlock {
             x.set(("\\d" : GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : GoInt), _code1) : stdgo.regexp.syntax.Syntax.T_charGroup));
             x.set(("\\D" : GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : GoInt), _code1) : stdgo.regexp.syntax.Syntax.T_charGroup));
@@ -223,7 +224,7 @@ private var _perlGroup = ({
             x.set(("\\W" : GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : GoInt), _code3) : stdgo.regexp.syntax.Syntax.T_charGroup));
         };
         x;
-    });
+    } : GoMap<GoString, stdgo.regexp.syntax.Syntax.T_charGroup>);
 /**
     
     
@@ -314,7 +315,8 @@ private var _code17 = (new Slice<GoInt32>(6, 6, (48 : GoInt32), (57 : GoInt32), 
     
 **/
 private var _posixGroup = ({
-        final x = new GoMap<GoString, stdgo.regexp.syntax.Syntax.T_charGroup>();
+        final x = new stdgo.GoMap.GoStringMap<stdgo.regexp.syntax.Syntax.T_charGroup>();
+        x.__defaultValue__ = () -> ({} : stdgo.regexp.syntax.Syntax.T_charGroup);
         @:mergeBlock {
             x.set(("[:alnum:]" : GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : GoInt), _code4) : stdgo.regexp.syntax.Syntax.T_charGroup));
             x.set(("[:^alnum:]" : GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : GoInt), _code4) : stdgo.regexp.syntax.Syntax.T_charGroup));
@@ -346,7 +348,7 @@ private var _posixGroup = ({
             x.set(("[:^xdigit:]" : GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : GoInt), _code17) : stdgo.regexp.syntax.Syntax.T_charGroup));
         };
         x;
-    });
+    } : GoMap<GoString, stdgo.regexp.syntax.Syntax.T_charGroup>);
 /**
     
     

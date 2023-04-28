@@ -1242,10 +1242,11 @@ class FlagSet_asInterface {
         };
         if (_f._actual == null) {
             _f._actual = ({
-                final x = new GoMap<GoString, Ref<stdgo.flag.Flag.Flag>>();
+                final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.flag.Flag.Flag>>();
+                x.__defaultValue__ = () -> (null : Ref<stdgo.flag.Flag.Flag>);
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, Ref<stdgo.flag.Flag.Flag>>);
         };
         _f._actual[_name] = _flag;
         return { _0 : true, _1 : (null : Error) };
@@ -1311,10 +1312,11 @@ class FlagSet_asInterface {
         };
         if (_f._formal == null) {
             _f._formal = ({
-                final x = new GoMap<GoString, Ref<stdgo.flag.Flag.Flag>>();
+                final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.flag.Flag.Flag>>();
+                x.__defaultValue__ = () -> (null : Ref<stdgo.flag.Flag.Flag>);
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, Ref<stdgo.flag.Flag.Flag>>);
         };
         _f._formal[_name] = _flag;
     }
@@ -1597,10 +1599,11 @@ class FlagSet_asInterface {
         };
         if (_f._actual == null) {
             _f._actual = ({
-                final x = new GoMap<GoString, Ref<stdgo.flag.Flag.Flag>>();
+                final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.flag.Flag.Flag>>();
+                x.__defaultValue__ = () -> (null : Ref<stdgo.flag.Flag.Flag>);
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, Ref<stdgo.flag.Flag.Flag>>);
         };
         _f._actual[_name] = _flag;
         return (null : Error);

@@ -48,13 +48,14 @@ private var _atobtests = (new Slice<stdgo.strconv_test.Strconv_test.T_atobTest>(
     
 **/
 private var _boolString = ({
-        final x = new GoMap<Bool, GoString>();
+        final x = new stdgo.GoMap.GoBoolMap<GoString>();
+        x.__defaultValue__ = () -> ("" : GoString);
         @:mergeBlock {
             x.set(true, ("true" : GoString));
             x.set(false, ("false" : GoString));
         };
         x;
-    });
+    } : GoMap<Bool, GoString>);
 /**
     
     

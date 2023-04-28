@@ -1206,10 +1206,11 @@ function testFileSetPastEnd(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testFileSetCacheUnlikely(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _fset = newFileSet();
         var _offsets = ({
-            final x = new GoMap<GoString, GoInt>();
+            final x = new stdgo.GoMap.GoStringMap<GoInt>();
+            x.__defaultValue__ = () -> (0 : GoInt);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, GoInt>);
         for (__0 => _test in _tests) {
             _offsets[_test._filename] = _fset.base();
             _fset.addFile(_test._filename, _fset.base(), _test._size);
@@ -1635,10 +1636,11 @@ function testIsIdentifier(_t:Ref<stdgo.testing.Testing.T>):Void {
 @:keep var _ = {
         try {
             _keywords = ({
-                final x = new GoMap<GoString, stdgo.go.token.Token.Token>();
+                final x = new stdgo.GoMap.GoStringMap<stdgo.go.token.Token.Token>();
+                x.__defaultValue__ = () -> @:implicitReturn throw "__return__";
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, stdgo.go.token.Token.Token>);
             {
                 var _i:stdgo.go.token.Token.Token = (61 : stdgo.go.token.Token.Token);
                 Go.cfor(_i < (86 : stdgo.go.token.Token.Token), _i++, {

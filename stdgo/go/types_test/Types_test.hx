@@ -332,14 +332,15 @@ private var _stdLibImporter = stdgo.go.importer.Importer.forCompiler(stdgo.go.to
     
 **/
 private var _excluded = ({
-        final x = new GoMap<GoString, Bool>();
+        final x = new stdgo.GoMap.GoStringMap<Bool>();
+        x.__defaultValue__ = () -> false;
         @:mergeBlock {
             x.set(("builtin" : GoString), true);
             x.set(("crypto/internal/edwards25519/field/_asm" : GoString), true);
             x.set(("crypto/internal/bigmod/_asm" : GoString), true);
         };
         x;
-    });
+    } : GoMap<GoString, Bool>);
 /**
     // types that don't depend on any other type declarations
     
@@ -1346,10 +1347,11 @@ function testInstanceInfo(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _src : ("package issue51803; func foo[T any](T) {}; func _() { foo[int]( /* leave arg away on purpose */ ) }" : GoString), _instances : (new Slice<stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst>(1, 1, (new stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst(("foo" : GoString), (new Slice<GoString>(1, 1, ("int" : GoString)) : Slice<GoString>), ("func(int)" : GoString)) : stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst)) : Slice<stdgo.go.types_test.Types_test.T_testInstanceInfo_0___localname___testInst>) } : T__struct_10)) : Slice<T__struct_10>);
         for (__0 => _test in _tests) {
             var _imports:stdgo.go.types_test.Types_test.T_testImporter = ({
-                final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Package>>();
+                final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Package>>();
+                x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Package>);
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, Ref<stdgo.go.types.Types.Package>>);
             var _conf:stdgo.go.types.Types.Config = ({ error : function(_0:Error):Void {}, importer : Go.asInterface(_imports) } : Config);
             var _instMap = ({
                 final x = new GoRefMap<Ref<stdgo.go.ast.Ast.Ident>, stdgo.go.types.Types.Instance>();
@@ -1955,10 +1957,11 @@ function testSelection(_t:Ref<stdgo.testing.Testing.T>):Void {
         } : GoMap<Ref<stdgo.go.ast.Ast.SelectorExpr>, Ref<stdgo.go.types.Types.Selection>>);
         var _fset = stdgo.go.token.Token.newFileSet();
         var _imports:stdgo.go.types_test.Types_test.T_testImporter = ({
-            final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Package>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Package>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Package>);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Ref<stdgo.go.types.Types.Package>>);
         var _conf:stdgo.go.types.Types.Config = ({ importer : Go.asInterface(_imports) } : Config);
         var _makePkg:(GoString, GoString) -> Void = function(_path:GoString, _src:GoString):Void {
             var _f = _mustParse(_fset, _path + (".go" : GoString), _src);
@@ -1971,7 +1974,8 @@ function testSelection(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         {};
         var _wantOut = ({
-            final x = new GoMap<GoString, GoArray<GoString>>();
+            final x = new stdgo.GoMap.GoStringMap<GoArray<GoString>>();
+            x.__defaultValue__ = () -> new GoArray<GoString>(...[for (i in 0 ... 2) ("" : GoString)]);
             @:mergeBlock {
                 x.set(("lib.T.M" : GoString), (new GoArray<GoString>(("method expr (lib.T) M(lib.T)" : GoString), (".[0]" : GoString)) : GoArray<GoString>));
                 x.set(("A{}.B" : GoString), (new GoArray<GoString>(("field (main.A) B *main.B" : GoString), (".[0]" : GoString)) : GoArray<GoString>));
@@ -2002,7 +2006,7 @@ function testSelection(_t:Ref<stdgo.testing.Testing.T>):Void {
                 x.set(("G[string]{}.p" : GoString), (new GoArray<GoString>(("field (main.G[string]) p string" : GoString), (".[0]" : GoString)) : GoArray<GoString>));
             };
             x;
-        });
+        } : GoMap<GoString, GoArray<GoString>>);
         _makePkg(("lib" : GoString), ("\npackage lib\ntype T float64\nconst C T = 3\nvar V T\nfunc F() {}\nfunc (T) M() {}\n" : GoString));
         _makePkg(("main" : GoString), ("\npackage main\nimport \"lib\"\n\ntype A struct {\n\t*B\n\tC\n}\n\ntype B struct {\n\tb int\n}\n\nfunc (B) f(int)\n\ntype C struct {\n\tc int\n}\n\ntype G[P any] struct {\n\tp P\n}\n\nfunc (G[P]) m(P) {}\n\nvar Inst G[int]\n\nfunc (C) g()\nfunc (*C) h()\n\nfunc main() {\n\t// qualified identifiers\n\tvar _ lib.T\n\t_ = lib.C\n\t_ = lib.F\n\t_ = lib.V\n\t_ = lib.T.M\n\n\t// fields\n\t_ = A{}.B\n\t_ = new(A).B\n\n\t_ = A{}.C\n\t_ = new(A).C\n\n\t_ = A{}.b\n\t_ = new(A).b\n\n\t_ = A{}.c\n\t_ = new(A).c\n\n\t_ = Inst.p\n\t_ = G[string]{}.p\n\n\t// methods\n\t_ = A{}.f\n\t_ = new(A).f\n\t_ = A{}.g\n\t_ = new(A).g\n\t_ = new(A).h\n\n\t_ = B{}.f\n\t_ = new(B).f\n\n\t_ = C{}.g\n\t_ = new(C).g\n\t_ = new(C).h\n\t_ = Inst.m\n\n\t// method expressions\n\t_ = A.f\n\t_ = (*A).f\n\t_ = B.f\n\t_ = (*B).f\n\t_ = G[string].m\n}" : GoString));
         for (_e => _sel in _selections) {
@@ -2042,10 +2046,11 @@ function testSelection(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testIssue8518(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
         var _imports:stdgo.go.types_test.Types_test.T_testImporter = ({
-            final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Package>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Package>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Package>);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Ref<stdgo.go.types.Types.Package>>);
         var _conf:stdgo.go.types.Types.Config = ({ error : function(_err:Error):Void {
             _t.log(Go.toInterface(_err));
         }, importer : Go.asInterface(_imports) } : Config);
@@ -2197,10 +2202,11 @@ private function _sameSlice(_a:Slice<GoInt>, _b:Slice<GoInt>):Bool {
 function testScopeLookupParent(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _fset = stdgo.go.token.Token.newFileSet();
         var _imports:stdgo.go.types_test.Types_test.T_testImporter = ({
-            final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Package>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Package>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Package>);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Ref<stdgo.go.types.Types.Package>>);
         var _conf:stdgo.go.types.Types.Config = ({ importer : Go.asInterface(_imports) } : Config);
         var _info:Info = ({} : stdgo.go.types.Types.Info);
         var _makePkg = function(_path:GoString, _files:haxe.Rest<Ref<stdgo.go.ast.Ast.File>>):Void {
@@ -2355,7 +2361,8 @@ function testIdenticalUnions(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _tname = newTypeName((0 : stdgo.go.token.Token.Pos), null, ("myInt" : GoString), (null : stdgo.go.types.Types.Type));
         var _myInt = newNamed(_tname, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)]), (null : Slice<Ref<stdgo.go.types.Types.Func>>));
         var _tmap = ({
-            final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Term>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Term>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Term>);
             @:mergeBlock {
                 x.set(("int" : GoString), newTerm(false, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])));
                 x.set(("~int" : GoString), newTerm(true, Go.asInterface(typ[((2 : stdgo.go.types.Types.BasicKind) : GoInt)])));
@@ -2364,7 +2371,7 @@ function testIdenticalUnions(_t:Ref<stdgo.testing.Testing.T>):Void {
                 x.set(("myInt" : GoString), newTerm(false, Go.asInterface(_myInt)));
             };
             x;
-        });
+        } : GoMap<GoString, Ref<stdgo.go.types.Types.Term>>);
         var _makeUnion = function(_s:GoString):Ref<Union> {
             var _parts = stdgo.strings.Strings.split(_s, ("|" : GoString));
             var _terms:Slice<Ref<Term>> = (null : Slice<Ref<stdgo.go.types.Types.Term>>);
@@ -2621,10 +2628,11 @@ function testArgumentErrorUnwrapping(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testInstanceIdentity(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _imports:stdgo.go.types_test.Types_test.T_testImporter = ({
-            final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Package>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Package>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Package>);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Ref<stdgo.go.types.Types.Package>>);
         var _conf:stdgo.go.types.Types.Config = ({ importer : Go.asInterface(_imports) } : Config);
         var _makePkg:GoString -> Void = function(_src:GoString):Void {
             var _fset = stdgo.go.token.Token.newFileSet();
@@ -2681,10 +2689,11 @@ function testInstantiatedObjects(_t:Ref<stdgo.testing.Testing.T>):Void {
 ({ _name : ("fParam" : GoString), _obj : Go.asInterface((Go.typeAssert((Go.toInterface(_lookup(("f" : GoString))) : Ref<Signature>)) : Ref<Signature>).params().at((0 : GoInt))) } : T__struct_24),
 ({ _name : ("fResult" : GoString), _obj : Go.asInterface((Go.typeAssert((Go.toInterface(_lookup(("f" : GoString))) : Ref<Signature>)) : Ref<Signature>).results().at((0 : GoInt))) } : T__struct_24)) : Slice<T__struct_24>);
         var _idents = ({
-            final x = new GoMap<GoString, Slice<Ref<stdgo.go.ast.Ast.Ident>>>();
+            final x = new stdgo.GoMap.GoStringMap<Slice<Ref<stdgo.go.ast.Ast.Ident>>>();
+            x.__defaultValue__ = () -> (null : Slice<Ref<stdgo.go.ast.Ast.Ident>>);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Slice<Ref<stdgo.go.ast.Ast.Ident>>>);
         stdgo.go.ast.Ast.inspect(Go.asInterface(_f), function(_n:stdgo.go.ast.Ast.Node):Bool {
             {
                 var __tmp__ = try {
@@ -2846,12 +2855,13 @@ function testMissingMethodAlternative(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testBuiltinSignatures(_t:Ref<stdgo.testing.Testing.T>):Void {
         defPredeclaredTestFuncs();
         var _seen = ({
-            final x = new GoMap<GoString, Bool>();
+            final x = new stdgo.GoMap.GoStringMap<Bool>();
+            x.__defaultValue__ = () -> false;
             @:mergeBlock {
                 x.set(("trace" : GoString), true);
             };
             x;
-        });
+        } : GoMap<GoString, Bool>);
         for (__0 => _call in _builtinCalls) {
             _testBuiltinSignature(_t, _call._name, _call._src, _call._sig);
             _seen[_call._name] = true;
@@ -3033,10 +3043,11 @@ private function _parseFiles(_t:Ref<stdgo.testing.Testing.T>, _filenames:Slice<G
 private function _errMap(_t:Ref<stdgo.testing.Testing.T>, _files:Slice<Ref<stdgo.go.ast.Ast.File>>, _srcs:Slice<Slice<GoByte>>):GoMap<GoString, Slice<GoString>> {
         stdgo.internal.Macro.controlFlow({
             var _errmap = ({
-                final x = new GoMap<GoString, Slice<GoString>>();
+                final x = new stdgo.GoMap.GoStringMap<Slice<GoString>>();
+                x.__defaultValue__ = () -> (null : Slice<GoString>);
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, Slice<GoString>>);
             for (_i => _file in _files) {
                 var _tok = _fset.file(_file.package_);
                 var _src = _srcs[(_i : GoInt)];
@@ -4458,7 +4469,8 @@ function testMain(_m:Ref<stdgo.testing.Testing.M>):Void {
 function testNewMethodSet(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _tests = ({
-            final x = new GoMap<GoString, Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>>();
+            final x = new stdgo.GoMap.GoStringMap<Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>>();
+            x.__defaultValue__ = () -> (null : Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>);
             @:mergeBlock {
                 x.set(("var a T; type T struct{}; func (T) f() {}" : GoString), (new Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method(("f" : GoString), (new Slice<GoInt>(1, 1, (0 : GoInt)) : Slice<GoInt>), false) : stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method)) : Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>));
                 x.set(("var a *T; type T struct{}; func (T) f() {}" : GoString), (new Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method(("f" : GoString), (new Slice<GoInt>(1, 1, (0 : GoInt)) : Slice<GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method)) : Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>));
@@ -4492,15 +4504,16 @@ function testNewMethodSet(_t:Ref<stdgo.testing.Testing.T>):Void {
                 x.set(("var a T[int]; type ( T[P any] struct { *N[P] }; N[P any] struct { *T[P] } ); func (T[P]) m() {}" : GoString), (new Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method(("m" : GoString), (new Slice<GoInt>(1, 1, (0 : GoInt)) : Slice<GoInt>), false) : stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method)) : Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>));
             };
             x;
-        });
+        } : GoMap<GoString, Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>>);
         var _tParamTests = ({
-            final x = new GoMap<GoString, Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>>();
+            final x = new stdgo.GoMap.GoStringMap<Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>>();
+            x.__defaultValue__ = () -> (null : Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>);
             @:mergeBlock {
                 x.set(("type C interface{ f() }; func g[T C](a T){}" : GoString), (new Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method(("f" : GoString), (new Slice<GoInt>(1, 1, (0 : GoInt)) : Slice<GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method)) : Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>));
                 x.set(("type C interface{ f() }; func g[T C]() { var a T; _ = a }" : GoString), (new Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method(("f" : GoString), (new Slice<GoInt>(1, 1, (0 : GoInt)) : Slice<GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method)) : Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>));
             };
             x;
-        });
+        } : GoMap<GoString, Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_0___localname___method>>);
         var _check = function(_src:GoString, _methods:Slice<T_testNewMethodSet_0___localname___method>, _generic:Bool):Void {
             var _pkg = _mustTypecheck(("test" : GoString), ("package p;" : GoString) + _src, null);
             var _scope = _pkg.scope();
@@ -5255,10 +5268,11 @@ private function _testTestDir(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _
             _t.fatal(Go.toInterface(_err));
         };
         var _excluded = ({
-            final x = new GoMap<GoString, Bool>();
+            final x = new stdgo.GoMap.GoStringMap<Bool>();
+            x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Bool>);
         for (__0 => _filename in _ignore) {
             _excluded[_filename] = true;
         };
@@ -5870,10 +5884,11 @@ class T_resolveTestImporter_asInterface {
         if (_imp._importer == null) {
             _imp._importer = (Go.typeAssert((Go.toInterface(stdgo.go.importer.Importer.default_()) : ImporterFrom)) : ImporterFrom);
             _imp._imported = ({
-                final x = new GoMap<GoString, Bool>();
+                final x = new stdgo.GoMap.GoStringMap<Bool>();
+                x.__defaultValue__ = () -> false;
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, Bool>);
         };
         var __tmp__ = _imp._importer.importFrom(_path, _srcDir, _mode), _pkg:Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {

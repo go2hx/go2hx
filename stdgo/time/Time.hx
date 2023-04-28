@@ -167,7 +167,8 @@ private var _errLeadingInt = stdgo.errors.Errors.new_(("time: bad [0-9]*" : GoSt
     
 **/
 private var _unitMap = ({
-        final x = new GoMap<GoString, GoUInt64>();
+        final x = new stdgo.GoMap.GoStringMap<GoUInt64>();
+        x.__defaultValue__ = () -> (0 : GoUInt64);
         @:mergeBlock {
             x.set(("ns" : GoString), ((1i64 : stdgo.time.Time.Duration) : GoUInt64));
             x.set(("us" : GoString), ((1000i64 : stdgo.time.Time.Duration) : GoUInt64));
@@ -179,7 +180,7 @@ private var _unitMap = ({
             x.set(("h" : GoString), ((3600000000000i64 : stdgo.time.Time.Duration) : GoUInt64));
         };
         x;
-    });
+    } : GoMap<GoString, GoUInt64>);
 /**
     // daysBefore[m] counts the number of days in a non-leap year
     // before month m begins. There is an entry for m=12, counting
@@ -327,7 +328,8 @@ var tzsetOffset = _tzsetOffset;
     
 **/
 var stdChunkNames = ({
-        final x = new GoMap<GoInt, GoString>();
+        final x = new stdgo.GoMap.GoIntMap<GoString>();
+        x.__defaultValue__ = () -> ("" : GoString);
         @:mergeBlock {
             x.set((0 : GoInt), Go.str());
             x.set((257 : GoInt), ("January" : GoString));
@@ -383,7 +385,7 @@ var stdChunkNames = ({
             x.set((589859 : GoInt), (".999999999" : GoString));
         };
         x;
-    });
+    } : GoMap<GoInt, GoString>);
 /**
     
     

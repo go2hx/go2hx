@@ -3843,7 +3843,8 @@ var graphicRanges = (new Slice<Ref<stdgo.unicode.Unicode.RangeTable>>(6, 6, l, m
     
 **/
 var categories = ({
-    final x = new GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>();
+    final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.unicode.Unicode.RangeTable>>();
+    x.__defaultValue__ = () -> (null : Ref<stdgo.unicode.Unicode.RangeTable>);
     @:mergeBlock {
         x.set(("C" : GoString), c);
         x.set(("Cc" : GoString), cc);
@@ -3883,7 +3884,7 @@ var categories = ({
         x.set(("Zs" : GoString), zs);
     };
     x;
-});
+} : GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>);
 /**
     
     
@@ -6292,7 +6293,8 @@ var zanabazar_Square = __Zanabazar_Square;
     
 **/
 var scripts = ({
-    final x = new GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>();
+    final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.unicode.Unicode.RangeTable>>();
+    x.__defaultValue__ = () -> (null : Ref<stdgo.unicode.Unicode.RangeTable>);
     @:mergeBlock {
         x.set(("Adlam" : GoString), adlam);
         x.set(("Ahom" : GoString), ahom);
@@ -6452,7 +6454,7 @@ var scripts = ({
         x.set(("Zanabazar_Square" : GoString), zanabazar_Square);
     };
     x;
-});
+} : GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>);
 /**
     
     
@@ -7687,7 +7689,8 @@ var white_Space = __White_Space;
     
 **/
 var properties = ({
-    final x = new GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>();
+    final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.unicode.Unicode.RangeTable>>();
+    x.__defaultValue__ = () -> (null : Ref<stdgo.unicode.Unicode.RangeTable>);
     @:mergeBlock {
         x.set(("ASCII_Hex_Digit" : GoString), ascii_Hex_Digit);
         x.set(("Bidi_Control" : GoString), bidi_Control);
@@ -7726,7 +7729,7 @@ var properties = ({
         x.set(("White_Space" : GoString), white_Space);
     };
     x;
-});
+} : GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>);
 /**
     
     
@@ -8831,7 +8834,8 @@ private var _foldMn = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicode.Range
     
 **/
 var foldCategory = ({
-    final x = new GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>();
+    final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.unicode.Unicode.RangeTable>>();
+    x.__defaultValue__ = () -> (null : Ref<stdgo.unicode.Unicode.RangeTable>);
     @:mergeBlock {
         x.set(("L" : GoString), _foldL);
         x.set(("Ll" : GoString), _foldLl);
@@ -8841,7 +8845,7 @@ var foldCategory = ({
         x.set(("Mn" : GoString), _foldMn);
     };
     x;
-});
+} : GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>);
 /**
     
     
@@ -8869,14 +8873,15 @@ private var _foldInherited = (Go.setRef(({ r16 : (new Slice<stdgo.unicode.Unicod
     
 **/
 var foldScript = ({
-    final x = new GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>();
+    final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.unicode.Unicode.RangeTable>>();
+    x.__defaultValue__ = () -> (null : Ref<stdgo.unicode.Unicode.RangeTable>);
     @:mergeBlock {
         x.set(("Common" : GoString), _foldCommon);
         x.set(("Greek" : GoString), _foldGreek);
         x.set(("Inherited" : GoString), _foldInherited);
     };
     x;
-});
+} : GoMap<GoString, Ref<stdgo.unicode.Unicode.RangeTable>>);
 /**
     // Bit masks for each code point under U+0100, for fast lookup.
     

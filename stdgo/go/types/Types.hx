@@ -99,7 +99,8 @@ private var _op2str2 = {
     
 **/
 private var _gccgoArchSizes = ({
-        final x = new GoMap<GoString, Ref<stdgo.go.types.Types.StdSizes>>();
+        final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.StdSizes>>();
+        x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.StdSizes>);
         @:mergeBlock {
             x.set(("386" : GoString), (new stdgo.go.types.Types.StdSizes((4i64 : GoInt64), (4i64 : GoInt64)) : stdgo.go.types.Types.StdSizes));
             x.set(("alpha" : GoString), (new stdgo.go.types.Types.StdSizes((8i64 : GoInt64), (8i64 : GoInt64)) : stdgo.go.types.Types.StdSizes));
@@ -133,7 +134,7 @@ private var _gccgoArchSizes = ({
             x.set(("wasm" : GoString), (new stdgo.go.types.Types.StdSizes((8i64 : GoInt64), (8i64 : GoInt64)) : stdgo.go.types.Types.StdSizes));
         };
         x;
-    });
+    } : GoMap<GoString, Ref<stdgo.go.types.Types.StdSizes>>);
 /**
     
     
@@ -182,7 +183,8 @@ private var _basicSizes = {
     
 **/
 private var _gcArchSizes = ({
-        final x = new GoMap<GoString, Ref<stdgo.go.types.Types.StdSizes>>();
+        final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.StdSizes>>();
+        x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.StdSizes>);
         @:mergeBlock {
             x.set(("386" : GoString), (new stdgo.go.types.Types.StdSizes((4i64 : GoInt64), (4i64 : GoInt64)) : stdgo.go.types.Types.StdSizes));
             x.set(("amd64" : GoString), (new stdgo.go.types.Types.StdSizes((8i64 : GoInt64), (8i64 : GoInt64)) : stdgo.go.types.Types.StdSizes));
@@ -202,7 +204,7 @@ private var _gcArchSizes = ({
             x.set(("wasm" : GoString), (new stdgo.go.types.Types.StdSizes((8i64 : GoInt64), (8i64 : GoInt64)) : stdgo.go.types.Types.StdSizes));
         };
         x;
-    });
+    } : GoMap<GoString, Ref<stdgo.go.types.Types.StdSizes>>);
 /**
     // stdSizes is used if Config.Sizes == nil.
     
@@ -327,7 +329,8 @@ private var _goVersionRx = stdgo.regexp.Regexp.mustCompile(("^go([1-9]\\d*)\\.(0
     
 **/
 private var _assignOps = ({
-        final x = new GoMap<stdgo.go.token.Token.Token, stdgo.go.token.Token.Token>();
+        final x = new stdgo.GoMap.GoIntMap<stdgo.go.token.Token.Token>();
+        x.__defaultValue__ = () -> ((0 : GoInt) : stdgo.go.token.Token.Token);
         @:mergeBlock {
             x.set((23 : stdgo.go.token.Token.Token), (12 : stdgo.go.token.Token.Token));
             x.set((24 : stdgo.go.token.Token.Token), (13 : stdgo.go.token.Token.Token));
@@ -342,7 +345,7 @@ private var _assignOps = ({
             x.set((33 : stdgo.go.token.Token.Token), (22 : stdgo.go.token.Token.Token));
         };
         x;
-    });
+    } : GoMap<stdgo.go.token.Token.Token, stdgo.go.token.Token.Token>);
 /**
     
     
@@ -361,7 +364,8 @@ private var _myInt = {
     
 **/
 private var _testTerms = ({
-        final x = new GoMap<GoString, Ref<stdgo.go.types.Types.T_term>>();
+        final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.T_term>>();
+        x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.T_term>);
         @:mergeBlock {
             x.set(("∅" : GoString), (null : Ref<stdgo.go.types.Types.T_term>));
             x.set(("𝓤" : GoString), (new stdgo.go.types.Types.T_term() : stdgo.go.types.Types.T_term));
@@ -372,7 +376,7 @@ private var _testTerms = ({
             x.set(("myInt" : GoString), (new stdgo.go.types.Types.T_term(false, _myInt) : stdgo.go.types.Types.T_term));
         };
         x;
-    });
+    } : GoMap<GoString, Ref<stdgo.go.types.Types.T_term>>);
 /**
     
     
@@ -4171,10 +4175,11 @@ private function _instantiatedIdent(_expr:stdgo.go.ast.Ast.Expr):Ref<stdgo.go.as
 **/
 function newContext():Ref<Context> {
         return (Go.setRef(({ _typeMap : ({
-            final x = new GoMap<GoString, Slice<stdgo.go.types.Types.T_ctxtEntry>>();
+            final x = new stdgo.GoMap.GoStringMap<Slice<stdgo.go.types.Types.T_ctxtEntry>>();
+            x.__defaultValue__ = () -> (null : Slice<stdgo.go.types.Types.T_ctxtEntry>);
             @:mergeBlock {};
             x;
-        }), _originIDs : ({
+        } : GoMap<GoString, Slice<stdgo.go.types.Types.T_ctxtEntry>>), _originIDs : ({
             final x = new GoObjectMap<stdgo.go.types.Types.Type, GoInt>();
             x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.types.Types.Type", [], stdgo.internal.reflect.Reflect.GoType.named("Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
             x.__defaultValue__ = () -> (0 : GoInt);
@@ -5894,10 +5899,11 @@ function newMethodSet(t:Type):Ref<MethodSet> {
                         for (_i => _f in _t._fields) {
                             if (_fset == null) {
                                 _fset = ({
-                                    final x = new GoMap<GoString, Bool>();
+                                    final x = new stdgo.GoMap.GoStringMap<Bool>();
+                                    x.__defaultValue__ = () -> false;
                                     @:mergeBlock {};
                                     x;
-                                });
+                                } : GoMap<GoString, Bool>);
                             };
                             _fset[_f.id()] = true;
                             if (_f._embedded) {
@@ -5920,10 +5926,11 @@ function newMethodSet(t:Type):Ref<MethodSet> {
                         };
                         if (_base == null) {
                             _base = ({
-                                final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Selection>>();
+                                final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Selection>>();
+                                x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Selection>);
                                 @:mergeBlock {};
                                 x;
-                            });
+                            } : GoMap<GoString, Ref<stdgo.go.types.Types.Selection>>);
                         };
                         _base[_k] = _m;
                     };
@@ -5935,10 +5942,11 @@ function newMethodSet(t:Type):Ref<MethodSet> {
                     if (!_found) {
                         if (_base == null) {
                             _base = ({
-                                final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Selection>>();
+                                final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Selection>>();
+                                x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Selection>);
                                 @:mergeBlock {};
                                 x;
-                            });
+                            } : GoMap<GoString, Ref<stdgo.go.types.Types.Selection>>);
                         };
                         _base[_k] = null;
                     };
@@ -7561,7 +7569,8 @@ function testTermlistString(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testTermlistIsEmpty(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_test => _want in ({
-            final x = new GoMap<GoString, Bool>();
+            final x = new stdgo.GoMap.GoStringMap<Bool>();
+            x.__defaultValue__ = () -> false;
             @:mergeBlock {
                 x.set(("∅" : GoString), true);
                 x.set(("∅ | ∅" : GoString), true);
@@ -7572,7 +7581,7 @@ function testTermlistIsEmpty(_t:Ref<stdgo.testing.Testing.T>):Void {
                 x.set(("𝓤 | myInt | ∅" : GoString), false);
             };
             x;
-        })) {
+        } : GoMap<GoString, Bool>)) {
             var _xl:stdgo.go.types.Types.T_termlist = _maketl(_test);
             var _got:Bool = _xl._isEmpty();
             if (_got != (_want)) {
@@ -7582,7 +7591,8 @@ function testTermlistIsEmpty(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testTermlistIsAll(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_test => _want in ({
-            final x = new GoMap<GoString, Bool>();
+            final x = new stdgo.GoMap.GoStringMap<Bool>();
+            x.__defaultValue__ = () -> false;
             @:mergeBlock {
                 x.set(("∅" : GoString), false);
                 x.set(("∅ | ∅" : GoString), false);
@@ -7594,7 +7604,7 @@ function testTermlistIsAll(_t:Ref<stdgo.testing.Testing.T>):Void {
                 x.set(("myInt | 𝓤" : GoString), true);
             };
             x;
-        })) {
+        } : GoMap<GoString, Bool>)) {
             var _xl:stdgo.go.types.Types.T_termlist = _maketl(_test);
             var _got:Bool = _xl._isAll();
             if (_got != (_want)) {
@@ -8266,7 +8276,8 @@ function testInvalidTypeSet(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testTypeSetString(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_body => _want in ({
-            final x = new GoMap<GoString, GoString>();
+            final x = new stdgo.GoMap.GoStringMap<GoString>();
+            x.__defaultValue__ = () -> ("" : GoString);
             @:mergeBlock {
                 x.set(("{}" : GoString), ("𝓤" : GoString));
                 x.set(("{int}" : GoString), ("{int}" : GoString));
@@ -8291,7 +8302,7 @@ function testTypeSetString(_t:Ref<stdgo.testing.Testing.T>):Void {
                 x.set(("{E}; type E interface{comparable}" : GoString), ("{comparable}" : GoString));
             };
             x;
-        })) {
+        } : GoMap<GoString, GoString>)) {
             var _src:GoString = ("package p; type T interface" : GoString) + _body;
             var _fset = stdgo.go.token.Token.newFileSet();
             var __tmp__ = stdgo.go.parser.Parser.parseFile(_fset, ("p.go" : GoString), Go.toInterface(_src), (32u32 : stdgo.go.parser.Parser.Mode)), _file:Ref<stdgo.go.ast.Ast.File> = __tmp__._0, _err:Error = __tmp__._1;
@@ -8988,7 +8999,8 @@ private function _parseGoVersion(_s:GoString):{ var _0 : T_version; var _1 : Err
 @:keep var _ = {
         try {
             _unaryOpPredicates = ({
-                final x = new GoMap<stdgo.go.token.Token.Token, stdgo.go.types.Types.Type -> Bool>();
+                final x = new stdgo.GoMap.GoIntMap<stdgo.go.types.Types.Type -> Bool>();
+                x.__defaultValue__ = () -> @:implicitReturn throw "__return__";
                 @:mergeBlock {
                     x.set((12 : stdgo.go.token.Token.Token), _allNumeric);
                     x.set((13 : stdgo.go.token.Token.Token), _allNumeric);
@@ -8996,9 +9008,10 @@ private function _parseGoVersion(_s:GoString):{ var _0 : T_version; var _1 : Err
                     x.set((43 : stdgo.go.token.Token.Token), _allBoolean);
                 };
                 x;
-            });
+            } : GoMap<stdgo.go.token.Token.Token, stdgo.go.types.Types.Type -> Bool>);
             _binaryOpPredicates = ({
-                final x = new GoMap<stdgo.go.token.Token.Token, stdgo.go.types.Types.Type -> Bool>();
+                final x = new stdgo.GoMap.GoIntMap<stdgo.go.types.Types.Type -> Bool>();
+                x.__defaultValue__ = () -> @:implicitReturn throw "__return__";
                 @:mergeBlock {
                     x.set((12 : stdgo.go.token.Token.Token), _allNumericOrString);
                     x.set((13 : stdgo.go.token.Token.Token), _allNumeric);
@@ -9013,7 +9026,7 @@ private function _parseGoVersion(_s:GoString):{ var _0 : T_version; var _1 : Err
                     x.set((35 : stdgo.go.token.Token.Token), _allBoolean);
                 };
                 x;
-            });
+            } : GoMap<stdgo.go.token.Token.Token, stdgo.go.types.Types.Type -> Bool>);
             universe = newScope(null, (0 : stdgo.go.token.Token.Pos), (0 : stdgo.go.token.Token.Pos), ("universe" : GoString));
             unsafe = newPackage(("unsafe" : GoString), ("unsafe" : GoString));
             unsafe._complete = true;
@@ -14774,10 +14787,11 @@ class Checker_asInterface {
     @:keep
     static public function _indexedElts( _check:Ref<Checker>, _elts:Slice<stdgo.go.ast.Ast.Expr>, _typ:Type, _length:GoInt64):GoInt64 {
         var _visited = ({
-            final x = new GoMap<GoInt64, Bool>();
+            final x = new stdgo.GoMap.GoInt64Map<Bool>();
+            x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoInt64, Bool>);
         var __0:GoInt64 = (0 : GoInt64), __1:GoInt64 = (0 : GoInt64), _max:GoInt64 = __1, _index:GoInt64 = __0;
         for (__0 => _e in _elts) {
             var _validIndex:Bool = false;
@@ -16709,10 +16723,11 @@ class Checker_asInterface {
         var __tmp__ = (_check._pkgPathMap != null && _check._pkgPathMap.exists(_pkg._name) ? { value : _check._pkgPathMap[_pkg._name], ok : true } : { value : (null : GoMap<GoString, Bool>), ok : false }), _forName:GoMap<GoString, Bool> = __tmp__.value, _ok:Bool = __tmp__.ok;
         if (!_ok) {
             _forName = ({
-                final x = new GoMap<GoString, Bool>();
+                final x = new stdgo.GoMap.GoStringMap<Bool>();
+                x.__defaultValue__ = () -> false;
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, Bool>);
             _check._pkgPathMap[_pkg._name] = _forName;
         };
         _forName[_pkg._path] = true;
@@ -16725,10 +16740,11 @@ class Checker_asInterface {
         if (_pkg != (_check._pkg)) {
             if (_check._pkgPathMap == null) {
                 _check._pkgPathMap = ({
-                    final x = new GoMap<GoString, GoMap<GoString, Bool>>();
+                    final x = new stdgo.GoMap.GoStringMap<GoMap<GoString, Bool>>();
+                    x.__defaultValue__ = () -> (null : GoMap<GoString, Bool>);
                     @:mergeBlock {};
                     x;
-                });
+                } : GoMap<GoString, GoMap<GoString, Bool>>);
                 _check._seenPkgMap = ({
                     final x = new GoRefMap<Ref<stdgo.go.types.Types.Package>, Bool>();
                     @:mergeBlock {};
@@ -20147,10 +20163,11 @@ class Checker_asInterface {
         var _top:GoInt = (_check._delayed.length);
         var _scope = _check._pkg._scope;
         var _seen = ({
-            final x = new GoMap<GoString, Bool>();
+            final x = new stdgo.GoMap.GoStringMap<Bool>();
+            x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Bool>);
         var _lhsVars = new Slice<Ref<stdgo.go.types.Types.Var>>((_lhs.length : GoInt).toBasic(), 0);
         var _newVars = new Slice<Ref<stdgo.go.types.Types.Var>>((0 : GoInt).toBasic(), (_lhs.length));
         var _hasErr:Bool = false;
@@ -21667,10 +21684,11 @@ class T_block_asInterface {
         var _labels = _b._labels;
         if (_labels == null) {
             _labels = ({
-                final x = new GoMap<GoString, Ref<stdgo.go.ast.Ast.LabeledStmt>>();
+                final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.ast.Ast.LabeledStmt>>();
+                x.__defaultValue__ = () -> (null : Ref<stdgo.go.ast.Ast.LabeledStmt>);
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, Ref<stdgo.go.ast.Ast.LabeledStmt>>);
             _b._labels = _labels;
         };
         _labels[_name] = _s;
@@ -24728,10 +24746,11 @@ class Scope_asInterface {
     static public function _insert( _s:Ref<Scope>, _name:GoString, _obj:Object):Void {
         if (_s._elems == null) {
             _s._elems = ({
-                final x = new GoMap<GoString, stdgo.go.types.Types.Object>();
+                final x = new stdgo.GoMap.GoStringMap<stdgo.go.types.Types.Object>();
+                x.__defaultValue__ = () -> (null : stdgo.go.types.Types.Object);
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, stdgo.go.types.Types.Object>);
         };
         _s._elems[_name] = _obj;
     }
@@ -27948,10 +27967,11 @@ class T_methodSet_asInterface {
     static public function _addOne( _s:T_methodSet, _f:Ref<Func>, _index:Slice<GoInt>, _indirect:Bool, _multiples:Bool):T_methodSet {
         if (_s == null) {
             _s = ({
-                final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Selection>>();
+                final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Selection>>();
+                x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Selection>);
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, Ref<stdgo.go.types.Types.Selection>>);
         };
         var _key:GoString = _f.id();
         if (!_multiples) {
@@ -28043,10 +28063,11 @@ class T_objset_asInterface {
         };
         if ((_s : stdgo.go.types.Types.T_objset) == null) {
             _s.__setData__(({
-                final x = new GoMap<GoString, stdgo.go.types.Types.Object>();
+                final x = new stdgo.GoMap.GoStringMap<stdgo.go.types.Types.Object>();
+                x.__defaultValue__ = () -> (null : stdgo.go.types.Types.Object);
                 @:mergeBlock {};
                 x;
-            }));
+            } : GoMap<GoString, stdgo.go.types.Types.Object>));
         };
         ((_s : stdgo.go.types.Types.T_objset))[_id] = _obj;
         return (null : stdgo.go.types.Types.Object);

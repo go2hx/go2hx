@@ -18981,10 +18981,11 @@ class Bits_asInterface {
     @:keep
     static public function _norm( _x:Bits):Bits {
         var _m = ({
-            final x = new GoMap<GoInt, Bool>();
+            final x = new stdgo.GoMap.GoIntMap<Bool>();
+            x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoInt, Bool>);
         for (__0 => _b in _x) {
             while (_m[_b]) {
                 _m[_b] = false;

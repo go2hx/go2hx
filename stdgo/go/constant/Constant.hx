@@ -302,7 +302,8 @@ private var _stringTests = (new Slice<T__struct_1>(
     
 **/
 private var _optab = ({
-        final x = new GoMap<GoString, stdgo.go.token.Token.Token>();
+        final x = new stdgo.GoMap.GoStringMap<stdgo.go.token.Token.Token>();
+        x.__defaultValue__ = () -> ((0 : GoInt) : stdgo.go.token.Token.Token);
         @:mergeBlock {
             x.set(("!" : GoString), (43 : stdgo.go.token.Token.Token));
             x.set(("+" : GoString), (12 : stdgo.go.token.Token.Token));
@@ -324,7 +325,7 @@ private var _optab = ({
             x.set((">=" : GoString), (46 : stdgo.go.token.Token.Token));
         };
         x;
-    });
+    } : GoMap<GoString, stdgo.go.token.Token.Token>);
 /**
     
     

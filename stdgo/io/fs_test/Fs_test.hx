@@ -59,13 +59,14 @@ private var _globTests = (new Slice<T__struct_1>(5, 5, ({ _fs : stdgo.os.Os.dirF
     
 **/
 private var _testFsys = ({
-        final x = new GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>();
+        final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.testing.fstest.Fstest.MapFile>>();
+        x.__defaultValue__ = () -> (null : Ref<stdgo.testing.fstest.Fstest.MapFile>);
         @:mergeBlock {
             x.set(("hello.txt" : GoString), ({ data : (("hello, world" : GoString) : Slice<GoByte>), mode : (302u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
             x.set(("sub/goodbye.txt" : GoString), ({ data : (("goodbye, world" : GoString) : Slice<GoByte>), mode : (302u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
         };
         x;
-    });
+    } : GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>);
 /**
     
     
@@ -370,13 +371,14 @@ function testReadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testFileInfoToDirEntry(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _testFs:stdgo.testing.fstest.Fstest.MapFS = ({
-            final x = new GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.testing.fstest.Fstest.MapFile>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.testing.fstest.Fstest.MapFile>);
             @:mergeBlock {
                 x.set(("notadir.txt" : GoString), ({ data : (("hello, world" : GoString) : Slice<GoByte>), mode : (0u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
                 x.set(("adir" : GoString), ({ data : (null : Slice<GoUInt8>), mode : (-2147483648u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : Go.toInterface(Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
             };
             x;
-        });
+        } : GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>);
         var _tests = (new Slice<T__struct_2>(2, 2, ({ _path : ("notadir.txt" : GoString), _wantMode : (0u32 : stdgo.io.fs.Fs.FileMode), _wantDir : false } : T__struct_2), ({ _path : ("adir" : GoString), _wantMode : (-2147483648u32 : stdgo.io.fs.Fs.FileMode), _wantDir : true } : T__struct_2)) : Slice<T__struct_2>);
         for (__0 => _test in _tests) {
             var _test:T__struct_2 = {
@@ -511,10 +513,11 @@ private function _walkTree(_n:Ref<Node>, _path:GoString, _f:(_path:GoString, _n:
     }
 private function _makeTree():FS {
         var _fsys:stdgo.testing.fstest.Fstest.MapFS = ({
-            final x = new GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.testing.fstest.Fstest.MapFile>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.testing.fstest.Fstest.MapFile>);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Ref<stdgo.testing.fstest.Fstest.MapFile>>);
         _walkTree(_tree, _tree._name, function(_path:GoString, _n:Ref<Node>):Void {
             if (_n._entries == null) {
                 _fsys[_path] = (Go.setRef((new stdgo.testing.fstest.Fstest.MapFile() : stdgo.testing.fstest.Fstest.MapFile)) : Ref<stdgo.testing.fstest.Fstest.MapFile>);

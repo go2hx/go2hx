@@ -1093,10 +1093,11 @@ function testNegativeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testCategories(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _notTested = ({
-            final x = new GoMap<GoString, Bool>();
+            final x = new stdgo.GoMap.GoStringMap<Bool>();
+            x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Bool>);
         for (_k => _ in categories) {
             _notTested[_k] = true;
         };
@@ -1118,10 +1119,11 @@ function testCategories(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testProperties(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _notTested = ({
-            final x = new GoMap<GoString, Bool>();
+            final x = new stdgo.GoMap.GoStringMap<Bool>();
+            x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Bool>);
         for (_k => _ in properties) {
             _notTested[_k] = true;
         };

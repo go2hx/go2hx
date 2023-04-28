@@ -55,31 +55,35 @@ private var _sortTests = (new Slice<stdgo.internal.fmtsort_test.Fmtsort_test.T_s
 11,
 11,
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new GoMap<GoInt, GoString>();
+        final x = new stdgo.GoMap.GoIntMap<GoString>();
+        x.__defaultValue__ = () -> ("" : GoString);
         @:mergeBlock {
             x.set((7 : GoInt), ("bar" : GoString));
             x.set((-3 : GoInt), ("foo" : GoString));
         };
         x;
-    })), ("-3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    } : GoMap<GoInt, GoString>)), ("-3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new GoMap<GoUInt8, GoString>();
+        final x = new stdgo.GoMap.GoIntMap<GoString>();
+        x.__defaultValue__ = () -> ("" : GoString);
         @:mergeBlock {
             x.set((7 : GoUInt8), ("bar" : GoString));
             x.set((3 : GoUInt8), ("foo" : GoString));
         };
         x;
-    })), ("3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    } : GoMap<GoUInt8, GoString>)), ("3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new GoMap<GoString, GoString>();
+        final x = new stdgo.GoMap.GoStringMap<GoString>();
+        x.__defaultValue__ = () -> ("" : GoString);
         @:mergeBlock {
             x.set(("7" : GoString), ("bar" : GoString));
             x.set(("3" : GoString), ("foo" : GoString));
         };
         x;
-    })), ("3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    } : GoMap<GoString, GoString>)), ("3:foo 7:bar" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new GoMap<GoFloat64, GoString>();
+        final x = new stdgo.GoMap.GoFloat64Map<GoString>();
+        x.__defaultValue__ = () -> ("" : GoString);
         @:mergeBlock {
             x.set((7 : GoFloat64), ("bar" : GoString));
             x.set((-3 : GoFloat64), ("foo" : GoString));
@@ -87,9 +91,10 @@ private var _sortTests = (new Slice<stdgo.internal.fmtsort_test.Fmtsort_test.T_s
             x.set(stdgo.math.Math.inf((0 : GoInt)), ("inf" : GoString));
         };
         x;
-    })), ("NaN:nan -3:foo 7:bar +Inf:inf" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    } : GoMap<GoFloat64, GoString>)), ("NaN:nan -3:foo 7:bar +Inf:inf" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new GoMap<GoComplex128, GoString>();
+        final x = new stdgo.GoMap.GoComplex128Map<GoString>();
+        x.__defaultValue__ = () -> ("" : GoString);
         @:mergeBlock {
             x.set(((7f64 : GoFloat64) + new GoComplex128(0f64, 2f64)), ("bar2" : GoString));
             x.set(((7f64 : GoFloat64) + new GoComplex128(0f64, 1f64)), ("bar" : GoString));
@@ -98,15 +103,16 @@ private var _sortTests = (new Slice<stdgo.internal.fmtsort_test.Fmtsort_test.T_s
             x.set(new GoComplex128(stdgo.math.Math.inf((0 : GoInt)), (0 : GoFloat64)), ("inf" : GoString));
         };
         x;
-    })), ("(NaN+0i):nan (-3+0i):foo (7+1i):bar (7+2i):bar2 (+Inf+0i):inf" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    } : GoMap<GoComplex128, GoString>)), ("(NaN+0i):nan (-3+0i):foo (7+1i):bar (7+2i):bar2 (+Inf+0i):inf" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(({
-        final x = new GoMap<Bool, GoString>();
+        final x = new stdgo.GoMap.GoBoolMap<GoString>();
+        x.__defaultValue__ = () -> ("" : GoString);
         @:mergeBlock {
             x.set(true, ("true" : GoString));
             x.set(false, ("false" : GoString));
         };
         x;
-    })), ("false:false true:true" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
+    } : GoMap<Bool, GoString>)), ("false:false true:true" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(_chanMap()), ("CHAN0:0 CHAN1:1 CHAN2:2" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(_pointerMap()), ("PTR0:0 PTR1:1 PTR2:2" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
 (new stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest(Go.toInterface(_unsafePointerMap()), ("UNSAFEPTR0:0 UNSAFEPTR1:1 UNSAFEPTR2:2" : GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
@@ -314,10 +320,12 @@ private function _pointerMap():GoMap<Pointer<GoInt>, GoString> {
     }
 private function _unsafePointerMap():GoMap<stdgo.unsafe.Unsafe.UnsafePointer, GoString> {
         var _m = ({
-            final x = new GoMap<stdgo.unsafe.Unsafe.UnsafePointer, GoString>();
+            final x = new GoObjectMap<stdgo.unsafe.Unsafe.UnsafePointer, GoString>();
+            x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind));
+            x.__defaultValue__ = () -> ("" : GoString);
             @:mergeBlock {};
-            x;
-        });
+            cast x;
+        } : GoMap<stdgo.unsafe.Unsafe.UnsafePointer, GoString>);
         {
             var _i:GoInt = (2 : GoInt);
             Go.cfor(_i >= (0 : GoInt), _i--, {
@@ -328,10 +336,11 @@ private function _unsafePointerMap():GoMap<stdgo.unsafe.Unsafe.UnsafePointer, Go
     }
 private function _chanMap():GoMap<Chan<GoInt>, GoString> {
         var _m = ({
-            final x = new GoMap<Chan<GoInt>, GoString>();
+            final x = new stdgo.GoMap<GoString>();
+            x.__defaultValue__ = () -> ("" : GoString);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<Chan<GoInt>, GoString>);
         {
             var _i:GoInt = (2 : GoInt);
             Go.cfor(_i >= (0 : GoInt), _i--, {

@@ -17,7 +17,8 @@ import stdgo.sync.atomic.Atomic;
     
 **/
 private var _hammer32 = ({
-        final x = new GoMap<GoString, (Pointer<GoUInt32>, GoInt) -> Void>();
+        final x = new stdgo.GoMap.GoStringMap<(Pointer<GoUInt32>, GoInt) -> Void>();
+        x.__defaultValue__ = () -> null;
         @:mergeBlock {
             x.set(("SwapInt32" : GoString), _hammerSwapInt32);
             x.set(("SwapUint32" : GoString), _hammerSwapUint32);
@@ -39,14 +40,15 @@ private var _hammer32 = ({
             x.set(("CompareAndSwapUintptrMethod" : GoString), _hammerCompareAndSwapUintptr32Method);
         };
         x;
-    });
+    } : GoMap<GoString, (Pointer<GoUInt32>, GoInt) -> Void>);
 /**
     
     
     
 **/
 private var _hammer64 = ({
-        final x = new GoMap<GoString, (Pointer<GoUInt64>, GoInt) -> Void>();
+        final x = new stdgo.GoMap.GoStringMap<(Pointer<GoUInt64>, GoInt) -> Void>();
+        x.__defaultValue__ = () -> null;
         @:mergeBlock {
             x.set(("SwapInt64" : GoString), _hammerSwapInt64);
             x.set(("SwapUint64" : GoString), _hammerSwapUint64);
@@ -68,7 +70,7 @@ private var _hammer64 = ({
             x.set(("CompareAndSwapUintptrMethod" : GoString), _hammerCompareAndSwapUintptr64Method);
         };
         x;
-    });
+    } : GoMap<GoString, (Pointer<GoUInt64>, GoInt) -> Void>);
 /**
     
     
@@ -3309,10 +3311,11 @@ function():Void {
     }
 private function _loadConfig():GoMap<GoString, GoString> {
         return ({
-            final x = new GoMap<GoString, GoString>();
+            final x = new stdgo.GoMap.GoStringMap<GoString>();
+            x.__defaultValue__ = () -> ("" : GoString);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, GoString>);
     }
 private function _requests():Chan<GoInt> {
         return new Chan<GoInt>(0, () -> (0 : GoInt));
@@ -3360,10 +3363,11 @@ function exampleValue_readMostly():Void {
         {};
         var _m:stdgo.sync.atomic.Atomic.Value = ({} : stdgo.sync.atomic.Atomic.Value);
         _m.store(Go.toInterface(({
-            final x = new GoMap<GoString, GoString>();
+            final x = new stdgo.GoMap.GoStringMap<GoString>();
+            x.__defaultValue__ = () -> ("" : GoString);
             @:mergeBlock {};
             x;
-        })));
+        } : GoMap<GoString, GoString>)));
         var _mu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
         var _read:GoString -> GoString = function(_key:GoString):GoString {
             var _val:GoString = ("" : GoString);
@@ -3377,10 +3381,11 @@ function exampleValue_readMostly():Void {
                 __deferstack__.unshift(() -> _mu.unlock());
                 var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map = (Go.typeAssert((_m.load() : T_exampleValue_readMostly_0___localname___Map)) : T_exampleValue_readMostly_0___localname___Map);
                 var _m2:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map = ({
-                    final x = new GoMap<GoString, GoString>();
+                    final x = new stdgo.GoMap.GoStringMap<GoString>();
+                    x.__defaultValue__ = () -> ("" : GoString);
                     @:mergeBlock {};
                     x;
-                });
+                } : GoMap<GoString, GoString>);
                 for (_k => _v in _m1) {
                     _m2[_k] = _v;
                 };

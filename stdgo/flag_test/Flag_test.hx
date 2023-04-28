@@ -205,10 +205,11 @@ function testEverything(_t:Ref<stdgo.testing.Testing.T>):Void {
             return (null : Error);
         });
         var _m = ({
-            final x = new GoMap<GoString, Ref<stdgo.flag.Flag.Flag>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.flag.Flag.Flag>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.flag.Flag.Flag>);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Ref<stdgo.flag.Flag.Flag>>);
         var _desired:GoString = ("0" : GoString);
         var _visitor = function(_f:Ref<Flag>):Void {
             if ((_f.name.length > (5 : GoInt)) && ((_f.name.__slice__((0 : GoInt), (5 : GoInt)) : GoString) == ("test_" : GoString))) {
@@ -236,10 +237,11 @@ function testEverything(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         _m = ({
-            final x = new GoMap<GoString, Ref<stdgo.flag.Flag.Flag>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.flag.Flag.Flag>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.flag.Flag.Flag>);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Ref<stdgo.flag.Flag.Flag>>);
         visit(_visitor);
         if ((_m.length) != ((0 : GoInt))) {
             _t.errorf(("Visit sees unset flags" : GoString));

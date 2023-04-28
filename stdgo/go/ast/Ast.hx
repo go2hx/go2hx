@@ -117,12 +117,13 @@ private var _tests = (new Slice<T__struct_2>(
         cast x;
     } : GoMap<stdgo.go.ast.Ast.Expr, GoString>)), _s : ("0  map[ast.Expr]string (len = 0) {}" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface(({
-        final x = new GoMap<GoString, GoInt>();
+        final x = new stdgo.GoMap.GoStringMap<GoInt>();
+        x.__defaultValue__ = () -> (0 : GoInt);
         @:mergeBlock {
             x.set(("a" : GoString), (1 : GoInt));
         };
         x;
-    })), _s : ("0  map[string]int (len = 1) {\n\t\t1  .  \"a\": 1\n\t\t2  }" : GoString) } : T__struct_2),
+    } : GoMap<GoString, GoInt>)), _s : ("0  map[string]int (len = 1) {\n\t\t1  .  \"a\": 1\n\t\t2  }" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface(Go.pointer((0 : GoInt))), _s : ("0  *0" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface((new GoArray<GoInt>() : GoArray<GoInt>)), _s : ("0  [0]int {}" : GoString) } : T__struct_2),
 ({ _x : Go.toInterface((new GoArray<GoInt>((1 : GoInt), (2 : GoInt), (3 : GoInt)) : GoArray<GoInt>)), _s : ("0  [3]int {\n\t\t1  .  0: 1\n\t\t2  .  1: 2\n\t\t3  .  2: 3\n\t\t4  }" : GoString) } : T__struct_2),
@@ -2434,10 +2435,11 @@ function mergePackageFiles(_pkg:Ref<Package>, _mode:MergeMode):Ref<File> {
         if (_ndecls > (0 : GoInt)) {
             _decls = new Slice<stdgo.go.ast.Ast.Decl>((_ndecls : GoInt).toBasic(), 0);
             var _funcs = ({
-                final x = new GoMap<GoString, GoInt>();
+                final x = new stdgo.GoMap.GoStringMap<GoInt>();
+                x.__defaultValue__ = () -> (0 : GoInt);
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, GoInt>);
             var _i:GoInt = (0 : GoInt);
             var _n:GoInt = (0 : GoInt);
             for (__2 => _filename in _filenames) {
@@ -2486,10 +2488,11 @@ function mergePackageFiles(_pkg:Ref<Package>, _mode:MergeMode):Ref<File> {
         var _imports:Slice<Ref<ImportSpec>> = (null : Slice<Ref<stdgo.go.ast.Ast.ImportSpec>>);
         if (_mode & (4u32 : stdgo.go.ast.Ast.MergeMode) != ((0u32 : stdgo.go.ast.Ast.MergeMode))) {
             var _seen = ({
-                final x = new GoMap<GoString, Bool>();
+                final x = new stdgo.GoMap.GoStringMap<Bool>();
+                x.__defaultValue__ = () -> false;
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, Bool>);
             for (__5 => _filename in _filenames) {
                 var _f = _pkg.files[_filename];
                 for (__6 => _imp in _f.imports) {
@@ -2869,10 +2872,11 @@ function newPackage(_fset:Ref<stdgo.go.token.Token.FileSet>, _files:GoMap<GoStri
             };
         };
         var _imports = ({
-            final x = new GoMap<GoString, Ref<stdgo.go.ast.Ast.Object>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.ast.Ast.Object>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.go.ast.Ast.Object>);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, Ref<stdgo.go.ast.Ast.Object>>);
         for (__10 => _file in _files) {
             if (_file.name.name != (_pkgName)) {
                 continue;
@@ -2929,10 +2933,11 @@ function newPackage(_fset:Ref<stdgo.go.token.Token.FileSet>, _files:GoMap<GoStri
 function newScope(_outer:Ref<Scope>):Ref<Scope> {
         {};
         return (Go.setRef((new Scope(_outer, ({
-            final x = new GoMap<GoString, Ref<stdgo.go.ast.Ast.Object>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.ast.Ast.Object>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.go.ast.Ast.Object>);
             @:mergeBlock {};
             x;
-        })) : Scope)) : Ref<stdgo.go.ast.Ast.Scope>);
+        } : GoMap<GoString, Ref<stdgo.go.ast.Ast.Object>>)) : Scope)) : Ref<stdgo.go.ast.Ast.Scope>);
     }
 /**
     // NewObj creates a new object of a given kind and name.

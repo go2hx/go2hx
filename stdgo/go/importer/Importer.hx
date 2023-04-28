@@ -79,10 +79,11 @@ function forCompiler(_fset:Ref<stdgo.go.token.Token.FileSet>, _compiler:GoString
             final __value__ = _compiler;
             if (__value__ == (("gc" : GoString))) {
                 return Go.asInterface((Go.setRef(({ _fset : _fset, _packages : ({
-                    final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Package>>();
+                    final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Package>>();
+                    x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Package>);
                     @:mergeBlock {};
                     x;
-                }), _lookup : _lookup } : T_gcimports)) : Ref<stdgo.go.importer.Importer.T_gcimports>));
+                } : GoMap<GoString, Ref<stdgo.go.types.Types.Package>>), _lookup : _lookup } : T_gcimports)) : Ref<stdgo.go.importer.Importer.T_gcimports>));
             } else if (__value__ == (("gccgo" : GoString))) {
                 var _inst:stdgo.go.internal.gccgoimporter.Gccgoimporter.GccgoInstallation = ({} : stdgo.go.internal.gccgoimporter.Gccgoimporter.GccgoInstallation);
                 {
@@ -92,19 +93,21 @@ function forCompiler(_fset:Ref<stdgo.go.token.Token.FileSet>, _compiler:GoString
                     };
                 };
                 return Go.asInterface((Go.setRef(({ _packages : ({
-                    final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Package>>();
+                    final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Package>>();
+                    x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Package>);
                     @:mergeBlock {};
                     x;
-                }), _importer : _inst.getImporter((null : Slice<GoString>), (null : GoMap<Ref<stdgo.go.types.Types.Package>, stdgo.go.internal.gccgoimporter.Gccgoimporter.InitData>)), _lookup : _lookup } : T_gccgoimports)) : Ref<stdgo.go.importer.Importer.T_gccgoimports>));
+                } : GoMap<GoString, Ref<stdgo.go.types.Types.Package>>), _importer : _inst.getImporter((null : Slice<GoString>), (null : GoMap<Ref<stdgo.go.types.Types.Package>, stdgo.go.internal.gccgoimporter.Gccgoimporter.InitData>)), _lookup : _lookup } : T_gccgoimports)) : Ref<stdgo.go.importer.Importer.T_gccgoimports>));
             } else if (__value__ == (("source" : GoString))) {
                 if (_lookup != null) {
                     throw Go.toInterface(("source importer for custom import path lookup not supported (issue #13847)." : GoString));
                 };
                 return Go.asInterface(go.internal.srcimporter.Srcimporter.new_((Go.setRef(stdgo.go.build.Build.default_) : Ref<stdgo.go.build.Build.Context>), _fset, ({
-                    final x = new GoMap<GoString, Ref<stdgo.go.types.Types.Package>>();
+                    final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.types.Types.Package>>();
+                    x.__defaultValue__ = () -> (null : Ref<stdgo.go.types.Types.Package>);
                     @:mergeBlock {};
                     x;
-                })));
+                } : GoMap<GoString, Ref<stdgo.go.types.Types.Package>>)));
             };
         };
         return (null : stdgo.go.types.Types.Importer);

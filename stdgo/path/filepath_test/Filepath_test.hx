@@ -1847,10 +1847,11 @@ function testWalkFileError(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return stdgo.os.Os.lstat(_path);
             };
             var _got = ({
-                final x = new GoMap<GoString, Error>();
+                final x = new stdgo.GoMap.GoStringMap<Error>();
+                x.__defaultValue__ = () -> (null : Error);
                 @:mergeBlock {};
                 x;
-            });
+            } : GoMap<GoString, Error>);
             var _err:Error = stdgo.path.filepath.Filepath.walk(_td, function(_path:GoString, _fi:stdgo.io.fs.Fs.FileInfo, _err:Error):Error {
                 var __tmp__ = stdgo.path.filepath.Filepath.rel(_td, _path), _rel:GoString = __tmp__._0, __0:Error = __tmp__._1;
                 _got[stdgo.path.filepath.Filepath.toSlash(_rel)] = _err;
@@ -1860,7 +1861,8 @@ function testWalkFileError(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("Walk error: %v" : GoString), Go.toInterface(_err));
             };
             var _want = ({
-                final x = new GoMap<GoString, Error>();
+                final x = new stdgo.GoMap.GoStringMap<Error>();
+                x.__defaultValue__ = () -> (null : Error);
                 @:mergeBlock {
                     x.set(("." : GoString), (null : Error));
                     x.set(("foo" : GoString), (null : Error));
@@ -1870,7 +1872,7 @@ function testWalkFileError(_t:Ref<stdgo.testing.Testing.T>):Void {
                     x.set(("dir/stat-error" : GoString), _statErr);
                 };
                 x;
-            });
+            } : GoMap<GoString, Error>);
             if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_got), Go.toInterface(_want))) {
                 _t.errorf(("Walked %#v; want %#v" : GoString), Go.toInterface(_got), Go.toInterface(_want));
             };

@@ -605,19 +605,21 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((-1i64 : GoUInt64)), _out : ("0xffffffffffffffff" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((1000000000 : GoInt)), _out : ("1000000000" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(({
-        final x = new GoMap<GoString, GoInt>();
+        final x = new stdgo.GoMap.GoStringMap<GoInt>();
+        x.__defaultValue__ = () -> (0 : GoInt);
         @:mergeBlock {
             x.set(("a" : GoString), (1 : GoInt));
         };
         x;
-    })), _out : ("map[string]int{\"a\":1}" : GoString) } : T__struct_2),
+    } : GoMap<GoString, GoInt>)), _out : ("map[string]int{\"a\":1}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(({
-        final x = new GoMap<GoString, stdgo.fmt_test.Fmt_test.B>();
+        final x = new stdgo.GoMap.GoStringMap<stdgo.fmt_test.Fmt_test.B>();
+        x.__defaultValue__ = () -> ({} : stdgo.fmt_test.Fmt_test.B);
         @:mergeBlock {
             x.set(("a" : GoString), (new stdgo.fmt_test.Fmt_test.B((1 : stdgo.fmt_test.Fmt_test.I), (2 : GoInt)) : stdgo.fmt_test.Fmt_test.B));
         };
         x;
-    })), _out : ("map[string]fmt_test.B{\"a\":fmt_test.B{I:1, j:2}}" : GoString) } : T__struct_2),
+    } : GoMap<GoString, stdgo.fmt_test.Fmt_test.B>)), _out : ("map[string]fmt_test.B{\"a\":fmt_test.B{I:1, j:2}}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new Slice<GoString>(2, 2, ("a" : GoString), ("b" : GoString)) : Slice<GoString>)), _out : ("[]string{\"a\", \"b\"}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((new SI() : SI)), _out : ("fmt_test.SI{I:interface {}(nil)}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((null : Slice<GoInt>)), _out : ("[]int(nil)" : GoString) } : T__struct_2),
@@ -628,10 +630,11 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface((Go.setRef(_iarray) : Ref<GoArray<AnyInterface>>)), _out : ("&[4]interface {}{1, \"hello\", 2.5, interface {}(nil)}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(((null : GoMap<GoInt, GoUInt8>) : GoMap<GoInt, GoByte>)), _out : ("map[int]uint8(nil)" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(({
-        final x = new GoMap<GoInt, GoUInt8>();
+        final x = new stdgo.GoMap.GoIntMap<GoUInt8>();
+        x.__defaultValue__ = () -> (0 : GoUInt8);
         @:mergeBlock {};
         x;
-    })), _out : ("map[int]uint8{}" : GoString) } : T__struct_2),
+    } : GoMap<GoInt, GoUInt8>)), _out : ("map[int]uint8{}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(("foo" : GoString)), _out : ("\"foo\"" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(_barray), _out : ("[5]fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}" : GoString) } : T__struct_2),
 ({ _fmt : ("%#v" : GoString), _val : Go.toInterface(_bslice), _out : ("[]fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}" : GoString) } : T__struct_2),
@@ -758,10 +761,11 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%-20.16p" : GoString), _val : Go.toInterface(Go.pointer(_intVar)), _out : ("0xPTR  " : GoString) } : T__struct_2),
 ({ _fmt : ("%p" : GoString), _val : Go.toInterface(new Chan<GoInt>(0, () -> (0 : GoInt))), _out : ("0xPTR" : GoString) } : T__struct_2),
 ({ _fmt : ("%p" : GoString), _val : Go.toInterface(({
-        final x = new GoMap<GoInt, GoInt>();
+        final x = new stdgo.GoMap.GoIntMap<GoInt>();
+        x.__defaultValue__ = () -> (0 : GoInt);
         @:mergeBlock {};
         x;
-    })), _out : ("0xPTR" : GoString) } : T__struct_2),
+    } : GoMap<GoInt, GoInt>)), _out : ("0xPTR" : GoString) } : T__struct_2),
 ({ _fmt : ("%p" : GoString), _val : Go.toInterface(function():Void {}), _out : ("0xPTR" : GoString) } : T__struct_2),
 ({ _fmt : ("%p" : GoString), _val : Go.toInterface((27 : GoInt)), _out : ("%!p(int=27)" : GoString) } : T__struct_2),
 ({ _fmt : ("%p" : GoString), _val : (null : AnyInterface), _out : ("%!p(<nil>)" : GoString) } : T__struct_2),
@@ -792,13 +796,14 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%184467440737095516170v" : GoString), _val : Go.toInterface((0 : GoInt)), _out : ("%!(NOVERB)%!(EXTRA int=0)" : GoString) } : T__struct_2),
 ({ _fmt : ("%010.2" : GoString), _val : Go.toInterface(("12345" : GoString)), _out : ("%!(NOVERB)%!(EXTRA string=12345)" : GoString) } : T__struct_2),
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface(({
-        final x = new GoMap<GoFloat64, GoInt>();
+        final x = new stdgo.GoMap.GoFloat64Map<GoInt>();
+        x.__defaultValue__ = () -> (0 : GoInt);
         @:mergeBlock {
             x.set(naN, (1 : GoInt));
             x.set(naN, (1 : GoInt));
         };
         x;
-    })), _out : ("map[NaN:1 NaN:1]" : GoString) } : T__struct_2),
+    } : GoMap<GoFloat64, GoInt>)), _out : ("map[NaN:1 NaN:1]" : GoString) } : T__struct_2),
 ({ _fmt : ("%.2f" : GoString), _val : Go.toInterface((1 : GoFloat64)), _out : ("1.00" : GoString) } : T__struct_2),
 ({ _fmt : ("%.2f" : GoString), _val : Go.toInterface((-1 : GoFloat64)), _out : ("-1.00" : GoString) } : T__struct_2),
 ({ _fmt : ("% .2f" : GoString), _val : Go.toInterface((1 : GoFloat64)), _out : (" 1.00" : GoString) } : T__struct_2),
@@ -887,12 +892,13 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface((new SI(Go.toInterface((Go.setRef((new Slice<AnyInterface>(2, 2, Go.toInterface(Go.asInterface(((1 : stdgo.fmt_test.Fmt_test.I) : I))), Go.toInterface(Go.asInterface(((2 : stdgo.fmt_test.Fmt_test.G) : G)))) : Slice<AnyInterface>)) : Ref<Slice<AnyInterface>>))) : SI)), _out : ("{%!☠(*[]interface {}=&[1 2])}" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface(Go.asInterface((new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value))), _out : ("<invalid reflect.Value>" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface(({
-        final x = new GoMap<GoFloat64, GoInt>();
+        final x = new stdgo.GoMap.GoFloat64Map<GoInt>();
+        x.__defaultValue__ = () -> (0 : GoInt);
         @:mergeBlock {
             x.set(naN, (1 : GoInt));
         };
         x;
-    })), _out : ("map[%!☠(float64=NaN):%!☠(int=1)]" : GoString) } : T__struct_2)) : Slice<T__struct_2>);
+    } : GoMap<GoFloat64, GoInt>)), _out : ("map[%!☠(float64=NaN):%!☠(int=1)]" : GoString) } : T__struct_2)) : Slice<T__struct_2>);
 /**
     
     
@@ -2797,13 +2803,14 @@ function example_formats():Void {
         var _placeholders:GoString = ("foo \"bar\"" : GoString);
         stdgo.fmt.Fmt.printf(("%v %s %q %#q\n" : GoString), Go.toInterface(_placeholders), Go.toInterface(_placeholders), Go.toInterface(_placeholders), Go.toInterface(_placeholders));
         var _isLegume = ({
-            final x = new GoMap<GoString, Bool>();
+            final x = new stdgo.GoMap.GoStringMap<Bool>();
+            x.__defaultValue__ = () -> false;
             @:mergeBlock {
                 x.set(("peanut" : GoString), true);
                 x.set(("dachshund" : GoString), false);
             };
             x;
-        });
+        } : GoMap<GoString, Bool>);
         stdgo.fmt.Fmt.printf(("%v %#v\n" : GoString), Go.toInterface(_isLegume), Go.toInterface(_isLegume));
         var _person:T__struct_1 = ({ name : ("Kim" : GoString), age : (22 : GoInt) } : T__struct_1);
         stdgo.fmt.Fmt.printf(("%v %+v %#v\n" : GoString), Go.toInterface(Go.asInterface(_person)), Go.toInterface(Go.asInterface(_person)), Go.toInterface(Go.asInterface(_person)));
@@ -3063,12 +3070,13 @@ function benchmarkSprintfStringer(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkSprintfStructure(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _s = (Go.setRef((new Slice<AnyInterface>(2, 2, Go.toInterface((new SI(Go.toInterface((12345 : GoInt))) : SI)), Go.toInterface(({
-            final x = new GoMap<GoInt, GoString>();
+            final x = new stdgo.GoMap.GoIntMap<GoString>();
+            x.__defaultValue__ = () -> ("" : GoString);
             @:mergeBlock {
                 x.set((0 : GoInt), ("hello" : GoString));
             };
             x;
-        }))) : Slice<AnyInterface>)) : Ref<Slice<AnyInterface>>);
+        } : GoMap<GoInt, GoString>))) : Slice<AnyInterface>)) : Ref<Slice<AnyInterface>>);
         _b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
             while (_pb.next()) {
                 sprintf(("%#v" : GoString), Go.toInterface(_s));
@@ -3217,23 +3225,25 @@ private function _presentInMap(_s:GoString, _a:Slice<GoString>, _t:Ref<stdgo.tes
     }
 function testMapPrinter(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _m0 = ({
-            final x = new GoMap<GoInt, GoString>();
+            final x = new stdgo.GoMap.GoIntMap<GoString>();
+            x.__defaultValue__ = () -> ("" : GoString);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoInt, GoString>);
         var _s:GoString = sprint(Go.toInterface(_m0));
         if (_s != (("map[]" : GoString))) {
             _t.errorf(("empty map printed as %q not %q" : GoString), Go.toInterface(_s), Go.toInterface(("map[]" : GoString)));
         };
         var _m1 = ({
-            final x = new GoMap<GoInt, GoString>();
+            final x = new stdgo.GoMap.GoIntMap<GoString>();
+            x.__defaultValue__ = () -> ("" : GoString);
             @:mergeBlock {
                 x.set((1 : GoInt), ("one" : GoString));
                 x.set((2 : GoInt), ("two" : GoString));
                 x.set((3 : GoInt), ("three" : GoString));
             };
             x;
-        });
+        } : GoMap<GoInt, GoString>);
         var _a = (new Slice<GoString>(3, 3, ("1:one" : GoString), ("2:two" : GoString), ("3:three" : GoString)) : Slice<GoString>);
         _presentInMap(sprintf(("%v" : GoString), Go.toInterface(_m1)), _a, _t);
         _presentInMap(sprint(Go.toInterface(_m1)), _a, _t);
@@ -3251,10 +3261,11 @@ function testEmptyMap(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.errorf(("nil map printed as %q not %q" : GoString), Go.toInterface(_s), Go.toInterface(("map[]" : GoString)));
         };
         _m = ({
-            final x = new GoMap<GoString, GoInt>();
+            final x = new stdgo.GoMap.GoStringMap<GoInt>();
+            x.__defaultValue__ = () -> (0 : GoInt);
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoString, GoInt>);
         _s = sprint(Go.toInterface(_m));
         if (_s != (("map[]" : GoString))) {
             _t.errorf(("empty map printed as %q not %q" : GoString), Go.toInterface(_s), Go.toInterface(("map[]" : GoString)));
@@ -4219,10 +4230,11 @@ private function _mkState(_w:GoInt, _p:GoInt, _flags:GoString):T_testState {
             _s._precOK = true;
         };
         _s._flag = ({
-            final x = new GoMap<GoInt, Bool>();
+            final x = new stdgo.GoMap.GoIntMap<Bool>();
+            x.__defaultValue__ = () -> false;
             @:mergeBlock {};
             x;
-        });
+        } : GoMap<GoInt, Bool>);
         for (__0 => _c in _flags) {
             _s._flag[(_c : GoInt)] = true;
         };

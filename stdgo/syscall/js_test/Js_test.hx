@@ -463,18 +463,20 @@ function testValueOf(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         var _o:stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.valueOf(Go.toInterface(({
-            final x = new GoMap<GoString, AnyInterface>();
+            final x = new stdgo.GoMap.GoStringMap<AnyInterface>();
+            x.__defaultValue__ = () -> (null : AnyInterface);
             @:mergeBlock {
                 x.set(("x" : GoString), Go.toInterface(({
-                    final x = new GoMap<GoString, AnyInterface>();
+                    final x = new stdgo.GoMap.GoStringMap<AnyInterface>();
+                    x.__defaultValue__ = () -> (null : AnyInterface);
                     @:mergeBlock {
                         x.set(("y" : GoString), Go.toInterface((42 : GoInt)));
                     };
                     x;
-                })));
+                } : GoMap<GoString, AnyInterface>)));
             };
             x;
-        })))?.__copy__();
+        } : GoMap<GoString, AnyInterface>)))?.__copy__();
         {
             var _got:GoInt = _o.get(("x" : GoString)).get(("y" : GoString)).int_();
             if (_got != ((42 : GoInt))) {

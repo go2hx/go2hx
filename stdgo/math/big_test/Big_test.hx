@@ -746,7 +746,8 @@ private function _checkAliasingTwoArgs(_t:Ref<stdgo.testing.Testing.T>, _f:(_v:R
     }
 function testAliasing(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_name => _f in ({
-            final x = new GoMap<GoString, AnyInterface>();
+            final x = new stdgo.GoMap.GoStringMap<AnyInterface>();
+            x.__defaultValue__ = () -> (null : AnyInterface);
             @:mergeBlock {
                 x.set(("Abs" : GoString), Go.toInterface(function(_v:T_bigInt, _x:T_bigInt):Bool {
                     return _checkAliasingOneArg(_t, stdgo.math.big.Big.Int__static_extension.abs, _v.int_, _x.int_);
@@ -859,7 +860,7 @@ function testAliasing(_t:Ref<stdgo.testing.Testing.T>):Void {
                 }));
             };
             x;
-        })) {
+        } : GoMap<GoString, AnyInterface>)) {
             _t.run(_name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var _scale:GoFloat64 = (1 : GoFloat64);
                 {

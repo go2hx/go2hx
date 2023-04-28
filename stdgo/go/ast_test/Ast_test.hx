@@ -17,7 +17,8 @@ import stdgo.go.ast.Ast;
     
 **/
 private var _res = ({
-        final x = new GoMap<GoString, GoString>();
+        final x = new stdgo.GoMap.GoStringMap<GoString>();
+        x.__defaultValue__ = () -> ("" : GoString);
         @:mergeBlock {
             x.set((" 5: *ast.File" : GoString), ("the very first comment\npackage p\n" : GoString));
             x.set((" 5: *ast.Ident" : GoString), (" the name is p\n" : GoString));
@@ -38,7 +39,7 @@ private var _res = ({
             x.set(("50: *ast.Ident" : GoString), ("the very last comment\n" : GoString));
         };
         x;
-    });
+    } : GoMap<GoString, GoString>);
 /**
     
     
@@ -216,12 +217,13 @@ function testFilterDuplicates(_t:Ref<stdgo.testing.Testing.T>):Void {
             _t.fatal(Go.toInterface(_err));
         };
         var _files = ({
-            final x = new GoMap<GoString, Ref<stdgo.go.ast.Ast.File>>();
+            final x = new stdgo.GoMap.GoStringMap<Ref<stdgo.go.ast.Ast.File>>();
+            x.__defaultValue__ = () -> (null : Ref<stdgo.go.ast.Ast.File>);
             @:mergeBlock {
                 x.set(Go.str(), _file);
             };
             x;
-        });
+        } : GoMap<GoString, Ref<stdgo.go.ast.Ast.File>>);
         var __tmp__ = stdgo.go.ast.Ast.newPackage(_fset, _files, null, null), _pkg:Ref<stdgo.go.ast.Ast.Package> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));

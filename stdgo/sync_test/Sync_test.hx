@@ -1419,10 +1419,11 @@ function testConcurrentRange(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var _n:GoInt = _iters;
                 Go.cfor(_n > (0 : GoInt), _n--, {
                     var _seen = ({
-                        final x = new GoMap<GoInt64, Bool>();
+                        final x = new stdgo.GoMap.GoInt64Map<Bool>();
+                        x.__defaultValue__ = () -> false;
                         @:mergeBlock {};
                         x;
-                    });
+                    } : GoMap<GoInt64, Bool>);
                     _m.range(function(_ki:AnyInterface, _vi:AnyInterface):Bool {
                         var __0:GoInt64 = (Go.typeAssert((_ki : GoInt64)) : GoInt64), __1:GoInt64 = (Go.typeAssert((_vi : GoInt64)) : GoInt64), _v:GoInt64 = __1, _k:GoInt64 = __0;
                         if (_v % _k != ((0i64 : GoInt64))) {

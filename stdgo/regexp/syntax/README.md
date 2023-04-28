@@ -746,7 +746,7 @@ function benchmarkEmptyOpContext(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2902>)
+[\(view code\)](<./Syntax.hx#L2904>)
 
 
 ## function compile
@@ -764,7 +764,7 @@ function compile(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):{
 Compile compiles the regexp into a program to be executed.
 The regexp should have been simplified already \(returned from re.Simplify\).  
 
-[\(view code\)](<./Syntax.hx#L1621>)
+[\(view code\)](<./Syntax.hx#L1623>)
 
 
 ## function emptyOpContext
@@ -783,7 +783,7 @@ at the beginning of the text.
 Passing r2 == \-1 indicates that the position is
 at the end of the text.  
 
-[\(view code\)](<./Syntax.hx#L2803>)
+[\(view code\)](<./Syntax.hx#L2805>)
 
 
 ## function isWordChar
@@ -799,7 +799,7 @@ IsWordChar reports whether r is considered a “word character”
 during the evaluation of the \\b and \\B zero\-width assertions.
 These assertions are ASCII\-only: the word characters are \[A\-Za\-z0\-9\_\].  
 
-[\(view code\)](<./Syntax.hx#L2830>)
+[\(view code\)](<./Syntax.hx#L2832>)
 
 
 ## function parse
@@ -818,7 +818,7 @@ Parse parses a regular expression string s, controlled by the specified
 Flags, and returns a regular expression parse tree. The syntax is
 described in the top\-level comment.  
 
-[\(view code\)](<./Syntax.hx#L1724>)
+[\(view code\)](<./Syntax.hx#L1726>)
 
 
 ## function testAppendRangeCollapse
@@ -829,7 +829,7 @@ function testAppendRangeCollapse(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2705>)
+[\(view code\)](<./Syntax.hx#L2707>)
 
 
 ## function testCompile
@@ -840,7 +840,7 @@ function testCompile(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2892>)
+[\(view code\)](<./Syntax.hx#L2894>)
 
 
 ## function testFoldConstants
@@ -851,7 +851,7 @@ function testFoldConstants(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2687>)
+[\(view code\)](<./Syntax.hx#L2689>)
 
 
 ## function testParseFoldCase
@@ -862,7 +862,7 @@ function testParseFoldCase(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2521>)
+[\(view code\)](<./Syntax.hx#L2523>)
 
 
 ## function testParseInvalidRegexps
@@ -873,7 +873,7 @@ function testParseInvalidRegexps(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2718>)
+[\(view code\)](<./Syntax.hx#L2720>)
 
 
 ## function testParseLiteral
@@ -884,7 +884,7 @@ function testParseLiteral(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2524>)
+[\(view code\)](<./Syntax.hx#L2526>)
 
 
 ## function testParseMatchNL
@@ -895,7 +895,7 @@ function testParseMatchNL(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2527>)
+[\(view code\)](<./Syntax.hx#L2529>)
 
 
 ## function testParseNoMatchNL
@@ -906,7 +906,7 @@ function testParseNoMatchNL(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2530>)
+[\(view code\)](<./Syntax.hx#L2532>)
 
 
 ## function testParseSimple
@@ -917,7 +917,7 @@ function testParseSimple(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2518>)
+[\(view code\)](<./Syntax.hx#L2520>)
 
 
 ## function testSimplify
@@ -928,7 +928,7 @@ function testSimplify(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L3165>)
+[\(view code\)](<./Syntax.hx#L3167>)
 
 
 ## function testToStringEquivalentParse
@@ -939,7 +939,7 @@ function testToStringEquivalentParse(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2762>)
+[\(view code\)](<./Syntax.hx#L2764>)
 
 
 # Classes
@@ -984,7 +984,7 @@ function new(?op:Null<stdgo.regexp.syntax.InstOp>, ?out:stdgo.GoUInt32, ?arg:std
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1518>)
+[\(view code\)](<./Syntax.hx#L1520>)
 
 
 ### Inst function \_op
@@ -998,7 +998,7 @@ function _op():stdgo.regexp.syntax.InstOp
 
 op returns i.Op but merges all the Rune special cases into InstRune  
 
-[\(view code\)](<./Syntax.hx#L5325>)
+[\(view code\)](<./Syntax.hx#L5327>)
 
 
 ### Inst function matchEmptyWidth
@@ -1014,7 +1014,7 @@ MatchEmptyWidth reports whether the instruction matches
 an empty string between the runes before and after.
 It should only be called when i.Op == InstEmptyWidth.  
 
-[\(view code\)](<./Syntax.hx#L5226>)
+[\(view code\)](<./Syntax.hx#L5228>)
 
 
 ### Inst function matchRune
@@ -1029,7 +1029,7 @@ function matchRune( _r:stdgo.GoRune):Bool
 MatchRune reports whether the instruction matches \(and consumes\) r.
 It should only be called when i.Op == InstRune.  
 
-[\(view code\)](<./Syntax.hx#L5318>)
+[\(view code\)](<./Syntax.hx#L5320>)
 
 
 ### Inst function matchRunePos
@@ -1047,7 +1047,7 @@ If so, MatchRunePos returns the index of the matching rune pair
 If not, MatchRunePos returns \-1.
 MatchRunePos should only be called when i.Op == InstRune.  
 
-[\(view code\)](<./Syntax.hx#L5253>)
+[\(view code\)](<./Syntax.hx#L5255>)
 
 
 ### Inst function string
@@ -1058,7 +1058,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5215>)
+[\(view code\)](<./Syntax.hx#L5217>)
 
 
 ## class Prog
@@ -1090,7 +1090,7 @@ function new(?inst:stdgo.Slice<stdgo.regexp.syntax.Inst>, ?start:Null<stdgo.GoIn
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1498>)
+[\(view code\)](<./Syntax.hx#L1500>)
 
 
 ### Prog function \_skipNop
@@ -1104,7 +1104,7 @@ function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref<stdgo.regexp.syntax.Inst>
 
 skipNop follows any no\-op or capturing instructions.  
 
-[\(view code\)](<./Syntax.hx#L5161>)
+[\(view code\)](<./Syntax.hx#L5163>)
 
 
 ### Prog function prefix
@@ -1123,7 +1123,7 @@ Prefix returns a literal string that all matches for the
 regexp must start with. Complete is true if the prefix
 is the entire match.  
 
-[\(view code\)](<./Syntax.hx#L5144>)
+[\(view code\)](<./Syntax.hx#L5146>)
 
 
 ### Prog function startCond
@@ -1138,7 +1138,7 @@ function startCond():stdgo.regexp.syntax.EmptyOp
 StartCond returns the leading empty\-width conditions that must
 be true in any match. It returns ^EmptyOp\(0\) if no matches are possible.  
 
-[\(view code\)](<./Syntax.hx#L5103>)
+[\(view code\)](<./Syntax.hx#L5105>)
 
 
 ### Prog function string
@@ -1149,7 +1149,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5169>)
+[\(view code\)](<./Syntax.hx#L5171>)
 
 
 ## class Regexp
@@ -1216,7 +1216,7 @@ function new(?op:Null<stdgo.regexp.syntax.Op>, ?flags:Null<stdgo.regexp.syntax.F
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1545>)
+[\(view code\)](<./Syntax.hx#L1547>)
 
 
 ### Regexp function \_capNames
@@ -1227,7 +1227,7 @@ function _capNames( _names:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5483>)
+[\(view code\)](<./Syntax.hx#L5485>)
 
 
 ### Regexp function capNames
@@ -1241,7 +1241,7 @@ function capNames():stdgo.Slice<stdgo.GoString>
 
 CapNames walks the regexp to find the names of capturing groups.  
 
-[\(view code\)](<./Syntax.hx#L5495>)
+[\(view code\)](<./Syntax.hx#L5497>)
 
 
 ### Regexp function equal
@@ -1255,7 +1255,7 @@ function equal( _y:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Bool
 
 Equal reports whether x and y have identical structure.  
 
-[\(view code\)](<./Syntax.hx#L5529>)
+[\(view code\)](<./Syntax.hx#L5531>)
 
 
 ### Regexp function maxCap
@@ -1269,7 +1269,7 @@ function maxCap():stdgo.GoInt
 
 MaxCap walks the regexp to find the maximum capture index.  
 
-[\(view code\)](<./Syntax.hx#L5504>)
+[\(view code\)](<./Syntax.hx#L5506>)
 
 
 ### Regexp function simplify
@@ -1289,7 +1289,7 @@ may have been duplicated or removed. For example, the simplified form
 for /\(x\)\{1,2\}/ is /\(x\)\(x\)?/ but both parentheses capture as $1.
 The returned regexp may share structure with or be the original.  
 
-[\(view code\)](<./Syntax.hx#L5386>)
+[\(view code\)](<./Syntax.hx#L5388>)
 
 
 ### Regexp function string
@@ -1300,7 +1300,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5520>)
+[\(view code\)](<./Syntax.hx#L5522>)
 
 
 ## class T\_error
@@ -1328,7 +1328,7 @@ function new(?code:Null<stdgo.regexp.syntax.ErrorCode>, ?expr:stdgo.GoString):Vo
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1382>)
+[\(view code\)](<./Syntax.hx#L1384>)
 
 
 ### T\_error function error
@@ -1339,7 +1339,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L3486>)
+[\(view code\)](<./Syntax.hx#L3488>)
 
 
 # Typedefs

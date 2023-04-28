@@ -113,7 +113,7 @@ BenchmarkDOM is a simple benchmark which emulates a webapp making DOM operations
 It creates a div, and sets its id. Then searches by that id and sets some data.
 Finally it removes that div.  
 
-[\(view code\)](<./Js.hx#L854>)
+[\(view code\)](<./Js.hx#L856>)
 
 
 ## function exampleFuncOf
@@ -124,7 +124,7 @@ function exampleFuncOf():Void
 ```
 
 
-[\(view code\)](<./Js.hx#L623>)
+[\(view code\)](<./Js.hx#L625>)
 
 
 ## function testBool
@@ -157,7 +157,7 @@ function testCopyBytesToGo(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L785>)
+[\(view code\)](<./Js.hx#L787>)
 
 
 ## function testCopyBytesToJS
@@ -168,7 +168,7 @@ function testCopyBytesToJS(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L810>)
+[\(view code\)](<./Js.hx#L812>)
 
 
 ## function testDelete
@@ -223,7 +223,7 @@ function testFuncOf(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L491>)
+[\(view code\)](<./Js.hx#L493>)
 
 
 ## function testGarbageCollection
@@ -234,7 +234,7 @@ function testGarbageCollection(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L835>)
+[\(view code\)](<./Js.hx#L837>)
 
 
 ## function testGet
@@ -256,7 +256,7 @@ function testGlobal(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L878>)
+[\(view code\)](<./Js.hx#L880>)
 
 
 ## function testIndex
@@ -311,7 +311,7 @@ function testInterleavedFunctions(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L608>)
+[\(view code\)](<./Js.hx#L610>)
 
 
 ## function testInvoke
@@ -333,7 +333,7 @@ function testInvokeFunction(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L532>)
+[\(view code\)](<./Js.hx#L534>)
 
 
 ## function testLength
@@ -438,7 +438,7 @@ See
 \- https://stackoverflow.com/questions/19839952/all-falsey-values-in-javascript/19839953#19839953
 \- http://www.ecma-international.org/ecma-262/5.1/#sec-9.2  
 
-[\(view code\)](<./Js.hx#L638>)
+[\(view code\)](<./Js.hx#L640>)
 
 
 ## function testType
@@ -482,6 +482,6 @@ function testZeroValue(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L485>)
+[\(view code\)](<./Js.hx#L487>)
 
 

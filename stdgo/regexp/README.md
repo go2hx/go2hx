@@ -95,15 +95,18 @@ before returning.
 ```
 Error: Command failed with error 1
 === RUN  TestGoodCompile
+--- PASS: TestGoodCompile (%!s(float64=0.0014247894287109375))
+
+=== RUN  TestBadCompile
 Exception: Can't cast stdgo.regexp.syntax.ErrorCode_asInterface to stdgo._GoString.GoStringData
-Called from local function #13304 (stdgo/regexp/syntax/Syntax.hx line 1741)
-Called from stdgo.regexp.syntax._Syntax.$Syntax_Fields_.~_parse.4 (stdgo/regexp/syntax/Syntax.hx line 1751)
-Called from stdgo.regexp.syntax._Syntax.$Syntax_Fields_._parse (stdgo/regexp/syntax/Syntax.hx line 2119)
-Called from stdgo.regexp.syntax._Syntax.$Syntax_Fields_.parse (stdgo/regexp/syntax/Syntax.hx line 1725)
+Called from local function #13309 (stdgo/regexp/syntax/Syntax.hx line 1743)
+Called from stdgo.regexp.syntax._Syntax.$Syntax_Fields_.~_parse.4 (stdgo/regexp/syntax/Syntax.hx line 1753)
+Called from stdgo.regexp.syntax._Syntax.$Syntax_Fields_._parse (stdgo/regexp/syntax/Syntax.hx line 2121)
+Called from stdgo.regexp.syntax._Syntax.$Syntax_Fields_.parse (stdgo/regexp/syntax/Syntax.hx line 1727)
 Called from stdgo.regexp._Regexp.$Regexp_Fields_._compile (stdgo/regexp/Regexp.hx line 3779)
 Called from stdgo.regexp._Regexp.$Regexp_Fields_.compile (stdgo/regexp/Regexp.hx line 3752)
 Called from stdgo.regexp._Regexp.$Regexp_Fields_._compileTest (stdgo/regexp/Regexp.hx line 1474)
-Called from stdgo.regexp._Regexp.$Regexp_Fields_.testGoodCompile (stdgo/regexp/Regexp.hx line 1489)
+Called from stdgo.regexp._Regexp.$Regexp_Fields_.testBadCompile (stdgo/regexp/Regexp.hx line 1497)
 Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
 Called from stdgo.regexp_test._Regexp.$Regexp_Fields_.main (stdgo/regexp_test/Regexp.hx line 145)
 ```
@@ -115,15 +118,18 @@ Called from stdgo.regexp_test._Regexp.$Regexp_Fields_.main (stdgo/regexp_test/Re
 
 ```
 === RUN  TestGoodCompile
-Exception: stdgo._GoString.GoStringData
-Called from stdgo.regexp._Regexp.Regexp_Fields_.testGoodCompile (stdgo/regexp/Regexp.hx line 1489 column 17)
+--- PASS: TestGoodCompile (%!s(float64=0.005363941192626953))
+
+=== RUN  TestBadCompile
+Exception: stdgo.regexp.syntax.ErrorCode_asInterface
+Called from stdgo.regexp._Regexp.Regexp_Fields_.testBadCompile (stdgo/regexp/Regexp.hx line 1497 column 17)
 Called from stdgo.regexp._Regexp.Regexp_Fields_._compileTest (stdgo/regexp/Regexp.hx line 1474 column 23)
 Called from stdgo.regexp._Regexp.Regexp_Fields_.compile (stdgo/regexp/Regexp.hx line 3752 column 16)
 Called from stdgo.regexp._Regexp.Regexp_Fields_._compile (stdgo/regexp/Regexp.hx line 3779 column 23)
-Called from stdgo.regexp.syntax._Syntax.Syntax_Fields_.parse (stdgo/regexp/syntax/Syntax.hx line 1725 column 16)
-Called from stdgo.regexp.syntax._Syntax.Syntax_Fields_._parse (stdgo/regexp/syntax/Syntax.hx line 2119 column 21)
-Called from local function #1 (stdgo/regexp/syntax/Syntax.hx line 1751 column 17)
-Called from local function #1 (stdgo/regexp/syntax/Syntax.hx line 1746 column 33)
+Called from stdgo.regexp.syntax._Syntax.Syntax_Fields_.parse (stdgo/regexp/syntax/Syntax.hx line 1727 column 16)
+Called from stdgo.regexp.syntax._Syntax.Syntax_Fields_._parse (stdgo/regexp/syntax/Syntax.hx line 2121 column 21)
+Called from local function #1 (stdgo/regexp/syntax/Syntax.hx line 1753 column 17)
+Called from local function #1 (stdgo/regexp/syntax/Syntax.hx line 1748 column 33)
 ```
 </p>
 </details>

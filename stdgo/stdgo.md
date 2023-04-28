@@ -15,7 +15,7 @@
 | [stdgo.encoding.hex](./encoding/hex/README.md) | ✅ | yes | ❌ | ❌ | ❌ |
 | [stdgo.errors](./errors/README.md) | ✅ | yes | ✅ | ✅ | ❌ |
 | [stdgo.flag](./flag/README.md) | ❌ | yes |  |  |  |
-| [stdgo.fmt](./fmt/README.md) | ✅ | yes | ❌ | ❌ | ❌ |
+| [stdgo.fmt](./fmt/README.md) | ❌ | yes |  |  |  |
 | [stdgo.go.ast](./go/ast/README.md) | ❌ | yes |  |  |  |
 | [stdgo.go.constant](./go/constant/README.md) | ❌ | yes |  |  |  |
 | [stdgo.go.importer](./go/importer/README.md) | ❌ | yes |  |  |  |

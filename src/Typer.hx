@@ -4774,6 +4774,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 		} : GoMap<$keyComplexType, $valueComplexType>);
 	}
 	final uk = getUnderlying(k);
+	final p:TypePath = {name: "GoMap", pack: [], params: [TPType(valueComplexType)]};
 	switch uk {
 		case interfaceType(empty, _):
 			if (!empty) {
@@ -4792,6 +4793,17 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 			return createRefPointerMap("GoPointerMap");
 		case refType(_):
 			return createRefPointerMap("GoRefMap");
+		case basic(kind):
+			switch kind {
+				case bool_kind, untyped_bool_kind: p.sub = "GoBoolMap";
+				case int_kind, int8_kind, int16_kind, int32_kind, uint_kind, uint16_kind, uint32_kind, uintptr_kind: p.sub = "GoIntMap";
+				case int64_kind, uint64_kind, untyped_int_kind: p.sub = "GoInt64Map";
+				case float32_kind, float64_kind: p.sub = "GoFloat64Map";
+				case complex64_kind, complex128_kind, untyped_complex_kind: p.sub = "GoComplex128Map";
+				case string_kind, untyped_string_kind: p.sub = "GoStringMap";
+				// case unsafepointer_kind: KindType.unsafePointer;
+				default: throw 'Unknown BasicKind: $kind';
+			}
 		default:
 	}
 	if (isObjectMap) {
@@ -4804,10 +4816,11 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 		} : GoMap<$keyComplexType, $valueComplexType>);
 	}
 	return macro({
-		final x = new GoMap<$keyComplexType, $valueComplexType>();
+		final x = new $p();
+		x.__defaultValue__ = () -> $defaultValueExpr;
 		@:mergeBlock $b{exprs};
 		x;
-	});
+	} : GoMap<$keyComplexType, $valueComplexType>);
 }
 
 private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):Expr {

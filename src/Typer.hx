@@ -4176,7 +4176,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case mapType(_.get() => key, _.get() => value):
 			final ctKey = toComplexType(key, info);
 			final ctValue = toComplexType(value, info);
-			TPath({pack: ["stdgo"], name: "GoMap", params: [TPType(ctKey), TPType(ctValue)]});
+			TPath({pack: [], name: "GoMap", params: [TPType(ctKey), TPType(ctValue)]});
 		case invalidType:
 			invalidComplexType();
 		case pointerType(_.get() => elem):
@@ -4774,7 +4774,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 		} : GoMap<$keyComplexType, $valueComplexType>);
 	}
 	final uk = getUnderlying(k);
-	final p:TypePath = {name: "GoMap", pack: [], params: [TPType(valueComplexType)]};
+	final p:TypePath = {name: "GoMap", pack: ["stdgo"], params: [TPType(valueComplexType)]};
 	switch uk {
 		case interfaceType(empty, _):
 			if (!empty) {

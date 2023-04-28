@@ -4801,7 +4801,8 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 				case float32_kind, float64_kind: p.sub = "GoFloat64Map";
 				case complex64_kind, complex128_kind, untyped_complex_kind: p.sub = "GoComplex128Map";
 				case string_kind, untyped_string_kind: p.sub = "GoStringMap";
-				// case unsafepointer_kind: KindType.unsafePointer;
+				//case unsafepointer_kind: KindType.unsafePointer;
+				case unsafepointer_kind: isObjectMap = true;
 				default: throw 'Unknown BasicKind: $kind';
 			}
 		default:

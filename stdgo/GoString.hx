@@ -5,15 +5,23 @@ import stdgo.StdGoTypes;
 
 using GoString.GoStringTools;
 
-
 private class GoStringData {
 	public var bytes:Bytes;
 	public var offset:Int = 0;
 	public var length:Int = 0;
-	public inline function new(bytes,offset,length) {
+
+	public inline function new(bytes, offset, length) {
 		this.bytes = bytes;
 		this.offset = offset;
 		this.length = length;
+	}
+
+	public function toString():String {
+		#if !nolinkstd
+		if (!stdgo.unicode.utf8.Utf8.validString((this : GoString)))
+			return "invalid string";
+		#end
+		return bytes.sub(this.offset, this.length).toString();
 	}
 }
 
@@ -40,32 +48,19 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 				code;
 		}
 	}
-	//#if hl removeZeros().toString().substr(this.offset,this.length); #else 
-	@:to public function __toString__():String {
-		return this.bytes.toString().substr(this.offset,this.length);
-	}
 
-	private function removeZeros():Bytes {
-		final list:Array<Int> = [];
-		for (i in 0...this.length) {
-			final byte = this.bytes.get(this.offset + i);
-			if (byte != 0)
-				list.push(byte);
-		}
-		final bytes = Bytes.alloc(list.length);
-		for (i in 0...list.length)
-			bytes.set(i, list[i]);
-		return bytes;
-	}
+	@:to
+	public function toString():String
+		return this.toString();
 
 	@:from
 	private static function ofBytes(x:Bytes):GoString {
-		return new GoStringData(x,0,x.length);
+		return new GoStringData(x, 0, x.length);
 	}
 
 	@:from static function ofString(x:String):GoString {
 		final b = haxe.io.Bytes.ofString(x);
-		return new GoStringData(b,0,b.length);
+		return new GoStringData(b, 0, b.length);
 	}
 
 	@:from static function ofRune(x:GoRune):GoString {
@@ -256,14 +251,11 @@ private class GoStringKeyValueIterator {
 
 class GoStringTools {
 	public static function lastIndexOf(s:GoString, str:GoString, ?startIndex:Int):Int
-		return s.__toString__().lastIndexOf(str, startIndex);
+		return s.toString().lastIndexOf(str, startIndex);
 
 	public static function indexOf(s:GoString, str:GoString, ?startIndex:Int):Int
-		return s.__toString__().indexOf(str, startIndex);
+		return s.toString().indexOf(str, startIndex);
 
 	public static function substr(str:GoString, pos:Int, ?len:Int):GoString
-		return str.__toString__().substr(pos, len);
-
-	public static function toString(str:GoString)
-		return str.__toString__();
+		return str.toString().substr(pos, len);
 }

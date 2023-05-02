@@ -1227,7 +1227,7 @@ class _Type {
 				if (empty)
 					return "interface {}";
 				for (method in methods) {
-					r += "; " + formatGoFieldName(method.name) + new _Type(method.type.get()).string().__toString__().substr(4);
+					r += "; " + formatGoFieldName(method.name) + new _Type(method.type.get()).string().toString().substr(4);
 				}
 				r = r.substr(1);
 				"interface {" + r + " }";

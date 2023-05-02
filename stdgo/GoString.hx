@@ -151,16 +151,16 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	}
 
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool
-		return a.toString() < b.toString();
+		return (a : GoStringData).bytes.compare((b : GoStringData).bytes) < 0;
 
 	@:op(A <= B) static function lte(a:GoString, b:GoString):Bool
-		return a.toString() <= b.toString();
+		return (a : GoStringData).bytes.compare((b : GoStringData).bytes) <= 0;
 
 	@:op(A > B) static function gt(a:GoString, b:GoString):Bool
-		return a.toString() > b.toString();
+		return (a : GoStringData).bytes.compare((b : GoStringData).bytes) > 0;
 
 	@:op(A >= B) static function gte(a:GoString, b:GoString):Bool
-		return a.toString() >= b.toString();
+		return (a : GoStringData).bytes.compare((b : GoStringData).bytes) >= 0;
 
 	@:op(A == B) static function eq(a:GoString, b:GoString):Bool {
 		if (a.length != b.length)

@@ -4422,8 +4422,8 @@ private function getRune(value:String):String {
 		switch code {
 			case "\\".code:
 				backslash = true;
-			case "$".code:
-				buff.add("$$");
+			//case "$".code:
+			//	buff.add("$$");
 			default:
 				try {
 					buff.addChar(code);
@@ -4501,8 +4501,8 @@ private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int
 		switch code {
 			case "\\".code:
 				backslash = true;
-			case "$".code:
-				buff.add("$$");
+			//case "$".code:
+			//	buff.add("$$");
 			default:
 				try {
 					buff.addChar(code);

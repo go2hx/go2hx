@@ -159,7 +159,7 @@ private function complete(modules:Array<Typer.Module>, _) {
 	final paths = Main.mainPaths(modules);
 	for (path in paths) {
 		final main = path;
-		path = path.toLowerCase();
+		path = path.charAt(0).toLowerCase() + path.substr(1);
 		final hxml = "golibs/" + type + "_" + path + ".hxml";
 		for (target in targets) {
 			final out = createTargetOutput(target, type, path);

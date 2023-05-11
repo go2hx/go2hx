@@ -1145,6 +1145,11 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							expr: func
 						});
 						var type = typeof(spec.values[0], info, false);
+						switch type {
+							case tuple(_,_):
+							default:
+								return (macro @:destructure_non_tuple {}).expr; 
+						}
 						var tuples = getReturnTupleType(type);
 						for (i in 0...spec.names.length) {
 							final fieldName = "_" + i;
@@ -7346,7 +7351,6 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 }
 
 function normalizePath(path:String):String {
-	path = path.toLowerCase();
 	path = StringTools.replace(path, ".", "_");
 	path = StringTools.replace(path, ":", "_");
 	path = StringTools.replace(path, "-", "_");

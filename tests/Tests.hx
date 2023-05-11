@@ -294,7 +294,7 @@ private function close() {
 		File.saveContent('tests/$type.json', Json.stringify(input, null, " "));
 	}
 	logOutput.close();
-	Main.close(1);
+	Main.close(code);
 }
 
 private function testYaegi() {

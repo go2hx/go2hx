@@ -36,14 +36,12 @@ jobs:
         run: npx haxelib run go2hx clean
       - name: Run stdgo automatic compile
         run: npx haxe stdgo.hxml
-      - name: Build tests
-        run: npx haxe tests.hxml
       - name: Run unit tests
-        run: hl tests.hl unit ci
+        run: haxe tests.hxml -D unit -D ci
         env:
           HXCPP_COMPILE_CACHE: ~/hxcppcache
       - name: Run std tests
-        run: hl tests.hl std ci
+        run: haxe tests.hxml -D std -D ci
         env:
             HXCPP_COMPILE_CACHE: ~/hxcppcache
       # - name: Run yaegi tests

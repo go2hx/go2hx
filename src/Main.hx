@@ -42,14 +42,7 @@ function main() {
 	run(args);
 }
 
-final passthroughArgs = [
-	"-log",
-	"--log",
-	"-test",
-	"--test",
-	"-nodeps",
-	"--nodeps",
-];
+final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps",];
 
 function run(args:Array<String>) {
 	final instance = compileArgs(args);
@@ -146,7 +139,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-timeout", "--timeout"] => d -> instance.defines.push('timeoutTest $d'),
 		@doc("Verbose output: log all tests as they are run. Also print all text from Log and Logf calls even if the test succeeds.")
 		["-v", "--v"] => () -> instance.defines.push("verboseTest"),
-		["-nodeps","--nodeps"] => () -> instance.noDeps = true,
+		["-nodeps", "--nodeps"] => () -> instance.noDeps = true,
 	]);
 	argHandler.parse(args);
 	for (i in 0...args.length) {
@@ -195,7 +188,7 @@ function update() {
 	Sys.sleep(0.5); // wait
 }
 
-function close() {
+function close(code:Int=0) {
 	#if (debug && !nodejs)
 	if (processes.length > 0) {
 		processes[0].kill();
@@ -212,7 +205,7 @@ function close() {
 		process.close();
 	#end
 	server.close();
-	Sys.exit(0);
+	Sys.exit(code);
 }
 
 function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null) {
@@ -328,7 +321,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 					}
 				}
 				if (instance.noDeps)
-					createBasePkgs(Path.addTrailingSlash(instance.outputPath),modules,cwd);
+					createBasePkgs(Path.addTrailingSlash(instance.outputPath), modules, cwd);
 				runBuildTools(modules, instance, programArgs);
 				Sys.setCwd(cwd);
 				onComplete(modules, instance.data);
@@ -353,11 +346,35 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	#end
 }
 
-private function createBasePkgs(outputPath:String,modules:Array<Typer.Module>, cwd:String) {
-	final pkgs = ["reflect/Reflect","Error", "internal/reflect/Reflect", "internal/reflectlite/Reflectlite", "GoString", "Slice", "Pointer", "internal/Async", "StdGoTypes", "Go", "Go.macro", "Chan", "GoMap", "Chan", "GoArray", "unsafe/Unsafe","testing/Testing","internal/Macro", "internal/Macro.macro", "internal/TypeInfo"];
-	final requires = ["strings", "internal/oserror", "path", "internal/poll", "syscall", "syscall/js", "time", "io/fs", "fmt", "errors","internal/fmtsort","io","math","os","reflect","sort","strconv","sync","unicode/utf8"];
+private function createBasePkgs(outputPath:String, modules:Array<Typer.Module>, cwd:String) {
+	final pkgs = [
+		"reflect/Reflect",
+		"Error",
+		"internal/reflect/Reflect",
+		"internal/reflectlite/Reflectlite",
+		"GoString",
+		"Slice",
+		"Pointer",
+		"internal/Async",
+		"StdGoTypes",
+		"Go",
+		"Go.macro",
+		"Chan",
+		"GoMap",
+		"Chan",
+		"GoArray",
+		"unsafe/Unsafe",
+		"testing/Testing",
+		"internal/Macro",
+		"internal/Macro.macro",
+		"internal/TypeInfo"
+	];
+	final requires = [
+		"strings", "internal/oserror", "path", "internal/poll", "syscall", "syscall/js", "time", "io/fs", "fmt", "errors", "internal/fmtsort", "io", "math",
+		"os", "reflect", "sort", "strconv", "sync", "sync/atomic", "unicode/utf8", "math/bits", "internal/bytealg", "internal/cpu", "runtime",
+	];
 	for (module in modules) {
-		final path = StringTools.replace(module.name,"/",".");
+		final path = StringTools.replace(module.name, "/", ".");
 		if (requires.indexOf(path) != -1)
 			requires.remove(module.name);
 	}
@@ -367,7 +384,7 @@ private function createBasePkgs(outputPath:String,modules:Array<Typer.Module>, c
 		final index = require.lastIndexOf("/");
 		if (index != -1) {
 			require = require + "/" + require.charAt(index + 1).toUpperCase() + require.substring(index + 2);
-		}else{
+		} else {
 			require = require + "/" + require.charAt(0).toUpperCase() + require.substring(1);
 		}
 		pkgs.push(require);
@@ -378,12 +395,16 @@ private function createBasePkgs(outputPath:String,modules:Array<Typer.Module>, c
 		final dir = Path.directory(outputPath + path);
 		if (!FileSystem.exists(dir))
 			FileSystem.createDirectory(dir);
-		File.saveBytes(outputPath + path + ".hx",File.getBytes(cwd + path + ".hx"));
+		if (FileSystem.exists(cwd + path + ".macro.hx") && !FileSystem.exists(outputPath + path + ".macro.hx")) {
+			File.saveBytes(outputPath + path + ".macro.hx", File.getBytes(cwd + path + ".macro.hx"));
+		}
+		if (!FileSystem.exists(outputPath + path + ".hx"))
+			File.saveBytes(outputPath + path + ".hx", File.getBytes(cwd + path + ".hx"));
 	}
 	if (!FileSystem.exists(outputPath + "haxe"))
 		FileSystem.createDirectory(outputPath + "haxe");
-	File.saveBytes(outputPath + "haxe/UInt64.hx",File.getBytes(cwd + "haxe/UInt64.hx"));
-	File.saveBytes(outputPath + "haxe/UInt64Helper.hx",File.getBytes(cwd + "haxe/UInt64Helper.hx"));
+	File.saveBytes(outputPath + "haxe/UInt64.hx", File.getBytes(cwd + "haxe/UInt64.hx"));
+	File.saveBytes(outputPath + "haxe/UInt64Helper.hx", File.getBytes(cwd + "haxe/UInt64Helper.hx"));
 }
 
 function targetLibs(target:String):String {
@@ -416,6 +437,20 @@ function mainPaths(modules:Array<Typer.Module>):Array<String> {
 	return paths;
 }
 
+function mainPkgs(modules:Array<Typer.Module>):Array<String> {
+	final paths:Array<String> = [];
+	final underscoreTestStr = "_test";
+	for (module in modules) {
+		if (module == null || !module.isMain || module.files[0] == null || !module.files[0].isMain)
+			continue;
+		var path = module.path;
+		if (path.substr(path.length - underscoreTestStr.length) == underscoreTestStr)
+			path = path.substr(0, path.length - underscoreTestStr.length);
+		paths.push(path);
+	}
+	return paths;
+}
+
 private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceData, args:Array<String>) {
 	if (instance.target == "") {
 		if (instance.test) {
@@ -432,7 +467,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 	if (!instance.noDeps) {
 		commands.push("-lib");
 		commands.push("go2hx");
-	}else{
+	} else {
 		final lines = File.getContent(cwd + "extraParams.hxml").split("\n");
 		for (line in lines) {
 			if (line != "") {
@@ -502,21 +537,31 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		File.saveContent(instance.buildPath, content);
 		// Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
 	}
+	
 	if (instance.hxmlPath != "") {
 		if (paths.length == 0) {
 			trace(instance.hxmlPath);
 			throw "No main found";
 		}
-		final main = parseMain(paths[0]);
 		if (!StringTools.endsWith(instance.hxmlPath, ".hxml"))
 			instance.hxmlPath += ".hxml";
-		var content = "-m " + main + "\n";
-		for (i in 0...Std.int(commands.length / 2)) {
-			content += commands[i * 2] + " " + commands[i * 2 + 1] + "\n";
+		final pkgs = mainPkgs(modules);
+		for (i in 0...paths.length) {
+			final main = parseMain(paths[i]);
+			var content = "-m " + main + "\n";
+			for (i in 0...Std.int(commands.length / 2)) {
+				content += commands[i * 2] + " " + commands[i * 2 + 1] + "\n";
+			}
+			var hxmlPath = instance.hxmlPath;
+			var replaceIndex = hxmlPath.indexOf("$");
+			if (replaceIndex != -1) {
+				var hxmlFile = StringTools.replace(pkgs[i],".","_");
+				hxmlPath = hxmlPath.substr(0, replaceIndex) + hxmlFile + hxmlPath.substr(replaceIndex + 1);
+			}
+			content = content.substr(0, content.length - 1);
+			File.saveContent(hxmlPath, content);
+			Sys.println('Generated: ' + hxmlPath + ' - ' + shared.Util.kbCount(content) + "kb");
 		}
-		content = content.substr(0, content.length - 1);
-		File.saveContent(instance.hxmlPath, content);
-		Sys.println('Generated: ' + instance.hxmlPath + ' - ' + shared.Util.kbCount(content) + "kb");
 	}
 }
 
@@ -548,7 +593,7 @@ function buildTarget(target:String, out:String, main:String):String {
 		main = main.substr(index + 1);
 	return switch target {
 		case "hl":
-			'--hl $out -D hl-check';
+			'--hl $out';
 		case "jvm", "cpp", "cs", "js", "lua", "python", "php", "neko":
 			'--$target $out';
 		case "interp":
@@ -572,7 +617,7 @@ function runTarget(target:String, out:String, args:Array<String>, main:String):S
 		case "python":
 			if (Sys.systemName() == "Mac") {
 				'python3 $out';
-			}else{
+			} else {
 				'python $out';
 			}
 		case "hl", "neko", "lua", "php":

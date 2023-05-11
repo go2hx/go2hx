@@ -92,33 +92,6 @@ function create(outputPath:String, module:Module, root:String) {
 	}
 }
 
-var typeFormatter = -1;
-
-private function runFormatter(path:String) {
-	if (typeFormatter == 0)
-		return;
-	if (typeFormatter == -1) {
-		var code = runCmd("haxelib run formatter -v");
-		if (code == 0) {
-			typeFormatter = 1;
-		} else {
-			code = runCmd("npx haxelib run formatter -v");
-			if (code == 0) {
-				typeFormatter = 2;
-			} else {
-				typeFormatter = 0;
-				return;
-			}
-		}
-	}
-	#if js
-	#else
-	new sys.io.Process('haxelib run formatter -s $path');
-	#end
-	// if (code != 0)
-	//	throw "formatter failed: " + code;
-}
-
 private function runCmd(cmd:String) {
 	#if (target.threaded)
 	final process = new sys.io.Process(cmd);
@@ -140,6 +113,5 @@ private function save(dir:String, name:String, content:String, extension:String 
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";
 	File.saveContent(path, content);
-	runFormatter(path);
 	Sys.println("Generated: " + dir + name + extension + ".hx - " + shared.Util.kbCount(content) + "kb");
 }

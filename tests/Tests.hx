@@ -50,6 +50,7 @@ var type:String = "";
 // cpp tests take a long time to compile, so sometimes its not run if quick testing is required
 final targets = ["interp", "hl", "jvm"];
 var suite = new TestSuite();
+var completeBool = false;
 
 function main() {
 	Main.setup(0, 1); // amount of processes to spawn
@@ -82,6 +83,7 @@ function main() {
 	if (goByExampleBool)
 		testGoByExample();
 	tests.sort((a, b) -> a > b ? 1 : -1); // consistent across os targets
+	// tests = ["./tests/unit/invalidString0.go"];
 	trace(tests);
 	startStamp = haxe.Timer.stamp();
 	final timer = new haxe.Timer(100);
@@ -91,7 +93,7 @@ function main() {
 var runningCount = 0;
 
 function update() {
-	if (tests.length == 0 && tasks.length == 0 && runningCount == 0)
+	if (completeBool && tests.length == 0 && tasks.length == 0 && runningCount == 0)
 		close();
 	for (test in tests) {
 		final hxml = "golibs/" + type + "_" + sanatize(test);
@@ -130,6 +132,7 @@ function update() {
 			log(data);
 		});
 		ls.on('close', function(code) {
+			completeBool = true;
 			timeoutTimer.stop();
 			runningCount--;
 			if (code == 0) {
@@ -155,6 +158,7 @@ function update() {
 }
 
 private function complete(modules:Array<Typer.Module>, _) {
+	completeBool = true;
 	// spawn targets
 	final paths = Main.mainPaths(modules);
 	for (path in paths) {
@@ -215,7 +219,6 @@ private function testStd() { // standard library package tests
 	type = "std";
 	final list:Array<String> = Json.parse(File.getContent("tests.json"));
 	for (name in list) {
-		trace(name);
 		final hxml = "stdgo/" + StringTools.replace(name,"/","_") + ".hxml";
 		final main = name;
 		for (target in targets) {

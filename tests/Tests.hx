@@ -163,8 +163,7 @@ private function complete(modules:Array<Typer.Module>, _) {
 		final hxml = "golibs/" + type + "_" + path + ".hxml";
 		for (target in targets) {
 			final out = createTargetOutput(target, type, path);
-			final outCmd = Main.buildTarget(target, out, path).split(" ");
-			//trace(Main.runTarget(target,out,[],main));
+			final outCmd = Main.buildTarget(target, out).split(" ");
 			final args = [hxml].concat(outCmd);
 			if (ciBool)
 				args.unshift("haxe");
@@ -216,7 +215,17 @@ private function testStd() { // standard library package tests
 	type = "std";
 	final list:Array<String> = Json.parse(File.getContent("tests.json"));
 	for (name in list) {
-		tests.push(name);
+		trace(name);
+		final hxml = "stdgo/" + StringTools.replace(name,"/","_") + ".hxml";
+		final main = name;
+		for (target in targets) {
+			final out = createTargetOutput(target, type, "golibs");
+			final outCmd = Main.buildTarget(target, out).split(" ");
+			final args = [hxml].concat(outCmd);
+			if (ciBool)
+				args.unshift("haxe");
+			tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main});
+		}
 	}
 	// haxe stdgo/unicode.hxml --interp
 }

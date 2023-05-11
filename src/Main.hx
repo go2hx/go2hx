@@ -489,7 +489,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 	}
 	if (instance.target != "" && instance.target != "interp") {
 		final main = paths.length > 0 ? paths[0] : "";
-		for (command in buildTarget(instance.target, instance.targetOutput, main).split(" "))
+		for (command in buildTarget(instance.target, instance.targetOutput).split(" "))
 			commands.push(command);
 		for (command in targetLibs(instance.target).split(" "))
 			commands.push(command);
@@ -498,10 +498,12 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		for (main in paths) {
 			if (instance.root != "") {
 				main = instance.root + (main == "" ? "" : "." + parseMain(main));
+			}else{
+				main = parseMain(main);
 			}
 			var commands = commands.concat(['-m', main]); // copy
 			if (instance.target == "interp") {
-				commands = commands.concat(buildTarget(instance.target, "", main).split(" "));
+				commands = commands.concat(buildTarget(instance.target, "").split(" "));
 				commands = commands.concat(args);
 			}
 			final cliCommands = commands.copy();
@@ -515,6 +517,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 			}
 			Sys.println('haxe ' + cliCommands.join(" "));
 			Sys.command('haxe ' + cliCommands.join(" ")); // build without build file
+			trace("main: " + main);
 			final runCommand = runTarget(instance.target, instance.targetOutput, args, main);
 			if (runCommand != "") {
 				Sys.println(runCommand);
@@ -587,10 +590,7 @@ function libTarget(target:String):String {
 	}
 }
 
-function buildTarget(target:String, out:String, main:String):String {
-	final index = main.lastIndexOf(".");
-	if (index != -1)
-		main = main.substr(index + 1);
+function buildTarget(target:String, out:String):String {
 	return switch target {
 		case "hl":
 			'--hl $out';

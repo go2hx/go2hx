@@ -5,4 +5,6 @@
 -D nolinkstd
 -D simulate_num
 -dce full
--hl tests.hl
+-lib hxnodejs
+--js tests.js
+--cmd node --expose-gc --max-old-space-size=4098 tests.js

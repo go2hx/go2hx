@@ -153,8 +153,6 @@
 
   - [`function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString`](<#gostringtools-function-substr>)
 
-  - [`function toString(str:stdgo.GoString):String`](<#gostringtools-function-tostring>)
-
 - [class GoUInt64Map](<#class-gouint64map>)
 
   - [`function new():Void`](<#gouint64map-function-new>)
@@ -922,7 +920,7 @@ function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L262>)
+[\(view code\)](<./GoString.hx#L257>)
 
 
 ### GoStringTools function lastIndexOf
@@ -933,7 +931,7 @@ function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L259>)
+[\(view code\)](<./GoString.hx#L254>)
 
 
 ### GoStringTools function substr
@@ -944,18 +942,7 @@ function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString
 ```
 
 
-[\(view code\)](<./GoString.hx#L265>)
-
-
-### GoStringTools function toString
-
-
-```haxe
-function toString(str:stdgo.GoString):String
-```
-
-
-[\(view code\)](<./GoString.hx#L268>)
+[\(view code\)](<./GoString.hx#L260>)
 
 
 ## class GoUInt64Map

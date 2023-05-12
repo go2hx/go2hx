@@ -239,7 +239,7 @@ function allocsPerRun(_runs:stdgo.GoInt, f:():Void):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Testing.hx#L512>)
+[\(view code\)](<./Testing.hx#L516>)
 
 
 ## function benchmark
@@ -250,7 +250,7 @@ function benchmark(f:()):stdgo.testing.BenchmarkResult
 ```
 
 
-[\(view code\)](<./Testing.hx#L504>)
+[\(view code\)](<./Testing.hx#L508>)
 
 
 ## function coverMode
@@ -261,7 +261,7 @@ function coverMode():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testing.hx#L502>)
+[\(view code\)](<./Testing.hx#L506>)
 
 
 ## function mainStart
@@ -272,7 +272,7 @@ function mainStart(deps:stdgo.testing.T_testDeps, tests:stdgo.Slice<stdgo.testin
 ```
 
 
-[\(view code\)](<./Testing.hx#L467>)
+[\(view code\)](<./Testing.hx#L471>)
 
 
 ## function short
@@ -283,7 +283,7 @@ function short():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L509>)
+[\(view code\)](<./Testing.hx#L513>)
 
 
 ## function verbose
@@ -294,7 +294,7 @@ function verbose():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L515>)
+[\(view code\)](<./Testing.hx#L519>)
 
 
 # Classes
@@ -967,7 +967,7 @@ function new(?name:stdgo.GoString, ?f:()):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L391>)
+[\(view code\)](<./Testing.hx#L395>)
 
 
 ## class InternalExample
@@ -1004,7 +1004,7 @@ function new(?name:stdgo.GoString, ?f:():Void, ?output:stdgo.GoString, ?unordere
 ```
 
 
-[\(view code\)](<./Testing.hx#L431>)
+[\(view code\)](<./Testing.hx#L435>)
 
 
 ## class InternalFuzzTarget
@@ -1031,7 +1031,7 @@ function new(?name:stdgo.GoString, ?f:():Void):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L410>)
+[\(view code\)](<./Testing.hx#L414>)
 
 
 ## class InternalTest
@@ -1058,7 +1058,7 @@ function new(?name:stdgo.GoString, ?f:()):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L454>)
+[\(view code\)](<./Testing.hx#L458>)
 
 
 ## class M
@@ -1088,7 +1088,7 @@ function run():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Testing.hx#L344>)
+[\(view code\)](<./Testing.hx#L347>)
 
 
 ## class PB

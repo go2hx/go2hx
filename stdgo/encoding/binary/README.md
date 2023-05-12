@@ -39,7 +39,7 @@ Called from stdgo.encoding.binary._Binary.$Binary_Fields_._dataSize (stdgo/encod
 Called from stdgo.encoding.binary._Binary.$Binary_Fields_.read (stdgo/encoding/binary/Binary.hx line 849)
 Called from stdgo.encoding.binary._Binary.$Binary_Fields_._testRead (stdgo/encoding/binary/Binary.hx line 1178)
 Called from stdgo.encoding.binary._Binary.$Binary_Fields_.testLittleEndianRead (stdgo/encoding/binary/Binary.hx line 1187)
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
+Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 358)
 Called from stdgo.encoding.binary_test._Binary.$Binary_Fields_.main (stdgo/encoding/binary_test/Binary.hx line 107)
 ```
 </p>

@@ -16,7 +16,7 @@ Package iotest implements Readers and Writers useful mainly for testing.
 Error: Command failed with error 1
 === RUN  TestWriteLogger
 Exception: testing.iotest.testWriteLogger is not yet implemented
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
+Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 358)
 Called from stdgo.testing.iotest_test._Iotest.$Iotest_Fields_.main (stdgo/testing/iotest_test/Iotest.hx line 55)
 ```
 </p>

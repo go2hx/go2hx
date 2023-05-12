@@ -49,7 +49,6 @@ stdgo/sync/atomic_test/Atomic_test.hx:3265: characters 13-95 : error: stdgo.GoBy
 stdgo/sync/atomic_test/Atomic_test.hx:3265: characters 13-95 : ... have: stdgo.Ref<stdgo.GoByte>
 stdgo/sync/atomic_test/Atomic_test.hx:3265: characters 13-95 : ... want: stdgo.Ref<stdgo.sync.atomic.Pointer_<...>>
 stdgo/sync/atomic_test/Atomic_test.hx:3265: characters 13-95 : ... For function argument '_x'
-stdgo/sync_test/Sync_test.hx:25: characters 46-50 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:546: characters 38-58 : stdgo.sync_test._Sync_test.T__struct_1 should be stdgo.sync_test.T_httpPkg
 stdgo/sync_test/Sync_test.hx:546: characters 38-58 : ... For function argument 'value'
 stdgo/sync_test/Sync_test.hx:549: characters 38-58 : stdgo.sync_test._Sync_test.T__struct_1 should be stdgo.sync_test.T_httpPkg
@@ -63,8 +62,6 @@ stdgo/sync_test/Sync_test.hx:1315: characters 43-47 : ... For function argument 
 stdgo/sync_test/Sync_test.hx:1337: characters 22-26 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:1472: characters 22-26 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:1539: characters 18-22 : Unknown identifier : _new
-stdgo/sync_test/Sync_test.hx:1556: characters 18-22 : Unknown identifier : _new
-stdgo/sync_test/Sync_test.hx:1564: characters 22-26 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:1629: characters 22-26 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:1677: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv
 stdgo/sync_test/Sync_test.hx:1679: characters 27-45 : Type not found : stdgo.os.exec.Exec
@@ -73,8 +70,12 @@ stdgo/sync_test/Sync_test.hx:1892: characters 21-25 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:1908: characters 91-115 : invalid type: TDynamic(null)
 stdgo/sync_test/Sync_test.hx:1908: characters 91-115 : ... For function argument 'args'
 stdgo/sync_test/Sync_test.hx:2140: characters 38-42 : Unknown identifier : _new
-stdgo/sync_test/Sync_test.hx:2489: characters 24-28 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:3001: characters 26-30 : Unknown identifier : _new
+stdgo/sync_test/Sync_test.hx:1556: characters 18-22 : Unknown identifier : _new
+stdgo/sync_test/Sync_test.hx:1564: characters 22-26 : Unknown identifier : _new
+stdgo/sync_test/Sync_test.hx:2489: characters 24-28 : Unknown identifier : _new
+stdgo/sync_test/Sync_test.hx:25: characters 46-50 : Unknown identifier : _new
+stdgo/sync_test/Sync_test.hx:697: characters 19-82 : ... Called from macro here
 
 ```
 

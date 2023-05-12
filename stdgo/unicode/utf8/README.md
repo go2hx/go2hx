@@ -16,46 +16,46 @@ See https://en.wikipedia.org/wiki/UTF-8
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=6.198883056640625e-05))
+--- PASS: TestConstants (%!s(float64=6.794929504394531e-05))
 
 === RUN  TestFullRune
---- PASS: TestFullRune (%!s(float64=0.00014901161193847656))
+--- PASS: TestFullRune (%!s(float64=0.00011897087097167969))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.00027298927307128906))
+--- PASS: TestEncodeRune (%!s(float64=0.000225067138671875))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.00024509429931640625))
+--- PASS: TestAppendRune (%!s(float64=0.00022101402282714844))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=0.00023484230041503906))
+--- PASS: TestDecodeRune (%!s(float64=0.00024390220642089844))
 
 === RUN  TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (%!s(float64=1.3828277587890625e-05))
+--- PASS: TestDecodeSurrogateRune (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestSequencing
---- PASS: TestSequencing (%!s(float64=0.08849382400512695))
+--- PASS: TestSequencing (%!s(float64=0.09160590171813965))
 
 === RUN  TestRuntimeConversion
---- PASS: TestRuntimeConversion (%!s(float64=0.0005309581756591797))
+--- PASS: TestRuntimeConversion (%!s(float64=0.0004379749298095703))
 
 === RUN  TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (%!s(float64=0.00021004676818847656))
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.0001499652862548828))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=1.0013580322265625e-05))
+--- PASS: TestNegativeRune (%!s(float64=1.3828277587890625e-05))
 
 === RUN  TestRuneCount
---- PASS: TestRuneCount (%!s(float64=2.193450927734375e-05))
+--- PASS: TestRuneCount (%!s(float64=2.288818359375e-05))
 
 === RUN  TestRuneLen
---- PASS: TestRuneLen (%!s(float64=1.2159347534179688e-05))
+--- PASS: TestRuneLen (%!s(float64=3.790855407714844e-05))
 
 === RUN  TestValid
---- PASS: TestValid (%!s(float64=5.698204040527344e-05))
+--- PASS: TestValid (%!s(float64=6.508827209472656e-05))
 
 === RUN  TestValidRune
---- PASS: TestValidRune (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestValidRune (%!s(float64=1.5020370483398438e-05))
 
 ```
 </p>
@@ -66,46 +66,46 @@ See https://en.wikipedia.org/wiki/UTF-8
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=2.8133392333984375e-05))
+--- PASS: TestConstants (%!s(float64=0.00010704994201660156))
 
 === RUN  TestFullRune
---- PASS: TestFullRune (%!s(float64=0.0005688667297363281))
+--- PASS: TestFullRune (%!s(float64=0.0007078647613525391))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.0007259845733642578))
+--- PASS: TestEncodeRune (%!s(float64=0.0007121562957763672))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0008451938629150391))
+--- PASS: TestAppendRune (%!s(float64=0.0009770393371582031))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=0.0019419193267822266))
+--- PASS: TestDecodeRune (%!s(float64=0.002023935317993164))
 
 === RUN  TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (%!s(float64=4.38690185546875e-05))
+--- PASS: TestDecodeSurrogateRune (%!s(float64=7.009506225585938e-05))
 
 === RUN  TestSequencing
---- PASS: TestSequencing (%!s(float64=0.5722370147705078))
+--- PASS: TestSequencing (%!s(float64=0.680351972579956))
 
 === RUN  TestRuntimeConversion
---- PASS: TestRuntimeConversion (%!s(float64=0.0030939579010009766))
+--- PASS: TestRuntimeConversion (%!s(float64=0.0033271312713623047))
 
 === RUN  TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (%!s(float64=0.0008790493011474609))
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.0010569095611572266))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=4.506111145019531e-05))
+--- PASS: TestNegativeRune (%!s(float64=7.700920104980469e-05))
 
 === RUN  TestRuneCount
---- PASS: TestRuneCount (%!s(float64=0.0001049041748046875))
+--- PASS: TestRuneCount (%!s(float64=0.00014495849609375))
 
 === RUN  TestRuneLen
---- PASS: TestRuneLen (%!s(float64=4.315376281738281e-05))
+--- PASS: TestRuneLen (%!s(float64=4.792213439941406e-05))
 
 === RUN  TestValid
---- PASS: TestValid (%!s(float64=0.00036597251892089844))
+--- PASS: TestValid (%!s(float64=0.00038313865661621094))
 
 === RUN  TestValidRune
---- PASS: TestValidRune (%!s(float64=2.7894973754882812e-05))
+--- PASS: TestValidRune (%!s(float64=7.796287536621094e-05))
 
 ```
 </p>

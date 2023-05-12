@@ -18,7 +18,7 @@ Error: Command failed with error 1
 Exception: Can't cast stdgo.compress.bzip2.StructuralError_asInterface to stdgo._GoString.GoStringData
 Called from stdgo.io._Io.$Io_Fields_.readAll (stdgo/io/Io.hx line 1079)
 Called from stdgo.compress.bzip2._Bzip2.$Bzip2_Fields_.testReader (stdgo/compress/bzip2/Bzip2.hx line 405)
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
+Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 358)
 Called from stdgo.compress.bzip2_test._Bzip2.$Bzip2_Fields_.main (stdgo/compress/bzip2_test/Bzip2.hx line 38)
 ```
 </p>

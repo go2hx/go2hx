@@ -16,7 +16,7 @@ Package fstest implements support for testing implementations and users of file 
 Error: Command failed with error 1
 === RUN  TestMapFS
 Exception: testing.fstest.testMapFS is not yet implemented
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
+Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 358)
 Called from stdgo.testing.fstest_test._Fstest.$Fstest_Fields_.main (stdgo/testing/fstest_test/Fstest.hx line 38)
 ```
 </p>

@@ -20,10 +20,10 @@ stdgo/os_test/Os_test.hx:3135: characters 112-133 : Module stdgo.os.Os does not 
 stdgo/os_test/Os_test.hx:3135: characters 112-133 : ... For function argument 'args'
 stdgo/os_test/Os_test.hx:3138: characters 149-170 : Module stdgo.os.Os does not define type FileMode_asInterface
 stdgo/os_test/Os_test.hx:3138: characters 149-170 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:3926: characters 20-50 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:3956: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv
 stdgo/os_test/Os_test.hx:3856: characters 27-45 : Type not found : stdgo.os.exec.Exec
 stdgo/os_test/Os_test.hx:3858: characters 51-69 : Type not found : stdgo.os.exec.Exec
+stdgo/os_test/Os_test.hx:3926: characters 20-50 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:3956: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv
 stdgo/os_test/Os_test.hx:4506: characters 104-167 : invalid type: TAbstract(stdgo.GoUInt32,[])
 stdgo/os_test/Os_test.hx:4506: characters 104-167 : ... For function argument 'args'
 stdgo/os_test/Os_test.hx:4516: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv

@@ -21,7 +21,7 @@ comprehensive API for users. It is exempt from the Go compatibility promise.
 Error: Command failed with error 1
 Uncaught exception: syscall.js.global is not yet implemented
 Called from stdgo.syscall.js._Js.$Js_Fields_.global(stdgo/syscall/js/Js.hx:406)
-Called from fun$16484(stdgo/syscall/js_test/Js_test.hx:17)
+Called from fun$16486(stdgo/syscall/js_test/Js_test.hx:17)
 Called from .init(stdgo/syscall/js_test/Js_test.hx:17)
 ```
 </p>

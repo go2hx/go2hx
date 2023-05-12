@@ -172,7 +172,7 @@ Unicode character classes are those in unicode.Categories and unicode.Scripts.
 ```
 Error: Command failed with error 1
 === RUN  TestParseSimple
-Parse(`$$`).Dump() = `cat{eol{}eol{}}` want `eol{}`
+Parse(`[[:lower:]]`): error parsing regexp: invalid character class range: `[:lower:]`
 ```
 </p>
 </details>
@@ -182,7 +182,7 @@ Parse(`$$`).Dump() = `cat{eol{}eol{}}` want `eol{}`
 
 ```
 === RUN  TestParseSimple
-Parse(`$$`).Dump() = `cat{eol{}eol{}}` want `eol{}`
+Parse(`[[:lower:]]`): error parsing regexp: invalid character class range: `[:lower:]`
 ```
 </p>
 </details>

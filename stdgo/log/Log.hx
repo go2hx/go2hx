@@ -469,7 +469,7 @@ private function _testPrint(_t:Ref<stdgo.testing.Testing.T>, _flag:GoInt, _prefi
         };
         var _line:GoString = (_buf.string() : GoString);
         _line = (_line.__slice__((0 : GoInt), (_line.length) - (1 : GoInt)) : GoString);
-        _pattern = (("^" : GoString) + _pattern) + ("hello 23 world$$" : GoString);
+        _pattern = (("^" : GoString) + _pattern) + ("hello 23 world$" : GoString);
         var __tmp__ = stdgo.regexp.Regexp.matchString(_pattern, _line), _matched:Bool = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(Go.toInterface(("pattern did not compile:" : GoString)), Go.toInterface(_err));

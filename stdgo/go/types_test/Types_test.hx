@@ -2230,7 +2230,7 @@ function testScopeLookupParent(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _f = _mustParse(_fset, Go.str(), _mainSrc);
         _makePkg(("main" : GoString), _f);
         var _mainScope = _imports[("main" : GoString)].scope();
-        var _rx = stdgo.regexp.Regexp.mustCompile(("^/\\*(\\w*)=([\\w:]*)\\*/$$" : GoString));
+        var _rx = stdgo.regexp.Regexp.mustCompile(("^/\\*(\\w*)=([\\w:]*)\\*/$" : GoString));
         for (__0 => _group in _f.comments) {
             for (__1 => _comment in _group.list) {
                 var _m = _rx.findStringSubmatch(_comment.text);

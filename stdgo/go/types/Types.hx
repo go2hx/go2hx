@@ -322,7 +322,7 @@ private var _predeclaredFuncs = {
     
     
 **/
-private var _goVersionRx = stdgo.regexp.Regexp.mustCompile(("^go([1-9]\\d*)\\.(0|[1-9]\\d*)$$" : GoString));
+private var _goVersionRx = stdgo.regexp.Regexp.mustCompile(("^go([1-9]\\d*)\\.(0|[1-9]\\d*)$" : GoString));
 /**
     
     
@@ -6984,7 +6984,7 @@ private function _validatedImportPath(_path:GoString):{ var _0 : GoString; var _
         };
         {};
         for (__0 => _r in _s) {
-            if ((!stdgo.unicode.Unicode.isGraphic(_r) || stdgo.unicode.Unicode.isSpace(_r)) || stdgo.strings.Strings.containsRune(("!\"#$$%&\'()*,:;<=>?[\\]^{|}`�" : GoString), _r)) {
+            if ((!stdgo.unicode.Unicode.isGraphic(_r) || stdgo.unicode.Unicode.isSpace(_r)) || stdgo.strings.Strings.containsRune(("!\"#$%&\'()*,:;<=>?[\\]^{|}`�" : GoString), _r)) {
                 return { _0 : _s, _1 : stdgo.fmt.Fmt.errorf(("invalid character %#U" : GoString), Go.toInterface(_r)) };
             };
         };
@@ -26788,7 +26788,7 @@ class T_typeWriter_asInterface {
                             {
                                 var _i:GoInt = _tparamIndex(_w._tparams._list(), _t);
                                 if (_i >= (0 : GoInt)) {
-                                    _w._string(stdgo.fmt.Fmt.sprintf(("$$%d" : GoString), Go.toInterface(_i)));
+                                    _w._string(stdgo.fmt.Fmt.sprintf(("$%d" : GoString), Go.toInterface(_i)));
                                 } else {
                                     _w._string(_t._obj._object._name);
                                     if (_w._tpSubscripts || ((_w._ctxt != null) && ((_w._ctxt : Dynamic).__nil__ == null || !(_w._ctxt : Dynamic).__nil__))) {

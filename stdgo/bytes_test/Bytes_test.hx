@@ -147,7 +147,7 @@ private var _indexAnyTests = (new Slice<stdgo.bytes_test.Bytes_test.BinOpTest>(
 (new stdgo.bytes_test.Bytes_test.BinOpTest(("ab☺c" : GoString), ("x☺yz" : GoString), (2 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 (new stdgo.bytes_test.Bytes_test.BinOpTest(("a☺b☻c☹d" : GoString), ("cx" : GoString), (("a☺b☻" : GoString).length)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 (new stdgo.bytes_test.Bytes_test.BinOpTest(("a☺b☻c☹d" : GoString), ("uvw☻xyz" : GoString), (("a☺b" : GoString).length)) : stdgo.bytes_test.Bytes_test.BinOpTest),
-(new stdgo.bytes_test.Bytes_test.BinOpTest(("aRegExp*" : GoString), (".(|)*+?^$$[]" : GoString), (7 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
+(new stdgo.bytes_test.Bytes_test.BinOpTest(("aRegExp*" : GoString), (".(|)*+?^$[]" : GoString), (7 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 (new stdgo.bytes_test.Bytes_test.BinOpTest((_dots + _dots) + _dots, (" " : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 (new stdgo.bytes_test.Bytes_test.BinOpTest(("012abcba210" : GoString), Go.str(255, "b"), (4 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 (new stdgo.bytes_test.Bytes_test.BinOpTest(Go.str("012", 128, "bcb", 128, "210"), Go.str(255, "b"), (3 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
@@ -172,7 +172,7 @@ private var _lastIndexAnyTests = (new Slice<stdgo.bytes_test.Bytes_test.BinOpTes
 (new stdgo.bytes_test.Bytes_test.BinOpTest(("ab☺c" : GoString), ("x☺yz" : GoString), (2 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 (new stdgo.bytes_test.Bytes_test.BinOpTest(("a☺b☻c☹d" : GoString), ("cx" : GoString), (("a☺b☻" : GoString).length)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 (new stdgo.bytes_test.Bytes_test.BinOpTest(("a☺b☻c☹d" : GoString), ("uvw☻xyz" : GoString), (("a☺b" : GoString).length)) : stdgo.bytes_test.Bytes_test.BinOpTest),
-(new stdgo.bytes_test.Bytes_test.BinOpTest(("a.RegExp*" : GoString), (".(|)*+?^$$[]" : GoString), (8 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
+(new stdgo.bytes_test.Bytes_test.BinOpTest(("a.RegExp*" : GoString), (".(|)*+?^$[]" : GoString), (8 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 (new stdgo.bytes_test.Bytes_test.BinOpTest((_dots + _dots) + _dots, (" " : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 (new stdgo.bytes_test.Bytes_test.BinOpTest(("012abcba210" : GoString), Go.str(255, "b"), (6 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 (new stdgo.bytes_test.Bytes_test.BinOpTest(Go.str("012", 128, "bcb", 128, "210"), Go.str(255, "b"), (7 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
@@ -608,7 +608,7 @@ var containsAnyTests = (new Slice<T__struct_10>(
 ({ _b : (("abc" : GoString) : Slice<GoByte>), _substr : ("xyz" : GoString), _expected : false } : T__struct_10),
 ({ _b : (("abc" : GoString) : Slice<GoByte>), _substr : ("xcz" : GoString), _expected : true } : T__struct_10),
 ({ _b : (("a☺b☻c☹d" : GoString) : Slice<GoByte>), _substr : ("uvw☻xyz" : GoString), _expected : true } : T__struct_10),
-({ _b : (("aRegExp*" : GoString) : Slice<GoByte>), _substr : (".(|)*+?^$$[]" : GoString), _expected : true } : T__struct_10),
+({ _b : (("aRegExp*" : GoString) : Slice<GoByte>), _substr : (".(|)*+?^$[]" : GoString), _expected : true } : T__struct_10),
 ({ _b : ((_dots + _dots) + _dots : Slice<GoByte>), _substr : (" " : GoString), _expected : false } : T__struct_10)) : Slice<T__struct_10>);
 /**
     

@@ -156,7 +156,7 @@ function testForCompiler(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
             var _mathBigInt:stdgo.go.types.Types.Object = _pkg.scope().lookup(("Int" : GoString));
             var _posn:stdgo.go.token.Token.Position = _fset.position(_mathBigInt.pos())?.__copy__();
-            var _filename:GoString = stdgo.strings.Strings.replace(_posn.filename, ("$$GOROOT" : GoString), stdgo.internal.testenv.Testenv.goroot(Go.asInterface(_t)), (1 : GoInt));
+            var _filename:GoString = stdgo.strings.Strings.replace(_posn.filename, ("$GOROOT" : GoString), stdgo.internal.testenv.Testenv.goroot(Go.asInterface(_t)), (1 : GoInt));
             var __tmp__ = stdgo.os.Os.readFile(_filename), _data:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("can\'t read file containing declaration of math/big.Int: %v" : GoString), Go.toInterface(_err));

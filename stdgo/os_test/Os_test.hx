@@ -26,23 +26,23 @@ private var _expandTests = (new Slice<T__struct_1>(
 18,
 18,
 ({ _in : Go.str(), _out : Go.str() } : T__struct_1),
-({ _in : ("$$*" : GoString), _out : ("all the args" : GoString) } : T__struct_1),
-({ _in : ("$$$$" : GoString), _out : ("PID" : GoString) } : T__struct_1),
-({ _in : ("$${*}" : GoString), _out : ("all the args" : GoString) } : T__struct_1),
-({ _in : ("$$1" : GoString), _out : ("ARGUMENT1" : GoString) } : T__struct_1),
-({ _in : ("$${1}" : GoString), _out : ("ARGUMENT1" : GoString) } : T__struct_1),
+({ _in : ("$*" : GoString), _out : ("all the args" : GoString) } : T__struct_1),
+({ _in : ("$$" : GoString), _out : ("PID" : GoString) } : T__struct_1),
+({ _in : ("${*}" : GoString), _out : ("all the args" : GoString) } : T__struct_1),
+({ _in : ("$1" : GoString), _out : ("ARGUMENT1" : GoString) } : T__struct_1),
+({ _in : ("${1}" : GoString), _out : ("ARGUMENT1" : GoString) } : T__struct_1),
 ({ _in : ("now is the time" : GoString), _out : ("now is the time" : GoString) } : T__struct_1),
-({ _in : ("$$HOME" : GoString), _out : ("/usr/gopher" : GoString) } : T__struct_1),
-({ _in : ("$$home_1" : GoString), _out : ("/usr/foo" : GoString) } : T__struct_1),
-({ _in : ("$${HOME}" : GoString), _out : ("/usr/gopher" : GoString) } : T__struct_1),
-({ _in : ("$${H}OME" : GoString), _out : ("(Value of H)OME" : GoString) } : T__struct_1),
-({ _in : ("A$$$$$$#$$1$$H$$home_1*B" : GoString), _out : ("APIDNARGSARGUMENT1(Value of H)/usr/foo*B" : GoString) } : T__struct_1),
-({ _in : ("start$$+middle$$^end$$" : GoString), _out : ("start$$+middle$$^end$$" : GoString) } : T__struct_1),
-({ _in : ("mixed$$|bag$$$$$$" : GoString), _out : ("mixed$$|bagPID$$" : GoString) } : T__struct_1),
-({ _in : ("$$" : GoString), _out : ("$$" : GoString) } : T__struct_1),
-({ _in : ("$$}" : GoString), _out : ("$$}" : GoString) } : T__struct_1),
-({ _in : ("$${" : GoString), _out : Go.str() } : T__struct_1),
-({ _in : ("$${}" : GoString), _out : Go.str() } : T__struct_1)) : Slice<T__struct_1>);
+({ _in : ("$HOME" : GoString), _out : ("/usr/gopher" : GoString) } : T__struct_1),
+({ _in : ("$home_1" : GoString), _out : ("/usr/foo" : GoString) } : T__struct_1),
+({ _in : ("${HOME}" : GoString), _out : ("/usr/gopher" : GoString) } : T__struct_1),
+({ _in : ("${H}OME" : GoString), _out : ("(Value of H)OME" : GoString) } : T__struct_1),
+({ _in : ("A$$$#$1$H$home_1*B" : GoString), _out : ("APIDNARGSARGUMENT1(Value of H)/usr/foo*B" : GoString) } : T__struct_1),
+({ _in : ("start$+middle$^end$" : GoString), _out : ("start$+middle$^end$" : GoString) } : T__struct_1),
+({ _in : ("mixed$|bag$$$" : GoString), _out : ("mixed$|bagPID$" : GoString) } : T__struct_1),
+({ _in : ("$" : GoString), _out : ("$" : GoString) } : T__struct_1),
+({ _in : ("$}" : GoString), _out : ("$}" : GoString) } : T__struct_1),
+({ _in : ("${" : GoString), _out : Go.str() } : T__struct_1),
+({ _in : ("${}" : GoString), _out : Go.str() } : T__struct_1)) : Slice<T__struct_1>);
 /**
     
     
@@ -473,7 +473,7 @@ private function _testGetenv(_s:GoString):GoString {
                 return ("all the args" : GoString);
             } else if (__value__ == (("#" : GoString))) {
                 return ("NARGS" : GoString);
-            } else if (__value__ == (("$$" : GoString))) {
+            } else if (__value__ == (("$" : GoString))) {
                 return ("PID" : GoString);
             } else if (__value__ == (("1" : GoString))) {
                 return ("ARGUMENT1" : GoString);
@@ -517,7 +517,7 @@ function benchmarkExpand(_b:Ref<stdgo.testing.Testing.B>):Void {
             {
                 var _i:GoInt = (0 : GoInt);
                 Go.cfor(_i < _b.n, _i++, {
-                    _s = expand(("$$a $$a $$a $$a" : GoString), function(_0:GoString):GoString {
+                    _s = expand(("$a $a $a $a" : GoString), function(_0:GoString):GoString {
                         return ("boom" : GoString);
                     });
                 });
@@ -598,14 +598,14 @@ function testClearenv(_t:Ref<stdgo.testing.Testing.T>):Void {
             {
                 var __tmp__ = lookupEnv(("GO_TEST_CLEARENV" : GoString)), __0:GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
-                    _t.errorf(("Setenv(%q, %q) didn\'t set $$%s" : GoString), Go.toInterface(("GO_TEST_CLEARENV" : GoString)), Go.toInterface(("1" : GoString)), Go.toInterface(("GO_TEST_CLEARENV" : GoString)));
+                    _t.errorf(("Setenv(%q, %q) didn\'t set $%s" : GoString), Go.toInterface(("GO_TEST_CLEARENV" : GoString)), Go.toInterface(("1" : GoString)), Go.toInterface(("GO_TEST_CLEARENV" : GoString)));
                 };
             };
             clearenv();
             {
                 var __tmp__ = lookupEnv(("GO_TEST_CLEARENV" : GoString)), _val:GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
-                    _t.errorf(("Clearenv() didn\'t clear $$%s, remained with value %q" : GoString), Go.toInterface(("GO_TEST_CLEARENV" : GoString)), Go.toInterface(_val));
+                    _t.errorf(("Clearenv() didn\'t clear $%s, remained with value %q" : GoString), Go.toInterface(("GO_TEST_CLEARENV" : GoString)), Go.toInterface(_val));
                 };
             };
             for (defer in __deferstack__) {
@@ -1036,12 +1036,12 @@ function exampleExpand():Void {
             };
             return Go.str();
         };
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.os.Os.expand(("Good $${DAY_PART}, $$NAME!" : GoString), _mapper)));
+        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.os.Os.expand(("Good ${DAY_PART}, $NAME!" : GoString), _mapper)));
     }
 function exampleExpandEnv():Void {
         stdgo.os.Os.setenv(("NAME" : GoString), ("gopher" : GoString));
         stdgo.os.Os.setenv(("BURROW" : GoString), ("/usr/gopher" : GoString));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.os.Os.expandEnv(("$$NAME lives in $${BURROW}." : GoString))));
+        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.os.Os.expandEnv(("$NAME lives in ${BURROW}." : GoString))));
     }
 function exampleLookupEnv():Void {
         var _show:GoString -> Void = function(_key:GoString):Void {
@@ -7660,12 +7660,12 @@ function testMkdirTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
         for (__0 => _tt in _tests) {
             _t.run(_tt._pattern, function(_t:Ref<stdgo.testing.Testing.T>):Void {
-                var _wantRePat:GoString = (((("^" : GoString) + stdgo.regexp.Regexp.quoteMeta(stdgo.path.filepath.Filepath.join(_dir, _tt._wantPrefix))) + ("[0-9]+" : GoString)) + stdgo.regexp.Regexp.quoteMeta(_tt._wantSuffix)) + ("$$" : GoString);
+                var _wantRePat:GoString = (((("^" : GoString) + stdgo.regexp.Regexp.quoteMeta(stdgo.path.filepath.Filepath.join(_dir, _tt._wantPrefix))) + ("[0-9]+" : GoString)) + stdgo.regexp.Regexp.quoteMeta(_tt._wantSuffix)) + ("$" : GoString);
                 _runTestMkdirTemp(_t, _tt._pattern, _wantRePat);
             });
         };
         _t.run(("*xyz" : GoString), function(_t:Ref<stdgo.testing.Testing.T>):Void {
-            var _wantRePat:GoString = ((("^" : GoString) + stdgo.regexp.Regexp.quoteMeta(stdgo.path.filepath.Filepath.join(_dir))) + stdgo.regexp.Regexp.quoteMeta(((47 : GoInt32) : GoString))) + ("[0-9]+xyz$$" : GoString);
+            var _wantRePat:GoString = ((("^" : GoString) + stdgo.regexp.Regexp.quoteMeta(stdgo.path.filepath.Filepath.join(_dir))) + stdgo.regexp.Regexp.quoteMeta(((47 : GoInt32) : GoString))) + ("[0-9]+xyz$" : GoString);
             _runTestMkdirTemp(_t, ("*xyz" : GoString), _wantRePat);
         });
     }

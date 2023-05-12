@@ -379,7 +379,7 @@ private var _foldcaseTests = (new Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(
     
     
 **/
-private var _literalTests = (new Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(1, 1, (new stdgo.regexp.syntax.Syntax.T_parseTest(("(|)^$$.[*+?]{5,10},\\" : GoString), ("str{(|)^$$.[*+?]{5,10},\\}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest)) : Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
+private var _literalTests = (new Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(1, 1, (new stdgo.regexp.syntax.Syntax.T_parseTest(("(|)^$.[*+?]{5,10},\\" : GoString), ("str{(|)^$.[*+?]{5,10},\\}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest)) : Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
 /**
     
     
@@ -460,7 +460,7 @@ private var _parseTests = (new Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("|x|" : GoString), ("alt{emp{}lit{x}emp{}}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("." : GoString), ("dot{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("^" : GoString), ("bol{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("$$" : GoString), ("eol{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("$" : GoString), ("eol{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("\\|" : GoString), ("lit{|}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("\\(" : GoString), ("lit{(}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("\\)" : GoString), ("lit{)}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
@@ -471,7 +471,7 @@ private var _parseTests = (new Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("}" : GoString), ("lit{}}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("\\." : GoString), ("lit{.}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("\\^" : GoString), ("lit{^}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\$$" : GoString), ("lit{$$}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\$" : GoString), ("lit{$}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("\\\\" : GoString), ("lit{\\}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("[ace]" : GoString), ("cc{0x61 0x63 0x65}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("[abc]" : GoString), ("cc{0x61-0x63}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
@@ -518,7 +518,7 @@ private var _parseTests = (new Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\012-\\234]\\141" : GoString), ("cat{cc{0xa-0x9c}lit{a}}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\x{41}-\\x7a]\\x61" : GoString), ("cat{cc{0x41-0x7a}lit{a}}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("a{,2}" : GoString), ("str{a{,2}}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\.\\^\\$$\\\\" : GoString), ("str{.^$$\\}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\.\\^\\$\\\\" : GoString), ("str{.^$\\}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("[a-zABC]" : GoString), ("cc{0x41-0x43 0x61-0x7a}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("[^a]" : GoString), ("cc{0x0-0x60 0x62-0x10ffff}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("[α-ε☺]" : GoString), ("cc{0x3b1-0x3b5 0x263a}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
@@ -542,9 +542,9 @@ private var _parseTests = (new Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Q\\\\E" : GoString), ("lit{\\}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Q\\\\\\E" : GoString), ("str{\\\\}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)^" : GoString), ("bol{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)$$" : GoString), ("eol{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)$" : GoString), ("eol{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)^" : GoString), ("bot{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)$$" : GoString), ("eot{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)$" : GoString), ("eot{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)\\A" : GoString), ("bot{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)\\z" : GoString), ("eot{\\z}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
 (new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)\\A" : GoString), ("bot{}" : GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
@@ -694,7 +694,7 @@ private var _simplifyTests = (new Slice<T__struct_1>(
 ({ regexp : ("(ab)?" : GoString), simple : ("(ab)?" : GoString) } : T__struct_1),
 ({ regexp : ("." : GoString), simple : ("(?s:.)" : GoString) } : T__struct_1),
 ({ regexp : ("^" : GoString), simple : ("(?m:^)" : GoString) } : T__struct_1),
-({ regexp : ("$$" : GoString), simple : ("(?m:$$)" : GoString) } : T__struct_1),
+({ regexp : ("$" : GoString), simple : ("(?m:$)" : GoString) } : T__struct_1),
 ({ regexp : ("[ac]" : GoString), simple : ("[ac]" : GoString) } : T__struct_1),
 ({ regexp : ("[^ac]" : GoString), simple : ("[^ac]" : GoString) } : T__struct_1),
 ({ regexp : ("[[:alnum:]]" : GoString), simple : ("[0-9A-Za-z]" : GoString) } : T__struct_1),
@@ -1311,7 +1311,7 @@ private final _opPseudo : Op = (128 : stdgo.regexp.syntax.Syntax.Op);
     
     
 **/
-private final _meta = ("\\.+*?()|[]{}^$$" : GoString);
+private final _meta = ("\\.+*?()|[]{}^$" : GoString);
 /**
     // A patchList is a list of instruction pointers that need to be filled in (patched).
     // Because the pointers haven't been filled in yet, we can reuse their storage
@@ -2988,14 +2988,14 @@ private function _writeRegexp(_b:Ref<stdgo.strings.Strings.Builder>, _re:Ref<Reg
                         _b.writeString(("(?m:^)" : GoString));
                         break;
                     } else if (__value__ == ((8 : stdgo.regexp.syntax.Syntax.Op))) {
-                        _b.writeString(("(?m:$$)" : GoString));
+                        _b.writeString(("(?m:$)" : GoString));
                         break;
                     } else if (__value__ == ((9 : stdgo.regexp.syntax.Syntax.Op))) {
                         _b.writeString(("\\A" : GoString));
                         break;
                     } else if (__value__ == ((10 : stdgo.regexp.syntax.Syntax.Op))) {
                         if (_re.flags & (256 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
-                            _b.writeString(("(?-m:$$)" : GoString));
+                            _b.writeString(("(?-m:$)" : GoString));
                         } else {
                             _b.writeString(("\\z" : GoString));
                         };
@@ -3083,7 +3083,7 @@ private function _writeRegexp(_b:Ref<stdgo.strings.Strings.Builder>, _re:Ref<Reg
     }
 private function _escape(_b:Ref<stdgo.strings.Strings.Builder>, _r:GoRune, _force:Bool):Void {
         if (stdgo.unicode.Unicode.isPrint(_r)) {
-            if (stdgo.strings.Strings.containsRune(("\\.+*?()|[]{}^$$" : GoString), _r) || _force) {
+            if (stdgo.strings.Strings.containsRune(("\\.+*?()|[]{}^$" : GoString), _r) || _force) {
                 _b.writeRune((92 : GoInt32));
             };
             _b.writeRune(_r);

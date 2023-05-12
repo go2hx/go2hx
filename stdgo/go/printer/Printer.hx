@@ -1084,7 +1084,7 @@ private function _sanitizeImportPath(_lit:Ref<stdgo.go.ast.Ast.BasicLit>):Ref<st
         };
         {};
         for (__0 => _r in _s) {
-            if ((!stdgo.unicode.Unicode.isGraphic(_r) || stdgo.unicode.Unicode.isSpace(_r)) || stdgo.strings.Strings.containsRune(("!\"#$$%&\'()*,:;<=>?[\\]^{|}`�" : GoString), _r)) {
+            if ((!stdgo.unicode.Unicode.isGraphic(_r) || stdgo.unicode.Unicode.isSpace(_r)) || stdgo.strings.Strings.containsRune(("!\"#$%&\'()*,:;<=>?[\\]^{|}`�" : GoString), _r)) {
                 return _lit;
             };
         };

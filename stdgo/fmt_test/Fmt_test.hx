@@ -4794,7 +4794,7 @@ class Xs_asInterface {
             return _err;
         };
         var _s:GoString = (_tok : GoString);
-        if (!stdgo.regexp.Regexp.mustCompile((("^" : GoString) + (_verb : GoString)) + ("+$$" : GoString)).matchString(_s)) {
+        if (!stdgo.regexp.Regexp.mustCompile((("^" : GoString) + (_verb : GoString)) + ("+$" : GoString)).matchString(_s)) {
             return stdgo.errors.Errors.new_(("syntax error for xs" : GoString));
         };
         _x.value = (_s : Xs);

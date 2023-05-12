@@ -1075,7 +1075,7 @@ private var _canbackquotetests = (new Slice<stdgo.strconv_test.Strconv_test.T_ca
 (new stdgo.strconv_test.Strconv_test.T_canBackquoteTest((((30 : GoInt32) : GoRune) : GoString), false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
 (new stdgo.strconv_test.Strconv_test.T_canBackquoteTest((((31 : GoInt32) : GoRune) : GoString), false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
 (new stdgo.strconv_test.Strconv_test.T_canBackquoteTest((((127 : GoInt32) : GoRune) : GoString), false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
-(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(("\' !\"#$$%&\'()*+,-./:;<=>?@[\\]^_{|}~" : GoString), true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
+(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(("\' !\"#$%&\'()*+,-./:;<=>?@[\\]^_{|}~" : GoString), true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
 (new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(("0123456789" : GoString), true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
 (new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(("ABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString), true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
 (new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(("abcdefghijklmnopqrstuvwxyz" : GoString), true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),

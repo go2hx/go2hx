@@ -151,9 +151,9 @@ private var _wincleantests = (new Slice<stdgo.path.filepath_test.Filepath_test.P
 (new stdgo.path.filepath_test.Filepath_test.PathTest(("c:..\\abc" : GoString), ("c:..\\abc" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
 (new stdgo.path.filepath_test.Filepath_test.PathTest(("\\" : GoString), ("\\" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
 (new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : GoString), ("\\" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\c$$" : GoString), ("\\\\i\\..\\c$$" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\i\\c$$" : GoString), ("\\\\i\\..\\i\\c$$" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\I\\c$$" : GoString), ("\\\\i\\..\\I\\c$$" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\c$" : GoString), ("\\\\i\\..\\c$" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\i\\c$" : GoString), ("\\\\i\\..\\i\\c$" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\I\\c$" : GoString), ("\\\\i\\..\\I\\c$" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
 (new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\foo\\..\\bar" : GoString), ("\\\\host\\share\\bar" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
 (new stdgo.path.filepath_test.Filepath_test.PathTest(("//host/share/foo/../baz" : GoString), ("\\\\host\\share\\baz" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
 (new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\foo\\..\\..\\..\\..\\bar" : GoString), ("\\\\host\\share\\bar" : GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
@@ -205,11 +205,11 @@ private var _winislocaltests = (new Slice<stdgo.path.filepath_test.Filepath_test
 (new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("C:" : GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
 (new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("C:\\a" : GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
 (new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("..\\a" : GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("CONIN$$" : GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("conin$$" : GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("CONOUT$$" : GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("conout$$" : GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("dollar$$" : GoString), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest)) : Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>);
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("CONIN$" : GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("conin$" : GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("CONOUT$" : GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("conout$" : GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("dollar$" : GoString), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest)) : Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>);
 /**
     
     
@@ -519,11 +519,11 @@ private var _absTests = (new Slice<GoString>(
 ("../a/b" : GoString),
 ("../a/b/./c/../../.././a" : GoString),
 ("../a/b/./c/../../.././a/" : GoString),
-("$$" : GoString),
-("$$/." : GoString),
-("$$/a/../a/b" : GoString),
-("$$/a/b/c/../../.././a" : GoString),
-("$$/a/b/c/../../.././a/" : GoString)) : Slice<GoString>);
+("$" : GoString),
+("$/." : GoString),
+("$/a/../a/b" : GoString),
+("$/a/b/c/../../.././a" : GoString),
+("$/a/b/c/../../.././a/" : GoString)) : Slice<GoString>);
 /**
     
     
@@ -2195,7 +2195,7 @@ function testAbs(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var _vol:GoString = stdgo.path.filepath.Filepath.volumeName(_root);
                 var _extra:Slice<GoString> = (null : Slice<GoString>);
                 for (__1 => _path in _absTests) {
-                    if (stdgo.strings.Strings.contains(_path, ("$$" : GoString))) {
+                    if (stdgo.strings.Strings.contains(_path, ("$" : GoString))) {
                         continue;
                     };
                     _path = _vol + _path;
@@ -2208,7 +2208,7 @@ function testAbs(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _t.fatal(Go.toInterface(("chdir failed: " : GoString)), Go.toInterface(_err));
             };
             for (__2 => _path in _absTests) {
-                _path = stdgo.strings.Strings.replaceAll(_path, ("$$" : GoString), _root);
+                _path = stdgo.strings.Strings.replaceAll(_path, ("$" : GoString), _root);
                 var __tmp__ = stdgo.os.Os.stat(_path), _info:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
                     _t.errorf(("%s: %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));

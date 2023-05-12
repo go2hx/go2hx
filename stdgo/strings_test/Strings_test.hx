@@ -233,7 +233,7 @@ private var _indexAnyTests = (new Slice<stdgo.strings_test.Strings_test.IndexTes
 (new stdgo.strings_test.Strings_test.IndexTest(("ab☺c" : GoString), ("x☺yz" : GoString), (2 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
 (new stdgo.strings_test.Strings_test.IndexTest(("a☺b☻c☹d" : GoString), ("cx" : GoString), (("a☺b☻" : GoString).length)) : stdgo.strings_test.Strings_test.IndexTest),
 (new stdgo.strings_test.Strings_test.IndexTest(("a☺b☻c☹d" : GoString), ("uvw☻xyz" : GoString), (("a☺b" : GoString).length)) : stdgo.strings_test.Strings_test.IndexTest),
-(new stdgo.strings_test.Strings_test.IndexTest(("aRegExp*" : GoString), (".(|)*+?^$$[]" : GoString), (7 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
+(new stdgo.strings_test.Strings_test.IndexTest(("aRegExp*" : GoString), (".(|)*+?^$[]" : GoString), (7 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
 (new stdgo.strings_test.Strings_test.IndexTest((_dots + _dots) + _dots, (" " : GoString), (-1 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
 (new stdgo.strings_test.Strings_test.IndexTest(("012abcba210" : GoString), Go.str(255, "b"), (4 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
 (new stdgo.strings_test.Strings_test.IndexTest(Go.str("012", 128, "bcb", 128, "210"), Go.str(255, "b"), (3 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
@@ -258,7 +258,7 @@ private var _lastIndexAnyTests = (new Slice<stdgo.strings_test.Strings_test.Inde
 (new stdgo.strings_test.Strings_test.IndexTest(("ab☺c" : GoString), ("x☺yz" : GoString), (2 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
 (new stdgo.strings_test.Strings_test.IndexTest(("a☺b☻c☹d" : GoString), ("cx" : GoString), (("a☺b☻" : GoString).length)) : stdgo.strings_test.Strings_test.IndexTest),
 (new stdgo.strings_test.Strings_test.IndexTest(("a☺b☻c☹d" : GoString), ("uvw☻xyz" : GoString), (("a☺b" : GoString).length)) : stdgo.strings_test.Strings_test.IndexTest),
-(new stdgo.strings_test.Strings_test.IndexTest(("a.RegExp*" : GoString), (".(|)*+?^$$[]" : GoString), (8 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
+(new stdgo.strings_test.Strings_test.IndexTest(("a.RegExp*" : GoString), (".(|)*+?^$[]" : GoString), (8 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
 (new stdgo.strings_test.Strings_test.IndexTest((_dots + _dots) + _dots, (" " : GoString), (-1 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
 (new stdgo.strings_test.Strings_test.IndexTest(("012abcba210" : GoString), Go.str(255, "b"), (6 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
 (new stdgo.strings_test.Strings_test.IndexTest(Go.str("012", 128, "bcb", 128, "210"), Go.str(255, "b"), (7 : GoInt)) : stdgo.strings_test.Strings_test.IndexTest),
@@ -703,7 +703,7 @@ var containsAnyTests = (new Slice<T__struct_22>(
 ({ _str : ("abc" : GoString), _substr : ("xyz" : GoString), _expected : false } : T__struct_22),
 ({ _str : ("abc" : GoString), _substr : ("xcz" : GoString), _expected : true } : T__struct_22),
 ({ _str : ("a☺b☻c☹d" : GoString), _substr : ("uvw☻xyz" : GoString), _expected : true } : T__struct_22),
-({ _str : ("aRegExp*" : GoString), _substr : (".(|)*+?^$$[]" : GoString), _expected : true } : T__struct_22),
+({ _str : ("aRegExp*" : GoString), _substr : (".(|)*+?^$[]" : GoString), _expected : true } : T__struct_22),
 ({ _str : (_dots + _dots) + _dots, _substr : (" " : GoString), _expected : false } : T__struct_22)) : Slice<T__struct_22>);
 /**
     

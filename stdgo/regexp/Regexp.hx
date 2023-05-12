@@ -121,7 +121,7 @@ private var _goodRe = (new Slice<GoString>(
 17,
 Go.str(),
 ("." : GoString),
-("^.$$" : GoString),
+("^.$" : GoString),
 ("a" : GoString),
 ("a*" : GoString),
 ("a+" : GoString),
@@ -179,29 +179,29 @@ private var _replaceTests = (new Slice<stdgo.regexp.Regexp.ReplaceTest>(
 (new stdgo.regexp.Regexp.ReplaceTest(("[a-c]*" : GoString), ("x" : GoString), ("日" : GoString), ("x日x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("[^日]" : GoString), ("x" : GoString), ("abc日def" : GoString), ("xxx日xxx" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*" : GoString), ("x" : GoString), ("abcdabc" : GoString), ("xdabc" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]*$$" : GoString), ("x" : GoString), ("abcdabc" : GoString), ("abcdx" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*$$" : GoString), ("x" : GoString), ("abcdabc" : GoString), ("abcdabc" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]*$" : GoString), ("x" : GoString), ("abcdabc" : GoString), ("abcdx" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*$" : GoString), ("x" : GoString), ("abcdabc" : GoString), ("abcdabc" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*" : GoString), ("x" : GoString), ("abc" : GoString), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]*$$" : GoString), ("x" : GoString), ("abc" : GoString), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*$$" : GoString), ("x" : GoString), ("abc" : GoString), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]*$" : GoString), ("x" : GoString), ("abc" : GoString), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*$" : GoString), ("x" : GoString), ("abc" : GoString), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*" : GoString), ("x" : GoString), ("dabce" : GoString), ("xdabce" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]*$$" : GoString), ("x" : GoString), ("dabce" : GoString), ("dabcex" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*$$" : GoString), ("x" : GoString), ("dabce" : GoString), ("dabce" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]*$" : GoString), ("x" : GoString), ("dabce" : GoString), ("dabcex" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*$" : GoString), ("x" : GoString), ("dabce" : GoString), ("dabce" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*" : GoString), ("x" : GoString), Go.str(), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]*$$" : GoString), ("x" : GoString), Go.str(), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*$$" : GoString), ("x" : GoString), Go.str(), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]*$" : GoString), ("x" : GoString), Go.str(), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]*$" : GoString), ("x" : GoString), Go.str(), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+" : GoString), ("x" : GoString), ("abcdabc" : GoString), ("xdabc" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]+$$" : GoString), ("x" : GoString), ("abcdabc" : GoString), ("abcdx" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+$$" : GoString), ("x" : GoString), ("abcdabc" : GoString), ("abcdabc" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]+$" : GoString), ("x" : GoString), ("abcdabc" : GoString), ("abcdx" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+$" : GoString), ("x" : GoString), ("abcdabc" : GoString), ("abcdabc" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+" : GoString), ("x" : GoString), ("abc" : GoString), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]+$$" : GoString), ("x" : GoString), ("abc" : GoString), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+$$" : GoString), ("x" : GoString), ("abc" : GoString), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]+$" : GoString), ("x" : GoString), ("abc" : GoString), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+$" : GoString), ("x" : GoString), ("abc" : GoString), ("x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+" : GoString), ("x" : GoString), ("dabce" : GoString), ("dabce" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]+$$" : GoString), ("x" : GoString), ("dabce" : GoString), ("dabce" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+$$" : GoString), ("x" : GoString), ("dabce" : GoString), ("dabce" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]+$" : GoString), ("x" : GoString), ("dabce" : GoString), ("dabce" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+$" : GoString), ("x" : GoString), ("dabce" : GoString), ("dabce" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+" : GoString), ("x" : GoString), Go.str(), Go.str()) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]+$$" : GoString), ("x" : GoString), Go.str(), Go.str()) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+$$" : GoString), ("x" : GoString), Go.str(), Go.str()) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("[a-c]+$" : GoString), ("x" : GoString), Go.str(), Go.str()) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("^[a-c]+$" : GoString), ("x" : GoString), Go.str(), Go.str()) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("abc" : GoString), ("def" : GoString), ("abcdefg" : GoString), ("defdefg" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("bc" : GoString), ("BC" : GoString), ("abcbcdcdedef" : GoString), ("aBCBCdcdedef" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("abc" : GoString), Go.str(), ("abcdabc" : GoString), ("d" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
@@ -212,30 +212,30 @@ private var _replaceTests = (new Slice<stdgo.regexp.Regexp.ReplaceTest>(
 (new stdgo.regexp.Regexp.ReplaceTest(("[a-c]*" : GoString), ("x" : GoString), ("def" : GoString), ("xdxexfx" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("[a-c]+" : GoString), ("x" : GoString), ("abcbcdcdedef" : GoString), ("xdxdedef" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
 (new stdgo.regexp.Regexp.ReplaceTest(("[a-c]*" : GoString), ("x" : GoString), ("abcbcdcdedef" : GoString), ("xdxdxexdxexfx" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("($$0)" : GoString), ("banana" : GoString), ("b(a)n(a)n(a)" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("($${0})" : GoString), ("banana" : GoString), ("b(a)n(a)n(a)" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("($${0})$$0" : GoString), ("banana" : GoString), ("b(a)an(a)an(a)a" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("($${0})$$0" : GoString), ("banana" : GoString), ("b(a)an(a)an(a)a" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("hello, (.+)" : GoString), ("goodbye, $${1}" : GoString), ("hello, world" : GoString), ("goodbye, world" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("hello, (.+)" : GoString), ("goodbye, $$1x" : GoString), ("hello, world" : GoString), ("goodbye, " : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("hello, (.+)" : GoString), ("goodbye, $${1}x" : GoString), ("hello, world" : GoString), ("goodbye, worldx" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("hello, (.+)" : GoString), ("<$$0><$$1><$$2><$$3>" : GoString), ("hello, world" : GoString), ("<hello, world><world><><>" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("hello, (?P<noun>.+)" : GoString), ("goodbye, $$noun!" : GoString), ("hello, world" : GoString), ("goodbye, world!" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("hello, (?P<noun>.+)" : GoString), ("goodbye, $${noun}" : GoString), ("hello, world" : GoString), ("goodbye, world" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$$x$$x$$x" : GoString), ("hi" : GoString), ("hihihi" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$$x$$x$$x" : GoString), ("bye" : GoString), ("byebyebye" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$$xyz" : GoString), ("hi" : GoString), Go.str()) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$${x}yz" : GoString), ("hi" : GoString), ("hiyz" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("hello $$$$x" : GoString), ("hi" : GoString), ("hello $$x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("$${oops" : GoString), ("aaa" : GoString), ("$${oops" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("$$$$" : GoString), ("aaa" : GoString), ("$$" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("$$" : GoString), ("aaa" : GoString), ("$$" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(x)?" : GoString), ("$$1" : GoString), ("123" : GoString), ("123" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("abc" : GoString), ("$$1" : GoString), ("123" : GoString), ("123" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(a)(b){0}(c)" : GoString), (".$$1|$$3." : GoString), ("xacxacx" : GoString), ("x.a|c.x.a|c.x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(a)(((b))){0}c" : GoString), (".$$1." : GoString), ("xacxacx" : GoString), ("x.a.x.a.x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("((a(b){0}){3}){5}(h)" : GoString), ("y caramb$$2" : GoString), ("say aaaaaaaaaaaaaaaah" : GoString), ("say ay caramba" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("((a(b){0}){3}){5}h" : GoString), ("y caramb$$2" : GoString), ("say aaaaaaaaaaaaaaaah" : GoString), ("say ay caramba" : GoString)) : stdgo.regexp.Regexp.ReplaceTest)) : Slice<stdgo.regexp.Regexp.ReplaceTest>);
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("($0)" : GoString), ("banana" : GoString), ("b(a)n(a)n(a)" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("(${0})" : GoString), ("banana" : GoString), ("b(a)n(a)n(a)" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("(${0})$0" : GoString), ("banana" : GoString), ("b(a)an(a)an(a)a" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("(${0})$0" : GoString), ("banana" : GoString), ("b(a)an(a)an(a)a" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("hello, (.+)" : GoString), ("goodbye, ${1}" : GoString), ("hello, world" : GoString), ("goodbye, world" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("hello, (.+)" : GoString), ("goodbye, $1x" : GoString), ("hello, world" : GoString), ("goodbye, " : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("hello, (.+)" : GoString), ("goodbye, ${1}x" : GoString), ("hello, world" : GoString), ("goodbye, worldx" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("hello, (.+)" : GoString), ("<$0><$1><$2><$3>" : GoString), ("hello, world" : GoString), ("<hello, world><world><><>" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("hello, (?P<noun>.+)" : GoString), ("goodbye, $noun!" : GoString), ("hello, world" : GoString), ("goodbye, world!" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("hello, (?P<noun>.+)" : GoString), ("goodbye, ${noun}" : GoString), ("hello, world" : GoString), ("goodbye, world" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$x$x$x" : GoString), ("hi" : GoString), ("hihihi" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$x$x$x" : GoString), ("bye" : GoString), ("byebyebye" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$xyz" : GoString), ("hi" : GoString), Go.str()) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("${x}yz" : GoString), ("hi" : GoString), ("hiyz" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("hello $$x" : GoString), ("hi" : GoString), ("hello $x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("${oops" : GoString), ("aaa" : GoString), ("${oops" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("$$" : GoString), ("aaa" : GoString), ("$" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("$" : GoString), ("aaa" : GoString), ("$" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(x)?" : GoString), ("$1" : GoString), ("123" : GoString), ("123" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("abc" : GoString), ("$1" : GoString), ("123" : GoString), ("123" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(a)(b){0}(c)" : GoString), (".$1|$3." : GoString), ("xacxacx" : GoString), ("x.a|c.x.a|c.x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(a)(((b))){0}c" : GoString), (".$1." : GoString), ("xacxacx" : GoString), ("x.a.x.a.x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("((a(b){0}){3}){5}(h)" : GoString), ("y caramb$2" : GoString), ("say aaaaaaaaaaaaaaaah" : GoString), ("say ay caramba" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("((a(b){0}){3}){5}h" : GoString), ("y caramb$2" : GoString), ("say aaaaaaaaaaaaaaaah" : GoString), ("say ay caramba" : GoString)) : stdgo.regexp.Regexp.ReplaceTest)) : Slice<stdgo.regexp.Regexp.ReplaceTest>);
 /**
     
     
@@ -244,21 +244,21 @@ private var _replaceTests = (new Slice<stdgo.regexp.Regexp.ReplaceTest>(
 private var _replaceLiteralTests = (new Slice<stdgo.regexp.Regexp.ReplaceTest>(
 15,
 15,
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("($$0)" : GoString), ("banana" : GoString), ("b($$0)n($$0)n($$0)" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("($${0})" : GoString), ("banana" : GoString), ("b($${0})n($${0})n($${0})" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("($${0})$$0" : GoString), ("banana" : GoString), ("b($${0})$$0n($${0})$$0n($${0})$$0" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("($${0})$$0" : GoString), ("banana" : GoString), ("b($${0})$$0n($${0})$$0n($${0})$$0" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("hello, (.+)" : GoString), ("goodbye, $${1}" : GoString), ("hello, world" : GoString), ("goodbye, $${1}" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("hello, (?P<noun>.+)" : GoString), ("goodbye, $$noun!" : GoString), ("hello, world" : GoString), ("goodbye, $$noun!" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("hello, (?P<noun>.+)" : GoString), ("goodbye, $${noun}" : GoString), ("hello, world" : GoString), ("goodbye, $${noun}" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$$x$$x$$x" : GoString), ("hi" : GoString), ("$$x$$x$$x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$$x$$x$$x" : GoString), ("bye" : GoString), ("$$x$$x$$x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$$xyz" : GoString), ("hi" : GoString), ("$$xyz" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$${x}yz" : GoString), ("hi" : GoString), ("$${x}yz" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("hello $$$$x" : GoString), ("hi" : GoString), ("hello $$$$x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("$${oops" : GoString), ("aaa" : GoString), ("$${oops" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("$$$$" : GoString), ("aaa" : GoString), ("$$$$" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
-(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("$$" : GoString), ("aaa" : GoString), ("$$" : GoString)) : stdgo.regexp.Regexp.ReplaceTest)) : Slice<stdgo.regexp.Regexp.ReplaceTest>);
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("($0)" : GoString), ("banana" : GoString), ("b($0)n($0)n($0)" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("(${0})" : GoString), ("banana" : GoString), ("b(${0})n(${0})n(${0})" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("(${0})$0" : GoString), ("banana" : GoString), ("b(${0})$0n(${0})$0n(${0})$0" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("(${0})$0" : GoString), ("banana" : GoString), ("b(${0})$0n(${0})$0n(${0})$0" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("hello, (.+)" : GoString), ("goodbye, ${1}" : GoString), ("hello, world" : GoString), ("goodbye, ${1}" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("hello, (?P<noun>.+)" : GoString), ("goodbye, $noun!" : GoString), ("hello, world" : GoString), ("goodbye, $noun!" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("hello, (?P<noun>.+)" : GoString), ("goodbye, ${noun}" : GoString), ("hello, world" : GoString), ("goodbye, ${noun}" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$x$x$x" : GoString), ("hi" : GoString), ("$x$x$x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$x$x$x" : GoString), ("bye" : GoString), ("$x$x$x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("$xyz" : GoString), ("hi" : GoString), ("$xyz" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("${x}yz" : GoString), ("hi" : GoString), ("${x}yz" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("(?P<x>hi)|(?P<x>bye)" : GoString), ("hello $$x" : GoString), ("hi" : GoString), ("hello $$x" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("${oops" : GoString), ("aaa" : GoString), ("${oops" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("$$" : GoString), ("aaa" : GoString), ("$$" : GoString)) : stdgo.regexp.Regexp.ReplaceTest),
+(new stdgo.regexp.Regexp.ReplaceTest(("a+" : GoString), ("$" : GoString), ("aaa" : GoString), ("$" : GoString)) : stdgo.regexp.Regexp.ReplaceTest)) : Slice<stdgo.regexp.Regexp.ReplaceTest>);
 /**
     
     
@@ -276,7 +276,7 @@ private var _replaceFuncTests = (new Slice<stdgo.regexp.Regexp.ReplaceFuncTest>(
     
     
 **/
-private var _metaTests = (new Slice<stdgo.regexp.Regexp.MetaTest>(6, 6, (new stdgo.regexp.Regexp.MetaTest(Go.str(), Go.str(), Go.str(), true) : stdgo.regexp.Regexp.MetaTest), (new stdgo.regexp.Regexp.MetaTest(("foo" : GoString), ("foo" : GoString), ("foo" : GoString), true) : stdgo.regexp.Regexp.MetaTest), (new stdgo.regexp.Regexp.MetaTest(("日本語+" : GoString), ("日本語\\+" : GoString), ("日本語" : GoString), false) : stdgo.regexp.Regexp.MetaTest), (new stdgo.regexp.Regexp.MetaTest(("foo\\.\\$$" : GoString), ("foo\\\\\\.\\\\\\$$" : GoString), ("foo.$$" : GoString), true) : stdgo.regexp.Regexp.MetaTest), (new stdgo.regexp.Regexp.MetaTest(("foo.\\$$" : GoString), ("foo\\.\\\\\\$$" : GoString), ("foo" : GoString), false) : stdgo.regexp.Regexp.MetaTest), (new stdgo.regexp.Regexp.MetaTest(("!@#$$%^&*()_+-=[{]}\\|,<.>/?~" : GoString), ("!@#\\$$%\\^&\\*\\(\\)_\\+-=\\[\\{\\]\\}\\\\\\|,<\\.>/\\?~" : GoString), ("!@#" : GoString), false) : stdgo.regexp.Regexp.MetaTest)) : Slice<stdgo.regexp.Regexp.MetaTest>);
+private var _metaTests = (new Slice<stdgo.regexp.Regexp.MetaTest>(6, 6, (new stdgo.regexp.Regexp.MetaTest(Go.str(), Go.str(), Go.str(), true) : stdgo.regexp.Regexp.MetaTest), (new stdgo.regexp.Regexp.MetaTest(("foo" : GoString), ("foo" : GoString), ("foo" : GoString), true) : stdgo.regexp.Regexp.MetaTest), (new stdgo.regexp.Regexp.MetaTest(("日本語+" : GoString), ("日本語\\+" : GoString), ("日本語" : GoString), false) : stdgo.regexp.Regexp.MetaTest), (new stdgo.regexp.Regexp.MetaTest(("foo\\.\\$" : GoString), ("foo\\\\\\.\\\\\\$" : GoString), ("foo.$" : GoString), true) : stdgo.regexp.Regexp.MetaTest), (new stdgo.regexp.Regexp.MetaTest(("foo.\\$" : GoString), ("foo\\.\\\\\\$" : GoString), ("foo" : GoString), false) : stdgo.regexp.Regexp.MetaTest), (new stdgo.regexp.Regexp.MetaTest(("!@#$%^&*()_+-=[{]}\\|,<.>/?~" : GoString), ("!@#\\$%\\^&\\*\\(\\)_\\+-=\\[\\{\\]\\}\\\\\\|,<\\.>/\\?~" : GoString), ("!@#" : GoString), false) : stdgo.regexp.Regexp.MetaTest)) : Slice<stdgo.regexp.Regexp.MetaTest>);
 /**
     
     
@@ -285,14 +285,14 @@ private var _metaTests = (new Slice<stdgo.regexp.Regexp.MetaTest>(6, 6, (new std
 private var _literalPrefixTests = (new Slice<stdgo.regexp.Regexp.MetaTest>(
 11,
 11,
-(new stdgo.regexp.Regexp.MetaTest(("^0^0$$" : GoString), Go.str(), ("0" : GoString), false) : stdgo.regexp.Regexp.MetaTest),
+(new stdgo.regexp.Regexp.MetaTest(("^0^0$" : GoString), Go.str(), ("0" : GoString), false) : stdgo.regexp.Regexp.MetaTest),
 (new stdgo.regexp.Regexp.MetaTest(("^0^" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
-(new stdgo.regexp.Regexp.MetaTest(("^0$$" : GoString), Go.str(), ("0" : GoString), true) : stdgo.regexp.Regexp.MetaTest),
-(new stdgo.regexp.Regexp.MetaTest(("$$0^" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
-(new stdgo.regexp.Regexp.MetaTest(("$$0$$" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
-(new stdgo.regexp.Regexp.MetaTest(("^^0$$$$" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
-(new stdgo.regexp.Regexp.MetaTest(("^$$^$$" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
-(new stdgo.regexp.Regexp.MetaTest(("$$$$0^^" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
+(new stdgo.regexp.Regexp.MetaTest(("^0$" : GoString), Go.str(), ("0" : GoString), true) : stdgo.regexp.Regexp.MetaTest),
+(new stdgo.regexp.Regexp.MetaTest(("$0^" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
+(new stdgo.regexp.Regexp.MetaTest(("$0$" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
+(new stdgo.regexp.Regexp.MetaTest(("^^0$$" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
+(new stdgo.regexp.Regexp.MetaTest(("^$^$" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
+(new stdgo.regexp.Regexp.MetaTest(("$$0^^" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
 (new stdgo.regexp.Regexp.MetaTest(("a\\x{fffd}b" : GoString), Go.str(), ("a" : GoString), false) : stdgo.regexp.Regexp.MetaTest),
 (new stdgo.regexp.Regexp.MetaTest(("\\x{fffd}b" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest),
 (new stdgo.regexp.Regexp.MetaTest(("�" : GoString), Go.str(), Go.str(), false) : stdgo.regexp.Regexp.MetaTest)) : Slice<stdgo.regexp.Regexp.MetaTest>);
@@ -357,7 +357,7 @@ private var _splitTests = (new Slice<T__struct_0>(
     
     
 **/
-private var _compileBenchData = (new Slice<T__struct_2>(3, 3, ({ _name : ("Onepass" : GoString), _re : ("^a.[l-nA-Cg-j]?e$$" : GoString) } : T__struct_2), ({ _name : ("Medium" : GoString), _re : ("^((a|b|[d-z0-9])*(日){4,5}.)+$$" : GoString) } : T__struct_2), ({ _name : ("Hard" : GoString), _re : stdgo.strings.Strings.repeat(("((abc)*|" : GoString), (50 : GoInt)) + stdgo.strings.Strings.repeat((")" : GoString), (50 : GoInt)) } : T__struct_2)) : Slice<T__struct_2>);
+private var _compileBenchData = (new Slice<T__struct_2>(3, 3, ({ _name : ("Onepass" : GoString), _re : ("^a.[l-nA-Cg-j]?e$" : GoString) } : T__struct_2), ({ _name : ("Medium" : GoString), _re : ("^((a|b|[d-z0-9])*(日){4,5}.)+$" : GoString) } : T__struct_2), ({ _name : ("Hard" : GoString), _re : stdgo.strings.Strings.repeat(("((abc)*|" : GoString), (50 : GoInt)) + stdgo.strings.Strings.repeat((")" : GoString), (50 : GoInt)) } : T__struct_2)) : Slice<T__struct_2>);
 /**
     
     
@@ -401,7 +401,7 @@ private var _notab = mustCompilePOSIX(("[^\\t]+" : GoString));
     
     
 **/
-private var _benchData = (new Slice<T__struct_2>(6, 6, ({ _name : ("Easy0" : GoString), _re : ("ABCDEFGHIJKLMNOPQRSTUVWXYZ$$" : GoString) } : T__struct_2), ({ _name : ("Easy0i" : GoString), _re : ("(?i)ABCDEFGHIJklmnopqrstuvwxyz$$" : GoString) } : T__struct_2), ({ _name : ("Easy1" : GoString), _re : ("A[AB]B[BC]C[CD]D[DE]E[EF]F[FG]G[GH]H[HI]I[IJ]J$$" : GoString) } : T__struct_2), ({ _name : ("Medium" : GoString), _re : ("[XYZ]ABCDEFGHIJKLMNOPQRSTUVWXYZ$$" : GoString) } : T__struct_2), ({ _name : ("Hard" : GoString), _re : ("[ -~]*ABCDEFGHIJKLMNOPQRSTUVWXYZ$$" : GoString) } : T__struct_2), ({ _name : ("Hard1" : GoString), _re : ("ABCD|CDEF|EFGH|GHIJ|IJKL|KLMN|MNOP|OPQR|QRST|STUV|UVWX|WXYZ" : GoString) } : T__struct_2)) : Slice<T__struct_2>);
+private var _benchData = (new Slice<T__struct_2>(6, 6, ({ _name : ("Easy0" : GoString), _re : ("ABCDEFGHIJKLMNOPQRSTUVWXYZ$" : GoString) } : T__struct_2), ({ _name : ("Easy0i" : GoString), _re : ("(?i)ABCDEFGHIJklmnopqrstuvwxyz$" : GoString) } : T__struct_2), ({ _name : ("Easy1" : GoString), _re : ("A[AB]B[BC]C[CD]D[DE]E[EF]F[FG]G[GH]H[HI]I[IJ]J$" : GoString) } : T__struct_2), ({ _name : ("Medium" : GoString), _re : ("[XYZ]ABCDEFGHIJKLMNOPQRSTUVWXYZ$" : GoString) } : T__struct_2), ({ _name : ("Hard" : GoString), _re : ("[ -~]*ABCDEFGHIJKLMNOPQRSTUVWXYZ$" : GoString) } : T__struct_2), ({ _name : ("Hard1" : GoString), _re : ("ABCD|CDEF|EFGH|GHIJ|IJKL|KLMN|MNOP|OPQR|QRST|STUV|UVWX|WXYZ" : GoString) } : T__struct_2)) : Slice<T__struct_2>);
 /**
     
     
@@ -426,10 +426,10 @@ private var _findTests = (new Slice<stdgo.regexp.Regexp.FindTest>(
 (new stdgo.regexp.Regexp.FindTest(("." : GoString), ("a" : GoString), _build((1 : GoInt), (0 : GoInt), (1 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest((".*" : GoString), ("abcdef" : GoString), _build((1 : GoInt), (0 : GoInt), (6 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("^" : GoString), ("abcde" : GoString), _build((1 : GoInt), (0 : GoInt), (0 : GoInt))) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("$$" : GoString), ("abcde" : GoString), _build((1 : GoInt), (5 : GoInt), (5 : GoInt))) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("^abcd$$" : GoString), ("abcd" : GoString), _build((1 : GoInt), (0 : GoInt), (4 : GoInt))) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("$" : GoString), ("abcde" : GoString), _build((1 : GoInt), (5 : GoInt), (5 : GoInt))) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("^abcd$" : GoString), ("abcd" : GoString), _build((1 : GoInt), (0 : GoInt), (4 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("^bcd\'" : GoString), ("abcdef" : GoString), (null : Slice<Slice<GoInt>>)) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("^abcd$$" : GoString), ("abcde" : GoString), (null : Slice<Slice<GoInt>>)) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("^abcd$" : GoString), ("abcde" : GoString), (null : Slice<Slice<GoInt>>)) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("a+" : GoString), ("baaab" : GoString), _build((1 : GoInt), (1 : GoInt), (4 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("a*" : GoString), ("baaab" : GoString), _build((3 : GoInt), (0 : GoInt), (0 : GoInt), (1 : GoInt), (4 : GoInt), (5 : GoInt), (5 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("[a-z]+" : GoString), ("abcd" : GoString), _build((1 : GoInt), (0 : GoInt), (4 : GoInt))) : stdgo.regexp.Regexp.FindTest),
@@ -463,8 +463,8 @@ private var _findTests = (new Slice<stdgo.regexp.Regexp.FindTest>(
 (new stdgo.regexp.Regexp.FindTest(("a*(|(b))c*" : GoString), ("aacc" : GoString), _build((1 : GoInt), (0 : GoInt), (4 : GoInt), (2 : GoInt), (2 : GoInt), (-1 : GoInt), (-1 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("(.*).*" : GoString), ("ab" : GoString), _build((1 : GoInt), (0 : GoInt), (2 : GoInt), (0 : GoInt), (2 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("[.]" : GoString), ("." : GoString), _build((1 : GoInt), (0 : GoInt), (1 : GoInt))) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("/$$" : GoString), ("/abc/" : GoString), _build((1 : GoInt), (4 : GoInt), (5 : GoInt))) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("/$$" : GoString), ("/abc" : GoString), (null : Slice<Slice<GoInt>>)) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("/$" : GoString), ("/abc/" : GoString), _build((1 : GoInt), (4 : GoInt), (5 : GoInt))) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("/$" : GoString), ("/abc" : GoString), (null : Slice<Slice<GoInt>>)) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("." : GoString), ("abc" : GoString), _build((3 : GoInt), (0 : GoInt), (1 : GoInt), (1 : GoInt), (2 : GoInt), (2 : GoInt), (3 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("(.)" : GoString), ("abc" : GoString), _build((3 : GoInt),
 (0 : GoInt),
@@ -494,13 +494,13 @@ private var _findTests = (new Slice<stdgo.regexp.Regexp.FindTest>(
 (6 : GoInt),
 (5 : GoInt),
 (6 : GoInt))) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("ab$$" : GoString), ("cab" : GoString), _build((1 : GoInt), (1 : GoInt), (3 : GoInt))) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("axxb$$" : GoString), ("axxcb" : GoString), (null : Slice<Slice<GoInt>>)) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("ab$" : GoString), ("cab" : GoString), _build((1 : GoInt), (1 : GoInt), (3 : GoInt))) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("axxb$" : GoString), ("axxcb" : GoString), (null : Slice<Slice<GoInt>>)) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("data" : GoString), ("daXY data" : GoString), _build((1 : GoInt), (5 : GoInt), (9 : GoInt))) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("da(.)a$$" : GoString), ("daXY data" : GoString), _build((1 : GoInt), (5 : GoInt), (9 : GoInt), (7 : GoInt), (8 : GoInt))) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("da(.)a$" : GoString), ("daXY data" : GoString), _build((1 : GoInt), (5 : GoInt), (9 : GoInt), (7 : GoInt), (8 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("zx+" : GoString), ("zzx" : GoString), _build((1 : GoInt), (1 : GoInt), (3 : GoInt))) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("ab$$" : GoString), ("abcab" : GoString), _build((1 : GoInt), (3 : GoInt), (5 : GoInt))) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("(aa)*$$" : GoString), ("a" : GoString), _build((1 : GoInt), (1 : GoInt), (1 : GoInt), (-1 : GoInt), (-1 : GoInt))) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("ab$" : GoString), ("abcab" : GoString), _build((1 : GoInt), (3 : GoInt), (5 : GoInt))) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("(aa)*$" : GoString), ("a" : GoString), _build((1 : GoInt), (1 : GoInt), (1 : GoInt), (-1 : GoInt), (-1 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("(?:.|(?:.a))" : GoString), Go.str(), (null : Slice<Slice<GoInt>>)) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("(?:A(?:A|a))" : GoString), ("Aa" : GoString), _build((1 : GoInt), (0 : GoInt), (2 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("(?:A|(?:A|a))" : GoString), ("a" : GoString), _build((1 : GoInt), (0 : GoInt), (1 : GoInt))) : stdgo.regexp.Regexp.FindTest),
@@ -536,8 +536,8 @@ private var _findTests = (new Slice<stdgo.regexp.Regexp.FindTest>(
 (new stdgo.regexp.Regexp.FindTest(("(?i)\\W" : GoString), ("x" : GoString), (null : Slice<Slice<GoInt>>)) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("(?i)\\W" : GoString), ("k" : GoString), (null : Slice<Slice<GoInt>>)) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("(?i)\\W" : GoString), ("s" : GoString), (null : Slice<Slice<GoInt>>)) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("\\!\\\"\\#\\$$\\%\\&\\\'\\(\\)\\*\\+\\,\\-\\.\\/\\:\\;\\<\\=\\>\\?\\@\\[\\\\\\]\\^\\_\\{\\|\\}\\~" : GoString), ("!\"#$$%&\'()*+,-./:;<=>?@[\\]^_{|}~" : GoString), _build((1 : GoInt), (0 : GoInt), (31 : GoInt))) : stdgo.regexp.Regexp.FindTest),
-(new stdgo.regexp.Regexp.FindTest(("[\\!\\\"\\#\\$$\\%\\&\\\'\\(\\)\\*\\+\\,\\-\\.\\/\\:\\;\\<\\=\\>\\?\\@\\[\\\\\\]\\^\\_\\{\\|\\}\\~]+" : GoString), ("!\"#$$%&\'()*+,-./:;<=>?@[\\]^_{|}~" : GoString), _build((1 : GoInt), (0 : GoInt), (31 : GoInt))) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("\\!\\\"\\#\\$\\%\\&\\\'\\(\\)\\*\\+\\,\\-\\.\\/\\:\\;\\<\\=\\>\\?\\@\\[\\\\\\]\\^\\_\\{\\|\\}\\~" : GoString), ("!\"#$%&\'()*+,-./:;<=>?@[\\]^_{|}~" : GoString), _build((1 : GoInt), (0 : GoInt), (31 : GoInt))) : stdgo.regexp.Regexp.FindTest),
+(new stdgo.regexp.Regexp.FindTest(("[\\!\\\"\\#\\$\\%\\&\\\'\\(\\)\\*\\+\\,\\-\\.\\/\\:\\;\\<\\=\\>\\?\\@\\[\\\\\\]\\^\\_\\{\\|\\}\\~]+" : GoString), ("!\"#$%&\'()*+,-./:;<=>?@[\\]^_{|}~" : GoString), _build((1 : GoInt), (0 : GoInt), (31 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("\\`" : GoString), ("`" : GoString), _build((1 : GoInt), (0 : GoInt), (1 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("[\\`]+" : GoString), ("`" : GoString), _build((1 : GoInt), (0 : GoInt), (1 : GoInt))) : stdgo.regexp.Regexp.FindTest),
 (new stdgo.regexp.Regexp.FindTest(("�" : GoString), Go.str(255), _build((1 : GoInt), (0 : GoInt), (1 : GoInt))) : stdgo.regexp.Regexp.FindTest),
@@ -660,47 +660,47 @@ private var _runeMergeTests = (new Slice<T__struct_5>(
 private var _onePassTests = (new Slice<T__struct_6>(
 35,
 35,
-({ _re : ("^(?:a|(?:a*))$$" : GoString), _isOnePass : false } : T__struct_6),
-({ _re : ("^(?:(a)|(?:a*))$$" : GoString), _isOnePass : false } : T__struct_6),
-({ _re : ("^(?:(?:(?:.(?:$$))?))$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^abcd$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^(?:(?:a{0,})*?)$$" : GoString), _isOnePass : false } : T__struct_6),
-({ _re : ("^(?:(?:a+)*)$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^(?:(?:a|(?:aa)))$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^(?:[^\\s\\S])$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^(?:(?:a{3,4}){0,})$$" : GoString), _isOnePass : false } : T__struct_6),
-({ _re : ("^(?:(?:(?:a*)+))$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^[a-c]+$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^[a-c]*$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^(?:a*)$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^(?:(?:aa)|a)$$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^(?:a|(?:a*))$" : GoString), _isOnePass : false } : T__struct_6),
+({ _re : ("^(?:(a)|(?:a*))$" : GoString), _isOnePass : false } : T__struct_6),
+({ _re : ("^(?:(?:(?:.(?:$))?))$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^abcd$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^(?:(?:a{0,})*?)$" : GoString), _isOnePass : false } : T__struct_6),
+({ _re : ("^(?:(?:a+)*)$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^(?:(?:a|(?:aa)))$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^(?:[^\\s\\S])$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^(?:(?:a{3,4}){0,})$" : GoString), _isOnePass : false } : T__struct_6),
+({ _re : ("^(?:(?:(?:a*)+))$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^[a-c]+$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^[a-c]*$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^(?:a*)$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^(?:(?:aa)|a)$" : GoString), _isOnePass : true } : T__struct_6),
 ({ _re : ("^[a-c]*" : GoString), _isOnePass : false } : T__struct_6),
-({ _re : ("^...$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^(?:a|(?:aa))$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^a((b))c$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^a.[l-nA-Cg-j]?e$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^a((b))$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^a(?:(b)|(c))c$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^a(?:(b*)|(c))c$$" : GoString), _isOnePass : false } : T__struct_6),
-({ _re : ("^a(?:b|c)$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^a(?:b?|c)$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^a(?:b?|c?)$$" : GoString), _isOnePass : false } : T__struct_6),
-({ _re : ("^a(?:b?|c+)$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^a(?:b+|(bc))d$$" : GoString), _isOnePass : false } : T__struct_6),
-({ _re : ("^a(?:bc)+$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^a(?:[bcd])+$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^a((?:[bcd])+)$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^a(:?b|c)*d$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^.bc(d|e)*$$" : GoString), _isOnePass : true } : T__struct_6),
-({ _re : ("^(?:(?:aa)|.)$$" : GoString), _isOnePass : false } : T__struct_6),
-({ _re : ("^(?:(?:a{1,2}){1,2})$$" : GoString), _isOnePass : false } : T__struct_6),
-({ _re : (("^l" : GoString) + stdgo.strings.Strings.repeat(("o" : GoString), (512 : GoInt))) + ("ng$$" : GoString), _isOnePass : true } : T__struct_6)) : Slice<T__struct_6>);
+({ _re : ("^...$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^(?:a|(?:aa))$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^a((b))c$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^a.[l-nA-Cg-j]?e$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^a((b))$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^a(?:(b)|(c))c$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^a(?:(b*)|(c))c$" : GoString), _isOnePass : false } : T__struct_6),
+({ _re : ("^a(?:b|c)$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^a(?:b?|c)$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^a(?:b?|c?)$" : GoString), _isOnePass : false } : T__struct_6),
+({ _re : ("^a(?:b?|c+)$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^a(?:b+|(bc))d$" : GoString), _isOnePass : false } : T__struct_6),
+({ _re : ("^a(?:bc)+$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^a(?:[bcd])+$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^a((?:[bcd])+)$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^a(:?b|c)*d$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^.bc(d|e)*$" : GoString), _isOnePass : true } : T__struct_6),
+({ _re : ("^(?:(?:aa)|.)$" : GoString), _isOnePass : false } : T__struct_6),
+({ _re : ("^(?:(?:a{1,2}){1,2})$" : GoString), _isOnePass : false } : T__struct_6),
+({ _re : (("^l" : GoString) + stdgo.strings.Strings.repeat(("o" : GoString), (512 : GoInt))) + ("ng$" : GoString), _isOnePass : true } : T__struct_6)) : Slice<T__struct_6>);
 /**
     // TODO(cespare): Unify with onePassTests and rationalize one-pass test cases.
     
     
 **/
-private var _onePassTests1 = (new Slice<T__struct_7>(1, 1, ({ _re : ("^a(/b+(#c+)*)*$$" : GoString), _match : ("a/b#c" : GoString) } : T__struct_7)) : Slice<T__struct_7>);
+private var _onePassTests1 = (new Slice<T__struct_7>(1, 1, ({ _re : ("^a(/b+(#c+)*)*$" : GoString), _match : ("a/b#c" : GoString) } : T__struct_7)) : Slice<T__struct_7>);
 /**
     
     
@@ -1566,7 +1566,7 @@ function testReplaceAll(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReplaceAllLiteral(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tc in _replaceTests) {
-            if (stdgo.strings.Strings.contains(_tc._replacement, ("$$" : GoString))) {
+            if (stdgo.strings.Strings.contains(_tc._replacement, ("$" : GoString))) {
                 continue;
             };
             var __tmp__ = compile(_tc._pattern), _re:Ref<stdgo.regexp.Regexp.Regexp> = __tmp__._0, _err:Error = __tmp__._1;
@@ -1707,7 +1707,7 @@ function testSplit(_t:Ref<stdgo.testing.Testing.T>):Void {
     // The following sequence of Match calls used to panic. See issue #12980.
 **/
 function testParseAndCompile(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _expr:GoString = ("a$$" : GoString);
+        var _expr:GoString = ("a$" : GoString);
         var _s:GoString = ("a\nb" : GoString);
         for (_i => _tc in (new Slice<T__struct_1>(2, 2, ({ _reFlags : (212 : stdgo.regexp.syntax.Syntax.Flags), _expMatch : false } : T__struct_1), ({ _reFlags : (196 : stdgo.regexp.syntax.Syntax.Flags), _expMatch : true } : T__struct_1)) : Slice<T__struct_1>)) {
             var __tmp__ = stdgo.regexp.syntax.Syntax.parse(_expr, _tc._reFlags), _parsed:Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:Error = __tmp__._1;
@@ -1730,7 +1730,7 @@ function testParseAndCompile(_t:Ref<stdgo.testing.Testing.T>):Void {
     // Check that one-pass cutoff does trigger.
 **/
 function testOnePassCutoff(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var __tmp__ = stdgo.regexp.syntax.Syntax.parse(("^x{1,1000}y{1,1000}$$" : GoString), (212 : stdgo.regexp.syntax.Syntax.Flags)), _re:Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = stdgo.regexp.syntax.Syntax.parse(("^x{1,1000}y{1,1000}$" : GoString), (212 : stdgo.regexp.syntax.Syntax.Flags)), _re:Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             _t.fatalf(("parse: %v" : GoString), Go.toInterface(_err));
         };
@@ -1972,7 +1972,7 @@ function benchmarkAnchoredLongMatch(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkOnePassShortA(_b:Ref<stdgo.testing.Testing.B>):Void {
         _b.stopTimer();
         var _x = (("abcddddddeeeededd" : GoString) : Slice<GoByte>);
-        var _re = mustCompile(("^.bc(d|e)*$$" : GoString));
+        var _re = mustCompile(("^.bc(d|e)*$" : GoString));
         _b.startTimer();
         {
             var _i:GoInt = (0 : GoInt);
@@ -1984,7 +1984,7 @@ function benchmarkOnePassShortA(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkNotOnePassShortA(_b:Ref<stdgo.testing.Testing.B>):Void {
         _b.stopTimer();
         var _x = (("abcddddddeeeededd" : GoString) : Slice<GoByte>);
-        var _re = mustCompile((".bc(d|e)*$$" : GoString));
+        var _re = mustCompile((".bc(d|e)*$" : GoString));
         _b.startTimer();
         {
             var _i:GoInt = (0 : GoInt);
@@ -1996,7 +1996,7 @@ function benchmarkNotOnePassShortA(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkOnePassShortB(_b:Ref<stdgo.testing.Testing.B>):Void {
         _b.stopTimer();
         var _x = (("abcddddddeeeededd" : GoString) : Slice<GoByte>);
-        var _re = mustCompile(("^.bc(?:d|e)*$$" : GoString));
+        var _re = mustCompile(("^.bc(?:d|e)*$" : GoString));
         _b.startTimer();
         {
             var _i:GoInt = (0 : GoInt);
@@ -2008,7 +2008,7 @@ function benchmarkOnePassShortB(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkNotOnePassShortB(_b:Ref<stdgo.testing.Testing.B>):Void {
         _b.stopTimer();
         var _x = (("abcddddddeeeededd" : GoString) : Slice<GoByte>);
-        var _re = mustCompile((".bc(?:d|e)*$$" : GoString));
+        var _re = mustCompile((".bc(?:d|e)*$" : GoString));
         _b.startTimer();
         {
             var _i:GoInt = (0 : GoInt);
@@ -2020,7 +2020,7 @@ function benchmarkNotOnePassShortB(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkOnePassLongPrefix(_b:Ref<stdgo.testing.Testing.B>):Void {
         _b.stopTimer();
         var _x = (("abcdefghijklmnopqrstuvwxyz" : GoString) : Slice<GoByte>);
-        var _re = mustCompile(("^abcdefghijklmnopqrstuvwxyz.*$$" : GoString));
+        var _re = mustCompile(("^abcdefghijklmnopqrstuvwxyz.*$" : GoString));
         _b.startTimer();
         {
             var _i:GoInt = (0 : GoInt);
@@ -2032,7 +2032,7 @@ function benchmarkOnePassLongPrefix(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkOnePassLongNotPrefix(_b:Ref<stdgo.testing.Testing.B>):Void {
         _b.stopTimer();
         var _x = (("abcdefghijklmnopqrstuvwxyz" : GoString) : Slice<GoByte>);
-        var _re = mustCompile(("^.bcdefghijklmnopqrstuvwxyz.*$$" : GoString));
+        var _re = mustCompile(("^.bcdefghijklmnopqrstuvwxyz.*$" : GoString));
         _b.startTimer();
         {
             var _i:GoInt = (0 : GoInt);
@@ -2633,7 +2633,7 @@ private function _testFowler(_t:Ref<stdgo.testing.Testing.T>, _file:GoString):Vo
                         _t.errorf(("%s:%d: too few fields: %s" : GoString), Go.toInterface(_file), Go.toInterface(_lineno), Go.toInterface(_line));
                         @:jump("Reading") continue;
                     };
-                    if (stdgo.strings.Strings.contains(_flag, ("$$" : GoString))) {
+                    if (stdgo.strings.Strings.contains(_flag, ("$" : GoString))) {
                         var _f:GoString = (("\"" : GoString) + _field[(1 : GoInt)]) + ("\"" : GoString);
                         {
                             {
@@ -4024,7 +4024,7 @@ private function _extract(_str:GoString):{ var _0 : GoString; var _1 : GoInt; va
     }
 @:keep var _ = {
         try {
-            for (__0 => _b in (("\\.+*?()|[]{}^$$" : GoString) : Slice<GoByte>)) {
+            for (__0 => _b in (("\\.+*?()|[]{}^$" : GoString) : Slice<GoByte>)) {
                 _specialBytes[(_b % (16 : GoUInt8) : GoInt)] = _specialBytes[(_b % (16 : GoUInt8) : GoInt)] | ((1 : GoUInt8) << (_b / (16 : GoUInt8)));
             };
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
@@ -5273,7 +5273,7 @@ class Regexp_asInterface {
     @:keep
     static public function _expand( _re:Ref<Regexp>, _dst:Slice<GoByte>, _template:GoString, _bsrc:Slice<GoByte>, _src:GoString, _match:Slice<GoInt>):Slice<GoByte> {
         while ((_template.length) > (0 : GoInt)) {
-            var __tmp__ = stdgo.strings.Strings.cut(_template, ("$$" : GoString)), _before:GoString = __tmp__._0, _after:GoString = __tmp__._1, _ok:Bool = __tmp__._2;
+            var __tmp__ = stdgo.strings.Strings.cut(_template, ("$" : GoString)), _before:GoString = __tmp__._0, _after:GoString = __tmp__._1, _ok:Bool = __tmp__._2;
             if (!_ok) {
                 break;
             };
@@ -5647,7 +5647,7 @@ class Regexp_asInterface {
     @:keep
     static public function replaceAllString( _re:Ref<Regexp>, _src:GoString, _repl:GoString):GoString {
         var _n:GoInt = (2 : GoInt);
-        if (stdgo.strings.Strings.contains(_repl, ("$$" : GoString))) {
+        if (stdgo.strings.Strings.contains(_repl, ("$" : GoString))) {
             _n = (2 : GoInt) * (_re._numSubexp + (1 : GoInt));
         };
         var _b = _re._replaceAll((null : Slice<GoUInt8>), _src, _n, function(_dst:Slice<GoByte>, _match:Slice<GoInt>):Slice<GoByte> {

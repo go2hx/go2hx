@@ -98,7 +98,7 @@ var timeout = 0;
 function update() {
 	if (completeBool && tests.length == 0 && tasks.length == 0 && runningCount == 0)
 		close();
-	if (timeout++ > 10 * 60 * 7) {
+	if (tests.length > 0 && timeout++ > 10 * 60 * 7) {
 		trace("TIMEOUT");
 		trace(instance.args);
 		close();

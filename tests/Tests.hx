@@ -1,3 +1,4 @@
+import Main.InstanceData;
 import js.node.ChildProcess;
 import haxe.macro.Compiler;
 import haxe.Json;
@@ -91,28 +92,35 @@ function main() {
 }
 
 var runningCount = 0;
+var instance:InstanceData = null;
+var timeout = 0;
 
 function update() {
 	if (completeBool && tests.length == 0 && tasks.length == 0 && runningCount == 0)
 		close();
+	if (timeout++ > 10 * 60 * 7) {
+		trace("TIMEOUT");
+		trace(instance.args);
+		close();
+	}
 	for (test in tests) {
 		final hxml = "golibs/" + type + "_" + sanatize(test);
 		final args = [test, '--norun', '--hxml', hxml];
 		args.push(path);
-		final instance = Main.compileArgs(args);
+		instance = Main.compileArgs(args);
 		final compiled = Main.compile(instance);
 		if (!compiled) {
 			break;
 		}
 		tests.remove(test);
 	}
-	if (tasks.length > 0 && runningCount < 7) {
+	if (tasks.length > 0 && runningCount < 4 ) {
 		final task = tasks.pop();
 		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount);
 		final ls = ChildProcess.spawn(task.command, task.args);
-		var timeoutTimer = new haxe.Timer(1000 * 60 * 7);
+		var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
 		timeoutTimer.run = () -> {
-			trace("TIMEOUT");
+			trace("TIMEOUT: " + task.command + " " + task.args);
 			if (task.runtime) {
 				suite.runtimeError(task.path,task.target);
 			}else{
@@ -158,6 +166,7 @@ function update() {
 }
 
 private function complete(modules:Array<Typer.Module>, _) {
+	timeout = 0;
 	completeBool = true;
 	// spawn targets
 	final paths = Main.mainPaths(modules);

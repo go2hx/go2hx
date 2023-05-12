@@ -336,6 +336,9 @@ class M {
 	public function new(deps:T_testDeps, tests:Slice<InternalTest>, benchmarks:Slice<InternalBenchmark>, examples:Slice<InternalExample>) {
 		this.deps = deps;
 		this.tests = tests;
+		/*for (test in tests) {
+			Sys.println("* [ ] " + (test.name : String));
+		}*/
 		this.benchmarks = benchmarks;
 		this.examples = examples;
 		this.output = new StringBuf();
@@ -364,6 +367,7 @@ class M {
 			final format = "--- %s: %s (%s)\n";
 			if (t.failed() || error) {
 				stdgo.fmt.Fmt.printf(format, Go.toInterface("FAIL"), Go.toInterface(test.name), Go.toInterface(dstr));
+				Sys.exit(1);
 			} else if (chatty) {
 				if (t.skipped()) {
 					stdgo.fmt.Fmt.printf(format, Go.toInterface("SKIP"), Go.toInterface(test.name), Go.toInterface(dstr));

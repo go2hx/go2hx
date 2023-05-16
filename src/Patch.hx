@@ -904,12 +904,24 @@ final list = [
 			case stdgo.internal.reflect.Reflect.KindType.pointer:
 				switch gt {
 					case stdgo.internal.reflect.Reflect.GoType.refType(_):
-						false;
+						switch std.Type.typeof(value) {
+							case TClass(c):
+								final name = std.Type.getClassName(c);
+								if (StringTools.endsWith(name, "_asInterface")) {
+									value = (value : Dynamic).__underlying__().value;
+								}
+							default:
+								final _ = false;
+						};
+						value == null;
 					default:
 						if (value == null) {
 							true;
 						} else {
-							(value : Pointer<Dynamic>).hasSet();
+							// hasSet is by default false, figure out when it is set to true TODO
+							final b = (value : Pointer<Dynamic>).hasSet();
+							trace("hasSet: " + b);
+							b;
 						}
 				}
 			case stdgo.internal.reflect.Reflect.KindType.func:

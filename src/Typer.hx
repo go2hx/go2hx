@@ -4090,6 +4090,7 @@ private function toHaxePath(path:String):String {
 }
 
 private function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
+	path = StringTools.replace(path, "go-", "");
 	final startCommandLineArg = "command-line-arguments.";
 	if (path.substr(0, startCommandLineArg.length) == startCommandLineArg) {
 		path = path.substr(startCommandLineArg.length);
@@ -7353,6 +7354,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 function normalizePath(path:String):String {
 	path = StringTools.replace(path, ".", "_");
 	path = StringTools.replace(path, ":", "_");
+	path = StringTools.replace(path, "go-", "");
 	path = StringTools.replace(path, "-", "_");
 	var path = path.split("/");
 	for (i in 0...path.length) {

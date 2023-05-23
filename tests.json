@@ -58,5 +58,6 @@
     "internal/types/errors",
     "path/filepath",
     "compress/bzip2",
-    "encoding/hex"
+    "encoding/hex",
+    "image/color"
 ]

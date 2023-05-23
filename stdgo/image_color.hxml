@@ -1,0 +1,3 @@
+-m stdgo.image.color_test.Color
+-lib go2hx
+-cp .

@@ -2325,9 +2325,6 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
             value = (value : Pointer<Dynamic>).value;
         };
         final k = _v.kind();
-        if (std.Type.typeof(value) == TUnknown) {
-            return 0;
-        };
         return switch k {
             case stdgo.internal.reflect.Reflect.KindType.array:
                 (value : GoArray<Dynamic>).length;

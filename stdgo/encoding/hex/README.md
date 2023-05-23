@@ -15,16 +15,16 @@ Package hex implements hexadecimal encoding and decoding.
 ```
 Error: Command failed with error 1
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0001049041748046875))
+--- PASS: TestEncode (%!s(float64=0.0001690387725830078))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0002961158752441406))
+--- PASS: TestDecode (%!s(float64=0.00037407875061035156))
 
 === RUN  TestEncodeToString
---- PASS: TestEncodeToString (%!s(float64=8.416175842285156e-05))
+--- PASS: TestEncodeToString (%!s(float64=0.00011706352233886719))
 
 === RUN  TestDecodeString
---- PASS: TestDecodeString (%!s(float64=0.00023698806762695312))
+--- PASS: TestDecodeString (%!s(float64=0.00030493736267089844))
 
 === RUN  TestDecodeErr
 Decode("zd4aa") = "", encoding/hex: invalid byte: U+007A 'z', want "", encoding/hex: invalid byte: U+007A 'z'
@@ -37,16 +37,16 @@ Decode("zd4aa") = "", encoding/hex: invalid byte: U+007A 'z', want "", encoding/
 
 ```
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.00024008750915527344))
+--- PASS: TestEncode (%!s(float64=0.0010879039764404297))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0014030933380126953))
+--- PASS: TestDecode (%!s(float64=0.0018508434295654297))
 
 === RUN  TestEncodeToString
---- PASS: TestEncodeToString (%!s(float64=0.00021195411682128906))
+--- PASS: TestEncodeToString (%!s(float64=0.0003101825714111328))
 
 === RUN  TestDecodeString
---- PASS: TestDecodeString (%!s(float64=0.0009021759033203125))
+--- PASS: TestDecodeString (%!s(float64=0.001363992691040039))
 
 === RUN  TestDecodeErr
 Decode("zd4aa") = "", encoding/hex: invalid byte: U+007A 'z', want "", encoding/hex: invalid byte: U+007A 'z'

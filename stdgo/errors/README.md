@@ -82,31 +82,31 @@ because the former will succeed if err wraps an \*fs.PathError.
 
 ```
 === RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=9.894371032714844e-05))
+--- PASS: TestNewEqual (%!s(float64=0.00020623207092285156))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=1.0013580322265625e-05))
+--- PASS: TestErrorMethod (%!s(float64=1.3113021850585938e-05))
 
 === RUN  TestJoinReturnsNil
---- PASS: TestJoinReturnsNil (%!s(float64=1.2874603271484375e-05))
+--- PASS: TestJoinReturnsNil (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0004439353942871094))
+--- PASS: TestJoin (%!s(float64=0.0008699893951416016))
 
 === RUN  TestJoinErrorMethod
---- PASS: TestJoinErrorMethod (%!s(float64=5.793571472167969e-05))
+--- PASS: TestJoinErrorMethod (%!s(float64=0.00013184547424316406))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=0.00010204315185546875))
+--- PASS: TestIs (%!s(float64=0.00021886825561523438))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.019749879837036133))
+--- PASS: TestAs (%!s(float64=0.03332400321960449))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0008580684661865234))
+--- PASS: TestAsValidation (%!s(float64=0.0014128684997558594))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.0001308917999267578))
+--- PASS: TestUnwrap (%!s(float64=0.0002818107604980469))
 
 ```
 </p>
@@ -117,31 +117,31 @@ because the former will succeed if err wraps an \*fs.PathError.
 
 ```
 === RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=0.00014400482177734375))
+--- PASS: TestNewEqual (%!s(float64=0.0002410411834716797))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=4.1961669921875e-05))
+--- PASS: TestErrorMethod (%!s(float64=8.20159912109375e-05))
 
 === RUN  TestJoinReturnsNil
---- PASS: TestJoinReturnsNil (%!s(float64=4.792213439941406e-05))
+--- PASS: TestJoinReturnsNil (%!s(float64=0.0005340576171875))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0007328987121582031))
+--- PASS: TestJoin (%!s(float64=0.0012829303741455078))
 
 === RUN  TestJoinErrorMethod
---- PASS: TestJoinErrorMethod (%!s(float64=0.000164031982421875))
+--- PASS: TestJoinErrorMethod (%!s(float64=0.00024199485778808594))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=0.00023102760314941406))
+--- PASS: TestIs (%!s(float64=0.0005259513854980469))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.015844106674194336))
+--- PASS: TestAs (%!s(float64=0.03230905532836914))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0012791156768798828))
+--- PASS: TestAsValidation (%!s(float64=0.0023450851440429688))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.00022220611572265625))
+--- PASS: TestUnwrap (%!s(float64=0.0005218982696533203))
 
 ```
 </p>

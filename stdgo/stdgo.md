@@ -23,6 +23,7 @@
 | [stdgo.go.token](./go/token/README.md) | ❌ | yes |  |  |  |
 | [stdgo.go.types](./go/types/README.md) | ❌ | yes |  |  |  |
 | [stdgo.hash](./hash/README.md) | ❌ | yes |  |  |  |
+| [stdgo.image.color](./image/color/README.md) | ✅ | yes | ❌ | ❌ | ❌ |
 | [stdgo.internal](./internal/README.md) | ❌ | no |  |  |  |
 | [stdgo.internal.bytealg](./internal/bytealg/README.md) | ✅ | no |  |  |  |
 | [stdgo.internal.cpu](./internal/cpu/README.md) | ✅ | no |  |  |  |

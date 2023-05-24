@@ -45,7 +45,7 @@ function main() {
 		}
 		Main.close();
 	};
-	final args = ["-norun", "-log", "./rnd", Sys.getCwd()];
+	final args = ["-norun", "-log", "-stack", "./rnd", Sys.getCwd()];
 	// args.unshift("--extern");
 	if (testBool)
 		args.unshift("-test");

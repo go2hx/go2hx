@@ -78,6 +78,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-test", "--test"] => () -> instance.test = true,
 		["-vartrace", "--vartrace", "-varTrace", "--varTrace"] => () -> instance.varTraceBool = true,
 		["-functrace", "--functrace", "-funcTrace", "--funcTrace"] => () -> instance.funcTraceBool = true,
+		["-stack", "--stack"] => () -> instance.stackBool = true,
 		@doc("set output path or file location")
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> instance.outputPath = out,
 		@doc("set the root package for all generated files")
@@ -701,6 +702,7 @@ class InstanceData {
 	public var noDeps:Bool = false;
 	public var varTraceBool:Bool = false;
 	public var funcTraceBool:Bool = false;
+	public var stackBool:Bool = false;
 	public var args:Array<String> = [];
 	public var data:Dynamic = null;
 	public var printGoCode = false;

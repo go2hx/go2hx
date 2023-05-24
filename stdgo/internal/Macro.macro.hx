@@ -1,5 +1,6 @@
 package stdgo.internal;
 
+import haxe.macro.PositionTools;
 import haxe.macro.Compiler;
 import haxe.macro.ComplexTypeTools;
 import haxe.macro.Context;
@@ -44,6 +45,48 @@ class Macro {
 			default:
 				throw "invalid expr for exprToString: " + e.expr;
 		}
+	}
+
+	public static macro function stack(body:Expr) {
+		final stack = "__stack__";
+		var f:Expr->Expr = null;
+		f = expr -> {
+			switch expr.expr {
+				case EBlock(exprs):
+					var j = 0;
+					var newExprs = [];
+					for (expr in exprs) {
+						final location = PositionTools.toLocation(expr.pos);
+						final pos = location.range.start.line;
+						final fileName = location.file.toString();
+						newExprs.push(macro $i{stack}.pos = $v{pos});
+						newExprs.push(macro $i{stack}.fileName = $v{fileName});
+						newExprs.push(ExprTools.map(expr,f));
+					}
+					expr.expr = EBlock(newExprs);
+					return expr;
+				default:
+					return ExprTools.map(expr,f);
+			}
+		}
+		body = f(body);
+		final location = PositionTools.toLocation(Context.currentPos());
+		final fileName = location.file.toString();
+		var pos = location.range.start.line;
+		
+		final e = macro {
+			var $stack = {pos: $v{pos}, fileName: $v{fileName}};
+			try {
+				$body;
+			}catch(_) {
+				trace($i{stack});
+				Sys.println('stack: ' + $i{stack}.fileName + ':' + $i{stack}.pos);
+				//throw e;
+			}
+		};
+		e.pos = Context.currentPos();
+		trace(new haxe.macro.Printer().printExpr(e));
+		return e;
 	}
 
 	public static macro function controlFlow(body:Expr) {

@@ -122,6 +122,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 		info.global.externBool = instance.externBool;
 		info.global.varTraceBool = instance.varTraceBool;
 		info.global.funcTraceBool = instance.funcTraceBool;
+		info.global.stackBool = instance.stackBool;
 		info.global.noCommentsBool = instance.noCommentsBool;
 		info.global.module = module;
 		info.global.root = instance.root;
@@ -5836,6 +5837,10 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				trace("end func: " + ${makeExpr(name)});
 			}
 		}
+	if (info.global.stackBool)
+		if (block != null) {
+			block = macro stdgo.internal.Macro.stack($block);
+		}
 	if (nonGenericParams.length > 0) {
 		params = params.concat(nonGenericParams);
 	}
@@ -7367,6 +7372,7 @@ function normalizePath(path:String):String {
 class Global {
 	public var varTraceBool:Bool = false;
 	public var funcTraceBool:Bool = false;
+	public var stackBool:Bool = false;
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
 	public var filePath:String = "";
@@ -7387,6 +7393,7 @@ class Global {
 		g.filePath = filePath;
 		g.varTraceBool = varTraceBool;
 		g.funcTraceBool = funcTraceBool;
+		g.stackBool = stackBool;
 		g.root = root;
 		g.hashMap = hashMap;
 		return g;

@@ -14,25 +14,25 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=4.601478576660156e-05))
+--- PASS: TestConstants (%!s(float64=3.0040740966796875e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0022330284118652344))
+--- PASS: TestEncode (%!s(float64=0.0013489723205566406))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0006148815155029297))
+--- PASS: TestAppendRune (%!s(float64=0.0004911422729492188))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=3.0994415283203125e-05))
+--- PASS: TestEncodeRune (%!s(float64=2.193450927734375e-05))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0003020763397216797))
+--- PASS: TestDecode (%!s(float64=0.00025010108947753906))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=1.2159347534179688e-05))
+--- PASS: TestDecodeRune (%!s(float64=9.059906005859375e-06))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=1.811981201171875e-05))
+--- PASS: TestIsSurrogate (%!s(float64=1.1920928955078125e-05))
 
 ```
 </p>
@@ -43,25 +43,25 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=7.510185241699219e-05))
+--- PASS: TestConstants (%!s(float64=4.8160552978515625e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0009779930114746094))
+--- PASS: TestEncode (%!s(float64=0.0006358623504638672))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0006468296051025391))
+--- PASS: TestAppendRune (%!s(float64=0.000553131103515625))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=8.916854858398438e-05))
+--- PASS: TestEncodeRune (%!s(float64=8.106231689453125e-05))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0004968643188476562))
+--- PASS: TestDecode (%!s(float64=0.0004029273986816406))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=7.605552673339844e-05))
+--- PASS: TestDecodeRune (%!s(float64=3.790855407714844e-05))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=6.699562072753906e-05))
+--- PASS: TestIsSurrogate (%!s(float64=3.814697265625e-05))
 
 ```
 </p>

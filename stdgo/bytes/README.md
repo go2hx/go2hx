@@ -15,263 +15,263 @@ It is analogous to the facilities of the strings package.
 
 ```
 === RUN  TestNewBuffer
---- PASS: TestNewBuffer (%!s(float64=0.0006837844848632812))
+--- PASS: TestNewBuffer (%!s(float64=0.0005121231079101562))
 
 === RUN  TestNewBufferString
---- PASS: TestNewBufferString (%!s(float64=0.002574920654296875))
+--- PASS: TestNewBufferString (%!s(float64=0.001979827880859375))
 
 === RUN  TestBasicOperations
---- PASS: TestBasicOperations (%!s(float64=0.0003440380096435547))
+--- PASS: TestBasicOperations (%!s(float64=0.00024199485778808594))
 
 === RUN  TestLargeStringWrites
---- PASS: TestLargeStringWrites (%!s(float64=0.18206787109375))
+--- PASS: TestLargeStringWrites (%!s(float64=0.1134028434753418))
 
 === RUN  TestLargeByteWrites
---- PASS: TestLargeByteWrites (%!s(float64=0.1802198886871338))
+--- PASS: TestLargeByteWrites (%!s(float64=0.12746000289916992))
 
 === RUN  TestLargeStringReads
---- PASS: TestLargeStringReads (%!s(float64=0.03358721733093262))
+--- PASS: TestLargeStringReads (%!s(float64=0.019872188568115234))
 
 === RUN  TestLargeByteReads
---- PASS: TestLargeByteReads (%!s(float64=0.044740915298461914))
+--- PASS: TestLargeByteReads (%!s(float64=0.03170895576477051))
 
 === RUN  TestMixedReadsAndWrites
---- PASS: TestMixedReadsAndWrites (%!s(float64=0.20620107650756836))
+--- PASS: TestMixedReadsAndWrites (%!s(float64=0.25126099586486816))
 
 === RUN  TestCapWithPreallocatedSlice
---- PASS: TestCapWithPreallocatedSlice (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestCapWithPreallocatedSlice (%!s(float64=1.0013580322265625e-05))
 
 === RUN  TestCapWithSliceAndWrittenData
---- PASS: TestCapWithSliceAndWrittenData (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestCapWithSliceAndWrittenData (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestNil
---- PASS: TestNil (%!s(float64=7.867813110351562e-06))
+--- PASS: TestNil (%!s(float64=5.0067901611328125e-06))
 
 === RUN  TestReadFrom
---- PASS: TestReadFrom (%!s(float64=0.07446694374084473))
+--- PASS: TestReadFrom (%!s(float64=0.0691380500793457))
 
 === RUN  TestReadFromPanicReader
---- PASS: TestReadFromPanicReader (%!s(float64=0.0003840923309326172))
+--- PASS: TestReadFromPanicReader (%!s(float64=0.0002918243408203125))
 
 === RUN  TestReadFromNegativeReader
---- PASS: TestReadFromNegativeReader (%!s(float64=0.0002410411834716797))
+--- PASS: TestReadFromNegativeReader (%!s(float64=0.00018310546875))
 
 === RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.05929303169250488))
+--- PASS: TestWriteTo (%!s(float64=0.058860063552856445))
 
 === RUN  TestRuneIO
---- PASS: TestRuneIO (%!s(float64=0.007203102111816406))
+--- PASS: TestRuneIO (%!s(float64=0.00481104850769043))
 
 === RUN  TestWriteInvalidRune
---- PASS: TestWriteInvalidRune (%!s(float64=0.0006148815155029297))
+--- PASS: TestWriteInvalidRune (%!s(float64=0.0003819465637207031))
 
 === RUN  TestNext
---- PASS: TestNext (%!s(float64=0.0003440380096435547))
+--- PASS: TestNext (%!s(float64=0.0002751350402832031))
 
 === RUN  TestReadBytes
---- PASS: TestReadBytes (%!s(float64=0.0001728534698486328))
+--- PASS: TestReadBytes (%!s(float64=9.322166442871094e-05))
 
 === RUN  TestReadString
---- PASS: TestReadString (%!s(float64=0.00010395050048828125))
+--- PASS: TestReadString (%!s(float64=7.200241088867188e-05))
 
 === RUN  TestGrow
 bytes_test/Bytes_test.hx:1886: testGrow skip function
---- PASS: TestGrow (%!s(float64=2.6941299438476562e-05))
+--- PASS: TestGrow (%!s(float64=2.4080276489257812e-05))
 
 === RUN  TestGrowOverflow
---- PASS: TestGrowOverflow (%!s(float64=5.793571472167969e-05))
+--- PASS: TestGrowOverflow (%!s(float64=3.600120544433594e-05))
 
 === RUN  TestReadEmptyAtEOF
---- PASS: TestReadEmptyAtEOF (%!s(float64=1.0013580322265625e-05))
+--- PASS: TestReadEmptyAtEOF (%!s(float64=7.152557373046875e-06))
 
 === RUN  TestUnreadByte
---- PASS: TestUnreadByte (%!s(float64=2.193450927734375e-05))
+--- PASS: TestUnreadByte (%!s(float64=1.5020370483398438e-05))
 
 === RUN  TestBufferGrowth
---- PASS: TestBufferGrowth (%!s(float64=1.9488871097564697))
+--- PASS: TestBufferGrowth (%!s(float64=1.3068549633026123))
 
 === RUN  TestEqual
---- PASS: TestEqual (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestEqual (%!s(float64=6.9141387939453125e-06))
 
 === RUN  TestEqualExhaustive
---- PASS: TestEqualExhaustive (%!s(float64=0.1852431297302246))
+--- PASS: TestEqualExhaustive (%!s(float64=0.1202399730682373))
 
 === RUN  TestNotEqual
---- PASS: TestNotEqual (%!s(float64=0.5190250873565674))
+--- PASS: TestNotEqual (%!s(float64=0.3584780693054199))
 
 === RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.0014750957489013672))
+--- PASS: TestIndex (%!s(float64=0.0007159709930419922))
 
 === RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=8.988380432128906e-05))
+--- PASS: TestLastIndex (%!s(float64=5.602836608886719e-05))
 
 === RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=0.00015211105346679688))
+--- PASS: TestIndexAny (%!s(float64=9.417533874511719e-05))
 
 === RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=0.00013899803161621094))
+--- PASS: TestLastIndexAny (%!s(float64=8.58306884765625e-05))
 
 === RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=0.0001499652862548828))
+--- PASS: TestIndexByte (%!s(float64=9.107589721679688e-05))
 
 === RUN  TestLastIndexByte
---- PASS: TestLastIndexByte (%!s(float64=4.982948303222656e-05))
+--- PASS: TestLastIndexByte (%!s(float64=2.9087066650390625e-05))
 
 === RUN  TestIndexByteBig
---- PASS: TestIndexByteBig (%!s(float64=0.06520199775695801))
+--- PASS: TestIndexByteBig (%!s(float64=0.048851966857910156))
 
 === RUN  TestIndexByteSmall
---- PASS: TestIndexByteSmall (%!s(float64=0.16913294792175293))
+--- PASS: TestIndexByteSmall (%!s(float64=0.1104898452758789))
 
 === RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=0.00012612342834472656))
+--- PASS: TestIndexRune (%!s(float64=0.00010704994201660156))
 
 === RUN  TestCountByte
---- PASS: TestCountByte (%!s(float64=43.842936992645264))
+--- PASS: TestCountByte (%!s(float64=29.230921983718872))
 
 === RUN  TestCountByteNoMatch
---- PASS: TestCountByteNoMatch (%!s(float64=3.4607930183410645))
+--- PASS: TestCountByteNoMatch (%!s(float64=2.233582019805908))
 
 === RUN  TestSplit
 bytes_test/Bytes_test.hx:2859: testSplit skip function
---- PASS: TestSplit (%!s(float64=2.193450927734375e-05))
+--- PASS: TestSplit (%!s(float64=1.9073486328125e-05))
 
 === RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.002961874008178711))
+--- PASS: TestSplitAfter (%!s(float64=0.0017139911651611328))
 
 === RUN  TestFields
---- PASS: TestFields (%!s(float64=0.00026106834411621094))
+--- PASS: TestFields (%!s(float64=0.00016307830810546875))
 
 === RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.0003218650817871094))
+--- PASS: TestFieldsFunc (%!s(float64=0.00024008750915527344))
 
 === RUN  TestMap
---- PASS: TestMap (%!s(float64=0.00013303756713867188))
+--- PASS: TestMap (%!s(float64=9.489059448242188e-05))
 
 === RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.0001690387725830078))
+--- PASS: TestToUpper (%!s(float64=0.00010704994201660156))
 
 === RUN  TestToLower
---- PASS: TestToLower (%!s(float64=0.0001399517059326172))
+--- PASS: TestToLower (%!s(float64=9.393692016601562e-05))
 
 === RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.00021696090698242188))
+--- PASS: TestToValidUTF8 (%!s(float64=0.0001430511474609375))
 
 === RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=0.00017690658569335938))
+--- PASS: TestTrimSpace (%!s(float64=9.799003601074219e-05))
 
 === RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.1278979778289795))
+--- PASS: TestRepeat (%!s(float64=0.07995986938476562))
 
 === RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.00185394287109375))
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.001024007797241211))
 
 === RUN  TestRunes
---- PASS: TestRunes (%!s(float64=0.00023889541625976562))
+--- PASS: TestRunes (%!s(float64=5.602836608886719e-05))
 
 === RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.00038909912109375))
+--- PASS: TestTrim (%!s(float64=0.00024890899658203125))
 
 === RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.00041794776916503906))
+--- PASS: TestTrimFunc (%!s(float64=0.00024580955505371094))
 
 === RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=0.00013899803161621094))
+--- PASS: TestIndexFunc (%!s(float64=8.511543273925781e-05))
 
 === RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.0004799365997314453))
+--- PASS: TestReplace (%!s(float64=0.00036907196044921875))
 
 === RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.0002999305725097656))
+--- PASS: TestTitle (%!s(float64=0.00017499923706054688))
 
 === RUN  TestToTitle
---- PASS: TestToTitle (%!s(float64=0.000102996826171875))
+--- PASS: TestToTitle (%!s(float64=6.008148193359375e-05))
 
 === RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=0.00019502639770507812))
+--- PASS: TestEqualFold (%!s(float64=0.0001201629638671875))
 
 === RUN  TestCut
---- PASS: TestCut (%!s(float64=5.602836608886719e-05))
+--- PASS: TestCut (%!s(float64=2.8133392333984375e-05))
 
 === RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=4.792213439941406e-05))
+--- PASS: TestCutPrefix (%!s(float64=2.6941299438476562e-05))
 
 === RUN  TestCutSuffix
---- PASS: TestCutSuffix (%!s(float64=4.38690185546875e-05))
+--- PASS: TestCutSuffix (%!s(float64=2.193450927734375e-05))
 
 === RUN  TestBufferGrowNegative
---- PASS: TestBufferGrowNegative (%!s(float64=8.20159912109375e-05))
+--- PASS: TestBufferGrowNegative (%!s(float64=2.4080276489257812e-05))
 
 === RUN  TestBufferTruncateNegative
---- PASS: TestBufferTruncateNegative (%!s(float64=5.817413330078125e-05))
+--- PASS: TestBufferTruncateNegative (%!s(float64=2.384185791015625e-05))
 
 === RUN  TestBufferTruncateOutOfRange
---- PASS: TestBufferTruncateOutOfRange (%!s(float64=5.0067901611328125e-05))
+--- PASS: TestBufferTruncateOutOfRange (%!s(float64=2.193450927734375e-05))
 
 === RUN  TestContains
---- PASS: TestContains (%!s(float64=2.8133392333984375e-05))
+--- PASS: TestContains (%!s(float64=1.4066696166992188e-05))
 
 === RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=6.222724914550781e-05))
+--- PASS: TestContainsAny (%!s(float64=4.38690185546875e-05))
 
 === RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=3.0994415283203125e-05))
+--- PASS: TestContainsRune (%!s(float64=1.8835067749023438e-05))
 
 === RUN  TestClone
---- PASS: TestClone (%!s(float64=0.0003409385681152344))
+--- PASS: TestClone (%!s(float64=0.00018310546875))
 
 === RUN  TestCompare
---- PASS: TestCompare (%!s(float64=0.0006458759307861328))
+--- PASS: TestCompare (%!s(float64=0.00036907196044921875))
 
 === RUN  TestCompareIdenticalSlice
---- PASS: TestCompareIdenticalSlice (%!s(float64=1.811981201171875e-05))
+--- PASS: TestCompareIdenticalSlice (%!s(float64=1.1920928955078125e-05))
 
 === RUN  TestCompareBytes
 bytes_test/Bytes_test.hx:4028: testCompareBytes skip function
---- PASS: TestCompareBytes (%!s(float64=2.5033950805664062e-05))
+--- PASS: TestCompareBytes (%!s(float64=6.008148193359375e-05))
 
 === RUN  TestEndianBaseCompare
---- PASS: TestEndianBaseCompare (%!s(float64=0.032073020935058594))
+--- PASS: TestEndianBaseCompare (%!s(float64=0.0249788761138916))
 
 === RUN  TestReader
---- PASS: TestReader (%!s(float64=0.00010704994201660156))
+--- PASS: TestReader (%!s(float64=7.390975952148438e-05))
 
 === RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=4.00543212890625e-05))
+--- PASS: TestReadAfterBigSeek (%!s(float64=1.811981201171875e-05))
 
 === RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.004869937896728516))
+--- PASS: TestReaderAt (%!s(float64=0.0031998157501220703))
 
 === RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0011539459228515625))
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0006937980651855469))
 
 === RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0010609626770019531))
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0006699562072753906))
 
 === RUN  TestReaderWriteTo
---- PASS: TestReaderWriteTo (%!s(float64=0.0034101009368896484))
+--- PASS: TestReaderWriteTo (%!s(float64=0.002702951431274414))
 
 === RUN  TestReaderLen
---- PASS: TestReaderLen (%!s(float64=2.384185791015625e-05))
+--- PASS: TestReaderLen (%!s(float64=1.5020370483398438e-05))
 
 === RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=0.0001361370086669922))
+--- PASS: TestUnreadRuneError (%!s(float64=4.792213439941406e-05))
 
 === RUN  TestReaderDoubleUnreadRune
---- PASS: TestReaderDoubleUnreadRune (%!s(float64=1.621246337890625e-05))
+--- PASS: TestReaderDoubleUnreadRune (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestReaderCopyNothing
---- PASS: TestReaderCopyNothing (%!s(float64=0.0007410049438476562))
+--- PASS: TestReaderCopyNothing (%!s(float64=0.00045418739318847656))
 
 === RUN  TestReaderLenSize
 bytes_test/Bytes_test.hx:4947: testReaderLenSize skip function
---- PASS: TestReaderLenSize (%!s(float64=0.00010609626770019531))
+--- PASS: TestReaderLenSize (%!s(float64=5.412101745605469e-05))
 
 === RUN  TestReaderReset
---- PASS: TestReaderReset (%!s(float64=9.584426879882812e-05))
+--- PASS: TestReaderReset (%!s(float64=3.409385681152344e-05))
 
 === RUN  TestReaderZero
---- PASS: TestReaderZero (%!s(float64=9.202957153320312e-05))
+--- PASS: TestReaderZero (%!s(float64=4.482269287109375e-05))
 
 ```
 </p>
@@ -283,250 +283,250 @@ bytes_test/Bytes_test.hx:4947: testReaderLenSize skip function
 ```
 Invalid_argument("index out of bounds")
 === RUN  TestNewBuffer
---- PASS: TestNewBuffer (%!s(float64=0.010365009307861328))
+--- PASS: TestNewBuffer (%!s(float64=0.008327007293701172))
 
 === RUN  TestNewBufferString
---- PASS: TestNewBufferString (%!s(float64=0.014509916305541992))
+--- PASS: TestNewBufferString (%!s(float64=0.011852025985717773))
 
 === RUN  TestBasicOperations
---- PASS: TestBasicOperations (%!s(float64=0.0019500255584716797))
+--- PASS: TestBasicOperations (%!s(float64=0.001489877700805664))
 
 === RUN  TestLargeStringWrites
---- PASS: TestLargeStringWrites (%!s(float64=1.59818696975708))
+--- PASS: TestLargeStringWrites (%!s(float64=1.2357919216156006))
 
 === RUN  TestLargeByteWrites
---- PASS: TestLargeByteWrites (%!s(float64=1.5786628723144531))
+--- PASS: TestLargeByteWrites (%!s(float64=1.2229020595550537))
 
 === RUN  TestLargeStringReads
---- PASS: TestLargeStringReads (%!s(float64=0.2646830081939697))
+--- PASS: TestLargeStringReads (%!s(float64=0.18952107429504395))
 
 === RUN  TestLargeByteReads
---- PASS: TestLargeByteReads (%!s(float64=0.24584484100341797))
+--- PASS: TestLargeByteReads (%!s(float64=0.1923210620880127))
 
 === RUN  TestMixedReadsAndWrites
---- PASS: TestMixedReadsAndWrites (%!s(float64=1.4037590026855469))
+--- PASS: TestMixedReadsAndWrites (%!s(float64=2.2780330181121826))
 
 === RUN  TestCapWithPreallocatedSlice
---- PASS: TestCapWithPreallocatedSlice (%!s(float64=0.00016498565673828125))
+--- PASS: TestCapWithPreallocatedSlice (%!s(float64=5.0067901611328125e-05))
 
 === RUN  TestCapWithSliceAndWrittenData
---- PASS: TestCapWithSliceAndWrittenData (%!s(float64=0.0001227855682373047))
+--- PASS: TestCapWithSliceAndWrittenData (%!s(float64=6.103515625e-05))
 
 === RUN  TestNil
---- PASS: TestNil (%!s(float64=2.193450927734375e-05))
+--- PASS: TestNil (%!s(float64=1.5020370483398438e-05))
 
 === RUN  TestReadFrom
---- PASS: TestReadFrom (%!s(float64=0.32905101776123047))
+--- PASS: TestReadFrom (%!s(float64=0.2337491512298584))
 
 === RUN  TestReadFromPanicReader
---- PASS: TestReadFromPanicReader (%!s(float64=0.00084686279296875))
+--- PASS: TestReadFromPanicReader (%!s(float64=0.0003819465637207031))
 
 === RUN  TestReadFromNegativeReader
---- PASS: TestReadFromNegativeReader (%!s(float64=0.0006201267242431641))
+--- PASS: TestReadFromNegativeReader (%!s(float64=0.00030303001403808594))
 
 === RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.3043630123138428))
+--- PASS: TestWriteTo (%!s(float64=0.21595978736877441))
 
 === RUN  TestRuneIO
---- PASS: TestRuneIO (%!s(float64=0.04618716239929199))
+--- PASS: TestRuneIO (%!s(float64=0.0316469669342041))
 
 === RUN  TestWriteInvalidRune
---- PASS: TestWriteInvalidRune (%!s(float64=0.0011029243469238281))
+--- PASS: TestWriteInvalidRune (%!s(float64=0.00086212158203125))
 
 === RUN  TestNext
---- PASS: TestNext (%!s(float64=0.0018448829650878906))
+--- PASS: TestNext (%!s(float64=0.0013980865478515625))
 
 === RUN  TestReadBytes
---- PASS: TestReadBytes (%!s(float64=0.0004138946533203125))
+--- PASS: TestReadBytes (%!s(float64=0.00032401084899902344))
 
 === RUN  TestReadString
---- PASS: TestReadString (%!s(float64=0.0004038810729980469))
+--- PASS: TestReadString (%!s(float64=0.0002808570861816406))
 
 === RUN  TestGrow
 bytes_test/Bytes_test.hx:1886: testGrow skip function
---- PASS: TestGrow (%!s(float64=3.910064697265625e-05))
+--- PASS: TestGrow (%!s(float64=3.0040740966796875e-05))
 
 === RUN  TestGrowOverflow
---- PASS: TestGrowOverflow (%!s(float64=0.00011420249938964844))
+--- PASS: TestGrowOverflow (%!s(float64=8.511543273925781e-05))
 
 === RUN  TestReadEmptyAtEOF
---- PASS: TestReadEmptyAtEOF (%!s(float64=4.1961669921875e-05))
+--- PASS: TestReadEmptyAtEOF (%!s(float64=3.4809112548828125e-05))
 
 === RUN  TestUnreadByte
---- PASS: TestUnreadByte (%!s(float64=9.512901306152344e-05))
+--- PASS: TestUnreadByte (%!s(float64=6.985664367675781e-05))
 
 === RUN  TestBufferGrowth
---- PASS: TestBufferGrowth (%!s(float64=4.470740795135498))
+--- PASS: TestBufferGrowth (%!s(float64=3.2634119987487793))
 
 === RUN  TestEqual
---- PASS: TestEqual (%!s(float64=3.981590270996094e-05))
+--- PASS: TestEqual (%!s(float64=2.8848648071289062e-05))
 
 === RUN  TestEqualExhaustive
---- PASS: TestEqualExhaustive (%!s(float64=0.5971410274505615))
+--- PASS: TestEqualExhaustive (%!s(float64=0.44032907485961914))
 
 === RUN  TestNotEqual
---- PASS: TestNotEqual (%!s(float64=3.1310999393463135))
+--- PASS: TestNotEqual (%!s(float64=2.329838991165161))
 
 === RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.00485992431640625))
+--- PASS: TestIndex (%!s(float64=0.0035581588745117188))
 
 === RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=0.0002989768981933594))
+--- PASS: TestLastIndex (%!s(float64=0.00023293495178222656))
 
 === RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=0.0006210803985595703))
+--- PASS: TestIndexAny (%!s(float64=0.0005168914794921875))
 
 === RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=0.0006968975067138672))
+--- PASS: TestLastIndexAny (%!s(float64=0.0005559921264648438))
 
 === RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=0.00027179718017578125))
+--- PASS: TestIndexByte (%!s(float64=0.00018095970153808594))
 
 === RUN  TestLastIndexByte
---- PASS: TestLastIndexByte (%!s(float64=0.00015091896057128906))
+--- PASS: TestLastIndexByte (%!s(float64=0.00011706352233886719))
 
 === RUN  TestIndexByteBig
---- PASS: TestIndexByteBig (%!s(float64=0.732698917388916))
+--- PASS: TestIndexByteBig (%!s(float64=0.5512189865112305))
 
 === RUN  TestIndexByteSmall
---- PASS: TestIndexByteSmall (%!s(float64=0.8630828857421875))
+--- PASS: TestIndexByteSmall (%!s(float64=0.6422920227050781))
 
 === RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=0.0005338191986083984))
+--- PASS: TestIndexRune (%!s(float64=0.0004048347473144531))
 
 === RUN  TestCountByte
---- PASS: TestCountByte (%!s(float64=30.335662126541138))
+--- PASS: TestCountByte (%!s(float64=21.27019500732422))
 
 === RUN  TestCountByteNoMatch
---- PASS: TestCountByteNoMatch (%!s(float64=4.741683006286621))
+--- PASS: TestCountByteNoMatch (%!s(float64=3.232144832611084))
 
 === RUN  TestSplit
 bytes_test/Bytes_test.hx:2859: testSplit skip function
---- PASS: TestSplit (%!s(float64=4.887580871582031e-05))
+--- PASS: TestSplit (%!s(float64=3.600120544433594e-05))
 
 === RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.008352041244506836))
+--- PASS: TestSplitAfter (%!s(float64=0.0033638477325439453))
 
 === RUN  TestFields
---- PASS: TestFields (%!s(float64=0.0018620491027832031))
+--- PASS: TestFields (%!s(float64=0.0009248256683349609))
 
 === RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.002346038818359375))
+--- PASS: TestFieldsFunc (%!s(float64=0.0008349418640136719))
 
 === RUN  TestMap
---- PASS: TestMap (%!s(float64=0.0012519359588623047))
+--- PASS: TestMap (%!s(float64=0.0005018711090087891))
 
 === RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.0010569095611572266))
+--- PASS: TestToUpper (%!s(float64=0.0007879734039306641))
 
 === RUN  TestToLower
---- PASS: TestToLower (%!s(float64=0.0011742115020751953))
+--- PASS: TestToLower (%!s(float64=0.0005879402160644531))
 
 === RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.0008738040924072266))
+--- PASS: TestToValidUTF8 (%!s(float64=0.0006721019744873047))
 
 === RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=0.0009639263153076172))
+--- PASS: TestTrimSpace (%!s(float64=0.0006639957427978516))
 
 === RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.669018030166626))
+--- PASS: TestRepeat (%!s(float64=0.41616392135620117))
 
 === RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0025811195373535156))
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.002109050750732422))
 
 === RUN  TestRunes
---- PASS: TestRunes (%!s(float64=0.0003209114074707031))
+--- PASS: TestRunes (%!s(float64=0.00024580955505371094))
 
 === RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.002023935317993164))
+--- PASS: TestTrim (%!s(float64=0.0017998218536376953))
 
 === RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.0020139217376708984))
+--- PASS: TestTrimFunc (%!s(float64=0.0017409324645996094))
 
 === RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=0.0008220672607421875))
+--- PASS: TestIndexFunc (%!s(float64=0.0004949569702148438))
 
 === RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.0025391578674316406))
+--- PASS: TestReplace (%!s(float64=0.0017330646514892578))
 
 === RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.0010731220245361328))
+--- PASS: TestTitle (%!s(float64=0.0006258487701416016))
 
 === RUN  TestToTitle
---- PASS: TestToTitle (%!s(float64=0.00038814544677734375))
+--- PASS: TestToTitle (%!s(float64=0.00029206275939941406))
 
 === RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=0.0010471343994140625))
+--- PASS: TestEqualFold (%!s(float64=0.0006971359252929688))
 
 === RUN  TestCut
---- PASS: TestCut (%!s(float64=0.0002460479736328125))
+--- PASS: TestCut (%!s(float64=0.00010585784912109375))
 
 === RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=0.00013780593872070312))
+--- PASS: TestCutPrefix (%!s(float64=9.322166442871094e-05))
 
 === RUN  TestCutSuffix
---- PASS: TestCutSuffix (%!s(float64=0.0001938343048095703))
+--- PASS: TestCutSuffix (%!s(float64=9.489059448242188e-05))
 
 === RUN  TestBufferGrowNegative
---- PASS: TestBufferGrowNegative (%!s(float64=0.0001430511474609375))
+--- PASS: TestBufferGrowNegative (%!s(float64=8.893013000488281e-05))
 
 === RUN  TestBufferTruncateNegative
---- PASS: TestBufferTruncateNegative (%!s(float64=0.00020313262939453125))
+--- PASS: TestBufferTruncateNegative (%!s(float64=9.417533874511719e-05))
 
 === RUN  TestBufferTruncateOutOfRange
---- PASS: TestBufferTruncateOutOfRange (%!s(float64=0.00015306472778320312))
+--- PASS: TestBufferTruncateOutOfRange (%!s(float64=0.00010991096496582031))
 
 === RUN  TestContains
---- PASS: TestContains (%!s(float64=0.00012111663818359375))
+--- PASS: TestContains (%!s(float64=6.198883056640625e-05))
 
 === RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=0.0004379749298095703))
+--- PASS: TestContainsAny (%!s(float64=0.00024700164794921875))
 
 === RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=0.0002319812774658203))
+--- PASS: TestContainsRune (%!s(float64=9.894371032714844e-05))
 
 === RUN  TestClone
---- PASS: TestClone (%!s(float64=0.0010590553283691406))
+--- PASS: TestClone (%!s(float64=0.0006840229034423828))
 
 === RUN  TestCompare
---- PASS: TestCompare (%!s(float64=0.0025730133056640625))
+--- PASS: TestCompare (%!s(float64=0.0020189285278320312))
 
 === RUN  TestCompareIdenticalSlice
---- PASS: TestCompareIdenticalSlice (%!s(float64=0.0001430511474609375))
+--- PASS: TestCompareIdenticalSlice (%!s(float64=6.508827209472656e-05))
 
 === RUN  TestCompareBytes
 bytes_test/Bytes_test.hx:4028: testCompareBytes skip function
---- PASS: TestCompareBytes (%!s(float64=7.700920104980469e-05))
+--- PASS: TestCompareBytes (%!s(float64=3.695487976074219e-05))
 
 === RUN  TestEndianBaseCompare
---- PASS: TestEndianBaseCompare (%!s(float64=0.45729517936706543))
+--- PASS: TestEndianBaseCompare (%!s(float64=0.31726884841918945))
 
 === RUN  TestReader
---- PASS: TestReader (%!s(float64=0.0005438327789306641))
+--- PASS: TestReader (%!s(float64=0.0003349781036376953))
 
 === RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=0.0001380443572998047))
+--- PASS: TestReadAfterBigSeek (%!s(float64=7.319450378417969e-05))
 
 === RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.005140066146850586))
+--- PASS: TestReaderAt (%!s(float64=0.0038509368896484375))
 
 === RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0010020732879638672))
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0011820793151855469))
 
 === RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0017688274383544922))
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0013680458068847656))
 
 === RUN  TestReaderWriteTo
---- PASS: TestReaderWriteTo (%!s(float64=0.01768207550048828))
+--- PASS: TestReaderWriteTo (%!s(float64=0.013602972030639648))
 
 === RUN  TestReaderLen
---- PASS: TestReaderLen (%!s(float64=0.0005910396575927734))
+--- PASS: TestReaderLen (%!s(float64=5.793571472167969e-05))
 
 === RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=0.0003662109375))
+--- PASS: TestUnreadRuneError (%!s(float64=0.00017786026000976562))
 
 === RUN  TestReaderDoubleUnreadRune
---- PASS: TestReaderDoubleUnreadRune (%!s(float64=0.00010609626770019531))
+--- PASS: TestReaderDoubleUnreadRune (%!s(float64=6.985664367675781e-05))
 
 === RUN  TestReaderCopyNothing
 ```

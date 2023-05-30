@@ -151,16 +151,35 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	}
 
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool
-		return (a : GoStringData).bytes.compare((b : GoStringData).bytes) < 0;
+		return compare(a,b) < 0;
 
 	@:op(A <= B) static function lte(a:GoString, b:GoString):Bool
-		return (a : GoStringData).bytes.compare((b : GoStringData).bytes) <= 0;
+		return compare(a,b) <= 0;
 
 	@:op(A > B) static function gt(a:GoString, b:GoString):Bool
-		return (a : GoStringData).bytes.compare((b : GoStringData).bytes) > 0;
+		return compare(a,b) > 0;
 
 	@:op(A >= B) static function gte(a:GoString, b:GoString):Bool
-		return (a : GoStringData).bytes.compare((b : GoStringData).bytes) >= 0;
+		return compare(a,b) >= 0;
+
+	static function compare(a:GoString, b:GoString):GoInt {
+		final a:GoStringData = a;
+		final b:GoStringData = b;
+		final len = a.length > b.length ? b.length : a.length;
+		for (i in 0...len) {
+			final aByte = a.bytes.get(a.offset + i);
+			final bByte = b.bytes.get(b.offset + i);
+			if (aByte < bByte)
+				return -1;
+			if (aByte > bByte)
+				return 1;
+		}
+		if (a.length < b.length)
+			return -1;
+		if (a.length > b.length)
+			return 1;
+		return 0;
+	}
 
 	@:op(A == B) static function eq(a:GoString, b:GoString):Bool {
 		if (a.length != b.length)

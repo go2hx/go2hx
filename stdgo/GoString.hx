@@ -7,13 +7,13 @@ using GoString.GoStringTools;
 
 private class GoStringData {
 	public var bytes:Bytes;
-	public var offset:Int = 0;
-	public var length:Int = 0;
+	public var low:Int = 0;
+	public var high:Int = 0;
 
-	public inline function new(bytes, offset, length) {
+	public inline function new(bytes, low, high) {
 		this.bytes = bytes;
-		this.offset = offset;
-		this.length = length;
+		this.low = low;
+		this.high = high;
 	}
 
 	public function toString():String {
@@ -21,7 +21,7 @@ private class GoStringData {
 		if (!stdgo.unicode.utf8.Utf8.validString((this : GoString)))
 			return "invalid string";
 		#end
-		return bytes.sub(this.offset, this.length).toString();
+		return bytes.sub(this.low, this.high - this.low).toString();
 	}
 }
 
@@ -29,7 +29,7 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	public var length(get, never):GoInt;
 
 	function get_length():GoInt
-		return this.length;
+		return this.high - this.low;
 
 	public var code(get, never):GoRune;
 
@@ -98,12 +98,12 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 
 	@:op([])
 	public function __get__(index:GoInt):GoByte
-		return this.bytes.get(this.offset + index.toBasic());
+		return this.bytes.get(this.low + index.toBasic());
 
 	@:to public function __toSliceByte__():Slice<GoByte> {
-		final slice = new Slice<GoByte>(this.length, this.length).__setNumber32__();
-		for (i in 0...this.length) {
-			final value = this.bytes.get(this.offset + i);
+		final slice = new Slice<GoByte>(this.high - this.low, this.high - this.low).__setNumber32__();
+		for (i in this.low...this.high) {
+			final value = this.bytes.get(i);
 			slice.__vector__.set(slice.__offset__ + i, value);
 		}
 		return slice;
@@ -140,14 +140,21 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	public function keyValueIterator()
 		return new GoStringKeyValueIterator(this);
 
-	public function __slice__(start:GoInt, end:GoInt = -1):GoString {
+	public function __slice__(low:GoInt, high:GoInt = -1):GoString {
 		if (this == null)
 			return null;
-		if (end == -1)
-			end = this.length;
-		final pos = this.offset + start.toBasic();
-		final len = end.toBasic() - start.toBasic();
-		return new GoStringData(this.bytes, pos, len);
+		if (high == -1) {
+			high = this.high;
+		}
+		if (low < 0 || high < 0 || high > this.bytes.length || low > this.bytes.length || low > high) {
+			trace("slice low: " + low);
+			trace("slice high: " + high);
+			trace("this low: " + this.low);
+			trace("this high: " + this.high);
+			trace("this bytes len: " + this.bytes.length);
+			throw "slice bounds out of range";
+		}
+		return new GoStringData(this.bytes, this.low + low, high);
 	}
 
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool
@@ -165,18 +172,21 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	static function compare(a:GoString, b:GoString):GoInt {
 		final a:GoStringData = a;
 		final b:GoStringData = b;
-		final len = a.length > b.length ? b.length : a.length;
+		final aLength = a.high - a.low;
+		final bLength = b.high - b.low;
+		// min length
+		final len = aLength > bLength ? bLength : aLength;
 		for (i in 0...len) {
-			final aByte = a.bytes.get(a.offset + i);
-			final bByte = b.bytes.get(b.offset + i);
+			final aByte = a.bytes.get(a.low + i);
+			final bByte = b.bytes.get(b.low + i);
 			if (aByte < bByte)
 				return -1;
 			if (aByte > bByte)
 				return 1;
 		}
-		if (a.length < b.length)
+		if (aLength < bLength)
 			return -1;
-		if (a.length > b.length)
+		if (aLength > bLength)
 			return 1;
 		return 0;
 	}
@@ -197,10 +207,11 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	@:op(A + B) static function add(a:GoString, b:GoString):GoString {
 		final a:GoStringData = a;
 		final b:GoStringData = b;
-		var bytes = Bytes.alloc(a.length + b.length);
-		final len = a.length;
-		bytes.blit(0, a.bytes, a.offset, len);
-		bytes.blit(len, b.bytes, b.offset, b.length);
+		var bytes = Bytes.alloc((a.high - a.low) + (b.high - b.low));
+		final len = a.high - a.low;
+		//trace("go string add");
+		bytes.blit(0, a.bytes, a.low, len);
+		bytes.blit(len, b.bytes, b.low, b.high - b.low);
 		return bytes;
 	}
 
@@ -221,8 +232,7 @@ private class GoStringIterator {
 		bytes = s;
 	}
 
-	public function hasNext()
-		return bytes.length > 0;
+	public function hasNext() return bytes.length > 0 && offset < bytes.length;
 
 	public function next():GoInt {
 		#if nolinkstd
@@ -247,8 +257,7 @@ private class GoStringKeyValueIterator {
 		bytes = s;
 	}
 
-	public function hasNext()
-		return bytes.length > 0;
+	public function hasNext() return bytes.length > 0 && offset < bytes.length;
 
 	public function next():{key:GoInt, value:GoRune} {
 		#if nolinkstd

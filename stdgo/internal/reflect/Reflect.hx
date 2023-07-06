@@ -722,6 +722,8 @@ private function unroll(parent:GoType, child:GoType):GoType {
 			]);
 		case sliceType(_.get() => elem):
 			sliceType({get: () -> unroll(parent, elem)});
+		case arrayType(_.get() => elem, len):
+			arrayType({get: () -> unroll(parent, elem)}, len);
 		default:
 			throw "unsupported unroll gt type: " + child;
 	}

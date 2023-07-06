@@ -102,8 +102,9 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 
 	@:to public function __toSliceByte__():Slice<GoByte> {
 		final slice = new Slice<GoByte>(this.high - this.low, this.high - this.low).__setNumber32__();
-		for (i in this.low...this.high) {
-			final value = this.bytes.get(i);
+		for (i in 0...this.high - this.low) {
+			final value = this.bytes.get(i + this.low);
+			// vector starts at 0
 			slice.__vector__.set(slice.__offset__ + i, value);
 		}
 		return slice;

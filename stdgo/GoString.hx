@@ -84,6 +84,9 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	}
 
 	@:from static function ofSliceByte(x:Slice<GoByte>):GoString {
+		if (x.__bytes__ != null) {
+			return new GoStringData(x.__bytes__, x.__offset__, x.__offset__ + x.length);
+		}
 		var bytes = haxe.io.Bytes.alloc(x.length.toBasic());
 		for (i in 0...bytes.length)
 			bytes.set(i, x[i].toBasic());
@@ -91,6 +94,8 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	}
 
 	@:from static function ofSliceRune(x:Slice<GoRune>):GoString {
+		if (x.__bytes__ != null)
+			return x.__bytes__;
 		var str = "";
 		for (c in x)
 			str += String.fromCharCode(c.toBasic());

@@ -305,7 +305,7 @@ class SliceData<T> {
 		slice.capacity += slice.capacity >> 2;
 		slice.grow(); // allocation
 		slice.length += args.length;
-
+		
 		if (slice.bytes != null) {
 			for (i in 0...args.length) {
 				slice.bytes.set(startOffset + i + slice.offset, untyped args[i]);
@@ -390,7 +390,7 @@ class SliceData<T> {
 		}
 		if (bytes != null) {
 			final dest = haxe.io.Bytes.alloc(capacity);
-			dest.blit(offset, dest, 0, length);
+			dest.blit(offset, bytes, 0, length);
 			this.bytes = dest;
 			this.offset = 0;
 			return;

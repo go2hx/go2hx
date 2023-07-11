@@ -71,6 +71,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	@:to
 	public static function toBytes(slice:Slice<GoByte>):haxe.io.Bytes {
+		if (slice.__bytes__ != null)
+			return slice.__bytes__;
 		final bytes = haxe.io.Bytes.alloc(slice.length.toBasic());
 		for (i in 0...bytes.length)
 			bytes.set(i, slice.__vector__.get(slice.__offset__ + i) ?? 0);
@@ -93,6 +95,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	public var __vector__(get, set):haxe.ds.Vector<T>;
 	public var __offset__(get, never):Int;
+	public var __bytes__(get, set):haxe.io.Bytes;
 
 	function get___offset__() {
 		return @:privateAccess this.offset;
@@ -104,6 +107,14 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	function set___vector__(v) {
 		return @:privateAccess this.vector = v;
+	}
+
+	function get___bytes__() {
+		return @:privateAccess this.bytes;
+	}
+
+	function set___bytes__(v) {
+		return @:privateAccess this.bytes = v;
 	}
 
 	public inline function __setNil__():Slice<T> {
@@ -153,6 +164,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 			this = new Slice<T>(0, -1);
 		this.length = data.length;
 		this.capacity = data.capacity;
+		this.bytes = data.bytes;
 		this.vector = data.vector;
 		this.offset = data.offset;
 		this.__nil__ = false;
@@ -177,7 +189,7 @@ private class SliceKeyValueIterator<T> {
 	}
 	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32 on stdgo/Math TestFloat32Sqrt
 	public function next():{key:GoInt, value:T} {
-		return {key: (pos : GoInt), value: slice.__vector__.get(slice.__offset__ + pos++)};
+		return {key: (pos : GoInt), value: slice.__bytes__ != null ? untyped cast slice.__bytes__.get(slice.__offset__ + pos++) : slice.__vector__.get(slice.__offset__ + pos++)};
 	}
 }
 
@@ -194,7 +206,7 @@ private class SliceIterator<T> {
 	}
 	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32
 	public function next():T {
-		return slice.__vector__.get(slice.__offset__ + pos++);
+		return slice.__bytes__ != null ? untyped cast slice.__bytes__.get(slice.__offset__ + pos++) : slice.__vector__.get(slice.__offset__ + pos++);
 	}
 }
 
@@ -203,6 +215,7 @@ private class SliceIterator<T> {
 @:struct
 class SliceData<T> {
 	public var vector:haxe.ds.Vector<T> = null;
+	public var bytes:haxe.io.Bytes = null;
 
 	public var offset:Int = 0;
 	public var length:Int = 0;
@@ -240,6 +253,7 @@ class SliceData<T> {
 		slice.length = this.length;
 		slice.capacity = this.capacity;
 		slice.vector = this.vector;
+		slice.bytes = this.bytes;
 		slice.offset = this.offset;
 		if (slice.capacity == -1)
 			slice.capacity = 0;
@@ -271,10 +285,16 @@ class SliceData<T> {
 
 		final startOffset = slice.length;
 		final growCapacity = args.length - slice.capacity + slice.length + slice.offset + 1;
-		if (growCapacity <= 1 || (this != null && this.vector == null)) {
-			if (this.vector == null)
+		if (growCapacity <= 1 || (this != null && this.vector == null && this.bytes == null)) {
+			if (this.vector == null && this.bytes == null)
 				slice.vector = new haxe.ds.Vector<T>(growCapacity);
 			slice.length += args.length;
+			if (slice.bytes != null) {
+				for (i in 0...args.length) {
+					slice.bytes.set(startOffset + i + slice.offset, untyped args[i]);
+				}
+				return slice;
+			}
 			for (i in 0...args.length) {
 				slice.vector.set(startOffset + i + slice.offset, args[i]);
 			}
@@ -285,6 +305,13 @@ class SliceData<T> {
 		slice.capacity += slice.capacity >> 2;
 		slice.grow(); // allocation
 		slice.length += args.length;
+
+		if (slice.bytes != null) {
+			for (i in 0...args.length) {
+				slice.bytes.set(startOffset + i + slice.offset, untyped args[i]);
+			}
+			return slice;
+		}
 
 		for (i in 0...args.length) {
 			slice.vector.set(startOffset + i + slice.offset, args[i]);
@@ -301,6 +328,8 @@ class SliceData<T> {
 	}
 
 	public inline function get(index:Int):T {
+		if (bytes != null)
+			return untyped cast haxe.io.Bytes.fastGet(bytes.getData(), index + offset);
 		#if !target.static
 		if (isNumber64) {
 			return vector.get(index + offset) ?? untyped haxe.Int64.make(0, 0);
@@ -318,14 +347,26 @@ class SliceData<T> {
 
 	public inline function set(index:Int, value:T):T {
 		boundsCheck(index);
+		if (bytes != null) {
+			bytes.set(index + offset, untyped value);
+			return untyped value;
+		}
 		return vector.set(index + offset, value);
 	}
 
 	public inline function toArray():Array<T> { // unrolling
+		if (bytes != null)
+			return [for (i in 0...length) untyped cast bytes.get(i + offset)];
 		return [for (i in 0...length) vector.get(i + offset)];
 	}
 
 	public function toVector():haxe.ds.Vector<T> {
+		if (bytes != null) {
+			final vector = new haxe.ds.Vector<T>(length);
+			for (i in 0...length)
+				vector.set(i, untyped cast bytes.get(i + offset));
+			return vector;
+		}
 		final vectorObj = new haxe.ds.Vector<T>(length);
 		haxe.ds.Vector.blit(vector, offset, vectorObj, 0, length);
 		return vectorObj;
@@ -333,6 +374,9 @@ class SliceData<T> {
 
 	public inline function toString():String {
 		#if !macro
+		if (bytes != null) {
+			return "[" + [for (i in offset...offset + length) Go.string(bytes.get(i))].join(" ") + "]";
+		}
 		return "[" + [for (i in offset...offset + length) Go.string(vector[i])].join(" ") + "]";
 		#else
 		return "";
@@ -340,8 +384,15 @@ class SliceData<T> {
 	}
 
 	public inline function grow() {
-		if (vector == null) {
+		if (vector == null && bytes == null) {
 			vector = new haxe.ds.Vector<T>(capacity);
+			return;
+		}
+		if (bytes != null) {
+			final dest = haxe.io.Bytes.alloc(capacity);
+			dest.blit(offset, dest, 0, length);
+			this.bytes = dest;
+			this.offset = 0;
 			return;
 		}
 		var dest = new haxe.ds.Vector<T>(capacity);

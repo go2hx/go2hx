@@ -39,6 +39,7 @@ go2hxdoc
 gobyexample
 golibs
 gopath
+go
 tinygo
 old/*
 examples/*.txt
@@ -62,3 +63,4 @@ tests/*.hxml
 check.json
 __debug_bin
 *.jar
+runrnd

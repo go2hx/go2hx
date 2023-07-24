@@ -9,10 +9,12 @@ import (
 	"go/ast"
 	"go/constant"
 	"go/importer"
+	"go/parser"
 	"go/printer"
 	"go/token"
 	"go/types"
 	"net"
+	"path"
 	"path/filepath"
 	"runtime"
 	"runtime/debug"
@@ -78,6 +80,8 @@ var stdgoExterns map[string]bool
 var stdgoExports map[string]bool
 
 var excludes map[string]bool
+var visited map[string]bool
+var debugPkgList map[string]bool
 var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 var checker *types.Checker
 
@@ -85,6 +89,7 @@ var typeMap *typeutil.Map = nil
 var typeMapIndex uint32 = 0
 var hashMap map[uint32]map[string]interface{}
 var testBool = false
+var debugBool = false
 var noDepsBool = false
 
 func compile(params []string, excludesData []string, index string, debug bool) []byte {
@@ -96,6 +101,8 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 			testBool = true
 		case "-nodeps", "--nodeps":
 			noDepsBool = true
+		case "-debug", "--debug":
+			debugBool = true
 		default:
 			args = append(args, param)
 		}
@@ -125,6 +132,8 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 	methodCache = typeutil.MethodSetCache{}
 	excludes = make(map[string]bool, len(excludesData))
 	hashMap = make(map[uint32]map[string]interface{})
+	visited = make(map[string]bool)
+	debugPkgList = make(map[string]bool)
 	for _, exclude := range excludesData {
 		excludes[exclude] = true
 	}
@@ -184,7 +193,8 @@ var cfg = &packages.Config{
 
 func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
-	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm", "CGO_ENABLED=0")
+	cfg.Env = append(os.Environ(), "CGO_ENABLED=0")
+	// cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm")
 	args := os.Args
 	port := args[len(args)-1]
 	var excludesData []string
@@ -273,10 +283,6 @@ func memoryStats() {
 	fmt.Println("memory:", m.Alloc/1024/1024)
 }
 
-func addExclude(pkg *packages.Package) {
-	excludes[pkg.PkgPath] = true
-}
-
 func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
 	if excludes[pkg.PkgPath] {
 		return
@@ -297,6 +303,169 @@ func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
 func parseLocalFile(file *ast.File, pkg *packages.Package) {
 	parseLocalTypes(file, pkg)
 	parseLocalConstants(file, pkg)
+}
+
+func debugPkg(pkg *packages.Package) {
+	if !debugBool {
+		return
+	}
+	s := "go/src/"
+	index := 0
+	for _, file := range pkg.OtherFiles {
+		index = strings.Index(file, s)
+		if index != -1 {
+			index += len(s)
+			p := "debug/" + file[index:]
+			_ = os.MkdirAll(path.Dir(p), 0766)
+			rf, err := os.ReadFile(file)
+			if err != nil {
+				panic(err)
+			}
+			//fmt.Println(p)
+			os.WriteFile(p, rf, 0766)
+		}
+	}
+	fset = pkg.Fset
+	if visited[pkg.PkgPath] {
+		return
+	}
+	visited[pkg.PkgPath] = true
+	debugPkgList[pkg.PkgPath] = true
+	for _, val := range pkg.Imports {
+		debugPkg(val)
+	}
+	addedLog := false
+	mainBool := false
+	apply := func(cursor *astutil.Cursor) bool {
+		if cursor.Index() == -1 {
+			return true
+		}
+		switch node := cursor.Node().(type) {
+		case *ast.AssignStmt:
+			if node.Tok == token.ASSIGN || node.Tok == token.ADD_ASSIGN || node.Tok == token.SUB_ASSIGN || node.Tok == token.MUL_ASSIGN || node.Tok == token.QUO_ASSIGN || node.Tok == token.REM_ASSIGN || node.Tok == token.AND_ASSIGN || node.Tok == token.OR_ASSIGN || node.Tok == token.XOR_ASSIGN || node.Tok == token.SHL_ASSIGN || node.Tok == token.SHR_ASSIGN || node.Tok == token.AND_NOT_ASSIGN {
+				if node.Lhs != nil {
+					for _, expr := range node.Lhs {
+						switch expr := expr.(type) {
+						case *ast.Ident:
+							if expr.Name == "_" {
+								continue
+							}
+						}
+						location := ast.BasicLit{Kind: token.STRING, Value: `"` + fset.Position(expr.Pos()).String() + `"`}
+						_ = location
+						addedLog = true
+						cursor.InsertAfter(&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("log.Println"), Args: []ast.Expr{&location, expr}}})
+					}
+				}
+			}
+		default:
+			_ = node
+		}
+		return true
+	}
+	requiredImports := map[string]bool{"log": true}
+	if pkg.Name == "main" {
+		requiredImports = map[string]bool{"os": true, "log": true, "runtime": true}
+	}
+	newDecls := []ast.Decl{}
+	importDecl := &ast.GenDecl{Tok: token.IMPORT}
+	file := mergePackageToFile(pkg)
+	// Remove any comments that start with "//go:build"
+	for i := 0; i < len(file.Comments); i++ {
+		if strings.Index(file.Comments[i].List[0].Text, "//go:build") == 0 {
+			file.Comments = append(file.Comments[:i], file.Comments[i+1:]...)
+			i--
+		}
+	}
+	for _, decl := range file.Decls {
+		switch decl := decl.(type) {
+		case *ast.FuncDecl:
+			if pkg.Name == "main" && decl.Name.Name == "main" {
+				mainBool = true
+				s := "package main\n\nfunc main() {\n\t__f__, __err__ := os.OpenFile(\"debug_\" + runtime.Compiler + \".log\", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)\nif __err__ != nil {\nlog.Fatal(__err__)\n}\n__f__.Truncate(0)\ndefer __f__.Close()\nlog.SetFlags(0)\nlog.SetOutput(__f__)\n}"
+				fset := token.NewFileSet()
+				logFileCode, err := parser.ParseFile(fset, "", s, 0)
+				if err != nil {
+					panic(err)
+				}
+				_ = logFileCode
+				// Get the list of statements
+				stmts := make([]ast.Stmt, 0)
+				for _, decl := range logFileCode.Decls {
+					if fn, ok := decl.(*ast.FuncDecl); ok && fn.Name.Name == "main" {
+						stmts = fn.Body.List
+					}
+				}
+				for _, decl := range file.Decls {
+					if fn, ok := decl.(*ast.FuncDecl); ok && fn.Name.Name == "main" {
+						fn.Body.List = append(stmts, fn.Body.List...)
+					}
+				}
+
+			}
+			newDecls = append(newDecls, decl)
+		case *ast.GenDecl:
+			if decl.Tok == token.IMPORT {
+				for _, spec := range decl.Specs {
+					switch spec := spec.(type) {
+					case *ast.ImportSpec:
+						impName := strings.Trim(spec.Path.Value, `"`)
+						if requiredImports[impName] {
+							delete(requiredImports, impName)
+						}
+						switch impName {
+						case "time", "reflect", "sync", "sync/atomic", "unsafe", "os", "internal/reflectlite", "math":
+						default:
+							if stdgoList[impName] && debugPkgList[impName] {
+								spec.Path.Value = `"github.com/go2hx/go4hx/debug/` + impName + `"`
+							}
+						}
+						duplicate := false
+						for _, spec2 := range importDecl.Specs {
+							if spec2.(*ast.ImportSpec).Path.Value == spec.Path.Value {
+								duplicate = true
+								break
+							}
+						}
+						if !duplicate {
+							importDecl.Specs = append(importDecl.Specs, spec)
+						}
+					}
+				}
+			} else {
+				newDecls = append(newDecls, decl)
+			}
+		default:
+			newDecls = append(newDecls, decl)
+		}
+	}
+	file = astutil.Apply(file, apply, nil).(*ast.File)
+	if mainBool || addedLog {
+		for imp := range requiredImports {
+			importDecl.Specs = append(importDecl.Specs, &ast.ImportSpec{Path: &ast.BasicLit{Kind: token.STRING, Value: `"` + imp + `"`}})
+		}
+	}
+	if len(importDecl.Specs) > 0 {
+		file.Decls = append([]ast.Decl{importDecl}, newDecls...)
+	} else {
+		file.Decls = newDecls
+	}
+	pkgPath := pkg.PkgPath
+	if pkg.Name == "main" {
+		pkgPath = ""
+	} else {
+		pkgPath += "/"
+	}
+	pkgPath = "debug/" + pkgPath
+	_ = os.MkdirAll(pkgPath, 0766)
+	f, err := os.Create(pkgPath + pkg.Name + ".go")
+	if err != nil {
+		panic(err)
+	}
+	err = printer.Fprint(f, pkg.Fset, file)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func parseLocalConstants(file *ast.File, pkg *packages.Package) {
@@ -524,13 +693,16 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 
 // takes all of the Syntax from input and merges it and then puts a single *ast.File syntax into output
 func mergePackage(pkg *packages.Package) {
+	pkg.Syntax = []*ast.File{mergePackageToFile(pkg)}
+}
+
+func mergePackageToFile(pkg *packages.Package) *ast.File {
 	files := make(map[string]*ast.File, len(pkg.Syntax))
 	for i := 0; i < len(pkg.Syntax); i++ {
 		path := filepath.Base(pkg.GoFiles[i])
 		files[path] = pkg.Syntax[i]
 	}
-	newFiles := []*ast.File{ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates)}
-	pkg.Syntax = newFiles
+	return ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates)
 }
 
 var countStruct = 0
@@ -592,10 +764,13 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	data := dataType{}
 	data.Pkgs = []packageType{}
 	for _, pkg := range list {
+		for _, pkg := range list {
+			debugPkg(pkg)
+		}
 		if excludes[pkg.PkgPath] {
 			continue
 		}
-		addExclude(pkg)
+		excludes[pkg.PkgPath] = true
 		syntax := parsePkg(pkg)
 		if len(syntax.Files) > 0 {
 			data.Pkgs = append(data.Pkgs, syntax)
@@ -604,7 +779,7 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 			if excludes[val.PkgPath] {
 				continue
 			}
-			addExclude(pkg)
+			excludes[val.PkgPath] = true
 			dataImport := parsePkgList([]*packages.Package{val}, excludes)
 			if len(dataImport.Pkgs) > 0 {
 				data.Pkgs = append(data.Pkgs, dataImport.Pkgs...)
@@ -874,7 +1049,6 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 			embeds[i] = parseType(v, marked)
 		}
 		data["embeds"] = embeds
-		//fmt.Println(len(data["methods"].([]map[string]interface{})), len(methods))
 	case "Pointer":
 		s := node.(*types.Pointer)
 		data["elem"] = parseType(s.Elem(), marked)

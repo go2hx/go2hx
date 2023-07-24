@@ -9,6 +9,7 @@ test.go
 tests.md
 main
 bin
+debug
 export
 repl
 examples/*/

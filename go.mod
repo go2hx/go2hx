@@ -1,6 +1,6 @@
 module github.com/go2hx/go4hx //not a real repo, used to set the name to go4hx
 
-go 1.19
+go 1.22
 
 require golang.org/x/tools v0.1.12
 

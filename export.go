@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"compress/zlib"
+	"crypto/rand"
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
@@ -305,8 +306,19 @@ func parseLocalFile(file *ast.File, pkg *packages.Package) {
 	parseLocalConstants(file, pkg)
 }
 
+func randomIdentifier() *ast.Ident {
+	b := make([]byte, 16)
+	_, err := rand.Read(b)
+	if err != nil {
+		panic(err)
+	}
+	return ast.NewIdent(fmt.Sprintf("_%x", b))
+}
+
+var restrictedPkgs = map[string]bool{"os": true, "internal/poll": true, "syscall": true, "internal/syscall/unix": true, "internal/syscall": true, "internal/abi": true, "unsafe": true, "runtime": true, "reflect": true, "sync": true, "sync/atomic": true, "internal/reflectlite": true, "internal/bytealg": true, "math": true, "time": true}
+
 func debugPkg(pkg *packages.Package) {
-	if !debugBool {
+	if !debugBool || restrictedPkgs[pkg.PkgPath] {
 		return
 	}
 	s := "go/src/"
@@ -334,9 +346,11 @@ func debugPkg(pkg *packages.Package) {
 	for _, val := range pkg.Imports {
 		debugPkg(val)
 	}
+	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 	addedLog := false
 	mainBool := false
-	apply := func(cursor *astutil.Cursor) bool {
+	//astutil.App
+	applyAssign := func(cursor *astutil.Cursor) bool {
 		if cursor.Index() == -1 {
 			return true
 		}
@@ -354,22 +368,61 @@ func debugPkg(pkg *packages.Package) {
 						location := ast.BasicLit{Kind: token.STRING, Value: `"` + fset.Position(expr.Pos()).String() + `"`}
 						_ = location
 						addedLog = true
-						cursor.InsertAfter(&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("log.Println"), Args: []ast.Expr{&location, expr}}})
+						cursor.InsertAfter(&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("fmt.Println"), Args: []ast.Expr{&location, expr}}})
 					}
 				}
 			}
+		case *ast.ForStmt, *ast.RangeStmt:
+			return false
 		default:
-			_ = node
 		}
 		return true
 	}
-	requiredImports := map[string]bool{"log": true}
+	applyReturn := func(cursor *astutil.Cursor) bool {
+		if cursor.Index() == -1 {
+			return true
+		}
+		results := []ast.Expr{}
+		switch node := cursor.Node().(type) {
+		case *ast.ReturnStmt:
+			for _, expr := range node.Results {
+				names := []ast.Expr{}
+				switch expr := expr.(type) {
+				default:
+					//case *ast.CallExpr:
+					t := checker.TypeOf(expr)
+					switch t := t.(type) {
+					case *types.Tuple:
+						for i := 0; i < t.Len(); i++ {
+							names = append(names, randomIdentifier())
+						}
+					default:
+						names = append(names, randomIdentifier())
+					}
+					cursor.InsertBefore(&ast.AssignStmt{Tok: token.DEFINE, Lhs: names, Rhs: []ast.Expr{expr}})
+					location := ast.BasicLit{Kind: token.STRING, Value: `"` + fset.Position(expr.Pos()).String() + `"`}
+					cursor.InsertBefore(&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("log.Println"), Args: append([]ast.Expr{&location}, names...)}})
+					addedLog = true
+					results = append(results, names...)
+					//default:
+					//	results = append(results, expr)
+				}
+			}
+			cursor.Replace(&ast.ReturnStmt{Results: results, Return: node.Return})
+		default:
+		}
+		return true
+	}
+	// TODO: set back to log
+	requiredImports := map[string]bool{"fmt": true}
 	if pkg.Name == "main" {
 		requiredImports = map[string]bool{"os": true, "log": true, "runtime": true}
 	}
 	newDecls := []ast.Decl{}
 	importDecl := &ast.GenDecl{Tok: token.IMPORT}
 	file := mergePackageToFile(pkg)
+	file.Comments = nil
+	//file.Doc = nil
 	// Remove any comments that start with "//go:build"
 	for i := 0; i < len(file.Comments); i++ {
 		if strings.Index(file.Comments[i].List[0].Text, "//go:build") == 0 {
@@ -382,12 +435,29 @@ func debugPkg(pkg *packages.Package) {
 		case *ast.FuncDecl:
 			if pkg.Name == "main" && decl.Name.Name == "main" {
 				mainBool = true
-				s := "package main\n\nfunc main() {\n\t__f__, __err__ := os.OpenFile(\"debug_\" + runtime.Compiler + \".log\", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)\nif __err__ != nil {\nlog.Fatal(__err__)\n}\n__f__.Truncate(0)\ndefer __f__.Close()\nlog.SetFlags(0)\nlog.SetOutput(__f__)\n}"
+				s := `package main
+				func main() {
+					__f__ := __debug__()
+					defer __f__.Close()
+				}
+				func __debug__() {
+					__f__, __e__ := os.OpenFile("debug_" + runtime.Compiler + ".log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+					if __e__ != nil {
+						log.Fatal(__e__)
+					}
+					__f__.Truncate(0)
+					defer __f__.Close()
+					log.SetFlags(0)
+					log.SetOutput(__f__)
+				}
+				`
 				fset := token.NewFileSet()
 				logFileCode, err := parser.ParseFile(fset, "", s, 0)
 				if err != nil {
 					panic(err)
 				}
+				// add __debug__ function
+				newDecls = append(newDecls, logFileCode.Decls[1])
 				_ = logFileCode
 				// Get the list of statements
 				stmts := make([]ast.Stmt, 0)
@@ -413,22 +483,21 @@ func debugPkg(pkg *packages.Package) {
 						if requiredImports[impName] {
 							delete(requiredImports, impName)
 						}
-						switch impName {
-						case "time", "reflect", "sync", "sync/atomic", "unsafe", "os", "internal/reflectlite", "math":
-						default:
+						pathValue := spec.Path.Value
+						if !restrictedPkgs[impName] {
 							if stdgoList[impName] && debugPkgList[impName] {
-								spec.Path.Value = `"github.com/go2hx/go4hx/debug/` + impName + `"`
+								pathValue = `"github.com/go2hx/go4hx/debug/` + impName + `"`
 							}
 						}
 						duplicate := false
 						for _, spec2 := range importDecl.Specs {
-							if spec2.(*ast.ImportSpec).Path.Value == spec.Path.Value {
+							if spec2.(*ast.ImportSpec).Path.Value == pathValue {
 								duplicate = true
 								break
 							}
 						}
 						if !duplicate {
-							importDecl.Specs = append(importDecl.Specs, spec)
+							importDecl.Specs = append(importDecl.Specs, &ast.ImportSpec{Path: &ast.BasicLit{Kind: token.STRING, Value: pathValue}})
 						}
 					}
 				}
@@ -439,7 +508,8 @@ func debugPkg(pkg *packages.Package) {
 			newDecls = append(newDecls, decl)
 		}
 	}
-	file = astutil.Apply(file, apply, nil).(*ast.File)
+	file = astutil.Apply(file, applyAssign, nil).(*ast.File)
+	file = astutil.Apply(file, applyReturn, nil).(*ast.File)
 	if mainBool || addedLog {
 		for imp := range requiredImports {
 			importDecl.Specs = append(importDecl.Specs, &ast.ImportSpec{Path: &ast.BasicLit{Kind: token.STRING, Value: `"` + imp + `"`}})

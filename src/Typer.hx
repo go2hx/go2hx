@@ -120,8 +120,9 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 		info.printGoCode = instance.printGoCode;
 		info.global.path = pkg.path;
 		info.global.externBool = instance.externBool;
+		info.global.debugBool = instance.debugBool;
 		info.global.varTraceBool = instance.varTraceBool;
-		info.global.funcTraceBool = instance.funcTraceBool;
+		info.global.funcTraceBool = instance.stackBool;
 		info.global.stackBool = instance.stackBool;
 		info.global.noCommentsBool = instance.noCommentsBool;
 		info.global.module = module;
@@ -256,6 +257,14 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			for (name in pkg.order) {
 				for (value in values) {
 					if (value.name == name) {
+						if (value.pos != null) {
+							for (value2 in values) {
+								if (value2.pos != null && value2.pos.min == value.pos.min) {
+									values.remove(value2);
+									valuesSorted.push(value2);
+								}
+							}
+						}
 						values.remove(value);
 						valuesSorted.push(value);
 						break;
@@ -3168,6 +3177,7 @@ private function isTuple(type:GoType):Bool {
 private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	var args:Array<Expr> = [];
 	var tupleArg:Expr = null;
+	var debugBool = false;
 	function returnExpr(e:Expr):Expr {
 		switch e.expr {
 			case ECall({expr: expr, pos: _}, params):
@@ -3239,7 +3249,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			}
 		}
 		// ellipsis
-		if (expr.ellipsis != 0) {
+		if (expr.ellipsis == -1) {
+			debugBool = true;
+		}else if (expr.ellipsis != 0) {
 			var last = args.pop();
 			var t = typeof(exprArgs[exprArgs.length - 1], info, false);
 			last = typeRest(last);
@@ -3385,6 +3397,21 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			expr.fun.name = expr.fun.name;
 			if (!info.renameIdents.exists(expr.fun.name)) {
 				switch expr.fun.name {
+					case "__debug__":
+						if (info.global.debugBool) {
+							return (macro {
+								final values = stdgo.os.Os.openFile("debug_" + stdgo.runtime.Runtime.compiler + ".log", 0, 0);
+								var __f__ = values._0;
+								final __e__ = values._1;
+								if (__e__ != null) {
+									stdgo.log.Log.fatal(Go.toInterface(__e__));
+								}
+								__f__.truncate(0);
+								stdgo.log.Log.setFlags(0);
+								stdgo.log.Log.setOutput(Go.asInterface(__f__));
+								__f__;
+							}).expr;
+						}
 					case "panic":
 						genArgs(false);
 						return returnExpr(macro throw ${toAnyInterface(args[0], typeof(expr.args[0], info, false), info)}).expr;
@@ -3526,7 +3553,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	final type = typeof(expr.fun, info, false);
 	if (args.length == 0)
 		genArgs(true, 0);
-	e = macro $e($a{args});
+	if (debugBool) {
+		e = macro @:define("debug") trace(stdgo.fmt.Fmt.sprintln($a{args}));
+	}else{
+		e = macro $e($a{args});
+	}
 	return returnExpr(e).expr;
 }
 
@@ -5812,6 +5843,12 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				}
 			])
 		};
+	}else{
+		//non macro function
+		if (info.global.stackBool)
+			if (block != null) {
+				block = macro stdgo.internal.Macro.stack($block);
+			}
 	}
 	/*if (name == "main" && info.data.isMain) {
 		switch block.expr {
@@ -5829,18 +5866,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			default:
 		}
 	}*/
-	if (info.global.funcTraceBool)
-		if (block != null) {
-			block = macro {
-				trace("start func: " + ${makeExpr(name)});
-				$block;
-				trace("end func: " + ${makeExpr(name)});
-			}
-		}
-	if (info.global.stackBool)
-		if (block != null) {
-			block = macro stdgo.internal.Macro.stack($block);
-		}
 	if (nonGenericParams.length > 0) {
 		params = params.concat(nonGenericParams);
 	}
@@ -7111,18 +7136,19 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 		func = data.expr;
 		if (data.ok)
 			value.names = [{name: "value", type: null}, {name: "ok", type: null}];
-		values.push({
+		info.blankCounter++;
+		values.unshift({
 			name: tmp,
-			pos: null,
+			pos: {min: info.blankCounter, max: 0, file: ""},
 			pack: [],
 			fields: [],
 			kind: TDField(FVar(null, func))
 		});
 		for (i in 0...value.names.length) {
-			var fieldName = "_" + info.blankCounter++;
+			var fieldName = "_" + i;
 			values.push({
 				name: nameIdent(value.names[i].name, false, true, info),
-				pos: null,
+				pos: {min: info.blankCounter, max: 0, file: ""},
 				pack: [],
 				fields: [],
 				isExtern: isTitle(value.names[i].name),
@@ -7370,6 +7396,7 @@ function normalizePath(path:String):String {
 }
 
 class Global {
+	public var debugBool:Bool = false;
 	public var varTraceBool:Bool = false;
 	public var funcTraceBool:Bool = false;
 	public var stackBool:Bool = false;
@@ -7392,6 +7419,7 @@ class Global {
 		g.module = module;
 		g.filePath = filePath;
 		g.varTraceBool = varTraceBool;
+		g.debugBool = debugBool;
 		g.funcTraceBool = funcTraceBool;
 		g.stackBool = stackBool;
 		g.root = root;

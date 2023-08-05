@@ -42,12 +42,19 @@ function main() {
 	run(args);
 }
 
-final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps",];
+final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps", "-debug","--debug"];
 
 function run(args:Array<String>) {
+	var processCount = 1;
+	var index = 0;
+	if ((index = args.indexOf("-nogo")) != -1 || (index = args.indexOf("--nogo")) != -1) {
+		args.remove(args[index]);
+		trace("args after: " + args);
+		processCount = 0;
+	}
 	final instance = compileArgs(args);
 	Sys.println("create compiler instance");
-	setup(0, 1, () -> {
+	setup(0, processCount, () -> {
 		if (onComplete == null)
 			onComplete = (modules, data) -> {
 				close();
@@ -71,13 +78,13 @@ function compileArgs(args:Array<String>):InstanceData {
 	instance.root = "";
 	var help = false;
 	final argHandler = Args.generate([
+		["-debug", "--debug"] => () -> instance.debugBool = true,
 		["-help", "--help", "-h", "--h"] => () -> help = true,
 		@doc("don't run the build commands")
 		["-norun", "--norun"] => () -> instance.noRun = true, @doc("go test")
 		["-nocomments", "--nocomments"] => () -> instance.noComments = true, @doc("no comments")
 		["-test", "--test"] => () -> instance.test = true,
 		["-vartrace", "--vartrace", "-varTrace", "--varTrace"] => () -> instance.varTraceBool = true,
-		["-functrace", "--functrace", "-funcTrace", "--funcTrace"] => () -> instance.funcTraceBool = true,
 		["-stack", "--stack"] => () -> instance.stackBool = true,
 		@doc("set output path or file location")
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> instance.outputPath = out,
@@ -699,9 +706,9 @@ function write(args:Array<String>, instance:InstanceData):Bool {
 final instanceCache = new Vector<InstanceData>(20);
 
 class InstanceData {
+	public var debugBool:Bool = false;
 	public var noDeps:Bool = false;
 	public var varTraceBool:Bool = false;
-	public var funcTraceBool:Bool = false;
 	public var stackBool:Bool = false;
 	public var args:Array<String> = [];
 	public var data:Dynamic = null;

@@ -20,6 +20,15 @@ final list = [
 			return {_0: null, _1: stdgo.errors.Errors.new_(e.details())};
 		}
 	},
+	"os:openFile" => macro {
+		if (!sys.FileSystem.exists(_name))
+			return {_0: null, _1: stdgo.errors.Errors.new_("openFile " + _name + ": no such file or directory")};
+		try {
+			return {_0: {_file: null, _input: sys.io.File.read(_name), _output: sys.io.File.write(_name)}, _1: null};
+		} catch (e) {
+			return {_0: null, _1: stdgo.errors.Errors.new_(e.details())};
+		}
+	},
 	"os:_runtime_args" => macro {
 		@:define("js") return new Slice<GoString>(0, 0).__setString__();
 		@:define("sys") {
@@ -274,6 +283,8 @@ final list = [
 	// stdgo/strings_test
 	"strings_test:_makeBenchInputHard" => macro return "",
 	// stdgo/runtime
+	// :)
+	"runtime:compiler" => macro "go2hx",
 	"runtime:gomaxprocs" => macro return 1,
 	// stdgo/reflect
 	"reflect:typeOf" => macro {
@@ -1149,6 +1160,12 @@ final skipTargets = [
 ];
 
 final structs = [
+	"syscall:IPv6Mreq" => macro {
+		@:local
+		var Multiaddr:GoUInt8;
+		@:local
+		var Interface:GoUInt32;
+	},
 	"os:File" => macro {
 		@:local
 		var _input:haxe.io.Input = null;

@@ -5,6 +5,10 @@ function main() {
     if (FileSystem.exists("go")) {
         Sys.command("git clone --depth=1 https://go.googlesource.com/go");
     }
+    if (FileSystem.exists("go/test")) {
+        // delete folder recursively
+        Sys.command("rm -rf go/test");
+    }
     Sys.setCwd("go/src");
     final pkg = "cmd/go/internal/load/pkg.go";
     var content = File.getContent(pkg);

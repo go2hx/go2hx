@@ -71,8 +71,9 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	@:to
 	public static function toBytes(slice:Slice<GoByte>):haxe.io.Bytes {
-		if (slice.__bytes__ != null)
+		if (slice != null && slice.__bytes__ != null) {
 			return slice.__bytes__;
+		}
 		final bytes = haxe.io.Bytes.alloc(slice.length.toBasic());
 		for (i in 0...bytes.length)
 			bytes.set(i, slice.__vector__.get(slice.__offset__ + i) ?? 0);
@@ -189,7 +190,7 @@ private class SliceKeyValueIterator<T> {
 	}
 	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32 on stdgo/Math TestFloat32Sqrt
 	public function next():{key:GoInt, value:T} {
-		return {key: (pos : GoInt), value: slice.__bytes__ != null ? untyped cast slice.__bytes__.get(slice.__offset__ + pos++) : slice.__vector__.get(slice.__offset__ + pos++)};
+		return {key: (pos : GoInt), value: (slice != null && slice.__bytes__ != null) ? untyped cast slice.__bytes__.get(slice.__offset__ + pos++) : slice.__vector__.get(slice.__offset__ + pos++)};
 	}
 }
 
@@ -206,7 +207,7 @@ private class SliceIterator<T> {
 	}
 	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32
 	public function next():T {
-		return slice.__bytes__ != null ? untyped cast slice.__bytes__.get(slice.__offset__ + pos++) : slice.__vector__.get(slice.__offset__ + pos++);
+		return (slice != null && slice.__bytes__ != null) ? untyped cast slice.__bytes__.get(slice.__offset__ + pos++) : slice.__vector__.get(slice.__offset__ + pos++);
 	}
 }
 
@@ -329,7 +330,8 @@ class SliceData<T> {
 
 	public inline function get(index:Int):T {
 		if (bytes != null)
-			return untyped cast haxe.io.Bytes.fastGet(bytes.getData(), index + offset);
+			return untyped cast bytes.get(index + offset);
+			//return untyped cast haxe.io.Bytes.fastGet(bytes.getData(), index + offset);
 		#if !target.static
 		if (isNumber64) {
 			return vector.get(index + offset) ?? untyped haxe.Int64.make(0, 0);

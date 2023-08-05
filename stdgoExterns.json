@@ -1,4 +1,5 @@
 [
+	"internal/poll",
 	"syscall/js",
 	"syscall",
 	"os",

@@ -2847,6 +2847,7 @@ private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the 
 	if (expr == null)
 		return null;
 	var type = switch expr.id {
+		case "UnaryExpr": unaryType(expr, info);
 		case "MapType": mapTypeExpr(expr, info);
 		case "ChanType": chanTypeExpr(expr, info);
 		case "InterfaceType": interfaceTypeExpr(expr, info);
@@ -2904,6 +2905,10 @@ private function indexType(expr:Ast.IndexExpr, info:Info):ComplexType {
 		default:
 	}
 	return ct;
+}
+
+private function unaryType(expr:Ast.UnaryExpr, info:Info):ComplexType {
+	return typeExprType(expr.x, info);
 }
 
 private function mapTypeExpr(expr:Ast.MapType, info:Info):ComplexType {
@@ -3468,9 +3473,13 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							$e.remove($key)).expr;
 					case "print":
 						genArgs(true, 0);
+						if (args.length == 0)
+							return returnExpr(macro trace("")).expr;
 						return returnExpr(macro trace($a{args})).expr;
 					case "println":
 						genArgs(true, 0);
+						if (args.length == 0)
+							return returnExpr(macro trace("")).expr;
 						return returnExpr(macro trace($a{args})).expr;
 					case "complex":
 						genArgs(false);
@@ -5544,12 +5553,21 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			// non generics
 			if (decl.type.typeParams != null) {
 				for (field in decl.type.typeParams.list) {
-					if (field.type.id != "Ident")
-						continue; // multi type, generic type
+					//if (field.type.id != "Ident")
+					//	continue; // multi type, generic type
 					final t = typeExprType(field.type, info);
 					for (name in field.names) {
 						switch identType(name, info) {
 							case TPath(p):
+								var exists = false;
+								for (param in params) {
+									if (param.name == p.name) {
+										exists = true;
+										break;
+									}
+								}
+								if (exists)
+									continue;
 								nonGenericParams.push({
 									name: p.name,
 								});
@@ -6563,7 +6581,7 @@ function getParams(params:Ast.FieldList, info:Info, allowNonGeneric:Bool = false
 	if (params == null)
 		return list;
 	for (field in params.list) {
-		if (!allowNonGeneric && field.type.id == "Ident" || field.type.id == "SelectorExpr")
+		if (!allowNonGeneric && (field.type.id == "Ident" || field.type.id == "SelectorExpr"))
 			continue; // singular type as such not generic
 		for (name in field.names) {
 			// final ct = typeExprType(field.type, info);

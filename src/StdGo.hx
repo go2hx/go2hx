@@ -50,8 +50,10 @@ var instance:Main.InstanceData = null;
 var compiled:Bool = false;
 var args:Array<String> = [];
 var hxml = "";
-var varTraceBool = false;
-var funcTraceBool = false;
+var varTraceBool = Compiler.getDefine("vartrace") != null;
+var stackBool = Compiler.getDefine("stack") != null;
+var releaseBool = Compiler.getDefine("release") != null;
+var debugBool = Compiler.getDefine("cdebug") != null;
 
 function update() {
 	#if !js
@@ -62,13 +64,15 @@ function update() {
 		args = [lib, '--nocomments', '--out', '.', '--norun'];
 		if (varTraceBool)
 			args.push("--vartrace");
-		if (funcTraceBool)
-			args.push("--funcTrace");
-		if (noMain.indexOf(lib) == -1) {
+		if (stackBool)
+			args.push("--stack");
+		if (noMain.indexOf(lib) == -1 && !releaseBool) {
 			args.push('--hxml');
 			args.push(hxml);
 			args.push('--test');
 		}
+		if (debugBool)
+			args.push("--debug");
 		args.push(path);
 		instance = Main.compileArgs(args);
 		compiled = Main.compile(instance);
@@ -89,6 +93,8 @@ final noMain = [
 	"testing/internal/testdeps",
 	"runtime",
 	"runtime/debug",
+	"internal/poll",
+	"internal/syscall/unix",
 	"internal/oserror",
 	"encoding",
 	"internal/testenv",
@@ -97,4 +103,6 @@ final noMain = [
 	"internal/cpu",
 	"internal/types/errors",
 	"internal/godebug",
+	"syscall",
+	"syscall/js",
 ];

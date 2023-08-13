@@ -904,7 +904,10 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprD
 	if (stmt.list == null) {
 		if (isFunc && info.returnTypes.length > 0) {
 			final s = makeString("not implemented: " + info.funcName);
-			return (macro throw $s).expr;
+			return (macro {
+				trace("funclit");
+				throw $s;
+			}).expr;
 		}
 		return (macro {}).expr;
 	}
@@ -2677,6 +2680,9 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							return true;
 						switch ct {
 							case TPath(p):
+								if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
+									return true;
+								}
 								if (p.params != null && p.params.length > 0) // p.params = p.params.map(_ -> TPType(TPath({name: "Unknown", pack: []})));
 									return true;
 							case TFunction(args, ret):
@@ -2934,7 +2940,7 @@ private function interfaceTypeExpr(expr:Ast.InterfaceType, info:Info):ComplexTyp
 
 private function structTypeExpr(expr:Ast.StructType, info:Info):ComplexType {
 	if (expr.fields == null || expr.fields.list == null) // || expr.fields.list.length == 0)
-		return TPath({name: "InvalidType", pack: []});
+		return invalidComplexType();
 	var fields = typeFieldListFields(expr.fields, info, [], false);
 	return TAnonymous(fields);
 }
@@ -3397,6 +3403,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			expr.fun.name = expr.fun.name;
 			if (!info.renameIdents.exists(expr.fun.name)) {
 				switch expr.fun.name {
+					case "log.Println":
+						genArgs(false);
+						args = args.map(arg -> macro Go.toInterface($arg));
+						return (macro @:define("cdebug") stdgo.log.Log.println($a{args})).expr;
 					case "__debug__":
 						if (info.global.debugBool) {
 							return (macro {
@@ -3521,6 +3531,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						var p:TypePath = switch type {
 							case named(path, _, _):
 								namedTypePath(path, info);
+							case typeParam(_, params):
+								type = params[0];
+								null;
 							default:
 								null;
 						}
@@ -4155,7 +4168,8 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 
 private function toComplexType(e:GoType, info:Info):ComplexType {
 	if (e == null)
-		return TPath({pack: [], name: "InvalidType"});
+		return null;
+		//return invalidComplexType();
 	return switch e {
 		case refType(_.get() => elem):
 			final ct = toComplexType(elem, info);
@@ -5434,7 +5448,9 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	final patchName = info.global.module.path + ":" + name;
 	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
-		macro throw ${makeString(info.global.path + "." + name + " is not yet implemented")};
+		
+		final recvName = (decl.recv == null || decl.recv.list == null) ? "" : getRecvName(decl.recv.list[0].type, info);
+		macro throw ${makeString(recvName + ":" +info.global.path + "." + name + " is not yet implemented")};
 	} else {
 		final block = toExpr(typeBlockStmt(decl.body, info, true));
 		final cond = Patch.skipTargets[patchName];
@@ -5733,10 +5749,11 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				return t;
 			switch t {
 				case TFunction(args, ret):
+					final newArgs = [];
 					for (i in 0...args.length) {
-						args[i] = setGenericType(args[i]);
+						newArgs[i] = setGenericType(args[i]);
 					}
-					TFunction(args, setGenericType(ret));
+					TFunction(newArgs, setGenericType(ret));
 				case TPath(p):
 					var params:Array<TypeParam> = [];
 					if (p.params != null) {
@@ -5757,7 +5774,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 					}
 					if (p.pack.length == 0 && identifierNames.indexOf(p.name) != -1) {
 						return TPath({
-							name: "$" + p.name,
+							name: '$' + p.name,
 							sub: p.sub,
 							pack: [],
 							params: params,
@@ -5800,7 +5817,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 					toExpr(EFunction(kind, {
 						ret: setGenericType(f.ret),
 						args: [
-							for (arg in f.args)
+							for (arg in args)
 								{
 									value: arg.value,
 									opt: arg.opt,
@@ -6458,7 +6475,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	if (getUnderlying(t) == invalidType) {
 		t = refToPointerWrapper(t);
 	}
-	var uct = t == invalidType ? TPath({name: "InvalidType", pack: []}) : toComplexType(t, info);
+	var uct = t == invalidType ? invalidComplexType() : toComplexType(t, info);
 	final meta:Metadata = [{name: ":named", pos: null}];
 	final params = getParams(spec.params, info, true);
 	return {
@@ -7084,7 +7101,8 @@ private function anyInterfaceType()
 	return TPath({name: "AnyInterface", pack: []});
 
 private function invalidComplexType()
-	return TPath({name: "InvalidType", pack: []});
+	return null;
+	//return TPath({name: "InvalidType", pack: []});
 
 private function errorType()
 	return TPath({name: "Error", pack: []});

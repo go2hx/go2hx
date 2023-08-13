@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"compress/zlib"
-	"crypto/rand"
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
@@ -14,6 +13,7 @@ import (
 	"go/printer"
 	"go/token"
 	"go/types"
+	"math/rand"
 	"net"
 	"path"
 	"path/filepath"
@@ -192,6 +192,8 @@ var cfg = &packages.Config{
 	BuildFlags: []string{"-tags", "netgo,purego,math_big_pure_go"}, // build tags
 }
 
+var r = rand.New(rand.NewSource(99))
+
 func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
 	cfg.Env = append(os.Environ(), "CGO_ENABLED=0")
@@ -294,7 +296,7 @@ func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
 		}*/
 		parseLocalPackage(val, excludes)
 	}
-	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
+	checker = types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
 	for _, file := range pkg.Syntax {
 		parseLocalFile(file, pkg)
 	}
@@ -307,18 +309,18 @@ func parseLocalFile(file *ast.File, pkg *packages.Package) {
 }
 
 func randomIdentifier() *ast.Ident {
-	b := make([]byte, 16)
-	_, err := rand.Read(b)
+	b := make([]byte, 8)
+	_, err := r.Read(b)
 	if err != nil {
 		panic(err)
 	}
 	return ast.NewIdent(fmt.Sprintf("_%x", b))
 }
 
-var restrictedPkgs = map[string]bool{"os": true, "internal/poll": true, "syscall": true, "internal/syscall/unix": true, "internal/syscall": true, "internal/abi": true, "unsafe": true, "runtime": true, "reflect": true, "sync": true, "sync/atomic": true, "internal/reflectlite": true, "internal/bytealg": true, "math": true, "time": true}
+var restrictedDebugPkgs = map[string]bool{"fmt": true, "math/bits": true, "os": true, "internal/poll": true, "syscall": true, "internal/syscall/unix": true, "internal/syscall": true, "internal/abi": true, "unsafe": true, "runtime": true, "reflect": true, "sync": true, "sync/atomic": true, "internal/reflectlite": true, "internal/bytealg": true, "math": true, "time": true}
 
 func debugPkg(pkg *packages.Package) {
-	if !debugBool || restrictedPkgs[pkg.PkgPath] {
+	if !debugBool || restrictedDebugPkgs[pkg.PkgPath] {
 		return
 	}
 	s := "go/src/"
@@ -346,7 +348,7 @@ func debugPkg(pkg *packages.Package) {
 	for _, val := range pkg.Imports {
 		debugPkg(val)
 	}
-	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
+	checker = types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
 	addedLog := false
 	mainBool := false
 	//astutil.App
@@ -361,14 +363,15 @@ func debugPkg(pkg *packages.Package) {
 					for _, expr := range node.Lhs {
 						switch expr := expr.(type) {
 						case *ast.Ident:
-							if expr.Name == "_" {
+							if expr.Name == "_" || expr.Name == "nil" {
 								continue
 							}
 						}
 						location := ast.BasicLit{Kind: token.STRING, Value: `"` + fset.Position(expr.Pos()).String() + `"`}
 						_ = location
 						addedLog = true
-						cursor.InsertAfter(&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("fmt.Println"), Args: []ast.Expr{&location, expr}}})
+						callExpr := &ast.CallExpr{Fun: ast.NewIdent("log.Println"), Args: []ast.Expr{&location, expr}}
+						cursor.InsertAfter(&ast.ExprStmt{X: callExpr})
 					}
 				}
 			}
@@ -382,45 +385,58 @@ func debugPkg(pkg *packages.Package) {
 		if cursor.Index() == -1 {
 			return true
 		}
-		results := []ast.Expr{}
+
 		switch node := cursor.Node().(type) {
 		case *ast.ReturnStmt:
+			results := []ast.Expr{}
 			for _, expr := range node.Results {
 				names := []ast.Expr{}
-				switch expr := expr.(type) {
+				exitBool := false
+				switch expr.(type) {
+				case *ast.CallExpr:
 				default:
-					//case *ast.CallExpr:
-					t := checker.TypeOf(expr)
-					switch t := t.(type) {
-					case *types.Tuple:
-						for i := 0; i < t.Len(); i++ {
-							names = append(names, randomIdentifier())
-						}
-					default:
-						names = append(names, randomIdentifier())
-					}
-					cursor.InsertBefore(&ast.AssignStmt{Tok: token.DEFINE, Lhs: names, Rhs: []ast.Expr{expr}})
-					location := ast.BasicLit{Kind: token.STRING, Value: `"` + fset.Position(expr.Pos()).String() + `"`}
-					cursor.InsertBefore(&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("log.Println"), Args: append([]ast.Expr{&location}, names...)}})
-					addedLog = true
-					results = append(results, names...)
-					//default:
-					//	results = append(results, expr)
+					exitBool = true
 				}
+				if exitBool {
+					results = append(results, expr)
+					continue
+				}
+				t := checker.TypeOf(expr)
+				switch t := t.(type) {
+				case *types.Tuple:
+					for i := 0; i < t.Len(); i++ {
+						id := randomIdentifier()
+						names = append(names, id)
+						pkg.TypesInfo.Defs[id] = types.NewVar(0, pkg.Types, id.Name, t)
+					}
+				default:
+					id := randomIdentifier()
+					names = append(names, id)
+					pkg.TypesInfo.Defs[id] = types.NewVar(0, pkg.Types, id.Name, t)
+				}
+				expr := &ast.AssignStmt{Tok: token.DEFINE, Lhs: names, Rhs: []ast.Expr{expr}}
+
+				cursor.InsertBefore(expr)
+				location := ast.BasicLit{Kind: token.STRING, Value: `"` + fset.Position(expr.Pos()).String() + `"`}
+				cursor.InsertBefore(&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("log.Println"), Args: append([]ast.Expr{&location}, names...)}})
+				addedLog = true
+				results = append(results, names...)
 			}
-			cursor.Replace(&ast.ReturnStmt{Results: results, Return: node.Return})
+			if len(results) > 0 {
+				cursor.Replace(&ast.ReturnStmt{Results: results, Return: node.Return})
+			}
 		default:
 		}
 		return true
 	}
 	// TODO: set back to log
-	requiredImports := map[string]bool{"fmt": true}
+	requiredImports := map[string]bool{"log": true}
 	if pkg.Name == "main" {
 		requiredImports = map[string]bool{"os": true, "log": true, "runtime": true}
 	}
 	newDecls := []ast.Decl{}
 	importDecl := &ast.GenDecl{Tok: token.IMPORT}
-	file := mergePackageToFile(pkg)
+	file := pkg.Syntax[0]
 	file.Comments = nil
 	//file.Doc = nil
 	// Remove any comments that start with "//go:build"
@@ -436,19 +452,20 @@ func debugPkg(pkg *packages.Package) {
 			if pkg.Name == "main" && decl.Name.Name == "main" {
 				mainBool = true
 				s := `package main
+				func __debug__() *os.File {
+					__f__, _ := os.
+						OpenFile("debug_"+
+							runtime.Compiler+
+							".log", os.O_APPEND|
+							os.O_CREATE|os.
+							O_WRONLY, 0644)
+					log.SetOutput(__f__)
+					log.SetFlags(0)
+					return __f__
+				}
 				func main() {
 					__f__ := __debug__()
 					defer __f__.Close()
-				}
-				func __debug__() {
-					__f__, __e__ := os.OpenFile("debug_" + runtime.Compiler + ".log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-					if __e__ != nil {
-						log.Fatal(__e__)
-					}
-					__f__.Truncate(0)
-					defer __f__.Close()
-					log.SetFlags(0)
-					log.SetOutput(__f__)
 				}
 				`
 				fset := token.NewFileSet()
@@ -457,7 +474,7 @@ func debugPkg(pkg *packages.Package) {
 					panic(err)
 				}
 				// add __debug__ function
-				newDecls = append(newDecls, logFileCode.Decls[1])
+				newDecls = append(newDecls, logFileCode.Decls[0])
 				_ = logFileCode
 				// Get the list of statements
 				stmts := make([]ast.Stmt, 0)
@@ -484,7 +501,7 @@ func debugPkg(pkg *packages.Package) {
 							delete(requiredImports, impName)
 						}
 						pathValue := spec.Path.Value
-						if !restrictedPkgs[impName] {
+						if !restrictedDebugPkgs[impName] {
 							if stdgoList[impName] && debugPkgList[impName] {
 								pathValue = `"github.com/go2hx/go4hx/debug/` + impName + `"`
 							}
@@ -515,11 +532,13 @@ func debugPkg(pkg *packages.Package) {
 			importDecl.Specs = append(importDecl.Specs, &ast.ImportSpec{Path: &ast.BasicLit{Kind: token.STRING, Value: `"` + imp + `"`}})
 		}
 	}
+	oldDecls := file.Decls
 	if len(importDecl.Specs) > 0 {
 		file.Decls = append([]ast.Decl{importDecl}, newDecls...)
 	} else {
 		file.Decls = newDecls
 	}
+
 	pkgPath := pkg.PkgPath
 	if pkg.Name == "main" {
 		pkgPath = ""
@@ -536,6 +555,7 @@ func debugPkg(pkg *packages.Package) {
 	if err != nil {
 		panic(err)
 	}
+	file.Decls = oldDecls
 }
 
 func parseLocalConstants(file *ast.File, pkg *packages.Package) {
@@ -592,6 +612,14 @@ func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 					e = &ast.ParenExpr{X: m}
 				case info&types.IsString != 0:
 					s := value.ExactString()
+					if s == `"gc"` {
+						switch node := node.(type) {
+						case *ast.SelectorExpr:
+							if node.Sel.Name == "Compiler" {
+								return false
+							}
+						}
+					}
 					e = &ast.BasicLit{Kind: token.STRING, Value: s}
 				default:
 					panic("unknown constant type: " + value.ExactString())
@@ -768,6 +796,10 @@ func mergePackage(pkg *packages.Package) {
 
 func mergePackageToFile(pkg *packages.Package) *ast.File {
 	files := make(map[string]*ast.File, len(pkg.Syntax))
+	if len(pkg.Syntax) != len(pkg.GoFiles) {
+		// already merged
+		return pkg.Syntax[0]
+	}
 	for i := 0; i < len(pkg.Syntax); i++ {
 		path := filepath.Base(pkg.GoFiles[i])
 		files[path] = pkg.Syntax[i]
@@ -829,14 +861,12 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	for _, pkg := range list {
 		typeMap = &typeutil.Map{}
 		parseLocalPackage(pkg, excludes)
+		debugPkg(pkg)
 	}
 	// 2nd pass
 	data := dataType{}
 	data.Pkgs = []packageType{}
 	for _, pkg := range list {
-		for _, pkg := range list {
-			debugPkg(pkg)
-		}
 		if excludes[pkg.PkgPath] {
 			continue
 		}
@@ -870,7 +900,7 @@ func parsePkg(pkg *packages.Package) packageType {
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath
 	typeMap = &typeutil.Map{}
-	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
+	checker = types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
 	name := pkg.Name
 	if name == "main" {
 		if pkg.PkgPath == "command-line-arguments" {

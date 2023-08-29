@@ -1361,7 +1361,23 @@ func parseData(node interface{}) map[string]interface{} {
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})
 	case *ast.TypeAssertExpr:
 	case *ast.UnaryExpr:
-	case *ast.StarExpr, *ast.BinaryExpr, *ast.CallExpr, *ast.SliceExpr, *ast.ParenExpr:
+	case *ast.CallExpr:
+		/*obj := typeutil.Callee(checker.Info, node)
+		if obj != nil {
+			switch sig := obj.Type().(type) {
+			case *types.Signature:
+				// sig.TypeParams().list()
+				sigTypeParams := make([]int, sig.TypeParams().Len())
+				pos := node.Pos()
+				tparams, params2 := checker.RenameTParams(pos, sigTypeParams, types.NewTuple(params...))
+				fmt.Println(tparams, params2)
+				//targs = check.infer(atPos(pos), tparams, targs, params2.(*Tuple), args)
+			default:
+			}
+		}*/
+
+		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
+	case *ast.StarExpr, *ast.BinaryExpr, *ast.SliceExpr, *ast.ParenExpr:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})
 	case *ast.KeyValueExpr:
 	case *ast.FuncDecl:
@@ -1409,6 +1425,7 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 		data["type"] = parseType(instance.Type, map[string]bool{})
 		obj := checker.ObjectOf(value)
 		if obj != nil {
+			// find what the generic types will be
 			data["objType"] = parseType(obj.Type(), map[string]bool{})
 		}
 	} else {
@@ -1594,4 +1611,38 @@ func printExpr(node any) {
 	var buf bytes.Buffer
 	printer.Fprint(&buf, fset, node)
 	fmt.Println(buf.String())
+}
+
+func typeList(check *types.Checker, list []ast.Expr) []types.Type {
+	res := make([]types.Type, len(list)) // res != nil even if len(list) == 0
+	for i, x := range list {
+		t := check.varType(x)
+		if t == types.Typ[types.Invalid] {
+			res = nil
+		}
+		if res != nil {
+			res[i] = t
+		}
+	}
+	return res
+}
+
+func UnpackIndexExpr(n ast.Node) *IndexExpr {
+	switch e := n.(type) {
+	case *ast.IndexExpr:
+		return &IndexExpr{e, &ast.IndexListExpr{
+			X:       e.X,
+			Lbrack:  e.Lbrack,
+			Indices: []ast.Expr{e.Index},
+			Rbrack:  e.Rbrack,
+		}}
+	case *ast.IndexListExpr:
+		return &IndexExpr{e, e}
+	}
+	return nil
+}
+
+type IndexExpr struct {
+	Orig ast.Expr // the wrapped expr, which may be distinct from the IndexListExpr below.
+	*ast.IndexListExpr
 }

@@ -10,10 +10,7 @@ function main() {
         Sys.command("rm -rf go/test");
     }
     Sys.setCwd("go/src");
-    //allowInternal();
-    allowTypeInfer();
-    //allowVarType();
-    //allowGenericExprList();
+    allowInternal();
     Sys.command("./make.bash");
     Sys.putEnv("GOROOT", Sys.getCwd());
     Sys.command("go version");
@@ -41,53 +38,5 @@ function allowInternal() {
     mod("cmd/go/internal/load/pkg.go",tag,line,
     (index:Int,content:String) -> {
         return content.substring(0, index + line.length) + '\n$tag\nreturn nil\n' + content.substring(index + line.length);
-    });
-}
-
-function allowTypeInfer() {
-    final tag = "/* go2hx allowTypeInfer modification*/";
-    final line = "func (check *Checker) infer";
-    mod("go/types/infer.go",tag,line,
-    (index:Int,content:String) -> {
-        return content.substring(0, index) + tag + 'func (check *Checker) Infer(posn positioner, tparams []*TypeParam, targs []Type, params *Tuple, args []*operand) (inferred []Type) {
-            return check.infer(posn, tparams, targs, params, args)
-        }\n
-        ' + content.substring(index);
-    });
-}
-
-function allowVarType() {
-    final tag = "/* go2hx allowVarType modification*/";
-    final line = "func (check *Checker) varType";
-    mod("go/types/typexpr.go",tag,line,
-    (index:Int,content:String) -> {
-        return content.substring(0, index) + tag + 'func (check *Checker) VarType(e ast.Expr) Type {
-            return check.varType(e)
-        }\n
-        ' + content.substring(index);
-    });
-}
-
-function allowGenericExprList() {
-    final tag = "/* go2hx allowGenericExprList modification*/";
-    final line = "func (check *Checker) genericExprList";
-    mod("go/types/typexpr.go",tag,line,
-    (index:Int,content:String) -> {
-        return content.substring(0, index) + tag + 'func (check *Checker) GenericExprList(elist []ast.Expr) (resList []*operand, targsList [][]Type, xlistList [][]ast.Expr) {
-            return check.genericExprList(elist)
-        }\n
-        ' + content.substring(index);
-    });
-}
-
-function allowTParams() {
-    final tag = "/* go2hx allowTParams modification*/";
-    final line = "func (check *Checker) renameTParams";
-    mod("go/types/infer.go",tag,line,
-    (index:Int,content:String) -> {
-        return content.substring(0, index) + tag + 'func (check *Checker) RenameTParams(pos token.Pos, tparams []*TypeParam, typ Type) ([]*TypeParam, Type) {
-            return check.renameTParams(pos,tparams,typ)
-        }\n
-        ' + content.substring(index);
     });
 }

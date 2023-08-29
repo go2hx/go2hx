@@ -1363,30 +1363,25 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.UnaryExpr:
 	case *ast.CallExpr:
 		//checker.Instances
+		var ident *ast.Ident
 		switch fun := node.Fun.(type) {
 		case *ast.Ident:
-			inst := checker.Instances[fun]
-			if inst.TypeArgs != nil {
-				for i := 0; i < inst.TypeArgs.Len(); i++ {
-					fmt.Println("type arg:", inst.TypeArgs.At(i))
-				}
-			}
+			ident = fun
+		case *ast.SelectorExpr:
+			ident = fun.Sel
 		default:
 			fmt.Println("fun type:", reflect.TypeOf(fun))
 		}
-		/*obj := typeutil.Callee(checker.Info, node)
-		if obj != nil {
-			switch sig := obj.Type().(type) {
-			case *types.Signature:
-				// sig.TypeParams().list()
-				sigTypeParams := make([]int, sig.TypeParams().Len())
-				pos := node.Pos()
-				tparams, params2 := checker.RenameTParams(pos, sigTypeParams, types.NewTuple(params...))
-				fmt.Println(tparams, params2)
-				//targs = check.infer(atPos(pos), tparams, targs, params2.(*Tuple), args)
-			default:
+		if ident != nil {
+			inst := checker.Instances[ident]
+			if inst.TypeArgs != nil {
+				typeArgs := make([]map[string]interface{}, inst.TypeArgs.Len())
+				for i := 0; i < inst.TypeArgs.Len(); i++ {
+					typeArgs[i] = parseType(inst.TypeArgs.At(i), map[string]bool{})
+				}
+				data["typeArgs"] = typeArgs
 			}
-		}*/
+		}
 
 		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
 	case *ast.StarExpr, *ast.BinaryExpr, *ast.SliceExpr, *ast.ParenExpr:
@@ -1623,24 +1618,4 @@ func printExpr(node any) {
 	var buf bytes.Buffer
 	printer.Fprint(&buf, fset, node)
 	fmt.Println(buf.String())
-}
-
-func UnpackIndexExpr(n ast.Node) *IndexExpr {
-	switch e := n.(type) {
-	case *ast.IndexExpr:
-		return &IndexExpr{e, &ast.IndexListExpr{
-			X:       e.X,
-			Lbrack:  e.Lbrack,
-			Indices: []ast.Expr{e.Index},
-			Rbrack:  e.Rbrack,
-		}}
-	case *ast.IndexListExpr:
-		return &IndexExpr{e, e}
-	}
-	return nil
-}
-
-type IndexExpr struct {
-	Orig ast.Expr // the wrapped expr, which may be distinct from the IndexListExpr below.
-	*ast.IndexListExpr
 }

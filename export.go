@@ -1362,6 +1362,18 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.TypeAssertExpr:
 	case *ast.UnaryExpr:
 	case *ast.CallExpr:
+		//checker.Instances
+		switch fun := node.Fun.(type) {
+		case *ast.Ident:
+			inst := checker.Instances[fun]
+			if inst.TypeArgs != nil {
+				for i := 0; i < inst.TypeArgs.Len(); i++ {
+					fmt.Println("type arg:", inst.TypeArgs.At(i))
+				}
+			}
+		default:
+			fmt.Println("fun type:", reflect.TypeOf(fun))
+		}
 		/*obj := typeutil.Callee(checker.Info, node)
 		if obj != nil {
 			switch sig := obj.Type().(type) {
@@ -1611,20 +1623,6 @@ func printExpr(node any) {
 	var buf bytes.Buffer
 	printer.Fprint(&buf, fset, node)
 	fmt.Println(buf.String())
-}
-
-func typeList(check *types.Checker, list []ast.Expr) []types.Type {
-	res := make([]types.Type, len(list)) // res != nil even if len(list) == 0
-	for i, x := range list {
-		t := check.varType(x)
-		if t == types.Typ[types.Invalid] {
-			res = nil
-		}
-		if res != nil {
-			res[i] = t
-		}
-	}
-	return res
 }
 
 func UnpackIndexExpr(n ast.Node) *IndexExpr {

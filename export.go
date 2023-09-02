@@ -1362,16 +1362,23 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.TypeAssertExpr:
 	case *ast.UnaryExpr:
 	case *ast.CallExpr:
-		//checker.Instances
 		var ident *ast.Ident
-		switch fun := node.Fun.(type) {
-		case *ast.Ident:
-			ident = fun
-		case *ast.SelectorExpr:
-			ident = fun.Sel
-		default:
-			fmt.Println("fun type:", reflect.TypeOf(fun))
+		var resolveGeneric func(node ast.Expr)
+		resolveGeneric = func(node ast.Expr) {
+			switch fun := node.(type) {
+			case *ast.Ident:
+				ident = fun
+			case *ast.SelectorExpr:
+				// goes to ident
+				resolveGeneric(fun.Sel)
+			case *ast.IndexExpr:
+				// goes to ident or selector
+				resolveGeneric(fun.X)
+			default:
+			}
 		}
+		resolveGeneric(node.Fun)
+
 		if ident != nil {
 			inst := checker.Instances[ident]
 			if inst.TypeArgs != nil {

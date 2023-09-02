@@ -2396,43 +2396,6 @@ private function isTypeParam(t:GoType):Bool {
 	}
 }
 
-private function isGeneric(t:GoType):Bool {
-	if (t == null)
-		return false;
-	switch t {
-		case signature(_, _.get() => params, _, _.get() => recv):
-			switch recv {
-				case _var(_, _.get() => t):
-					switch t {
-						case refType(_.get() => s), pointerType(_.get() => s):
-							t = s;
-						default:
-					}
-					switch t {
-						case named(_, _, _, _, _.get() => params):
-							return params != null && params.length > 0;
-						default:
-					}
-				default:
-			}
-			if (params.length > 0) {
-				var t = params[0];
-				switch t {
-					case refType(_.get() => s), pointerType(_.get() => s):
-						t = s;
-					default:
-				}
-				switch t {
-					case _var(_, _.get() => named(_, _, _, _, _.get() => params)):
-						return params != null && params.length > 0;
-					default:
-				}
-			}
-		default:
-	}
-	return false;
-}
-
 private function nonAssignToken(tok:Ast.Token):Ast.Token {
 	return switch tok {
 		case ADD_ASSIGN: ADD;
@@ -2680,7 +2643,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							return true;
 						switch ct {
 							case TPath(p):
-								if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
+if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 									return true;
 								}
 								if (p.params != null && p.params.length > 0) // p.params = p.params.map(_ -> TPType(TPath({name: "Unknown", pack: []})));
@@ -2847,7 +2810,7 @@ private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the 
 	if (expr == null)
 		return null;
 	var type = switch expr.id {
-		case "UnaryExpr": unaryType(expr, info);
+case "UnaryExpr": unaryType(expr, info);
 		case "MapType": mapTypeExpr(expr, info);
 		case "ChanType": chanTypeExpr(expr, info);
 		case "InterfaceType": interfaceTypeExpr(expr, info);
@@ -3224,20 +3187,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		}
 		return e;
 	}
-	function argSetString(fromType:GoType, arg:Expr) {
-		if (fromType == null)
-			return arg;
-		switch fromType {
-			case basic(kind):
-				switch kind {
-					case uint32_kind, uint_kind, uint64_kind:
-						return macro Std.string($arg.toBasic());
-					default:
-				}
-			default:
-		}
-		return arg;
-	}
 	function genArgs(translateType:Bool, pos:Int = 0) {
 		final exprArgs = expr.args.slice(pos);
 		args = [for (arg in exprArgs) typeExpr(arg, info)];
@@ -3282,29 +3231,22 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				}
 				return;
 			}
-			final setGenerics = expr.fun.id == "IndexListExpr" || expr.fun.id == "IndexExpr";
-			if (setGenerics)
-				type = typeof(expr.fun.x, info, false);
+			//trace("ABC");
+			//final t = typeof(expr.calle,info,false);
+			var skip = 0;
+			if (expr.typeArgs != null) {
+				skip = expr.typeArgs.length;
+				expr.typeArgs.reverse();
+				for (typeArg in expr.typeArgs) {
+					final typeOfTypeArg = typeof(typeArg, info, false);
+					final value = defaultValue(typeOfTypeArg, info);
+					args.unshift(value);
+				}
+			}
 			var sig = getSignature(type);
 			if (sig != null) {
 				switch sig {
-					case signature(variadic, _.get() => params, _, _, _.get() => typeParams):
-						var skip = 0;
-						if (setGenerics) { // could need to set generics
-							// trace(expr.fun.indices[0].id);
-							final objType = expr.fun.x.objType;
-							var defaultArgs = [];
-							if (objType != null) {
-								switch typeof(objType, info, false, []) {
-									case signature(_, _.get() => params, _.get() => results, _, _.get() => typeParams):
-										defaultArgs = genericIndices(expr.fun.id == "IndexExpr" ? [expr.fun.index] : expr.fun.indices, params, typeParams,
-											info);
-									default:
-								}
-							}
-							skip = defaultArgs.length;
-							args = defaultArgs.concat(args);
-						}
+					case signature(variadic, _.get() => params, _, _, _):
 						for (i in skip...args.length) {
 							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
 							var toType = getVar(params[i - skip]);
@@ -3540,7 +3482,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						var p:TypePath = switch type {
 							case named(path, _, _):
 								namedTypePath(path, info);
-							case typeParam(_, params):
+case typeParam(_, params):
 								type = params[0];
 								null;
 							default:
@@ -5548,37 +5490,9 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		});
 		var nonGenericTypes = []; // exprs
 		if (!recvGeneric) {
-			// params = getParams(decl.typeParams, info);
 			params = getParams(decl.type.typeParams, info);
-			// non generics
-			if (decl.type.typeParams != null) {
-				for (field in decl.type.typeParams.list) {
-					//if (field.type.id != "Ident")
-					//	continue; // multi type, generic type
-					final t = typeExprType(field.type, info);
-					for (name in field.names) {
-						switch identType(name, info) {
-							case TPath(p):
-								var exists = false;
-								for (param in params) {
-									if (param.name == p.name) {
-										exists = true;
-										break;
-									}
-								}
-								if (exists)
-									continue;
-								nonGenericParams.push({
-									name: p.name,
-								});
-								final typeName = p.name;
-								identifierNames.push(typeName);
-								nonGenericTypes.push(macro final $typeName:haxe.macro.Expr.ComplexType = ${complexTypeToExpr(t)});
-							default:
-								throw "issue";
-						}
-					}
-				}
+			for (param in params) {
+				identifierNames.push(param.name);
 			}
 		}
 		access.push(AMacro);
@@ -5608,91 +5522,11 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			}
 		];
 		final retExpr = macro haxe.macro.Context.getExpectedType() == null ? null : haxe.macro.Context.toComplexType(haxe.macro.Context.getExpectedType());
-		final genericNames = params == null ? [] : params.map(param -> param.name);
+		final genericNames = params == null ? [] : [for (i in 0...params.length) params[i].name];
 		final genericTypes = [];
-		function findGeneric(name:String, reverse:Array<Int>, t:ComplexType) {
-			switch t {
-				case TPath(p):
-					if (p.params != null) {
-						for (i in 0...p.params.length) {
-							switch p.params[i] {
-								case TPType(t):
-									findGeneric(name, reverse.concat([i]), t);
-								default:
-							}
-						}
-					}
-					if (p.pack == null || p.pack.length > 0)
-						return;
-					for (genericName in genericNames) {
-						if (genericName != p.name)
-							continue;
-						var e = macro {
-							final t = haxe.macro.Context.typeof($i{name});
-							switch t {
-								case TInst(_, params), TType(_, params):
-									for (i in 0...params.length) {
-										params[i] = switch params[i] {
-											case TMono(_.get() => mono):
-												if (mono == null) {
-													throw "Param TMONO null: " + t;
-												} else {
-													mono;
-												}
-											default:
-												params[i];
-										}
-									}
-								default:
-									var _ = 0;
-							}
-							haxe.macro.Context.toComplexType(t);
-						};
-						// e = macro($e.getParameters()[0] : haxe.macro.Expr.TypePath).params;
-						// reverse.unshift(0);
-						for (index in reverse) {
-							e = macro switch $e{e} {
-								case TPath(p):
-									switch p.params[$e{makeExpr(index)}] {
-										case TPType(t):
-											t;
-										default:
-											throw "invalid param t";
-									}
-								default:
-									throw "invalid e";
-							};
-							// e = macro($e[$e{makeExpr(index)}].getParameters()[0] : haxe.macro.Expr.ComplexType);
-						}
-						final typeName = genericName;
-						identifierNames.push(typeName);
-						genericTypes.push(macro final $typeName:haxe.macro.Expr.ComplexType = $e);
-						genericNames.remove(genericName);
-					}
-				default:
-			}
-		}
-		for (arg in args) {
-			switch arg.type {
-				case TPath(p):
-					switch p.params[0] {
-						case TPType(t):
-							switch t {
-								case TPath(p):
-									if (p.name == "Ref") {
-										switch p.params[0] {
-											case TPType(t2):
-												t = t2;
-											default:
-										}
-									}
-								default:
-							}
-							findGeneric(arg.name, [], t);
-						default:
-					}
-				default:
-			}
+		for (i in 0...genericNames.length) {
+			final genericName = genericNames[i];
+			genericTypes.push(macro final $genericName:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof($i{"__generic__" + i})));
 		}
 		if (genericNames.length > 0) {
 			var i = genericNames.length - 1;
@@ -5711,43 +5545,12 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				args.unshift(arg);
 				i--;
 			}
-			for (i in 0...len) {
-				switch args[i].type {
-					case TPath(p):
-						switch p.params[0] {
-							case TPType(t):
-								findGeneric(args[i].name, [], t);
-							default:
-						}
-					default:
-				}
-			}
 		}
-		final funcName = info.funcName;
-		final funcArgs = args.map(arg -> {
-			final t = switch arg.type {
-				case TPath(p):
-					switch p.params[0] {
-						case TPType(t):
-							t;
-						default:
-							throw "invalid p param";
-					}
-				default:
-					throw "invalid p not TPath";
-			};
-			({
-				name: arg.name,
-				opt: arg.opt,
-				meta: arg.meta,
-				value: arg.value,
-				type: t,
-			} : FunctionArg);
-		});
 		var func = toExpr(EFunction(FNamed("f", false), {
-			args: funcArgs,
+			args: args.copy(),
 			expr: block,
 		}));
+		final scopeVars = args.map(arg -> arg.name);
 		function setGenericParam(t:TypeParamDecl):TypeParamDecl {
 			if (t == null)
 				return t;
@@ -5766,6 +5569,8 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			if (t == null)
 				return t;
 			switch t {
+				case TNamed(name, param):
+					TNamed(name, setGenericType(param));
 				case TFunction(args, ret):
 					final newArgs = [];
 					for (i in 0...args.length) {
@@ -5832,18 +5637,21 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 						}
 					]));
 				case EFunction(kind, f):
+					final args = [
+						for (arg in args) {
+							final t = setGenericType(arg.type);
+							{
+								value: arg.value,
+								opt: arg.opt,
+								name: arg.name,
+								meta: arg.meta,
+								type: t,
+							};
+						}
+					];
 					toExpr(EFunction(kind, {
 						ret: setGenericType(f.ret),
-						args: [
-							for (arg in args)
-								{
-									value: arg.value,
-									opt: arg.opt,
-									name: arg.name,
-									meta: arg.meta,
-									type: setGenericType(arg.type),
-								}
-						],
+						args: args,
 						params: f.params == null ? null : [for (param in f.params) setGenericParam(param)],
 						expr: findGenericTypes(f.expr),
 					}));
@@ -5851,18 +5659,87 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 					toExpr(ECheckType(findGenericTypes(e), setGenericType(t)));
 				case EVars(vars):
 					toExpr(EVars([
-						for (v in vars)
+						for (v in vars) {
+							scopeVars.push(v.name);
 							{
 								name: v.name,
 								type: setGenericType(v.type),
 								expr: findGenericTypes(v.expr),
-							}
+							};
+						}
 					]));
+				case EField(_,_):
+					e;
+				case EConst(CIdent(s)):
+					switch s {
+						case "false","true", "null", "Go", "stdgo", "_":
+							e;
+						case s if (scopeVars.indexOf(s) == -1 && s.indexOf(".") == -1):
+							//trace(s,info.global.path);
+							//trace(scopeVars);
+							trace(s);
+							final path = [info.global.filePath];
+							final globalPath = getGlobalPath(info);
+							if (globalPath != "")
+								path.unshift(globalPath);
+							if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+								path.unshift("stdgo");
+							}
+							path.push(s);
+							macro $p{path};
+						default:
+							e;
+					}
 				default:
 					haxe.macro.ExprTools.map(e, findGenericTypes);
 			}
 		}
 		func = findGenericTypes(func);
+		final funcArgs = args.map(arg -> {
+			final t = switch arg.type {
+				case TPath(p):
+					switch p.params[0] {
+						case TPType(t):
+							t;
+						default:
+							throw "invalid p param";
+					}
+				default:
+					throw "invalid p not TPath";
+			};
+			({
+				name: arg.name,
+				opt: arg.opt,
+				meta: arg.meta,
+				value: arg.value,
+				type: t,
+			} : FunctionArg);
+		});
+		switch func.expr {
+			case EFunction(_, f):
+				final funcArgs = f.args.map(arg -> {
+					final t = switch arg.type {
+						case TPath(p):
+							switch p.params[0] {
+								case TPType(t):
+									t;
+								default:
+									throw "invalid p param";
+							}
+						default:
+							throw "invalid p not TPath";
+					};
+					({
+						name: arg.name,
+						opt: arg.opt,
+						meta: arg.meta,
+						value: arg.value,
+						type: t,
+					} : FunctionArg);
+				});
+				f.args = funcArgs;
+			default:
+		}
 		final nameArgs = [
 			for (arg in args)
 				macro $i{"$" + arg.name}
@@ -5922,6 +5799,91 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	};
 	return def;
 }
+
+static public function mapExprArrayWithData<T>(el:Array<Expr>, data:T f:(data:T, e:Expr)->Expr):Array<Expr> {
+	var ret = [];
+	for (e in el)
+		ret.push(f(e));
+	return ret;
+}
+
+function mapExprWithData<T>(e:Expr, data:T, f:(data:T,e:Expr)->Expr):Expr {
+	return {
+		pos: e.pos,
+		expr: switch (e.expr) {
+			case EConst(_): e.expr;
+			case EArray(e1, e2): EArray(f(data, e1), f(data, e2));
+			case EBinop(op, e1, e2): EBinop(op, f(data, e1), f(data, e2));
+			case EField(e, field): EField(f(data, e), field);
+			case EParenthesis(e): EParenthesis(f(data, e));
+			case EObjectDecl(fields):
+				var ret = [];
+				for (field in fields)
+					ret.push({field: field.field, expr: f(data, field.expr), quotes: field.quotes});
+				EObjectDecl(ret);
+			case EArrayDecl(el): EArrayDecl(mapExprWithData(el, data, f));
+			case ECall(e, params): ECall(f(data, e), mapExprWithData(params, data, f));
+			case ENew(tp, params): ENew(tp, mapExprWithData(params, data, f));
+			case EUnop(op, postFix, e): EUnop(op, postFix, f(data, e));
+			case EVars(vars):
+				var ret = [];
+				for (v in vars) {
+					var v2:Var = {name: v.name, type: v.type, expr: opt(v.expr, data, f)};
+					if (v.isFinal != null)
+						v2.isFinal = v.isFinal;
+					ret.push(v2);
+				}
+				EVars(ret);
+			case EBlock(el): EBlock(mapExprWithData(el, data, f));
+			case EFor(it, expr): EFor(f(data, it), f(data, expr));
+			case EIf(econd, eif, eelse): EIf(data, f(data, econd), f(data, eif), opt(eelse, data, f));
+			case EWhile(econd, e, normalWhile): EWhile(f(data, econd), f(data, e), normalWhile);
+			case EReturn(e): EReturn(opt(e, data, f));
+			case EUntyped(e): EUntyped(f(data, e));
+			case EThrow(e): EThrow(f(data, e));
+			case ECast(e, t): ECast(f(data, e), t);
+			case EIs(e, t): EIs(f(data, e), t);
+			case EDisplay(e, dk): EDisplay(f(data, e), dk);
+			case ETernary(econd, eif, eelse): ETernary(f(data, econd), f(data, eif), f(data, eelse));
+			case ECheckType(e, t): ECheckType(f(data, e), t);
+			case EContinue, EBreak:
+				e.expr;
+			case ETry(e, catches):
+				var ret = [];
+				for (c in catches)
+					ret.push({name: c.name, type: c.type, expr: f(data, c.expr)});
+				ETry(f(data, e), ret);
+			case ESwitch(e, cases, edef):
+				var ret = [];
+				for (c in cases)
+					ret.push({expr: opt(c.expr, f), guard: opt(c.guard, f), values: mapExprWithData(c.values, f)});
+				ESwitch(f(data, e), ret, edef == null || edef.expr == null ? edef : f(data, edef));
+			case EFunction(kind, func):
+				var ret = [];
+				for (arg in func.args)
+					ret.push({
+						name: arg.name,
+						opt: arg.opt,
+						type: arg.type,
+						value: opt(arg.value, f)
+					});
+				EFunction(kind, {
+					args: ret,
+					ret: func.ret,
+					params: func.params,
+					expr: f(data, func.expr)
+				});
+			case EMeta(m, e): EMeta(m, f(data, e));
+		}
+	};
+}
+
+function opt<T>(e:Null<Expr>, data:T, f:(data:T, Expr)->Expr):Expr
+	return e == null ? null : f(data, e);
+
+function opt2<T>(e:Null<Expr>, data:T, f:(data:T, Expr)->Void):Void
+	if (e != null)
+		f(data, e);
 
 private function getBody(path:String):String {
 	var index = path.lastIndexOf("/");
@@ -6131,10 +6093,11 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					}
 				}
 			]));
-		case typeParam(_, _):
+		case typeParam(name, _):
 			// null;
 			if (strict) {
-				macro Go.expectedValue();
+				final t = TPath({name: name, pack: []});
+				macro (null : $t);
 			} else {
 				null;
 			}
@@ -6581,10 +6544,7 @@ function getParams(params:Ast.FieldList, info:Info, allowNonGeneric:Bool = false
 	if (params == null)
 		return list;
 	for (field in params.list) {
-		if (!allowNonGeneric && (field.type.id == "Ident" || field.type.id == "SelectorExpr"))
-			continue; // singular type as such not generic
 		for (name in field.names) {
-			// final ct = typeExprType(field.type, info);
 			list.push({
 				name: className(name.name, info),
 				// constraints: [ct],
@@ -7120,7 +7080,6 @@ private function anyInterfaceType()
 
 private function invalidComplexType()
 	return null;
-	//return TPath({name: "InvalidType", pack: []});
 
 private function errorType()
 	return TPath({name: "Error", pack: []});

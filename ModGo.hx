@@ -2,7 +2,7 @@ import sys.FileSystem;
 import sys.io.File;
 
 function main() {
-    if (FileSystem.exists("go")) {
+    if (!FileSystem.exists("go")) {
         Sys.command("git clone --depth=1 https://go.googlesource.com/go");
     }
     if (FileSystem.exists("go/test")) {

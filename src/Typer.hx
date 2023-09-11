@@ -2976,8 +2976,12 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 			break;
 		}
 	}
-	if (name == "any") {
-		isStdGoType = true;
+	switch name {
+		case "any":
+			isStdGoType = true;
+		case "error":
+			isStdGoType = true;
+			isStdGoTypePkg = true;
 	}
 	name = className(name, info);
 	if (StringTools.startsWith(name, "T__struct_") && expr.type != null) {

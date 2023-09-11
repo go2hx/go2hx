@@ -6,10 +6,10 @@ final list = [
 				panic(err)
 			}
 			return b */
-		return new Slice<GoByte>(0, 0).__setNumber32__();
+		return new stdgo.Slice<GoByte>(0, 0).__setNumber32__();
 	},
 	// stdgo/errors
-	"errors:_errorType" => macro stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface((null : Ref<Error>))).elem(),
+	"errors:_errorType" => macro stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : Ref<Error>))).elem(),
 	// stdgo/os
 	"os:readFile" => macro {
 		if (!sys.FileSystem.exists(_name))
@@ -45,7 +45,7 @@ final list = [
 	"os.File:truncate" => macro {
 		@:privateAccess _f._output.close();
 		final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
-		sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0,(_size : GoInt).toBasic()));
+		sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0,(_size : stdgo.StdGoTypes.GoInt).toBasic()));
 		@:privateAccess _f._output = sys.io.File.write(@:privateAccess _f._file._name);
 		return null;
 	},
@@ -65,11 +65,11 @@ final list = [
 		}
 	},
 	"os:_runtime_args" => macro {
-		@:define("js") return new Slice<GoString>(0, 0).__setString__();
+		@:define("js") return new stdgo.Slice<stdgo.GoString>(0, 0).__setString__();
 		@:define("sys") {
-			final args:Array<GoString> = Sys.args().map(arg -> (arg : GoString));
+			final args:Array<stdgo.GoString> = Sys.args().map(arg -> (arg : stdgo.GoString));
 			args.unshift(Sys.getCwd());
-			return new Slice<GoString>(args.length, args.length, ...args).__setString__();
+			return new stdgo.Slice<stdgo.GoString>(args.length, args.length, ...args).__setString__();
 		};
 	},
 	// stdgo/strings
@@ -88,7 +88,7 @@ final list = [
 	"time:forceUSPacificForTesting" => macro {},
 	"time:_stopTimer" => macro {
 		final t:Dynamic = _0;
-		if ((t._pp : GoUIntptr) != (0 : GoUIntptr)) {
+		if ((t._pp : stdgo.StdGoTypes.GoUIntptr) != (0 : stdgo.StdGoTypes.GoUIntptr)) {
 			final timer:haxe.Timer = t._pp;
 			timer.stop();
 		}
@@ -104,18 +104,18 @@ final list = [
 			return;
 		if (diff < 0)
 			diff = 0;
-		final d = (diff : GoInt).toBasic() + 1;
+		final d = (diff : stdgo.StdGoTypes.GoInt).toBasic() + 1;
 		final timer = new haxe.Timer(d);
 		timer.run = () -> {
 			timer.stop();
 			t._status = 0;
-			if (t._period != (0 : GoInt64)) {
+			if (t._period != (0 : stdgo.StdGoTypes.GoInt64)) {
 				t._when += t._period;
 				_startTimer(t);
 			}
-			Go.routine(() -> t._f(t._arg, 0));
+			stdgo.Go.routine(() -> t._f(t._arg, 0));
 		};
-		t._pp = (timer : GoUIntptr);
+		t._pp = (timer : stdgo.StdGoTypes.GoUIntptr);
 	},
 	"time:_resetTimer" => macro {
 		final t = _0;
@@ -133,7 +133,7 @@ final list = [
 		_startTimer(_t);
 	},
 	"time:_runtimeNano" => macro {
-		final x = ((Sys.time() * 1000000 * 1000) - Date.now().getTimezoneOffset() * 60000000000 : GoInt64);
+		final x = ((Sys.time() * 1000000 * 1000) - Date.now().getTimezoneOffset() * 60000000000 : stdgo.StdGoTypes.GoInt64);
 		return x;
 	},
 	"time:_now" => macro {
@@ -141,7 +141,7 @@ final list = [
 		return {_0: n / 1000000000, _1: n % 1000000000, _2: n};
 	},
 	"time:_initLocal" => macro {
-		_localLoc._name = ("Local" : GoString);
+		_localLoc._name = ("Local" : stdgo.GoString);
 		final d = new Date(0, 0, 0, 0, 0, 0);
 		var offset = d.getTimezoneOffset() * -1;
 		offset *= 60;
@@ -157,7 +157,7 @@ final list = [
 		if (min != 0) {
 			name += ":" + Std.string(min);
 		}
-		_localLoc._zone = new Slice<T_zone>(1, 1, ...[{_name: (name : GoString), _offset: offset, _isDST: false}]);
+		_localLoc._zone = new stdgo.Slice<T_zone>(1, 1, ...[{_name: (name : stdgo.GoString), _offset: offset, _isDST: false}]);
 	},
 	// stdgo/math
 	"math:trunc" => macro return _x > 0 ? floor(_x) : ceil(_x),
@@ -202,7 +202,7 @@ final list = [
 	"math:signbit" => macro {
 		if (std.Math.isNaN(_x.toBasic()))
 			return false;
-		return float64bits(_x) & ((1 : GoUInt64) << (63 : GoUInt64)) != (0 : GoUInt64);
+		return float64bits(_x) & ((1 : stdgo.StdGoTypes.GoUInt64) << (63 : stdgo.StdGoTypes.GoUInt64)) != (0 : stdgo.StdGoTypes.GoUInt64);
 	},
 	"math:inf" => macro {
 		if (_sign >= 0)
@@ -317,10 +317,10 @@ final list = [
 	"reflect:typeOf" => macro {
 		// // set internal Type
 		if (_i == null)
-			return new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind))),
+			return new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind))),
 				new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind)));
 		// set internal Type
-		return new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_i.type), _i.type);
+		return new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(_i.type), _i.type);
 	},
 	"reflect:valueOf" => macro {
 		return new Value(_i);
@@ -328,9 +328,9 @@ final list = [
 	"reflect:makeSlice" => macro {
 		// (_typ:Type, _len:GoInt, _cap:GoInt)
 		final value = stdgo.internal.reflect.Reflect.defaultValue(_typ);
-		final slice = new Slice(_len, _cap.toBasic(), ...[for (i in 0..._len.toBasic()) value]);
+		final slice = new stdgo.Slice(_len, _cap.toBasic(), ...[for (i in 0..._len.toBasic()) value]);
 		final t = @:privateAccess (cast _typ : stdgo.internal.reflect.Reflect._Type_asInterface).__type__;
-		return new Value(new AnyInterface(slice, t));
+		return new Value(new stdgo.StdGoTypes.AnyInterface(slice, t));
 	},
 	"reflect:deepEqual" => macro {
 		// _x = stdgo.internal.reflect.Reflect.namedUnderlying(_x);
@@ -360,7 +360,7 @@ final list = [
 				default:
 					throw "invalid mapType: " + gt;
 			}
-		return new Value(new AnyInterface(@:privateAccess _iter.keys[_iter.index], key));
+		return new Value(new stdgo.StdGoTypes.AnyInterface(@:privateAccess _iter.keys[_iter.index], key));
 	},
 	"reflect.MapIter:value" => macro {
 		@:privateAccess if (_iter.keys == null) {
@@ -374,7 +374,7 @@ final list = [
 				default:
 					throw "invalid mapType: " + gt;
 			}
-		return new Value(new AnyInterface(@:privateAccess _iter.values[_iter.index], value));
+		return new Value(new stdgo.StdGoTypes.AnyInterface(@:privateAccess _iter.values[_iter.index], value));
 	},
 	"reflect.MapIter:next" => macro {
 		if (@:privateAccess _iter.map == null)
@@ -397,14 +397,14 @@ final list = [
 		return @:privateAccess _v.canAddrBool;
 	},
 	"reflect:zero" => macro {
-		return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), _typ.__underlying__().value));
+		return new Value(new stdgo.StdGoTypes.AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), _typ.__underlying__().value));
 	},
 	"reflect.Value:type" => macro {
 		if (@:privateAccess _v.value == null) {
 			var t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType);
-			return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(t), t);
+			return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t);
 		}
-		return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_v.value.type), _v.value.type);
+		return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(_v.value.type), _v.value.type);
 	},
 	"reflect.Value:setString" => macro {
 		@:privateAccess _v.value.value = _x;
@@ -418,27 +418,27 @@ final list = [
 		final k = _v.kind();
 		@:privateAccess _v.value.value = switch k {
 				case stdgo.internal.reflect.Reflect.KindType.int8:
-					(_x : GoInt8);
+					(_x : stdgo.StdGoTypes.GoInt8);
 				case stdgo.internal.reflect.Reflect.KindType.int16:
-					(_x : GoInt16);
+					(_x : stdgo.StdGoTypes.GoInt16);
 				case stdgo.internal.reflect.Reflect.KindType.int32:
-					(_x : GoInt32);
+					(_x : stdgo.StdGoTypes.GoInt32);
 				case stdgo.internal.reflect.Reflect.KindType.int64:
-					(_x : GoInt64);
+					(_x : stdgo.StdGoTypes.GoInt64);
 				case stdgo.internal.reflect.Reflect.KindType.int:
-					(_x : GoInt);
+					(_x : stdgo.StdGoTypes.GoInt);
 				case stdgo.internal.reflect.Reflect.KindType.uint8:
-					(_x : GoUInt8);
+					(_x : stdgo.StdGoTypes.GoUInt8);
 				case stdgo.internal.reflect.Reflect.KindType.uint16:
-					(_x : GoUInt16);
+					(_x : stdgo.StdGoTypes.GoUInt16);
 				case stdgo.internal.reflect.Reflect.KindType.uint32:
-					(_x : GoUInt32);
+					(_x : stdgo.StdGoTypes.GoUInt32);
 				case stdgo.internal.reflect.Reflect.KindType.uint64:
-					(_x : GoUInt64);
+					(_x : stdgo.StdGoTypes.GoUInt64);
 				case stdgo.internal.reflect.Reflect.KindType.uint:
-					(_x : GoUInt);
+					(_x : stdgo.StdGoTypes.GoUInt);
 				case stdgo.internal.reflect.Reflect.KindType.uintptr:
-					(_x : GoUIntptr);
+					(_x : stdgo.StdGoTypes.GoUIntptr);
 				default:
 					throw "unknown setUInt kind: " + k.string();
 			};
@@ -448,9 +448,9 @@ final list = [
 		final k = _v.kind();
 		@:privateAccess _v.value.value = switch k {
 				case stdgo.internal.reflect.Reflect.KindType.complex64:
-					(_x : GoComplex64);
+					(_x : stdgo.StdGoTypes.GoComplex64);
 				case stdgo.internal.reflect.Reflect.KindType.complex128:
-					(_x : GoComplex128);
+					(_x : stdgo.StdGoTypes.GoComplex128);
 				default:
 					throw "unknown setFloat kind: " + k.string();
 			}
@@ -460,9 +460,9 @@ final list = [
 		final k = _v.kind();
 		@:privateAccess _v.value.value = switch k {
 				case stdgo.internal.reflect.Reflect.KindType.float32:
-					(_x : GoFloat32);
+					(_x : stdgo.StdGoTypes.GoFloat32);
 				case stdgo.internal.reflect.Reflect.KindType.float64:
-					(_x : GoFloat64);
+					(_x : stdgo.StdGoTypes.GoFloat64);
 				default:
 					throw "unknown setFloat kind: " + k.string();
 			}
@@ -472,25 +472,25 @@ final list = [
 		final k = _v.kind();
 		@:privateAccess _v.value.value = switch k {
 				case stdgo.internal.reflect.Reflect.KindType.int8:
-					(_x : GoInt8);
+					(_x : stdgo.StdGoTypes.GoInt8);
 				case stdgo.internal.reflect.Reflect.KindType.int16:
-					(_x : GoInt16);
+					(_x : stdgo.StdGoTypes.GoInt16);
 				case stdgo.internal.reflect.Reflect.KindType.int32:
-					(_x : GoInt32);
+					(_x : stdgo.StdGoTypes.GoInt32);
 				case stdgo.internal.reflect.Reflect.KindType.int64:
-					(_x : GoInt64);
+					(_x : stdgo.StdGoTypes.GoInt64);
 				case stdgo.internal.reflect.Reflect.KindType.int:
-					(_x : GoInt);
+					(_x : stdgo.StdGoTypes.GoInt);
 				case stdgo.internal.reflect.Reflect.KindType.uint8:
-					(_x : GoUInt8);
+					(_x : stdgo.StdGoTypes.GoUInt8);
 				case stdgo.internal.reflect.Reflect.KindType.uint16:
-					(_x : GoUInt16);
+					(_x : stdgo.StdGoTypes.GoUInt16);
 				case stdgo.internal.reflect.Reflect.KindType.uint32:
-					(_x : GoUInt32);
+					(_x : stdgo.StdGoTypes.GoUInt32);
 				case stdgo.internal.reflect.Reflect.KindType.uint64:
-					(_x : GoUInt64);
+					(_x : stdgo.StdGoTypes.GoUInt64);
 				case stdgo.internal.reflect.Reflect.KindType.uint:
-					(_x : GoUInt);
+					(_x : stdgo.StdGoTypes.GoUInt);
 				default:
 					throw "unknown setInt kind: " + k.string();
 			};
@@ -523,7 +523,7 @@ final list = [
 				final t = @:privateAccess (cast _v.value.type.field(_i).type : stdgo.internal.reflect.Reflect._Type_asInterface).__type__;
 				var fieldValue = std.Reflect.field(@:privateAccess _v.value.value, field.name);
 				fieldValue = stdgo.internal.reflect.Reflect.asInterfaceValue(fieldValue, t._common());
-				final valueType = new Value(new AnyInterface(fieldValue, t));
+				final valueType = new Value(new stdgo.StdGoTypes.AnyInterface(fieldValue, t));
 				if (field.name.charAt(0) == "_")
 					@:privateAccess valueType.notSetBool = false;
 				valueType;
@@ -547,14 +547,14 @@ final list = [
 		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Pointer<Dynamic>).value;
+			value = (value : stdgo.Pointer<Dynamic>).value;
 			t = @:privateAccess _v.value.type._common();
 		};
 		switch t {
 			case stdgo.internal.reflect.Reflect.GoType.arrayType(_.get() => elem, _):
 				switch elem {
 					case stdgo.internal.reflect.Reflect.GoType.basic(stdgo.internal.reflect.Reflect.BasicKind.uint8_kind):
-						return (value : GoArray<GoByte>).__slice__(0);
+						return (value : stdgo.GoArray<GoByte>).__slice__(0);
 					default:
 						throw new ValueError("reflect.Value.Bytes", @:privateAccess _v.kind());
 				};
@@ -596,13 +596,13 @@ final list = [
 		final k = _v.kind();
 		value = switch k {
 				case stdgo.internal.reflect.Reflect.KindType.slice:
-					(value : Slice<Dynamic>).__slice__(_i, _j);
+					(value : stdgo.Slice<Dynamic>).__slice__(_i, _j);
 				case stdgo.internal.reflect.Reflect.KindType.array:
-					(value : GoArray<Dynamic>).__slice__(_i, _j);
+					(value : stdgo.GoArray<Dynamic>).__slice__(_i, _j);
 				default:
 					throw new ValueError("reflect.Value.Slice", k);
 			};
-		return new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(t)));
+		return new Value(new stdgo.StdGoTypes.AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(t)));
 	},
 	"reflect.Value:len" => macro {
 		final _v = _v.__copy__();
@@ -619,7 +619,7 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Pointer<Dynamic>).value;
+			value = (value : stdgo.Pointer<Dynamic>).value;
 		};
 		final k = _v.kind();
 		/*if (std.Type.typeof(value) == TUnknown) {
@@ -627,11 +627,11 @@ final list = [
         }*/
 		return switch k {
 			case stdgo.internal.reflect.Reflect.KindType.array:
-				(value : GoArray<Dynamic>).length;
+				(value : stdgo.GoArray<Dynamic>).length;
 			case stdgo.internal.reflect.Reflect.KindType.chan:
-				(value : Chan<Dynamic>).length;
+				(value : stdgo.Chan<Dynamic>).length;
 			case stdgo.internal.reflect.Reflect.KindType.slice:
-				(value : Slice<Dynamic>).length;
+				(value : stdgo.Slice<Dynamic>).length;
 			case stdgo.internal.reflect.Reflect.KindType.map:
 				Lambda.count((value : haxe.Constraints.IMap<Dynamic, Dynamic>));
 			case stdgo.internal.reflect.Reflect.KindType.string:
@@ -664,7 +664,7 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Pointer<Dynamic>).value;
+			value = (value : stdgo.Pointer<Dynamic>).value;
 		};
 		final value:Bool = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.bool:
@@ -688,7 +688,7 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Pointer<Dynamic>).value;
+			value = (value : stdgo.Pointer<Dynamic>).value;
 		};
 		final value:GoComplex128 = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.complex128, stdgo.internal.reflect.Reflect.KindType.complex64:
@@ -712,21 +712,21 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Pointer<Dynamic>).value;
+			value = (value : stdgo.Pointer<Dynamic>).value;
 		};
 		final value:GoUInt64 = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.uint:
-					(value : GoUInt8);
+					(value : stdgo.StdGoTypes.GoUInt8);
 				case stdgo.internal.reflect.Reflect.KindType.uint8:
-					(value : GoUInt8);
+					(value : stdgo.StdGoTypes.GoUInt8);
 				case stdgo.internal.reflect.Reflect.KindType.uint16:
-					(value : GoUInt16);
+					(value : stdgo.StdGoTypes.GoUInt16);
 				case stdgo.internal.reflect.Reflect.KindType.uint32:
-					(value : GoUInt32);
+					(value : stdgo.StdGoTypes.GoUInt32);
 				case stdgo.internal.reflect.Reflect.KindType.uint64:
-					(value : GoUInt64);
+					(value : stdgo.StdGoTypes.GoUInt64);
 				case stdgo.internal.reflect.Reflect.KindType.uintptr:
-					(value : GoUIntptr);
+					(value : stdgo.StdGoTypes.GoUIntptr);
 				default:
 					throw new ValueError("reflect.Value.Uint", _v.kind());
 			}
@@ -746,13 +746,13 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Pointer<Dynamic>).value;
+			value = (value : stdgo.Pointer<Dynamic>).value;
 		};
-		final value:GoFloat64 = switch _v.kind() {
+		final value:stdgo.StdGoTypes.GoFloat64 = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.float64:
-					(value : GoFloat64);
+					(value : stdgo.StdGoTypes.GoFloat64);
 				case stdgo.internal.reflect.Reflect.KindType.float32:
-					(value : GoFloat32);
+					(value : stdgo.StdGoTypes.GoFloat32);
 				default:
 					throw new ValueError("reflect.Value.Float", _v.kind());
 			}
@@ -772,19 +772,19 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Pointer<Dynamic>).value;
+			value = (value : stdgo.Pointer<Dynamic>).value;
 		};
-		final value:GoInt64 = switch _v.kind() {
+		final value:stdgo.StdGoTypes.GoInt64 = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.int:
-					(value : GoInt8);
+					(value : stdgo.StdGoTypes.GoInt8);
 				case stdgo.internal.reflect.Reflect.KindType.int8:
-					(value : GoInt8);
+					(value : stdgo.StdGoTypes.GoInt8);
 				case stdgo.internal.reflect.Reflect.KindType.int16:
-					(value : GoInt16);
+					(value : stdgo.StdGoTypes.GoInt16);
 				case stdgo.internal.reflect.Reflect.KindType.int32:
-					(value : GoInt32);
+					(value : stdgo.StdGoTypes.GoInt32);
 				case stdgo.internal.reflect.Reflect.KindType.int64:
-					(value : GoInt64);
+					(value : stdgo.StdGoTypes.GoInt64);
 				default:
 					throw new ValueError("reflect.Value.Int", _v.kind());
 			}
@@ -805,18 +805,18 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Pointer<Dynamic>).value;
+			value = (value : stdgo.Pointer<Dynamic>).value;
 		};
 		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _v.value.type._common());
 		return switch gt {
 			case stdgo.internal.reflect.Reflect.GoType.arrayType(_.get() => elem, _):
 				final t = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem));
-				final valueInterface = stdgo.internal.reflect.Reflect.asInterfaceValue((value : GoArray<Dynamic>)[_i], t._common());
-				new Value(new AnyInterface(valueInterface, t), value, _i);
+				final valueInterface = stdgo.internal.reflect.Reflect.asInterfaceValue((value : stdgo.GoArray<Dynamic>)[_i], t._common());
+				new Value(new stdgo.StdGoTypes.AnyInterface(valueInterface, t), value, _i);
 			case stdgo.internal.reflect.Reflect.GoType.sliceType(_.get() => elem):
 				final t = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem));
 				final valueInterface = stdgo.internal.reflect.Reflect.asInterfaceValue((value : Slice<Dynamic>)[_i], t._common());
-				final value = new Value(new AnyInterface(valueInterface, t), value, _i);
+				final value = new Value(new stdgo.StdGoTypes.AnyInterface(valueInterface, t), value, _i);
 				@:privateAccess value.canAddrBool = true;
 				value;
 			case stdgo.internal.reflect.Reflect.GoType.basic(kind):
@@ -824,8 +824,8 @@ final list = [
 					case string_kind:
 						var value = value;
 						if ((value is String))
-							value = (value : GoString);
-						new Value(new AnyInterface((value : GoString)[_i], new stdgo.internal.reflect.Reflect._Type(basic(uint8_kind))));
+							value = (value : stdgo.GoString);
+						new Value(new stdgo.StdGoTypes.AnyInterface((value : stdgo.GoString)[_i], new stdgo.internal.reflect.Reflect._Type(basic(uint8_kind))));
 					default:
 						throw "unsupported basic kind";
 				};
@@ -836,7 +836,7 @@ final list = [
 	"reflect:new_" => macro {
 		var value = stdgo.internal.reflect.Reflect.defaultValue(_typ);
 		var ptr = new Pointer(() -> value, x -> value = x);
-		return new Value(new AnyInterface(ptr, new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.pointerType({
+		return new Value(new stdgo.StdGoTypes.AnyInterface(ptr, new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.pointerType({
 			get: () -> @:privateAccess (_typ : Dynamic)._common()
 		}))));
 	},
@@ -862,27 +862,27 @@ final list = [
 						final _ = false;
 				};
 			case stdgo.internal.reflect.Reflect.KindType.int8:
-				_v.setInt((value : GoInt8));
+				_v.setInt((value : stdgo.StdGoTypes.GoInt8));
 			case stdgo.internal.reflect.Reflect.KindType.int16:
-				_v.setInt((value : GoInt16));
+				_v.setInt((value : stdgo.StdGoTypes.GoInt16));
 			case stdgo.internal.reflect.Reflect.KindType.int32:
-				_v.setInt((value : GoInt32));
+				_v.setInt((value : stdgo.StdGoTypes.GoInt32));
 			case stdgo.internal.reflect.Reflect.KindType.int64:
-				_v.setInt((value : GoInt64));
+				_v.setInt((value : stdgo.StdGoTypes.GoInt64));
 			case stdgo.internal.reflect.Reflect.KindType.int:
-				_v.setInt((value : GoInt));
+				_v.setInt((value : stdgo.StdGoTypes.GoInt));
 			case stdgo.internal.reflect.Reflect.KindType.uint:
-				_v.setInt((value : GoUInt8));
+				_v.setInt((value : stdgo.StdGoTypes.GoUInt8));
 			case stdgo.internal.reflect.Reflect.KindType.uint16:
-				_v.setInt((value : GoUInt16));
+				_v.setInt((value : stdgo.StdGoTypes.GoUInt16));
 			case stdgo.internal.reflect.Reflect.KindType.uint32:
-				_v.setInt((value : GoUInt32));
+				_v.setInt((value : stdgo.StdGoTypes.GoUInt32));
 			case stdgo.internal.reflect.Reflect.KindType.uint64:
-				_v.setInt((value : GoUInt64));
+				_v.setInt((value : stdgo.StdGoTypes.GoUInt64));
 			case stdgo.internal.reflect.Reflect.KindType.float32:
-				_v.setFloat((value : GoFloat32));
+				_v.setFloat((value : stdgo.StdGoTypes.GoFloat32));
 			case stdgo.internal.reflect.Reflect.KindType.float64:
-				_v.setFloat((value : GoFloat64));
+				_v.setFloat((value : stdgo.StdGoTypes.GoFloat64));
 			case stdgo.internal.reflect.Reflect.KindType.string:
 				_v.setString(value);
 			case stdgo.internal.reflect.Reflect.KindType.slice:
@@ -920,7 +920,7 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Pointer<Dynamic>).value;
+			value = (value : stdgo.Pointer<Dynamic>).value;
 		};
 		final underlyingType = stdgo.internal.reflect.Reflect.getUnderlying(t);
 		switch (underlyingType) {
@@ -960,7 +960,7 @@ final list = [
 							true;
 						} else {
 							// hasSet is by default false, figure out when it is set to true TODO
-							final b = (value : Pointer<Dynamic>).hasSet();
+							final b = (value : stdgo.Pointer<Dynamic>).hasSet();
 							trace("hasSet: " + b);
 							b;
 						}
@@ -1018,17 +1018,17 @@ final list = [
 				final t = stdgo.internal.reflect.Reflect.getUnderlying(t);
 				switch t {
 					case stdgo.internal.reflect.Reflect.GoType.refType(_.get() => elem):
-						final value = new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), null);
+						final value = new Value(new stdgo.StdGoTypes.AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), null);
 						@:privateAccess value.canAddrBool = true;
 						return value;
 					case stdgo.internal.reflect.Reflect.GoType.pointerType(_.get() => elem):
 						if (value == null) {
-							final value = new Value(new AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(elem)), value);
+							final value = new Value(new stdgo.StdGoTypes.AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(elem)), value);
 							@:privateAccess value.canAddrBool = true;
 							return value;
 						};
-						final ptrValue = (value : Pointer<Dynamic>).value;
-						final value = new Value(new AnyInterface(ptrValue, new stdgo.internal.reflect.Reflect._Type(elem)), value);
+						final ptrValue = (value : stdgo.Pointer<Dynamic>).value;
+						final value = new Value(new stdgo.StdGoTypes.AnyInterface(ptrValue, new stdgo.internal.reflect.Reflect._Type(elem)), value);
 						@:privateAccess value.canAddrBool = true;
 						return value;
 					default:
@@ -1081,7 +1081,7 @@ final list = [
 	"sync.atomic:storeUint64" => macro {
 		_addr.value = _val;
 	},
-	"sync.atomic.Bool_:store" => macro storeUint32(Go.pointer(_x._v), _val ? 1 : 0),
+	"sync.atomic.Bool_:store" => macro storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0),
 	"sync.atomic.Bool_:load" => macro return @:privateAccess _x._v == 1,
 	// stdgo/sync
 	"sync.Pool:get" => macro {
@@ -1152,10 +1152,10 @@ final list = [
 		return 0;
 	},
 	"strings.Builder:string" => macro {
-		return ((Go.toInterface((_b._buf : Ref<Slice<GoUInt8>>)) : stdgo.unsafe.Unsafe.UnsafePointer)
+		return ((stdgo.Go.toInterface((_b._buf : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>)) : stdgo.unsafe.Unsafe.UnsafePointer)
 			.__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({
 			get: () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
-		})) : Pointer<GoString>).value;
+		})) : stdgo.Pointer<stdgo.GoString>).value;
 		// return (_b._buf : Slice<GoUInt8>);
 	},
 	"strings:clone" => macro return _s,
@@ -1223,7 +1223,7 @@ final structs = [
 		var underlyingKey:Dynamic = null;
 		var canAddrBool:Bool = false;
 		var notSetBool:Bool = false;
-		function string():GoString {
+		function string():stdgo.GoString {
 			var _v = this;
 			if (@:privateAccess _v.value == null) {
 				return "<invalid Value>";
@@ -1242,7 +1242,7 @@ final structs = [
 			}
 			if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 				@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-				value = (value : Pointer<Dynamic>).value;
+				value = (value : stdgo.Pointer<Dynamic>).value;
 			};
 			final underlyingType = stdgo.internal.reflect.Reflect.getUnderlying(t);
 			switch (underlyingType) {

@@ -251,6 +251,7 @@ typedef CallExpr = {
 	rparen:Pos,
 	type:ExprType,
 	objType:ExprType,
+	typeArgs:Array<ExprType>,
 };
 
 typedef StarExpr = {

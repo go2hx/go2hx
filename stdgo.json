@@ -176,5 +176,8 @@
     "internal/fmtsort",
     "internal/godebug",
     "net/netip",
-    "go/doc/comment"
+    "go/doc/comment",
+    "slices",
+    "cmp",
+    "debug/cmp"
 ]

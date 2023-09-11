@@ -21,10 +21,45 @@ final list = [
 		}
 	},
 	"os:openFile" => macro {
-		if (!sys.FileSystem.exists(_name))
-			return {_0: null, _1: stdgo.errors.Errors.new_("openFile " + _name + ": no such file or directory")};
+		if (!sys.FileSystem.exists(_name)) {
+			sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
+		}
 		try {
-			return {_0: {_file: null, _input: sys.io.File.read(_name), _output: sys.io.File.write(_name)}, _1: null};
+			return {_0: {_file: {_name: _name}, _input: sys.io.File.read(_name), _output: sys.io.File.write(_name)}, _1: null};
+		} catch (e) {
+			return {_0: null, _1: stdgo.errors.Errors.new_(e.details())};
+		}
+	},
+	"os:truncate" => macro {
+		trace("os.truncate not implemented");
+		return null;
+	},
+	"os.File:write" => macro {
+		if (_b.length == 0)
+			return {_0: 0, _1: null};
+		final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
+		if (i != _b.length.toBasic())
+			return {_0: i, _1: stdgo.errors.Errors.new_("invalid write")};
+		return {_0: i, _1: null};
+	},
+	"os.File:truncate" => macro {
+		@:privateAccess _f._output.close();
+		final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
+		sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0,(_size : GoInt).toBasic()));
+		@:privateAccess _f._output = sys.io.File.write(@:privateAccess _f._file._name);
+		return null;
+	},
+	"sync.atomic.Value.load" => macro {
+		return @:privateAccess _v._v;
+	},
+	"os.File:close" => macro {
+		@:privateAccess _f._input.close();
+		@:privateAccess _f._output.close();
+		return null;
+	},
+	"os:getwd" => macro {
+		try {
+			return {_0: Sys.getCwd(), _1: null};
 		} catch (e) {
 			return {_0: null, _1: stdgo.errors.Errors.new_(e.details())};
 		}
@@ -256,14 +291,6 @@ final list = [
 	"os:stdout" => macro new File(null, Sys.stdout()),
 	"os:stderr" => macro new File(null, Sys.stderr()),
 	"os.File:writeString" => macro return _f.write(_s),
-	"os.File:write" => macro {
-		if (_b.length == 0)
-			return {_0: 0, _1: null};
-		final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
-		if (i != _b.length.toBasic())
-			return {_0: i, _1: stdgo.errors.Errors.new_("invalid write")};
-		return {_0: i, _1: null};
-	},
 	"os:_fastrand" => macro return Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647),
 	"math.rand:_fastrand64" => macro return haxe.Int64.make(Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647),
 		Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647)),
@@ -1055,6 +1082,7 @@ final list = [
 		_addr.value = _val;
 	},
 	"sync.atomic.Bool_:store" => macro storeUint32(Go.pointer(_x._v), _val ? 1 : 0),
+	"sync.atomic.Bool_:load" => macro return @:privateAccess _x._v == 1,
 	// stdgo/sync
 	"sync.Pool:get" => macro {
 		var obj = @:define("!js", @:privateAccess _p.pool.pop()) @:privateAccess _p.pool.pop(false);

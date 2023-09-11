@@ -103,6 +103,7 @@ final noMain = [
 	"internal/cpu",
 	"internal/types/errors",
 	"internal/godebug",
+	"internal/abi",
 	"syscall",
 	"syscall/js",
 ];

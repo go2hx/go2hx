@@ -105,13 +105,13 @@ class Go {
 			var dst = $dst;
 			var src = $src;
 			if (src == null || dst == null) {
-				(0 : GoInt);
+				(0 : stdgo.StdGoTypes.GoInt);
 			} else {
 				final min:Int = src.length > dst.length ? dst.length : src.length;
 				for (i in 0...min) {
 					dst[i] = src[i];
 				}
-				(min : GoInt);
+				(min : stdgo.StdGoTypes.GoInt);
 			}
 		};
 		return e;
@@ -120,8 +120,6 @@ class Go {
 	public static macro function str(exprs:Array<Expr>):Expr {
 		var length = 0;
 		var index = 0;
-		// new haxe.io.Bytes().printExpr();
-		// new haxe.io.Bytes().blit()
 		for (i in 0...exprs.length) {
 			// do switch statement here
 			switch exprs[i].expr {
@@ -263,7 +261,8 @@ class Go {
 				try {
 					Context.defineModule(modulePath.join("."), [td], Context.getLocalImports());
 				} catch (e) {
-					throw e;
+					trace(e);
+					//throw e;
 				}
 				// trace(new haxe.macro.Printer().printTypeDefinition(td));
 				return e;
@@ -643,7 +642,7 @@ class Go {
 							($e.value : $t);
 						} else {
 							var value:Dynamic = ($e.value : Dynamic).__underlying__().value;
-							if (!(value is PointerData) && t.kind() == 22) {
+							if (!(value is stdgo.Pointer.PointerData) && t.kind() == 22) {
 								(Go.pointer(value) : $t);
 							} else {
 								(value : $t);
@@ -682,7 +681,7 @@ class Go {
 							if (t2.kind() != stdgo.internal.reflect.Reflect.KindType.pointer
 								&& t.kind() == stdgo.internal.reflect.Reflect.KindType.pointer
 								&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(t)) {
-								if ((untyped ($e : Dynamic).value is PointerData)) {
+								if ((untyped ($e : Dynamic).value is stdgo.Pointer.PointerData)) {
 									final gt = stdgo.internal.reflect.Reflect.getElem(t._common());
 									untyped $e.value = stdgo.internal.reflect.Reflect.asInterfaceValue(($e.value : Pointer<Dynamic>).value, gt);
 								}

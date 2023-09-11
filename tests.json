@@ -56,8 +56,10 @@
     "go/importer",
     "compress/zlib",
     "internal/types/errors",
+    "internal/poll",
     "path/filepath",
     "compress/bzip2",
     "encoding/hex",
-    "image/color"
+    "image/color",
+    "text/template"
 ]

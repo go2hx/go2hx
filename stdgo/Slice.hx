@@ -374,17 +374,6 @@ class SliceData<T> {
 		return vectorObj;
 	}
 
-	public inline function toString():String {
-		#if !macro
-		if (bytes != null) {
-			return "[" + [for (i in offset...offset + length) Go.string(bytes.get(i))].join(" ") + "]";
-		}
-		return "[" + [for (i in offset...offset + length) Go.string(vector[i])].join(" ") + "]";
-		#else
-		return "";
-		#end
-	}
-
 	public inline function grow() {
 		if (vector == null && bytes == null) {
 			vector = new haxe.ds.Vector<T>(capacity);

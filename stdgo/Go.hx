@@ -1,25 +1,8 @@
 package stdgo;
 
 import haxe.macro.Expr;
-
 class Go {
-	public static var recover_exception:stdgo.StdGoTypes.AnyInterface = null;
-
-	public static function string(s:Dynamic):String {
-		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
-			s = s.value;
-		}
-		if (!(s is String) && Reflect.isObject(s) && s.error != null)
-			s = s.error();
-		if ((s is haxe.io.Bytes)) // GoString is haxe.io.Bytes
-			s = ((s : GoString) : String);
-		return if (haxe.Int64.isInt64(s)) {
-			haxe.Int64.toStr(s);
-		} else {
-			'$s';
-		}
-	}
-
+	public static var recover_exception:Dynamic= null;
 	// GOROUTINE
 	public static function routine(func:Void->Void) {
 		#if js

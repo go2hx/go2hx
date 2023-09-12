@@ -714,7 +714,7 @@ final list = [
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
 			value = (value : stdgo.Pointer<Dynamic>).value;
 		};
-		final value:GoUInt64 = switch _v.kind() {
+		final value:stdgo.StdGoTypes.GoUInt64 = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.uint:
 					(value : stdgo.StdGoTypes.GoUInt8);
 				case stdgo.internal.reflect.Reflect.KindType.uint8:

@@ -690,7 +690,7 @@ final list = [
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
 			value = (value : stdgo.Pointer<Dynamic>).value;
 		};
-		final value:GoComplex128 = switch _v.kind() {
+		final value:stdgo.StdGoTypes.GoComplex128 = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.complex128, stdgo.internal.reflect.Reflect.KindType.complex64:
 					value;
 				default:
@@ -1190,9 +1190,9 @@ final skipTargets = [
 final structs = [
 	"syscall:IPv6Mreq" => macro {
 		@:local
-		var Multiaddr:GoUInt8;
+		var Multiaddr:stdgo.StdGoTypes.GoUInt8;
 		@:local
-		var Interface:GoUInt32;
+		var Interface:stdgo.StdGoTypes.GoUInt32;
 	},
 	"os:File" => macro {
 		@:local
@@ -1262,7 +1262,7 @@ final structs = [
 	"sync:WaitGroup" => macro {
 		@:local
 		var lock = @:define("!js") new sys.thread.Lock();
-		var counter:GoUInt = 0;
+		var counter:stdgo.StdGoTypes.GoUInt = 0;
 	},
 	"sync:Mutex" => macro {
 		@:local

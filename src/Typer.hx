@@ -2975,7 +2975,7 @@ private function addPackIfBaseType(t:ComplexType):ComplexType {
 					}
 				}
 				switch p.name {
-					case "Any", "Error":
+					case "Any", "Error", "Chan":
 						p.pack = ["stdgo"];
 					default:
 				}

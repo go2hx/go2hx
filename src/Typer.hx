@@ -1089,8 +1089,9 @@ private function className(name:String, info:Info):String {
 	if (name == "AnyInterface")
 		return "T_AnyInterface";
 
-	if (name == "error")
+	if (name == "error") {
 		return "Error";
+	}
 	if (name == "Error")
 		return "T_error";
 	if (!isTitle(name) || isInvalidTitle(name))
@@ -2959,29 +2960,42 @@ private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer
 	});
 }
 
+private function addPackIfBaseType(t:ComplexType):ComplexType {
+	trace(t);
+	switch t {
+		case TPath(p):
+			if (p.pack.length == 0) {
+				for (t2 in basicTypes) {
+					if ("Go" + title(t2) == p.name) {
+						p.pack = ["stdgo"];
+						if (t2 != "string") {
+							p.sub = p.name;
+							p.name = "StdGoTypes";
+						}
+						return t;
+					}
+				}
+				switch p.name {
+					case "Any", "Error":
+						p.pack = ["stdgo"];
+					default:
+				}
+			}
+		default:
+	}
+	return t;
+}
+
 private function identType(expr:Ast.Ident, info:Info):ComplexType {
 	var name = expr.name;
-	var isStdGoType = false;
-	var isStdGoTypePkg = false;
 	for (t in basicTypes) {
 		if (name == t) {
-			if (name == "string") {
-				isStdGoTypePkg = true;
-			}
-			isStdGoType = true;
 			name = "Go" + title(name);
 			if (name.substr(2, 4) == "Uint") {
 				name = "GoUInt" + name.substr(6);
 			}
 			break;
 		}
-	}
-	switch name {
-		case "any":
-			isStdGoType = true;
-		case "error":
-			isStdGoType = true;
-			isStdGoTypePkg = true;
 	}
 	name = className(name, info);
 	if (StringTools.startsWith(name, "T__struct_") && expr.type != null) {
@@ -2990,25 +3004,11 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 			info.locals[type.underlying.hash] = typeof(type, info, false);
 		}
 	}
-	if (isStdGoType) {
-		if (isStdGoTypePkg) {
-			return TPath({
-				pack: ["stdgo"],
-				name: name,
-				sub: null,
-			});
-		}
-		return TPath({
-			pack: ["stdgo"],
-			name: "StdGoTypes",
-			sub: name,
-		});
-	}
-	return TPath({
+	return addPackIfBaseType(TPath({
 		pack: [],
 		name: name,
 		sub: null,
-	});
+	}));
 }
 
 private function selectorType(expr:Ast.SelectorExpr, info:Info):ComplexType {
@@ -3500,7 +3500,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						var p:TypePath = switch type {
 							case named(path, _, _):
 								namedTypePath(path, info);
-case typeParam(_, params):
+							case typeParam(_, params):
 								type = params[0];
 								null;
 							default:
@@ -4187,7 +4187,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			final p = namedTypePath(path, info);
 			if (params != null)
 				p.params = params.map(param -> TPType(toComplexType(param, info)));
-			TPath(p);
+			addPackIfBaseType(TPath(p));
 		case sliceType(_.get() => elem):
 			final ct = toComplexType(elem, info);
 			TPath({pack: ["stdgo"], name: "Slice", params: [TPType(ct)]});

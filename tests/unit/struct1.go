@@ -2,7 +2,6 @@ package main
 
 func main() {
 	x := X{10}
-	println(x.x)
 	if x.x != 10 {
 		panic("wrong value")
 	}

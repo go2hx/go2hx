@@ -2961,7 +2961,6 @@ private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer
 }
 
 private function addPackIfBaseType(t:ComplexType):ComplexType {
-	trace(t);
 	switch t {
 		case TPath(p):
 			if (p.pack.length == 0) {

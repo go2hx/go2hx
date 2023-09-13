@@ -6732,7 +6732,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					access: [APublic],
 					kind: FFun({
 						args: [],
-						expr: macro return Go.toInterface(this),
+						expr: macro return stdgo.Go.toInterface(this),
 					})
 				});
 			}

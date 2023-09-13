@@ -369,7 +369,7 @@ class Go {
 					} else {
 						final p = createTypePath();
 						if (!selfPointer)
-							expr = macro Go.pointer($expr);
+							expr = macro stdgo.Go.pointer($expr);
 						final e = macro new $p($expr, $rt);
 						// trace(new haxe.macro.Printer().printExpr(e));
 						return e;

@@ -1078,10 +1078,10 @@ private function importClassName(name:String):String {
 
 private function className(name:String, info:Info):String {
 	name = nameAscii(name);
-	if (name == "bool")
-		return "Bool";
 	if (info.renameClasses.exists(name))
 		return info.renameClasses[name];
+	if (name == "bool")
+		return "Bool";
 
 	if (name == "any") {
 		return "AnyInterface";
@@ -2987,6 +2987,7 @@ private function addPackIfBaseType(t:ComplexType):ComplexType {
 
 private function identType(expr:Ast.Ident, info:Info):ComplexType {
 	var name = expr.name;
+	name = className(name, info);
 	for (t in basicTypes) {
 		if (name == t) {
 			name = "Go" + title(name);
@@ -2996,7 +2997,6 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 			break;
 		}
 	}
-	name = className(name, info);
 	if (StringTools.startsWith(name, "T__struct_") && expr.type != null) {
 		final type = hashTypeToExprType(expr.type, info);
 		if (type.underlying != null) {
@@ -6444,9 +6444,10 @@ private function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field 
 }
 
 private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
-	var name = className(spec.name.name, info);
-	// info.renameIdents[spec.name.name] = name + "_static_extension";
-	// info.classNames[spec.name.name] = name + "_static_extension";
+	final name = className(spec.name.name, info);
+	info.renameClasses[spec.name.name] = name;
+	//info.renameIdents[spec.name.name] = name + "_static_extension";
+	//info.classNames[spec.name.name] = name + "_static_extension";
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getDocComment(spec, spec) + getSource(spec, info);

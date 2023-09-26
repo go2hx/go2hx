@@ -61,7 +61,7 @@ abstract UInt64(Int64) from Int64 to Int64 {
 
 	@:op(A - B) private static function subInt(lhs:UInt64, rhs:Int):UInt64;
 
-	@:op(A - B) private static function subInt(lhs:Int, rhs:UInt64):UInt64;
+	@:op(A - B) private static function subInt2(lhs:Int, rhs:UInt64):UInt64;
 
 	@:op(A - B) private static function subF(lhs:UInt64, rhs:Float):UInt64;
 

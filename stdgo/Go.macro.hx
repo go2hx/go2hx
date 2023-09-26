@@ -461,7 +461,7 @@ class Go {
 								cast x;
 							} : GoMap<$keyComplexType, $valueComplexType>);
 						case "stdgo.Slice":
-							value = macro new Slice(0, -1, null);
+							value = macro new stdgo.Slice(0, -1, null);
 						case "stdgo.AnyInterface":
 							// force cast into
 							value = macro new AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
@@ -571,7 +571,7 @@ class Go {
 			case TInst(t, params):
 				var t = t.get();
 				if (t.name == "String" && t.pack.length == 0)
-					expr = macro($expr : GoString);
+					expr = macro($expr : stdgo.GoString);
 			case TAnonymous(_.get() => a):
 				// trace(a.fields.map(field -> field.name));
 				for (field in a.fields) {

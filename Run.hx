@@ -87,7 +87,9 @@ function main() {
 		process = new Process("node -v");
 		code = process.exitCode();
 		process.close();
-	}catch(_) {}
+	}catch(_) {
+		code = 1;
+	}
 
 	if (code == 0) {
 		setupNodeJS(rebuild,args);
@@ -98,8 +100,9 @@ function main() {
 		process = new Process("hl", ["--version"]);
 		code = process.exitCode();
 		process.close();
-	}catch(_) {}
-
+	}catch(_) {
+		code = 1;
+	}
 	if (code == 0) {
 		setupHashlink(rebuild,args);
 	} else {
@@ -140,6 +143,7 @@ function deleteDirectoryRecursively(dir:String):Int {
 }
 
 function setupNodeJS(rebuild:Bool,args:Array<String>) {
+	Sys.println("NodeJS compiler version");
 	// run nodejs
 	if (!FileSystem.exists("build.js") || rebuild) {
 		Sys.command("haxe build-js.hxml");
@@ -152,6 +156,7 @@ function setupNodeJS(rebuild:Bool,args:Array<String>) {
 }
 
 function setupHashlink(rebuild:Bool,args:Array<String>) {
+	Sys.println("Hashlink compiler version");
 	var no_uv = false;
 	var no_fmt = false;
 	var index = 0;
@@ -176,5 +181,6 @@ function setupHashlink(rebuild:Bool,args:Array<String>) {
 }
 
 function setupInterp(rebuild:Bool, args:Array<String>) {
+	Sys.println("Interp compiler version");
 	Sys.command("haxe build-interp.hxml " + args.join(" "));
 }

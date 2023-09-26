@@ -53,17 +53,13 @@ function run(args:Array<String>) {
 		processCount = 0;
 	}
 	final instance = compileArgs(args);
-	Sys.println("create compiler instance");
+	Sys.println("Golang compiler instance");
 	setup(0, processCount, () -> {
 		if (onComplete == null)
 			onComplete = (modules, data) -> {
 				close();
 			};
-		if (args.length <= 1) {
-			Repl.init();
-		} else {
-			compile(instance);
-		}
+		compile(instance);
 	});
 	#if !js
 	while (true)

@@ -6,5 +6,6 @@ func main() {
 	case *bool:
 		_ = x
 	default:
+		panic("unreachable")
 	}
 }

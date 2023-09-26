@@ -673,17 +673,17 @@ class Go {
 					Context.error("complexType converted to type is null", Context.currentPos());
 				final t2 = gtDecode(t2, e, []);
 				return macro {
-					final t = Go.toInterface($e).type;
+					final t = stdgo.Go.toInterface($e).type;
 					var t2 = new stdgo.internal.reflect.Reflect._Type(${t2});
 					try {
-						final b = t.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(t2), t2));
+						final b = t.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t2), t2));
 						if (b) {
 							if (t2.kind() != stdgo.internal.reflect.Reflect.KindType.pointer
 								&& t.kind() == stdgo.internal.reflect.Reflect.KindType.pointer
 								&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(t)) {
 								if ((untyped ($e : Dynamic).value is stdgo.Pointer.PointerData)) {
 									final gt = stdgo.internal.reflect.Reflect.getElem(t._common());
-									untyped $e.value = stdgo.internal.reflect.Reflect.asInterfaceValue(($e.value : Pointer<Dynamic>).value, gt);
+									untyped $e.value = stdgo.internal.reflect.Reflect.asInterfaceValue(($e.value : stdgo.Pointer<Dynamic>).value, gt);
 								}
 							}
 						}

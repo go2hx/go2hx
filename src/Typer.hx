@@ -2881,7 +2881,7 @@ private function chanTypeExpr(expr:Ast.ChanType, info:Info):ComplexType {
 	var type = typeExprType(expr.value, info);
 	return TPath({
 		name: "Chan",
-		pack: [],
+		pack: ["stdgo"],
 		params: [TPType(type)],
 	});
 }
@@ -2989,10 +2989,10 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 	var name = expr.name;
 	name = className(name, info);
 	for (t in basicTypes) {
-		if (name == t) {
-			name = "Go" + title(name);
+		if (name == "T_" + t) {
+			name = "Go" + title(name.substr(2));
 			if (name.substr(2, 4) == "Uint") {
-				name = "GoUInt" + name.substr(6);
+				name = "GoUInt" + name.substr(6 + 2);
 			}
 			break;
 		}
@@ -3519,7 +3519,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								if (size == null)
 									size = macro 0;
 								if (p == null)
-									p = {name: "Chan", pack: [], params: [TPType(param)]};
+									p = {name: "Chan", pack: ["stdgo"], params: [TPType(param)]};
 								macro new $p($size, () -> $value);
 							case invalidType:
 								macro @:invalid_make null;

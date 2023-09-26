@@ -2977,6 +2977,10 @@ private function addPackIfBaseType(t:ComplexType):ComplexType {
 				switch p.name {
 					case "Any", "Error", "Chan":
 						p.pack = ["stdgo"];
+					case "AnyInterface":
+						p.pack = ["stdgo"];
+						p.sub = p.name;
+						p.name = "StdGoTypes";
 					default:
 				}
 			}
@@ -6061,7 +6065,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro(null : Chan<$t>);
 		case pointerType(_.get() => elem):
 			final t = toComplexType(elem, info);
-			macro(null : Pointer<$t>);
+			macro(null : stdgo.Pointer<$t>);
 		case signature(_, _, _, _):
 			macro null;
 		case refType(_.get() => elem):

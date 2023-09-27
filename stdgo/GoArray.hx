@@ -126,7 +126,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	}
 
 	public function __copy__() {
-		var array = new GoArray<T>();
+		var array = new stdgo.GoArray<T>();
 		array.__setSize__(array.length.toBasic());
 		array.__setVector__(this.vector.copy());
 		return array;

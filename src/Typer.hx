@@ -3352,7 +3352,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					if (typeof(expr.type, info, false).match(basic(string_kind))) {
 						var e = typeExpr(expr.fun, info);
 						genArgs(true);
-						return returnExpr(macro($e($a{args}) : GoString)).expr;
+						return returnExpr(macro($e($a{args}) : stdgo.GoString)).expr;
 					}
 				case "Exit":
 					if (expr.fun.x.id == "Ident" && expr.fun.x.name == "os") {
@@ -3661,7 +3661,7 @@ private function toAnyInterface(x:Expr, t:GoType, info:Info):Expr {
 		case basic(kind):
 			switch kind {
 				case untyped_nil_kind:
-					return macro(null : AnyInterface);
+					return macro(null : stdgo.StdGoTypes.AnyInterface);
 				default:
 			}
 		default:
@@ -4805,7 +4805,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 				isObjectMap = true;
 			} else {
 				return macro({
-					final x = new GoAnyInterfaceMap<$valueComplexType>();
+					final x = new stdgo.GoMap.GoAnyInterfaceMap<$valueComplexType>();
 					x.__defaultValue__ = () -> $defaultValueExpr;
 					@:mergeBlock $b{exprs};
 					cast x;
@@ -4833,7 +4833,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 	}
 	if (isObjectMap) {
 		return macro({
-			final x = new GoObjectMap<$keyComplexType, $valueComplexType>();
+			final x = new stdgo.GoMap.GoObjectMap<$keyComplexType, $valueComplexType>();
 			x.t = new stdgo.internal.reflect.Reflect._Type($keyT);
 			x.__defaultValue__ = () -> $defaultValueExpr;
 			@:mergeBlock $b{exprs};
@@ -6049,20 +6049,20 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro(null : stdgo.GoMap<$key, $value>);
 		case sliceType(_.get() => elem):
 			final t = toComplexType(elem, info);
-			macro(null : Slice<$t>);
+			macro(null : stdgo.Slice<$t>);
 		case arrayType(_.get() => elem, len):
 			final t = toComplexType(elem, info);
 			var value = defaultValue(elem, info);
 			if (value == null)
 				value = macro stdgo.Go.expectedValue();
-			macro new GoArray<$t>(...[for (i in 0...${toExpr(EConst(CInt('$len')))}) $value]);
+			macro new stdgo.GoArray<$t>(...[for (i in 0...${toExpr(EConst(CInt('$len')))}) $value]);
 		case interfaceType(_):
 			final ct = ct();
 			macro(null : $ct);
 		case chanType(_, _.get() => elem):
 			final t = toComplexType(elem, info);
 			var value = defaultValue(elem, info);
-			macro(null : Chan<$t>);
+			macro(null : stdgo.Chan<$t>);
 		case pointerType(_.get() => elem):
 			final t = toComplexType(elem, info);
 			macro(null : stdgo.Pointer<$t>);

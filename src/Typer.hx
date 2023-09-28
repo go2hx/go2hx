@@ -2928,7 +2928,7 @@ private function arrayTypeExpr(expr:Ast.ArrayType, info:Info):ComplexType {
 				len = macro($len : stdgo.StdGoTypes.GoInt).toBasic();
 		}
 		return TPath({
-			pack: [],
+			pack: ["stdgo"],
 			name: "GoArray",
 			params: type != null ? [TPType(type), TPExpr(len)] : [],
 		});
@@ -2965,6 +2965,9 @@ private function addPackIfBaseType(t:ComplexType):ComplexType {
 		case TPath(p):
 			if (p.pack.length == 0) {
 				for (t2 in basicTypes) {
+					if (t2.substr(0,2) == "ui")
+						t2 = "UI" + t2.substr(2);
+					// trace("Go" + title(t2) + " == " + p.name);
 					if ("Go" + title(t2) == p.name) {
 						p.pack = ["stdgo"];
 						if (t2 != "string") {

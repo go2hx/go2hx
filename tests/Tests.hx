@@ -120,7 +120,7 @@ function update() {
 		final ls = ChildProcess.spawn(task.command, task.args);
 		var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
 		timeoutTimer.run = () -> {
-			trace("TIMEOUT: " + task.command + " " + task.args);
+			trace("TEST TIMEOUT: " + task.command + " " + task.args);
 			if (task.runtime) {
 				suite.runtimeError(task.path,task.target);
 			}else{

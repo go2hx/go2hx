@@ -73,19 +73,22 @@ class Macro {
 		final location = PositionTools.toLocation(Context.currentPos());
 		final fileName = location.file.toString();
 		var pos = location.range.start.line;
+
+		var traceExpr = macro Sys.println('stacktrace: ' + $i{stack}.fileName + ':' + $i{stack}.pos);
 		
 		final e = macro {
 			var $stack = {pos: $v{pos}, fileName: $v{fileName}};
+			//$traceExpr;
 			try {
 				$body;
-			}catch(_) {
+			}catch(e) {
+				trace(e);
 				trace($i{stack});
 				Sys.println('stack: ' + $i{stack}.fileName + ':' + $i{stack}.pos);
-				//throw e;
+				throw e;
 			}
 		};
 		e.pos = Context.currentPos();
-		trace(new haxe.macro.Printer().printExpr(e));
 		return e;
 	}
 

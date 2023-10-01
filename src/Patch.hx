@@ -1274,7 +1274,7 @@ final structs = [
 	},
 	"sync:Pool" => macro {
 		@:local
-		var pool = @:define("!js", new Array<AnyInterface>()) new sys.thread.Deque<AnyInterface>();
+		var pool = @:define("!js", new Array<stdgo.StdGoTypes.AnyInterface>()) new sys.thread.Deque<stdgo.StdGoTypes.AnyInterface>();
 	},
 	"reflect:ValueError" => macro {
 		function toString():String {

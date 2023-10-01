@@ -9,7 +9,7 @@ final list = [
 		return new stdgo.Slice<stdgo.StdGoTypes.GoByte>(0, 0).__setNumber32__();
 	},
 	// stdgo/errors
-	"errors:_errorType" => macro stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : Ref<Error>))).elem(),
+	"errors:_errorType" => macro stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.StdGoTypes.Ref<stdgo.Error>))).elem(),
 	// stdgo/os
 	"os:readFile" => macro {
 		if (!sys.FileSystem.exists(_name))

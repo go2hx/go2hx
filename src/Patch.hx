@@ -6,7 +6,7 @@ final list = [
 				panic(err)
 			}
 			return b */
-		return new stdgo.Slice<GoByte>(0, 0).__setNumber32__();
+		return new stdgo.Slice<stdgo.StdGoTypes.GoByte>(0, 0).__setNumber32__();
 	},
 	// stdgo/errors
 	"errors:_errorType" => macro stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : Ref<Error>))).elem(),
@@ -336,7 +336,7 @@ final list = [
 		// _x = stdgo.internal.reflect.Reflect.namedUnderlying(_x);
 		// _y = stdgo.internal.reflect.Reflect.namedUnderlying(_y);
 		if (new Value(_x).isNil() || new Value(_y).isNil()) {
-			return (_x : AnyInterface) == (_y : AnyInterface);
+			return (_x : stdgo.StdGoTypes.AnyInterface) == (_y : stdgo.StdGoTypes.AnyInterface);
 		};
 		var v1 = valueOf(_x);
 		var v2 = valueOf(_y);
@@ -554,7 +554,7 @@ final list = [
 			case stdgo.internal.reflect.Reflect.GoType.arrayType(_.get() => elem, _):
 				switch elem {
 					case stdgo.internal.reflect.Reflect.GoType.basic(stdgo.internal.reflect.Reflect.BasicKind.uint8_kind):
-						return (value : stdgo.GoArray<GoByte>).__slice__(0);
+						return (value : stdgo.GoArray<stdgo.StdGoTypes.GoByte>).__slice__(0);
 					default:
 						throw new ValueError("reflect.Value.Bytes", @:privateAccess _v.kind());
 				};

@@ -2967,7 +2967,6 @@ private function addPackIfBaseType(t:ComplexType):ComplexType {
 				for (t2 in basicTypes) {
 					if (t2.substr(0,2) == "ui")
 						t2 = "UI" + t2.substr(2);
-					// trace("Go" + title(t2) + " == " + p.name);
 					if ("Go" + title(t2) == p.name) {
 						p.pack = ["stdgo"];
 						if (t2 != "string") {
@@ -2998,8 +2997,8 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 	for (t in basicTypes) {
 		if (name == "T_" + t) {
 			name = "Go" + title(name.substr(2));
-			if (name.substr(2, 4) == "Uint") {
-				name = "GoUInt" + name.substr(6 + 2);
+			if (name.substr(2, 2) == "Ui") {
+				name = "GoUI" + name.substr(4);
 			}
 			break;
 		}

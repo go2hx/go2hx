@@ -652,7 +652,6 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	var e = macro $e.value.$funcName($a{fieldCallArgs});
 	if (!isVoid(fieldRet))
 		e = macro return $e;
-
 	final field:Field = {
 		name: funcName,
 		access: hasParams ? [APublic] : [APublic, ADynamic],
@@ -5496,7 +5495,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	}
 	final identifierNames:Array<String> = [];
 	var nonGenericParams:Array<TypeParamDecl> = []; // params
-	if (decl.type.typeParams != null || recvGeneric) {
+	if ((decl.type.typeParams != null || recvGeneric)) {
 		for (arg in args) {
 			arg.type = TPath({
 				name: "Expr",
@@ -5590,6 +5589,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				constraints: t.constraints,
 			};
 		}
+		final genericTypeNames = [];
 		function setGenericType(t:ComplexType):ComplexType {
 			if (t == null)
 				return t;
@@ -5597,11 +5597,10 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				case TNamed(name, param):
 					TNamed(name, setGenericType(param));
 				case TFunction(args, ret):
-					final newArgs = [];
 					for (i in 0...args.length) {
-						newArgs[i] = setGenericType(args[i]);
+						args[i] = setGenericType(args[i]);
 					}
-					TFunction(newArgs, setGenericType(ret));
+					TFunction(args, setGenericType(ret));
 				case TPath(p):
 					var params:Array<TypeParam> = [];
 					if (p.params != null) {
@@ -5628,7 +5627,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 							params: params,
 						});
 					}else{
-						if (p.name == "Bool" || p.pack.length != 0) {
+						if (p.name == "Bool" || p.pack.length != 0 || (p.pack.length == 0 && genericTypeNames.indexOf(p.name) != -1)) {
 							return TPath({
 								name: p.name,
 								sub: p.sub,
@@ -5658,6 +5657,19 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				case ENew(p, params):
 					if (p.pack.length == 0 && identifierNames.indexOf(p.name) != -1) {
 						p.name = "$" + p.name;
+					}else{
+						if (p.name == "Bool" || p.pack.length != 0 || (p.pack.length == 0 && genericTypeNames.indexOf(p.name) != -1)) {
+							
+						}else{
+							final path = [info.global.filePath];
+							final globalPath = getGlobalPath(info);
+							if (globalPath != "")
+								path.unshift(globalPath);
+							if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+								path.unshift("stdgo");
+							}
+							p.pack = path;
+						}
 					}
 					if (p.params != null) {
 						p.params = [
@@ -5676,9 +5688,11 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 						}
 					]));
 				case EFunction(kind, f):
+					final locals = locals.copy();
 					final args = [
-						for (arg in args) {
+						for (arg in f.args) {
 							final t = setGenericType(arg.type);
+							locals.push(arg.name);
 							{
 								value: arg.value,
 								opt: arg.opt,
@@ -5700,23 +5714,48 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 					toExpr(ECheckType(findGenericTypes(locals, e), setGenericType(t)));
 				case EVars(vars):
 					toExpr(EVars([
-						for (v in vars) {
-							locals.push(v.name);
-							{
-								name: v.name,
-								type: setGenericType(v.type),
-								expr: findGenericTypes(locals, v.expr),
-							};
+						for (i in 0... vars.length) {
+							locals.push(vars[i].name);
+							final t = setGenericType(vars[i].type);
+							vars[i].name = vars[i].name;
+							vars[i].type = t;
+							vars[i].expr = findGenericTypes(locals, vars[i].expr);
+							vars[i];
 						}
 					]));
 				case EField(_,_):
 					e;
-				case EBinop(op, e1, e2):
-					if (op == OpArrow) {
-						e;
-					} else {
-						toExpr(EBinop(op, findGenericTypes(locals, e1), findGenericTypes(locals, e2)));
+				case EFor(it,expr):
+					final locals = locals.copy();
+					switch it.expr {
+						case EBinop(op,e1,e2):
+							switch op {
+								case OpInterval:
+									switch e1.expr {
+										case EConst(CIdent(s)):
+											locals.push(s);
+										default:
+									}
+								case OpArrow:
+									switch e1.expr {
+										case EConst(CIdent(s)):
+											locals.push(s);
+										default:
+									}
+									switch e2.expr {
+										case EConst(CIdent(s)):
+											locals.push(s);
+										case EBinop(OpIn, {expr: EConst(CIdent(s)), pos: _}, _):
+											locals.push(s);
+										default:
+									}
+								default:
+							}
+						default:
 					}
+					toExpr(EFor(findGenericTypes(locals,it), findGenericTypes(locals, expr)));
+				case EBinop(op, e1, e2):
+					toExpr(EBinop(op, findGenericTypes(locals, e1), findGenericTypes(locals, e2)));
 				case EConst(CIdent(s)):
 					switch s {
 						case "false","true", "null", "Go", "stdgo", "_":
@@ -5732,6 +5771,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 								path.unshift("stdgo");
 							}
 							path.push(s);
+							trace("new path: " + path);
 							macro @:privateAccess $p{path};
 						default:
 							e;
@@ -6171,7 +6211,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 		case typeParam(name, _):
 			// null;
 			if (strict) {
-				final t = TPath({name: name, pack: []});
+				final t = TPath({name: className(name,info), pack: []});
 				macro (throw null : $t);
 			} else {
 				null;

@@ -3597,11 +3597,11 @@ private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, t
 			switch a {
 				case TPath(p):
 					if (isTypeParam(params[i])) {
-						if (p.params == null) {
+						/*if (p.params == null) {
 							genericExprs.remove(genericExpr);
 							break;
-						}
-						var next = false;
+						}*/
+						/*var next = false;
 						for (param in p.params) {
 							switch param {
 								case TPType(a):
@@ -3613,7 +3613,7 @@ private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, t
 							}
 						}
 						if (next)
-							break;
+							break;*/
 					}
 				default:
 			}
@@ -5653,6 +5653,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			return t;
 		}
 		function findGenericTypes(locals:Array<String>, e:Expr):Expr {
+			//trace(printer.printExpr(e));
 			return switch e.expr {
 				case ENew(p, params):
 					if (p.pack.length == 0 && identifierNames.indexOf(p.name) != -1) {
@@ -5723,8 +5724,11 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 							vars[i];
 						}
 					]));
-				case EField(_,_):
+				case EField({expr: EConst(_), pos: _},_):
 					e;
+				case EField(e2, s):
+					//trace(printer.printExpr(e));
+					toExpr(EField(findGenericTypes(locals, e2), s));
 				case EFor(it,expr):
 					final locals = locals.copy();
 					switch it.expr {
@@ -5771,7 +5775,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 								path.unshift("stdgo");
 							}
 							path.push(s);
-							trace("new path: " + path);
 							macro @:privateAccess $p{path};
 						default:
 							e;

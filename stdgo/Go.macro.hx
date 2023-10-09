@@ -464,7 +464,7 @@ class Go {
 							value = macro new stdgo.Slice(0, -1, null);
 						case "stdgo.AnyInterface":
 							// force cast into
-							value = macro new AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
+							value = macro new stdgo.StdGoTypes.AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
 						default:
 							throw "invalid path tabstract setRef: " + path;
 					}

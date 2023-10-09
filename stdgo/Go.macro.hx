@@ -608,7 +608,7 @@ class Go {
 					var t = new stdgo.internal.reflect.Reflect._Type($toType);
 					// trace($e.type._common());
 					// trace(t._common());
-					final b = $e.type.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(t), t));
+					final b = $e.type.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t));
 					if (!b)
 						throw "unable to assert";
 					// interface kind check
@@ -643,7 +643,7 @@ class Go {
 						} else {
 							var value:Dynamic = ($e.value : Dynamic).__underlying__().value;
 							if (!(value is stdgo.Pointer.PointerData) && t.kind() == 22) {
-								(Go.pointer(value) : $t);
+								(stdgo.Go.pointer(value) : $t);
 							} else {
 								(value : $t);
 							}

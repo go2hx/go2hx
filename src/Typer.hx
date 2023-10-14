@@ -652,6 +652,15 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	var e = macro $e.value.$funcName($a{fieldCallArgs});
 	if (!isVoid(fieldRet))
 		e = macro return $e;
+	var paramIndex = 0;
+	final fieldArgs = fieldArgs.copy().map(arg -> {
+		if (arg.name.indexOf("__generic__") == 0) {
+			arg.type = TPath({name: wrapper.params[paramIndex++].name, pack: []});
+			arg;
+		}else{
+			arg;
+		}
+	});
 	final field:Field = {
 		name: funcName,
 		access: hasParams ? [APublic] : [APublic, ADynamic],
@@ -1077,6 +1086,8 @@ private function importClassName(name:String):String {
 
 private function className(name:String, info:Info):String {
 	name = nameAscii(name);
+	if (info.global.renameClasses.exists(name))
+		return info.global.renameClasses[name];
 	if (info.renameClasses.exists(name))
 		return info.renameClasses[name];
 	if (name == "bool")
@@ -2959,47 +2970,41 @@ private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer
 	});
 }
 
-private function addPackIfBaseType(t:ComplexType):ComplexType {
-	switch t {
-		case TPath(p):
-			if (p.pack.length == 0) {
-				for (t2 in basicTypes) {
-					if (t2.substr(0,2) == "ui")
-						t2 = "UI" + t2.substr(2);
-					if ("Go" + title(t2) == p.name) {
-						p.pack = ["stdgo"];
-						if (t2 != "string") {
-							p.sub = p.name;
-							p.name = "StdGoTypes";
-						}
-						return t;
-					}
-				}
-				switch p.name {
-					case "Any", "Error", "Chan":
-						p.pack = ["stdgo"];
-					case "AnyInterface":
-						p.pack = ["stdgo"];
-						p.sub = p.name;
-						p.name = "StdGoTypes";
-					default:
-				}
-			}
-		default:
-	}
-	return t;
-}
-
 private function identType(expr:Ast.Ident, info:Info):ComplexType {
-	var name = expr.name;
-	name = className(name, info);
-	for (t in basicTypes) {
-		if (name == "T_" + t) {
-			name = "Go" + title(name.substr(2));
-			if (name.substr(2, 2) == "Ui") {
-				name = "GoUI" + name.substr(4);
+	var name = className(expr.name, info);
+	if (!info.renameClasses.exists(expr.name) && !info.global.renameClasses.exists(name)) {
+		for (t in basicTypes) {
+			if (name == "T_" + t) {
+				name = "Go" + title(name.substr(2));
+				if (name.substr(2, 2) == "Ui") {
+					name = "GoUI" + name.substr(4);
+				}
+				if (name == "GoString") {
+					return TPath({
+						pack: ["stdgo"],
+						name: "GoString",
+					});
+				}
+				return TPath({
+					pack: ["stdgo"],
+					sub: name,
+					name: "StdGoTypes",
+				});
 			}
-			break;
+		}
+		switch name {
+			case "Error", "Chan":
+				return TPath({
+					pack: ["stdgo"],
+					name: name,
+				});
+			case "AnyInterface":
+				return TPath({
+					pack: ["stdgo"],
+					sub: name,
+					name: "StdGoTypes",
+				});
+			default:
 		}
 	}
 	if (StringTools.startsWith(name, "T__struct_") && expr.type != null) {
@@ -3008,11 +3013,11 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 			info.locals[type.underlying.hash] = typeof(type, info, false);
 		}
 	}
-	return addPackIfBaseType(TPath({
+	return TPath({
 		pack: [],
 		name: name,
 		sub: null,
-	}));
+	});
 }
 
 private function selectorType(expr:Ast.SelectorExpr, info:Info):ComplexType {
@@ -4191,7 +4196,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			final p = namedTypePath(path, info);
 			if (params != null)
 				p.params = params.map(param -> TPType(toComplexType(param, info)));
-			addPackIfBaseType(TPath(p));
+			TPath(p);
 		case sliceType(_.get() => elem):
 			final ct = toComplexType(elem, info);
 			TPath({pack: ["stdgo"], name: "Slice", params: [TPType(ct)]});
@@ -5370,7 +5375,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		return null;
 	}
 	info.funcName = name;
-	var ret = typeFieldListReturn(decl.type.results, info, true);
 	var args = typeFieldListArgs(decl.type.params, info);
 	var meta:Metadata = [];
 	var recvGeneric = false;
@@ -5421,6 +5425,19 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	}
 	info.restricted = restricted;
 	final patchName = info.global.module.path + ":" + name;
+	var identifierNames:Array<String> = [];
+	if (!recvGeneric) {
+		params = getParams(decl.type.typeParams, info);
+		for (param in params) {
+			identifierNames.push(param.name);
+		}
+	}
+	final genericNames = params == null ? [] : [for (i in 0...params.length) params[i].name];
+	identifierNames = identifierNames.concat(genericNames);
+	for (name in identifierNames) {
+		info.global.renameClasses[name] = name;
+	}
+	var ret = typeFieldListReturn(decl.type.results, info, true);
 	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
 		
@@ -5451,6 +5468,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		}
 		macro $block;
 	}
+	info.global.renameClasses = [];
 
 	final patch = Patch.list[patchName];
 	if (decl.recv == null && patch != null) {
@@ -5495,7 +5513,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 			access.push(AInline);
 	}
-	var identifierNames:Array<String> = [];
+var identifierNames:Array<String> = [];
 	var nonGenericParams:Array<TypeParamDecl> = []; // params
 	if ((decl.type.typeParams != null || recvGeneric)) {
 		for (arg in args) {
@@ -5546,7 +5564,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			}
 		];
 		final retExpr = macro haxe.macro.Context.getExpectedType() == null ? null : haxe.macro.Context.toComplexType(haxe.macro.Context.getExpectedType());
-		final genericNames = params == null ? [] : [for (i in 0...params.length) params[i].name];
+final genericNames = params == null ? [] : [for (i in 0...params.length) params[i].name];
 		identifierNames = identifierNames.concat(genericNames);
 		final genericTypes = [];
 		var genericIdValue = macro "T_";
@@ -7525,6 +7543,7 @@ class Global {
 	public var filePath:String = "";
 	public var module:Module = null;
 	public var noCommentsBool:Bool = false;
+	public var renameClasses:Map<String, String> = [];
 	public var externBool:Bool = false;
 	public var root:String = "";
 	public var hashMap:Map<UInt, Dynamic> = [];

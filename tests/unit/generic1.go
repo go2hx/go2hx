@@ -10,7 +10,6 @@ type K[T any] struct {
 
 func (a *A[T]) add() {
 	a.x = a.x + 10
-	println(a.x)
 }
 
 func main() {

@@ -5375,6 +5375,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	var meta:Metadata = [];
 	var recvGeneric = false;
 	var params:Array<TypeParamDecl> = null;
+	var recvArg = null;
 	if (decl.recv != null) {
 		// trace(decl.recv.list);
 		// params = decl.recv.list[0].type
@@ -5415,7 +5416,8 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		} else {
 			varName = "_";
 		}
-		args.unshift({name: varName, type: ct, meta: isPointer(varType) ? [{name: ":pointer", pos: null}] : []});
+		recvArg = {name: varName, type: ct, meta: isPointer(varType) ? [{name: ":pointer", pos: null}] : []};
+		args.unshift(recvArg);
 	}
 	info.restricted = restricted;
 	final patchName = info.global.module.path + ":" + name;
@@ -5493,7 +5495,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 			access.push(AInline);
 	}
-	final identifierNames:Array<String> = [];
+	var identifierNames:Array<String> = [];
 	var nonGenericParams:Array<TypeParamDecl> = []; // params
 	if ((decl.type.typeParams != null || recvGeneric)) {
 		for (arg in args) {
@@ -5545,12 +5547,16 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		];
 		final retExpr = macro haxe.macro.Context.getExpectedType() == null ? null : haxe.macro.Context.toComplexType(haxe.macro.Context.getExpectedType());
 		final genericNames = params == null ? [] : [for (i in 0...params.length) params[i].name];
+		identifierNames = identifierNames.concat(genericNames);
 		final genericTypes = [];
 		var genericIdValue = macro "T_";
 		for (i in 0...genericNames.length) {
 			final genericName = genericNames[i];
 			genericTypes.push(macro final $genericName:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof($i{"__generic__" + i})));
 			genericIdValue = macro $genericIdValue + haxe.macro.ComplexTypeTools.toString($i{genericName}) + "_";
+		}
+		if (recvArg != null) {
+			args.remove(recvArg);
 		}
 		if (genericNames.length > 0) {
 			var i = genericNames.length - 1;
@@ -5569,6 +5575,9 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				args.unshift(arg);
 				i--;
 			}
+		}
+		if (recvArg != null) {
+			args.unshift(recvArg);
 		}
 		var func = toExpr(EFunction(FNamed("f", false), {
 			args: args.copy(),
@@ -5589,7 +5598,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				constraints: t.constraints,
 			};
 		}
-		final genericTypeNames = [];
 		function setGenericType(t:ComplexType):ComplexType {
 			if (t == null)
 				return t;
@@ -5627,7 +5635,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 							params: params,
 						});
 					}else{
-						if (p.name == "Bool" || p.pack.length != 0 || (p.pack.length == 0 && genericTypeNames.indexOf(p.name) != -1)) {
+						if (p.name == "Bool" || p.pack.length != 0) {
 							return TPath({
 								name: p.name,
 								sub: p.sub,
@@ -5659,7 +5667,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 					if (p.pack.length == 0 && identifierNames.indexOf(p.name) != -1) {
 						p.name = "$" + p.name;
 					}else{
-						if (p.name == "Bool" || p.pack.length != 0 || (p.pack.length == 0 && genericTypeNames.indexOf(p.name) != -1)) {
+						if (p.name == "Bool" || p.pack.length != 0) {
 							
 						}else{
 							final path = [info.global.filePath];

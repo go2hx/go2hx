@@ -1364,32 +1364,47 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.CallExpr:
 		var ident *ast.Ident
 		var resolveGeneric func(node ast.Expr)
+		typeArgs := make([]map[string]interface{}, 0)
 		resolveGeneric = func(node ast.Expr) {
 			switch fun := node.(type) {
 			case *ast.Ident:
 				ident = fun
 			case *ast.SelectorExpr:
+				t := checker.TypeOf(fun.X)
+				switch t := t.(type) {
+				case *types.Named:
+					if t.TypeArgs() != nil {
+						for i := 0; i < t.TypeArgs().Len(); i++ {
+							typeArgs = append(typeArgs, parseType(t.TypeArgs().At(i), map[string]bool{}))
+						}
+					}
+				default:
+				}
 				// goes to ident
 				resolveGeneric(fun.Sel)
 			case *ast.IndexExpr:
 				// goes to ident or selector
 				resolveGeneric(fun.X)
+			case *ast.IndexListExpr:
+				resolveGeneric(fun.X)
+			case *ast.InterfaceType:
+
 			default:
+				fmt.Println("issue:", reflect.TypeOf(fun))
 			}
 		}
 		resolveGeneric(node.Fun)
-
 		if ident != nil {
 			inst := checker.Instances[ident]
 			if inst.TypeArgs != nil {
-				typeArgs := make([]map[string]interface{}, inst.TypeArgs.Len())
 				for i := 0; i < inst.TypeArgs.Len(); i++ {
-					typeArgs[i] = parseType(inst.TypeArgs.At(i), map[string]bool{})
+					typeArgs = append(typeArgs, parseType(inst.TypeArgs.At(i), map[string]bool{}))
 				}
-				data["typeArgs"] = typeArgs
 			}
 		}
-
+		if len(typeArgs) > 0 {
+			data["typeArgs"] = typeArgs
+		}
 		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
 	case *ast.StarExpr, *ast.BinaryExpr, *ast.SliceExpr, *ast.ParenExpr:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})

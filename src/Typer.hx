@@ -4128,7 +4128,22 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	var part = path.substr(last);
 	var split = part.lastIndexOf(".");
 	var pkg = part.substr(0, split);
-	var cl = className(part.substr(split + 1), info);
+	final clName = part.substr(split + 1);
+	var cl = className(clName, info);
+	switch cl {
+		case "Error", "Chan":
+			return {
+				name: cl,
+				pack: ["stdgo"],
+			};
+		case "AnyInterface":
+			return {
+				pack: ["stdgo"],
+				sub: cl,
+				name: "StdGoTypes",
+			};
+		default:
+	}
 	path = path.substr(0, last) + pkg;
 	if (path == "command-line-arguments")
 		path = "";

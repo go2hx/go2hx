@@ -1127,6 +1127,10 @@ final list = [
 		}
 		return -1;
 	},
+	"internal.bytealg:makeNoZero" => macro {
+		final s = new stdgo.Slice<stdgo.StdGoTypes.GoByte>(_n,_n).__setNumber32__();
+		return s;
+	},
 	"internal.bytealg:indexByte" => macro {
 		for (i in 0..._b.length.toBasic()) {
 			if (_b[i] == _c)

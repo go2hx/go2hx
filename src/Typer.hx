@@ -653,21 +653,18 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	if (!isVoid(fieldRet))
 		e = macro return $e;
 	var paramIndex = 0;
-	final fieldArgs = fieldArgs.copy().map(arg -> {
-		if (arg.name.indexOf("__generic__") == 0) {
-			arg.type = TPath({name: wrapper.params[paramIndex++].name, pack: []});
-			arg;
-		}else{
-			arg;
-		}
-	});
+	final fieldArgs = fieldArgs.copy();
+	for (arg in fieldArgs) {
+		if (arg.name.indexOf("__generic__") == 0)
+			fieldArgs.remove(arg);
+	}
 	final field:Field = {
 		name: funcName,
 		access: hasParams ? [APublic] : [APublic, ADynamic],
 		meta: meta == null ? null : meta.copy(),
 		pos: pos,
 		doc: doc,
-		kind: hasParams ? FVar(TFunction(fieldArgs.map(arg -> arg.type), fieldRet)) : FFun({
+		kind: hasParams ? FVar(TFunction(fieldArgs.map(arg -> TNamed(arg.name, arg.type)), fieldRet)) : FFun({
 			args: fieldArgs,
 			ret: fieldRet,
 			expr: e,
@@ -1354,7 +1351,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 		return e;
 	// trace(fromType, toType, isNamed(fromType), isInterface(toType));
 	if (isNamed(fromType) && !isInterface(fromType) && isInterface(toType) && !isAnyInterface(toType)) {
-		return wrapper(fromType, e, info);
+		return wrapperExpr(fromType, e, info);
 	}
 	// trace(fromType, toType);
 	if ((isRef(fromType) || isPointer(fromType))
@@ -1362,7 +1359,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 		&& !isInterface(fromType)
 		&& !isAnyInterface(toType)
 		&& isInterface(toType)) {
-		e = wrapper(fromType, e, info);
+		e = wrapperExpr(fromType, e, info);
 	}
 	switch toType {
 		case basic(unsafepointer_kind):
@@ -2317,7 +2314,7 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 			return translateStruct(expr, fromType, toType, info);
 	}
 	if (isNamed(fromType) && !isInterface(fromType) && isInterface(toType) && !isAnyInterface(toType)) {
-		y = wrapper(fromType, y, info);
+		y = wrapperExpr(fromType, y, info);
 		return y;
 	}
 	if ((isRef(fromType) || isPointer(fromType))
@@ -2325,13 +2322,13 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		&& !isInterface(fromType)
 		&& !isAnyInterface(toType)
 		&& isInterface(toType)) {
-		y = wrapper(fromType, y, info);
+		y = wrapperExpr(fromType, y, info);
 		return y;
 	}
 	return y;
 }
 
-private function wrapper(t:GoType, y:Expr, info:Info):Expr {
+private function wrapperExpr(t:GoType, y:Expr, info:Info):Expr {
 	var self = y;
 	var selfPointer = false;
 	if (isPointer(t)) {
@@ -3663,7 +3660,7 @@ private function toAnyInterface(x:Expr, t:GoType, info:Info):Expr {
 	switch t {
 		case named(_, _, _, _):
 			if (!isInterface(t) && !isAnyInterface(t))
-				x = wrapper(t, x, info);
+				x = wrapperExpr(t, x, info);
 		case basic(kind):
 			switch kind {
 				case untyped_nil_kind:

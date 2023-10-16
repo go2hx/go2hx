@@ -296,9 +296,18 @@ class Go {
 		final tmacro = macro new stdgo.internal.reflect.Reflect._Type($gt);
 		return macro (stdgo.internal.reflect.Reflect.defaultValue(new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer($tmacro), $tmacro)) : $ct);
 	}
-
+	/**
+		Create an interface from a type of expr
+		On the fly interface creation
+	**/
 	public static macro function asInterface(expr) {
 		// trace(new haxe.macro.Printer().printExpr(expr));
+		final selfType = Context.typeof(switch expr.expr {
+			case ECall(_, _[0] => param):
+				param;
+			default:
+				expr;
+		});
 		var t = Context.typeof(expr);
 		switch t {
 			case TInst(_.get() => t, _):
@@ -351,6 +360,13 @@ class Go {
 							final methodName = field.name;
 							switch field.type {
 								case TFun(args, ret):
+									final genericArgs = [];
+									for (arg in args) {
+										if (arg.name.indexOf("__generic__") == 0) {
+											args.remove(arg);
+											genericArgs.push(arg);
+										}
+									}
 									final callArgs = args.map(arg -> macro $i{arg.name});
 									if (isPointer) {
 										if (!selfPointer) {
@@ -358,6 +374,14 @@ class Go {
 										} else {
 											callArgs.unshift(macro $expr);
 										}
+									}
+									switch selfType {
+										case TInst(_, params), TType(_, params):
+											for (param in params) {
+												final ct = Context.toComplexType(param);
+												callArgs.push(macro (throw null : $ct));
+											}
+										default:
 									}
 									// callArgs.unshift(self);
 									var e = macro $self.value.$methodName($a{callArgs});
@@ -372,6 +396,7 @@ class Go {
 										}),
 										pos: Context.currentPos(),
 									}
+									// trace(new haxe.macro.Printer().printExpr(f));
 									exprs.push(macro __self__.$methodName = $f);
 								default:
 									throw "invalid field type: " + field.type;

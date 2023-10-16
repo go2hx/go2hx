@@ -26,6 +26,8 @@ class Go {
 
 	public static macro function expectedValue(value):Expr;
 
+	public static macro function defaultValue(e:Expr):Expr;
+
 	public static macro function typeAssert(expr:Expr):Expr;
 
 	public static macro function typeEquals(expr:Expr):Expr;

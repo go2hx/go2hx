@@ -6256,7 +6256,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			// null;
 			if (strict) {
 				final t = TPath({name: className(name,info), pack: []});
-				macro (throw null : $t);
+				macro stdgo.Go.defaultValue((throw null : $t));
 			} else {
 				null;
 			}

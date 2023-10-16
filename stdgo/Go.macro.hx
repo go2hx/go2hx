@@ -281,7 +281,19 @@ class Go {
 		}
 		final t = gtDecode(t, null, []);
 		final t = macro new stdgo.internal.reflect.Reflect._Type($t);
-		return macro stdgo.internal.reflect.Reflect.defaultValue(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer($t), $t));
+		return macro stdgo.internal.reflect.Reflect.defaultValue(new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer($t), $t));
+	}
+
+	public static macro function defaultValue(e:Expr):Expr {
+		var t = Context.typeof(e);
+		switch t {
+			case TType(_.get() => t2, _):
+				t = t2.type;
+			default:
+		}
+		final t = gtDecode(t, null, []);
+		final t = macro new stdgo.internal.reflect.Reflect._Type($t);
+		return macro stdgo.internal.reflect.Reflect.defaultValue(new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer($t), $t));
 	}
 
 	public static macro function asInterface(expr) {

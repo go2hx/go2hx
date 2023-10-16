@@ -379,13 +379,12 @@ class Go {
 										case TInst(_, params), TType(_, params):
 											for (param in params) {
 												final ct = Context.toComplexType(param);
-												callArgs.push(macro (throw null : $ct));
+												callArgs.push(macro (cast(null) : $ct));
 											}
 										default:
 									}
 									// callArgs.unshift(self);
 									var e = macro $self.value.$methodName($a{callArgs});
-									// trace("e: " + printer.printExpr(e));
 									if (!isVoid(ret))
 										e = macro return $e;
 									final f = {

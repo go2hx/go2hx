@@ -56,7 +56,7 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		If `key` is `null`, the result is unspecified.
 	**/
 	@:arrayAccess public inline function get(key:K)
-		return this.get(key);
+		return this?.get(key);
 
 	/**
 		Returns true if `key` has a mapping, false otherwise.

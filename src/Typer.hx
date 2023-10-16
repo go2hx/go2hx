@@ -2469,6 +2469,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						switch x.expr {
 							case ECheckType(e, _):
 								x = e;
+							case EBinop(OpNullCoal, e, _):
+								x = e;
 							default:
 						}
 						// remove Haxe compiler error: "Assigning a value to itself"
@@ -3104,8 +3106,11 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 		case arrayType(_, _), sliceType(_), basic(untyped_string_kind), basic(string_kind):
 			index = assignTranslate(typeof(expr.index, info, false), basic(int_kind), index, info);
 			index = macro($index : stdgo.StdGoTypes.GoInt); // explicit casting needed for macro typeParam system otherwise compilation breaks
-		case mapType(_.get() => indexType, _):
+		case mapType(_.get() => indexType, _.get() => valueType):
 			index = assignTranslate(typeof(expr.index, info, false), indexType, index, info);
+			final value = defaultValue(valueType, info);
+			final e = macro ($x[$index] ?? $value);
+			return e.expr;
 		case signature(_, _.get() => params, _.get() => results, _, _.get() => typeParams): // generic param
 			final objType = expr.x.objType;
 			var args = [];

@@ -291,9 +291,10 @@ class Go {
 				t = t2.type;
 			default:
 		}
-		final t = gtDecode(t, null, []);
-		final t = macro new stdgo.internal.reflect.Reflect._Type($t);
-		return macro stdgo.internal.reflect.Reflect.defaultValue(new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer($t), $t));
+		final ct = Context.toComplexType(t);
+		final gt = gtDecode(t, null, []);
+		final tmacro = macro new stdgo.internal.reflect.Reflect._Type($gt);
+		return macro (stdgo.internal.reflect.Reflect.defaultValue(new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer($tmacro), $tmacro)) : $ct);
 	}
 
 	public static macro function asInterface(expr) {

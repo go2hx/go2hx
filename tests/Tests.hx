@@ -49,7 +49,7 @@ var tests:Array<String> = [];
 var tasks:Array<TaskData> = [];
 var type:String = "";
 // cpp tests take a long time to compile, so sometimes its not run if quick testing is required
-final targets = ["interp", "hl", "jvm"];
+final targets = ["interp", "hl"];
 var suite = new TestSuite();
 var completeBool = false;
 

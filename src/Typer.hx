@@ -4813,7 +4813,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 	var isObjectMap = false;
 	function createRefPointerMap(name:String) {
 		final keyElemComplexType = keyComplexType;
-		final p:TypePath = {name: name, pack: [], params: [TPType(keyElemComplexType), TPType(valueComplexType)]};
+		final p:TypePath = {name: "GoMap", sub: name, pack: ["stdgo"], params: [TPType(keyElemComplexType), TPType(valueComplexType)]};
 		return macro({
 			final x = new $p();
 			@:mergeBlock $b{exprs};

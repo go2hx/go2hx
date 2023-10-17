@@ -247,7 +247,7 @@ private class GoStringIterator {
 		bytes = s;
 	}
 
-	public function hasNext() return bytes.length > 0 && offset < bytes.length;
+	public function hasNext() return bytes.length > 0;
 
 	public function next():GoInt {
 		#if nolinkstd
@@ -272,7 +272,7 @@ private class GoStringKeyValueIterator {
 		bytes = s;
 	}
 
-	public function hasNext() return bytes.length > 0 && offset < bytes.length;
+	public function hasNext() return bytes.length > 0;
 
 	public function next():{key:GoInt, value:GoRune} {
 		#if nolinkstd

@@ -1075,6 +1075,18 @@ final list = [
 		}
 	},
 	// stdgo/atomic/sync
+	"sync.atomic.Pointer_:store" => macro {
+		_x._v = stdgo.Go.toInterface(_val);
+	},
+	"sync.atomic.Pointer_:load" => macro {
+		return @:privateAccess _x._v.__toPointer__();
+	},
+	"sync.atomic.Int32:store" => macro {
+		_x._v = _val;
+	},
+	"sync.atomic.Int32:load" => macro {
+		return @:privateAccess _x._v;
+	},
 	"sync.atomic:storeUint32" => macro {
 		_addr.value = _val;
 	},
@@ -1138,6 +1150,40 @@ final list = [
 		}
 		return -1;
 	},
+	"internal.bytealg:index" => macro {
+		var start = 0;
+		var index = 0;
+		for (i in 0..._a.length.toBasic()) {
+			if (_a[i] == _b[index]) {
+				index++;
+				if (_b.length >= index)
+					return start;
+			}else{
+				start = i;
+				index = 0;
+			}
+		}
+		return -1;
+	},
+	// IndexString returns the index of the first instance of b in a, or -1 if b is not present in a.
+	// Requires 2 <= len(b) <= MaxLen.
+	// func IndexString(a, b string) int {
+	"internal.bytealg:indexString" => macro {
+		var start = 0;
+		var index = 0;
+		for (i in 0..._a.length.toBasic()) {
+			if (_a[i] == _b[index]) {
+				index++;
+				if (_b.length >= index)
+					return start;
+			}else{
+				start = i;
+				index = 0;
+			}
+		}
+		return -1;
+	},
+
 	"internal.bytealg:compare" => macro {
 		for (i in 0..._a.length.toBasic()) {
 			if (i >= _b.length) {

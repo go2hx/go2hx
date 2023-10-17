@@ -365,8 +365,8 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			for (def in defs) {
 				if (StringTools.endsWith(def.name, "_asInterface") || StringTools.endsWith(def.name, "_static_extension"))
 					continue;
-				var local:Array<{func:Ast.FuncDecl, sel:String}> = [];
-				final names:Array<{name:String, sel:String}> = [{name: def.name, sel: ""}];
+				var local:Array<{func:Ast.FuncDecl, sel:String, recvName:String}> = [];
+				final names:Array<{name:String, sel:String, recvName:String}> = [{name: def.name, sel: "", recvName: ""}];
 				final methods:Array<Field> = [];
 				for (recv in recvFunctions) {
 					if (file.isMain && file.name != recv.path)
@@ -375,7 +375,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 					// trace(recvName, names);
 					for (name in names) {
 						if (recvName == name.name) {
-							local.push({func: recv.decl, sel: name.sel});
+							local.push({func: recv.decl, sel: name.sel, recvName: recvName});
 						}
 					}
 				}
@@ -519,7 +519,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				}
 				final funcs = [
 					for (decl in local) {
-						var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
+						var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, decl.recvName);
 						func;
 					}
 				];
@@ -529,11 +529,11 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 							switch kind {
 								case FFun(fun):
 									final patchName = info.global.module.path + "." + def.name + ":" + func.name;
-									final patch = Patch.list[patchName];
+									/*final patch = Patch.list[patchName];
 									if (patch != null) {
 										fun.expr = patch;
 										Patch.list.remove(patchName);
-									}
+									}*/
 									if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 										access.push(AInline);
 									// recv func named
@@ -695,6 +695,8 @@ private function exprOfType(t:ComplexType):ComplexType {
 private function mapReturnToThrow(expr:Expr):Expr {
 	var f = null;
 	f = expr -> return switch expr.expr {
+		case EFunction(_,_):
+			return expr;
 		case EReturn(_):
 			macro throw "__return__";
 		default:
@@ -5371,7 +5373,7 @@ private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 
 var counter:Int = 0;
 
-private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = ""):TypeDefinition {
+private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "", defName:String = ""):TypeDefinition {
 	final info = new Info();
 	info.data = data.data;
 	info.renameClasses = [];
@@ -5441,7 +5443,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		args.unshift(recvArg);
 	}
 	info.restricted = restricted;
-	final patchName = info.global.module.path + ":" + name;
+	final patchName = defName != "" ? info.global.module.path + "." + defName + ":" + name : info.global.module.path + ":" + name;
 	var identifierNames:Array<String> = [];
 	if (!recvGeneric) {
 		params = getParams(decl.type.typeParams, info);
@@ -5455,9 +5457,9 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		info.global.renameClasses[name] = name;
 	}
 	var ret = typeFieldListReturn(decl.type.results, info, true);
-	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
+		var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
-		
+
 		final recvName = (decl.recv == null || decl.recv.list == null) ? "" : getRecvName(decl.recv.list[0].type, info);
 		macro throw ${makeString(recvName + ":" +info.global.path + "." + name + " is not yet implemented")};
 	} else {
@@ -5488,7 +5490,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.global.renameClasses = [];
 
 	final patch = Patch.list[patchName];
-	if (decl.recv == null && patch != null) {
+	if (patch != null) {
 		Patch.list.remove(patchName);
 		block = patch;
 	}

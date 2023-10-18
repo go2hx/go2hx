@@ -1614,10 +1614,10 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			x = macro $x.value;
 		if (isPointer(typeY))
 			y = macro $y.value;
-		if (!isAnyInterface(getElem(typeX)))
+		/*if (!isAnyInterface(getElem(typeX)))
 			x = toAnyInterface(x, typeX, info);
 		if (!isAnyInterface(getElem(typeY)))
-			y = toAnyInterface(y, typeY, info);
+			y = toAnyInterface(y, typeY, info);*/
 	}
 	var t = getUnderlying(typeX);
 	switch t {

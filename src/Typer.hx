@@ -1609,15 +1609,15 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 				return macro $value != null;
 		}
 	}
-	if (isInterface(typeX) || isInterface(typeY)) {
+	if (isInterface(typeX) || isInterface(typeY) && !(isInterface(typeX) && isInterface(typeY))) {
 		if (isPointer(typeX))
 			x = macro $x.value;
 		if (isPointer(typeY))
 			y = macro $y.value;
-		/*if (!isAnyInterface(getElem(typeX)))
+		if (!isAnyInterface(getElem(typeX)))
 			x = toAnyInterface(x, typeX, info);
 		if (!isAnyInterface(getElem(typeY)))
-			y = toAnyInterface(y, typeY, info);*/
+			y = toAnyInterface(y, typeY, info);
 	}
 	var t = getUnderlying(typeX);
 	switch t {

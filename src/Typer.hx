@@ -1366,7 +1366,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 	switch toType {
 		case basic(unsafepointer_kind):
 			if (fromType != toType) {
-				e = macro stdgo.Go.toInterface($e);
+				e = toAnyInterface(e, toType, info);
 			}
 		default:
 			switch fromType {
@@ -1622,7 +1622,7 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 	var t = getUnderlying(typeX);
 	switch t {
 		case structType(_):
-			return toExpr(EBinop(op, toAnyInterface(x, typeX, info), toAnyInterface(y, typeY, info)));
+			return toExpr(EBinop(op, toAnyInterface(x, typeX, info, false), toAnyInterface(y, typeY, info, false)));
 		case arrayType(_, _), sliceType(_), refType(_):
 			var run = true;
 			if (isRef(t)) {
@@ -3661,12 +3661,12 @@ function typeFunctionLiteral(args:Array<Expr>, params:Array<GoType>, results:Arr
 	}));
 }
 
-private function toAnyInterface(x:Expr, t:GoType, info:Info):Expr {
+private function toAnyInterface(x:Expr, t:GoType, info:Info,needWrapping:Bool=true):Expr {
 	if (isRef(t))
 		t = getElem(t);
 	switch t {
 		case named(_, _, _, _):
-			if (!isInterface(t) && !isAnyInterface(t))
+			if (!isInterface(t) && !isAnyInterface(t) && needWrapping)
 				x = wrapperExpr(t, x, info);
 		case basic(kind):
 			switch kind {

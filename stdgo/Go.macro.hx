@@ -303,7 +303,7 @@ class Go {
 	public static macro function asInterface(expr) {
 		// trace(new haxe.macro.Printer().printExpr(expr));
 		final selfType = Context.typeof(switch expr.expr {
-			case ECall(_, _[0] => param):
+			case ECall({expr: EField({expr: EField({expr: EConst(CIdent("stdgo"))}, "Go")}, "pointer"), pos: _}, _[0] => param):
 				param;
 			default:
 				expr;

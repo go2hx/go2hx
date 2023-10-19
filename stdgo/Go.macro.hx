@@ -548,40 +548,14 @@ class Go {
 	}
 
 	public static macro function refPointer(expr):Expr {
-		final expectedType = Context.getExpectedType();
 		final exprType = Context.typeof(expr);
-		if (expectedType == null) {
-			// figure it out from the elem type
-			switch exprType {
-				case TType(_.get() => t, _):
-					if (t.pack.length > 0 && t.pack[0] == "stdgo" && t.name == "Ref") {
-						final t = t.params[0].t;
-						final gt = gtDecode(t, null, []);
-						return macro stdgo.internal.Reflect.isRefValue($gt) ? expr : macro stdgo.Go.pointer($expr);
-					}
-				default:
-			}
-		}
-		switch expectedType {
+		// figure it out from the elem type
+		switch exprType {
 			case TType(_.get() => t, _):
 				if (t.pack.length > 0 && t.pack[0] == "stdgo" && t.name == "Ref") {
-					switch exprType {
-						case TAbstract(_.get() => t2, _):
-							if (t2.pack.length > 0 && t2.pack[0] == "stdgo" && t2.name == "Pointer") {
-								return macro $expr.value;
-							}
-						default:
-					}
-				}
-			case TAbstract(_.get() => t, _):
-				if (t.pack.length > 0 && t.pack[0] == "stdgo" && t.name == "Pointer") {
-					switch exprType {
-						case TAbstract(_.get() => t2, _):
-							if (t2.pack.length > 0 && t2.pack[0] == "stdgo" && t2.name == "Ref") {
-								return macro stdgo.Go.pointer($expr);
-							}
-						default:
-					}
+					final t = t.params[0].t;
+					final gt = gtDecode(t, null, []);
+					return macro stdgo.internal.Reflect.isRefValue($gt) ? expr : macro stdgo.Go.pointer($expr);
 				}
 			default:
 		}

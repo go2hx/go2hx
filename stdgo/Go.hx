@@ -2,7 +2,7 @@ package stdgo;
 
 import haxe.macro.Expr;
 class Go {
-	public static var recover_exception:Dynamic= null;
+	public static var recover_exception:stdgo.StdGoTypes.AnyInterface= null;
 	// GOROUTINE
 	public static function routine(func:Void->Void) {
 		#if js
@@ -49,4 +49,6 @@ class Go {
 	public static macro function multireturn(expr:Expr):Expr;
 
 	public static macro function setRef(expr:Expr):Expr;
+
+	public static macro function refPointer(expr:Expr):Expr;
 }

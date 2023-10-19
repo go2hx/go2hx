@@ -184,8 +184,6 @@ function isRef(type:GoType):Bool {
 
 function isRefValue(type:GoType):Bool {
 	return switch type {
-		case typeParam(_, _):
-			false;
 		case named(_, _, t, _):
 			isRefValue(t);
 		case basic(_): // , pointer(_):

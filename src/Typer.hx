@@ -1609,7 +1609,7 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 				return macro $value != null;
 		}
 	}
-	if (isInterface(typeX) || isInterface(typeY) && !(isInterface(typeX) && isInterface(typeY))) {
+	if (isInterface(typeX) || isInterface(typeY)) {
 		if (isPointer(typeX))
 			x = macro $x.value;
 		if (isPointer(typeY))
@@ -3183,6 +3183,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	var args:Array<Expr> = [];
 	var tupleArg:Expr = null;
 	var debugBool = false;
+	var forceType = false;
 	function returnExpr(e:Expr):Expr {
 		switch e.expr {
 			case ECall({expr: expr, pos: _}, params):
@@ -3215,6 +3216,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						$e;
 					};
 			}
+		}
+		if (forceType) {
+			final ct = toComplexType(typeof(expr, info, false), info);
+			e = macro ($e : $ct);
 		}
 		return e;
 	}
@@ -3273,6 +3278,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					final value = defaultValue(typeOfTypeArg, info);
 					args.unshift(value);
 				}
+				forceType = true;
 			}
 			var sig = getSignature(type);
 			if (sig != null) {
@@ -5873,6 +5879,26 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 					} : FunctionArg);
 				});
 				f.args = eFuncArgs;
+				for (arg in f.args) {
+					switch arg.type {
+						case TPath(p):
+							if (p.pack.length == 1 && p.pack[0] == "stdgo" && p.name == "StdGoTypes" && p.sub == "Ref" && p.params != null && p.params.length > 0) {
+								switch p.params[0] {
+									case TPType(TPath(p)):
+										if (p.name.charAt(0) == "$") {
+											switch f.expr.expr {
+												case EBlock(exprs):
+													final argName = arg.name;
+													exprs.unshift(macro var $argName = stdgo.Go.refPointer($i{argName}));
+												default:
+											}
+										}
+									default:
+								}
+							}
+						default:
+					}
+				}
 			default:
 		}
 		final nameArgs = [
@@ -5914,7 +5940,7 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 								throw "invalid expr";
 						}
 					}
-					return @:macro $i{'$$p{[id,"f"]}'}($a{nameArgs});
+					return @:macro stdgo.Go.refPointer($i{'$$p{[id,"f"]}'}($a{nameArgs}));
 				}
 			])
 		};

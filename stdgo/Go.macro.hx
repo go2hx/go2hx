@@ -547,17 +547,31 @@ class Go {
 		return e;
 	}
 
-	public static macro function refPointer(expr):Expr {
+	public static macro function refPointer(expr:Expr):Expr {
 		final exprType = Context.typeof(expr);
-		// figure it out from the elem type
-		switch exprType {
-			case TType(_.get() => t, _):
-				if (t.pack.length > 0 && t.pack[0] == "stdgo" && t.name == "Ref") {
-					final t = t.params[0].t;
-					final gt = gtDecode(t, null, []);
-					return macro stdgo.internal.Reflect.isRefValue($gt) ? expr : macro stdgo.Go.pointer($expr);
-				}
-			default:
+		if (exprType != null) {
+			final ct = Context.toComplexType(exprType);
+			switch ct {
+				case TPath(p):
+					if (p.name == "Ref" && p.pack.length == 1 && p.pack[0] == "stdgo") {
+						switch p.params[0] {
+							case TPType(TPath(p)):
+								if (p.pack.length == 1 && p.pack[0] == "stdgo") {
+									if (p.name == "GoString") {
+										return macro stdgo.Go.pointer($expr);
+									}else if (p.name == "StdGoTypes") {
+										switch p.sub {
+											case "GoInt", "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128", "GoByte", "GoRune":
+												return macro stdgo.Go.pointer($expr);
+											default:
+										}
+									}
+								}
+							default:
+						}
+					}
+				default:
+			}
 		}
 		return expr;
 	}

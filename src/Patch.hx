@@ -1075,11 +1075,17 @@ final list = [
 		}
 	},
 	// stdgo/atomic/sync
+	"sync.atomic.Pointer_:compareAndSwap" => macro {
+		final b = stdgo.Go.toInterface(_old) == stdgo.Go.toInterface(_new);
+		if (b)
+			_x._v = stdgo.Go.toInterface(_new);
+		return b;
+	},
 	"sync.atomic.Pointer_:store" => macro {
 		_x._v = stdgo.Go.toInterface(_val);
 	},
 	"sync.atomic.Pointer_:load" => macro {
-		return @:privateAccess _x._v.__toPointer__();
+		return @:privateAccess _x._v.__toRef__();
 	},
 	"sync.atomic.Int32:store" => macro {
 		_x._v = _val;

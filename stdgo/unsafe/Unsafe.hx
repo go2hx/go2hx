@@ -12,6 +12,9 @@ abstract UnsafePointer(AnyInterface) from AnyInterface {
 		this = value;
 	}
 
+	public function __toRef__():Ref<Dynamic>
+		return this.value;
+
 	public function __convert__(toType:GoType):Any {
 		var fromType:GoType = (this.type : Dynamic)._common();
 		var f = null;

@@ -82,7 +82,6 @@ var stdgoExports map[string]bool
 
 var excludes map[string]bool
 var visited map[string]bool
-var debugPkgList map[string]bool
 var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 var checker *types.Checker
 
@@ -134,7 +133,6 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 	excludes = make(map[string]bool, len(excludesData))
 	hashMap = make(map[uint32]map[string]interface{})
 	visited = make(map[string]bool)
-	debugPkgList = make(map[string]bool)
 	for _, exclude := range excludesData {
 		excludes[exclude] = true
 	}
@@ -317,12 +315,13 @@ func randomIdentifier() *ast.Ident {
 	return ast.NewIdent(fmt.Sprintf("_%x", b))
 }
 
-var restrictedDebugPkgs = map[string]bool{"fmt": true, "math/bits": true, "os": true, "internal/poll": true, "syscall": true, "internal/syscall/unix": true, "internal/syscall": true, "internal/abi": true, "unsafe": true, "runtime": true, "reflect": true, "sync": true, "sync/atomic": true, "internal/reflectlite": true, "internal/bytealg": true, "math": true, "time": true}
+var restrictedDebugPkgs = map[string]bool{"strconv": true, "log": true, "math/bits": true, "os": true, "internal/poll": true, "syscall": true, "internal/syscall/unix": true, "internal/syscall": true, "internal/abi": true, "unsafe": true, "runtime": true, "reflect": true, "sync": true, "sync/atomic": true, "internal/reflectlite": true, "internal/bytealg": true, "math": true, "time": true, "time/tzdata": true, "runtime/debug": true, "os/exec": true, "os/signal": true, "runtime/pprof": true, "runtime/trace": true}
 
 func debugPkg(pkg *packages.Package) {
 	if !debugBool || restrictedDebugPkgs[pkg.PkgPath] {
 		return
 	}
+	// for assembly files
 	s := "go/src/"
 	index := 0
 	for _, file := range pkg.OtherFiles {
@@ -335,7 +334,7 @@ func debugPkg(pkg *packages.Package) {
 			if err != nil {
 				panic(err)
 			}
-			//fmt.Println(p)
+			// fmt.Println(p)
 			os.WriteFile(p, rf, 0766)
 		}
 	}
@@ -344,8 +343,10 @@ func debugPkg(pkg *packages.Package) {
 		return
 	}
 	visited[pkg.PkgPath] = true
-	debugPkgList[pkg.PkgPath] = true
 	for _, val := range pkg.Imports {
+		if stdgoList[val.PkgPath] {
+			continue
+		}
 		debugPkg(val)
 	}
 	checker = types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
@@ -502,7 +503,7 @@ func debugPkg(pkg *packages.Package) {
 						}
 						pathValue := spec.Path.Value
 						if !restrictedDebugPkgs[impName] {
-							if stdgoList[impName] && debugPkgList[impName] {
+							if stdgoList[impName] {
 								pathValue = `"github.com/go2hx/go4hx/debug/` + impName + `"`
 							}
 						}
@@ -555,6 +556,7 @@ func debugPkg(pkg *packages.Package) {
 	if err != nil {
 		panic(err)
 	}
+	// _ = printer.Fprint(os.Stdout, pkg.Fset, file)
 	file.Decls = oldDecls
 }
 
@@ -860,8 +862,8 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	countStruct = 0
 	for _, pkg := range list {
 		typeMap = &typeutil.Map{}
-		parseLocalPackage(pkg, excludes)
 		debugPkg(pkg)
+		parseLocalPackage(pkg, excludes)
 	}
 	// 2nd pass
 	data := dataType{}
@@ -1388,7 +1390,9 @@ func parseData(node interface{}) map[string]interface{} {
 			case *ast.IndexListExpr:
 				resolveGeneric(fun.X)
 			case *ast.InterfaceType:
-
+			case *ast.ArrayType:
+			case *ast.FuncLit:
+			case *ast.ParenExpr:
 			default:
 				fmt.Println("issue:", reflect.TypeOf(fun))
 			}

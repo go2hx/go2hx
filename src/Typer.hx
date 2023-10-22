@@ -3183,6 +3183,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	var args:Array<Expr> = [];
 	var tupleArg:Expr = null;
 	var debugBool = false;
+	var forceType = false;
 	function returnExpr(e:Expr):Expr {
 		switch e.expr {
 			case ECall({expr: expr, pos: _}, params):
@@ -3216,6 +3217,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					};
 			}
 		}
+		/*if (forceType) {
+			final ct = toComplexType(typeof(expr, info, false), info);
+			e = macro ($e : $ct);
+		}*/
 		return e;
 	}
 	function genArgs(translateType:Bool, pos:Int = 0) {
@@ -3273,6 +3278,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					final value = defaultValue(typeOfTypeArg, info);
 					args.unshift(value);
 				}
+				forceType = true;
 			}
 			var sig = getSignature(type);
 			if (sig != null) {
@@ -7348,6 +7354,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 						expr = defaultValue(info.lastType, info);
 					}
 				}
+				type = null;
 			} else {
 				info.lastValue = value.values[i];
 				info.lastType = typeof(value.type, info, false);
@@ -7362,6 +7369,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 						expr = defaultValue(t, info);
 					}
 				}
+				type = toComplexType(typeof(value.names[0], info, false),info);
 			}
 			if (expr == null)
 				continue;

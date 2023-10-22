@@ -145,6 +145,7 @@ class Macro {
 			}
 			return macro $b{exprs};
 		}
+
 		// label:Expr
 		func = function(expr:haxe.macro.Expr, inLoop:Bool, scopeIndex:Int,label:Expr,initLabelSet:Bool,previousLabel:Expr):Expr {
 			return switch (expr.expr) {
@@ -231,7 +232,7 @@ class Macro {
 				case ECall(e, params):
 					var printer = new haxe.macro.Printer();
 					final str = printer.printExpr(e);
-					if (str == "Go.cfor") {
+					if (str == "stdgo.Go.cfor" || str == "Go.cfor") {
 						var block = params.pop();
 						block = func(block,true,scopeIndex,initLabelSet ? label : null,false,null);
 						params.push(block);
@@ -240,6 +241,40 @@ class Macro {
 						expr;
 					}
 					expr;
+				/*case EBinop(op, e1, e2):
+					expr.expr = EBinop(op, func(e1, inLoop, scopeIndex,label,initLabelSet,previousLabel), func(e2, inLoop, scopeIndex,label,initLabelSet,previousLabel));
+					expr;
+				case EField(e, field, kind):
+					expr.expr = EField(func(e, inLoop, scopeIndex,label,initLabelSet,previousLabel), field, kind);
+					expr;
+				case EBreak, EContinue:
+					expr;
+				case EReturn(e):
+					expr.expr = EReturn(func(e, inLoop, scopeIndex,label,initLabelSet,previousLabel));
+					expr;
+				case EThrow(e):
+					expr.expr = EThrow(func(e, inLoop, scopeIndex,label,initLabelSet,previousLabel));
+					expr;
+				case EConst(_):
+					expr;
+				case EUnop(op, postFix, e):
+					expr.expr = EUnop(op, postFix, func(e, inLoop, scopeIndex,label,initLabelSet,previousLabel));
+					expr;
+				case EParenthesis(e):
+					expr.expr = EParenthesis(func(e, inLoop, scopeIndex,label,initLabelSet,previousLabel));
+					expr;
+				case EArray(e1, e2):
+					expr.expr = EArray(func(e1, inLoop, scopeIndex,label,initLabelSet,previousLabel), func(e2, inLoop, scopeIndex,label,initLabelSet,previousLabel));
+					expr;
+				case ECheckType(e, t):
+					expr.expr = ECheckType(func(e, inLoop, scopeIndex,label,initLabelSet,previousLabel), t);
+					expr;
+				case EObjectDecl(fields):
+					for (field in fields)
+						field.expr = func(field.expr, inLoop, scopeIndex,label,initLabelSet,previousLabel);
+					expr;
+				default:
+					throw expr.expr.getName();*/
 				default:
 					expr;
 			}

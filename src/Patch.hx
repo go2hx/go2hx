@@ -1175,16 +1175,26 @@ final list = [
 	// Requires 2 <= len(b) <= MaxLen.
 	// func IndexString(a, b string) int {
 	"internal.bytealg:indexString" => macro {
-		var start = 0;
-		var index = 0;
-		for (i in 0..._a.length.toBasic()) {
-			if (_a[i] == _b[index]) {
-				index++;
-				if (_b.length >= index)
-					return start;
-			}else{
-				start = i;
-				index = 0;
+		if (_a == "") {
+			return 0;
+		}
+		if (_b == "") {
+			return -1;
+		}
+	
+		var aLen = _a.length;
+		var bLen = _b.length;
+	
+		for (i in 0...(aLen - bLen + 1)) {
+			var found = true;
+			for (j in 0...bLen) {
+				if (_a[i + j] != _b[j]) {
+					found = false;
+					break;
+				}
+			}
+			if (found) {
+				return i;
 			}
 		}
 		return -1;

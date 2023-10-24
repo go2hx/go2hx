@@ -1143,7 +1143,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				case "ValueSpec": // typeValue
 					var spec:Ast.ValueSpec = spec;
 					var type = spec.type.id != null ? typeExprType(spec.type, info) : null;
-					var value = macro null;
+					var value = macro @:default_null null;
 					var args:Array<Expr> = [];
 					if (spec.names.length > spec.values.length && spec.values.length > 0) {
 						// destructure
@@ -6243,7 +6243,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					case complex128_kind: macro new stdgo.StdGoTypes.GoComplex128(0, 0);
 					case untyped_bool_kind, untyped_rune_kind, untyped_string_kind, untyped_int_kind, untyped_float_kind, untyped_complex_kind:
 						throw "untyped kind: " + kind;
-					default: macro null;
+					default: macro @:default_value null;
 				}
 			} else {
 				switch kind {
@@ -6255,7 +6255,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					case float32_kind, float64_kind: macro 0;
 					case complex64_kind: macro new stdgo.StdGoTypes.GoComplex64(0, 0);
 					case complex128_kind: macro new stdgo.StdGoTypes.GoComplex128(0, 0);
-					default: macro null;
+					default: macro @:default_value_kind null;
 				}
 			}
 		case structType(fields):
@@ -6272,7 +6272,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			}
 			toExpr(EObjectDecl(fs));
 		case invalidType:
-			macro null;
+			macro @:invalid_type null;
 		case tuple(_, _.get() => vars):
 			toExpr(EObjectDecl([
 				for (i in 0...vars.length) {
@@ -6720,7 +6720,7 @@ function complexTypeToExpr(t:ComplexType):Expr {
 	switch t {
 		case TPath(p):
 			final pack = p.pack == null ? macro [] : macro $a{p.pack.map(p -> makeExpr(p))};
-			return macro haxe.macro.Expr.ComplexType.TPath({name: ${makeExpr(p.name)}, pack: $pack, sub: ${p.sub == null ? macro null : makeExpr(p.sub)}});
+			return macro haxe.macro.Expr.ComplexType.TPath({name: ${makeExpr(p.name)}, pack: $pack, sub: ${p.sub == null ? macro @:complextype_to_expr null : makeExpr(p.sub)}});
 		default:
 			throw "unsupported complexTypeToExpr: " + t;
 	}
@@ -6947,7 +6947,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						final methodName = nameIdent(method.name, false, false, info);
 						var expr = macro $i{name}.$fieldName($a{args});
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
-							expr = results.length == 1 ? defaultValue(results[0], info) : macro null;
+							expr = results.length == 1 ? defaultValue(results[0], info) : macro @:typeType null;
 						}
 						final field:Field = {
 							name: methodName,
@@ -7359,6 +7359,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 				info.lastValue = value.values[i];
 				info.lastType = typeof(value.type, info, false);
 				final t = typeof(value.values[i], info, false);
+				final nameType = typeof(value.names[0], info, false);
 				if (!info.global.externBool || StringTools.endsWith(info.global.module.path, "_test")) {
 					expr = typeExpr(value.values[i], info);
 					expr = assignTranslate(t, info.lastType, expr, info);
@@ -7366,10 +7367,15 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 					if (info.lastType != null && info.lastType != invalidType) {
 						expr = defaultValue(info.lastType, info);
 					} else {
-						expr = defaultValue(t, info);
+						
+						if (t == invalidType) {
+							expr = defaultValue(nameType, info);
+						}else{
+							expr = defaultValue(t, info);
+						}
 					}
 				}
-				type = toComplexType(typeof(value.names[0], info, false),info);
+				type = toComplexType(nameType,info);
 			}
 			if (expr == null)
 				continue;

@@ -156,20 +156,19 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 		return new GoStringKeyValueIterator(this);
 
 	public function __slice__(low:GoInt, high:GoInt = -1):GoString {
-		if (this == null)
-			return null;
-		if (high == -1) {
-			high = this.high;
+		if (this == null) {
+            return null;
+        }
+        if (high == -1) {
+            high = this.high - this.low;
+        }
+        if (high > this.bytes.length) {
+			throw "slice bounds out of range [:" + high + "] with length " + this.bytes.length;
 		}
-		if (low < 0 || high < 0 || high > this.bytes.length || low > this.bytes.length || low > high) {
-			trace("slice low: " + low);
-			trace("slice high: " + high);
-			trace("this low: " + this.low);
-			trace("this high: " + this.high);
-			trace("this bytes len: " + this.bytes.length);
-			throw "slice bounds out of range";
+		if (low > high) {
+			throw "slice bounds out of range [" + low + ":] with length " + (high - low);
 		}
-		return new GoStringData(this.bytes, this.low + low, high);
+        return new GoStringData(this.bytes, this.low + low, this.low + high);
 	}
 
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool

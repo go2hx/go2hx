@@ -160,6 +160,24 @@ final list = [
 		_localLoc._zone = new stdgo.Slice<T_zone>(1, 1, ...[{_name: (name : stdgo.GoString), _offset: offset, _isDST: false}]);
 	},
 	// stdgo/math
+	// func archHypot(p, q float64) float64
+	"math:_archHypot" => macro {
+		if (isInf(_p, 0) || isInf(_q, 0))
+			return inf(1);
+		if (!std.Math.isFinite(_p.toBasic()) || std.Math.isNaN(_q.toBasic()))
+			return naN();
+		_p = abs(_p);
+		_q = abs(_q);
+		if (_p < _q) {
+			final temp = _p;
+			_p = _q;
+			_q = temp;
+		}
+		if (_p == 0)
+			return 0;
+		_q = _q / _p;
+		return _p * sqrt(1 + _q * _q);
+	},
 	"math:trunc" => macro return _x > 0 ? floor(_x) : ceil(_x),
 	"math:log" => macro return std.Math.log(_x.toBasic()),
 	"math:pow" => macro return std.Math.pow(_x.toBasic(), _y.toBasic()),
@@ -1233,6 +1251,8 @@ final list = [
 		// return (_b._buf : Slice<GoUInt8>);
 	},
 	"strings:clone" => macro return _s,
+	// syscall
+	"syscall:getpagesize" => macro return 4096,
 ];
 
 final skipTargets = [

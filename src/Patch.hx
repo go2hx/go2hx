@@ -1138,6 +1138,14 @@ final list = [
 	"internal.godebug:new_" => macro return new Setting(),
 	"internal.godebug.Setting:value" => macro return "",
 	// stdgo/internal/bytealg
+	"internal.bytealg:countString" => macro {
+		var count = 0;
+		for (i in 0..._s.length.toBasic()) {
+			if (_s[i] == _c)
+				count++;
+		}
+		return count;
+	},
 	"internal.bytealg:indexByteString" => macro {
 		for (i in 0..._s.length.toBasic()) {
 			if (_s[i] == _c)

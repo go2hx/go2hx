@@ -1267,7 +1267,7 @@ final list = [
 	"strings:clone" => macro return _s,
 	// syscall
 	"syscall:getpagesize" => macro return 4096,
-	"syscall:mmap" => macro {_0: null, _1: null},
+	"syscall:mmap" => macro return {_0: null, _1: null},
 ];
 
 final skipTargets = [

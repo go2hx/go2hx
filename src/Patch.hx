@@ -1164,6 +1164,15 @@ final list = [
 		}
 		return count;
 	},
+	// func Count(b []byte, c byte) int
+	"internal.bytealg:count" => macro {
+		var count = 0;
+		for (i in 0..._b.length.toBasic()) {
+			if (_b[i] == _c)
+				count++;
+		}
+		return count;
+	},
 	"internal.bytealg:indexByteString" => macro {
 		for (i in 0..._s.length.toBasic()) {
 			if (_s[i] == _c)

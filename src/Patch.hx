@@ -1182,17 +1182,22 @@ final list = [
 		}
 		return -1;
 	},
+	// Index returns the index of the first instance of b in a, or -1 if b is not present in a.
+	// Requires 2 <= len(b) <= MaxLen.
+	// func Index(a, b []byte) int
 	"internal.bytealg:index" => macro {
-		var start = 0;
-		var index = 0;
-		for (i in 0..._a.length.toBasic()) {
-			if (_a[i] == _b[index]) {
-				index++;
-				if (_b.length >= index)
-					return start;
-			}else{
-				start = i;
-				index = 0;
+		if (_a.length < _b.length)
+			return -1;
+		for (i in 0...(_a.length - _b.length + 1)) {
+			var found = true;
+			for (j in 0..._b.length) {
+				if (_a[i + j] != _b[j]) {
+					found = false;
+					break;
+				}
+			}
+			if (found) {
+				return i;
 			}
 		}
 		return -1;
@@ -1253,6 +1258,7 @@ final list = [
 	"strings:clone" => macro return _s,
 	// syscall
 	"syscall:getpagesize" => macro return 4096,
+	"syscall:mmap" => macro {_0: null, _1: null},
 ];
 
 final skipTargets = [

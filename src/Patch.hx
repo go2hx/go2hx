@@ -1319,6 +1319,7 @@ final skipTargets = [
 	"strings_test:testPickAlgorithm" => [], // TODO: implement - uses fmt.Sprintf
 	"strings_test:testMap" => [], // uses unsafe pointer conversions
 	"bytes_test:testGrow" => [], // checks runtime allocations num
+	"bytes_test:testClone" => [], // uses unsafe sliceData
 	"bytes_test:testReaderLenSize" => [], // TODO: implement - sync
 	"bytes_test:testCompareBytes" => [], // very slow but passes
 ];

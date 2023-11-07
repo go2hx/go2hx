@@ -44,6 +44,5 @@
     "internal/coverage/rtcov",
     "internal/goarch",
     "internal/goos",
-    "internal/bisect",
     "log/internal"
 ]

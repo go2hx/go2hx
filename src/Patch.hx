@@ -377,21 +377,10 @@ final list = [
 	// 	return v.call("Call", in)
 	// }
 	"reflect.Value:call" => macro {
-		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.t._common());
+		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _v.t._common());
 		switch gt {
 			case signature(_, _.get() => params, _.get() => out, _):
-				final args = new stdgo.Slice<Dynamic>(params.length, params.length);
-				for (i in 0...params.length) {
-					final arg = @:privateAccess _iter.args[i];
-					args[i] = arg.value.value;
-				}
-				final result = @:privateAccess _iter.v.apply(args);
-				final values = new stdgo.Slice<Value>(out.length, out.length);
-				for (i in 0...out.length) {
-					final t = new stdgo.internal.reflect.Reflect._Type(out[i]);
-					values[i] = new Value(new stdgo.StdGoTypes.AnyInterface(result[i], t));
-				}
-				return values;
+				throw "not implemented: " + gt;
 			default:
 				throw "unsupported: " + gt;
 		}

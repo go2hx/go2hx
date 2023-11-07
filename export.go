@@ -195,7 +195,7 @@ var r = rand.New(rand.NewSource(99))
 func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
 	cfg.Env = append(os.Environ(), "CGO_ENABLED=0")
-	// cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm")
+	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm")
 	args := os.Args
 	port := args[len(args)-1]
 	var excludesData []string
@@ -843,15 +843,15 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 					switch f := d.(type) {
 					case *ast.FuncDecl:
 						f.Body = nil
-					case *ast.GenDecl:
-						for _, s := range f.Specs {
-							switch s := s.(type) {
-							case *ast.ValueSpec:
-								_ = s
-								//s.Values = nil
-							default:
-							}
+					/*case *ast.GenDecl:
+					for _, s := range f.Specs {
+						switch s := s.(type) {
+						case *ast.ValueSpec:
+							_ = s
+							//s.Values = nil
+						default:
 						}
+					}*/
 					default:
 					}
 				}

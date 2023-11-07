@@ -108,4 +108,5 @@ final noMain = [
 	"syscall/js",
 	"internal/godebugs",
 	"log/internal",
+	"internal/bisect",
 ];

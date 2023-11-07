@@ -1772,9 +1772,13 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		switch gt {
 			case named(path, _, _, _):
 				if (aValue != null) {
-					final cl = std.Type.getClassName(std.Type.getClass(path));
-					if (StringTools.endsWith(cl, "_asInterface")) {
-						aValue = (aValue : Dynamic).__underlying__().value;
+					switch std.Type.typeof(aValue) {
+						case TClass(c):
+							final cl = std.Type.getClassName(c);
+							if (StringTools.endsWith(cl, "_asInterface")) {
+								aValue = (aValue : Dynamic).__underlying__().value;
+							}
+						default:
 					}
 				}
 			default:
@@ -1782,9 +1786,13 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		switch gt2 {
 			case named(path, _, _, _):
 				if (bValue != null) {
-					final cl = std.Type.getClassName(std.Type.getClass(path));
-					if (StringTools.endsWith(cl, "_asInterface")) {
-						bValue = (bValue : Dynamic).__underlying__().value;
+					switch std.Type.typeof(bValue) {
+						case TClass(c):
+							final cl = std.Type.getClassName(c);
+							if (StringTools.endsWith(cl, "_asInterface")) {
+								bValue = (bValue : Dynamic).__underlying__().value;
+							}
+						default:
 					}
 				}
 			default:
@@ -1792,7 +1800,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 
 		gt = stdgo.internal.reflect.Reflect.getUnderlying(gt);
 		gt2 = stdgo.internal.reflect.Reflect.getUnderlying(gt2);
-		// trace(gt, gt2);
 		return switch gt {
 			case refType(_):
 				aValue == bValue;
@@ -1835,7 +1842,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 							return true;
 						trace(fieldValue, fieldValue2);
 						trace(aValue, bValue);
-						throw "struct issue with field name: " + name;
+						throw "struct issue with field name1: " + name;
 					}
 
 					final type = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, type));

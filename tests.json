@@ -26,7 +26,6 @@
     "errors",
     "runtime",
     "runtime/debug",
-    "log",
     "encoding/base64",
     "internal/godebug",
     "internal/oserror",
@@ -61,5 +60,6 @@
     "compress/bzip2",
     "encoding/hex",
     "image/color",
-    "text/template"
+    "text/template",
+    "internal/bisect"
 ]

@@ -41,9 +41,12 @@
     "internal/testlog",
     "database/sql/driver",
     "time/tzdata",
-    "internal/poll",
     "internal/goexperiment",
     "internal/coverage/rtcov",
     "internal/goarch",
-    "internal/goos"
+    "internal/goos",
+    "internal/bisect",
+    "internal/godebug",
+    "internal/godebugs",
+    "log/internal"
 ]

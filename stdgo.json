@@ -175,9 +175,12 @@
     "internal/poll",
     "internal/fmtsort",
     "internal/godebug",
+    "internal/godebugs",
     "net/netip",
     "go/doc/comment",
     "slices",
     "cmp",
-    "debug/cmp"
+    "debug/cmp",
+    "internal/bisect",
+    "log/internal"
 ]

@@ -14,5 +14,8 @@
 	"reflect",
 	"sync",
 	"sync/atomic",
-	"internal/godebug"
+	"internal/godebug",
+	"internal/bisect",
+	"internal/godebugs",
+	"log/internal"
 ]

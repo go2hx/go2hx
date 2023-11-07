@@ -45,7 +45,5 @@
     "internal/goarch",
     "internal/goos",
     "internal/bisect",
-    "internal/godebug",
-    "internal/godebugs",
     "log/internal"
 ]

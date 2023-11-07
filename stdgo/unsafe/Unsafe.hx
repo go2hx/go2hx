@@ -77,8 +77,8 @@ function stringData(s:GoString):GoString
 function sliceData<T>(s:Slice<T>):Slice<T>
 	return s;
 
-function string(s:GoString, len:GoInt):GoString
-	return s.substr(0,len);
+function string(s:stdgo.Pointer<stdgo.StdGoTypes.GoByte>, len:GoInt):GoString
+	return "";
 
 function slice(_ptr:Pointer<Dynamic>,_len:GoInt):Array<Dynamic>
 	return [];

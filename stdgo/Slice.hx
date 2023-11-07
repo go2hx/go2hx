@@ -283,8 +283,8 @@ class SliceData<T> {
 
 	public inline function __append__(args:Rest<T>):Slice<T> {
 		final slice:SliceData<T> = __ref__();
-
-		final startOffset = slice.length + slice.offset;
+		// Don't set slice.offset to this value because it needs to be computed in the case of a grow.
+		final startOffset = slice.length;
 		final growCapacity = args.length - slice.capacity + slice.length + slice.offset + 1;
 		if (growCapacity <= 1 || (this != null && this.vector == null && this.bytes == null)) {
 			if (this.vector == null && this.bytes == null)
@@ -292,12 +292,12 @@ class SliceData<T> {
 			slice.length += args.length;
 			if (slice.bytes != null) {
 				for (i in 0...args.length) {
-					slice.bytes.set(startOffset + i, untyped args[i]);
+					slice.bytes.set(startOffset + slice.offset + i, untyped args[i]);
 				}
 				return slice;
 			}
 			for (i in 0...args.length) {
-				slice.vector.set(startOffset + i, args[i]);
+				slice.vector.set(startOffset + slice.offset + i, args[i]);
 			}
 			return slice;
 		}
@@ -306,16 +306,15 @@ class SliceData<T> {
 		slice.capacity += slice.capacity >> 2;
 		slice.grow(); // allocation
 		slice.length += args.length;
-		
 		if (slice.bytes != null) {
 			for (i in 0...args.length) {
-				slice.bytes.set(startOffset + i, untyped args[i]);
+				slice.bytes.set(startOffset + slice.offset + i, untyped args[i]);
 			}
 			return slice;
 		}
 
 		for (i in 0...args.length) {
-			slice.vector.set(startOffset + i, args[i]);
+			slice.vector.set(startOffset + slice.offset + i, args[i]);
 		}
 		return slice;
 	}
@@ -384,11 +383,11 @@ class SliceData<T> {
 			dest.blit(0, bytes, offset, length);
 			this.bytes = dest;
 			this.offset = 0;
-			return;
+		}else{
+			var dest = new haxe.ds.Vector<T>(capacity);
+			haxe.ds.Vector.blit(vector, offset, dest, 0, length);
+			this.vector = dest;
+			this.offset = 0;
 		}
-		var dest = new haxe.ds.Vector<T>(capacity);
-		haxe.ds.Vector.blit(vector, offset, dest, 0, length);
-		this.vector = dest;
-		this.offset = 0;
 	}
 }

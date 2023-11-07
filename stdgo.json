@@ -165,6 +165,7 @@
     "crypto/internal/randutil",
     "crypto/internal/boring",
     "go/internal/gcimporter",
+    "go/internal/srcimporter",
     "go/internal/typeparams",
     "go/internal/gccgoimporter",
     "internal/abi",

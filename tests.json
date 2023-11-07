@@ -55,6 +55,7 @@
     "go/importer",
     "compress/zlib",
     "internal/types/errors",
+    "internal/abi",
     "internal/poll",
     "path/filepath",
     "compress/bzip2",

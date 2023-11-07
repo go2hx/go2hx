@@ -36,7 +36,6 @@
     "golang.org/x/text/transform",
     "golang.org/x/text/secure/bidirule",
     "golang.org/x/text/unicode/norm",
-    "internal/poll",
     "internal/singleflight",
     "internal/testlog",
     "database/sql/driver",

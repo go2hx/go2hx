@@ -72,7 +72,7 @@ function update() {
 			args.push('--test');
 		}
 		if (debugBool)
-			args.push("--debug");
+			args.push("-debug");
 		args.push(path);
 		instance = Main.compileArgs(args);
 		compiled = Main.compile(instance);
@@ -106,4 +106,6 @@ final noMain = [
 	"internal/abi",
 	"syscall",
 	"syscall/js",
+	"internal/godebugs",
+	"log/internal",
 ];

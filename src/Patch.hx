@@ -363,6 +363,39 @@ final list = [
 	"reflect.Value:canInterface" => macro {
 		return true;
 	},
+	// Call calls the function v with the input arguments in.
+	// For example, if len(in) == 3, v.Call(in) represents the Go call v(in[0], in[1], in[2]).
+	// Call panics if v's Kind is not Func.
+	// It returns the output results as Values.
+	// As in Go, each input argument must be assignable to the
+	// type of the function's corresponding input parameter.
+	// If v is a variadic function, Call creates the variadic slice parameter
+	// itself, copying in the corresponding values.
+	// func (v Value) Call(in []Value) []Value {
+	// 	v.mustBe(Func)
+	// 	v.mustBeExported()
+	// 	return v.call("Call", in)
+	// }
+	"reflect.Value:call" => macro {
+		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.t._common());
+		switch gt {
+			case signature(_, _.get() => params, _.get() => out, _):
+				final args = new stdgo.Slice<Dynamic>(params.length, params.length);
+				for (i in 0...params.length) {
+					final arg = @:privateAccess _iter.args[i];
+					args[i] = arg.value.value;
+				}
+				final result = @:privateAccess _iter.v.apply(args);
+				final values = new stdgo.Slice<Value>(out.length, out.length);
+				for (i in 0...out.length) {
+					final t = new stdgo.internal.reflect.Reflect._Type(out[i]);
+					values[i] = new Value(new stdgo.StdGoTypes.AnyInterface(result[i], t));
+				}
+				return values;
+			default:
+				throw "unsupported: " + gt;
+		}
+	},
 	"reflect.Value:mapRange" => macro {
 		return new MapIter(@:privateAccess _v.value.value, @:privateAccess _v.value.type);
 	},
@@ -1268,6 +1301,11 @@ final list = [
 	// syscall
 	"syscall:getpagesize" => macro return 4096,
 	"syscall:mmap" => macro return {_0: null, _1: null},
+	"syscall:mprotect" => macro return null,
+	// testing/iotest
+	"testing.iotest:testWriteLogger" => macro {},
+	// testing/fstest
+	"testing.fstest:testMapFS" => macro {},
 ];
 
 final skipTargets = [

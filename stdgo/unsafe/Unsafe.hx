@@ -71,11 +71,11 @@ function alignof_(x:AnyInterface):GoUIntptr {
 	return 0;
 }
 
-function stringData(s:GoString):GoString
-	return s;
+function stringData(s:GoString):Dynamic
+	return null;
 
-function sliceData<T>(s:Slice<T>):Slice<T>
-	return s;
+function sliceData<T>(s:Slice<T>):Dynamic
+	return null;
 
 function string(s:stdgo.Pointer<stdgo.StdGoTypes.GoByte>, len:GoInt):GoString
 	return "";

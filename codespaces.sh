@@ -3,7 +3,7 @@ sudo apt-get update
 sudo apt-get install -y curl git jq
 
 # install go
-VERSION='1.21.1'
+VERSION='1.21.3'
 OS='linux'
 ARCH='amd64'
 sudo rm -rf /usr/local/go
@@ -46,3 +46,4 @@ npm i lix -g
 npx lix download
 npx haxelib dev go2hx .
 npx haxelib run go2hx ./rnd
+sh installHashlink.sh

@@ -6,6 +6,9 @@ import stdgo.internal.reflect.Reflect.GoType;
 
 using stdgo.GoString.GoStringTools;
 
+function testing():Bool
+	return false;
+
 typedef TB = StructType & {
 	public function cleanup(_0:() -> Void):Void;
 	public function error(_args:haxe.Rest<AnyInterface>):Void;
@@ -245,6 +248,35 @@ class F {
 }
 
 @:follow typedef T_ = T;
+
+
+class T_asInterface {
+	public function new(?_0,?_1,?_2,?_3,?_4,?_5) {}
+	public function __underlying__():AnyInterface
+		return null;
+	public function cleanup(_0:() -> Void):Void {}
+	public function error(_args:haxe.Rest<AnyInterface>):Void {}
+	public function errorf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void {}
+	public function fail():Void {}
+	public function failNow():Void {}
+	public function failed():Bool
+		return false;
+	public function fatal(_args:haxe.Rest<AnyInterface>):Void {}
+	public function fatalf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void {}
+	public function helper():Void {}
+	public function log(_args:haxe.Rest<AnyInterface>):Void {}
+	public function logf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void {}
+	public function name():GoString
+		return "";
+	public function setenv(_key:GoString, _value:GoString):Void {}
+	public function skip(_args:haxe.Rest<AnyInterface>):Void {}
+	public function skipNow():Void {}
+	public function skipf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void {}
+	public function skipped():Bool
+		return false;
+	public function tempDir():GoString
+		return "";
+}
 
 @:structInit
 class T {

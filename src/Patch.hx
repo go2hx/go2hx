@@ -1295,6 +1295,11 @@ final list = [
 	"testing.iotest:testWriteLogger" => macro {},
 	// testing/fstest
 	"testing.fstest:testMapFS" => macro {},
+	// internal/testenv
+	"internal.testenv:builder" => macro return "",
+	"internal.testenv:hasGoBuild" => macro return false,
+	"internal.testenv:hasGoRun" => macro return false,
+	"internal.testenv:hasParallelism" => macro return false,
 ];
 
 final skipTargets = [

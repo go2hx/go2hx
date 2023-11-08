@@ -232,6 +232,8 @@ private function testStd() { // standard library package tests
 	final list:Array<String> = Json.parse(File.getContent("tests.json"));
 	for (name in list) {
 		final hxml = "stdgo/" + StringTools.replace(name,"/","_") + ".hxml";
+		if (!sys.FileSystem.exists(hxml))
+			continue;
 		final main = name;
 		for (target in targets) {
 			final out = createTargetOutput(target, type, "golibs");

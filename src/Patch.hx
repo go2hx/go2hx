@@ -1319,6 +1319,7 @@ final skipTargets = [
 	"strconv_test:testAtof" => [], // uses rand and sync
 	"strconv_test:testAtofSlow" => [], // uses rand and sync
 	"strconv_test:testAtofRandom" => [], // imprecise float
+	"strconv_test:testFtoaRandom" => [], // uses rand
 	"strconv_test:testFp" => [], // uses os read
 	"strconv_test:testFtoaPowersOfTwo" => [], // imprecise float
 	"strings_test:testBuilderGrow" => [], // checks runtime allocations num

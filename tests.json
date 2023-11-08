@@ -65,5 +65,6 @@
     "image/color",
     "text/template",
     "internal/bisect",
-    "internal/testenv"
+    "internal/testenv",
+    "context"
 ]

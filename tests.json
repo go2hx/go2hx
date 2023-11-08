@@ -19,6 +19,7 @@
     "syscall",
     "syscall/js",
     "log",
+    "log/internal",
     "bytes",
     "time",
     "path",
@@ -63,5 +64,6 @@
     "encoding/hex",
     "image/color",
     "text/template",
-    "internal/bisect"
+    "internal/bisect",
+    "internal/testenv"
 ]

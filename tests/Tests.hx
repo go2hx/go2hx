@@ -215,7 +215,7 @@ private function createTargetOutput(target:String, type:String, name:String):Str
 	}
 }
 
-private function sanatize(s:String,noDirectory:Bool):String {
+private function sanatize(s:String):String {
 	s = Path.withoutDirectory(s);
 	s = Path.withoutExtension(s);
 	s = StringTools.replace(s, "/", "_");

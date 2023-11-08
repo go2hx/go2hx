@@ -11,7 +11,6 @@
     "internal/syscall/js",
     "internal/syscall/windows/sysdll",
     "internal/itoa",
-    "os/exec",
     "context",
     "testing",
     "internal/syscall/execenv",

@@ -37,7 +37,6 @@ function main() {
 	#else
 	final timer = new haxe.Timer(500);
 	timer.run = update;
-	// update();
 	#end
 }
 
@@ -109,4 +108,5 @@ final noMain = [
 	"internal/godebugs",
 	"log/internal",
 	"internal/bisect",
+	"context",
 ];

@@ -171,6 +171,7 @@
     "internal/abi",
     "internal/fuzz",
     "internal/pkgbits",
+    "internal/platform",
     "internal/oserror",
     "internal/reflectlite",
     "internal/poll",

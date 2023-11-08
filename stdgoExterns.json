@@ -18,5 +18,6 @@
 	"internal/bisect",
 	"internal/godebugs",
 	"log/internal",
-	"context"
+	"context",
+	"internal/platform"
 ]

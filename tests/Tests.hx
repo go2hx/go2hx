@@ -52,6 +52,7 @@ var type:String = "";
 final targets = ["interp", "hl"];
 var suite = new TestSuite();
 var completeBool = false;
+var lastTaskLogs = [];
 
 function main() {
 	Main.setup(0, 1); // amount of processes to spawn
@@ -102,7 +103,9 @@ function update() {
 	}
 	if (timeout++ > (10 * 60) * 7) {
 		trace("TIMEOUT");
-		trace(instance.args);
+		// instance.args is null
+		trace("last task logs:",lastTaskLogs);
+		trace("tests left:",tests.length);
 		close();
 	}
 	for (test in tests) {
@@ -119,23 +122,27 @@ function update() {
 	}
 	if (tasks.length > 0 && runningCount < 4 ) {
 		final task = tasks.pop();
-		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount);
+		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " lastTaskLogs: " + lastTaskLogs);
+		final taskString = task.command + " " + task.args.join(" ");
+		lastTaskLogs.push(taskString);
 		final ls = ChildProcess.spawn(task.command, task.args);
 		var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
 		timeoutTimer.run = () -> {
+			lastTaskLogs.remove(taskString);
 			trace("TEST TIMEOUT: " + task.command + " " + task.args);
 			if (task.runtime) {
 				suite.runtimeError(task.path,task.target);
 			}else{
 				suite.buildError(task.path,task.target);
 			}
+			
 			ls.kill();
 			timeoutTimer.stop();
 			timeout = 0;
 		};
 		runningCount++;
 		ls.stdout.on('data', function(data) {
-			log(task.target + "|" + task.path + "|" + task.runtime);
+			log(task.target + "|" + task.path + "|" + task.runtime + " ~ " + lastTaskLogs);
 			log(data);
 			timeout = 0;
 		});
@@ -147,6 +154,7 @@ function update() {
 		});
 		ls.on('close', function(code) {
 			timeout = 0;
+			lastTaskLogs.remove(taskString);
 			completeBool = true;
 			timeoutTimer.stop();
 			runningCount--;

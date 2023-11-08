@@ -1,13 +1,4 @@
 package stdgo.crypto.rand_test;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 import stdgo.crypto.rand.Rand;
 /**
     
@@ -16,12 +7,12 @@ import stdgo.crypto.rand.Rand;
 **/
 @:structInit @:private @:using(stdgo.crypto.rand_test.Rand_test.T_countingReader_static_extension) class T_countingReader {
     public var _r : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
-    public var _n : GoInt = 0;
-    public function new(?_r:stdgo.io.Io.Reader, ?_n:GoInt) {
+    public var _n : stdgo.StdGoTypes.GoInt = 0;
+    public function new(?_r:stdgo.io.Io.Reader, ?_n:stdgo.StdGoTypes.GoInt) {
         if (_r != null) this._r = _r;
         if (_n != null) this._n = _n;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new T_countingReader(_r, _n);
     }
@@ -31,31 +22,31 @@ import stdgo.crypto.rand.Rand;
     // rand.Reader and writes them to a byte slice.
 **/
 function exampleRead():Void {
-        var _c:GoInt = (10 : GoInt);
-        var _b = new Slice<GoUInt8>((_c : GoInt).toBasic(), 0).__setNumber32__();
-        var __tmp__ = stdgo.crypto.rand.Rand.read(_b), __0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        var _c:stdgo.StdGoTypes.GoInt = (10 : stdgo.StdGoTypes.GoInt);
+        var _b = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((_c : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
+        var __tmp__ = stdgo.crypto.rand.Rand.read(_b), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            stdgo.fmt.Fmt.println(Go.toInterface(("error:" : GoString)), Go.toInterface(_err));
+            stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             return;
         };
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equal(_b, new Slice<GoUInt8>((_c : GoInt).toBasic(), 0).__setNumber32__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.equal(_b, new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((_c : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__())));
     }
 /**
     // https://golang.org/issue/6849.
 **/
-function testPrimeSmall(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testPrimeSmall(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {
-            var _n:GoInt = (2 : GoInt);
-            Go.cfor(_n < (10 : GoInt), _n++, {
-                var __tmp__ = stdgo.crypto.rand.Rand.prime(stdgo.crypto.rand.Rand.reader, _n), _p:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
+            var _n:stdgo.StdGoTypes.GoInt = (2 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_n < (10 : stdgo.StdGoTypes.GoInt), _n++, {
+                var __tmp__ = stdgo.crypto.rand.Rand.prime(stdgo.crypto.rand.Rand.reader, _n), _p:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _t.fatalf(("Can\'t generate %d-bit prime: %v" : GoString), Go.toInterface(_n), Go.toInterface(_err));
+                    _t.fatalf(("Can\'t generate %d-bit prime: %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
                 };
                 if (_p.bitLen() != (_n)) {
-                    _t.fatalf(("%v is not %d-bit" : GoString), Go.toInterface(Go.asInterface(_p)), Go.toInterface(_n));
+                    _t.fatalf(("%v is not %d-bit" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)), stdgo.Go.toInterface(_n));
                 };
-                if (!_p.probablyPrime((32 : GoInt))) {
-                    _t.fatalf(("%v is not prime" : GoString), Go.toInterface(Go.asInterface(_p)));
+                if (!_p.probablyPrime((32 : stdgo.StdGoTypes.GoInt))) {
+                    _t.fatalf(("%v is not prime" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)));
                 };
             });
         };
@@ -63,44 +54,44 @@ function testPrimeSmall(_t:Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Test that passing bits < 2 causes Prime to return nil, error
 **/
-function testPrimeBitsLt2(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testPrimeBitsLt2(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {
-            var __tmp__ = stdgo.crypto.rand.Rand.prime(stdgo.crypto.rand.Rand.reader, (1 : GoInt)), _p:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.crypto.rand.Rand.prime(stdgo.crypto.rand.Rand.reader, (1 : stdgo.StdGoTypes.GoInt)), _p:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_p != null) && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) || (_err == null)) {
-                _t.errorf(("Prime should return nil, error when called with bits < 2" : GoString));
+                _t.errorf(("Prime should return nil, error when called with bits < 2" : stdgo.GoString));
             };
         };
     }
-function testPrimeNondeterministic(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((42i64 : GoInt64)));
-        var __tmp__ = stdgo.crypto.rand.Rand.prime(Go.asInterface(_r), (32 : GoInt)), _p0:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
+function testPrimeNondeterministic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((42i64 : stdgo.StdGoTypes.GoInt64)));
+        var __tmp__ = stdgo.crypto.rand.Rand.prime(stdgo.Go.asInterface(_r), (32 : stdgo.StdGoTypes.GoInt)), _p0:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatal(Go.toInterface(_err));
+            _t.fatal(stdgo.Go.toInterface(_err));
         };
         {
-            var _i:GoInt = (0 : GoInt);
-            Go.cfor(_i < (128 : GoInt), _i++, {
-                _r.seed((42i64 : GoInt64));
-                var __tmp__ = stdgo.crypto.rand.Rand.prime(Go.asInterface(_r), (32 : GoInt)), _p:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < (128 : stdgo.StdGoTypes.GoInt), _i++, {
+                _r.seed((42i64 : stdgo.StdGoTypes.GoInt64));
+                var __tmp__ = stdgo.crypto.rand.Rand.prime(stdgo.Go.asInterface(_r), (32 : stdgo.StdGoTypes.GoInt)), _p:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _t.fatal(Go.toInterface(_err));
+                    _t.fatal(stdgo.Go.toInterface(_err));
                 };
-                if (_p.cmp(_p0) != ((0 : GoInt))) {
+                if (_p.cmp(_p0) != ((0 : stdgo.StdGoTypes.GoInt))) {
                     return;
                 };
             });
         };
-        _t.error(Go.toInterface(("Prime always generated the same prime given the same input" : GoString)));
+        _t.error(stdgo.Go.toInterface(("Prime always generated the same prime given the same input" : stdgo.GoString)));
     }
-function testInt(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testInt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {
-            var _n:GoInt = (128 : GoInt);
-            Go.cfor(_n < (140 : GoInt), _n++, {
-                var _b = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>).setInt64((_n : GoInt64));
+            var _n:stdgo.StdGoTypes.GoInt = (128 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_n < (140 : stdgo.StdGoTypes.GoInt), _n++, {
+                var _b = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).setInt64((_n : stdgo.StdGoTypes.GoInt64));
                 {
-                    var __tmp__ = stdgo.crypto.rand.Rand.int_(stdgo.crypto.rand.Rand.reader, _b), _i:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
+                    var __tmp__ = stdgo.crypto.rand.Rand.int_(stdgo.crypto.rand.Rand.reader, _b), _i:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
-                        _t.fatalf(("Can\'t generate random value: %v, %v" : GoString), Go.toInterface(Go.asInterface(_i)), Go.toInterface(_err));
+                        _t.fatalf(("Can\'t generate random value: %v, %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_i)), stdgo.Go.toInterface(_err));
                     };
                 };
             });
@@ -110,20 +101,20 @@ function testInt(_t:Ref<stdgo.testing.Testing.T>):Void {
     // Test that Int reads only the necessary number of bytes from the reader for
     // max at each bit length
 **/
-function testIntReads(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testIntReads(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {
-            var _i:GoInt = (0 : GoInt);
-            Go.cfor(_i < (32 : GoInt), _i++, {
-                var _max:GoInt64 = ((1i64 : GoInt64) << (_i : GoUInt64) : GoInt64);
-                _t.run(stdgo.fmt.Fmt.sprintf(("max=%d" : GoString), Go.toInterface(_max)), function(_t:Ref<stdgo.testing.Testing.T>):Void {
-                    var _reader = (Go.setRef(({ _r : stdgo.crypto.rand.Rand.reader } : T_countingReader)) : Ref<stdgo.crypto.rand_test.Rand_test.T_countingReader>);
-                    var __tmp__ = stdgo.crypto.rand.Rand.int_(Go.asInterface(_reader), stdgo.math.big.Big.newInt(_max)), __0:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < (32 : stdgo.StdGoTypes.GoInt), _i++, {
+                var _max:stdgo.StdGoTypes.GoInt64 = ((1i64 : stdgo.StdGoTypes.GoInt64) << (_i : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt64);
+                _t.run(stdgo.fmt.Fmt.sprintf(("max=%d" : stdgo.GoString), stdgo.Go.toInterface(_max)), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+                    var _reader = (stdgo.Go.setRef(({ _r : stdgo.crypto.rand.Rand.reader } : T_countingReader)) : stdgo.StdGoTypes.Ref<stdgo.crypto.rand_test.Rand_test.T_countingReader>);
+                    var __tmp__ = stdgo.crypto.rand.Rand.int_(stdgo.Go.asInterface(_reader), stdgo.math.big.Big.newInt(_max)), __0:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
-                        _t.fatalf(("Can\'t generate random value: %d, %v" : GoString), Go.toInterface(_max), Go.toInterface(_err));
+                        _t.fatalf(("Can\'t generate random value: %d, %v" : stdgo.GoString), stdgo.Go.toInterface(_max), stdgo.Go.toInterface(_err));
                     };
-                    var _expected:GoInt = (_i + (7 : GoInt)) / (8 : GoInt);
+                    var _expected:stdgo.StdGoTypes.GoInt = (_i + (7 : stdgo.StdGoTypes.GoInt)) / (8 : stdgo.StdGoTypes.GoInt);
                     if (_reader._n != (_expected)) {
-                        _t.errorf(("Int(reader, %d) should read %d bytes, but it read: %d" : GoString), Go.toInterface(_max), Go.toInterface(_expected), Go.toInterface(_reader._n));
+                        _t.errorf(("Int(reader, %d) should read %d bytes, but it read: %d" : stdgo.GoString), stdgo.Go.toInterface(_max), stdgo.Go.toInterface(_expected), stdgo.Go.toInterface(_reader._n));
                     };
                 });
             });
@@ -132,25 +123,25 @@ function testIntReads(_t:Ref<stdgo.testing.Testing.T>):Void {
 /**
     // Test that Int does not mask out valid return values
 **/
-function testIntMask(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testIntMask(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {
-            var _max:GoInt = (1 : GoInt);
-            Go.cfor(_max <= (256 : GoInt), _max++, {
-                _t.run(stdgo.fmt.Fmt.sprintf(("max=%d" : GoString), Go.toInterface(_max)), function(_t:Ref<stdgo.testing.Testing.T>):Void {
+            var _max:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_max <= (256 : stdgo.StdGoTypes.GoInt), _max++, {
+                _t.run(stdgo.fmt.Fmt.sprintf(("max=%d" : stdgo.GoString), stdgo.Go.toInterface(_max)), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     {
-                        var _i:GoInt = (0 : GoInt);
-                        Go.cfor(_i < _max, _i++, {
-                            if (stdgo.testing.Testing.short() && (_i == (0 : GoInt))) {
-                                _i = _max - (1 : GoInt);
+                        var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+                        stdgo.Go.cfor(_i < _max, _i++, {
+                            if (stdgo.testing.Testing.short() && (_i == (0 : stdgo.StdGoTypes.GoInt))) {
+                                _i = _max - (1 : stdgo.StdGoTypes.GoInt);
                             };
                             var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-                            _b.writeByte((_i : GoByte));
-                            var __tmp__ = stdgo.crypto.rand.Rand.int_(Go.asInterface((Go.setRef(_b) : Ref<stdgo.bytes.Bytes.Buffer>)), stdgo.math.big.Big.newInt((_max : GoInt64))), _n:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
+                            _b.writeByte((_i : stdgo.StdGoTypes.GoByte));
+                            var __tmp__ = stdgo.crypto.rand.Rand.int_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), stdgo.math.big.Big.newInt((_max : stdgo.StdGoTypes.GoInt64))), _n:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
-                                _t.fatalf(("Can\'t generate random value: %d, %v" : GoString), Go.toInterface(_max), Go.toInterface(_err));
+                                _t.fatalf(("Can\'t generate random value: %d, %v" : stdgo.GoString), stdgo.Go.toInterface(_max), stdgo.Go.toInterface(_err));
                             };
-                            if (_n.int64() != ((_i : GoInt64))) {
-                                _t.errorf(("Int(reader, %d) should have returned value of %d, but it returned: %v" : GoString), Go.toInterface(_max), Go.toInterface(_i), Go.toInterface(Go.asInterface(_n)));
+                            if (_n.int64() != ((_i : stdgo.StdGoTypes.GoInt64))) {
+                                _t.errorf(("Int(reader, %d) should have returned value of %d, but it returned: %v" : stdgo.GoString), stdgo.Go.toInterface(_max), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface(_n)));
                             };
                         });
                     };
@@ -158,19 +149,19 @@ function testIntMask(_t:Ref<stdgo.testing.Testing.T>):Void {
             });
         };
     }
-private function _testIntPanics(_t:Ref<stdgo.testing.Testing.T>, _b:Ref<stdgo.math.big.Big.Int_>):Void {
+function _testIntPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _b:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     {
-                        var _err:AnyInterface = ({
-                            final r = Go.recover_exception;
-                            Go.recover_exception = null;
+                        var _err:stdgo.StdGoTypes.AnyInterface = ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
                             r;
                         });
                         if (_err == null) {
-                            _t.errorf(("Int should panic when called with max <= 0: %v" : GoString), Go.toInterface(Go.asInterface(_b)));
+                            _t.errorf(("Int should panic when called with max <= 0: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_b)));
                         };
                     };
                 };
@@ -184,61 +175,61 @@ private function _testIntPanics(_t:Ref<stdgo.testing.Testing.T>, _b:Ref<stdgo.ma
                 for (defer in __deferstack__) {
                     defer();
                 };
-                if (Go.recover_exception != null) throw Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is AnyInterfaceData)) {
-                exe = Go.toInterface(__exception__.message);
+            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                exe = stdgo.Go.toInterface(__exception__.message);
             };
-            Go.recover_exception = exe;
+            stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
-            if (Go.recover_exception != null) throw Go.recover_exception;
+            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
         };
     }
 /**
     // Test that passing a new big.Int as max causes Int to panic
 **/
-function testIntEmptyMaxPanics(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>);
+function testIntEmptyMaxPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        var _b = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
         _testIntPanics(_t, _b);
     }
 /**
     // Test that passing a negative value as max causes Int to panic
 **/
-function testIntNegativeMaxPanics(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b = (Go.setRef(({} : stdgo.math.big.Big.Int_)) : Ref<stdgo.math.big.Big.Int_>).setInt64((-1i64 : GoInt64));
+function testIntNegativeMaxPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        var _b = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).setInt64((-1i64 : stdgo.StdGoTypes.GoInt64));
         _testIntPanics(_t, _b);
     }
-function benchmarkPrime(_b:Ref<stdgo.testing.Testing.B>):Void {
+function benchmarkPrime(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(stdgo.time.Time.now().unixNano()));
         {
-            var _i:GoInt = (0 : GoInt);
-            Go.cfor(_i < _b.n, _i++, {
-                stdgo.crypto.rand.Rand.prime(Go.asInterface(_r), (1024 : GoInt));
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < _b.n, _i++, {
+                stdgo.crypto.rand.Rand.prime(stdgo.Go.asInterface(_r), (1024 : stdgo.StdGoTypes.GoInt));
             });
         };
     }
 class T_countingReader_asInterface {
     @:keep
-    public dynamic function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __self__.value.read(_p);
+    public dynamic function read(_p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } return __self__.value.read(_p);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<T_countingReader>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<T_countingReader>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.crypto.rand_test.Rand_test.T_countingReader_asInterface) class T_countingReader_static_extension {
     @:keep
-    static public function read( _r:Ref<T_countingReader>, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
-        var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
+    static public function read( _r:stdgo.StdGoTypes.Ref<T_countingReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = _r._r.read(_p);
             _n = __tmp__._0;

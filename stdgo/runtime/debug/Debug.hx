@@ -1,13 +1,4 @@
 package stdgo.runtime.debug;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 /**
     // Package debug contains facilities for programs to debug themselves while
     // they are running.
@@ -20,12 +11,12 @@ private var __go2hxdoc__package : Bool;
 **/
 @:structInit class GCStats {
     public var lastGC : stdgo.time.Time.Time = ({} : stdgo.time.Time.Time);
-    public var numGC : GoInt64 = 0;
-    public var pauseTotal : stdgo.time.Time.Duration = ((0 : GoInt64) : stdgo.time.Time.Duration);
-    public var pause : Slice<stdgo.time.Time.Duration> = (null : Slice<stdgo.time.Time.Duration>);
-    public var pauseEnd : Slice<stdgo.time.Time.Time> = (null : Slice<stdgo.time.Time.Time>);
-    public var pauseQuantiles : Slice<stdgo.time.Time.Duration> = (null : Slice<stdgo.time.Time.Duration>);
-    public function new(?lastGC:stdgo.time.Time.Time, ?numGC:GoInt64, ?pauseTotal:stdgo.time.Time.Duration, ?pause:Slice<stdgo.time.Time.Duration>, ?pauseEnd:Slice<stdgo.time.Time.Time>, ?pauseQuantiles:Slice<stdgo.time.Time.Duration>) {
+    public var numGC : stdgo.StdGoTypes.GoInt64 = 0;
+    public var pauseTotal : stdgo.time.Time.Duration = ((0 : stdgo.StdGoTypes.GoInt64) : stdgo.time.Time.Duration);
+    public var pause : stdgo.Slice<stdgo.time.Time.Duration> = (null : stdgo.Slice<stdgo.time.Time.Duration>);
+    public var pauseEnd : stdgo.Slice<stdgo.time.Time.Time> = (null : stdgo.Slice<stdgo.time.Time.Time>);
+    public var pauseQuantiles : stdgo.Slice<stdgo.time.Time.Duration> = (null : stdgo.Slice<stdgo.time.Time.Duration>);
+    public function new(?lastGC:stdgo.time.Time.Time, ?numGC:stdgo.StdGoTypes.GoInt64, ?pauseTotal:stdgo.time.Time.Duration, ?pause:stdgo.Slice<stdgo.time.Time.Duration>, ?pauseEnd:stdgo.Slice<stdgo.time.Time.Time>, ?pauseQuantiles:stdgo.Slice<stdgo.time.Time.Duration>) {
         if (lastGC != null) this.lastGC = lastGC;
         if (numGC != null) this.numGC = numGC;
         if (pauseTotal != null) this.pauseTotal = pauseTotal;
@@ -33,7 +24,7 @@ private var __go2hxdoc__package : Bool;
         if (pauseEnd != null) this.pauseEnd = pauseEnd;
         if (pauseQuantiles != null) this.pauseQuantiles = pauseQuantiles;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new GCStats(lastGC, numGC, pauseTotal, pause, pauseEnd, pauseQuantiles);
     }
@@ -48,12 +39,12 @@ private var __go2hxdoc__package : Bool;
         // GoVersion is the version of the Go toolchain that built the binary
         // (for example, "go1.19.2").
     **/
-    public var goVersion : GoString = "";
+    public var goVersion : stdgo.GoString = "";
     /**
         // Path is the package path of the main package for the binary
         // (for example, "golang.org/x/tools/cmd/stringer").
     **/
-    public var path : GoString = "";
+    public var path : stdgo.GoString = "";
     /**
         // Main describes the module that contains the main package for the binary.
     **/
@@ -62,19 +53,19 @@ private var __go2hxdoc__package : Bool;
         // Deps describes all the dependency modules, both direct and indirect,
         // that contributed packages to the build of this binary.
     **/
-    public var deps : Slice<Ref<stdgo.runtime.debug.Debug.Module>> = (null : Slice<Ref<stdgo.runtime.debug.Debug.Module>>);
+    public var deps : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.runtime.debug.Debug.Module>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.runtime.debug.Debug.Module>>);
     /**
         // Settings describes the build settings used to build the binary.
     **/
-    public var settings : Slice<stdgo.runtime.debug.Debug.BuildSetting> = (null : Slice<stdgo.runtime.debug.Debug.BuildSetting>);
-    public function new(?goVersion:GoString, ?path:GoString, ?_Main:stdgo.runtime.debug.Debug.Module, ?deps:Slice<Ref<stdgo.runtime.debug.Debug.Module>>, ?settings:Slice<stdgo.runtime.debug.Debug.BuildSetting>) {
+    public var settings : stdgo.Slice<stdgo.runtime.debug.Debug.BuildSetting> = (null : stdgo.Slice<stdgo.runtime.debug.Debug.BuildSetting>);
+    public function new(?goVersion:stdgo.GoString, ?path:stdgo.GoString, ?_Main:stdgo.runtime.debug.Debug.Module, ?deps:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.runtime.debug.Debug.Module>>, ?settings:stdgo.Slice<stdgo.runtime.debug.Debug.BuildSetting>) {
         if (goVersion != null) this.goVersion = goVersion;
         if (path != null) this.path = path;
         if (_Main != null) this._Main = _Main;
         if (deps != null) this.deps = deps;
         if (settings != null) this.settings = settings;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new BuildInfo(goVersion, path, _Main, deps, settings);
     }
@@ -85,17 +76,17 @@ private var __go2hxdoc__package : Bool;
     
 **/
 @:structInit class Module {
-    public var path : GoString = "";
-    public var version : GoString = "";
-    public var sum : GoString = "";
-    public var replace : Ref<stdgo.runtime.debug.Debug.Module> = (null : Ref<stdgo.runtime.debug.Debug.Module>);
-    public function new(?path:GoString, ?version:GoString, ?sum:GoString, ?replace:Ref<stdgo.runtime.debug.Debug.Module>) {
+    public var path : stdgo.GoString = "";
+    public var version : stdgo.GoString = "";
+    public var sum : stdgo.GoString = "";
+    public var replace : stdgo.StdGoTypes.Ref<stdgo.runtime.debug.Debug.Module> = (null : stdgo.StdGoTypes.Ref<stdgo.runtime.debug.Debug.Module>);
+    public function new(?path:stdgo.GoString, ?version:stdgo.GoString, ?sum:stdgo.GoString, ?replace:stdgo.StdGoTypes.Ref<stdgo.runtime.debug.Debug.Module>) {
         if (path != null) this.path = path;
         if (version != null) this.version = version;
         if (sum != null) this.sum = sum;
         if (replace != null) this.replace = replace;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new Module(path, version, sum, replace);
     }
@@ -113,7 +104,7 @@ private var __go2hxdoc__package : Bool;
     //   - CGO_CXXFLAGS:  the effective CGO_CPPFLAGS environment variable
     //   - CGO_LDFLAGS: the effective CGO_CPPFLAGS environment variable
     //   - GOARCH: the architecture target
-    //   - GOAMD64/GOARM64/GO386/etc: the architecture feature level for GOARCH
+    //   - GOAMD64/GOARM/GO386/etc: the architecture feature level for GOARCH
     //   - GOOS: the operating system target
     //   - vcs: the version control system for the source tree where the build ran
     //   - vcs.revision: the revision identifier for the current commit or checkout
@@ -128,13 +119,13 @@ private var __go2hxdoc__package : Bool;
         // Key must not contain an equals sign, space, tab, or newline.
         // Value must not contain newlines ('\n').
     **/
-    public var key : GoString = "";
-    public var value : GoString = "";
-    public function new(?key:GoString, ?value:GoString) {
+    public var key : stdgo.GoString = "";
+    public var value : stdgo.GoString = "";
+    public function new(?key:stdgo.GoString, ?value:stdgo.GoString) {
         if (key != null) this.key = key;
         if (value != null) this.value = value;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new BuildSetting(key, value);
     }
@@ -149,7 +140,7 @@ private var __go2hxdoc__package : Bool;
     // len(stats.PauseQuantiles) is 5, it will be filled with the minimum,
     // 25%, 50%, 75%, and maximum pause times.
 **/
-function readGCStats(_stats:Ref<GCStats>):Void throw "runtime.debug.readGCStats is not yet implemented";
+function readGCStats(_stats:stdgo.StdGoTypes.Ref<GCStats>):Void throw ":runtime.debug.readGCStats is not yet implemented";
 /**
     // SetGCPercent sets the garbage collection target percentage:
     // a collection is triggered when the ratio of freshly allocated data
@@ -163,14 +154,14 @@ function readGCStats(_stats:Ref<GCStats>):Void throw "runtime.debug.readGCStats 
     // the memory limit is reached.
     // See SetMemoryLimit for more details.
 **/
-function setGCPercent(_percent:GoInt):GoInt throw "runtime.debug.setGCPercent is not yet implemented";
+function setGCPercent(_percent:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt throw ":runtime.debug.setGCPercent is not yet implemented";
 /**
     // FreeOSMemory forces a garbage collection followed by an
     // attempt to return as much memory to the operating system
     // as possible. (Even if this is not called, the runtime gradually
     // returns memory to the operating system in a background task.)
 **/
-function freeOSMemory():Void throw "runtime.debug.freeOSMemory is not yet implemented";
+function freeOSMemory():Void throw ":runtime.debug.freeOSMemory is not yet implemented";
 /**
     // SetMaxStack sets the maximum amount of memory that
     // can be used by a single goroutine stack.
@@ -185,7 +176,7 @@ function freeOSMemory():Void throw "runtime.debug.freeOSMemory is not yet implem
     // goroutines that enter an infinite recursion. It only limits future
     // stack growth.
 **/
-function setMaxStack(_bytes:GoInt):GoInt throw "runtime.debug.setMaxStack is not yet implemented";
+function setMaxStack(_bytes:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt throw ":runtime.debug.setMaxStack is not yet implemented";
 /**
     // SetMaxThreads sets the maximum number of operating system
     // threads that the Go program can use. If it attempts to use more than
@@ -202,7 +193,7 @@ function setMaxStack(_bytes:GoInt):GoInt throw "runtime.debug.setMaxStack is not
     // programs that create an unbounded number of threads. The idea is
     // to take down the program before it takes down the operating system.
 **/
-function setMaxThreads(_threads:GoInt):GoInt throw "runtime.debug.setMaxThreads is not yet implemented";
+function setMaxThreads(_threads:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt throw ":runtime.debug.setMaxThreads is not yet implemented";
 /**
     // SetPanicOnFault controls the runtime's behavior when a program faults
     // at an unexpected (non-nil) address. Such faults are typically caused by
@@ -221,7 +212,7 @@ function setMaxThreads(_threads:GoInt):GoInt throw "runtime.debug.setMaxThreads 
     // SetPanicOnFault applies only to the current goroutine.
     // It returns the previous setting.
 **/
-function setPanicOnFault(_enabled:Bool):Bool throw "runtime.debug.setPanicOnFault is not yet implemented";
+function setPanicOnFault(_enabled:Bool):Bool throw ":runtime.debug.setPanicOnFault is not yet implemented";
 /**
     // WriteHeapDump writes a description of the heap and the objects in
     // it to the given file descriptor.
@@ -233,7 +224,7 @@ function setPanicOnFault(_enabled:Bool):Bool throw "runtime.debug.setPanicOnFaul
     //
     // The heap dump format is defined at https://golang.org/s/go15heapdump.
 **/
-function writeHeapDump(_fd:GoUIntptr):Void throw "runtime.debug.writeHeapDump is not yet implemented";
+function writeHeapDump(_fd:stdgo.StdGoTypes.GoUIntptr):Void throw ":runtime.debug.writeHeapDump is not yet implemented";
 /**
     // SetTraceback sets the amount of detail printed by the runtime in
     // the traceback it prints before exiting due to an unrecovered panic
@@ -245,7 +236,7 @@ function writeHeapDump(_fd:GoUIntptr):Void throw "runtime.debug.writeHeapDump is
     // If SetTraceback is called with a level lower than that of the
     // environment variable, the call is ignored.
 **/
-function setTraceback(_level:GoString):Void throw "runtime.debug.setTraceback is not yet implemented";
+function setTraceback(_level:stdgo.GoString):Void throw ":runtime.debug.setTraceback is not yet implemented";
 /**
     // SetMemoryLimit provides the runtime with a soft memory limit.
     //
@@ -301,35 +292,35 @@ function setTraceback(_level:GoString):Void throw "runtime.debug.setTraceback is
     // A negative input does not adjust the limit, and allows for
     // retrieval of the currently set memory limit.
 **/
-function setMemoryLimit(_limit:GoInt64):GoInt64 throw "runtime.debug.setMemoryLimit is not yet implemented";
+function setMemoryLimit(_limit:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 throw ":runtime.debug.setMemoryLimit is not yet implemented";
 /**
     // ReadBuildInfo returns the build information embedded
     // in the running binary. The information is available only
     // in binaries built with module support.
 **/
-function readBuildInfo():{ var _0 : Ref<BuildInfo>; var _1 : Bool; } throw "runtime.debug.readBuildInfo is not yet implemented";
-function parseBuildInfo(_data:GoString):{ var _0 : Ref<BuildInfo>; var _1 : Error; } throw "runtime.debug.parseBuildInfo is not yet implemented";
+function readBuildInfo():{ var _0 : stdgo.StdGoTypes.Ref<BuildInfo>; var _1 : Bool; } throw ":runtime.debug.readBuildInfo is not yet implemented";
+function parseBuildInfo(_data:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<BuildInfo>; var _1 : stdgo.Error; } throw ":runtime.debug.parseBuildInfo is not yet implemented";
 /**
     // PrintStack prints to standard error the stack trace returned by runtime.Stack.
 **/
-function printStack():Void throw "runtime.debug.printStack is not yet implemented";
+function printStack():Void throw ":runtime.debug.printStack is not yet implemented";
 /**
     // Stack returns a formatted stack trace of the goroutine that calls it.
     // It calls runtime.Stack with a large enough buffer to capture the entire trace.
 **/
-function stack():Slice<GoByte> throw "runtime.debug.stack is not yet implemented";
+function stack():stdgo.Slice<stdgo.StdGoTypes.GoByte> throw ":runtime.debug.stack is not yet implemented";
 class BuildInfo_asInterface {
     @:keep
-    public dynamic function string():GoString return __self__.value.string();
+    public dynamic function string():stdgo.GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<BuildInfo>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<BuildInfo>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.runtime.debug.Debug.BuildInfo_asInterface) class BuildInfo_static_extension {
     @:keep
-    static public function string( _bi:Ref<BuildInfo>):GoString throw "runtime.debug.string is not yet implemented";
+    static public function string( _bi:stdgo.StdGoTypes.Ref<BuildInfo>):stdgo.GoString throw "BuildInfo:runtime.debug.string is not yet implemented";
 }

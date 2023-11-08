@@ -1,13 +1,4 @@
 package stdgo.internal.godebug;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 /**
     // Package godebug makes the settings in the $GODEBUG environment variable
     // available to other packages. These settings are often used for compatibility
@@ -27,6 +18,13 @@ import stdgo.Chan;
     //		}
     //		...
     //	}
+    //
+    // Each time a non-default setting causes a change in program behavior,
+    // code should call [Setting.IncNonDefault] to increment a counter that can
+    // be reported by [runtime/metrics.Read].
+    // Note that counters used with IncNonDefault must be added to
+    // various tables in other packages. See the [Setting.IncNonDefault]
+    // documentation for details.
 **/
 private var __go2hxdoc__package : Bool;
 /**
@@ -46,42 +44,111 @@ private var __go2hxdoc__package : Bool;
     
     // name string -> value *atomic.Pointer[string]
 **/
-private var _cache : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
+var _cache = ({} : stdgo.sync.Sync.Map_);
 /**
     
     
     
 **/
-private var _empty : GoString = ("" : GoString);
+var _empty = ({} : stdgo.internal.godebug.Godebug.T_value);
 /**
     
     
     
 **/
-private var _updateMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
+var _updateMu = ({} : stdgo.sync.Sync.Mutex);
+/**
+    
+    
+    
+**/
+var _stderr = ({} : stdgo.internal.godebug.Godebug.T_runtimeStderr);
 /**
     // A Setting is a single setting in the $GODEBUG environment variable.
     
     
 **/
 @:structInit @:using(stdgo.internal.godebug.Godebug.Setting_static_extension) class Setting {
-    public var _name : GoString = "";
+    public var _name : stdgo.GoString = "";
     public var _once : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-    public var _value : Ref<stdgo.sync.atomic.Atomic.Pointer_<GoString>> = (null : Ref<stdgo.sync.atomic.Atomic.Pointer_<GoString>>);
-    public function new(?_name:GoString, ?_once:stdgo.sync.Sync.Once, ?_value:Ref<stdgo.sync.atomic.Atomic.Pointer_<GoString>>) {
+    @:embedded
+    public var _setting : stdgo.StdGoTypes.Ref<stdgo.internal.godebug.Godebug.T_setting> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.godebug.Godebug.T_setting>);
+    public function new(?_name:stdgo.GoString, ?_once:stdgo.sync.Sync.Once, ?_setting:stdgo.StdGoTypes.Ref<stdgo.internal.godebug.Godebug.T_setting>) {
         if (_name != null) this._name = _name;
         if (_once != null) this._once = _once;
-        if (_value != null) this._value = _value;
+        if (_setting != null) this._setting = _setting;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new Setting(_name, _once, _value);
+        return new Setting(_name, _once, _setting);
+    }
+}
+/**
+    
+    
+    
+**/
+@:structInit @:private class T_setting {
+    public var _value : stdgo.sync.atomic.Atomic.Pointer_<stdgo.internal.godebug.Godebug.T_value> = ({} : stdgo.sync.atomic.Atomic.Pointer_<stdgo.internal.godebug.Godebug.T_value>);
+    public var _nonDefaultOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
+    public var _nonDefault : stdgo.sync.atomic.Atomic.Uint64 = ({} : stdgo.sync.atomic.Atomic.Uint64);
+    public var _info : stdgo.StdGoTypes.Ref<stdgo.internal.godebugs.Godebugs.Info> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.godebugs.Godebugs.Info>);
+    public function new(?_value:stdgo.sync.atomic.Atomic.Pointer_<stdgo.internal.godebug.Godebug.T_value>, ?_nonDefaultOnce:stdgo.sync.Sync.Once, ?_nonDefault:stdgo.sync.atomic.Atomic.Uint64, ?_info:stdgo.StdGoTypes.Ref<stdgo.internal.godebugs.Godebugs.Info>) {
+        if (_value != null) this._value = _value;
+        if (_nonDefaultOnce != null) this._nonDefaultOnce = _nonDefaultOnce;
+        if (_nonDefault != null) this._nonDefault = _nonDefault;
+        if (_info != null) this._info = _info;
+    }
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() {
+        return new T_setting(_value, _nonDefaultOnce, _nonDefault, _info);
+    }
+}
+/**
+    
+    
+    
+**/
+@:structInit @:private class T_value {
+    public var _text : stdgo.GoString = "";
+    public var _bisect : stdgo.StdGoTypes.Ref<stdgo.internal.bisect.Bisect.Matcher> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.bisect.Bisect.Matcher>);
+    public function new(?_text:stdgo.GoString, ?_bisect:stdgo.StdGoTypes.Ref<stdgo.internal.bisect.Bisect.Matcher>) {
+        if (_text != null) this._text = _text;
+        if (_bisect != null) this._bisect = _bisect;
+    }
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() {
+        return new T_value(_text, _bisect);
+    }
+}
+/**
+    
+    
+    
+**/
+@:structInit @:private @:using(stdgo.internal.godebug.Godebug.T_runtimeStderr_static_extension) class T_runtimeStderr {
+    public function new() {}
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() {
+        return new T_runtimeStderr();
     }
 }
 /**
     // New returns a new Setting for the $GODEBUG setting with the given name.
+    //
+    // GODEBUGs meant for use by end users must be listed in ../godebugs/table.go,
+    // which is used for generating and checking various documentation.
+    // If the name is not listed in that table, New will succeed but calling Value
+    // on the returned Setting will panic.
+    // To disable that panic for access to an undocumented setting,
+    // prefix the name with a #, as in godebug.New("#gofsystrace").
+    // The # is a signal to New but not part of the key used in $GODEBUG.
 **/
-function new_(_name:GoString):Ref<Setting> return new Setting();
+function new_(_name:stdgo.GoString):stdgo.StdGoTypes.Ref<Setting> return new Setting();
+/**
+    // lookup returns the unique *setting value for the given name.
+**/
+function _lookup(_name:stdgo.GoString):stdgo.StdGoTypes.Ref<T_setting> throw ":internal.godebug._lookup is not yet implemented";
 /**
     // setUpdate is provided by package runtime.
     // It calls update(def, env), where def is the default GODEBUG setting
@@ -92,21 +159,54 @@ function new_(_name:GoString):Ref<Setting> return new Setting();
     //
     //go:linkname setUpdate
 **/
-private function _setUpdate(_update:(GoString, GoString) -> Void):Void throw "internal.godebug._setUpdate is not yet implemented";
+function _setUpdate(_update:(stdgo.GoString, stdgo.GoString) -> Void):Void throw ":internal.godebug._setUpdate is not yet implemented";
+/**
+    // registerMetric is provided by package runtime.
+    // It forwards registrations to runtime/metrics.
+    //
+    //go:linkname registerMetric
+**/
+function _registerMetric(_name:stdgo.GoString, _read:() -> stdgo.StdGoTypes.GoUInt64):Void throw ":internal.godebug._registerMetric is not yet implemented";
+/**
+    // setNewIncNonDefault is provided by package runtime.
+    // The runtime can do
+    //
+    //	inc := newNonDefaultInc(name)
+    //
+    // instead of
+    //
+    //	inc := godebug.New(name).IncNonDefault
+    //
+    // since it cannot import godebug.
+    //
+    //go:linkname setNewIncNonDefault
+**/
+function _setNewIncNonDefault(_newIncNonDefault:stdgo.GoString -> (() -> Void)):Void throw ":internal.godebug._setNewIncNonDefault is not yet implemented";
+function _newIncNonDefault(_name:stdgo.GoString):() -> Void throw ":internal.godebug._newIncNonDefault is not yet implemented";
 /**
     // update records an updated GODEBUG setting.
     // def is the default GODEBUG setting for the running binary,
     // and env is the current value of the $GODEBUG environment variable.
 **/
-private function _update(_def:GoString, _env:GoString):Void throw "internal.godebug._update is not yet implemented";
+function _update(_def:stdgo.GoString, _env:stdgo.GoString):Void throw ":internal.godebug._update is not yet implemented";
 /**
     // parse parses the GODEBUG setting string s,
     // which has the form k=v,k2=v2,k3=v3.
     // Later settings override earlier ones.
     // Parse only updates settings k=v for which did[k] = false.
     // It also sets did[k] = true for settings that it updates.
+    // Each value v can also have the form v#pattern,
+    // in which case the GODEBUG is only enabled for call stacks
+    // matching pattern, for use with golang.org/x/tools/cmd/bisect.
 **/
-private function _parse(_did:GoMap<GoString, Bool>, _s:GoString):Void throw "internal.godebug._parse is not yet implemented";
+function _parse(_did:GoMap<stdgo.GoString, Bool>, _s:stdgo.GoString):Void throw ":internal.godebug._parse is not yet implemented";
+/**
+    // Since we cannot import os or syscall, use the runtime's write function
+    // to print to standard error.
+    //
+    //go:linkname write runtime.write
+**/
+function _write(_fd:stdgo.StdGoTypes.GoUIntptr, _p:stdgo.unsafe.Unsafe.UnsafePointer, _n:stdgo.StdGoTypes.GoInt32):stdgo.StdGoTypes.GoInt32 throw ":internal.godebug._write is not yet implemented";
 class Setting_asInterface {
     /**
         // Value returns the current value for the GODEBUG setting s.
@@ -118,23 +218,40 @@ class Setting_asInterface {
         // caching of Value's result.
     **/
     @:keep
-    public dynamic function value():GoString return __self__.value.value();
+    public dynamic function value():stdgo.GoString return __self__.value.value();
+    @:keep
+    public dynamic function _register():Void __self__.value._register();
+    /**
+        // IncNonDefault increments the non-default behavior counter
+        // associated with the given setting.
+        // This counter is exposed in the runtime/metrics value
+        // /godebug/non-default-behavior/<name>:events.
+        //
+        // Note that Value must be called at least once before IncNonDefault.
+    **/
+    @:keep
+    public dynamic function incNonDefault():Void __self__.value.incNonDefault();
     /**
         // String returns a printable form for the setting: name=value.
     **/
     @:keep
-    public dynamic function string():GoString return __self__.value.string();
+    public dynamic function string():stdgo.GoString return __self__.value.string();
+    /**
+        // Undocumented reports whether this is an undocumented setting.
+    **/
+    @:keep
+    public dynamic function undocumented():Bool return __self__.value.undocumented();
     /**
         // Name returns the name of the setting.
     **/
     @:keep
-    public dynamic function name():GoString return __self__.value.name();
+    public dynamic function name():stdgo.GoString return __self__.value.name();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<Setting>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<Setting>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.internal.godebug.Godebug.Setting_asInterface) class Setting_static_extension {
@@ -148,15 +265,47 @@ class Setting_asInterface {
         // caching of Value's result.
     **/
     @:keep
-    static public function value( _s:Ref<Setting>):GoString return "";
+    static public function value( _s:stdgo.StdGoTypes.Ref<Setting>):stdgo.GoString return "";
+    @:keep
+    static public function _register( _s:stdgo.StdGoTypes.Ref<Setting>):Void throw "Setting:internal.godebug._register is not yet implemented";
+    /**
+        // IncNonDefault increments the non-default behavior counter
+        // associated with the given setting.
+        // This counter is exposed in the runtime/metrics value
+        // /godebug/non-default-behavior/<name>:events.
+        //
+        // Note that Value must be called at least once before IncNonDefault.
+    **/
+    @:keep
+    static public function incNonDefault( _s:stdgo.StdGoTypes.Ref<Setting>):Void throw "Setting:internal.godebug.incNonDefault is not yet implemented";
     /**
         // String returns a printable form for the setting: name=value.
     **/
     @:keep
-    static public function string( _s:Ref<Setting>):GoString throw "internal.godebug.string is not yet implemented";
+    static public function string( _s:stdgo.StdGoTypes.Ref<Setting>):stdgo.GoString throw "Setting:internal.godebug.string is not yet implemented";
+    /**
+        // Undocumented reports whether this is an undocumented setting.
+    **/
+    @:keep
+    static public function undocumented( _s:stdgo.StdGoTypes.Ref<Setting>):Bool throw "Setting:internal.godebug.undocumented is not yet implemented";
     /**
         // Name returns the name of the setting.
     **/
     @:keep
-    static public function name( _s:Ref<Setting>):GoString throw "internal.godebug.name is not yet implemented";
+    static public function name( _s:stdgo.StdGoTypes.Ref<Setting>):stdgo.GoString throw "Setting:internal.godebug.name is not yet implemented";
+}
+class T_runtimeStderr_asInterface {
+    @:keep
+    public dynamic function write(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } return __self__.value.write(_b);
+    public function new(__self__, __type__) {
+        this.__self__ = __self__;
+        this.__type__ = __type__;
+    }
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<T_runtimeStderr>;
+    var __type__ : stdgo.internal.reflect.Reflect._Type;
+}
+@:keep @:allow(stdgo.internal.godebug.Godebug.T_runtimeStderr_asInterface) class T_runtimeStderr_static_extension {
+    @:keep
+    static public function write( _:stdgo.StdGoTypes.Ref<T_runtimeStderr>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } throw "T_runtimeStderr:internal.godebug.write is not yet implemented";
 }

@@ -1,13 +1,4 @@
 package stdgo.hash;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 /**
     // Package hash provides interfaces for hash functions.
 **/
@@ -32,7 +23,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-typedef Hash = StructType & {
+typedef Hash = stdgo.StdGoTypes.StructType & {
     > stdgo.io.Io.Writer,
     /**
         // Sum appends the current hash to b and returns the resulting slice.
@@ -40,7 +31,7 @@ typedef Hash = StructType & {
         
         
     **/
-    public dynamic function sum(_b:Slice<GoByte>):Slice<GoByte>;
+    public dynamic function sum(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte>;
     /**
         // Reset resets the Hash to its initial state.
         
@@ -52,7 +43,7 @@ typedef Hash = StructType & {
         
         
     **/
-    public dynamic function size():GoInt;
+    public dynamic function size():stdgo.StdGoTypes.GoInt;
     /**
         // BlockSize returns the hash's underlying block size.
         // The Write method must be able to accept any amount
@@ -61,33 +52,33 @@ typedef Hash = StructType & {
         
         
     **/
-    public dynamic function blockSize():GoInt;
+    public dynamic function blockSize():stdgo.StdGoTypes.GoInt;
 };
 /**
     // Hash32 is the common interface implemented by all 32-bit hash functions.
     
     
 **/
-typedef Hash32 = StructType & {
+typedef Hash32 = stdgo.StdGoTypes.StructType & {
     > Hash,
     /**
         
         
         
     **/
-    public dynamic function sum32():GoUInt32;
+    public dynamic function sum32():stdgo.StdGoTypes.GoUInt32;
 };
 /**
     // Hash64 is the common interface implemented by all 64-bit hash functions.
     
     
 **/
-typedef Hash64 = StructType & {
+typedef Hash64 = stdgo.StdGoTypes.StructType & {
     > Hash,
     /**
         
         
         
     **/
-    public dynamic function sum64():GoUInt64;
+    public dynamic function sum64():stdgo.StdGoTypes.GoUInt64;
 };

@@ -1,13 +1,4 @@
 package stdgo.sort;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 /**
     // Package sort provides primitives for sorting slices and user-defined collections.
 **/
@@ -17,32 +8,32 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-private final _unknownHint : T_sortedHint = (2 : stdgo.sort.Sort.T_sortedHint);
+final _unknownHint : stdgo.sort.Sort.T_sortedHint = (2 : stdgo.sort.Sort.T_sortedHint);
 /**
     
     
     
 **/
-private final _increasingHint = (2 : stdgo.sort.Sort.T_sortedHint);
+final _increasingHint = (2 : stdgo.sort.Sort.T_sortedHint);
 /**
     
     
     
 **/
-private final _decreasingHint = (2 : stdgo.sort.Sort.T_sortedHint);
+final _decreasingHint = (2 : stdgo.sort.Sort.T_sortedHint);
 /**
     // An implementation of Interface can be sorted by the routines in this package.
     // The methods refer to elements of the underlying collection by integer index.
     
     
 **/
-typedef Interface = StructType & {
+typedef Interface = stdgo.StdGoTypes.StructType & {
     /**
         // Len is the number of elements in the collection.
         
         
     **/
-    public dynamic function len():GoInt;
+    public dynamic function len():stdgo.StdGoTypes.GoInt;
     /**
         // Less reports whether the element with index i
         // must sort before the element with index j.
@@ -62,13 +53,13 @@ typedef Interface = StructType & {
         
         
     **/
-    public dynamic function less(_i:GoInt, _j:GoInt):Bool;
+    public dynamic function less(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool;
     /**
         // Swap swaps the elements with indexes i and j.
         
         
     **/
-    public dynamic function swap(_i:GoInt, _j:GoInt):Void;
+    public dynamic function swap(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void;
 };
 /**
     // lessSwap is a pair of Less and Swap function for use with the
@@ -78,13 +69,13 @@ typedef Interface = StructType & {
     
 **/
 @:structInit @:private class T_lessSwap {
-    public var less : (GoInt, GoInt) -> Bool = null;
-    public var swap : (GoInt, GoInt) -> Void = null;
-    public function new(?less:(GoInt, GoInt) -> Bool, ?swap:(GoInt, GoInt) -> Void) {
+    public var less : (stdgo.StdGoTypes.GoInt, stdgo.StdGoTypes.GoInt) -> Bool = null;
+    public var swap : (stdgo.StdGoTypes.GoInt, stdgo.StdGoTypes.GoInt) -> Void = null;
+    public function new(?less:(stdgo.StdGoTypes.GoInt, stdgo.StdGoTypes.GoInt) -> Bool, ?swap:(stdgo.StdGoTypes.GoInt, stdgo.StdGoTypes.GoInt) -> Void) {
         if (less != null) this.less = less;
         if (swap != null) this.swap = swap;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new T_lessSwap(less, swap);
     }
@@ -104,37 +95,37 @@ typedef Interface = StructType & {
     public function new(?interface_:stdgo.sort.Sort.Interface) {
         if (interface_ != null) this.interface_ = interface_;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     @:embedded
-    public function len():GoInt return interface_.len();
+    public function len():stdgo.StdGoTypes.GoInt return interface_.len();
     @:embedded
-    public function swap(_i_:GoInt, _j_:GoInt) interface_.swap(_i_, _j_);
+    public function swap(_i_:stdgo.StdGoTypes.GoInt, _j_:stdgo.StdGoTypes.GoInt) interface_.swap(_i_, _j_);
     public function __copy__() {
         return new T_reverse(interface_);
     }
 }
-@:named private typedef T_sortedHint = GoInt;
+@:named typedef T_sortedHint = stdgo.StdGoTypes.GoInt;
 /**
     // xorshift paper: https://www.jstatsoft.org/article/view/v008i14/xorshift.pdf
 **/
-@:named @:using(stdgo.sort.Sort.T_xorshift_static_extension) private typedef T_xorshift = GoUInt64;
+@:named @:using(stdgo.sort.Sort.T_xorshift_static_extension) typedef T_xorshift = stdgo.StdGoTypes.GoUInt64;
 /**
     // IntSlice attaches the methods of Interface to []int, sorting in increasing order.
 **/
-@:named @:using(stdgo.sort.Sort.IntSlice_static_extension) typedef IntSlice = Slice<GoInt>;
+@:named @:using(stdgo.sort.Sort.IntSlice_static_extension) typedef IntSlice = stdgo.Slice<stdgo.StdGoTypes.GoInt>;
 /**
     // Float64Slice implements Interface for a []float64, sorting in increasing order,
     // with not-a-number (NaN) values ordered before other values.
 **/
-@:named @:using(stdgo.sort.Sort.Float64Slice_static_extension) typedef Float64Slice = Slice<GoFloat64>;
+@:named @:using(stdgo.sort.Sort.Float64Slice_static_extension) typedef Float64Slice = stdgo.Slice<stdgo.StdGoTypes.GoFloat64>;
 /**
     // StringSlice attaches the methods of Interface to []string, sorting in increasing order.
 **/
-@:named @:using(stdgo.sort.Sort.StringSlice_static_extension) typedef StringSlice = Slice<GoString>;
+@:named @:using(stdgo.sort.Sort.StringSlice_static_extension) typedef StringSlice = stdgo.Slice<stdgo.GoString>;
 function heapsort(_data:Interface):Void {
-        _heapSort(_data, (0 : GoInt), _data.len());
+        _heapSort(_data, (0 : stdgo.StdGoTypes.GoInt), _data.len());
     }
-function reverseRange(_data:Interface, _a:GoInt, _b:GoInt):Void {
+function reverseRange(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
         _reverseRange(_data, _a, _b);
     }
 /**
@@ -188,12 +179,12 @@ function reverseRange(_data:Interface, _a:GoInt, _b:GoInt):Void {
     //		fmt.Printf("Your number is %d.\n", answer)
     //	}
 **/
-function search(_n:GoInt, _f:GoInt -> Bool):GoInt {
-        var __0:GoInt = (0 : GoInt), __1:GoInt = _n, _j:GoInt = __1, _i:GoInt = __0;
+function search(_n:stdgo.StdGoTypes.GoInt, _f:stdgo.StdGoTypes.GoInt -> Bool):stdgo.StdGoTypes.GoInt {
+        var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _n, _j:stdgo.StdGoTypes.GoInt = __1, _i:stdgo.StdGoTypes.GoInt = __0;
         while (_i < _j) {
-            var _h:GoInt = ((_i + _j : GoUInt) >> (1i64 : GoUInt64) : GoInt);
+            var _h:stdgo.StdGoTypes.GoInt = ((_i + _j : stdgo.StdGoTypes.GoUInt) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
             if (!_f(_h)) {
-                _i = _h + (1 : GoInt);
+                _i = _h + (1 : stdgo.StdGoTypes.GoInt);
             } else {
                 _j = _h;
             };
@@ -226,18 +217,18 @@ function search(_n:GoInt, _f:GoInt -> Bool):GoInt {
     //	    fmt.Printf("%s not found, would insert at %d", target, i)
     //	}
 **/
-function find(_n:GoInt, _cmp:GoInt -> GoInt):{ var _0 : GoInt; var _1 : Bool; } {
-        var _i:GoInt = (0 : GoInt), _found:Bool = false;
-        var __0:GoInt = (0 : GoInt), __1:GoInt = _n, _j:GoInt = __1, _i:GoInt = __0;
+function find(_n:stdgo.StdGoTypes.GoInt, _cmp:stdgo.StdGoTypes.GoInt -> stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } {
+        var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _found:Bool = false;
+        var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _n, _j:stdgo.StdGoTypes.GoInt = __1, _i:stdgo.StdGoTypes.GoInt = __0;
         while (_i < _j) {
-            var _h:GoInt = ((_i + _j : GoUInt) >> (1i64 : GoUInt64) : GoInt);
-            if (_cmp(_h) > (0 : GoInt)) {
-                _i = _h + (1 : GoInt);
+            var _h:stdgo.StdGoTypes.GoInt = ((_i + _j : stdgo.StdGoTypes.GoUInt) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
+            if (_cmp(_h) > (0 : stdgo.StdGoTypes.GoInt)) {
+                _i = _h + (1 : stdgo.StdGoTypes.GoInt);
             } else {
                 _j = _h;
             };
         };
-        return { _0 : _i, _1 : (_i < _n) && (_cmp(_i) == (0 : GoInt)) };
+        return { _0 : _i, _1 : (_i < _n) && (_cmp(_i) == (0 : stdgo.StdGoTypes.GoInt)) };
     }
 /**
     // SearchInts searches for x in a sorted slice of ints and returns the index
@@ -245,9 +236,9 @@ function find(_n:GoInt, _cmp:GoInt -> GoInt):{ var _0 : GoInt; var _1 : Bool; } 
     // not present (it could be len(a)).
     // The slice must be sorted in ascending order.
 **/
-function searchInts(_a:Slice<GoInt>, _x:GoInt):GoInt {
-        return search((_a.length), function(_i:GoInt):Bool {
-            return _a[(_i : GoInt)] >= _x;
+function searchInts(_a:stdgo.Slice<stdgo.StdGoTypes.GoInt>, _x:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        return search((_a.length), function(_i:stdgo.StdGoTypes.GoInt):Bool {
+            return _a[(_i : stdgo.StdGoTypes.GoInt)] >= _x;
         });
     }
 /**
@@ -256,9 +247,9 @@ function searchInts(_a:Slice<GoInt>, _x:GoInt):GoInt {
     // present (it could be len(a)).
     // The slice must be sorted in ascending order.
 **/
-function searchFloat64s(_a:Slice<GoFloat64>, _x:GoFloat64):GoInt {
-        return search((_a.length), function(_i:GoInt):Bool {
-            return _a[(_i : GoInt)] >= _x;
+function searchFloat64s(_a:stdgo.Slice<stdgo.StdGoTypes.GoFloat64>, _x:stdgo.StdGoTypes.GoFloat64):stdgo.StdGoTypes.GoInt {
+        return search((_a.length), function(_i:stdgo.StdGoTypes.GoInt):Bool {
+            return _a[(_i : stdgo.StdGoTypes.GoInt)] >= _x;
         });
     }
 /**
@@ -267,9 +258,9 @@ function searchFloat64s(_a:Slice<GoFloat64>, _x:GoFloat64):GoInt {
     // present (it could be len(a)).
     // The slice must be sorted in ascending order.
 **/
-function searchStrings(_a:Slice<GoString>, _x:GoString):GoInt {
-        return search((_a.length), function(_i:GoInt):Bool {
-            return _a[(_i : GoInt)] >= _x;
+function searchStrings(_a:stdgo.Slice<stdgo.GoString>, _x:stdgo.GoString):stdgo.StdGoTypes.GoInt {
+        return search((_a.length), function(_i:stdgo.StdGoTypes.GoInt):Bool {
+            return _a[(_i : stdgo.StdGoTypes.GoInt)] >= _x;
         });
     }
 /**
@@ -283,12 +274,12 @@ function searchStrings(_a:Slice<GoString>, _x:GoString):GoInt {
     // The less function must satisfy the same requirements as
     // the Interface type's Less method.
 **/
-function slice(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Void {
+function slice(_x:stdgo.StdGoTypes.AnyInterface, _less:(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt) -> Bool):Void {
         var _rv:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_x)?.__copy__();
-        var _swap:(GoInt, GoInt) -> Void = stdgo.internal.reflectlite.Reflectlite.swapper(_x);
-        var _length:GoInt = _rv.len();
-        var _limit:GoInt = stdgo.math.bits.Bits.len((_length : GoUInt));
-        _pdqsort_func((new T_lessSwap(_less, _swap) : T_lessSwap), (0 : GoInt), _length, _limit);
+        var _swap:(stdgo.StdGoTypes.GoInt, stdgo.StdGoTypes.GoInt) -> Void = stdgo.internal.reflectlite.Reflectlite.swapper(_x);
+        var _length:stdgo.StdGoTypes.GoInt = _rv.len();
+        var _limit:stdgo.StdGoTypes.GoInt = stdgo.math.bits.Bits.len((_length : stdgo.StdGoTypes.GoUInt));
+        _pdqsort_func((new T_lessSwap(_less, _swap) : T_lessSwap), (0 : stdgo.StdGoTypes.GoInt), _length, _limit);
     }
 /**
     // SliceStable sorts the slice x using the provided less
@@ -298,22 +289,22 @@ function slice(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Void {
     // The less function must satisfy the same requirements as
     // the Interface type's Less method.
 **/
-function sliceStable(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Void {
+function sliceStable(_x:stdgo.StdGoTypes.AnyInterface, _less:(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt) -> Bool):Void {
         var _rv:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_x)?.__copy__();
-        var _swap:(GoInt, GoInt) -> Void = stdgo.internal.reflectlite.Reflectlite.swapper(_x);
+        var _swap:(stdgo.StdGoTypes.GoInt, stdgo.StdGoTypes.GoInt) -> Void = stdgo.internal.reflectlite.Reflectlite.swapper(_x);
         _stable_func((new T_lessSwap(_less, _swap) : T_lessSwap), _rv.len());
     }
 /**
     // SliceIsSorted reports whether the slice x is sorted according to the provided less function.
     // It panics if x is not a slice.
 **/
-function sliceIsSorted(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Bool {
+function sliceIsSorted(_x:stdgo.StdGoTypes.AnyInterface, _less:(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt) -> Bool):Bool {
         var _rv:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_x)?.__copy__();
-        var _n:GoInt = _rv.len();
+        var _n:stdgo.StdGoTypes.GoInt = _rv.len();
         {
-            var _i:GoInt = _n - (1 : GoInt);
-            Go.cfor(_i > (0 : GoInt), _i--, {
-                if (_less(_i, _i - (1 : GoInt))) {
+            var _i:stdgo.StdGoTypes.GoInt = _n - (1 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i > (0 : stdgo.StdGoTypes.GoInt), _i--, {
+                if (_less(_i, _i - (1 : stdgo.StdGoTypes.GoInt))) {
                     return false;
                 };
             });
@@ -324,34 +315,40 @@ function sliceIsSorted(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Bool
     // Sort sorts data in ascending order as determined by the Less method.
     // It makes one call to data.Len to determine n and O(n*log(n)) calls to
     // data.Less and data.Swap. The sort is not guaranteed to be stable.
+    //
+    // Note: in many situations, the newer slices.SortFunc function is more
+    // ergonomic and runs faster.
 **/
 function sort(_data:Interface):Void {
-        var _n:GoInt = _data.len();
-        if (_n <= (1 : GoInt)) {
+        var _n:stdgo.StdGoTypes.GoInt = _data.len();
+        if (_n <= (1 : stdgo.StdGoTypes.GoInt)) {
             return;
         };
-        var _limit:GoInt = stdgo.math.bits.Bits.len((_n : GoUInt));
-        _pdqsort(_data, (0 : GoInt), _n, _limit);
+        var _limit:stdgo.StdGoTypes.GoInt = stdgo.math.bits.Bits.len((_n : stdgo.StdGoTypes.GoUInt));
+        _pdqsort(_data, (0 : stdgo.StdGoTypes.GoInt), _n, _limit);
     }
-private function _nextPowerOfTwo(_length:GoInt):GoUInt {
-        var _shift:GoUInt = (stdgo.math.bits.Bits.len((_length : GoUInt)) : GoUInt);
-        return ((1u32 : GoUInt) << _shift : GoUInt);
+function _nextPowerOfTwo(_length:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoUInt {
+        var _shift:stdgo.StdGoTypes.GoUInt = (stdgo.math.bits.Bits.len((_length : stdgo.StdGoTypes.GoUInt)) : stdgo.StdGoTypes.GoUInt);
+        return ((1u32 : stdgo.StdGoTypes.GoUInt) << _shift : stdgo.StdGoTypes.GoUInt);
     }
 /**
     // Reverse returns the reverse order for data.
 **/
 function reverse(_data:Interface):Interface {
-        return Go.asInterface((Go.setRef((new T_reverse(_data) : T_reverse)) : Ref<stdgo.sort.Sort.T_reverse>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef((new T_reverse(_data) : T_reverse)) : stdgo.StdGoTypes.Ref<stdgo.sort.Sort.T_reverse>));
     }
 /**
     // IsSorted reports whether data is sorted.
+    //
+    // Note: in many situations, the newer slices.IsSortedFunc function is more
+    // ergonomic and runs faster.
 **/
 function isSorted(_data:Interface):Bool {
-        var _n:GoInt = _data.len();
+        var _n:stdgo.StdGoTypes.GoInt = _data.len();
         {
-            var _i:GoInt = _n - (1 : GoInt);
-            Go.cfor(_i > (0 : GoInt), _i--, {
-                if (_data.less(_i, _i - (1 : GoInt))) {
+            var _i:stdgo.StdGoTypes.GoInt = _n - (1 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i > (0 : stdgo.StdGoTypes.GoInt), _i--, {
+                if (_data.less(_i, _i - (1 : stdgo.StdGoTypes.GoInt))) {
                     return false;
                 };
             });
@@ -361,46 +358,58 @@ function isSorted(_data:Interface):Bool {
 /**
     // isNaN is a copy of math.IsNaN to avoid a dependency on the math package.
 **/
-private function _isNaN(_f:GoFloat64):Bool {
+function _isNaN(_f:stdgo.StdGoTypes.GoFloat64):Bool {
         return _f != (_f);
     }
 /**
     // Ints sorts a slice of ints in increasing order.
+    //
+    // Note: consider using the newer slices.Sort function, which runs faster.
 **/
-function ints(_x:Slice<GoInt>):Void {
-        sort(Go.asInterface((_x : IntSlice)));
+function ints(_x:stdgo.Slice<stdgo.StdGoTypes.GoInt>):Void {
+        sort(stdgo.Go.asInterface((_x : IntSlice)));
     }
 /**
     // Float64s sorts a slice of float64s in increasing order.
     // Not-a-number (NaN) values are ordered before other values.
+    //
+    // Note: consider using the newer slices.Sort function, which runs faster.
 **/
-function float64s(_x:Slice<GoFloat64>):Void {
-        sort(Go.asInterface((_x : Float64Slice)));
+function float64s(_x:stdgo.Slice<stdgo.StdGoTypes.GoFloat64>):Void {
+        sort(stdgo.Go.asInterface((_x : Float64Slice)));
     }
 /**
     // Strings sorts a slice of strings in increasing order.
+    //
+    // Note: consider using the newer slices.Sort function, which runs faster.
 **/
-function strings(_x:Slice<GoString>):Void {
-        sort(Go.asInterface((_x : StringSlice)));
+function strings(_x:stdgo.Slice<stdgo.GoString>):Void {
+        sort(stdgo.Go.asInterface((_x : StringSlice)));
     }
 /**
     // IntsAreSorted reports whether the slice x is sorted in increasing order.
+    //
+    // Note: consider using the newer slices.IsSorted function, which runs faster.
 **/
-function intsAreSorted(_x:Slice<GoInt>):Bool {
-        return isSorted(Go.asInterface((_x : IntSlice)));
+function intsAreSorted(_x:stdgo.Slice<stdgo.StdGoTypes.GoInt>):Bool {
+        return isSorted(stdgo.Go.asInterface((_x : IntSlice)));
     }
 /**
     // Float64sAreSorted reports whether the slice x is sorted in increasing order,
     // with not-a-number (NaN) values before any other values.
+    //
+    // Note: consider using the newer slices.IsSorted function, which runs faster.
 **/
-function float64sAreSorted(_x:Slice<GoFloat64>):Bool {
-        return isSorted(Go.asInterface((_x : Float64Slice)));
+function float64sAreSorted(_x:stdgo.Slice<stdgo.StdGoTypes.GoFloat64>):Bool {
+        return isSorted(stdgo.Go.asInterface((_x : Float64Slice)));
     }
 /**
     // StringsAreSorted reports whether the slice x is sorted in increasing order.
+    //
+    // Note: consider using the newer slices.IsSorted function, which runs faster.
 **/
-function stringsAreSorted(_x:Slice<GoString>):Bool {
-        return isSorted(Go.asInterface((_x : StringSlice)));
+function stringsAreSorted(_x:stdgo.Slice<stdgo.GoString>):Bool {
+        return isSorted(stdgo.Go.asInterface((_x : StringSlice)));
     }
 /**
     // Stable sorts data in ascending order as determined by the Less method,
@@ -408,6 +417,9 @@ function stringsAreSorted(_x:Slice<GoString>):Bool {
     //
     // It makes one call to data.Len to determine n, O(n*log(n)) calls to
     // data.Less and O(n*log(n)*log(n)) calls to data.Swap.
+    //
+    // Note: in many situations, the newer slices.SortStableFunc function is more
+    // ergonomic and runs faster.
 **/
 function stable(_data:Interface):Void {
         _stable(_data, _data.len());
@@ -415,14 +427,14 @@ function stable(_data:Interface):Void {
 /**
     // insertionSort_func sorts data[a:b] using insertion sort.
 **/
-private function _insertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
+function _insertionSort_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
         {
-            var _i:GoInt = _a + (1 : GoInt);
-            Go.cfor(_i < _b, _i++, {
+            var _i:stdgo.StdGoTypes.GoInt = _a + (1 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < _b, _i++, {
                 {
-                    var _j:GoInt = _i;
-                    Go.cfor((_j > _a) && _data.less(_j, _j - (1 : GoInt)), _j--, {
-                        _data.swap(_j, _j - (1 : GoInt));
+                    var _j:stdgo.StdGoTypes.GoInt = _i;
+                    stdgo.Go.cfor((_j > _a) && _data.less(_j, _j - (1 : stdgo.StdGoTypes.GoInt)), _j--, {
+                        _data.swap(_j, _j - (1 : stdgo.StdGoTypes.GoInt));
                     });
                 };
             });
@@ -432,14 +444,14 @@ private function _insertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void 
     // siftDown_func implements the heap property on data[lo:hi].
     // first is an offset into the array where the root of the heap lies.
 **/
-private function _siftDown_func(_data:T_lessSwap, _lo:GoInt, _hi:GoInt, _first:GoInt):Void {
-        var _root:GoInt = _lo;
+function _siftDown_func(_data:T_lessSwap, _lo:stdgo.StdGoTypes.GoInt, _hi:stdgo.StdGoTypes.GoInt, _first:stdgo.StdGoTypes.GoInt):Void {
+        var _root:stdgo.StdGoTypes.GoInt = _lo;
         while (true) {
-            var _child:GoInt = ((2 : GoInt) * _root) + (1 : GoInt);
+            var _child:stdgo.StdGoTypes.GoInt = ((2 : stdgo.StdGoTypes.GoInt) * _root) + (1 : stdgo.StdGoTypes.GoInt);
             if (_child >= _hi) {
                 break;
             };
-            if (((_child + (1 : GoInt)) < _hi) && _data.less(_first + _child, (_first + _child) + (1 : GoInt))) {
+            if (((_child + (1 : stdgo.StdGoTypes.GoInt)) < _hi) && _data.less(_first + _child, (_first + _child) + (1 : stdgo.StdGoTypes.GoInt))) {
                 _child++;
             };
             if (!_data.less(_first + _root, _first + _child)) {
@@ -449,19 +461,19 @@ private function _siftDown_func(_data:T_lessSwap, _lo:GoInt, _hi:GoInt, _first:G
             _root = _child;
         };
     }
-private function _heapSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
-        var _first:GoInt = _a;
-        var _lo:GoInt = (0 : GoInt);
-        var _hi:GoInt = _b - _a;
+function _heapSort_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
+        var _first:stdgo.StdGoTypes.GoInt = _a;
+        var _lo:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+        var _hi:stdgo.StdGoTypes.GoInt = _b - _a;
         {
-            var _i:GoInt = (_hi - (1 : GoInt)) / (2 : GoInt);
-            Go.cfor(_i >= (0 : GoInt), _i--, {
+            var _i:stdgo.StdGoTypes.GoInt = (_hi - (1 : stdgo.StdGoTypes.GoInt)) / (2 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i >= (0 : stdgo.StdGoTypes.GoInt), _i--, {
                 _siftDown_func(_data?.__copy__(), _i, _hi, _first);
             });
         };
         {
-            var _i:GoInt = _hi - (1 : GoInt);
-            Go.cfor(_i >= (0 : GoInt), _i--, {
+            var _i:stdgo.StdGoTypes.GoInt = _hi - (1 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i >= (0 : stdgo.StdGoTypes.GoInt), _i--, {
                 _data.swap(_first, _first + _i);
                 _siftDown_func(_data?.__copy__(), _lo, _i, _first);
             });
@@ -475,16 +487,16 @@ private function _heapSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
     // Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/
     // limit is the number of allowed bad (very unbalanced) pivots before falling back to heapsort.
 **/
-private function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
+function _pdqsort_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _limit:stdgo.StdGoTypes.GoInt):Void {
         {};
         var __0:Bool = true, __1:Bool = true, _wasPartitioned:Bool = __1, _wasBalanced:Bool = __0;
         while (true) {
-            var _length:GoInt = _b - _a;
-            if (_length <= (12 : GoInt)) {
+            var _length:stdgo.StdGoTypes.GoInt = _b - _a;
+            if (_length <= (12 : stdgo.StdGoTypes.GoInt)) {
                 _insertionSort_func(_data?.__copy__(), _a, _b);
                 return;
             };
-            if (_limit == ((0 : GoInt))) {
+            if (_limit == ((0 : stdgo.StdGoTypes.GoInt))) {
                 _heapSort_func(_data?.__copy__(), _a, _b);
                 return;
             };
@@ -492,10 +504,10 @@ private function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoIn
                 _breakPatterns_func(_data?.__copy__(), _a, _b);
                 _limit--;
             };
-            var __tmp__ = _choosePivot_func(_data?.__copy__(), _a, _b), _pivot:GoInt = __tmp__._0, _hint:stdgo.sort.Sort.T_sortedHint = __tmp__._1;
+            var __tmp__ = _choosePivot_func(_data?.__copy__(), _a, _b), _pivot:stdgo.StdGoTypes.GoInt = __tmp__._0, _hint:stdgo.sort.Sort.T_sortedHint = __tmp__._1;
             if (_hint == ((2 : stdgo.sort.Sort.T_sortedHint))) {
                 _reverseRange_func(_data?.__copy__(), _a, _b);
-                _pivot = (_b - (1 : GoInt)) - (_pivot - _a);
+                _pivot = (_b - (1 : stdgo.StdGoTypes.GoInt)) - (_pivot - _a);
                 _hint = (1 : stdgo.sort.Sort.T_sortedHint);
             };
             if ((_wasBalanced && _wasPartitioned) && (_hint == (1 : stdgo.sort.Sort.T_sortedHint))) {
@@ -503,22 +515,22 @@ private function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoIn
                     return;
                 };
             };
-            if ((_a > (0 : GoInt)) && !_data.less(_a - (1 : GoInt), _pivot)) {
-                var _mid:GoInt = _partitionEqual_func(_data?.__copy__(), _a, _b, _pivot);
+            if ((_a > (0 : stdgo.StdGoTypes.GoInt)) && !_data.less(_a - (1 : stdgo.StdGoTypes.GoInt), _pivot)) {
+                var _mid:stdgo.StdGoTypes.GoInt = _partitionEqual_func(_data?.__copy__(), _a, _b, _pivot);
                 _a = _mid;
                 continue;
             };
-            var __tmp__ = _partition_func(_data?.__copy__(), _a, _b, _pivot), _mid:GoInt = __tmp__._0, _alreadyPartitioned:Bool = __tmp__._1;
+            var __tmp__ = _partition_func(_data?.__copy__(), _a, _b, _pivot), _mid:stdgo.StdGoTypes.GoInt = __tmp__._0, _alreadyPartitioned:Bool = __tmp__._1;
             _wasPartitioned = _alreadyPartitioned;
-            var __0:GoInt = _mid - _a, __1:GoInt = _b - _mid, _rightLen:GoInt = __1, _leftLen:GoInt = __0;
-            var _balanceThreshold:GoInt = _length / (8 : GoInt);
+            var __0:stdgo.StdGoTypes.GoInt = _mid - _a, __1:stdgo.StdGoTypes.GoInt = _b - _mid, _rightLen:stdgo.StdGoTypes.GoInt = __1, _leftLen:stdgo.StdGoTypes.GoInt = __0;
+            var _balanceThreshold:stdgo.StdGoTypes.GoInt = _length / (8 : stdgo.StdGoTypes.GoInt);
             if (_leftLen < _rightLen) {
                 _wasBalanced = _leftLen >= _balanceThreshold;
                 _pdqsort_func(_data?.__copy__(), _a, _mid, _limit);
-                _a = _mid + (1 : GoInt);
+                _a = _mid + (1 : stdgo.StdGoTypes.GoInt);
             } else {
                 _wasBalanced = _rightLen >= _balanceThreshold;
-                _pdqsort_func(_data?.__copy__(), _mid + (1 : GoInt), _b, _limit);
+                _pdqsort_func(_data?.__copy__(), _mid + (1 : stdgo.StdGoTypes.GoInt), _b, _limit);
                 _b = _mid;
             };
         };
@@ -529,10 +541,10 @@ private function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoIn
     // Moves elements in data[a:b] around, so that data[i]<p and data[j]>=p for i<newpivot and j>newpivot.
     // On return, data[newpivot] = p
 **/
-private function _partition_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt):{ var _0 : GoInt; var _1 : Bool; } {
-        var _newpivot:GoInt = (0 : GoInt), _alreadyPartitioned:Bool = false;
+function _partition_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _pivot:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } {
+        var _newpivot:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _alreadyPartitioned:Bool = false;
         _data.swap(_a, _pivot);
-        var __0:GoInt = _a + (1 : GoInt), __1:GoInt = _b - (1 : GoInt), _j:GoInt = __1, _i:GoInt = __0;
+        var __0:stdgo.StdGoTypes.GoInt = _a + (1 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _b - (1 : stdgo.StdGoTypes.GoInt), _j:stdgo.StdGoTypes.GoInt = __1, _i:stdgo.StdGoTypes.GoInt = __0;
         while ((_i <= _j) && _data.less(_i, _a)) {
             _i++;
         };
@@ -567,10 +579,10 @@ private function _partition_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:Go
     // partitionEqual_func partitions data[a:b] into elements equal to data[pivot] followed by elements greater than data[pivot].
     // It assumed that data[a:b] does not contain elements smaller than the data[pivot].
 **/
-private function _partitionEqual_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt):GoInt {
-        var _newpivot:GoInt = (0 : GoInt);
+function _partitionEqual_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _pivot:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        var _newpivot:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         _data.swap(_a, _pivot);
-        var __0:GoInt = _a + (1 : GoInt), __1:GoInt = _b - (1 : GoInt), _j:GoInt = __1, _i:GoInt = __0;
+        var __0:stdgo.StdGoTypes.GoInt = _a + (1 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _b - (1 : stdgo.StdGoTypes.GoInt), _j:stdgo.StdGoTypes.GoInt = __1, _i:stdgo.StdGoTypes.GoInt = __0;
         while (true) {
             while ((_i <= _j) && !_data.less(_a, _i)) {
                 _i++;
@@ -590,41 +602,41 @@ private function _partitionEqual_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _piv
 /**
     // partialInsertionSort_func partially sorts a slice, returns true if the slice is sorted at the end.
 **/
-private function _partialInsertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Bool {
+function _partialInsertionSort_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Bool {
         {};
-        var _i:GoInt = _a + (1 : GoInt);
+        var _i:stdgo.StdGoTypes.GoInt = _a + (1 : stdgo.StdGoTypes.GoInt);
         {
-            var _j:GoInt = (0 : GoInt);
-            Go.cfor(_j < (5 : GoInt), _j++, {
-                while ((_i < _b) && !_data.less(_i, _i - (1 : GoInt))) {
+            var _j:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_j < (5 : stdgo.StdGoTypes.GoInt), _j++, {
+                while ((_i < _b) && !_data.less(_i, _i - (1 : stdgo.StdGoTypes.GoInt))) {
                     _i++;
                 };
                 if (_i == (_b)) {
                     return true;
                 };
-                if ((_b - _a) < (50 : GoInt)) {
+                if ((_b - _a) < (50 : stdgo.StdGoTypes.GoInt)) {
                     return false;
                 };
-                _data.swap(_i, _i - (1 : GoInt));
-                if ((_i - _a) >= (2 : GoInt)) {
+                _data.swap(_i, _i - (1 : stdgo.StdGoTypes.GoInt));
+                if ((_i - _a) >= (2 : stdgo.StdGoTypes.GoInt)) {
                     {
-                        var _j:GoInt = _i - (1 : GoInt);
-                        Go.cfor(_j >= (1 : GoInt), _j--, {
-                            if (!_data.less(_j, _j - (1 : GoInt))) {
+                        var _j:stdgo.StdGoTypes.GoInt = _i - (1 : stdgo.StdGoTypes.GoInt);
+                        stdgo.Go.cfor(_j >= (1 : stdgo.StdGoTypes.GoInt), _j--, {
+                            if (!_data.less(_j, _j - (1 : stdgo.StdGoTypes.GoInt))) {
                                 break;
                             };
-                            _data.swap(_j, _j - (1 : GoInt));
+                            _data.swap(_j, _j - (1 : stdgo.StdGoTypes.GoInt));
                         });
                     };
                 };
-                if ((_b - _i) >= (2 : GoInt)) {
+                if ((_b - _i) >= (2 : stdgo.StdGoTypes.GoInt)) {
                     {
-                        var _j:GoInt = _i + (1 : GoInt);
-                        Go.cfor(_j < _b, _j++, {
-                            if (!_data.less(_j, _j - (1 : GoInt))) {
+                        var _j:stdgo.StdGoTypes.GoInt = _i + (1 : stdgo.StdGoTypes.GoInt);
+                        stdgo.Go.cfor(_j < _b, _j++, {
+                            if (!_data.less(_j, _j - (1 : stdgo.StdGoTypes.GoInt))) {
                                 break;
                             };
-                            _data.swap(_j, _j - (1 : GoInt));
+                            _data.swap(_j, _j - (1 : stdgo.StdGoTypes.GoInt));
                         });
                     };
                 };
@@ -636,15 +648,15 @@ private function _partialInsertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt
     // breakPatterns_func scatters some elements around in an attempt to break some patterns
     // that might cause imbalanced partitions in quicksort.
 **/
-private function _breakPatterns_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
-        var _length:GoInt = _b - _a;
-        if (_length >= (8 : GoInt)) {
+function _breakPatterns_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
+        var _length:stdgo.StdGoTypes.GoInt = _b - _a;
+        if (_length >= (8 : stdgo.StdGoTypes.GoInt)) {
             var _random:stdgo.sort.Sort.T_xorshift = (_length : T_xorshift);
-            var _modulus:GoUInt = _nextPowerOfTwo(_length);
+            var _modulus:stdgo.StdGoTypes.GoUInt = _nextPowerOfTwo(_length);
             {
-                var _idx:GoInt = (_a + ((_length / (4 : GoInt)) * (2 : GoInt))) - (1 : GoInt);
-                Go.cfor(_idx <= ((_a + ((_length / (4 : GoInt)) * (2 : GoInt))) + (1 : GoInt)), _idx++, {
-                    var _other:GoInt = ((_random.next(Go.pointer(_random)) : GoUInt) & (_modulus - (1u32 : GoUInt)) : GoInt);
+                var _idx:stdgo.StdGoTypes.GoInt = (_a + ((_length / (4 : stdgo.StdGoTypes.GoInt)) * (2 : stdgo.StdGoTypes.GoInt))) - (1 : stdgo.StdGoTypes.GoInt);
+                stdgo.Go.cfor(_idx <= ((_a + ((_length / (4 : stdgo.StdGoTypes.GoInt)) * (2 : stdgo.StdGoTypes.GoInt))) + (1 : stdgo.StdGoTypes.GoInt)), _idx++, {
+                    var _other:stdgo.StdGoTypes.GoInt = ((_random.next(stdgo.Go.pointer(_random)) : stdgo.StdGoTypes.GoUInt) & (_modulus - (1u32 : stdgo.StdGoTypes.GoUInt)) : stdgo.StdGoTypes.GoInt);
                     if (_other >= _length) {
                         _other = _other - (_length);
                     };
@@ -660,24 +672,24 @@ private function _breakPatterns_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void 
     // [8,shortestNinther): uses the simple median-of-three method.
     // [shortestNinther,∞): uses the Tukey ninther method.
 **/
-private function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{ var _0 : GoInt; var _1 : T_sortedHint; } {
-        var _pivot:GoInt = (0 : GoInt), _hint:T_sortedHint = ((0 : GoInt) : stdgo.sort.Sort.T_sortedHint);
+function _choosePivot_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : T_sortedHint; } {
+        var _pivot:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _hint:T_sortedHint = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.sort.Sort.T_sortedHint);
         {};
-        var _l:GoInt = _b - _a;
-        var __0:GoInt = (0 : GoInt), __1:GoInt = _a + ((_l / (4 : GoInt)) * (1 : GoInt)), __2:GoInt = _a + ((_l / (4 : GoInt)) * (2 : GoInt)), __3:GoInt = _a + ((_l / (4 : GoInt)) * (3 : GoInt)), _k:GoInt = __3, _j:GoInt = __2, _i:GoInt = __1, _swaps:GoInt = __0;
-        if (_l >= (8 : GoInt)) {
-            if (_l >= (50 : GoInt)) {
-                _i = _medianAdjacent_func(_data?.__copy__(), _i, Go.pointer(_swaps));
-                _j = _medianAdjacent_func(_data?.__copy__(), _j, Go.pointer(_swaps));
-                _k = _medianAdjacent_func(_data?.__copy__(), _k, Go.pointer(_swaps));
+        var _l:stdgo.StdGoTypes.GoInt = _b - _a;
+        var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _a + ((_l / (4 : stdgo.StdGoTypes.GoInt)) * (1 : stdgo.StdGoTypes.GoInt)), __2:stdgo.StdGoTypes.GoInt = _a + ((_l / (4 : stdgo.StdGoTypes.GoInt)) * (2 : stdgo.StdGoTypes.GoInt)), __3:stdgo.StdGoTypes.GoInt = _a + ((_l / (4 : stdgo.StdGoTypes.GoInt)) * (3 : stdgo.StdGoTypes.GoInt)), _k:stdgo.StdGoTypes.GoInt = __3, _j:stdgo.StdGoTypes.GoInt = __2, _i:stdgo.StdGoTypes.GoInt = __1, _swaps:stdgo.StdGoTypes.GoInt = __0;
+        if (_l >= (8 : stdgo.StdGoTypes.GoInt)) {
+            if (_l >= (50 : stdgo.StdGoTypes.GoInt)) {
+                _i = _medianAdjacent_func(_data?.__copy__(), _i, stdgo.Go.pointer(_swaps));
+                _j = _medianAdjacent_func(_data?.__copy__(), _j, stdgo.Go.pointer(_swaps));
+                _k = _medianAdjacent_func(_data?.__copy__(), _k, stdgo.Go.pointer(_swaps));
             };
-            _j = _median_func(_data?.__copy__(), _i, _j, _k, Go.pointer(_swaps));
+            _j = _median_func(_data?.__copy__(), _i, _j, _k, stdgo.Go.pointer(_swaps));
         };
         {
             final __value__ = _swaps;
-            if (__value__ == ((0 : GoInt))) {
+            if (__value__ == ((0 : stdgo.StdGoTypes.GoInt))) {
                 return { _0 : _j, _1 : (1 : stdgo.sort.Sort.T_sortedHint) };
-            } else if (__value__ == ((12 : GoInt))) {
+            } else if (__value__ == ((12 : stdgo.StdGoTypes.GoInt))) {
                 return { _0 : _j, _1 : (2 : stdgo.sort.Sort.T_sortedHint) };
             } else {
                 return { _0 : _j, _1 : (0 : stdgo.sort.Sort.T_sortedHint) };
@@ -687,7 +699,7 @@ private function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{ var _
 /**
     // order2_func returns x,y where data[x] <= data[y], where x,y=a,b or x,y=b,a.
 **/
-private function _order2_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _swaps:Pointer<GoInt>):{ var _0 : GoInt; var _1 : GoInt; } {
+function _order2_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _swaps:stdgo.Pointer<stdgo.StdGoTypes.GoInt>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; } {
         if (_data.less(_b, _a)) {
             _swaps.value++;
             return { _0 : _b, _1 : _a };
@@ -697,7 +709,7 @@ private function _order2_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _swaps:Point
 /**
     // median_func returns x where data[x] is the median of data[a],data[b],data[c], where x is a, b, or c.
 **/
-private function _median_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _c:GoInt, _swaps:Pointer<GoInt>):GoInt {
+function _median_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _c:stdgo.StdGoTypes.GoInt, _swaps:stdgo.Pointer<stdgo.StdGoTypes.GoInt>):stdgo.StdGoTypes.GoInt {
         {
             var __tmp__ = _order2_func(_data?.__copy__(), _a, _b, _swaps);
             _a = __tmp__._0;
@@ -718,29 +730,29 @@ private function _median_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _c:GoInt, _s
 /**
     // medianAdjacent_func finds the median of data[a - 1], data[a], data[a + 1] and stores the index into a.
 **/
-private function _medianAdjacent_func(_data:T_lessSwap, _a:GoInt, _swaps:Pointer<GoInt>):GoInt {
-        return _median_func(_data?.__copy__(), _a - (1 : GoInt), _a, _a + (1 : GoInt), _swaps);
+function _medianAdjacent_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _swaps:stdgo.Pointer<stdgo.StdGoTypes.GoInt>):stdgo.StdGoTypes.GoInt {
+        return _median_func(_data?.__copy__(), _a - (1 : stdgo.StdGoTypes.GoInt), _a, _a + (1 : stdgo.StdGoTypes.GoInt), _swaps);
     }
-private function _reverseRange_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
-        var _i:GoInt = _a;
-        var _j:GoInt = _b - (1 : GoInt);
+function _reverseRange_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
+        var _i:stdgo.StdGoTypes.GoInt = _a;
+        var _j:stdgo.StdGoTypes.GoInt = _b - (1 : stdgo.StdGoTypes.GoInt);
         while (_i < _j) {
             _data.swap(_i, _j);
             _i++;
             _j--;
         };
     }
-private function _swapRange_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _n:GoInt):Void {
+function _swapRange_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _n:stdgo.StdGoTypes.GoInt):Void {
         {
-            var _i:GoInt = (0 : GoInt);
-            Go.cfor(_i < _n, _i++, {
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < _n, _i++, {
                 _data.swap(_a + _i, _b + _i);
             });
         };
     }
-private function _stable_func(_data:T_lessSwap, _n:GoInt):Void {
-        var _blockSize:GoInt = (20 : GoInt);
-        var __0:GoInt = (0 : GoInt), __1:GoInt = _blockSize, _b:GoInt = __1, _a:GoInt = __0;
+function _stable_func(_data:T_lessSwap, _n:stdgo.StdGoTypes.GoInt):Void {
+        var _blockSize:stdgo.StdGoTypes.GoInt = (20 : stdgo.StdGoTypes.GoInt);
+        var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _blockSize, _b:stdgo.StdGoTypes.GoInt = __1, _a:stdgo.StdGoTypes.GoInt = __0;
         while (_b <= _n) {
             _insertionSort_func(_data?.__copy__(), _a, _b);
             _a = _b;
@@ -749,23 +761,23 @@ private function _stable_func(_data:T_lessSwap, _n:GoInt):Void {
         _insertionSort_func(_data?.__copy__(), _a, _n);
         while (_blockSize < _n) {
             {
-                final __tmp__0 = (0 : GoInt);
-                final __tmp__1 = (2 : GoInt) * _blockSize;
+                final __tmp__0 = (0 : stdgo.StdGoTypes.GoInt);
+                final __tmp__1 = (2 : stdgo.StdGoTypes.GoInt) * _blockSize;
                 _a = __tmp__0;
                 _b = __tmp__1;
             };
             while (_b <= _n) {
                 _symMerge_func(_data?.__copy__(), _a, _a + _blockSize, _b);
                 _a = _b;
-                _b = _b + ((2 : GoInt) * _blockSize);
+                _b = _b + ((2 : stdgo.StdGoTypes.GoInt) * _blockSize);
             };
             {
-                var _m:GoInt = _a + _blockSize;
+                var _m:stdgo.StdGoTypes.GoInt = _a + _blockSize;
                 if (_m < _n) {
                     _symMerge_func(_data?.__copy__(), _a, _m, _n);
                 };
             };
-            _blockSize = _blockSize * ((2 : GoInt));
+            _blockSize = _blockSize * ((2 : stdgo.StdGoTypes.GoInt));
         };
     }
 /**
@@ -789,48 +801,48 @@ private function _stable_func(_data:T_lessSwap, _n:GoInt):Void {
     // Having the caller check this condition eliminates many leaf recursion calls,
     // which improves performance.
 **/
-private function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
-        if (_m - _a == ((1 : GoInt))) {
-            var _i:GoInt = _m;
-            var _j:GoInt = _b;
+function _symMerge_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _m:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
+        if (_m - _a == ((1 : stdgo.StdGoTypes.GoInt))) {
+            var _i:stdgo.StdGoTypes.GoInt = _m;
+            var _j:stdgo.StdGoTypes.GoInt = _b;
             while (_i < _j) {
-                var _h:GoInt = ((_i + _j : GoUInt) >> (1i64 : GoUInt64) : GoInt);
+                var _h:stdgo.StdGoTypes.GoInt = ((_i + _j : stdgo.StdGoTypes.GoUInt) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
                 if (_data.less(_h, _a)) {
-                    _i = _h + (1 : GoInt);
+                    _i = _h + (1 : stdgo.StdGoTypes.GoInt);
                 } else {
                     _j = _h;
                 };
             };
             {
-                var _k:GoInt = _a;
-                Go.cfor(_k < (_i - (1 : GoInt)), _k++, {
-                    _data.swap(_k, _k + (1 : GoInt));
+                var _k:stdgo.StdGoTypes.GoInt = _a;
+                stdgo.Go.cfor(_k < (_i - (1 : stdgo.StdGoTypes.GoInt)), _k++, {
+                    _data.swap(_k, _k + (1 : stdgo.StdGoTypes.GoInt));
                 });
             };
             return;
         };
-        if (_b - _m == ((1 : GoInt))) {
-            var _i:GoInt = _a;
-            var _j:GoInt = _m;
+        if (_b - _m == ((1 : stdgo.StdGoTypes.GoInt))) {
+            var _i:stdgo.StdGoTypes.GoInt = _a;
+            var _j:stdgo.StdGoTypes.GoInt = _m;
             while (_i < _j) {
-                var _h:GoInt = ((_i + _j : GoUInt) >> (1i64 : GoUInt64) : GoInt);
+                var _h:stdgo.StdGoTypes.GoInt = ((_i + _j : stdgo.StdGoTypes.GoUInt) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
                 if (!_data.less(_m, _h)) {
-                    _i = _h + (1 : GoInt);
+                    _i = _h + (1 : stdgo.StdGoTypes.GoInt);
                 } else {
                     _j = _h;
                 };
             };
             {
-                var _k:GoInt = _m;
-                Go.cfor(_k > _i, _k--, {
-                    _data.swap(_k, _k - (1 : GoInt));
+                var _k:stdgo.StdGoTypes.GoInt = _m;
+                stdgo.Go.cfor(_k > _i, _k--, {
+                    _data.swap(_k, _k - (1 : stdgo.StdGoTypes.GoInt));
                 });
             };
             return;
         };
-        var _mid:GoInt = ((_a + _b : GoUInt) >> (1i64 : GoUInt64) : GoInt);
-        var _n:GoInt = _mid + _m;
-        var __0:GoInt = (0 : GoInt), __1:GoInt = (0 : GoInt), _r:GoInt = __1, _start:GoInt = __0;
+        var _mid:stdgo.StdGoTypes.GoInt = ((_a + _b : stdgo.StdGoTypes.GoUInt) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
+        var _n:stdgo.StdGoTypes.GoInt = _mid + _m;
+        var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _r:stdgo.StdGoTypes.GoInt = __1, _start:stdgo.StdGoTypes.GoInt = __0;
         if (_m > _mid) {
             _start = _n - _b;
             _r = _mid;
@@ -838,16 +850,16 @@ private function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):
             _start = _a;
             _r = _m;
         };
-        var _p:GoInt = _n - (1 : GoInt);
+        var _p:stdgo.StdGoTypes.GoInt = _n - (1 : stdgo.StdGoTypes.GoInt);
         while (_start < _r) {
-            var _c:GoInt = ((_start + _r : GoUInt) >> (1i64 : GoUInt64) : GoInt);
+            var _c:stdgo.StdGoTypes.GoInt = ((_start + _r : stdgo.StdGoTypes.GoUInt) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
             if (!_data.less(_p - _c, _c)) {
-                _start = _c + (1 : GoInt);
+                _start = _c + (1 : stdgo.StdGoTypes.GoInt);
             } else {
                 _r = _c;
             };
         };
-        var _end:GoInt = _n - _start;
+        var _end:stdgo.StdGoTypes.GoInt = _n - _start;
         if ((_start < _m) && (_m < _end)) {
             _rotate_func(_data?.__copy__(), _start, _m, _end);
         };
@@ -864,9 +876,9 @@ private function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):
     // rotate performs at most b-a many calls to data.Swap,
     // and it assumes non-degenerate arguments: a < m && m < b.
 **/
-private function _rotate_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
-        var _i:GoInt = _m - _a;
-        var _j:GoInt = _b - _m;
+function _rotate_func(_data:T_lessSwap, _a:stdgo.StdGoTypes.GoInt, _m:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
+        var _i:stdgo.StdGoTypes.GoInt = _m - _a;
+        var _j:stdgo.StdGoTypes.GoInt = _b - _m;
         while (_i != (_j)) {
             if (_i > _j) {
                 _swapRange_func(_data?.__copy__(), _m - _i, _m, _j);
@@ -881,14 +893,14 @@ private function _rotate_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Vo
 /**
     // insertionSort sorts data[a:b] using insertion sort.
 **/
-private function _insertionSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
+function _insertionSort(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
         {
-            var _i:GoInt = _a + (1 : GoInt);
-            Go.cfor(_i < _b, _i++, {
+            var _i:stdgo.StdGoTypes.GoInt = _a + (1 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < _b, _i++, {
                 {
-                    var _j:GoInt = _i;
-                    Go.cfor((_j > _a) && _data.less(_j, _j - (1 : GoInt)), _j--, {
-                        _data.swap(_j, _j - (1 : GoInt));
+                    var _j:stdgo.StdGoTypes.GoInt = _i;
+                    stdgo.Go.cfor((_j > _a) && _data.less(_j, _j - (1 : stdgo.StdGoTypes.GoInt)), _j--, {
+                        _data.swap(_j, _j - (1 : stdgo.StdGoTypes.GoInt));
                     });
                 };
             });
@@ -898,14 +910,14 @@ private function _insertionSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
     // siftDown implements the heap property on data[lo:hi].
     // first is an offset into the array where the root of the heap lies.
 **/
-private function _siftDown(_data:Interface, _lo:GoInt, _hi:GoInt, _first:GoInt):Void {
-        var _root:GoInt = _lo;
+function _siftDown(_data:Interface, _lo:stdgo.StdGoTypes.GoInt, _hi:stdgo.StdGoTypes.GoInt, _first:stdgo.StdGoTypes.GoInt):Void {
+        var _root:stdgo.StdGoTypes.GoInt = _lo;
         while (true) {
-            var _child:GoInt = ((2 : GoInt) * _root) + (1 : GoInt);
+            var _child:stdgo.StdGoTypes.GoInt = ((2 : stdgo.StdGoTypes.GoInt) * _root) + (1 : stdgo.StdGoTypes.GoInt);
             if (_child >= _hi) {
                 break;
             };
-            if (((_child + (1 : GoInt)) < _hi) && _data.less(_first + _child, (_first + _child) + (1 : GoInt))) {
+            if (((_child + (1 : stdgo.StdGoTypes.GoInt)) < _hi) && _data.less(_first + _child, (_first + _child) + (1 : stdgo.StdGoTypes.GoInt))) {
                 _child++;
             };
             if (!_data.less(_first + _root, _first + _child)) {
@@ -915,19 +927,19 @@ private function _siftDown(_data:Interface, _lo:GoInt, _hi:GoInt, _first:GoInt):
             _root = _child;
         };
     }
-private function _heapSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
-        var _first:GoInt = _a;
-        var _lo:GoInt = (0 : GoInt);
-        var _hi:GoInt = _b - _a;
+function _heapSort(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
+        var _first:stdgo.StdGoTypes.GoInt = _a;
+        var _lo:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+        var _hi:stdgo.StdGoTypes.GoInt = _b - _a;
         {
-            var _i:GoInt = (_hi - (1 : GoInt)) / (2 : GoInt);
-            Go.cfor(_i >= (0 : GoInt), _i--, {
+            var _i:stdgo.StdGoTypes.GoInt = (_hi - (1 : stdgo.StdGoTypes.GoInt)) / (2 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i >= (0 : stdgo.StdGoTypes.GoInt), _i--, {
                 _siftDown(_data, _i, _hi, _first);
             });
         };
         {
-            var _i:GoInt = _hi - (1 : GoInt);
-            Go.cfor(_i >= (0 : GoInt), _i--, {
+            var _i:stdgo.StdGoTypes.GoInt = _hi - (1 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i >= (0 : stdgo.StdGoTypes.GoInt), _i--, {
                 _data.swap(_first, _first + _i);
                 _siftDown(_data, _lo, _i, _first);
             });
@@ -941,16 +953,16 @@ private function _heapSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
     // Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/
     // limit is the number of allowed bad (very unbalanced) pivots before falling back to heapsort.
 **/
-private function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
+function _pdqsort(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _limit:stdgo.StdGoTypes.GoInt):Void {
         {};
         var __0:Bool = true, __1:Bool = true, _wasPartitioned:Bool = __1, _wasBalanced:Bool = __0;
         while (true) {
-            var _length:GoInt = _b - _a;
-            if (_length <= (12 : GoInt)) {
+            var _length:stdgo.StdGoTypes.GoInt = _b - _a;
+            if (_length <= (12 : stdgo.StdGoTypes.GoInt)) {
                 _insertionSort(_data, _a, _b);
                 return;
             };
-            if (_limit == ((0 : GoInt))) {
+            if (_limit == ((0 : stdgo.StdGoTypes.GoInt))) {
                 _heapSort(_data, _a, _b);
                 return;
             };
@@ -958,10 +970,10 @@ private function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Voi
                 _breakPatterns(_data, _a, _b);
                 _limit--;
             };
-            var __tmp__ = _choosePivot(_data, _a, _b), _pivot:GoInt = __tmp__._0, _hint:stdgo.sort.Sort.T_sortedHint = __tmp__._1;
+            var __tmp__ = _choosePivot(_data, _a, _b), _pivot:stdgo.StdGoTypes.GoInt = __tmp__._0, _hint:stdgo.sort.Sort.T_sortedHint = __tmp__._1;
             if (_hint == ((2 : stdgo.sort.Sort.T_sortedHint))) {
                 _reverseRange(_data, _a, _b);
-                _pivot = (_b - (1 : GoInt)) - (_pivot - _a);
+                _pivot = (_b - (1 : stdgo.StdGoTypes.GoInt)) - (_pivot - _a);
                 _hint = (1 : stdgo.sort.Sort.T_sortedHint);
             };
             if ((_wasBalanced && _wasPartitioned) && (_hint == (1 : stdgo.sort.Sort.T_sortedHint))) {
@@ -969,22 +981,22 @@ private function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Voi
                     return;
                 };
             };
-            if ((_a > (0 : GoInt)) && !_data.less(_a - (1 : GoInt), _pivot)) {
-                var _mid:GoInt = _partitionEqual(_data, _a, _b, _pivot);
+            if ((_a > (0 : stdgo.StdGoTypes.GoInt)) && !_data.less(_a - (1 : stdgo.StdGoTypes.GoInt), _pivot)) {
+                var _mid:stdgo.StdGoTypes.GoInt = _partitionEqual(_data, _a, _b, _pivot);
                 _a = _mid;
                 continue;
             };
-            var __tmp__ = _partition(_data, _a, _b, _pivot), _mid:GoInt = __tmp__._0, _alreadyPartitioned:Bool = __tmp__._1;
+            var __tmp__ = _partition(_data, _a, _b, _pivot), _mid:stdgo.StdGoTypes.GoInt = __tmp__._0, _alreadyPartitioned:Bool = __tmp__._1;
             _wasPartitioned = _alreadyPartitioned;
-            var __0:GoInt = _mid - _a, __1:GoInt = _b - _mid, _rightLen:GoInt = __1, _leftLen:GoInt = __0;
-            var _balanceThreshold:GoInt = _length / (8 : GoInt);
+            var __0:stdgo.StdGoTypes.GoInt = _mid - _a, __1:stdgo.StdGoTypes.GoInt = _b - _mid, _rightLen:stdgo.StdGoTypes.GoInt = __1, _leftLen:stdgo.StdGoTypes.GoInt = __0;
+            var _balanceThreshold:stdgo.StdGoTypes.GoInt = _length / (8 : stdgo.StdGoTypes.GoInt);
             if (_leftLen < _rightLen) {
                 _wasBalanced = _leftLen >= _balanceThreshold;
                 _pdqsort(_data, _a, _mid, _limit);
-                _a = _mid + (1 : GoInt);
+                _a = _mid + (1 : stdgo.StdGoTypes.GoInt);
             } else {
                 _wasBalanced = _rightLen >= _balanceThreshold;
-                _pdqsort(_data, _mid + (1 : GoInt), _b, _limit);
+                _pdqsort(_data, _mid + (1 : stdgo.StdGoTypes.GoInt), _b, _limit);
                 _b = _mid;
             };
         };
@@ -995,10 +1007,10 @@ private function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Voi
     // Moves elements in data[a:b] around, so that data[i]<p and data[j]>=p for i<newpivot and j>newpivot.
     // On return, data[newpivot] = p
 **/
-private function _partition(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):{ var _0 : GoInt; var _1 : Bool; } {
-        var _newpivot:GoInt = (0 : GoInt), _alreadyPartitioned:Bool = false;
+function _partition(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _pivot:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } {
+        var _newpivot:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _alreadyPartitioned:Bool = false;
         _data.swap(_a, _pivot);
-        var __0:GoInt = _a + (1 : GoInt), __1:GoInt = _b - (1 : GoInt), _j:GoInt = __1, _i:GoInt = __0;
+        var __0:stdgo.StdGoTypes.GoInt = _a + (1 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _b - (1 : stdgo.StdGoTypes.GoInt), _j:stdgo.StdGoTypes.GoInt = __1, _i:stdgo.StdGoTypes.GoInt = __0;
         while ((_i <= _j) && _data.less(_i, _a)) {
             _i++;
         };
@@ -1033,10 +1045,10 @@ private function _partition(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):{
     // partitionEqual partitions data[a:b] into elements equal to data[pivot] followed by elements greater than data[pivot].
     // It assumed that data[a:b] does not contain elements smaller than the data[pivot].
 **/
-private function _partitionEqual(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):GoInt {
-        var _newpivot:GoInt = (0 : GoInt);
+function _partitionEqual(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _pivot:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        var _newpivot:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         _data.swap(_a, _pivot);
-        var __0:GoInt = _a + (1 : GoInt), __1:GoInt = _b - (1 : GoInt), _j:GoInt = __1, _i:GoInt = __0;
+        var __0:stdgo.StdGoTypes.GoInt = _a + (1 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _b - (1 : stdgo.StdGoTypes.GoInt), _j:stdgo.StdGoTypes.GoInt = __1, _i:stdgo.StdGoTypes.GoInt = __0;
         while (true) {
             while ((_i <= _j) && !_data.less(_a, _i)) {
                 _i++;
@@ -1056,41 +1068,41 @@ private function _partitionEqual(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoI
 /**
     // partialInsertionSort partially sorts a slice, returns true if the slice is sorted at the end.
 **/
-private function _partialInsertionSort(_data:Interface, _a:GoInt, _b:GoInt):Bool {
+function _partialInsertionSort(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Bool {
         {};
-        var _i:GoInt = _a + (1 : GoInt);
+        var _i:stdgo.StdGoTypes.GoInt = _a + (1 : stdgo.StdGoTypes.GoInt);
         {
-            var _j:GoInt = (0 : GoInt);
-            Go.cfor(_j < (5 : GoInt), _j++, {
-                while ((_i < _b) && !_data.less(_i, _i - (1 : GoInt))) {
+            var _j:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_j < (5 : stdgo.StdGoTypes.GoInt), _j++, {
+                while ((_i < _b) && !_data.less(_i, _i - (1 : stdgo.StdGoTypes.GoInt))) {
                     _i++;
                 };
                 if (_i == (_b)) {
                     return true;
                 };
-                if ((_b - _a) < (50 : GoInt)) {
+                if ((_b - _a) < (50 : stdgo.StdGoTypes.GoInt)) {
                     return false;
                 };
-                _data.swap(_i, _i - (1 : GoInt));
-                if ((_i - _a) >= (2 : GoInt)) {
+                _data.swap(_i, _i - (1 : stdgo.StdGoTypes.GoInt));
+                if ((_i - _a) >= (2 : stdgo.StdGoTypes.GoInt)) {
                     {
-                        var _j:GoInt = _i - (1 : GoInt);
-                        Go.cfor(_j >= (1 : GoInt), _j--, {
-                            if (!_data.less(_j, _j - (1 : GoInt))) {
+                        var _j:stdgo.StdGoTypes.GoInt = _i - (1 : stdgo.StdGoTypes.GoInt);
+                        stdgo.Go.cfor(_j >= (1 : stdgo.StdGoTypes.GoInt), _j--, {
+                            if (!_data.less(_j, _j - (1 : stdgo.StdGoTypes.GoInt))) {
                                 break;
                             };
-                            _data.swap(_j, _j - (1 : GoInt));
+                            _data.swap(_j, _j - (1 : stdgo.StdGoTypes.GoInt));
                         });
                     };
                 };
-                if ((_b - _i) >= (2 : GoInt)) {
+                if ((_b - _i) >= (2 : stdgo.StdGoTypes.GoInt)) {
                     {
-                        var _j:GoInt = _i + (1 : GoInt);
-                        Go.cfor(_j < _b, _j++, {
-                            if (!_data.less(_j, _j - (1 : GoInt))) {
+                        var _j:stdgo.StdGoTypes.GoInt = _i + (1 : stdgo.StdGoTypes.GoInt);
+                        stdgo.Go.cfor(_j < _b, _j++, {
+                            if (!_data.less(_j, _j - (1 : stdgo.StdGoTypes.GoInt))) {
                                 break;
                             };
-                            _data.swap(_j, _j - (1 : GoInt));
+                            _data.swap(_j, _j - (1 : stdgo.StdGoTypes.GoInt));
                         });
                     };
                 };
@@ -1102,15 +1114,15 @@ private function _partialInsertionSort(_data:Interface, _a:GoInt, _b:GoInt):Bool
     // breakPatterns scatters some elements around in an attempt to break some patterns
     // that might cause imbalanced partitions in quicksort.
 **/
-private function _breakPatterns(_data:Interface, _a:GoInt, _b:GoInt):Void {
-        var _length:GoInt = _b - _a;
-        if (_length >= (8 : GoInt)) {
+function _breakPatterns(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
+        var _length:stdgo.StdGoTypes.GoInt = _b - _a;
+        if (_length >= (8 : stdgo.StdGoTypes.GoInt)) {
             var _random:stdgo.sort.Sort.T_xorshift = (_length : T_xorshift);
-            var _modulus:GoUInt = _nextPowerOfTwo(_length);
+            var _modulus:stdgo.StdGoTypes.GoUInt = _nextPowerOfTwo(_length);
             {
-                var _idx:GoInt = (_a + ((_length / (4 : GoInt)) * (2 : GoInt))) - (1 : GoInt);
-                Go.cfor(_idx <= ((_a + ((_length / (4 : GoInt)) * (2 : GoInt))) + (1 : GoInt)), _idx++, {
-                    var _other:GoInt = ((_random.next(Go.pointer(_random)) : GoUInt) & (_modulus - (1u32 : GoUInt)) : GoInt);
+                var _idx:stdgo.StdGoTypes.GoInt = (_a + ((_length / (4 : stdgo.StdGoTypes.GoInt)) * (2 : stdgo.StdGoTypes.GoInt))) - (1 : stdgo.StdGoTypes.GoInt);
+                stdgo.Go.cfor(_idx <= ((_a + ((_length / (4 : stdgo.StdGoTypes.GoInt)) * (2 : stdgo.StdGoTypes.GoInt))) + (1 : stdgo.StdGoTypes.GoInt)), _idx++, {
+                    var _other:stdgo.StdGoTypes.GoInt = ((_random.next(stdgo.Go.pointer(_random)) : stdgo.StdGoTypes.GoUInt) & (_modulus - (1u32 : stdgo.StdGoTypes.GoUInt)) : stdgo.StdGoTypes.GoInt);
                     if (_other >= _length) {
                         _other = _other - (_length);
                     };
@@ -1126,24 +1138,24 @@ private function _breakPatterns(_data:Interface, _a:GoInt, _b:GoInt):Void {
     // [8,shortestNinther): uses the simple median-of-three method.
     // [shortestNinther,∞): uses the Tukey ninther method.
 **/
-private function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{ var _0 : GoInt; var _1 : T_sortedHint; } {
-        var _pivot:GoInt = (0 : GoInt), _hint:T_sortedHint = ((0 : GoInt) : stdgo.sort.Sort.T_sortedHint);
+function _choosePivot(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : T_sortedHint; } {
+        var _pivot:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _hint:T_sortedHint = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.sort.Sort.T_sortedHint);
         {};
-        var _l:GoInt = _b - _a;
-        var __0:GoInt = (0 : GoInt), __1:GoInt = _a + ((_l / (4 : GoInt)) * (1 : GoInt)), __2:GoInt = _a + ((_l / (4 : GoInt)) * (2 : GoInt)), __3:GoInt = _a + ((_l / (4 : GoInt)) * (3 : GoInt)), _k:GoInt = __3, _j:GoInt = __2, _i:GoInt = __1, _swaps:GoInt = __0;
-        if (_l >= (8 : GoInt)) {
-            if (_l >= (50 : GoInt)) {
-                _i = _medianAdjacent(_data, _i, Go.pointer(_swaps));
-                _j = _medianAdjacent(_data, _j, Go.pointer(_swaps));
-                _k = _medianAdjacent(_data, _k, Go.pointer(_swaps));
+        var _l:stdgo.StdGoTypes.GoInt = _b - _a;
+        var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _a + ((_l / (4 : stdgo.StdGoTypes.GoInt)) * (1 : stdgo.StdGoTypes.GoInt)), __2:stdgo.StdGoTypes.GoInt = _a + ((_l / (4 : stdgo.StdGoTypes.GoInt)) * (2 : stdgo.StdGoTypes.GoInt)), __3:stdgo.StdGoTypes.GoInt = _a + ((_l / (4 : stdgo.StdGoTypes.GoInt)) * (3 : stdgo.StdGoTypes.GoInt)), _k:stdgo.StdGoTypes.GoInt = __3, _j:stdgo.StdGoTypes.GoInt = __2, _i:stdgo.StdGoTypes.GoInt = __1, _swaps:stdgo.StdGoTypes.GoInt = __0;
+        if (_l >= (8 : stdgo.StdGoTypes.GoInt)) {
+            if (_l >= (50 : stdgo.StdGoTypes.GoInt)) {
+                _i = _medianAdjacent(_data, _i, stdgo.Go.pointer(_swaps));
+                _j = _medianAdjacent(_data, _j, stdgo.Go.pointer(_swaps));
+                _k = _medianAdjacent(_data, _k, stdgo.Go.pointer(_swaps));
             };
-            _j = _median(_data, _i, _j, _k, Go.pointer(_swaps));
+            _j = _median(_data, _i, _j, _k, stdgo.Go.pointer(_swaps));
         };
         {
             final __value__ = _swaps;
-            if (__value__ == ((0 : GoInt))) {
+            if (__value__ == ((0 : stdgo.StdGoTypes.GoInt))) {
                 return { _0 : _j, _1 : (1 : stdgo.sort.Sort.T_sortedHint) };
-            } else if (__value__ == ((12 : GoInt))) {
+            } else if (__value__ == ((12 : stdgo.StdGoTypes.GoInt))) {
                 return { _0 : _j, _1 : (2 : stdgo.sort.Sort.T_sortedHint) };
             } else {
                 return { _0 : _j, _1 : (0 : stdgo.sort.Sort.T_sortedHint) };
@@ -1153,7 +1165,7 @@ private function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{ var _0 : Go
 /**
     // order2 returns x,y where data[x] <= data[y], where x,y=a,b or x,y=b,a.
 **/
-private function _order2(_data:Interface, _a:GoInt, _b:GoInt, _swaps:Pointer<GoInt>):{ var _0 : GoInt; var _1 : GoInt; } {
+function _order2(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _swaps:stdgo.Pointer<stdgo.StdGoTypes.GoInt>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; } {
         if (_data.less(_b, _a)) {
             _swaps.value++;
             return { _0 : _b, _1 : _a };
@@ -1163,7 +1175,7 @@ private function _order2(_data:Interface, _a:GoInt, _b:GoInt, _swaps:Pointer<GoI
 /**
     // median returns x where data[x] is the median of data[a],data[b],data[c], where x is a, b, or c.
 **/
-private function _median(_data:Interface, _a:GoInt, _b:GoInt, _c:GoInt, _swaps:Pointer<GoInt>):GoInt {
+function _median(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _c:stdgo.StdGoTypes.GoInt, _swaps:stdgo.Pointer<stdgo.StdGoTypes.GoInt>):stdgo.StdGoTypes.GoInt {
         {
             var __tmp__ = _order2(_data, _a, _b, _swaps);
             _a = __tmp__._0;
@@ -1184,29 +1196,29 @@ private function _median(_data:Interface, _a:GoInt, _b:GoInt, _c:GoInt, _swaps:P
 /**
     // medianAdjacent finds the median of data[a - 1], data[a], data[a + 1] and stores the index into a.
 **/
-private function _medianAdjacent(_data:Interface, _a:GoInt, _swaps:Pointer<GoInt>):GoInt {
-        return _median(_data, _a - (1 : GoInt), _a, _a + (1 : GoInt), _swaps);
+function _medianAdjacent(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _swaps:stdgo.Pointer<stdgo.StdGoTypes.GoInt>):stdgo.StdGoTypes.GoInt {
+        return _median(_data, _a - (1 : stdgo.StdGoTypes.GoInt), _a, _a + (1 : stdgo.StdGoTypes.GoInt), _swaps);
     }
-private function _reverseRange(_data:Interface, _a:GoInt, _b:GoInt):Void {
-        var _i:GoInt = _a;
-        var _j:GoInt = _b - (1 : GoInt);
+function _reverseRange(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
+        var _i:stdgo.StdGoTypes.GoInt = _a;
+        var _j:stdgo.StdGoTypes.GoInt = _b - (1 : stdgo.StdGoTypes.GoInt);
         while (_i < _j) {
             _data.swap(_i, _j);
             _i++;
             _j--;
         };
     }
-private function _swapRange(_data:Interface, _a:GoInt, _b:GoInt, _n:GoInt):Void {
+function _swapRange(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt, _n:stdgo.StdGoTypes.GoInt):Void {
         {
-            var _i:GoInt = (0 : GoInt);
-            Go.cfor(_i < _n, _i++, {
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < _n, _i++, {
                 _data.swap(_a + _i, _b + _i);
             });
         };
     }
-private function _stable(_data:Interface, _n:GoInt):Void {
-        var _blockSize:GoInt = (20 : GoInt);
-        var __0:GoInt = (0 : GoInt), __1:GoInt = _blockSize, _b:GoInt = __1, _a:GoInt = __0;
+function _stable(_data:Interface, _n:stdgo.StdGoTypes.GoInt):Void {
+        var _blockSize:stdgo.StdGoTypes.GoInt = (20 : stdgo.StdGoTypes.GoInt);
+        var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _blockSize, _b:stdgo.StdGoTypes.GoInt = __1, _a:stdgo.StdGoTypes.GoInt = __0;
         while (_b <= _n) {
             _insertionSort(_data, _a, _b);
             _a = _b;
@@ -1215,23 +1227,23 @@ private function _stable(_data:Interface, _n:GoInt):Void {
         _insertionSort(_data, _a, _n);
         while (_blockSize < _n) {
             {
-                final __tmp__0 = (0 : GoInt);
-                final __tmp__1 = (2 : GoInt) * _blockSize;
+                final __tmp__0 = (0 : stdgo.StdGoTypes.GoInt);
+                final __tmp__1 = (2 : stdgo.StdGoTypes.GoInt) * _blockSize;
                 _a = __tmp__0;
                 _b = __tmp__1;
             };
             while (_b <= _n) {
                 _symMerge(_data, _a, _a + _blockSize, _b);
                 _a = _b;
-                _b = _b + ((2 : GoInt) * _blockSize);
+                _b = _b + ((2 : stdgo.StdGoTypes.GoInt) * _blockSize);
             };
             {
-                var _m:GoInt = _a + _blockSize;
+                var _m:stdgo.StdGoTypes.GoInt = _a + _blockSize;
                 if (_m < _n) {
                     _symMerge(_data, _a, _m, _n);
                 };
             };
-            _blockSize = _blockSize * ((2 : GoInt));
+            _blockSize = _blockSize * ((2 : stdgo.StdGoTypes.GoInt));
         };
     }
 /**
@@ -1255,48 +1267,48 @@ private function _stable(_data:Interface, _n:GoInt):Void {
     // Having the caller check this condition eliminates many leaf recursion calls,
     // which improves performance.
 **/
-private function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
-        if (_m - _a == ((1 : GoInt))) {
-            var _i:GoInt = _m;
-            var _j:GoInt = _b;
+function _symMerge(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _m:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
+        if (_m - _a == ((1 : stdgo.StdGoTypes.GoInt))) {
+            var _i:stdgo.StdGoTypes.GoInt = _m;
+            var _j:stdgo.StdGoTypes.GoInt = _b;
             while (_i < _j) {
-                var _h:GoInt = ((_i + _j : GoUInt) >> (1i64 : GoUInt64) : GoInt);
+                var _h:stdgo.StdGoTypes.GoInt = ((_i + _j : stdgo.StdGoTypes.GoUInt) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
                 if (_data.less(_h, _a)) {
-                    _i = _h + (1 : GoInt);
+                    _i = _h + (1 : stdgo.StdGoTypes.GoInt);
                 } else {
                     _j = _h;
                 };
             };
             {
-                var _k:GoInt = _a;
-                Go.cfor(_k < (_i - (1 : GoInt)), _k++, {
-                    _data.swap(_k, _k + (1 : GoInt));
+                var _k:stdgo.StdGoTypes.GoInt = _a;
+                stdgo.Go.cfor(_k < (_i - (1 : stdgo.StdGoTypes.GoInt)), _k++, {
+                    _data.swap(_k, _k + (1 : stdgo.StdGoTypes.GoInt));
                 });
             };
             return;
         };
-        if (_b - _m == ((1 : GoInt))) {
-            var _i:GoInt = _a;
-            var _j:GoInt = _m;
+        if (_b - _m == ((1 : stdgo.StdGoTypes.GoInt))) {
+            var _i:stdgo.StdGoTypes.GoInt = _a;
+            var _j:stdgo.StdGoTypes.GoInt = _m;
             while (_i < _j) {
-                var _h:GoInt = ((_i + _j : GoUInt) >> (1i64 : GoUInt64) : GoInt);
+                var _h:stdgo.StdGoTypes.GoInt = ((_i + _j : stdgo.StdGoTypes.GoUInt) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
                 if (!_data.less(_m, _h)) {
-                    _i = _h + (1 : GoInt);
+                    _i = _h + (1 : stdgo.StdGoTypes.GoInt);
                 } else {
                     _j = _h;
                 };
             };
             {
-                var _k:GoInt = _m;
-                Go.cfor(_k > _i, _k--, {
-                    _data.swap(_k, _k - (1 : GoInt));
+                var _k:stdgo.StdGoTypes.GoInt = _m;
+                stdgo.Go.cfor(_k > _i, _k--, {
+                    _data.swap(_k, _k - (1 : stdgo.StdGoTypes.GoInt));
                 });
             };
             return;
         };
-        var _mid:GoInt = ((_a + _b : GoUInt) >> (1i64 : GoUInt64) : GoInt);
-        var _n:GoInt = _mid + _m;
-        var __0:GoInt = (0 : GoInt), __1:GoInt = (0 : GoInt), _r:GoInt = __1, _start:GoInt = __0;
+        var _mid:stdgo.StdGoTypes.GoInt = ((_a + _b : stdgo.StdGoTypes.GoUInt) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
+        var _n:stdgo.StdGoTypes.GoInt = _mid + _m;
+        var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _r:stdgo.StdGoTypes.GoInt = __1, _start:stdgo.StdGoTypes.GoInt = __0;
         if (_m > _mid) {
             _start = _n - _b;
             _r = _mid;
@@ -1304,16 +1316,16 @@ private function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
             _start = _a;
             _r = _m;
         };
-        var _p:GoInt = _n - (1 : GoInt);
+        var _p:stdgo.StdGoTypes.GoInt = _n - (1 : stdgo.StdGoTypes.GoInt);
         while (_start < _r) {
-            var _c:GoInt = ((_start + _r : GoUInt) >> (1i64 : GoUInt64) : GoInt);
+            var _c:stdgo.StdGoTypes.GoInt = ((_start + _r : stdgo.StdGoTypes.GoUInt) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
             if (!_data.less(_p - _c, _c)) {
-                _start = _c + (1 : GoInt);
+                _start = _c + (1 : stdgo.StdGoTypes.GoInt);
             } else {
                 _r = _c;
             };
         };
-        var _end:GoInt = _n - _start;
+        var _end:stdgo.StdGoTypes.GoInt = _n - _start;
         if ((_start < _m) && (_m < _end)) {
             _rotate(_data, _start, _m, _end);
         };
@@ -1330,9 +1342,9 @@ private function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
     // rotate performs at most b-a many calls to data.Swap,
     // and it assumes non-degenerate arguments: a < m && m < b.
 **/
-private function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
-        var _i:GoInt = _m - _a;
-        var _j:GoInt = _b - _m;
+function _rotate(_data:Interface, _a:stdgo.StdGoTypes.GoInt, _m:stdgo.StdGoTypes.GoInt, _b:stdgo.StdGoTypes.GoInt):Void {
+        var _i:stdgo.StdGoTypes.GoInt = _m - _a;
+        var _j:stdgo.StdGoTypes.GoInt = _b - _m;
         while (_i != (_j)) {
             if (_i > _j) {
                 _swapRange(_data, _m - _i, _m, _j);
@@ -1349,17 +1361,17 @@ class T_reverse_asInterface {
         // Less returns the opposite of the embedded implementation's Less method.
     **/
     @:keep
-    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool return __self__.value.less(_i, _j);
     @:embedded
-    public dynamic function swap(_i_:GoInt, _j_:GoInt):Void __self__.value.swap(_i_, _j_);
+    public dynamic function swap(_i_:stdgo.StdGoTypes.GoInt, _j_:stdgo.StdGoTypes.GoInt):Void __self__.value.swap(_i_, _j_);
     @:embedded
-    public dynamic function len():GoInt return __self__.value.len();
+    public dynamic function len():stdgo.StdGoTypes.GoInt return __self__.value.len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<T_reverse>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<T_reverse>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.sort.Sort.T_reverse_asInterface) class T_reverse_static_extension {
@@ -1367,34 +1379,34 @@ class T_reverse_asInterface {
         // Less returns the opposite of the embedded implementation's Less method.
     **/
     @:keep
-    static public function less( _r:T_reverse, _i:GoInt, _j:GoInt):Bool {
+    static public function less( _r:T_reverse, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
         return _r.interface_.less(_j, _i);
     }
     @:embedded
-    public static function swap( __self__:T_reverse, _i_:GoInt, _j_:GoInt) __self__.swap(_i_, _j_);
+    public static function swap( __self__:T_reverse, _i_:stdgo.StdGoTypes.GoInt, _j_:stdgo.StdGoTypes.GoInt) __self__.swap(_i_, _j_);
     @:embedded
-    public static function len( __self__:T_reverse):GoInt return __self__.len();
+    public static function len( __self__:T_reverse):stdgo.StdGoTypes.GoInt return __self__.len();
 }
 class T_xorshift_asInterface {
     @:keep
     @:pointer
-    public dynamic function next():GoUInt64 return __self__.value.next(__self__);
+    public dynamic function next():stdgo.StdGoTypes.GoUInt64 return __self__.value.next(__self__);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<T_xorshift>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<T_xorshift>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.sort.Sort.T_xorshift_asInterface) class T_xorshift_static_extension {
     @:keep
     @:pointer
-    static public function next(____:T_xorshift,  _r:Pointer<T_xorshift>):GoUInt64 {
-        _r.value = _r.value ^ (_r.value << (13i64 : GoUInt64));
-        _r.value = _r.value ^ (_r.value >> (17i64 : GoUInt64));
-        _r.value = _r.value ^ (_r.value << (5i64 : GoUInt64));
-        return (_r.value : GoUInt64);
+    static public function next(____:T_xorshift,  _r:stdgo.Pointer<T_xorshift>):stdgo.StdGoTypes.GoUInt64 {
+        _r.value = _r.value ^ (_r.value << (13i64 : stdgo.StdGoTypes.GoUInt64));
+        _r.value = _r.value ^ (_r.value >> (17i64 : stdgo.StdGoTypes.GoUInt64));
+        _r.value = _r.value ^ (_r.value << (5i64 : stdgo.StdGoTypes.GoUInt64));
+        return (_r.value : stdgo.StdGoTypes.GoUInt64);
     }
 }
 class IntSlice_asInterface {
@@ -1404,22 +1416,22 @@ class IntSlice_asInterface {
     @:keep
     public dynamic function sort():Void __self__.value.sort();
     @:keep
-    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool return __self__.value.less(_i, _j);
     @:keep
-    public dynamic function len():GoInt return __self__.value.len();
+    public dynamic function len():stdgo.StdGoTypes.GoInt return __self__.value.len();
     /**
         // Search returns the result of applying SearchInts to the receiver and x.
     **/
     @:keep
-    public dynamic function search(_x:GoInt):GoInt return __self__.value.search(_x);
+    public dynamic function search(_x:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt return __self__.value.search(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<IntSlice>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<IntSlice>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.sort.Sort.IntSlice_asInterface) class IntSlice_static_extension {
@@ -1428,30 +1440,30 @@ class IntSlice_asInterface {
     **/
     @:keep
     static public function sort( _x:IntSlice):Void {
-        stdgo.sort.Sort.sort(Go.asInterface(_x));
+        stdgo.sort.Sort.sort(stdgo.Go.asInterface(_x));
     }
     @:keep
-    static public function swap( _x:IntSlice, _i:GoInt, _j:GoInt):Void {
+    static public function swap( _x:IntSlice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
         {
-            final __tmp__0 = _x[(_j : GoInt)];
-            final __tmp__1 = _x[(_i : GoInt)];
-            _x[(_i : GoInt)] = __tmp__0;
-            _x[(_j : GoInt)] = __tmp__1;
+            final __tmp__0 = _x[(_j : stdgo.StdGoTypes.GoInt)];
+            final __tmp__1 = _x[(_i : stdgo.StdGoTypes.GoInt)];
+            _x[(_i : stdgo.StdGoTypes.GoInt)] = __tmp__0;
+            _x[(_j : stdgo.StdGoTypes.GoInt)] = __tmp__1;
         };
     }
     @:keep
-    static public function less( _x:IntSlice, _i:GoInt, _j:GoInt):Bool {
-        return _x[(_i : GoInt)] < _x[(_j : GoInt)];
+    static public function less( _x:IntSlice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        return _x[(_i : stdgo.StdGoTypes.GoInt)] < _x[(_j : stdgo.StdGoTypes.GoInt)];
     }
     @:keep
-    static public function len( _x:IntSlice):GoInt {
+    static public function len( _x:IntSlice):stdgo.StdGoTypes.GoInt {
         return (_x.length);
     }
     /**
         // Search returns the result of applying SearchInts to the receiver and x.
     **/
     @:keep
-    static public function search( _p:IntSlice, _x:GoInt):GoInt {
+    static public function search( _p:IntSlice, _x:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
         return searchInts(_p, _x);
     }
 }
@@ -1462,7 +1474,7 @@ class Float64Slice_asInterface {
     @:keep
     public dynamic function sort():Void __self__.value.sort();
     @:keep
-    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void __self__.value.swap(_i, _j);
     /**
         // Less reports whether x[i] should be ordered before x[j], as required by the sort Interface.
         // Note that floating-point comparison by itself is not a transitive relation: it does not
@@ -1472,20 +1484,20 @@ class Float64Slice_asInterface {
         //	x[i] < x[j] || (math.IsNaN(x[i]) && !math.IsNaN(x[j]))
     **/
     @:keep
-    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool return __self__.value.less(_i, _j);
     @:keep
-    public dynamic function len():GoInt return __self__.value.len();
+    public dynamic function len():stdgo.StdGoTypes.GoInt return __self__.value.len();
     /**
         // Search returns the result of applying SearchFloat64s to the receiver and x.
     **/
     @:keep
-    public dynamic function search(_x:GoFloat64):GoInt return __self__.value.search(_x);
+    public dynamic function search(_x:stdgo.StdGoTypes.GoFloat64):stdgo.StdGoTypes.GoInt return __self__.value.search(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<Float64Slice>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<Float64Slice>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.sort.Sort.Float64Slice_asInterface) class Float64Slice_static_extension {
@@ -1494,15 +1506,15 @@ class Float64Slice_asInterface {
     **/
     @:keep
     static public function sort( _x:Float64Slice):Void {
-        stdgo.sort.Sort.sort(Go.asInterface(_x));
+        stdgo.sort.Sort.sort(stdgo.Go.asInterface(_x));
     }
     @:keep
-    static public function swap( _x:Float64Slice, _i:GoInt, _j:GoInt):Void {
+    static public function swap( _x:Float64Slice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
         {
-            final __tmp__0 = _x[(_j : GoInt)];
-            final __tmp__1 = _x[(_i : GoInt)];
-            _x[(_i : GoInt)] = __tmp__0;
-            _x[(_j : GoInt)] = __tmp__1;
+            final __tmp__0 = _x[(_j : stdgo.StdGoTypes.GoInt)];
+            final __tmp__1 = _x[(_i : stdgo.StdGoTypes.GoInt)];
+            _x[(_i : stdgo.StdGoTypes.GoInt)] = __tmp__0;
+            _x[(_j : stdgo.StdGoTypes.GoInt)] = __tmp__1;
         };
     }
     /**
@@ -1514,18 +1526,18 @@ class Float64Slice_asInterface {
         //	x[i] < x[j] || (math.IsNaN(x[i]) && !math.IsNaN(x[j]))
     **/
     @:keep
-    static public function less( _x:Float64Slice, _i:GoInt, _j:GoInt):Bool {
-        return (_x[(_i : GoInt)] < _x[(_j : GoInt)]) || (_isNaN(_x[(_i : GoInt)]) && !_isNaN(_x[(_j : GoInt)]));
+    static public function less( _x:Float64Slice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        return (_x[(_i : stdgo.StdGoTypes.GoInt)] < _x[(_j : stdgo.StdGoTypes.GoInt)]) || (_isNaN(_x[(_i : stdgo.StdGoTypes.GoInt)]) && !_isNaN(_x[(_j : stdgo.StdGoTypes.GoInt)]));
     }
     @:keep
-    static public function len( _x:Float64Slice):GoInt {
+    static public function len( _x:Float64Slice):stdgo.StdGoTypes.GoInt {
         return (_x.length);
     }
     /**
         // Search returns the result of applying SearchFloat64s to the receiver and x.
     **/
     @:keep
-    static public function search( _p:Float64Slice, _x:GoFloat64):GoInt {
+    static public function search( _p:Float64Slice, _x:stdgo.StdGoTypes.GoFloat64):stdgo.StdGoTypes.GoInt {
         return searchFloat64s(_p, _x);
     }
 }
@@ -1536,22 +1548,22 @@ class StringSlice_asInterface {
     @:keep
     public dynamic function sort():Void __self__.value.sort();
     @:keep
-    public dynamic function swap(_i:GoInt, _j:GoInt):Void __self__.value.swap(_i, _j);
+    public dynamic function swap(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void __self__.value.swap(_i, _j);
     @:keep
-    public dynamic function less(_i:GoInt, _j:GoInt):Bool return __self__.value.less(_i, _j);
+    public dynamic function less(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool return __self__.value.less(_i, _j);
     @:keep
-    public dynamic function len():GoInt return __self__.value.len();
+    public dynamic function len():stdgo.StdGoTypes.GoInt return __self__.value.len();
     /**
         // Search returns the result of applying SearchStrings to the receiver and x.
     **/
     @:keep
-    public dynamic function search(_x:GoString):GoInt return __self__.value.search(_x);
+    public dynamic function search(_x:stdgo.GoString):stdgo.StdGoTypes.GoInt return __self__.value.search(_x);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<StringSlice>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<StringSlice>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.sort.Sort.StringSlice_asInterface) class StringSlice_static_extension {
@@ -1560,30 +1572,30 @@ class StringSlice_asInterface {
     **/
     @:keep
     static public function sort( _x:StringSlice):Void {
-        stdgo.sort.Sort.sort(Go.asInterface(_x));
+        stdgo.sort.Sort.sort(stdgo.Go.asInterface(_x));
     }
     @:keep
-    static public function swap( _x:StringSlice, _i:GoInt, _j:GoInt):Void {
+    static public function swap( _x:StringSlice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
         {
-            final __tmp__0 = _x[(_j : GoInt)];
-            final __tmp__1 = _x[(_i : GoInt)];
-            _x[(_i : GoInt)] = __tmp__0;
-            _x[(_j : GoInt)] = __tmp__1;
+            final __tmp__0 = _x[(_j : stdgo.StdGoTypes.GoInt)];
+            final __tmp__1 = _x[(_i : stdgo.StdGoTypes.GoInt)];
+            _x[(_i : stdgo.StdGoTypes.GoInt)] = __tmp__0;
+            _x[(_j : stdgo.StdGoTypes.GoInt)] = __tmp__1;
         };
     }
     @:keep
-    static public function less( _x:StringSlice, _i:GoInt, _j:GoInt):Bool {
-        return _x[(_i : GoInt)] < _x[(_j : GoInt)];
+    static public function less( _x:StringSlice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        return _x[(_i : stdgo.StdGoTypes.GoInt)] < _x[(_j : stdgo.StdGoTypes.GoInt)];
     }
     @:keep
-    static public function len( _x:StringSlice):GoInt {
+    static public function len( _x:StringSlice):stdgo.StdGoTypes.GoInt {
         return (_x.length);
     }
     /**
         // Search returns the result of applying SearchStrings to the receiver and x.
     **/
     @:keep
-    static public function search( _p:StringSlice, _x:GoString):GoInt {
+    static public function search( _p:StringSlice, _x:stdgo.GoString):stdgo.StdGoTypes.GoInt {
         return searchStrings(_p, _x);
     }
 }

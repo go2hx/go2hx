@@ -1,17 +1,8 @@
 package stdgo.errors;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 /**
     // Package errors implements functions to manipulate errors.
     //
-    // The New function creates errors whose only content is a text message.
+    // The [New] function creates errors whose only content is a text message.
     //
     // An error e wraps another error if e's type has one of the methods
     //
@@ -23,12 +14,12 @@ import stdgo.Chan;
     // indicates that e does not wrap any error. It is invalid for an
     // Unwrap method to return an []error containing a nil error value.
     //
-    // An easy way to create wrapped errors is to call fmt.Errorf and apply
+    // An easy way to create wrapped errors is to call [fmt.Errorf] and apply
     // the %w verb to the error argument:
     //
     //	wrapsErr := fmt.Errorf("... %w ...", ..., err, ...)
     //
-    // Successive unwrapping of an error creates a tree. The Is and As
+    // Successive unwrapping of an error creates a tree. The [Is] and [As]
     // functions inspect an error's tree by examining first the error
     // itself followed by the tree of each of its children in turn
     // (pre-order, depth-first traversal).
@@ -43,7 +34,7 @@ import stdgo.Chan;
     //
     //	if err == fs.ErrExist
     //
-    // because the former will succeed if err wraps fs.ErrExist.
+    // because the former will succeed if err wraps [io/fs.ErrExist].
     //
     // As examines the tree of its first argument looking for an error that can be
     // assigned to its second argument, which must be a pointer. If it succeeds, it
@@ -60,66 +51,84 @@ import stdgo.Chan;
     //		fmt.Println(perr.Path)
     //	}
     //
-    // because the former will succeed if err wraps an *fs.PathError.
+    // because the former will succeed if err wraps an [*io/fs.PathError].
 **/
 private var __go2hxdoc__package : Bool;
 /**
-    
+    // ErrUnsupported indicates that a requested operation cannot be performed,
+    // because it is unsupported. For example, a call to [os.Link] when using a
+    // file system that does not support hard links.
+    //
+    // Functions and methods should not return this error but should instead
+    // return an error including appropriate context that satisfies
+    //
+    //	errors.Is(err, errors.ErrUnsupported)
+    //
+    // either by directly wrapping ErrUnsupported or by implementing an Is method.
+    //
+    // Functions and methods should document the cases in which an error
+    // wrapping this will be returned.
     
     
 **/
-private var _errorType = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface((null : Ref<Error>))).elem();
+var errUnsupported : stdgo.Error = new_(("unsupported operation" : stdgo.GoString));
 /**
     
     
     
 **/
-private typedef T__interface_0 = StructType & {
+var _errorType : stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.StdGoTypes.Ref<stdgo.Error>))).elem();
+/**
+    
+    
+    
+**/
+typedef T__interface_0 = stdgo.StdGoTypes.StructType & {
     /**
         
         
         
     **/
-    public dynamic function unwrap():Error;
+    public dynamic function unwrap():stdgo.Error;
 };
 /**
     
     
     
 **/
-private typedef T__interface_1 = StructType & {
+typedef T__interface_1 = stdgo.StdGoTypes.StructType & {
     /**
         
         
         
     **/
-    public dynamic function is_(_0:Error):Bool;
+    public dynamic function is_(_0:stdgo.Error):Bool;
 };
 /**
     
     
     
 **/
-private typedef T__interface_2 = StructType & {
+typedef T__interface_2 = stdgo.StdGoTypes.StructType & {
     /**
         
         
         
     **/
-    public dynamic function unwrap():Slice<Error>;
+    public dynamic function unwrap():stdgo.Slice<stdgo.Error>;
 };
 /**
     
     
     
 **/
-private typedef T__interface_3 = StructType & {
+typedef T__interface_3 = stdgo.StdGoTypes.StructType & {
     /**
         
         
         
     **/
-    public dynamic function as(_0:AnyInterface):Bool;
+    public dynamic function as(_0:stdgo.StdGoTypes.AnyInterface):Bool;
 };
 /**
     // errorString is a trivial implementation of error.
@@ -127,11 +136,11 @@ private typedef T__interface_3 = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.errors.Errors.T_errorString_static_extension) class T_errorString {
-    public var _s : GoString = "";
-    public function new(?_s:GoString) {
+    public var _s : stdgo.GoString = "";
+    public function new(?_s:stdgo.GoString) {
         if (_s != null) this._s = _s;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new T_errorString(_s);
     }
@@ -142,11 +151,11 @@ private typedef T__interface_3 = StructType & {
     
 **/
 @:structInit @:private @:using(stdgo.errors.Errors.T_joinError_static_extension) class T_joinError {
-    public var _errs : Slice<Error> = (null : Slice<Error>);
-    public function new(?_errs:Slice<Error>) {
+    public var _errs : stdgo.Slice<stdgo.Error> = (null : stdgo.Slice<stdgo.Error>);
+    public function new(?_errs:stdgo.Slice<stdgo.Error>) {
         if (_errs != null) this._errs = _errs;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new T_joinError(_errs);
     }
@@ -155,51 +164,54 @@ private typedef T__interface_3 = StructType & {
     // New returns an error that formats as the given text.
     // Each call to New returns a distinct error value even if the text is identical.
 **/
-function new_(_text:GoString):Error {
-        return Go.asInterface((Go.setRef((new T_errorString(_text) : T_errorString)) : Ref<stdgo.errors.Errors.T_errorString>));
+function new_(_text:stdgo.GoString):stdgo.Error {
+        return stdgo.Go.asInterface((stdgo.Go.setRef((new T_errorString(_text) : T_errorString)) : stdgo.StdGoTypes.Ref<stdgo.errors.Errors.T_errorString>));
     }
 /**
     // Join returns an error that wraps the given errors.
     // Any nil error values are discarded.
-    // Join returns nil if errs contains no non-nil values.
+    // Join returns nil if every value in errs is nil.
     // The error formats as the concatenation of the strings obtained
     // by calling the Error method of each element of errs, with a newline
     // between each string.
+    //
+    // A non-nil error returned by Join implements the Unwrap() []error method.
 **/
-function join(_errs:haxe.Rest<Error>):Error {
-        var _errs = new Slice<Error>(_errs.length, 0, ..._errs);
-        var _n:GoInt = (0 : GoInt);
+function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error {
+        var _errs = new Slice<stdgo.Error>(_errs.length, 0, ..._errs);
+        var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         for (__0 => _err in _errs) {
             if (_err != null) {
                 _n++;
             };
         };
-        if (_n == ((0 : GoInt))) {
-            return (null : Error);
+        if (_n == ((0 : stdgo.StdGoTypes.GoInt))) {
+            return (null : stdgo.Error);
         };
-        var _e = (Go.setRef(({ _errs : new Slice<Error>((0 : GoInt).toBasic(), _n) } : T_joinError)) : Ref<stdgo.errors.Errors.T_joinError>);
+        var _e = (stdgo.Go.setRef(({ _errs : new stdgo.Slice<stdgo.Error>((0 : stdgo.StdGoTypes.GoInt).toBasic(), _n) } : T_joinError)) : stdgo.StdGoTypes.Ref<stdgo.errors.Errors.T_joinError>);
         for (__1 => _err in _errs) {
             if (_err != null) {
                 _e._errs = (_e._errs.__append__(_err));
             };
         };
-        return Go.asInterface(_e);
+        return stdgo.Go.asInterface(_e);
     }
 /**
     // Unwrap returns the result of calling the Unwrap method on err, if err's
     // type contains an Unwrap method returning error.
     // Otherwise, Unwrap returns nil.
     //
-    // Unwrap returns nil if the Unwrap method returns []error.
+    // Unwrap only calls a method of the form "Unwrap() error".
+    // In particular Unwrap does not unwrap errors returned by [Join].
 **/
-function unwrap(_err:Error):Error {
+function unwrap(_err:stdgo.Error):stdgo.Error {
         var __tmp__ = try {
-            { value : (Go.typeAssert((Go.toInterface(_err) : T__interface_0)) : T__interface_0), ok : true };
+            { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : T__interface_0)) : T__interface_0), ok : true };
         } catch(_) {
             { value : (null : stdgo.errors.Errors.T__interface_0), ok : false };
         }, _u = __tmp__.value, _ok = __tmp__.ok;
         if (!_ok) {
-            return (null : Error);
+            return (null : stdgo.Error);
         };
         return _u.unwrap();
     }
@@ -218,22 +230,22 @@ function unwrap(_err:Error):Error {
     //
     //	func (m MyError) Is(target error) bool { return target == fs.ErrExist }
     //
-    // then Is(MyError{}, fs.ErrExist) returns true. See syscall.Errno.Is for
+    // then Is(MyError{}, fs.ErrExist) returns true. See [syscall.Errno.Is] for
     // an example in the standard library. An Is method should only shallowly
     // compare err and the target and not call Unwrap on either.
 **/
-function is_(_err:Error, _target:Error):Bool {
+function is_(_err:stdgo.Error, _target:stdgo.Error):Bool {
         if (_target == null) {
-            return Go.toInterface(_err) == (Go.toInterface(_target));
+            return stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(_target));
         };
-        var _isComparable:Bool = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(_target)).comparable();
+        var _isComparable:Bool = stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface(_target)).comparable();
         while (true) {
-            if (_isComparable && (Go.toInterface(_err) == Go.toInterface(_target))) {
+            if (_isComparable && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_target))) {
                 return true;
             };
             {
                 var __tmp__ = try {
-                    { value : (Go.typeAssert((Go.toInterface(_err) : T__interface_1)) : T__interface_1), ok : true };
+                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : T__interface_1)) : T__interface_1), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.errors.Errors.T__interface_1), ok : false };
                 }, _x = __tmp__.value, _ok = __tmp__.ok;
@@ -243,13 +255,13 @@ function is_(_err:Error, _target:Error):Bool {
             };
             {
                 final __type__ = _err;
-                if (Go.typeEquals((__type__ : T__interface_0))) {
+                if (stdgo.Go.typeEquals((__type__ : T__interface_0))) {
                     var _x:stdgo.errors.Errors.T__interface_0 = __type__ == null ? (null : stdgo.errors.Errors.T__interface_0) : cast __type__;
                     _err = _x.unwrap();
                     if (_err == null) {
                         return false;
                     };
-                } else if (Go.typeEquals((__type__ : T__interface_2))) {
+                } else if (stdgo.Go.typeEquals((__type__ : T__interface_2))) {
                     var _x:stdgo.errors.Errors.T__interface_2 = __type__ == null ? (null : stdgo.errors.Errors.T__interface_2) : cast __type__;
                     for (__0 => _err in _x.unwrap()) {
                         if (is_(_err, _target)) {
@@ -258,7 +270,7 @@ function is_(_err:Error, _target:Error):Bool {
                     };
                     return false;
                 } else {
-                    var _x:Error = __type__ == null ? (null : Error) : cast __type__;
+                    var _x:stdgo.Error = __type__ == null ? (null : stdgo.Error) : cast __type__;
                     return false;
                 };
             };
@@ -283,30 +295,30 @@ function is_(_err:Error, _target:Error):Bool {
     // As panics if target is not a non-nil pointer to either a type that implements
     // error, or to any interface type.
 **/
-function as(_err:Error, _target:AnyInterface):Bool {
+function as(_err:stdgo.Error, _target:stdgo.StdGoTypes.AnyInterface):Bool {
         if (_err == null) {
             return false;
         };
         if (_target == null) {
-            throw Go.toInterface(("errors: target cannot be nil" : GoString));
+            throw stdgo.Go.toInterface(("errors: target cannot be nil" : stdgo.GoString));
         };
         var _val:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_target)?.__copy__();
         var _typ:stdgo.internal.reflectlite.Reflectlite.Type = _val.type();
-        if ((_typ.kind() != (22u32 : stdgo.internal.reflectlite.Reflectlite.Kind)) || _val.isNil()) {
-            throw Go.toInterface(("errors: target must be a non-nil pointer" : GoString));
+        if ((_typ.kind() != (22u32 : stdgo.internal.abi.Abi.Kind)) || _val.isNil()) {
+            throw stdgo.Go.toInterface(("errors: target must be a non-nil pointer" : stdgo.GoString));
         };
         var _targetType:stdgo.internal.reflectlite.Reflectlite.Type = _typ.elem();
-        if ((_targetType.kind() != (20u32 : stdgo.internal.reflectlite.Reflectlite.Kind)) && !_targetType.implements_(_errorType)) {
-            throw Go.toInterface(("errors: *target must be interface or implement error" : GoString));
+        if ((_targetType.kind() != (20u32 : stdgo.internal.abi.Abi.Kind)) && !_targetType.implements_(_errorType)) {
+            throw stdgo.Go.toInterface(("errors: *target must be interface or implement error" : stdgo.GoString));
         };
         while (true) {
-            if (stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(_err)).assignableTo(_targetType)) {
-                _val.elem().set(stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_err))?.__copy__());
+            if (stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface(_err)).assignableTo(_targetType)) {
+                _val.elem().set(stdgo.internal.reflectlite.Reflectlite.valueOf(stdgo.Go.toInterface(_err))?.__copy__());
                 return true;
             };
             {
                 var __tmp__ = try {
-                    { value : (Go.typeAssert((Go.toInterface(_err) : T__interface_3)) : T__interface_3), ok : true };
+                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : T__interface_3)) : T__interface_3), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.errors.Errors.T__interface_3), ok : false };
                 }, _x = __tmp__.value, _ok = __tmp__.ok;
@@ -316,13 +328,13 @@ function as(_err:Error, _target:AnyInterface):Bool {
             };
             {
                 final __type__ = _err;
-                if (Go.typeEquals((__type__ : T__interface_0))) {
+                if (stdgo.Go.typeEquals((__type__ : T__interface_0))) {
                     var _x:stdgo.errors.Errors.T__interface_0 = __type__ == null ? (null : stdgo.errors.Errors.T__interface_0) : cast __type__;
                     _err = _x.unwrap();
                     if (_err == null) {
                         return false;
                     };
-                } else if (Go.typeEquals((__type__ : T__interface_2))) {
+                } else if (stdgo.Go.typeEquals((__type__ : T__interface_2))) {
                     var _x:stdgo.errors.Errors.T__interface_2 = __type__ == null ? (null : stdgo.errors.Errors.T__interface_2) : cast __type__;
                     for (__0 => _err in _x.unwrap()) {
                         if (as(_err, _target)) {
@@ -331,7 +343,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
                     };
                     return false;
                 } else {
-                    var _x:Error = __type__ == null ? (null : Error) : cast __type__;
+                    var _x:stdgo.Error = __type__ == null ? (null : stdgo.Error) : cast __type__;
                     return false;
                 };
             };
@@ -339,48 +351,48 @@ function as(_err:Error, _target:AnyInterface):Bool {
     }
 class T_errorString_asInterface {
     @:keep
-    public dynamic function error():GoString return __self__.value.error();
+    public dynamic function error():stdgo.GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<T_errorString>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<T_errorString>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.errors.Errors.T_errorString_asInterface) class T_errorString_static_extension {
     @:keep
-    static public function error( _e:Ref<T_errorString>):GoString {
+    static public function error( _e:stdgo.StdGoTypes.Ref<T_errorString>):stdgo.GoString {
         return _e._s;
     }
 }
 class T_joinError_asInterface {
     @:keep
-    public dynamic function unwrap():Slice<Error> return __self__.value.unwrap();
+    public dynamic function unwrap():stdgo.Slice<stdgo.Error> return __self__.value.unwrap();
     @:keep
-    public dynamic function error():GoString return __self__.value.error();
+    public dynamic function error():stdgo.GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<T_joinError>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<T_joinError>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.errors.Errors.T_joinError_asInterface) class T_joinError_static_extension {
     @:keep
-    static public function unwrap( _e:Ref<T_joinError>):Slice<Error> {
+    static public function unwrap( _e:stdgo.StdGoTypes.Ref<T_joinError>):stdgo.Slice<stdgo.Error> {
         return _e._errs;
     }
     @:keep
-    static public function error( _e:Ref<T_joinError>):GoString {
-        var _b:Slice<GoByte> = (null : Slice<GoUInt8>);
+    static public function error( _e:stdgo.StdGoTypes.Ref<T_joinError>):stdgo.GoString {
+        var _b:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         for (_i => _err in _e._errs) {
-            if (_i > (0 : GoInt)) {
-                _b = (_b.__append__((10 : GoUInt8)));
+            if (_i > (0 : stdgo.StdGoTypes.GoInt)) {
+                _b = (_b.__append__((10 : stdgo.StdGoTypes.GoUInt8)));
             };
             _b = (_b.__append__(..._err.error().__toArray__()));
         };
-        return (_b : GoString);
+        return (_b : stdgo.GoString);
     }
 }

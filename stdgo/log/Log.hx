@@ -1,13 +1,4 @@
 package stdgo.log;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 /**
     // Package log implements a simple logging package. It defines a type, Logger,
     // with methods for formatting output. It also has a predefined 'standard'
@@ -26,29 +17,37 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-private var _std = new_(Go.asInterface(stdgo.os.Os.stderr), Go.str(), (3 : GoInt));
+var _std : stdgo.StdGoTypes.Ref<stdgo.log.Log.Logger> = new_(stdgo.Go.asInterface(stdgo.os.Os.stderr), stdgo.Go.str(), (3 : stdgo.StdGoTypes.GoInt));
 /**
     
     
     
 **/
-private var _tests = (new Slice<stdgo.log.Log.T_tester>(
+var _bufferPool : stdgo.sync.Sync.Pool = ({ new_ : function():stdgo.StdGoTypes.AnyInterface {
+        return stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>));
+    } } : stdgo.sync.Sync.Pool);
+/**
+    
+    
+    
+**/
+var _tests : stdgo.Slice<stdgo.log.Log.T_tester> = (new stdgo.Slice<stdgo.log.Log.T_tester>(
 14,
 14,
-(new stdgo.log.Log.T_tester((0 : GoInt), Go.str(), Go.str()) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((0 : GoInt), ("XXX" : GoString), ("XXX" : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((1 : GoInt), Go.str(), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] " : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((2 : GoInt), Go.str(), ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9] " : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((66 : GoInt), ("XXX" : GoString), ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9] XXX" : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((6 : GoInt), Go.str(), ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] " : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((4 : GoInt), Go.str(), ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] " : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((8 : GoInt), Go.str(), (".*/[A-Za-z0-9_\\-]+\\.go:(61|63): " : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((16 : GoInt), Go.str(), ("[A-Za-z0-9_\\-]+\\.go:(61|63): " : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((24 : GoInt), Go.str(), ("[A-Za-z0-9_\\-]+\\.go:(61|63): " : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((15 : GoInt), ("XXX" : GoString), ("XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(61|63): " : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((23 : GoInt), ("XXX" : GoString), ("XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(61|63): " : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((79 : GoInt), ("XXX" : GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(61|63): XXX" : GoString)) : stdgo.log.Log.T_tester),
-(new stdgo.log.Log.T_tester((87 : GoInt), ("XXX" : GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(61|63): XXX" : GoString)) : stdgo.log.Log.T_tester)) : Slice<stdgo.log.Log.T_tester>);
+(new stdgo.log.Log.T_tester((0 : stdgo.StdGoTypes.GoInt), stdgo.Go.str(), stdgo.Go.str()) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((0 : stdgo.StdGoTypes.GoInt), ("XXX" : stdgo.GoString), ("XXX" : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((1 : stdgo.StdGoTypes.GoInt), stdgo.Go.str(), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] " : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((2 : stdgo.StdGoTypes.GoInt), stdgo.Go.str(), ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9] " : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((66 : stdgo.StdGoTypes.GoInt), ("XXX" : stdgo.GoString), ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9] XXX" : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((6 : stdgo.StdGoTypes.GoInt), stdgo.Go.str(), ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] " : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((4 : stdgo.StdGoTypes.GoInt), stdgo.Go.str(), ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] " : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((8 : stdgo.StdGoTypes.GoInt), stdgo.Go.str(), (".*/[A-Za-z0-9_\\-]+\\.go:(63|65): " : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((16 : stdgo.StdGoTypes.GoInt), stdgo.Go.str(), ("[A-Za-z0-9_\\-]+\\.go:(63|65): " : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((24 : stdgo.StdGoTypes.GoInt), stdgo.Go.str(), ("[A-Za-z0-9_\\-]+\\.go:(63|65): " : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((15 : stdgo.StdGoTypes.GoInt), ("XXX" : stdgo.GoString), ("XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): " : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((23 : stdgo.StdGoTypes.GoInt), ("XXX" : stdgo.GoString), ("XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): " : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((79 : stdgo.StdGoTypes.GoInt), ("XXX" : stdgo.GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): XXX" : stdgo.GoString)) : stdgo.log.Log.T_tester),
+(new stdgo.log.Log.T_tester((87 : stdgo.StdGoTypes.GoInt), ("XXX" : stdgo.GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): XXX" : stdgo.GoString)) : stdgo.log.Log.T_tester)) : stdgo.Slice<stdgo.log.Log.T_tester>);
 /**
     // These flags define which text to prefix to each log entry generated by the Logger.
     // Bits are or'ed together to control what's printed.
@@ -67,7 +66,7 @@ private var _tests = (new Slice<stdgo.log.Log.T_tester>(
     
     // the date in the local time zone: 2009/01/23
 **/
-final ldate = (64i64 : GoUInt64);
+final ldate : stdgo.StdGoTypes.GoUInt64 = (64i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     // These flags define which text to prefix to each log entry generated by the Logger.
     // Bits are or'ed together to control what's printed.
@@ -86,7 +85,7 @@ final ldate = (64i64 : GoUInt64);
     
     // the time in the local time zone: 01:23:23
 **/
-final ltime = (64i64 : GoUInt64);
+final ltime = (64i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     // These flags define which text to prefix to each log entry generated by the Logger.
     // Bits are or'ed together to control what's printed.
@@ -105,7 +104,7 @@ final ltime = (64i64 : GoUInt64);
     
     // microsecond resolution: 01:23:23.123123.  assumes Ltime.
 **/
-final lmicroseconds = (64i64 : GoUInt64);
+final lmicroseconds = (64i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     // These flags define which text to prefix to each log entry generated by the Logger.
     // Bits are or'ed together to control what's printed.
@@ -124,7 +123,7 @@ final lmicroseconds = (64i64 : GoUInt64);
     
     // full file name and line number: /a/b/c/d.go:23
 **/
-final llongfile = (64i64 : GoUInt64);
+final llongfile = (64i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     // These flags define which text to prefix to each log entry generated by the Logger.
     // Bits are or'ed together to control what's printed.
@@ -143,7 +142,7 @@ final llongfile = (64i64 : GoUInt64);
     
     // final file name element and line number: d.go:23. overrides Llongfile
 **/
-final lshortfile = (64i64 : GoUInt64);
+final lshortfile = (64i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     // These flags define which text to prefix to each log entry generated by the Logger.
     // Bits are or'ed together to control what's printed.
@@ -162,7 +161,7 @@ final lshortfile = (64i64 : GoUInt64);
     
     // if Ldate or Ltime is set, use UTC rather than the local time zone
 **/
-final lutc = (64i64 : GoUInt64);
+final lutc = (64i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     // These flags define which text to prefix to each log entry generated by the Logger.
     // Bits are or'ed together to control what's printed.
@@ -181,7 +180,7 @@ final lutc = (64i64 : GoUInt64);
     
     // move the "prefix" from the beginning of the line to before the message
 **/
-final lmsgprefix = (64i64 : GoUInt64);
+final lmsgprefix = (64i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     // These flags define which text to prefix to each log entry generated by the Logger.
     // Bits are or'ed together to control what's printed.
@@ -200,43 +199,43 @@ final lmsgprefix = (64i64 : GoUInt64);
     
     // initial values for the standard logger
 **/
-final lstdFlags = (3i64 : GoUInt64);
+final lstdFlags : stdgo.StdGoTypes.GoUInt64 = (3i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     
     
     
 **/
-final rdate = ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]" : GoString);
+final rdate : stdgo.GoString = ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]" : stdgo.GoString);
 /**
     
     
     
 **/
-final rtime = ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]" : GoString);
+final rtime : stdgo.GoString = ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]" : stdgo.GoString);
 /**
     
     
     
 **/
-final rmicroseconds = ("\\.[0-9][0-9][0-9][0-9][0-9][0-9]" : GoString);
+final rmicroseconds : stdgo.GoString = ("\\.[0-9][0-9][0-9][0-9][0-9][0-9]" : stdgo.GoString);
 /**
     
     
     // must update if the calls to l.Printf / l.Print below move
 **/
-final rline = ("(61|63):" : GoString);
+final rline : stdgo.GoString = ("(63|65):" : stdgo.GoString);
 /**
     
     
     
 **/
-final rlongfile = (".*/[A-Za-z0-9_\\-]+\\.go:(61|63):" : GoString);
+final rlongfile : stdgo.GoString = (".*/[A-Za-z0-9_\\-]+\\.go:(63|65):" : stdgo.GoString);
 /**
     
     
     
 **/
-final rshortfile = ("[A-Za-z0-9_\\-]+\\.go:(61|63):" : GoString);
+final rshortfile : stdgo.GoString = ("[A-Za-z0-9_\\-]+\\.go:(63|65):" : stdgo.GoString);
 /**
     // A Logger represents an active logging object that generates lines of
     // output to an io.Writer. Each logging operation makes a single call to
@@ -246,23 +245,21 @@ final rshortfile = ("[A-Za-z0-9_\\-]+\\.go:(61|63):" : GoString);
     
 **/
 @:structInit @:using(stdgo.log.Log.Logger_static_extension) class Logger {
-    public var _mu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-    public var _prefix : GoString = "";
-    public var _flag : GoInt = 0;
+    public var _outMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
     public var _out : stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
-    public var _buf : Slice<GoUInt8> = (null : Slice<GoUInt8>);
+    public var _prefix : stdgo.sync.atomic.Atomic.Pointer_<stdgo.GoString> = ({} : stdgo.sync.atomic.Atomic.Pointer_<stdgo.GoString>);
+    public var _flag : stdgo.sync.atomic.Atomic.Int32 = ({} : stdgo.sync.atomic.Atomic.Int32);
     public var _isDiscard : stdgo.sync.atomic.Atomic.Bool_ = ({} : stdgo.sync.atomic.Atomic.Bool_);
-    public function new(?_mu:stdgo.sync.Sync.Mutex, ?_prefix:GoString, ?_flag:GoInt, ?_out:stdgo.io.Io.Writer, ?_buf:Slice<GoUInt8>, ?_isDiscard:stdgo.sync.atomic.Atomic.Bool_) {
-        if (_mu != null) this._mu = _mu;
+    public function new(?_outMu:stdgo.sync.Sync.Mutex, ?_out:stdgo.io.Io.Writer, ?_prefix:stdgo.sync.atomic.Atomic.Pointer_<stdgo.GoString>, ?_flag:stdgo.sync.atomic.Atomic.Int32, ?_isDiscard:stdgo.sync.atomic.Atomic.Bool_) {
+        if (_outMu != null) this._outMu = _outMu;
+        if (_out != null) this._out = _out;
         if (_prefix != null) this._prefix = _prefix;
         if (_flag != null) this._flag = _flag;
-        if (_out != null) this._out = _out;
-        if (_buf != null) this._buf = _buf;
         if (_isDiscard != null) this._isDiscard = _isDiscard;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new Logger(_mu, _prefix, _flag, _out, _buf, _isDiscard);
+        return new Logger(_outMu, _out, _prefix, _flag, _isDiscard);
     }
 }
 /**
@@ -271,17 +268,30 @@ final rshortfile = ("[A-Za-z0-9_\\-]+\\.go:(61|63):" : GoString);
     
 **/
 @:structInit @:private class T_tester {
-    public var _flag : GoInt = 0;
-    public var _prefix : GoString = "";
-    public var _pattern : GoString = "";
-    public function new(?_flag:GoInt, ?_prefix:GoString, ?_pattern:GoString) {
+    public var _flag : stdgo.StdGoTypes.GoInt = 0;
+    public var _prefix : stdgo.GoString = "";
+    public var _pattern : stdgo.GoString = "";
+    public function new(?_flag:stdgo.StdGoTypes.GoInt, ?_prefix:stdgo.GoString, ?_pattern:stdgo.GoString) {
         if (_flag != null) this._flag = _flag;
         if (_prefix != null) this._prefix = _prefix;
         if (_pattern != null) this._pattern = _pattern;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new T_tester(_flag, _prefix, _pattern);
+    }
+}
+/**
+    // discard is identical to io.Discard,
+    // but copied here to avoid the io.Discard optimization in Logger.
+    
+    
+**/
+@:structInit @:private @:using(stdgo.log.Log.T_discard_static_extension) class T_discard {
+    public function new() {}
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() {
+        return new T_discard();
     }
 }
 /**
@@ -291,34 +301,106 @@ final rshortfile = ("[A-Za-z0-9_\\-]+\\.go:(61|63):" : GoString);
     // after the log header if the Lmsgprefix flag is provided.
     // The flag argument defines the logging properties.
 **/
-function new_(_out:stdgo.io.Io.Writer, _prefix:GoString, _flag:GoInt):Ref<Logger> {
-        var _l = (Go.setRef(({ _prefix : _prefix, _flag : _flag, _out : _out } : Logger)) : Ref<stdgo.log.Log.Logger>);
-        if (Go.toInterface(_out) == (Go.toInterface(stdgo.io.Io.discard))) {
-            _l._isDiscard.store(true);
-        };
+function new_(_out:stdgo.io.Io.Writer, _prefix:stdgo.GoString, _flag:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Logger> {
+        var _l = (stdgo.Go.setRef(({} : stdgo.log.Log.Logger)) : stdgo.StdGoTypes.Ref<stdgo.log.Log.Logger>);
+        _l.setOutput(_out);
+        _l.setPrefix(_prefix);
+        _l.setFlags(_flag);
         return _l;
     }
 /**
     // Default returns the standard logger used by the package-level output functions.
 **/
-function default_():Ref<Logger> {
+function default_():stdgo.StdGoTypes.Ref<Logger> {
         return _std;
     }
 /**
     // Cheap integer to fixed-width decimal ASCII. Give a negative width to avoid zero-padding.
 **/
-private function _itoa(_buf:Ref<Slice<GoByte>>, _i:GoInt, _wid:GoInt):Void {
-        var _b:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 20) (0 : GoUInt8)]);
-        var _bp:GoInt = (19 : GoInt);
-        while ((_i >= (10 : GoInt)) || (_wid > (1 : GoInt))) {
+function _itoa(_buf:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoByte>>, _i:stdgo.StdGoTypes.GoInt, _wid:stdgo.StdGoTypes.GoInt):Void {
+        var _b:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 20) (0 : stdgo.StdGoTypes.GoUInt8)]);
+        var _bp:stdgo.StdGoTypes.GoInt = (19 : stdgo.StdGoTypes.GoInt);
+        while ((_i >= (10 : stdgo.StdGoTypes.GoInt)) || (_wid > (1 : stdgo.StdGoTypes.GoInt))) {
             _wid--;
-            var _q:GoInt = _i / (10 : GoInt);
-            _b[(_bp : GoInt)] = (((48 : GoInt) + _i) - (_q * (10 : GoInt)) : GoByte);
+            var _q:stdgo.StdGoTypes.GoInt = _i / (10 : stdgo.StdGoTypes.GoInt);
+            _b[(_bp : stdgo.StdGoTypes.GoInt)] = (((48 : stdgo.StdGoTypes.GoInt) + _i) - (_q * (10 : stdgo.StdGoTypes.GoInt)) : stdgo.StdGoTypes.GoByte);
             _bp--;
             _i = _q;
         };
-        _b[(_bp : GoInt)] = ((48 : GoInt) + _i : GoByte);
-        _buf.__setData__(((_buf : Slice<GoUInt8>).__append__(...(_b.__slice__(_bp) : Slice<GoUInt8>).__toArray__())));
+        _b[(_bp : stdgo.StdGoTypes.GoInt)] = ((48 : stdgo.StdGoTypes.GoInt) + _i : stdgo.StdGoTypes.GoByte);
+        _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__(...(_b.__slice__(_bp) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__toArray__())));
+    }
+/**
+    // formatHeader writes log header to buf in following order:
+    //   - l.prefix (if it's not blank and Lmsgprefix is unset),
+    //   - date and/or time (if corresponding flags are provided),
+    //   - file and line number (if corresponding flags are provided),
+    //   - l.prefix (if it's not blank and Lmsgprefix is set).
+**/
+function _formatHeader(_buf:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoByte>>, _t:stdgo.time.Time.Time, _prefix:stdgo.GoString, _flag:stdgo.StdGoTypes.GoInt, _file:stdgo.GoString, _line:stdgo.StdGoTypes.GoInt):Void {
+        if (_flag & (64 : stdgo.StdGoTypes.GoInt) == ((0 : stdgo.StdGoTypes.GoInt))) {
+            _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__(..._prefix.__toArray__())));
+        };
+        if (_flag & (7 : stdgo.StdGoTypes.GoInt) != ((0 : stdgo.StdGoTypes.GoInt))) {
+            if (_flag & (32 : stdgo.StdGoTypes.GoInt) != ((0 : stdgo.StdGoTypes.GoInt))) {
+                _t = _t.utc()?.__copy__();
+            };
+            if (_flag & (1 : stdgo.StdGoTypes.GoInt) != ((0 : stdgo.StdGoTypes.GoInt))) {
+                var __tmp__ = _t.date(), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, _day:stdgo.StdGoTypes.GoInt = __tmp__._2;
+                _itoa(_buf, _year, (4 : stdgo.StdGoTypes.GoInt));
+                _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__((47 : stdgo.StdGoTypes.GoUInt8))));
+                _itoa(_buf, (_month : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt));
+                _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__((47 : stdgo.StdGoTypes.GoUInt8))));
+                _itoa(_buf, _day, (2 : stdgo.StdGoTypes.GoInt));
+                _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__((32 : stdgo.StdGoTypes.GoUInt8))));
+            };
+            if (_flag & (6 : stdgo.StdGoTypes.GoInt) != ((0 : stdgo.StdGoTypes.GoInt))) {
+                var __tmp__ = _t.clock(), _hour:stdgo.StdGoTypes.GoInt = __tmp__._0, _min:stdgo.StdGoTypes.GoInt = __tmp__._1, _sec:stdgo.StdGoTypes.GoInt = __tmp__._2;
+                _itoa(_buf, _hour, (2 : stdgo.StdGoTypes.GoInt));
+                _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__((58 : stdgo.StdGoTypes.GoUInt8))));
+                _itoa(_buf, _min, (2 : stdgo.StdGoTypes.GoInt));
+                _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__((58 : stdgo.StdGoTypes.GoUInt8))));
+                _itoa(_buf, _sec, (2 : stdgo.StdGoTypes.GoInt));
+                if (_flag & (4 : stdgo.StdGoTypes.GoInt) != ((0 : stdgo.StdGoTypes.GoInt))) {
+                    _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__((46 : stdgo.StdGoTypes.GoUInt8))));
+                    _itoa(_buf, _t.nanosecond() / (1000 : stdgo.StdGoTypes.GoInt), (6 : stdgo.StdGoTypes.GoInt));
+                };
+                _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__((32 : stdgo.StdGoTypes.GoUInt8))));
+            };
+        };
+        if (_flag & (24 : stdgo.StdGoTypes.GoInt) != ((0 : stdgo.StdGoTypes.GoInt))) {
+            if (_flag & (16 : stdgo.StdGoTypes.GoInt) != ((0 : stdgo.StdGoTypes.GoInt))) {
+                var _short:stdgo.GoString = _file;
+                {
+                    var _i:stdgo.StdGoTypes.GoInt = (_file.length) - (1 : stdgo.StdGoTypes.GoInt);
+                    stdgo.Go.cfor(_i > (0 : stdgo.StdGoTypes.GoInt), _i--, {
+                        if (_file[(_i : stdgo.StdGoTypes.GoInt)] == ((47 : stdgo.StdGoTypes.GoUInt8))) {
+                            _short = (_file.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                            break;
+                        };
+                    });
+                };
+                _file = _short;
+            };
+            _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__(..._file.__toArray__())));
+            _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__((58 : stdgo.StdGoTypes.GoUInt8))));
+            _itoa(_buf, _line, (-1 : stdgo.StdGoTypes.GoInt));
+            _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__(...(": " : stdgo.GoString).__toArray__())));
+        };
+        if (_flag & (64 : stdgo.StdGoTypes.GoInt) != ((0 : stdgo.StdGoTypes.GoInt))) {
+            _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__(..._prefix.__toArray__())));
+        };
+    }
+function _getBuffer():stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoByte>> {
+        var _p = (stdgo.Go.typeAssert((_bufferPool.get() : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoByte>>)) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoByte>>);
+        _p.__setData__((((_p : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)).__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
+        return _p;
+    }
+function _putBuffer(_p:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoByte>>):Void {
+        if ((_p : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).capacity > (65536 : stdgo.StdGoTypes.GoInt)) {
+            _p.__setData__((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
+        };
+        _bufferPool.put(stdgo.Go.toInterface(_p));
     }
 /**
     // SetOutput sets the output destination for the standard logger.
@@ -330,26 +412,26 @@ function setOutput(_w:stdgo.io.Io.Writer):Void {
     // Flags returns the output flags for the standard logger.
     // The flag bits are Ldate, Ltime, and so on.
 **/
-function flags():GoInt {
+function flags():stdgo.StdGoTypes.GoInt {
         return _std.flags();
     }
 /**
     // SetFlags sets the output flags for the standard logger.
     // The flag bits are Ldate, Ltime, and so on.
 **/
-function setFlags(_flag:GoInt):Void {
+function setFlags(_flag:stdgo.StdGoTypes.GoInt):Void {
         _std.setFlags(_flag);
     }
 /**
     // Prefix returns the output prefix for the standard logger.
 **/
-function prefix():GoString {
+function prefix():stdgo.GoString {
         return _std.prefix();
     }
 /**
     // SetPrefix sets the output prefix for the standard logger.
 **/
-function setPrefix(_prefix:GoString):Void {
+function setPrefix(_prefix:stdgo.GoString):Void {
         _std.setPrefix(_prefix);
     }
 /**
@@ -362,85 +444,82 @@ function writer():stdgo.io.Io.Writer {
     // Print calls Output to print to the standard logger.
     // Arguments are handled in the manner of fmt.Print.
 **/
-function print(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        if (_std._isDiscard.load()) {
-            return;
-        };
-        _std.output((2 : GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
+function print(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _std._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+            return stdgo.fmt.Fmt.append(_b, ..._v.__toArray__());
+        });
     }
 /**
     // Printf calls Output to print to the standard logger.
     // Arguments are handled in the manner of fmt.Printf.
 **/
-function printf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        if (_std._isDiscard.load()) {
-            return;
-        };
-        _std.output((2 : GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
+function printf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _std._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+            return stdgo.fmt.Fmt.appendf(_b, _format, ..._v.__toArray__());
+        });
     }
 /**
     // Println calls Output to print to the standard logger.
     // Arguments are handled in the manner of fmt.Println.
 **/
-function println(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        if (_std._isDiscard.load()) {
-            return;
-        };
-        _std.output((2 : GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
+function println(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _std._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+            return stdgo.fmt.Fmt.appendln(_b, ..._v.__toArray__());
+        });
     }
 /**
     // Fatal is equivalent to Print() followed by a call to os.Exit(1).
 **/
-function fatal(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        _std.output((2 : GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
-        Sys.exit((1 : GoInt));
+function fatal(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _std.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
+        Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
 /**
     // Fatalf is equivalent to Printf() followed by a call to os.Exit(1).
 **/
-function fatalf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        _std.output((2 : GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
-        Sys.exit((1 : GoInt));
+function fatalf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _std.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
+        Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
 /**
     // Fatalln is equivalent to Println() followed by a call to os.Exit(1).
 **/
-function fatalln(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        _std.output((2 : GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
-        Sys.exit((1 : GoInt));
+function fatalln(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _std.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
+        Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
 /**
     // Panic is equivalent to Print() followed by a call to panic().
 **/
-function panic(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        var _s:GoString = stdgo.fmt.Fmt.sprint(..._v.__toArray__());
-        _std.output((2 : GoInt), _s);
-        throw Go.toInterface(_s);
+function panic(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprint(..._v.__toArray__());
+        _std.output((2 : stdgo.StdGoTypes.GoInt), _s);
+        throw stdgo.Go.toInterface(_s);
     }
 /**
     // Panicf is equivalent to Printf() followed by a call to panic().
 **/
-function panicf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        var _s:GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__());
-        _std.output((2 : GoInt), _s);
-        throw Go.toInterface(_s);
+function panicf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__());
+        _std.output((2 : stdgo.StdGoTypes.GoInt), _s);
+        throw stdgo.Go.toInterface(_s);
     }
 /**
     // Panicln is equivalent to Println() followed by a call to panic().
 **/
-function panicln(_v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        var _s:GoString = stdgo.fmt.Fmt.sprintln(..._v.__toArray__());
-        _std.output((2 : GoInt), _s);
-        throw Go.toInterface(_s);
+function panicln(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintln(..._v.__toArray__());
+        _std.output((2 : stdgo.StdGoTypes.GoInt), _s);
+        throw stdgo.Go.toInterface(_s);
     }
 /**
     // Output writes the output for a logging event. The string s contains
@@ -451,194 +530,308 @@ function panicln(_v:haxe.Rest<AnyInterface>):Void {
     // if Llongfile or Lshortfile is set; a value of 1 will print the details
     // for the caller of Output.
 **/
-function output(_calldepth:GoInt, _s:GoString):Error {
-        return _std.output(_calldepth + (1 : GoInt), _s);
+function output(_calldepth:stdgo.StdGoTypes.GoInt, _s:stdgo.GoString):stdgo.Error {
+        return _std.output(_calldepth + (1 : stdgo.StdGoTypes.GoInt), _s);
     }
 /**
     // Test using Println("hello", 23, "world") or using Printf("hello %d world", 23)
 **/
-private function _testPrint(_t:Ref<stdgo.testing.Testing.T>, _flag:GoInt, _prefix:GoString, _pattern:GoString, _useFormat:Bool):Void {
-        var _buf = (Go.setRef(({} : stdgo.strings.Strings.Builder)) : Ref<stdgo.strings.Strings.Builder>);
-        setOutput(Go.asInterface(_buf));
+function _testPrint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _flag:stdgo.StdGoTypes.GoInt, _prefix:stdgo.GoString, _pattern:stdgo.GoString, _useFormat:Bool):Void {
+        var _buf = (stdgo.Go.setRef(({} : stdgo.strings.Strings.Builder)) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>);
+        setOutput(stdgo.Go.asInterface(_buf));
         setFlags(_flag);
         setPrefix(_prefix);
         if (_useFormat) {
-            printf(("hello %d world" : GoString), Go.toInterface((23 : GoInt)));
+            printf(("hello %d world" : stdgo.GoString), stdgo.Go.toInterface((23 : stdgo.StdGoTypes.GoInt)));
         } else {
-            println(Go.toInterface(("hello" : GoString)), Go.toInterface((23 : GoInt)), Go.toInterface(("world" : GoString)));
+            println(stdgo.Go.toInterface(("hello" : stdgo.GoString)), stdgo.Go.toInterface((23 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(("world" : stdgo.GoString)));
         };
-        var _line:GoString = (_buf.string() : GoString);
-        _line = (_line.__slice__((0 : GoInt), (_line.length) - (1 : GoInt)) : GoString);
-        _pattern = (("^" : GoString) + _pattern) + ("hello 23 world$" : GoString);
-        var __tmp__ = stdgo.regexp.Regexp.matchString(_pattern, _line), _matched:Bool = __tmp__._0, _err:Error = __tmp__._1;
+        var _line:stdgo.GoString = (_buf.string() : stdgo.GoString);
+        _line = (_line.__slice__((0 : stdgo.StdGoTypes.GoInt), (_line.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+        _pattern = (("^" : stdgo.GoString) + _pattern) + ("hello 23 world$" : stdgo.GoString);
+        var __tmp__ = stdgo.regexp.Regexp.matchString(_pattern, _line), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatal(Go.toInterface(("pattern did not compile:" : GoString)), Go.toInterface(_err));
+            _t.fatal(stdgo.Go.toInterface(("pattern did not compile:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         if (!_matched) {
-            _t.errorf(("log output should match %q is %q" : GoString), Go.toInterface(_pattern), Go.toInterface(_line));
+            _t.errorf(("log output should match %q is %q" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_line));
         };
-        setOutput(Go.asInterface(stdgo.os.Os.stderr));
+        setOutput(stdgo.Go.asInterface(stdgo.os.Os.stderr));
     }
-function testDefault(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testDefault(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {
             var _got = default_();
             if (_got != (_std)) {
-                _t.errorf(("Default [%p] should be std [%p]" : GoString), Go.toInterface(Go.asInterface(_got)), Go.toInterface(Go.asInterface(_std)));
+                _t.errorf(("Default [%p] should be std [%p]" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(stdgo.Go.asInterface(_std)));
             };
         };
     }
-function testAll(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testAll(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _testcase in _tests) {
             _testPrint(_t, _testcase._flag, _testcase._prefix, _testcase._pattern, false);
             _testPrint(_t, _testcase._flag, _testcase._prefix, _testcase._pattern, true);
         };
     }
-function testOutput(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testOutput(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-        var _l = new_(Go.asInterface((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>)), Go.str(), (0 : GoInt));
-        _l.println(Go.toInterface(("test" : GoString)));
+        var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), stdgo.Go.str(), (0 : stdgo.StdGoTypes.GoInt));
+        _l.println(stdgo.Go.toInterface(("test" : stdgo.GoString)));
         {
-            var _expect:GoString = ("test\n" : GoString);
-            if ((_b.string() : GoString) != (_expect)) {
-                _t.errorf(("log output should match %q is %q" : GoString), Go.toInterface(_expect), Go.toInterface((_b.string() : GoString)));
+            var _expect:stdgo.GoString = ("test\n" : stdgo.GoString);
+            if ((_b.string() : stdgo.GoString) != (_expect)) {
+                _t.errorf(("log output should match %q is %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface((_b.string() : stdgo.GoString)));
             };
         };
     }
-function testOutputRace(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testNonNewLogger(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        var _l:Logger = ({} : stdgo.log.Log.Logger);
+        _l.setOutput(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)));
+        _l.print(stdgo.Go.toInterface(("hello" : stdgo.GoString)));
+    }
+function testOutputRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var _l = new_(Go.asInterface((Go.setRef(_b) : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (0 : GoInt));
+        var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), stdgo.Go.str(), (0 : stdgo.StdGoTypes.GoInt));
+        var _wg:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
+        _wg.add((100 : stdgo.StdGoTypes.GoInt));
         {
-            var _i:GoInt = (0 : GoInt);
-            Go.cfor(_i < (100 : GoInt), _i++, {
-                Go.routine(() -> {
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < (100 : stdgo.StdGoTypes.GoInt), _i++, {
+                stdgo.Go.routine(() -> {
                     var a = function():Void {
-                        _l.setFlags((0 : GoInt));
+                        var __deferstack__:Array<Void -> Void> = [];
+                        try {
+                            __deferstack__.unshift(() -> _wg.done());
+                            _l.setFlags((0 : stdgo.StdGoTypes.GoInt));
+                            _l.output((0 : stdgo.StdGoTypes.GoInt), stdgo.Go.str());
+                            for (defer in __deferstack__) {
+                                defer();
+                            };
+                            {
+                                for (defer in __deferstack__) {
+                                    defer();
+                                };
+                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                                return;
+                            };
+                        } catch(__exception__) {
+                            var exe:Dynamic = __exception__.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            for (defer in __deferstack__) {
+                                defer();
+                            };
+                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                            return;
+                        };
                     };
                     a();
                 });
-                _l.output((0 : GoInt), Go.str());
             });
         };
+        _wg.wait_();
     }
-function testFlagAndPrefixSetting(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testFlagAndPrefixSetting(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var _l = new_(Go.asInterface((Go.setRef(_b) : Ref<stdgo.bytes.Bytes.Buffer>)), ("Test:" : GoString), (3 : GoInt));
-        var _f:GoInt = _l.flags();
-        if (_f != ((3 : GoInt))) {
-            _t.errorf(("Flags 1: expected %x got %x" : GoString), Go.toInterface((3 : GoInt)), Go.toInterface(_f));
+        var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), ("Test:" : stdgo.GoString), (3 : stdgo.StdGoTypes.GoInt));
+        var _f:stdgo.StdGoTypes.GoInt = _l.flags();
+        if (_f != ((3 : stdgo.StdGoTypes.GoInt))) {
+            _t.errorf(("Flags 1: expected %x got %x" : stdgo.GoString), stdgo.Go.toInterface((3 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(_f));
         };
-        _l.setFlags(_f | (4 : GoInt));
+        _l.setFlags(_f | (4 : stdgo.StdGoTypes.GoInt));
         _f = _l.flags();
-        if (_f != ((7 : GoInt))) {
-            _t.errorf(("Flags 2: expected %x got %x" : GoString), Go.toInterface((7 : GoInt)), Go.toInterface(_f));
+        if (_f != ((7 : stdgo.StdGoTypes.GoInt))) {
+            _t.errorf(("Flags 2: expected %x got %x" : stdgo.GoString), stdgo.Go.toInterface((7 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(_f));
         };
-        var _p:GoString = _l.prefix();
-        if (_p != (("Test:" : GoString))) {
-            _t.errorf(("Prefix: expected \"Test:\" got %q" : GoString), Go.toInterface(_p));
+        var _p:stdgo.GoString = _l.prefix();
+        if (_p != (("Test:" : stdgo.GoString))) {
+            _t.errorf(("Prefix: expected \"Test:\" got %q" : stdgo.GoString), stdgo.Go.toInterface(_p));
         };
-        _l.setPrefix(("Reality:" : GoString));
+        _l.setPrefix(("Reality:" : stdgo.GoString));
         _p = _l.prefix();
-        if (_p != (("Reality:" : GoString))) {
-            _t.errorf(("Prefix: expected \"Reality:\" got %q" : GoString), Go.toInterface(_p));
+        if (_p != (("Reality:" : stdgo.GoString))) {
+            _t.errorf(("Prefix: expected \"Reality:\" got %q" : stdgo.GoString), stdgo.Go.toInterface(_p));
         };
-        _l.print(Go.toInterface(("hello" : GoString)));
-        var _pattern:GoString = ("^Reality:[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] hello\n" : GoString);
-        var __tmp__ = stdgo.regexp.Regexp.match(_pattern, _b.bytes()), _matched:Bool = __tmp__._0, _err:Error = __tmp__._1;
+        _l.print(stdgo.Go.toInterface(("hello" : stdgo.GoString)));
+        var _pattern:stdgo.GoString = ("^Reality:[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] hello\n" : stdgo.GoString);
+        var __tmp__ = stdgo.regexp.Regexp.match(_pattern, _b.bytes()), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("pattern %q did not compile: %s" : GoString), Go.toInterface(_pattern), Go.toInterface(_err));
+            _t.fatalf(("pattern %q did not compile: %s" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_err));
         };
         if (!_matched) {
-            _t.error(Go.toInterface(("message did not match pattern" : GoString)));
+            _t.error(stdgo.Go.toInterface(("message did not match pattern" : stdgo.GoString)));
+        };
+        _b.reset();
+        _l.setFlags((0 : stdgo.StdGoTypes.GoInt));
+        _l.setPrefix(("\n" : stdgo.GoString));
+        _l.output((0 : stdgo.StdGoTypes.GoInt), stdgo.Go.str());
+        {
+            var _got:stdgo.GoString = (_b.string() : stdgo.GoString);
+            if (_got != (("\n" : stdgo.GoString))) {
+                _t.errorf(("message mismatch:\ngot  %q\nwant %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(("\n" : stdgo.GoString)));
+            };
         };
     }
-function testUTCFlag(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testUTCFlag(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-        var _l = new_(Go.asInterface((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>)), ("Test:" : GoString), (3 : GoInt));
-        _l.setFlags((35 : GoInt));
+        var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("Test:" : stdgo.GoString), (3 : stdgo.StdGoTypes.GoInt));
+        _l.setFlags((35 : stdgo.StdGoTypes.GoInt));
         var _now:stdgo.time.Time.Time = stdgo.time.Time.now().utc()?.__copy__();
-        _l.print(Go.toInterface(("hello" : GoString)));
-        var _want:GoString = stdgo.fmt.Fmt.sprintf(("Test:%d/%.2d/%.2d %.2d:%.2d:%.2d hello\n" : GoString), Go.toInterface(_now.year()), Go.toInterface(Go.asInterface(_now.month())), Go.toInterface(_now.day()), Go.toInterface(_now.hour()), Go.toInterface(_now.minute()), Go.toInterface(_now.second()));
-        var _got:GoString = (_b.string() : GoString);
+        _l.print(stdgo.Go.toInterface(("hello" : stdgo.GoString)));
+        var _want:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("Test:%d/%.2d/%.2d %.2d:%.2d:%.2d hello\n" : stdgo.GoString), stdgo.Go.toInterface(_now.year()), stdgo.Go.toInterface(stdgo.Go.asInterface(_now.month())), stdgo.Go.toInterface(_now.day()), stdgo.Go.toInterface(_now.hour()), stdgo.Go.toInterface(_now.minute()), stdgo.Go.toInterface(_now.second()));
+        var _got:stdgo.GoString = (_b.string() : stdgo.GoString);
         if (_got == (_want)) {
             return;
         };
         _now = _now.add((1000000000i64 : stdgo.time.Time.Duration))?.__copy__();
-        _want = stdgo.fmt.Fmt.sprintf(("Test:%d/%.2d/%.2d %.2d:%.2d:%.2d hello\n" : GoString), Go.toInterface(_now.year()), Go.toInterface(Go.asInterface(_now.month())), Go.toInterface(_now.day()), Go.toInterface(_now.hour()), Go.toInterface(_now.minute()), Go.toInterface(_now.second()));
+        _want = stdgo.fmt.Fmt.sprintf(("Test:%d/%.2d/%.2d %.2d:%.2d:%.2d hello\n" : stdgo.GoString), stdgo.Go.toInterface(_now.year()), stdgo.Go.toInterface(stdgo.Go.asInterface(_now.month())), stdgo.Go.toInterface(_now.day()), stdgo.Go.toInterface(_now.hour()), stdgo.Go.toInterface(_now.minute()), stdgo.Go.toInterface(_now.second()));
         if (_got == (_want)) {
             return;
         };
-        _t.errorf(("got %q; want %q" : GoString), Go.toInterface(_got), Go.toInterface(_want));
+        _t.errorf(("got %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
     }
-function testEmptyPrintCreatesLine(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testEmptyPrintCreatesLine(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-        var _l = new_(Go.asInterface((Go.setRef(_b) : Ref<stdgo.strings.Strings.Builder>)), ("Header:" : GoString), (3 : GoInt));
+        var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("Header:" : stdgo.GoString), (3 : stdgo.StdGoTypes.GoInt));
         _l.print();
-        _l.println(Go.toInterface(("non-empty" : GoString)));
-        var _output:GoString = (_b.string() : GoString);
+        _l.println(stdgo.Go.toInterface(("non-empty" : stdgo.GoString)));
+        var _output:stdgo.GoString = (_b.string() : stdgo.GoString);
         {
-            var _n:GoInt = stdgo.strings.Strings.count(_output, ("Header" : GoString));
-            if (_n != ((2 : GoInt))) {
-                _t.errorf(("expected 2 headers, got %d" : GoString), Go.toInterface(_n));
+            var _n:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.count(_output, ("Header" : stdgo.GoString));
+            if (_n != ((2 : stdgo.StdGoTypes.GoInt))) {
+                _t.errorf(("expected 2 headers, got %d" : stdgo.GoString), stdgo.Go.toInterface(_n));
             };
         };
         {
-            var _n:GoInt = stdgo.strings.Strings.count(_output, ("\n" : GoString));
-            if (_n != ((2 : GoInt))) {
-                _t.errorf(("expected 2 lines, got %d" : GoString), Go.toInterface(_n));
+            var _n:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.count(_output, ("\n" : stdgo.GoString));
+            if (_n != ((2 : stdgo.StdGoTypes.GoInt))) {
+                _t.errorf(("expected 2 lines, got %d" : stdgo.GoString), stdgo.Go.toInterface(_n));
             };
         };
     }
-function testDiscard(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _l = new_(stdgo.io.Io.discard, Go.str(), (0 : GoInt));
-        var _s:GoString = stdgo.strings.Strings.repeat(("a" : GoString), (102400 : GoInt));
-        var _c:GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : GoInt), function():Void {
-            _l.printf(("%s" : GoString), Go.toInterface(_s));
+function testDiscard(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        var _l = new_(stdgo.io.Io.discard, stdgo.Go.str(), (0 : stdgo.StdGoTypes.GoInt));
+        var _s:stdgo.GoString = stdgo.strings.Strings.repeat(("a" : stdgo.GoString), (102400 : stdgo.StdGoTypes.GoInt));
+        var _c:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : stdgo.StdGoTypes.GoInt), function():Void {
+            _l.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(_s));
         });
-        if (_c > (1 : GoFloat64)) {
-            _t.errorf(("got %v allocs, want at most 1" : GoString), Go.toInterface(_c));
+        if (_c > (1 : stdgo.StdGoTypes.GoFloat64)) {
+            _t.errorf(("got %v allocs, want at most 1" : stdgo.GoString), stdgo.Go.toInterface(_c));
         };
     }
-function benchmarkItoa(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _dst = new Slice<GoUInt8>((0 : GoInt).toBasic(), (64 : GoInt)).__setNumber32__();
+function benchmarkItoa(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        var _dst = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (64 : stdgo.StdGoTypes.GoInt)).__setNumber32__();
         {
-            var _i:GoInt = (0 : GoInt);
-            Go.cfor(_i < _b.n, _i++, {
-                _dst = (_dst.__slice__((0 : GoInt), (0 : GoInt)) : Slice<GoUInt8>);
-                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (2015 : GoInt), (4 : GoInt));
-                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (1 : GoInt), (2 : GoInt));
-                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (30 : GoInt), (2 : GoInt));
-                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (12 : GoInt), (2 : GoInt));
-                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (56 : GoInt), (2 : GoInt));
-                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (0 : GoInt), (2 : GoInt));
-                _itoa((Go.setRef(_dst) : Ref<Slice<GoUInt8>>), (987654 : GoInt), (6 : GoInt));
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < _b.n, _i++, {
+                _dst = (_dst.__slice__((0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+                _itoa((stdgo.Go.setRef(_dst) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>), (2015 : stdgo.StdGoTypes.GoInt), (4 : stdgo.StdGoTypes.GoInt));
+                _itoa((stdgo.Go.setRef(_dst) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>), (1 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt));
+                _itoa((stdgo.Go.setRef(_dst) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>), (30 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt));
+                _itoa((stdgo.Go.setRef(_dst) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>), (12 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt));
+                _itoa((stdgo.Go.setRef(_dst) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>), (56 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt));
+                _itoa((stdgo.Go.setRef(_dst) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>), (0 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt));
+                _itoa((stdgo.Go.setRef(_dst) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>), (987654 : stdgo.StdGoTypes.GoInt), (6 : stdgo.StdGoTypes.GoInt));
             });
         };
     }
-function benchmarkPrintln(_b:Ref<stdgo.testing.Testing.B>):Void {
+function benchmarkPrintln(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var _l = new_(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (3 : GoInt));
+        var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), stdgo.Go.str(), (3 : stdgo.StdGoTypes.GoInt));
+        _b.reportAllocs();
         {
-            var _i:GoInt = (0 : GoInt);
-            Go.cfor(_i < _b.n, _i++, {
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < _b.n, _i++, {
                 _buf.reset();
-                _l.println(Go.toInterface(("test" : GoString)));
+                _l.println(stdgo.Go.toInterface(("test" : stdgo.GoString)));
             });
         };
     }
-function benchmarkPrintlnNoFlags(_b:Ref<stdgo.testing.Testing.B>):Void {
+function benchmarkPrintlnNoFlags(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var _l = new_(Go.asInterface((Go.setRef(_buf) : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (0 : GoInt));
+        var _l = new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), stdgo.Go.str(), (0 : stdgo.StdGoTypes.GoInt));
+        _b.reportAllocs();
         {
-            var _i:GoInt = (0 : GoInt);
-            Go.cfor(_i < _b.n, _i++, {
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < _b.n, _i++, {
                 _buf.reset();
-                _l.println(Go.toInterface(("test" : GoString)));
+                _l.println(stdgo.Go.toInterface(("test" : stdgo.GoString)));
             });
         };
     }
+function benchmarkConcurrent(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        var _l = new_(stdgo.Go.asInterface((new T_discard() : T_discard)), ("prefix: " : stdgo.GoString), (79 : stdgo.StdGoTypes.GoInt));
+        var _group:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
+        {
+            var _i:stdgo.StdGoTypes.GoInt = stdgo.runtime.Runtime.numCPU();
+            stdgo.Go.cfor(_i > (0 : stdgo.StdGoTypes.GoInt), _i--, {
+                _group.add((1 : stdgo.StdGoTypes.GoInt));
+                stdgo.Go.routine(() -> {
+                    var a = function():Void {
+                        var __deferstack__:Array<Void -> Void> = [];
+                        try {
+                            {
+                                var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+                                stdgo.Go.cfor(_i < _b.n, _i++, {
+                                    _l.output((0 : stdgo.StdGoTypes.GoInt), ("hello, world!" : stdgo.GoString));
+                                });
+                            };
+                            __deferstack__.unshift(() -> _group.done());
+                            for (defer in __deferstack__) {
+                                defer();
+                            };
+                            {
+                                for (defer in __deferstack__) {
+                                    defer();
+                                };
+                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                                return;
+                            };
+                        } catch(__exception__) {
+                            var exe:Dynamic = __exception__.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            for (defer in __deferstack__) {
+                                defer();
+                            };
+                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                            return;
+                        };
+                    };
+                    a();
+                });
+            });
+        };
+        _group.wait_();
+    }
+function benchmarkDiscard(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        var _l = new_(stdgo.io.Io.discard, stdgo.Go.str(), (19 : stdgo.StdGoTypes.GoInt));
+        _b.reportAllocs();
+        {
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < _b.n, _i++, {
+                _l.printf(("processing %d objects from bucket %q" : stdgo.GoString), stdgo.Go.toInterface((1234 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(("fizzbuzz" : stdgo.GoString)));
+            });
+        };
+    }
+@:keep var _ = {
+        try {
+            stdgo.log.internal.Internal.defaultOutput = function(_pc:stdgo.StdGoTypes.GoUIntptr, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
+                return _std._output(_pc, (0 : stdgo.StdGoTypes.GoInt), function(_buf:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+                    return (_buf.__append__(..._data.__toArray__()));
+                });
+            };
+        } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
+        true;
+    };
 class Logger_asInterface {
     /**
         // Writer returns the output destination for the logger.
@@ -649,72 +842,78 @@ class Logger_asInterface {
         // SetPrefix sets the output prefix for the logger.
     **/
     @:keep
-    public dynamic function setPrefix(_prefix:GoString):Void __self__.value.setPrefix(_prefix);
+    public dynamic function setPrefix(_prefix:stdgo.GoString):Void __self__.value.setPrefix(_prefix);
     /**
         // Prefix returns the output prefix for the logger.
     **/
     @:keep
-    public dynamic function prefix():GoString return __self__.value.prefix();
+    public dynamic function prefix():stdgo.GoString return __self__.value.prefix();
     /**
         // SetFlags sets the output flags for the logger.
         // The flag bits are Ldate, Ltime, and so on.
     **/
     @:keep
-    public dynamic function setFlags(_flag:GoInt):Void __self__.value.setFlags(_flag);
+    public dynamic function setFlags(_flag:stdgo.StdGoTypes.GoInt):Void __self__.value.setFlags(_flag);
     /**
         // Flags returns the output flags for the logger.
         // The flag bits are Ldate, Ltime, and so on.
     **/
     @:keep
-    public dynamic function flags():GoInt return __self__.value.flags();
+    public dynamic function flags():stdgo.StdGoTypes.GoInt return __self__.value.flags();
     /**
         // Panicln is equivalent to l.Println() followed by a call to panic().
     **/
     @:keep
-    public dynamic function panicln(_v:haxe.Rest<AnyInterface>):Void __self__.value.panicln(..._v);
+    public dynamic function panicln(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void __self__.value.panicln(..._v);
     /**
         // Panicf is equivalent to l.Printf() followed by a call to panic().
     **/
     @:keep
-    public dynamic function panicf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void __self__.value.panicf(_format, ..._v);
+    public dynamic function panicf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void __self__.value.panicf(_format, ..._v);
     /**
         // Panic is equivalent to l.Print() followed by a call to panic().
     **/
     @:keep
-    public dynamic function panic(_v:haxe.Rest<AnyInterface>):Void __self__.value.panic(..._v);
+    public dynamic function panic(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void __self__.value.panic(..._v);
     /**
         // Fatalln is equivalent to l.Println() followed by a call to os.Exit(1).
     **/
     @:keep
-    public dynamic function fatalln(_v:haxe.Rest<AnyInterface>):Void __self__.value.fatalln(..._v);
+    public dynamic function fatalln(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void __self__.value.fatalln(..._v);
     /**
         // Fatalf is equivalent to l.Printf() followed by a call to os.Exit(1).
     **/
     @:keep
-    public dynamic function fatalf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void __self__.value.fatalf(_format, ..._v);
+    public dynamic function fatalf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void __self__.value.fatalf(_format, ..._v);
     /**
         // Fatal is equivalent to l.Print() followed by a call to os.Exit(1).
     **/
     @:keep
-    public dynamic function fatal(_v:haxe.Rest<AnyInterface>):Void __self__.value.fatal(..._v);
+    public dynamic function fatal(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void __self__.value.fatal(..._v);
     /**
         // Println calls l.Output to print to the logger.
         // Arguments are handled in the manner of fmt.Println.
     **/
     @:keep
-    public dynamic function println(_v:haxe.Rest<AnyInterface>):Void __self__.value.println(..._v);
-    /**
-        // Print calls l.Output to print to the logger.
-        // Arguments are handled in the manner of fmt.Print.
-    **/
-    @:keep
-    public dynamic function print(_v:haxe.Rest<AnyInterface>):Void __self__.value.print(..._v);
+    public dynamic function println(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void __self__.value.println(..._v);
     /**
         // Printf calls l.Output to print to the logger.
         // Arguments are handled in the manner of fmt.Printf.
     **/
     @:keep
-    public dynamic function printf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void __self__.value.printf(_format, ..._v);
+    public dynamic function printf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void __self__.value.printf(_format, ..._v);
+    /**
+        // Print calls l.Output to print to the logger.
+        // Arguments are handled in the manner of fmt.Print.
+    **/
+    @:keep
+    public dynamic function print(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void __self__.value.print(..._v);
+    /**
+        // output can take either a calldepth or a pc to get source line information.
+        // It uses the pc if it is non-zero.
+    **/
+    @:keep
+    public dynamic function _output(_pc:stdgo.StdGoTypes.GoUIntptr, _calldepth:stdgo.StdGoTypes.GoInt, _appendOutput:stdgo.Slice<stdgo.StdGoTypes.GoByte> -> stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error return __self__.value._output(_pc, _calldepth, _appendOutput);
     /**
         // Output writes the output for a logging event. The string s contains
         // the text to print after the prefix specified by the flags of the
@@ -724,16 +923,7 @@ class Logger_asInterface {
         // paths it will be 2.
     **/
     @:keep
-    public dynamic function output(_calldepth:GoInt, _s:GoString):Error return __self__.value.output(_calldepth, _s);
-    /**
-        // formatHeader writes log header to buf in following order:
-        //   - l.prefix (if it's not blank and Lmsgprefix is unset),
-        //   - date and/or time (if corresponding flags are provided),
-        //   - file and line number (if corresponding flags are provided),
-        //   - l.prefix (if it's not blank and Lmsgprefix is set).
-    **/
-    @:keep
-    public dynamic function _formatHeader(_buf:Ref<Slice<GoByte>>, _t:stdgo.time.Time.Time, _file:GoString, _line:GoInt):Void __self__.value._formatHeader(_buf, _t, _file, _line);
+    public dynamic function output(_calldepth:stdgo.StdGoTypes.GoInt, _s:stdgo.GoString):stdgo.Error return __self__.value.output(_calldepth, _s);
     /**
         // SetOutput sets the output destination for the logger.
     **/
@@ -743,8 +933,8 @@ class Logger_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<Logger>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<Logger>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.log.Log.Logger_asInterface) class Logger_static_extension {
@@ -752,11 +942,11 @@ class Logger_asInterface {
         // Writer returns the output destination for the logger.
     **/
     @:keep
-    static public function writer( _l:Ref<Logger>):stdgo.io.Io.Writer {
+    static public function writer( _l:stdgo.StdGoTypes.Ref<Logger>):stdgo.io.Io.Writer {
         var __deferstack__:Array<Void -> Void> = [];
-        _l._mu.lock();
+        _l._outMu.lock();
         try {
-            __deferstack__.unshift(() -> _l._mu.unlock());
+            __deferstack__.unshift(() -> _l._outMu.unlock());
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -770,20 +960,20 @@ class Logger_asInterface {
                 for (defer in __deferstack__) {
                     defer();
                 };
-                if (Go.recover_exception != null) throw Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.io.Io.Writer);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is AnyInterfaceData)) {
-                exe = Go.toInterface(__exception__.message);
+            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                exe = stdgo.Go.toInterface(__exception__.message);
             };
-            Go.recover_exception = exe;
+            stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
-            if (Go.recover_exception != null) throw Go.recover_exception;
+            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.io.Io.Writer);
         };
     }
@@ -791,282 +981,180 @@ class Logger_asInterface {
         // SetPrefix sets the output prefix for the logger.
     **/
     @:keep
-    static public function setPrefix( _l:Ref<Logger>, _prefix:GoString):Void {
-        var __deferstack__:Array<Void -> Void> = [];
-        try {
-            _l._mu.lock();
-            __deferstack__.unshift(() -> _l._mu.unlock());
-            _l._prefix = _prefix;
-            for (defer in __deferstack__) {
-                defer();
-            };
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (Go.recover_exception != null) throw Go.recover_exception;
-                return;
-            };
-        } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is AnyInterfaceData)) {
-                exe = Go.toInterface(__exception__.message);
-            };
-            Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                defer();
-            };
-            if (Go.recover_exception != null) throw Go.recover_exception;
-            return;
-        };
+    static public function setPrefix( _l:stdgo.StdGoTypes.Ref<Logger>, _prefix:stdgo.GoString):Void {
+        _l._prefix.store(("" : stdgo.GoString), stdgo.Go.pointer(_prefix));
     }
     /**
         // Prefix returns the output prefix for the logger.
     **/
     @:keep
-    static public function prefix( _l:Ref<Logger>):GoString {
-        var __deferstack__:Array<Void -> Void> = [];
-        _l._mu.lock();
-        try {
-            __deferstack__.unshift(() -> _l._mu.unlock());
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                return _l._prefix;
+    static public function prefix( _l:stdgo.StdGoTypes.Ref<Logger>):stdgo.GoString {
+        {
+            var _p = _l._prefix.load(("" : stdgo.GoString));
+            if (_p != null) {
+                return _p.value;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (Go.recover_exception != null) throw Go.recover_exception;
-                return ("" : GoString);
-            };
-        } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is AnyInterfaceData)) {
-                exe = Go.toInterface(__exception__.message);
-            };
-            Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                defer();
-            };
-            if (Go.recover_exception != null) throw Go.recover_exception;
-            return ("" : GoString);
         };
+        return stdgo.Go.str();
     }
     /**
         // SetFlags sets the output flags for the logger.
         // The flag bits are Ldate, Ltime, and so on.
     **/
     @:keep
-    static public function setFlags( _l:Ref<Logger>, _flag:GoInt):Void {
-        var __deferstack__:Array<Void -> Void> = [];
-        try {
-            _l._mu.lock();
-            __deferstack__.unshift(() -> _l._mu.unlock());
-            _l._flag = _flag;
-            for (defer in __deferstack__) {
-                defer();
-            };
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (Go.recover_exception != null) throw Go.recover_exception;
-                return;
-            };
-        } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is AnyInterfaceData)) {
-                exe = Go.toInterface(__exception__.message);
-            };
-            Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                defer();
-            };
-            if (Go.recover_exception != null) throw Go.recover_exception;
-            return;
-        };
+    static public function setFlags( _l:stdgo.StdGoTypes.Ref<Logger>, _flag:stdgo.StdGoTypes.GoInt):Void {
+        _l._flag.store((_flag : stdgo.StdGoTypes.GoInt32));
     }
     /**
         // Flags returns the output flags for the logger.
         // The flag bits are Ldate, Ltime, and so on.
     **/
     @:keep
-    static public function flags( _l:Ref<Logger>):GoInt {
-        var __deferstack__:Array<Void -> Void> = [];
-        _l._mu.lock();
-        try {
-            __deferstack__.unshift(() -> _l._mu.unlock());
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                return _l._flag;
-            };
-            for (defer in __deferstack__) {
-                defer();
-            };
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (Go.recover_exception != null) throw Go.recover_exception;
-                return (0 : GoInt);
-            };
-        } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is AnyInterfaceData)) {
-                exe = Go.toInterface(__exception__.message);
-            };
-            Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                defer();
-            };
-            if (Go.recover_exception != null) throw Go.recover_exception;
-            return (0 : GoInt);
-        };
+    static public function flags( _l:stdgo.StdGoTypes.Ref<Logger>):stdgo.StdGoTypes.GoInt {
+        return (_l._flag.load() : stdgo.StdGoTypes.GoInt);
     }
     /**
         // Panicln is equivalent to l.Println() followed by a call to panic().
     **/
     @:keep
-    static public function panicln( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        var _s:GoString = stdgo.fmt.Fmt.sprintln(..._v.__toArray__());
-        _l.output((2 : GoInt), _s);
-        throw Go.toInterface(_s);
+    static public function panicln( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintln(..._v.__toArray__());
+        _l.output((2 : stdgo.StdGoTypes.GoInt), _s);
+        throw stdgo.Go.toInterface(_s);
     }
     /**
         // Panicf is equivalent to l.Printf() followed by a call to panic().
     **/
     @:keep
-    static public function panicf( _l:Ref<Logger>, _format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        var _s:GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__());
-        _l.output((2 : GoInt), _s);
-        throw Go.toInterface(_s);
+    static public function panicf( _l:stdgo.StdGoTypes.Ref<Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__());
+        _l.output((2 : stdgo.StdGoTypes.GoInt), _s);
+        throw stdgo.Go.toInterface(_s);
     }
     /**
         // Panic is equivalent to l.Print() followed by a call to panic().
     **/
     @:keep
-    static public function panic( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        var _s:GoString = stdgo.fmt.Fmt.sprint(..._v.__toArray__());
-        _l.output((2 : GoInt), _s);
-        throw Go.toInterface(_s);
+    static public function panic( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprint(..._v.__toArray__());
+        _l.output((2 : stdgo.StdGoTypes.GoInt), _s);
+        throw stdgo.Go.toInterface(_s);
     }
     /**
         // Fatalln is equivalent to l.Println() followed by a call to os.Exit(1).
     **/
     @:keep
-    static public function fatalln( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        _l.output((2 : GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
-        Sys.exit((1 : GoInt));
+    static public function fatalln( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _l.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
+        Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
     /**
         // Fatalf is equivalent to l.Printf() followed by a call to os.Exit(1).
     **/
     @:keep
-    static public function fatalf( _l:Ref<Logger>, _format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        _l.output((2 : GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
-        Sys.exit((1 : GoInt));
+    static public function fatalf( _l:stdgo.StdGoTypes.Ref<Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _l.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
+        Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
     /**
         // Fatal is equivalent to l.Print() followed by a call to os.Exit(1).
     **/
     @:keep
-    static public function fatal( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        _l.output((2 : GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
-        Sys.exit((1 : GoInt));
+    static public function fatal( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _l.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
+        Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
     /**
         // Println calls l.Output to print to the logger.
         // Arguments are handled in the manner of fmt.Println.
     **/
     @:keep
-    static public function println( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        if (_l._isDiscard.load()) {
-            return;
-        };
-        _l.output((2 : GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
-    }
-    /**
-        // Print calls l.Output to print to the logger.
-        // Arguments are handled in the manner of fmt.Print.
-    **/
-    @:keep
-    static public function print( _l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        if (_l._isDiscard.load()) {
-            return;
-        };
-        _l.output((2 : GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
+    static public function println( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _l._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+            return stdgo.fmt.Fmt.appendln(_b, ..._v.__toArray__());
+        });
     }
     /**
         // Printf calls l.Output to print to the logger.
         // Arguments are handled in the manner of fmt.Printf.
     **/
     @:keep
-    static public function printf( _l:Ref<Logger>, _format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-        var _v = new Slice<AnyInterface>(_v.length, 0, ..._v);
-        if (_l._isDiscard.load()) {
-            return;
-        };
-        _l.output((2 : GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
+    static public function printf( _l:stdgo.StdGoTypes.Ref<Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _l._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+            return stdgo.fmt.Fmt.appendf(_b, _format, ..._v.__toArray__());
+        });
     }
     /**
-        // Output writes the output for a logging event. The string s contains
-        // the text to print after the prefix specified by the flags of the
-        // Logger. A newline is appended if the last character of s is not
-        // already a newline. Calldepth is used to recover the PC and is
-        // provided for generality, although at the moment on all pre-defined
-        // paths it will be 2.
+        // Print calls l.Output to print to the logger.
+        // Arguments are handled in the manner of fmt.Print.
     **/
     @:keep
-    static public function output( _l:Ref<Logger>, _calldepth:GoInt, _s:GoString):Error {
+    static public function print( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
+        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        _l._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+            return stdgo.fmt.Fmt.append(_b, ..._v.__toArray__());
+        });
+    }
+    /**
+        // output can take either a calldepth or a pc to get source line information.
+        // It uses the pc if it is non-zero.
+    **/
+    @:keep
+    static public function _output( _l:stdgo.StdGoTypes.Ref<Logger>, _pc:stdgo.StdGoTypes.GoUIntptr, _calldepth:stdgo.StdGoTypes.GoInt, _appendOutput:stdgo.Slice<stdgo.StdGoTypes.GoByte> -> stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
         var __deferstack__:Array<Void -> Void> = [];
-        var _now:stdgo.time.Time.Time = stdgo.time.Time.now()?.__copy__();
+        if (_l._isDiscard.load()) {
+            return (null : stdgo.Error);
+        };
         try {
-            var _file:GoString = ("" : GoString);
-            var _line:GoInt = (0 : GoInt);
-            _l._mu.lock();
-            __deferstack__.unshift(() -> _l._mu.unlock());
-            if (_l._flag & (24 : GoInt) != ((0 : GoInt))) {
-                _l._mu.unlock();
-                var _ok:Bool = false;
-                {
-                    var __tmp__ = stdgo.runtime.Runtime.caller(_calldepth);
-                    _file = __tmp__._1;
-                    _line = __tmp__._2;
-                    _ok = __tmp__._3;
+            var _now:stdgo.time.Time.Time = stdgo.time.Time.now()?.__copy__();
+            var _prefix:stdgo.GoString = _l.prefix();
+            var _flag:stdgo.StdGoTypes.GoInt = _l.flags();
+            var _file:stdgo.GoString = ("" : stdgo.GoString);
+            var _line:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            if (_flag & (24 : stdgo.StdGoTypes.GoInt) != ((0 : stdgo.StdGoTypes.GoInt))) {
+                if (_pc == ((0 : stdgo.StdGoTypes.GoUIntptr))) {
+                    var _ok:Bool = false;
+                    {
+                        var __tmp__ = stdgo.runtime.Runtime.caller(_calldepth);
+                        _file = __tmp__._1;
+                        _line = __tmp__._2;
+                        _ok = __tmp__._3;
+                    };
+                    if (!_ok) {
+                        _file = ("???" : stdgo.GoString);
+                        _line = (0 : stdgo.StdGoTypes.GoInt);
+                    };
+                } else {
+                    var _fs = stdgo.runtime.Runtime.callersFrames((new stdgo.Slice<stdgo.StdGoTypes.GoUIntptr>(1, 1, _pc) : stdgo.Slice<stdgo.StdGoTypes.GoUIntptr>));
+                    var __tmp__ = _fs.next(), _f:stdgo.runtime.Runtime.Frame = __tmp__._0, __12:Bool = __tmp__._1;
+                    _file = _f.file;
+                    if (_file == (stdgo.Go.str())) {
+                        _file = ("???" : stdgo.GoString);
+                    };
+                    _line = _f.line;
                 };
-                if (!_ok) {
-                    _file = ("???" : GoString);
-                    _line = (0 : GoInt);
-                };
-                _l._mu.lock();
             };
-            _l._buf = (_l._buf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>);
-            _l._formatHeader((Go.setRef(_l._buf) : Ref<Slice<GoUInt8>>), _now?.__copy__(), _file, _line);
-            _l._buf = (_l._buf.__append__(..._s.__toArray__()));
-            if ((_s.length == (0 : GoInt)) || (_s[((_s.length) - (1 : GoInt) : GoInt)] != (10 : GoUInt8))) {
-                _l._buf = (_l._buf.__append__((10 : GoUInt8)));
+            var _buf = _getBuffer();
+            {
+                var _a0 = _buf;
+                __deferstack__.unshift(() -> _putBuffer(_a0));
             };
-            var __tmp__ = _l._out.write(_l._buf), __28:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            _formatHeader(_buf, _now?.__copy__(), _prefix, _flag, _file, _line);
+            _buf.__setData__(_appendOutput((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
+            if (((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).length == (0 : stdgo.StdGoTypes.GoInt)) || (((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>))[(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] != (10 : stdgo.StdGoTypes.GoUInt8))) {
+                _buf.__setData__(((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__append__((10 : stdgo.StdGoTypes.GoUInt8))));
+            };
+            _l._outMu.lock();
+            __deferstack__.unshift(() -> _l._outMu.unlock());
+            var __tmp__ = _l._out.write((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __49:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1080,96 +1168,49 @@ class Logger_asInterface {
                 for (defer in __deferstack__) {
                     defer();
                 };
-                if (Go.recover_exception != null) throw Go.recover_exception;
-                return (null : Error);
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return (null : stdgo.Error);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is AnyInterfaceData)) {
-                exe = Go.toInterface(__exception__.message);
+            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                exe = stdgo.Go.toInterface(__exception__.message);
             };
-            Go.recover_exception = exe;
+            stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
-            if (Go.recover_exception != null) throw Go.recover_exception;
-            return (null : Error);
+            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+            return (null : stdgo.Error);
         };
     }
     /**
-        // formatHeader writes log header to buf in following order:
-        //   - l.prefix (if it's not blank and Lmsgprefix is unset),
-        //   - date and/or time (if corresponding flags are provided),
-        //   - file and line number (if corresponding flags are provided),
-        //   - l.prefix (if it's not blank and Lmsgprefix is set).
+        // Output writes the output for a logging event. The string s contains
+        // the text to print after the prefix specified by the flags of the
+        // Logger. A newline is appended if the last character of s is not
+        // already a newline. Calldepth is used to recover the PC and is
+        // provided for generality, although at the moment on all pre-defined
+        // paths it will be 2.
     **/
     @:keep
-    static public function _formatHeader( _l:Ref<Logger>, _buf:Ref<Slice<GoByte>>, _t:stdgo.time.Time.Time, _file:GoString, _line:GoInt):Void {
-        if (_l._flag & (64 : GoInt) == ((0 : GoInt))) {
-            _buf.__setData__(((_buf : Slice<GoUInt8>).__append__(..._l._prefix.__toArray__())));
-        };
-        if (_l._flag & (7 : GoInt) != ((0 : GoInt))) {
-            if (_l._flag & (32 : GoInt) != ((0 : GoInt))) {
-                _t = _t.utc()?.__copy__();
-            };
-            if (_l._flag & (1 : GoInt) != ((0 : GoInt))) {
-                var __tmp__ = _t.date(), _year:GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, _day:GoInt = __tmp__._2;
-                _itoa(_buf, _year, (4 : GoInt));
-                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((47 : GoUInt8))));
-                _itoa(_buf, (_month : GoInt), (2 : GoInt));
-                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((47 : GoUInt8))));
-                _itoa(_buf, _day, (2 : GoInt));
-                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((32 : GoUInt8))));
-            };
-            if (_l._flag & (6 : GoInt) != ((0 : GoInt))) {
-                var __tmp__ = _t.clock(), _hour:GoInt = __tmp__._0, _min:GoInt = __tmp__._1, _sec:GoInt = __tmp__._2;
-                _itoa(_buf, _hour, (2 : GoInt));
-                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((58 : GoUInt8))));
-                _itoa(_buf, _min, (2 : GoInt));
-                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((58 : GoUInt8))));
-                _itoa(_buf, _sec, (2 : GoInt));
-                if (_l._flag & (4 : GoInt) != ((0 : GoInt))) {
-                    _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((46 : GoUInt8))));
-                    _itoa(_buf, _t.nanosecond() / (1000 : GoInt), (6 : GoInt));
-                };
-                _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((32 : GoUInt8))));
-            };
-        };
-        if (_l._flag & (24 : GoInt) != ((0 : GoInt))) {
-            if (_l._flag & (16 : GoInt) != ((0 : GoInt))) {
-                var _short:GoString = _file;
-                {
-                    var _i:GoInt = (_file.length) - (1 : GoInt);
-                    Go.cfor(_i > (0 : GoInt), _i--, {
-                        if (_file[(_i : GoInt)] == ((47 : GoUInt8))) {
-                            _short = (_file.__slice__(_i + (1 : GoInt)) : GoString);
-                            break;
-                        };
-                    });
-                };
-                _file = _short;
-            };
-            _buf.__setData__(((_buf : Slice<GoUInt8>).__append__(..._file.__toArray__())));
-            _buf.__setData__(((_buf : Slice<GoUInt8>).__append__((58 : GoUInt8))));
-            _itoa(_buf, _line, (-1 : GoInt));
-            _buf.__setData__(((_buf : Slice<GoUInt8>).__append__(...(": " : GoString).__toArray__())));
-        };
-        if (_l._flag & (64 : GoInt) != ((0 : GoInt))) {
-            _buf.__setData__(((_buf : Slice<GoUInt8>).__append__(..._l._prefix.__toArray__())));
-        };
+    static public function output( _l:stdgo.StdGoTypes.Ref<Logger>, _calldepth:stdgo.StdGoTypes.GoInt, _s:stdgo.GoString):stdgo.Error {
+        _calldepth++;
+        return _l._output((0 : stdgo.StdGoTypes.GoUIntptr), _calldepth, function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+            return (_b.__append__(..._s.__toArray__()));
+        });
     }
     /**
         // SetOutput sets the output destination for the logger.
     **/
     @:keep
-    static public function setOutput( _l:Ref<Logger>, _w:stdgo.io.Io.Writer):Void {
+    static public function setOutput( _l:stdgo.StdGoTypes.Ref<Logger>, _w:stdgo.io.Io.Writer):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _l._mu.lock();
-            __deferstack__.unshift(() -> _l._mu.unlock());
+            _l._outMu.lock();
+            __deferstack__.unshift(() -> _l._outMu.unlock());
             _l._out = _w;
-            _l._isDiscard.store(Go.toInterface(_w) == (Go.toInterface(stdgo.io.Io.discard)));
+            _l._isDiscard.store(stdgo.Go.toInterface(_w) == (stdgo.Go.toInterface(stdgo.io.Io.discard)));
             for (defer in __deferstack__) {
                 defer();
             };
@@ -1177,21 +1218,38 @@ class Logger_asInterface {
                 for (defer in __deferstack__) {
                     defer();
                 };
-                if (Go.recover_exception != null) throw Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is AnyInterfaceData)) {
-                exe = Go.toInterface(__exception__.message);
+            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                exe = stdgo.Go.toInterface(__exception__.message);
             };
-            Go.recover_exception = exe;
+            stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
-            if (Go.recover_exception != null) throw Go.recover_exception;
+            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
         };
+    }
+}
+class T_discard_asInterface {
+    @:keep
+    public dynamic function write(_p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } return __self__.value.write(_p);
+    public function new(__self__, __type__) {
+        this.__self__ = __self__;
+        this.__type__ = __type__;
+    }
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<T_discard>;
+    var __type__ : stdgo.internal.reflect.Reflect._Type;
+}
+@:keep @:allow(stdgo.log.Log.T_discard_asInterface) class T_discard_static_extension {
+    @:keep
+    static public function write( _:T_discard, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
 }

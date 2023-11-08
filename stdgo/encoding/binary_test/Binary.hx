@@ -1,114 +1,108 @@
 package stdgo.encoding.binary_test;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 import stdgo.encoding.binary.Binary;
 /**
     
     
     
 **/
-private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(
-27,
-27,
-(new stdgo.testing.Testing.InternalTest(("TestLittleEndianRead" : GoString), stdgo.encoding.binary.Binary.testLittleEndianRead) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestLittleEndianWrite" : GoString), stdgo.encoding.binary.Binary.testLittleEndianWrite) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestLittleEndianPtrWrite" : GoString), stdgo.encoding.binary.Binary.testLittleEndianPtrWrite) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestBigEndianRead" : GoString), stdgo.encoding.binary.Binary.testBigEndianRead) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestBigEndianWrite" : GoString), stdgo.encoding.binary.Binary.testBigEndianWrite) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestBigEndianPtrWrite" : GoString), stdgo.encoding.binary.Binary.testBigEndianPtrWrite) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestReadSlice" : GoString), stdgo.encoding.binary.Binary.testReadSlice) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestWriteSlice" : GoString), stdgo.encoding.binary.Binary.testWriteSlice) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestReadBool" : GoString), stdgo.encoding.binary.Binary.testReadBool) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestReadBoolSlice" : GoString), stdgo.encoding.binary.Binary.testReadBoolSlice) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestSliceRoundTrip" : GoString), stdgo.encoding.binary.Binary.testSliceRoundTrip) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestWriteT" : GoString), stdgo.encoding.binary.Binary.testWriteT) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestBlankFields" : GoString), stdgo.encoding.binary.Binary.testBlankFields) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestSizeStructCache" : GoString), stdgo.encoding.binary.Binary.testSizeStructCache) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestUnexportedRead" : GoString), stdgo.encoding.binary.Binary.testUnexportedRead) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestReadErrorMsg" : GoString), stdgo.encoding.binary.Binary.testReadErrorMsg) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestReadTruncated" : GoString), stdgo.encoding.binary.Binary.testReadTruncated) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestByteOrder" : GoString), stdgo.encoding.binary.Binary.testByteOrder) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestEarlyBoundsChecks" : GoString), stdgo.encoding.binary.Binary.testEarlyBoundsChecks) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestReadInvalidDestination" : GoString), stdgo.encoding.binary.Binary.testReadInvalidDestination) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestConstants" : GoString), stdgo.encoding.binary.Binary.testConstants) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestVarint" : GoString), stdgo.encoding.binary.Binary.testVarint) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestUvarint" : GoString), stdgo.encoding.binary.Binary.testUvarint) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestBufferTooSmall" : GoString), stdgo.encoding.binary.Binary.testBufferTooSmall) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestBufferTooBigWithOverflow" : GoString), stdgo.encoding.binary.Binary.testBufferTooBigWithOverflow) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestOverflow" : GoString), stdgo.encoding.binary.Binary.testOverflow) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestNonCanonicalZero" : GoString), stdgo.encoding.binary.Binary.testNonCanonicalZero) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
+var _tests : stdgo.Slice<stdgo.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo.testing.Testing.InternalTest>(
+30,
+30,
+(new stdgo.testing.Testing.InternalTest(("TestLittleEndianRead" : stdgo.GoString), stdgo.encoding.binary.Binary.testLittleEndianRead) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestLittleEndianWrite" : stdgo.GoString), stdgo.encoding.binary.Binary.testLittleEndianWrite) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestLittleEndianPtrWrite" : stdgo.GoString), stdgo.encoding.binary.Binary.testLittleEndianPtrWrite) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestBigEndianRead" : stdgo.GoString), stdgo.encoding.binary.Binary.testBigEndianRead) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestBigEndianWrite" : stdgo.GoString), stdgo.encoding.binary.Binary.testBigEndianWrite) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestBigEndianPtrWrite" : stdgo.GoString), stdgo.encoding.binary.Binary.testBigEndianPtrWrite) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestReadSlice" : stdgo.GoString), stdgo.encoding.binary.Binary.testReadSlice) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestWriteSlice" : stdgo.GoString), stdgo.encoding.binary.Binary.testWriteSlice) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestReadBool" : stdgo.GoString), stdgo.encoding.binary.Binary.testReadBool) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestReadBoolSlice" : stdgo.GoString), stdgo.encoding.binary.Binary.testReadBoolSlice) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestSliceRoundTrip" : stdgo.GoString), stdgo.encoding.binary.Binary.testSliceRoundTrip) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestWriteT" : stdgo.GoString), stdgo.encoding.binary.Binary.testWriteT) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestBlankFields" : stdgo.GoString), stdgo.encoding.binary.Binary.testBlankFields) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestSizeStructCache" : stdgo.GoString), stdgo.encoding.binary.Binary.testSizeStructCache) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestSizeInvalid" : stdgo.GoString), stdgo.encoding.binary.Binary.testSizeInvalid) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestUnexportedRead" : stdgo.GoString), stdgo.encoding.binary.Binary.testUnexportedRead) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestReadErrorMsg" : stdgo.GoString), stdgo.encoding.binary.Binary.testReadErrorMsg) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestReadTruncated" : stdgo.GoString), stdgo.encoding.binary.Binary.testReadTruncated) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestByteOrder" : stdgo.GoString), stdgo.encoding.binary.Binary.testByteOrder) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestEarlyBoundsChecks" : stdgo.GoString), stdgo.encoding.binary.Binary.testEarlyBoundsChecks) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestReadInvalidDestination" : stdgo.GoString), stdgo.encoding.binary.Binary.testReadInvalidDestination) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestNoFixedSize" : stdgo.GoString), stdgo.encoding.binary.Binary.testNoFixedSize) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestNativeEndian" : stdgo.GoString), stdgo.encoding.binary.Binary.testNativeEndian) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestConstants" : stdgo.GoString), stdgo.encoding.binary.Binary.testConstants) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestVarint" : stdgo.GoString), stdgo.encoding.binary.Binary.testVarint) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestUvarint" : stdgo.GoString), stdgo.encoding.binary.Binary.testUvarint) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestBufferTooSmall" : stdgo.GoString), stdgo.encoding.binary.Binary.testBufferTooSmall) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestBufferTooBigWithOverflow" : stdgo.GoString), stdgo.encoding.binary.Binary.testBufferTooBigWithOverflow) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestOverflow" : stdgo.GoString), stdgo.encoding.binary.Binary.testOverflow) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestNonCanonicalZero" : stdgo.GoString), stdgo.encoding.binary.Binary.testNonCanonicalZero) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
 /**
     
     
     
 **/
-private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(
+var _benchmarks : stdgo.Slice<stdgo.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo.testing.Testing.InternalBenchmark>(
 26,
 26,
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadSlice1000Int32s" : GoString), stdgo.encoding.binary.Binary.benchmarkReadSlice1000Int32s) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadStruct" : GoString), stdgo.encoding.binary.Binary.benchmarkReadStruct) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteStruct" : GoString), stdgo.encoding.binary.Binary.benchmarkWriteStruct) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadInts" : GoString), stdgo.encoding.binary.Binary.benchmarkReadInts) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteInts" : GoString), stdgo.encoding.binary.Binary.benchmarkWriteInts) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteSlice1000Int32s" : GoString), stdgo.encoding.binary.Binary.benchmarkWriteSlice1000Int32s) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPutUint16" : GoString), stdgo.encoding.binary.Binary.benchmarkPutUint16) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAppendUint16" : GoString), stdgo.encoding.binary.Binary.benchmarkAppendUint16) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPutUint32" : GoString), stdgo.encoding.binary.Binary.benchmarkPutUint32) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAppendUint32" : GoString), stdgo.encoding.binary.Binary.benchmarkAppendUint32) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPutUint64" : GoString), stdgo.encoding.binary.Binary.benchmarkPutUint64) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAppendUint64" : GoString), stdgo.encoding.binary.Binary.benchmarkAppendUint64) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianPutUint16" : GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianPutUint16) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianAppendUint16" : GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianAppendUint16) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianPutUint32" : GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianPutUint32) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianAppendUint32" : GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianAppendUint32) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianPutUint64" : GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianPutUint64) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianAppendUint64" : GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianAppendUint64) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadFloats" : GoString), stdgo.encoding.binary.Binary.benchmarkReadFloats) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteFloats" : GoString), stdgo.encoding.binary.Binary.benchmarkWriteFloats) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadSlice1000Float32s" : GoString), stdgo.encoding.binary.Binary.benchmarkReadSlice1000Float32s) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteSlice1000Float32s" : GoString), stdgo.encoding.binary.Binary.benchmarkWriteSlice1000Float32s) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadSlice1000Uint8s" : GoString), stdgo.encoding.binary.Binary.benchmarkReadSlice1000Uint8s) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteSlice1000Uint8s" : GoString), stdgo.encoding.binary.Binary.benchmarkWriteSlice1000Uint8s) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPutUvarint32" : GoString), stdgo.encoding.binary.Binary.benchmarkPutUvarint32) : stdgo.testing.Testing.InternalBenchmark),
-(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPutUvarint64" : GoString), stdgo.encoding.binary.Binary.benchmarkPutUvarint64) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadSlice1000Int32s" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkReadSlice1000Int32s) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadStruct" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkReadStruct) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteStruct" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkWriteStruct) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadInts" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkReadInts) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteInts" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkWriteInts) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteSlice1000Int32s" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkWriteSlice1000Int32s) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPutUint16" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkPutUint16) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAppendUint16" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkAppendUint16) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPutUint32" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkPutUint32) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAppendUint32" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkAppendUint32) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPutUint64" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkPutUint64) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkAppendUint64" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkAppendUint64) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianPutUint16" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianPutUint16) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianAppendUint16" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianAppendUint16) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianPutUint32" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianPutUint32) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianAppendUint32" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianAppendUint32) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianPutUint64" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianPutUint64) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkLittleEndianAppendUint64" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkLittleEndianAppendUint64) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadFloats" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkReadFloats) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteFloats" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkWriteFloats) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadSlice1000Float32s" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkReadSlice1000Float32s) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteSlice1000Float32s" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkWriteSlice1000Float32s) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkReadSlice1000Uint8s" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkReadSlice1000Uint8s) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkWriteSlice1000Uint8s" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkWriteSlice1000Uint8s) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPutUvarint32" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkPutUvarint32) : stdgo.testing.Testing.InternalBenchmark),
+(new stdgo.testing.Testing.InternalBenchmark(("BenchmarkPutUvarint64" : stdgo.GoString), stdgo.encoding.binary.Binary.benchmarkPutUvarint64) : stdgo.testing.Testing.InternalBenchmark)) : stdgo.Slice<stdgo.testing.Testing.InternalBenchmark>);
 /**
     
     
     
 **/
-private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0, 0) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
+var _fuzzTargets : stdgo.Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo.testing.Testing.InternalFuzzTarget>(0, 0) : stdgo.Slice<stdgo.testing.Testing.InternalFuzzTarget>);
 /**
     
     
     
 **/
-private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(
+var _examples : stdgo.Slice<stdgo.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo.testing.Testing.InternalExample>(
 10,
 10,
-(new stdgo.testing.Testing.InternalExample(("ExampleWrite" : GoString), stdgo.encoding.binary_test.Binary_test.exampleWrite, ("18 2d 44 54 fb 21 09 40\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
-(new stdgo.testing.Testing.InternalExample(("ExampleWrite_multi" : GoString), stdgo.encoding.binary_test.Binary_test.exampleWrite_multi, ("beefcafe\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
-(new stdgo.testing.Testing.InternalExample(("ExampleRead" : GoString), stdgo.encoding.binary_test.Binary_test.exampleRead, ("3.141592653589793\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
-(new stdgo.testing.Testing.InternalExample(("ExampleRead_multi" : GoString), stdgo.encoding.binary_test.Binary_test.exampleRead_multi, ("3.141592653589793\n255\n01 02 03\n61374\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
-(new stdgo.testing.Testing.InternalExample(("ExampleByteOrder_put" : GoString), stdgo.encoding.binary_test.Binary_test.exampleByteOrder_put, ("e8 03 d0 07\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
-(new stdgo.testing.Testing.InternalExample(("ExampleByteOrder_get" : GoString), stdgo.encoding.binary_test.Binary_test.exampleByteOrder_get, ("0x03e8 0x07d0\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
-(new stdgo.testing.Testing.InternalExample(("ExamplePutUvarint" : GoString), stdgo.encoding.binary_test.Binary_test.examplePutUvarint, ("01\n02\n7f\n8001\nff01\n8002\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
-(new stdgo.testing.Testing.InternalExample(("ExamplePutVarint" : GoString), stdgo.encoding.binary_test.Binary_test.examplePutVarint, ("8101\n7f\n03\n01\n00\n02\n04\n7e\n8001\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
-(new stdgo.testing.Testing.InternalExample(("ExampleUvarint" : GoString), stdgo.encoding.binary_test.Binary_test.exampleUvarint, ("1\n2\n127\n128\n255\n256\n" : GoString), false) : stdgo.testing.Testing.InternalExample),
-(new stdgo.testing.Testing.InternalExample(("ExampleVarint" : GoString), stdgo.encoding.binary_test.Binary_test.exampleVarint, ("-65\n-64\n-2\n-1\n0\n1\n2\n63\n64\n" : GoString), false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
-private function main():Void {
-        var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
+(new stdgo.testing.Testing.InternalExample(("ExampleWrite" : stdgo.GoString), stdgo.encoding.binary_test.Binary_test.exampleWrite, ("18 2d 44 54 fb 21 09 40\n" : stdgo.GoString), false) : stdgo.testing.Testing.InternalExample),
+(new stdgo.testing.Testing.InternalExample(("ExampleWrite_multi" : stdgo.GoString), stdgo.encoding.binary_test.Binary_test.exampleWrite_multi, ("beefcafe\n" : stdgo.GoString), false) : stdgo.testing.Testing.InternalExample),
+(new stdgo.testing.Testing.InternalExample(("ExampleRead" : stdgo.GoString), stdgo.encoding.binary_test.Binary_test.exampleRead, ("3.141592653589793\n" : stdgo.GoString), false) : stdgo.testing.Testing.InternalExample),
+(new stdgo.testing.Testing.InternalExample(("ExampleRead_multi" : stdgo.GoString), stdgo.encoding.binary_test.Binary_test.exampleRead_multi, ("3.141592653589793\n255\n01 02 03\n61374\n" : stdgo.GoString), false) : stdgo.testing.Testing.InternalExample),
+(new stdgo.testing.Testing.InternalExample(("ExampleByteOrder_put" : stdgo.GoString), stdgo.encoding.binary_test.Binary_test.exampleByteOrder_put, ("e8 03 d0 07\n" : stdgo.GoString), false) : stdgo.testing.Testing.InternalExample),
+(new stdgo.testing.Testing.InternalExample(("ExampleByteOrder_get" : stdgo.GoString), stdgo.encoding.binary_test.Binary_test.exampleByteOrder_get, ("0x03e8 0x07d0\n" : stdgo.GoString), false) : stdgo.testing.Testing.InternalExample),
+(new stdgo.testing.Testing.InternalExample(("ExamplePutUvarint" : stdgo.GoString), stdgo.encoding.binary_test.Binary_test.examplePutUvarint, ("01\n02\n7f\n8001\nff01\n8002\n" : stdgo.GoString), false) : stdgo.testing.Testing.InternalExample),
+(new stdgo.testing.Testing.InternalExample(("ExamplePutVarint" : stdgo.GoString), stdgo.encoding.binary_test.Binary_test.examplePutVarint, ("8101\n7f\n03\n01\n00\n02\n04\n7e\n8001\n" : stdgo.GoString), false) : stdgo.testing.Testing.InternalExample),
+(new stdgo.testing.Testing.InternalExample(("ExampleUvarint" : stdgo.GoString), stdgo.encoding.binary_test.Binary_test.exampleUvarint, ("1\n2\n127\n128\n255\n256\n" : stdgo.GoString), false) : stdgo.testing.Testing.InternalExample),
+(new stdgo.testing.Testing.InternalExample(("ExampleVarint" : stdgo.GoString), stdgo.encoding.binary_test.Binary_test.exampleVarint, ("-65\n-64\n-2\n-1\n0\n1\n2\n63\n64\n" : stdgo.GoString), false) : stdgo.testing.Testing.InternalExample)) : stdgo.Slice<stdgo.testing.Testing.InternalExample>);
+function main():Void {
+        var _m = stdgo.testing.Testing.mainStart(stdgo.Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());
     }
 @:keep var _ = {
         try {
-            stdgo.testing.internal.testdeps.Testdeps.importPath = ("encoding/binary" : GoString);
+            stdgo.testing.internal.testdeps.Testdeps.importPath = ("encoding/binary" : stdgo.GoString);
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

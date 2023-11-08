@@ -1,159 +1,102 @@
 package stdgo.sync.atomic;
 class Pointer__static_extension {
-    macro static public function compareAndSwap<T>( _x:haxe.macro.Expr.ExprOf<Ref<Pointer_<T>>>, _old:haxe.macro.Expr.ExprOf<Ref<T>>, _new:haxe.macro.Expr.ExprOf<Ref<T>>):haxe.macro.Expr.ExprOf<Bool> {
-        final T:haxe.macro.Expr.ComplexType = switch {
-                final t = haxe.macro.Context.typeof(_x);
-                switch t {
-                    case TInst(_, params), TType(_, params):
-                        for (i in 0 ... params.length) {
-                        params[i] = switch params[i] {
-                            case TMono(_.get() => mono):
-                                if (mono == null) {
-                                throw "Param TMONO null: " + t;
-                            } else {
-                                mono;
-                            };
-                            default:
-                                params[i];
-                        };
-                    };
-                    default:
-                        var _ = 0;
-                };
-                haxe.macro.Context.toComplexType(t);
-            } {
-            case TPath(p):
-                switch p.params[0] {
-                case TPType(t):
-                    t;
-                default:
-                    throw "invalid param t";
-            };
-            default:
-                throw "invalid e";
-        };
+    macro static public function compareAndSwap<T>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T>>>, __generic__0:haxe.macro.Expr.ExprOf<T>, _old:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>>, _new:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>>):haxe.macro.Expr.ExprOf<Bool> {
+        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
-            return macro {
-                function f( _x:Ref<Pointer_<$T>>, _old:Ref<$T>, _new:Ref<$T>) throw "sync.atomic.compareAndSwap is not yet implemented";
-                f($_x, $_old, $_new);
+            var id = "T_" + "sync.atomic" + "_" + "compareAndSwap" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            id = StringTools.replace(id, ".", "_");
+            id = StringTools.replace(id, "<", "_");
+            id = StringTools.replace(id, ">", "_");
+            try {
+                haxe.macro.Context.getType(id);
+            } catch(_) {
+                final f = macro function f( _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>>, __generic__0:$T, _old:stdgo.StdGoTypes.Ref<$T>, _new:stdgo.StdGoTypes.Ref<$T>) {
+                    var _new = stdgo.Go.refPointer(_new);
+                    var _old = stdgo.Go.refPointer(_old);
+                    final b = stdgo.Go.toInterface(_old) == stdgo.Go.toInterface(_new);
+                    if (b) _x._v = stdgo.Go.toInterface(_new);
+                    return b;
+                };
+                switch f.expr {
+                    case EFunction(_, f):
+                        final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
+haxe.macro.Context.defineType(td);
+                    default:
+                        throw "invalid expr";
+                };
             };
+            return macro stdgo.Go.refPointer($p{[id,"f"]}($_x, $__generic__0, $_old, $_new));
         };
     }
-    macro static public function swap<T>( _x:haxe.macro.Expr.ExprOf<Ref<Pointer_<T>>>, _new:haxe.macro.Expr.ExprOf<Ref<T>>):haxe.macro.Expr.ExprOf<Ref<T>> {
-        final T:haxe.macro.Expr.ComplexType = switch {
-                final t = haxe.macro.Context.typeof(_x);
-                switch t {
-                    case TInst(_, params), TType(_, params):
-                        for (i in 0 ... params.length) {
-                        params[i] = switch params[i] {
-                            case TMono(_.get() => mono):
-                                if (mono == null) {
-                                throw "Param TMONO null: " + t;
-                            } else {
-                                mono;
-                            };
-                            default:
-                                params[i];
-                        };
-                    };
-                    default:
-                        var _ = 0;
-                };
-                haxe.macro.Context.toComplexType(t);
-            } {
-            case TPath(p):
-                switch p.params[0] {
-                case TPType(t):
-                    t;
-                default:
-                    throw "invalid param t";
-            };
-            default:
-                throw "invalid e";
-        };
+    macro static public function swap<T>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T>>>, __generic__0:haxe.macro.Expr.ExprOf<T>, _new:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>>):haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>> {
+        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
-            return macro {
-                function f( _x:Ref<Pointer_<$T>>, _new:Ref<$T>) throw "sync.atomic.swap is not yet implemented";
-                f($_x, $_new);
+            var id = "T_" + "sync.atomic" + "_" + "swap" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            id = StringTools.replace(id, ".", "_");
+            id = StringTools.replace(id, "<", "_");
+            id = StringTools.replace(id, ">", "_");
+            try {
+                haxe.macro.Context.getType(id);
+            } catch(_) {
+                final f = macro function f( _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>>, __generic__0:$T, _new:stdgo.StdGoTypes.Ref<$T>) throw "Pointer_:sync.atomic.swap is not yet implemented";
+                switch f.expr {
+                    case EFunction(_, f):
+                        final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
+haxe.macro.Context.defineType(td);
+                    default:
+                        throw "invalid expr";
+                };
             };
+            return macro stdgo.Go.refPointer($p{[id,"f"]}($_x, $__generic__0, $_new));
         };
     }
-    macro static public function store<T>( _x:haxe.macro.Expr.ExprOf<Ref<Pointer_<T>>>, _val:haxe.macro.Expr.ExprOf<Ref<T>>):haxe.macro.Expr.ExprOf<Void> {
-        final T:haxe.macro.Expr.ComplexType = switch {
-                final t = haxe.macro.Context.typeof(_x);
-                switch t {
-                    case TInst(_, params), TType(_, params):
-                        for (i in 0 ... params.length) {
-                        params[i] = switch params[i] {
-                            case TMono(_.get() => mono):
-                                if (mono == null) {
-                                throw "Param TMONO null: " + t;
-                            } else {
-                                mono;
-                            };
-                            default:
-                                params[i];
-                        };
-                    };
-                    default:
-                        var _ = 0;
-                };
-                haxe.macro.Context.toComplexType(t);
-            } {
-            case TPath(p):
-                switch p.params[0] {
-                case TPType(t):
-                    t;
-                default:
-                    throw "invalid param t";
-            };
-            default:
-                throw "invalid e";
-        };
+    macro static public function store<T>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T>>>, __generic__0:haxe.macro.Expr.ExprOf<T>, _val:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>>):haxe.macro.Expr.ExprOf<Void> {
+        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
-            return macro {
-                function f( _x:Ref<Pointer_<$T>>, _val:Ref<$T>) throw "sync.atomic.store is not yet implemented";
-                f($_x, $_val);
+            var id = "T_" + "sync.atomic" + "_" + "store" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            id = StringTools.replace(id, ".", "_");
+            id = StringTools.replace(id, "<", "_");
+            id = StringTools.replace(id, ">", "_");
+            try {
+                haxe.macro.Context.getType(id);
+            } catch(_) {
+                final f = macro function f( _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>>, __generic__0:$T, _val:stdgo.StdGoTypes.Ref<$T>) {
+                    var _val = stdgo.Go.refPointer(_val);
+                    _x._v = stdgo.Go.toInterface(_val);
+                };
+                switch f.expr {
+                    case EFunction(_, f):
+                        final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
+haxe.macro.Context.defineType(td);
+                    default:
+                        throw "invalid expr";
+                };
             };
+            return macro stdgo.Go.refPointer($p{[id,"f"]}($_x, $__generic__0, $_val));
         };
     }
-    macro static public function load<T>( _x:haxe.macro.Expr.ExprOf<Ref<Pointer_<T>>>):haxe.macro.Expr.ExprOf<Ref<T>> {
-        final T:haxe.macro.Expr.ComplexType = switch {
-                final t = haxe.macro.Context.typeof(_x);
-                switch t {
-                    case TInst(_, params), TType(_, params):
-                        for (i in 0 ... params.length) {
-                        params[i] = switch params[i] {
-                            case TMono(_.get() => mono):
-                                if (mono == null) {
-                                throw "Param TMONO null: " + t;
-                            } else {
-                                mono;
-                            };
-                            default:
-                                params[i];
-                        };
-                    };
-                    default:
-                        var _ = 0;
-                };
-                haxe.macro.Context.toComplexType(t);
-            } {
-            case TPath(p):
-                switch p.params[0] {
-                case TPType(t):
-                    t;
-                default:
-                    throw "invalid param t";
-            };
-            default:
-                throw "invalid e";
-        };
+    macro static public function load<T>( _x:haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<Pointer_<T>>>, __generic__0:haxe.macro.Expr.ExprOf<T>):haxe.macro.Expr.ExprOf<stdgo.StdGoTypes.Ref<T>> {
+        final T:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(__generic__0));
         {
-            return macro {
-                function f( _x:Ref<Pointer_<$T>>) throw "sync.atomic.load is not yet implemented";
-                f($_x);
+            var id = "T_" + "sync.atomic" + "_" + "load" + "_" + "T_" + haxe.macro.ComplexTypeTools.toString(T) + "_";
+            id = StringTools.replace(id, ".", "_");
+            id = StringTools.replace(id, "<", "_");
+            id = StringTools.replace(id, ">", "_");
+            try {
+                haxe.macro.Context.getType(id);
+            } catch(_) {
+                final f = macro function f( _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>>, __generic__0:$T) {
+                    return @:privateAccess _x._v.__toRef__();
+                };
+                switch f.expr {
+                    case EFunction(_, f):
+                        final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
+haxe.macro.Context.defineType(td);
+                    default:
+                        throw "invalid expr";
+                };
             };
+            return macro stdgo.Go.refPointer($p{[id,"f"]}($_x, $__generic__0));
         };
     }
 }

@@ -1,218 +1,209 @@
 package stdgo.path_test;
 import stdgo.path.Path;
 import stdgo.path.Path;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 import stdgo.path.Path;
 /**
     
     
     
 **/
-private var _matchTests = (new Slice<stdgo.path_test.Path_test.MatchTest>(
+var _matchTests : stdgo.Slice<stdgo.path_test.Path_test.MatchTest> = (new stdgo.Slice<stdgo.path_test.Path_test.MatchTest>(
 56,
 56,
-(new stdgo.path_test.Path_test.MatchTest(("abc" : GoString), ("abc" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("*" : GoString), ("abc" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("*c" : GoString), ("abc" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*" : GoString), ("a" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*" : GoString), ("abc" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*" : GoString), ("ab/c" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*/b" : GoString), ("abc/b" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*/b" : GoString), ("a/c/b" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*b*c*d*e*/f" : GoString), ("axbxcxdxe/f" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*b*c*d*e*/f" : GoString), ("axbxcxdxexxx/f" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*b*c*d*e*/f" : GoString), ("axbxcxdxe/xxx/f" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*b*c*d*e*/f" : GoString), ("axbxcxdxexxx/fff" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*b?c*x" : GoString), ("abxbbxdbxebxczzx" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*b?c*x" : GoString), ("abxbbxdbxebxczzy" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("ab[c]" : GoString), ("abc" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("ab[b-d]" : GoString), ("abc" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("ab[e-g]" : GoString), ("abc" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("ab[^c]" : GoString), ("abc" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("ab[^b-d]" : GoString), ("abc" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("ab[^e-g]" : GoString), ("abc" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a\\*b" : GoString), ("a*b" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a\\*b" : GoString), ("ab" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a?b" : GoString), ("a☺b" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a[^a]b" : GoString), ("a☺b" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a???b" : GoString), ("a☺b" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a[^a][^a][^a]b" : GoString), ("a☺b" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[a-ζ]*" : GoString), ("α" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("*[a-ζ]" : GoString), ("A" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a?b" : GoString), ("a/b" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a*b" : GoString), ("a/b" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[\\]a]" : GoString), ("]" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[\\-]" : GoString), ("-" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[x\\-]" : GoString), ("x" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[x\\-]" : GoString), ("-" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[x\\-]" : GoString), ("z" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[\\-x]" : GoString), ("x" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[\\-x]" : GoString), ("-" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[\\-x]" : GoString), ("a" : GoString), false, (null : Error)) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[]a]" : GoString), ("]" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[-]" : GoString), ("-" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[x-]" : GoString), ("x" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[x-]" : GoString), ("-" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[x-]" : GoString), ("z" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[-x]" : GoString), ("x" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[-x]" : GoString), ("-" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[-x]" : GoString), ("a" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("\\" : GoString), ("a" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[a-b-c]" : GoString), ("a" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[" : GoString), ("a" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[^" : GoString), ("a" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("[^bc" : GoString), ("a" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a[" : GoString), ("a" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a[" : GoString), ("ab" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a[" : GoString), ("x" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("a/b[" : GoString), ("x" : GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
-(new stdgo.path_test.Path_test.MatchTest(("*x" : GoString), ("xxx" : GoString), true, (null : Error)) : stdgo.path_test.Path_test.MatchTest)) : Slice<stdgo.path_test.Path_test.MatchTest>);
+(new stdgo.path_test.Path_test.MatchTest(("abc" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("*" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("*c" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*" : stdgo.GoString), ("a" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*" : stdgo.GoString), ("ab/c" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*/b" : stdgo.GoString), ("abc/b" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*/b" : stdgo.GoString), ("a/c/b" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString), ("axbxcxdxe/f" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString), ("axbxcxdxexxx/f" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString), ("axbxcxdxe/xxx/f" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString), ("axbxcxdxexxx/fff" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*b?c*x" : stdgo.GoString), ("abxbbxdbxebxczzx" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*b?c*x" : stdgo.GoString), ("abxbbxdbxebxczzy" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("ab[c]" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("ab[b-d]" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("ab[e-g]" : stdgo.GoString), ("abc" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("ab[^c]" : stdgo.GoString), ("abc" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("ab[^b-d]" : stdgo.GoString), ("abc" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("ab[^e-g]" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a\\*b" : stdgo.GoString), ("a*b" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a\\*b" : stdgo.GoString), ("ab" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a?b" : stdgo.GoString), ("a☺b" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a[^a]b" : stdgo.GoString), ("a☺b" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a???b" : stdgo.GoString), ("a☺b" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a[^a][^a][^a]b" : stdgo.GoString), ("a☺b" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[a-ζ]*" : stdgo.GoString), ("α" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("*[a-ζ]" : stdgo.GoString), ("A" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a?b" : stdgo.GoString), ("a/b" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a*b" : stdgo.GoString), ("a/b" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[\\]a]" : stdgo.GoString), ("]" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[\\-]" : stdgo.GoString), ("-" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[x\\-]" : stdgo.GoString), ("x" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[x\\-]" : stdgo.GoString), ("-" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[x\\-]" : stdgo.GoString), ("z" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[\\-x]" : stdgo.GoString), ("x" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[\\-x]" : stdgo.GoString), ("-" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[\\-x]" : stdgo.GoString), ("a" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[]a]" : stdgo.GoString), ("]" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[-]" : stdgo.GoString), ("-" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[x-]" : stdgo.GoString), ("x" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[x-]" : stdgo.GoString), ("-" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[x-]" : stdgo.GoString), ("z" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[-x]" : stdgo.GoString), ("x" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[-x]" : stdgo.GoString), ("-" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[-x]" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("\\" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[a-b-c]" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[^" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("[^bc" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a[" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a[" : stdgo.GoString), ("ab" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a[" : stdgo.GoString), ("x" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("a/b[" : stdgo.GoString), ("x" : stdgo.GoString), false, errBadPattern) : stdgo.path_test.Path_test.MatchTest),
+(new stdgo.path_test.Path_test.MatchTest(("*x" : stdgo.GoString), ("xxx" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest)) : stdgo.Slice<stdgo.path_test.Path_test.MatchTest>);
 /**
     
     
     
 **/
-private var _cleantests = (new Slice<stdgo.path_test.Path_test.PathTest>(
+var _cleantests : stdgo.Slice<stdgo.path_test.Path_test.PathTest> = (new stdgo.Slice<stdgo.path_test.Path_test.PathTest>(
 36,
 36,
-(new stdgo.path_test.Path_test.PathTest(Go.str(), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc" : GoString), ("abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/def" : GoString), ("abc/def" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("a/b/c" : GoString), ("a/b/c" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("." : GoString), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest((".." : GoString), (".." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("../.." : GoString), ("../.." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("../../abc" : GoString), ("../../abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("/abc" : GoString), ("/abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("/" : GoString), ("/" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/" : GoString), ("abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/def/" : GoString), ("abc/def" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("a/b/c/" : GoString), ("a/b/c" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("./" : GoString), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("../" : GoString), (".." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("../../" : GoString), ("../.." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("/abc/" : GoString), ("/abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc//def//ghi" : GoString), ("abc/def/ghi" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("//abc" : GoString), ("/abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("///abc" : GoString), ("/abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("//abc//" : GoString), ("/abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc//" : GoString), ("abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/./def" : GoString), ("abc/def" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("/./abc/def" : GoString), ("/abc/def" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/." : GoString), ("abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/def/ghi/../jkl" : GoString), ("abc/def/jkl" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/def/../ghi/../jkl" : GoString), ("abc/jkl" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/def/.." : GoString), ("abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/def/../.." : GoString), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("/abc/def/../.." : GoString), ("/" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/def/../../.." : GoString), (".." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("/abc/def/../../.." : GoString), ("/" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/def/../../../ghi/jkl/../../../mno" : GoString), ("../../mno" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/./../def" : GoString), ("def" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc//./../def" : GoString), ("def" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/../../././../def" : GoString), ("../../def" : GoString)) : stdgo.path_test.Path_test.PathTest)) : Slice<stdgo.path_test.Path_test.PathTest>);
+(new stdgo.path_test.Path_test.PathTest(stdgo.Go.str(), ("." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc" : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/def" : stdgo.GoString), ("abc/def" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("a/b/c" : stdgo.GoString), ("a/b/c" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest((".." : stdgo.GoString), (".." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("../.." : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("../../abc" : stdgo.GoString), ("../../abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("/abc" : stdgo.GoString), ("/abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("/" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/" : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/def/" : stdgo.GoString), ("abc/def" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("a/b/c/" : stdgo.GoString), ("a/b/c" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("./" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("../" : stdgo.GoString), (".." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("../../" : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("/abc/" : stdgo.GoString), ("/abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc//def//ghi" : stdgo.GoString), ("abc/def/ghi" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("//abc" : stdgo.GoString), ("/abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("///abc" : stdgo.GoString), ("/abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("//abc//" : stdgo.GoString), ("/abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc//" : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/./def" : stdgo.GoString), ("abc/def" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("/./abc/def" : stdgo.GoString), ("/abc/def" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/." : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/def/ghi/../jkl" : stdgo.GoString), ("abc/def/jkl" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/def/../ghi/../jkl" : stdgo.GoString), ("abc/jkl" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/def/.." : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/def/../.." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("/abc/def/../.." : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/def/../../.." : stdgo.GoString), (".." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("/abc/def/../../.." : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/def/../../../ghi/jkl/../../../mno" : stdgo.GoString), ("../../mno" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/./../def" : stdgo.GoString), ("def" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc//./../def" : stdgo.GoString), ("def" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/../../././../def" : stdgo.GoString), ("../../def" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest)) : stdgo.Slice<stdgo.path_test.Path_test.PathTest>);
 /**
     
     
     
 **/
-private var _splittests = (new Slice<stdgo.path_test.Path_test.SplitTest>(5, 5, (new stdgo.path_test.Path_test.SplitTest(("a/b" : GoString), ("a/" : GoString), ("b" : GoString)) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a/b/" : GoString), ("a/b/" : GoString), Go.str()) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a/" : GoString), ("a/" : GoString), Go.str()) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a" : GoString), Go.str(), ("a" : GoString)) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("/" : GoString), ("/" : GoString), Go.str()) : stdgo.path_test.Path_test.SplitTest)) : Slice<stdgo.path_test.Path_test.SplitTest>);
+var _splittests : stdgo.Slice<stdgo.path_test.Path_test.SplitTest> = (new stdgo.Slice<stdgo.path_test.Path_test.SplitTest>(5, 5, (new stdgo.path_test.Path_test.SplitTest(("a/b" : stdgo.GoString), ("a/" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a/b/" : stdgo.GoString), ("a/b/" : stdgo.GoString), stdgo.Go.str()) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a/" : stdgo.GoString), ("a/" : stdgo.GoString), stdgo.Go.str()) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("a" : stdgo.GoString), stdgo.Go.str(), ("a" : stdgo.GoString)) : stdgo.path_test.Path_test.SplitTest), (new stdgo.path_test.Path_test.SplitTest(("/" : stdgo.GoString), ("/" : stdgo.GoString), stdgo.Go.str()) : stdgo.path_test.Path_test.SplitTest)) : stdgo.Slice<stdgo.path_test.Path_test.SplitTest>);
 /**
     
     
     
 **/
-private var _jointests = (new Slice<stdgo.path_test.Path_test.JoinTest>(
+var _jointests : stdgo.Slice<stdgo.path_test.Path_test.JoinTest> = (new stdgo.Slice<stdgo.path_test.Path_test.JoinTest>(
 11,
 11,
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0) : Slice<GoString>), Go.str()) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(1, 1, Go.str()) : Slice<GoString>), Go.str()) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(1, 1, ("a" : GoString)) : Slice<GoString>), ("a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("a" : GoString), ("b" : GoString)) : Slice<GoString>), ("a/b" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("a" : GoString), Go.str()) : Slice<GoString>), ("a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, Go.str(), ("b" : GoString)) : Slice<GoString>), ("b" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("/" : GoString), ("a" : GoString)) : Slice<GoString>), ("/a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("/" : GoString), Go.str()) : Slice<GoString>), ("/" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("a/" : GoString), ("b" : GoString)) : Slice<GoString>), ("a/b" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, ("a/" : GoString), Go.str()) : Slice<GoString>), ("a" : GoString)) : stdgo.path_test.Path_test.JoinTest),
-(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(2, 2, Go.str(), Go.str()) : Slice<GoString>), Go.str()) : stdgo.path_test.Path_test.JoinTest)) : Slice<stdgo.path_test.Path_test.JoinTest>);
+(new stdgo.path_test.Path_test.JoinTest((new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>), stdgo.Go.str()) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), stdgo.Go.str()) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("a" : stdgo.GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("a/b" : stdgo.GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), ("a" : stdgo.GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, stdgo.Go.str(), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("b" : stdgo.GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/" : stdgo.GoString), ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("/a" : stdgo.GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/" : stdgo.GoString), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), ("/" : stdgo.GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a/" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("a/b" : stdgo.GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a/" : stdgo.GoString), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), ("a" : stdgo.GoString)) : stdgo.path_test.Path_test.JoinTest),
+(new stdgo.path_test.Path_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, stdgo.Go.str(), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), stdgo.Go.str()) : stdgo.path_test.Path_test.JoinTest)) : stdgo.Slice<stdgo.path_test.Path_test.JoinTest>);
 /**
     
     
     
 **/
-private var _exttests = (new Slice<stdgo.path_test.Path_test.ExtTest>(5, 5, (new stdgo.path_test.Path_test.ExtTest(("path.go" : GoString), (".go" : GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("path.pb.go" : GoString), (".go" : GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/b" : GoString), Go.str()) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/b.go" : GoString), (".go" : GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/" : GoString), Go.str()) : stdgo.path_test.Path_test.ExtTest)) : Slice<stdgo.path_test.Path_test.ExtTest>);
+var _exttests : stdgo.Slice<stdgo.path_test.Path_test.ExtTest> = (new stdgo.Slice<stdgo.path_test.Path_test.ExtTest>(5, 5, (new stdgo.path_test.Path_test.ExtTest(("path.go" : stdgo.GoString), (".go" : stdgo.GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("path.pb.go" : stdgo.GoString), (".go" : stdgo.GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/b" : stdgo.GoString), stdgo.Go.str()) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/b.go" : stdgo.GoString), (".go" : stdgo.GoString)) : stdgo.path_test.Path_test.ExtTest), (new stdgo.path_test.Path_test.ExtTest(("a.dir/" : stdgo.GoString), stdgo.Go.str()) : stdgo.path_test.Path_test.ExtTest)) : stdgo.Slice<stdgo.path_test.Path_test.ExtTest>);
 /**
     
     
     
 **/
-private var _basetests = (new Slice<stdgo.path_test.Path_test.PathTest>(
+var _basetests : stdgo.Slice<stdgo.path_test.Path_test.PathTest> = (new stdgo.Slice<stdgo.path_test.Path_test.PathTest>(
 11,
 11,
-(new stdgo.path_test.Path_test.PathTest(Go.str(), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("." : GoString), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("/." : GoString), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("/" : GoString), ("/" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("////" : GoString), ("/" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("x/" : GoString), ("x" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc" : GoString), ("abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/def" : GoString), ("def" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("a/b/.x" : GoString), (".x" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("a/b/c." : GoString), ("c." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("a/b/c.x" : GoString), ("c.x" : GoString)) : stdgo.path_test.Path_test.PathTest)) : Slice<stdgo.path_test.Path_test.PathTest>);
+(new stdgo.path_test.Path_test.PathTest(stdgo.Go.str(), ("." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("/." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("/" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("////" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("x/" : stdgo.GoString), ("x" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc" : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/def" : stdgo.GoString), ("def" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("a/b/.x" : stdgo.GoString), (".x" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("a/b/c." : stdgo.GoString), ("c." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("a/b/c.x" : stdgo.GoString), ("c.x" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest)) : stdgo.Slice<stdgo.path_test.Path_test.PathTest>);
 /**
     
     
     
 **/
-private var _dirtests = (new Slice<stdgo.path_test.Path_test.PathTest>(
+var _dirtests : stdgo.Slice<stdgo.path_test.Path_test.PathTest> = (new stdgo.Slice<stdgo.path_test.Path_test.PathTest>(
 13,
 13,
-(new stdgo.path_test.Path_test.PathTest(Go.str(), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("." : GoString), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("/." : GoString), ("/" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("/" : GoString), ("/" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("////" : GoString), ("/" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("/foo" : GoString), ("/" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("x/" : GoString), ("x" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc" : GoString), ("." : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc/def" : GoString), ("abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("abc////def" : GoString), ("abc" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("a/b/.x" : GoString), ("a/b" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("a/b/c." : GoString), ("a/b" : GoString)) : stdgo.path_test.Path_test.PathTest),
-(new stdgo.path_test.Path_test.PathTest(("a/b/c.x" : GoString), ("a/b" : GoString)) : stdgo.path_test.Path_test.PathTest)) : Slice<stdgo.path_test.Path_test.PathTest>);
+(new stdgo.path_test.Path_test.PathTest(stdgo.Go.str(), ("." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("/." : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("/" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("////" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("/foo" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("x/" : stdgo.GoString), ("x" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc/def" : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("abc////def" : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("a/b/.x" : stdgo.GoString), ("a/b" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("a/b/c." : stdgo.GoString), ("a/b" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest),
+(new stdgo.path_test.Path_test.PathTest(("a/b/c.x" : stdgo.GoString), ("a/b" : stdgo.GoString)) : stdgo.path_test.Path_test.PathTest)) : stdgo.Slice<stdgo.path_test.Path_test.PathTest>);
 /**
     
     
     
 **/
-private var _isAbsTests = (new Slice<stdgo.path_test.Path_test.IsAbsTest>(8, 8, (new stdgo.path_test.Path_test.IsAbsTest(Go.str(), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/" : GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/usr/bin/gcc" : GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest((".." : GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/a/../bb" : GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("." : GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("./" : GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("lala" : GoString), false) : stdgo.path_test.Path_test.IsAbsTest)) : Slice<stdgo.path_test.Path_test.IsAbsTest>);
+var _isAbsTests : stdgo.Slice<stdgo.path_test.Path_test.IsAbsTest> = (new stdgo.Slice<stdgo.path_test.Path_test.IsAbsTest>(8, 8, (new stdgo.path_test.Path_test.IsAbsTest(stdgo.Go.str(), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/" : stdgo.GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/usr/bin/gcc" : stdgo.GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest((".." : stdgo.GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("/a/../bb" : stdgo.GoString), true) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("." : stdgo.GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("./" : stdgo.GoString), false) : stdgo.path_test.Path_test.IsAbsTest), (new stdgo.path_test.Path_test.IsAbsTest(("lala" : stdgo.GoString), false) : stdgo.path_test.Path_test.IsAbsTest)) : stdgo.Slice<stdgo.path_test.Path_test.IsAbsTest>);
 /**
     
     
     
 **/
 @:structInit class MatchTest {
-    public var _pattern : GoString = "";
-    public var _s : GoString = "";
+    public var _pattern : stdgo.GoString = "";
+    public var _s : stdgo.GoString = "";
     public var _match : Bool = false;
-    public var _err : Error = (null : Error);
-    public function new(?_pattern:GoString, ?_s:GoString, ?_match:Bool, ?_err:Error) {
+    public var _err : stdgo.Error = (null : stdgo.Error);
+    public function new(?_pattern:stdgo.GoString, ?_s:stdgo.GoString, ?_match:Bool, ?_err:stdgo.Error) {
         if (_pattern != null) this._pattern = _pattern;
         if (_s != null) this._s = _s;
         if (_match != null) this._match = _match;
         if (_err != null) this._err = _err;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new MatchTest(_pattern, _s, _match, _err);
     }
@@ -223,13 +214,13 @@ private var _isAbsTests = (new Slice<stdgo.path_test.Path_test.IsAbsTest>(8, 8, 
     
 **/
 @:structInit class PathTest {
-    public var _path : GoString = "";
-    public var _result : GoString = "";
-    public function new(?_path:GoString, ?_result:GoString) {
+    public var _path : stdgo.GoString = "";
+    public var _result : stdgo.GoString = "";
+    public function new(?_path:stdgo.GoString, ?_result:stdgo.GoString) {
         if (_path != null) this._path = _path;
         if (_result != null) this._result = _result;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new PathTest(_path, _result);
     }
@@ -240,15 +231,15 @@ private var _isAbsTests = (new Slice<stdgo.path_test.Path_test.IsAbsTest>(8, 8, 
     
 **/
 @:structInit class SplitTest {
-    public var _path : GoString = "";
-    public var _dir : GoString = "";
-    public var _file : GoString = "";
-    public function new(?_path:GoString, ?_dir:GoString, ?_file:GoString) {
+    public var _path : stdgo.GoString = "";
+    public var _dir : stdgo.GoString = "";
+    public var _file : stdgo.GoString = "";
+    public function new(?_path:stdgo.GoString, ?_dir:stdgo.GoString, ?_file:stdgo.GoString) {
         if (_path != null) this._path = _path;
         if (_dir != null) this._dir = _dir;
         if (_file != null) this._file = _file;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new SplitTest(_path, _dir, _file);
     }
@@ -259,13 +250,13 @@ private var _isAbsTests = (new Slice<stdgo.path_test.Path_test.IsAbsTest>(8, 8, 
     
 **/
 @:structInit class JoinTest {
-    public var _elem : Slice<GoString> = (null : Slice<GoString>);
-    public var _path : GoString = "";
-    public function new(?_elem:Slice<GoString>, ?_path:GoString) {
+    public var _elem : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+    public var _path : stdgo.GoString = "";
+    public function new(?_elem:stdgo.Slice<stdgo.GoString>, ?_path:stdgo.GoString) {
         if (_elem != null) this._elem = _elem;
         if (_path != null) this._path = _path;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new JoinTest(_elem, _path);
     }
@@ -276,13 +267,13 @@ private var _isAbsTests = (new Slice<stdgo.path_test.Path_test.IsAbsTest>(8, 8, 
     
 **/
 @:structInit class ExtTest {
-    public var _path : GoString = "";
-    public var _ext : GoString = "";
-    public function new(?_path:GoString, ?_ext:GoString) {
+    public var _path : stdgo.GoString = "";
+    public var _ext : stdgo.GoString = "";
+    public function new(?_path:stdgo.GoString, ?_ext:stdgo.GoString) {
         if (_path != null) this._path = _path;
         if (_ext != null) this._ext = _ext;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new ExtTest(_path, _ext);
     }
@@ -293,173 +284,173 @@ private var _isAbsTests = (new Slice<stdgo.path_test.Path_test.IsAbsTest>(8, 8, 
     
 **/
 @:structInit class IsAbsTest {
-    public var _path : GoString = "";
+    public var _path : stdgo.GoString = "";
     public var _isAbs : Bool = false;
-    public function new(?_path:GoString, ?_isAbs:Bool) {
+    public function new(?_path:stdgo.GoString, ?_isAbs:Bool) {
         if (_path != null) this._path = _path;
         if (_isAbs != null) this._isAbs = _isAbs;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new IsAbsTest(_path, _isAbs);
     }
 }
 function exampleBase():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(("/a/b" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(("/" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.base(("/a/b" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.base(("/" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.base(stdgo.Go.str())));
     }
 function exampleClean():Void {
-        var _paths = (new Slice<GoString>(7, 7, ("a/c" : GoString), ("a//c" : GoString), ("a/c/." : GoString), ("a/c/b/.." : GoString), ("/../a/c" : GoString), ("/../a/b/../././/c" : GoString), Go.str()) : Slice<GoString>);
+        var _paths = (new stdgo.Slice<stdgo.GoString>(7, 7, ("a/c" : stdgo.GoString), ("a//c" : stdgo.GoString), ("a/c/." : stdgo.GoString), ("a/c/b/.." : stdgo.GoString), ("/../a/c" : stdgo.GoString), ("/../a/b/../././/c" : stdgo.GoString), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>);
         for (__0 => _p in _paths) {
-            stdgo.fmt.Fmt.printf(("Clean(%q) = %q\n" : GoString), Go.toInterface(_p), Go.toInterface(stdgo.path.Path.clean(_p)));
+            stdgo.fmt.Fmt.printf(("Clean(%q) = %q\n" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(stdgo.path.Path.clean(_p)));
         };
     }
 function exampleDir():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(("/a/b/c" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(("a/b/c" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(("/a/" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(("a/" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(("/" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.dir(("/a/b/c" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.dir(("a/b/c" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.dir(("/a/" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.dir(("a/" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.dir(("/" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.dir(stdgo.Go.str())));
     }
 function exampleExt():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(("/a/b/c/bar.css" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(("/" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.ext(("/a/b/c/bar.css" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.ext(("/" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.ext(stdgo.Go.str())));
     }
 function exampleIsAbs():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.isAbs(("/dev/null" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.isAbs(("/dev/null" : stdgo.GoString))));
     }
 function exampleJoin():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(("a" : GoString), ("b" : GoString), ("c" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(("a" : GoString), ("b/c" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(("a/b" : GoString), ("c" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(("a/b" : GoString), ("../../../xyz" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str(), Go.str())));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(("a" : GoString), Go.str())));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str(), ("a" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.join(("a" : stdgo.GoString), ("b" : stdgo.GoString), ("c" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.join(("a" : stdgo.GoString), ("b/c" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.join(("a/b" : stdgo.GoString), ("c" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.join(("a/b" : stdgo.GoString), ("../../../xyz" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.join(stdgo.Go.str(), stdgo.Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.join(("a" : stdgo.GoString), stdgo.Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.join(stdgo.Go.str(), ("a" : stdgo.GoString))));
     }
 function exampleMatch():Void {
         {
-            var __tmp__ = stdgo.path.Path.match(("abc" : GoString), ("abc" : GoString));
-            stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
+            var __tmp__ = stdgo.path.Path.match(("abc" : stdgo.GoString), ("abc" : stdgo.GoString));
+            stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
         };
         {
-            var __tmp__ = stdgo.path.Path.match(("a*" : GoString), ("abc" : GoString));
-            stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
+            var __tmp__ = stdgo.path.Path.match(("a*" : stdgo.GoString), ("abc" : stdgo.GoString));
+            stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
         };
         {
-            var __tmp__ = stdgo.path.Path.match(("a*/b" : GoString), ("a/c/b" : GoString));
-            stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
+            var __tmp__ = stdgo.path.Path.match(("a*/b" : stdgo.GoString), ("a/c/b" : stdgo.GoString));
+            stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
         };
     }
 function exampleSplit():Void {
-        var _split:GoString -> Void = function(_s:GoString):Void {
-            var __tmp__ = stdgo.path.Path.split(_s), _dir:GoString = __tmp__._0, _file:GoString = __tmp__._1;
-            stdgo.fmt.Fmt.printf(("path.Split(%q) = dir: %q, file: %q\n" : GoString), Go.toInterface(_s), Go.toInterface(_dir), Go.toInterface(_file));
+        var _split:stdgo.GoString -> Void = function(_s:stdgo.GoString):Void {
+            var __tmp__ = stdgo.path.Path.split(_s), _dir:stdgo.GoString = __tmp__._0, _file:stdgo.GoString = __tmp__._1;
+            stdgo.fmt.Fmt.printf(("path.Split(%q) = dir: %q, file: %q\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_dir), stdgo.Go.toInterface(_file));
         };
-        _split(("static/myfile.css" : GoString));
-        _split(("myfile.css" : GoString));
-        _split(Go.str());
+        _split(("static/myfile.css" : stdgo.GoString));
+        _split(("myfile.css" : stdgo.GoString));
+        _split(stdgo.Go.str());
     }
-function testMatch(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testMatch(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tt in _matchTests) {
-            var __tmp__ = match(_tt._pattern, _tt._s), _ok:Bool = __tmp__._0, _err:Error = __tmp__._1;
-            if ((_ok != _tt._match) || (Go.toInterface(_err) != Go.toInterface(_tt._err))) {
-                _t.errorf(("Match(%#q, %#q) = %v, %v want %v, %v" : GoString), Go.toInterface(_tt._pattern), Go.toInterface(_tt._s), Go.toInterface(_ok), Go.toInterface(_err), Go.toInterface(_tt._match), Go.toInterface(_tt._err));
+            var __tmp__ = match(_tt._pattern, _tt._s), _ok:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            if ((_ok != _tt._match) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(_tt._err))) {
+                _t.errorf(("Match(%#q, %#q) = %v, %v want %v, %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._pattern), stdgo.Go.toInterface(_tt._s), stdgo.Go.toInterface(_ok), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._match), stdgo.Go.toInterface(_tt._err));
             };
         };
     }
-function testClean(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testClean(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in _cleantests) {
             {
-                var _s:GoString = clean(_test._path);
+                var _s:stdgo.GoString = clean(_test._path);
                 if (_s != (_test._result)) {
-                    _t.errorf(("Clean(%q) = %q, want %q" : GoString), Go.toInterface(_test._path), Go.toInterface(_s), Go.toInterface(_test._result));
+                    _t.errorf(("Clean(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
             };
             {
-                var _s:GoString = clean(_test._result);
+                var _s:stdgo.GoString = clean(_test._result);
                 if (_s != (_test._result)) {
-                    _t.errorf(("Clean(%q) = %q, want %q" : GoString), Go.toInterface(_test._result), Go.toInterface(_s), Go.toInterface(_test._result));
+                    _t.errorf(("Clean(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
             };
         };
     }
-function testCleanMallocs(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testCleanMallocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         if (stdgo.testing.Testing.short()) {
-            _t.skip(Go.toInterface(("skipping malloc count in short mode" : GoString)));
+            _t.skip(stdgo.Go.toInterface(("skipping malloc count in short mode" : stdgo.GoString)));
         };
-        if (stdgo.runtime.Runtime.gomaxprocs((0 : GoInt)) > (1 : GoInt)) {
-            _t.log(Go.toInterface(("skipping AllocsPerRun checks; GOMAXPROCS>1" : GoString)));
+        if (stdgo.runtime.Runtime.gomaxprocs((0 : stdgo.StdGoTypes.GoInt)) > (1 : stdgo.StdGoTypes.GoInt)) {
+            _t.log(stdgo.Go.toInterface(("skipping AllocsPerRun checks; GOMAXPROCS>1" : stdgo.GoString)));
             return;
         };
         for (__0 => _test in _cleantests) {
-            var _allocs:GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : GoInt), function():Void {
+            var _allocs:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : stdgo.StdGoTypes.GoInt), function():Void {
                 clean(_test._result);
             });
-            if (_allocs > (0 : GoFloat64)) {
-                _t.errorf(("Clean(%q): %v allocs, want zero" : GoString), Go.toInterface(_test._result), Go.toInterface(_allocs));
+            if (_allocs > (0 : stdgo.StdGoTypes.GoFloat64)) {
+                _t.errorf(("Clean(%q): %v allocs, want zero" : stdgo.GoString), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_allocs));
             };
         };
     }
-function testSplit(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testSplit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in _splittests) {
             {
-                var __tmp__ = split(_test._path), _d:GoString = __tmp__._0, _f:GoString = __tmp__._1;
+                var __tmp__ = split(_test._path), _d:stdgo.GoString = __tmp__._0, _f:stdgo.GoString = __tmp__._1;
                 if ((_d != _test._dir) || (_f != _test._file)) {
-                    _t.errorf(("Split(%q) = %q, %q, want %q, %q" : GoString), Go.toInterface(_test._path), Go.toInterface(_d), Go.toInterface(_f), Go.toInterface(_test._dir), Go.toInterface(_test._file));
+                    _t.errorf(("Split(%q) = %q, %q, want %q, %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_test._dir), stdgo.Go.toInterface(_test._file));
                 };
             };
         };
     }
-function testJoin(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testJoin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in _jointests) {
             {
-                var _p:GoString = join(..._test._elem.__toArray__());
+                var _p:stdgo.GoString = join(..._test._elem.__toArray__());
                 if (_p != (_test._path)) {
-                    _t.errorf(("Join(%q) = %q, want %q" : GoString), Go.toInterface(_test._elem), Go.toInterface(_p), Go.toInterface(_test._path));
+                    _t.errorf(("Join(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._elem), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_test._path));
                 };
             };
         };
     }
-function testExt(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testExt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in _exttests) {
             {
-                var _x:GoString = ext(_test._path);
+                var _x:stdgo.GoString = ext(_test._path);
                 if (_x != (_test._ext)) {
-                    _t.errorf(("Ext(%q) = %q, want %q" : GoString), Go.toInterface(_test._path), Go.toInterface(_x), Go.toInterface(_test._ext));
+                    _t.errorf(("Ext(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_test._ext));
                 };
             };
         };
     }
-function testBase(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testBase(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in _basetests) {
             {
-                var _s:GoString = base(_test._path);
+                var _s:stdgo.GoString = base(_test._path);
                 if (_s != (_test._result)) {
-                    _t.errorf(("Base(%q) = %q, want %q" : GoString), Go.toInterface(_test._path), Go.toInterface(_s), Go.toInterface(_test._result));
+                    _t.errorf(("Base(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
             };
         };
     }
-function testDir(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testDir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in _dirtests) {
             {
-                var _s:GoString = dir(_test._path);
+                var _s:stdgo.GoString = dir(_test._path);
                 if (_s != (_test._result)) {
-                    _t.errorf(("Dir(%q) = %q, want %q" : GoString), Go.toInterface(_test._path), Go.toInterface(_s), Go.toInterface(_test._result));
+                    _t.errorf(("Dir(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
             };
         };
     }
-function testIsAbs(_t:Ref<stdgo.testing.Testing.T>):Void {
+function testIsAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in _isAbsTests) {
             {
                 var _r:Bool = isAbs(_test._path);
                 if (_r != (_test._isAbs)) {
-                    _t.errorf(("IsAbs(%q) = %v, want %v" : GoString), Go.toInterface(_test._path), Go.toInterface(_r), Go.toInterface(_test._isAbs));
+                    _t.errorf(("IsAbs(%q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_test._isAbs));
                 };
             };
         };

@@ -1,45 +1,36 @@
 package stdgo.internal.fmtsort_test;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 import stdgo.internal.fmtsort.Fmtsort;
 /**
     
     
     
 **/
-private var _tests = (new Slice<stdgo.testing.Testing.InternalTest>(3, 3, (new stdgo.testing.Testing.InternalTest(("TestCompare" : GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testCompare) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestOrder" : GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testOrder) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestInterface" : GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testInterface) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
+var _tests : stdgo.Slice<stdgo.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo.testing.Testing.InternalTest>(3, 3, (new stdgo.testing.Testing.InternalTest(("TestCompare" : stdgo.GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testCompare) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestOrder" : stdgo.GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testOrder) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestInterface" : stdgo.GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testInterface) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
 /**
     
     
     
 **/
-private var _benchmarks = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0) : Slice<stdgo.testing.Testing.InternalBenchmark>);
+var _benchmarks : stdgo.Slice<stdgo.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0) : stdgo.Slice<stdgo.testing.Testing.InternalBenchmark>);
 /**
     
     
     
 **/
-private var _fuzzTargets = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0, 0) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
+var _fuzzTargets : stdgo.Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new stdgo.Slice<stdgo.testing.Testing.InternalFuzzTarget>(0, 0) : stdgo.Slice<stdgo.testing.Testing.InternalFuzzTarget>);
 /**
     
     
     
 **/
-private var _examples = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0) : Slice<stdgo.testing.Testing.InternalExample>);
-private function main():Void {
-        var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
+var _examples : stdgo.Slice<stdgo.testing.Testing.InternalExample> = (new stdgo.Slice<stdgo.testing.Testing.InternalExample>(0, 0) : stdgo.Slice<stdgo.testing.Testing.InternalExample>);
+function main():Void {
+        var _m = stdgo.testing.Testing.mainStart(stdgo.Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)), _tests, _benchmarks, _fuzzTargets, _examples);
         Sys.exit(_m.run());
     }
 @:keep var _ = {
         try {
-            stdgo.testing.internal.testdeps.Testdeps.importPath = ("internal/fmtsort" : GoString);
+            stdgo.testing.internal.testdeps.Testdeps.importPath = ("internal/fmtsort" : stdgo.GoString);
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

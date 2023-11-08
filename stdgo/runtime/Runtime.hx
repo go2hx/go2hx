@@ -1,13 +1,4 @@
 package stdgo.runtime;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 /**
     /|*
     Package runtime contains operations that interact with Go's runtime system,
@@ -58,9 +49,19 @@ import stdgo.Chan;
     	cgocheck: setting cgocheck=0 disables all checks for packages
     	using cgo to incorrectly pass Go pointers to non-Go code.
     	Setting cgocheck=1 (the default) enables relatively cheap
-    	checks that may miss some errors.  Setting cgocheck=2 enables
-    	expensive checks that should not miss any errors, but will
-    	cause your program to run slower.
+    	checks that may miss some errors. A more complete, but slow,
+    	cgocheck mode can be enabled using GOEXPERIMENT (which
+    	requires a rebuild), see https://pkg.go.dev/internal/goexperiment for details.
+    
+    	dontfreezetheworld: by default, the start of a fatal panic or throw
+    	"freezes the world", preempting all threads to stop all running
+    	goroutines, which makes it possible to traceback all goroutines, and
+    	keeps their state close to the point of panic. Setting
+    	dontfreezetheworld=1 disables this preemption, allowing goroutines to
+    	continue executing during panic processing. Note that goroutines that
+    	naturally enter the scheduler will still stop. This can be useful when
+    	debugging the runtime scheduler, as freezetheworld perturbs scheduler
+    	state and thus may hide problems.
     
     	efence: setting efence=1 causes the allocator to run in a mode
     	where each object is allocated on a unique page and addresses are
@@ -84,7 +85,8 @@ import stdgo.Chan;
     
     	gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard
     	error at each collection, summarizing the amount of memory collected and the
-    	length of the pause. The format of this line is subject to change.
+    	length of the pause. The format of this line is subject to change. Included in
+    	the explanation below is also the relevant runtime/metrics metric for each field.
     	Currently, it is:
     		gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #->#-># MB, # MB goal, # MB stacks, #MB globals, # P
     	where the fields are as follows:
@@ -92,11 +94,11 @@ import stdgo.Chan;
     		@#s          time in seconds since program start
     		#%           percentage of time spent in GC since program start
     		#+...+#      wall-clock/CPU times for the phases of the GC
-    		#->#-># MB   heap size at GC start, at GC end, and live heap
-    		# MB goal    goal heap size
-    		# MB stacks  estimated scannable stack size
-    		# MB globals scannable global size
-    		# P          number of processors used
+    		#->#-># MB   heap size at GC start, at GC end, and live heap, or /gc/scan/heap:bytes
+    		# MB goal    goal heap size, or /gc/heap/goal:bytes
+    		# MB stacks  estimated scannable stack size, or /gc/scan/stack:bytes
+    		# MB globals scannable global size, or /gc/scan/globals:bytes
+    		# P          number of processors used, or /sched/gomaxprocs:threads
     	The phases are stop-the-world (STW) sweep termination, concurrent
     	mark and scan, and STW mark termination. The CPU times
     	for mark/scan are broken down in to assist time (GC performed in
@@ -156,11 +158,13 @@ import stdgo.Chan;
     	scavenger as well as the total amount of memory returned to the operating system
     	and an estimate of physical memory utilization. The format of this line is subject
     	to change, but currently it is:
-    		scav # KiB work, # KiB total, #% util
+    		scav # KiB work (bg), # KiB work (eager), # KiB total, #% util
     	where the fields are as follows:
-    		# KiB work   the amount of memory returned to the OS since the last line
-    		# KiB total  the total amount of memory returned to the OS
-    		#% util      the fraction of all unscavenged memory which is in-use
+    		# KiB work (bg)    the amount of memory returned to the OS in the background since
+    		                   the last line
+    		# KiB work (eager) the amount of memory returned to the OS eagerly since the last line
+    		# KiB now          the amount of address space currently returned to the OS
+    		#% util            the fraction of all unscavenged heap memory which is in-use
     	If the line ends with "(forced)", then scavenging was forced by a
     	debug.FreeOSMemory() call.
     
@@ -176,6 +180,11 @@ import stdgo.Chan;
     	report. This also extends the information returned by runtime.Stack. Ancestor's goroutine
     	IDs will refer to the ID of the goroutine at the time of creation; it's possible for this
     	ID to be reused for another goroutine. Setting N to 0 will report no ancestry information.
+    
+    	tracefpunwindoff: setting tracefpunwindoff=1 forces the execution tracer to
+    	use the runtime's default stack unwinder instead of frame pointer unwinding.
+    	This increases tracer overhead, but could be helpful as a workaround or for
+    	debugging unexpected regressions caused by frame pointer unwinding.
     
     	asyncpreemptoff: asyncpreemptoff=1 disables signal-based
     	asynchronous goroutine preemption. This makes some loops
@@ -210,6 +219,7 @@ import stdgo.Chan;
     GOTRACEBACK=crash is like “system” but crashes in an operating system-specific
     manner instead of exiting. For example, on Unix systems, the crash raises
     SIGABRT to trigger a core dump.
+    GOTRACEBACK=wer is like “crash” but doesn't disable Windows Error Reporting (WER).
     For historical reasons, the GOTRACEBACK settings 0, 1, and 2 are synonyms for
     none, all, and system, respectively.
     The runtime/debug package's SetTraceback function allows increasing the
@@ -223,6 +233,25 @@ import stdgo.Chan;
     GOARCH, GOOS, and GOROOT are recorded at compile time and made available by
     constants or functions in this package, but they do not influence the execution
     of the run-time system.
+    
+    # Security
+    
+    On Unix platforms, Go's runtime system behaves slightly differently when a
+    binary is setuid/setgid or executed with setuid/setgid-like properties, in order
+    to prevent dangerous behaviors. On Linux this is determined by checking for the
+    AT_SECURE flag in the auxiliary vector, on the BSDs and Solaris/Illumos it is
+    determined by checking the issetugid syscall, and on AIX it is determined by
+    checking if the uid/gid match the effective uid/gid.
+    
+    When the runtime determines the binary is setuid/setgid-like, it does three main
+    things:
+      - The standard input/output file descriptors (0, 1, 2) are checked to be open.
+        If any of them are closed, they are opened pointing at /dev/null.
+      - The value of the GOTRACEBACK environment variable is set to 'none'.
+      - When a signal is received that terminates the program, or the program
+        encounters an unrecoverable panic that would otherwise override the value
+        of GOTRACEBACK, the goroutine stack, registers, and other memory related
+        information are omitted.
     *|/
 **/
 private var __go2hxdoc__package : Bool;
@@ -244,7 +273,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var memProfileRate : GoInt = (0 : GoInt);
+var memProfileRate : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     // Compiler is the name of the compiler toolchain that built the
     // running binary. Known toolchains are:
@@ -254,7 +283,7 @@ var memProfileRate : GoInt = (0 : GoInt);
     
     
 **/
-final compiler = ("" : GoString);
+final compiler : stdgo.GoString = "go2hx";
 /**
     // GOOS is the running program's operating system target:
     // one of darwin, freebsd, linux, and so on.
@@ -262,21 +291,21 @@ final compiler = ("" : GoString);
     
     
 **/
-final goos : GoString = ("" : GoString);
+final goos : stdgo.GoString = ("" : stdgo.GoString);
 /**
     // GOARCH is the running program's architecture target:
     // one of 386, amd64, arm, s390x, and so on.
     
     
 **/
-final goarch : GoString = ("" : GoString);
+final goarch : stdgo.GoString = ("" : stdgo.GoString);
 /**
     // The Error interface identifies a run time error.
     
     
 **/
-typedef T_error = StructType & {
-    > Error,
+typedef T_error = stdgo.StdGoTypes.StructType & {
+    > stdgo.Error,
     /**
         // RuntimeError is a no-op function but
         // serves to distinguish types that are run time
@@ -294,7 +323,7 @@ typedef T_error = StructType & {
 **/
 @:structInit @:using(stdgo.runtime.Runtime.TypeAssertionError_static_extension) class TypeAssertionError {
     public function new() {}
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new TypeAssertionError();
     }
@@ -305,11 +334,11 @@ typedef T_error = StructType & {
     
 **/
 @:structInit @:using(stdgo.runtime.Runtime.StackRecord_static_extension) class StackRecord {
-    public var stack0 : GoArray<GoUIntptr> = new GoArray<GoUIntptr>(...[for (i in 0 ... 32) (0 : GoUIntptr)]);
-    public function new(?stack0:GoArray<GoUIntptr>) {
+    public var stack0 : stdgo.GoArray<stdgo.StdGoTypes.GoUIntptr> = new stdgo.GoArray<stdgo.StdGoTypes.GoUIntptr>(...[for (i in 0 ... 32) (0 : stdgo.StdGoTypes.GoUIntptr)]);
+    public function new(?stack0:stdgo.GoArray<stdgo.StdGoTypes.GoUIntptr>) {
         if (stack0 != null) this.stack0 = stack0;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new StackRecord(stack0);
     }
@@ -321,19 +350,19 @@ typedef T_error = StructType & {
     
 **/
 @:structInit @:using(stdgo.runtime.Runtime.MemProfileRecord_static_extension) class MemProfileRecord {
-    public var allocBytes : GoInt64 = 0;
-    public var freeBytes : GoInt64 = 0;
-    public var allocObjects : GoInt64 = 0;
-    public var freeObjects : GoInt64 = 0;
-    public var stack0 : GoArray<GoUIntptr> = new GoArray<GoUIntptr>(...[for (i in 0 ... 32) (0 : GoUIntptr)]);
-    public function new(?allocBytes:GoInt64, ?freeBytes:GoInt64, ?allocObjects:GoInt64, ?freeObjects:GoInt64, ?stack0:GoArray<GoUIntptr>) {
+    public var allocBytes : stdgo.StdGoTypes.GoInt64 = 0;
+    public var freeBytes : stdgo.StdGoTypes.GoInt64 = 0;
+    public var allocObjects : stdgo.StdGoTypes.GoInt64 = 0;
+    public var freeObjects : stdgo.StdGoTypes.GoInt64 = 0;
+    public var stack0 : stdgo.GoArray<stdgo.StdGoTypes.GoUIntptr> = new stdgo.GoArray<stdgo.StdGoTypes.GoUIntptr>(...[for (i in 0 ... 32) (0 : stdgo.StdGoTypes.GoUIntptr)]);
+    public function new(?allocBytes:stdgo.StdGoTypes.GoInt64, ?freeBytes:stdgo.StdGoTypes.GoInt64, ?allocObjects:stdgo.StdGoTypes.GoInt64, ?freeObjects:stdgo.StdGoTypes.GoInt64, ?stack0:stdgo.GoArray<stdgo.StdGoTypes.GoUIntptr>) {
         if (allocBytes != null) this.allocBytes = allocBytes;
         if (freeBytes != null) this.freeBytes = freeBytes;
         if (allocObjects != null) this.allocObjects = allocObjects;
         if (freeObjects != null) this.freeObjects = freeObjects;
         if (stack0 != null) this.stack0 = stack0;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new MemProfileRecord(allocBytes, freeBytes, allocObjects, freeObjects, stack0);
     }
@@ -345,18 +374,18 @@ typedef T_error = StructType & {
     
 **/
 @:structInit @:using(stdgo.runtime.Runtime.BlockProfileRecord_static_extension) class BlockProfileRecord {
-    public var count : GoInt64 = 0;
-    public var cycles : GoInt64 = 0;
+    public var count : stdgo.StdGoTypes.GoInt64 = 0;
+    public var cycles : stdgo.StdGoTypes.GoInt64 = 0;
     @:embedded
     public var stackRecord : stdgo.runtime.Runtime.StackRecord = ({} : stdgo.runtime.Runtime.StackRecord);
-    public function new(?count:GoInt64, ?cycles:GoInt64, ?stackRecord:stdgo.runtime.Runtime.StackRecord) {
+    public function new(?count:stdgo.StdGoTypes.GoInt64, ?cycles:stdgo.StdGoTypes.GoInt64, ?stackRecord:stdgo.runtime.Runtime.StackRecord) {
         if (count != null) this.count = count;
         if (cycles != null) this.cycles = cycles;
         if (stackRecord != null) this.stackRecord = stackRecord;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     @:embedded
-    public function stack():Slice<GoUIntptr> return (null : Slice<GoUIntptr>);
+    public function stack():stdgo.Slice<stdgo.StdGoTypes.GoUIntptr> return (null : stdgo.Slice<stdgo.StdGoTypes.GoUIntptr>);
     public function __copy__() {
         return new BlockProfileRecord(count, cycles, stackRecord);
     }
@@ -372,7 +401,7 @@ typedef T_error = StructType & {
         //
         // This is the same as HeapAlloc (see below).
     **/
-    public var alloc : GoUInt64 = 0;
+    public var alloc : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // TotalAlloc is cumulative bytes allocated for heap objects.
         //
@@ -380,7 +409,7 @@ typedef T_error = StructType & {
         // unlike Alloc and HeapAlloc, it does not decrease when
         // objects are freed.
     **/
-    public var totalAlloc : GoUInt64 = 0;
+    public var totalAlloc : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // Sys is the total bytes of memory obtained from the OS.
         //
@@ -391,23 +420,23 @@ typedef T_error = StructType & {
         // by physical memory at any given moment, though in general
         // it all was at some point.
     **/
-    public var sys : GoUInt64 = 0;
+    public var sys : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // Lookups is the number of pointer lookups performed by the
         // runtime.
         //
         // This is primarily useful for debugging runtime internals.
     **/
-    public var lookups : GoUInt64 = 0;
+    public var lookups : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // Mallocs is the cumulative count of heap objects allocated.
         // The number of live objects is Mallocs - Frees.
     **/
-    public var mallocs : GoUInt64 = 0;
+    public var mallocs : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // Frees is the cumulative count of heap objects freed.
     **/
-    public var frees : GoUInt64 = 0;
+    public var frees : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // HeapAlloc is bytes of allocated heap objects.
         //
@@ -421,7 +450,7 @@ typedef T_error = StructType & {
         // change smoothly (in contrast with the sawtooth that is
         // typical of stop-the-world garbage collectors).
     **/
-    public var heapAlloc : GoUInt64 = 0;
+    public var heapAlloc : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // HeapSys is bytes of heap memory obtained from the OS.
         //
@@ -435,7 +464,7 @@ typedef T_error = StructType & {
         //
         // HeapSys estimates the largest size the heap has had.
     **/
-    public var heapSys : GoUInt64 = 0;
+    public var heapSys : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // HeapIdle is bytes in idle (unused) spans.
         //
@@ -451,7 +480,7 @@ typedef T_error = StructType & {
         // larger than the heap size, it indicates there was a recent
         // transient spike in live heap size.
     **/
-    public var heapIdle : GoUInt64 = 0;
+    public var heapIdle : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // HeapInuse is bytes in in-use spans.
         //
@@ -465,14 +494,14 @@ typedef T_error = StructType & {
         // fragmentation, but in general this memory can be reused
         // efficiently.
     **/
-    public var heapInuse : GoUInt64 = 0;
+    public var heapInuse : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // HeapReleased is bytes of physical memory returned to the OS.
         //
         // This counts heap memory from idle spans that was returned
         // to the OS and has not yet been reacquired for the heap.
     **/
-    public var heapReleased : GoUInt64 = 0;
+    public var heapReleased : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // HeapObjects is the number of allocated heap objects.
         //
@@ -480,7 +509,7 @@ typedef T_error = StructType & {
         // decreases as the heap is swept and unreachable objects are
         // freed.
     **/
-    public var heapObjects : GoUInt64 = 0;
+    public var heapObjects : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // StackInuse is bytes in stack spans.
         //
@@ -490,45 +519,55 @@ typedef T_error = StructType & {
         // There is no StackIdle because unused stack spans are
         // returned to the heap (and hence counted toward HeapIdle).
     **/
-    public var stackInuse : GoUInt64 = 0;
+    public var stackInuse : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // StackSys is bytes of stack memory obtained from the OS.
         //
         // StackSys is StackInuse, plus any memory obtained directly
-        // from the OS for OS thread stacks (which should be minimal).
+        // from the OS for OS thread stacks.
+        //
+        // In non-cgo programs this metric is currently equal to StackInuse
+        // (but this should not be relied upon, and the value may change in
+        // the future).
+        //
+        // In cgo programs this metric includes OS thread stacks allocated
+        // directly from the OS. Currently, this only accounts for one stack in
+        // c-shared and c-archive build modes and other sources of stacks from
+        // the OS (notably, any allocated by C code) are not currently measured.
+        // Note this too may change in the future.
     **/
-    public var stackSys : GoUInt64 = 0;
+    public var stackSys : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // MSpanInuse is bytes of allocated mspan structures.
     **/
-    public var mspanInuse : GoUInt64 = 0;
+    public var mspanInuse : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // MSpanSys is bytes of memory obtained from the OS for mspan
         // structures.
     **/
-    public var mspanSys : GoUInt64 = 0;
+    public var mspanSys : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // MCacheInuse is bytes of allocated mcache structures.
     **/
-    public var mcacheInuse : GoUInt64 = 0;
+    public var mcacheInuse : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // MCacheSys is bytes of memory obtained from the OS for
         // mcache structures.
     **/
-    public var mcacheSys : GoUInt64 = 0;
+    public var mcacheSys : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // BuckHashSys is bytes of memory in profiling bucket hash tables.
     **/
-    public var buckHashSys : GoUInt64 = 0;
+    public var buckHashSys : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // GCSys is bytes of memory in garbage collection metadata.
     **/
-    public var gcsys : GoUInt64 = 0;
+    public var gcsys : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // OtherSys is bytes of memory in miscellaneous off-heap
         // runtime allocations.
     **/
-    public var otherSys : GoUInt64 = 0;
+    public var otherSys : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // NextGC is the target heap size of the next GC cycle.
         //
@@ -537,12 +576,12 @@ typedef T_error = StructType & {
         // is computed based on the amount of reachable data and the
         // value of GOGC.
     **/
-    public var nextGC : GoUInt64 = 0;
+    public var nextGC : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // LastGC is the time the last garbage collection finished, as
         // nanoseconds since 1970 (the UNIX epoch).
     **/
-    public var lastGC : GoUInt64 = 0;
+    public var lastGC : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // PauseTotalNs is the cumulative nanoseconds in GC
         // stop-the-world pauses since the program started.
@@ -550,7 +589,7 @@ typedef T_error = StructType & {
         // During a stop-the-world pause, all goroutines are paused
         // and only the garbage collector can run.
     **/
-    public var pauseTotalNs : GoUInt64 = 0;
+    public var pauseTotalNs : stdgo.StdGoTypes.GoUInt64 = 0;
     /**
         // PauseNs is a circular buffer of recent GC stop-the-world
         // pause times in nanoseconds.
@@ -560,7 +599,7 @@ typedef T_error = StructType & {
         // recent N%256th GC cycle. There may be multiple pauses per
         // GC cycle; this is the sum of all pauses during a cycle.
     **/
-    public var pauseNs : GoArray<GoUInt64> = new GoArray<GoUInt64>(...[for (i in 0 ... 256) (0 : GoUInt64)]);
+    public var pauseNs : stdgo.GoArray<stdgo.StdGoTypes.GoUInt64> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt64>(...[for (i in 0 ... 256) (0 : stdgo.StdGoTypes.GoUInt64)]);
     /**
         // PauseEnd is a circular buffer of recent GC pause end times,
         // as nanoseconds since 1970 (the UNIX epoch).
@@ -569,16 +608,16 @@ typedef T_error = StructType & {
         // multiple pauses per GC cycle; this records the end of the
         // last pause in a cycle.
     **/
-    public var pauseEnd : GoArray<GoUInt64> = new GoArray<GoUInt64>(...[for (i in 0 ... 256) (0 : GoUInt64)]);
+    public var pauseEnd : stdgo.GoArray<stdgo.StdGoTypes.GoUInt64> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt64>(...[for (i in 0 ... 256) (0 : stdgo.StdGoTypes.GoUInt64)]);
     /**
         // NumGC is the number of completed GC cycles.
     **/
-    public var numGC : GoUInt32 = 0;
+    public var numGC : stdgo.StdGoTypes.GoUInt32 = 0;
     /**
         // NumForcedGC is the number of GC cycles that were forced by
         // the application calling the GC function.
     **/
-    public var numForcedGC : GoUInt32 = 0;
+    public var numForcedGC : stdgo.StdGoTypes.GoUInt32 = 0;
     /**
         // GCCPUFraction is the fraction of this program's available
         // CPU time used by the GC since the program started.
@@ -594,7 +633,7 @@ typedef T_error = StructType & {
         // This is the same as the fraction of CPU reported by
         // GODEBUG=gctrace=1.
     **/
-    public var gccpufraction : GoFloat64 = 0;
+    public var gccpufraction : stdgo.StdGoTypes.GoFloat64 = 0;
     /**
         // EnableGC indicates that GC is enabled. It is always true,
         // even if GOGC=off.
@@ -612,8 +651,8 @@ typedef T_error = StructType & {
         //
         // This does not report allocations larger than BySize[60].Size.
     **/
-    public var bySize : GoArray<{ var size : GoUInt32; var mallocs : GoUInt64; var frees : GoUInt64; }> = new GoArray<{ var size : GoUInt32; var mallocs : GoUInt64; var frees : GoUInt64; }>(...[for (i in 0 ... 61) { size : (0 : GoUInt32), mallocs : (0 : GoUInt64), frees : (0 : GoUInt64) }]);
-    public function new(?alloc:GoUInt64, ?totalAlloc:GoUInt64, ?sys:GoUInt64, ?lookups:GoUInt64, ?mallocs:GoUInt64, ?frees:GoUInt64, ?heapAlloc:GoUInt64, ?heapSys:GoUInt64, ?heapIdle:GoUInt64, ?heapInuse:GoUInt64, ?heapReleased:GoUInt64, ?heapObjects:GoUInt64, ?stackInuse:GoUInt64, ?stackSys:GoUInt64, ?mspanInuse:GoUInt64, ?mspanSys:GoUInt64, ?mcacheInuse:GoUInt64, ?mcacheSys:GoUInt64, ?buckHashSys:GoUInt64, ?gcsys:GoUInt64, ?otherSys:GoUInt64, ?nextGC:GoUInt64, ?lastGC:GoUInt64, ?pauseTotalNs:GoUInt64, ?pauseNs:GoArray<GoUInt64>, ?pauseEnd:GoArray<GoUInt64>, ?numGC:GoUInt32, ?numForcedGC:GoUInt32, ?gccpufraction:GoFloat64, ?enableGC:Bool, ?debugGC:Bool, ?bySize:GoArray<{ var size : GoUInt32; var mallocs : GoUInt64; var frees : GoUInt64; }>) {
+    public var bySize : stdgo.GoArray<{ var size : stdgo.StdGoTypes.GoUInt32; var mallocs : stdgo.StdGoTypes.GoUInt64; var frees : stdgo.StdGoTypes.GoUInt64; }> = new stdgo.GoArray<{ var size : stdgo.StdGoTypes.GoUInt32; var mallocs : stdgo.StdGoTypes.GoUInt64; var frees : stdgo.StdGoTypes.GoUInt64; }>(...[for (i in 0 ... 61) { size : (0 : stdgo.StdGoTypes.GoUInt32), mallocs : (0 : stdgo.StdGoTypes.GoUInt64), frees : (0 : stdgo.StdGoTypes.GoUInt64) }]);
+    public function new(?alloc:stdgo.StdGoTypes.GoUInt64, ?totalAlloc:stdgo.StdGoTypes.GoUInt64, ?sys:stdgo.StdGoTypes.GoUInt64, ?lookups:stdgo.StdGoTypes.GoUInt64, ?mallocs:stdgo.StdGoTypes.GoUInt64, ?frees:stdgo.StdGoTypes.GoUInt64, ?heapAlloc:stdgo.StdGoTypes.GoUInt64, ?heapSys:stdgo.StdGoTypes.GoUInt64, ?heapIdle:stdgo.StdGoTypes.GoUInt64, ?heapInuse:stdgo.StdGoTypes.GoUInt64, ?heapReleased:stdgo.StdGoTypes.GoUInt64, ?heapObjects:stdgo.StdGoTypes.GoUInt64, ?stackInuse:stdgo.StdGoTypes.GoUInt64, ?stackSys:stdgo.StdGoTypes.GoUInt64, ?mspanInuse:stdgo.StdGoTypes.GoUInt64, ?mspanSys:stdgo.StdGoTypes.GoUInt64, ?mcacheInuse:stdgo.StdGoTypes.GoUInt64, ?mcacheSys:stdgo.StdGoTypes.GoUInt64, ?buckHashSys:stdgo.StdGoTypes.GoUInt64, ?gcsys:stdgo.StdGoTypes.GoUInt64, ?otherSys:stdgo.StdGoTypes.GoUInt64, ?nextGC:stdgo.StdGoTypes.GoUInt64, ?lastGC:stdgo.StdGoTypes.GoUInt64, ?pauseTotalNs:stdgo.StdGoTypes.GoUInt64, ?pauseNs:stdgo.GoArray<stdgo.StdGoTypes.GoUInt64>, ?pauseEnd:stdgo.GoArray<stdgo.StdGoTypes.GoUInt64>, ?numGC:stdgo.StdGoTypes.GoUInt32, ?numForcedGC:stdgo.StdGoTypes.GoUInt32, ?gccpufraction:stdgo.StdGoTypes.GoFloat64, ?enableGC:Bool, ?debugGC:Bool, ?bySize:stdgo.GoArray<{ var size : stdgo.StdGoTypes.GoUInt32; var mallocs : stdgo.StdGoTypes.GoUInt64; var frees : stdgo.StdGoTypes.GoUInt64; }>) {
         if (alloc != null) this.alloc = alloc;
         if (totalAlloc != null) this.totalAlloc = totalAlloc;
         if (sys != null) this.sys = sys;
@@ -647,7 +686,7 @@ typedef T_error = StructType & {
         if (debugGC != null) this.debugGC = debugGC;
         if (bySize != null) this.bySize = bySize;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new MemStats(
 alloc,
@@ -685,6 +724,38 @@ bySize);
     }
 }
 /**
+    // A PanicNilError happens when code calls panic(nil).
+    //
+    // Before Go 1.21, programs that called panic(nil) observed recover returning nil.
+    // Starting in Go 1.21, programs that call panic(nil) observe recover returning a *PanicNilError.
+    // Programs can change back to the old behavior by setting GODEBUG=panicnil=1.
+    
+    
+**/
+@:structInit @:using(stdgo.runtime.Runtime.PanicNilError_static_extension) class PanicNilError {
+    public function new() {}
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() {
+        return new PanicNilError();
+    }
+}
+/**
+    // A Pinner is a set of pinned Go objects. An object can be pinned with
+    // the Pin method and all pinned objects of a Pinner can be unpinned with the
+    // Unpin method.
+    
+    
+**/
+@:structInit @:using(stdgo.runtime.Runtime.Pinner_static_extension) class Pinner {
+    public function new() {}
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    @:embedded
+    public function _unpin() @:typeType null;
+    public function __copy__() {
+        return new Pinner();
+    }
+}
+/**
     // Frames may be used to get function/file/line information for a
     // slice of PC values returned by Callers.
     
@@ -692,7 +763,7 @@ bySize);
 **/
 @:structInit @:using(stdgo.runtime.Runtime.Frames_static_extension) class Frames {
     public function new() {}
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new Frames();
     }
@@ -710,12 +781,12 @@ bySize);
         // multiple frames may have the same PC value, but different
         // symbolic information.
     **/
-    public var pc : GoUIntptr = 0;
+    public var pc : stdgo.StdGoTypes.GoUIntptr = 0;
     /**
         // Func is the Func value of this call frame. This may be nil
         // for non-Go code or fully inlined functions.
     **/
-    public var func : Ref<stdgo.runtime.Runtime.Func> = (null : Ref<stdgo.runtime.Runtime.Func>);
+    public var func : stdgo.StdGoTypes.Ref<stdgo.runtime.Runtime.Func> = (null : stdgo.StdGoTypes.Ref<stdgo.runtime.Runtime.Func>);
     /**
         // Function is the package path-qualified function name of
         // this call frame. If non-empty, this string uniquely
@@ -723,22 +794,22 @@ bySize);
         // This may be the empty string if not known.
         // If Func is not nil then Function == Func.Name().
     **/
-    public var function_ : GoString = "";
+    public var function_ : stdgo.GoString = "";
     /**
         // File and Line are the file name and line number of the
         // location in this frame. For non-leaf frames, this will be
         // the location of a call. These may be the empty string and
         // zero, respectively, if not known.
     **/
-    public var file : GoString = "";
-    public var line : GoInt = 0;
+    public var file : stdgo.GoString = "";
+    public var line : stdgo.StdGoTypes.GoInt = 0;
     /**
         // Entry point program counter for the function; may be zero
         // if not known. If Func is not nil then Entry ==
         // Func.Entry().
     **/
-    public var entry : GoUIntptr = 0;
-    public function new(?pc:GoUIntptr, ?func:Ref<stdgo.runtime.Runtime.Func>, ?function_:GoString, ?file:GoString, ?line:GoInt, ?entry:GoUIntptr) {
+    public var entry : stdgo.StdGoTypes.GoUIntptr = 0;
+    public function new(?pc:stdgo.StdGoTypes.GoUIntptr, ?func:stdgo.StdGoTypes.Ref<stdgo.runtime.Runtime.Func>, ?function_:stdgo.GoString, ?file:stdgo.GoString, ?line:stdgo.StdGoTypes.GoInt, ?entry:stdgo.StdGoTypes.GoUIntptr) {
         if (pc != null) this.pc = pc;
         if (func != null) this.func = func;
         if (function_ != null) this.function_ = function_;
@@ -746,7 +817,7 @@ bySize);
         if (line != null) this.line = line;
         if (entry != null) this.entry = entry;
     }
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new Frame(pc, func, function_, file, line, entry);
     }
@@ -758,7 +829,7 @@ bySize);
 **/
 @:structInit @:using(stdgo.runtime.Runtime.Func_static_extension) class Func {
     public function new() {}
-    public function __underlying__() return Go.toInterface(this);
+    public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new Func();
     }
@@ -768,31 +839,31 @@ class T__struct_0_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<T__struct_0>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<T__struct_0>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.runtime.Runtime.T__struct_0_asInterface) class T__struct_0_static_extension {
 
 }
-@:local @:using(stdgo.runtime.Runtime.T__struct_0_static_extension) private typedef T__struct_0 = {
+@:local @:using(stdgo.runtime.Runtime.T__struct_0_static_extension) typedef T__struct_0 = {
     /**
         // Size is the maximum byte size of an object in this
         // size class.
     **/
-    public var size : GoUInt32;
+    public var size : stdgo.StdGoTypes.GoUInt32;
     /**
         // Mallocs is the cumulative count of heap objects
         // allocated in this size class. The cumulative bytes
         // of allocation is Size*Mallocs. The number of live
         // objects in this size class is Mallocs - Frees.
     **/
-    public var mallocs : GoUInt64;
+    public var mallocs : stdgo.StdGoTypes.GoUInt64;
     /**
         // Frees is the cumulative count of heap objects freed
         // in this size class.
     **/
-    public var frees : GoUInt64;
+    public var frees : stdgo.StdGoTypes.GoUInt64;
 };
 /**
     // SetCPUProfileRate sets the CPU profiling rate to hz samples per second.
@@ -803,7 +874,7 @@ class T__struct_0_asInterface {
     // the testing package's -test.cpuprofile flag instead of calling
     // SetCPUProfileRate directly.
 **/
-function setCPUProfileRate(_hz:GoInt):Void throw "runtime.setCPUProfileRate is not yet implemented";
+function setCPUProfileRate(_hz:stdgo.StdGoTypes.GoInt):Void throw ":runtime.setCPUProfileRate is not yet implemented";
 /**
     // CPUProfile panics.
     // It formerly provided raw access to chunks of
@@ -815,14 +886,14 @@ function setCPUProfileRate(_hz:GoInt):Void throw "runtime.setCPUProfileRate is n
     // or the handlers in the net/http/pprof package,
     // or the testing package's -test.cpuprofile flag instead.
 **/
-function cpuprofile():Slice<GoByte> throw "runtime.cpuprofile is not yet implemented";
+function cpuprofile():stdgo.Slice<stdgo.StdGoTypes.GoByte> throw ":runtime.cpuprofile is not yet implemented";
 /**
     // GOMAXPROCS sets the maximum number of CPUs that can be executing
     // simultaneously and returns the previous setting. It defaults to
     // the value of runtime.NumCPU. If n < 1, it does not change the current setting.
     // This call will go away when the scheduler improves.
 **/
-function gomaxprocs(_n:GoInt):GoInt return 1;
+function gomaxprocs(_n:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt return 1;
 /**
     // NumCPU returns the number of logical CPUs usable by the current process.
     //
@@ -830,15 +901,15 @@ function gomaxprocs(_n:GoInt):GoInt return 1;
     // at process startup. Changes to operating system CPU allocation after
     // process startup are not reflected.
 **/
-function numCPU():GoInt throw "runtime.numCPU is not yet implemented";
+function numCPU():stdgo.StdGoTypes.GoInt throw ":runtime.numCPU is not yet implemented";
 /**
     // NumCgoCall returns the number of cgo calls made by the current process.
 **/
-function numCgoCall():GoInt64 throw "runtime.numCgoCall is not yet implemented";
+function numCgoCall():stdgo.StdGoTypes.GoInt64 throw ":runtime.numCgoCall is not yet implemented";
 /**
     // NumGoroutine returns the number of goroutines that currently exist.
 **/
-function numGoroutine():GoInt throw "runtime.numGoroutine is not yet implemented";
+function numGoroutine():stdgo.StdGoTypes.GoInt throw ":runtime.numGoroutine is not yet implemented";
 /**
     // Caller reports file and line number information about function invocations on
     // the calling goroutine's stack. The argument skip is the number of stack frames
@@ -847,7 +918,7 @@ function numGoroutine():GoInt throw "runtime.numGoroutine is not yet implemented
     // program counter, file name, and line number within the file of the corresponding
     // call. The boolean ok is false if it was not possible to recover the information.
 **/
-function caller(_skip:GoInt):{ var _0 : GoUIntptr; var _1 : GoString; var _2 : GoInt; var _3 : Bool; } throw "runtime.caller is not yet implemented";
+function caller(_skip:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.GoUIntptr; var _1 : stdgo.GoString; var _2 : stdgo.StdGoTypes.GoInt; var _3 : Bool; } throw ":runtime.caller is not yet implemented";
 /**
     // Callers fills the slice pc with the return program counters of function invocations
     // on the calling goroutine's stack. The argument skip is the number of stack frames
@@ -863,19 +934,19 @@ function caller(_skip:GoInt):{ var _0 : GoUIntptr; var _1 : GoString; var _2 : G
     // returned PCs, since these cannot account for inlining or return
     // program counter adjustment.
 **/
-function callers(_skip:GoInt, _pc:Slice<GoUIntptr>):GoInt throw "runtime.callers is not yet implemented";
+function callers(_skip:stdgo.StdGoTypes.GoInt, _pc:stdgo.Slice<stdgo.StdGoTypes.GoUIntptr>):stdgo.StdGoTypes.GoInt throw ":runtime.callers is not yet implemented";
 /**
     // GOROOT returns the root of the Go tree. It uses the
     // GOROOT environment variable, if set at process start,
     // or else the root used during the Go build.
 **/
-function goroot():GoString throw "runtime.goroot is not yet implemented";
+function goroot():stdgo.GoString throw ":runtime.goroot is not yet implemented";
 /**
     // Version returns the Go tree's version string.
     // It is either the commit hash and date at the time of the build or,
     // when possible, a release tag like "go1.3".
 **/
-function version():GoString throw "runtime.version is not yet implemented";
+function version():stdgo.GoString throw ":runtime.version is not yet implemented";
 /**
     // SetFinalizer sets the finalizer associated with obj to the provided
     // finalizer function. When the garbage collector finds an unreachable block
@@ -964,7 +1035,7 @@ function version():GoString throw "runtime.version is not yet implemented";
     // need to use appropriate synchronization, such as mutexes or atomic updates,
     // to avoid read-write races.
 **/
-function setFinalizer(_obj:AnyInterface, _finalizer:AnyInterface):Void throw "runtime.setFinalizer is not yet implemented";
+function setFinalizer(_obj:stdgo.StdGoTypes.AnyInterface, _finalizer:stdgo.StdGoTypes.AnyInterface):Void throw ":runtime.setFinalizer is not yet implemented";
 /**
     // KeepAlive marks its argument as currently reachable.
     // This ensures that the object is not freed, and its finalizer is not run,
@@ -991,13 +1062,13 @@ function setFinalizer(_obj:AnyInterface, _finalizer:AnyInterface):Void throw "ru
     // running prematurely. In particular, when used with unsafe.Pointer,
     // the rules for valid uses of unsafe.Pointer still apply.
 **/
-function keepAlive(_x:AnyInterface):Void throw "runtime.keepAlive is not yet implemented";
+function keepAlive(_x:stdgo.StdGoTypes.AnyInterface):Void throw ":runtime.keepAlive is not yet implemented";
 /**
     // GC runs a garbage collection and blocks the caller until the
     // garbage collection is complete. It may also block the entire
     // program.
 **/
-function gc():Void throw "runtime.gc is not yet implemented";
+function gc():Void throw ":runtime.gc is not yet implemented";
 /**
     // SetBlockProfileRate controls the fraction of goroutine blocking events
     // that are reported in the blocking profile. The profiler aims to sample
@@ -1006,7 +1077,7 @@ function gc():Void throw "runtime.gc is not yet implemented";
     // To include every blocking event in the profile, pass rate = 1.
     // To turn off profiling entirely, pass rate <= 0.
 **/
-function setBlockProfileRate(_rate:GoInt):Void throw "runtime.setBlockProfileRate is not yet implemented";
+function setBlockProfileRate(_rate:stdgo.StdGoTypes.GoInt):Void throw ":runtime.setBlockProfileRate is not yet implemented";
 /**
     // SetMutexProfileFraction controls the fraction of mutex contention events
     // that are reported in the mutex profile. On average 1/rate events are
@@ -1016,7 +1087,7 @@ function setBlockProfileRate(_rate:GoInt):Void throw "runtime.setBlockProfileRat
     // To just read the current rate, pass rate < 0.
     // (For n>1 the details of sampling may change.)
 **/
-function setMutexProfileFraction(_rate:GoInt):GoInt throw "runtime.setMutexProfileFraction is not yet implemented";
+function setMutexProfileFraction(_rate:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt throw ":runtime.setMutexProfileFraction is not yet implemented";
 /**
     // MemProfile returns a profile of memory allocated and freed per allocation
     // site.
@@ -1040,7 +1111,7 @@ function setMutexProfileFraction(_rate:GoInt):GoInt throw "runtime.setMutexProfi
     // the testing package's -test.memprofile flag instead
     // of calling MemProfile directly.
 **/
-function memProfile(_p:Slice<MemProfileRecord>, _inuseZero:Bool):{ var _0 : GoInt; var _1 : Bool; } throw "runtime.memProfile is not yet implemented";
+function memProfile(_p:stdgo.Slice<MemProfileRecord>, _inuseZero:Bool):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } throw ":runtime.memProfile is not yet implemented";
 /**
     // BlockProfile returns n, the number of records in the current blocking profile.
     // If len(p) >= n, BlockProfile copies the profile into p and returns n, true.
@@ -1050,7 +1121,7 @@ function memProfile(_p:Slice<MemProfileRecord>, _inuseZero:Bool):{ var _0 : GoIn
     // the testing package's -test.blockprofile flag instead
     // of calling BlockProfile directly.
 **/
-function blockProfile(_p:Slice<BlockProfileRecord>):{ var _0 : GoInt; var _1 : Bool; } throw "runtime.blockProfile is not yet implemented";
+function blockProfile(_p:stdgo.Slice<BlockProfileRecord>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } throw ":runtime.blockProfile is not yet implemented";
 /**
     // MutexProfile returns n, the number of records in the current mutex profile.
     // If len(p) >= n, MutexProfile copies the profile into p and returns n, true.
@@ -1059,7 +1130,7 @@ function blockProfile(_p:Slice<BlockProfileRecord>):{ var _0 : GoInt; var _1 : B
     // Most clients should use the runtime/pprof package
     // instead of calling MutexProfile directly.
 **/
-function mutexProfile(_p:Slice<BlockProfileRecord>):{ var _0 : GoInt; var _1 : Bool; } throw "runtime.mutexProfile is not yet implemented";
+function mutexProfile(_p:stdgo.Slice<BlockProfileRecord>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } throw ":runtime.mutexProfile is not yet implemented";
 /**
     // ThreadCreateProfile returns n, the number of records in the thread creation profile.
     // If len(p) >= n, ThreadCreateProfile copies the profile into p and returns n, true.
@@ -1068,7 +1139,7 @@ function mutexProfile(_p:Slice<BlockProfileRecord>):{ var _0 : GoInt; var _1 : B
     // Most clients should use the runtime/pprof package instead
     // of calling ThreadCreateProfile directly.
 **/
-function threadCreateProfile(_p:Slice<StackRecord>):{ var _0 : GoInt; var _1 : Bool; } throw "runtime.threadCreateProfile is not yet implemented";
+function threadCreateProfile(_p:stdgo.Slice<StackRecord>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } throw ":runtime.threadCreateProfile is not yet implemented";
 /**
     // GoroutineProfile returns n, the number of records in the active goroutine stack profile.
     // If len(p) >= n, GoroutineProfile copies the profile into p and returns n, true.
@@ -1077,14 +1148,14 @@ function threadCreateProfile(_p:Slice<StackRecord>):{ var _0 : GoInt; var _1 : B
     // Most clients should use the runtime/pprof package instead
     // of calling GoroutineProfile directly.
 **/
-function goroutineProfile(_p:Slice<StackRecord>):{ var _0 : GoInt; var _1 : Bool; } throw "runtime.goroutineProfile is not yet implemented";
+function goroutineProfile(_p:stdgo.Slice<StackRecord>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } throw ":runtime.goroutineProfile is not yet implemented";
 /**
     // Stack formats a stack trace of the calling goroutine into buf
     // and returns the number of bytes written to buf.
     // If all is true, Stack formats stack traces of all other goroutines
     // into buf after the trace for the current goroutine.
 **/
-function stack(_buf:Slice<GoByte>, _all:Bool):GoInt throw "runtime.stack is not yet implemented";
+function stack(_buf:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _all:Bool):stdgo.StdGoTypes.GoInt throw ":runtime.stack is not yet implemented";
 /**
     // ReadMemStats populates m with memory allocator statistics.
     //
@@ -1093,7 +1164,7 @@ function stack(_buf:Slice<GoByte>, _all:Bool):GoInt throw "runtime.stack is not 
     // which is a snapshot as of the most recently completed garbage
     // collection cycle.
 **/
-function readMemStats(_m:Ref<MemStats>):Void throw "runtime.readMemStats is not yet implemented";
+function readMemStats(_m:stdgo.StdGoTypes.Ref<MemStats>):Void throw ":runtime.readMemStats is not yet implemented";
 /**
     // Goexit terminates the goroutine that calls it. No other goroutine is affected.
     // Goexit runs all deferred calls before terminating the goroutine. Because Goexit
@@ -1104,16 +1175,18 @@ function readMemStats(_m:Ref<MemStats>):Void throw "runtime.readMemStats is not 
     // the program continues execution of other goroutines.
     // If all other goroutines exit, the program crashes.
 **/
-function goexit():Void throw "runtime.goexit is not yet implemented";
+function goexit():Void throw ":runtime.goexit is not yet implemented";
 /**
     // Gosched yields the processor, allowing other goroutines to run. It does not
     // suspend the current goroutine, so execution resumes automatically.
+    //
+    //go:nosplit
 **/
-function gosched():Void throw "runtime.gosched is not yet implemented";
+function gosched():Void throw ":runtime.gosched is not yet implemented";
 /**
     // Breakpoint executes a breakpoint trap.
 **/
-function breakpoint():Void throw "runtime.breakpoint is not yet implemented";
+function breakpoint():Void throw ":runtime.breakpoint is not yet implemented";
 /**
     // LockOSThread wires the calling goroutine to its current operating system thread.
     // The calling goroutine will always execute in that thread,
@@ -1129,8 +1202,10 @@ function breakpoint():Void throw "runtime.breakpoint is not yet implemented";
     //
     // A goroutine should call LockOSThread before calling OS services or
     // non-Go library functions that depend on per-thread state.
+    //
+    //go:nosplit
 **/
-function lockOSThread():Void throw "runtime.lockOSThread is not yet implemented";
+function lockOSThread():Void throw ":runtime.lockOSThread is not yet implemented";
 /**
     // UnlockOSThread undoes an earlier call to LockOSThread.
     // If this drops the number of active LockOSThread calls on the
@@ -1144,14 +1219,16 @@ function lockOSThread():Void throw "runtime.lockOSThread is not yet implemented"
     // other goroutines, it should not call this function and thus leave
     // the goroutine locked to the OS thread until the goroutine (and
     // hence the thread) exits.
+    //
+    //go:nosplit
 **/
-function unlockOSThread():Void throw "runtime.unlockOSThread is not yet implemented";
+function unlockOSThread():Void throw ":runtime.unlockOSThread is not yet implemented";
 /**
     // CallersFrames takes a slice of PC values returned by Callers and
     // prepares to return function/file/line information.
     // Do not change the slice until you are done with the Frames.
 **/
-function callersFrames(_callers:Slice<GoUIntptr>):Ref<Frames> throw "runtime.callersFrames is not yet implemented";
+function callersFrames(_callers:stdgo.Slice<stdgo.StdGoTypes.GoUIntptr>):stdgo.StdGoTypes.Ref<Frames> throw ":runtime.callersFrames is not yet implemented";
 /**
     // FuncForPC returns a *Func describing the function that contains the
     // given program counter address, or else nil.
@@ -1160,7 +1237,7 @@ function callersFrames(_callers:Slice<GoUIntptr>):Ref<Frames> throw "runtime.cal
     // the *Func describing the innermost function, but with an entry of
     // the outermost function.
 **/
-function funcForPC(_pc:GoUIntptr):Ref<Func> throw "runtime.funcForPC is not yet implemented";
+function funcForPC(_pc:stdgo.StdGoTypes.GoUIntptr):stdgo.StdGoTypes.Ref<Func> throw ":runtime.funcForPC is not yet implemented";
 /**
     // StartTrace enables tracing for the current process.
     // While tracing, the data will be buffered and available via ReadTrace.
@@ -1168,12 +1245,12 @@ function funcForPC(_pc:GoUIntptr):Ref<Func> throw "runtime.funcForPC is not yet 
     // Most clients should use the runtime/trace package or the testing package's
     // -test.trace flag instead of calling StartTrace directly.
 **/
-function startTrace():Error throw "runtime.startTrace is not yet implemented";
+function startTrace():stdgo.Error throw ":runtime.startTrace is not yet implemented";
 /**
     // StopTrace stops tracing, if it was previously enabled.
     // StopTrace only returns after all the reads for the trace have completed.
 **/
-function stopTrace():Void throw "runtime.stopTrace is not yet implemented";
+function stopTrace():Void throw ":runtime.stopTrace is not yet implemented";
 /**
     // ReadTrace returns the next chunk of binary tracing data, blocking until data
     // is available. If tracing is turned off and all the data accumulated while it
@@ -1181,7 +1258,7 @@ function stopTrace():Void throw "runtime.stopTrace is not yet implemented";
     // returned data before calling ReadTrace again.
     // ReadTrace must be called from one goroutine at a time.
 **/
-function readTrace():Slice<GoByte> throw "runtime.readTrace is not yet implemented";
+function readTrace():stdgo.Slice<stdgo.StdGoTypes.GoByte> throw ":runtime.readTrace is not yet implemented";
 /**
     // SetCgoTraceback records three C functions to use to gather
     // traceback information from C code and to convert that traceback
@@ -1345,25 +1422,25 @@ function readTrace():Slice<GoByte> throw "runtime.readTrace is not yet implement
     //
     // SetCgoTraceback should be called only once, ideally from an init function.
 **/
-function setCgoTraceback(_version:GoInt, _traceback:stdgo.unsafe.Unsafe.UnsafePointer, _context:stdgo.unsafe.Unsafe.UnsafePointer, _symbolizer:stdgo.unsafe.Unsafe.UnsafePointer):Void throw "runtime.setCgoTraceback is not yet implemented";
+function setCgoTraceback(_version:stdgo.StdGoTypes.GoInt, _traceback:stdgo.unsafe.Unsafe.UnsafePointer, _context:stdgo.unsafe.Unsafe.UnsafePointer, _symbolizer:stdgo.unsafe.Unsafe.UnsafePointer):Void throw ":runtime.setCgoTraceback is not yet implemented";
 class TypeAssertionError_asInterface {
     @:keep
-    public dynamic function error():GoString return __self__.value.error();
+    public dynamic function error():stdgo.GoString return __self__.value.error();
     @:keep
     public dynamic function runtimeError():Void __self__.value.runtimeError();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<TypeAssertionError>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<TypeAssertionError>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.runtime.Runtime.TypeAssertionError_asInterface) class TypeAssertionError_static_extension {
     @:keep
-    static public function error( _e:Ref<TypeAssertionError>):GoString throw "runtime.error is not yet implemented";
+    static public function error( _e:stdgo.StdGoTypes.Ref<TypeAssertionError>):stdgo.GoString throw "TypeAssertionError:runtime.error is not yet implemented";
     @:keep
-    static public function runtimeError( _:Ref<TypeAssertionError>):Void throw "runtime.runtimeError is not yet implemented";
+    static public function runtimeError( _:stdgo.StdGoTypes.Ref<TypeAssertionError>):Void throw "TypeAssertionError:runtime.runtimeError is not yet implemented";
 }
 class StackRecord_asInterface {
     /**
@@ -1371,13 +1448,13 @@ class StackRecord_asInterface {
         // a prefix of r.Stack0.
     **/
     @:keep
-    public dynamic function stack():Slice<GoUIntptr> return __self__.value.stack();
+    public dynamic function stack():stdgo.Slice<stdgo.StdGoTypes.GoUIntptr> return __self__.value.stack();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<StackRecord>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<StackRecord>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.runtime.Runtime.StackRecord_asInterface) class StackRecord_static_extension {
@@ -1386,7 +1463,7 @@ class StackRecord_asInterface {
         // a prefix of r.Stack0.
     **/
     @:keep
-    static public function stack( _r:Ref<StackRecord>):Slice<GoUIntptr> throw "runtime.stack is not yet implemented";
+    static public function stack( _r:stdgo.StdGoTypes.Ref<StackRecord>):stdgo.Slice<stdgo.StdGoTypes.GoUIntptr> throw "StackRecord:runtime.stack is not yet implemented";
 }
 class MemProfileRecord_asInterface {
     /**
@@ -1394,23 +1471,23 @@ class MemProfileRecord_asInterface {
         // a prefix of r.Stack0.
     **/
     @:keep
-    public dynamic function stack():Slice<GoUIntptr> return __self__.value.stack();
+    public dynamic function stack():stdgo.Slice<stdgo.StdGoTypes.GoUIntptr> return __self__.value.stack();
     /**
         // InUseObjects returns the number of objects in use (AllocObjects - FreeObjects).
     **/
     @:keep
-    public dynamic function inUseObjects():GoInt64 return __self__.value.inUseObjects();
+    public dynamic function inUseObjects():stdgo.StdGoTypes.GoInt64 return __self__.value.inUseObjects();
     /**
         // InUseBytes returns the number of bytes in use (AllocBytes - FreeBytes).
     **/
     @:keep
-    public dynamic function inUseBytes():GoInt64 return __self__.value.inUseBytes();
+    public dynamic function inUseBytes():stdgo.StdGoTypes.GoInt64 return __self__.value.inUseBytes();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<MemProfileRecord>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<MemProfileRecord>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.runtime.Runtime.MemProfileRecord_asInterface) class MemProfileRecord_static_extension {
@@ -1419,32 +1496,110 @@ class MemProfileRecord_asInterface {
         // a prefix of r.Stack0.
     **/
     @:keep
-    static public function stack( _r:Ref<MemProfileRecord>):Slice<GoUIntptr> throw "runtime.stack is not yet implemented";
+    static public function stack( _r:stdgo.StdGoTypes.Ref<MemProfileRecord>):stdgo.Slice<stdgo.StdGoTypes.GoUIntptr> throw "MemProfileRecord:runtime.stack is not yet implemented";
     /**
         // InUseObjects returns the number of objects in use (AllocObjects - FreeObjects).
     **/
     @:keep
-    static public function inUseObjects( _r:Ref<MemProfileRecord>):GoInt64 throw "runtime.inUseObjects is not yet implemented";
+    static public function inUseObjects( _r:stdgo.StdGoTypes.Ref<MemProfileRecord>):stdgo.StdGoTypes.GoInt64 throw "MemProfileRecord:runtime.inUseObjects is not yet implemented";
     /**
         // InUseBytes returns the number of bytes in use (AllocBytes - FreeBytes).
     **/
     @:keep
-    static public function inUseBytes( _r:Ref<MemProfileRecord>):GoInt64 throw "runtime.inUseBytes is not yet implemented";
+    static public function inUseBytes( _r:stdgo.StdGoTypes.Ref<MemProfileRecord>):stdgo.StdGoTypes.GoInt64 throw "MemProfileRecord:runtime.inUseBytes is not yet implemented";
 }
 class BlockProfileRecord_asInterface {
     @:embedded
-    public dynamic function stack():Slice<GoUIntptr> return __self__.value.stack();
+    public dynamic function stack():stdgo.Slice<stdgo.StdGoTypes.GoUIntptr> return __self__.value.stack();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<BlockProfileRecord>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<BlockProfileRecord>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.runtime.Runtime.BlockProfileRecord_asInterface) class BlockProfileRecord_static_extension {
     @:embedded
-    public static function stack( __self__:BlockProfileRecord):Slice<GoUIntptr> return __self__.stack();
+    public static function stack( __self__:BlockProfileRecord):stdgo.Slice<stdgo.StdGoTypes.GoUIntptr> return __self__.stack();
+}
+class PanicNilError_asInterface {
+    @:keep
+    public dynamic function runtimeError():Void __self__.value.runtimeError();
+    @:keep
+    public dynamic function error():stdgo.GoString return __self__.value.error();
+    public function new(__self__, __type__) {
+        this.__self__ = __self__;
+        this.__type__ = __type__;
+    }
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<PanicNilError>;
+    var __type__ : stdgo.internal.reflect.Reflect._Type;
+}
+@:keep @:allow(stdgo.runtime.Runtime.PanicNilError_asInterface) class PanicNilError_static_extension {
+    @:keep
+    static public function runtimeError( _:stdgo.StdGoTypes.Ref<PanicNilError>):Void throw "PanicNilError:runtime.runtimeError is not yet implemented";
+    @:keep
+    static public function error( _:stdgo.StdGoTypes.Ref<PanicNilError>):stdgo.GoString throw "PanicNilError:runtime.error is not yet implemented";
+}
+class Pinner_asInterface {
+    /**
+        // Unpin unpins all pinned objects of the Pinner.
+    **/
+    @:keep
+    public dynamic function unpin():Void __self__.value.unpin();
+    /**
+        // Pin pins a Go object, preventing it from being moved or freed by the garbage
+        // collector until the Unpin method has been called.
+        //
+        // A pointer to a pinned
+        // object can be directly stored in C memory or can be contained in Go memory
+        // passed to C functions. If the pinned object itself contains pointers to Go
+        // objects, these objects must be pinned separately if they are going to be
+        // accessed from C code.
+        //
+        // The argument must be a pointer of any type or an
+        // unsafe.Pointer. It must be the result of calling new,
+        // taking the address of a composite literal, or taking the address of a
+        // local variable. If one of these conditions is not met, Pin will panic.
+    **/
+    @:keep
+    public dynamic function pin(_pointer:stdgo.StdGoTypes.AnyInterface):Void __self__.value.pin(_pointer);
+    @:embedded
+    public dynamic function _unpin():Void __self__.value._unpin();
+    public function new(__self__, __type__) {
+        this.__self__ = __self__;
+        this.__type__ = __type__;
+    }
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<Pinner>;
+    var __type__ : stdgo.internal.reflect.Reflect._Type;
+}
+@:keep @:allow(stdgo.runtime.Runtime.Pinner_asInterface) class Pinner_static_extension {
+    /**
+        // Unpin unpins all pinned objects of the Pinner.
+    **/
+    @:keep
+    static public function unpin( _p:stdgo.StdGoTypes.Ref<Pinner>):Void throw "Pinner:runtime.unpin is not yet implemented";
+    /**
+        // Pin pins a Go object, preventing it from being moved or freed by the garbage
+        // collector until the Unpin method has been called.
+        //
+        // A pointer to a pinned
+        // object can be directly stored in C memory or can be contained in Go memory
+        // passed to C functions. If the pinned object itself contains pointers to Go
+        // objects, these objects must be pinned separately if they are going to be
+        // accessed from C code.
+        //
+        // The argument must be a pointer of any type or an
+        // unsafe.Pointer. It must be the result of calling new,
+        // taking the address of a composite literal, or taking the address of a
+        // local variable. If one of these conditions is not met, Pin will panic.
+    **/
+    @:keep
+    static public function pin( _p:stdgo.StdGoTypes.Ref<Pinner>, _pointer:stdgo.StdGoTypes.AnyInterface):Void throw "Pinner:runtime.pin is not yet implemented";
+    @:embedded
+    public static function _unpin( __self__:Pinner) __self__._unpin();
 }
 class Frames_asInterface {
     /**
@@ -1464,8 +1619,8 @@ class Frames_asInterface {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<Frames>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<Frames>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.runtime.Runtime.Frames_asInterface) class Frames_static_extension {
@@ -1481,7 +1636,7 @@ class Frames_asInterface {
         // See the Frames example for idiomatic usage.
     **/
     @:keep
-    static public function next( _ci:Ref<Frames>):{ var _0 : Frame; var _1 : Bool; } throw "runtime.next is not yet implemented";
+    static public function next( _ci:stdgo.StdGoTypes.Ref<Frames>):{ var _0 : Frame; var _1 : Bool; } throw "Frames:runtime.next is not yet implemented";
 }
 class Func_asInterface {
     /**
@@ -1491,23 +1646,23 @@ class Func_asInterface {
         // counter within f.
     **/
     @:keep
-    public dynamic function fileLine(_pc:GoUIntptr):{ var _0 : GoString; var _1 : GoInt; } return __self__.value.fileLine(_pc);
+    public dynamic function fileLine(_pc:stdgo.StdGoTypes.GoUIntptr):{ var _0 : stdgo.GoString; var _1 : stdgo.StdGoTypes.GoInt; } return __self__.value.fileLine(_pc);
     /**
         // Entry returns the entry address of the function.
     **/
     @:keep
-    public dynamic function entry():GoUIntptr return __self__.value.entry();
+    public dynamic function entry():stdgo.StdGoTypes.GoUIntptr return __self__.value.entry();
     /**
         // Name returns the name of the function.
     **/
     @:keep
-    public dynamic function name():GoString return __self__.value.name();
+    public dynamic function name():stdgo.GoString return __self__.value.name();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
-    public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<Func>;
+    public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<Func>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
 @:keep @:allow(stdgo.runtime.Runtime.Func_asInterface) class Func_static_extension {
@@ -1518,15 +1673,15 @@ class Func_asInterface {
         // counter within f.
     **/
     @:keep
-    static public function fileLine( _f:Ref<Func>, _pc:GoUIntptr):{ var _0 : GoString; var _1 : GoInt; } throw "runtime.fileLine is not yet implemented";
+    static public function fileLine( _f:stdgo.StdGoTypes.Ref<Func>, _pc:stdgo.StdGoTypes.GoUIntptr):{ var _0 : stdgo.GoString; var _1 : stdgo.StdGoTypes.GoInt; } throw "Func:runtime.fileLine is not yet implemented";
     /**
         // Entry returns the entry address of the function.
     **/
     @:keep
-    static public function entry( _f:Ref<Func>):GoUIntptr throw "runtime.entry is not yet implemented";
+    static public function entry( _f:stdgo.StdGoTypes.Ref<Func>):stdgo.StdGoTypes.GoUIntptr throw "Func:runtime.entry is not yet implemented";
     /**
         // Name returns the name of the function.
     **/
     @:keep
-    static public function name( _f:Ref<Func>):GoString throw "runtime.name is not yet implemented";
+    static public function name( _f:stdgo.StdGoTypes.Ref<Func>):stdgo.GoString throw "Func:runtime.name is not yet implemented";
 }

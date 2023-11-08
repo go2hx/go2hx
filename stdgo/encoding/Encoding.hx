@@ -1,13 +1,4 @@
 package stdgo.encoding;
-import stdgo.StdGoTypes;
-import stdgo.Error;
-import stdgo.Go;
-import stdgo.GoString;
-import stdgo.Pointer;
-import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
 /**
     // Package encoding defines interfaces shared by other packages that
     // convert data to and from byte-level and textual representations.
@@ -16,6 +7,12 @@ import stdgo.Chan;
     // interface once can make a type useful in multiple encodings.
     // Standard types that implement these interfaces include time.Time and net.IP.
     // The interfaces come in pairs that produce and consume encoded data.
+    //
+    // Adding encoding/decoding methods to existing types may constitute a breaking change,
+    // as they can be used for serialization in communicating with programs
+    // written with different library versions.
+    // The policy for packages maintained by the Go project is to only allow
+    // the addition of marshaling functions if no existing, reasonable marshaling exists.
 **/
 private var __go2hxdoc__package : Bool;
 /**
@@ -26,13 +23,13 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-typedef BinaryMarshaler = StructType & {
+typedef BinaryMarshaler = stdgo.StdGoTypes.StructType & {
     /**
         
         
         
     **/
-    public dynamic function marshalBinary():{ var _0 : Slice<GoByte>; var _1 : Error; };
+    public dynamic function marshalBinary():{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; };
 };
 /**
     // BinaryUnmarshaler is the interface implemented by an object that can
@@ -44,13 +41,13 @@ typedef BinaryMarshaler = StructType & {
     
     
 **/
-typedef BinaryUnmarshaler = StructType & {
+typedef BinaryUnmarshaler = stdgo.StdGoTypes.StructType & {
     /**
         
         
         
     **/
-    public dynamic function unmarshalBinary(_data:Slice<GoByte>):Error;
+    public dynamic function unmarshalBinary(_data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error;
 };
 /**
     // TextMarshaler is the interface implemented by an object that can
@@ -60,13 +57,13 @@ typedef BinaryUnmarshaler = StructType & {
     
     
 **/
-typedef TextMarshaler = StructType & {
+typedef TextMarshaler = stdgo.StdGoTypes.StructType & {
     /**
         
         
         
     **/
-    public dynamic function marshalText():{ var _0 : Slice<GoByte>; var _1 : Error; };
+    public dynamic function marshalText():{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; };
 };
 /**
     // TextUnmarshaler is the interface implemented by an object that can
@@ -78,11 +75,11 @@ typedef TextMarshaler = StructType & {
     
     
 **/
-typedef TextUnmarshaler = StructType & {
+typedef TextUnmarshaler = stdgo.StdGoTypes.StructType & {
     /**
         
         
         
     **/
-    public dynamic function unmarshalText(_text:Slice<GoByte>):Error;
+    public dynamic function unmarshalText(_text:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error;
 };

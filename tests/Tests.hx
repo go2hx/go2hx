@@ -96,9 +96,11 @@ var instance:InstanceData = null;
 var timeout = 0;
 
 function update() {
-	if (completeBool && tests.length == 0 && tasks.length == 0 && runningCount == 0)
+	if (completeBool && tests.length == 0 && tasks.length == 0 && runningCount == 0) {
+		trace("COMPLETE");
 		close();
-	if (tests.length > 0 && timeout++ > 10 * 60 * 7) {
+	}
+	if (timeout++ > (10 * 60) * 7) {
 		trace("TIMEOUT");
 		trace(instance.args);
 		close();
@@ -109,6 +111,7 @@ function update() {
 		args.push(path);
 		instance = Main.compileArgs(args);
 		final compiled = Main.compile(instance);
+		timeout = 0;
 		if (!compiled) {
 			break;
 		}

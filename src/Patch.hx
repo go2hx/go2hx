@@ -380,7 +380,7 @@ final list = [
 		final gt = @:privateAccess stdgo.internal.reflect.Reflect.getUnderlying(_v.value.type._common());
 		switch gt {
 			case signature(_, _.get() => params, _.get() => out, _):
-				throw "not implemented: " + gt;
+				throw "not implemented reflect.Value:call: " + gt;
 			default:
 				throw "unsupported: " + gt;
 		}

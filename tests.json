@@ -66,5 +66,6 @@
     "text/template",
     "internal/bisect",
     "internal/testenv",
+    "internal/platform",
     "context"
 ]

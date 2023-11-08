@@ -131,18 +131,22 @@ function update() {
 			}
 			ls.kill();
 			timeoutTimer.stop();
+			timeout = 0;
 		};
 		runningCount++;
 		ls.stdout.on('data', function(data) {
 			log(task.target + "|" + task.path + "|" + task.runtime);
 			log(data);
+			timeout = 0;
 		});
 		ls.stderr.on('data', function(data) {
 			log(task.target + "|" + task.path + "|" + task.runtime);
 			Sys.print(data);
 			log(data);
+			timeout = 0;
 		});
 		ls.on('close', function(code) {
+			timeout = 0;
 			completeBool = true;
 			timeoutTimer.stop();
 			runningCount--;

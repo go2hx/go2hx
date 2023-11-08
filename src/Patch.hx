@@ -11,6 +11,10 @@ final list = [
 	// stdgo/errors
 	"errors:_errorType" => macro stdgo.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.StdGoTypes.Ref<stdgo.Error>))).elem(),
 	// stdgo/os
+	"os:environ" => macro {
+		final slice = new stdgo.Slice<stdgo.GoString>(0,0);
+		return slice;
+	},
 	"os:readFile" => macro {
 		if (!sys.FileSystem.exists(_name))
 			return {_0: null, _1: stdgo.errors.Errors.new_("readFile " + _name + ": no such file or directory")};
@@ -1300,6 +1304,7 @@ final list = [
 	"internal.testenv:hasGoBuild" => macro return false,
 	"internal.testenv:hasGoRun" => macro return false,
 	"internal.testenv:hasParallelism" => macro return false,
+	"internal.testenv:canInternalLink" => macro return false,
 ];
 
 final skipTargets = [

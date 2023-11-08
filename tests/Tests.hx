@@ -216,7 +216,7 @@ private function createTargetOutput(target:String, type:String, name:String):Str
 }
 
 private function sanatize(s:String):String {
-	s = Path.withoutDirectory(s);
+	//s = Path.withoutDirectory(s);
 	s = Path.withoutExtension(s);
 	s = StringTools.replace(s, "/", "_");
 	return s;
@@ -242,20 +242,23 @@ private function testGo() { // go tests
 private function testStd() { // standard library package tests
 	type = "std";
 	final list:Array<String> = Json.parse(File.getContent("tests.json"));
+	Sys.println("STD TESTS: " + list.length);
 	for (name in list) {
 		final hxml = "stdgo/" + StringTools.replace(name,"/","_") + ".hxml";
 		if (!sys.FileSystem.exists(hxml))
 			continue;
 		final main = name;
 		for (target in targets) {
-			final out = createTargetOutput(target, type, "golibs");
+			final out = createTargetOutput(target, type, name);
 			final outCmd = Main.buildTarget(target, out).split(" ");
 			final args = [hxml].concat(outCmd);
 			if (ciBool)
 				args.unshift("haxe");
 			tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main});
+			Sys.println(args.join(" "));
 		}
 	}
+	Sys.println("______________________");
 	// haxe stdgo/unicode.hxml --interp
 }
 

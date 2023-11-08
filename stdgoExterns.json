@@ -17,7 +17,6 @@
 	"internal/godebug",
 	"internal/bisect",
 	"internal/godebugs",
-	"internal/testenv",
 	"log/internal",
 	"context"
 ]

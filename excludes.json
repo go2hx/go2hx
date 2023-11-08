@@ -43,6 +43,5 @@
     "internal/goexperiment",
     "internal/coverage/rtcov",
     "internal/goarch",
-    "internal/goos",
-    "log/internal"
+    "internal/goos"
 ]

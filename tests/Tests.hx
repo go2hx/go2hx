@@ -101,8 +101,12 @@ function update() {
 		trace("COMPLETE");
 		close();
 	}
-	if (timeout++ > (10 * 60) * 14) {
+	if (timeout++ > (10 * 60) * 24) {
 		trace("TIMEOUT");
+		trace("tests.length:",tests.length);
+		trace("tasks.length:",tasks.length);
+		trace("runningCount:",runningCount);
+		trace("completeBool:",completeBool);
 		// instance.args is null
 		trace("last task logs:",lastTaskLogs);
 		trace("tests left:",tests.length);
@@ -120,7 +124,7 @@ function update() {
 		}
 		tests.remove(test);
 	}
-	if (tasks.length > 0 && runningCount < 4 ) {
+	if (tasks.length > 0 && runningCount < 3 ) {
 		final task = tasks.pop();
 		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " lastTaskLogs: " + lastTaskLogs);
 		final taskString = task.command + " " + task.args.join(" ");

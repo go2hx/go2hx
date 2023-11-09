@@ -143,6 +143,7 @@ function update() {
 			ls.kill();
 			timeoutTimer.stop();
 			timeout = 0;
+			runningCount--;
 		};
 		runningCount++;
 		ls.stdout.on('data', function(data) {

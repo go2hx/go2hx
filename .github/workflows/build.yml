@@ -64,7 +64,7 @@ jobs:
       - name: Build go2hxdoc
         run: go build github.com/go2hx/go2hxdoc
       - name: Run go2hxdoc
-        run: ./go2hxdoc -dir `npx haxelib libpath go2hx`stdgo -interp -hl -stats -force -seq -timeout 15m
+        run: ./go2hxdoc -dir `npx haxelib libpath go2hx`stdgo -stats -force -seq 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: stdgo doc generation

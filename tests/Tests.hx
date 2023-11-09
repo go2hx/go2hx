@@ -129,23 +129,23 @@ function update() {
 		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " lastTaskLogs: " + lastTaskLogs);
 		final taskString = task.command + " " + task.args.join(" ");
 		lastTaskLogs.push(taskString);
+		runningCount++;
 		final ls = ChildProcess.spawn(task.command, task.args);
 		var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
 		timeoutTimer.run = () -> {
+			runningCount--;
 			lastTaskLogs.remove(taskString);
+			timeout = 0;
+			timeoutTimer.stop();
 			trace("TEST TIMEOUT: " + task.command + " " + task.args);
 			if (task.runtime) {
 				suite.runtimeError(task.path,task.target);
 			}else{
 				suite.buildError(task.path,task.target);
 			}
-			
+			ls.removeAllListeners();
 			ls.kill();
-			timeoutTimer.stop();
-			timeout = 0;
-			runningCount--;
 		};
-		runningCount++;
 		ls.stdout.on('data', function(data) {
 			log(task.target + "|" + task.path + "|" + task.runtime + " ~ " + lastTaskLogs);
 			log(data);

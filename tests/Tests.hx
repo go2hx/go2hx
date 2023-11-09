@@ -101,7 +101,7 @@ function update() {
 		trace("COMPLETE");
 		close();
 	}
-	if (timeout++ > (10 * 60) * 7) {
+	if (timeout++ > (10 * 60) * 14) {
 		trace("TIMEOUT");
 		// instance.args is null
 		trace("last task logs:",lastTaskLogs);

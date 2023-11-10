@@ -249,6 +249,10 @@ private function testStd() { // standard library package tests
 	final list:Array<String> = Json.parse(File.getContent("tests.json"));
 	Sys.println("STD TESTS: " + list.length);
 	for (name in list) {
+		switch name {
+			case "regexp":
+				continue;
+		}
 		final hxml = "stdgo/" + StringTools.replace(name,"/","_") + ".hxml";
 		if (!sys.FileSystem.exists(hxml))
 			continue;

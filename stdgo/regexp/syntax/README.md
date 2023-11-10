@@ -166,43 +166,101 @@ ASCII character classes:
 
 Unicode character classes are those in unicode.Categories and unicode.Scripts.  
 
-<details><summary>hl tests failed</summary>
-<p>
-
-```
-Error: Command failed with error 1
-=== RUN  TestParseSimple
-Parse(`[[:lower:]]`): error parsing regexp: invalid character class range: `[:lower:]`
-```
-</p>
-</details>
-
-<details><summary>interp tests failed</summary>
-<p>
-
-```
-=== RUN  TestParseSimple
-Parse(`[[:lower:]]`): error parsing regexp: invalid character class range: `[:lower:]`
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
-
 
 # Index
 
 
 - [Constants](<#constants>)
 
+- [Variables](<#variables>)
+
+- [`function _appendClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>`](<#function-_appendclass>)
+
+- [`function _appendFoldedClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>`](<#function-_appendfoldedclass>)
+
+- [`function _appendFoldedRange(_r:stdgo.Slice<stdgo.GoRune>, _lo:stdgo.GoRune, _hi:stdgo.GoRune):stdgo.Slice<stdgo.GoRune>`](<#function-_appendfoldedrange>)
+
+- [`function _appendLiteral(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.GoRune, _flags:stdgo.regexp.syntax.Flags):stdgo.Slice<stdgo.GoRune>`](<#function-_appendliteral>)
+
+- [`function _appendNegatedClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>`](<#function-_appendnegatedclass>)
+
+- [`function _appendNegatedTable(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Ref<stdgo.unicode.RangeTable>):stdgo.Slice<stdgo.GoRune>`](<#function-_appendnegatedtable>)
+
+- [`function _appendRange(_r:stdgo.Slice<stdgo.GoRune>, _lo:stdgo.GoRune, _hi:stdgo.GoRune):stdgo.Slice<stdgo.GoRune>`](<#function-_appendrange>)
+
+- [`function _appendTable(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Ref<stdgo.unicode.RangeTable>):stdgo.Slice<stdgo.GoRune>`](<#function-_appendtable>)
+
+- [`function _bw(_b:stdgo.Ref<stdgo.strings.Builder>, _args:haxe.Rest<stdgo.GoString>):Void`](<#function-_bw>)
+
+- [`function _checkUTF8(_s:stdgo.GoString):stdgo.Error`](<#function-_checkutf8>)
+
+- [`function _cleanAlt(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Void`](<#function-_cleanalt>)
+
+- [`function _cleanClass(_rp:stdgo.Ref<stdgo.Slice<stdgo.GoRune>>):stdgo.Slice<stdgo.GoRune>`](<#function-_cleanclass>)
+
+- [`function _dump(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):stdgo.GoString`](<#function-_dump>)
+
+- [`function _dumpInst(_b:stdgo.Ref<stdgo.strings.Builder>, _i:stdgo.Ref<stdgo.regexp.syntax.Inst>):Void`](<#function-_dumpinst>)
+
+- [`function _dumpProg(_b:stdgo.Ref<stdgo.strings.Builder>, _p:stdgo.Ref<stdgo.regexp.syntax.Prog>):Void`](<#function-_dumpprog>)
+
+- [`function _dumpRegexp(_b:stdgo.Ref<stdgo.strings.Builder>, _re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Void`](<#function-_dumpregexp>)
+
+- [`function _escape(_b:stdgo.Ref<stdgo.strings.Builder>, _r:stdgo.GoRune, _force:Bool):Void`](<#function-_escape>)
+
+- [`function _isCharClass(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Bool`](<#function-_ischarclass>)
+
+- [`function _isUpperFold(_r:stdgo.GoRune):Bool`](<#function-_isupperfold>)
+
+- [`function _isValidCaptureName(_name:stdgo.GoString):Bool`](<#function-_isvalidcapturename>)
+
+- [`function _isalnum(_c:stdgo.GoRune):Bool`](<#function-_isalnum>)
+
+- [`function _literalRegexp(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):stdgo.Ref<stdgo.regexp.syntax.Regexp>`](<#function-_literalregexp>)
+
+- [`function _makePatchList(_n:stdgo.GoUInt32):stdgo.regexp.syntax.T_patchList`](<#function-_makepatchlist>)
+
+- [`function _matchRune(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _r:stdgo.GoRune):Bool`](<#function-_matchrune>)
+
+- [`function _mergeCharClass(_dst:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _src:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Void`](<#function-_mergecharclass>)
+
+- [`function _minFoldRune(_r:stdgo.GoRune):stdgo.GoRune`](<#function-_minfoldrune>)
+
+- [`function _mkCharClass(_f:()):stdgo.GoString`](<#function-_mkcharclass>)
+
+- [`function _negateClass(_r:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>`](<#function-_negateclass>)
+
+- [`function _nextRune(_s:stdgo.GoString):{
+	_2:stdgo.Error;
+	_1:stdgo.GoString;
+	_0:stdgo.GoRune;
+}`](<#function-_nextrune>)
+
+- [`function _parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.regexp.syntax.Regexp>;
+}`](<#function-_parse>)
+
+- [`function _repeatIsValid(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _n:stdgo.GoInt):Bool`](<#function-_repeatisvalid>)
+
+- [`function _simplify1(_op:stdgo.regexp.syntax.Op, _flags:stdgo.regexp.syntax.Flags, _sub:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):stdgo.Ref<stdgo.regexp.syntax.Regexp>`](<#function-_simplify1>)
+
+- [`function _testParseDump(_t:stdgo.Ref<stdgo.testing.T>, _tests:stdgo.Slice<stdgo.regexp.syntax.T_parseTest>, _flags:stdgo.regexp.syntax.Flags):Void`](<#function-_testparsedump>)
+
+- [`function _u32(_i:stdgo.GoUInt32):stdgo.GoString`](<#function-_u32>)
+
+- [`function _unhex(_c:stdgo.GoRune):stdgo.GoRune`](<#function-_unhex>)
+
+- [`function _unicodeTable(_name:stdgo.GoString):{
+	_1:stdgo.Ref<stdgo.unicode.RangeTable>;
+	_0:stdgo.Ref<stdgo.unicode.RangeTable>;
+}`](<#function-_unicodetable>)
+
+- [`function _writeRegexp(_b:stdgo.Ref<stdgo.strings.Builder>, _re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Void`](<#function-_writeregexp>)
+
 - [`function benchmarkEmptyOpContext(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkemptyopcontext>)
+
+- [`function benchmarkIsWordChar(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkiswordchar>)
 
 - [`function compile(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):{
 	_1:stdgo.Error;
@@ -256,7 +314,7 @@ IO.Overflow("write_ui16")
 
 - [class Prog](<#class-prog>)
 
-  - [`function new(?inst:stdgo.Slice<stdgo.regexp.syntax.Inst>, ?start:Null<stdgo.GoInt>, ?numCap:Null<stdgo.GoInt>):Void`](<#prog-function-new>)
+  - [`function new(?inst:stdgo.Slice<stdgo.regexp.syntax.Inst>, ?start:stdgo.GoInt, ?numCap:stdgo.GoInt):Void`](<#prog-function-new>)
 
   - [`function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref<stdgo.regexp.syntax.Inst>`](<#prog-function-_skipnop>)
 
@@ -268,7 +326,7 @@ IO.Overflow("write_ui16")
 
 - [class Regexp](<#class-regexp>)
 
-  - [`function new(?op:Null<stdgo.regexp.syntax.Op>, ?flags:Null<stdgo.regexp.syntax.Flags>, ?sub:stdgo.Slice<stdgo.Ref<stdgo.regexp.syntax.Regexp>>, ?sub0:stdgo.GoArray<stdgo.Ref<stdgo.regexp.syntax.Regexp>>, ?rune:stdgo.Slice<stdgo.GoInt32>, ?rune0:stdgo.GoArray<stdgo.GoInt32>, ?min:Null<stdgo.GoInt>, ?max:Null<stdgo.GoInt>, ?cap:Null<stdgo.GoInt>, ?name:stdgo.GoString):Void`](<#regexp-function-new>)
+  - [`function new(?op:Null<stdgo.regexp.syntax.Op>, ?flags:Null<stdgo.regexp.syntax.Flags>, ?sub:stdgo.Slice<stdgo.Ref<stdgo.regexp.syntax.Regexp>>, ?sub0:stdgo.GoArray<stdgo.Ref<stdgo.regexp.syntax.Regexp>>, ?rune:stdgo.Slice<stdgo.GoInt32>, ?rune0:stdgo.GoArray<stdgo.GoInt32>, ?min:stdgo.GoInt, ?max:stdgo.GoInt, ?cap:stdgo.GoInt, ?name:stdgo.GoString):Void`](<#regexp-function-new>)
 
   - [`function _capNames( _names:stdgo.Slice<stdgo.GoString>):Void`](<#regexp-function-_capnames>)
 
@@ -298,11 +356,175 @@ IO.Overflow("write_ui16")
 
 - [typedef Op](<#typedef-op>)
 
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
+- [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
+
+- [typedef T\_\_struct\_2](<#typedef-t__struct_2>)
+
 # Constants
 
 
 ```haxe
 import stdgo.regexp.syntax.Syntax
+```
+
+
+```haxe
+final __Op_name_0:stdgo.GoString = (("NoMatchEmptyMatchLiteralCharClassAnyCharNotNLAnyCharBeginLineEndLineBeginTextEndTextWordBoundaryNoWordBoundaryCaptureStarPlusQuestRepeatConcatAlternate" : stdgo.GoString))
+```
+
+
+```haxe
+final __Op_name_1:stdgo.GoString = (("opPseudo" : stdgo.GoString))
+```
+
+
+```haxe
+final _instSize:stdgo.GoUInt64 = ((40i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+maxSize is the maximum size of a compiled regexp in Insts.
+It too is somewhat arbitrarily chosen, but the idea is to be large enough
+to allow significant regexps while at the same time small enough that
+the compiled form will not take up too much memory.
+128 MB is enough for a 3.3 million Inst structures, which roughly
+corresponds to a 3.3 MB regexp.  
+
+
+byte, 2 uint32, slice is 5 64\-bit words  
+
+```haxe
+final _maxFold:stdgo.GoUInt64 = ((125251i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final _maxHeight:stdgo.GoUInt64 = ((1000i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+maxHeight is the maximum height of a regexp parse tree.
+It is somewhat arbitrarily chosen, but the idea is to be large enough
+that no one will actually hit in real use but at the same time small enough
+that recursion on the Regexp tree will not hit the 1GB Go stack limit.
+The maximum amount of stack for a single recursive frame is probably
+closer to 1kB, so this could potentially be raised, but it seems unlikely
+that people have regexps nested even this deeply.
+We ran a test on Google's C\+\+ code base and turned up only
+a single use case with depth \> 100; it had depth 128.
+Using depth 1000 should be plenty of margin.
+As an optimization, we don't even bother calculating heights
+until we've allocated at least maxHeight Regexp structures.  
+
+```haxe
+final _maxRunes:stdgo.GoUInt64 = ((33554432i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+maxRunes is the maximum number of runes allowed in a regexp tree
+counting the runes in all the nodes.
+Ignoring character classes p.numRunes is always less than the length of the regexp.
+Character classes can make it much larger: each \\pL adds 1292 runes.
+128 MB is enough for 32M runes, which is over 26k \\pL instances.
+Note that repetitions do not make copies of the rune slices,
+so \\pL\{1000\} is only one rune slice, not 1000.
+We could keep a cache of character classes we've seen,
+so that all the \\pL we see use the same rune list,
+but that doesn't remove the problem entirely:
+consider something like \[\\pL01234\]\[\\pL01235\]\[\\pL01236\]...\[\\pL^&\*\(\)\].
+And because the Rune slice is exposed directly in the Regexp,
+there is not an opportunity to change the representation to allow
+partial sharing between different character classes.
+So the limit is the best we can do.  
+
+```haxe
+final _maxSize:stdgo.GoUInt64 = ((3355443i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+maxSize is the maximum size of a compiled regexp in Insts.
+It too is somewhat arbitrarily chosen, but the idea is to be large enough
+to allow significant regexps while at the same time small enough that
+the compiled form will not take up too much memory.
+128 MB is enough for a 3.3 million Inst structures, which roughly
+corresponds to a 3.3 MB regexp.  
+
+```haxe
+final _meta:stdgo.GoString = (("\\.+*?()|[]{}^$" : stdgo.GoString))
+```
+
+
+```haxe
+final _minFold:stdgo.GoUInt64 = ((65i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+minimum and maximum runes involved in folding.
+checked during test.  
+
+```haxe
+final _noMatch:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final _opLeftParen:stdgo.regexp.syntax.Op = ((129 : stdgo.regexp.syntax.Syntax.Op))
+```
+
+
+
+Pseudo\-ops for parsing stack.  
+
+```haxe
+final _opPseudo:stdgo.regexp.syntax.Op = ((128 : stdgo.regexp.syntax.Syntax.Op))
+```
+
+
+
+where pseudo\-ops start  
+
+```haxe
+final _opVerticalBar:stdgo.regexp.syntax.Op = ((129 : stdgo.regexp.syntax.Syntax.Op))
+```
+
+
+
+Pseudo\-ops for parsing stack.  
+
+```haxe
+final _runeSize:stdgo.GoUInt64 = ((4i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+maxRunes is the maximum number of runes allowed in a regexp tree
+counting the runes in all the nodes.
+Ignoring character classes p.numRunes is always less than the length of the regexp.
+Character classes can make it much larger: each \\pL adds 1292 runes.
+128 MB is enough for 32M runes, which is over 26k \\pL instances.
+Note that repetitions do not make copies of the rune slices,
+so \\pL\{1000\} is only one rune slice, not 1000.
+We could keep a cache of character classes we've seen,
+so that all the \\pL we see use the same rune list,
+but that doesn't remove the problem entirely:
+consider something like \[\\pL01234\]\[\\pL01235\]\[\\pL01236\]...\[\\pL^&\*\(\)\].
+And because the Rune slice is exposed directly in the Regexp,
+there is not an opportunity to change the representation to allow
+partial sharing between different character classes.
+So the limit is the best we can do.  
+
+
+rune is int32  
+
+```haxe
+final _testFlags:stdgo.regexp.syntax.Flags = ((204 : stdgo.regexp.syntax.Syntax.Flags))
 ```
 
 
@@ -353,7 +575,7 @@ final emptyWordBoundary:stdgo.regexp.syntax.EmptyOp = ((32 : stdgo.regexp.syntax
 
 
 ```haxe
-final errInternalError:stdgo.regexp.syntax.ErrorCode = (((("regexp/syntax: internal error" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInternalError:stdgo.regexp.syntax.ErrorCode = (((("regexp/syntax: internal error" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
@@ -361,7 +583,7 @@ final errInternalError:stdgo.regexp.syntax.ErrorCode = (((("regexp/syntax: inter
 Unexpected error  
 
 ```haxe
-final errInvalidCharClass:stdgo.regexp.syntax.ErrorCode = (((("invalid character class" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidCharClass:stdgo.regexp.syntax.ErrorCode = (((("invalid character class" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
@@ -369,72 +591,72 @@ final errInvalidCharClass:stdgo.regexp.syntax.ErrorCode = (((("invalid character
 Parse errors  
 
 ```haxe
-final errInvalidCharRange:stdgo.regexp.syntax.ErrorCode = (((("invalid character class range" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidCharRange:stdgo.regexp.syntax.ErrorCode = (((("invalid character class range" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidEscape:stdgo.regexp.syntax.ErrorCode = (((("invalid escape sequence" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidEscape:stdgo.regexp.syntax.ErrorCode = (((("invalid escape sequence" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidNamedCapture:stdgo.regexp.syntax.ErrorCode = (((("invalid named capture" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidNamedCapture:stdgo.regexp.syntax.ErrorCode = (((("invalid named capture" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidPerlOp:stdgo.regexp.syntax.ErrorCode = (((("invalid or unsupported Perl syntax" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidPerlOp:stdgo.regexp.syntax.ErrorCode = (((("invalid or unsupported Perl syntax" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidRepeatOp:stdgo.regexp.syntax.ErrorCode = (((("invalid nested repetition operator" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidRepeatOp:stdgo.regexp.syntax.ErrorCode = (((("invalid nested repetition operator" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidRepeatSize:stdgo.regexp.syntax.ErrorCode = (((("invalid repeat count" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidRepeatSize:stdgo.regexp.syntax.ErrorCode = (((("invalid repeat count" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errInvalidUTF8:stdgo.regexp.syntax.ErrorCode = (((("invalid UTF-8" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errInvalidUTF8:stdgo.regexp.syntax.ErrorCode = (((("invalid UTF-8" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errLarge:stdgo.regexp.syntax.ErrorCode = (((("expression too large" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errLarge:stdgo.regexp.syntax.ErrorCode = (((("expression too large" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errMissingBracket:stdgo.regexp.syntax.ErrorCode = (((("missing closing ]" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errMissingBracket:stdgo.regexp.syntax.ErrorCode = (((("missing closing ]" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errMissingParen:stdgo.regexp.syntax.ErrorCode = (((("missing closing )" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errMissingParen:stdgo.regexp.syntax.ErrorCode = (((("missing closing )" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errMissingRepeatArgument:stdgo.regexp.syntax.ErrorCode = (((("missing argument to repetition operator" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errMissingRepeatArgument:stdgo.regexp.syntax.ErrorCode = (((("missing argument to repetition operator" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errNestingDepth:stdgo.regexp.syntax.ErrorCode = (((("expression nests too deeply" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errNestingDepth:stdgo.regexp.syntax.ErrorCode = (((("expression nests too deeply" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errTrailingBackslash:stdgo.regexp.syntax.ErrorCode = (((("trailing backslash at end of expression" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errTrailingBackslash:stdgo.regexp.syntax.ErrorCode = (((("trailing backslash at end of expression" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
 ```haxe
-final errUnexpectedParen:stdgo.regexp.syntax.ErrorCode = (((("unexpected )" : GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
+final errUnexpectedParen:stdgo.regexp.syntax.ErrorCode = (((("unexpected )" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.ErrorCode))
 ```
 
 
@@ -730,12 +952,727 @@ final wasDollar:stdgo.regexp.syntax.Flags = ((512 : stdgo.regexp.syntax.Syntax.F
 
 regexp OpEndText was $, not \\z  
 
+# Variables
+
+
+```haxe
+import stdgo.regexp.syntax.Syntax
+```
+
+
+```haxe
+var __Op_index_0:stdgo.GoArray<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _anyRune:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _anyRuneNotNL:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _anyTable:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var _code1:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code10:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code11:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code12:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code13:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code14:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code15:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code16:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code17:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code2:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code3:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code4:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code5:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code6:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code7:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code8:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _code9:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _compileTests:stdgo.Slice<stdgo.regexp.syntax.T__struct_1>
+```
+
+
+```haxe
+var _foldcaseTests:stdgo.Slice<stdgo.regexp.syntax.T_parseTest>
+```
+
+
+```haxe
+var _instOpNames:stdgo.Slice<stdgo.GoString>
+```
+
+
+```haxe
+var _invalidRegexps:stdgo.Slice<stdgo.GoString>
+```
+
+
+```haxe
+var _literalTests:stdgo.Slice<stdgo.regexp.syntax.T_parseTest>
+```
+
+
+```haxe
+var _matchnlTests:stdgo.Slice<stdgo.regexp.syntax.T_parseTest>
+```
+
+
+```haxe
+var _nomatchnlTests:stdgo.Slice<stdgo.regexp.syntax.T_parseTest>
+```
+
+
+```haxe
+var _onlyPOSIX:stdgo.Slice<stdgo.GoString>
+```
+
+
+```haxe
+var _onlyPerl:stdgo.Slice<stdgo.GoString>
+```
+
+
+```haxe
+var _opNames:stdgo.Slice<stdgo.GoString>
+```
+
+
+```haxe
+var _parseTests:stdgo.Slice<stdgo.regexp.syntax.T_parseTest>
+```
+
+
+```haxe
+var _perlGroup:stdgo.GoMap<stdgo.GoString, stdgo.regexp.syntax.T_charGroup>
+```
+
+
+```haxe
+var _posixGroup:stdgo.GoMap<stdgo.GoString, stdgo.regexp.syntax.T_charGroup>
+```
+
+
+```haxe
+var _simplifyTests:stdgo.Slice<stdgo.regexp.syntax.T__struct_2>
+```
+
+
+```haxe
+var _sink:stdgo.AnyInterface
+```
+
+
 # Functions
 
 
 ```haxe
 import stdgo.regexp.syntax.Syntax
 ```
+
+
+## function \_appendClass
+
+
+```haxe
+function _appendClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>
+```
+
+
+
+appendClass returns the result of appending the class x to the class r.
+It assume x is clean.  
+
+[\(view code\)](<./Syntax.hx#L2350>)
+
+
+## function \_appendFoldedClass
+
+
+```haxe
+function _appendFoldedClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>
+```
+
+
+
+appendFoldedClass returns the result of appending the case folding of the class x to the class r.  
+
+[\(view code\)](<./Syntax.hx#L2362>)
+
+
+## function \_appendFoldedRange
+
+
+```haxe
+function _appendFoldedRange(_r:stdgo.Slice<stdgo.GoRune>, _lo:stdgo.GoRune, _hi:stdgo.GoRune):stdgo.Slice<stdgo.GoRune>
+```
+
+
+
+appendFoldedRange returns the result of appending the range lo\-hi
+and its case folding\-equivalent runes to the class r.  
+
+[\(view code\)](<./Syntax.hx#L2318>)
+
+
+## function \_appendLiteral
+
+
+```haxe
+function _appendLiteral(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.GoRune, _flags:stdgo.regexp.syntax.Flags):stdgo.Slice<stdgo.GoRune>
+```
+
+
+
+appendLiteral returns the result of appending the literal x to the class r.  
+
+[\(view code\)](<./Syntax.hx#L2284>)
+
+
+## function \_appendNegatedClass
+
+
+```haxe
+function _appendNegatedClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>
+```
+
+
+
+appendNegatedClass returns the result of appending the negation of the class x to the class r.
+It assumes x is clean.  
+
+[\(view code\)](<./Syntax.hx#L2375>)
+
+
+## function \_appendNegatedTable
+
+
+```haxe
+function _appendNegatedTable(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Ref<stdgo.unicode.RangeTable>):stdgo.Slice<stdgo.GoRune>
+```
+
+
+
+appendNegatedTable returns the result of appending the negation of x to the class r.  
+
+[\(view code\)](<./Syntax.hx#L2427>)
+
+
+## function \_appendRange
+
+
+```haxe
+function _appendRange(_r:stdgo.Slice<stdgo.GoRune>, _lo:stdgo.GoRune, _hi:stdgo.GoRune):stdgo.Slice<stdgo.GoRune>
+```
+
+
+
+appendRange returns the result of appending the range lo\-hi to the class r.  
+
+[\(view code\)](<./Syntax.hx#L2293>)
+
+
+## function \_appendTable
+
+
+```haxe
+function _appendTable(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Ref<stdgo.unicode.RangeTable>):stdgo.Slice<stdgo.GoRune>
+```
+
+
+
+appendTable returns the result of appending x to the class r.  
+
+[\(view code\)](<./Syntax.hx#L2395>)
+
+
+## function \_bw
+
+
+```haxe
+function _bw(_b:stdgo.Ref<stdgo.strings.Builder>, _args:haxe.Rest<stdgo.GoString>):Void
+```
+
+
+[\(view code\)](<./Syntax.hx#L2845>)
+
+
+## function \_checkUTF8
+
+
+```haxe
+function _checkUTF8(_s:stdgo.GoString):stdgo.Error
+```
+
+
+[\(view code\)](<./Syntax.hx#L2497>)
+
+
+## function \_cleanAlt
+
+
+```haxe
+function _cleanAlt(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Void
+```
+
+
+
+cleanAlt cleans re for eventual inclusion in an alternation.  
+
+[\(view code\)](<./Syntax.hx#L1697>)
+
+
+## function \_cleanClass
+
+
+```haxe
+function _cleanClass(_rp:stdgo.Ref<stdgo.Slice<stdgo.GoRune>>):stdgo.Slice<stdgo.GoRune>
+```
+
+
+
+cleanClass sorts the ranges \(pairs of elements of r\),
+merges them, and eliminates duplicates.  
+
+[\(view code\)](<./Syntax.hx#L2257>)
+
+
+## function \_dump
+
+
+```haxe
+function _dump(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):stdgo.GoString
+```
+
+
+
+dump prints a string representation of the regexp showing
+the structure explicitly.  
+
+[\(view code\)](<./Syntax.hx#L2568>)
+
+
+## function \_dumpInst
+
+
+```haxe
+function _dumpInst(_b:stdgo.Ref<stdgo.strings.Builder>, _i:stdgo.Ref<stdgo.regexp.syntax.Inst>):Void
+```
+
+
+[\(view code\)](<./Syntax.hx#L2869>)
+
+
+## function \_dumpProg
+
+
+```haxe
+function _dumpProg(_b:stdgo.Ref<stdgo.strings.Builder>, _p:stdgo.Ref<stdgo.regexp.syntax.Prog>):Void
+```
+
+
+[\(view code\)](<./Syntax.hx#L2851>)
+
+
+## function \_dumpRegexp
+
+
+```haxe
+function _dumpRegexp(_b:stdgo.Ref<stdgo.strings.Builder>, _re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Void
+```
+
+
+
+dumpRegexp writes an encoding of the syntax tree for the regexp re to b.
+It is used during testing to distinguish between parses that might print
+the same using re's String method.  
+
+[\(view code\)](<./Syntax.hx#L2578>)
+
+
+## function \_escape
+
+
+```haxe
+function _escape(_b:stdgo.Ref<stdgo.strings.Builder>, _r:stdgo.GoRune, _force:Bool):Void
+```
+
+
+[\(view code\)](<./Syntax.hx#L3109>)
+
+
+## function \_isCharClass
+
+
+```haxe
+function _isCharClass(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Bool
+```
+
+
+
+can this be represented as a character class?
+single\-rune literal string, char class, ., and .|\\n.  
+
+[\(view code\)](<./Syntax.hx#L2161>)
+
+
+## function \_isUpperFold
+
+
+```haxe
+function _isUpperFold(_r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Syntax.hx#L2686>)
+
+
+## function \_isValidCaptureName
+
+
+```haxe
+function _isValidCaptureName(_name:stdgo.GoString):Bool
+```
+
+
+
+isValidCaptureName reports whether name
+is a valid capture name: \[A\-Za\-z0\-9\_\]\+.
+PCRE limits names to 32 bytes.
+Python rejects names starting with digits.
+We don't enforce either of those.  
+
+[\(view code\)](<./Syntax.hx#L2146>)
+
+
+## function \_isalnum
+
+
+```haxe
+function _isalnum(_c:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Syntax.hx#L2515>)
+
+
+## function \_literalRegexp
+
+
+```haxe
+function _literalRegexp(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):stdgo.Ref<stdgo.regexp.syntax.Regexp>
+```
+
+
+[\(view code\)](<./Syntax.hx#L1718>)
+
+
+## function \_makePatchList
+
+
+```haxe
+function _makePatchList(_n:stdgo.GoUInt32):stdgo.regexp.syntax.T_patchList
+```
+
+
+[\(view code\)](<./Syntax.hx#L1626>)
+
+
+## function \_matchRune
+
+
+```haxe
+function _matchRune(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _r:stdgo.GoRune):Bool
+```
+
+
+
+does re match r?  
+
+[\(view code\)](<./Syntax.hx#L2167>)
+
+
+## function \_mergeCharClass
+
+
+```haxe
+function _mergeCharClass(_dst:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _src:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Void
+```
+
+
+
+mergeCharClass makes dst = dst|src.
+The caller must ensure that dst.Op \>= src.Op,
+to reduce the amount of copying.  
+
+[\(view code\)](<./Syntax.hx#L2195>)
+
+
+## function \_minFoldRune
+
+
+```haxe
+function _minFoldRune(_r:stdgo.GoRune):stdgo.GoRune
+```
+
+
+
+minFoldRune returns the minimum rune fold\-equivalent to r.  
+
+[\(view code\)](<./Syntax.hx#L1644>)
+
+
+## function \_mkCharClass
+
+
+```haxe
+function _mkCharClass(_f:()):stdgo.GoString
+```
+
+
+[\(view code\)](<./Syntax.hx#L2663>)
+
+
+## function \_negateClass
+
+
+```haxe
+function _negateClass(_r:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>
+```
+
+
+
+negateClass overwrites r and returns r's negation.
+It assumes the class r is already clean.  
+
+[\(view code\)](<./Syntax.hx#L2476>)
+
+
+## function \_nextRune
+
+
+```haxe
+function _nextRune(_s:stdgo.GoString):{
+	_2:stdgo.Error;
+	_1:stdgo.GoString;
+	_0:stdgo.GoRune;
+}
+```
+
+
+[\(view code\)](<./Syntax.hx#L2507>)
+
+
+## function \_parse
+
+
+```haxe
+function _parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.regexp.syntax.Regexp>;
+}
+```
+
+
+[\(view code\)](<./Syntax.hx#L1739>)
+
+
+## function \_repeatIsValid
+
+
+```haxe
+function _repeatIsValid(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _n:stdgo.GoInt):Bool
+```
+
+
+
+repeatIsValid reports whether the repetition re is valid.
+Valid means that the combination of the top\-level repetition
+and any inner repetitions does not exceed n copies of the
+innermost thing.
+This function rewalks the regexp tree and is called for every repetition,
+so we have to worry about inducing quadratic behavior in the parser.
+We avoid this by only calling repeatIsValid when min or max \>= 2.
+In that case the depth of any \>= 2 nesting can only get to 9 without
+triggering a parse error, so each subtree can only be rewalked 9 times.  
+
+[\(view code\)](<./Syntax.hx#L1671>)
+
+
+## function \_simplify1
+
+
+```haxe
+function _simplify1(_op:stdgo.regexp.syntax.Op, _flags:stdgo.regexp.syntax.Flags, _sub:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):stdgo.Ref<stdgo.regexp.syntax.Regexp>
+```
+
+
+
+simplify1 implements Simplify for the unary OpStar,
+OpPlus, and OpQuest operators. It returns the simple regexp
+equivalent to  
+
+```
+	Regexp{Op: op, Flags: flags, Sub: {sub}}
+```
+
+under the assumption that sub is already simple, and
+without first allocating that structure. If the regexp
+to be returned turns out to be equivalent to re, simplify1
+returns re instead.  
+
+
+simplify1 is factored out of Simplify because the implementation
+for other operators generates these unary expressions.
+Letting them call simplify1 makes sure the expressions they
+generate are simple.  
+
+[\(view code\)](<./Syntax.hx#L3178>)
+
+
+## function \_testParseDump
+
+
+```haxe
+function _testParseDump(_t:stdgo.Ref<stdgo.testing.T>, _tests:stdgo.Slice<stdgo.regexp.syntax.T_parseTest>, _flags:stdgo.regexp.syntax.Flags):Void
+```
+
+
+
+Test Parse \-\> Dump.  
+
+[\(view code\)](<./Syntax.hx#L2548>)
+
+
+## function \_u32
+
+
+```haxe
+function _u32(_i:stdgo.GoUInt32):stdgo.GoString
+```
+
+
+[\(view code\)](<./Syntax.hx#L2866>)
+
+
+## function \_unhex
+
+
+```haxe
+function _unhex(_c:stdgo.GoRune):stdgo.GoRune
+```
+
+
+[\(view code\)](<./Syntax.hx#L2518>)
+
+
+## function \_unicodeTable
+
+
+```haxe
+function _unicodeTable(_name:stdgo.GoString):{
+	_1:stdgo.Ref<stdgo.unicode.RangeTable>;
+	_0:stdgo.Ref<stdgo.unicode.RangeTable>;
+}
+```
+
+
+
+unicodeTable returns the unicode.RangeTable identified by name
+and the table of additional fold\-equivalent code points.  
+
+[\(view code\)](<./Syntax.hx#L2235>)
+
+
+## function \_writeRegexp
+
+
+```haxe
+function _writeRegexp(_b:stdgo.Ref<stdgo.strings.Builder>, _re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Void
+```
+
+
+
+writeRegexp writes the Perl syntax for the regular expression re to b.  
+
+[\(view code\)](<./Syntax.hx#L2945>)
 
 
 ## function benchmarkEmptyOpContext
@@ -746,7 +1683,18 @@ function benchmarkEmptyOpContext(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2904>)
+[\(view code\)](<./Syntax.hx#L2914>)
+
+
+## function benchmarkIsWordChar
+
+
+```haxe
+function benchmarkIsWordChar(_b:stdgo.Ref<stdgo.testing.B>):Void
+```
+
+
+[\(view code\)](<./Syntax.hx#L2927>)
 
 
 ## function compile
@@ -764,7 +1712,7 @@ function compile(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):{
 Compile compiles the regexp into a program to be executed.
 The regexp should have been simplified already \(returned from re.Simplify\).  
 
-[\(view code\)](<./Syntax.hx#L1623>)
+[\(view code\)](<./Syntax.hx#L1633>)
 
 
 ## function emptyOpContext
@@ -783,7 +1731,7 @@ at the beginning of the text.
 Passing r2 == \-1 indicates that the position is
 at the end of the text.  
 
-[\(view code\)](<./Syntax.hx#L2805>)
+[\(view code\)](<./Syntax.hx#L2815>)
 
 
 ## function isWordChar
@@ -799,7 +1747,7 @@ IsWordChar reports whether r is considered a “word character”
 during the evaluation of the \\b and \\B zero\-width assertions.
 These assertions are ASCII\-only: the word characters are \[A\-Za\-z0\-9\_\].  
 
-[\(view code\)](<./Syntax.hx#L2832>)
+[\(view code\)](<./Syntax.hx#L2842>)
 
 
 ## function parse
@@ -818,7 +1766,7 @@ Parse parses a regular expression string s, controlled by the specified
 Flags, and returns a regular expression parse tree. The syntax is
 described in the top\-level comment.  
 
-[\(view code\)](<./Syntax.hx#L1726>)
+[\(view code\)](<./Syntax.hx#L1736>)
 
 
 ## function testAppendRangeCollapse
@@ -829,7 +1777,7 @@ function testAppendRangeCollapse(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2707>)
+[\(view code\)](<./Syntax.hx#L2717>)
 
 
 ## function testCompile
@@ -840,7 +1788,7 @@ function testCompile(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2894>)
+[\(view code\)](<./Syntax.hx#L2904>)
 
 
 ## function testFoldConstants
@@ -851,7 +1799,7 @@ function testFoldConstants(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2689>)
+[\(view code\)](<./Syntax.hx#L2699>)
 
 
 ## function testParseFoldCase
@@ -862,7 +1810,7 @@ function testParseFoldCase(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2523>)
+[\(view code\)](<./Syntax.hx#L2533>)
 
 
 ## function testParseInvalidRegexps
@@ -873,7 +1821,7 @@ function testParseInvalidRegexps(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2720>)
+[\(view code\)](<./Syntax.hx#L2730>)
 
 
 ## function testParseLiteral
@@ -884,7 +1832,7 @@ function testParseLiteral(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2526>)
+[\(view code\)](<./Syntax.hx#L2536>)
 
 
 ## function testParseMatchNL
@@ -895,7 +1843,7 @@ function testParseMatchNL(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2529>)
+[\(view code\)](<./Syntax.hx#L2539>)
 
 
 ## function testParseNoMatchNL
@@ -906,7 +1854,7 @@ function testParseNoMatchNL(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2532>)
+[\(view code\)](<./Syntax.hx#L2542>)
 
 
 ## function testParseSimple
@@ -917,7 +1865,7 @@ function testParseSimple(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2520>)
+[\(view code\)](<./Syntax.hx#L2530>)
 
 
 ## function testSimplify
@@ -928,7 +1876,7 @@ function testSimplify(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L3167>)
+[\(view code\)](<./Syntax.hx#L3192>)
 
 
 ## function testToStringEquivalentParse
@@ -939,7 +1887,7 @@ function testToStringEquivalentParse(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2764>)
+[\(view code\)](<./Syntax.hx#L2774>)
 
 
 # Classes
@@ -984,7 +1932,7 @@ function new(?op:Null<stdgo.regexp.syntax.InstOp>, ?out:stdgo.GoUInt32, ?arg:std
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1520>)
+[\(view code\)](<./Syntax.hx#L1517>)
 
 
 ### Inst function \_op
@@ -998,7 +1946,7 @@ function _op():stdgo.regexp.syntax.InstOp
 
 op returns i.Op but merges all the Rune special cases into InstRune  
 
-[\(view code\)](<./Syntax.hx#L5327>)
+[\(view code\)](<./Syntax.hx#L5352>)
 
 
 ### Inst function matchEmptyWidth
@@ -1014,7 +1962,7 @@ MatchEmptyWidth reports whether the instruction matches
 an empty string between the runes before and after.
 It should only be called when i.Op == InstEmptyWidth.  
 
-[\(view code\)](<./Syntax.hx#L5228>)
+[\(view code\)](<./Syntax.hx#L5253>)
 
 
 ### Inst function matchRune
@@ -1029,7 +1977,7 @@ function matchRune( _r:stdgo.GoRune):Bool
 MatchRune reports whether the instruction matches \(and consumes\) r.
 It should only be called when i.Op == InstRune.  
 
-[\(view code\)](<./Syntax.hx#L5320>)
+[\(view code\)](<./Syntax.hx#L5345>)
 
 
 ### Inst function matchRunePos
@@ -1047,7 +1995,7 @@ If so, MatchRunePos returns the index of the matching rune pair
 If not, MatchRunePos returns \-1.
 MatchRunePos should only be called when i.Op == InstRune.  
 
-[\(view code\)](<./Syntax.hx#L5255>)
+[\(view code\)](<./Syntax.hx#L5280>)
 
 
 ### Inst function string
@@ -1058,7 +2006,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5217>)
+[\(view code\)](<./Syntax.hx#L5242>)
 
 
 ## class Prog
@@ -1086,11 +2034,11 @@ var start:stdgo.GoInt
 
 
 ```haxe
-function new(?inst:stdgo.Slice<stdgo.regexp.syntax.Inst>, ?start:Null<stdgo.GoInt>, ?numCap:Null<stdgo.GoInt>):Void
+function new(?inst:stdgo.Slice<stdgo.regexp.syntax.Inst>, ?start:stdgo.GoInt, ?numCap:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1500>)
+[\(view code\)](<./Syntax.hx#L1497>)
 
 
 ### Prog function \_skipNop
@@ -1104,7 +2052,7 @@ function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref<stdgo.regexp.syntax.Inst>
 
 skipNop follows any no\-op or capturing instructions.  
 
-[\(view code\)](<./Syntax.hx#L5163>)
+[\(view code\)](<./Syntax.hx#L5188>)
 
 
 ### Prog function prefix
@@ -1123,7 +2071,7 @@ Prefix returns a literal string that all matches for the
 regexp must start with. Complete is true if the prefix
 is the entire match.  
 
-[\(view code\)](<./Syntax.hx#L5146>)
+[\(view code\)](<./Syntax.hx#L5171>)
 
 
 ### Prog function startCond
@@ -1138,7 +2086,7 @@ function startCond():stdgo.regexp.syntax.EmptyOp
 StartCond returns the leading empty\-width conditions that must
 be true in any match. It returns ^EmptyOp\(0\) if no matches are possible.  
 
-[\(view code\)](<./Syntax.hx#L5105>)
+[\(view code\)](<./Syntax.hx#L5130>)
 
 
 ### Prog function string
@@ -1149,7 +2097,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5171>)
+[\(view code\)](<./Syntax.hx#L5196>)
 
 
 ## class Regexp
@@ -1212,11 +2160,11 @@ var sub0:stdgo.GoArray<stdgo.Ref<stdgo.regexp.syntax.Regexp>>
 
 
 ```haxe
-function new(?op:Null<stdgo.regexp.syntax.Op>, ?flags:Null<stdgo.regexp.syntax.Flags>, ?sub:stdgo.Slice<stdgo.Ref<stdgo.regexp.syntax.Regexp>>, ?sub0:stdgo.GoArray<stdgo.Ref<stdgo.regexp.syntax.Regexp>>, ?rune:stdgo.Slice<stdgo.GoInt32>, ?rune0:stdgo.GoArray<stdgo.GoInt32>, ?min:Null<stdgo.GoInt>, ?max:Null<stdgo.GoInt>, ?cap:Null<stdgo.GoInt>, ?name:stdgo.GoString):Void
+function new(?op:Null<stdgo.regexp.syntax.Op>, ?flags:Null<stdgo.regexp.syntax.Flags>, ?sub:stdgo.Slice<stdgo.Ref<stdgo.regexp.syntax.Regexp>>, ?sub0:stdgo.GoArray<stdgo.Ref<stdgo.regexp.syntax.Regexp>>, ?rune:stdgo.Slice<stdgo.GoInt32>, ?rune0:stdgo.GoArray<stdgo.GoInt32>, ?min:stdgo.GoInt, ?max:stdgo.GoInt, ?cap:stdgo.GoInt, ?name:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1547>)
+[\(view code\)](<./Syntax.hx#L1544>)
 
 
 ### Regexp function \_capNames
@@ -1227,7 +2175,7 @@ function _capNames( _names:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5485>)
+[\(view code\)](<./Syntax.hx#L5510>)
 
 
 ### Regexp function capNames
@@ -1241,7 +2189,7 @@ function capNames():stdgo.Slice<stdgo.GoString>
 
 CapNames walks the regexp to find the names of capturing groups.  
 
-[\(view code\)](<./Syntax.hx#L5497>)
+[\(view code\)](<./Syntax.hx#L5522>)
 
 
 ### Regexp function equal
@@ -1255,7 +2203,7 @@ function equal( _y:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Bool
 
 Equal reports whether x and y have identical structure.  
 
-[\(view code\)](<./Syntax.hx#L5531>)
+[\(view code\)](<./Syntax.hx#L5556>)
 
 
 ### Regexp function maxCap
@@ -1269,7 +2217,7 @@ function maxCap():stdgo.GoInt
 
 MaxCap walks the regexp to find the maximum capture index.  
 
-[\(view code\)](<./Syntax.hx#L5506>)
+[\(view code\)](<./Syntax.hx#L5531>)
 
 
 ### Regexp function simplify
@@ -1289,7 +2237,7 @@ may have been duplicated or removed. For example, the simplified form
 for /\(x\)\{1,2\}/ is /\(x\)\(x\)?/ but both parentheses capture as $1.
 The returned regexp may share structure with or be the original.  
 
-[\(view code\)](<./Syntax.hx#L5388>)
+[\(view code\)](<./Syntax.hx#L5413>)
 
 
 ### Regexp function string
@@ -1300,7 +2248,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5522>)
+[\(view code\)](<./Syntax.hx#L5547>)
 
 
 ## class T\_error
@@ -1328,7 +2276,7 @@ function new(?code:Null<stdgo.regexp.syntax.ErrorCode>, ?expr:stdgo.GoString):Vo
 ```
 
 
-[\(view code\)](<./Syntax.hx#L1384>)
+[\(view code\)](<./Syntax.hx#L1381>)
 
 
 ### T\_error function error
@@ -1339,7 +2287,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L3488>)
+[\(view code\)](<./Syntax.hx#L3513>)
 
 
 # Typedefs
@@ -1404,4 +2352,35 @@ typedef Op = stdgo.GoUInt8;
 
 
 An Op is a single regular expression operator.  
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+};
+```
+
+
+## typedef T\_\_struct\_1
+
+
+```haxe
+typedef T__struct_1 = {
+	regexp:stdgo.GoString;
+	prog:stdgo.GoString;
+};
+```
+
+
+## typedef T\_\_struct\_2
+
+
+```haxe
+typedef T__struct_2 = {
+	simple:stdgo.GoString;
+	regexp:stdgo.GoString;
+};
+```
+
 

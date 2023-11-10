@@ -12,54 +12,128 @@ Package quick implements utility functions to help with black box testing.
 
 The testing/quick package is frozen and is not accepting new features.  
 
-<details><summary>hl tests failed</summary>
-<p>
-
-```
-Error: Command failed with error 1
-=== RUN  TestCheckEqual
-Exception: Null access .__name__
-Called from stdgo.reflect.$Value_static_extension.set (stdgo/reflect/Reflect.hx line 2100)
-Called from stdgo.testing.quick._Quick.$Quick_Fields_._sizedValue (stdgo/testing/quick/Quick.hx line 367)
-Called from stdgo.testing.quick._Quick.$Quick_Fields_.value (stdgo/testing/quick/Quick.hx line 264)
-Called from stdgo.testing.quick._Quick.$Quick_Fields_._arbitraryValues (stdgo/testing/quick/Quick.hx line 508)
-Called from stdgo.testing.quick._Quick.$Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 480)
-Called from stdgo.testing.quick._Quick.$Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 686)
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 358)
-Called from stdgo.testing.quick_test._Quick.$Quick_Fields_.main (stdgo/testing/quick_test/Quick.hx line 38)
-```
-</p>
-</details>
-
-<details><summary>interp tests failed</summary>
-<p>
-
-```
-=== RUN  TestCheckEqual
-Exception: field access on null
-Called from stdgo.testing.quick._Quick.Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 686 column 45)
-Called from stdgo.testing.quick._Quick.Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 480 column 34)
-Called from stdgo.testing.quick._Quick.Quick_Fields_._arbitraryValues (stdgo/testing/quick/Quick.hx line 508 column 35)
-Called from stdgo.testing.quick._Quick.Quick_Fields_.value (stdgo/testing/quick/Quick.hx line 264 column 16)
-Called from stdgo.testing.quick._Quick.Quick_Fields_._sizedValue (stdgo/testing/quick/Quick.hx line 367 column 29)
-Called from stdgo.reflect.Value_static_extension.set (stdgo/reflect/Reflect.hx line 2101 column 17)
-Called from StringTools.endsWith (/home/runner/haxe/versions/1cbe856/std/StringTools.hx line 264 column 14)
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
-
 
 # Index
 
+
+- [Constants](<#constants>)
+
+- [Variables](<#variables>)
+
+- [`function _arbitraryValues(_args:stdgo.Slice<stdgo.reflect.Value>, _f:stdgo.reflect.Type, _config:stdgo.Ref<stdgo.testing.quick.Config>, _rand:stdgo.Ref<stdgo.math.rand.Rand>):stdgo.Error`](<#function-_arbitraryvalues>)
+
+- [`function _fArray(_a:stdgo.GoArray<stdgo.GoByte>):stdgo.GoArray<stdgo.GoByte>`](<#function-_farray>)
+
+- [`function _fArrayAlias(_a:stdgo.testing.quick.TestArrayAlias):stdgo.testing.quick.TestArrayAlias`](<#function-_farrayalias>)
+
+- [`function _fBool(_a:Bool):Bool`](<#function-_fbool>)
+
+- [`function _fBoolAlias(_a:stdgo.testing.quick.TestBoolAlias):stdgo.testing.quick.TestBoolAlias`](<#function-_fboolalias>)
+
+- [`function _fComplex128(_a:stdgo.GoComplex128):stdgo.GoComplex128`](<#function-_fcomplex128>)
+
+- [`function _fComplex128Alias(_a:stdgo.testing.quick.TestComplex128Alias):stdgo.testing.quick.TestComplex128Alias`](<#function-_fcomplex128alias>)
+
+- [`function _fComplex64(_a:stdgo.GoComplex64):stdgo.GoComplex64`](<#function-_fcomplex64>)
+
+- [`function _fComplex64Alias(_a:stdgo.testing.quick.TestComplex64Alias):stdgo.testing.quick.TestComplex64Alias`](<#function-_fcomplex64alias>)
+
+- [`function _fFloat32(_a:stdgo.GoFloat32):stdgo.GoFloat32`](<#function-_ffloat32>)
+
+- [`function _fFloat32Alias(_a:stdgo.testing.quick.TestFloat32Alias):stdgo.testing.quick.TestFloat32Alias`](<#function-_ffloat32alias>)
+
+- [`function _fFloat64(_a:stdgo.GoFloat64):stdgo.GoFloat64`](<#function-_ffloat64>)
+
+- [`function _fFloat64Alias(_a:stdgo.testing.quick.TestFloat64Alias):stdgo.testing.quick.TestFloat64Alias`](<#function-_ffloat64alias>)
+
+- [`function _fInt(_a:stdgo.GoInt):stdgo.GoInt`](<#function-_fint>)
+
+- [`function _fInt16(_a:stdgo.GoInt16):stdgo.GoInt16`](<#function-_fint16>)
+
+- [`function _fInt16Alias(_a:stdgo.testing.quick.TestInt16Alias):stdgo.testing.quick.TestInt16Alias`](<#function-_fint16alias>)
+
+- [`function _fInt32(_a:stdgo.GoInt32):stdgo.GoInt32`](<#function-_fint32>)
+
+- [`function _fInt32Alias(_a:stdgo.testing.quick.TestInt32Alias):stdgo.testing.quick.TestInt32Alias`](<#function-_fint32alias>)
+
+- [`function _fInt64(_a:stdgo.GoInt64):stdgo.GoInt64`](<#function-_fint64>)
+
+- [`function _fInt64Alias(_a:stdgo.testing.quick.TestInt64Alias):stdgo.testing.quick.TestInt64Alias`](<#function-_fint64alias>)
+
+- [`function _fInt8(_a:stdgo.GoInt8):stdgo.GoInt8`](<#function-_fint8>)
+
+- [`function _fInt8Alias(_a:stdgo.testing.quick.TestInt8Alias):stdgo.testing.quick.TestInt8Alias`](<#function-_fint8alias>)
+
+- [`function _fIntAlias(_a:stdgo.testing.quick.TestIntAlias):stdgo.testing.quick.TestIntAlias`](<#function-_fintalias>)
+
+- [`function _fMap(_a:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>`](<#function-_fmap>)
+
+- [`function _fMapAlias(_a:stdgo.testing.quick.TestMapAlias):stdgo.testing.quick.TestMapAlias`](<#function-_fmapalias>)
+
+- [`function _fPtr(_a:stdgo.Pointer<stdgo.GoInt>):stdgo.Pointer<stdgo.GoInt>`](<#function-_fptr>)
+
+- [`function _fPtrAlias(_a:stdgo.testing.quick.TestPtrAlias):stdgo.testing.quick.TestPtrAlias`](<#function-_fptralias>)
+
+- [`function _fSlice(_a:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-_fslice>)
+
+- [`function _fSliceAlias(_a:stdgo.testing.quick.TestSliceAlias):stdgo.testing.quick.TestSliceAlias`](<#function-_fslicealias>)
+
+- [`function _fString(_a:stdgo.GoString):stdgo.GoString`](<#function-_fstring>)
+
+- [`function _fStringAlias(_a:stdgo.testing.quick.TestStringAlias):stdgo.testing.quick.TestStringAlias`](<#function-_fstringalias>)
+
+- [`function _fStruct(_a:stdgo.testing.quick.TestStruct):stdgo.testing.quick.TestStruct`](<#function-_fstruct>)
+
+- [`function _fStructAlias(_a:stdgo.testing.quick.TestStructAlias):stdgo.testing.quick.TestStructAlias`](<#function-_fstructalias>)
+
+- [`function _fUint(_a:stdgo.GoUInt):stdgo.GoUInt`](<#function-_fuint>)
+
+- [`function _fUint16(_a:stdgo.GoUInt16):stdgo.GoUInt16`](<#function-_fuint16>)
+
+- [`function _fUint16Alias(_a:stdgo.testing.quick.TestUint16Alias):stdgo.testing.quick.TestUint16Alias`](<#function-_fuint16alias>)
+
+- [`function _fUint32(_a:stdgo.GoUInt32):stdgo.GoUInt32`](<#function-_fuint32>)
+
+- [`function _fUint32Alias(_a:stdgo.testing.quick.TestUint32Alias):stdgo.testing.quick.TestUint32Alias`](<#function-_fuint32alias>)
+
+- [`function _fUint64(_a:stdgo.GoUInt64):stdgo.GoUInt64`](<#function-_fuint64>)
+
+- [`function _fUint64Alias(_a:stdgo.testing.quick.TestUint64Alias):stdgo.testing.quick.TestUint64Alias`](<#function-_fuint64alias>)
+
+- [`function _fUint8(_a:stdgo.GoUInt8):stdgo.GoUInt8`](<#function-_fuint8>)
+
+- [`function _fUint8Alias(_a:stdgo.testing.quick.TestUint8Alias):stdgo.testing.quick.TestUint8Alias`](<#function-_fuint8alias>)
+
+- [`function _fUintAlias(_a:stdgo.testing.quick.TestUintAlias):stdgo.testing.quick.TestUintAlias`](<#function-_fuintalias>)
+
+- [`function _fUintptr(_a:stdgo.GoUIntptr):stdgo.GoUIntptr`](<#function-_fuintptr>)
+
+- [`function _fUintptrAlias(_a:stdgo.testing.quick.TestUintptrAlias):stdgo.testing.quick.TestUintptrAlias`](<#function-_fuintptralias>)
+
+- [`function _functionAndType(_f:stdgo.AnyInterface):{
+	_2:Bool;
+	_1:stdgo.reflect.Type;
+	_0:stdgo.reflect.Value;
+}`](<#function-_functionandtype>)
+
+- [`function _myStructProperty(_in:stdgo.testing.quick.T_myStruct):Bool`](<#function-_mystructproperty>)
+
+- [`function _randFloat32(_rand:stdgo.Ref<stdgo.math.rand.Rand>):stdgo.GoFloat32`](<#function-_randfloat32>)
+
+- [`function _randFloat64(_rand:stdgo.Ref<stdgo.math.rand.Rand>):stdgo.GoFloat64`](<#function-_randfloat64>)
+
+- [`function _randInt64(_rand:stdgo.Ref<stdgo.math.rand.Rand>):stdgo.GoInt64`](<#function-_randint64>)
+
+- [`function _reportError(_property:stdgo.GoString, _err:stdgo.Error, _t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-_reporterror>)
+
+- [`function _sizedValue(_t:stdgo.reflect.Type, _rand:stdgo.Ref<stdgo.math.rand.Rand>, _size:stdgo.GoInt):{
+	_1:Bool;
+	_0:stdgo.reflect.Value;
+}`](<#function-_sizedvalue>)
+
+- [`function _toInterfaces(_values:stdgo.Slice<stdgo.reflect.Value>):stdgo.Slice<stdgo.AnyInterface>`](<#function-_tointerfaces>)
+
+- [`function _toString(_interfaces:stdgo.Slice<stdgo.AnyInterface>):stdgo.GoString`](<#function-_tostring>)
 
 - [`function check(_f:stdgo.AnyInterface, _config:stdgo.Ref<stdgo.testing.quick.Config>):stdgo.Error`](<#function-check>)
 
@@ -132,6 +206,8 @@ IO.Overflow("write_ui16")
 
 - [typedef SetupError](<#typedef-setuperror>)
 
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
 - [typedef TestArrayAlias](<#typedef-testarrayalias>)
 
 - [typedef TestBoolAlias](<#typedef-testboolalias>)
@@ -176,12 +252,666 @@ IO.Overflow("write_ui16")
 
 - [typedef TestUintptrAlias](<#typedef-testuintptralias>)
 
+# Constants
+
+
+```haxe
+import stdgo.testing.quick.Quick
+```
+
+
+```haxe
+final _complexSize:stdgo.GoUInt64 = ((50i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+complexSize is the maximum length of arbitrary values that contain other
+values.  
+
+# Variables
+
+
+```haxe
+import stdgo.testing.quick.Quick
+```
+
+
+```haxe
+var _defaultConfig:stdgo.testing.quick.Config
+```
+
+
+```haxe
+var _defaultMaxCount:stdgo.Pointer<stdgo.GoInt>
+```
+
+
 # Functions
 
 
 ```haxe
 import stdgo.testing.quick.Quick
 ```
+
+
+## function \_arbitraryValues
+
+
+```haxe
+function _arbitraryValues(_args:stdgo.Slice<stdgo.reflect.Value>, _f:stdgo.reflect.Type, _config:stdgo.Ref<stdgo.testing.quick.Config>, _rand:stdgo.Ref<stdgo.math.rand.Rand>):stdgo.Error
+```
+
+
+
+arbitraryValues writes Values to args such that args contains Values
+suitable for calling f.  
+
+[\(view code\)](<./Quick.hx#L488>)
+
+
+## function \_fArray
+
+
+```haxe
+function _fArray(_a:stdgo.GoArray<stdgo.GoByte>):stdgo.GoArray<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Quick.hx#L535>)
+
+
+## function \_fArrayAlias
+
+
+```haxe
+function _fArrayAlias(_a:stdgo.testing.quick.TestArrayAlias):stdgo.testing.quick.TestArrayAlias
+```
+
+
+[\(view code\)](<./Quick.hx#L538>)
+
+
+## function \_fBool
+
+
+```haxe
+function _fBool(_a:Bool):Bool
+```
+
+
+[\(view code\)](<./Quick.hx#L541>)
+
+
+## function \_fBoolAlias
+
+
+```haxe
+function _fBoolAlias(_a:stdgo.testing.quick.TestBoolAlias):stdgo.testing.quick.TestBoolAlias
+```
+
+
+[\(view code\)](<./Quick.hx#L544>)
+
+
+## function \_fComplex128
+
+
+```haxe
+function _fComplex128(_a:stdgo.GoComplex128):stdgo.GoComplex128
+```
+
+
+[\(view code\)](<./Quick.hx#L565>)
+
+
+## function \_fComplex128Alias
+
+
+```haxe
+function _fComplex128Alias(_a:stdgo.testing.quick.TestComplex128Alias):stdgo.testing.quick.TestComplex128Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L568>)
+
+
+## function \_fComplex64
+
+
+```haxe
+function _fComplex64(_a:stdgo.GoComplex64):stdgo.GoComplex64
+```
+
+
+[\(view code\)](<./Quick.hx#L559>)
+
+
+## function \_fComplex64Alias
+
+
+```haxe
+function _fComplex64Alias(_a:stdgo.testing.quick.TestComplex64Alias):stdgo.testing.quick.TestComplex64Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L562>)
+
+
+## function \_fFloat32
+
+
+```haxe
+function _fFloat32(_a:stdgo.GoFloat32):stdgo.GoFloat32
+```
+
+
+[\(view code\)](<./Quick.hx#L547>)
+
+
+## function \_fFloat32Alias
+
+
+```haxe
+function _fFloat32Alias(_a:stdgo.testing.quick.TestFloat32Alias):stdgo.testing.quick.TestFloat32Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L550>)
+
+
+## function \_fFloat64
+
+
+```haxe
+function _fFloat64(_a:stdgo.GoFloat64):stdgo.GoFloat64
+```
+
+
+[\(view code\)](<./Quick.hx#L553>)
+
+
+## function \_fFloat64Alias
+
+
+```haxe
+function _fFloat64Alias(_a:stdgo.testing.quick.TestFloat64Alias):stdgo.testing.quick.TestFloat64Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L556>)
+
+
+## function \_fInt
+
+
+```haxe
+function _fInt(_a:stdgo.GoInt):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Quick.hx#L595>)
+
+
+## function \_fInt16
+
+
+```haxe
+function _fInt16(_a:stdgo.GoInt16):stdgo.GoInt16
+```
+
+
+[\(view code\)](<./Quick.hx#L571>)
+
+
+## function \_fInt16Alias
+
+
+```haxe
+function _fInt16Alias(_a:stdgo.testing.quick.TestInt16Alias):stdgo.testing.quick.TestInt16Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L574>)
+
+
+## function \_fInt32
+
+
+```haxe
+function _fInt32(_a:stdgo.GoInt32):stdgo.GoInt32
+```
+
+
+[\(view code\)](<./Quick.hx#L577>)
+
+
+## function \_fInt32Alias
+
+
+```haxe
+function _fInt32Alias(_a:stdgo.testing.quick.TestInt32Alias):stdgo.testing.quick.TestInt32Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L580>)
+
+
+## function \_fInt64
+
+
+```haxe
+function _fInt64(_a:stdgo.GoInt64):stdgo.GoInt64
+```
+
+
+[\(view code\)](<./Quick.hx#L583>)
+
+
+## function \_fInt64Alias
+
+
+```haxe
+function _fInt64Alias(_a:stdgo.testing.quick.TestInt64Alias):stdgo.testing.quick.TestInt64Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L586>)
+
+
+## function \_fInt8
+
+
+```haxe
+function _fInt8(_a:stdgo.GoInt8):stdgo.GoInt8
+```
+
+
+[\(view code\)](<./Quick.hx#L589>)
+
+
+## function \_fInt8Alias
+
+
+```haxe
+function _fInt8Alias(_a:stdgo.testing.quick.TestInt8Alias):stdgo.testing.quick.TestInt8Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L592>)
+
+
+## function \_fIntAlias
+
+
+```haxe
+function _fIntAlias(_a:stdgo.testing.quick.TestIntAlias):stdgo.testing.quick.TestIntAlias
+```
+
+
+[\(view code\)](<./Quick.hx#L598>)
+
+
+## function \_fMap
+
+
+```haxe
+function _fMap(_a:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>
+```
+
+
+[\(view code\)](<./Quick.hx#L601>)
+
+
+## function \_fMapAlias
+
+
+```haxe
+function _fMapAlias(_a:stdgo.testing.quick.TestMapAlias):stdgo.testing.quick.TestMapAlias
+```
+
+
+[\(view code\)](<./Quick.hx#L604>)
+
+
+## function \_fPtr
+
+
+```haxe
+function _fPtr(_a:stdgo.Pointer<stdgo.GoInt>):stdgo.Pointer<stdgo.GoInt>
+```
+
+
+[\(view code\)](<./Quick.hx#L607>)
+
+
+## function \_fPtrAlias
+
+
+```haxe
+function _fPtrAlias(_a:stdgo.testing.quick.TestPtrAlias):stdgo.testing.quick.TestPtrAlias
+```
+
+
+[\(view code\)](<./Quick.hx#L614>)
+
+
+## function \_fSlice
+
+
+```haxe
+function _fSlice(_a:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Quick.hx#L617>)
+
+
+## function \_fSliceAlias
+
+
+```haxe
+function _fSliceAlias(_a:stdgo.testing.quick.TestSliceAlias):stdgo.testing.quick.TestSliceAlias
+```
+
+
+[\(view code\)](<./Quick.hx#L620>)
+
+
+## function \_fString
+
+
+```haxe
+function _fString(_a:stdgo.GoString):stdgo.GoString
+```
+
+
+[\(view code\)](<./Quick.hx#L623>)
+
+
+## function \_fStringAlias
+
+
+```haxe
+function _fStringAlias(_a:stdgo.testing.quick.TestStringAlias):stdgo.testing.quick.TestStringAlias
+```
+
+
+[\(view code\)](<./Quick.hx#L626>)
+
+
+## function \_fStruct
+
+
+```haxe
+function _fStruct(_a:stdgo.testing.quick.TestStruct):stdgo.testing.quick.TestStruct
+```
+
+
+[\(view code\)](<./Quick.hx#L629>)
+
+
+## function \_fStructAlias
+
+
+```haxe
+function _fStructAlias(_a:stdgo.testing.quick.TestStructAlias):stdgo.testing.quick.TestStructAlias
+```
+
+
+[\(view code\)](<./Quick.hx#L632>)
+
+
+## function \_fUint
+
+
+```haxe
+function _fUint(_a:stdgo.GoUInt):stdgo.GoUInt
+```
+
+
+[\(view code\)](<./Quick.hx#L659>)
+
+
+## function \_fUint16
+
+
+```haxe
+function _fUint16(_a:stdgo.GoUInt16):stdgo.GoUInt16
+```
+
+
+[\(view code\)](<./Quick.hx#L635>)
+
+
+## function \_fUint16Alias
+
+
+```haxe
+function _fUint16Alias(_a:stdgo.testing.quick.TestUint16Alias):stdgo.testing.quick.TestUint16Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L638>)
+
+
+## function \_fUint32
+
+
+```haxe
+function _fUint32(_a:stdgo.GoUInt32):stdgo.GoUInt32
+```
+
+
+[\(view code\)](<./Quick.hx#L641>)
+
+
+## function \_fUint32Alias
+
+
+```haxe
+function _fUint32Alias(_a:stdgo.testing.quick.TestUint32Alias):stdgo.testing.quick.TestUint32Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L644>)
+
+
+## function \_fUint64
+
+
+```haxe
+function _fUint64(_a:stdgo.GoUInt64):stdgo.GoUInt64
+```
+
+
+[\(view code\)](<./Quick.hx#L647>)
+
+
+## function \_fUint64Alias
+
+
+```haxe
+function _fUint64Alias(_a:stdgo.testing.quick.TestUint64Alias):stdgo.testing.quick.TestUint64Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L650>)
+
+
+## function \_fUint8
+
+
+```haxe
+function _fUint8(_a:stdgo.GoUInt8):stdgo.GoUInt8
+```
+
+
+[\(view code\)](<./Quick.hx#L653>)
+
+
+## function \_fUint8Alias
+
+
+```haxe
+function _fUint8Alias(_a:stdgo.testing.quick.TestUint8Alias):stdgo.testing.quick.TestUint8Alias
+```
+
+
+[\(view code\)](<./Quick.hx#L656>)
+
+
+## function \_fUintAlias
+
+
+```haxe
+function _fUintAlias(_a:stdgo.testing.quick.TestUintAlias):stdgo.testing.quick.TestUintAlias
+```
+
+
+[\(view code\)](<./Quick.hx#L662>)
+
+
+## function \_fUintptr
+
+
+```haxe
+function _fUintptr(_a:stdgo.GoUIntptr):stdgo.GoUIntptr
+```
+
+
+[\(view code\)](<./Quick.hx#L665>)
+
+
+## function \_fUintptrAlias
+
+
+```haxe
+function _fUintptrAlias(_a:stdgo.testing.quick.TestUintptrAlias):stdgo.testing.quick.TestUintptrAlias
+```
+
+
+[\(view code\)](<./Quick.hx#L668>)
+
+
+## function \_functionAndType
+
+
+```haxe
+function _functionAndType(_f:stdgo.AnyInterface):{
+	_2:Bool;
+	_1:stdgo.reflect.Type;
+	_0:stdgo.reflect.Value;
+}
+```
+
+
+[\(view code\)](<./Quick.hx#L511>)
+
+
+## function \_myStructProperty
+
+
+```haxe
+function _myStructProperty(_in:stdgo.testing.quick.T_myStruct):Bool
+```
+
+
+[\(view code\)](<./Quick.hx#L724>)
+
+
+## function \_randFloat32
+
+
+```haxe
+function _randFloat32(_rand:stdgo.Ref<stdgo.math.rand.Rand>):stdgo.GoFloat32
+```
+
+
+
+randFloat32 generates a random float taking the full range of a float32.  
+
+[\(view code\)](<./Quick.hx#L225>)
+
+
+## function \_randFloat64
+
+
+```haxe
+function _randFloat64(_rand:stdgo.Ref<stdgo.math.rand.Rand>):stdgo.GoFloat64
+```
+
+
+
+randFloat64 generates a random float taking the full range of a float64.  
+
+[\(view code\)](<./Quick.hx#L235>)
+
+
+## function \_randInt64
+
+
+```haxe
+function _randInt64(_rand:stdgo.Ref<stdgo.math.rand.Rand>):stdgo.GoInt64
+```
+
+
+
+randInt64 returns a random int64.  
+
+[\(view code\)](<./Quick.hx#L245>)
+
+
+## function \_reportError
+
+
+```haxe
+function _reportError(_property:stdgo.GoString, _err:stdgo.Error, _t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Quick.hx#L671>)
+
+
+## function \_sizedValue
+
+
+```haxe
+function _sizedValue(_t:stdgo.reflect.Type, _rand:stdgo.Ref<stdgo.math.rand.Rand>, _size:stdgo.GoInt):{
+	_1:Bool;
+	_0:stdgo.reflect.Value;
+}
+```
+
+
+
+sizedValue returns an arbitrary value of the given type. The size
+hint is used for shrinking as a function of indirection level so
+that recursive data structures will terminate.  
+
+[\(view code\)](<./Quick.hx#L262>)
+
+
+## function \_toInterfaces
+
+
+```haxe
+function _toInterfaces(_values:stdgo.Slice<stdgo.reflect.Value>):stdgo.Slice<stdgo.AnyInterface>
+```
+
+
+[\(view code\)](<./Quick.hx#L521>)
+
+
+## function \_toString
+
+
+```haxe
+function _toString(_interfaces:stdgo.Slice<stdgo.AnyInterface>):stdgo.GoString
+```
+
+
+[\(view code\)](<./Quick.hx#L528>)
 
 
 ## function check
@@ -210,7 +940,7 @@ For example:
 		}
 	}
 ```
-[\(view code\)](<./Quick.hx#L422>)
+[\(view code\)](<./Quick.hx#L413>)
 
 
 ## function checkEqual
@@ -227,7 +957,7 @@ It calls f and g repeatedly with arbitrary values for each argument.
 If f and g return different answers, CheckEqual returns a \*CheckEqualError
 describing the input and the outputs.  
 
-[\(view code\)](<./Quick.hx#L459>)
+[\(view code\)](<./Quick.hx#L450>)
 
 
 ## function testCheckEqual
@@ -238,7 +968,7 @@ function testCheckEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L685>)
+[\(view code\)](<./Quick.hx#L676>)
 
 
 ## function testCheckProperty
@@ -249,7 +979,7 @@ function testCheckProperty(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L736>)
+[\(view code\)](<./Quick.hx#L727>)
 
 
 ## function testEmptyStruct
@@ -260,7 +990,7 @@ function testEmptyStruct(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L842>)
+[\(view code\)](<./Quick.hx#L833>)
 
 
 ## function testFailure
@@ -271,7 +1001,7 @@ function testFailure(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L739>)
+[\(view code\)](<./Quick.hx#L730>)
 
 
 ## function testInt64
@@ -282,7 +1012,7 @@ function testInt64(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L886>)
+[\(view code\)](<./Quick.hx#L877>)
 
 
 ## function testMutuallyRecursive
@@ -293,7 +1023,7 @@ function testMutuallyRecursive(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L848>)
+[\(view code\)](<./Quick.hx#L839>)
 
 
 ## function testNonZeroSliceAndMap
@@ -309,7 +1039,7 @@ Some serialization formats \(e.g. encoding/pem\) cannot distinguish
 between a nil and an empty map or slice, so avoid generating the
 zero value for these.  
 
-[\(view code\)](<./Quick.hx#L876>)
+[\(view code\)](<./Quick.hx#L867>)
 
 
 ## function testRecursive
@@ -324,7 +1054,7 @@ function testRecursive(_t:stdgo.Ref<stdgo.testing.T>):Void
 Recursive data structures didn't terminate.
 Issues 8818 and 11148.  
 
-[\(view code\)](<./Quick.hx#L835>)
+[\(view code\)](<./Quick.hx#L826>)
 
 
 ## function value
@@ -343,7 +1073,7 @@ Value returns an arbitrary value of the given type.
 If the type implements the Generator interface, that will be used.
 Note: To create arbitrary values for structs, all the fields must be exported.  
 
-[\(view code\)](<./Quick.hx#L262>)
+[\(view code\)](<./Quick.hx#L253>)
 
 
 # Classes
@@ -370,7 +1100,7 @@ function new(?b:stdgo.Ref<stdgo.testing.quick.B>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L168>)
+[\(view code\)](<./Quick.hx#L159>)
 
 
 ## class B
@@ -389,7 +1119,7 @@ function new(?a:stdgo.Ref<stdgo.testing.quick.A>):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L183>)
+[\(view code\)](<./Quick.hx#L174>)
 
 
 ## class CheckEqualError
@@ -421,7 +1151,7 @@ function new(?checkError:stdgo.testing.quick.CheckError, ?out1:stdgo.Slice<stdgo
 ```
 
 
-[\(view code\)](<./Quick.hx#L118>)
+[\(view code\)](<./Quick.hx#L109>)
 
 
 ### CheckEqualError function error
@@ -432,7 +1162,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Quick.hx#L982>)
+[\(view code\)](<./Quick.hx#L973>)
 
 
 ## class CheckError
@@ -459,7 +1189,7 @@ function new(?count:Null<stdgo.GoInt>, ?in_:stdgo.Slice<stdgo.AnyInterface>):Voi
 ```
 
 
-[\(view code\)](<./Quick.hx#L99>)
+[\(view code\)](<./Quick.hx#L90>)
 
 
 ### CheckError function error
@@ -470,7 +1200,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Quick.hx#L965>)
+[\(view code\)](<./Quick.hx#L956>)
 
 
 ## class Config
@@ -516,7 +1246,7 @@ function new(?maxCount:Null<stdgo.GoInt>, ?maxCountScale:stdgo.GoFloat64, ?rand:
 ```
 
 
-[\(view code\)](<./Quick.hx#L80>)
+[\(view code\)](<./Quick.hx#L71>)
 
 
 ### Config function values
@@ -545,7 +1275,7 @@ function _getMaxCount():stdgo.GoInt
 getMaxCount returns the maximum number of iterations to run for a given
 Config.  
 
-[\(view code\)](<./Quick.hx#L929>)
+[\(view code\)](<./Quick.hx#L920>)
 
 
 ### Config function \_getRand
@@ -559,7 +1289,7 @@ function _getRand():stdgo.Ref<stdgo.math.rand.Rand>
 
 getRand returns the \*rand.Rand to use for a given Config.  
 
-[\(view code\)](<./Quick.hx#L945>)
+[\(view code\)](<./Quick.hx#L936>)
 
 
 ## class T\_testNonZeroSliceAndMap\_0\_\_\_localname\_\_\_Q
@@ -583,7 +1313,7 @@ function new(?m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?s:stdgo.Slice<stdgo.GoIn
 ```
 
 
-[\(view code\)](<./Quick.hx#L862>)
+[\(view code\)](<./Quick.hx#L853>)
 
 
 ## class T\_testRecursive\_0\_\_\_localname\_\_\_R
@@ -632,7 +1362,7 @@ function new(?ptr:stdgo.Ref<stdgo.testing.quick.T_testRecursive_0___localname___
 ```
 
 
-[\(view code\)](<./Quick.hx#L817>)
+[\(view code\)](<./Quick.hx#L808>)
 
 
 ## class TestStruct
@@ -656,7 +1386,7 @@ function new(?a:Null<stdgo.GoInt>, ?b:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Quick.hx#L136>)
+[\(view code\)](<./Quick.hx#L127>)
 
 
 # Typedefs
@@ -691,6 +1421,15 @@ typedef SetupError = stdgo.GoString;
 
 A SetupError is the result of an error in the way that check is being
 used, independent of the functions being tested.  
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+};
+```
+
 
 ## typedef TestArrayAlias
 

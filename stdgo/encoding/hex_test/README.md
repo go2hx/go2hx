@@ -23,6 +23,8 @@
 
 - [`function exampleEncodeToString():Void`](<#function-exampleencodetostring>)
 
+- [`function main():Void`](<#function-main>)
+
 # Variables
 
 
@@ -33,6 +35,26 @@ import stdgo.encoding.hex_test.Hex
 
 ```haxe
 var _:Bool
+```
+
+
+```haxe
+var _benchmarks:stdgo.Slice<stdgo.testing.InternalBenchmark>
+```
+
+
+```haxe
+var _examples:stdgo.Slice<stdgo.testing.InternalExample>
+```
+
+
+```haxe
+var _fuzzTargets:stdgo.Slice<stdgo.testing.InternalFuzzTarget>
+```
+
+
+```haxe
+var _tests:stdgo.Slice<stdgo.testing.InternalTest>
 ```
 
 
@@ -52,7 +74,7 @@ function exampleDecode():Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L18>)
+[\(view code\)](<./Hex.hx#L9>)
 
 
 ## function exampleDecodeString
@@ -63,7 +85,7 @@ function exampleDecodeString():Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L27>)
+[\(view code\)](<./Hex.hx#L18>)
 
 
 ## function exampleDump
@@ -74,7 +96,7 @@ function exampleDump():Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L35>)
+[\(view code\)](<./Hex.hx#L26>)
 
 
 ## function exampleDumper
@@ -85,7 +107,7 @@ function exampleDumper():Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L39>)
+[\(view code\)](<./Hex.hx#L30>)
 
 
 ## function exampleEncode
@@ -96,7 +118,7 @@ function exampleEncode():Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L12>)
+[\(view code\)](<./Hex.hx#L3>)
 
 
 ## function exampleEncodeToString
@@ -107,6 +129,17 @@ function exampleEncodeToString():Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L72>)
+[\(view code\)](<./Hex.hx#L63>)
+
+
+## function main
+
+
+```haxe
+function main():Void
+```
+
+
+[\(view code\)](<./Hex.hx#L41>)
 
 

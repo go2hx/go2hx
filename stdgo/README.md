@@ -43,6 +43,8 @@
 
   - [`function copySlice(dst:Dynamic, src:Dynamic):Dynamic`](<#go-function-copyslice>)
 
+  - [`function defaultValue(e:Dynamic):Dynamic`](<#go-function-defaultvalue>)
+
   - [`function expectedValue(value:Dynamic):Dynamic`](<#go-function-expectedvalue>)
 
   - [`function map(exprs:Dynamic):Dynamic`](<#go-function-map>)
@@ -50,6 +52,8 @@
   - [`function multireturn(expr:Dynamic):Dynamic`](<#go-function-multireturn>)
 
   - [`function pointer(expr:Dynamic, hasSet:Dynamic):Dynamic`](<#go-function-pointer>)
+
+  - [`function refPointer(expr:Dynamic):Dynamic`](<#go-function-refpointer>)
 
   - [`function routine(func:():Void):Void`](<#go-function-routine>)
 
@@ -60,8 +64,6 @@
   - [`function setRef(expr:Dynamic):Dynamic`](<#go-function-setref>)
 
   - [`function str(expr:Dynamic):Dynamic`](<#go-function-str>)
-
-  - [`function string(s:Dynamic):String`](<#go-function-string>)
 
   - [`function toInterface(expr:Dynamic):Dynamic`](<#go-function-tointerface>)
 
@@ -165,7 +167,7 @@
 
   - [`function get():stdgo.PointerData.T`](<#pointerdata-function-get>)
 
-  - [`function new(?get:():Null<stdgo.PointerData.T>, ?set:(value:stdgo.PointerData.T):stdgo.PointerData.T, ?hasSet:Bool, ?previous:stdgo.Pointer<Any>, ?underlying:Any, ?underlyingIndex:Any):Void`](<#pointerdata-function-new>)
+  - [`function new(?get:():stdgo.PointerData.T, ?set:(), ?hasSet:Bool, ?previous:stdgo.Pointer<Any>, ?underlying:Any, ?underlyingIndex:Any):Void`](<#pointerdata-function-new>)
 
   - [`function set()`](<#pointerdata-function-set>)
 
@@ -182,8 +184,6 @@
   - [`function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T`](<#slicedata-function-set>)
 
   - [`function toArray():Array<stdgo.SliceData.T>`](<#slicedata-function-toarray>)
-
-  - [`function toString():String`](<#slicedata-function-tostring>)
 
   - [`function toVector():haxe.ds.Vector<stdgo.SliceData.T>`](<#slicedata-function-tovector>)
 
@@ -476,6 +476,14 @@ function copySlice(dst:Dynamic, src:Dynamic):Dynamic
 ```
 
 
+### Go function defaultValue
+
+
+```haxe
+function defaultValue(e:Dynamic):Dynamic
+```
+
+
 ### Go function expectedValue
 
 
@@ -508,6 +516,14 @@ function pointer(expr:Dynamic, hasSet:Dynamic):Dynamic
 ```
 
 
+### Go function refPointer
+
+
+```haxe
+function refPointer(expr:Dynamic):Dynamic
+```
+
+
 ### Go function routine
 
 
@@ -516,7 +532,7 @@ function routine(func:():Void):Void
 ```
 
 
-[\(view code\)](<./Go.hx#L24>)
+[\(view code\)](<./Go.hx#L7>)
 
 
 ### Go function select
@@ -549,17 +565,6 @@ function setRef(expr:Dynamic):Dynamic
 ```haxe
 function str(expr:Dynamic):Dynamic
 ```
-
-
-### Go function string
-
-
-```haxe
-function string(s:Dynamic):String
-```
-
-
-[\(view code\)](<./Go.hx#L8>)
 
 
 ### Go function toInterface
@@ -779,7 +784,7 @@ function hasNext():Bool
 ```
 
 
-[\(view code\)](<./StdGoTypes.hx#L1897>)
+[\(view code\)](<./StdGoTypes.hx#L1904>)
 
 
 ### GoIntIterator function new
@@ -790,7 +795,7 @@ function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./StdGoTypes.hx#L1892>)
+[\(view code\)](<./StdGoTypes.hx#L1899>)
 
 
 ### GoIntIterator function next
@@ -801,7 +806,7 @@ function next():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./StdGoTypes.hx#L1901>)
+[\(view code\)](<./StdGoTypes.hx#L1908>)
 
 
 ## class GoObjectMap
@@ -920,7 +925,7 @@ function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L257>)
+[\(view code\)](<./GoString.hx#L299>)
 
 
 ### GoStringTools function lastIndexOf
@@ -931,7 +936,7 @@ function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L254>)
+[\(view code\)](<./GoString.hx#L296>)
 
 
 ### GoStringTools function substr
@@ -942,7 +947,7 @@ function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString
 ```
 
 
-[\(view code\)](<./GoString.hx#L260>)
+[\(view code\)](<./GoString.hx#L302>)
 
 
 ## class GoUInt64Map
@@ -1020,7 +1025,7 @@ function get():stdgo.PointerData.T
 
 
 ```haxe
-function new(?get:():Null<stdgo.PointerData.T>, ?set:(value:stdgo.PointerData.T):stdgo.PointerData.T, ?hasSet:Bool, ?previous:stdgo.Pointer<Any>, ?underlying:Any, ?underlyingIndex:Any):Void
+function new(?get:():stdgo.PointerData.T, ?set:(), ?hasSet:Bool, ?previous:stdgo.Pointer<Any>, ?underlying:Any, ?underlyingIndex:Any):Void
 ```
 
 
@@ -1047,6 +1052,11 @@ function toString():String
 
 
 ## class SliceData
+
+
+```haxe
+var bytes:haxe.io.Bytes
+```
 
 
 ```haxe
@@ -1077,7 +1087,7 @@ function get(index:Int):stdgo.SliceData.T
 ```
 
 
-[\(view code\)](<./Slice.hx#L303>)
+[\(view code\)](<./Slice.hx#L330>)
 
 
 ### SliceData function grow
@@ -1088,7 +1098,7 @@ function grow():Void
 ```
 
 
-[\(view code\)](<./Slice.hx#L342>)
+[\(view code\)](<./Slice.hx#L376>)
 
 
 ### SliceData function new
@@ -1099,7 +1109,7 @@ function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void
 ```
 
 
-[\(view code\)](<./Slice.hx#L218>)
+[\(view code\)](<./Slice.hx#L232>)
 
 
 ### SliceData function set
@@ -1110,7 +1120,7 @@ function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T
 ```
 
 
-[\(view code\)](<./Slice.hx#L319>)
+[\(view code\)](<./Slice.hx#L349>)
 
 
 ### SliceData function toArray
@@ -1121,18 +1131,7 @@ function toArray():Array<stdgo.SliceData.T>
 ```
 
 
-[\(view code\)](<./Slice.hx#L324>)
-
-
-### SliceData function toString
-
-
-```haxe
-function toString():String
-```
-
-
-[\(view code\)](<./Slice.hx#L334>)
+[\(view code\)](<./Slice.hx#L358>)
 
 
 ### SliceData function toVector
@@ -1143,7 +1142,7 @@ function toVector():haxe.ds.Vector<stdgo.SliceData.T>
 ```
 
 
-[\(view code\)](<./Slice.hx#L328>)
+[\(view code\)](<./Slice.hx#L364>)
 
 
 ## class VectorData

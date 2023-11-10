@@ -9,78 +9,13 @@
 
 Package utf16 implements encoding and decoding of UTF\-16 sequences.  
 
-<details><summary>hl tests passed</summary>
-<p>
-
-```
-=== RUN  TestConstants
---- PASS: TestConstants (%!s(float64=3.0040740966796875e-05))
-
-=== RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0013489723205566406))
-
-=== RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0004911422729492188))
-
-=== RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=2.193450927734375e-05))
-
-=== RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.00025010108947753906))
-
-=== RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=9.059906005859375e-06))
-
-=== RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=1.1920928955078125e-05))
-
-```
-</p>
-</details>
-
-<details><summary>interp tests passed</summary>
-<p>
-
-```
-=== RUN  TestConstants
---- PASS: TestConstants (%!s(float64=4.8160552978515625e-05))
-
-=== RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0006358623504638672))
-
-=== RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.000553131103515625))
-
-=== RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=8.106231689453125e-05))
-
-=== RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0004029273986816406))
-
-=== RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=3.790855407714844e-05))
-
-=== RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=3.814697265625e-05))
-
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
-
 
 # Index
 
 
 - [Constants](<#constants>)
+
+- [`function _decode(_s:stdgo.Slice<stdgo.GoUInt16>, _buf:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>`](<#function-_decode>)
 
 - [`function appendRune(_a:stdgo.Slice<stdgo.GoUInt16>, _r:stdgo.GoRune):stdgo.Slice<stdgo.GoUInt16>`](<#function-appendrune>)
 
@@ -106,7 +41,48 @@ import stdgo.unicode.utf16.Utf16
 
 
 ```haxe
-final maxRune:stdgo.GoInt32 = ((1114111 : GoInt32))
+final _maxRune:stdgo.GoInt32 = ((1114111 : stdgo.StdGoTypes.GoInt32))
+```
+
+
+
+Maximum valid Unicode code point.  
+
+```haxe
+final _replacementChar:stdgo.GoInt32 = ((65533 : stdgo.StdGoTypes.GoInt32))
+```
+
+
+
+Unicode replacement character  
+
+```haxe
+final _surr1:stdgo.GoUInt64 = ((55296i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+0xd800\-0xdc00 encodes the high 10 bits of a pair.
+0xdc00\-0xe000 encodes the low 10 bits of a pair.
+the value is those 20 bits plus 0x10000.  
+
+```haxe
+final _surr2:stdgo.GoUInt64 = ((56320i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final _surr3:stdgo.GoUInt64 = ((57344i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final _surrSelf:stdgo.GoUInt64 = ((65536i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.StdGoTypes.GoInt32))
 ```
 
 
@@ -114,7 +90,7 @@ final maxRune:stdgo.GoInt32 = ((1114111 : GoInt32))
 Extra names for constants so we can validate them during testing.  
 
 ```haxe
-final replacementChar:stdgo.GoInt32 = ((65533 : GoInt32))
+final replacementChar:stdgo.GoInt32 = ((65533 : stdgo.StdGoTypes.GoInt32))
 ```
 
 
@@ -127,6 +103,21 @@ Extra names for constants so we can validate them during testing.
 ```haxe
 import stdgo.unicode.utf16.Utf16
 ```
+
+
+## function \_decode
+
+
+```haxe
+function _decode(_s:stdgo.Slice<stdgo.GoUInt16>, _buf:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>
+```
+
+
+
+decode appends to buf the Unicode code point sequence represented
+by the UTF\-16 encoding s and return the extended buffer.  
+
+[\(view code\)](<./Utf16.hx#L141>)
 
 
 ## function appendRune
@@ -142,7 +133,7 @@ AppendRune appends the UTF\-16 encoding of the Unicode code point r
 to the end of p and returns the extended buffer. If the rune is not
 a valid Unicode code point, it appends the encoding of U\+FFFD.  
 
-[\(view code\)](<./Utf16.hx#L129>)
+[\(view code\)](<./Utf16.hx#L120>)
 
 
 ## function decode
@@ -157,7 +148,7 @@ function decode(_s:stdgo.Slice<stdgo.GoUInt16>):stdgo.Slice<stdgo.GoRune>
 Decode returns the Unicode code point sequence represented
 by the UTF\-16 encoding s.  
 
-[\(view code\)](<./Utf16.hx#L142>)
+[\(view code\)](<./Utf16.hx#L133>)
 
 
 ## function decodeRune
@@ -173,7 +164,7 @@ DecodeRune returns the UTF\-16 decoding of a surrogate pair.
 If the pair is not a valid UTF\-16 surrogate pair, DecodeRune returns
 the Unicode replacement code point U\+FFFD.  
 
-[\(view code\)](<./Utf16.hx#L77>)
+[\(view code\)](<./Utf16.hx#L68>)
 
 
 ## function encode
@@ -187,7 +178,7 @@ function encode(_s:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoUInt16>
 
 Encode returns the UTF\-16 encoding of the Unicode code point sequence s.  
 
-[\(view code\)](<./Utf16.hx#L99>)
+[\(view code\)](<./Utf16.hx#L90>)
 
 
 ## function encodeRune
@@ -206,7 +197,7 @@ EncodeRune returns the UTF\-16 surrogate pair r1, r2 for the given rune.
 If the rune is not a valid Unicode code point or does not need encoding,
 EncodeRune returns U\+FFFD, U\+FFFD.  
 
-[\(view code\)](<./Utf16.hx#L88>)
+[\(view code\)](<./Utf16.hx#L79>)
 
 
 ## function isSurrogate
@@ -221,6 +212,6 @@ function isSurrogate(_r:stdgo.GoRune):Bool
 IsSurrogate reports whether the specified Unicode code point
 can appear in a surrogate pair.  
 
-[\(view code\)](<./Utf16.hx#L69>)
+[\(view code\)](<./Utf16.hx#L60>)
 
 

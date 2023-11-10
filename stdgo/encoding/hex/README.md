@@ -9,65 +9,15 @@
 
 Package hex implements hexadecimal encoding and decoding.  
 
-<details><summary>hl tests failed</summary>
-<p>
-
-```
-Error: Command failed with error 1
-=== RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.00010180473327636719))
-
-=== RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0002930164337158203))
-
-=== RUN  TestEncodeToString
---- PASS: TestEncodeToString (%!s(float64=8.606910705566406e-05))
-
-=== RUN  TestDecodeString
---- PASS: TestDecodeString (%!s(float64=0.00023603439331054688))
-
-=== RUN  TestDecodeErr
-Decode("zd4aa") = "", encoding/hex: invalid byte: U+007A 'z', want "", encoding/hex: invalid byte: U+007A 'z'
-```
-</p>
-</details>
-
-<details><summary>interp tests failed</summary>
-<p>
-
-```
-=== RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.00023412704467773438))
-
-=== RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0010738372802734375))
-
-=== RUN  TestEncodeToString
---- PASS: TestEncodeToString (%!s(float64=0.0002079010009765625))
-
-=== RUN  TestDecodeString
---- PASS: TestDecodeString (%!s(float64=0.0008618831634521484))
-
-=== RUN  TestDecodeErr
-Decode("zd4aa") = "", encoding/hex: invalid byte: U+007A 'z', want "", encoding/hex: invalid byte: U+007A 'z'
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
-
 
 # Index
 
 
+- [Constants](<#constants>)
+
 - [Variables](<#variables>)
+
+- [`function _toChar(_b:stdgo.GoByte):stdgo.GoByte`](<#function-_tochar>)
 
 - [`function benchmarkDecode(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkdecode>)
 
@@ -127,6 +77,12 @@ IO.Overflow("write_ui16")
 
 - [typedef InvalidByteError](<#typedef-invalidbyteerror>)
 
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
+- [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
+
+- [typedef T\_\_struct\_2](<#typedef-t__struct_2>)
+
 # Examples
 
 
@@ -142,11 +98,57 @@ IO.Overflow("write_ui16")
 
 - [`exampleEncodeToString`](<#exampleencodetostring>)
 
+# Constants
+
+
+```haxe
+import stdgo.encoding.hex.Hex
+```
+
+
+```haxe
+final _bufferSize:stdgo.GoUInt64 = ((1024i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+bufferSize is the number of hexadecimal characters to buffer in encoder and decoder.  
+
+```haxe
+final _hextable:stdgo.GoString = (("0123456789abcdef" : stdgo.GoString))
+```
+
+
+```haxe
+final _reverseHexTable:stdgo.GoString = stdgo.Go.str(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 1, 2, 3, 4, 5, 6, "\x07\x08\t", 255, 255, 255, 255, 255, 255, 255, "\n\x0B\x0C\r", 14, 15, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, "\n\x0B\x0C\r", 14, 15, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255)
+```
+
+
 # Variables
 
 
 ```haxe
 import stdgo.encoding.hex.Hex
+```
+
+
+```haxe
+var _encDecTests:stdgo.Slice<stdgo.encoding.hex.T_encDecTest>
+```
+
+
+```haxe
+var _errTests:stdgo.Slice<stdgo.encoding.hex.T__struct_0>
+```
+
+
+```haxe
+var _expectedHexDump:stdgo.Slice<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _sink:stdgo.Slice<stdgo.GoUInt8>
 ```
 
 
@@ -168,6 +170,17 @@ import stdgo.encoding.hex.Hex
 ```
 
 
+## function \_toChar
+
+
+```haxe
+function _toChar(_b:stdgo.GoByte):stdgo.GoByte
+```
+
+
+[\(view code\)](<./Hex.hx#L1315>)
+
+
 ## function benchmarkDecode
 
 
@@ -176,7 +189,7 @@ function benchmarkDecode(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1516>)
+[\(view code\)](<./Hex.hx#L1507>)
 
 
 ## function benchmarkDump
@@ -187,7 +200,7 @@ function benchmarkDump(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1531>)
+[\(view code\)](<./Hex.hx#L1522>)
 
 
 ## function benchmarkEncode
@@ -198,7 +211,7 @@ function benchmarkEncode(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1501>)
+[\(view code\)](<./Hex.hx#L1492>)
 
 
 ## function decode
@@ -231,13 +244,13 @@ of bytes decoded before the error.
 
 ```haxe
 function exampleDecode():Void {
-        var _src = (("48656c6c6f20476f7068657221" : GoString) : Slice<GoByte>);
-        var _dst = new Slice<GoUInt8>((stdgo.encoding.hex.Hex.decodedLen((_src.length)) : GoInt).toBasic(), 0).__setNumber32__();
-        var __tmp__ = stdgo.encoding.hex.Hex.decode(_dst, _src), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        var _src = (("48656c6c6f20476f7068657221" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+        var _dst = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((stdgo.encoding.hex.Hex.decodedLen((_src.length)) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
+        var __tmp__ = stdgo.encoding.hex.Hex.decode(_dst, _src), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            stdgo.log.Log.fatal(Go.toInterface(_err));
+            stdgo.log.Log.fatal(stdgo.Go.toInterface(_err));
         };
-        stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface((_dst.__slice__(0, _n) : Slice<GoUInt8>)));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface((_dst.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
     }
 ```
 
@@ -246,7 +259,7 @@ function exampleDecode():Void {
 </details>
 
 
-[\(view code\)](<./Hex.hx#L502>)
+[\(view code\)](<./Hex.hx#L493>)
 
 
 ## function decodeString
@@ -279,11 +292,11 @@ the bytes decoded before the error.
 ```haxe
 function exampleDecodeString():Void {
         {};
-        var __tmp__ = stdgo.encoding.hex.Hex.decodeString(("48656c6c6f20476f7068657221" : GoString)), _decoded:Slice<GoUInt8> = __tmp__._0, _err:Error = __tmp__._1;
+        var __tmp__ = stdgo.encoding.hex.Hex.decodeString(("48656c6c6f20476f7068657221" : stdgo.GoString)), _decoded:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            stdgo.log.Log.fatal(Go.toInterface(_err));
+            stdgo.log.Log.fatal(stdgo.Go.toInterface(_err));
         };
-        stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface(_decoded));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_decoded));
     }
 ```
 
@@ -292,7 +305,7 @@ function exampleDecodeString():Void {
 </details>
 
 
-[\(view code\)](<./Hex.hx#L1283>)
+[\(view code\)](<./Hex.hx#L1274>)
 
 
 ## function decodedLen
@@ -307,7 +320,7 @@ function decodedLen(_x:stdgo.GoInt):stdgo.GoInt
 DecodedLen returns the length of a decoding of x source bytes.
 Specifically, it returns x / 2.  
 
-[\(view code\)](<./Hex.hx#L490>)
+[\(view code\)](<./Hex.hx#L481>)
 
 
 ## function dump
@@ -331,8 +344,8 @@ of the hex dump matches the output of \`hexdump \-C\` on the command line.
 
 ```haxe
 function exampleDump():Void {
-        var _content = (("Go is an open source programming language." : GoString) : Slice<GoByte>);
-        stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(stdgo.encoding.hex.Hex.dump(_content)));
+        var _content = (("Go is an open source programming language." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+        stdgo.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.encoding.hex.Hex.dump(_content)));
     }
 ```
 
@@ -341,7 +354,7 @@ function exampleDump():Void {
 </details>
 
 
-[\(view code\)](<./Hex.hx#L1292>)
+[\(view code\)](<./Hex.hx#L1283>)
 
 
 ## function dumper
@@ -368,11 +381,11 @@ line.
 function exampleDumper():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _lines = (new Slice<GoString>(3, 3, ("Go is an open source programming language." : GoString), ("\n" : GoString), ("We encourage all Go users to subscribe to golang-announce." : GoString)) : Slice<GoString>);
-            var _stdoutDumper:stdgo.io.Io.WriteCloser = stdgo.encoding.hex.Hex.dumper(Go.asInterface(stdgo.os.Os.stdout));
+            var _lines = (new stdgo.Slice<stdgo.GoString>(3, 3, ("Go is an open source programming language." : stdgo.GoString), ("\n" : stdgo.GoString), ("We encourage all Go users to subscribe to golang-announce." : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+            var _stdoutDumper:stdgo.io.Io.WriteCloser = stdgo.encoding.hex.Hex.dumper(stdgo.Go.asInterface(stdgo.os.Os.stdout));
             __deferstack__.unshift(() -> _stdoutDumper.close());
             for (__0 => _line in _lines) {
-                _stdoutDumper.write((_line : Slice<GoByte>));
+                _stdoutDumper.write((_line : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
             };
             for (defer in __deferstack__) {
                 defer();
@@ -381,20 +394,20 @@ function exampleDumper():Void {
                 for (defer in __deferstack__) {
                     defer();
                 };
-                if (Go.recover_exception != null) throw Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is AnyInterfaceData)) {
-                exe = Go.toInterface(__exception__.message);
+            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                exe = stdgo.Go.toInterface(__exception__.message);
             };
-            Go.recover_exception = exe;
+            stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
-            if (Go.recover_exception != null) throw Go.recover_exception;
+            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
         };
     }
@@ -405,7 +418,7 @@ function exampleDumper():Void {
 </details>
 
 
-[\(view code\)](<./Hex.hx#L1321>)
+[\(view code\)](<./Hex.hx#L1312>)
 
 
 ## function encode
@@ -431,10 +444,10 @@ Encode implements hexadecimal encoding.
 
 ```haxe
 function exampleEncode():Void {
-        var _src = (("Hello Gopher!" : GoString) : Slice<GoByte>);
-        var _dst = new Slice<GoUInt8>((stdgo.encoding.hex.Hex.encodedLen((_src.length)) : GoInt).toBasic(), 0).__setNumber32__();
+        var _src = (("Hello Gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+        var _dst = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((stdgo.encoding.hex.Hex.encodedLen((_src.length)) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         stdgo.encoding.hex.Hex.encode(_dst, _src);
-        stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface(_dst));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_dst));
     }
 ```
 
@@ -443,7 +456,7 @@ function exampleEncode():Void {
 </details>
 
 
-[\(view code\)](<./Hex.hx#L477>)
+[\(view code\)](<./Hex.hx#L468>)
 
 
 ## function encodeToString
@@ -466,9 +479,9 @@ EncodeToString returns the hexadecimal encoding of src.
 
 ```haxe
 function exampleEncodeToString():Void {
-        var _src = (("Hello" : GoString) : Slice<GoByte>);
-        var _encodedStr:GoString = stdgo.encoding.hex.Hex.encodeToString(_src);
-        stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface(_encodedStr));
+        var _src = (("Hello" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+        var _encodedStr:stdgo.GoString = stdgo.encoding.hex.Hex.encodeToString(_src);
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_encodedStr));
     }
 ```
 
@@ -477,7 +490,7 @@ function exampleEncodeToString():Void {
 </details>
 
 
-[\(view code\)](<./Hex.hx#L1270>)
+[\(view code\)](<./Hex.hx#L1261>)
 
 
 ## function encodedLen
@@ -492,7 +505,7 @@ function encodedLen(_n:stdgo.GoInt):stdgo.GoInt
 EncodedLen returns the length of an encoding of n source bytes.
 Specifically, it returns n \* 2.  
 
-[\(view code\)](<./Hex.hx#L468>)
+[\(view code\)](<./Hex.hx#L459>)
 
 
 ## function newDecoder
@@ -507,7 +520,7 @@ function newDecoder(_r:stdgo.io.Reader):stdgo.io.Reader
 NewDecoder returns an io.Reader that decodes hexadecimal characters from r.
 NewDecoder expects that r contain only an even number of hexadecimal characters.  
 
-[\(view code\)](<./Hex.hx#L1313>)
+[\(view code\)](<./Hex.hx#L1304>)
 
 
 ## function newEncoder
@@ -521,7 +534,7 @@ function newEncoder(_w:stdgo.io.Writer):stdgo.io.Writer
 
 NewEncoder returns an io.Writer that writes lowercase hexadecimal characters to w.  
 
-[\(view code\)](<./Hex.hx#L1306>)
+[\(view code\)](<./Hex.hx#L1297>)
 
 
 ## function testDecode
@@ -532,7 +545,7 @@ function testDecode(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1342>)
+[\(view code\)](<./Hex.hx#L1333>)
 
 
 ## function testDecodeErr
@@ -543,7 +556,7 @@ function testDecodeErr(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1374>)
+[\(view code\)](<./Hex.hx#L1365>)
 
 
 ## function testDecodeString
@@ -554,7 +567,7 @@ function testDecodeString(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1362>)
+[\(view code\)](<./Hex.hx#L1353>)
 
 
 ## function testDecodeStringErr
@@ -565,7 +578,7 @@ function testDecodeStringErr(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1383>)
+[\(view code\)](<./Hex.hx#L1374>)
 
 
 ## function testDecoderErr
@@ -576,7 +589,7 @@ function testDecoderErr(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1429>)
+[\(view code\)](<./Hex.hx#L1420>)
 
 
 ## function testDump
@@ -587,7 +600,7 @@ function testDump(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1491>)
+[\(view code\)](<./Hex.hx#L1482>)
 
 
 ## function testDumper
@@ -598,7 +611,7 @@ function testDumper(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1442>)
+[\(view code\)](<./Hex.hx#L1433>)
 
 
 ## function testDumper\_doubleclose
@@ -609,7 +622,7 @@ function testDumper_doubleclose(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1468>)
+[\(view code\)](<./Hex.hx#L1459>)
 
 
 ## function testDumper\_earlyclose
@@ -620,7 +633,7 @@ function testDumper_earlyclose(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1481>)
+[\(view code\)](<./Hex.hx#L1472>)
 
 
 ## function testEncode
@@ -631,7 +644,7 @@ function testEncode(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1330>)
+[\(view code\)](<./Hex.hx#L1321>)
 
 
 ## function testEncodeToString
@@ -642,7 +655,7 @@ function testEncodeToString(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1354>)
+[\(view code\)](<./Hex.hx#L1345>)
 
 
 ## function testEncoderDecoder
@@ -653,7 +666,7 @@ function testEncoderDecoder(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1391>)
+[\(view code\)](<./Hex.hx#L1382>)
 
 
 # Typedefs
@@ -674,4 +687,36 @@ typedef InvalidByteError = stdgo.GoUInt8;
 
 
 InvalidByteError values describe errors resulting from an invalid byte in a hex string.  
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+	_out:stdgo.GoString;
+	_in:stdgo.GoString;
+	_err:stdgo.Error;
+};
+```
+
+
+## typedef T\_\_struct\_1
+
+
+```haxe
+typedef T__struct_1 = {
+	{<reader> | stdgo.io.Reader | meta:{<m>}};
+};
+```
+
+
+## typedef T\_\_struct\_2
+
+
+```haxe
+typedef T__struct_2 = {
+	{<writer> | stdgo.io.Writer | meta:{<m>}};
+};
+```
+
 

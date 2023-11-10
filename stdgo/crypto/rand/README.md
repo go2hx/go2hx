@@ -1,9 +1,9 @@
 # Module stdgo.crypto.rand has compilation errors, please do not use:
 ```
-stdgo/crypto/rand/Rand.hx:97: characters 23-49 : Type not found : stdgo.compress.flate.Flate
-stdgo/crypto/rand/Rand.hx:97: characters 146-179 : Type not found : stdgo.compress.flate.Flate
-stdgo/crypto/rand/Rand.hx:126: characters 9-48 : Type not found : stdgo.crypto.internal.randutil.Randutil
-stdgo/math/big/Big.hx:19642: characters 13-98 : Cannot modify the abstract value, store it into a local first
+stdgo/crypto/rand/Rand.hx:108: characters 23-49 : Type not found : stdgo.compress.flate.Flate
+stdgo/crypto/rand/Rand.hx:108: characters 209-242 : Type not found : stdgo.compress.flate.Flate
+stdgo/crypto/rand/Rand.hx:137: characters 9-48 : Type not found : stdgo.crypto.internal.randutil.Randutil
+stdgo/math/big/Big.hx:19809: characters 13-149 : Cannot modify the abstract value, store it into a local first
 
 ```
 

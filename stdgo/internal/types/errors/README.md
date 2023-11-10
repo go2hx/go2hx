@@ -11,7 +11,11 @@
 
 - [Constants](<#constants>)
 
+- [Variables](<#variables>)
+
 - [typedef Code](<#typedef-code>)
+
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
 
 # Constants
 
@@ -22,7 +26,85 @@ import stdgo.internal.types.errors.Errors
 
 
 ```haxe
-final ambiguousSelector:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final __1:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
+```
+
+
+
+The zero Code value indicates an unset \(invalid\) error code.  
+
+```haxe
+final __2:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
+```
+
+
+
+InvalidIfaceEmbed occurs when a non\-interface type is embedded in an
+interface \(for go 1.17 or earlier\).  
+
+
+not used anymore  
+
+```haxe
+final __3:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
+```
+
+
+
+InvalidDotDotDotOperand was removed.  
+
+```haxe
+final __4:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
+```
+
+
+
+InvalidChanRange was removed.  
+
+```haxe
+final __5:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
+```
+
+
+
+InvalidUnsafeStringData occurs if it is used in a package
+compiled for a language version before go1.20.  
+
+
+not used anymore  
+
+```haxe
+final __Code_name_0:stdgo.GoString = (("InvalidSyntaxTree" : stdgo.GoString))
+```
+
+
+```haxe
+final __Code_name_1:stdgo.GoString = (("TestBlankPkgNameMismatchedPkgNameInvalidPkgUseBadImportPathBrokenImportImportCRenamedUnusedImportInvalidInitCycleDuplicateDeclInvalidDeclCycleInvalidTypeCycleInvalidConstInitInvalidConstValInvalidConstTypeUntypedNilUseWrongAssignCountUnassignableOperandNoNewVarMultiValAssignOpInvalidIfaceAssignInvalidChanAssignIncompatibleAssignUnaddressableFieldAssignNotATypeInvalidArrayLenBlankIfaceMethodIncomparableMapKey" : stdgo.GoString))
+```
+
+
+```haxe
+final __Code_name_2:stdgo.GoString = (("InvalidPtrEmbedBadRecvInvalidRecvDuplicateFieldAndMethodDuplicateMethodInvalidBlankInvalidIotaMissingInitBodyInvalidInitSigInvalidInitDeclInvalidMainDeclTooManyValuesNotAnExprTruncatedFloatNumericOverflowUndefinedOpMismatchedTypesDivByZeroNonNumericIncDecUnaddressableOperandInvalidIndirectionNonIndexableOperandInvalidIndexSwappedSliceIndicesNonSliceableOperandInvalidSliceExprInvalidShiftCountInvalidShiftOperandInvalidReceiveInvalidSendDuplicateLitKeyMissingLitKeyInvalidLitIndexOversizeArrayLitMixedStructLitInvalidStructLitMissingLitFieldDuplicateLitFieldUnexportedLitFieldInvalidLitFieldUntypedLitInvalidLitAmbiguousSelectorUndeclaredImportedNameUnexportedNameUndeclaredNameMissingFieldOrMethodBadDotDotDotSyntaxNonVariadicDotDotDotMisplacedDotDotDot" : stdgo.GoString))
+```
+
+
+```haxe
+final __Code_name_3:stdgo.GoString = (("InvalidDotDotDotUncalledBuiltinInvalidAppendInvalidCapInvalidCloseInvalidCopyInvalidComplexInvalidDeleteInvalidImagInvalidLenSwappedMakeArgsInvalidMakeInvalidRealInvalidAssertImpossibleAssertInvalidConversionInvalidUntypedConversionBadOffsetofSyntaxInvalidOffsetofUnusedExprUnusedVarMissingReturnWrongResultCountOutOfScopeResultInvalidCondInvalidPostDecl" : stdgo.GoString))
+```
+
+
+```haxe
+final __Code_name_4:stdgo.GoString = (("InvalidIterVarInvalidRangeExprMisplacedBreakMisplacedContinueMisplacedFallthroughDuplicateCaseDuplicateDefaultBadTypeKeywordInvalidTypeSwitchInvalidExprSwitchInvalidSelectCaseUndeclaredLabelDuplicateLabelMisplacedLabelUnusedLabelJumpOverDeclJumpIntoBlockInvalidMethodExprWrongArgCountInvalidCallUnusedResultsInvalidDeferInvalidGoBadDeclRepeatedDeclInvalidUnsafeAddInvalidUnsafeSliceUnsupportedFeatureNotAGenericTypeWrongTypeArgCountCannotInferTypeArgsInvalidTypeArgInvalidInstanceCycleInvalidUnionMisplacedConstraintIfaceInvalidMethodTypeParamsMisplacedTypeParamInvalidUnsafeSliceDataInvalidUnsafeString" : stdgo.GoString))
+```
+
+
+```haxe
+final __Code_name_5:stdgo.GoString = (("InvalidClearTypeTooLargeInvalidMinMaxOperand" : stdgo.GoString))
+```
+
+
+```haxe
+final ambiguousSelector:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -40,7 +122,7 @@ var x T
 var \_ = x.i  
 
 ```haxe
-final badDecl:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final badDecl:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -48,7 +130,7 @@ final badDecl:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.er
 BadDecl occurs when a declaration has invalid syntax.  
 
 ```haxe
-final badDotDotDotSyntax:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final badDotDotDotSyntax:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -61,7 +143,7 @@ not valid.
   var _ = map[int][...]int{0: {}}
 ```
 ```haxe
-final badImportPath:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final badImportPath:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -69,7 +151,7 @@ final badImportPath:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.ty
 BadImportPath occurs when an import path is not valid.  
 
 ```haxe
-final badOffsetofSyntax:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final badOffsetofSyntax:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -86,7 +168,7 @@ var x int
 var \_ = unsafe.Offsetof\(x\)  
 
 ```haxe
-final badRecv:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final badRecv:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -99,7 +181,7 @@ receiver parameter.
   func () _() {}
 ```
 ```haxe
-final badTypeKeyword:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final badTypeKeyword:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -116,7 +198,7 @@ than a type switch.
   var _ = t.(type)
 ```
 ```haxe
-final blankIfaceMethod:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final blankIfaceMethod:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -135,7 +217,7 @@ BlankIfaceMethod occurs when a method name is '\_'.
   }
 ```
 ```haxe
-final blankPkgName:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final blankPkgName:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -151,7 +233,7 @@ BlankPkgName occurs when a package name is the blank identifier "\_".
   package _
 ```
 ```haxe
-final brokenImport:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final brokenImport:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -163,7 +245,7 @@ BrokenImport occurs when importing a package fails.
   import "amissingpackage"
 ```
 ```haxe
-final cannotInferTypeArgs:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final cannotInferTypeArgs:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -181,7 +263,7 @@ fails to infer all type arguments.
   }
 ```
 ```haxe
-final divByZero:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final divByZero:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -195,7 +277,7 @@ time to be a division by zero.
   var x int = 1/divisor
 ```
 ```haxe
-final duplicateCase:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final duplicateCase:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -215,7 +297,7 @@ cases.
   }
 ```
 ```haxe
-final duplicateDecl:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final duplicateDecl:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -228,7 +310,7 @@ DuplicateDecl occurs when an identifier is declared multiple times.
   var x = 2
 ```
 ```haxe
-final duplicateDefault:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final duplicateDefault:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -250,7 +332,7 @@ default clauses.
   }
 ```
 ```haxe
-final duplicateFieldAndMethod:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final duplicateFieldAndMethod:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -268,7 +350,7 @@ and method name.
 func \(T\) m\(\) \{\}  
 
 ```haxe
-final duplicateLabel:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final duplicateLabel:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -284,7 +366,7 @@ DuplicateLabel occurs when a label is declared more than once.
   }
 ```
 ```haxe
-final duplicateLitField:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final duplicateLitField:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -297,7 +379,7 @@ fields.
   var _ = struct{i int}{i: 1, i: 2}
 ```
 ```haxe
-final duplicateLitKey:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final duplicateLitKey:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -314,7 +396,7 @@ map literal.
   var _ = map[string]int{"a": 1, "a": 2}
 ```
 ```haxe
-final duplicateMethod:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final duplicateMethod:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -329,7 +411,7 @@ the same name.
   func (T) m(i int) int { return i }
 ```
 ```haxe
-final importCRenamed:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final importCRenamed:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -342,7 +424,7 @@ pseudo\-package, and must not be renamed.
   import _ "C"
 ```
 ```haxe
-final impossibleAssert:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final impossibleAssert:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -366,7 +448,7 @@ var x I
 var \_ = x.\(T\)  
 
 ```haxe
-final incomparableMapKey:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final incomparableMapKey:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -387,7 +469,7 @@ IncomparableMapKey occurs when a map key type does not support the == and
 type T \[\]int  
 
 ```haxe
-final incompatibleAssign:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final incompatibleAssign:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -402,7 +484,7 @@ assigned.
   var _ int = x
 ```
 ```haxe
-final invalidAppend:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidAppend:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -415,7 +497,7 @@ not a slice.
   var _ = append(1, 2)
 ```
 ```haxe
-final invalidArrayLen:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidArrayLen:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -428,7 +510,7 @@ InvalidArrayLen occurs when an array length is not a constant value.
   var _ = [n]int{}
 ```
 ```haxe
-final invalidAssert:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidAssert:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -442,7 +524,7 @@ value that is not of interface type.
   var _ = x.(float64)
 ```
 ```haxe
-final invalidBlank:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidBlank:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -459,7 +541,7 @@ InvalidBlank occurs when a blank identifier is used as a value or type.
   var x = _
 ```
 ```haxe
-final invalidCall:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidCall:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -473,7 +555,7 @@ type.
   var y = x()
 ```
 ```haxe
-final invalidCap:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidCap:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -491,7 +573,7 @@ which underlying types are supported as arguments to cap and len.
   var x = cap(s)
 ```
 ```haxe
-final invalidChanAssign:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidChanAssign:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -515,13 +597,13 @@ var x T1
 var \_ T2 = x  
 
 ```haxe
-final invalidClear:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidClear:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
 
 InvalidClear occurs when clear is called with an argument
-that is not of map, slice, or pointer\-to\-array type.  
+that is not of map or slice type.  
 
 ```
  Example:
@@ -530,7 +612,7 @@ that is not of map, slice, or pointer\-to\-array type.
   }
 ```
 ```haxe
-final invalidClose:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidClose:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -546,7 +628,7 @@ not of channel type, or that is a receive\-only channel.
   }
 ```
 ```haxe
-final invalidComplex:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidComplex:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -559,7 +641,7 @@ arguments with incompatible types.
   var _ = complex(float32(1), float64(2))
 ```
 ```haxe
-final invalidCond:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidCond:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -575,7 +657,7 @@ InvalidCond occurs when an if condition is not a boolean expression.
   }
 ```
 ```haxe
-final invalidConstInit:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidConstInit:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -589,7 +671,7 @@ initializer.
   const _ = x
 ```
 ```haxe
-final invalidConstType:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidConstType:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -602,7 +684,7 @@ is not a valid constant type.
   const c *int = 4
 ```
 ```haxe
-final invalidConstVal:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidConstVal:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -619,7 +701,7 @@ removing it.
   const _ = 1 << "hello"
 ```
 ```haxe
-final invalidConversion:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidConversion:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -637,7 +719,7 @@ convertibility.
   var _ = string(x)
 ```
 ```haxe
-final invalidCopy:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidCopy:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -658,7 +740,7 @@ information on the type requirements for the copy built\-in.
   }
 ```
 ```haxe
-final invalidDeclCycle:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidDeclCycle:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -672,7 +754,7 @@ InvalidDeclCycle occurs when a declaration cycle is not valid.
   }
 ```
 ```haxe
-final invalidDefer:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidDefer:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -688,7 +770,7 @@ for example if the expression is a type conversion.
   }
 ```
 ```haxe
-final invalidDelete:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidDelete:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -704,7 +786,7 @@ first argument that is not a map.
   }
 ```
 ```haxe
-final invalidDotDotDot:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidDotDotDot:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -718,7 +800,7 @@ function.
   var l = len(s...)
 ```
 ```haxe
-final invalidExprSwitch:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidExprSwitch:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -734,7 +816,7 @@ InvalidExprSwitch occurs when a switch expression is not comparable.
   }
 ```
 ```haxe
-final invalidGo:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidGo:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -750,7 +832,7 @@ if the expression is a type conversion.
   }
 ```
 ```haxe
-final invalidIfaceAssign:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidIfaceAssign:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -771,7 +853,7 @@ type T int
 var x I = T\(1\)  
 
 ```haxe
-final invalidImag:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidImag:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -784,7 +866,7 @@ argument that does not have complex type.
   var _ = imag(int(1))
 ```
 ```haxe
-final invalidIndex:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidIndex:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -809,7 +891,7 @@ negative, or out\-of\-bounds.
   var _ = s[i]
 ```
 ```haxe
-final invalidIndirection:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidIndirection:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -823,7 +905,7 @@ InvalidIndirection occurs when a non\-pointer value is indirected via the
   var y = *x
 ```
 ```haxe
-final invalidInitCycle:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidInitCycle:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -839,7 +921,7 @@ initialization graph.
 func f\(\) int \{ return x \}  
 
 ```haxe
-final invalidInitDecl:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidInitDecl:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -856,7 +938,7 @@ function.
   func init() int { return 1 }
 ```
 ```haxe
-final invalidInitSig:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidInitSig:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -869,7 +951,7 @@ Deprecated: no longer emitted by the type checker. \_InvalidInitDecl is
 used instead.  
 
 ```haxe
-final invalidInstanceCycle:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidInstanceCycle:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -882,7 +964,7 @@ within the instantiation graph.
   func f[T any]() { f[*T]() }
 ```
 ```haxe
-final invalidIota:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidIota:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -895,7 +977,7 @@ of a constant declaration.
   var x = iota
 ```
 ```haxe
-final invalidIterVar:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidIterVar:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -912,7 +994,7 @@ over a channel.
   }
 ```
 ```haxe
-final invalidLen:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidLen:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -930,7 +1012,7 @@ which underlying types are supported as arguments to cap and len.
   var x = len(s)
 ```
 ```haxe
-final invalidLit:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidLit:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -946,7 +1028,7 @@ type.
   var _ = P {}
 ```
 ```haxe
-final invalidLitField:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidLitField:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -958,7 +1040,7 @@ InvalidLitField occurs when a field name is not a valid identifier.
   var _ = struct{i int}{1: 1}
 ```
 ```haxe
-final invalidLitIndex:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidLitIndex:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -972,7 +1054,7 @@ array literal is not an integer constant.
   var x = []string{i: "world"}
 ```
 ```haxe
-final invalidMainDecl:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidMainDecl:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -981,7 +1063,7 @@ InvalidMainDecl occurs when main is declared as anything other than a
 function, in a main package.  
 
 ```haxe
-final invalidMake:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidMake:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -997,7 +1079,7 @@ information on the types that may be created using make.
   var x = make(int)
 ```
 ```haxe
-final invalidMethodExpr:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidMethodExpr:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1016,7 +1098,7 @@ func \(\*T\) m\(\) int \{ return 1 \}
 var \_ = T.m\(T\{\}\)  
 
 ```haxe
-final invalidMethodTypeParams:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidMethodTypeParams:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1027,7 +1109,26 @@ InvalidMethodTypeParams occurs when methods have type parameters.
 It cannot be encountered with an AST parsed using go/parser.  
 
 ```haxe
-final invalidOffsetof:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidMinMaxOperand:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
+```
+
+
+
+InvalidMinMaxOperand occurs if min or max is called
+with an operand that cannot be ordered because it
+does not support the \< operator.  
+
+```
+ Example:
+  const _ = min(true)
+```
+```
+ Example:
+  var s, t []byte
+  var _ = max(s, t)
+```
+```haxe
+final invalidOffsetof:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1068,7 +1169,7 @@ var s S
 var \_ = unsafe.Offsetof\(s.m\)  
 
 ```haxe
-final invalidPkgUse:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidPkgUse:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1084,7 +1185,7 @@ selector expression.
 var \_ = fmt  
 
 ```haxe
-final invalidPostDecl:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidPostDecl:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1099,7 +1200,7 @@ statement.
   }
 ```
 ```haxe
-final invalidPtrEmbed:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidPtrEmbed:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1122,7 +1223,7 @@ and T itself is itself a pointer, an unsafe.Pointer, or an interface.
   }
 ```
 ```haxe
-final invalidRangeExpr:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidRangeExpr:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1139,7 +1240,7 @@ slice, string, map, or channel.
   }
 ```
 ```haxe
-final invalidReal:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidReal:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1152,7 +1253,7 @@ argument that does not have complex type.
   var _ = real(int(1))
 ```
 ```haxe
-final invalidReceive:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidReceive:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1168,7 +1269,7 @@ is either not a channel, or is a send\-only channel.
   }
 ```
 ```haxe
-final invalidRecv:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidRecv:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1184,7 +1285,7 @@ or \*T, or T is a pointer type.
 func \(\*\*T\) m\(\) \{\}  
 
 ```haxe
-final invalidSelectCase:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidSelectCase:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1204,7 +1305,7 @@ receive.
   }
 ```
 ```haxe
-final invalidSend:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidSend:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1220,7 +1321,7 @@ channel, or is a receive\-only channel.
   }
 ```
 ```haxe
-final invalidShiftCount:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidShiftCount:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1236,7 +1337,7 @@ either non\-integer, negative, or too large.
   )
 ```
 ```haxe
-final invalidShiftOperand:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidShiftOperand:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1249,7 +1350,7 @@ InvalidShiftOperand occurs when the shifted operand is not an integer.
   var x = s << 2
 ```
 ```haxe
-final invalidSliceExpr:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidSliceExpr:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1263,7 +1364,7 @@ applied to a string.
   var x = s[1:2:3]
 ```
 ```haxe
-final invalidStructLit:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidStructLit:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1285,7 +1386,7 @@ InvalidSyntaxTree occurs if an invalid syntax tree is provided
 to the type checker. It should never happen.  
 
 ```haxe
-final invalidTypeArg:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidTypeArg:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1304,7 +1405,7 @@ var \_ T\[string\]
  arguments? InferenceFailed
 ```
 ```haxe
-final invalidTypeCycle:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidTypeCycle:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1320,7 +1421,7 @@ type that is not well\-defined.
 type T \[unsafe.Sizeof\(T\{\}\)\]int  
 
 ```haxe
-final invalidTypeSwitch:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidTypeSwitch:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1335,7 +1436,7 @@ not of interface type.
   }
 ```
 ```haxe
-final invalidUnion:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidUnion:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1350,7 +1451,7 @@ not valid.
   }
 ```
 ```haxe
-final invalidUnsafeAdd:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidUnsafeAdd:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1369,7 +1470,7 @@ var p unsafe.Pointer
 var \_ = unsafe.Add\(p, float64\(1\)\)  
 
 ```haxe
-final invalidUnsafeSlice:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidUnsafeSlice:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1413,7 +1514,7 @@ var x int
 var \_ = unsafe.Slice\(&x, uint64\(1\) \<\< 63\)  
 
 ```haxe
-final invalidUnsafeSliceData:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidUnsafeSliceData:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1431,7 +1532,7 @@ var x int
 var \_ = unsafe.SliceData\(x\)  
 
 ```haxe
-final invalidUnsafeString:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidUnsafeString:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1450,7 +1551,7 @@ var b \[10\]byte
 var \_ = unsafe.String\(&b\[0\], \-1\)  
 
 ```haxe
-final invalidUntypedConversion:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final invalidUntypedConversion:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1464,7 +1565,7 @@ context in which it is used.
   var _ = 1 + []int{}
 ```
 ```haxe
-final jumpIntoBlock:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final jumpIntoBlock:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1483,7 +1584,7 @@ block.
  }
 ```
 ```haxe
-final jumpOverDecl:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final jumpOverDecl:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1501,7 +1602,7 @@ JumpOverDecl occurs when a label jumps over a variable declaration.
   }
 ```
 ```haxe
-final mismatchedPkgName:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final mismatchedPkgName:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1510,7 +1611,7 @@ MismatchedPkgName occurs when a file's package name doesn't match the
 package name already established by other files.  
 
 ```haxe
-final mismatchedTypes:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final mismatchedTypes:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1525,7 +1626,7 @@ operation.
   var c = a - b
 ```
 ```haxe
-final misplacedBreak:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final misplacedBreak:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1540,7 +1641,7 @@ or select statement of the innermost function definition.
   }
 ```
 ```haxe
-final misplacedConstraintIface:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final misplacedConstraintIface:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1556,7 +1657,7 @@ outside of constraint position.
 var \_ I  
 
 ```haxe
-final misplacedContinue:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final misplacedContinue:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1581,7 +1682,7 @@ loop of the innermost function definition.
   }
 ```
 ```haxe
-final misplacedDotDotDot:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final misplacedDotDotDot:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1594,7 +1695,7 @@ final argument in a function declaration.
  	func f(...int, int)
 ```
 ```haxe
-final misplacedFallthrough:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final misplacedFallthrough:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1615,7 +1716,7 @@ expression switch.
   }
 ```
 ```haxe
-final misplacedLabel:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final misplacedLabel:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1637,7 +1738,7 @@ switch, or select statement.
   }
 ```
 ```haxe
-final misplacedTypeParam:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final misplacedTypeParam:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1654,7 +1755,7 @@ it is not permitted.
   type T[P any] struct{ *P }
 ```
 ```haxe
-final missingFieldOrMethod:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final missingFieldOrMethod:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1670,7 +1771,7 @@ that does not exist.
 var x = T\{\}.f  
 
 ```haxe
-final missingInitBody:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final missingInitBody:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1682,7 +1783,7 @@ MissingInitBody occurs when an init function is missing its body.
   func init()
 ```
 ```haxe
-final missingLitField:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final missingLitField:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1695,7 +1796,7 @@ not exist on the struct type.
   var _ = struct{i int}{j: 2}
 ```
 ```haxe
-final missingLitKey:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final missingLitKey:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1707,7 +1808,7 @@ MissingLitKey occurs when a map literal is missing a key expression.
   var _ = map[string]int{1}
 ```
 ```haxe
-final missingReturn:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final missingReturn:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1720,7 +1821,7 @@ statement.
   func f() int {}
 ```
 ```haxe
-final mixedStructLit:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final mixedStructLit:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1733,7 +1834,7 @@ and named elements.
   var _ = struct{i, j int}{i: 1, 2}
 ```
 ```haxe
-final multiValAssignOp:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final multiValAssignOp:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1755,7 +1856,7 @@ not have single\-valued left\-hand or right\-hand side.
   }
 ```
 ```haxe
-final noNewVar:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final noNewVar:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1771,7 +1872,7 @@ new variables.
   }
 ```
 ```haxe
-final nonIndexableOperand:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final nonIndexableOperand:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1785,7 +1886,7 @@ that cannot be indexed.
   var y = x[1]
 ```
 ```haxe
-final nonNumericIncDec:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final nonNumericIncDec:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1801,7 +1902,7 @@ applied to a non\-numeric value.
   }
 ```
 ```haxe
-final nonSliceableOperand:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final nonSliceableOperand:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1819,7 +1920,7 @@ whose type is not sliceable, or is unaddressable.
   var y = 1[:1]
 ```
 ```haxe
-final nonVariadicDotDotDot:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final nonVariadicDotDotDot:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1842,7 +1943,7 @@ a non\-variadic function.
   }
 ```
 ```haxe
-final notAGenericType:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final notAGenericType:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1858,7 +1959,7 @@ type is expected: in type or function instantiation.
 var \_ T\[int\]  
 
 ```haxe
-final notAType:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final notAType:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1874,7 +1975,7 @@ declaration or the right\-hand side of a type alias does not denote a type.
 type T S  
 
 ```haxe
-final notAnExpr:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final notAnExpr:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1892,7 +1993,7 @@ is expected.
   }
 ```
 ```haxe
-final numericOverflow:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final numericOverflow:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1904,7 +2005,7 @@ NumericOverflow occurs when a numeric constant overflows its target type.
   var x int8 = 1000
 ```
 ```haxe
-final outOfScopeResult:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final outOfScopeResult:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1924,7 +2025,7 @@ an empty return statement is shadowed in a nested scope.
   }
 ```
 ```haxe
-final oversizeArrayLit:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final oversizeArrayLit:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1936,7 +2037,7 @@ OversizeArrayLit occurs when an array literal exceeds its length.
   var _ = [2]int{1,2,3}
 ```
 ```haxe
-final repeatedDecl:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final repeatedDecl:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1951,7 +2052,7 @@ hand side of a short variable declaration.
   }
 ```
 ```haxe
-final swappedMakeArgs:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final swappedMakeArgs:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1964,7 +2065,7 @@ length argument is larger than its capacity argument.
   var x = make([]int, 3, 2)
 ```
 ```haxe
-final swappedSliceIndices:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final swappedSliceIndices:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1977,7 +2078,7 @@ are decreasing in value.
   var _ = []int{1,2,3}[2:1]
 ```
 ```haxe
-final test:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final test:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -1985,7 +2086,7 @@ final test:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.error
 Test is reserved for errors that only apply while in self\-test mode.  
 
 ```haxe
-final tooManyValues:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final tooManyValues:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2003,7 +2104,7 @@ expression context in which it is used.
 var x = ReturnTwo\(\)  
 
 ```haxe
-final truncatedFloat:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final truncatedFloat:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2016,7 +2117,37 @@ value.
   var _ int = 98.6
 ```
 ```haxe
-final unaddressableFieldAssign:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final typeTooLarge:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
+```
+
+
+
+TypeTooLarge occurs if unsafe.Sizeof or unsafe.Offsetof is
+called with an expression whose type is too large.  
+
+```
+ Example:
+  import "unsafe"
+```
+
+type E \[1 \<\< 31 \- 1\]int
+var a \[1 \<\< 31\]E
+var \_ = unsafe.Sizeof\(a\)  
+
+```
+ Example:
+  import "unsafe"
+```
+```
+  type E [1 << 31 - 1]int
+  var s struct {
+  	_ [1 << 31]E
+  	x int
+  }
+ var _ = unsafe.Offsetof(s.x)
+```
+```haxe
+final unaddressableFieldAssign:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2032,7 +2163,7 @@ in a map value.
   }
 ```
 ```haxe
-final unaddressableOperand:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final unaddressableOperand:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2045,7 +2176,7 @@ unaddressable expression.
   var x = &1
 ```
 ```haxe
-final unassignableOperand:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final unassignableOperand:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2061,7 +2192,7 @@ not assignable.
   }
 ```
 ```haxe
-final uncalledBuiltin:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final uncalledBuiltin:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2079,7 +2210,7 @@ function\-valued expression, instead of being called.
   var _ = copy
 ```
 ```haxe
-final undeclaredImportedName:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final undeclaredImportedName:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2095,7 +2226,7 @@ undeclared by the imported package.
 var \_ = types.NotAnActualIdentifier  
 
 ```haxe
-final undeclaredLabel:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final undeclaredLabel:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2109,7 +2240,7 @@ UndeclaredLabel occurs when an undeclared label is jumped to.
   }
 ```
 ```haxe
-final undeclaredName:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final undeclaredName:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2122,7 +2253,7 @@ scope.
   var x T
 ```
 ```haxe
-final undefinedOp:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final undefinedOp:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2135,7 +2266,7 @@ in an operation.
   var c = "a" - "b"
 ```
 ```haxe
-final unexportedLitField:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final unexportedLitField:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2144,7 +2275,7 @@ UnexportedLitField occurs when a positional struct literal implicitly
 assigns an unexported field of an imported type.  
 
 ```haxe
-final unexportedName:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final unexportedName:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2160,7 +2291,7 @@ of an imported package.
 type \_ reflect.flag  
 
 ```haxe
-final unsupportedFeature:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final unsupportedFeature:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2169,7 +2300,7 @@ UnsupportedFeature occurs when a language feature is used that is not
 supported at this Go version.  
 
 ```haxe
-final untypedLit:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final untypedLit:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2187,7 +2318,7 @@ identifier.
 var \_ = outer\{inner: \{1\}\}  
 
 ```haxe
-final untypedNilUse:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final untypedNilUse:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2200,7 +2331,7 @@ initialize a variable declared without an explicit type.
   var x = nil
 ```
 ```haxe
-final unusedExpr:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final unusedExpr:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2215,7 +2346,7 @@ statement. Such a statement has no effect.
   }
 ```
 ```haxe
-final unusedImport:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final unusedImport:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2230,7 +2361,7 @@ UnusedImport occurs when an import is unused.
 func main\(\) \{\}  
 
 ```haxe
-final unusedLabel:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final unusedLabel:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2244,7 +2375,7 @@ UnusedLabel occurs when a label is declared and not used.
   }
 ```
 ```haxe
-final unusedResults:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final unusedResults:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2261,7 +2392,7 @@ these side\-effect free built\-in functions, and therefore is ineffectual.
   }
 ```
 ```haxe
-final unusedVar:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final unusedVar:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2275,7 +2406,7 @@ UnusedVar occurs when a variable is declared but unused.
   }
 ```
 ```haxe
-final wrongArgCount:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final wrongArgCount:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2289,7 +2420,7 @@ function call.
   var x = f()
 ```
 ```haxe
-final wrongAssignCount:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final wrongAssignCount:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2303,7 +2434,7 @@ of variables on the left\-hand side.
   var x = 1, 2
 ```
 ```haxe
-final wrongResultCount:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final wrongResultCount:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
@@ -2318,17 +2449,17 @@ number of values.
   }
 ```
 ```haxe
-final wrongTypeArgCount:stdgo.internal.types.errors.Code = ((148 : stdgo.internal.types.errors.Errors.Code))
+final wrongTypeArgCount:stdgo.internal.types.errors.Code = ((150 : stdgo.internal.types.errors.Errors.Code))
 ```
 
 
 
 WrongTypeArgCount occurs when a type or function is instantiated with an
-incorrent number of type arguments, including when a generic type or
+incorrect number of type arguments, including when a generic type or
 function is used without instantiation.  
 
 
-Errors inolving failed type inference are assigned other error codes.  
+Errors involving failed type inference are assigned other error codes.  
 
 ```
  Example:
@@ -2344,6 +2475,39 @@ var \_ T\[int, string\]
 
 var x = f  
 
+# Variables
+
+
+```haxe
+import stdgo.internal.types.errors.Errors
+```
+
+
+```haxe
+var __Code_index_1:stdgo.GoArray<stdgo.GoUInt16>
+```
+
+
+```haxe
+var __Code_index_2:stdgo.GoArray<stdgo.GoUInt16>
+```
+
+
+```haxe
+var __Code_index_3:stdgo.GoArray<stdgo.GoUInt16>
+```
+
+
+```haxe
+var __Code_index_4:stdgo.GoArray<stdgo.GoUInt16>
+```
+
+
+```haxe
+var __Code_index_5:stdgo.GoArray<stdgo.GoUInt8>
+```
+
+
 # Typedefs
 
 
@@ -2357,6 +2521,15 @@ import stdgo.internal.types.errors.*
 
 ```haxe
 typedef Code = stdgo.GoInt;
+```
+
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+};
 ```
 
 

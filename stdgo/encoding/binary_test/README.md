@@ -31,6 +31,10 @@
 
 - [`function exampleWrite_multi():Void`](<#function-examplewrite_multi>)
 
+- [`function main():Void`](<#function-main>)
+
+- [typedef T\_\_struct\_7](<#typedef-t__struct_7>)
+
 # Variables
 
 
@@ -41,6 +45,26 @@ import stdgo.encoding.binary_test.Binary
 
 ```haxe
 var _:Bool
+```
+
+
+```haxe
+var _benchmarks:stdgo.Slice<stdgo.testing.InternalBenchmark>
+```
+
+
+```haxe
+var _examples:stdgo.Slice<stdgo.testing.InternalExample>
+```
+
+
+```haxe
+var _fuzzTargets:stdgo.Slice<stdgo.testing.InternalFuzzTarget>
+```
+
+
+```haxe
+var _tests:stdgo.Slice<stdgo.testing.InternalTest>
 ```
 
 
@@ -60,7 +84,7 @@ function exampleByteOrder_get():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L97>)
+[\(view code\)](<./Binary.hx#L88>)
 
 
 ## function exampleByteOrder\_put
@@ -71,7 +95,7 @@ function exampleByteOrder_put():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L91>)
+[\(view code\)](<./Binary.hx#L82>)
 
 
 ## function examplePutUvarint
@@ -82,7 +106,7 @@ function examplePutUvarint():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L103>)
+[\(view code\)](<./Binary.hx#L94>)
 
 
 ## function examplePutVarint
@@ -93,7 +117,7 @@ function examplePutVarint():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L110>)
+[\(view code\)](<./Binary.hx#L101>)
 
 
 ## function exampleRead
@@ -104,7 +128,7 @@ function exampleRead():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L50>)
+[\(view code\)](<./Binary.hx#L41>)
 
 
 ## function exampleRead\_multi
@@ -115,7 +139,7 @@ function exampleRead_multi():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L60>)
+[\(view code\)](<./Binary.hx#L51>)
 
 
 ## function exampleUvarint
@@ -126,7 +150,7 @@ function exampleUvarint():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L128>)
+[\(view code\)](<./Binary.hx#L119>)
 
 
 ## function exampleVarint
@@ -137,7 +161,7 @@ function exampleVarint():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L138>)
+[\(view code\)](<./Binary.hx#L129>)
 
 
 ## function exampleWrite
@@ -148,7 +172,7 @@ function exampleWrite():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L30>)
+[\(view code\)](<./Binary.hx#L21>)
 
 
 ## function exampleWrite\_multi
@@ -159,6 +183,38 @@ function exampleWrite_multi():Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L39>)
+[\(view code\)](<./Binary.hx#L30>)
+
+
+## function main
+
+
+```haxe
+function main():Void
+```
+
+
+[\(view code\)](<./Binary.hx#L99>)
+
+
+# Typedefs
+
+
+```haxe
+import stdgo.encoding.binary_test.*
+```
+
+
+## typedef T\_\_struct\_7
+
+
+```haxe
+typedef T__struct_7 = {
+	uate:stdgo.GoUInt8;
+	too:stdgo.GoUInt16;
+	pi:stdgo.GoFloat64;
+	mine:stdgo.GoArray<stdgo.GoUInt8>;
+};
+```
 
 

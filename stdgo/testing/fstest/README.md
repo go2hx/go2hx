@@ -9,42 +9,19 @@
 
 Package fstest implements support for testing implementations and users of file systems.  
 
-<details><summary>hl tests failed</summary>
-<p>
-
-```
-Error: Command failed with error 1
-=== RUN  TestMapFS
-Exception: testing.fstest.testMapFS is not yet implemented
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 358)
-Called from stdgo.testing.fstest_test._Fstest.$Fstest_Fields_.main (stdgo/testing/fstest_test/Fstest.hx line 38)
-```
-</p>
-</details>
-
-<details><summary>interp tests failed</summary>
-<p>
-
-```
-=== RUN  TestMapFS
-Exception: testing.fstest.testMapFS is not yet implemented
-Called from stdgo.testing.fstest._Fstest.Fstest_Fields_.testMapFS (stdgo/testing/fstest/Fstest.hx line 229 column 58)
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
-
 
 # Index
 
+
+- [Variables](<#variables>)
+
+- [`function _formatEntry(_entry:stdgo.io.fs.DirEntry):stdgo.GoString`](<#function-_formatentry>)
+
+- [`function _formatInfo(_info:stdgo.io.fs.FileInfo):stdgo.GoString`](<#function-_formatinfo>)
+
+- [`function _formatInfoEntry(_info:stdgo.io.fs.FileInfo):stdgo.GoString`](<#function-_formatinfoentry>)
+
+- [`function _testFS(_fsys:stdgo.io.fs.FS, _expected:haxe.Rest<stdgo.GoString>):stdgo.Error`](<#function-_testfs>)
 
 - [`function testDash(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testdash>)
 
@@ -54,6 +31,8 @@ IO.Overflow("write_ui16")
 
 - [`function testMapFSChmodDot(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testmapfschmoddot>)
 
+- [`function testShuffledFS(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testshuffledfs>)
+
 - [`function testSymlink(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsymlink>)
 
 - [class MapFile](<#class-mapfile>)
@@ -62,12 +41,85 @@ IO.Overflow("write_ui16")
 
 - [typedef MapFS](<#typedef-mapfs>)
 
+- [typedef T\_shuffledFS](<#typedef-t_shuffledfs>)
+
+# Variables
+
+
+```haxe
+import stdgo.testing.fstest.Fstest
+```
+
+
+```haxe
+var __2:stdgo.io.fs.FS
+```
+
+
+```haxe
+var __3:stdgo.io.fs.File
+```
+
+
 # Functions
 
 
 ```haxe
 import stdgo.testing.fstest.Fstest
 ```
+
+
+## function \_formatEntry
+
+
+```haxe
+function _formatEntry(_entry:stdgo.io.fs.DirEntry):stdgo.GoString
+```
+
+
+
+formatEntry formats an fs.DirEntry into a string for error messages and comparison.  
+
+[\(view code\)](<./Fstest.hx#L272>)
+
+
+## function \_formatInfo
+
+
+```haxe
+function _formatInfo(_info:stdgo.io.fs.FileInfo):stdgo.GoString
+```
+
+
+
+formatInfo formats an fs.FileInfo into a string for error messages and comparison.  
+
+[\(view code\)](<./Fstest.hx#L280>)
+
+
+## function \_formatInfoEntry
+
+
+```haxe
+function _formatInfoEntry(_info:stdgo.io.fs.FileInfo):stdgo.GoString
+```
+
+
+
+formatInfoEntry formats an fs.FileInfo into a string like the result of formatEntry, for error messages and comparison.  
+
+[\(view code\)](<./Fstest.hx#L276>)
+
+
+## function \_testFS
+
+
+```haxe
+function _testFS(_fsys:stdgo.io.fs.FS, _expected:haxe.Rest<stdgo.GoString>):stdgo.Error
+```
+
+
+[\(view code\)](<./Fstest.hx#L268>)
 
 
 ## function testDash
@@ -78,7 +130,7 @@ function testDash(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Fstest.hx#L264>)
+[\(view code\)](<./Fstest.hx#L282>)
 
 
 ## function testFS
@@ -110,7 +162,7 @@ Typical usage inside a test is:
 		t.Fatal(err)
 	}
 ```
-[\(view code\)](<./Fstest.hx#L249>)
+[\(view code\)](<./Fstest.hx#L267>)
 
 
 ## function testMapFS
@@ -121,7 +173,7 @@ function testMapFS(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Fstest.hx#L229>)
+[\(view code\)](<./Fstest.hx#L247>)
 
 
 ## function testMapFSChmodDot
@@ -132,7 +184,18 @@ function testMapFSChmodDot(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Fstest.hx#L230>)
+[\(view code\)](<./Fstest.hx#L248>)
+
+
+## function testShuffledFS
+
+
+```haxe
+function testShuffledFS(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Fstest.hx#L283>)
 
 
 ## function testSymlink
@@ -143,7 +206,7 @@ function testSymlink(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Fstest.hx#L263>)
+[\(view code\)](<./Fstest.hx#L281>)
 
 
 # Classes
@@ -188,7 +251,7 @@ function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?mode:Null<stdgo.io.fs.FileMode>,
 ```
 
 
-[\(view code\)](<./Fstest.hx#L37>)
+[\(view code\)](<./Fstest.hx#L28>)
 
 
 # Typedefs
@@ -227,4 +290,12 @@ with changes to the map, which would be a race.
 Another implication is that opening or reading a directory requires
 iterating over the entire map, so a MapFS should typically be used with not more
 than a few hundred entries or directory reads.  
+
+## typedef T\_shuffledFS
+
+
+```haxe
+typedef T_shuffledFS = stdgo.testing.fstest.MapFS;
+```
+
 

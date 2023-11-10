@@ -9,7 +9,29 @@
 # Index
 
 
+- [Constants](<#constants>)
+
 - [Variables](<#variables>)
+
+- [`function _bench(_b:stdgo.Ref<stdgo.testing.B>, _size:stdgo.GoInt, _algo:(), _name:stdgo.GoString):Void`](<#function-_bench>)
+
+- [`function _countOps(_t:stdgo.Ref<stdgo.testing.T>, _algo:(), _name:stdgo.GoString):Void`](<#function-_countops>)
+
+- [`function _f(_a:stdgo.Slice<stdgo.GoInt>, _x:stdgo.GoInt):()`](<#function-_f>)
+
+- [`function _lg(_n:stdgo.GoInt):stdgo.GoInt`](<#function-_lg>)
+
+- [`function _log2(_x:stdgo.GoInt):stdgo.GoInt`](<#function-_log2>)
+
+- [`function _min(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt`](<#function-_min>)
+
+- [`function _newAdversaryTestingData(_t:stdgo.Ref<stdgo.testing.T>, _size:stdgo.GoInt, _maxcmp:stdgo.GoInt):stdgo.Ref<stdgo.sort_test.T_adversaryTestingData>`](<#function-_newadversarytestingdata>)
+
+- [`function _printOrgans(_s:stdgo.Slice<stdgo.Ref<stdgo.sort_test.Organ>>):Void`](<#function-_printorgans>)
+
+- [`function _runSearchWrappers():Void`](<#function-_runsearchwrappers>)
+
+- [`function _testBentleyMcIlroy(_t:stdgo.Ref<stdgo.testing.T>, _sort:(), _maxswap:()):Void`](<#function-_testbentleymcilroy>)
 
 - [`function benchmarkSearchWrappers(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarksearchwrappers>)
 
@@ -81,7 +103,7 @@
 
 - [`function example_sortWrapper():Void`](<#function-example_sortwrapper>)
 
-- [`function orderedBy(_less:haxe.Rest<stdgo.sort_test._Sort_test.T_lessFunc>):stdgo.Ref<stdgo.sort_test.T_multiSorter>`](<#function-orderedby>)
+- [`function orderedBy(_less:haxe.Rest<stdgo.sort_test.T_lessFunc>):stdgo.Ref<stdgo.sort_test.T_multiSorter>`](<#function-orderedby>)
 
 - [`function testAdversary(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testadversary>)
 
@@ -137,6 +159,8 @@
 
 - [`function testStrings(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-teststrings>)
 
+- [`function main():Void`](<#function-main>)
+
 - [class ByName](<#class-byname>)
 
   - [`function len():stdgo.GoInt`](<#byname-function-len>)
@@ -181,7 +205,7 @@
 
 - [class Planet](<#class-planet>)
 
-  - [`function new(?_name:stdgo.GoString, ?_mass:Null<stdgo.sort_test._Sort_test.T_earthMass>, ?_distance:Null<stdgo.sort_test._Sort_test.T_au>):Void`](<#planet-function-new>)
+  - [`function new(?_name:stdgo.GoString, ?_mass:Null<stdgo.sort_test.T_earthMass>, ?_distance:Null<stdgo.sort_test.T_au>):Void`](<#planet-function-new>)
 
 - [typedef By](<#typedef-by>)
 
@@ -190,6 +214,97 @@
 - [typedef Grams](<#typedef-grams>)
 
 - [typedef Organs](<#typedef-organs>)
+
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
+- [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
+
+- [typedef T\_\_struct\_2](<#typedef-t__struct_2>)
+
+- [typedef T\_\_struct\_3](<#typedef-t__struct_3>)
+
+- [typedef T\_\_struct\_4](<#typedef-t__struct_4>)
+
+- [typedef T\_au](<#typedef-t_au>)
+
+- [typedef T\_earthMass](<#typedef-t_earthmass>)
+
+- [typedef T\_intPairs](<#typedef-t_intpairs>)
+
+- [typedef T\_lessFunc](<#typedef-t_lessfunc>)
+
+# Constants
+
+
+```haxe
+import stdgo.sort_test.Sort
+```
+
+
+```haxe
+final __Copy:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __Dither:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __NDist:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __NMode:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __Plateau:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __Rand:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __Reverse:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __ReverseFirstHalf:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __ReverseSecondHalf:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __Sawtooth:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __Shuffle:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __Sorted:stdgo.GoUInt64 = ((6i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+```haxe
+final __Stagger:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
 
 # Variables
 
@@ -200,7 +315,82 @@ import stdgo.sort_test.Sort
 
 
 ```haxe
+var _changes:stdgo.Slice<stdgo.sort_test.Change>
+```
+
+
+```haxe
+var _countOpsSizes:stdgo.Slice<stdgo.GoInt>
+```
+
+
+```haxe
+var _data:stdgo.Slice<stdgo.GoInt>
+```
+
+
+```haxe
+var _fdata:stdgo.Slice<stdgo.GoFloat64>
+```
+
+
+```haxe
+var _float64s:stdgo.GoArray<stdgo.GoFloat64>
+```
+
+
+```haxe
+var _ints:stdgo.GoArray<stdgo.GoInt>
+```
+
+
+```haxe
+var _planets:stdgo.Slice<stdgo.sort_test.Planet>
+```
+
+
+```haxe
+var _sdata:stdgo.Slice<stdgo.GoString>
+```
+
+
+```haxe
+var _strings:stdgo.GoArray<stdgo.GoString>
+```
+
+
+```haxe
+var _tests:stdgo.Slice<stdgo.sort_test.T__struct_1>
+```
+
+
+```haxe
+var _wrappertests:stdgo.Slice<stdgo.sort_test.T__struct_3>
+```
+
+
+```haxe
 var _:Bool
+```
+
+
+```haxe
+var _benchmarks:stdgo.Slice<stdgo.testing.InternalBenchmark>
+```
+
+
+```haxe
+var _examples:stdgo.Slice<stdgo.testing.InternalExample>
+```
+
+
+```haxe
+var _fuzzTargets:stdgo.Slice<stdgo.testing.InternalFuzzTarget>
+```
+
+
+```haxe
+var _tests:stdgo.Slice<stdgo.testing.InternalTest>
 ```
 
 
@@ -212,6 +402,120 @@ import stdgo.sort_test.Sort
 ```
 
 
+## function \_bench
+
+
+```haxe
+function _bench(_b:stdgo.Ref<stdgo.testing.B>, _size:stdgo.GoInt, _algo:(), _name:stdgo.GoString):Void
+```
+
+
+[\(view code\)](<./Sort.hx#L1681>)
+
+
+## function \_countOps
+
+
+```haxe
+function _countOps(_t:stdgo.Ref<stdgo.testing.T>, _algo:(), _name:stdgo.GoString):Void
+```
+
+
+[\(view code\)](<./Sort.hx#L1655>)
+
+
+## function \_f
+
+
+```haxe
+function _f(_a:stdgo.Slice<stdgo.GoInt>, _x:stdgo.GoInt):()
+```
+
+
+[\(view code\)](<./Sort.hx#L818>)
+
+
+## function \_lg
+
+
+```haxe
+function _lg(_n:stdgo.GoInt):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Sort.hx#L1433>)
+
+
+## function \_log2
+
+
+```haxe
+function _log2(_x:stdgo.GoInt):stdgo.GoInt
+```
+
+
+
+log2 computes the binary logarithm of x, rounded up to the next integer.
+\(log2\(0\) == 0, log2\(1\) == 0, log2\(2\) == 1, log2\(3\) == 2, etc.\)  
+
+[\(view code\)](<./Sort.hx#L902>)
+
+
+## function \_min
+
+
+```haxe
+function _min(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Sort.hx#L1427>)
+
+
+## function \_newAdversaryTestingData
+
+
+```haxe
+function _newAdversaryTestingData(_t:stdgo.Ref<stdgo.testing.T>, _size:stdgo.GoInt, _maxcmp:stdgo.GoInt):stdgo.Ref<stdgo.sort_test.T_adversaryTestingData>
+```
+
+
+[\(view code\)](<./Sort.hx#L1575>)
+
+
+## function \_printOrgans
+
+
+```haxe
+function _printOrgans(_s:stdgo.Slice<stdgo.Ref<stdgo.sort_test.Organ>>):Void
+```
+
+
+[\(view code\)](<./Sort.hx#L813>)
+
+
+## function \_runSearchWrappers
+
+
+```haxe
+function _runSearchWrappers():Void
+```
+
+
+[\(view code\)](<./Sort.hx#L947>)
+
+
+## function \_testBentleyMcIlroy
+
+
+```haxe
+function _testBentleyMcIlroy(_t:stdgo.Ref<stdgo.testing.T>, _sort:(), _maxswap:()):Void
+```
+
+
+[\(view code\)](<./Sort.hx#L1440>)
+
+
 ## function benchmarkSearchWrappers
 
 
@@ -220,7 +524,7 @@ function benchmarkSearchWrappers(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L976>)
+[\(view code\)](<./Sort.hx#L967>)
 
 
 ## function benchmarkSort1e2
@@ -231,7 +535,7 @@ function benchmarkSort1e2(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1729>)
+[\(view code\)](<./Sort.hx#L1720>)
 
 
 ## function benchmarkSort1e4
@@ -242,7 +546,7 @@ function benchmarkSort1e4(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1735>)
+[\(view code\)](<./Sort.hx#L1726>)
 
 
 ## function benchmarkSort1e6
@@ -253,7 +557,7 @@ function benchmarkSort1e6(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1741>)
+[\(view code\)](<./Sort.hx#L1732>)
 
 
 ## function benchmarkSortInt1K
@@ -264,7 +568,7 @@ function benchmarkSortInt1K(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1272>)
+[\(view code\)](<./Sort.hx#L1263>)
 
 
 ## function benchmarkSortInt1K\_Mod8
@@ -275,7 +579,7 @@ function benchmarkSortInt1K_Mod8(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1326>)
+[\(view code\)](<./Sort.hx#L1317>)
 
 
 ## function benchmarkSortInt1K\_Reversed
@@ -286,7 +590,7 @@ function benchmarkSortInt1K_Reversed(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1308>)
+[\(view code\)](<./Sort.hx#L1299>)
 
 
 ## function benchmarkSortInt1K\_Sorted
@@ -297,7 +601,7 @@ function benchmarkSortInt1K_Sorted(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1290>)
+[\(view code\)](<./Sort.hx#L1281>)
 
 
 ## function benchmarkSortInt64K
@@ -308,7 +612,7 @@ function benchmarkSortInt64K(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1380>)
+[\(view code\)](<./Sort.hx#L1371>)
 
 
 ## function benchmarkSortInt64K\_Slice
@@ -319,7 +623,7 @@ function benchmarkSortInt64K_Slice(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1398>)
+[\(view code\)](<./Sort.hx#L1389>)
 
 
 ## function benchmarkSortString1K
@@ -330,7 +634,7 @@ function benchmarkSortString1K(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1219>)
+[\(view code\)](<./Sort.hx#L1210>)
 
 
 ## function benchmarkSortString1K\_Slice
@@ -341,7 +645,7 @@ function benchmarkSortString1K_Slice(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1236>)
+[\(view code\)](<./Sort.hx#L1227>)
 
 
 ## function benchmarkStable1e2
@@ -352,7 +656,7 @@ function benchmarkStable1e2(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1732>)
+[\(view code\)](<./Sort.hx#L1723>)
 
 
 ## function benchmarkStable1e4
@@ -363,7 +667,7 @@ function benchmarkStable1e4(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1738>)
+[\(view code\)](<./Sort.hx#L1729>)
 
 
 ## function benchmarkStable1e6
@@ -374,7 +678,7 @@ function benchmarkStable1e6(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1744>)
+[\(view code\)](<./Sort.hx#L1735>)
 
 
 ## function benchmarkStableInt1K
@@ -385,7 +689,7 @@ function benchmarkStableInt1K(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1344>)
+[\(view code\)](<./Sort.hx#L1335>)
 
 
 ## function benchmarkStableInt1K\_Slice
@@ -396,7 +700,7 @@ function benchmarkStableInt1K_Slice(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1361>)
+[\(view code\)](<./Sort.hx#L1352>)
 
 
 ## function benchmarkStableInt64K
@@ -407,7 +711,7 @@ function benchmarkStableInt64K(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1418>)
+[\(view code\)](<./Sort.hx#L1409>)
 
 
 ## function benchmarkStableString1K
@@ -418,7 +722,7 @@ function benchmarkStableString1K(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1255>)
+[\(view code\)](<./Sort.hx#L1246>)
 
 
 ## function example
@@ -429,7 +733,7 @@ function example():Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L600>)
+[\(view code\)](<./Sort.hx#L591>)
 
 
 ## function exampleFloat64s
@@ -440,7 +744,7 @@ function exampleFloat64s():Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L765>)
+[\(view code\)](<./Sort.hx#L756>)
 
 
 ## function exampleFloat64sAreSorted
@@ -451,7 +755,7 @@ function exampleFloat64sAreSorted():Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L773>)
+[\(view code\)](<./Sort.hx#L764>)
 
 
 ## function exampleInts
@@ -462,7 +766,7 @@ function exampleInts():Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L752>)
+[\(view code\)](<./Sort.hx#L743>)
 
 
 ## function exampleIntsAreSorted
@@ -473,7 +777,7 @@ function exampleIntsAreSorted():Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L757>)
+[\(view code\)](<./Sort.hx#L748>)
 
 
 ## function exampleReverse
@@ -484,7 +788,7 @@ function exampleReverse():Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L781>)
+[\(view code\)](<./Sort.hx#L772>)
 
 
 ## function exampleSearch
@@ -498,7 +802,7 @@ function exampleSearch():Void
 
 This example demonstrates searching a list sorted in ascending order.  
 
-[\(view code\)](<./Sort.hx#L675>)
+[\(view code\)](<./Sort.hx#L666>)
 
 
 ## function exampleSearchFloat64s
@@ -512,7 +816,7 @@ function exampleSearchFloat64s():Void
 
 This example demonstrates searching for float64 in a list sorted in ascending order.  
 
-[\(view code\)](<./Sort.hx#L731>)
+[\(view code\)](<./Sort.hx#L722>)
 
 
 ## function exampleSearchInts
@@ -526,7 +830,7 @@ function exampleSearchInts():Void
 
 This example demonstrates searching for int in a list sorted in ascending order.  
 
-[\(view code\)](<./Sort.hx#L743>)
+[\(view code\)](<./Sort.hx#L734>)
 
 
 ## function exampleSearch\_descendingOrder
@@ -542,7 +846,7 @@ This example demonstrates searching a list sorted in descending order.
 The approach is the same as searching a list in ascending order,
 but with the condition inverted.  
 
-[\(view code\)](<./Sort.hx#L704>)
+[\(view code\)](<./Sort.hx#L695>)
 
 
 ## function exampleSlice
@@ -553,7 +857,7 @@ function exampleSlice():Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L786>)
+[\(view code\)](<./Sort.hx#L777>)
 
 
 ## function exampleSliceStable
@@ -564,7 +868,7 @@ function exampleSliceStable():Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L797>)
+[\(view code\)](<./Sort.hx#L788>)
 
 
 ## function exampleStrings
@@ -575,7 +879,7 @@ function exampleStrings():Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L808>)
+[\(view code\)](<./Sort.hx#L799>)
 
 
 ## function example\_sortKeys
@@ -589,7 +893,7 @@ function example_sortKeys():Void
 
 ExampleSortKeys demonstrates a technique for sorting a struct type using programmable sort criteria.  
 
-[\(view code\)](<./Sort.hx#L613>)
+[\(view code\)](<./Sort.hx#L604>)
 
 
 ## function example\_sortMultiKeys
@@ -605,7 +909,7 @@ ExampleMultiKeys demonstrates a technique for sorting a struct type using differ
 sets of multiple fields in the comparison. We chain together "Less" functions, each of
 which compares a single field.  
 
-[\(view code\)](<./Sort.hx#L648>)
+[\(view code\)](<./Sort.hx#L639>)
 
 
 ## function example\_sortWrapper
@@ -616,14 +920,14 @@ function example_sortWrapper():Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L813>)
+[\(view code\)](<./Sort.hx#L804>)
 
 
 ## function orderedBy
 
 
 ```haxe
-function orderedBy(_less:haxe.Rest<stdgo.sort_test._Sort_test.T_lessFunc>):stdgo.Ref<stdgo.sort_test.T_multiSorter>
+function orderedBy(_less:haxe.Rest<stdgo.sort_test.T_lessFunc>):stdgo.Ref<stdgo.sort_test.T_multiSorter>
 ```
 
 
@@ -631,7 +935,7 @@ function orderedBy(_less:haxe.Rest<stdgo.sort_test._Sort_test.T_lessFunc>):stdgo
 OrderedBy returns a Sorter that sorts using the less functions, in order.
 Call its Sort method to sort the data.  
 
-[\(view code\)](<./Sort.hx#L639>)
+[\(view code\)](<./Sort.hx#L630>)
 
 
 ## function testAdversary
@@ -642,7 +946,7 @@ function testAdversary(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1595>)
+[\(view code\)](<./Sort.hx#L1586>)
 
 
 ## function testBreakPatterns
@@ -653,7 +957,7 @@ function testBreakPatterns(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1140>)
+[\(view code\)](<./Sort.hx#L1131>)
 
 
 ## function testCountSortOps
@@ -664,7 +968,7 @@ function testCountSortOps(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1687>)
+[\(view code\)](<./Sort.hx#L1678>)
 
 
 ## function testCountStableOps
@@ -675,7 +979,7 @@ function testCountStableOps(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1684>)
+[\(view code\)](<./Sort.hx#L1675>)
 
 
 ## function testFind
@@ -686,7 +990,7 @@ function testFind(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L840>)
+[\(view code\)](<./Sort.hx#L831>)
 
 
 ## function testFindExhaustive
@@ -700,7 +1004,7 @@ function testFindExhaustive(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 Abstract exhaustive test for Find.  
 
-[\(view code\)](<./Sort.hx#L1010>)
+[\(view code\)](<./Sort.hx#L1001>)
 
 
 ## function testFloat64s
@@ -711,7 +1015,7 @@ function testFloat64s(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1073>)
+[\(view code\)](<./Sort.hx#L1064>)
 
 
 ## function testHeapsortBM
@@ -722,7 +1026,7 @@ function testHeapsortBM(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1574>)
+[\(view code\)](<./Sort.hx#L1565>)
 
 
 ## function testInts
@@ -733,7 +1037,7 @@ function testInts(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1065>)
+[\(view code\)](<./Sort.hx#L1056>)
 
 
 ## function testNonDeterministicComparison
@@ -744,7 +1048,7 @@ function testNonDeterministicComparison(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1170>)
+[\(view code\)](<./Sort.hx#L1161>)
 
 
 ## function testReverseRange
@@ -755,7 +1059,7 @@ function testReverseRange(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1150>)
+[\(view code\)](<./Sort.hx#L1141>)
 
 
 ## function testReverseSortIntSlice
@@ -766,7 +1070,7 @@ function testReverseSortIntSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1121>)
+[\(view code\)](<./Sort.hx#L1112>)
 
 
 ## function testSearch
@@ -777,7 +1081,7 @@ function testSearch(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L832>)
+[\(view code\)](<./Sort.hx#L823>)
 
 
 ## function testSearchEfficiency
@@ -788,7 +1092,7 @@ function testSearchEfficiency(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L921>)
+[\(view code\)](<./Sort.hx#L912>)
 
 
 ## function testSearchExhaustive
@@ -804,7 +1108,7 @@ Abstract exhaustive test: all sizes up to 100,
 all possible return values. If there are any small
 corner cases, this test exercises them.  
 
-[\(view code\)](<./Sort.hx#L989>)
+[\(view code\)](<./Sort.hx#L980>)
 
 
 ## function testSearchWrappers
@@ -815,7 +1119,7 @@ function testSearchWrappers(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L949>)
+[\(view code\)](<./Sort.hx#L940>)
 
 
 ## function testSearchWrappersDontAlloc
@@ -826,7 +1130,7 @@ function testSearchWrappersDontAlloc(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L964>)
+[\(view code\)](<./Sort.hx#L955>)
 
 
 ## function testSlice
@@ -837,7 +1141,7 @@ function testSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1089>)
+[\(view code\)](<./Sort.hx#L1080>)
 
 
 ## function testSortBM
@@ -848,7 +1152,7 @@ function testSortBM(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1569>)
+[\(view code\)](<./Sort.hx#L1560>)
 
 
 ## function testSortFloat64Slice
@@ -859,7 +1163,7 @@ function testSortFloat64Slice(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1047>)
+[\(view code\)](<./Sort.hx#L1038>)
 
 
 ## function testSortIntSlice
@@ -870,7 +1174,7 @@ function testSortIntSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1038>)
+[\(view code\)](<./Sort.hx#L1029>)
 
 
 ## function testSortLarge\_Random
@@ -881,7 +1185,7 @@ function testSortLarge_Random(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1101>)
+[\(view code\)](<./Sort.hx#L1092>)
 
 
 ## function testSortStringSlice
@@ -892,7 +1196,7 @@ function testSortStringSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1056>)
+[\(view code\)](<./Sort.hx#L1047>)
 
 
 ## function testStability
@@ -903,7 +1207,7 @@ function testStability(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1613>)
+[\(view code\)](<./Sort.hx#L1604>)
 
 
 ## function testStableBM
@@ -914,7 +1218,7 @@ function testStableBM(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1579>)
+[\(view code\)](<./Sort.hx#L1570>)
 
 
 ## function testStableInts
@@ -925,7 +1229,7 @@ function testStableInts(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1606>)
+[\(view code\)](<./Sort.hx#L1597>)
 
 
 ## function testStrings
@@ -936,7 +1240,18 @@ function testStrings(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1081>)
+[\(view code\)](<./Sort.hx#L1072>)
+
+
+## function main
+
+
+```haxe
+function main():Void
+```
+
+
+[\(view code\)](<./Sort.hx#L95>)
 
 
 # Classes
@@ -967,7 +1282,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L401>)
+[\(view code\)](<./Sort_test.hx#L392>)
 
 
 ### ByName function new
@@ -978,7 +1293,7 @@ function new(?organs:Null<stdgo.sort_test.Organs>):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L396>)
+[\(view code\)](<./Sort_test.hx#L387>)
 
 
 ### ByName function swap
@@ -989,7 +1304,7 @@ function swap(_i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L403>)
+[\(view code\)](<./Sort_test.hx#L394>)
 
 
 ### ByName function len
@@ -1000,7 +1315,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1927>)
+[\(view code\)](<./Sort_test.hx#L1918>)
 
 
 ### ByName function less
@@ -1011,7 +1326,7 @@ function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1921>)
+[\(view code\)](<./Sort_test.hx#L1912>)
 
 
 ### ByName function swap
@@ -1022,7 +1337,7 @@ function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1925>)
+[\(view code\)](<./Sort_test.hx#L1916>)
 
 
 ## class ByWeight
@@ -1045,7 +1360,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L422>)
+[\(view code\)](<./Sort_test.hx#L413>)
 
 
 ### ByWeight function new
@@ -1056,7 +1371,7 @@ function new(?organs:Null<stdgo.sort_test.Organs>):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L417>)
+[\(view code\)](<./Sort_test.hx#L408>)
 
 
 ### ByWeight function swap
@@ -1067,7 +1382,7 @@ function swap(_i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L424>)
+[\(view code\)](<./Sort_test.hx#L415>)
 
 
 ### ByWeight function len
@@ -1078,7 +1393,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1952>)
+[\(view code\)](<./Sort_test.hx#L1943>)
 
 
 ### ByWeight function less
@@ -1089,7 +1404,7 @@ function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1946>)
+[\(view code\)](<./Sort_test.hx#L1937>)
 
 
 ### ByWeight function swap
@@ -1100,7 +1415,7 @@ function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1950>)
+[\(view code\)](<./Sort_test.hx#L1941>)
 
 
 ## class Change
@@ -1132,7 +1447,7 @@ function new(?_user:stdgo.GoString, ?_language:stdgo.GoString, ?_lines:Null<stdg
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L343>)
+[\(view code\)](<./Sort_test.hx#L334>)
 
 
 ## class Organ
@@ -1156,7 +1471,7 @@ function new(?name:stdgo.GoString, ?weight:Null<stdgo.sort_test.Grams>):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L378>)
+[\(view code\)](<./Sort_test.hx#L369>)
 
 
 ## class Person
@@ -1180,7 +1495,7 @@ function new(?name:stdgo.GoString, ?age:Null<stdgo.GoInt>):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L289>)
+[\(view code\)](<./Sort_test.hx#L280>)
 
 
 ### Person function string
@@ -1191,7 +1506,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1760>)
+[\(view code\)](<./Sort_test.hx#L1751>)
 
 
 ## class Planet
@@ -1201,12 +1516,12 @@ function string():stdgo.GoString
 A Planet defines the properties of a solar system object.  
 
 ```haxe
-var _distance:stdgo.sort_test._Sort_test.T_au
+var _distance:stdgo.sort_test.T_au
 ```
 
 
 ```haxe
-var _mass:stdgo.sort_test._Sort_test.T_earthMass
+var _mass:stdgo.sort_test.T_earthMass
 ```
 
 
@@ -1219,11 +1534,11 @@ var _name:stdgo.GoString
 
 
 ```haxe
-function new(?_name:stdgo.GoString, ?_mass:Null<stdgo.sort_test._Sort_test.T_earthMass>, ?_distance:Null<stdgo.sort_test._Sort_test.T_au>):Void
+function new(?_name:stdgo.GoString, ?_mass:Null<stdgo.sort_test.T_earthMass>, ?_distance:Null<stdgo.sort_test.T_au>):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L307>)
+[\(view code\)](<./Sort_test.hx#L298>)
 
 
 # Typedefs
@@ -1270,6 +1585,101 @@ typedef Grams = stdgo.GoInt;
 
 ```haxe
 typedef Organs = stdgo.Slice<stdgo.Ref<stdgo.sort_test.Organ>>;
+```
+
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+	name:stdgo.GoString;
+	age:stdgo.GoInt;
+};
+```
+
+
+## typedef T\_\_struct\_1
+
+
+```haxe
+typedef T__struct_1 = {
+	_name:stdgo.GoString;
+	_n:stdgo.GoInt;
+	_i:stdgo.GoInt;
+	public function _f();
+};
+```
+
+
+## typedef T\_\_struct\_2
+
+
+```haxe
+typedef T__struct_2 = {
+	_wantPos:stdgo.GoInt;
+	_wantFound:Bool;
+	_target:stdgo.GoString;
+	_data:stdgo.Slice<stdgo.GoString>;
+};
+```
+
+
+## typedef T\_\_struct\_3
+
+
+```haxe
+typedef T__struct_3 = {
+	_result:stdgo.GoInt;
+	_name:stdgo.GoString;
+	_i:stdgo.GoInt;
+};
+```
+
+
+## typedef T\_\_struct\_4
+
+
+```haxe
+typedef T__struct_4 = {
+	_b:stdgo.GoInt;
+	_a:stdgo.GoInt;
+};
+```
+
+
+## typedef T\_au
+
+
+```haxe
+typedef T_au = stdgo.GoFloat64;
+```
+
+
+## typedef T\_earthMass
+
+
+```haxe
+typedef T_earthMass = stdgo.GoFloat64;
+```
+
+
+
+A couple of type definitions to make the units clear.  
+
+## typedef T\_intPairs
+
+
+```haxe
+typedef T_intPairs = stdgo.Slice<stdgo.sort_test.T__struct_4>;
+```
+
+
+## typedef T\_lessFunc
+
+
+```haxe
+typedef T_lessFunc = (:stdgo.Ref<stdgo.sort_test.Change>, :stdgo.Ref<stdgo.sort_test.Change>):Bool;
 ```
 
 

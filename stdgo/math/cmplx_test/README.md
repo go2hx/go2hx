@@ -17,6 +17,8 @@
 
 - [`function examplePolar():Void`](<#function-examplepolar>)
 
+- [`function main():Void`](<#function-main>)
+
 # Variables
 
 
@@ -27,6 +29,26 @@ import stdgo.math.cmplx_test.Cmplx
 
 ```haxe
 var _:Bool
+```
+
+
+```haxe
+var _benchmarks:stdgo.Slice<stdgo.testing.InternalBenchmark>
+```
+
+
+```haxe
+var _examples:stdgo.Slice<stdgo.testing.InternalExample>
+```
+
+
+```haxe
+var _fuzzTargets:stdgo.Slice<stdgo.testing.InternalFuzzTarget>
+```
+
+
+```haxe
+var _tests:stdgo.Slice<stdgo.testing.InternalTest>
 ```
 
 
@@ -46,7 +68,7 @@ function exampleAbs():Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L12>)
+[\(view code\)](<./Cmplx.hx#L3>)
 
 
 ## function exampleExp
@@ -60,7 +82,7 @@ function exampleExp():Void
 
 ExampleExp computes Euler's identity.  
 
-[\(view code\)](<./Cmplx.hx#L18>)
+[\(view code\)](<./Cmplx.hx#L9>)
 
 
 ## function examplePolar
@@ -71,6 +93,17 @@ function examplePolar():Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L21>)
+[\(view code\)](<./Cmplx.hx#L12>)
+
+
+## function main
+
+
+```haxe
+function main():Void
+```
+
+
+[\(view code\)](<./Cmplx.hx#L77>)
 
 

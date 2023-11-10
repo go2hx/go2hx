@@ -89,49 +89,158 @@ before returning.
 
 \(There are a few other methods that do not match this pattern.\)  
 
-<details><summary>hl tests failed</summary>
-<p>
-
-```
-Error: Command failed with error 1
-=== RUN  TestGoodCompile
---- PASS: TestGoodCompile (%!s(float64=0.0009579658508300781))
-
-=== RUN  TestBadCompile
-compiling ` \pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL `; wrong error:  error parsing regexp: invalid character class range: `\pL` ; want  expression too large
---- FAIL: TestBadCompile (%!s(float64=0.02486586570739746))
-```
-</p>
-</details>
-
-<details><summary>interp tests failed</summary>
-<p>
-
-```
-=== RUN  TestGoodCompile
---- PASS: TestGoodCompile (%!s(float64=0.004559040069580078))
-
-=== RUN  TestBadCompile
-compiling ` \pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL\pL `; wrong error:  error parsing regexp: invalid character class range: `\pL` ; want  expression too large
---- FAIL: TestBadCompile (%!s(float64=0.09312701225280762))
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
-
 
 # Index
 
 
+- [Constants](<#constants>)
+
 - [Variables](<#variables>)
+
+- [`function _build(_n:stdgo.GoInt, _x:haxe.Rest<stdgo.GoInt>):stdgo.Slice<stdgo.Slice<stdgo.GoInt>>`](<#function-_build>)
+
+- [`function _cleanupOnePass(_prog:stdgo.Ref<stdgo.regexp.T_onePassProg>, _original:stdgo.Ref<stdgo.regexp.syntax.Prog>):Void`](<#function-_cleanuponepass>)
+
+- [`function _compile(_expr:stdgo.GoString, _mode:stdgo.regexp.syntax.Flags, _longest:Bool):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.regexp.Regexp>;
+}`](<#function-_compile>)
+
+- [`function _compileOnePass(_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>):stdgo.Ref<stdgo.regexp.T_onePassProg>`](<#function-_compileonepass>)
+
+- [`function _compileTest(_t:stdgo.Ref<stdgo.testing.T>, _expr:stdgo.GoString, _error:stdgo.GoString):stdgo.Ref<stdgo.regexp.Regexp>`](<#function-_compiletest>)
+
+- [`function _copyMatchTest(_t:stdgo.Ref<stdgo.testing.T>, _test:stdgo.Ref<stdgo.regexp.FindTest>):Void`](<#function-_copymatchtest>)
+
+- [`function _extract(_str:stdgo.GoString):{
+	_3:Bool;
+	_2:stdgo.GoString;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoString;
+}`](<#function-_extract>)
+
+- [`function _freeBitState(_b:stdgo.Ref<stdgo.regexp.T_bitState>):Void`](<#function-_freebitstate>)
+
+- [`function _freeOnePassMachine(_m:stdgo.Ref<stdgo.regexp.T_onePassMachine>):Void`](<#function-_freeonepassmachine>)
+
+- [`function _iop(_i:stdgo.Ref<stdgo.regexp.syntax.Inst>):stdgo.regexp.syntax.InstOp`](<#function-_iop>)
+
+- [`function _isSingleBytes(_s:stdgo.GoString):Bool`](<#function-_issinglebytes>)
+
+- [`function _makeOnePass(_p:stdgo.Ref<stdgo.regexp.T_onePassProg>):stdgo.Ref<stdgo.regexp.T_onePassProg>`](<#function-_makeonepass>)
+
+- [`function _makeText(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>`](<#function-_maketext>)
+
+- [`function _matchFull(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:Bool;
+}`](<#function-_matchfull>)
+
+- [`function _matchFullLongest(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:Bool;
+}`](<#function-_matchfulllongest>)
+
+- [`function _matchFunctionTest(_t:stdgo.Ref<stdgo.testing.T>, _test:stdgo.Ref<stdgo.regexp.FindTest>):Void`](<#function-_matchfunctiontest>)
+
+- [`function _matchPartial(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:Bool;
+}`](<#function-_matchpartial>)
+
+- [`function _matchPartialLongest(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:Bool;
+}`](<#function-_matchpartiallongest>)
+
+- [`function _matchTest(_t:stdgo.Ref<stdgo.testing.T>, _test:stdgo.Ref<stdgo.regexp.FindTest>):Void`](<#function-_matchtest>)
+
+- [`function _maxBitStateLen(_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>):stdgo.GoInt`](<#function-_maxbitstatelen>)
+
+- [`function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoRune>>, _rightRunes:stdgo.Ref<stdgo.Slice<stdgo.GoRune>>, _leftPC:stdgo.GoUInt32, _rightPC:stdgo.GoUInt32):{
+	_1:stdgo.Slice<stdgo.GoUInt32>;
+	_0:stdgo.Slice<stdgo.GoRune>;
+}`](<#function-_mergerunesets>)
+
+- [`function _minInputLen(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):stdgo.GoInt`](<#function-_mininputlen>)
+
+- [`function _newBitState():stdgo.Ref<stdgo.regexp.T_bitState>`](<#function-_newbitstate>)
+
+- [`function _newLazyFlag(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.regexp.T_lazyFlag`](<#function-_newlazyflag>)
+
+- [`function _newOnePassMachine():stdgo.Ref<stdgo.regexp.T_onePassMachine>`](<#function-_newonepassmachine>)
+
+- [`function _newQueue(_size:stdgo.GoInt):stdgo.Ref<stdgo.regexp.T_queueOnePass>`](<#function-_newqueue>)
+
+- [`function _onePassCopy(_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>):stdgo.Ref<stdgo.regexp.T_onePassProg>`](<#function-_onepasscopy>)
+
+- [`function _onePassNext(_i:stdgo.Ref<stdgo.regexp.T_onePassInst>, _r:stdgo.GoRune):stdgo.GoUInt32`](<#function-_onepassnext>)
+
+- [`function _onePassPrefix(_p:stdgo.Ref<stdgo.regexp.syntax.Prog>):{
+	_2:stdgo.GoUInt32;
+	_1:Bool;
+	_0:stdgo.GoString;
+}`](<#function-_onepassprefix>)
+
+- [`function _parseFowlerResult(_s:stdgo.GoString):{
+	_3:stdgo.Slice<stdgo.GoInt>;
+	_2:Bool;
+	_1:Bool;
+	_0:Bool;
+}`](<#function-_parsefowlerresult>)
+
+- [`function _parseResult(_t:stdgo.Ref<stdgo.testing.T>, _file:stdgo.GoString, _lineno:stdgo.GoInt, _res:stdgo.GoString):stdgo.Slice<stdgo.GoInt>`](<#function-_parseresult>)
+
+- [`function _quote(_s:stdgo.GoString):stdgo.GoString`](<#function-_quote>)
+
+- [`function _runFull(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:stdgo.Slice<stdgo.GoInt>;
+}`](<#function-_runfull>)
+
+- [`function _runFullLongest(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:stdgo.Slice<stdgo.GoInt>;
+}`](<#function-_runfulllongest>)
+
+- [`function _runPartial(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:stdgo.Slice<stdgo.GoInt>;
+}`](<#function-_runpartial>)
+
+- [`function _runPartialLongest(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:stdgo.Slice<stdgo.GoInt>;
+}`](<#function-_runpartiallongest>)
+
+- [`function _same(_x:stdgo.Slice<stdgo.GoInt>, _y:stdgo.Slice<stdgo.GoInt>):Bool`](<#function-_same>)
+
+- [`function _shouldBacktrack(_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>):Bool`](<#function-_shouldbacktrack>)
+
+- [`function _special(_b:stdgo.GoByte):Bool`](<#function-_special>)
+
+- [`function _testFindAllIndex(_test:stdgo.Ref<stdgo.regexp.FindTest>, _result:stdgo.Slice<stdgo.Slice<stdgo.GoInt>>, _t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-_testfindallindex>)
+
+- [`function _testFindAllSubmatchIndex(_test:stdgo.Ref<stdgo.regexp.FindTest>, _result:stdgo.Slice<stdgo.Slice<stdgo.GoInt>>, _t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-_testfindallsubmatchindex>)
+
+- [`function _testFindIndex(_test:stdgo.Ref<stdgo.regexp.FindTest>, _result:stdgo.Slice<stdgo.GoInt>, _t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-_testfindindex>)
+
+- [`function _testFindSubmatchIndex(_test:stdgo.Ref<stdgo.regexp.FindTest>, _result:stdgo.Slice<stdgo.GoInt>, _t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-_testfindsubmatchindex>)
+
+- [`function _testFowler(_t:stdgo.Ref<stdgo.testing.T>, _file:stdgo.GoString):Void`](<#function-_testfowler>)
+
+- [`function _testRE2(_t:stdgo.Ref<stdgo.testing.T>, _file:stdgo.GoString):Void`](<#function-_testre2>)
+
+- [`function _testSubmatchBytes(_test:stdgo.Ref<stdgo.regexp.FindTest>, _n:stdgo.GoInt, _submatches:stdgo.Slice<stdgo.GoInt>, _result:stdgo.Slice<stdgo.Slice<stdgo.GoByte>>, _t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-_testsubmatchbytes>)
+
+- [`function _testSubmatchIndices(_test:stdgo.Ref<stdgo.regexp.FindTest>, _n:stdgo.GoInt, _expect:stdgo.Slice<stdgo.GoInt>, _result:stdgo.Slice<stdgo.GoInt>, _t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-_testsubmatchindices>)
+
+- [`function _testSubmatchString(_test:stdgo.Ref<stdgo.regexp.FindTest>, _n:stdgo.GoInt, _submatches:stdgo.Slice<stdgo.GoInt>, _result:stdgo.Slice<stdgo.GoString>, _t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-_testsubmatchstring>)
+
+- [`function _tryCompile(_s:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.regexp.Regexp>;
+}`](<#function-_trycompile>)
 
 - [`function benchmarkAnchoredLiteralLongNonMatch(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkanchoredliterallongnonmatch>)
 
@@ -304,6 +413,8 @@ IO.Overflow("write_ui16")
 
 - [`function testSwitchBacktrack(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testswitchbacktrack>)
 
+- [`function testUnmarshalText(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testunmarshaltext>)
+
 - [class FindTest](<#class-findtest>)
 
   - [`function new(?_pat:stdgo.GoString, ?_text:stdgo.GoString, ?_matches:stdgo.Slice<stdgo.Slice<stdgo.GoInt>>):Void`](<#findtest-function-new>)
@@ -338,7 +449,7 @@ IO.Overflow("write_ui16")
 
   - [`function _replaceAll( _bsrc:stdgo.Slice<stdgo.GoByte>, _src:stdgo.GoString, _nmatch:stdgo.GoInt, _repl:(_dst:stdgo.Slice<stdgo.GoByte>, _m:stdgo.Slice<stdgo.GoInt>):stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#regexp-function-_replaceall>)
 
-  - [`function _tryBacktrack( _b:stdgo.Ref<stdgo.regexp.T_bitState>, _i:stdgo.regexp._Regexp.T_input, _pc:stdgo.GoUInt32, _pos:stdgo.GoInt):Bool`](<#regexp-function-_trybacktrack>)
+  - [`function _tryBacktrack( _b:stdgo.Ref<stdgo.regexp.T_bitState>, _i:stdgo.regexp.T_input, _pc:stdgo.GoUInt32, _pos:stdgo.GoInt):Bool`](<#regexp-function-_trybacktrack>)
 
   - [`function copy():stdgo.Ref<stdgo.regexp.Regexp>`](<#regexp-function-copy>)
 
@@ -386,6 +497,8 @@ IO.Overflow("write_ui16")
 
   - [`function longest():Void`](<#regexp-function-longest>)
 
+  - [`function marshalText():{ _1:stdgo.Error; _0:stdgo.Slice<stdgo.GoByte>;}`](<#regexp-function-marshaltext>)
+
   - [`function match( _b:stdgo.Slice<stdgo.GoByte>):Bool`](<#regexp-function-match>)
 
   - [`function matchReader( _r:stdgo.io.RuneReader):Bool`](<#regexp-function-matchreader>)
@@ -414,6 +527,8 @@ IO.Overflow("write_ui16")
 
   - [`function subexpNames():stdgo.Slice<stdgo.GoString>`](<#regexp-function-subexpnames>)
 
+  - [`function unmarshalText( _text:stdgo.Slice<stdgo.GoByte>):stdgo.Error`](<#regexp-function-unmarshaltext>)
+
 - [class ReplaceFuncTest](<#class-replacefunctest>)
 
   - [`function _replacement()`](<#replacefunctest-function-_replacement>)
@@ -424,6 +539,28 @@ IO.Overflow("write_ui16")
 
   - [`function new(?_pattern:stdgo.GoString, ?_replacement:stdgo.GoString, ?_input:stdgo.GoString, ?_output:stdgo.GoString):Void`](<#replacetest-function-new>)
 
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
+- [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
+
+- [typedef T\_\_struct\_2](<#typedef-t__struct_2>)
+
+- [typedef T\_\_struct\_3](<#typedef-t__struct_3>)
+
+- [typedef T\_\_struct\_4](<#typedef-t__struct_4>)
+
+- [typedef T\_\_struct\_5](<#typedef-t__struct_5>)
+
+- [typedef T\_\_struct\_6](<#typedef-t__struct_6>)
+
+- [typedef T\_\_struct\_7](<#typedef-t__struct_7>)
+
+- [typedef T\_input](<#typedef-t_input>)
+
+- [typedef T\_lazyFlag](<#typedef-t_lazyflag>)
+
+- [typedef T\_runeSlice](<#typedef-t_runeslice>)
+
 # Examples
 
 
@@ -432,6 +569,60 @@ IO.Overflow("write_ui16")
 - [`exampleMatchString`](<#examplematchstring>)
 
 - [`exampleQuoteMeta`](<#examplequotemeta>)
+
+# Constants
+
+
+```haxe
+import stdgo.regexp.Regexp
+```
+
+
+```haxe
+final _endOfText:stdgo.GoInt32 = ((-1 : stdgo.StdGoTypes.GoInt32))
+```
+
+
+```haxe
+final _maxBacktrackProg:stdgo.GoUInt64 = ((500i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+len\(prog.Inst\) \<= max  
+
+```haxe
+final _maxBacktrackVector:stdgo.GoUInt64 = ((262144i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+bit vector size \<= max \(bits\)  
+
+```haxe
+final _mergeFailed:stdgo.GoUInt32 = ((-1u32 : stdgo.StdGoTypes.GoUInt32))
+```
+
+
+
+mergeRuneSets merges two non\-intersecting runesets, and returns the merged result,
+and a NextIp array. The idea is that if a rune matches the OnePassRunes at index
+i, NextIp\[i/2\] is the target. If the input sets intersect, an empty runeset and a
+NextIp array with the single element mergeFailed is returned.
+The code assumes that both inputs contain ordered and non\-intersecting rune pairs.  
+
+```haxe
+final _startSize:stdgo.GoUInt64 = ((10i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+The size at which to start a slice in the 'All' routines.  
+
+```haxe
+final _visitedBits:stdgo.GoUInt64 = ((32i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
 
 # Variables
 
@@ -446,12 +637,850 @@ var _:Bool
 ```
 
 
+```haxe
+var _anyRune:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _anyRuneNotNL:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _arrayNoInts:stdgo.GoArray<stdgo.GoInt>
+```
+
+
+
+arrayNoInts is returned by doExecute match if nil dstCap is passed
+to it with ncap=0.  
+
+```haxe
+var _badRe:stdgo.Slice<stdgo.regexp.T_stringError>
+```
+
+
+```haxe
+var _benchData:stdgo.Slice<stdgo.regexp.T__struct_2>
+```
+
+
+```haxe
+var _benchSizes:stdgo.Slice<stdgo.regexp.T__struct_4>
+```
+
+
+```haxe
+var _bitStatePool:stdgo.sync.Pool
+```
+
+
+```haxe
+var _compileBenchData:stdgo.Slice<stdgo.regexp.T__struct_2>
+```
+
+
+```haxe
+var _emptySubexpIndices:stdgo.Slice<stdgo.regexp.T_subexpIndex>
+```
+
+
+```haxe
+var _findTests:stdgo.Slice<stdgo.regexp.FindTest>
+```
+
+
+```haxe
+var _goodRe:stdgo.Slice<stdgo.GoString>
+```
+
+
+```haxe
+var _literalPrefixTests:stdgo.Slice<stdgo.regexp.MetaTest>
+```
+
+
+```haxe
+var _match:stdgo.Slice<(:stdgo.Ref<stdgo.regexp.Regexp>, :stdgo.Ref<stdgo.regexp.Regexp>, :stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:Bool;
+}>
+```
+
+
+```haxe
+var _matchPool:stdgo.GoArray<stdgo.sync.Pool>
+```
+
+
+
+Pools of \*machine for use during \(\*Regexp\).doExecute,
+split up by the size of the execution queues.
+matchPool\[i\] machines have queue size matchSize\[i\].
+On a 64\-bit system each queue entry is 16 bytes,
+so matchPool\[0\] has 16\*2\*128 = 4kB queues, etc.
+The final matchPool is a catch\-all for very large queues.  
+
+```haxe
+var _matchSize:stdgo.GoArray<stdgo.GoInt>
+```
+
+
+
+Pools of \*machine for use during \(\*Regexp\).doExecute,
+split up by the size of the execution queues.
+matchPool\[i\] machines have queue size matchSize\[i\].
+On a 64\-bit system each queue entry is 16 bytes,
+so matchPool\[0\] has 16\*2\*128 = 4kB queues, etc.
+The final matchPool is a catch\-all for very large queues.  
+
+```haxe
+var _metaTests:stdgo.Slice<stdgo.regexp.MetaTest>
+```
+
+
+```haxe
+var _minInputLenTests:stdgo.Slice<stdgo.regexp.T__struct_3>
+```
+
+
+```haxe
+var _noNext:stdgo.Slice<stdgo.GoUInt32>
+```
+
+
+```haxe
+var _noRune:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _notab:stdgo.Ref<stdgo.regexp.Regexp>
+```
+
+
+```haxe
+var _onePassPool:stdgo.sync.Pool
+```
+
+
+```haxe
+var _onePassTests:stdgo.Slice<stdgo.regexp.T__struct_6>
+```
+
+
+```haxe
+var _onePassTests1:stdgo.Slice<stdgo.regexp.T__struct_7>
+```
+
+
+
+TODO\(cespare\): Unify with onePassTests and rationalize one\-pass test cases.  
+
+```haxe
+var _replaceFuncTests:stdgo.Slice<stdgo.regexp.ReplaceFuncTest>
+```
+
+
+```haxe
+var _replaceLiteralTests:stdgo.Slice<stdgo.regexp.ReplaceTest>
+```
+
+
+```haxe
+var _replaceTests:stdgo.Slice<stdgo.regexp.ReplaceTest>
+```
+
+
+```haxe
+var _run:stdgo.Slice<(:stdgo.Ref<stdgo.regexp.Regexp>, :stdgo.Ref<stdgo.regexp.Regexp>, :stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:stdgo.Slice<stdgo.GoInt>;
+}>
+```
+
+
+```haxe
+var _runeMergeTests:stdgo.Slice<stdgo.regexp.T__struct_5>
+```
+
+
+```haxe
+var _sink:stdgo.GoString
+```
+
+
+```haxe
+var _specialBytes:stdgo.GoArray<stdgo.GoUInt8>
+```
+
+
+
+Bitmap used by func special to check whether a character needs to be escaped.  
+
+```haxe
+var _splitTests:stdgo.Slice<stdgo.regexp.T__struct_0>
+```
+
+
+```haxe
+var _subexpCases:stdgo.Slice<stdgo.regexp.T_subexpCase>
+```
+
+
+```haxe
+var _text:stdgo.Slice<stdgo.GoUInt8>
+```
+
+
 # Functions
 
 
 ```haxe
 import stdgo.regexp.Regexp
 ```
+
+
+## function \_build
+
+
+```haxe
+function _build(_n:stdgo.GoInt, _x:haxe.Rest<stdgo.GoInt>):stdgo.Slice<stdgo.Slice<stdgo.GoInt>>
+```
+
+
+
+build is a helper to construct a \[\]\[\]int by extracting n sequences from x.
+This represents n matches with len\(x\)/n submatches each.  
+
+[\(view code\)](<./Regexp.hx#L2928>)
+
+
+## function \_cleanupOnePass
+
+
+```haxe
+function _cleanupOnePass(_prog:stdgo.Ref<stdgo.regexp.T_onePassProg>, _original:stdgo.Ref<stdgo.regexp.syntax.Prog>):Void
+```
+
+
+
+cleanupOnePass drops working memory, and restores certain shortcut instructions.  
+
+[\(view code\)](<./Regexp.hx#L3396>)
+
+
+## function \_compile
+
+
+```haxe
+function _compile(_expr:stdgo.GoString, _mode:stdgo.regexp.syntax.Flags, _longest:Bool):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.regexp.Regexp>;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L3797>)
+
+
+## function \_compileOnePass
+
+
+```haxe
+function _compileOnePass(_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>):stdgo.Ref<stdgo.regexp.T_onePassProg>
+```
+
+
+
+compileOnePass returns a new \*syntax.Prog suitable for onePass execution if the original Prog
+can be recharacterized as a one\-pass regexp program, or syntax.nil if the
+Prog cannot be converted. For a one pass prog, the fundamental condition that must
+be true is: at any InstAlt, there must be no ambiguity about what branch to  take.  
+
+[\(view code\)](<./Regexp.hx#L3662>)
+
+
+## function \_compileTest
+
+
+```haxe
+function _compileTest(_t:stdgo.Ref<stdgo.testing.T>, _expr:stdgo.GoString, _error:stdgo.GoString):stdgo.Ref<stdgo.regexp.Regexp>
+```
+
+
+[\(view code\)](<./Regexp.hx#L1464>)
+
+
+## function \_copyMatchTest
+
+
+```haxe
+function _copyMatchTest(_t:stdgo.Ref<stdgo.testing.T>, _test:stdgo.Ref<stdgo.regexp.FindTest>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1525>)
+
+
+## function \_extract
+
+
+```haxe
+function _extract(_str:stdgo.GoString):{
+	_3:Bool;
+	_2:stdgo.GoString;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoString;
+}
+```
+
+
+
+extract returns the name from a leading "name" or "\{name\}" in str.
+\(The $ has already been removed by the caller.\)
+If it is a number, extract returns num set to that number; otherwise num = \-1.  
+
+[\(view code\)](<./Regexp.hx#L3998>)
+
+
+## function \_freeBitState
+
+
+```haxe
+function _freeBitState(_b:stdgo.Ref<stdgo.regexp.T_bitState>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L2172>)
+
+
+## function \_freeOnePassMachine
+
+
+```haxe
+function _freeOnePassMachine(_m:stdgo.Ref<stdgo.regexp.T_onePassMachine>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L2207>)
+
+
+## function \_iop
+
+
+```haxe
+function _iop(_i:stdgo.Ref<stdgo.regexp.syntax.Inst>):stdgo.regexp.syntax.InstOp
+```
+
+
+[\(view code\)](<./Regexp.hx#L3298>)
+
+
+## function \_isSingleBytes
+
+
+```haxe
+function _isSingleBytes(_s:stdgo.GoString):Bool
+```
+
+
+[\(view code\)](<./Regexp.hx#L2462>)
+
+
+## function \_makeOnePass
+
+
+```haxe
+function _makeOnePass(_p:stdgo.Ref<stdgo.regexp.T_onePassProg>):stdgo.Ref<stdgo.regexp.T_onePassProg>
+```
+
+
+
+makeOnePass creates a onepass Prog, if possible. It is possible if at any alt,
+the match engine can always tell which branch to take. The routine may modify
+p if it is turned into a onepass Prog. If it isn't possible for this to be a
+onepass Prog, the Prog nil is returned. makeOnePass is recursive
+to the size of the Prog.  
+
+[\(view code\)](<./Regexp.hx#L3474>)
+
+
+## function \_makeText
+
+
+```haxe
+function _makeText(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Regexp.hx#L2824>)
+
+
+## function \_matchFull
+
+
+```haxe
+function _matchFull(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:Bool;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L2446>)
+
+
+## function \_matchFullLongest
+
+
+```haxe
+function _matchFullLongest(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:Bool;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L2454>)
+
+
+## function \_matchFunctionTest
+
+
+```haxe
+function _matchFunctionTest(_t:stdgo.Ref<stdgo.testing.T>, _test:stdgo.Ref<stdgo.regexp.FindTest>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1511>)
+
+
+## function \_matchPartial
+
+
+```haxe
+function _matchPartial(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:Bool;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L2450>)
+
+
+## function \_matchPartialLongest
+
+
+```haxe
+function _matchPartialLongest(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:Bool;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L2458>)
+
+
+## function \_matchTest
+
+
+```haxe
+function _matchTest(_t:stdgo.Ref<stdgo.testing.T>, _test:stdgo.Ref<stdgo.regexp.FindTest>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L1492>)
+
+
+## function \_maxBitStateLen
+
+
+```haxe
+function _maxBitStateLen(_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>):stdgo.GoInt
+```
+
+
+
+maxBitStateLen returns the maximum length of a string to search with
+the backtracker using prog.  
+
+[\(view code\)](<./Regexp.hx#L2180>)
+
+
+## function \_mergeRuneSets
+
+
+```haxe
+function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoRune>>, _rightRunes:stdgo.Ref<stdgo.Slice<stdgo.GoRune>>, _leftPC:stdgo.GoUInt32, _rightPC:stdgo.GoUInt32):{
+	_1:stdgo.Slice<stdgo.GoUInt32>;
+	_0:stdgo.Slice<stdgo.GoRune>;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L3312>)
+
+
+## function \_minInputLen
+
+
+```haxe
+function _minInputLen(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):stdgo.GoInt
+```
+
+
+
+minInputLen walks the regexp to find the minimum length of any matchable input.  
+
+[\(view code\)](<./Regexp.hx#L3847>)
+
+
+## function \_newBitState
+
+
+```haxe
+function _newBitState():stdgo.Ref<stdgo.regexp.T_bitState>
+```
+
+
+[\(view code\)](<./Regexp.hx#L2161>)
+
+
+## function \_newLazyFlag
+
+
+```haxe
+function _newLazyFlag(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.regexp.T_lazyFlag
+```
+
+
+[\(view code\)](<./Regexp.hx#L2193>)
+
+
+## function \_newOnePassMachine
+
+
+```haxe
+function _newOnePassMachine():stdgo.Ref<stdgo.regexp.T_onePassMachine>
+```
+
+
+[\(view code\)](<./Regexp.hx#L2196>)
+
+
+## function \_newQueue
+
+
+```haxe
+function _newQueue(_size:stdgo.GoInt):stdgo.Ref<stdgo.regexp.T_queueOnePass>
+```
+
+
+[\(view code\)](<./Regexp.hx#L3308>)
+
+
+## function \_onePassCopy
+
+
+```haxe
+function _onePassCopy(_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>):stdgo.Ref<stdgo.regexp.T_onePassProg>
+```
+
+
+
+onePassCopy creates a copy of the original Prog, as we'll be modifying it.  
+
+[\(view code\)](<./Regexp.hx#L3412>)
+
+
+## function \_onePassNext
+
+
+```haxe
+function _onePassNext(_i:stdgo.Ref<stdgo.regexp.T_onePassInst>, _r:stdgo.GoRune):stdgo.GoUInt32
+```
+
+
+
+onePassNext selects the next actionable state of the prog, based on the input character.
+It should only be called when i.Op == InstAlt or InstAltMatch, and from the one\-pass machine.
+One of the alternates may ultimately lead without input to end of line. If the instruction
+is InstAltMatch the path to the InstMatch is in i.Out, the normal node in i.Next.  
+
+[\(view code\)](<./Regexp.hx#L3288>)
+
+
+## function \_onePassPrefix
+
+
+```haxe
+function _onePassPrefix(_p:stdgo.Ref<stdgo.regexp.syntax.Prog>):{
+	_2:stdgo.GoUInt32;
+	_1:Bool;
+	_0:stdgo.GoString;
+}
+```
+
+
+
+onePassPrefix returns a literal string that all matches for the
+regexp must start with. Complete is true if the prefix
+is the entire match. Pc is the index of the last rune instruction
+in the string. The onePassPrefix skips over the mandatory
+EmptyBeginText.  
+
+[\(view code\)](<./Regexp.hx#L3252>)
+
+
+## function \_parseFowlerResult
+
+
+```haxe
+function _parseFowlerResult(_s:stdgo.GoString):{
+	_3:stdgo.Slice<stdgo.GoInt>;
+	_2:Bool;
+	_1:Bool;
+	_0:Bool;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L2762>)
+
+
+## function \_parseResult
+
+
+```haxe
+function _parseResult(_t:stdgo.Ref<stdgo.testing.T>, _file:stdgo.GoString, _lineno:stdgo.GoInt, _res:stdgo.GoString):stdgo.Slice<stdgo.GoInt>
+```
+
+
+[\(view code\)](<./Regexp.hx#L2519>)
+
+
+## function \_quote
+
+
+```haxe
+function _quote(_s:stdgo.GoString):stdgo.GoString
+```
+
+
+[\(view code\)](<./Regexp.hx#L3911>)
+
+
+## function \_runFull
+
+
+```haxe
+function _runFull(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:stdgo.Slice<stdgo.GoInt>;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L2430>)
+
+
+## function \_runFullLongest
+
+
+```haxe
+function _runFullLongest(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:stdgo.Slice<stdgo.GoInt>;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L2438>)
+
+
+## function \_runPartial
+
+
+```haxe
+function _runPartial(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:stdgo.Slice<stdgo.GoInt>;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L2434>)
+
+
+## function \_runPartialLongest
+
+
+```haxe
+function _runPartialLongest(_re:stdgo.Ref<stdgo.regexp.Regexp>, _refull:stdgo.Ref<stdgo.regexp.Regexp>, _text:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:stdgo.Slice<stdgo.GoInt>;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L2442>)
+
+
+## function \_same
+
+
+```haxe
+function _same(_x:stdgo.Slice<stdgo.GoInt>, _y:stdgo.Slice<stdgo.GoInt>):Bool
+```
+
+
+[\(view code\)](<./Regexp.hx#L2560>)
+
+
+## function \_shouldBacktrack
+
+
+```haxe
+function _shouldBacktrack(_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>):Bool
+```
+
+
+
+shouldBacktrack reports whether the program is too
+long for the backtracker to run.  
+
+[\(view code\)](<./Regexp.hx#L2190>)
+
+
+## function \_special
+
+
+```haxe
+function _special(_b:stdgo.GoByte):Bool
+```
+
+
+
+special reports whether byte b needs to be escaped by QuoteMeta.  
+
+[\(view code\)](<./Regexp.hx#L3959>)
+
+
+## function \_testFindAllIndex
+
+
+```haxe
+function _testFindAllIndex(_test:stdgo.Ref<stdgo.regexp.FindTest>, _result:stdgo.Slice<stdgo.Slice<stdgo.GoInt>>, _t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L3055>)
+
+
+## function \_testFindAllSubmatchIndex
+
+
+```haxe
+function _testFindAllSubmatchIndex(_test:stdgo.Ref<stdgo.regexp.FindTest>, _result:stdgo.Slice<stdgo.Slice<stdgo.GoInt>>, _t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L3222>)
+
+
+## function \_testFindIndex
+
+
+```haxe
+function _testFindIndex(_test:stdgo.Ref<stdgo.regexp.FindTest>, _result:stdgo.Slice<stdgo.GoInt>, _t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L2982>)
+
+
+## function \_testFindSubmatchIndex
+
+
+```haxe
+function _testFindSubmatchIndex(_test:stdgo.Ref<stdgo.regexp.FindTest>, _result:stdgo.Slice<stdgo.GoInt>, _t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L3166>)
+
+
+## function \_testFowler
+
+
+```haxe
+function _testFowler(_t:stdgo.Ref<stdgo.testing.T>, _file:stdgo.GoString):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L2586>)
+
+
+## function \_testRE2
+
+
+```haxe
+function _testRE2(_t:stdgo.Ref<stdgo.testing.T>, _file:stdgo.GoString):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L2269>)
+
+
+## function \_testSubmatchBytes
+
+
+```haxe
+function _testSubmatchBytes(_test:stdgo.Ref<stdgo.regexp.FindTest>, _n:stdgo.GoInt, _submatches:stdgo.Slice<stdgo.GoInt>, _result:stdgo.Slice<stdgo.Slice<stdgo.GoByte>>, _t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L3082>)
+
+
+## function \_testSubmatchIndices
+
+
+```haxe
+function _testSubmatchIndices(_test:stdgo.Ref<stdgo.regexp.FindTest>, _n:stdgo.GoInt, _expect:stdgo.Slice<stdgo.GoInt>, _result:stdgo.Slice<stdgo.GoInt>, _t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L3155>)
+
+
+## function \_testSubmatchString
+
+
+```haxe
+function _testSubmatchString(_test:stdgo.Ref<stdgo.regexp.FindTest>, _n:stdgo.GoInt, _submatches:stdgo.Slice<stdgo.GoInt>, _result:stdgo.Slice<stdgo.GoString>, _t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L3121>)
+
+
+## function \_tryCompile
+
+
+```haxe
+function _tryCompile(_s:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.regexp.Regexp>;
+}
+```
+
+
+[\(view code\)](<./Regexp.hx#L2470>)
 
 
 ## function benchmarkAnchoredLiteralLongNonMatch
@@ -462,7 +1491,7 @@ function benchmarkAnchoredLiteralLongNonMatch(_b:stdgo.Ref<stdgo.testing.B>):Voi
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1924>)
+[\(view code\)](<./Regexp.hx#L1915>)
 
 
 ## function benchmarkAnchoredLiteralShortNonMatch
@@ -473,7 +1502,7 @@ function benchmarkAnchoredLiteralShortNonMatch(_b:stdgo.Ref<stdgo.testing.B>):Vo
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1912>)
+[\(view code\)](<./Regexp.hx#L1903>)
 
 
 ## function benchmarkAnchoredLongMatch
@@ -484,7 +1513,7 @@ function benchmarkAnchoredLongMatch(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1954>)
+[\(view code\)](<./Regexp.hx#L1945>)
 
 
 ## function benchmarkAnchoredShortMatch
@@ -495,7 +1524,7 @@ function benchmarkAnchoredShortMatch(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1942>)
+[\(view code\)](<./Regexp.hx#L1933>)
 
 
 ## function benchmarkCompile
@@ -506,7 +1535,7 @@ function benchmarkCompile(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2096>)
+[\(view code\)](<./Regexp.hx#L2087>)
 
 
 ## function benchmarkFind
@@ -517,7 +1546,7 @@ function benchmarkFind(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1755>)
+[\(view code\)](<./Regexp.hx#L1746>)
 
 
 ## function benchmarkFindAllNoMatches
@@ -528,7 +1557,7 @@ function benchmarkFindAllNoMatches(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1772>)
+[\(view code\)](<./Regexp.hx#L1763>)
 
 
 ## function benchmarkFindString
@@ -539,7 +1568,7 @@ function benchmarkFindString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1787>)
+[\(view code\)](<./Regexp.hx#L1778>)
 
 
 ## function benchmarkFindStringSubmatch
@@ -550,7 +1579,7 @@ function benchmarkFindStringSubmatch(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1824>)
+[\(view code\)](<./Regexp.hx#L1815>)
 
 
 ## function benchmarkFindSubmatch
@@ -561,7 +1590,7 @@ function benchmarkFindSubmatch(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1804>)
+[\(view code\)](<./Regexp.hx#L1795>)
 
 
 ## function benchmarkLiteral
@@ -572,7 +1601,7 @@ function benchmarkLiteral(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1844>)
+[\(view code\)](<./Regexp.hx#L1835>)
 
 
 ## function benchmarkMatch
@@ -583,7 +1612,7 @@ function benchmarkMatch(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2825>)
+[\(view code\)](<./Regexp.hx#L2844>)
 
 
 ## function benchmarkMatchClass
@@ -594,7 +1623,7 @@ function benchmarkMatchClass(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1872>)
+[\(view code\)](<./Regexp.hx#L1863>)
 
 
 ## function benchmarkMatchClass\_InRange
@@ -605,7 +1634,7 @@ function benchmarkMatchClass_InRange(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1886>)
+[\(view code\)](<./Regexp.hx#L1877>)
 
 
 ## function benchmarkMatchParallelCopied
@@ -616,7 +1645,7 @@ function benchmarkMatchParallelCopied(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2054>)
+[\(view code\)](<./Regexp.hx#L2045>)
 
 
 ## function benchmarkMatchParallelShared
@@ -627,7 +1656,7 @@ function benchmarkMatchParallelShared(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2044>)
+[\(view code\)](<./Regexp.hx#L2035>)
 
 
 ## function benchmarkMatch\_onepass\_regex
@@ -638,7 +1667,7 @@ function benchmarkMatch_onepass_regex(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2848>)
+[\(view code\)](<./Regexp.hx#L2867>)
 
 
 ## function benchmarkNotLiteral
@@ -649,7 +1678,7 @@ function benchmarkNotLiteral(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1858>)
+[\(view code\)](<./Regexp.hx#L1849>)
 
 
 ## function benchmarkNotOnePassShortA
@@ -660,7 +1689,7 @@ function benchmarkNotOnePassShortA(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1984>)
+[\(view code\)](<./Regexp.hx#L1975>)
 
 
 ## function benchmarkNotOnePassShortB
@@ -671,7 +1700,7 @@ function benchmarkNotOnePassShortB(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2008>)
+[\(view code\)](<./Regexp.hx#L1999>)
 
 
 ## function benchmarkOnePassLongNotPrefix
@@ -682,7 +1711,7 @@ function benchmarkOnePassLongNotPrefix(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2032>)
+[\(view code\)](<./Regexp.hx#L2023>)
 
 
 ## function benchmarkOnePassLongPrefix
@@ -693,7 +1722,7 @@ function benchmarkOnePassLongPrefix(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2020>)
+[\(view code\)](<./Regexp.hx#L2011>)
 
 
 ## function benchmarkOnePassShortA
@@ -704,7 +1733,7 @@ function benchmarkOnePassShortA(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1972>)
+[\(view code\)](<./Regexp.hx#L1963>)
 
 
 ## function benchmarkOnePassShortB
@@ -715,7 +1744,7 @@ function benchmarkOnePassShortB(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1996>)
+[\(view code\)](<./Regexp.hx#L1987>)
 
 
 ## function benchmarkQuoteMetaAll
@@ -726,7 +1755,7 @@ function benchmarkQuoteMetaAll(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2065>)
+[\(view code\)](<./Regexp.hx#L2056>)
 
 
 ## function benchmarkQuoteMetaNone
@@ -737,7 +1766,7 @@ function benchmarkQuoteMetaNone(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2085>)
+[\(view code\)](<./Regexp.hx#L2076>)
 
 
 ## function benchmarkReplaceAll
@@ -748,7 +1777,7 @@ function benchmarkReplaceAll(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1900>)
+[\(view code\)](<./Regexp.hx#L1891>)
 
 
 ## function compile
@@ -775,7 +1804,7 @@ that Perl, Python, and other implementations use, although this
 package implements it without the expense of backtracking.
 For POSIX leftmost\-longest matching, see CompilePOSIX.  
 
-[\(view code\)](<./Regexp.hx#L3751>)
+[\(view code\)](<./Regexp.hx#L3770>)
 
 
 ## function compilePOSIX
@@ -812,7 +1841,7 @@ subexpression, then the second, and so on from left to right.
 The POSIX rule is computationally prohibitive and not even well\-defined.
 See https://swtch.com/~rsc/regexp/regexp2.html#posix for details.  
 
-[\(view code\)](<./Regexp.hx#L3775>)
+[\(view code\)](<./Regexp.hx#L3794>)
 
 
 ## function match
@@ -840,20 +1869,20 @@ More complicated queries need to use Compile and the full Regexp interface.
 
 ```haxe
 function exampleMatch():Void {
-        var __tmp__ = stdgo.regexp.Regexp.match(("foo.*" : GoString), (("seafood" : GoString) : Slice<GoByte>)), _matched:Bool = __tmp__._0, _err:Error = __tmp__._1;
-        stdgo.fmt.Fmt.println(Go.toInterface(_matched), Go.toInterface(_err));
+        var __tmp__ = stdgo.regexp.Regexp.match(("foo.*" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
         {
-            var __tmp__ = stdgo.regexp.Regexp.match(("bar.*" : GoString), (("seafood" : GoString) : Slice<GoByte>));
+            var __tmp__ = stdgo.regexp.Regexp.match(("bar.*" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
             _matched = __tmp__._0;
             _err = __tmp__._1;
         };
-        stdgo.fmt.Fmt.println(Go.toInterface(_matched), Go.toInterface(_err));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
         {
-            var __tmp__ = stdgo.regexp.Regexp.match(("a(b" : GoString), (("seafood" : GoString) : Slice<GoByte>));
+            var __tmp__ = stdgo.regexp.Regexp.match(("a(b" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
             _matched = __tmp__._0;
             _err = __tmp__._1;
         };
-        stdgo.fmt.Fmt.println(Go.toInterface(_matched), Go.toInterface(_err));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
     }
 ```
 
@@ -862,7 +1891,7 @@ function exampleMatch():Void {
 </details>
 
 
-[\(view code\)](<./Regexp.hx#L3929>)
+[\(view code\)](<./Regexp.hx#L3948>)
 
 
 ## function matchReader
@@ -881,7 +1910,7 @@ MatchReader reports whether the text returned by the RuneReader
 contains any match of the regular expression pattern.
 More complicated queries need to use Compile and the full Regexp interface.  
 
-[\(view code\)](<./Regexp.hx#L3903>)
+[\(view code\)](<./Regexp.hx#L3922>)
 
 
 ## function matchString
@@ -909,20 +1938,20 @@ More complicated queries need to use Compile and the full Regexp interface.
 
 ```haxe
 function exampleMatchString():Void {
-        var __tmp__ = stdgo.regexp.Regexp.matchString(("foo.*" : GoString), ("seafood" : GoString)), _matched:Bool = __tmp__._0, _err:Error = __tmp__._1;
-        stdgo.fmt.Fmt.println(Go.toInterface(_matched), Go.toInterface(_err));
+        var __tmp__ = stdgo.regexp.Regexp.matchString(("foo.*" : stdgo.GoString), ("seafood" : stdgo.GoString)), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
         {
-            var __tmp__ = stdgo.regexp.Regexp.matchString(("bar.*" : GoString), ("seafood" : GoString));
+            var __tmp__ = stdgo.regexp.Regexp.matchString(("bar.*" : stdgo.GoString), ("seafood" : stdgo.GoString));
             _matched = __tmp__._0;
             _err = __tmp__._1;
         };
-        stdgo.fmt.Fmt.println(Go.toInterface(_matched), Go.toInterface(_err));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
         {
-            var __tmp__ = stdgo.regexp.Regexp.matchString(("a(b" : GoString), ("seafood" : GoString));
+            var __tmp__ = stdgo.regexp.Regexp.matchString(("a(b" : stdgo.GoString), ("seafood" : stdgo.GoString));
             _matched = __tmp__._0;
             _err = __tmp__._1;
         };
-        stdgo.fmt.Fmt.println(Go.toInterface(_matched), Go.toInterface(_err));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
     }
 ```
 
@@ -931,7 +1960,7 @@ function exampleMatchString():Void {
 </details>
 
 
-[\(view code\)](<./Regexp.hx#L3916>)
+[\(view code\)](<./Regexp.hx#L3935>)
 
 
 ## function mustCompile
@@ -947,7 +1976,7 @@ MustCompile is like Compile but panics if the expression cannot be parsed.
 It simplifies safe initialization of global variables holding compiled regular
 expressions.  
 
-[\(view code\)](<./Regexp.hx#L3873>)
+[\(view code\)](<./Regexp.hx#L3892>)
 
 
 ## function mustCompilePOSIX
@@ -963,7 +1992,7 @@ MustCompilePOSIX is like CompilePOSIX but panics if the expression cannot be par
 It simplifies safe initialization of global variables holding compiled regular
 expressions.  
 
-[\(view code\)](<./Regexp.hx#L3885>)
+[\(view code\)](<./Regexp.hx#L3904>)
 
 
 ## function quoteMeta
@@ -988,7 +2017,7 @@ the literal text.
 
 ```haxe
 function exampleQuoteMeta():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.regexp.Regexp.quoteMeta(("Escaping symbols like: .+*?()|[]{}^$" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.regexp.Regexp.quoteMeta(("Escaping symbols like: .+*?()|[]{}^$" : stdgo.GoString))));
     }
 ```
 
@@ -997,7 +2026,7 @@ function exampleQuoteMeta():Void {
 </details>
 
 
-[\(view code\)](<./Regexp.hx#L3948>)
+[\(view code\)](<./Regexp.hx#L3967>)
 
 
 ## function testBadCompile
@@ -1008,7 +2037,7 @@ function testBadCompile(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1493>)
+[\(view code\)](<./Regexp.hx#L1484>)
 
 
 ## function testCompileOnePass
@@ -1019,7 +2048,7 @@ function testCompileOnePass(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3691>)
+[\(view code\)](<./Regexp.hx#L3710>)
 
 
 ## function testCopyMatch
@@ -1030,7 +2059,7 @@ function testCopyMatch(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1545>)
+[\(view code\)](<./Regexp.hx#L1536>)
 
 
 ## function testDeepEqual
@@ -1041,7 +2070,7 @@ function testDeepEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2114>)
+[\(view code\)](<./Regexp.hx#L2105>)
 
 
 ## function testFind
@@ -1052,7 +2081,7 @@ function testFind(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2924>)
+[\(view code\)](<./Regexp.hx#L2943>)
 
 
 ## function testFindAll
@@ -1063,7 +2092,7 @@ function testFindAll(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2990>)
+[\(view code\)](<./Regexp.hx#L3009>)
 
 
 ## function testFindAllIndex
@@ -1074,7 +2103,7 @@ function testFindAllIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3053>)
+[\(view code\)](<./Regexp.hx#L3072>)
 
 
 ## function testFindAllString
@@ -1085,7 +2114,7 @@ function testFindAllString(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3015>)
+[\(view code\)](<./Regexp.hx#L3034>)
 
 
 ## function testFindAllStringIndex
@@ -1096,7 +2125,7 @@ function testFindAllStringIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3058>)
+[\(view code\)](<./Regexp.hx#L3077>)
 
 
 ## function testFindAllStringSubmatch
@@ -1107,7 +2136,7 @@ function testFindAllStringSubmatch(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3187>)
+[\(view code\)](<./Regexp.hx#L3206>)
 
 
 ## function testFindAllStringSubmatchIndex
@@ -1118,7 +2147,7 @@ function testFindAllStringSubmatchIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3221>)
+[\(view code\)](<./Regexp.hx#L3240>)
 
 
 ## function testFindAllSubmatch
@@ -1129,7 +2158,7 @@ function testFindAllSubmatch(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3171>)
+[\(view code\)](<./Regexp.hx#L3190>)
 
 
 ## function testFindAllSubmatchIndex
@@ -1140,7 +2169,7 @@ function testFindAllSubmatchIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3216>)
+[\(view code\)](<./Regexp.hx#L3235>)
 
 
 ## function testFindIndex
@@ -1151,7 +2180,7 @@ function testFindIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2975>)
+[\(view code\)](<./Regexp.hx#L2994>)
 
 
 ## function testFindReaderIndex
@@ -1162,7 +2191,7 @@ function testFindReaderIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2985>)
+[\(view code\)](<./Regexp.hx#L3004>)
 
 
 ## function testFindReaderSubmatchIndex
@@ -1173,7 +2202,7 @@ function testFindReaderSubmatchIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3166>)
+[\(view code\)](<./Regexp.hx#L3185>)
 
 
 ## function testFindString
@@ -1184,7 +2213,7 @@ function testFindString(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2946>)
+[\(view code\)](<./Regexp.hx#L2965>)
 
 
 ## function testFindStringIndex
@@ -1195,7 +2224,7 @@ function testFindStringIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2980>)
+[\(view code\)](<./Regexp.hx#L2999>)
 
 
 ## function testFindStringSubmatch
@@ -1206,7 +2235,7 @@ function testFindStringSubmatch(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3124>)
+[\(view code\)](<./Regexp.hx#L3143>)
 
 
 ## function testFindStringSubmatchIndex
@@ -1217,7 +2246,7 @@ function testFindStringSubmatchIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3161>)
+[\(view code\)](<./Regexp.hx#L3180>)
 
 
 ## function testFindSubmatch
@@ -1228,7 +2257,7 @@ function testFindSubmatch(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3090>)
+[\(view code\)](<./Regexp.hx#L3109>)
 
 
 ## function testFindSubmatchIndex
@@ -1239,7 +2268,7 @@ function testFindSubmatchIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3156>)
+[\(view code\)](<./Regexp.hx#L3175>)
 
 
 ## function testFowler
@@ -1255,7 +2284,7 @@ TestFowler runs this package's regexp API against the
 POSIX regular expression tests collected by Glenn Fowler
 at http://www2.research.att.com/~astopen/testregex/testregex.html.  
 
-[\(view code\)](<./Regexp.hx#L2557>)
+[\(view code\)](<./Regexp.hx#L2576>)
 
 
 ## function testGoodCompile
@@ -1266,7 +2295,7 @@ function testGoodCompile(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1485>)
+[\(view code\)](<./Regexp.hx#L1476>)
 
 
 ## function testLiteralPrefix
@@ -1277,7 +2306,7 @@ function testLiteralPrefix(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1644>)
+[\(view code\)](<./Regexp.hx#L1635>)
 
 
 ## function testLongest
@@ -1288,7 +2317,7 @@ function testLongest(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2873>)
+[\(view code\)](<./Regexp.hx#L2892>)
 
 
 ## function testMatch
@@ -1299,7 +2328,7 @@ function testMatch(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1515>)
+[\(view code\)](<./Regexp.hx#L1506>)
 
 
 ## function testMatchFunction
@@ -1310,7 +2339,7 @@ function testMatchFunction(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1529>)
+[\(view code\)](<./Regexp.hx#L1520>)
 
 
 ## function testMergeRuneSet
@@ -1321,7 +2350,7 @@ function testMergeRuneSet(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3680>)
+[\(view code\)](<./Regexp.hx#L3699>)
 
 
 ## function testMinInputLen
@@ -1332,7 +2361,7 @@ function testMinInputLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L2133>)
+[\(view code\)](<./Regexp.hx#L2124>)
 
 
 ## function testOnePassCutoff
@@ -1346,7 +2375,7 @@ function testOnePassCutoff(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 Check that one\-pass cutoff does trigger.  
 
-[\(view code\)](<./Regexp.hx#L1732>)
+[\(view code\)](<./Regexp.hx#L1723>)
 
 
 ## function testParseAndCompile
@@ -1360,7 +2389,7 @@ function testParseAndCompile(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 The following sequence of Match calls used to panic. See issue \#12980.  
 
-[\(view code\)](<./Regexp.hx#L1709>)
+[\(view code\)](<./Regexp.hx#L1700>)
 
 
 ## function testProgramTooLongForBacktrack
@@ -1375,7 +2404,7 @@ function testProgramTooLongForBacktrack(_t:stdgo.Ref<stdgo.testing.T>):Void
 TestProgramTooLongForBacktrack tests that a regex which is too long
 for the backtracker still executes properly.  
 
-[\(view code\)](<./Regexp.hx#L2896>)
+[\(view code\)](<./Regexp.hx#L2915>)
 
 
 ## function testQuoteMeta
@@ -1386,7 +2415,7 @@ function testQuoteMeta(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1621>)
+[\(view code\)](<./Regexp.hx#L1612>)
 
 
 ## function testRE2Exhaustive
@@ -1401,7 +2430,7 @@ function testRE2Exhaustive(_t:stdgo.Ref<stdgo.testing.T>):Void
 This test is excluded when running under the race detector because
 it is a very expensive test and takes too long.  
 
-[\(view code\)](<./Regexp.hx#L2196>)
+[\(view code\)](<./Regexp.hx#L2215>)
 
 
 ## function testRE2Search
@@ -1462,7 +2491,7 @@ and are echoed into t but otherwise ignored.
 At time of writing, re2\-exhaustive.txt is 59 MB but compresses to 385 kB,
 so we store re2\-exhaustive.txt.bz2 in the repository and decompress it on the fly.  
 
-[\(view code\)](<./Regexp.hx#L2247>)
+[\(view code\)](<./Regexp.hx#L2266>)
 
 
 ## function testReplaceAll
@@ -1473,7 +2502,7 @@ function testReplaceAll(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1550>)
+[\(view code\)](<./Regexp.hx#L1541>)
 
 
 ## function testReplaceAllFunc
@@ -1484,7 +2513,7 @@ function testReplaceAllFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1602>)
+[\(view code\)](<./Regexp.hx#L1593>)
 
 
 ## function testReplaceAllLiteral
@@ -1495,7 +2524,7 @@ function testReplaceAllLiteral(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1567>)
+[\(view code\)](<./Regexp.hx#L1558>)
 
 
 ## function testRunOnePass
@@ -1506,7 +2535,7 @@ function testRunOnePass(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L3723>)
+[\(view code\)](<./Regexp.hx#L3742>)
 
 
 ## function testSplit
@@ -1517,7 +2546,7 @@ function testSplit(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1687>)
+[\(view code\)](<./Regexp.hx#L1678>)
 
 
 ## function testSubexp
@@ -1528,7 +2557,7 @@ function testSubexp(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1656>)
+[\(view code\)](<./Regexp.hx#L1647>)
 
 
 ## function testSwitchBacktrack
@@ -1543,7 +2572,18 @@ function testSwitchBacktrack(_t:stdgo.Ref<stdgo.testing.T>):Void
 Check that the same machine can be used with the standard matcher
 and then the backtracker when there are no captures.  
 
-[\(view code\)](<./Regexp.hx#L1749>)
+[\(view code\)](<./Regexp.hx#L1740>)
+
+
+## function testUnmarshalText
+
+
+```haxe
+function testUnmarshalText(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L2133>)
 
 
 # Classes
@@ -1587,7 +2627,7 @@ function new(?_pat:stdgo.GoString, ?_text:stdgo.GoString, ?_matches:stdgo.Slice<
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1131>)
+[\(view code\)](<./Regexp.hx#L1122>)
 
 
 ### FindTest function string
@@ -1598,7 +2638,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4513>)
+[\(view code\)](<./Regexp.hx#L4532>)
 
 
 ## class MetaTest
@@ -1632,7 +2672,7 @@ function new(?_pattern:stdgo.GoString, ?_output:stdgo.GoString, ?_literal:stdgo.
 ```
 
 
-[\(view code\)](<./Regexp.hx#L899>)
+[\(view code\)](<./Regexp.hx#L890>)
 
 
 ## class Regexp
@@ -1735,7 +2775,7 @@ function new(?_expr:stdgo.GoString, ?_prog:stdgo.Ref<stdgo.regexp.syntax.Prog>, 
 ```
 
 
-[\(view code\)](<./Regexp.hx#L1239>)
+[\(view code\)](<./Regexp.hx#L1230>)
 
 
 ### Regexp function \_allMatches
@@ -1751,7 +2791,7 @@ allMatches calls deliver at most n times
 with the location of successive matches in the input text.
 The input text is b if non\-nil, otherwise s.  
 
-[\(view code\)](<./Regexp.hx#L5452>)
+[\(view code\)](<./Regexp.hx#L5530>)
 
 
 ### Regexp function \_backtrack
@@ -1765,7 +2805,7 @@ function _backtrack( _ib:stdgo.Slice<stdgo.GoByte>, _is:stdgo.GoString, _pos:std
 
 backtrack runs a backtracking search of prog on the input starting at pos.  
 
-[\(view code\)](<./Regexp.hx#L5984>)
+[\(view code\)](<./Regexp.hx#L6062>)
 
 
 ### Regexp function \_doExecute
@@ -1783,7 +2823,7 @@ of its subexpressions to dstCap and returns dstCap.
 
 nil is returned if no matches are found and non\-nil if matches are found.  
 
-[\(view code\)](<./Regexp.hx#L5814>)
+[\(view code\)](<./Regexp.hx#L5892>)
 
 
 ### Regexp function \_doMatch
@@ -1797,7 +2837,7 @@ function _doMatch( _r:stdgo.io.RuneReader, _b:stdgo.Slice<stdgo.GoByte>, _s:stdg
 
 doMatch reports whether either r, b or s match the regexp.  
 
-[\(view code\)](<./Regexp.hx#L5842>)
+[\(view code\)](<./Regexp.hx#L5920>)
 
 
 ### Regexp function \_doOnePass
@@ -1811,7 +2851,7 @@ function _doOnePass( _ir:stdgo.io.RuneReader, _ib:stdgo.Slice<stdgo.GoByte>, _is
 
 doOnePass implements r.doExecute using the one\-pass execution engine.  
 
-[\(view code\)](<./Regexp.hx#L5849>)
+[\(view code\)](<./Regexp.hx#L5927>)
 
 
 ### Regexp function \_expand
@@ -1822,7 +2862,7 @@ function _expand( _dst:stdgo.Slice<stdgo.GoByte>, _template:stdgo.GoString, _bsr
 ```
 
 
-[\(view code\)](<./Regexp.hx#L5274>)
+[\(view code\)](<./Regexp.hx#L5352>)
 
 
 ### Regexp function \_get
@@ -1838,7 +2878,7 @@ get returns a machine to use for matching re.
 It uses the re's machine cache if possible, to avoid
 unnecessary allocation.  
 
-[\(view code\)](<./Regexp.hx#L5746>)
+[\(view code\)](<./Regexp.hx#L5824>)
 
 
 ### Regexp function \_pad
@@ -1856,7 +2896,7 @@ For example, "\(a\)\{0\}" turns into an empty program, so the
 maximum capture in the program is 0 but we need to return
 an expression for \\1.  Pad appends \-1s to the slice a as needed.  
 
-[\(view code\)](<./Regexp.hx#L5509>)
+[\(view code\)](<./Regexp.hx#L5587>)
 
 
 ### Regexp function \_put
@@ -1870,7 +2910,7 @@ function _put( _m:stdgo.Ref<stdgo.regexp.T_machine>):Void
 
 put returns a machine to the correct machine pool.  
 
-[\(view code\)](<./Regexp.hx#L5734>)
+[\(view code\)](<./Regexp.hx#L5812>)
 
 
 ### Regexp function \_replaceAll
@@ -1881,21 +2921,21 @@ function _replaceAll( _bsrc:stdgo.Slice<stdgo.GoByte>, _src:stdgo.GoString, _nma
 ```
 
 
-[\(view code\)](<./Regexp.hx#L5563>)
+[\(view code\)](<./Regexp.hx#L5641>)
 
 
 ### Regexp function \_tryBacktrack
 
 
 ```haxe
-function _tryBacktrack( _b:stdgo.Ref<stdgo.regexp.T_bitState>, _i:stdgo.regexp._Regexp.T_input, _pc:stdgo.GoUInt32, _pos:stdgo.GoInt):Bool
+function _tryBacktrack( _b:stdgo.Ref<stdgo.regexp.T_bitState>, _i:stdgo.regexp.T_input, _pc:stdgo.GoUInt32, _pos:stdgo.GoInt):Bool
 ```
 
 
 
 tryBacktrack runs a backtracking search starting at pos.  
 
-[\(view code\)](<./Regexp.hx#L6039>)
+[\(view code\)](<./Regexp.hx#L6117>)
 
 
 ### Regexp function copy
@@ -1917,7 +2957,7 @@ As of Go 1.12, using Copy is no longer necessary to avoid lock contention.
 Copy may still be appropriate if the reason for its use is to make
 two copies with different Longest settings.  
 
-[\(view code\)](<./Regexp.hx#L5796>)
+[\(view code\)](<./Regexp.hx#L5874>)
 
 
 ### Regexp function expand
@@ -1950,7 +2990,7 @@ equivalent to $\{1x\}, not $\{1\}x, and, $10 is equivalent to $\{10\}, not $\{1\
 
 To insert a literal $ in the output, use $$ in the template.  
 
-[\(view code\)](<./Regexp.hx#L5346>)
+[\(view code\)](<./Regexp.hx#L5424>)
 
 
 ### Regexp function expandString
@@ -1966,7 +3006,7 @@ ExpandString is like Expand but the template and source are strings.
 It appends to and returns a byte slice in order to give the calling
 code control over allocation.  
 
-[\(view code\)](<./Regexp.hx#L5323>)
+[\(view code\)](<./Regexp.hx#L5401>)
 
 
 ### Regexp function find
@@ -1981,7 +3021,7 @@ function find( _b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
 Find returns a slice holding the text of the leftmost match in b of the regular expression.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5438>)
+[\(view code\)](<./Regexp.hx#L5516>)
 
 
 ### Regexp function findAll
@@ -1998,7 +3038,7 @@ matches of the expression, as defined by the 'All' description in the
 package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5205>)
+[\(view code\)](<./Regexp.hx#L5283>)
 
 
 ### Regexp function findAllIndex
@@ -2015,7 +3055,7 @@ successive matches of the expression, as defined by the 'All' description
 in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5185>)
+[\(view code\)](<./Regexp.hx#L5263>)
 
 
 ### Regexp function findAllString
@@ -2032,7 +3072,7 @@ successive matches of the expression, as defined by the 'All' description
 in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5165>)
+[\(view code\)](<./Regexp.hx#L5243>)
 
 
 ### Regexp function findAllStringIndex
@@ -2049,7 +3089,7 @@ slice of all successive matches of the expression, as defined by the 'All'
 description in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5145>)
+[\(view code\)](<./Regexp.hx#L5223>)
 
 
 ### Regexp function findAllStringSubmatch
@@ -2066,7 +3106,7 @@ returns a slice of all successive matches of the expression, as defined by
 the 'All' description in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5073>)
+[\(view code\)](<./Regexp.hx#L5151>)
 
 
 ### Regexp function findAllStringSubmatchIndex
@@ -2084,7 +3124,7 @@ the expression, as defined by the 'All' description in the package
 comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5053>)
+[\(view code\)](<./Regexp.hx#L5131>)
 
 
 ### Regexp function findAllSubmatch
@@ -2101,7 +3141,7 @@ of all successive matches of the expression, as defined by the 'All'
 description in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5119>)
+[\(view code\)](<./Regexp.hx#L5197>)
 
 
 ### Regexp function findAllSubmatchIndex
@@ -2118,7 +3158,7 @@ a slice of all successive matches of the expression, as defined by the
 'All' description in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5099>)
+[\(view code\)](<./Regexp.hx#L5177>)
 
 
 ### Regexp function findIndex
@@ -2135,7 +3175,7 @@ the leftmost match in b of the regular expression. The match itself is at
 b\[loc\[0\]:loc\[1\]\].
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5425>)
+[\(view code\)](<./Regexp.hx#L5503>)
 
 
 ### Regexp function findReaderIndex
@@ -2153,7 +3193,7 @@ the RuneReader. The match text was found in the input stream at
 byte offset loc\[0\] through loc\[1\]\-1.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5379>)
+[\(view code\)](<./Regexp.hx#L5457>)
 
 
 ### Regexp function findReaderSubmatchIndex
@@ -2171,7 +3211,7 @@ the RuneReader, and the matches, if any, of its subexpressions, as defined
 by the 'Submatch' and 'Index' descriptions in the package comment. A
 return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5226>)
+[\(view code\)](<./Regexp.hx#L5304>)
 
 
 ### Regexp function findString
@@ -2189,7 +3229,7 @@ but it will also be empty if the regular expression successfully matches
 an empty string. Use FindStringIndex or FindStringSubmatch if it is
 necessary to distinguish these cases.  
 
-[\(view code\)](<./Regexp.hx#L5410>)
+[\(view code\)](<./Regexp.hx#L5488>)
 
 
 ### Regexp function findStringIndex
@@ -2206,7 +3246,7 @@ location of the leftmost match in s of the regular expression. The match
 itself is at s\[loc\[0\]:loc\[1\]\].
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5394>)
+[\(view code\)](<./Regexp.hx#L5472>)
 
 
 ### Regexp function findStringSubmatch
@@ -2224,7 +3264,7 @@ its subexpressions, as defined by the 'Submatch' description in the
 package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5248>)
+[\(view code\)](<./Regexp.hx#L5326>)
 
 
 ### Regexp function findStringSubmatchIndex
@@ -2242,7 +3282,7 @@ matches, if any, of its subexpressions, as defined by the 'Submatch' and
 'Index' descriptions in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5237>)
+[\(view code\)](<./Regexp.hx#L5315>)
 
 
 ### Regexp function findSubmatch
@@ -2260,7 +3300,7 @@ subexpressions, as defined by the 'Submatch' descriptions in the package
 comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5357>)
+[\(view code\)](<./Regexp.hx#L5435>)
 
 
 ### Regexp function findSubmatchIndex
@@ -2278,7 +3318,7 @@ its subexpressions, as defined by the 'Submatch' and 'Index' descriptions
 in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5270>)
+[\(view code\)](<./Regexp.hx#L5348>)
 
 
 ### Regexp function literalPrefix
@@ -2297,7 +3337,7 @@ LiteralPrefix returns a literal string that must begin any match
 of the regular expression re. It returns the boolean true if the
 literal string comprises the entire regular expression.  
 
-[\(view code\)](<./Regexp.hx#L5688>)
+[\(view code\)](<./Regexp.hx#L5766>)
 
 
 ### Regexp function longest
@@ -2316,7 +3356,30 @@ it chooses a match that is as long as possible.
 This method modifies the Regexp and may not be called concurrently
 with any other methods.  
 
-[\(view code\)](<./Regexp.hx#L5782>)
+[\(view code\)](<./Regexp.hx#L5860>)
+
+
+### Regexp function marshalText
+
+
+```haxe
+function marshalText():{
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
+```
+
+
+
+MarshalText implements \[encoding.TextMarshaler\]. The output
+matches that of calling the \[Regexp.String\] method.  
+
+
+Note that the output is lossy in some cases: This method does not indicate
+POSIX regular expressions \(i.e. those compiled by calling \[CompilePOSIX\]\), or
+those for which the \[Regexp.Longest\] method has been called.  
+
+[\(view code\)](<./Regexp.hx#L5074>)
 
 
 ### Regexp function match
@@ -2331,7 +3394,7 @@ function match( _b:stdgo.Slice<stdgo.GoByte>):Bool
 Match reports whether the byte slice b
 contains any match of the regular expression re.  
 
-[\(view code\)](<./Regexp.hx#L5663>)
+[\(view code\)](<./Regexp.hx#L5741>)
 
 
 ### Regexp function matchReader
@@ -2346,7 +3409,7 @@ function matchReader( _r:stdgo.io.RuneReader):Bool
 MatchReader reports whether the text returned by the RuneReader
 contains any match of the regular expression re.  
 
-[\(view code\)](<./Regexp.hx#L5679>)
+[\(view code\)](<./Regexp.hx#L5757>)
 
 
 ### Regexp function matchString
@@ -2361,7 +3424,7 @@ function matchString( _s:stdgo.GoString):Bool
 MatchString reports whether the string s
 contains any match of the regular expression re.  
 
-[\(view code\)](<./Regexp.hx#L5671>)
+[\(view code\)](<./Regexp.hx#L5749>)
 
 
 ### Regexp function numSubexp
@@ -2375,7 +3438,7 @@ function numSubexp():stdgo.GoInt
 
 NumSubexp returns the number of parenthesized subexpressions in this Regexp.  
 
-[\(view code\)](<./Regexp.hx#L5727>)
+[\(view code\)](<./Regexp.hx#L5805>)
 
 
 ### Regexp function replaceAll
@@ -2391,7 +3454,7 @@ ReplaceAll returns a copy of src, replacing matches of the Regexp
 with the replacement text repl. Inside repl, $ signs are interpreted as
 in Expand, so for instance $1 represents the text of the first submatch.  
 
-[\(view code\)](<./Regexp.hx#L5548>)
+[\(view code\)](<./Regexp.hx#L5626>)
 
 
 ### Regexp function replaceAllFunc
@@ -2408,7 +3471,7 @@ Regexp have been replaced by the return value of function repl applied
 to the matched byte slice. The replacement returned by repl is substituted
 directly, without using Expand.  
 
-[\(view code\)](<./Regexp.hx#L5526>)
+[\(view code\)](<./Regexp.hx#L5604>)
 
 
 ### Regexp function replaceAllLiteral
@@ -2424,7 +3487,7 @@ ReplaceAllLiteral returns a copy of src, replacing matches of the Regexp
 with the replacement bytes repl. The replacement repl is substituted directly,
 without using Expand.  
 
-[\(view code\)](<./Regexp.hx#L5537>)
+[\(view code\)](<./Regexp.hx#L5615>)
 
 
 ### Regexp function replaceAllLiteralString
@@ -2440,7 +3503,7 @@ ReplaceAllLiteralString returns a copy of src, replacing matches of the Regexp
 with the replacement string repl. The replacement repl is substituted directly,
 without using Expand.  
 
-[\(view code\)](<./Regexp.hx#L5637>)
+[\(view code\)](<./Regexp.hx#L5715>)
 
 
 ### Regexp function replaceAllString
@@ -2456,7 +3519,7 @@ ReplaceAllString returns a copy of src, replacing matches of the Regexp
 with the replacement string repl. Inside repl, $ signs are interpreted as
 in Expand, so for instance $1 represents the text of the first submatch.  
 
-[\(view code\)](<./Regexp.hx#L5648>)
+[\(view code\)](<./Regexp.hx#L5726>)
 
 
 ### Regexp function replaceAllStringFunc
@@ -2473,7 +3536,7 @@ Regexp have been replaced by the return value of function repl applied
 to the matched substring. The replacement returned by repl is substituted
 directly, without using Expand.  
 
-[\(view code\)](<./Regexp.hx#L5625>)
+[\(view code\)](<./Regexp.hx#L5703>)
 
 
 ### Regexp function split
@@ -2508,7 +3571,7 @@ The count determines the number of substrings to return:
 	n == 0: the result is nil (zero substrings)
 	n < 0: all substrings
 ```
-[\(view code\)](<./Regexp.hx#L5019>)
+[\(view code\)](<./Regexp.hx#L5097>)
 
 
 ### Regexp function string
@@ -2522,7 +3585,7 @@ function string():stdgo.GoString
 
 String returns the source text used to compile the regular expression.  
 
-[\(view code\)](<./Regexp.hx#L5804>)
+[\(view code\)](<./Regexp.hx#L5882>)
 
 
 ### Regexp function subexpIndex
@@ -2543,7 +3606,7 @@ Note that multiple subexpressions can be written using the same name, as in
 In this case, SubexpIndex returns the index of the leftmost such subexpression
 in the regular expression.  
 
-[\(view code\)](<./Regexp.hx#L5702>)
+[\(view code\)](<./Regexp.hx#L5780>)
 
 
 ### Regexp function subexpNames
@@ -2561,7 +3624,22 @@ so that if m is a match slice, the name for m\[i\] is SubexpNames\(\)\[i\].
 Since the Regexp as a whole cannot be named, names\[0\] is always
 the empty string. The slice should not be modified.  
 
-[\(view code\)](<./Regexp.hx#L5720>)
+[\(view code\)](<./Regexp.hx#L5798>)
+
+
+### Regexp function unmarshalText
+
+
+```haxe
+function unmarshalText( _text:stdgo.Slice<stdgo.GoByte>):stdgo.Error
+```
+
+
+
+UnmarshalText implements \[encoding.TextUnmarshaler\] by calling
+\[Compile\] on the encoded value.  
+
+[\(view code\)](<./Regexp.hx#L5039>)
 
 
 ## class ReplaceFuncTest
@@ -2598,7 +3676,7 @@ function new(?_pattern:stdgo.GoString, ?_replacement:(), ?_input:stdgo.GoString,
 ```
 
 
-[\(view code\)](<./Regexp.hx#L878>)
+[\(view code\)](<./Regexp.hx#L869>)
 
 
 ## class ReplaceTest
@@ -2632,6 +3710,155 @@ function new(?_pattern:stdgo.GoString, ?_replacement:stdgo.GoString, ?_input:std
 ```
 
 
-[\(view code\)](<./Regexp.hx#L857>)
+[\(view code\)](<./Regexp.hx#L848>)
 
+
+# Typedefs
+
+
+```haxe
+import stdgo.regexp.*
+```
+
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+	_s:stdgo.GoString;
+	_r:stdgo.GoString;
+	_out:stdgo.Slice<stdgo.GoString>;
+	_n:stdgo.GoInt;
+};
+```
+
+
+## typedef T\_\_struct\_1
+
+
+```haxe
+typedef T__struct_1 = {
+	_reFlags:stdgo.regexp.syntax.Flags;
+	_expMatch:Bool;
+};
+```
+
+
+## typedef T\_\_struct\_2
+
+
+```haxe
+typedef T__struct_2 = {
+	_re:stdgo.GoString;
+	_name:stdgo.GoString;
+};
+```
+
+
+## typedef T\_\_struct\_3
+
+
+```haxe
+typedef T__struct_3 = {
+	regexp:stdgo.GoString;
+	_min:stdgo.GoInt;
+};
+```
+
+
+## typedef T\_\_struct\_4
+
+
+```haxe
+typedef T__struct_4 = {
+	_name:stdgo.GoString;
+	_n:stdgo.GoInt;
+};
+```
+
+
+## typedef T\_\_struct\_5
+
+
+```haxe
+typedef T__struct_5 = {
+	_rightPC:stdgo.GoUInt32;
+	_right:stdgo.Slice<stdgo.GoInt32>;
+	_next:stdgo.Slice<stdgo.GoUInt32>;
+	_merged:stdgo.Slice<stdgo.GoInt32>;
+	_leftPC:stdgo.GoUInt32;
+	_left:stdgo.Slice<stdgo.GoInt32>;
+};
+```
+
+
+## typedef T\_\_struct\_6
+
+
+```haxe
+typedef T__struct_6 = {
+	_re:stdgo.GoString;
+	_isOnePass:Bool;
+};
+```
+
+
+## typedef T\_\_struct\_7
+
+
+```haxe
+typedef T__struct_7 = {
+	_re:stdgo.GoString;
+	_match:stdgo.GoString;
+};
+```
+
+
+## typedef T\_input
+
+
+```haxe
+typedef T_input = {
+	public function _step(_pos:stdgo.GoInt):{
+		_1:stdgo.GoInt;
+		_0:stdgo.GoRune;
+	};	//  advance one rune
+	public function _index(_re:stdgo.Ref<stdgo.regexp.Regexp>, _pos:stdgo.GoInt):stdgo.GoInt;
+	public function _hasPrefix(_re:stdgo.Ref<stdgo.regexp.Regexp>):Bool;
+	public function _context(_pos:stdgo.GoInt):stdgo.regexp.T_lazyFlag;
+	public function _canCheckPrefix():Bool;	//  can we look ahead without losing info?
+};
+```
+
+
+
+input abstracts different representations of the input text. It provides
+one\-character lookahead.  
+
+## typedef T\_lazyFlag
+
+
+```haxe
+typedef T_lazyFlag = stdgo.GoUInt64;
+```
+
+
+
+A lazyFlag is a lazily\-evaluated syntax.EmptyOp,
+for checking zero\-width flags like ^ $ \\A \\z \\B \\b.
+It records the pair of relevant runes and does not
+determine the implied flags until absolutely necessary
+\(most of the time, that means never\).  
+
+## typedef T\_runeSlice
+
+
+```haxe
+typedef T_runeSlice = stdgo.Slice<stdgo.GoInt32>;
+```
+
+
+
+runeSlice exists to permit sorting the case\-folded rune sets.  
 

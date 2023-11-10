@@ -28,47 +28,6 @@ high\-performance serialization, especially for large data structures,
 should look at more advanced solutions such as the encoding/gob
 package or protocol buffers.  
 
-<details><summary>hl tests failed</summary>
-<p>
-
-```
-Error: Command failed with error 1
-=== RUN  TestLittleEndianRead
-Exception: sync.load is not yet implemented
-Called from stdgo.encoding.binary._Binary.$Binary_Fields_._dataSize (stdgo/encoding/binary/Binary.hx line 1060)
-Called from stdgo.encoding.binary._Binary.$Binary_Fields_.read (stdgo/encoding/binary/Binary.hx line 849)
-Called from stdgo.encoding.binary._Binary.$Binary_Fields_._testRead (stdgo/encoding/binary/Binary.hx line 1178)
-Called from stdgo.encoding.binary._Binary.$Binary_Fields_.testLittleEndianRead (stdgo/encoding/binary/Binary.hx line 1187)
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 358)
-Called from stdgo.encoding.binary_test._Binary.$Binary_Fields_.main (stdgo/encoding/binary_test/Binary.hx line 107)
-```
-</p>
-</details>
-
-<details><summary>interp tests failed</summary>
-<p>
-
-```
-=== RUN  TestLittleEndianRead
-Exception: sync.load is not yet implemented
-Called from stdgo.encoding.binary._Binary.Binary_Fields_.testLittleEndianRead (stdgo/encoding/binary/Binary.hx line 1187 column 9)
-Called from stdgo.encoding.binary._Binary.Binary_Fields_._testRead (stdgo/encoding/binary/Binary.hx line 1178 column 26)
-Called from stdgo.encoding.binary._Binary.Binary_Fields_.read (stdgo/encoding/binary/Binary.hx line 849 column 25)
-Called from stdgo.encoding.binary._Binary.Binary_Fields_._dataSize (stdgo/encoding/binary/Binary.hx line 1060 column 35)
-Called from stdgo.sync.Map__static_extension.load (stdgo/sync/Sync.hx line 1193 column 109)
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
-
 
 # Index
 
@@ -76,6 +35,32 @@ IO.Overflow("write_ui16")
 - [Constants](<#constants>)
 
 - [Variables](<#variables>)
+
+- [`function _checkResult(_t:stdgo.Ref<stdgo.testing.T>, _dir:stdgo.GoString, _order:stdgo.encoding.binary.ByteOrder, _err:stdgo.Error, _have:stdgo.AnyInterface, _want:stdgo.AnyInterface):Void`](<#function-_checkresult>)
+
+- [`function _dataSize(_v:stdgo.reflect.Value):stdgo.GoInt`](<#function-_datasize>)
+
+- [`function _intDataSize(_data:stdgo.AnyInterface):stdgo.GoInt`](<#function-_intdatasize>)
+
+- [`function _sizeof(_t:stdgo.reflect.Type):stdgo.GoInt`](<#function-_sizeof>)
+
+- [`function _testConstant(_t:stdgo.Ref<stdgo.testing.T>, _w:stdgo.GoUInt, _max:stdgo.GoInt):Void`](<#function-_testconstant>)
+
+- [`function _testOverflow(_t:stdgo.Ref<stdgo.testing.T>, _buf:stdgo.Slice<stdgo.GoByte>, _x0:stdgo.GoUInt64, _n0:stdgo.GoInt, _err0:stdgo.Error):Void`](<#function-_testoverflow>)
+
+- [`function _testPutUint64SmallSliceLengthPanics():Bool`](<#function-_testputuint64smallslicelengthpanics>)
+
+- [`function _testRead(_t:stdgo.Ref<stdgo.testing.T>, _order:stdgo.encoding.binary.ByteOrder, _b:stdgo.Slice<stdgo.GoByte>, _s1:stdgo.AnyInterface):Void`](<#function-_testread>)
+
+- [`function _testReadInvalidDestination(_t:stdgo.Ref<stdgo.testing.T>, _order:stdgo.encoding.binary.ByteOrder):Void`](<#function-_testreadinvaliddestination>)
+
+- [`function _testUint64SmallSliceLengthPanics():Bool`](<#function-_testuint64smallslicelengthpanics>)
+
+- [`function _testUvarint(_t:stdgo.Ref<stdgo.testing.T>, _x:stdgo.GoUInt64):Void`](<#function-_testuvarint>)
+
+- [`function _testVarint(_t:stdgo.Ref<stdgo.testing.T>, _x:stdgo.GoInt64):Void`](<#function-_testvarint>)
+
+- [`function _testWrite(_t:stdgo.Ref<stdgo.testing.T>, _order:stdgo.encoding.binary.ByteOrder, _b:stdgo.Slice<stdgo.GoByte>, _s1:stdgo.AnyInterface):Void`](<#function-_testwrite>)
 
 - [`function appendUvarint(_buf:stdgo.Slice<stdgo.GoByte>, _x:stdgo.GoUInt64):stdgo.Slice<stdgo.GoByte>`](<#function-appenduvarint>)
 
@@ -175,6 +160,10 @@ IO.Overflow("write_ui16")
 
 - [`function testLittleEndianWrite(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testlittleendianwrite>)
 
+- [`function testNativeEndian(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnativeendian>)
+
+- [`function testNoFixedSize(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnofixedsize>)
+
 - [`function testNonCanonicalZero(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnoncanonicalzero>)
 
 - [`function testOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testoverflow>)
@@ -190,6 +179,8 @@ IO.Overflow("write_ui16")
 - [`function testReadSlice(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreadslice>)
 
 - [`function testReadTruncated(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreadtruncated>)
+
+- [`function testSizeInvalid(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsizeinvalid>)
 
 - [`function testSizeStructCache(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsizestructcache>)
 
@@ -231,7 +222,11 @@ IO.Overflow("write_ui16")
 
 - [class T](<#class-t>)
 
-  - [`function new(?int_:Null<stdgo.GoInt>, ?uint:Null<stdgo.GoUInt>, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void`](<#t-function-new>)
+  - [`function new(?int_:Null<stdgo.GoInt>, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void`](<#t-function-new>)
+
+- [class T\_testNoFixedSize\_0\_\_\_localname\_\_\_Person](<#class-t_testnofixedsize_0localnameperson>)
+
+  - [`function new(?age:Null<stdgo.GoInt>, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void`](<#t_testnofixedsize_0localnameperson-function-new>)
 
 - [class T\_testSizeStructCache\_0\_\_\_localname\_\_\_foo](<#class-t_testsizestructcache_0localnamefoo>)
 
@@ -248,6 +243,24 @@ IO.Overflow("write_ui16")
 - [typedef AppendByteOrder](<#typedef-appendbyteorder>)
 
 - [typedef ByteOrder](<#typedef-byteorder>)
+
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
+- [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
+
+- [typedef T\_\_struct\_2](<#typedef-t__struct_2>)
+
+- [typedef T\_\_struct\_3](<#typedef-t__struct_3>)
+
+- [typedef T\_\_struct\_4](<#typedef-t__struct_4>)
+
+- [typedef T\_\_struct\_5](<#typedef-t__struct_5>)
+
+- [typedef T\_\_struct\_6](<#typedef-t__struct_6>)
+
+- [typedef T\_decoder](<#typedef-t_decoder>)
+
+- [typedef T\_encoder](<#typedef-t_encoder>)
 
 - [typedef T\_testByteOrder\_0\_\_\_localname\_\_\_byteOrder](<#typedef-t_testbyteorder_0localnamebyteorder>)
 
@@ -283,7 +296,7 @@ import stdgo.encoding.binary.Binary
 
 
 ```haxe
-final maxVarintLen16:stdgo.GoUInt64 = ((3i64 : GoUInt64))
+final maxVarintLen16:stdgo.GoUInt64 = ((3i64 : stdgo.StdGoTypes.GoUInt64))
 ```
 
 
@@ -291,7 +304,7 @@ final maxVarintLen16:stdgo.GoUInt64 = ((3i64 : GoUInt64))
 MaxVarintLenN is the maximum length of a varint\-encoded N\-bit integer.  
 
 ```haxe
-final maxVarintLen32:stdgo.GoUInt64 = ((5i64 : GoUInt64))
+final maxVarintLen32:stdgo.GoUInt64 = ((5i64 : stdgo.StdGoTypes.GoUInt64))
 ```
 
 
@@ -299,7 +312,7 @@ final maxVarintLen32:stdgo.GoUInt64 = ((5i64 : GoUInt64))
 MaxVarintLenN is the maximum length of a varint\-encoded N\-bit integer.  
 
 ```haxe
-final maxVarintLen64:stdgo.GoUInt64 = ((10i64 : GoUInt64))
+final maxVarintLen64:stdgo.GoUInt64 = ((10i64 : stdgo.StdGoTypes.GoUInt64))
 ```
 
 
@@ -311,6 +324,62 @@ MaxVarintLenN is the maximum length of a varint\-encoded N\-bit integer.
 
 ```haxe
 import stdgo.encoding.binary.Binary
+```
+
+
+```haxe
+var _big:stdgo.Slice<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _errOverflow:stdgo.Error
+```
+
+
+```haxe
+var _intArrays:stdgo.Slice<stdgo.AnyInterface>
+```
+
+
+
+Addresses of arrays are easier to manipulate with reflection than are slices.  
+
+```haxe
+var _little:stdgo.Slice<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _putbuf:stdgo.Slice<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _res:stdgo.Slice<stdgo.GoInt32>
+```
+
+
+```haxe
+var _s:stdgo.encoding.binary.Struct
+```
+
+
+```haxe
+var _src:stdgo.Slice<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _structSize:stdgo.sync.Map_
+```
+
+
+
+map\[reflect.Type\]int  
+
+```haxe
+var _tests:stdgo.Slice<stdgo.GoInt64>
 ```
 
 
@@ -330,12 +399,176 @@ var littleEndian:stdgo.encoding.binary.T_littleEndian
 
 LittleEndian is the little\-endian implementation of ByteOrder and AppendByteOrder.  
 
+```haxe
+var nativeEndian:stdgo.encoding.binary.T_nativeEndian
+```
+
+
+
+NativeEndian is the native\-endian implementation of ByteOrder and AppendByteOrder.  
+
 # Functions
 
 
 ```haxe
 import stdgo.encoding.binary.Binary
 ```
+
+
+## function \_checkResult
+
+
+```haxe
+function _checkResult(_t:stdgo.Ref<stdgo.testing.T>, _dir:stdgo.GoString, _order:stdgo.encoding.binary.ByteOrder, _err:stdgo.Error, _have:stdgo.AnyInterface, _want:stdgo.AnyInterface):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L1200>)
+
+
+## function \_dataSize
+
+
+```haxe
+function _dataSize(_v:stdgo.reflect.Value):stdgo.GoInt
+```
+
+
+
+dataSize returns the number of bytes the actual data represented by v occupies in memory.
+For compound structures, it sums the sizes of the elements. Thus, for instance, for a slice
+it returns the length of the slice times the element size and does not count the memory
+occupied by the header. If the type of v is not acceptable, dataSize returns \-1.  
+
+[\(view code\)](<./Binary.hx#L1077>)
+
+
+## function \_intDataSize
+
+
+```haxe
+function _intDataSize(_data:stdgo.AnyInterface):stdgo.GoInt
+```
+
+
+
+intDataSize returns the size of the data required to represent the data when encoded.
+It returns zero if the type cannot be implemented by the fast path in Read or Write.  
+
+[\(view code\)](<./Binary.hx#L1142>)
+
+
+## function \_sizeof
+
+
+```haxe
+function _sizeof(_t:stdgo.reflect.Type):stdgo.GoInt
+```
+
+
+
+sizeof returns the size \>= 0 of variables for the given type or \-1 if the type is not acceptable.  
+
+[\(view code\)](<./Binary.hx#L1109>)
+
+
+## function \_testConstant
+
+
+```haxe
+function _testConstant(_t:stdgo.Ref<stdgo.testing.T>, _w:stdgo.GoUInt, _max:stdgo.GoInt):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L2265>)
+
+
+## function \_testOverflow
+
+
+```haxe
+function _testOverflow(_t:stdgo.Ref<stdgo.testing.T>, _buf:stdgo.Slice<stdgo.GoByte>, _x0:stdgo.GoUInt64, _n0:stdgo.GoInt, _err0:stdgo.Error):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L2443>)
+
+
+## function \_testPutUint64SmallSliceLengthPanics
+
+
+```haxe
+function _testPutUint64SmallSliceLengthPanics():Bool
+```
+
+
+[\(view code\)](<./Binary.hx#L1604>)
+
+
+## function \_testRead
+
+
+```haxe
+function _testRead(_t:stdgo.Ref<stdgo.testing.T>, _order:stdgo.encoding.binary.ByteOrder, _b:stdgo.Slice<stdgo.GoByte>, _s1:stdgo.AnyInterface):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L1209>)
+
+
+## function \_testReadInvalidDestination
+
+
+```haxe
+function _testReadInvalidDestination(_t:stdgo.Ref<stdgo.testing.T>, _order:stdgo.encoding.binary.ByteOrder):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L1734>)
+
+
+## function \_testUint64SmallSliceLengthPanics
+
+
+```haxe
+function _testUint64SmallSliceLengthPanics():Bool
+```
+
+
+[\(view code\)](<./Binary.hx#L1558>)
+
+
+## function \_testUvarint
+
+
+```haxe
+function _testUvarint(_t:stdgo.Ref<stdgo.testing.T>, _x:stdgo.GoUInt64):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L2300>)
+
+
+## function \_testVarint
+
+
+```haxe
+function _testVarint(_t:stdgo.Ref<stdgo.testing.T>, _x:stdgo.GoInt64):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L2277>)
+
+
+## function \_testWrite
+
+
+```haxe
+function _testWrite(_t:stdgo.Ref<stdgo.testing.T>, _order:stdgo.encoding.binary.ByteOrder, _b:stdgo.Slice<stdgo.GoByte>, _s1:stdgo.AnyInterface):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L1214>)
 
 
 ## function appendUvarint
@@ -350,7 +583,7 @@ function appendUvarint(_buf:stdgo.Slice<stdgo.GoByte>, _x:stdgo.GoUInt64):stdgo.
 AppendUvarint appends the varint\-encoded form of x,
 as generated by PutUvarint, to buf and returns the extended buffer.  
 
-[\(view code\)](<./Binary.hx#L2034>)
+[\(view code\)](<./Binary.hx#L2133>)
 
 
 ## function appendVarint
@@ -365,7 +598,7 @@ function appendVarint(_buf:stdgo.Slice<stdgo.GoByte>, _x:stdgo.GoInt64):stdgo.Sl
 AppendVarint appends the varint\-encoded form of x,
 as generated by PutVarint, to buf and returns the extended buffer.  
 
-[\(view code\)](<./Binary.hx#L2086>)
+[\(view code\)](<./Binary.hx#L2185>)
 
 
 ## function benchmarkAppendUint16
@@ -376,7 +609,7 @@ function benchmarkAppendUint16(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1823>)
+[\(view code\)](<./Binary.hx#L1911>)
 
 
 ## function benchmarkAppendUint32
@@ -387,7 +620,7 @@ function benchmarkAppendUint32(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1841>)
+[\(view code\)](<./Binary.hx#L1929>)
 
 
 ## function benchmarkAppendUint64
@@ -398,7 +631,7 @@ function benchmarkAppendUint64(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1859>)
+[\(view code\)](<./Binary.hx#L1947>)
 
 
 ## function benchmarkLittleEndianAppendUint16
@@ -409,7 +642,7 @@ function benchmarkLittleEndianAppendUint16(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1877>)
+[\(view code\)](<./Binary.hx#L1965>)
 
 
 ## function benchmarkLittleEndianAppendUint32
@@ -420,7 +653,7 @@ function benchmarkLittleEndianAppendUint32(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1895>)
+[\(view code\)](<./Binary.hx#L1983>)
 
 
 ## function benchmarkLittleEndianAppendUint64
@@ -431,7 +664,7 @@ function benchmarkLittleEndianAppendUint64(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1913>)
+[\(view code\)](<./Binary.hx#L2001>)
 
 
 ## function benchmarkLittleEndianPutUint16
@@ -442,7 +675,7 @@ function benchmarkLittleEndianPutUint16(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1868>)
+[\(view code\)](<./Binary.hx#L1956>)
 
 
 ## function benchmarkLittleEndianPutUint32
@@ -453,7 +686,7 @@ function benchmarkLittleEndianPutUint32(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1886>)
+[\(view code\)](<./Binary.hx#L1974>)
 
 
 ## function benchmarkLittleEndianPutUint64
@@ -464,7 +697,7 @@ function benchmarkLittleEndianPutUint64(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1904>)
+[\(view code\)](<./Binary.hx#L1992>)
 
 
 ## function benchmarkPutUint16
@@ -475,7 +708,7 @@ function benchmarkPutUint16(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1814>)
+[\(view code\)](<./Binary.hx#L1902>)
 
 
 ## function benchmarkPutUint32
@@ -486,7 +719,7 @@ function benchmarkPutUint32(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1832>)
+[\(view code\)](<./Binary.hx#L1920>)
 
 
 ## function benchmarkPutUint64
@@ -497,7 +730,7 @@ function benchmarkPutUint64(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1850>)
+[\(view code\)](<./Binary.hx#L1938>)
 
 
 ## function benchmarkPutUvarint32
@@ -508,7 +741,7 @@ function benchmarkPutUvarint32(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L2416>)
+[\(view code\)](<./Binary.hx#L2515>)
 
 
 ## function benchmarkPutUvarint64
@@ -519,7 +752,7 @@ function benchmarkPutUvarint64(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L2431>)
+[\(view code\)](<./Binary.hx#L2530>)
 
 
 ## function benchmarkReadFloats
@@ -530,7 +763,7 @@ function benchmarkReadFloats(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1922>)
+[\(view code\)](<./Binary.hx#L2010>)
 
 
 ## function benchmarkReadInts
@@ -541,7 +774,7 @@ function benchmarkReadInts(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1742>)
+[\(view code\)](<./Binary.hx#L1830>)
 
 
 ## function benchmarkReadSlice1000Float32s
@@ -552,7 +785,7 @@ function benchmarkReadSlice1000Float32s(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1973>)
+[\(view code\)](<./Binary.hx#L2061>)
 
 
 ## function benchmarkReadSlice1000Int32s
@@ -563,7 +796,7 @@ function benchmarkReadSlice1000Int32s(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1699>)
+[\(view code\)](<./Binary.hx#L1787>)
 
 
 ## function benchmarkReadSlice1000Uint8s
@@ -574,7 +807,7 @@ function benchmarkReadSlice1000Uint8s(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L2002>)
+[\(view code\)](<./Binary.hx#L2090>)
 
 
 ## function benchmarkReadStruct
@@ -585,7 +818,7 @@ function benchmarkReadStruct(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1713>)
+[\(view code\)](<./Binary.hx#L1801>)
 
 
 ## function benchmarkWriteFloats
@@ -596,7 +829,7 @@ function benchmarkWriteFloats(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1955>)
+[\(view code\)](<./Binary.hx#L2043>)
 
 
 ## function benchmarkWriteInts
@@ -607,7 +840,7 @@ function benchmarkWriteInts(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1775>)
+[\(view code\)](<./Binary.hx#L1863>)
 
 
 ## function benchmarkWriteSlice1000Float32s
@@ -618,7 +851,7 @@ function benchmarkWriteSlice1000Float32s(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1987>)
+[\(view code\)](<./Binary.hx#L2075>)
 
 
 ## function benchmarkWriteSlice1000Int32s
@@ -629,7 +862,7 @@ function benchmarkWriteSlice1000Int32s(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1799>)
+[\(view code\)](<./Binary.hx#L1887>)
 
 
 ## function benchmarkWriteSlice1000Uint8s
@@ -640,7 +873,7 @@ function benchmarkWriteSlice1000Uint8s(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L2016>)
+[\(view code\)](<./Binary.hx#L2104>)
 
 
 ## function benchmarkWriteStruct
@@ -651,7 +884,7 @@ function benchmarkWriteStruct(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1732>)
+[\(view code\)](<./Binary.hx#L1820>)
 
 
 ## function putUvarint
@@ -675,10 +908,10 @@ If the buffer is too small, PutUvarint will panic.
 
 ```haxe
 function examplePutUvarint():Void {
-        var _buf = new Slice<GoUInt8>((10 : GoInt).toBasic(), 0).__setNumber32__();
-        for (__0 => _x in (new Slice<GoUInt64>(6, 6, (1i64 : GoUInt64), (2i64 : GoUInt64), (127i64 : GoUInt64), (128i64 : GoUInt64), (255i64 : GoUInt64), (256i64 : GoUInt64)) : Slice<GoUInt64>)) {
-            var _n:GoInt = stdgo.encoding.binary.Binary.putUvarint(_buf, _x);
-            stdgo.fmt.Fmt.printf(("%x\n" : GoString), Go.toInterface((_buf.__slice__(0, _n) : Slice<GoUInt8>)));
+        var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((10 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
+        for (__0 => _x in (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(6, 6, (1i64 : stdgo.StdGoTypes.GoUInt64), (2i64 : stdgo.StdGoTypes.GoUInt64), (127i64 : stdgo.StdGoTypes.GoUInt64), (128i64 : stdgo.StdGoTypes.GoUInt64), (255i64 : stdgo.StdGoTypes.GoUInt64), (256i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>)) {
+            var _n:stdgo.StdGoTypes.GoInt = stdgo.encoding.binary.Binary.putUvarint(_buf, _x);
+            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
         };
     }
 ```
@@ -688,7 +921,7 @@ function examplePutUvarint():Void {
 </details>
 
 
-[\(view code\)](<./Binary.hx#L2045>)
+[\(view code\)](<./Binary.hx#L2144>)
 
 
 ## function putVarint
@@ -712,21 +945,21 @@ If the buffer is too small, PutVarint will panic.
 
 ```haxe
 function examplePutVarint():Void {
-        var _buf = new Slice<GoUInt8>((10 : GoInt).toBasic(), 0).__setNumber32__();
-        for (__0 => _x in (new Slice<GoInt64>(
+        var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((10 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
+        for (__0 => _x in (new stdgo.Slice<stdgo.StdGoTypes.GoInt64>(
 9,
 9,
-(-65i64 : GoInt64),
-(-64i64 : GoInt64),
-(-2i64 : GoInt64),
-(-1i64 : GoInt64),
-(0i64 : GoInt64),
-(1i64 : GoInt64),
-(2i64 : GoInt64),
-(63i64 : GoInt64),
-(64i64 : GoInt64)) : Slice<GoInt64>)) {
-            var _n:GoInt = stdgo.encoding.binary.Binary.putVarint(_buf, _x);
-            stdgo.fmt.Fmt.printf(("%x\n" : GoString), Go.toInterface((_buf.__slice__(0, _n) : Slice<GoUInt8>)));
+(-65i64 : stdgo.StdGoTypes.GoInt64),
+(-64i64 : stdgo.StdGoTypes.GoInt64),
+(-2i64 : stdgo.StdGoTypes.GoInt64),
+(-1i64 : stdgo.StdGoTypes.GoInt64),
+(0i64 : stdgo.StdGoTypes.GoInt64),
+(1i64 : stdgo.StdGoTypes.GoInt64),
+(2i64 : stdgo.StdGoTypes.GoInt64),
+(63i64 : stdgo.StdGoTypes.GoInt64),
+(64i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoInt64>)) {
+            var _n:stdgo.StdGoTypes.GoInt = stdgo.encoding.binary.Binary.putVarint(_buf, _x);
+            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
         };
     }
 ```
@@ -736,7 +969,7 @@ function examplePutVarint():Void {
 </details>
 
 
-[\(view code\)](<./Binary.hx#L2097>)
+[\(view code\)](<./Binary.hx#L2196>)
 
 
 ## function read
@@ -775,14 +1008,14 @@ Read returns ErrUnexpectedEOF.
 
 ```haxe
 function exampleRead():Void {
-        var _pi:GoFloat64 = (0 : GoFloat64);
-        var _b = (new Slice<GoUInt8>(8, 8, (24 : GoUInt8), (45 : GoUInt8), (68 : GoUInt8), (84 : GoUInt8), (251 : GoUInt8), (33 : GoUInt8), (9 : GoUInt8), (64 : GoUInt8)) : Slice<GoUInt8>);
+        var _pi:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
+        var _b = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (24 : stdgo.StdGoTypes.GoUInt8), (45 : stdgo.StdGoTypes.GoUInt8), (68 : stdgo.StdGoTypes.GoUInt8), (84 : stdgo.StdGoTypes.GoUInt8), (251 : stdgo.StdGoTypes.GoUInt8), (33 : stdgo.StdGoTypes.GoUInt8), (9 : stdgo.StdGoTypes.GoUInt8), (64 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         var _buf = stdgo.bytes.Bytes.newReader(_b);
-        var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), Go.toInterface(Go.pointer(_pi)));
+        var _err:stdgo.Error = stdgo.encoding.binary.Binary.read(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), stdgo.Go.toInterface(stdgo.Go.pointer(_pi)));
         if (_err != null) {
-            stdgo.fmt.Fmt.println(Go.toInterface(("binary.Read failed:" : GoString)), Go.toInterface(_err));
+            stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("binary.Read failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        stdgo.fmt.Fmt.print(Go.toInterface(_pi));
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface(_pi));
     }
 ```
 
@@ -800,35 +1033,35 @@ function exampleRead():Void {
 
 ```haxe
 function exampleRead_multi():Void {
-        var _b = (new Slice<GoUInt8>(
+        var _b = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
 14,
 14,
-(24 : GoUInt8),
-(45 : GoUInt8),
-(68 : GoUInt8),
-(84 : GoUInt8),
-(251 : GoUInt8),
-(33 : GoUInt8),
-(9 : GoUInt8),
-(64 : GoUInt8),
-(255 : GoUInt8),
-(1 : GoUInt8),
-(2 : GoUInt8),
-(3 : GoUInt8),
-(190 : GoUInt8),
-(239 : GoUInt8)) : Slice<GoUInt8>);
+(24 : stdgo.StdGoTypes.GoUInt8),
+(45 : stdgo.StdGoTypes.GoUInt8),
+(68 : stdgo.StdGoTypes.GoUInt8),
+(84 : stdgo.StdGoTypes.GoUInt8),
+(251 : stdgo.StdGoTypes.GoUInt8),
+(33 : stdgo.StdGoTypes.GoUInt8),
+(9 : stdgo.StdGoTypes.GoUInt8),
+(64 : stdgo.StdGoTypes.GoUInt8),
+(255 : stdgo.StdGoTypes.GoUInt8),
+(1 : stdgo.StdGoTypes.GoUInt8),
+(2 : stdgo.StdGoTypes.GoUInt8),
+(3 : stdgo.StdGoTypes.GoUInt8),
+(190 : stdgo.StdGoTypes.GoUInt8),
+(239 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         var _r = stdgo.bytes.Bytes.newReader(_b);
-        var _data:T__struct_7 = ({ pi : (0 : GoFloat64), uate : (0 : GoUInt8), mine : new GoArray<GoUInt8>(...[for (i in 0 ... 3) (0 : GoUInt8)]), too : (0 : GoUInt16) } : T__struct_7);
+        var _data:T__struct_7 = ({ pi : (0 : stdgo.StdGoTypes.GoFloat64), uate : (0 : stdgo.StdGoTypes.GoUInt8), mine : new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 3) (0 : stdgo.StdGoTypes.GoUInt8)]), too : (0 : stdgo.StdGoTypes.GoUInt16) } : T__struct_7);
         {
-            var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_r), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), Go.toInterface(Go.asInterface((Go.setRef(_data) : Ref<T__struct_7>))));
+            var _err:stdgo.Error = stdgo.encoding.binary.Binary.read(stdgo.Go.asInterface(_r), stdgo.Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data) : stdgo.StdGoTypes.Ref<T__struct_7>))));
             if (_err != null) {
-                stdgo.fmt.Fmt.println(Go.toInterface(("binary.Read failed:" : GoString)), Go.toInterface(_err));
+                stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("binary.Read failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
         };
-        stdgo.fmt.Fmt.println(Go.toInterface(_data.pi));
-        stdgo.fmt.Fmt.println(Go.toInterface(_data.uate));
-        stdgo.fmt.Fmt.printf(("% x\n" : GoString), Go.toInterface(_data.mine));
-        stdgo.fmt.Fmt.println(Go.toInterface(_data.too));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_data.pi));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_data.uate));
+        stdgo.fmt.Fmt.printf(("% x\n" : stdgo.GoString), stdgo.Go.toInterface(_data.mine));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_data.too));
     }
 ```
 
@@ -837,7 +1070,7 @@ function exampleRead_multi():Void {
 </details>
 
 
-[\(view code\)](<./Binary.hx#L734>)
+[\(view code\)](<./Binary.hx#L765>)
 
 
 ## function readUvarint
@@ -857,7 +1090,7 @@ The error is EOF only if no bytes were read.
 If an EOF happens after reading some but not all the bytes,
 ReadUvarint returns io.ErrUnexpectedEOF.  
 
-[\(view code\)](<./Binary.hx#L2127>)
+[\(view code\)](<./Binary.hx#L2226>)
 
 
 ## function readVarint
@@ -877,7 +1110,7 @@ The error is EOF only if no bytes were read.
 If an EOF happens after reading some but not all the bytes,
 ReadVarint returns io.ErrUnexpectedEOF.  
 
-[\(view code\)](<./Binary.hx#L2158>)
+[\(view code\)](<./Binary.hx#L2257>)
 
 
 ## function size
@@ -893,7 +1126,7 @@ Size returns how many bytes Write would generate to encode the value v, which
 must be a fixed\-size value or a slice of fixed\-size values, or a pointer to such data.
 If v is neither of these, Size returns \-1.  
 
-[\(view code\)](<./Binary.hx#L1037>)
+[\(view code\)](<./Binary.hx#L1068>)
 
 
 ## function testBigEndianPtrWrite
@@ -904,7 +1137,7 @@ function testBigEndianPtrWrite(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1201>)
+[\(view code\)](<./Binary.hx#L1234>)
 
 
 ## function testBigEndianRead
@@ -915,7 +1148,7 @@ function testBigEndianRead(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1195>)
+[\(view code\)](<./Binary.hx#L1228>)
 
 
 ## function testBigEndianWrite
@@ -926,7 +1159,7 @@ function testBigEndianWrite(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1198>)
+[\(view code\)](<./Binary.hx#L1231>)
 
 
 ## function testBlankFields
@@ -937,7 +1170,7 @@ function testBlankFields(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1297>)
+[\(view code\)](<./Binary.hx#L1330>)
 
 
 ## function testBufferTooBigWithOverflow
@@ -952,7 +1185,7 @@ function testBufferTooBigWithOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 Ensure that we catch overflows of bytes going past MaxVarintLen64.
 See issue https://golang.org/issues/41185  
 
-[\(view code\)](<./Binary.hx#L2273>)
+[\(view code\)](<./Binary.hx#L2372>)
 
 
 ## function testBufferTooSmall
@@ -963,7 +1196,7 @@ function testBufferTooSmall(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L2248>)
+[\(view code\)](<./Binary.hx#L2347>)
 
 
 ## function testByteOrder
@@ -974,7 +1207,7 @@ function testByteOrder(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1603>)
+[\(view code\)](<./Binary.hx#L1659>)
 
 
 ## function testConstants
@@ -985,7 +1218,7 @@ function testConstants(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L2173>)
+[\(view code\)](<./Binary.hx#L2272>)
 
 
 ## function testEarlyBoundsChecks
@@ -996,7 +1229,7 @@ function testEarlyBoundsChecks(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1666>)
+[\(view code\)](<./Binary.hx#L1722>)
 
 
 ## function testLittleEndianPtrWrite
@@ -1007,7 +1240,7 @@ function testLittleEndianPtrWrite(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1192>)
+[\(view code\)](<./Binary.hx#L1225>)
 
 
 ## function testLittleEndianRead
@@ -1018,7 +1251,7 @@ function testLittleEndianRead(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1186>)
+[\(view code\)](<./Binary.hx#L1219>)
 
 
 ## function testLittleEndianWrite
@@ -1029,7 +1262,29 @@ function testLittleEndianWrite(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1189>)
+[\(view code\)](<./Binary.hx#L1222>)
+
+
+## function testNativeEndian
+
+
+```haxe
+function testNativeEndian(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L2118>)
+
+
+## function testNoFixedSize
+
+
+```haxe
+function testNoFixedSize(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L1774>)
 
 
 ## function testNonCanonicalZero
@@ -1040,7 +1295,7 @@ function testNonCanonicalZero(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L2409>)
+[\(view code\)](<./Binary.hx#L2508>)
 
 
 ## function testOverflow
@@ -1051,7 +1306,7 @@ function testOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L2362>)
+[\(view code\)](<./Binary.hx#L2461>)
 
 
 ## function testReadBool
@@ -1062,7 +1317,7 @@ function testReadBool(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1214>)
+[\(view code\)](<./Binary.hx#L1247>)
 
 
 ## function testReadBoolSlice
@@ -1073,7 +1328,7 @@ function testReadBoolSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1226>)
+[\(view code\)](<./Binary.hx#L1259>)
 
 
 ## function testReadErrorMsg
@@ -1084,7 +1339,7 @@ function testReadErrorMsg(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1447>)
+[\(view code\)](<./Binary.hx#L1503>)
 
 
 ## function testReadInvalidDestination
@@ -1095,7 +1350,7 @@ function testReadInvalidDestination(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1674>)
+[\(view code\)](<./Binary.hx#L1730>)
 
 
 ## function testReadSlice
@@ -1106,7 +1361,7 @@ function testReadSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1204>)
+[\(view code\)](<./Binary.hx#L1237>)
 
 
 ## function testReadTruncated
@@ -1117,7 +1372,18 @@ function testReadTruncated(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1469>)
+[\(view code\)](<./Binary.hx#L1525>)
+
+
+## function testSizeInvalid
+
+
+```haxe
+function testSizeInvalid(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L1431>)
 
 
 ## function testSizeStructCache
@@ -1128,7 +1394,7 @@ function testSizeStructCache(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1367>)
+[\(view code\)](<./Binary.hx#L1400>)
 
 
 ## function testSliceRoundTrip
@@ -1139,7 +1405,7 @@ function testSliceRoundTrip(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1231>)
+[\(view code\)](<./Binary.hx#L1264>)
 
 
 ## function testUnexportedRead
@@ -1150,7 +1416,7 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1398>)
+[\(view code\)](<./Binary.hx#L1454>)
 
 
 ## function testUvarint
@@ -1161,7 +1427,7 @@ function testUvarint(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L2237>)
+[\(view code\)](<./Binary.hx#L2336>)
 
 
 ## function testVarint
@@ -1172,7 +1438,7 @@ function testVarint(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L2224>)
+[\(view code\)](<./Binary.hx#L2323>)
 
 
 ## function testWriteSlice
@@ -1183,7 +1449,7 @@ function testWriteSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1209>)
+[\(view code\)](<./Binary.hx#L1242>)
 
 
 ## function testWriteT
@@ -1194,7 +1460,7 @@ function testWriteT(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1269>)
+[\(view code\)](<./Binary.hx#L1302>)
 
 
 ## function uvarint
@@ -1227,13 +1493,13 @@ and the number of bytes n is \<= 0 meaning:
 
 ```haxe
 function exampleUvarint():Void {
-        var _inputs = (new Slice<Slice<GoUInt8>>(6, 6, (new Slice<GoUInt8>(1, 1, (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(1, 1, (2 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(1, 1, (127 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(2, 2, (128 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(2, 2, (255 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>), (new Slice<GoUInt8>(2, 2, (128 : GoUInt8), (2 : GoUInt8)) : Slice<GoUInt8>)) : Slice<Slice<GoUInt8>>);
+        var _inputs = (new stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>(6, 6, (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (2 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (127 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (128 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (255 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (128 : stdgo.StdGoTypes.GoUInt8), (2 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) : stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>);
         for (__0 => _b in _inputs) {
-            var __tmp__ = stdgo.encoding.binary.Binary.uvarint(_b), _x:GoUInt64 = __tmp__._0, _n:GoInt = __tmp__._1;
+            var __tmp__ = stdgo.encoding.binary.Binary.uvarint(_b), _x:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _n:stdgo.StdGoTypes.GoInt = __tmp__._1;
             if (_n != ((_b.length))) {
-                stdgo.fmt.Fmt.println(Go.toInterface(("Uvarint did not consume all of in" : GoString)));
+                stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Uvarint did not consume all of in" : stdgo.GoString)));
             };
-            stdgo.fmt.Fmt.println(Go.toInterface(_x));
+            stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_x));
         };
     }
 ```
@@ -1243,7 +1509,7 @@ function exampleUvarint():Void {
 </details>
 
 
-[\(view code\)](<./Binary.hx#L2064>)
+[\(view code\)](<./Binary.hx#L2163>)
 
 
 ## function varint
@@ -1276,24 +1542,24 @@ and the number of bytes n is \<= 0 with the following meaning:
 
 ```haxe
 function exampleVarint():Void {
-        var _inputs = (new Slice<Slice<GoUInt8>>(
+        var _inputs = (new stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>(
 9,
 9,
-(new Slice<GoUInt8>(2, 2, (129 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(1, 1, (127 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(1, 1, (3 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(1, 1, (1 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(1, 1, (0 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(1, 1, (2 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(1, 1, (4 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(1, 1, (126 : GoUInt8)) : Slice<GoUInt8>),
-(new Slice<GoUInt8>(2, 2, (128 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>)) : Slice<Slice<GoUInt8>>);
+(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (129 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
+(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (127 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
+(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (3 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
+(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
+(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (0 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
+(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (2 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
+(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (4 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
+(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (126 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>),
+(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (128 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) : stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>);
         for (__0 => _b in _inputs) {
-            var __tmp__ = stdgo.encoding.binary.Binary.varint(_b), _x:GoInt64 = __tmp__._0, _n:GoInt = __tmp__._1;
+            var __tmp__ = stdgo.encoding.binary.Binary.varint(_b), _x:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _n:stdgo.StdGoTypes.GoInt = __tmp__._1;
             if (_n != ((_b.length))) {
-                stdgo.fmt.Fmt.println(Go.toInterface(("Varint did not consume all of in" : GoString)));
+                stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Varint did not consume all of in" : stdgo.GoString)));
             };
-            stdgo.fmt.Fmt.println(Go.toInterface(_x));
+            stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_x));
         };
     }
 ```
@@ -1303,7 +1569,7 @@ function exampleVarint():Void {
 </details>
 
 
-[\(view code\)](<./Binary.hx#L2113>)
+[\(view code\)](<./Binary.hx#L2212>)
 
 
 ## function write
@@ -1333,13 +1599,13 @@ with blank \(\_\) field names.
 
 ```haxe
 function exampleWrite():Void {
-        var _buf = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
-        var _pi:GoFloat64 = (3.141592653589793 : GoFloat64);
-        var _err:Error = stdgo.encoding.binary.Binary.write(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), Go.toInterface(_pi));
+        var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
+        var _pi:stdgo.StdGoTypes.GoFloat64 = (3.141592653589793 : stdgo.StdGoTypes.GoFloat64);
+        var _err:stdgo.Error = stdgo.encoding.binary.Binary.write(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), stdgo.Go.toInterface(_pi));
         if (_err != null) {
-            stdgo.fmt.Fmt.println(Go.toInterface(("binary.Write failed:" : GoString)), Go.toInterface(_err));
+            stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("binary.Write failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        stdgo.fmt.Fmt.printf(("% x" : GoString), Go.toInterface(_buf.bytes()));
+        stdgo.fmt.Fmt.printf(("% x" : stdgo.GoString), stdgo.Go.toInterface(_buf.bytes()));
     }
 ```
 
@@ -1357,15 +1623,15 @@ function exampleWrite():Void {
 
 ```haxe
 function exampleWrite_multi():Void {
-        var _buf = (Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : Ref<stdgo.bytes.Bytes.Buffer>);
-        var _data:Slice<AnyInterface> = (new Slice<AnyInterface>(3, 3, Go.toInterface((61374 : GoUInt16)), Go.toInterface((-54 : GoInt8)), Go.toInterface((254 : GoUInt8))) : Slice<AnyInterface>);
+        var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
+        var _data:stdgo.Slice<stdgo.StdGoTypes.AnyInterface> = (new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(3, 3, stdgo.Go.toInterface((61374 : stdgo.StdGoTypes.GoUInt16)), stdgo.Go.toInterface((-54 : stdgo.StdGoTypes.GoInt8)), stdgo.Go.toInterface((254 : stdgo.StdGoTypes.GoUInt8))) : stdgo.Slice<stdgo.StdGoTypes.AnyInterface>);
         for (__0 => _v in _data) {
-            var _err:Error = stdgo.encoding.binary.Binary.write(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), _v);
+            var _err:stdgo.Error = stdgo.encoding.binary.Binary.write(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), _v);
             if (_err != null) {
-                stdgo.fmt.Fmt.println(Go.toInterface(("binary.Write failed:" : GoString)), Go.toInterface(_err));
+                stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("binary.Write failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
         };
-        stdgo.fmt.Fmt.printf(("%x" : GoString), Go.toInterface(_buf.bytes()));
+        stdgo.fmt.Fmt.printf(("%x" : stdgo.GoString), stdgo.Go.toInterface(_buf.bytes()));
     }
 ```
 
@@ -1374,7 +1640,7 @@ function exampleWrite_multi():Void {
 </details>
 
 
-[\(view code\)](<./Binary.hx#L877>)
+[\(view code\)](<./Binary.hx#L908>)
 
 
 # Classes
@@ -1435,7 +1701,7 @@ function new(?a:stdgo.GoUInt32, ?__4:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?__5:std
 ```
 
 
-[\(view code\)](<./Binary.hx#L531>)
+[\(view code\)](<./Binary.hx#L528>)
 
 
 ## class BlankFieldsProbe
@@ -1488,7 +1754,7 @@ function new(?a:stdgo.GoUInt32, ?p0:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?p1:stdgo
 ```
 
 
-[\(view code\)](<./Binary.hx#L558>)
+[\(view code\)](<./Binary.hx#L555>)
 
 
 ## class Struct
@@ -1577,7 +1843,7 @@ function new(?int8:stdgo.GoInt8, ?int16:stdgo.GoInt16, ?int32:stdgo.GoInt32, ?in
 ```
 
 
-[\(view code\)](<./Binary.hx#L456>)
+[\(view code\)](<./Binary.hx#L453>)
 
 
 ## class T
@@ -1607,11 +1873,40 @@ var uintptr:stdgo.GoUIntptr
 
 
 ```haxe
-function new(?int_:Null<stdgo.GoInt>, ?uint:Null<stdgo.GoUInt>, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void
+function new(?int_:Null<stdgo.GoInt>, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L503>)
+[\(view code\)](<./Binary.hx#L500>)
+
+
+## class T\_testNoFixedSize\_0\_\_\_localname\_\_\_Person
+
+
+```haxe
+var age:stdgo.GoInt
+```
+
+
+```haxe
+var height:stdgo.GoFloat64
+```
+
+
+```haxe
+var weight:stdgo.GoFloat64
+```
+
+
+### T\_testNoFixedSize\_0\_\_\_localname\_\_\_Person function new
+
+
+```haxe
+function new(?age:Null<stdgo.GoInt>, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void
+```
+
+
+[\(view code\)](<./Binary.hx#L1764>)
 
 
 ## class T\_testSizeStructCache\_0\_\_\_localname\_\_\_foo
@@ -1630,7 +1925,7 @@ function new(?a:stdgo.GoUInt32):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L1340>)
+[\(view code\)](<./Binary.hx#L1373>)
 
 
 ## class T\_testSizeStructCache\_1\_\_\_localname\_\_\_bar
@@ -1659,7 +1954,7 @@ function new(?a:stdgo.encoding.binary.Struct, ?b:stdgo.encoding.binary.T_testSiz
 ```
 
 
-[\(view code\)](<./Binary.hx#L1357>)
+[\(view code\)](<./Binary.hx#L1390>)
 
 
 ## class Unexported
@@ -1678,7 +1973,7 @@ function new(?_a:stdgo.GoInt32):Void
 ```
 
 
-[\(view code\)](<./Binary.hx#L579>)
+[\(view code\)](<./Binary.hx#L576>)
 
 
 # Typedefs
@@ -1725,6 +2020,104 @@ typedef ByteOrder = {
 
 A ByteOrder specifies how to convert byte slices into
 16\-, 32\-, or 64\-bit unsigned integers.  
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+	_f:stdgo.GoArray<stdgo.GoFloat32>;
+};
+```
+
+
+## typedef T\_\_struct\_1
+
+
+```haxe
+typedef T__struct_1 = {
+	():stdgo.GoArray<stdgo.GoFloat32>;
+};
+```
+
+
+## typedef T\_\_struct\_2
+
+
+```haxe
+typedef T__struct_2 = {
+	_want:stdgo.GoInt;
+	_val:stdgo.AnyInterface;
+};
+```
+
+
+## typedef T\_\_struct\_3
+
+
+```haxe
+typedef T__struct_3 = {
+	{
+		stdgo.encoding.binary.Struct;
+	};
+};
+```
+
+
+## typedef T\_\_struct\_4
+
+
+```haxe
+typedef T__struct_4 = {
+};
+```
+
+
+## typedef T\_\_struct\_5
+
+
+```haxe
+typedef T__struct_5 = {
+	():stdgo.GoFloat64;
+	<stdgo.GoInt32>;
+	Dynamic;
+	<stdgo.GoUInt8>;
+	b:stdgo.GoUInt8;
+	{
+		stdgo.GoUInt8;
+	};
+};
+```
+
+
+## typedef T\_\_struct\_6
+
+
+```haxe
+typedef T__struct_6 = {
+	_wantValue:stdgo.GoUInt64;
+	_wantN:stdgo.GoInt;
+	_name:stdgo.GoString;
+	_in:stdgo.Slice<stdgo.GoUInt8>;
+};
+```
+
+
+## typedef T\_decoder
+
+
+```haxe
+typedef T_decoder = stdgo.encoding.binary.T_coder;
+```
+
+
+## typedef T\_encoder
+
+
+```haxe
+typedef T_encoder = stdgo.encoding.binary.T_coder;
+```
+
 
 ## typedef T\_testByteOrder\_0\_\_\_localname\_\_\_byteOrder
 

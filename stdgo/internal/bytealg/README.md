@@ -13,6 +13,12 @@
 
 - [Variables](<#variables>)
 
+- [`function _abigen_runtime_cmpstring(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt`](<#function-_abigen_runtime_cmpstring>)
+
+- [`function _abigen_runtime_memequal(_a:stdgo.unsafe.UnsafePointer, _b:stdgo.unsafe.UnsafePointer, _size:stdgo.GoUIntptr):Bool`](<#function-_abigen_runtime_memequal>)
+
+- [`function _abigen_runtime_memequal_varlen(_a:stdgo.unsafe.UnsafePointer, _b:stdgo.unsafe.UnsafePointer):Bool`](<#function-_abigen_runtime_memequal_varlen>)
+
 - [`function compare(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-compare>)
 
 - [`function count(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt`](<#function-count>)
@@ -55,6 +61,8 @@
 
 - [`function indexString(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt`](<#function-indexstring>)
 
+- [`function makeNoZero(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>`](<#function-makenozero>)
+
 # Constants
 
 
@@ -64,12 +72,52 @@ import stdgo.internal.bytealg.Bytealg
 
 
 ```haxe
-final maxBruteForce:stdgo.GoUInt64 = ((0i64 : GoUInt64))
+final _offsetPPC64HasPOWER9:stdgo.GoUIntptr = stdgo.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo.internal.cpu.Cpu.ppc64.isPOWER9))
+```
+
+
+
+Offsets into internal/cpu records for use in assembly.  
+
+```haxe
+final _offsetS390xHasVX:stdgo.GoUIntptr = stdgo.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo.internal.cpu.Cpu.s390x.hasVX))
+```
+
+
+
+Offsets into internal/cpu records for use in assembly.  
+
+```haxe
+final _offsetX86HasAVX2:stdgo.GoUIntptr = stdgo.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo.internal.cpu.Cpu.x86.hasAVX2))
+```
+
+
+
+Offsets into internal/cpu records for use in assembly.  
+
+```haxe
+final _offsetX86HasPOPCNT:stdgo.GoUIntptr = stdgo.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo.internal.cpu.Cpu.x86.hasPOPCNT))
+```
+
+
+
+Offsets into internal/cpu records for use in assembly.  
+
+```haxe
+final _offsetX86HasSSE42:stdgo.GoUIntptr = stdgo.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo.internal.cpu.Cpu.x86.hasSSE42))
+```
+
+
+
+Offsets into internal/cpu records for use in assembly.  
+
+```haxe
+final maxBruteForce:stdgo.GoUInt64 = ((0i64 : stdgo.StdGoTypes.GoUInt64))
 ```
 
 
 ```haxe
-final primeRK:stdgo.GoUInt64 = ((16777619i64 : GoUInt64))
+final primeRK:stdgo.GoUInt64 = ((16777619i64 : stdgo.StdGoTypes.GoUInt64))
 ```
 
 
@@ -101,6 +149,48 @@ import stdgo.internal.bytealg.Bytealg
 ```
 
 
+## function \_abigen\_runtime\_cmpstring
+
+
+```haxe
+function _abigen_runtime_cmpstring(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
+```
+
+
+
+go:linkname abigen\_runtime\_cmpstring runtime.cmpstring  
+
+[\(view code\)](<./Bytealg.hx#L241>)
+
+
+## function \_abigen\_runtime\_memequal
+
+
+```haxe
+function _abigen_runtime_memequal(_a:stdgo.unsafe.UnsafePointer, _b:stdgo.unsafe.UnsafePointer, _size:stdgo.GoUIntptr):Bool
+```
+
+
+
+go:linkname abigen\_runtime\_memequal runtime.memequal  
+
+[\(view code\)](<./Bytealg.hx#L274>)
+
+
+## function \_abigen\_runtime\_memequal\_varlen
+
+
+```haxe
+function _abigen_runtime_memequal_varlen(_a:stdgo.unsafe.UnsafePointer, _b:stdgo.unsafe.UnsafePointer):Bool
+```
+
+
+
+go:linkname abigen\_runtime\_memequal\_varlen runtime.memequal\_varlen  
+
+[\(view code\)](<./Bytealg.hx#L281>)
+
+
 ## function compare
 
 
@@ -123,7 +213,7 @@ function count(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L242>)
+[\(view code\)](<./Bytealg.hx#L245>)
 
 
 ## function countString
@@ -134,7 +224,7 @@ function countString(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L251>)
+[\(view code\)](<./Bytealg.hx#L252>)
 
 
 ## function cutover
@@ -151,7 +241,7 @@ before switching over to Index.
 n is the number of bytes processed so far.
 See the bytes.Index implementation for details.  
 
-[\(view code\)](<./Bytealg.hx#L303>)
+[\(view code\)](<./Bytealg.hx#L338>)
 
 
 ## function equal
@@ -172,7 +262,7 @@ Equal is equivalent to bytes.Equal.
 It is provided here for convenience,
 because some packages cannot depend on bytes.  
 
-[\(view code\)](<./Bytealg.hx#L272>)
+[\(view code\)](<./Bytealg.hx#L268>)
 
 
 ## function hashStr
@@ -190,7 +280,7 @@ function hashStr(_sep:stdgo.GoString):{
 HashStr returns the hash and the appropriate multiplicative
 factor for use in Rabin\-Karp algorithm.  
 
-[\(view code\)](<./Bytealg.hx#L88>)
+[\(view code\)](<./Bytealg.hx#L79>)
 
 
 ## function hashStrBytes
@@ -208,7 +298,7 @@ function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{
 HashStrBytes returns the hash and the appropriate multiplicative
 factor for use in Rabin\-Karp algorithm.  
 
-[\(view code\)](<./Bytealg.hx#L64>)
+[\(view code\)](<./Bytealg.hx#L55>)
 
 
 ## function hashStrRev
@@ -226,7 +316,7 @@ function hashStrRev(_sep:stdgo.GoString):{
 HashStrRev returns the hash of the reverse of sep and the
 appropriate multiplicative factor for use in Rabin\-Karp algorithm.  
 
-[\(view code\)](<./Bytealg.hx#L136>)
+[\(view code\)](<./Bytealg.hx#L127>)
 
 
 ## function hashStrRevBytes
@@ -244,7 +334,7 @@ function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{
 HashStrRevBytes returns the hash of the reverse of sep and the
 appropriate multiplicative factor for use in Rabin\-Karp algorithm.  
 
-[\(view code\)](<./Bytealg.hx#L112>)
+[\(view code\)](<./Bytealg.hx#L103>)
 
 
 ## function index
@@ -259,7 +349,7 @@ function index(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):stdgo
 Index returns the index of the first instance of b in a, or \-1 if b is not present in a.
 Requires 2 \<= len\(b\) \<= MaxLen.  
 
-[\(view code\)](<./Bytealg.hx#L287>)
+[\(view code\)](<./Bytealg.hx#L289>)
 
 
 ## function indexByte
@@ -273,7 +363,7 @@ function indexByte(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
 
 go:noescape  
 
-[\(view code\)](<./Bytealg.hx#L309>)
+[\(view code\)](<./Bytealg.hx#L344>)
 
 
 ## function indexByteString
@@ -287,7 +377,7 @@ function indexByteString(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
 
 go:noescape  
 
-[\(view code\)](<./Bytealg.hx#L318>)
+[\(view code\)](<./Bytealg.hx#L353>)
 
 
 ## function indexRabinKarp
@@ -302,7 +392,7 @@ function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt
 IndexRabinKarp uses the Rabin\-Karp search algorithm to return the index of the
 first occurrence of substr in s, or \-1 if not present.  
 
-[\(view code\)](<./Bytealg.hx#L191>)
+[\(view code\)](<./Bytealg.hx#L182>)
 
 
 ## function indexRabinKarpBytes
@@ -317,7 +407,7 @@ function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdg
 IndexRabinKarpBytes uses the Rabin\-Karp search algorithm to return the index of the
 first occurrence of substr in s, or \-1 if not present.  
 
-[\(view code\)](<./Bytealg.hx#L160>)
+[\(view code\)](<./Bytealg.hx#L151>)
 
 
 ## function indexString
@@ -332,6 +422,22 @@ function indexString(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
 IndexString returns the index of the first instance of b in a, or \-1 if b is not present in a.
 Requires 2 \<= len\(b\) \<= MaxLen.  
 
-[\(view code\)](<./Bytealg.hx#L294>)
+[\(view code\)](<./Bytealg.hx#L309>)
+
+
+## function makeNoZero
+
+
+```haxe
+function makeNoZero(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>
+```
+
+
+
+MakeNoZero makes a slice of length and capacity n without zeroing the bytes.
+It is the caller's responsibility to ensure uninitialized bytes
+do not leak to the end user.  
+
+[\(view code\)](<./Bytealg.hx#L214>)
 
 

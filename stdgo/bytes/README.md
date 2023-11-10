@@ -8,539 +8,7 @@
 
 
 Package bytes implements functions for the manipulation of byte slices.
-It is analogous to the facilities of the strings package.  
-
-<details><summary>hl tests passed</summary>
-<p>
-
-```
-=== RUN  TestNewBuffer
---- PASS: TestNewBuffer (%!s(float64=0.0005121231079101562))
-
-=== RUN  TestNewBufferString
---- PASS: TestNewBufferString (%!s(float64=0.001979827880859375))
-
-=== RUN  TestBasicOperations
---- PASS: TestBasicOperations (%!s(float64=0.00024199485778808594))
-
-=== RUN  TestLargeStringWrites
---- PASS: TestLargeStringWrites (%!s(float64=0.1134028434753418))
-
-=== RUN  TestLargeByteWrites
---- PASS: TestLargeByteWrites (%!s(float64=0.12746000289916992))
-
-=== RUN  TestLargeStringReads
---- PASS: TestLargeStringReads (%!s(float64=0.019872188568115234))
-
-=== RUN  TestLargeByteReads
---- PASS: TestLargeByteReads (%!s(float64=0.03170895576477051))
-
-=== RUN  TestMixedReadsAndWrites
---- PASS: TestMixedReadsAndWrites (%!s(float64=0.25126099586486816))
-
-=== RUN  TestCapWithPreallocatedSlice
---- PASS: TestCapWithPreallocatedSlice (%!s(float64=1.0013580322265625e-05))
-
-=== RUN  TestCapWithSliceAndWrittenData
---- PASS: TestCapWithSliceAndWrittenData (%!s(float64=1.0967254638671875e-05))
-
-=== RUN  TestNil
---- PASS: TestNil (%!s(float64=5.0067901611328125e-06))
-
-=== RUN  TestReadFrom
---- PASS: TestReadFrom (%!s(float64=0.0691380500793457))
-
-=== RUN  TestReadFromPanicReader
---- PASS: TestReadFromPanicReader (%!s(float64=0.0002918243408203125))
-
-=== RUN  TestReadFromNegativeReader
---- PASS: TestReadFromNegativeReader (%!s(float64=0.00018310546875))
-
-=== RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.058860063552856445))
-
-=== RUN  TestRuneIO
---- PASS: TestRuneIO (%!s(float64=0.00481104850769043))
-
-=== RUN  TestWriteInvalidRune
---- PASS: TestWriteInvalidRune (%!s(float64=0.0003819465637207031))
-
-=== RUN  TestNext
---- PASS: TestNext (%!s(float64=0.0002751350402832031))
-
-=== RUN  TestReadBytes
---- PASS: TestReadBytes (%!s(float64=9.322166442871094e-05))
-
-=== RUN  TestReadString
---- PASS: TestReadString (%!s(float64=7.200241088867188e-05))
-
-=== RUN  TestGrow
-bytes_test/Bytes_test.hx:1886: testGrow skip function
---- PASS: TestGrow (%!s(float64=2.4080276489257812e-05))
-
-=== RUN  TestGrowOverflow
---- PASS: TestGrowOverflow (%!s(float64=3.600120544433594e-05))
-
-=== RUN  TestReadEmptyAtEOF
---- PASS: TestReadEmptyAtEOF (%!s(float64=7.152557373046875e-06))
-
-=== RUN  TestUnreadByte
---- PASS: TestUnreadByte (%!s(float64=1.5020370483398438e-05))
-
-=== RUN  TestBufferGrowth
---- PASS: TestBufferGrowth (%!s(float64=1.3068549633026123))
-
-=== RUN  TestEqual
---- PASS: TestEqual (%!s(float64=6.9141387939453125e-06))
-
-=== RUN  TestEqualExhaustive
---- PASS: TestEqualExhaustive (%!s(float64=0.1202399730682373))
-
-=== RUN  TestNotEqual
---- PASS: TestNotEqual (%!s(float64=0.3584780693054199))
-
-=== RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.0007159709930419922))
-
-=== RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=5.602836608886719e-05))
-
-=== RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=9.417533874511719e-05))
-
-=== RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=8.58306884765625e-05))
-
-=== RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=9.107589721679688e-05))
-
-=== RUN  TestLastIndexByte
---- PASS: TestLastIndexByte (%!s(float64=2.9087066650390625e-05))
-
-=== RUN  TestIndexByteBig
---- PASS: TestIndexByteBig (%!s(float64=0.048851966857910156))
-
-=== RUN  TestIndexByteSmall
---- PASS: TestIndexByteSmall (%!s(float64=0.1104898452758789))
-
-=== RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=0.00010704994201660156))
-
-=== RUN  TestCountByte
---- PASS: TestCountByte (%!s(float64=29.230921983718872))
-
-=== RUN  TestCountByteNoMatch
---- PASS: TestCountByteNoMatch (%!s(float64=2.233582019805908))
-
-=== RUN  TestSplit
-bytes_test/Bytes_test.hx:2859: testSplit skip function
---- PASS: TestSplit (%!s(float64=1.9073486328125e-05))
-
-=== RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.0017139911651611328))
-
-=== RUN  TestFields
---- PASS: TestFields (%!s(float64=0.00016307830810546875))
-
-=== RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.00024008750915527344))
-
-=== RUN  TestMap
---- PASS: TestMap (%!s(float64=9.489059448242188e-05))
-
-=== RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.00010704994201660156))
-
-=== RUN  TestToLower
---- PASS: TestToLower (%!s(float64=9.393692016601562e-05))
-
-=== RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.0001430511474609375))
-
-=== RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=9.799003601074219e-05))
-
-=== RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.07995986938476562))
-
-=== RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.001024007797241211))
-
-=== RUN  TestRunes
---- PASS: TestRunes (%!s(float64=5.602836608886719e-05))
-
-=== RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.00024890899658203125))
-
-=== RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.00024580955505371094))
-
-=== RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=8.511543273925781e-05))
-
-=== RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.00036907196044921875))
-
-=== RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.00017499923706054688))
-
-=== RUN  TestToTitle
---- PASS: TestToTitle (%!s(float64=6.008148193359375e-05))
-
-=== RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=0.0001201629638671875))
-
-=== RUN  TestCut
---- PASS: TestCut (%!s(float64=2.8133392333984375e-05))
-
-=== RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=2.6941299438476562e-05))
-
-=== RUN  TestCutSuffix
---- PASS: TestCutSuffix (%!s(float64=2.193450927734375e-05))
-
-=== RUN  TestBufferGrowNegative
---- PASS: TestBufferGrowNegative (%!s(float64=2.4080276489257812e-05))
-
-=== RUN  TestBufferTruncateNegative
---- PASS: TestBufferTruncateNegative (%!s(float64=2.384185791015625e-05))
-
-=== RUN  TestBufferTruncateOutOfRange
---- PASS: TestBufferTruncateOutOfRange (%!s(float64=2.193450927734375e-05))
-
-=== RUN  TestContains
---- PASS: TestContains (%!s(float64=1.4066696166992188e-05))
-
-=== RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=4.38690185546875e-05))
-
-=== RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=1.8835067749023438e-05))
-
-=== RUN  TestClone
---- PASS: TestClone (%!s(float64=0.00018310546875))
-
-=== RUN  TestCompare
---- PASS: TestCompare (%!s(float64=0.00036907196044921875))
-
-=== RUN  TestCompareIdenticalSlice
---- PASS: TestCompareIdenticalSlice (%!s(float64=1.1920928955078125e-05))
-
-=== RUN  TestCompareBytes
-bytes_test/Bytes_test.hx:4028: testCompareBytes skip function
---- PASS: TestCompareBytes (%!s(float64=6.008148193359375e-05))
-
-=== RUN  TestEndianBaseCompare
---- PASS: TestEndianBaseCompare (%!s(float64=0.0249788761138916))
-
-=== RUN  TestReader
---- PASS: TestReader (%!s(float64=7.390975952148438e-05))
-
-=== RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=1.811981201171875e-05))
-
-=== RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.0031998157501220703))
-
-=== RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0006937980651855469))
-
-=== RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0006699562072753906))
-
-=== RUN  TestReaderWriteTo
---- PASS: TestReaderWriteTo (%!s(float64=0.002702951431274414))
-
-=== RUN  TestReaderLen
---- PASS: TestReaderLen (%!s(float64=1.5020370483398438e-05))
-
-=== RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=4.792213439941406e-05))
-
-=== RUN  TestReaderDoubleUnreadRune
---- PASS: TestReaderDoubleUnreadRune (%!s(float64=1.0967254638671875e-05))
-
-=== RUN  TestReaderCopyNothing
---- PASS: TestReaderCopyNothing (%!s(float64=0.00045418739318847656))
-
-=== RUN  TestReaderLenSize
-bytes_test/Bytes_test.hx:4947: testReaderLenSize skip function
---- PASS: TestReaderLenSize (%!s(float64=5.412101745605469e-05))
-
-=== RUN  TestReaderReset
---- PASS: TestReaderReset (%!s(float64=3.409385681152344e-05))
-
-=== RUN  TestReaderZero
---- PASS: TestReaderZero (%!s(float64=4.482269287109375e-05))
-
-```
-</p>
-</details>
-
-<details><summary>interp tests failed</summary>
-<p>
-
-```
-Invalid_argument("index out of bounds")
-=== RUN  TestNewBuffer
---- PASS: TestNewBuffer (%!s(float64=0.008327007293701172))
-
-=== RUN  TestNewBufferString
---- PASS: TestNewBufferString (%!s(float64=0.011852025985717773))
-
-=== RUN  TestBasicOperations
---- PASS: TestBasicOperations (%!s(float64=0.001489877700805664))
-
-=== RUN  TestLargeStringWrites
---- PASS: TestLargeStringWrites (%!s(float64=1.2357919216156006))
-
-=== RUN  TestLargeByteWrites
---- PASS: TestLargeByteWrites (%!s(float64=1.2229020595550537))
-
-=== RUN  TestLargeStringReads
---- PASS: TestLargeStringReads (%!s(float64=0.18952107429504395))
-
-=== RUN  TestLargeByteReads
---- PASS: TestLargeByteReads (%!s(float64=0.1923210620880127))
-
-=== RUN  TestMixedReadsAndWrites
---- PASS: TestMixedReadsAndWrites (%!s(float64=2.2780330181121826))
-
-=== RUN  TestCapWithPreallocatedSlice
---- PASS: TestCapWithPreallocatedSlice (%!s(float64=5.0067901611328125e-05))
-
-=== RUN  TestCapWithSliceAndWrittenData
---- PASS: TestCapWithSliceAndWrittenData (%!s(float64=6.103515625e-05))
-
-=== RUN  TestNil
---- PASS: TestNil (%!s(float64=1.5020370483398438e-05))
-
-=== RUN  TestReadFrom
---- PASS: TestReadFrom (%!s(float64=0.2337491512298584))
-
-=== RUN  TestReadFromPanicReader
---- PASS: TestReadFromPanicReader (%!s(float64=0.0003819465637207031))
-
-=== RUN  TestReadFromNegativeReader
---- PASS: TestReadFromNegativeReader (%!s(float64=0.00030303001403808594))
-
-=== RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.21595978736877441))
-
-=== RUN  TestRuneIO
---- PASS: TestRuneIO (%!s(float64=0.0316469669342041))
-
-=== RUN  TestWriteInvalidRune
---- PASS: TestWriteInvalidRune (%!s(float64=0.00086212158203125))
-
-=== RUN  TestNext
---- PASS: TestNext (%!s(float64=0.0013980865478515625))
-
-=== RUN  TestReadBytes
---- PASS: TestReadBytes (%!s(float64=0.00032401084899902344))
-
-=== RUN  TestReadString
---- PASS: TestReadString (%!s(float64=0.0002808570861816406))
-
-=== RUN  TestGrow
-bytes_test/Bytes_test.hx:1886: testGrow skip function
---- PASS: TestGrow (%!s(float64=3.0040740966796875e-05))
-
-=== RUN  TestGrowOverflow
---- PASS: TestGrowOverflow (%!s(float64=8.511543273925781e-05))
-
-=== RUN  TestReadEmptyAtEOF
---- PASS: TestReadEmptyAtEOF (%!s(float64=3.4809112548828125e-05))
-
-=== RUN  TestUnreadByte
---- PASS: TestUnreadByte (%!s(float64=6.985664367675781e-05))
-
-=== RUN  TestBufferGrowth
---- PASS: TestBufferGrowth (%!s(float64=3.2634119987487793))
-
-=== RUN  TestEqual
---- PASS: TestEqual (%!s(float64=2.8848648071289062e-05))
-
-=== RUN  TestEqualExhaustive
---- PASS: TestEqualExhaustive (%!s(float64=0.44032907485961914))
-
-=== RUN  TestNotEqual
---- PASS: TestNotEqual (%!s(float64=2.329838991165161))
-
-=== RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.0035581588745117188))
-
-=== RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=0.00023293495178222656))
-
-=== RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=0.0005168914794921875))
-
-=== RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=0.0005559921264648438))
-
-=== RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=0.00018095970153808594))
-
-=== RUN  TestLastIndexByte
---- PASS: TestLastIndexByte (%!s(float64=0.00011706352233886719))
-
-=== RUN  TestIndexByteBig
---- PASS: TestIndexByteBig (%!s(float64=0.5512189865112305))
-
-=== RUN  TestIndexByteSmall
---- PASS: TestIndexByteSmall (%!s(float64=0.6422920227050781))
-
-=== RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=0.0004048347473144531))
-
-=== RUN  TestCountByte
---- PASS: TestCountByte (%!s(float64=21.27019500732422))
-
-=== RUN  TestCountByteNoMatch
---- PASS: TestCountByteNoMatch (%!s(float64=3.232144832611084))
-
-=== RUN  TestSplit
-bytes_test/Bytes_test.hx:2859: testSplit skip function
---- PASS: TestSplit (%!s(float64=3.600120544433594e-05))
-
-=== RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.0033638477325439453))
-
-=== RUN  TestFields
---- PASS: TestFields (%!s(float64=0.0009248256683349609))
-
-=== RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.0008349418640136719))
-
-=== RUN  TestMap
---- PASS: TestMap (%!s(float64=0.0005018711090087891))
-
-=== RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.0007879734039306641))
-
-=== RUN  TestToLower
---- PASS: TestToLower (%!s(float64=0.0005879402160644531))
-
-=== RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.0006721019744873047))
-
-=== RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=0.0006639957427978516))
-
-=== RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.41616392135620117))
-
-=== RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.002109050750732422))
-
-=== RUN  TestRunes
---- PASS: TestRunes (%!s(float64=0.00024580955505371094))
-
-=== RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.0017998218536376953))
-
-=== RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.0017409324645996094))
-
-=== RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=0.0004949569702148438))
-
-=== RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.0017330646514892578))
-
-=== RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.0006258487701416016))
-
-=== RUN  TestToTitle
---- PASS: TestToTitle (%!s(float64=0.00029206275939941406))
-
-=== RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=0.0006971359252929688))
-
-=== RUN  TestCut
---- PASS: TestCut (%!s(float64=0.00010585784912109375))
-
-=== RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=9.322166442871094e-05))
-
-=== RUN  TestCutSuffix
---- PASS: TestCutSuffix (%!s(float64=9.489059448242188e-05))
-
-=== RUN  TestBufferGrowNegative
---- PASS: TestBufferGrowNegative (%!s(float64=8.893013000488281e-05))
-
-=== RUN  TestBufferTruncateNegative
---- PASS: TestBufferTruncateNegative (%!s(float64=9.417533874511719e-05))
-
-=== RUN  TestBufferTruncateOutOfRange
---- PASS: TestBufferTruncateOutOfRange (%!s(float64=0.00010991096496582031))
-
-=== RUN  TestContains
---- PASS: TestContains (%!s(float64=6.198883056640625e-05))
-
-=== RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=0.00024700164794921875))
-
-=== RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=9.894371032714844e-05))
-
-=== RUN  TestClone
---- PASS: TestClone (%!s(float64=0.0006840229034423828))
-
-=== RUN  TestCompare
---- PASS: TestCompare (%!s(float64=0.0020189285278320312))
-
-=== RUN  TestCompareIdenticalSlice
---- PASS: TestCompareIdenticalSlice (%!s(float64=6.508827209472656e-05))
-
-=== RUN  TestCompareBytes
-bytes_test/Bytes_test.hx:4028: testCompareBytes skip function
---- PASS: TestCompareBytes (%!s(float64=3.695487976074219e-05))
-
-=== RUN  TestEndianBaseCompare
---- PASS: TestEndianBaseCompare (%!s(float64=0.31726884841918945))
-
-=== RUN  TestReader
---- PASS: TestReader (%!s(float64=0.0003349781036376953))
-
-=== RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=7.319450378417969e-05))
-
-=== RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.0038509368896484375))
-
-=== RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0011820793151855469))
-
-=== RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0013680458068847656))
-
-=== RUN  TestReaderWriteTo
---- PASS: TestReaderWriteTo (%!s(float64=0.013602972030639648))
-
-=== RUN  TestReaderLen
---- PASS: TestReaderLen (%!s(float64=5.793571472167969e-05))
-
-=== RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=0.00017786026000976562))
-
-=== RUN  TestReaderDoubleUnreadRune
---- PASS: TestReaderDoubleUnreadRune (%!s(float64=6.985664367675781e-05))
-
-=== RUN  TestReaderCopyNothing
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
+It is analogous to the facilities of the \[strings\] package.  
 
 
 # Index
@@ -550,6 +18,39 @@ IO.Overflow("write_ui16")
 
 - [Variables](<#variables>)
 
+- [`function _containsRune(_s:stdgo.GoString, _r:stdgo.GoRune):Bool`](<#function-_containsrune>)
+
+- [`function _explode(_s:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>`](<#function-_explode>)
+
+- [`function _genSplit(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>, _sepSave:stdgo.GoInt, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>`](<#function-_gensplit>)
+
+- [`function _growSlice(_b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>`](<#function-_growslice>)
+
+- [`function _indexBytePortable(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt`](<#function-_indexbyteportable>)
+
+- [`function _indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt`](<#function-_indexfunc>)
+
+- [`function _isSeparator(_r:stdgo.GoRune):Bool`](<#function-_isseparator>)
+
+- [`function _lastIndexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt`](<#function-_lastindexfunc>)
+
+- [`function _makeASCIISet(_chars:stdgo.GoString):{
+	_1:Bool;
+	_0:stdgo.bytes.T_asciiSet;
+}`](<#function-_makeasciiset>)
+
+- [`function _trimLeftASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo.bytes.T_asciiSet>):stdgo.Slice<stdgo.GoByte>`](<#function-_trimleftascii>)
+
+- [`function _trimLeftByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Slice<stdgo.GoByte>`](<#function-_trimleftbyte>)
+
+- [`function _trimLeftUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>`](<#function-_trimleftunicode>)
+
+- [`function _trimRightASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo.bytes.T_asciiSet>):stdgo.Slice<stdgo.GoByte>`](<#function-_trimrightascii>)
+
+- [`function _trimRightByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Slice<stdgo.GoByte>`](<#function-_trimrightbyte>)
+
+- [`function _trimRightUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>`](<#function-_trimrightunicode>)
+
 - [`function clone(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-clone>)
 
 - [`function compare(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-compare>)
@@ -557,6 +58,8 @@ IO.Overflow("write_ui16")
 - [`function contains(_b:stdgo.Slice<stdgo.GoByte>, _subslice:stdgo.Slice<stdgo.GoByte>):Bool`](<#function-contains>)
 
 - [`function containsAny(_b:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):Bool`](<#function-containsany>)
+
+- [`function containsFunc(_b:stdgo.Slice<stdgo.GoByte>, _f:()):Bool`](<#function-containsfunc>)
 
 - [`function containsRune(_b:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):Bool`](<#function-containsrune>)
 
@@ -596,7 +99,7 @@ IO.Overflow("write_ui16")
 
 - [`function indexByte(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt`](<#function-indexbyte>)
 
-- [`function indexBytePortable(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt`](<#function-indexbyteportable>)
+- [`function indexBytePortable(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.GoUInt8):stdgo.GoInt`](<#function-indexbyteportable>)
 
 - [`function indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.GoInt`](<#function-indexfunc>)
 
@@ -672,7 +175,7 @@ IO.Overflow("write_ui16")
 
 - [class Buffer](<#class-buffer>)
 
-  - [`function new(?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_off:Null<stdgo.GoInt>, ?_lastRead:Null<stdgo.bytes._Bytes.T_readOp>):Void`](<#buffer-function-new>)
+  - [`function new(?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_off:stdgo.GoInt, ?_lastRead:Null<stdgo.bytes.T_readOp>):Void`](<#buffer-function-new>)
 
   - [`function _empty():Bool`](<#buffer-function-_empty>)
 
@@ -681,6 +184,10 @@ IO.Overflow("write_ui16")
   - [`function _readSlice( _delim:stdgo.GoByte):{ _1:stdgo.Error; _0:stdgo.Slice<stdgo.GoByte>;}`](<#buffer-function-_readslice>)
 
   - [`function _tryGrowByReslice( _n:stdgo.GoInt):{ _1:Bool; _0:stdgo.GoInt;}`](<#buffer-function-_trygrowbyreslice>)
+
+  - [`function available():stdgo.GoInt`](<#buffer-function-available>)
+
+  - [`function availableBuffer():stdgo.Slice<stdgo.GoByte>`](<#buffer-function-availablebuffer>)
 
   - [`function bytes():stdgo.Slice<stdgo.GoByte>`](<#buffer-function-bytes>)
 
@@ -726,7 +233,7 @@ IO.Overflow("write_ui16")
 
 - [class Reader](<#class-reader>)
 
-  - [`function new(?_s:stdgo.Slice<stdgo.GoUInt8>, ?_i:stdgo.GoInt64, ?_prevRune:Null<stdgo.GoInt>):Void`](<#reader-function-new>)
+  - [`function new(?_s:stdgo.Slice<stdgo.GoUInt8>, ?_i:stdgo.GoInt64, ?_prevRune:stdgo.GoInt):Void`](<#reader-function-new>)
 
   - [`function len():stdgo.GoInt`](<#reader-function-len>)
 
@@ -754,8 +261,14 @@ IO.Overflow("write_ui16")
 
   - [`function new(?_start:Null<stdgo.GoInt>, ?_end:Null<stdgo.GoInt>):Void`](<#t_fieldsfunc_0localnamespan-function-new>)
 
+- [typedef T\_asciiSet](<#typedef-t_asciiset>)
+
+- [typedef T\_readOp](<#typedef-t_readop>)
+
 # Examples
 
+
+- [`exampleClone`](<#exampleclone>)
 
 - [`exampleCompare`](<#examplecompare>)
 
@@ -770,6 +283,10 @@ IO.Overflow("write_ui16")
 - [`exampleCount`](<#examplecount>)
 
 - [`exampleCut`](<#examplecut>)
+
+- [`exampleCutPrefix`](<#examplecutprefix>)
+
+- [`exampleCutSuffix`](<#examplecutsuffix>)
 
 - [`exampleEqual`](<#exampleequal>)
 
@@ -803,6 +320,8 @@ IO.Overflow("write_ui16")
 
 - [`exampleLastIndexFunc`](<#examplelastindexfunc>)
 
+- [`exampleMap`](<#examplemap>)
+
 - [`exampleRepeat`](<#examplerepeat>)
 
 - [`exampleReplace`](<#examplereplace>)
@@ -833,6 +352,8 @@ IO.Overflow("write_ui16")
 
 - [`exampleToUpperSpecial`](<#exampletoupperspecial>)
 
+- [`exampleToValidUTF8`](<#exampletovalidutf8>)
+
 - [`exampleTrim`](<#exampletrim>)
 
 - [`exampleTrimFunc`](<#exampletrimfunc>)
@@ -860,7 +381,92 @@ import stdgo.bytes.Bytes
 
 
 ```haxe
-final minRead:stdgo.GoUInt64 = ((512i64 : GoUInt64))
+final _maxInt:stdgo.GoInt = ((((2147483647u32 : stdgo.StdGoTypes.GoUInt)) : stdgo.StdGoTypes.GoInt))
+```
+
+
+```haxe
+final _opInvalid:stdgo.bytes.T_readOp = ((0 : stdgo.bytes.Bytes.T_readOp))
+```
+
+
+
+Don't use iota for these, as the values need to correspond with the
+names and comments, which is easier to see when being explicit.  
+
+
+Non\-read operation.  
+
+```haxe
+final _opRead:stdgo.bytes.T_readOp = ((-1 : stdgo.bytes.Bytes.T_readOp))
+```
+
+
+
+Don't use iota for these, as the values need to correspond with the
+names and comments, which is easier to see when being explicit.  
+
+
+Any other read operation.  
+
+```haxe
+final _opReadRune1:stdgo.bytes.T_readOp = ((1 : stdgo.bytes.Bytes.T_readOp))
+```
+
+
+
+Don't use iota for these, as the values need to correspond with the
+names and comments, which is easier to see when being explicit.  
+
+
+Read rune of size 1.  
+
+```haxe
+final _opReadRune2:stdgo.bytes.T_readOp = ((2 : stdgo.bytes.Bytes.T_readOp))
+```
+
+
+
+Don't use iota for these, as the values need to correspond with the
+names and comments, which is easier to see when being explicit.  
+
+
+Read rune of size 2.  
+
+```haxe
+final _opReadRune3:stdgo.bytes.T_readOp = ((3 : stdgo.bytes.Bytes.T_readOp))
+```
+
+
+
+Don't use iota for these, as the values need to correspond with the
+names and comments, which is easier to see when being explicit.  
+
+
+Read rune of size 3.  
+
+```haxe
+final _opReadRune4:stdgo.bytes.T_readOp = ((4 : stdgo.bytes.Bytes.T_readOp))
+```
+
+
+
+Don't use iota for these, as the values need to correspond with the
+names and comments, which is easier to see when being explicit.  
+
+
+Read rune of size 4.  
+
+```haxe
+final _smallBufferSize:stdgo.GoUInt64 = ((64i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+smallBufferSize is an initial allocation minimal capacity.  
+
+```haxe
+final minRead:stdgo.GoUInt64 = ((512i64 : stdgo.StdGoTypes.GoUInt64))
 ```
 
 
@@ -875,6 +481,21 @@ underlying buffer.
 
 ```haxe
 import stdgo.bytes.Bytes
+```
+
+
+```haxe
+var _asciiSpace:stdgo.GoArray<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _errNegativeRead:stdgo.Error
+```
+
+
+```haxe
+var _errUnreadByte:stdgo.Error
 ```
 
 
@@ -894,6 +515,209 @@ import stdgo.bytes.Bytes
 ```
 
 
+## function \_containsRune
+
+
+```haxe
+function _containsRune(_s:stdgo.GoString, _r:stdgo.GoRune):Bool
+```
+
+
+
+containsRune is a simplified version of strings.ContainsRune
+to avoid importing the strings package.
+We avoid bytes.ContainsRune to avoid allocating a temporary copy of s.  
+
+[\(view code\)](<./Bytes.hx#L1237>)
+
+
+## function \_explode
+
+
+```haxe
+function _explode(_s:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>
+```
+
+
+
+explode splits s into a slice of UTF\-8 sequences, one per Unicode code point \(still slices of bytes\),
+up to a maximum of n byte slices. Invalid UTF\-8 sequences are chopped into individual bytes.  
+
+[\(view code\)](<./Bytes.hx#L270>)
+
+
+## function \_genSplit
+
+
+```haxe
+function _genSplit(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>, _sepSave:stdgo.GoInt, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoByte>>
+```
+
+
+
+Generic split: splits after each instance of sep,
+including sepSave bytes of sep in the subslices.  
+
+[\(view code\)](<./Bytes.hx#L623>)
+
+
+## function \_growSlice
+
+
+```haxe
+function _growSlice(_b:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>
+```
+
+
+
+growSlice grows b by n, preserving the original content of b.
+If the allocation fails, it panics with ErrTooLarge.  
+
+[\(view code\)](<./Bytes.hx#L174>)
+
+
+## function \_indexBytePortable
+
+
+```haxe
+function _indexBytePortable(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes.hx#L344>)
+
+
+## function \_indexFunc
+
+
+```haxe
+function _indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt
+```
+
+
+
+indexFunc is the same as IndexFunc except that if
+truth==false, the sense of the predicate function is
+inverted.  
+
+[\(view code\)](<./Bytes.hx#L1170>)
+
+
+## function \_isSeparator
+
+
+```haxe
+function _isSeparator(_r:stdgo.GoRune):Bool
+```
+
+
+
+isSeparator reports whether the rune could mark a word boundary.
+TODO: update when package unicode captures more of the properties.  
+
+[\(view code\)](<./Bytes.hx#L1061>)
+
+
+## function \_lastIndexFunc
+
+
+```haxe
+function _lastIndexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt
+```
+
+
+
+lastIndexFunc is the same as LastIndexFunc except that if
+truth==false, the sense of the predicate function is
+inverted.  
+
+[\(view code\)](<./Bytes.hx#L1194>)
+
+
+## function \_makeASCIISet
+
+
+```haxe
+function _makeASCIISet(_chars:stdgo.GoString):{
+	_1:Bool;
+	_0:stdgo.bytes.T_asciiSet;
+}
+```
+
+
+
+makeASCIISet creates a set of ASCII characters and reports whether all
+characters in chars are ASCII.  
+
+[\(view code\)](<./Bytes.hx#L1218>)
+
+
+## function \_trimLeftASCII
+
+
+```haxe
+function _trimLeftASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo.bytes.T_asciiSet>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L1298>)
+
+
+## function \_trimLeftByte
+
+
+```haxe
+function _trimLeftByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L1289>)
+
+
+## function \_trimLeftUnicode
+
+
+```haxe
+function _trimLeftUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L1310>)
+
+
+## function \_trimRightASCII
+
+
+```haxe
+function _trimRightASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo.bytes.T_asciiSet>):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L1355>)
+
+
+## function \_trimRightByte
+
+
+```haxe
+function _trimRightByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L1349>)
+
+
+## function \_trimRightUnicode
+
+
+```haxe
+function _trimRightUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte>
+```
+
+
+[\(view code\)](<./Bytes.hx#L1364>)
+
+
 ## function clone
 
 
@@ -907,7 +731,30 @@ Clone returns a copy of b\[:len\(b\)\].
 The result may have additional unused capacity.
 Clone\(nil\) returns nil.  
 
-[\(view code\)](<./Bytes.hx#L1667>)
+### exampleClone
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleClone():Void {
+        var _b = (("abc" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+        var _clone = stdgo.bytes.Bytes.clone(_b);
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_clone));
+        _clone[(0 : stdgo.StdGoTypes.GoInt)] = (100 : stdgo.StdGoTypes.GoUInt8);
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_b));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_clone));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1674>)
 
 
 ## function compare
@@ -932,11 +779,11 @@ A nil argument is equivalent to an empty slice.
 
 ```haxe
 function exampleCompare():Void {
-        var __0:Slice<GoByte> = (null : Slice<GoUInt8>), __1:Slice<GoByte> = (null : Slice<GoUInt8>), _b:Slice<GoByte> = __1, _a:Slice<GoByte> = __0;
-        if (stdgo.bytes.Bytes.compare(_a, _b) < (0 : GoInt)) {};
-        if (stdgo.bytes.Bytes.compare(_a, _b) <= (0 : GoInt)) {};
-        if (stdgo.bytes.Bytes.compare(_a, _b) > (0 : GoInt)) {};
-        if (stdgo.bytes.Bytes.compare(_a, _b) >= (0 : GoInt)) {};
+        var __0:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), __1:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _b:stdgo.Slice<stdgo.StdGoTypes.GoByte> = __1, _a:stdgo.Slice<stdgo.StdGoTypes.GoByte> = __0;
+        if (stdgo.bytes.Bytes.compare(_a, _b) < (0 : stdgo.StdGoTypes.GoInt)) {};
+        if (stdgo.bytes.Bytes.compare(_a, _b) <= (0 : stdgo.StdGoTypes.GoInt)) {};
+        if (stdgo.bytes.Bytes.compare(_a, _b) > (0 : stdgo.StdGoTypes.GoInt)) {};
+        if (stdgo.bytes.Bytes.compare(_a, _b) >= (0 : stdgo.StdGoTypes.GoInt)) {};
         if (stdgo.bytes.Bytes.equal(_a, _b)) {};
         if (!stdgo.bytes.Bytes.equal(_a, _b)) {};
     }
@@ -956,12 +803,12 @@ function exampleCompare():Void {
 
 ```haxe
 function exampleCompare_search():Void {
-        var _needle:Slice<GoByte> = (null : Slice<GoUInt8>);
-        var _haystack:Slice<Slice<GoByte>> = (null : Slice<Slice<GoUInt8>>);
-        var _i:GoInt = stdgo.sort.Sort.search((_haystack.length), function(_i:GoInt):Bool {
-            return stdgo.bytes.Bytes.compare(_haystack[(_i : GoInt)], _needle) >= (0 : GoInt);
+        var _needle:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+        var _haystack:stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoByte>> = (null : stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>);
+        var _i:stdgo.StdGoTypes.GoInt = stdgo.sort.Sort.search((_haystack.length), function(_i:stdgo.StdGoTypes.GoInt):Bool {
+            return stdgo.bytes.Bytes.compare(_haystack[(_i : stdgo.StdGoTypes.GoInt)], _needle) >= (0 : stdgo.StdGoTypes.GoInt);
         });
-        if ((_i < _haystack.length) && stdgo.bytes.Bytes.equal(_haystack[(_i : GoInt)], _needle)) {};
+        if ((_i < _haystack.length) && stdgo.bytes.Bytes.equal(_haystack[(_i : stdgo.StdGoTypes.GoInt)], _needle)) {};
     }
 ```
 
@@ -970,7 +817,7 @@ function exampleCompare_search():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L272>)
+[\(view code\)](<./Bytes.hx#L263>)
 
 
 ## function contains
@@ -993,10 +840,10 @@ Contains reports whether subslice is within b.
 
 ```haxe
 function exampleContains():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.contains((("seafood" : GoString) : Slice<GoByte>), (("foo" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.contains((("seafood" : GoString) : Slice<GoByte>), (("bar" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.contains((("seafood" : GoString) : Slice<GoByte>), (Go.str() : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.contains((Go.str() : Slice<GoByte>), (Go.str() : Slice<GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.contains((("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("foo" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.contains((("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("bar" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.contains((("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.contains((stdgo.Go.str() : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -1005,7 +852,7 @@ function exampleContains():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L326>)
+[\(view code\)](<./Bytes.hx#L317>)
 
 
 ## function containsAny
@@ -1028,10 +875,10 @@ ContainsAny reports whether any of the UTF\-8\-encoded code points in chars are 
 
 ```haxe
 function exampleContainsAny():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsAny((("I like seafood." : GoString) : Slice<GoByte>), ("fÄo!" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsAny((("I like seafood." : GoString) : Slice<GoByte>), ("去是伟大的." : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsAny((("I like seafood." : GoString) : Slice<GoByte>), Go.str())));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsAny((Go.str() : Slice<GoByte>), Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.containsAny((("I like seafood." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ("fÄo!" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.containsAny((("I like seafood." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ("去是伟大的." : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.containsAny((("I like seafood." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.containsAny((stdgo.Go.str() : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.Go.str())));
     }
 ```
 
@@ -1040,7 +887,21 @@ function exampleContainsAny():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L332>)
+[\(view code\)](<./Bytes.hx#L323>)
+
+
+## function containsFunc
+
+
+```haxe
+function containsFunc(_b:stdgo.Slice<stdgo.GoByte>, _f:()):Bool
+```
+
+
+
+ContainsFunc reports whether any of the UTF\-8\-encoded code points r within b satisfy f\(r\).  
+
+[\(view code\)](<./Bytes.hx#L335>)
 
 
 ## function containsRune
@@ -1063,11 +924,11 @@ ContainsRune reports whether the rune is contained in the UTF\-8\-encoded byte s
 
 ```haxe
 function exampleContainsRune():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((("I like seafood." : GoString) : Slice<GoByte>), (102 : GoInt32))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((("I like seafood." : GoString) : Slice<GoByte>), (246 : GoInt32))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((("去是伟大的!" : GoString) : Slice<GoByte>), (22823 : GoInt32))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((("去是伟大的!" : GoString) : Slice<GoByte>), (33 : GoInt32))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((Go.str() : Slice<GoByte>), (64 : GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.containsRune((("I like seafood." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (102 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.containsRune((("I like seafood." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (246 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.containsRune((("去是伟大的!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (22823 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.containsRune((("去是伟大的!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (33 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.containsRune((stdgo.Go.str() : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (64 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -1076,7 +937,7 @@ function exampleContainsRune():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L338>)
+[\(view code\)](<./Bytes.hx#L329>)
 
 
 ## function count
@@ -1100,8 +961,8 @@ If sep is an empty slice, Count returns 1 \+ the number of UTF\-8\-encoded code 
 
 ```haxe
 function exampleCount():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.count((("cheese" : GoString) : Slice<GoByte>), (("e" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.count((("five" : GoString) : Slice<GoByte>), (Go.str() : Slice<GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.count((("cheese" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("e" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.count((("five" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -1110,7 +971,7 @@ function exampleCount():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L306>)
+[\(view code\)](<./Bytes.hx#L297>)
 
 
 ## function cut
@@ -1143,14 +1004,14 @@ Cut returns slices of the original slice s, not copies.
 
 ```haxe
 function exampleCut():Void {
-        var _show:(GoString, GoString) -> Void = function(_s:GoString, _sep:GoString):Void {
-            var __tmp__ = stdgo.bytes.Bytes.cut((_s : Slice<GoByte>), (_sep : Slice<GoByte>)), _before:Slice<GoUInt8> = __tmp__._0, _after:Slice<GoUInt8> = __tmp__._1, _found:Bool = __tmp__._2;
-            stdgo.fmt.Fmt.printf(("Cut(%q, %q) = %q, %q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_sep), Go.toInterface(_before), Go.toInterface(_after), Go.toInterface(_found));
+        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+            var __tmp__ = stdgo.bytes.Bytes.cut((_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (_sep : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _before:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _after:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._1, _found:Bool = __tmp__._2;
+            stdgo.fmt.Fmt.printf(("Cut(%q, %q) = %q, %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_before), stdgo.Go.toInterface(_after), stdgo.Go.toInterface(_found));
         };
-        _show(("Gopher" : GoString), ("Go" : GoString));
-        _show(("Gopher" : GoString), ("ph" : GoString));
-        _show(("Gopher" : GoString), ("er" : GoString));
-        _show(("Gopher" : GoString), ("Badger" : GoString));
+        _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("ph" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("er" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("Badger" : stdgo.GoString));
     }
 ```
 
@@ -1159,7 +1020,7 @@ function exampleCut():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1652>)
+[\(view code\)](<./Bytes.hx#L1659>)
 
 
 ## function cutPrefix
@@ -1182,7 +1043,30 @@ If prefix is the empty byte slice, CutPrefix returns s, true.
 
 CutPrefix returns slices of the original slice s, not copies.  
 
-[\(view code\)](<./Bytes.hx#L1681>)
+### exampleCutPrefix
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleCutPrefix():Void {
+        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+            var __tmp__ = stdgo.bytes.Bytes.cutPrefix((_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (_sep : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _after:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _found:Bool = __tmp__._1;
+            stdgo.fmt.Fmt.printf(("CutPrefix(%q, %q) = %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_after), stdgo.Go.toInterface(_found));
+        };
+        _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("ph" : stdgo.GoString));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1688>)
 
 
 ## function cutSuffix
@@ -1205,7 +1089,30 @@ If suffix is the empty byte slice, CutSuffix returns s, true.
 
 CutSuffix returns slices of the original slice s, not copies.  
 
-[\(view code\)](<./Bytes.hx#L1696>)
+### exampleCutSuffix
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleCutSuffix():Void {
+        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+            var __tmp__ = stdgo.bytes.Bytes.cutSuffix((_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (_sep : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _before:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _found:Bool = __tmp__._1;
+            stdgo.fmt.Fmt.printf(("CutSuffix(%q, %q) = %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_before), stdgo.Go.toInterface(_found));
+        };
+        _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("er" : stdgo.GoString));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1703>)
 
 
 ## function equal
@@ -1230,8 +1137,8 @@ A nil argument is equivalent to an empty slice.
 
 ```haxe
 function exampleEqual():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equal((("Go" : GoString) : Slice<GoByte>), (("Go" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equal((("Go" : GoString) : Slice<GoByte>), (("C++" : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.equal((("Go" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("Go" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.equal((("Go" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("C++" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -1240,7 +1147,7 @@ function exampleEqual():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L264>)
+[\(view code\)](<./Bytes.hx#L255>)
 
 
 ## function equalFold
@@ -1265,7 +1172,7 @@ form of case\-insensitivity.
 
 ```haxe
 function exampleEqualFold():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equalFold((("Go" : GoString) : Slice<GoByte>), (("go" : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.equalFold((("Go" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("go" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -1274,7 +1181,7 @@ function exampleEqualFold():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1476>)
+[\(view code\)](<./Bytes.hx#L1483>)
 
 
 ## function fields
@@ -1300,7 +1207,7 @@ empty slice if s contains only white space.
 
 ```haxe
 function exampleFields():Void {
-        stdgo.fmt.Fmt.printf(("Fields are: %q" : GoString), Go.toInterface(stdgo.bytes.Bytes.fields((("  foo bar  baz   " : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.printf(("Fields are: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.fields((("  foo bar  baz   " : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -1309,7 +1216,7 @@ function exampleFields():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L708>)
+[\(view code\)](<./Bytes.hx#L705>)
 
 
 ## function fieldsFunc
@@ -1339,10 +1246,10 @@ and assumes that f always returns the same value for a given c.
 
 ```haxe
 function exampleFieldsFunc():Void {
-        var _f:GoInt32 -> Bool = function(_c:GoRune):Bool {
+        var _f:stdgo.StdGoTypes.GoInt32 -> Bool = function(_c:stdgo.StdGoTypes.GoRune):Bool {
             return !stdgo.unicode.Unicode.isLetter(_c) && !stdgo.unicode.Unicode.isNumber(_c);
         };
-        stdgo.fmt.Fmt.printf(("Fields are: %q" : GoString), Go.toInterface(stdgo.bytes.Bytes.fieldsFunc((("  foo1;bar2,baz3..." : GoString) : Slice<GoByte>), _f)));
+        stdgo.fmt.Fmt.printf(("Fields are: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.fieldsFunc((("  foo1;bar2,baz3..." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _f)));
     }
 ```
 
@@ -1351,7 +1258,7 @@ function exampleFieldsFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L778>)
+[\(view code\)](<./Bytes.hx#L775>)
 
 
 ## function hasPrefix
@@ -1374,9 +1281,9 @@ HasPrefix tests whether the byte slice s begins with prefix.
 
 ```haxe
 function exampleHasPrefix():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasPrefix((("Gopher" : GoString) : Slice<GoByte>), (("Go" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasPrefix((("Gopher" : GoString) : Slice<GoByte>), (("C" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasPrefix((("Gopher" : GoString) : Slice<GoByte>), (Go.str() : Slice<GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.hasPrefix((("Gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("Go" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.hasPrefix((("Gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("C" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.hasPrefix((("Gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -1385,7 +1292,7 @@ function exampleHasPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L842>)
+[\(view code\)](<./Bytes.hx#L848>)
 
 
 ## function hasSuffix
@@ -1408,10 +1315,10 @@ HasSuffix tests whether the byte slice s ends with suffix.
 
 ```haxe
 function exampleHasSuffix():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : GoString) : Slice<GoByte>), (("go" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : GoString) : Slice<GoByte>), (("O" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : GoString) : Slice<GoByte>), (("Ami" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : GoString) : Slice<GoByte>), (Go.str() : Slice<GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("go" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("O" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("Ami" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -1420,7 +1327,7 @@ function exampleHasSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L848>)
+[\(view code\)](<./Bytes.hx#L854>)
 
 
 ## function index
@@ -1443,8 +1350,8 @@ Index returns the index of the first instance of sep in s, or \-1 if sep is not 
 
 ```haxe
 function exampleIndex():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.index((("chicken" : GoString) : Slice<GoByte>), (("ken" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.index((("chicken" : GoString) : Slice<GoByte>), (("dmr" : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.index((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("ken" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.index((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("dmr" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -1453,7 +1360,7 @@ function exampleIndex():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1571>)
+[\(view code\)](<./Bytes.hx#L1578>)
 
 
 ## function indexAny
@@ -1479,8 +1386,8 @@ point in common.
 
 ```haxe
 function exampleIndexAny():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexAny((("chicken" : GoString) : Slice<GoByte>), ("aeiouy" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexAny((("crwth" : GoString) : Slice<GoByte>), ("aeiouy" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.indexAny((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ("aeiouy" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.indexAny((("crwth" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ("aeiouy" : stdgo.GoString))));
     }
 ```
 
@@ -1489,7 +1396,7 @@ function exampleIndexAny():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L447>)
+[\(view code\)](<./Bytes.hx#L444>)
 
 
 ## function indexByte
@@ -1512,8 +1419,8 @@ IndexByte returns the index of the first instance of c in b, or \-1 if c is not 
 
 ```haxe
 function exampleIndexByte():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexByte((("chicken" : GoString) : Slice<GoByte>), ((107 : GoUInt8) : GoByte))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexByte((("chicken" : GoString) : Slice<GoByte>), ((103 : GoUInt8) : GoByte))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.indexByte((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ((107 : stdgo.StdGoTypes.GoUInt8) : stdgo.StdGoTypes.GoByte))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.indexByte((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ((103 : stdgo.StdGoTypes.GoUInt8) : stdgo.StdGoTypes.GoByte))));
     }
 ```
 
@@ -1522,21 +1429,21 @@ function exampleIndexByte():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L344>)
+[\(view code\)](<./Bytes.hx#L341>)
 
 
 ## function indexBytePortable
 
 
 ```haxe
-function indexBytePortable(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
+function indexBytePortable(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.GoUInt8):stdgo.GoInt
 ```
 
 
 
 Export func for testing  
 
-[\(view code\)](<./Bytes.hx#L54>)
+[\(view code\)](<./Bytes.hx#L45>)
 
 
 ## function indexFunc
@@ -1561,11 +1468,11 @@ code point satisfying f\(c\), or \-1 if none do.
 
 ```haxe
 function exampleIndexFunc():Void {
-        var _f:GoInt32 -> Bool = function(_c:GoRune):Bool {
+        var _f:stdgo.StdGoTypes.GoInt32 -> Bool = function(_c:stdgo.StdGoTypes.GoRune):Bool {
             return stdgo.unicode.Unicode.is_(stdgo.unicode.Unicode.han, _c);
         };
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexFunc((("Hello, 世界" : GoString) : Slice<GoByte>), _f)));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexFunc((("Hello, world" : GoString) : Slice<GoByte>), _f)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.indexFunc((("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _f)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.indexFunc((("Hello, world" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _f)));
     }
 ```
 
@@ -1574,7 +1481,7 @@ function exampleIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1147>)
+[\(view code\)](<./Bytes.hx#L1154>)
 
 
 ## function indexRune
@@ -1601,8 +1508,8 @@ invalid UTF\-8 byte sequence.
 
 ```haxe
 function exampleIndexRune():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexRune((("chicken" : GoString) : Slice<GoByte>), (107 : GoInt32))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexRune((("chicken" : GoString) : Slice<GoByte>), (100 : GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.indexRune((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (107 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.indexRune((("chicken" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (100 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -1611,7 +1518,7 @@ function exampleIndexRune():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L418>)
+[\(view code\)](<./Bytes.hx#L415>)
 
 
 ## function join
@@ -1635,8 +1542,8 @@ sep is placed between elements in the resulting slice.
 
 ```haxe
 function exampleJoin():Void {
-        var _s = (new Slice<Slice<GoUInt8>>(3, 3, (("foo" : GoString) : Slice<GoByte>), (("bar" : GoString) : Slice<GoByte>), (("baz" : GoString) : Slice<GoByte>)) : Slice<Slice<GoUInt8>>);
-        stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.join(_s, ((", " : GoString) : Slice<GoByte>))));
+        var _s = (new stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>(3, 3, (("foo" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("bar" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("baz" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)) : stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>);
+        stdgo.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.join(_s, ((", " : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -1645,7 +1552,7 @@ function exampleJoin():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L820>)
+[\(view code\)](<./Bytes.hx#L817>)
 
 
 ## function lastIndex
@@ -1668,9 +1575,9 @@ LastIndex returns the index of the last instance of sep in s, or \-1 if sep is n
 
 ```haxe
 function exampleLastIndex():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.index((("go gopher" : GoString) : Slice<GoByte>), (("go" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndex((("go gopher" : GoString) : Slice<GoByte>), (("go" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndex((("go gopher" : GoString) : Slice<GoByte>), (("rodent" : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.index((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("go" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.lastIndex((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("go" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.lastIndex((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("rodent" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -1679,7 +1586,7 @@ function exampleLastIndex():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L358>)
+[\(view code\)](<./Bytes.hx#L355>)
 
 
 ## function lastIndexAny
@@ -1705,9 +1612,9 @@ there is no code point in common.
 
 ```haxe
 function exampleLastIndexAny():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((("go gopher" : GoString) : Slice<GoByte>), ("MüQp" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((("go 地鼠" : GoString) : Slice<GoByte>), ("地大" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((("go gopher" : GoString) : Slice<GoByte>), ("z,!." : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ("MüQp" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((("go 地鼠" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ("地大" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ("z,!." : stdgo.GoString))));
     }
 ```
 
@@ -1716,7 +1623,7 @@ function exampleLastIndexAny():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L533>)
+[\(view code\)](<./Bytes.hx#L530>)
 
 
 ## function lastIndexByte
@@ -1739,9 +1646,9 @@ LastIndexByte returns the index of the last instance of c in s, or \-1 if c is n
 
 ```haxe
 function exampleLastIndexByte():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((("go gopher" : GoString) : Slice<GoByte>), ((103 : GoUInt8) : GoByte))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((("go gopher" : GoString) : Slice<GoByte>), ((114 : GoUInt8) : GoByte))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((("go gopher" : GoString) : Slice<GoByte>), ((122 : GoUInt8) : GoByte))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ((103 : stdgo.StdGoTypes.GoUInt8) : stdgo.StdGoTypes.GoByte))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ((114 : stdgo.StdGoTypes.GoUInt8) : stdgo.StdGoTypes.GoByte))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ((122 : stdgo.StdGoTypes.GoUInt8) : stdgo.StdGoTypes.GoByte))));
     }
 ```
 
@@ -1750,7 +1657,7 @@ function exampleLastIndexByte():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L400>)
+[\(view code\)](<./Bytes.hx#L397>)
 
 
 ## function lastIndexFunc
@@ -1775,9 +1682,9 @@ code point satisfying f\(c\), or \-1 if none do.
 
 ```haxe
 function exampleLastIndexFunc():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((("go gopher!" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isLetter)));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((("go gopher!" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isPunct)));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((("go gopher!" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isNumber)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((("go gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isLetter)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((("go gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isPunct)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((("go gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isNumber)));
     }
 ```
 
@@ -1786,7 +1693,7 @@ function exampleLastIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1155>)
+[\(view code\)](<./Bytes.hx#L1162>)
 
 
 ## function map
@@ -1803,7 +1710,33 @@ according to the mapping function. If mapping returns a negative value, the char
 dropped from the byte slice with no replacement. The characters in s and the
 output are interpreted as UTF\-8\-encoded code points.  
 
-[\(view code\)](<./Bytes.hx#L857>)
+### exampleMap
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleMap():Void {
+        var _rot13:stdgo.StdGoTypes.GoInt32 -> stdgo.StdGoTypes.GoInt32 = function(_r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
+            if ((_r >= (65 : stdgo.StdGoTypes.GoInt32)) && (_r <= (90 : stdgo.StdGoTypes.GoInt32))) {
+                return (65 : stdgo.StdGoTypes.GoInt32) + (((_r - (65 : stdgo.StdGoTypes.GoInt32)) + (13 : stdgo.StdGoTypes.GoInt32)) % (26 : stdgo.StdGoTypes.GoInt32));
+            } else if ((_r >= (97 : stdgo.StdGoTypes.GoInt32)) && (_r <= (122 : stdgo.StdGoTypes.GoInt32))) {
+                return (97 : stdgo.StdGoTypes.GoInt32) + (((_r - (97 : stdgo.StdGoTypes.GoInt32)) + (13 : stdgo.StdGoTypes.GoInt32)) % (26 : stdgo.StdGoTypes.GoInt32));
+            };
+            return _r;
+        };
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.map(_rot13, (("\'Twas brillig and the slithy gopher..." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L863>)
 
 
 ## function newBuffer
@@ -1826,7 +1759,7 @@ buf should have the desired capacity but a length of zero.
 In most cases, new\(Buffer\) \(or just declaring a Buffer variable\) is
 sufficient to initialize a Buffer.  
 
-[\(view code\)](<./Bytes.hx#L245>)
+[\(view code\)](<./Bytes.hx#L236>)
 
 
 ## function newBufferString
@@ -1846,7 +1779,7 @@ string.
 In most cases, new\(Buffer\) \(or just declaring a Buffer variable\) is
 sufficient to initialize a Buffer.  
 
-[\(view code\)](<./Bytes.hx#L256>)
+[\(view code\)](<./Bytes.hx#L247>)
 
 
 ## function newReader
@@ -1860,7 +1793,7 @@ function newReader(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Ref<stdgo.bytes.Reader>
 
 NewReader returns a new Reader reading from b.  
 
-[\(view code\)](<./Bytes.hx#L1706>)
+[\(view code\)](<./Bytes.hx#L1713>)
 
 
 ## function repeat
@@ -1887,7 +1820,7 @@ overflows.
 
 ```haxe
 function exampleRepeat():Void {
-        stdgo.fmt.Fmt.printf(("ba%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.repeat((("na" : GoString) : Slice<GoByte>), (2 : GoInt))));
+        stdgo.fmt.Fmt.printf(("ba%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.repeat((("na" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (2 : stdgo.StdGoTypes.GoInt))));
     }
 ```
 
@@ -1896,7 +1829,7 @@ function exampleRepeat():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L886>)
+[\(view code\)](<./Bytes.hx#L892>)
 
 
 ## function replace
@@ -1924,8 +1857,8 @@ If n \< 0, there is no limit on the number of replacements.
 
 ```haxe
 function exampleReplace():Void {
-        stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.replace((("oink oink oink" : GoString) : Slice<GoByte>), (("k" : GoString) : Slice<GoByte>), (("ky" : GoString) : Slice<GoByte>), (2 : GoInt))));
-        stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.replace((("oink oink oink" : GoString) : Slice<GoByte>), (("oink" : GoString) : Slice<GoByte>), (("moo" : GoString) : Slice<GoByte>), (-1 : GoInt))));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.replace((("oink oink oink" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("k" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("ky" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (2 : stdgo.StdGoTypes.GoInt))));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.replace((("oink oink oink" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("oink" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("moo" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (-1 : stdgo.StdGoTypes.GoInt))));
     }
 ```
 
@@ -1934,7 +1867,7 @@ function exampleReplace():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1427>)
+[\(view code\)](<./Bytes.hx#L1434>)
 
 
 ## function replaceAll
@@ -1961,7 +1894,7 @@ for a k\-rune slice.
 
 ```haxe
 function exampleReplaceAll():Void {
-        stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.replaceAll((("oink oink oink" : GoString) : Slice<GoByte>), (("oink" : GoString) : Slice<GoByte>), (("moo" : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.replaceAll((("oink oink oink" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("oink" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("moo" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -1970,7 +1903,7 @@ function exampleReplaceAll():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1468>)
+[\(view code\)](<./Bytes.hx#L1475>)
 
 
 ## function runes
@@ -1994,9 +1927,9 @@ It returns a slice of runes \(Unicode code points\) equivalent to s.
 
 ```haxe
 function exampleRunes():Void {
-        var _rs = stdgo.bytes.Bytes.runes((("go gopher" : GoString) : Slice<GoByte>));
+        var _rs = stdgo.bytes.Bytes.runes((("go gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
         for (__0 => _r in _rs) {
-            stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(_r));
+            stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(_r));
         };
     }
 ```
@@ -2006,7 +1939,7 @@ function exampleRunes():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1408>)
+[\(view code\)](<./Bytes.hx#L1415>)
 
 
 ## function split
@@ -2035,10 +1968,10 @@ To split around the first instance of a separator, see Cut.
 
 ```haxe
 function exampleSplit():Void {
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.split((("a,b,c" : GoString) : Slice<GoByte>), (("," : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.split((("a man a plan a canal panama" : GoString) : Slice<GoByte>), (("a " : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.split(((" xyz " : GoString) : Slice<GoByte>), (Go.str() : Slice<GoByte>))));
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.split((Go.str() : Slice<GoByte>), (("Bernardo O\'Higgins" : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.split((("a,b,c" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("," : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.split((("a man a plan a canal panama" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("a " : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.split(((" xyz " : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.split((stdgo.Go.str() : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("Bernardo O\'Higgins" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -2047,7 +1980,7 @@ function exampleSplit():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L690>)
+[\(view code\)](<./Bytes.hx#L687>)
 
 
 ## function splitAfter
@@ -2073,7 +2006,7 @@ It is equivalent to SplitAfterN with a count of \-1.
 
 ```haxe
 function exampleSplitAfter():Void {
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.splitAfter((("a,b,c" : GoString) : Slice<GoByte>), (("," : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.splitAfter((("a,b,c" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("," : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -2082,7 +2015,7 @@ function exampleSplitAfter():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L699>)
+[\(view code\)](<./Bytes.hx#L696>)
 
 
 ## function splitAfterN
@@ -2113,7 +2046,7 @@ The count determines the number of subslices to return:
 
 ```haxe
 function exampleSplitAfterN():Void {
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.splitAfterN((("a,b,c" : GoString) : Slice<GoByte>), (("," : GoString) : Slice<GoByte>), (2 : GoInt))));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.splitAfterN((("a,b,c" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("," : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (2 : stdgo.StdGoTypes.GoInt))));
     }
 ```
 
@@ -2122,7 +2055,7 @@ function exampleSplitAfterN():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L679>)
+[\(view code\)](<./Bytes.hx#L676>)
 
 
 ## function splitN
@@ -2156,9 +2089,9 @@ To split around the first instance of a separator, see Cut.
 
 ```haxe
 function exampleSplitN():Void {
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.splitN((("a,b,c" : GoString) : Slice<GoByte>), (("," : GoString) : Slice<GoByte>), (2 : GoInt))));
-        var _z = stdgo.bytes.Bytes.splitN((("a,b,c" : GoString) : Slice<GoByte>), (("," : GoString) : Slice<GoByte>), (0 : GoInt));
-        stdgo.fmt.Fmt.printf(("%q (nil = %v)\n" : GoString), Go.toInterface(_z), Go.toInterface(_z == null));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.splitN((("a,b,c" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("," : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (2 : stdgo.StdGoTypes.GoInt))));
+        var _z = stdgo.bytes.Bytes.splitN((("a,b,c" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("," : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (0 : stdgo.StdGoTypes.GoInt));
+        stdgo.fmt.Fmt.printf(("%q (nil = %v)\n" : stdgo.GoString), stdgo.Go.toInterface(_z), stdgo.Go.toInterface(_z == null));
     }
 ```
 
@@ -2167,7 +2100,7 @@ function exampleSplitN():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L666>)
+[\(view code\)](<./Bytes.hx#L663>)
 
 
 ## function title
@@ -2195,7 +2128,7 @@ punctuation properly. Use golang.org/x/text/cases instead.
 
 ```haxe
 function exampleTitle():Void {
-        stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.title((("her royal highness" : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.title((("her royal highness" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -2204,7 +2137,7 @@ function exampleTitle():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1079>)
+[\(view code\)](<./Bytes.hx#L1086>)
 
 
 ## function toLower
@@ -2228,7 +2161,7 @@ their lower case.
 
 ```haxe
 function exampleToLower():Void {
-        stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.toLower((("Gopher" : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.toLower((("Gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -2237,7 +2170,7 @@ function exampleToLower():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L958>)
+[\(view code\)](<./Bytes.hx#L965>)
 
 
 ## function toLowerSpecial
@@ -2261,10 +2194,10 @@ lower case, giving priority to the special casing rules.
 
 ```haxe
 function exampleToLowerSpecial():Void {
-        var _str = (("AHOJ VÝVOJÁRİ GOLANG" : GoString) : Slice<GoByte>);
+        var _str = (("AHOJ VÝVOJÁRİ GOLANG" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         var _totitle = stdgo.bytes.Bytes.toLowerSpecial(stdgo.unicode.Unicode.azeriCase, _str);
-        stdgo.fmt.Fmt.println(Go.toInterface(("Original : " : GoString) + (_str : GoString)));
-        stdgo.fmt.Fmt.println(Go.toInterface(("ToLower : " : GoString) + (_totitle : GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Original : " : stdgo.GoString) + (_str : stdgo.GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("ToLower : " : stdgo.GoString) + (_totitle : stdgo.GoString)));
     }
 ```
 
@@ -2273,7 +2206,7 @@ function exampleToLowerSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1007>)
+[\(view code\)](<./Bytes.hx#L1014>)
 
 
 ## function toTitle
@@ -2296,8 +2229,8 @@ ToTitle treats s as UTF\-8\-encoded bytes and returns a copy with all the Unicod
 
 ```haxe
 function exampleToTitle():Void {
-        stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.toTitle((("loud noises" : GoString) : Slice<GoByte>))));
-        stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.toTitle((("хлеб" : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.toTitle((("loud noises" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.toTitle((("хлеб" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -2306,7 +2239,7 @@ function exampleToTitle():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L993>)
+[\(view code\)](<./Bytes.hx#L1000>)
 
 
 ## function toTitleSpecial
@@ -2330,10 +2263,10 @@ title case, giving priority to the special casing rules.
 
 ```haxe
 function exampleToTitleSpecial():Void {
-        var _str = (("ahoj vývojári golang" : GoString) : Slice<GoByte>);
+        var _str = (("ahoj vývojári golang" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         var _totitle = stdgo.bytes.Bytes.toTitleSpecial(stdgo.unicode.Unicode.azeriCase, _str);
-        stdgo.fmt.Fmt.println(Go.toInterface(("Original : " : GoString) + (_str : GoString)));
-        stdgo.fmt.Fmt.println(Go.toInterface(("ToTitle : " : GoString) + (_totitle : GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Original : " : stdgo.GoString) + (_str : stdgo.GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("ToTitle : " : stdgo.GoString) + (_totitle : stdgo.GoString)));
     }
 ```
 
@@ -2342,7 +2275,7 @@ function exampleToTitleSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1014>)
+[\(view code\)](<./Bytes.hx#L1021>)
 
 
 ## function toUpper
@@ -2366,7 +2299,7 @@ their upper case.
 
 ```haxe
 function exampleToUpper():Void {
-        stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.toUpper((("Gopher" : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.toUpper((("Gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -2375,7 +2308,7 @@ function exampleToUpper():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L922>)
+[\(view code\)](<./Bytes.hx#L929>)
 
 
 ## function toUpperSpecial
@@ -2399,10 +2332,10 @@ upper case, giving priority to the special casing rules.
 
 ```haxe
 function exampleToUpperSpecial():Void {
-        var _str = (("ahoj vývojári golang" : GoString) : Slice<GoByte>);
+        var _str = (("ahoj vývojári golang" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         var _totitle = stdgo.bytes.Bytes.toUpperSpecial(stdgo.unicode.Unicode.azeriCase, _str);
-        stdgo.fmt.Fmt.println(Go.toInterface(("Original : " : GoString) + (_str : GoString)));
-        stdgo.fmt.Fmt.println(Go.toInterface(("ToUpper : " : GoString) + (_totitle : GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Original : " : stdgo.GoString) + (_str : stdgo.GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("ToUpper : " : stdgo.GoString) + (_totitle : stdgo.GoString)));
     }
 ```
 
@@ -2411,7 +2344,7 @@ function exampleToUpperSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1000>)
+[\(view code\)](<./Bytes.hx#L1007>)
 
 
 ## function toValidUTF8
@@ -2426,7 +2359,27 @@ function toValidUTF8(_s:stdgo.Slice<stdgo.GoByte>, _replacement:stdgo.Slice<stdg
 ToValidUTF8 treats s as UTF\-8\-encoded bytes and returns a copy with each run of bytes
 representing invalid UTF\-8 replaced with the bytes in replacement, which may be empty.  
 
-[\(view code\)](<./Bytes.hx#L1021>)
+### exampleToValidUTF8
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToValidUTF8():Void {
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.toValidUTF8((("abc" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("�" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.toValidUTF8((stdgo.Go.str("a", 255, "b", 192, 175, "c", 255) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (stdgo.Go.str() : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.toValidUTF8((stdgo.Go.str(237, 160, 128) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("abc" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Bytes.hx#L1028>)
 
 
 ## function trim
@@ -2450,7 +2403,7 @@ trailing UTF\-8\-encoded code points contained in cutset.
 
 ```haxe
 function exampleTrim():Void {
-        stdgo.fmt.Fmt.printf(("[%q]" : GoString), Go.toInterface(stdgo.bytes.Bytes.trim(((" !!! Achtung! Achtung! !!! " : GoString) : Slice<GoByte>), ("! " : GoString))));
+        stdgo.fmt.Fmt.printf(("[%q]" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.trim(((" !!! Achtung! Achtung! !!! " : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ("! " : stdgo.GoString))));
     }
 ```
 
@@ -2459,7 +2412,7 @@ function exampleTrim():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1242>)
+[\(view code\)](<./Bytes.hx#L1249>)
 
 
 ## function trimFunc
@@ -2483,10 +2436,10 @@ UTF\-8\-encoded code points c that satisfy f\(c\).
 
 ```haxe
 function exampleTrimFunc():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((("go-gopher!" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isLetter) : GoString)));
-        stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((("\"go-gopher!\"" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isLetter) : GoString)));
-        stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((("go-gopher!" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isPunct) : GoString)));
-        stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((("1234go-gopher!567" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isNumber) : GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimFunc((("go-gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isLetter) : stdgo.GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimFunc((("\"go-gopher!\"" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isLetter) : stdgo.GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimFunc((("go-gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isPunct) : stdgo.GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimFunc((("1234go-gopher!567" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isNumber) : stdgo.GoString)));
     }
 ```
 
@@ -2495,7 +2448,7 @@ function exampleTrimFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1119>)
+[\(view code\)](<./Bytes.hx#L1126>)
 
 
 ## function trimLeft
@@ -2519,7 +2472,7 @@ UTF\-8\-encoded code points contained in cutset.
 
 ```haxe
 function exampleTrimLeft():Void {
-        stdgo.fmt.Fmt.print(Go.toInterface((stdgo.bytes.Bytes.trimLeft((("453gopher8257" : GoString) : Slice<GoByte>), ("0123456789" : GoString)) : GoString)));
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimLeft((("453gopher8257" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ("0123456789" : stdgo.GoString)) : stdgo.GoString)));
     }
 ```
 
@@ -2528,7 +2481,7 @@ function exampleTrimLeft():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1264>)
+[\(view code\)](<./Bytes.hx#L1271>)
 
 
 ## function trimLeftFunc
@@ -2552,9 +2505,9 @@ all leading UTF\-8\-encoded code points c that satisfy f\(c\).
 
 ```haxe
 function exampleTrimLeftFunc():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((("go-gopher" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isLetter) : GoString)));
-        stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((("go-gopher!" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isPunct) : GoString)));
-        stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((("1234go-gopher!567" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isNumber) : GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((("go-gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isLetter) : stdgo.GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((("go-gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isPunct) : stdgo.GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((("1234go-gopher!567" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isNumber) : stdgo.GoString)));
     }
 ```
 
@@ -2563,7 +2516,7 @@ function exampleTrimLeftFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1094>)
+[\(view code\)](<./Bytes.hx#L1101>)
 
 
 ## function trimPrefix
@@ -2587,10 +2540,10 @@ If s doesn't start with prefix, s is returned unchanged.
 
 ```haxe
 function exampleTrimPrefix():Void {
-        var _b:Slice<GoUInt8> = (("Goodbye,, world!" : GoString) : Slice<GoByte>);
-        _b = stdgo.bytes.Bytes.trimPrefix(_b, (("Goodbye," : GoString) : Slice<GoByte>));
-        _b = stdgo.bytes.Bytes.trimPrefix(_b, (("See ya," : GoString) : Slice<GoByte>));
-        stdgo.fmt.Fmt.printf(("Hello%s" : GoString), Go.toInterface(_b));
+        var _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = (("Goodbye,, world!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+        _b = stdgo.bytes.Bytes.trimPrefix(_b, (("Goodbye," : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+        _b = stdgo.bytes.Bytes.trimPrefix(_b, (("See ya," : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+        stdgo.fmt.Fmt.printf(("Hello%s" : stdgo.GoString), stdgo.Go.toInterface(_b));
     }
 ```
 
@@ -2599,7 +2552,7 @@ function exampleTrimPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1126>)
+[\(view code\)](<./Bytes.hx#L1133>)
 
 
 ## function trimRight
@@ -2623,7 +2576,7 @@ UTF\-8\-encoded code points that are contained in cutset.
 
 ```haxe
 function exampleTrimRight():Void {
-        stdgo.fmt.Fmt.print(Go.toInterface((stdgo.bytes.Bytes.trimRight((("453gopher8257" : GoString) : Slice<GoByte>), ("0123456789" : GoString)) : GoString)));
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimRight((("453gopher8257" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), ("0123456789" : stdgo.GoString)) : stdgo.GoString)));
     }
 ```
 
@@ -2632,7 +2585,7 @@ function exampleTrimRight():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1327>)
+[\(view code\)](<./Bytes.hx#L1334>)
 
 
 ## function trimRightFunc
@@ -2656,9 +2609,9 @@ UTF\-8\-encoded code points c that satisfy f\(c\).
 
 ```haxe
 function exampleTrimRightFunc():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((("go-gopher" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isLetter) : GoString)));
-        stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((("go-gopher!" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isPunct) : GoString)));
-        stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((("1234go-gopher!567" : GoString) : Slice<GoByte>), stdgo.unicode.Unicode.isNumber) : GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((("go-gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isLetter) : stdgo.GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((("go-gopher!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isPunct) : stdgo.GoString)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((("1234go-gopher!567" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.unicode.Unicode.isNumber) : stdgo.GoString)));
     }
 ```
 
@@ -2667,7 +2620,7 @@ function exampleTrimRightFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1105>)
+[\(view code\)](<./Bytes.hx#L1112>)
 
 
 ## function trimSpace
@@ -2691,7 +2644,7 @@ trailing white space, as defined by Unicode.
 
 ```haxe
 function exampleTrimSpace():Void {
-        stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.trimSpace(((" \t\n a lone gopher \n\t\r\n" : GoString) : Slice<GoByte>))));
+        stdgo.fmt.Fmt.printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.trimSpace(((" \t\n a lone gopher \n\t\r\n" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 ```
 
@@ -2700,7 +2653,7 @@ function exampleTrimSpace():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1378>)
+[\(view code\)](<./Bytes.hx#L1385>)
 
 
 ## function trimSuffix
@@ -2724,10 +2677,10 @@ If s doesn't end with suffix, s is returned unchanged.
 
 ```haxe
 function exampleTrimSuffix():Void {
-        var _b:Slice<GoUInt8> = (("Hello, goodbye, etc!" : GoString) : Slice<GoByte>);
-        _b = stdgo.bytes.Bytes.trimSuffix(_b, (("goodbye, etc!" : GoString) : Slice<GoByte>));
-        _b = stdgo.bytes.Bytes.trimSuffix(_b, (("gopher" : GoString) : Slice<GoByte>));
-        _b = (_b.__append__(...stdgo.bytes.Bytes.trimSuffix((("world!" : GoString) : Slice<GoByte>), (("x!" : GoString) : Slice<GoByte>)).__toArray__()));
+        var _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = (("Hello, goodbye, etc!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+        _b = stdgo.bytes.Bytes.trimSuffix(_b, (("goodbye, etc!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+        _b = stdgo.bytes.Bytes.trimSuffix(_b, (("gopher" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+        _b = (_b.__append__(...stdgo.bytes.Bytes.trimSuffix((("world!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (("x!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)).__toArray__()));
         stdgo.os.Os.stdout.write(_b);
     }
 ```
@@ -2737,7 +2690,7 @@ function exampleTrimSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1136>)
+[\(view code\)](<./Bytes.hx#L1143>)
 
 
 # Classes
@@ -2761,7 +2714,7 @@ var _buf:stdgo.Slice<stdgo.GoUInt8>
 
 
 ```haxe
-var _lastRead:stdgo.bytes._Bytes.T_readOp
+var _lastRead:stdgo.bytes.T_readOp
 ```
 
 
@@ -2774,11 +2727,11 @@ var _off:stdgo.GoInt
 
 
 ```haxe
-function new(?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_off:Null<stdgo.GoInt>, ?_lastRead:Null<stdgo.bytes._Bytes.T_readOp>):Void
+function new(?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_off:stdgo.GoInt, ?_lastRead:Null<stdgo.bytes.T_readOp>):Void
 ```
 
 
-[\(view code\)](<./Bytes.hx#L128>)
+[\(view code\)](<./Bytes.hx#L119>)
 
 
 ### Buffer function \_empty
@@ -2792,7 +2745,7 @@ function _empty():Bool
 
 empty reports whether the unread portion of the buffer is empty.  
 
-[\(view code\)](<./Bytes.hx#L2310>)
+[\(view code\)](<./Bytes.hx#L2337>)
 
 
 ### Buffer function \_grow
@@ -2808,7 +2761,7 @@ grow grows the buffer to guarantee space for n more bytes.
 It returns the index where bytes should be written.
 If the buffer can't grow it will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2219>)
+[\(view code\)](<./Bytes.hx#L2239>)
 
 
 ### Buffer function \_readSlice
@@ -2825,7 +2778,7 @@ function _readSlice( _delim:stdgo.GoByte):{
 
 readSlice is like ReadBytes but returns a reference to internal buffer data.  
 
-[\(view code\)](<./Bytes.hx#L1927>)
+[\(view code\)](<./Bytes.hx#L1947>)
 
 
 ### Buffer function \_tryGrowByReslice
@@ -2840,11 +2793,42 @@ function _tryGrowByReslice( _n:stdgo.GoInt):{
 
 
 
-tryGrowByReslice is a inlineable version of grow for the fast\-case where the
+tryGrowByReslice is an inlineable version of grow for the fast\-case where the
 internal buffer only needs to be resliced.
 It returns the index where bytes should be written and whether it succeeded.  
 
-[\(view code\)](<./Bytes.hx#L2252>)
+[\(view code\)](<./Bytes.hx#L2272>)
+
+
+### Buffer function available
+
+
+```haxe
+function available():stdgo.GoInt
+```
+
+
+
+Available returns how many bytes are unused in the buffer.  
+
+[\(view code\)](<./Bytes.hx#L2314>)
+
+
+### Buffer function availableBuffer
+
+
+```haxe
+function availableBuffer():stdgo.Slice<stdgo.GoByte>
+```
+
+
+
+AvailableBuffer returns an empty buffer with b.Available\(\) capacity.
+This buffer is intended to be appended to and
+passed to an immediately succeeding Write call.
+The buffer is only valid until the next write operation on b.  
+
+[\(view code\)](<./Bytes.hx#L2360>)
 
 
 ### Buffer function bytes
@@ -2862,7 +2846,7 @@ only until the next call to a method like Read, Write, Reset, or Truncate\).
 The slice aliases the buffer content at least until the next buffer modification,
 so immediate changes to the slice will affect the result of future reads.  
 
-[\(view code\)](<./Bytes.hx#L2334>)
+[\(view code\)](<./Bytes.hx#L2371>)
 
 
 ### Buffer function cap
@@ -2877,7 +2861,7 @@ function cap():stdgo.GoInt
 Cap returns the capacity of the buffer's underlying byte slice, that is, the
 total space allocated for the buffer's data.  
 
-[\(view code\)](<./Bytes.hx#L2295>)
+[\(view code\)](<./Bytes.hx#L2322>)
 
 
 ### Buffer function grow
@@ -2895,7 +2879,7 @@ buffer without another allocation.
 If n is negative, Grow will panic.
 If the buffer can't grow it will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2206>)
+[\(view code\)](<./Bytes.hx#L2226>)
 
 
 ### Buffer function len
@@ -2910,7 +2894,7 @@ function len():stdgo.GoInt
 Len returns the number of bytes of the unread portion of the buffer;
 b.Len\(\) == len\(b.Bytes\(\)\).  
 
-[\(view code\)](<./Bytes.hx#L2303>)
+[\(view code\)](<./Bytes.hx#L2330>)
 
 
 ### Buffer function next
@@ -2927,7 +2911,7 @@ advancing the buffer as if the bytes had been returned by Read.
 If there are fewer than n bytes in the buffer, Next returns the entire buffer.
 The slice is only valid until the next call to a read or write method.  
 
-[\(view code\)](<./Bytes.hx#L2037>)
+[\(view code\)](<./Bytes.hx#L2057>)
 
 
 ### Buffer function read
@@ -2947,7 +2931,7 @@ is drained. The return value n is the number of bytes read. If the
 buffer has no data to return, err is io.EOF \(unless len\(p\) is zero\);
 otherwise it is nil.  
 
-[\(view code\)](<./Bytes.hx#L2057>)
+[\(view code\)](<./Bytes.hx#L2077>)
 
 
 ### Buffer function readByte
@@ -2965,7 +2949,7 @@ function readByte():{
 ReadByte reads and returns the next byte from the buffer.
 If no byte is available, it returns error io.EOF.  
 
-[\(view code\)](<./Bytes.hx#L2020>)
+[\(view code\)](<./Bytes.hx#L2040>)
 
 
 ### Buffer function readBytes
@@ -2987,7 +2971,7 @@ it returns the data read before the error and the error itself \(often io.EOF\).
 ReadBytes returns err \!= nil if and only if the returned data does not end in
 delim.  
 
-[\(view code\)](<./Bytes.hx#L1949>)
+[\(view code\)](<./Bytes.hx#L1969>)
 
 
 ### Buffer function readFrom
@@ -3007,7 +2991,7 @@ the buffer as needed. The return value n is the number of bytes read. Any
 error except io.EOF encountered during the read is also returned. If the
 buffer becomes too large, ReadFrom will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2148>)
+[\(view code\)](<./Bytes.hx#L2168>)
 
 
 ### Buffer function readRune
@@ -3029,7 +3013,7 @@ If no bytes are available, the error returned is io.EOF.
 If the bytes are an erroneous UTF\-8 encoding, it
 consumes one byte and returns U\+FFFD, 1.  
 
-[\(view code\)](<./Bytes.hx#L1998>)
+[\(view code\)](<./Bytes.hx#L2018>)
 
 
 ### Buffer function readString
@@ -3051,7 +3035,7 @@ it returns the data read before the error and the error itself \(often io.EOF\).
 ReadString returns err \!= nil if and only if the returned data does not end
 in delim.  
 
-[\(view code\)](<./Bytes.hx#L1918>)
+[\(view code\)](<./Bytes.hx#L1938>)
 
 
 ### Buffer function reset
@@ -3067,7 +3051,7 @@ Reset resets the buffer to be empty,
 but it retains the underlying storage for use by future writes.
 Reset is the same as Truncate\(0\).  
 
-[\(view code\)](<./Bytes.hx#L2268>)
+[\(view code\)](<./Bytes.hx#L2288>)
 
 
 ### Buffer function string
@@ -3085,7 +3069,7 @@ as a string. If the Buffer is a nil pointer, it returns "\<nil\>".
 
 To build strings more efficiently, see the strings.Builder type.  
 
-[\(view code\)](<./Bytes.hx#L2320>)
+[\(view code\)](<./Bytes.hx#L2347>)
 
 
 ### Buffer function truncate
@@ -3101,7 +3085,7 @@ Truncate discards all but the first n unread bytes from the buffer
 but continues to use the same allocated storage.
 It panics if n is negative or greater than the length of the buffer.  
 
-[\(view code\)](<./Bytes.hx#L2279>)
+[\(view code\)](<./Bytes.hx#L2299>)
 
 
 ### Buffer function unreadByte
@@ -3118,7 +3102,7 @@ read operation that read at least one byte. If a write has happened since
 the last read, if the last read returned an error, or if the read read zero
 bytes, UnreadByte returns an error.  
 
-[\(view code\)](<./Bytes.hx#L1962>)
+[\(view code\)](<./Bytes.hx#L1982>)
 
 
 ### Buffer function unreadRune
@@ -3136,7 +3120,7 @@ not a successful ReadRune, UnreadRune returns an error.  \(In this regard
 it is stricter than UnreadByte, which will unread the last byte
 from any read operation.\)  
 
-[\(view code\)](<./Bytes.hx#L1980>)
+[\(view code\)](<./Bytes.hx#L2000>)
 
 
 ### Buffer function write
@@ -3155,7 +3139,7 @@ Write appends the contents of p to the buffer, growing the buffer as
 needed. The return value n is the length of p; err is always nil. If the
 buffer becomes too large, Write will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2189>)
+[\(view code\)](<./Bytes.hx#L2209>)
 
 
 ### Buffer function writeByte
@@ -3172,7 +3156,7 @@ The returned error is always nil, but is included to match bufio.Writer's
 WriteByte. If the buffer becomes too large, WriteByte will panic with
 ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2102>)
+[\(view code\)](<./Bytes.hx#L2122>)
 
 
 ### Buffer function writeRune
@@ -3192,7 +3176,7 @@ buffer, returning its length and an error, which is always nil but is
 included to match bufio.Writer's WriteRune. The buffer is grown as needed;
 if it becomes too large, WriteRune will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2081>)
+[\(view code\)](<./Bytes.hx#L2101>)
 
 
 ### Buffer function writeString
@@ -3211,7 +3195,7 @@ WriteString appends the contents of s to the buffer, growing the buffer as
 needed. The return value n is the length of s; err is always nil. If the
 buffer becomes too large, WriteString will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2174>)
+[\(view code\)](<./Bytes.hx#L2194>)
 
 
 ### Buffer function writeTo
@@ -3231,7 +3215,7 @@ The return value n is the number of bytes written; it always fits into an
 int, but it is int64 to match the io.WriterTo interface. Any error
 encountered during the write is also returned.  
 
-[\(view code\)](<./Bytes.hx#L2118>)
+[\(view code\)](<./Bytes.hx#L2138>)
 
 
 ## class Reader
@@ -3263,11 +3247,11 @@ var _s:stdgo.Slice<stdgo.GoUInt8>
 
 
 ```haxe
-function new(?_s:stdgo.Slice<stdgo.GoUInt8>, ?_i:stdgo.GoInt64, ?_prevRune:Null<stdgo.GoInt>):Void
+function new(?_s:stdgo.Slice<stdgo.GoUInt8>, ?_i:stdgo.GoInt64, ?_prevRune:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Bytes.hx#L151>)
+[\(view code\)](<./Bytes.hx#L142>)
 
 
 ### Reader function len
@@ -3282,7 +3266,7 @@ function len():stdgo.GoInt
 Len returns the number of bytes of the unread portion of the
 slice.  
 
-[\(view code\)](<./Bytes.hx#L2577>)
+[\(view code\)](<./Bytes.hx#L2614>)
 
 
 ### Reader function read
@@ -3299,7 +3283,7 @@ function read( _b:stdgo.Slice<stdgo.GoByte>):{
 
 Read implements the io.Reader interface.  
 
-[\(view code\)](<./Bytes.hx#L2553>)
+[\(view code\)](<./Bytes.hx#L2590>)
 
 
 ### Reader function readAt
@@ -3316,7 +3300,7 @@ function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{
 
 ReadAt implements the io.ReaderAt interface.  
 
-[\(view code\)](<./Bytes.hx#L2535>)
+[\(view code\)](<./Bytes.hx#L2572>)
 
 
 ### Reader function readByte
@@ -3333,7 +3317,7 @@ function readByte():{
 
 ReadByte implements the io.ByteReader interface.  
 
-[\(view code\)](<./Bytes.hx#L2522>)
+[\(view code\)](<./Bytes.hx#L2559>)
 
 
 ### Reader function readRune
@@ -3351,7 +3335,7 @@ function readRune():{
 
 ReadRune implements the io.RuneReader interface.  
 
-[\(view code\)](<./Bytes.hx#L2484>)
+[\(view code\)](<./Bytes.hx#L2521>)
 
 
 ### Reader function reset
@@ -3365,7 +3349,7 @@ function reset( _b:stdgo.Slice<stdgo.GoByte>):Void
 
 Reset resets the Reader to be reading from b.  
 
-[\(view code\)](<./Bytes.hx#L2410>)
+[\(view code\)](<./Bytes.hx#L2447>)
 
 
 ### Reader function seek
@@ -3382,7 +3366,7 @@ function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
 
 Seek implements the io.Seeker interface.  
 
-[\(view code\)](<./Bytes.hx#L2444>)
+[\(view code\)](<./Bytes.hx#L2481>)
 
 
 ### Reader function size
@@ -3398,7 +3382,7 @@ Size returns the original length of the underlying byte slice.
 Size is the number of bytes available for reading via ReadAt.
 The result is unaffected by any method calls except Reset.  
 
-[\(view code\)](<./Bytes.hx#L2569>)
+[\(view code\)](<./Bytes.hx#L2606>)
 
 
 ### Reader function unreadByte
@@ -3412,7 +3396,7 @@ function unreadByte():stdgo.Error
 
 UnreadByte complements ReadByte in implementing the io.ByteScanner interface.  
 
-[\(view code\)](<./Bytes.hx#L2510>)
+[\(view code\)](<./Bytes.hx#L2547>)
 
 
 ### Reader function unreadRune
@@ -3426,7 +3410,7 @@ function unreadRune():stdgo.Error
 
 UnreadRune complements ReadRune in implementing the io.RuneScanner interface.  
 
-[\(view code\)](<./Bytes.hx#L2469>)
+[\(view code\)](<./Bytes.hx#L2506>)
 
 
 ### Reader function writeTo
@@ -3443,7 +3427,7 @@ function writeTo( _w:stdgo.io.Writer):{
 
 WriteTo implements the io.WriterTo interface.  
 
-[\(view code\)](<./Bytes.hx#L2422>)
+[\(view code\)](<./Bytes.hx#L2459>)
 
 
 ## class T\_fieldsFunc\_0\_\_\_localname\_\_\_span
@@ -3471,6 +3455,46 @@ function new(?_start:Null<stdgo.GoInt>, ?_end:Null<stdgo.GoInt>):Void
 ```
 
 
-[\(view code\)](<./Bytes.hx#L760>)
+[\(view code\)](<./Bytes.hx#L757>)
 
+
+# Typedefs
+
+
+```haxe
+import stdgo.bytes.*
+```
+
+
+## typedef T\_asciiSet
+
+
+```haxe
+typedef T_asciiSet = stdgo.GoArray<stdgo.GoUInt32>;
+```
+
+
+
+asciiSet is a 32\-byte value, where each bit represents the presence of a
+given ASCII character in the set. The 128\-bits of the lower 16 bytes,
+starting with the least\-significant bit of the lowest word to the
+most\-significant bit of the highest word, map to the full range of all
+128 ASCII characters. The 128\-bits of the upper 16 bytes will be zeroed,
+ensuring that any non\-ASCII character will be reported as not in the set.
+This allocates a total of 32 bytes even though the upper half
+is unused to avoid bounds checks in asciiSet.contains.  
+
+## typedef T\_readOp
+
+
+```haxe
+typedef T_readOp = stdgo.GoInt8;
+```
+
+
+
+The readOp constants describe the last action performed on
+the buffer, so that UnreadRune and UnreadByte can check for
+invalid usage. opReadRuneX constants are chosen such that
+converted to int they correspond to the rune size that was read.  
 

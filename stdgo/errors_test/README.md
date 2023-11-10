@@ -11,6 +11,8 @@
 
 - [Variables](<#variables>)
 
+- [`function _oops():stdgo.Error`](<#function-_oops>)
+
 - [`function example():Void`](<#function-example>)
 
 - [`function exampleAs():Void`](<#function-exampleas>)
@@ -43,11 +45,29 @@
 
 - [`function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testunwrap>)
 
+- [`function main():Void`](<#function-main>)
+
 - [class MyError](<#class-myerror>)
 
   - [`function new(?when:stdgo.time.Time, ?what:stdgo.GoString):Void`](<#myerror-function-new>)
 
   - [`function error():stdgo.GoString`](<#myerror-function-error>)
+
+- [typedef T\_\_interface\_4](<#typedef-t__interface_4>)
+
+- [typedef T\_\_interface\_5](<#typedef-t__interface_5>)
+
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
+- [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
+
+- [typedef T\_\_struct\_2](<#typedef-t__struct_2>)
+
+- [typedef T\_\_struct\_3](<#typedef-t__struct_3>)
+
+- [typedef T\_\_struct\_4](<#typedef-t__struct_4>)
+
+- [typedef T\_multiErr](<#typedef-t_multierr>)
 
 # Variables
 
@@ -58,7 +78,32 @@ import stdgo.errors_test.Errors
 
 
 ```haxe
+var _poserPathErr:stdgo.Ref<stdgo.io.fs.PathError>
+```
+
+
+```haxe
 var _:Bool
+```
+
+
+```haxe
+var _benchmarks:stdgo.Slice<stdgo.testing.InternalBenchmark>
+```
+
+
+```haxe
+var _examples:stdgo.Slice<stdgo.testing.InternalExample>
+```
+
+
+```haxe
+var _fuzzTargets:stdgo.Slice<stdgo.testing.InternalFuzzTarget>
+```
+
+
+```haxe
+var _tests:stdgo.Slice<stdgo.testing.InternalTest>
 ```
 
 
@@ -70,6 +115,17 @@ import stdgo.errors_test.Errors
 ```
 
 
+## function \_oops
+
+
+```haxe
+function _oops():stdgo.Error
+```
+
+
+[\(view code\)](<./Errors.hx#L218>)
+
+
 ## function example
 
 
@@ -78,7 +134,7 @@ function example():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L259>)
+[\(view code\)](<./Errors.hx#L221>)
 
 
 ## function exampleAs
@@ -89,7 +145,7 @@ function exampleAs():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L489>)
+[\(view code\)](<./Errors.hx#L270>)
 
 
 ## function exampleIs
@@ -100,7 +156,7 @@ function exampleIs():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L477>)
+[\(view code\)](<./Errors.hx#L258>)
 
 
 ## function exampleJoin
@@ -111,7 +167,7 @@ function exampleJoin():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L244>)
+[\(view code\)](<./Errors.hx#L246>)
 
 
 ## function exampleNew
@@ -122,7 +178,7 @@ function exampleNew():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L227>)
+[\(view code\)](<./Errors.hx#L229>)
 
 
 ## function exampleNew\_errorf
@@ -137,7 +193,7 @@ function exampleNew_errorf():Void
 The fmt package's Errorf function lets us use the package's formatting
 features to create descriptive error messages.  
 
-[\(view code\)](<./Errors.hx#L237>)
+[\(view code\)](<./Errors.hx#L239>)
 
 
 ## function exampleUnwrap
@@ -148,7 +204,7 @@ function exampleUnwrap():Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L502>)
+[\(view code\)](<./Errors.hx#L283>)
 
 
 ## function testAs
@@ -159,7 +215,7 @@ function testAs(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L361>)
+[\(view code\)](<./Errors.hx#L383>)
 
 
 ## function testAsValidation
@@ -170,7 +226,7 @@ function testAsValidation(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L410>)
+[\(view code\)](<./Errors.hx#L432>)
 
 
 ## function testErrorMethod
@@ -181,7 +237,7 @@ function testErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L221>)
+[\(view code\)](<./Errors.hx#L212>)
 
 
 ## function testIs
@@ -192,7 +248,7 @@ function testIs(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L310>)
+[\(view code\)](<./Errors.hx#L332>)
 
 
 ## function testJoin
@@ -203,7 +259,7 @@ function testJoin(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L287>)
+[\(view code\)](<./Errors.hx#L309>)
 
 
 ## function testJoinErrorMethod
@@ -214,7 +270,7 @@ function testJoinErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L300>)
+[\(view code\)](<./Errors.hx#L322>)
 
 
 ## function testJoinReturnsNil
@@ -225,7 +281,7 @@ function testJoinReturnsNil(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L267>)
+[\(view code\)](<./Errors.hx#L289>)
 
 
 ## function testNewEqual
@@ -236,7 +292,7 @@ function testNewEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L209>)
+[\(view code\)](<./Errors.hx#L200>)
 
 
 ## function testUnwrap
@@ -247,7 +303,18 @@ function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L464>)
+[\(view code\)](<./Errors.hx#L486>)
+
+
+## function main
+
+
+```haxe
+function main():Void
+```
+
+
+[\(view code\)](<./Errors.hx#L38>)
 
 
 # Classes
@@ -282,7 +349,7 @@ function new(?when:stdgo.time.Time, ?what:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Errors_test.hx#L52>)
+[\(view code\)](<./Errors_test.hx#L43>)
 
 
 ### MyError function error
@@ -293,6 +360,100 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Errors_test.hx#L521>)
+[\(view code\)](<./Errors_test.hx#L512>)
+
+
+# Typedefs
+
+
+```haxe
+import stdgo.errors_test.*
+```
+
+
+## typedef T\_\_interface\_4
+
+
+```haxe
+typedef T__interface_4 = {
+	public function unwrap():stdgo.Slice<stdgo.Error>;
+};
+```
+
+
+## typedef T\_\_interface\_5
+
+
+```haxe
+typedef T__interface_5 = {
+	public function timeout():Bool;
+};
+```
+
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+	_want:stdgo.Slice<stdgo.Error>;
+	_errs:stdgo.Slice<stdgo.Error>;
+};
+```
+
+
+## typedef T\_\_struct\_1
+
+
+```haxe
+typedef T__struct_1 = {
+	_want:stdgo.GoString;
+	_errs:stdgo.Slice<stdgo.Error>;
+};
+```
+
+
+## typedef T\_\_struct\_2
+
+
+```haxe
+typedef T__struct_2 = {
+	_target:stdgo.Error;
+	_match:Bool;
+	_err:stdgo.Error;
+};
+```
+
+
+## typedef T\_\_struct\_3
+
+
+```haxe
+typedef T__struct_3 = {
+	_want:stdgo.AnyInterface;
+	_target:stdgo.AnyInterface;
+	_match:Bool;
+	_err:stdgo.Error;
+};
+```
+
+
+## typedef T\_\_struct\_4
+
+
+```haxe
+typedef T__struct_4 = {
+	_want:stdgo.Error;
+	_err:stdgo.Error;
+};
+```
+
+
+## typedef T\_multiErr
+
+
+```haxe
+typedef T_multiErr = stdgo.Slice<stdgo.Error>;
+```
 
 

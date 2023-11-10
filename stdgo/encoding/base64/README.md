@@ -9,36 +9,6 @@
 
 Package base64 implements base64 encoding as specified by RFC 4648.  
 
-<details><summary>hl tests failed</summary>
-<p>
-
-```
-Error: Command failed with error 1
-=== RUN  TestEncode
-Encode("\x14\xfb\x9c\x03\xd9") = "FPucA9k", want "FPucA9k="
-```
-</p>
-</details>
-
-<details><summary>interp tests failed</summary>
-<p>
-
-```
-=== RUN  TestEncode
-Encode("\x14\xfb\x9c\x03\xd9") = "FPucA9k", want "FPucA9k="
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
-
 
 # Index
 
@@ -46,6 +16,28 @@ IO.Overflow("write_ui16")
 - [Constants](<#constants>)
 
 - [Variables](<#variables>)
+
+- [`function _assemble32(_n1:stdgo.GoByte, _n2:stdgo.GoByte, _n3:stdgo.GoByte, _n4:stdgo.GoByte):{
+	_1:Bool;
+	_0:stdgo.GoUInt32;
+}`](<#function-_assemble32>)
+
+- [`function _assemble64(_n1:stdgo.GoByte, _n2:stdgo.GoByte, _n3:stdgo.GoByte, _n4:stdgo.GoByte, _n5:stdgo.GoByte, _n6:stdgo.GoByte, _n7:stdgo.GoByte, _n8:stdgo.GoByte):{
+	_1:Bool;
+	_0:stdgo.GoUInt64;
+}`](<#function-_assemble64>)
+
+- [`function _funnyRef(_ref:stdgo.GoString):stdgo.GoString`](<#function-_funnyref>)
+
+- [`function _rawRef(_ref:stdgo.GoString):stdgo.GoString`](<#function-_rawref>)
+
+- [`function _rawURLRef(_ref:stdgo.GoString):stdgo.GoString`](<#function-_rawurlref>)
+
+- [`function _stdRef(_ref:stdgo.GoString):stdgo.GoString`](<#function-_stdref>)
+
+- [`function _testEqual(_t:stdgo.Ref<stdgo.testing.T>, _msg:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Bool`](<#function-_testequal>)
+
+- [`function _urlRef(_ref:stdgo.GoString):stdgo.GoString`](<#function-_urlref>)
 
 - [`function benchmarkDecodeString(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkdecodestring>)
 
@@ -117,6 +109,10 @@ IO.Overflow("write_ui16")
 
 - [typedef CorruptInputError](<#typedef-corruptinputerror>)
 
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
+- [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
+
 # Examples
 
 
@@ -131,7 +127,22 @@ import stdgo.encoding.base64.Base64
 
 
 ```haxe
-final noPadding:stdgo.GoRune = ((-1 : GoInt32))
+final _decodeMapInitialize:stdgo.GoString = stdgo.Go.str(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255)
+```
+
+
+```haxe
+final _encodeStd:stdgo.GoString = (("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString))
+```
+
+
+```haxe
+final _encodeURL:stdgo.GoString = (("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_" : stdgo.GoString))
+```
+
+
+```haxe
+final noPadding:stdgo.GoInt32 = ((-1 : stdgo.StdGoTypes.GoInt32))
 ```
 
 
@@ -139,7 +150,7 @@ final noPadding:stdgo.GoRune = ((-1 : GoInt32))
 No padding  
 
 ```haxe
-final stdPadding:stdgo.GoRune = ((61 : GoInt32))
+final stdPadding:stdgo.GoInt32 = ((61 : stdgo.StdGoTypes.GoInt32))
 ```
 
 
@@ -151,6 +162,29 @@ Standard padding character
 
 ```haxe
 import stdgo.encoding.base64.Base64
+```
+
+
+```haxe
+var _bigtest:stdgo.encoding.base64.T_testpair
+```
+
+
+```haxe
+var _encodingTests:stdgo.Slice<stdgo.encoding.base64.T_encodingTest>
+```
+
+
+```haxe
+var _funnyEncoding:stdgo.Ref<stdgo.encoding.base64.Encoding>
+```
+
+
+
+A nonstandard encoding with a funny padding character, for testing  
+
+```haxe
+var _pairs:stdgo.Slice<stdgo.encoding.base64.T_testpair>
 ```
 
 
@@ -200,6 +234,122 @@ import stdgo.encoding.base64.Base64
 ```
 
 
+## function \_assemble32
+
+
+```haxe
+function _assemble32(_n1:stdgo.GoByte, _n2:stdgo.GoByte, _n3:stdgo.GoByte, _n4:stdgo.GoByte):{
+	_1:Bool;
+	_0:stdgo.GoUInt32;
+}
+```
+
+
+
+assemble32 assembles 4 base64 digits into 3 bytes.
+Each digit comes from the decode map, and will be 0xff
+if it came from an invalid character.  
+
+[\(view code\)](<./Base64.hx#L876>)
+
+
+## function \_assemble64
+
+
+```haxe
+function _assemble64(_n1:stdgo.GoByte, _n2:stdgo.GoByte, _n3:stdgo.GoByte, _n4:stdgo.GoByte, _n5:stdgo.GoByte, _n6:stdgo.GoByte, _n7:stdgo.GoByte, _n8:stdgo.GoByte):{
+	_1:Bool;
+	_0:stdgo.GoUInt64;
+}
+```
+
+
+
+assemble64 assembles 8 base64 digits into 6 bytes.
+Each digit comes from the decode map, and will be 0xff
+if it came from an invalid character.  
+
+[\(view code\)](<./Base64.hx#L888>)
+
+
+## function \_funnyRef
+
+
+```haxe
+function _funnyRef(_ref:stdgo.GoString):stdgo.GoString
+```
+
+
+[\(view code\)](<./Base64.hx#L927>)
+
+
+## function \_rawRef
+
+
+```haxe
+function _rawRef(_ref:stdgo.GoString):stdgo.GoString
+```
+
+
+
+Convert a reference string to raw, unpadded format  
+
+[\(view code\)](<./Base64.hx#L918>)
+
+
+## function \_rawURLRef
+
+
+```haxe
+function _rawURLRef(_ref:stdgo.GoString):stdgo.GoString
+```
+
+
+
+Both URL and unpadding conversions  
+
+[\(view code\)](<./Base64.hx#L924>)
+
+
+## function \_stdRef
+
+
+```haxe
+function _stdRef(_ref:stdgo.GoString):stdgo.GoString
+```
+
+
+
+Do nothing to a reference base64 string \(leave in standard format\)  
+
+[\(view code\)](<./Base64.hx#L904>)
+
+
+## function \_testEqual
+
+
+```haxe
+function _testEqual(_t:stdgo.Ref<stdgo.testing.T>, _msg:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Bool
+```
+
+
+[\(view code\)](<./Base64.hx#L930>)
+
+
+## function \_urlRef
+
+
+```haxe
+function _urlRef(_ref:stdgo.GoString):stdgo.GoString
+```
+
+
+
+Convert a reference string to URL\-encoding  
+
+[\(view code\)](<./Base64.hx#L910>)
+
+
 ## function benchmarkDecodeString
 
 
@@ -208,7 +358,7 @@ function benchmarkDecodeString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1340>)
+[\(view code\)](<./Base64.hx#L1332>)
 
 
 ## function benchmarkEncodeToString
@@ -219,7 +369,7 @@ function benchmarkEncodeToString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1330>)
+[\(view code\)](<./Base64.hx#L1322>)
 
 
 ## function benchmarkNewEncoding
@@ -230,7 +380,7 @@ function benchmarkNewEncoding(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1359>)
+[\(view code\)](<./Base64.hx#L1351>)
 
 
 ## function newDecoder
@@ -244,7 +394,7 @@ function newDecoder(_enc:stdgo.Ref<stdgo.encoding.base64.Encoding>, _r:stdgo.io.
 
 NewDecoder constructs a new base64 stream decoder.  
 
-[\(view code\)](<./Base64.hx#L906>)
+[\(view code\)](<./Base64.hx#L898>)
 
 
 ## function newEncoder
@@ -271,8 +421,8 @@ partially written blocks.
 
 ```haxe
 function exampleNewEncoder():Void {
-        var _input = (Go.str("foo", 0, "bar") : Slice<GoByte>);
-        var _encoder:stdgo.io.Io.WriteCloser = stdgo.encoding.base64.Base64.newEncoder(stdgo.encoding.base64.Base64.stdEncoding, Go.asInterface(stdgo.os.Os.stdout));
+        var _input = (stdgo.Go.str("foo", 0, "bar") : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
+        var _encoder:stdgo.io.Io.WriteCloser = stdgo.encoding.base64.Base64.newEncoder(stdgo.encoding.base64.Base64.stdEncoding, stdgo.Go.asInterface(stdgo.os.Os.stdout));
         _encoder.write(_input);
         _encoder.close();
     }
@@ -283,7 +433,7 @@ function exampleNewEncoder():Void {
 </details>
 
 
-[\(view code\)](<./Base64.hx#L876>)
+[\(view code\)](<./Base64.hx#L868>)
 
 
 ## function newEncoding
@@ -297,11 +447,12 @@ function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo.encoding.base64.En
 
 NewEncoding returns a new padded Encoding defined by the given alphabet,
 which must be a 64\-byte string that does not contain the padding character
-or CR / LF \('\\r', '\\n'\).
+or CR / LF \('\\r', '\\n'\). The alphabet is treated as sequence of byte values
+without any special treatment for multi\-byte UTF\-8.
 The resulting Encoding uses the default padding character \('='\),
 which may be changed or disabled via WithPadding.  
 
-[\(view code\)](<./Base64.hx#L590>)
+[\(view code\)](<./Base64.hx#L582>)
 
 
 ## function testBig
@@ -312,7 +463,7 @@ function testBig(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1184>)
+[\(view code\)](<./Base64.hx#L1176>)
 
 
 ## function testDecode
@@ -323,7 +474,7 @@ function testDecode(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L989>)
+[\(view code\)](<./Base64.hx#L981>)
 
 
 ## function testDecodeBounds
@@ -334,7 +485,7 @@ function testDecodeBounds(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1103>)
+[\(view code\)](<./Base64.hx#L1095>)
 
 
 ## function testDecodeCorrupt
@@ -345,7 +496,7 @@ function testDecodeCorrupt(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1054>)
+[\(view code\)](<./Base64.hx#L1046>)
 
 
 ## function testDecodedLen
@@ -356,7 +507,7 @@ function testDecodedLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1174>)
+[\(view code\)](<./Base64.hx#L1166>)
 
 
 ## function testDecoder
@@ -367,7 +518,7 @@ function testDecoder(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1008>)
+[\(view code\)](<./Base64.hx#L1000>)
 
 
 ## function testDecoderBuffering
@@ -378,7 +529,7 @@ function testDecoderBuffering(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1027>)
+[\(view code\)](<./Base64.hx#L1019>)
 
 
 ## function testDecoderIssue15656
@@ -389,7 +540,7 @@ function testDecoderIssue15656(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1309>)
+[\(view code\)](<./Base64.hx#L1301>)
 
 
 ## function testDecoderIssue3577
@@ -403,7 +554,7 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 tests that we don't ignore errors from our underlying reader  
 
-[\(view code\)](<./Base64.hx#L1254>)
+[\(view code\)](<./Base64.hx#L1246>)
 
 
 ## function testDecoderIssue4779
@@ -414,7 +565,7 @@ function testDecoderIssue4779(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1277>)
+[\(view code\)](<./Base64.hx#L1269>)
 
 
 ## function testDecoderIssue7733
@@ -425,7 +576,7 @@ function testDecoderIssue7733(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1299>)
+[\(view code\)](<./Base64.hx#L1291>)
 
 
 ## function testDecoderRaw
@@ -436,7 +587,7 @@ function testDecoderRaw(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1371>)
+[\(view code\)](<./Base64.hx#L1363>)
 
 
 ## function testEncode
@@ -447,7 +598,7 @@ function testEncode(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L947>)
+[\(view code\)](<./Base64.hx#L939>)
 
 
 ## function testEncodedLen
@@ -458,7 +609,7 @@ function testEncodedLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1151>)
+[\(view code\)](<./Base64.hx#L1143>)
 
 
 ## function testEncoder
@@ -469,7 +620,7 @@ function testEncoder(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L955>)
+[\(view code\)](<./Base64.hx#L947>)
 
 
 ## function testEncoderBuffering
@@ -480,7 +631,7 @@ function testEncoderBuffering(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L964>)
+[\(view code\)](<./Base64.hx#L956>)
 
 
 ## function testNewLineCharacters
@@ -491,7 +642,7 @@ function testNewLineCharacters(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1221>)
+[\(view code\)](<./Base64.hx#L1213>)
 
 
 # Classes
@@ -540,7 +691,7 @@ function new(?_encode:stdgo.GoArray<stdgo.GoUInt8>, ?_decodeMap:stdgo.GoArray<st
 ```
 
 
-[\(view code\)](<./Base64.hx#L400>)
+[\(view code\)](<./Base64.hx#L391>)
 
 
 ### Encoding function \_decodeQuantum
@@ -562,7 +713,7 @@ source buffer si.
 It returns the number of bytes read from src, the number of bytes written
 to dst, and an error, if any.  
 
-[\(view code\)](<./Base64.hx#L1572>)
+[\(view code\)](<./Base64.hx#L1566>)
 
 
 ### Encoding function decode
@@ -583,7 +734,7 @@ written. If src contains invalid base64 data, it will return the
 number of bytes successfully written and CorruptInputError.
 New line characters \(\\r and \\n\) are ignored.  
 
-[\(view code\)](<./Base64.hx#L1487>)
+[\(view code\)](<./Base64.hx#L1481>)
 
 
 ### Encoding function decodeString
@@ -600,7 +751,7 @@ function decodeString( _s:stdgo.GoString):{
 
 DecodeString returns the bytes represented by the base64 string s.  
 
-[\(view code\)](<./Base64.hx#L1559>)
+[\(view code\)](<./Base64.hx#L1553>)
 
 
 ### Encoding function decodedLen
@@ -615,7 +766,7 @@ function decodedLen( _n:stdgo.GoInt):stdgo.GoInt
 DecodedLen returns the maximum length in bytes of the decoded data
 corresponding to n bytes of base64\-encoded data.  
 
-[\(view code\)](<./Base64.hx#L1473>)
+[\(view code\)](<./Base64.hx#L1467>)
 
 
 ### Encoding function encode
@@ -635,7 +786,7 @@ The encoding pads the output to a multiple of 4 bytes,
 so Encode is not appropriate for use on individual blocks
 of a large data stream. Use NewEncoder\(\) instead.  
 
-[\(view code\)](<./Base64.hx#L1710>)
+[\(view code\)](<./Base64.hx#L1704>)
 
 
 ### Encoding function encodeToString
@@ -649,7 +800,7 @@ function encodeToString( _src:stdgo.Slice<stdgo.GoByte>):stdgo.GoString
 
 EncodeToString returns the base64 encoding of src.  
 
-[\(view code\)](<./Base64.hx#L1696>)
+[\(view code\)](<./Base64.hx#L1690>)
 
 
 ### Encoding function encodedLen
@@ -664,7 +815,7 @@ function encodedLen( _n:stdgo.GoInt):stdgo.GoInt
 EncodedLen returns the length in bytes of the base64 encoding
 of an input buffer of length n.  
 
-[\(view code\)](<./Base64.hx#L1686>)
+[\(view code\)](<./Base64.hx#L1680>)
 
 
 ### Encoding function strict
@@ -684,7 +835,7 @@ trailing padding bits are zero, as described in RFC 4648 section 3.5.
 Note that the input is still malleable, as new line characters
 \(CR and LF\) are still ignored.  
 
-[\(view code\)](<./Base64.hx#L1760>)
+[\(view code\)](<./Base64.hx#L1754>)
 
 
 ### Encoding function withPadding
@@ -700,9 +851,11 @@ WithPadding creates a new encoding identical to enc except
 with a specified padding character, or NoPadding to disable padding.
 The padding character must not be '\\r' or '\\n', must not
 be contained in the encoding's alphabet and must be a rune equal or
-below '\\xff'.  
+below '\\xff'.
+Padding characters above '\\x7f' are encoded as their exact byte value
+rather than using the UTF\-8 representation of the codepoint.  
 
-[\(view code\)](<./Base64.hx#L1772>)
+[\(view code\)](<./Base64.hx#L1768>)
 
 
 # Typedefs
@@ -718,6 +871,29 @@ import stdgo.encoding.base64.*
 
 ```haxe
 typedef CorruptInputError = stdgo.GoInt64;
+```
+
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+	_offset:stdgo.GoInt;
+	_input:stdgo.GoString;
+};
+```
+
+
+## typedef T\_\_struct\_1
+
+
+```haxe
+typedef T__struct_1 = {
+	_want:stdgo.GoInt;
+	_n:stdgo.GoInt;
+	_enc:stdgo.Ref<stdgo.encoding.base64.Encoding>;
+};
 ```
 
 

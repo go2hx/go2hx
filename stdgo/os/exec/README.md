@@ -1,4 +1,4 @@
-# Module stdgo.os has compilation errors, please do not use:
+# Module stdgo.os.exec has compilation errors, please do not use:
 ```
 stdgo/os/exec_test/Exec_test.hx:39: characters 46-54 : error: stdgo.Slice<stdgo.GoString> should be haxe.Rest<stdgo.GoString>
 stdgo/os/exec_test/Exec_test.hx:39: characters 46-54 : ... have: (haxe.Rest<...>) -> ...
@@ -55,20 +55,6 @@ stdgo/os/exec_test/Exec_test.hx:1530: characters 25-47 : Type not found : stdgo.
 stdgo/os/exec_test/Exec_test.hx:2613: characters 25-55 : Type not found : os.exec.internal.fdtest.Fdtest
 stdgo/os/exec_test/Exec.hx:64: characters 70-94 : Module stdgo.testing.Testing does not define type M_asInterface
 stdgo/os/exec_test/Exec.hx:64: characters 70-94 : ... For function argument '_i'
-stdgo/os_test/Os_test.hx:2623: characters 139-218 : invalid type: TAbstract(stdgo.GoUInt32,[])
-stdgo/os_test/Os_test.hx:2623: characters 139-218 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:2655: characters 140-221 : invalid type: TAbstract(stdgo.GoUInt32,[])
-stdgo/os_test/Os_test.hx:2655: characters 140-221 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:3156: characters 130-157 : Module stdgo.os.Os does not define type FileMode_asInterface
-stdgo/os_test/Os_test.hx:3156: characters 130-157 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:3159: characters 179-206 : Module stdgo.os.Os does not define type FileMode_asInterface
-stdgo/os_test/Os_test.hx:3159: characters 179-206 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:4816: characters 122-191 : invalid type: TAbstract(stdgo.GoUInt32,[])
-stdgo/os_test/Os_test.hx:4816: characters 122-191 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:4831: characters 56-130 : invalid type: TAbstract(stdgo.GoUInt32,[])
-stdgo/os_test/Os_test.hx:4831: characters 56-130 : ... For function argument '_a'
-stdgo/os_test/Os.hx:171: characters 70-94 : Module stdgo.testing.Testing does not define type M_asInterface
-stdgo/os_test/Os.hx:171: characters 70-94 : ... For function argument '_i'
 
 ```
 

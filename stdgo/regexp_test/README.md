@@ -73,6 +73,8 @@
 
 - [`function exampleRegexp_SubexpNames():Void`](<#function-exampleregexp_subexpnames>)
 
+- [`function main():Void`](<#function-main>)
+
 # Variables
 
 
@@ -83,6 +85,26 @@ import stdgo.regexp_test.Regexp
 
 ```haxe
 var _:Bool
+```
+
+
+```haxe
+var _benchmarks:stdgo.Slice<stdgo.testing.InternalBenchmark>
+```
+
+
+```haxe
+var _examples:stdgo.Slice<stdgo.testing.InternalExample>
+```
+
+
+```haxe
+var _fuzzTargets:stdgo.Slice<stdgo.testing.InternalFuzzTarget>
+```
+
+
+```haxe
+var _tests:stdgo.Slice<stdgo.testing.InternalTest>
 ```
 
 
@@ -102,7 +124,7 @@ function example():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L12>)
+[\(view code\)](<./Regexp.hx#L3>)
 
 
 ## function exampleMatch
@@ -113,7 +135,7 @@ function exampleMatch():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L19>)
+[\(view code\)](<./Regexp.hx#L10>)
 
 
 ## function exampleMatchString
@@ -124,7 +146,7 @@ function exampleMatchString():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L35>)
+[\(view code\)](<./Regexp.hx#L26>)
 
 
 ## function exampleQuoteMeta
@@ -135,7 +157,7 @@ function exampleQuoteMeta():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L51>)
+[\(view code\)](<./Regexp.hx#L42>)
 
 
 ## function exampleRegexp\_Expand
@@ -146,7 +168,7 @@ function exampleRegexp_Expand():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L190>)
+[\(view code\)](<./Regexp.hx#L181>)
 
 
 ## function exampleRegexp\_ExpandString
@@ -157,7 +179,7 @@ function exampleRegexp_ExpandString():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L200>)
+[\(view code\)](<./Regexp.hx#L191>)
 
 
 ## function exampleRegexp\_Find
@@ -168,7 +190,7 @@ function exampleRegexp_Find():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L54>)
+[\(view code\)](<./Regexp.hx#L45>)
 
 
 ## function exampleRegexp\_FindAll
@@ -179,7 +201,7 @@ function exampleRegexp_FindAll():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L58>)
+[\(view code\)](<./Regexp.hx#L49>)
 
 
 ## function exampleRegexp\_FindAllIndex
@@ -190,7 +212,7 @@ function exampleRegexp_FindAllIndex():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L228>)
+[\(view code\)](<./Regexp.hx#L219>)
 
 
 ## function exampleRegexp\_FindAllString
@@ -201,7 +223,7 @@ function exampleRegexp_FindAllString():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L90>)
+[\(view code\)](<./Regexp.hx#L81>)
 
 
 ## function exampleRegexp\_FindAllStringSubmatch
@@ -212,7 +234,7 @@ function exampleRegexp_FindAllStringSubmatch():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L97>)
+[\(view code\)](<./Regexp.hx#L88>)
 
 
 ## function exampleRegexp\_FindAllStringSubmatchIndex
@@ -223,7 +245,7 @@ function exampleRegexp_FindAllStringSubmatchIndex():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L104>)
+[\(view code\)](<./Regexp.hx#L95>)
 
 
 ## function exampleRegexp\_FindAllSubmatch
@@ -234,7 +256,7 @@ function exampleRegexp_FindAllSubmatch():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L62>)
+[\(view code\)](<./Regexp.hx#L53>)
 
 
 ## function exampleRegexp\_FindAllSubmatchIndex
@@ -245,7 +267,7 @@ function exampleRegexp_FindAllSubmatchIndex():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L217>)
+[\(view code\)](<./Regexp.hx#L208>)
 
 
 ## function exampleRegexp\_FindIndex
@@ -256,7 +278,7 @@ function exampleRegexp_FindIndex():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L210>)
+[\(view code\)](<./Regexp.hx#L201>)
 
 
 ## function exampleRegexp\_FindString
@@ -267,7 +289,7 @@ function exampleRegexp_FindString():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L75>)
+[\(view code\)](<./Regexp.hx#L66>)
 
 
 ## function exampleRegexp\_FindStringIndex
@@ -278,7 +300,7 @@ function exampleRegexp_FindStringIndex():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L80>)
+[\(view code\)](<./Regexp.hx#L71>)
 
 
 ## function exampleRegexp\_FindStringSubmatch
@@ -289,7 +311,7 @@ function exampleRegexp_FindStringSubmatch():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L85>)
+[\(view code\)](<./Regexp.hx#L76>)
 
 
 ## function exampleRegexp\_FindSubmatch
@@ -300,7 +322,7 @@ function exampleRegexp_FindSubmatch():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L66>)
+[\(view code\)](<./Regexp.hx#L57>)
 
 
 ## function exampleRegexp\_FindSubmatchIndex
@@ -311,7 +333,7 @@ function exampleRegexp_FindSubmatchIndex():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L112>)
+[\(view code\)](<./Regexp.hx#L103>)
 
 
 ## function exampleRegexp\_Longest
@@ -322,7 +344,7 @@ function exampleRegexp_Longest():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L120>)
+[\(view code\)](<./Regexp.hx#L111>)
 
 
 ## function exampleRegexp\_Match
@@ -333,7 +355,7 @@ function exampleRegexp_Match():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L70>)
+[\(view code\)](<./Regexp.hx#L61>)
 
 
 ## function exampleRegexp\_MatchString
@@ -344,7 +366,7 @@ function exampleRegexp_MatchString():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L126>)
+[\(view code\)](<./Regexp.hx#L117>)
 
 
 ## function exampleRegexp\_NumSubexp
@@ -355,7 +377,7 @@ function exampleRegexp_NumSubexp():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L132>)
+[\(view code\)](<./Regexp.hx#L123>)
 
 
 ## function exampleRegexp\_ReplaceAll
@@ -366,7 +388,7 @@ function exampleRegexp_ReplaceAll():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L138>)
+[\(view code\)](<./Regexp.hx#L129>)
 
 
 ## function exampleRegexp\_ReplaceAllLiteralString
@@ -377,7 +399,7 @@ function exampleRegexp_ReplaceAllLiteralString():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L145>)
+[\(view code\)](<./Regexp.hx#L136>)
 
 
 ## function exampleRegexp\_ReplaceAllString
@@ -388,7 +410,7 @@ function exampleRegexp_ReplaceAllString():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L151>)
+[\(view code\)](<./Regexp.hx#L142>)
 
 
 ## function exampleRegexp\_ReplaceAllStringFunc
@@ -399,7 +421,7 @@ function exampleRegexp_ReplaceAllStringFunc():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L158>)
+[\(view code\)](<./Regexp.hx#L149>)
 
 
 ## function exampleRegexp\_Split
@@ -410,7 +432,7 @@ function exampleRegexp_Split():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L178>)
+[\(view code\)](<./Regexp.hx#L169>)
 
 
 ## function exampleRegexp\_SubexpIndex
@@ -421,7 +443,7 @@ function exampleRegexp_SubexpIndex():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L170>)
+[\(view code\)](<./Regexp.hx#L161>)
 
 
 ## function exampleRegexp\_SubexpNames
@@ -432,6 +454,17 @@ function exampleRegexp_SubexpNames():Void
 ```
 
 
-[\(view code\)](<./Regexp.hx#L162>)
+[\(view code\)](<./Regexp.hx#L153>)
+
+
+## function main
+
+
+```haxe
+function main():Void
+```
+
+
+[\(view code\)](<./Regexp.hx#L135>)
 
 

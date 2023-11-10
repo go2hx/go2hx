@@ -1,6 +1,8 @@
 # Module stdgo.math has compilation errors, please do not use:
 ```
-stdgo/math/big_test/Big_test.hx:2093: characters 95-119 : Cannot access private type T_nat in module stdgo.math.big.Big
+stdgo/math/rand_test/Rand_test.hx:13: characters 5-8 : Duplicate module field declaration : stdgo.math.rand_test.Rand_test._wn
+stdgo/math/rand_test/Rand_test.hx:19: characters 5-8 : Duplicate module field declaration : stdgo.math.rand_test.Rand_test._we
+stdgo/math/big/Big.hx:19809: characters 13-149 : Cannot modify the abstract value, store it into a local first
 
 ```
 

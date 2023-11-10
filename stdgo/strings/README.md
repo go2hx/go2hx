@@ -12,450 +12,54 @@ Package strings implements simple functions to manipulate UTF\-8 encoded strings
 
 For information about UTF\-8 strings in Go, see https://blog.golang.org/strings.  
 
-<details><summary>hl tests passed</summary>
-<p>
-
-```
-=== RUN  TestBuilder
---- PASS: TestBuilder (%!s(float64=7.677078247070312e-05))
-
-=== RUN  TestBuilderString
---- PASS: TestBuilderString (%!s(float64=4.601478576660156e-05))
-
-=== RUN  TestBuilderReset
---- PASS: TestBuilderReset (%!s(float64=3.4809112548828125e-05))
-
-=== RUN  TestBuilderGrow
-strings_test/Strings_test.hx:1564: testBuilderGrow skip function
---- PASS: TestBuilderGrow (%!s(float64=3.600120544433594e-05))
-
-=== RUN  TestBuilderWrite2
---- PASS: TestBuilderWrite2 (%!s(float64=1.5974044799804688e-05))
-
-=== RUN  TestBuilderWriteByte
---- PASS: TestBuilderWriteByte (%!s(float64=1.4066696166992188e-05))
-
-=== RUN  TestBuilderAllocs
-strings_test/Strings_test.hx:1687: testBuilderAllocs skip function
---- PASS: TestBuilderAllocs (%!s(float64=1.811981201171875e-05))
-
-=== RUN  TestBuilderCopyPanic
-strings_test/Strings_test.hx:1700: testBuilderCopyPanic skip function
---- PASS: TestBuilderCopyPanic (%!s(float64=1.5974044799804688e-05))
-
-=== RUN  TestBuilderWriteInvalidRune
---- PASS: TestBuilderWriteInvalidRune (%!s(float64=2.47955322265625e-05))
-
-=== RUN  TestClone
-strings_test/Strings_test.hx:1873: testClone skip function
---- PASS: TestClone (%!s(float64=1.6927719116210938e-05))
-
-=== RUN  TestCompare
---- PASS: TestCompare (%!s(float64=2.5033950805664062e-05))
-
-=== RUN  TestCompareIdenticalString
---- PASS: TestCompareIdenticalString (%!s(float64=9.059906005859375e-06))
-
-=== RUN  TestCompareStrings
-strings_test/Strings_test.hx:1917: testCompareStrings skip function
---- PASS: TestCompareStrings (%!s(float64=1.5974044799804688e-05))
-
-=== RUN  TestReader
---- PASS: TestReader (%!s(float64=6.890296936035156e-05))
-
-=== RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=1.5974044799804688e-05))
-
-=== RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.0029850006103515625))
-
-=== RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0006608963012695312))
-
-=== RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0003151893615722656))
-
-=== RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.00032711029052734375))
-
-=== RUN  TestReaderLenSize
-strings_test/Strings_test.hx:2433: testReaderLenSize skip function
---- PASS: TestReaderLenSize (%!s(float64=2.002716064453125e-05))
-
-=== RUN  TestReaderReset
---- PASS: TestReaderReset (%!s(float64=3.504753112792969e-05))
-
-=== RUN  TestReaderZero
---- PASS: TestReaderZero (%!s(float64=0.00012302398681640625))
-
-=== RUN  TestReplacer
-strings_test/Strings_test.hx:2561: testReplacer skip function
---- PASS: TestReplacer (%!s(float64=1.6927719116210938e-05))
-
-=== RUN  TestPickAlgorithm
-strings_test/Strings_test.hx:2692: testPickAlgorithm skip function
---- PASS: TestPickAlgorithm (%!s(float64=1.811981201171875e-05))
-
-=== RUN  TestWriteStringError
---- PASS: TestWriteStringError (%!s(float64=0.0018811225891113281))
-
-=== RUN  TestGenericTrieBuilding
-strings_test/Strings_test.hx:2719: testGenericTrieBuilding skip function
---- PASS: TestGenericTrieBuilding (%!s(float64=1.9073486328125e-05))
-
-=== RUN  TestFinderNext
---- PASS: TestFinderNext (%!s(float64=0.0019931793212890625))
-
-=== RUN  TestFinderCreation
---- PASS: TestFinderCreation (%!s(float64=0.001219034194946289))
-
-=== RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.00011491775512695312))
-
-=== RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=1.7881393432617188e-05))
-
-=== RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=9.989738464355469e-05))
-
-=== RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=6.604194641113281e-05))
-
-=== RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=5.0067901611328125e-05))
-
-=== RUN  TestLastIndexByte
---- PASS: TestLastIndexByte (%!s(float64=2.193450927734375e-05))
-
-=== RUN  TestIndexRandom
---- PASS: TestIndexRandom (%!s(float64=0.0523679256439209))
-
-=== RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=6.198883056640625e-05))
-
-=== RUN  TestSplit
---- PASS: TestSplit (%!s(float64=0.0011439323425292969))
-
-=== RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.0006458759307861328))
-
-=== RUN  TestFields
---- PASS: TestFields (%!s(float64=0.00019216537475585938))
-
-=== RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.0002789497375488281))
-
-=== RUN  TestMap
-strings_test/Strings_test.hx:3369: testMap skip function
---- PASS: TestMap (%!s(float64=2.002716064453125e-05))
-
-=== RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.0002720355987548828))
-
-=== RUN  TestToLower
---- PASS: TestToLower (%!s(float64=0.00019884109497070312))
-
-=== RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.00018596649169921875))
-
-=== RUN  TestSpecialCase
---- PASS: TestSpecialCase (%!s(float64=0.00023603439331054688))
-
-=== RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=6.198883056640625e-05))
-
-=== RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.00011682510375976562))
-
-=== RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.00021409988403320312))
-
-=== RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=8.20159912109375e-05))
-
-=== RUN  TestCaseConsistency
---- PASS: TestCaseConsistency (%!s(float64=0.01011514663696289))
-
-=== RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.09161210060119629))
-
-=== RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0024580955505371094))
-
-=== RUN  TestRunes
---- PASS: TestRunes (%!s(float64=7.009506225585938e-05))
-
-=== RUN  TestReadByte
---- PASS: TestReadByte (%!s(float64=0.00010395050048828125))
-
-=== RUN  TestReadRune
---- PASS: TestReadRune (%!s(float64=0.00017690658569335938))
-
-=== RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=7.510185241699219e-05))
-
-=== RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.001708984375))
-
-=== RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.00019502639770507812))
-
-=== RUN  TestContains
---- PASS: TestContains (%!s(float64=5.0067901611328125e-05))
-
-=== RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=5.412101745605469e-05))
-
-=== RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=1.4066696166992188e-05))
-
-=== RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=6.198883056640625e-05))
-
-=== RUN  TestCount
---- PASS: TestCount (%!s(float64=1.5020370483398438e-05))
-
-=== RUN  TestCut
---- PASS: TestCut (%!s(float64=1.9073486328125e-05))
-
-=== RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=1.4066696166992188e-05))
-
-=== RUN  TestCutSuffix
---- PASS: TestCutSuffix (%!s(float64=1.2874603271484375e-05))
-
-```
-</p>
-</details>
-
-<details><summary>interp tests passed</summary>
-<p>
-
-```
-=== RUN  TestBuilder
---- PASS: TestBuilder (%!s(float64=0.00014901161193847656))
-
-=== RUN  TestBuilderString
---- PASS: TestBuilderString (%!s(float64=0.00015211105346679688))
-
-=== RUN  TestBuilderReset
---- PASS: TestBuilderReset (%!s(float64=0.00011801719665527344))
-
-=== RUN  TestBuilderGrow
-strings_test/Strings_test.hx:1564: testBuilderGrow skip function
---- PASS: TestBuilderGrow (%!s(float64=3.3855438232421875e-05))
-
-=== RUN  TestBuilderWrite2
---- PASS: TestBuilderWrite2 (%!s(float64=4.601478576660156e-05))
-
-=== RUN  TestBuilderWriteByte
---- PASS: TestBuilderWriteByte (%!s(float64=5.5789947509765625e-05))
-
-=== RUN  TestBuilderAllocs
-strings_test/Strings_test.hx:1687: testBuilderAllocs skip function
---- PASS: TestBuilderAllocs (%!s(float64=3.695487976074219e-05))
-
-=== RUN  TestBuilderCopyPanic
-strings_test/Strings_test.hx:1700: testBuilderCopyPanic skip function
---- PASS: TestBuilderCopyPanic (%!s(float64=3.504753112792969e-05))
-
-=== RUN  TestBuilderWriteInvalidRune
---- PASS: TestBuilderWriteInvalidRune (%!s(float64=9.608268737792969e-05))
-
-=== RUN  TestClone
-strings_test/Strings_test.hx:1873: testClone skip function
---- PASS: TestClone (%!s(float64=2.5987625122070312e-05))
-
-=== RUN  TestCompare
---- PASS: TestCompare (%!s(float64=5.91278076171875e-05))
-
-=== RUN  TestCompareIdenticalString
---- PASS: TestCompareIdenticalString (%!s(float64=4.9114227294921875e-05))
-
-=== RUN  TestCompareStrings
-strings_test/Strings_test.hx:1917: testCompareStrings skip function
---- PASS: TestCompareStrings (%!s(float64=3.3855438232421875e-05))
-
-=== RUN  TestReader
---- PASS: TestReader (%!s(float64=0.0003268718719482422))
-
-=== RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=6.389617919921875e-05))
-
-=== RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.003401041030883789))
-
-=== RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0006439685821533203))
-
-=== RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0012180805206298828))
-
-=== RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.0008909702301025391))
-
-=== RUN  TestReaderLenSize
-strings_test/Strings_test.hx:2433: testReaderLenSize skip function
---- PASS: TestReaderLenSize (%!s(float64=3.814697265625e-05))
-
-=== RUN  TestReaderReset
---- PASS: TestReaderReset (%!s(float64=0.00012993812561035156))
-
-=== RUN  TestReaderZero
---- PASS: TestReaderZero (%!s(float64=0.00014281272888183594))
-
-=== RUN  TestReplacer
-strings_test/Strings_test.hx:2561: testReplacer skip function
---- PASS: TestReplacer (%!s(float64=2.8133392333984375e-05))
-
-=== RUN  TestPickAlgorithm
-strings_test/Strings_test.hx:2692: testPickAlgorithm skip function
---- PASS: TestPickAlgorithm (%!s(float64=3.409385681152344e-05))
-
-=== RUN  TestWriteStringError
---- PASS: TestWriteStringError (%!s(float64=0.003081083297729492))
-
-=== RUN  TestGenericTrieBuilding
-strings_test/Strings_test.hx:2719: testGenericTrieBuilding skip function
---- PASS: TestGenericTrieBuilding (%!s(float64=3.910064697265625e-05))
-
-=== RUN  TestFinderNext
---- PASS: TestFinderNext (%!s(float64=0.0029060840606689453))
-
-=== RUN  TestFinderCreation
---- PASS: TestFinderCreation (%!s(float64=0.002794027328491211))
-
-=== RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.001148223876953125))
-
-=== RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=9.202957153320312e-05))
-
-=== RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=0.0005769729614257812))
-
-=== RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=0.0004608631134033203))
-
-=== RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=9.489059448242188e-05))
-
-=== RUN  TestLastIndexByte
---- PASS: TestLastIndexByte (%!s(float64=7.295608520507812e-05))
-
-=== RUN  TestIndexRandom
---- PASS: TestIndexRandom (%!s(float64=0.546410083770752))
-
-=== RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=0.0002579689025878906))
-
-=== RUN  TestSplit
---- PASS: TestSplit (%!s(float64=0.002385854721069336))
-
-=== RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.001695871353149414))
-
-=== RUN  TestFields
---- PASS: TestFields (%!s(float64=0.0009989738464355469))
-
-=== RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.0012340545654296875))
-
-=== RUN  TestMap
-strings_test/Strings_test.hx:3369: testMap skip function
---- PASS: TestMap (%!s(float64=2.288818359375e-05))
-
-=== RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.0014810562133789062))
-
-=== RUN  TestToLower
---- PASS: TestToLower (%!s(float64=0.0010139942169189453))
-
-=== RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.0008559226989746094))
-
-=== RUN  TestSpecialCase
---- PASS: TestSpecialCase (%!s(float64=0.001547098159790039))
-
-=== RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=0.00046706199645996094))
-
-=== RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.0006160736083984375))
-
-=== RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.0015931129455566406))
-
-=== RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=0.0005440711975097656))
-
-=== RUN  TestCaseConsistency
---- PASS: TestCaseConsistency (%!s(float64=0.0706779956817627))
-
-=== RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.3586890697479248))
-
-=== RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.002045154571533203))
-
-=== RUN  TestRunes
---- PASS: TestRunes (%!s(float64=0.0002269744873046875))
-
-=== RUN  TestReadByte
---- PASS: TestReadByte (%!s(float64=0.0004410743713378906))
-
-=== RUN  TestReadRune
---- PASS: TestReadRune (%!s(float64=0.0003540515899658203))
-
-=== RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=0.00020003318786621094))
-
-=== RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.001569986343383789))
-
-=== RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.001013040542602539))
-
-=== RUN  TestContains
---- PASS: TestContains (%!s(float64=0.00034689903259277344))
-
-=== RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=0.00028705596923828125))
-
-=== RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=7.009506225585938e-05))
-
-=== RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=0.0005860328674316406))
-
-=== RUN  TestCount
---- PASS: TestCount (%!s(float64=9.894371032714844e-05))
-
-=== RUN  TestCut
---- PASS: TestCut (%!s(float64=6.508827209472656e-05))
-
-=== RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=5.5789947509765625e-05))
-
-=== RUN  TestCutSuffix
---- PASS: TestCutSuffix (%!s(float64=5.698204040527344e-05))
-
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
-
 
 # Index
 
+
+- [Constants](<#constants>)
+
+- [Variables](<#variables>)
+
+- [`function _explode(_s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoString>`](<#function-_explode>)
+
+- [`function _genSplit(_s:stdgo.GoString, _sep:stdgo.GoString, _sepSave:stdgo.GoInt, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoString>`](<#function-_gensplit>)
+
+- [`function _getStringWriter(_w:stdgo.io.Writer):stdgo.io.StringWriter`](<#function-_getstringwriter>)
+
+- [`function _indexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt`](<#function-_indexfunc>)
+
+- [`function _isSeparator(_r:stdgo.GoRune):Bool`](<#function-_isseparator>)
+
+- [`function _lastIndexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt`](<#function-_lastindexfunc>)
+
+- [`function _longestCommonSuffix(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt`](<#function-_longestcommonsuffix>)
+
+- [`function _makeASCIISet(_chars:stdgo.GoString):{
+	_1:Bool;
+	_0:stdgo.strings.T_asciiSet;
+}`](<#function-_makeasciiset>)
+
+- [`function _makeGenericReplacer(_oldnew:stdgo.Slice<stdgo.GoString>):stdgo.Ref<stdgo.strings.T_genericReplacer>`](<#function-_makegenericreplacer>)
+
+- [`function _makeSingleStringReplacer(_pattern:stdgo.GoString, _value:stdgo.GoString):stdgo.Ref<stdgo.strings.T_singleStringReplacer>`](<#function-_makesinglestringreplacer>)
+
+- [`function _makeStringFinder(_pattern:stdgo.GoString):stdgo.Ref<stdgo.strings.T_stringFinder>`](<#function-_makestringfinder>)
+
+- [`function _max(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt`](<#function-_max>)
+
+- [`function _noescape(_p:stdgo.unsafe.UnsafePointer):stdgo.unsafe.UnsafePointer`](<#function-_noescape>)
+
+- [`function _trimLeftASCII(_s:stdgo.GoString, _as:stdgo.Ref<stdgo.strings.T_asciiSet>):stdgo.GoString`](<#function-_trimleftascii>)
+
+- [`function _trimLeftByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString`](<#function-_trimleftbyte>)
+
+- [`function _trimLeftUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString`](<#function-_trimleftunicode>)
+
+- [`function _trimRightASCII(_s:stdgo.GoString, _as:stdgo.Ref<stdgo.strings.T_asciiSet>):stdgo.GoString`](<#function-_trimrightascii>)
+
+- [`function _trimRightByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString`](<#function-_trimrightbyte>)
+
+- [`function _trimRightUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString`](<#function-_trimrightunicode>)
 
 - [`function clone(_s:stdgo.GoString):stdgo.GoString`](<#function-clone>)
 
@@ -464,6 +68,8 @@ IO.Overflow("write_ui16")
 - [`function contains(_s:stdgo.GoString, _substr:stdgo.GoString):Bool`](<#function-contains>)
 
 - [`function containsAny(_s:stdgo.GoString, _chars:stdgo.GoString):Bool`](<#function-containsany>)
+
+- [`function containsFunc(_s:stdgo.GoString, _f:()):Bool`](<#function-containsfunc>)
 
 - [`function containsRune(_s:stdgo.GoString, _r:stdgo.GoRune):Bool`](<#function-containsrune>)
 
@@ -630,9 +236,9 @@ IO.Overflow("write_ui16")
 
 - [class Replacer](<#class-replacer>)
 
-  - [`function new(?_once:stdgo.sync.Once, ?_r:Null<stdgo.strings._Strings.T_replacer>, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void`](<#replacer-function-new>)
+  - [`function new(?_once:stdgo.sync.Once, ?_r:Null<stdgo.strings.T_replacer>, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void`](<#replacer-function-new>)
 
-  - [`function _build():stdgo.strings._Strings.T_replacer`](<#replacer-function-_build>)
+  - [`function _build():stdgo.strings.T_replacer`](<#replacer-function-_build>)
 
   - [`function _buildOnce():Void`](<#replacer-function-_buildonce>)
 
@@ -648,8 +254,18 @@ IO.Overflow("write_ui16")
 
   - [`function new(?_start:Null<stdgo.GoInt>, ?_end:Null<stdgo.GoInt>):Void`](<#t_fieldsfunc_0localnamespan-function-new>)
 
+- [typedef T\_appendSliceWriter](<#typedef-t_appendslicewriter>)
+
+- [typedef T\_asciiSet](<#typedef-t_asciiset>)
+
+- [typedef T\_byteReplacer](<#typedef-t_bytereplacer>)
+
+- [typedef T\_replacer](<#typedef-t_replacer>)
+
 # Examples
 
+
+- [`exampleClone`](<#exampleclone>)
 
 - [`exampleCompare`](<#examplecompare>)
 
@@ -662,6 +278,10 @@ IO.Overflow("write_ui16")
 - [`exampleCount`](<#examplecount>)
 
 - [`exampleCut`](<#examplecut>)
+
+- [`exampleCutPrefix`](<#examplecutprefix>)
+
+- [`exampleCutSuffix`](<#examplecutsuffix>)
 
 - [`exampleEqualFold`](<#exampleequalfold>)
 
@@ -725,6 +345,8 @@ IO.Overflow("write_ui16")
 
 - [`exampleToUpperSpecial`](<#exampletoupperspecial>)
 
+- [`exampleToValidUTF8`](<#exampletovalidutf8>)
+
 - [`exampleTrim`](<#exampletrim>)
 
 - [`exampleTrimFunc`](<#exampletrimfunc>)
@@ -743,12 +365,302 @@ IO.Overflow("write_ui16")
 
 - [`exampleTrimSuffix`](<#exampletrimsuffix>)
 
+# Constants
+
+
+```haxe
+import stdgo.strings.Strings
+```
+
+
+```haxe
+final _countCutOff:stdgo.GoUInt64 = ((8i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+countCutOff controls the ratio of a string length to a number of replacements
+at which \(\*byteStringReplacer\).Replace switches algorithms.
+For strings with higher ration of length to replacements than that value,
+we call Count, for each replacement from toReplace.
+For strings, with a lower ratio we use simple loop, because of Count overhead.
+countCutOff is an empirically determined overhead multiplier.
+TODO\(tocarip\) revisit once we have register\-based abi/mid\-stack inlining.  
+
+```haxe
+final _maxInt:stdgo.GoInt = ((((2147483647u32 : stdgo.StdGoTypes.GoUInt)) : stdgo.StdGoTypes.GoInt))
+```
+
+
+# Variables
+
+
+```haxe
+import stdgo.strings.Strings
+```
+
+
+```haxe
+var _asciiSpace:stdgo.GoArray<stdgo.GoUInt8>
+```
+
+
 # Functions
 
 
 ```haxe
 import stdgo.strings.Strings
 ```
+
+
+## function \_explode
+
+
+```haxe
+function _explode(_s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoString>
+```
+
+
+
+explode splits s into a slice of UTF\-8 strings,
+one string per Unicode character up to a maximum of n \(n \< 0 means no limit\).
+Invalid UTF\-8 bytes are sliced individually.  
+
+[\(view code\)](<./Strings.hx#L525>)
+
+
+## function \_genSplit
+
+
+```haxe
+function _genSplit(_s:stdgo.GoString, _sep:stdgo.GoString, _sepSave:stdgo.GoInt, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoString>
+```
+
+
+
+Generic split: splits after each instance of sep,
+including sepSave bytes of sep in the subarrays.  
+
+[\(view code\)](<./Strings.hx#L779>)
+
+
+## function \_getStringWriter
+
+
+```haxe
+function _getStringWriter(_w:stdgo.io.Writer):stdgo.io.StringWriter
+```
+
+
+[\(view code\)](<./Strings.hx#L458>)
+
+
+## function \_indexFunc
+
+
+```haxe
+function _indexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt
+```
+
+
+
+indexFunc is the same as IndexFunc except that if
+truth==false, the sense of the predicate function is
+inverted.  
+
+[\(view code\)](<./Strings.hx#L1368>)
+
+
+## function \_isSeparator
+
+
+```haxe
+function _isSeparator(_r:stdgo.GoRune):Bool
+```
+
+
+
+isSeparator reports whether the rune could mark a word boundary.
+TODO: update when package unicode captures more of the properties.  
+
+[\(view code\)](<./Strings.hx#L1281>)
+
+
+## function \_lastIndexFunc
+
+
+```haxe
+function _lastIndexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt
+```
+
+
+
+lastIndexFunc is the same as LastIndexFunc except that if
+truth==false, the sense of the predicate function is
+inverted.  
+
+[\(view code\)](<./Strings.hx#L1381>)
+
+
+## function \_longestCommonSuffix
+
+
+```haxe
+function _longestCommonSuffix(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Strings.hx#L505>)
+
+
+## function \_makeASCIISet
+
+
+```haxe
+function _makeASCIISet(_chars:stdgo.GoString):{
+	_1:Bool;
+	_0:stdgo.strings.T_asciiSet;
+}
+```
+
+
+
+makeASCIISet creates a set of ASCII characters and reports whether all
+characters in chars are ASCII.  
+
+[\(view code\)](<./Strings.hx#L1398>)
+
+
+## function \_makeGenericReplacer
+
+
+```haxe
+function _makeGenericReplacer(_oldnew:stdgo.Slice<stdgo.GoString>):stdgo.Ref<stdgo.strings.T_genericReplacer>
+```
+
+
+[\(view code\)](<./Strings.hx#L423>)
+
+
+## function \_makeSingleStringReplacer
+
+
+```haxe
+function _makeSingleStringReplacer(_pattern:stdgo.GoString, _value:stdgo.GoString):stdgo.Ref<stdgo.strings.T_singleStringReplacer>
+```
+
+
+[\(view code\)](<./Strings.hx#L469>)
+
+
+## function \_makeStringFinder
+
+
+```haxe
+function _makeStringFinder(_pattern:stdgo.GoString):stdgo.Ref<stdgo.strings.T_stringFinder>
+```
+
+
+[\(view code\)](<./Strings.hx#L472>)
+
+
+## function \_max
+
+
+```haxe
+function _max(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Strings.hx#L514>)
+
+
+## function \_noescape
+
+
+```haxe
+function _noescape(_p:stdgo.unsafe.UnsafePointer):stdgo.unsafe.UnsafePointer
+```
+
+
+
+noescape hides a pointer from escape analysis. It is the identity function
+but escape analysis doesn't think the output depends on the input.
+noescape is inlined and currently compiles down to zero instructions.
+USE CAREFULLY\!
+This was copied from the runtime; see issues 23382 and 7921.  
+
+```
+go:nosplit
+go:nocheckptr
+```
+[\(view code\)](<./Strings.hx#L360>)
+
+
+## function \_trimLeftASCII
+
+
+```haxe
+function _trimLeftASCII(_s:stdgo.GoString, _as:stdgo.Ref<stdgo.strings.T_asciiSet>):stdgo.GoString
+```
+
+
+[\(view code\)](<./Strings.hx#L1458>)
+
+
+## function \_trimLeftByte
+
+
+```haxe
+function _trimLeftByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString
+```
+
+
+[\(view code\)](<./Strings.hx#L1452>)
+
+
+## function \_trimLeftUnicode
+
+
+```haxe
+function _trimLeftUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString
+```
+
+
+[\(view code\)](<./Strings.hx#L1467>)
+
+
+## function \_trimRightASCII
+
+
+```haxe
+function _trimRightASCII(_s:stdgo.GoString, _as:stdgo.Ref<stdgo.strings.T_asciiSet>):stdgo.GoString
+```
+
+
+[\(view code\)](<./Strings.hx#L1511>)
+
+
+## function \_trimRightByte
+
+
+```haxe
+function _trimRightByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString
+```
+
+
+[\(view code\)](<./Strings.hx#L1505>)
+
+
+## function \_trimRightUnicode
+
+
+```haxe
+function _trimRightUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString
+```
+
+
+[\(view code\)](<./Strings.hx#L1520>)
 
 
 ## function clone
@@ -771,7 +683,28 @@ profiling indicates that it is needed.
 For strings of length zero the string "" will be returned
 and no allocation is made.  
 
-[\(view code\)](<./Strings.hx#L379>)
+### exampleClone
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleClone():Void {
+        var _s:stdgo.GoString = ("abc" : stdgo.GoString);
+        var _clone:stdgo.GoString = stdgo.strings.Strings.clone(_s);
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_s == (_clone)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unsafe.Unsafe.stringData(_s) == (stdgo.unsafe.Unsafe.stringData(_clone))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Strings.hx#L376>)
 
 
 ## function compare
@@ -800,9 +733,9 @@ string comparison operators ==, \<, \>, and so on.
 
 ```haxe
 function exampleCompare():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.compare(("a" : GoString), ("b" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.compare(("a" : GoString), ("a" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.compare(("b" : GoString), ("a" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.compare(("a" : stdgo.GoString), ("b" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.compare(("a" : stdgo.GoString), ("a" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.compare(("b" : stdgo.GoString), ("a" : stdgo.GoString))));
     }
 ```
 
@@ -811,7 +744,7 @@ function exampleCompare():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L388>)
+[\(view code\)](<./Strings.hx#L385>)
 
 
 ## function contains
@@ -834,10 +767,10 @@ Contains reports whether substr is within s.
 
 ```haxe
 function exampleContains():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.contains(("seafood" : GoString), ("foo" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.contains(("seafood" : GoString), ("bar" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.contains(("seafood" : GoString), Go.str())));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.contains(Go.str(), Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.contains(("seafood" : stdgo.GoString), ("foo" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.contains(("seafood" : stdgo.GoString), ("bar" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.contains(("seafood" : stdgo.GoString), stdgo.Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.contains(stdgo.Go.str(), stdgo.Go.str())));
     }
 ```
 
@@ -846,7 +779,7 @@ function exampleContains():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L571>)
+[\(view code\)](<./Strings.hx#L568>)
 
 
 ## function containsAny
@@ -869,12 +802,12 @@ ContainsAny reports whether any Unicode code points in chars are within s.
 
 ```haxe
 function exampleContainsAny():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(("team" : GoString), ("i" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(("fail" : GoString), ("ui" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(("ure" : GoString), ("ui" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(("failure" : GoString), ("ui" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(("foo" : GoString), Go.str())));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(Go.str(), Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.containsAny(("team" : stdgo.GoString), ("i" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.containsAny(("fail" : stdgo.GoString), ("ui" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.containsAny(("ure" : stdgo.GoString), ("ui" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.containsAny(("failure" : stdgo.GoString), ("ui" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.containsAny(("foo" : stdgo.GoString), stdgo.Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.containsAny(stdgo.Go.str(), stdgo.Go.str())));
     }
 ```
 
@@ -883,7 +816,21 @@ function exampleContainsAny():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L577>)
+[\(view code\)](<./Strings.hx#L574>)
+
+
+## function containsFunc
+
+
+```haxe
+function containsFunc(_s:stdgo.GoString, _f:()):Bool
+```
+
+
+
+ContainsFunc reports whether any Unicode code points r within s satisfy f\(r\).  
+
+[\(view code\)](<./Strings.hx#L586>)
 
 
 ## function containsRune
@@ -906,8 +853,8 @@ ContainsRune reports whether the Unicode code point r is within s.
 
 ```haxe
 function exampleContainsRune():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsRune(("aardvark" : GoString), (97 : GoInt32))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsRune(("timeout" : GoString), (97 : GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.containsRune(("aardvark" : stdgo.GoString), (97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.containsRune(("timeout" : stdgo.GoString), (97 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -916,7 +863,7 @@ function exampleContainsRune():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L583>)
+[\(view code\)](<./Strings.hx#L580>)
 
 
 ## function count
@@ -940,8 +887,8 @@ If substr is an empty string, Count returns 1 \+ the number of Unicode code poin
 
 ```haxe
 function exampleCount():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.count(("cheese" : GoString), ("e" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.count(("five" : GoString), Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.count(("cheese" : stdgo.GoString), ("e" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.count(("five" : stdgo.GoString), stdgo.Go.str())));
     }
 ```
 
@@ -950,7 +897,7 @@ function exampleCount():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L551>)
+[\(view code\)](<./Strings.hx#L548>)
 
 
 ## function cut
@@ -980,14 +927,14 @@ If sep does not appear in s, cut returns s, "", false.
 
 ```haxe
 function exampleCut():Void {
-        var _show:(GoString, GoString) -> Void = function(_s:GoString, _sep:GoString):Void {
-            var __tmp__ = stdgo.strings.Strings.cut(_s, _sep), _before:GoString = __tmp__._0, _after:GoString = __tmp__._1, _found:Bool = __tmp__._2;
-            stdgo.fmt.Fmt.printf(("Cut(%q, %q) = %q, %q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_sep), Go.toInterface(_before), Go.toInterface(_after), Go.toInterface(_found));
+        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+            var __tmp__ = stdgo.strings.Strings.cut(_s, _sep), _before:stdgo.GoString = __tmp__._0, _after:stdgo.GoString = __tmp__._1, _found:Bool = __tmp__._2;
+            stdgo.fmt.Fmt.printf(("Cut(%q, %q) = %q, %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_before), stdgo.Go.toInterface(_after), stdgo.Go.toInterface(_found));
         };
-        _show(("Gopher" : GoString), ("Go" : GoString));
-        _show(("Gopher" : GoString), ("ph" : GoString));
-        _show(("Gopher" : GoString), ("er" : GoString));
-        _show(("Gopher" : GoString), ("Badger" : GoString));
+        _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("ph" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("er" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("Badger" : stdgo.GoString));
     }
 ```
 
@@ -996,7 +943,7 @@ function exampleCut():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1793>)
+[\(view code\)](<./Strings.hx#L1803>)
 
 
 ## function cutPrefix
@@ -1016,7 +963,30 @@ and reports whether it found the prefix.
 If s doesn't start with prefix, CutPrefix returns s, false.
 If prefix is the empty string, CutPrefix returns s, true.  
 
-[\(view code\)](<./Strings.hx#L1809>)
+### exampleCutPrefix
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleCutPrefix():Void {
+        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+            var __tmp__ = stdgo.strings.Strings.cutPrefix(_s, _sep), _after:stdgo.GoString = __tmp__._0, _found:Bool = __tmp__._1;
+            stdgo.fmt.Fmt.printf(("CutPrefix(%q, %q) = %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_after), stdgo.Go.toInterface(_found));
+        };
+        _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("ph" : stdgo.GoString));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Strings.hx#L1819>)
 
 
 ## function cutSuffix
@@ -1036,7 +1006,30 @@ and reports whether it found the suffix.
 If s doesn't end with suffix, CutSuffix returns s, false.
 If suffix is the empty string, CutSuffix returns s, true.  
 
-[\(view code\)](<./Strings.hx#L1822>)
+### exampleCutSuffix
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleCutSuffix():Void {
+        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+            var __tmp__ = stdgo.strings.Strings.cutSuffix(_s, _sep), _before:stdgo.GoString = __tmp__._0, _found:Bool = __tmp__._1;
+            stdgo.fmt.Fmt.printf(("CutSuffix(%q, %q) = %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_before), stdgo.Go.toInterface(_found));
+        };
+        _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
+        _show(("Gopher" : stdgo.GoString), ("er" : stdgo.GoString));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Strings.hx#L1832>)
 
 
 ## function dumpTables
@@ -1050,7 +1043,7 @@ function dumpTables(_pattern:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Strings.hx#L400>)
+[\(view code\)](<./Strings.hx#L397>)
 
 
 ## function equalFold
@@ -1075,9 +1068,9 @@ form of case\-insensitivity.
 
 ```haxe
 function exampleEqualFold():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.equalFold(("Go" : GoString), ("go" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.equalFold(("AB" : GoString), ("ab" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.equalFold(("ß" : GoString), ("ss" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.equalFold(("Go" : stdgo.GoString), ("go" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.equalFold(("AB" : stdgo.GoString), ("ab" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.equalFold(("ß" : stdgo.GoString), ("ss" : stdgo.GoString))));
     }
 ```
 
@@ -1086,7 +1079,7 @@ function exampleEqualFold():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1632>)
+[\(view code\)](<./Strings.hx#L1642>)
 
 
 ## function fields
@@ -1111,7 +1104,7 @@ empty slice if s contains only white space.
 
 ```haxe
 function exampleFields():Void {
-        stdgo.fmt.Fmt.printf(("Fields are: %q" : GoString), Go.toInterface(stdgo.strings.Strings.fields(("  foo bar  baz   " : GoString))));
+        stdgo.fmt.Fmt.printf(("Fields are: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.fields(("  foo bar  baz   " : stdgo.GoString))));
     }
 ```
 
@@ -1120,7 +1113,7 @@ function exampleFields():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L875>)
+[\(view code\)](<./Strings.hx#L878>)
 
 
 ## function fieldsFunc
@@ -1149,10 +1142,10 @@ and assumes that f always returns the same value for a given c.
 
 ```haxe
 function exampleFieldsFunc():Void {
-        var _f:GoInt32 -> Bool = function(_c:GoRune):Bool {
+        var _f:stdgo.StdGoTypes.GoInt32 -> Bool = function(_c:stdgo.StdGoTypes.GoRune):Bool {
             return !stdgo.unicode.Unicode.isLetter(_c) && !stdgo.unicode.Unicode.isNumber(_c);
         };
-        stdgo.fmt.Fmt.printf(("Fields are: %q" : GoString), Go.toInterface(stdgo.strings.Strings.fieldsFunc(("  foo1;bar2,baz3..." : GoString), _f)));
+        stdgo.fmt.Fmt.printf(("Fields are: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.fieldsFunc(("  foo1;bar2,baz3..." : stdgo.GoString), _f)));
     }
 ```
 
@@ -1161,7 +1154,7 @@ function exampleFieldsFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L944>)
+[\(view code\)](<./Strings.hx#L947>)
 
 
 ## function hasPrefix
@@ -1184,9 +1177,9 @@ HasPrefix tests whether the string s begins with prefix.
 
 ```haxe
 function exampleHasPrefix():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasPrefix(("Gopher" : GoString), ("Go" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasPrefix(("Gopher" : GoString), ("C" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasPrefix(("Gopher" : GoString), Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.hasPrefix(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.hasPrefix(("Gopher" : stdgo.GoString), ("C" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.hasPrefix(("Gopher" : stdgo.GoString), stdgo.Go.str())));
     }
 ```
 
@@ -1195,7 +1188,7 @@ function exampleHasPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1001>)
+[\(view code\)](<./Strings.hx#L1010>)
 
 
 ## function hasSuffix
@@ -1218,10 +1211,10 @@ HasSuffix tests whether the string s ends with suffix.
 
 ```haxe
 function exampleHasSuffix():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : GoString), ("go" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : GoString), ("O" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : GoString), ("Ami" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : GoString), Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : stdgo.GoString), ("go" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : stdgo.GoString), ("O" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : stdgo.GoString), ("Ami" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : stdgo.GoString), stdgo.Go.str())));
     }
 ```
 
@@ -1230,7 +1223,7 @@ function exampleHasSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1007>)
+[\(view code\)](<./Strings.hx#L1016>)
 
 
 ## function index
@@ -1253,8 +1246,8 @@ Index returns the index of the first instance of substr in s, or \-1 if substr i
 
 ```haxe
 function exampleIndex():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.index(("chicken" : GoString), ("ken" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.index(("chicken" : GoString), ("dmr" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.index(("chicken" : stdgo.GoString), ("ken" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.index(("chicken" : stdgo.GoString), ("dmr" : stdgo.GoString))));
     }
 ```
 
@@ -1263,7 +1256,7 @@ function exampleIndex():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1714>)
+[\(view code\)](<./Strings.hx#L1724>)
 
 
 ## function indexAny
@@ -1287,8 +1280,8 @@ from chars in s, or \-1 if no Unicode code point from chars is present in s.
 
 ```haxe
 function exampleIndexAny():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexAny(("chicken" : GoString), ("aeiouy" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexAny(("crwth" : GoString), ("aeiouy" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.indexAny(("chicken" : stdgo.GoString), ("aeiouy" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.indexAny(("crwth" : stdgo.GoString), ("aeiouy" : stdgo.GoString))));
     }
 ```
 
@@ -1297,7 +1290,7 @@ function exampleIndexAny():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L660>)
+[\(view code\)](<./Strings.hx#L663>)
 
 
 ## function indexByte
@@ -1320,9 +1313,9 @@ IndexByte returns the index of the first instance of c in s, or \-1 if c is not 
 
 ```haxe
 function exampleIndexByte():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexByte(("golang" : GoString), (103 : GoUInt8))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexByte(("gophers" : GoString), (104 : GoUInt8))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexByte(("golang" : GoString), (120 : GoUInt8))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.indexByte(("golang" : stdgo.GoString), (103 : stdgo.StdGoTypes.GoUInt8))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.indexByte(("gophers" : stdgo.GoString), (104 : stdgo.StdGoTypes.GoUInt8))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.indexByte(("golang" : stdgo.GoString), (120 : stdgo.StdGoTypes.GoUInt8))));
     }
 ```
 
@@ -1331,7 +1324,7 @@ function exampleIndexByte():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L631>)
+[\(view code\)](<./Strings.hx#L634>)
 
 
 ## function indexFunc
@@ -1355,11 +1348,11 @@ code point satisfying f\(c\), or \-1 if none do.
 
 ```haxe
 function exampleIndexFunc():Void {
-        var _f:GoInt32 -> Bool = function(_c:GoRune):Bool {
+        var _f:stdgo.StdGoTypes.GoInt32 -> Bool = function(_c:stdgo.StdGoTypes.GoRune):Bool {
             return stdgo.unicode.Unicode.is_(stdgo.unicode.Unicode.han, _c);
         };
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexFunc(("Hello, 世界" : GoString), _f)));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexFunc(("Hello, world" : GoString), _f)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.indexFunc(("Hello, 世界" : stdgo.GoString), _f)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.indexFunc(("Hello, world" : stdgo.GoString), _f)));
     }
 ```
 
@@ -1368,7 +1361,7 @@ function exampleIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1343>)
+[\(view code\)](<./Strings.hx#L1353>)
 
 
 ## function indexRune
@@ -1394,8 +1387,8 @@ invalid UTF\-8 byte sequence.
 
 ```haxe
 function exampleIndexRune():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexRune(("chicken" : GoString), (107 : GoInt32))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexRune(("chicken" : GoString), (100 : GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.indexRune(("chicken" : stdgo.GoString), (107 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.indexRune(("chicken" : stdgo.GoString), (100 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -1404,7 +1397,7 @@ function exampleIndexRune():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L640>)
+[\(view code\)](<./Strings.hx#L643>)
 
 
 ## function join
@@ -1428,8 +1421,8 @@ string sep is placed between elements in the resulting string.
 
 ```haxe
 function exampleJoin():Void {
-        var _s = (new Slice<GoString>(3, 3, ("foo" : GoString), ("bar" : GoString), ("baz" : GoString)) : Slice<GoString>);
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.join(_s, (", " : GoString))));
+        var _s = (new stdgo.Slice<stdgo.GoString>(3, 3, ("foo" : stdgo.GoString), ("bar" : stdgo.GoString), ("baz" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.join(_s, (", " : stdgo.GoString))));
     }
 ```
 
@@ -1438,7 +1431,7 @@ function exampleJoin():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L973>)
+[\(view code\)](<./Strings.hx#L976>)
 
 
 ## function lastIndex
@@ -1461,9 +1454,9 @@ LastIndex returns the index of the last instance of substr in s, or \-1 if subst
 
 ```haxe
 function exampleLastIndex():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.index(("go gopher" : GoString), ("go" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndex(("go gopher" : GoString), ("go" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndex(("go gopher" : GoString), ("rodent" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.index(("go gopher" : stdgo.GoString), ("go" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.lastIndex(("go gopher" : stdgo.GoString), ("go" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.lastIndex(("go gopher" : stdgo.GoString), ("rodent" : stdgo.GoString))));
     }
 ```
 
@@ -1472,7 +1465,7 @@ function exampleLastIndex():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L589>)
+[\(view code\)](<./Strings.hx#L592>)
 
 
 ## function lastIndexAny
@@ -1497,9 +1490,9 @@ present in s.
 
 ```haxe
 function exampleLastIndexAny():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexAny(("go gopher" : GoString), ("go" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexAny(("go gopher" : GoString), ("rodent" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexAny(("go gopher" : GoString), ("fail" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.lastIndexAny(("go gopher" : stdgo.GoString), ("go" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.lastIndexAny(("go gopher" : stdgo.GoString), ("rodent" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.lastIndexAny(("go gopher" : stdgo.GoString), ("fail" : stdgo.GoString))));
     }
 ```
 
@@ -1508,7 +1501,7 @@ function exampleLastIndexAny():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L699>)
+[\(view code\)](<./Strings.hx#L702>)
 
 
 ## function lastIndexByte
@@ -1531,9 +1524,9 @@ LastIndexByte returns the index of the last instance of c in s, or \-1 if c is n
 
 ```haxe
 function exampleLastIndexByte():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexByte(("Hello, world" : GoString), (108 : GoUInt8))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexByte(("Hello, world" : GoString), (111 : GoUInt8))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexByte(("Hello, world" : GoString), (120 : GoUInt8))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.lastIndexByte(("Hello, world" : stdgo.GoString), (108 : stdgo.StdGoTypes.GoUInt8))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.lastIndexByte(("Hello, world" : stdgo.GoString), (111 : stdgo.StdGoTypes.GoUInt8))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.lastIndexByte(("Hello, world" : stdgo.GoString), (120 : stdgo.StdGoTypes.GoUInt8))));
     }
 ```
 
@@ -1542,7 +1535,7 @@ function exampleLastIndexByte():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L761>)
+[\(view code\)](<./Strings.hx#L764>)
 
 
 ## function lastIndexFunc
@@ -1566,9 +1559,9 @@ Unicode code point satisfying f\(c\), or \-1 if none do.
 
 ```haxe
 function exampleLastIndexFunc():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexFunc(("go 123" : GoString), stdgo.unicode.Unicode.isNumber)));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexFunc(("123 go" : GoString), stdgo.unicode.Unicode.isNumber)));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexFunc(("go" : GoString), stdgo.unicode.Unicode.isNumber)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.lastIndexFunc(("go 123" : stdgo.GoString), stdgo.unicode.Unicode.isNumber)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.lastIndexFunc(("123 go" : stdgo.GoString), stdgo.unicode.Unicode.isNumber)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.lastIndexFunc(("go" : stdgo.GoString), stdgo.unicode.Unicode.isNumber)));
     }
 ```
 
@@ -1577,7 +1570,7 @@ function exampleLastIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1350>)
+[\(view code\)](<./Strings.hx#L1360>)
 
 
 ## function map
@@ -1602,15 +1595,15 @@ dropped from the string with no replacement.
 
 ```haxe
 function exampleMap():Void {
-        var _rot13:GoInt32 -> GoInt32 = function(_r:GoRune):GoRune {
-            if ((_r >= (65 : GoInt32)) && (_r <= (90 : GoInt32))) {
-                return (65 : GoInt32) + (((_r - (65 : GoInt32)) + (13 : GoInt32)) % (26 : GoInt32));
-            } else if ((_r >= (97 : GoInt32)) && (_r <= (122 : GoInt32))) {
-                return (97 : GoInt32) + (((_r - (97 : GoInt32)) + (13 : GoInt32)) % (26 : GoInt32));
+        var _rot13:stdgo.StdGoTypes.GoInt32 -> stdgo.StdGoTypes.GoInt32 = function(_r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
+            if ((_r >= (65 : stdgo.StdGoTypes.GoInt32)) && (_r <= (90 : stdgo.StdGoTypes.GoInt32))) {
+                return (65 : stdgo.StdGoTypes.GoInt32) + (((_r - (65 : stdgo.StdGoTypes.GoInt32)) + (13 : stdgo.StdGoTypes.GoInt32)) % (26 : stdgo.StdGoTypes.GoInt32));
+            } else if ((_r >= (97 : stdgo.StdGoTypes.GoInt32)) && (_r <= (122 : stdgo.StdGoTypes.GoInt32))) {
+                return (97 : stdgo.StdGoTypes.GoInt32) + (((_r - (97 : stdgo.StdGoTypes.GoInt32)) + (13 : stdgo.StdGoTypes.GoInt32)) % (26 : stdgo.StdGoTypes.GoInt32));
             };
             return _r;
         };
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.map(_rot13, ("\'Twas brillig and the slithy gopher..." : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.map(_rot13, ("\'Twas brillig and the slithy gopher..." : stdgo.GoString))));
     }
 ```
 
@@ -1619,7 +1612,7 @@ function exampleMap():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1015>)
+[\(view code\)](<./Strings.hx#L1024>)
 
 
 ## function newReader
@@ -1632,9 +1625,9 @@ function newReader(_s:stdgo.GoString):stdgo.Ref<stdgo.strings.Reader>
 
 
 NewReader returns a new Reader reading from s.
-It is similar to bytes.NewBufferString but more efficient and read\-only.  
+It is similar to bytes.NewBufferString but more efficient and non\-writable.  
 
-[\(view code\)](<./Strings.hx#L408>)
+[\(view code\)](<./Strings.hx#L405>)
 
 
 ## function newReplacer
@@ -1663,8 +1656,8 @@ NewReplacer panics if given an odd number of arguments.
 
 ```haxe
 function exampleNewReplacer():Void {
-        var _r = stdgo.strings.Strings.newReplacer(("<" : GoString), ("&lt;" : GoString), (">" : GoString), ("&gt;" : GoString));
-        stdgo.fmt.Fmt.println(Go.toInterface(_r.replace(("This is <b>HTML</b>!" : GoString))));
+        var _r = stdgo.strings.Strings.newReplacer(("<" : stdgo.GoString), ("&lt;" : stdgo.GoString), (">" : stdgo.GoString), ("&gt;" : stdgo.GoString));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_r.replace(("This is <b>HTML</b>!" : stdgo.GoString))));
     }
 ```
 
@@ -1673,7 +1666,7 @@ function exampleNewReplacer():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L419>)
+[\(view code\)](<./Strings.hx#L416>)
 
 
 ## function repeat
@@ -1700,7 +1693,7 @@ overflows.
 
 ```haxe
 function exampleRepeat():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(("ba" : GoString) + stdgo.strings.Strings.repeat(("na" : GoString), (2 : GoInt))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("ba" : stdgo.GoString) + stdgo.strings.Strings.repeat(("na" : stdgo.GoString), (2 : stdgo.StdGoTypes.GoInt))));
     }
 ```
 
@@ -1709,7 +1702,7 @@ function exampleRepeat():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1064>)
+[\(view code\)](<./Strings.hx#L1073>)
 
 
 ## function replace
@@ -1737,8 +1730,8 @@ If n \< 0, there is no limit on the number of replacements.
 
 ```haxe
 function exampleReplace():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.replace(("oink oink oink" : GoString), ("k" : GoString), ("ky" : GoString), (2 : GoInt))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.replace(("oink oink oink" : GoString), ("oink" : GoString), ("moo" : GoString), (-1 : GoInt))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.replace(("oink oink oink" : stdgo.GoString), ("k" : stdgo.GoString), ("ky" : stdgo.GoString), (2 : stdgo.StdGoTypes.GoInt))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.replace(("oink oink oink" : stdgo.GoString), ("oink" : stdgo.GoString), ("moo" : stdgo.GoString), (-1 : stdgo.StdGoTypes.GoInt))));
     }
 ```
 
@@ -1747,7 +1740,7 @@ function exampleReplace():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1582>)
+[\(view code\)](<./Strings.hx#L1592>)
 
 
 ## function replaceAll
@@ -1774,7 +1767,7 @@ for a k\-rune string.
 
 ```haxe
 function exampleReplaceAll():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.replaceAll(("oink oink oink" : GoString), ("oink" : GoString), ("moo" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.replaceAll(("oink oink oink" : stdgo.GoString), ("oink" : stdgo.GoString), ("moo" : stdgo.GoString))));
     }
 ```
 
@@ -1783,7 +1776,7 @@ function exampleReplaceAll():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1624>)
+[\(view code\)](<./Strings.hx#L1634>)
 
 
 ## function split
@@ -1821,10 +1814,10 @@ To split around the first instance of a separator, see Cut.
 
 ```haxe
 function exampleSplit():Void {
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.split(("a,b,c" : GoString), ("," : GoString))));
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.split(("a man a plan a canal panama" : GoString), ("a " : GoString))));
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.split((" xyz " : GoString), Go.str())));
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.split(Go.str(), ("Bernardo O\'Higgins" : GoString))));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.split(("a,b,c" : stdgo.GoString), ("," : stdgo.GoString))));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.split(("a man a plan a canal panama" : stdgo.GoString), ("a " : stdgo.GoString))));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.split((" xyz " : stdgo.GoString), stdgo.Go.str())));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.split(stdgo.Go.str(), ("Bernardo O\'Higgins" : stdgo.GoString))));
     }
 ```
 
@@ -1833,7 +1826,7 @@ function exampleSplit():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L852>)
+[\(view code\)](<./Strings.hx#L855>)
 
 
 ## function splitAfter
@@ -1868,7 +1861,7 @@ It is equivalent to SplitAfterN with a count of \-1.
 
 ```haxe
 function exampleSplitAfter():Void {
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.splitAfter(("a,b,c" : GoString), ("," : GoString))));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.splitAfter(("a,b,c" : stdgo.GoString), ("," : stdgo.GoString))));
     }
 ```
 
@@ -1877,7 +1870,7 @@ function exampleSplitAfter():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L867>)
+[\(view code\)](<./Strings.hx#L870>)
 
 
 ## function splitAfterN
@@ -1913,7 +1906,7 @@ as described in the documentation for SplitAfter.
 
 ```haxe
 function exampleSplitAfterN():Void {
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.splitAfterN(("a,b,c" : GoString), ("," : GoString), (2 : GoInt))));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.splitAfterN(("a,b,c" : stdgo.GoString), ("," : stdgo.GoString), (2 : stdgo.StdGoTypes.GoInt))));
     }
 ```
 
@@ -1922,7 +1915,7 @@ function exampleSplitAfterN():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L835>)
+[\(view code\)](<./Strings.hx#L838>)
 
 
 ## function splitN
@@ -1961,9 +1954,9 @@ To split around the first instance of a separator, see Cut.
 
 ```haxe
 function exampleSplitN():Void {
-        stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.splitN(("a,b,c" : GoString), ("," : GoString), (2 : GoInt))));
-        var _z = stdgo.strings.Strings.splitN(("a,b,c" : GoString), ("," : GoString), (0 : GoInt));
-        stdgo.fmt.Fmt.printf(("%q (nil = %v)\n" : GoString), Go.toInterface(_z), Go.toInterface(_z == null));
+        stdgo.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.splitN(("a,b,c" : stdgo.GoString), ("," : stdgo.GoString), (2 : stdgo.StdGoTypes.GoInt))));
+        var _z = stdgo.strings.Strings.splitN(("a,b,c" : stdgo.GoString), ("," : stdgo.GoString), (0 : stdgo.StdGoTypes.GoInt));
+        stdgo.fmt.Fmt.printf(("%q (nil = %v)\n" : stdgo.GoString), stdgo.Go.toInterface(_z), stdgo.Go.toInterface(_z == null));
     }
 ```
 
@@ -1972,7 +1965,7 @@ function exampleSplitN():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L819>)
+[\(view code\)](<./Strings.hx#L822>)
 
 
 ## function stringFind
@@ -1983,7 +1976,7 @@ function stringFind(_pattern:stdgo.GoString, _text:stdgo.GoString):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strings.hx#L397>)
+[\(view code\)](<./Strings.hx#L394>)
 
 
 ## function title
@@ -2011,9 +2004,9 @@ punctuation properly. Use golang.org/x/text/cases instead.
 
 ```haxe
 function exampleTitle():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.title(("her royal highness" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.title(("loud noises" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.title(("хлеб" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.title(("her royal highness" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.title(("loud noises" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.title(("хлеб" : stdgo.GoString))));
     }
 ```
 
@@ -2022,7 +2015,7 @@ function exampleTitle():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1296>)
+[\(view code\)](<./Strings.hx#L1306>)
 
 
 ## function toLower
@@ -2045,7 +2038,7 @@ ToLower returns s with all Unicode letters mapped to their lower case.
 
 ```haxe
 function exampleToLower():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toLower(("Gopher" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.toLower(("Gopher" : stdgo.GoString))));
     }
 ```
 
@@ -2054,7 +2047,7 @@ function exampleToLower():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1151>)
+[\(view code\)](<./Strings.hx#L1161>)
 
 
 ## function toLowerSpecial
@@ -2078,7 +2071,7 @@ lower case using the case mapping specified by c.
 
 ```haxe
 function exampleToLowerSpecial():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toLowerSpecial(stdgo.unicode.Unicode.turkishCase, ("Önnek İş" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.toLowerSpecial(stdgo.unicode.Unicode.turkishCase, ("Önnek İş" : stdgo.GoString))));
     }
 ```
 
@@ -2087,7 +2080,7 @@ function exampleToLowerSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1209>)
+[\(view code\)](<./Strings.hx#L1219>)
 
 
 ## function toTitle
@@ -2111,9 +2104,9 @@ their Unicode title case.
 
 ```haxe
 function exampleToTitle():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toTitle(("her royal highness" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toTitle(("loud noises" : GoString))));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toTitle(("хлеб" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.toTitle(("her royal highness" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.toTitle(("loud noises" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.toTitle(("хлеб" : stdgo.GoString))));
     }
 ```
 
@@ -2122,7 +2115,7 @@ function exampleToTitle():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1195>)
+[\(view code\)](<./Strings.hx#L1205>)
 
 
 ## function toTitleSpecial
@@ -2146,7 +2139,7 @@ Unicode title case, giving priority to the special casing rules.
 
 ```haxe
 function exampleToTitleSpecial():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toTitleSpecial(stdgo.unicode.Unicode.turkishCase, ("dünyanın ilk borsa yapısı Aizonai kabul edilir" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.toTitleSpecial(stdgo.unicode.Unicode.turkishCase, ("dünyanın ilk borsa yapısı Aizonai kabul edilir" : stdgo.GoString))));
     }
 ```
 
@@ -2155,7 +2148,7 @@ function exampleToTitleSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1216>)
+[\(view code\)](<./Strings.hx#L1226>)
 
 
 ## function toUpper
@@ -2178,7 +2171,7 @@ ToUpper returns s with all Unicode letters mapped to their upper case.
 
 ```haxe
 function exampleToUpper():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toUpper(("Gopher" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.toUpper(("Gopher" : stdgo.GoString))));
     }
 ```
 
@@ -2187,7 +2180,7 @@ function exampleToUpper():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1108>)
+[\(view code\)](<./Strings.hx#L1118>)
 
 
 ## function toUpperSpecial
@@ -2211,7 +2204,7 @@ upper case using the case mapping specified by c.
 
 ```haxe
 function exampleToUpperSpecial():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toUpperSpecial(stdgo.unicode.Unicode.turkishCase, ("örnek iş" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.toUpperSpecial(stdgo.unicode.Unicode.turkishCase, ("örnek iş" : stdgo.GoString))));
     }
 ```
 
@@ -2220,7 +2213,7 @@ function exampleToUpperSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1202>)
+[\(view code\)](<./Strings.hx#L1212>)
 
 
 ## function toValidUTF8
@@ -2235,7 +2228,27 @@ function toValidUTF8(_s:stdgo.GoString, _replacement:stdgo.GoString):stdgo.GoStr
 ToValidUTF8 returns a copy of the string s with each run of invalid UTF\-8 byte sequences
 replaced by the replacement string, which may be empty.  
 
-[\(view code\)](<./Strings.hx#L1223>)
+### exampleToValidUTF8
+
+
+<details><summary></summary>
+<p>
+
+
+```haxe
+function exampleToValidUTF8():Void {
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.toValidUTF8(("abc" : stdgo.GoString), ("�" : stdgo.GoString))));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.toValidUTF8(stdgo.Go.str("a", 255, "b", 192, 175, "c", 255), stdgo.Go.str())));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.toValidUTF8(stdgo.Go.str(237, 160, 128), ("abc" : stdgo.GoString))));
+    }
+```
+
+
+</p>
+</details>
+
+
+[\(view code\)](<./Strings.hx#L1233>)
 
 
 ## function trim
@@ -2259,7 +2272,7 @@ trailing Unicode code points contained in cutset removed.
 
 ```haxe
 function exampleTrim():Void {
-        stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trim(("¡¡¡Hello, Gophers!!!" : GoString), ("!¡" : GoString))));
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface(stdgo.strings.Strings.trim(("¡¡¡Hello, Gophers!!!" : stdgo.GoString), ("!¡" : stdgo.GoString))));
     }
 ```
 
@@ -2268,7 +2281,7 @@ function exampleTrim():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1406>)
+[\(view code\)](<./Strings.hx#L1416>)
 
 
 ## function trimFunc
@@ -2292,7 +2305,7 @@ and trailing Unicode code points c satisfying f\(c\) removed.
 
 ```haxe
 function exampleTrimFunc():Void {
-        stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimFunc(("¡¡¡Hello, Gophers!!!" : GoString), function(_r:GoRune):Bool {
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface(stdgo.strings.Strings.trimFunc(("¡¡¡Hello, Gophers!!!" : stdgo.GoString), function(_r:stdgo.StdGoTypes.GoRune):Bool {
             return !stdgo.unicode.Unicode.isLetter(_r) && !stdgo.unicode.Unicode.isNumber(_r);
         })));
     }
@@ -2303,7 +2316,7 @@ function exampleTrimFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1336>)
+[\(view code\)](<./Strings.hx#L1346>)
 
 
 ## function trimLeft
@@ -2330,7 +2343,7 @@ To remove a prefix, use TrimPrefix instead.
 
 ```haxe
 function exampleTrimLeft():Void {
-        stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimLeft(("¡¡¡Hello, Gophers!!!" : GoString), ("!¡" : GoString))));
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface(stdgo.strings.Strings.trimLeft(("¡¡¡Hello, Gophers!!!" : stdgo.GoString), ("!¡" : stdgo.GoString))));
     }
 ```
 
@@ -2339,7 +2352,7 @@ function exampleTrimLeft():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1427>)
+[\(view code\)](<./Strings.hx#L1437>)
 
 
 ## function trimLeftFunc
@@ -2363,7 +2376,7 @@ Unicode code points c satisfying f\(c\) removed.
 
 ```haxe
 function exampleTrimLeftFunc():Void {
-        stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimLeftFunc(("¡¡¡Hello, Gophers!!!" : GoString), function(_r:GoRune):Bool {
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface(stdgo.strings.Strings.trimLeftFunc(("¡¡¡Hello, Gophers!!!" : stdgo.GoString), function(_r:stdgo.StdGoTypes.GoRune):Bool {
             return !stdgo.unicode.Unicode.isLetter(_r) && !stdgo.unicode.Unicode.isNumber(_r);
         })));
     }
@@ -2374,7 +2387,7 @@ function exampleTrimLeftFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1311>)
+[\(view code\)](<./Strings.hx#L1321>)
 
 
 ## function trimPrefix
@@ -2398,10 +2411,10 @@ If s doesn't start with prefix, s is returned unchanged.
 
 ```haxe
 function exampleTrimPrefix():Void {
-        var _s:GoString = ("¡¡¡Hello, Gophers!!!" : GoString);
-        _s = stdgo.strings.Strings.trimPrefix(_s, ("¡¡¡Hello, " : GoString));
-        _s = stdgo.strings.Strings.trimPrefix(_s, ("¡¡¡Howdy, " : GoString));
-        stdgo.fmt.Fmt.print(Go.toInterface(_s));
+        var _s:stdgo.GoString = ("¡¡¡Hello, Gophers!!!" : stdgo.GoString);
+        _s = stdgo.strings.Strings.trimPrefix(_s, ("¡¡¡Hello, " : stdgo.GoString));
+        _s = stdgo.strings.Strings.trimPrefix(_s, ("¡¡¡Howdy, " : stdgo.GoString));
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface(_s));
     }
 ```
 
@@ -2410,7 +2423,7 @@ function exampleTrimPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1558>)
+[\(view code\)](<./Strings.hx#L1568>)
 
 
 ## function trimRight
@@ -2437,7 +2450,7 @@ To remove a suffix, use TrimSuffix instead.
 
 ```haxe
 function exampleTrimRight():Void {
-        stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimRight(("¡¡¡Hello, Gophers!!!" : GoString), ("!¡" : GoString))));
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface(stdgo.strings.Strings.trimRight(("¡¡¡Hello, Gophers!!!" : stdgo.GoString), ("!¡" : stdgo.GoString))));
     }
 ```
 
@@ -2446,7 +2459,7 @@ function exampleTrimRight():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1480>)
+[\(view code\)](<./Strings.hx#L1490>)
 
 
 ## function trimRightFunc
@@ -2470,7 +2483,7 @@ Unicode code points c satisfying f\(c\) removed.
 
 ```haxe
 function exampleTrimRightFunc():Void {
-        stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimRightFunc(("¡¡¡Hello, Gophers!!!" : GoString), function(_r:GoRune):Bool {
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface(stdgo.strings.Strings.trimRightFunc(("¡¡¡Hello, Gophers!!!" : stdgo.GoString), function(_r:stdgo.StdGoTypes.GoRune):Bool {
             return !stdgo.unicode.Unicode.isLetter(_r) && !stdgo.unicode.Unicode.isNumber(_r);
         })));
     }
@@ -2481,7 +2494,7 @@ function exampleTrimRightFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1322>)
+[\(view code\)](<./Strings.hx#L1332>)
 
 
 ## function trimSpace
@@ -2505,7 +2518,7 @@ and trailing white space removed, as defined by Unicode.
 
 ```haxe
 function exampleTrimSpace():Void {
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.trimSpace((" \t\n Hello, Gophers \n\t\r\n" : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.trimSpace((" \t\n Hello, Gophers \n\t\r\n" : stdgo.GoString))));
     }
 ```
 
@@ -2514,7 +2527,7 @@ function exampleTrimSpace():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1531>)
+[\(view code\)](<./Strings.hx#L1541>)
 
 
 ## function trimSuffix
@@ -2538,10 +2551,10 @@ If s doesn't end with suffix, s is returned unchanged.
 
 ```haxe
 function exampleTrimSuffix():Void {
-        var _s:GoString = ("¡¡¡Hello, Gophers!!!" : GoString);
-        _s = stdgo.strings.Strings.trimSuffix(_s, (", Gophers!!!" : GoString));
-        _s = stdgo.strings.Strings.trimSuffix(_s, (", Marmots!!!" : GoString));
-        stdgo.fmt.Fmt.print(Go.toInterface(_s));
+        var _s:stdgo.GoString = ("¡¡¡Hello, Gophers!!!" : stdgo.GoString);
+        _s = stdgo.strings.Strings.trimSuffix(_s, (", Gophers!!!" : stdgo.GoString));
+        _s = stdgo.strings.Strings.trimSuffix(_s, (", Marmots!!!" : stdgo.GoString));
+        stdgo.fmt.Fmt.print(stdgo.Go.toInterface(_s));
     }
 ```
 
@@ -2550,7 +2563,7 @@ function exampleTrimSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1568>)
+[\(view code\)](<./Strings.hx#L1578>)
 
 
 # Classes
@@ -2587,7 +2600,7 @@ function new(?_addr:stdgo.Ref<stdgo.strings.Builder>, ?_buf:stdgo.Slice<stdgo.Go
 ```
 
 
-[\(view code\)](<./Strings.hx#L73>)
+[\(view code\)](<./Strings.hx#L70>)
 
 
 ### Builder function \_copyCheck
@@ -2598,7 +2611,7 @@ function _copyCheck():Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L1998>)
+[\(view code\)](<./Strings.hx#L2008>)
 
 
 ### Builder function \_grow
@@ -2613,7 +2626,7 @@ function _grow( _n:stdgo.GoInt):Void
 grow copies the buffer to a new, larger buffer so that there are at least n
 bytes of capacity beyond len\(b.buf\).  
 
-[\(view code\)](<./Strings.hx#L1961>)
+[\(view code\)](<./Strings.hx#L1971>)
 
 
 ### Builder function cap
@@ -2629,7 +2642,7 @@ Cap returns the capacity of the builder's underlying byte slice. It is the
 total space allocated for the string being built and includes any bytes
 already written.  
 
-[\(view code\)](<./Strings.hx#L1980>)
+[\(view code\)](<./Strings.hx#L1990>)
 
 
 ### Builder function grow
@@ -2645,7 +2658,7 @@ Grow grows b's capacity, if necessary, to guarantee space for
 another n bytes. After Grow\(n\), at least n bytes can be written to b
 without another allocation. If n is negative, Grow panics.  
 
-[\(view code\)](<./Strings.hx#L1947>)
+[\(view code\)](<./Strings.hx#L1957>)
 
 
 ### Builder function len
@@ -2659,7 +2672,7 @@ function len():stdgo.GoInt
 
 Len returns the number of accumulated bytes; b.Len\(\) == len\(b.String\(\)\).  
 
-[\(view code\)](<./Strings.hx#L1987>)
+[\(view code\)](<./Strings.hx#L1997>)
 
 
 ### Builder function reset
@@ -2673,7 +2686,7 @@ function reset():Void
 
 Reset resets the Builder to be empty.  
 
-[\(view code\)](<./Strings.hx#L1970>)
+[\(view code\)](<./Strings.hx#L1980>)
 
 
 ### Builder function string
@@ -2687,7 +2700,7 @@ function string():stdgo.GoString
 
 String returns the accumulated string.  
 
-[\(view code\)](<./Strings.hx#L1994>)
+[\(view code\)](<./Strings.hx#L2004>)
 
 
 ### Builder function write
@@ -2705,7 +2718,7 @@ function write( _p:stdgo.Slice<stdgo.GoByte>):{
 Write appends the contents of p to b's buffer.
 Write always returns len\(p\), nil.  
 
-[\(view code\)](<./Strings.hx#L1936>)
+[\(view code\)](<./Strings.hx#L1946>)
 
 
 ### Builder function writeByte
@@ -2720,7 +2733,7 @@ function writeByte( _c:stdgo.GoByte):stdgo.Error
 WriteByte appends the byte c to b's buffer.
 The returned error is always nil.  
 
-[\(view code\)](<./Strings.hx#L1926>)
+[\(view code\)](<./Strings.hx#L1936>)
 
 
 ### Builder function writeRune
@@ -2738,7 +2751,7 @@ function writeRune( _r:stdgo.GoRune):{
 WriteRune appends the UTF\-8 encoding of Unicode code point r to b's buffer.
 It returns the length of r and a nil error.  
 
-[\(view code\)](<./Strings.hx#L1915>)
+[\(view code\)](<./Strings.hx#L1925>)
 
 
 ### Builder function writeString
@@ -2756,7 +2769,7 @@ function writeString( _s:stdgo.GoString):{
 WriteString appends the contents of s to b's buffer.
 It returns the length of s and a nil error.  
 
-[\(view code\)](<./Strings.hx#L1905>)
+[\(view code\)](<./Strings.hx#L1915>)
 
 
 ## class Reader
@@ -2791,7 +2804,7 @@ function new(?_s:stdgo.GoString, ?_i:stdgo.GoInt64, ?_prevRune:Null<stdgo.GoInt>
 ```
 
 
-[\(view code\)](<./Strings.hx#L94>)
+[\(view code\)](<./Strings.hx#L91>)
 
 
 ### Reader function len
@@ -2806,7 +2819,7 @@ function len():stdgo.GoInt
 Len returns the number of bytes of the unread portion of the
 string.  
 
-[\(view code\)](<./Strings.hx#L2241>)
+[\(view code\)](<./Strings.hx#L2251>)
 
 
 ### Reader function read
@@ -2823,7 +2836,7 @@ function read( _b:stdgo.Slice<stdgo.GoByte>):{
 
 Read implements the io.Reader interface.  
 
-[\(view code\)](<./Strings.hx#L2216>)
+[\(view code\)](<./Strings.hx#L2226>)
 
 
 ### Reader function readAt
@@ -2840,7 +2853,7 @@ function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{
 
 ReadAt implements the io.ReaderAt interface.  
 
-[\(view code\)](<./Strings.hx#L2198>)
+[\(view code\)](<./Strings.hx#L2208>)
 
 
 ### Reader function readByte
@@ -2857,7 +2870,7 @@ function readByte():{
 
 ReadByte implements the io.ByteReader interface.  
 
-[\(view code\)](<./Strings.hx#L2185>)
+[\(view code\)](<./Strings.hx#L2195>)
 
 
 ### Reader function readRune
@@ -2875,7 +2888,7 @@ function readRune():{
 
 ReadRune implements the io.RuneReader interface.  
 
-[\(view code\)](<./Strings.hx#L2147>)
+[\(view code\)](<./Strings.hx#L2157>)
 
 
 ### Reader function reset
@@ -2889,7 +2902,7 @@ function reset( _s:stdgo.GoString):Void
 
 Reset resets the Reader to be reading from s.  
 
-[\(view code\)](<./Strings.hx#L2073>)
+[\(view code\)](<./Strings.hx#L2083>)
 
 
 ### Reader function seek
@@ -2906,7 +2919,7 @@ function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
 
 Seek implements the io.Seeker interface.  
 
-[\(view code\)](<./Strings.hx#L2107>)
+[\(view code\)](<./Strings.hx#L2117>)
 
 
 ### Reader function size
@@ -2923,7 +2936,7 @@ Size is the number of bytes available for reading via ReadAt.
 The returned value is always the same and is not affected by calls
 to any other method.  
 
-[\(view code\)](<./Strings.hx#L2233>)
+[\(view code\)](<./Strings.hx#L2243>)
 
 
 ### Reader function unreadByte
@@ -2937,7 +2950,7 @@ function unreadByte():stdgo.Error
 
 UnreadByte implements the io.ByteScanner interface.  
 
-[\(view code\)](<./Strings.hx#L2173>)
+[\(view code\)](<./Strings.hx#L2183>)
 
 
 ### Reader function unreadRune
@@ -2951,7 +2964,7 @@ function unreadRune():stdgo.Error
 
 UnreadRune implements the io.RuneScanner interface.  
 
-[\(view code\)](<./Strings.hx#L2132>)
+[\(view code\)](<./Strings.hx#L2142>)
 
 
 ### Reader function writeTo
@@ -2968,7 +2981,7 @@ function writeTo( _w:stdgo.io.Writer):{
 
 WriteTo implements the io.WriterTo interface.  
 
-[\(view code\)](<./Strings.hx#L2085>)
+[\(view code\)](<./Strings.hx#L2095>)
 
 
 ## class Replacer
@@ -2989,7 +3002,7 @@ var _once:stdgo.sync.Once
 
 
 ```haxe
-var _r:stdgo.strings._Strings.T_replacer
+var _r:stdgo.strings.T_replacer
 ```
 
 
@@ -2997,22 +3010,22 @@ var _r:stdgo.strings._Strings.T_replacer
 
 
 ```haxe
-function new(?_once:stdgo.sync.Once, ?_r:Null<stdgo.strings._Strings.T_replacer>, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void
+function new(?_once:stdgo.sync.Once, ?_r:Null<stdgo.strings.T_replacer>, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L114>)
+[\(view code\)](<./Strings.hx#L111>)
 
 
 ### Replacer function \_build
 
 
 ```haxe
-function _build():stdgo.strings._Strings.T_replacer
+function _build():stdgo.strings.T_replacer
 ```
 
 
-[\(view code\)](<./Strings.hx#L2294>)
+[\(view code\)](<./Strings.hx#L2304>)
 
 
 ### Replacer function \_buildOnce
@@ -3023,7 +3036,7 @@ function _buildOnce():Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L2341>)
+[\(view code\)](<./Strings.hx#L2351>)
 
 
 ### Replacer function printTrie
@@ -3034,7 +3047,7 @@ function printTrie():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L2346>)
+[\(view code\)](<./Strings.hx#L2356>)
 
 
 ### Replacer function replace
@@ -3048,7 +3061,7 @@ function replace( _s:stdgo.GoString):stdgo.GoString
 
 Replace returns a copy of s with all replacements performed.  
 
-[\(view code\)](<./Strings.hx#L2289>)
+[\(view code\)](<./Strings.hx#L2299>)
 
 
 ### Replacer function replacer
@@ -3059,7 +3072,7 @@ function replacer():stdgo.AnyInterface
 ```
 
 
-[\(view code\)](<./Strings.hx#L2352>)
+[\(view code\)](<./Strings.hx#L2362>)
 
 
 ### Replacer function writeString
@@ -3076,7 +3089,7 @@ function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{
 
 WriteString writes s to w with all replacements performed.  
 
-[\(view code\)](<./Strings.hx#L2280>)
+[\(view code\)](<./Strings.hx#L2290>)
 
 
 ## class T\_fieldsFunc\_0\_\_\_localname\_\_\_span
@@ -3104,6 +3117,70 @@ function new(?_start:Null<stdgo.GoInt>, ?_end:Null<stdgo.GoInt>):Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L927>)
+[\(view code\)](<./Strings.hx#L930>)
 
+
+# Typedefs
+
+
+```haxe
+import stdgo.strings.*
+```
+
+
+## typedef T\_appendSliceWriter
+
+
+```haxe
+typedef T_appendSliceWriter = stdgo.Slice<stdgo.GoUInt8>;
+```
+
+
+## typedef T\_asciiSet
+
+
+```haxe
+typedef T_asciiSet = stdgo.GoArray<stdgo.GoUInt32>;
+```
+
+
+
+asciiSet is a 32\-byte value, where each bit represents the presence of a
+given ASCII character in the set. The 128\-bits of the lower 16 bytes,
+starting with the least\-significant bit of the lowest word to the
+most\-significant bit of the highest word, map to the full range of all
+128 ASCII characters. The 128\-bits of the upper 16 bytes will be zeroed,
+ensuring that any non\-ASCII character will be reported as not in the set.
+This allocates a total of 32 bytes even though the upper half
+is unused to avoid bounds checks in asciiSet.contains.  
+
+## typedef T\_byteReplacer
+
+
+```haxe
+typedef T_byteReplacer = stdgo.GoArray<stdgo.GoUInt8>;
+```
+
+
+
+byteReplacer is the implementation that's used when all the "old"
+and "new" values are single ASCII bytes.
+The array contains replacement bytes indexed by old byte.  
+
+## typedef T\_replacer
+
+
+```haxe
+typedef T_replacer = {
+	public function writeString(_w:stdgo.io.Writer, _s:stdgo.GoString):{
+		_1:stdgo.Error;
+		_0:stdgo.GoInt;
+	};
+	public function replace(_s:stdgo.GoString):stdgo.GoString;
+};
+```
+
+
+
+replacer is the interface that a replacement algorithm needs to implement.  
 

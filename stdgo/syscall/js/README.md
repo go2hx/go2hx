@@ -14,45 +14,79 @@ Its API is based on JavaScript semantics.
 This package is EXPERIMENTAL. Its current scope is only to allow tests to run, but not yet to provide a
 comprehensive API for users. It is exempt from the Go compatibility promise.  
 
-<details><summary>hl tests failed</summary>
-<p>
-
-```
-Error: Command failed with error 1
-Uncaught exception: syscall.js.global is not yet implemented
-Called from stdgo.syscall.js._Js.$Js_Fields_.global(stdgo/syscall/js/Js.hx:406)
-Called from fun$16486(stdgo/syscall/js_test/Js_test.hx:17)
-Called from .init(stdgo/syscall/js_test/Js_test.hx:17)
-```
-</p>
-</details>
-
-<details><summary>interp tests failed</summary>
-<p>
-
-```
-stdgo/syscall/js/Js.hx:406: characters 25-30 : Uncaught exception syscall.js.global is not yet implemented
-stdgo/syscall/js_test/Js_test.hx:17: characters 23-51 : Called from here
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
-
-
 # Index
 
 
 - [Constants](<#constants>)
 
 - [Variables](<#variables>)
+
+- [`function _copyBytesToGo(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.syscall.js.T_ref):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}`](<#function-_copybytestogo>)
+
+- [`function _copyBytesToJS(_dst:stdgo.syscall.js.T_ref, _src:stdgo.Slice<stdgo.GoByte>):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}`](<#function-_copybytestojs>)
+
+- [`function _finalizeRef(_r:stdgo.syscall.js.T_ref):Void`](<#function-_finalizeref>)
+
+- [`function _floatValue(_f:stdgo.GoFloat64):stdgo.syscall.js.Value`](<#function-_floatvalue>)
+
+- [`function _handleEvent():Bool`](<#function-_handleevent>)
+
+- [`function _jsString(_v:stdgo.syscall.js.Value):stdgo.GoString`](<#function-_jsstring>)
+
+- [`function _makeArgs(_args:stdgo.Slice<stdgo.AnyInterface>):{
+	_1:stdgo.Slice<stdgo.syscall.js.T_ref>;
+	_0:stdgo.Slice<stdgo.syscall.js.Value>;
+}`](<#function-_makeargs>)
+
+- [`function _makeValue(_r:stdgo.syscall.js.T_ref):stdgo.syscall.js.Value`](<#function-_makevalue>)
+
+- [`function _predefValue(_id:stdgo.GoUInt32, _typeFlag:stdgo.GoByte):stdgo.syscall.js.Value`](<#function-_predefvalue>)
+
+- [`function _setEventHandler(_fn:():Bool):Void`](<#function-_seteventhandler>)
+
+- [`function _stringVal(_x:stdgo.GoString):stdgo.syscall.js.T_ref`](<#function-_stringval>)
+
+- [`function _valueCall(_v:stdgo.syscall.js.T_ref, _m:stdgo.GoString, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):{
+	_1:Bool;
+	_0:stdgo.syscall.js.T_ref;
+}`](<#function-_valuecall>)
+
+- [`function _valueDelete(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString):Void`](<#function-_valuedelete>)
+
+- [`function _valueGet(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString):stdgo.syscall.js.T_ref`](<#function-_valueget>)
+
+- [`function _valueIndex(_v:stdgo.syscall.js.T_ref, _i:stdgo.GoInt):stdgo.syscall.js.T_ref`](<#function-_valueindex>)
+
+- [`function _valueInstanceOf(_v:stdgo.syscall.js.T_ref, _t:stdgo.syscall.js.T_ref):Bool`](<#function-_valueinstanceof>)
+
+- [`function _valueInvoke(_v:stdgo.syscall.js.T_ref, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):{
+	_1:Bool;
+	_0:stdgo.syscall.js.T_ref;
+}`](<#function-_valueinvoke>)
+
+- [`function _valueLength(_v:stdgo.syscall.js.T_ref):stdgo.GoInt`](<#function-_valuelength>)
+
+- [`function _valueLoadString(_v:stdgo.syscall.js.T_ref, _b:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_valueloadstring>)
+
+- [`function _valueNew(_v:stdgo.syscall.js.T_ref, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):{
+	_1:Bool;
+	_0:stdgo.syscall.js.T_ref;
+}`](<#function-_valuenew>)
+
+- [`function _valuePrepareString(_v:stdgo.syscall.js.T_ref):{
+	_1:stdgo.GoInt;
+	_0:stdgo.syscall.js.T_ref;
+}`](<#function-_valuepreparestring>)
+
+- [`function _valueSet(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString, _x:stdgo.syscall.js.T_ref):Void`](<#function-_valueset>)
+
+- [`function _valueSetIndex(_v:stdgo.syscall.js.T_ref, _i:stdgo.GoInt, _x:stdgo.syscall.js.T_ref):Void`](<#function-_valuesetindex>)
 
 - [`function copyBytesToGo(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.syscall.js.Value):stdgo.GoInt`](<#function-copybytestogo>)
 
@@ -258,7 +292,7 @@ IO.Overflow("write_ui16")
 
 - [class Value](<#class-value>)
 
-  - [`function new(?__10:stdgo.GoArray<():Void>, ?_ref:Null<stdgo.syscall.js._Js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo.syscall.js._Js.T_ref>):Void`](<#value-function-new>)
+  - [`function new(?__10:stdgo.GoArray<():Void>, ?_ref:Null<stdgo.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo.syscall.js.T_ref>):Void`](<#value-function-new>)
 
   - [`function _float( _method:stdgo.GoString):stdgo.GoFloat64`](<#value-function-_float>)
 
@@ -310,12 +344,9 @@ IO.Overflow("write_ui16")
 
   - [`function error():stdgo.GoString`](<#valueerror-function-error>)
 
+- [typedef T\_ref](<#typedef-t_ref>)
+
 - [typedef Type](<#typedef-type>)
-
-# Examples
-
-
-- [`exampleFuncOf`](<#examplefuncof>)
 
 # Constants
 
@@ -326,42 +357,78 @@ import stdgo.syscall.js.Js
 
 
 ```haxe
-final typeBoolean:stdgo.syscall.js.Type = ((((0 : GoInt)) : stdgo.syscall.js.Js.Type))
+final _nanHead:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+nanHead are the upper 32 bits of a ref which are set if the value is not encoded as an IEEE 754 number \(see above\).  
+
+```haxe
+final _typeFlagFunction:Null<Dynamic> = @:invalid_type null
 ```
 
 
 ```haxe
-final typeFunction:stdgo.syscall.js.Type = ((((0 : GoInt)) : stdgo.syscall.js.Js.Type))
+final _typeFlagNone:stdgo.GoUInt64 = ((0 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+the type flags need to be in sync with wasm\_exec.js  
+
+```haxe
+final _typeFlagObject:Null<Dynamic> = @:invalid_type null
 ```
 
 
 ```haxe
-final typeNull:stdgo.syscall.js.Type = ((((0 : GoInt)) : stdgo.syscall.js.Js.Type))
+final _typeFlagString:Null<Dynamic> = @:invalid_type null
 ```
 
 
 ```haxe
-final typeNumber:stdgo.syscall.js.Type = ((((0 : GoInt)) : stdgo.syscall.js.Js.Type))
+final _typeFlagSymbol:Null<Dynamic> = @:invalid_type null
 ```
 
 
 ```haxe
-final typeObject:stdgo.syscall.js.Type = ((((0 : GoInt)) : stdgo.syscall.js.Js.Type))
+final typeBoolean:stdgo.syscall.js.Type = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type))
 ```
 
 
 ```haxe
-final typeString:stdgo.syscall.js.Type = ((((0 : GoInt)) : stdgo.syscall.js.Js.Type))
+final typeFunction:stdgo.syscall.js.Type = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type))
 ```
 
 
 ```haxe
-final typeSymbol:stdgo.syscall.js.Type = ((((0 : GoInt)) : stdgo.syscall.js.Js.Type))
+final typeNull:stdgo.syscall.js.Type = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type))
 ```
 
 
 ```haxe
-final typeUndefined:stdgo.syscall.js.Type = ((((0 : GoInt)) : stdgo.syscall.js.Js.Type))
+final typeNumber:stdgo.syscall.js.Type = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type))
+```
+
+
+```haxe
+final typeObject:stdgo.syscall.js.Type = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type))
+```
+
+
+```haxe
+final typeString:stdgo.syscall.js.Type = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type))
+```
+
+
+```haxe
+final typeSymbol:stdgo.syscall.js.Type = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type))
+```
+
+
+```haxe
+final typeUndefined:stdgo.syscall.js.Type = ((((0 : stdgo.StdGoTypes.GoInt)) : stdgo.syscall.js.Js.Type))
 ```
 
 
@@ -374,7 +441,70 @@ import stdgo.syscall.js.Js
 
 
 ```haxe
-var jsgo:stdgo.syscall.js.Value
+var _arrayConstructor:stdgo.syscall.js.Value
+```
+
+
+```haxe
+var _funcs:stdgo.GoMap<stdgo.GoUInt32, (:stdgo.syscall.js.Value, :stdgo.Slice<stdgo.syscall.js.Value>):stdgo.AnyInterface>
+```
+
+
+```haxe
+var _funcsMu:stdgo.sync.Mutex
+```
+
+
+```haxe
+var _jsGo:stdgo.syscall.js.Value
+```
+
+
+
+instance of the Go class in JavaScript  
+
+```haxe
+var _nextFuncID:stdgo.GoUInt32
+```
+
+
+```haxe
+var _objectConstructor:stdgo.syscall.js.Value
+```
+
+
+```haxe
+var _valueFalse:stdgo.syscall.js.Value
+```
+
+
+```haxe
+var _valueGlobal:stdgo.syscall.js.Value
+```
+
+
+```haxe
+var _valueNaN:stdgo.syscall.js.Value
+```
+
+
+```haxe
+var _valueNull:stdgo.syscall.js.Value
+```
+
+
+```haxe
+var _valueTrue:stdgo.syscall.js.Value
+```
+
+
+```haxe
+var _valueUndefined:stdgo.syscall.js.Value
+```
+
+
+```haxe
+var _valueZero:stdgo.syscall.js.Value
 ```
 
 
@@ -384,6 +514,336 @@ var jsgo:stdgo.syscall.js.Value
 ```haxe
 import stdgo.syscall.js.Js
 ```
+
+
+## function \_copyBytesToGo
+
+
+```haxe
+function _copyBytesToGo(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.syscall.js.T_ref):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}
+```
+
+
+
+go:wasmimport gojs syscall/js.copyBytesToGo  
+
+[\(view code\)](<./Js.hx#L480>)
+
+
+## function \_copyBytesToJS
+
+
+```haxe
+function _copyBytesToJS(_dst:stdgo.syscall.js.T_ref, _src:stdgo.Slice<stdgo.GoByte>):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}
+```
+
+
+
+go:wasmimport gojs syscall/js.copyBytesToJS  
+
+[\(view code\)](<./Js.hx#L490>)
+
+
+## function \_finalizeRef
+
+
+```haxe
+function _finalizeRef(_r:stdgo.syscall.js.T_ref):Void
+```
+
+
+
+go:wasmimport gojs syscall/js.finalizeRef  
+
+[\(view code\)](<./Js.hx#L384>)
+
+
+## function \_floatValue
+
+
+```haxe
+function _floatValue(_f:stdgo.GoFloat64):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L386>)
+
+
+## function \_handleEvent
+
+
+```haxe
+function _handleEvent():Bool
+```
+
+
+
+handleEvent retrieves the pending event \(window.\_pendingEvent\) and calls the js.Func on it.
+It returns true if an event was handled.  
+
+[\(view code\)](<./Js.hx#L379>)
+
+
+## function \_jsString
+
+
+```haxe
+function _jsString(_v:stdgo.syscall.js.Value):stdgo.GoString
+```
+
+
+[\(view code\)](<./Js.hx#L458>)
+
+
+## function \_makeArgs
+
+
+```haxe
+function _makeArgs(_args:stdgo.Slice<stdgo.AnyInterface>):{
+	_1:stdgo.Slice<stdgo.syscall.js.T_ref>;
+	_0:stdgo.Slice<stdgo.syscall.js.Value>;
+}
+```
+
+
+[\(view code\)](<./Js.hx#L440>)
+
+
+## function \_makeValue
+
+
+```haxe
+function _makeValue(_r:stdgo.syscall.js.T_ref):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L380>)
+
+
+## function \_predefValue
+
+
+```haxe
+function _predefValue(_id:stdgo.GoUInt32, _typeFlag:stdgo.GoByte):stdgo.syscall.js.Value
+```
+
+
+[\(view code\)](<./Js.hx#L385>)
+
+
+## function \_setEventHandler
+
+
+```haxe
+function _setEventHandler(_fn:():Bool):Void
+```
+
+
+
+setEventHandler is defined in the runtime package.  
+
+[\(view code\)](<./Js.hx#L374>)
+
+
+## function \_stringVal
+
+
+```haxe
+function _stringVal(_x:stdgo.GoString):stdgo.syscall.js.T_ref
+```
+
+
+
+go:wasmimport gojs syscall/js.stringVal  
+
+[\(view code\)](<./Js.hx#L419>)
+
+
+## function \_valueCall
+
+
+```haxe
+function _valueCall(_v:stdgo.syscall.js.T_ref, _m:stdgo.GoString, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):{
+	_1:Bool;
+	_0:stdgo.syscall.js.T_ref;
+}
+```
+
+
+
+go:wasmimport gojs syscall/js.valueCall
+go:nosplit  
+
+[\(view code\)](<./Js.hx#L449>)
+
+
+## function \_valueDelete
+
+
+```haxe
+function _valueDelete(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString):Void
+```
+
+
+
+go:wasmimport gojs syscall/js.valueDelete  
+
+[\(view code\)](<./Js.hx#L431>)
+
+
+## function \_valueGet
+
+
+```haxe
+function _valueGet(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString):stdgo.syscall.js.T_ref
+```
+
+
+
+go:wasmimport gojs syscall/js.valueGet  
+
+[\(view code\)](<./Js.hx#L423>)
+
+
+## function \_valueIndex
+
+
+```haxe
+function _valueIndex(_v:stdgo.syscall.js.T_ref, _i:stdgo.GoInt):stdgo.syscall.js.T_ref
+```
+
+
+
+go:wasmimport gojs syscall/js.valueIndex  
+
+[\(view code\)](<./Js.hx#L435>)
+
+
+## function \_valueInstanceOf
+
+
+```haxe
+function _valueInstanceOf(_v:stdgo.syscall.js.T_ref, _t:stdgo.syscall.js.T_ref):Bool
+```
+
+
+
+go:wasmimport gojs syscall/js.valueInstanceOf  
+
+[\(view code\)](<./Js.hx#L470>)
+
+
+## function \_valueInvoke
+
+
+```haxe
+function _valueInvoke(_v:stdgo.syscall.js.T_ref, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):{
+	_1:Bool;
+	_0:stdgo.syscall.js.T_ref;
+}
+```
+
+
+
+go:wasmimport gojs syscall/js.valueInvoke  
+
+[\(view code\)](<./Js.hx#L453>)
+
+
+## function \_valueLength
+
+
+```haxe
+function _valueLength(_v:stdgo.syscall.js.T_ref):stdgo.GoInt
+```
+
+
+
+go:wasmimport gojs syscall/js.valueLength  
+
+[\(view code\)](<./Js.hx#L444>)
+
+
+## function \_valueLoadString
+
+
+```haxe
+function _valueLoadString(_v:stdgo.syscall.js.T_ref, _b:stdgo.Slice<stdgo.GoByte>):Void
+```
+
+
+
+go:wasmimport gojs syscall/js.valueLoadString  
+
+[\(view code\)](<./Js.hx#L466>)
+
+
+## function \_valueNew
+
+
+```haxe
+function _valueNew(_v:stdgo.syscall.js.T_ref, _args:stdgo.Slice<stdgo.syscall.js.T_ref>):{
+	_1:Bool;
+	_0:stdgo.syscall.js.T_ref;
+}
+```
+
+
+
+go:wasmimport gojs syscall/js.valueNew  
+
+[\(view code\)](<./Js.hx#L457>)
+
+
+## function \_valuePrepareString
+
+
+```haxe
+function _valuePrepareString(_v:stdgo.syscall.js.T_ref):{
+	_1:stdgo.GoInt;
+	_0:stdgo.syscall.js.T_ref;
+}
+```
+
+
+
+go:wasmimport gojs syscall/js.valuePrepareString  
+
+[\(view code\)](<./Js.hx#L462>)
+
+
+## function \_valueSet
+
+
+```haxe
+function _valueSet(_v:stdgo.syscall.js.T_ref, _p:stdgo.GoString, _x:stdgo.syscall.js.T_ref):Void
+```
+
+
+
+go:wasmimport gojs syscall/js.valueSet  
+
+[\(view code\)](<./Js.hx#L427>)
+
+
+## function \_valueSetIndex
+
+
+```haxe
+function _valueSetIndex(_v:stdgo.syscall.js.T_ref, _i:stdgo.GoInt, _x:stdgo.syscall.js.T_ref):Void
+```
+
+
+
+go:wasmimport gojs syscall/js.valueSetIndex  
+
+[\(view code\)](<./Js.hx#L439>)
 
 
 ## function copyBytesToGo
@@ -396,10 +856,10 @@ function copyBytesToGo(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.syscall.js.Val
 
 
 CopyBytesToGo copies bytes from src to dst.
-It panics if src is not an Uint8Array or Uint8ClampedArray.
+It panics if src is not a Uint8Array or Uint8ClampedArray.
 It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.  
 
-[\(view code\)](<./Js.hx#L444>)
+[\(view code\)](<./Js.hx#L476>)
 
 
 ## function copyBytesToJS
@@ -412,10 +872,10 @@ function copyBytesToJS(_dst:stdgo.syscall.js.Value, _src:stdgo.Slice<stdgo.GoByt
 
 
 CopyBytesToJS copies bytes from src to dst.
-It panics if dst is not an Uint8Array or Uint8ClampedArray.
+It panics if dst is not a Uint8Array or Uint8ClampedArray.
 It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.  
 
-[\(view code\)](<./Js.hx#L451>)
+[\(view code\)](<./Js.hx#L486>)
 
 
 ## function funcOf
@@ -450,31 +910,7 @@ new goroutine.
 
 Func.Release must be called to free up resources when the function will not be invoked any more.  
 
-### exampleFuncOf
-
-
-<details><summary></summary>
-<p>
-
-
-```haxe
-function exampleFuncOf():Void {
-        var _cb:stdgo.syscall.js.Js.Func = ({} : stdgo.syscall.js.Js.Func);
-        _cb = stdgo.syscall.js.Js.funcOf(function(_this:stdgo.syscall.js.Js.Value, _args:Slice<stdgo.syscall.js.Js.Value>):AnyInterface {
-            stdgo.fmt.Fmt.println(Go.toInterface(("button clicked" : GoString)));
-            _cb.release();
-            return (null : AnyInterface);
-        })?.__copy__();
-        stdgo.syscall.js.Js.global().get(("document" : GoString)).call(("getElementById" : GoString), Go.toInterface(("myButton" : GoString))).call(("addEventListener" : GoString), Go.toInterface(("click" : GoString)), Go.toInterface(Go.asInterface(_cb)));
-    }
-```
-
-
-</p>
-</details>
-
-
-[\(view code\)](<./Js.hx#L385>)
+[\(view code\)](<./Js.hx#L370>)
 
 
 ## function global
@@ -488,7 +924,7 @@ function global():stdgo.syscall.js.Value
 
 Global returns the JavaScript global object, usually "window" or "global".  
 
-[\(view code\)](<./Js.hx#L406>)
+[\(view code\)](<./Js.hx#L398>)
 
 
 ## function null\_
@@ -502,7 +938,7 @@ function null_():stdgo.syscall.js.Value
 
 Null returns the JavaScript value "null".  
 
-[\(view code\)](<./Js.hx#L402>)
+[\(view code\)](<./Js.hx#L394>)
 
 
 ## function undefined
@@ -516,7 +952,7 @@ function undefined():stdgo.syscall.js.Value
 
 Undefined returns the JavaScript value "undefined".  
 
-[\(view code\)](<./Js.hx#L398>)
+[\(view code\)](<./Js.hx#L390>)
 
 
 ## function valueOf
@@ -545,7 +981,7 @@ ValueOf returns x as a JavaScript value:
 
 Panics if x is not one of the expected types.  
 
-[\(view code\)](<./Js.hx#L423>)
+[\(view code\)](<./Js.hx#L415>)
 
 
 # Classes
@@ -580,7 +1016,7 @@ function _float(_p:stdgo.GoString):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Js.hx#L242>)
+[\(view code\)](<./Js.hx#L227>)
 
 
 ### Func function \_isNumber
@@ -591,7 +1027,7 @@ function _isNumber():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L244>)
+[\(view code\)](<./Js.hx#L229>)
 
 
 ### Func function bool\_
@@ -602,7 +1038,7 @@ function bool_():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L202>)
+[\(view code\)](<./Js.hx#L187>)
 
 
 ### Func function call
@@ -613,7 +1049,7 @@ function call(_m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.sysc
 ```
 
 
-[\(view code\)](<./Js.hx#L204>)
+[\(view code\)](<./Js.hx#L189>)
 
 
 ### Func function delete
@@ -624,7 +1060,7 @@ function delete(_p:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L206>)
+[\(view code\)](<./Js.hx#L191>)
 
 
 ### Func function equal
@@ -635,7 +1071,7 @@ function equal(__0:stdgo.syscall.js.Value):Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L208>)
+[\(view code\)](<./Js.hx#L193>)
 
 
 ### Func function float\_
@@ -646,7 +1082,7 @@ function float_():stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Js.hx#L210>)
+[\(view code\)](<./Js.hx#L195>)
 
 
 ### Func function get
@@ -657,7 +1093,7 @@ function get(_p:stdgo.GoString):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L212>)
+[\(view code\)](<./Js.hx#L197>)
 
 
 ### Func function index
@@ -668,7 +1104,7 @@ function index(_i:stdgo.GoInt):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L214>)
+[\(view code\)](<./Js.hx#L199>)
 
 
 ### Func function instanceOf
@@ -679,7 +1115,7 @@ function instanceOf(__0:stdgo.syscall.js.Value):Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L216>)
+[\(view code\)](<./Js.hx#L201>)
 
 
 ### Func function int\_
@@ -690,7 +1126,7 @@ function int_():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Js.hx#L218>)
+[\(view code\)](<./Js.hx#L203>)
 
 
 ### Func function invoke
@@ -701,7 +1137,7 @@ function invoke(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L220>)
+[\(view code\)](<./Js.hx#L205>)
 
 
 ### Func function isNaN
@@ -712,7 +1148,7 @@ function isNaN():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L222>)
+[\(view code\)](<./Js.hx#L207>)
 
 
 ### Func function isNull
@@ -723,7 +1159,7 @@ function isNull():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L224>)
+[\(view code\)](<./Js.hx#L209>)
 
 
 ### Func function isUndefined
@@ -734,7 +1170,7 @@ function isUndefined():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L226>)
+[\(view code\)](<./Js.hx#L211>)
 
 
 ### Func function length\_
@@ -745,7 +1181,7 @@ function length_():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Js.hx#L228>)
+[\(view code\)](<./Js.hx#L213>)
 
 
 ### Func function new
@@ -756,7 +1192,7 @@ function new(?value:stdgo.syscall.js.Value, ?_id:stdgo.GoUInt32):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L196>)
+[\(view code\)](<./Js.hx#L181>)
 
 
 ### Func function new\_
@@ -767,7 +1203,7 @@ function new_(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L230>)
+[\(view code\)](<./Js.hx#L215>)
 
 
 ### Func function set
@@ -778,7 +1214,7 @@ function set(_p:stdgo.GoString, _x:stdgo.AnyInterface):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L232>)
+[\(view code\)](<./Js.hx#L217>)
 
 
 ### Func function setIndex
@@ -789,7 +1225,7 @@ function setIndex(_i:stdgo.GoInt, _x:stdgo.AnyInterface):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L234>)
+[\(view code\)](<./Js.hx#L219>)
 
 
 ### Func function string
@@ -800,7 +1236,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Js.hx#L236>)
+[\(view code\)](<./Js.hx#L221>)
 
 
 ### Func function truthy
@@ -811,7 +1247,7 @@ function truthy():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L238>)
+[\(view code\)](<./Js.hx#L223>)
 
 
 ### Func function type
@@ -822,7 +1258,7 @@ function type():stdgo.syscall.js.Type
 ```
 
 
-[\(view code\)](<./Js.hx#L240>)
+[\(view code\)](<./Js.hx#L225>)
 
 
 ### Func function \_float
@@ -833,7 +1269,7 @@ function _float( _p:stdgo.GoString):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Js.hx#L524>)
+[\(view code\)](<./Js.hx#L562>)
 
 
 ### Func function \_isNumber
@@ -844,7 +1280,7 @@ function _isNumber():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L522>)
+[\(view code\)](<./Js.hx#L560>)
 
 
 ### Func function bool\_
@@ -855,7 +1291,7 @@ function bool_():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L564>)
+[\(view code\)](<./Js.hx#L602>)
 
 
 ### Func function call
@@ -866,7 +1302,7 @@ function call( _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.sys
 ```
 
 
-[\(view code\)](<./Js.hx#L562>)
+[\(view code\)](<./Js.hx#L600>)
 
 
 ### Func function delete
@@ -877,7 +1313,7 @@ function delete( _p:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L560>)
+[\(view code\)](<./Js.hx#L598>)
 
 
 ### Func function equal
@@ -888,7 +1324,7 @@ function equal( __0:stdgo.syscall.js.Value):Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L558>)
+[\(view code\)](<./Js.hx#L596>)
 
 
 ### Func function float\_
@@ -899,7 +1335,7 @@ function float_():stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Js.hx#L556>)
+[\(view code\)](<./Js.hx#L594>)
 
 
 ### Func function get
@@ -910,7 +1346,7 @@ function get( _p:stdgo.GoString):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L554>)
+[\(view code\)](<./Js.hx#L592>)
 
 
 ### Func function index
@@ -921,7 +1357,7 @@ function index( _i:stdgo.GoInt):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L552>)
+[\(view code\)](<./Js.hx#L590>)
 
 
 ### Func function instanceOf
@@ -932,7 +1368,7 @@ function instanceOf( __0:stdgo.syscall.js.Value):Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L550>)
+[\(view code\)](<./Js.hx#L588>)
 
 
 ### Func function int\_
@@ -943,7 +1379,7 @@ function int_():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Js.hx#L548>)
+[\(view code\)](<./Js.hx#L586>)
 
 
 ### Func function invoke
@@ -954,7 +1390,7 @@ function invoke( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L546>)
+[\(view code\)](<./Js.hx#L584>)
 
 
 ### Func function isNaN
@@ -965,7 +1401,7 @@ function isNaN():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L544>)
+[\(view code\)](<./Js.hx#L582>)
 
 
 ### Func function isNull
@@ -976,7 +1412,7 @@ function isNull():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L542>)
+[\(view code\)](<./Js.hx#L580>)
 
 
 ### Func function isUndefined
@@ -987,7 +1423,7 @@ function isUndefined():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L540>)
+[\(view code\)](<./Js.hx#L578>)
 
 
 ### Func function length\_
@@ -998,7 +1434,7 @@ function length_():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Js.hx#L538>)
+[\(view code\)](<./Js.hx#L576>)
 
 
 ### Func function new\_
@@ -1009,7 +1445,7 @@ function new_( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L536>)
+[\(view code\)](<./Js.hx#L574>)
 
 
 ### Func function release
@@ -1025,7 +1461,7 @@ Release frees up resources allocated for the function.
 The function must not be invoked after calling Release.
 It is allowed to call Release while the function is still running.  
 
-[\(view code\)](<./Js.hx#L520>)
+[\(view code\)](<./Js.hx#L558>)
 
 
 ### Func function set
@@ -1036,7 +1472,7 @@ function set( _p:stdgo.GoString, _x:stdgo.AnyInterface):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L534>)
+[\(view code\)](<./Js.hx#L572>)
 
 
 ### Func function setIndex
@@ -1047,7 +1483,7 @@ function setIndex( _i:stdgo.GoInt, _x:stdgo.AnyInterface):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L532>)
+[\(view code\)](<./Js.hx#L570>)
 
 
 ### Func function string
@@ -1058,7 +1494,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Js.hx#L530>)
+[\(view code\)](<./Js.hx#L568>)
 
 
 ### Func function truthy
@@ -1069,7 +1505,7 @@ function truthy():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L528>)
+[\(view code\)](<./Js.hx#L566>)
 
 
 ### Func function type
@@ -1080,7 +1516,7 @@ function type():stdgo.syscall.js.Type
 ```
 
 
-[\(view code\)](<./Js.hx#L526>)
+[\(view code\)](<./Js.hx#L564>)
 
 
 ## class T\_error
@@ -1105,7 +1541,7 @@ function _float(_p:stdgo.GoString):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Js.hx#L326>)
+[\(view code\)](<./Js.hx#L311>)
 
 
 ### T\_error function \_isNumber
@@ -1116,7 +1552,7 @@ function _isNumber():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L328>)
+[\(view code\)](<./Js.hx#L313>)
 
 
 ### T\_error function bool\_
@@ -1127,7 +1563,7 @@ function bool_():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L286>)
+[\(view code\)](<./Js.hx#L271>)
 
 
 ### T\_error function call
@@ -1138,7 +1574,7 @@ function call(_m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.sysc
 ```
 
 
-[\(view code\)](<./Js.hx#L288>)
+[\(view code\)](<./Js.hx#L273>)
 
 
 ### T\_error function delete
@@ -1149,7 +1585,7 @@ function delete(_p:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L290>)
+[\(view code\)](<./Js.hx#L275>)
 
 
 ### T\_error function equal
@@ -1160,7 +1596,7 @@ function equal(__0:stdgo.syscall.js.Value):Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L292>)
+[\(view code\)](<./Js.hx#L277>)
 
 
 ### T\_error function float\_
@@ -1171,7 +1607,7 @@ function float_():stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Js.hx#L294>)
+[\(view code\)](<./Js.hx#L279>)
 
 
 ### T\_error function get
@@ -1182,7 +1618,7 @@ function get(_p:stdgo.GoString):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L296>)
+[\(view code\)](<./Js.hx#L281>)
 
 
 ### T\_error function index
@@ -1193,7 +1629,7 @@ function index(_i:stdgo.GoInt):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L298>)
+[\(view code\)](<./Js.hx#L283>)
 
 
 ### T\_error function instanceOf
@@ -1204,7 +1640,7 @@ function instanceOf(__0:stdgo.syscall.js.Value):Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L300>)
+[\(view code\)](<./Js.hx#L285>)
 
 
 ### T\_error function int\_
@@ -1215,7 +1651,7 @@ function int_():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Js.hx#L302>)
+[\(view code\)](<./Js.hx#L287>)
 
 
 ### T\_error function invoke
@@ -1226,7 +1662,7 @@ function invoke(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L304>)
+[\(view code\)](<./Js.hx#L289>)
 
 
 ### T\_error function isNaN
@@ -1237,7 +1673,7 @@ function isNaN():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L306>)
+[\(view code\)](<./Js.hx#L291>)
 
 
 ### T\_error function isNull
@@ -1248,7 +1684,7 @@ function isNull():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L308>)
+[\(view code\)](<./Js.hx#L293>)
 
 
 ### T\_error function isUndefined
@@ -1259,7 +1695,7 @@ function isUndefined():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L310>)
+[\(view code\)](<./Js.hx#L295>)
 
 
 ### T\_error function length\_
@@ -1270,7 +1706,7 @@ function length_():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Js.hx#L312>)
+[\(view code\)](<./Js.hx#L297>)
 
 
 ### T\_error function new
@@ -1281,7 +1717,7 @@ function new(?value:stdgo.syscall.js.Value):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L281>)
+[\(view code\)](<./Js.hx#L266>)
 
 
 ### T\_error function new\_
@@ -1292,7 +1728,7 @@ function new_(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L314>)
+[\(view code\)](<./Js.hx#L299>)
 
 
 ### T\_error function set
@@ -1303,7 +1739,7 @@ function set(_p:stdgo.GoString, _x:stdgo.AnyInterface):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L316>)
+[\(view code\)](<./Js.hx#L301>)
 
 
 ### T\_error function setIndex
@@ -1314,7 +1750,7 @@ function setIndex(_i:stdgo.GoInt, _x:stdgo.AnyInterface):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L318>)
+[\(view code\)](<./Js.hx#L303>)
 
 
 ### T\_error function string
@@ -1325,7 +1761,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Js.hx#L320>)
+[\(view code\)](<./Js.hx#L305>)
 
 
 ### T\_error function truthy
@@ -1336,7 +1772,7 @@ function truthy():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L322>)
+[\(view code\)](<./Js.hx#L307>)
 
 
 ### T\_error function type
@@ -1347,7 +1783,7 @@ function type():stdgo.syscall.js.Type
 ```
 
 
-[\(view code\)](<./Js.hx#L324>)
+[\(view code\)](<./Js.hx#L309>)
 
 
 ### T\_error function \_float
@@ -1358,7 +1794,7 @@ function _float( _p:stdgo.GoString):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Js.hx#L894>)
+[\(view code\)](<./Js.hx#L932>)
 
 
 ### T\_error function \_isNumber
@@ -1369,7 +1805,7 @@ function _isNumber():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L892>)
+[\(view code\)](<./Js.hx#L930>)
 
 
 ### T\_error function bool\_
@@ -1380,7 +1816,7 @@ function bool_():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L934>)
+[\(view code\)](<./Js.hx#L972>)
 
 
 ### T\_error function call
@@ -1391,7 +1827,7 @@ function call( _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.sys
 ```
 
 
-[\(view code\)](<./Js.hx#L932>)
+[\(view code\)](<./Js.hx#L970>)
 
 
 ### T\_error function delete
@@ -1402,7 +1838,7 @@ function delete( _p:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L930>)
+[\(view code\)](<./Js.hx#L968>)
 
 
 ### T\_error function equal
@@ -1413,7 +1849,7 @@ function equal( __0:stdgo.syscall.js.Value):Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L928>)
+[\(view code\)](<./Js.hx#L966>)
 
 
 ### T\_error function error
@@ -1427,7 +1863,7 @@ function error():stdgo.GoString
 
 Error implements the error interface.  
 
-[\(view code\)](<./Js.hx#L890>)
+[\(view code\)](<./Js.hx#L928>)
 
 
 ### T\_error function float\_
@@ -1438,7 +1874,7 @@ function float_():stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Js.hx#L926>)
+[\(view code\)](<./Js.hx#L964>)
 
 
 ### T\_error function get
@@ -1449,7 +1885,7 @@ function get( _p:stdgo.GoString):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L924>)
+[\(view code\)](<./Js.hx#L962>)
 
 
 ### T\_error function index
@@ -1460,7 +1896,7 @@ function index( _i:stdgo.GoInt):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L922>)
+[\(view code\)](<./Js.hx#L960>)
 
 
 ### T\_error function instanceOf
@@ -1471,7 +1907,7 @@ function instanceOf( __0:stdgo.syscall.js.Value):Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L920>)
+[\(view code\)](<./Js.hx#L958>)
 
 
 ### T\_error function int\_
@@ -1482,7 +1918,7 @@ function int_():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Js.hx#L918>)
+[\(view code\)](<./Js.hx#L956>)
 
 
 ### T\_error function invoke
@@ -1493,7 +1929,7 @@ function invoke( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L916>)
+[\(view code\)](<./Js.hx#L954>)
 
 
 ### T\_error function isNaN
@@ -1504,7 +1940,7 @@ function isNaN():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L914>)
+[\(view code\)](<./Js.hx#L952>)
 
 
 ### T\_error function isNull
@@ -1515,7 +1951,7 @@ function isNull():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L912>)
+[\(view code\)](<./Js.hx#L950>)
 
 
 ### T\_error function isUndefined
@@ -1526,7 +1962,7 @@ function isUndefined():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L910>)
+[\(view code\)](<./Js.hx#L948>)
 
 
 ### T\_error function length\_
@@ -1537,7 +1973,7 @@ function length_():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Js.hx#L908>)
+[\(view code\)](<./Js.hx#L946>)
 
 
 ### T\_error function new\_
@@ -1548,7 +1984,7 @@ function new_( _args:haxe.Rest<stdgo.AnyInterface>):stdgo.syscall.js.Value
 ```
 
 
-[\(view code\)](<./Js.hx#L906>)
+[\(view code\)](<./Js.hx#L944>)
 
 
 ### T\_error function set
@@ -1559,7 +1995,7 @@ function set( _p:stdgo.GoString, _x:stdgo.AnyInterface):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L904>)
+[\(view code\)](<./Js.hx#L942>)
 
 
 ### T\_error function setIndex
@@ -1570,7 +2006,7 @@ function setIndex( _i:stdgo.GoInt, _x:stdgo.AnyInterface):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L902>)
+[\(view code\)](<./Js.hx#L940>)
 
 
 ### T\_error function string
@@ -1581,7 +2017,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Js.hx#L900>)
+[\(view code\)](<./Js.hx#L938>)
 
 
 ### T\_error function truthy
@@ -1592,7 +2028,7 @@ function truthy():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L898>)
+[\(view code\)](<./Js.hx#L936>)
 
 
 ### T\_error function type
@@ -1603,7 +2039,7 @@ function type():stdgo.syscall.js.Type
 ```
 
 
-[\(view code\)](<./Js.hx#L896>)
+[\(view code\)](<./Js.hx#L934>)
 
 
 ## class Value
@@ -1619,12 +2055,12 @@ var __10:stdgo.GoArray<():Void>
 
 
 ```haxe
-var _gcPtr:stdgo.Pointer<stdgo.syscall.js._Js.T_ref>
+var _gcPtr:stdgo.Pointer<stdgo.syscall.js.T_ref>
 ```
 
 
 ```haxe
-var _ref:stdgo.syscall.js._Js.T_ref
+var _ref:stdgo.syscall.js.T_ref
 ```
 
 
@@ -1632,11 +2068,11 @@ var _ref:stdgo.syscall.js._Js.T_ref
 
 
 ```haxe
-function new(?__10:stdgo.GoArray<():Void>, ?_ref:Null<stdgo.syscall.js._Js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo.syscall.js._Js.T_ref>):Void
+function new(?__10:stdgo.GoArray<():Void>, ?_ref:Null<stdgo.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo.syscall.js.T_ref>):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L260>)
+[\(view code\)](<./Js.hx#L245>)
 
 
 ### Value function \_float
@@ -1647,7 +2083,7 @@ function _float( _method:stdgo.GoString):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Js.hx#L740>)
+[\(view code\)](<./Js.hx#L778>)
 
 
 ### Value function \_isNumber
@@ -1658,7 +2094,7 @@ function _isNumber():Bool
 ```
 
 
-[\(view code\)](<./Js.hx#L742>)
+[\(view code\)](<./Js.hx#L780>)
 
 
 ### Value function bool\_
@@ -1673,7 +2109,7 @@ function bool_():Bool
 Bool returns the value v as a bool.
 It panics if v is not a JavaScript boolean.  
 
-[\(view code\)](<./Js.hx#L726>)
+[\(view code\)](<./Js.hx#L764>)
 
 
 ### Value function call
@@ -1689,7 +2125,7 @@ Call does a JavaScript call to the method m of value v with the given arguments.
 It panics if v has no method m.
 The arguments get mapped to JavaScript values according to the ValueOf function.  
 
-[\(view code\)](<./Js.hx#L763>)
+[\(view code\)](<./Js.hx#L801>)
 
 
 ### Value function delete
@@ -1704,7 +2140,7 @@ function delete( _p:stdgo.GoString):Void
 Delete deletes the JavaScript property p of value v.
 It panics if v is not a JavaScript object.  
 
-[\(view code\)](<./Js.hx#L787>)
+[\(view code\)](<./Js.hx#L825>)
 
 
 ### Value function equal
@@ -1718,7 +2154,7 @@ function equal( _w:stdgo.syscall.js.Value):Bool
 
 Equal reports whether v and w are equal according to JavaScript's === operator.  
 
-[\(view code\)](<./Js.hx#L825>)
+[\(view code\)](<./Js.hx#L863>)
 
 
 ### Value function float\_
@@ -1733,7 +2169,7 @@ function float_():stdgo.GoFloat64
 Float returns the value v as a float64.
 It panics if v is not a JavaScript number.  
 
-[\(view code\)](<./Js.hx#L738>)
+[\(view code\)](<./Js.hx#L776>)
 
 
 ### Value function get
@@ -1748,7 +2184,7 @@ function get( _p:stdgo.GoString):stdgo.syscall.js.Value
 Get returns the JavaScript property p of value v.
 It panics if v is not a JavaScript object.  
 
-[\(view code\)](<./Js.hx#L799>)
+[\(view code\)](<./Js.hx#L837>)
 
 
 ### Value function index
@@ -1763,7 +2199,7 @@ function index( _i:stdgo.GoInt):stdgo.syscall.js.Value
 Index returns JavaScript index i of value v.
 It panics if v is not a JavaScript object.  
 
-[\(view code\)](<./Js.hx#L781>)
+[\(view code\)](<./Js.hx#L819>)
 
 
 ### Value function instanceOf
@@ -1777,7 +2213,7 @@ function instanceOf( _t:stdgo.syscall.js.Value):Bool
 
 InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.  
 
-[\(view code\)](<./Js.hx#L705>)
+[\(view code\)](<./Js.hx#L743>)
 
 
 ### Value function int\_
@@ -1792,7 +2228,7 @@ function int_():stdgo.GoInt
 Int returns the value v truncated to an int.
 It panics if v is not a JavaScript number.  
 
-[\(view code\)](<./Js.hx#L732>)
+[\(view code\)](<./Js.hx#L770>)
 
 
 ### Value function invoke
@@ -1808,7 +2244,7 @@ Invoke does a JavaScript call of the value v with the given arguments.
 It panics if v is not a JavaScript function.
 The arguments get mapped to JavaScript values according to the ValueOf function.  
 
-[\(view code\)](<./Js.hx#L756>)
+[\(view code\)](<./Js.hx#L794>)
 
 
 ### Value function isNaN
@@ -1822,7 +2258,7 @@ function isNaN():Bool
 
 IsNaN reports whether v is the JavaScript value "NaN".  
 
-[\(view code\)](<./Js.hx#L810>)
+[\(view code\)](<./Js.hx#L848>)
 
 
 ### Value function isNull
@@ -1836,7 +2272,7 @@ function isNull():Bool
 
 IsNull reports whether v is the JavaScript value "null".  
 
-[\(view code\)](<./Js.hx#L815>)
+[\(view code\)](<./Js.hx#L853>)
 
 
 ### Value function isUndefined
@@ -1850,7 +2286,7 @@ function isUndefined():Bool
 
 IsUndefined reports whether v is the JavaScript value "undefined".  
 
-[\(view code\)](<./Js.hx#L820>)
+[\(view code\)](<./Js.hx#L858>)
 
 
 ### Value function length\_
@@ -1865,7 +2301,7 @@ function length_():stdgo.GoInt
 Length returns the JavaScript property "length" of v.
 It panics if v is not a JavaScript object.  
 
-[\(view code\)](<./Js.hx#L769>)
+[\(view code\)](<./Js.hx#L807>)
 
 
 ### Value function new\_
@@ -1881,7 +2317,7 @@ New uses JavaScript's "new" operator with value v as constructor and the given a
 It panics if v is not a JavaScript function.
 The arguments get mapped to JavaScript values according to the ValueOf function.  
 
-[\(view code\)](<./Js.hx#L749>)
+[\(view code\)](<./Js.hx#L787>)
 
 
 ### Value function set
@@ -1896,7 +2332,7 @@ function set( _p:stdgo.GoString, _x:stdgo.AnyInterface):Void
 Set sets the JavaScript property p of value v to ValueOf\(x\).
 It panics if v is not a JavaScript object.  
 
-[\(view code\)](<./Js.hx#L793>)
+[\(view code\)](<./Js.hx#L831>)
 
 
 ### Value function setIndex
@@ -1911,7 +2347,7 @@ function setIndex( _i:stdgo.GoInt, _x:stdgo.AnyInterface):Void
 SetIndex sets the JavaScript index i of value v to ValueOf\(x\).
 It panics if v is not a JavaScript object.  
 
-[\(view code\)](<./Js.hx#L775>)
+[\(view code\)](<./Js.hx#L813>)
 
 
 ### Value function string
@@ -1928,7 +2364,7 @@ String is a special case because of Go's String method convention. Unlike the ot
 it does not panic if v's Type is not TypeString. Instead, it returns a string of the form "\<T\>"
 or "\<T: V\>" where T is v's type and V is a string representation of v's value.  
 
-[\(view code\)](<./Js.hx#L713>)
+[\(view code\)](<./Js.hx#L751>)
 
 
 ### Value function truthy
@@ -1944,7 +2380,7 @@ Truthy returns the JavaScript "truthiness" of the value v. In JavaScript,
 false, 0, "", null, undefined, and NaN are "falsy", and everything else is
 "truthy". See https://developer.mozilla.org/en-US/docs/Glossary/Truthy.  
 
-[\(view code\)](<./Js.hx#L720>)
+[\(view code\)](<./Js.hx#L758>)
 
 
 ### Value function type
@@ -1959,7 +2395,7 @@ function type():stdgo.syscall.js.Type
 Type returns the JavaScript type of the value v. It is similar to JavaScript's typeof operator,
 except that it returns TypeNull instead of TypeObject for null.  
 
-[\(view code\)](<./Js.hx#L805>)
+[\(view code\)](<./Js.hx#L843>)
 
 
 ## class ValueError
@@ -1988,7 +2424,7 @@ function new(?method:stdgo.GoString, ?type:Null<stdgo.syscall.js.Type>):Void
 ```
 
 
-[\(view code\)](<./Js.hx#L343>)
+[\(view code\)](<./Js.hx#L328>)
 
 
 ### ValueError function error
@@ -1999,7 +2435,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Js.hx#L949>)
+[\(view code\)](<./Js.hx#L987>)
 
 
 # Typedefs
@@ -2009,6 +2445,23 @@ function error():stdgo.GoString
 import stdgo.syscall.js.*
 ```
 
+
+## typedef T\_ref
+
+
+```haxe
+typedef T_ref = stdgo.GoUInt64;
+```
+
+
+
+ref is used to identify a JavaScript value, since the value itself can not be passed to WebAssembly.  
+
+
+The JavaScript value "undefined" is represented by the value 0.
+A JavaScript number \(64\-bit float, except 0 and NaN\) is represented by its IEEE 754 binary representation.
+All other values are represented as an IEEE 754 binary representation of NaN with bits 0\-31 used as
+an ID and bits 32\-34 used to differentiate between string, symbol, function and object.  
 
 ## typedef Type
 

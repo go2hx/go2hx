@@ -10,199 +10,6 @@
 Package unicode provides data and functions to test some properties of
 Unicode code points.  
 
-<details><summary>hl tests passed</summary>
-<p>
-
-```
-=== RUN  TestDigit
---- PASS: TestDigit (%!s(float64=0.00012803077697753906))
-
-=== RUN  TestDigitOptimization
---- PASS: TestDigitOptimization (%!s(float64=3.0994415283203125e-05))
-
-=== RUN  TestIsControlLatin1
---- PASS: TestIsControlLatin1 (%!s(float64=1.9073486328125e-05))
-
-=== RUN  TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (%!s(float64=4.506111145019531e-05))
-
-=== RUN  TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (%!s(float64=4.1961669921875e-05))
-
-=== RUN  TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (%!s(float64=4.100799560546875e-05))
-
-=== RUN  TestNumberLatin1
---- PASS: TestNumberLatin1 (%!s(float64=4.100799560546875e-05))
-
-=== RUN  TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (%!s(float64=0.0009448528289794922))
-
-=== RUN  TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (%!s(float64=0.001965045928955078))
-
-=== RUN  TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (%!s(float64=6.890296936035156e-05))
-
-=== RUN  TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (%!s(float64=3.790855407714844e-05))
-
-=== RUN  TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (%!s(float64=6.198883056640625e-05))
-
-=== RUN  TestIsLetter
---- PASS: TestIsLetter (%!s(float64=7.009506225585938e-05))
-
-=== RUN  TestIsUpper
---- PASS: TestIsUpper (%!s(float64=4.601478576660156e-05))
-
-=== RUN  TestTo
---- PASS: TestTo (%!s(float64=7.414817810058594e-05))
-
-=== RUN  TestToUpperCase
---- PASS: TestToUpperCase (%!s(float64=5.602836608886719e-05))
-
-=== RUN  TestToLowerCase
---- PASS: TestToLowerCase (%!s(float64=5.602836608886719e-05))
-
-=== RUN  TestToTitleCase
---- PASS: TestToTitleCase (%!s(float64=4.982948303222656e-05))
-
-=== RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=3.314018249511719e-05))
-
-=== RUN  TestLetterOptimizations
---- PASS: TestLetterOptimizations (%!s(float64=0.0005991458892822266))
-
-=== RUN  TestTurkishCase
---- PASS: TestTurkishCase (%!s(float64=0.000164031982421875))
-
-=== RUN  TestSimpleFold
---- PASS: TestSimpleFold (%!s(float64=7.581710815429688e-05))
-
-=== RUN  TestCalibrate
---- PASS: TestCalibrate (%!s(float64=6.9141387939453125e-06))
-
-=== RUN  TestLatinOffset
---- PASS: TestLatinOffset (%!s(float64=0.00017499923706054688))
-
-=== RUN  TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (%!s(float64=2.9087066650390625e-05))
-
-=== RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=0.003721952438354492))
-
-=== RUN  TestCategories
---- PASS: TestCategories (%!s(float64=0.00017189979553222656))
-
-=== RUN  TestProperties
---- PASS: TestProperties (%!s(float64=0.0001838207244873047))
-
-```
-</p>
-</details>
-
-<details><summary>interp tests passed</summary>
-<p>
-
-```
-=== RUN  TestDigit
---- PASS: TestDigit (%!s(float64=0.0008721351623535156))
-
-=== RUN  TestDigitOptimization
---- PASS: TestDigitOptimization (%!s(float64=0.0007789134979248047))
-
-=== RUN  TestIsControlLatin1
---- PASS: TestIsControlLatin1 (%!s(float64=0.0004379749298095703))
-
-=== RUN  TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (%!s(float64=0.0011370182037353516))
-
-=== RUN  TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (%!s(float64=0.000988006591796875))
-
-=== RUN  TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (%!s(float64=0.000990152359008789))
-
-=== RUN  TestNumberLatin1
---- PASS: TestNumberLatin1 (%!s(float64=0.0011150836944580078))
-
-=== RUN  TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (%!s(float64=0.0033059120178222656))
-
-=== RUN  TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (%!s(float64=0.0035920143127441406))
-
-=== RUN  TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (%!s(float64=0.0015130043029785156))
-
-=== RUN  TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (%!s(float64=0.0009419918060302734))
-
-=== RUN  TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (%!s(float64=0.0012819766998291016))
-
-=== RUN  TestIsLetter
---- PASS: TestIsLetter (%!s(float64=0.0006630420684814453))
-
-=== RUN  TestIsUpper
---- PASS: TestIsUpper (%!s(float64=0.00033402442932128906))
-
-=== RUN  TestTo
---- PASS: TestTo (%!s(float64=0.0007588863372802734))
-
-=== RUN  TestToUpperCase
---- PASS: TestToUpperCase (%!s(float64=0.00026798248291015625))
-
-=== RUN  TestToLowerCase
---- PASS: TestToLowerCase (%!s(float64=0.00026798248291015625))
-
-=== RUN  TestToTitleCase
---- PASS: TestToTitleCase (%!s(float64=0.0002460479736328125))
-
-=== RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=0.00026988983154296875))
-
-=== RUN  TestLetterOptimizations
---- PASS: TestLetterOptimizations (%!s(float64=0.013078927993774414))
-
-=== RUN  TestTurkishCase
---- PASS: TestTurkishCase (%!s(float64=0.0013620853424072266))
-
-=== RUN  TestSimpleFold
---- PASS: TestSimpleFold (%!s(float64=0.0005030632019042969))
-
-=== RUN  TestCalibrate
---- PASS: TestCalibrate (%!s(float64=2.5033950805664062e-05))
-
-=== RUN  TestLatinOffset
---- PASS: TestLatinOffset (%!s(float64=0.002279996871948242))
-
-=== RUN  TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (%!s(float64=0.00017714500427246094))
-
-=== RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=0.010771989822387695))
-
-=== RUN  TestCategories
---- PASS: TestCategories (%!s(float64=0.0016241073608398438))
-
-=== RUN  TestProperties
---- PASS: TestProperties (%!s(float64=0.002207040786743164))
-
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
-
 
 # Index
 
@@ -210,6 +17,17 @@ IO.Overflow("write_ui16")
 - [Constants](<#constants>)
 
 - [Variables](<#variables>)
+
+- [`function _is16(_ranges:stdgo.Slice<stdgo.unicode.Range16>, _r:stdgo.GoUInt16):Bool`](<#function-_is16>)
+
+- [`function _is32(_ranges:stdgo.Slice<stdgo.unicode.Range32>, _r:stdgo.GoUInt32):Bool`](<#function-_is32>)
+
+- [`function _isExcludingLatin(_rangeTab:stdgo.Ref<stdgo.unicode.RangeTable>, _r:stdgo.GoRune):Bool`](<#function-_isexcludinglatin>)
+
+- [`function _to(__case:stdgo.GoInt, _r:stdgo.GoRune, _caseRange:stdgo.Slice<stdgo.unicode.CaseRange>):{
+	_1:Bool;
+	_0:stdgo.GoRune;
+}`](<#function-_to>)
 
 - [`function in_(_r:stdgo.GoRune, _ranges:haxe.Rest<stdgo.Ref<stdgo.unicode.RangeTable>>):Bool`](<#function-in_>)
 
@@ -255,7 +73,7 @@ IO.Overflow("write_ui16")
 
 - [class CaseRange](<#class-caserange>)
 
-  - [`function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo.unicode._Unicode.T_d>):Void`](<#caserange-function-new>)
+  - [`function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo.unicode.T_d>):Void`](<#caserange-function-new>)
 
 - [class Range16](<#class-range16>)
 
@@ -270,6 +88,8 @@ IO.Overflow("write_ui16")
   - [`function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.unicode.Range32>, ?latinOffset:Null<stdgo.GoInt>):Void`](<#rangetable-function-new>)
 
 - [typedef SpecialCase](<#typedef-specialcase>)
+
+- [typedef T\_d](<#typedef-t_d>)
 
 # Examples
 
@@ -309,7 +129,134 @@ import stdgo.unicode.Unicode
 
 
 ```haxe
-final lowerCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
+final _linearMax:stdgo.GoUInt64 = ((18i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+linearMax is the maximum size table for linear search for non\-Latin1 rune.
+Derived by running 'go test \-calibrate'.  
+
+```haxe
+final _pC:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+Bit masks for each code point under U\+0100, for fast lookup.  
+
+
+a control character.  
+
+```haxe
+final _pLl:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+Bit masks for each code point under U\+0100, for fast lookup.  
+
+
+a lower\-case letter.  
+
+```haxe
+final _pLmask:stdgo.GoUInt64 = ((96i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+Bit masks for each code point under U\+0100, for fast lookup.  
+
+```haxe
+final _pLo:stdgo.GoUInt64 = ((96i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+Bit masks for each code point under U\+0100, for fast lookup.  
+
+
+a letter that is neither upper nor lower case.  
+
+```haxe
+final _pLu:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+Bit masks for each code point under U\+0100, for fast lookup.  
+
+
+an upper\-case letter.  
+
+```haxe
+final _pN:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+Bit masks for each code point under U\+0100, for fast lookup.  
+
+
+a numeral.  
+
+```haxe
+final _pP:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+Bit masks for each code point under U\+0100, for fast lookup.  
+
+
+a punctuation character.  
+
+```haxe
+final _pS:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+Bit masks for each code point under U\+0100, for fast lookup.  
+
+
+a symbolic character.  
+
+```haxe
+final _pZ:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+Bit masks for each code point under U\+0100, for fast lookup.  
+
+
+a spacing character.  
+
+```haxe
+final _pg:stdgo.GoUInt64 = ((144i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+Bit masks for each code point under U\+0100, for fast lookup.  
+
+
+a graphical character according to the Unicode definition.  
+
+```haxe
+final _pp:stdgo.GoUInt64 = ((128i64 : stdgo.StdGoTypes.GoUInt64))
+```
+
+
+
+Bit masks for each code point under U\+0100, for fast lookup.  
+
+
+a printable character according to Go's definition.  
+
+```haxe
+final lowerCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
 ```
 
 
@@ -317,7 +264,7 @@ final lowerCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
 Indices into the Delta arrays inside CaseRanges for case mapping.  
 
 ```haxe
-final maxASCII:stdgo.GoInt32 = ((127 : GoInt32))
+final maxASCII:stdgo.GoInt32 = ((127 : stdgo.StdGoTypes.GoInt32))
 ```
 
 
@@ -325,7 +272,7 @@ final maxASCII:stdgo.GoInt32 = ((127 : GoInt32))
 maximum ASCII value.  
 
 ```haxe
-final maxCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
+final maxCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
 ```
 
 
@@ -333,7 +280,7 @@ final maxCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
 Indices into the Delta arrays inside CaseRanges for case mapping.  
 
 ```haxe
-final maxLatin1:stdgo.GoInt32 = ((255 : GoInt32))
+final maxLatin1:stdgo.GoInt32 = ((255 : stdgo.StdGoTypes.GoInt32))
 ```
 
 
@@ -341,7 +288,7 @@ final maxLatin1:stdgo.GoInt32 = ((255 : GoInt32))
 maximum Latin\-1 value.  
 
 ```haxe
-final maxRune:stdgo.GoInt32 = ((1114111 : GoInt32))
+final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.StdGoTypes.GoInt32))
 ```
 
 
@@ -349,7 +296,7 @@ final maxRune:stdgo.GoInt32 = ((1114111 : GoInt32))
 Maximum valid Unicode code point.  
 
 ```haxe
-final replacementChar:stdgo.GoInt32 = ((65533 : GoInt32))
+final replacementChar:stdgo.GoInt32 = ((65533 : stdgo.StdGoTypes.GoInt32))
 ```
 
 
@@ -357,7 +304,7 @@ final replacementChar:stdgo.GoInt32 = ((65533 : GoInt32))
 Represents invalid code points.  
 
 ```haxe
-final titleCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
+final titleCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
 ```
 
 
@@ -365,7 +312,7 @@ final titleCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
 Indices into the Delta arrays inside CaseRanges for case mapping.  
 
 ```haxe
-final upperCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
+final upperCase:stdgo.GoUInt64 = ((2i64 : stdgo.StdGoTypes.GoUInt64))
 ```
 
 
@@ -373,7 +320,7 @@ final upperCase:stdgo.GoUInt64 = ((2i64 : GoUInt64))
 Indices into the Delta arrays inside CaseRanges for case mapping.  
 
 ```haxe
-final upperLower:stdgo.GoInt32 = ((1114112 : GoInt32))
+final upperLower:stdgo.GoInt32 = ((1114112 : stdgo.StdGoTypes.GoInt32))
 ```
 
 
@@ -386,7 +333,7 @@ Upper Lower Upper Lower.
 \(Cannot be a valid delta.\)  
 
 ```haxe
-final version:stdgo.GoString = (("13.0.0" : GoString))
+final version:stdgo.GoString = (("15.0.0" : stdgo.GoString))
 ```
 
 
@@ -398,6 +345,1241 @@ Version is the Unicode edition from which the tables are derived.
 
 ```haxe
 import stdgo.unicode.Unicode
+```
+
+
+```haxe
+var __ASCII_Hex_Digit:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Adlam:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ahom:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Anatolian_Hieroglyphs:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Arabic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Armenian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Avestan:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Balinese:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bamum:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bassa_Vah:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Batak:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bengali:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bhaiksuki:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bidi_Control:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Bopomofo:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Brahmi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Braille:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Buginese:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Buhid:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __C:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Canadian_Aboriginal:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Carian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __CaseRanges:stdgo.Slice<stdgo.unicode.CaseRange>
+```
+
+
+```haxe
+var __Caucasian_Albanian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cc:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cf:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Chakma:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cham:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cherokee:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Chorasmian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Co:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Common:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Coptic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cs:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cuneiform:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cypriot:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cypro_Minoan:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Cyrillic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Dash:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Deprecated:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Deseret:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Devanagari:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Diacritic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Dives_Akuru:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Dogra:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Duployan:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Egyptian_Hieroglyphs:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Elbasan:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Elymaic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ethiopic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Extender:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Georgian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Glagolitic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Gothic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Grantha:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Greek:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Gujarati:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Gunjala_Gondi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Gurmukhi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Han:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hangul:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hanifi_Rohingya:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hanunoo:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hatran:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hebrew:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hex_Digit:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hiragana:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Hyphen:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __IDS_Binary_Operator:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __IDS_Trinary_Operator:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ideographic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Imperial_Aramaic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Inherited:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Inscriptional_Pahlavi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Inscriptional_Parthian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Javanese:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Join_Control:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Kaithi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Kannada:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Katakana:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Kawi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Kayah_Li:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Kharoshthi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Khitan_Small_Script:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Khmer:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Khojki:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Khudawadi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __L:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lao:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Latin:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lepcha:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Limbu:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Linear_A:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Linear_B:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lisu:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ll:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lm:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lo:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Logical_Order_Exception:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lt:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lu:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lycian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Lydian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __M:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mahajani:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Makasar:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Malayalam:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mandaic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Manichaean:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Marchen:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Masaram_Gondi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mc:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Me:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Medefaidrin:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Meetei_Mayek:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mende_Kikakui:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Meroitic_Cursive:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Meroitic_Hieroglyphs:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Miao:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mn:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Modi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mongolian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Mro:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Multani:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Myanmar:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __N:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nabataean:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nag_Mundari:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nandinagari:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nd:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __New_Tai_Lue:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Newa:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nko:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nl:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __No:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Noncharacter_Code_Point:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nushu:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Nyiakeng_Puachue_Hmong:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ogham:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ol_Chiki:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Hungarian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Italic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_North_Arabian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Permic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Persian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Sogdian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_South_Arabian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Turkic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Old_Uyghur:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Oriya:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Osage:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Osmanya:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Alphabetic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Default_Ignorable_Code_Point:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Grapheme_Extend:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_ID_Continue:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_ID_Start:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Lowercase:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Math:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Other_Uppercase:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __P:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pahawh_Hmong:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Palmyrene:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pattern_Syntax:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pattern_White_Space:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pau_Cin_Hau:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pc:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pd:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pe:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pf:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Phags_Pa:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Phoenician:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Pi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Po:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Prepended_Concatenation_Mark:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Ps:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Psalter_Pahlavi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Quotation_Mark:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Radical:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Regional_Indicator:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Rejang:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Runic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __S:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Samaritan:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Saurashtra:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sc:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sentence_Terminal:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sharada:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Shavian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Siddham:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __SignWriting:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sinhala:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sk:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sm:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __So:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Soft_Dotted:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sogdian:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sora_Sompeng:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Soyombo:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Sundanese:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Syloti_Nagri:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Syriac:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tagalog:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tagbanwa:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tai_Le:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tai_Tham:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tai_Viet:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Takri:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tamil:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tangsa:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tangut:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Telugu:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Terminal_Punctuation:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Thaana:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Thai:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tibetan:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tifinagh:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Tirhuta:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Toto:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __TurkishCase:stdgo.unicode.SpecialCase
+```
+
+
+```haxe
+var __Ugaritic:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Unified_Ideograph:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Vai:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Variation_Selector:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Vithkuqi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Wancho:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Warang_Citi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __White_Space:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Yezidi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Yi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Z:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Zanabazar_Square:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Zl:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Zp:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var __Zs:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var _asciiFold:stdgo.GoArray<stdgo.GoUInt16>
+```
+
+
+```haxe
+var _caseOrbit:stdgo.Slice<stdgo.unicode.T_foldPair>
+```
+
+
+```haxe
+var _foldCommon:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldGreek:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldInherited:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldL:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldLl:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldLt:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldLu:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldM:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var _foldMn:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+```haxe
+var _properties:stdgo.GoArray<stdgo.GoUInt8>
 ```
 
 
@@ -804,6 +1986,17 @@ These variables have type \*RangeTable.
 
 
 Cypriot is the set of Unicode characters in script Cypriot.  
+
+```haxe
+var cypro_Minoan:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+
+These variables have type \*RangeTable.  
+
+
+Cypro\_Minoan is the set of Unicode characters in script Cypro\_Minoan.  
 
 ```haxe
 var cyrillic:stdgo.Ref<stdgo.unicode.RangeTable>
@@ -1318,6 +2511,17 @@ These variables have type \*RangeTable.
 
 
 Katakana is the set of Unicode characters in script Katakana.  
+
+```haxe
+var kawi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+
+These variables have type \*RangeTable.  
+
+
+Kawi is the set of Unicode characters in script Kawi.  
 
 ```haxe
 var kayah_Li:stdgo.Ref<stdgo.unicode.RangeTable>
@@ -1850,6 +3054,17 @@ These variables have type \*RangeTable.
 Nabataean is the set of Unicode characters in script Nabataean.  
 
 ```haxe
+var nag_Mundari:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+
+These variables have type \*RangeTable.  
+
+
+Nag\_Mundari is the set of Unicode characters in script Nag\_Mundari.  
+
+```haxe
 var nandinagari:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
@@ -2079,6 +3294,17 @@ These variables have type \*RangeTable.
 
 
 Old\_Turkic is the set of Unicode characters in script Old\_Turkic.  
+
+```haxe
+var old_Uyghur:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+
+These variables have type \*RangeTable.  
+
+
+Old\_Uyghur is the set of Unicode characters in script Old\_Uyghur.  
 
 ```haxe
 var oriya:stdgo.Ref<stdgo.unicode.RangeTable>
@@ -2815,6 +4041,17 @@ These variables have type \*RangeTable.
 Tamil is the set of Unicode characters in script Tamil.  
 
 ```haxe
+var tangsa:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+
+These variables have type \*RangeTable.  
+
+
+Tangsa is the set of Unicode characters in script Tangsa.  
+
+```haxe
 var tangut:stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
@@ -2914,6 +4151,17 @@ These variables have type \*RangeTable.
 Title is the set of Unicode title case letters.  
 
 ```haxe
+var toto:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+
+These variables have type \*RangeTable.  
+
+
+Toto is the set of Unicode characters in script Toto.  
+
+```haxe
 var turkishCase:stdgo.unicode.SpecialCase
 ```
 
@@ -2972,6 +4220,17 @@ These variables have type \*RangeTable.
 
 
 Variation\_Selector is the set of Unicode characters with property Variation\_Selector.  
+
+```haxe
+var vithkuqi:stdgo.Ref<stdgo.unicode.RangeTable>
+```
+
+
+
+These variables have type \*RangeTable.  
+
+
+Vithkuqi is the set of Unicode characters in script Vithkuqi.  
 
 ```haxe
 var wancho:stdgo.Ref<stdgo.unicode.RangeTable>
@@ -3088,6 +4347,63 @@ import stdgo.unicode.Unicode
 ```
 
 
+## function \_is16
+
+
+```haxe
+function _is16(_ranges:stdgo.Slice<stdgo.unicode.Range16>, _r:stdgo.GoUInt16):Bool
+```
+
+
+
+is16 reports whether r is in the sorted slice of 16\-bit ranges.  
+
+[\(view code\)](<./Unicode.hx#L9615>)
+
+
+## function \_is32
+
+
+```haxe
+function _is32(_ranges:stdgo.Slice<stdgo.unicode.Range32>, _r:stdgo.GoUInt32):Bool
+```
+
+
+
+is32 reports whether r is in the sorted slice of 32\-bit ranges.  
+
+[\(view code\)](<./Unicode.hx#L9647>)
+
+
+## function \_isExcludingLatin
+
+
+```haxe
+function _isExcludingLatin(_rangeTab:stdgo.Ref<stdgo.unicode.RangeTable>, _r:stdgo.GoRune):Bool
+```
+
+
+[\(view code\)](<./Unicode.hx#L9690>)
+
+
+## function \_to
+
+
+```haxe
+function _to(__case:stdgo.GoInt, _r:stdgo.GoRune, _caseRange:stdgo.Slice<stdgo.unicode.CaseRange>):{
+	_1:Bool;
+	_0:stdgo.GoRune;
+}
+```
+
+
+
+to maps the rune using the specified case mapping.
+It additionally reports whether caseRange contained a mapping for r.  
+
+[\(view code\)](<./Unicode.hx#L9735>)
+
+
 ## function in\_
 
 
@@ -3099,7 +4415,7 @@ function in_(_r:stdgo.GoRune, _ranges:haxe.Rest<stdgo.Ref<stdgo.unicode.RangeTab
 
 In reports whether the rune is a member of one of the ranges.  
 
-[\(view code\)](<./Unicode.hx#L9188>)
+[\(view code\)](<./Unicode.hx#L9527>)
 
 
 ## function isControl
@@ -3115,7 +4431,7 @@ IsControl reports whether the rune is a control character.
 The C \(Other\) Unicode category includes more code points
 such as surrogates; use Is\(C, r\) to test for them.  
 
-[\(view code\)](<./Unicode.hx#L9202>)
+[\(view code\)](<./Unicode.hx#L9541>)
 
 
 ## function isDigit
@@ -3138,8 +4454,8 @@ IsDigit reports whether the rune is a decimal digit.
 
 ```haxe
 function exampleIsDigit():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isDigit((2537 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isDigit((65 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((2537 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((65 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3148,7 +4464,7 @@ function exampleIsDigit():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9143>)
+[\(view code\)](<./Unicode.hx#L9482>)
 
 
 ## function isGraphic
@@ -3164,7 +4480,7 @@ IsGraphic reports whether the rune is defined as a Graphic by Unicode.
 Such characters include letters, marks, numbers, punctuation, symbols, and
 spaces, from categories L, M, N, P, S, Zs.  
 
-[\(view code\)](<./Unicode.hx#L9154>)
+[\(view code\)](<./Unicode.hx#L9493>)
 
 
 ## function isLetter
@@ -3187,8 +4503,8 @@ IsLetter reports whether the rune is a letter \(category L\).
 
 ```haxe
 function exampleIsLetter():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isLetter((65 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isLetter((55 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((55 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3197,7 +4513,7 @@ function exampleIsLetter():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9211>)
+[\(view code\)](<./Unicode.hx#L9550>)
 
 
 ## function isLower
@@ -3220,8 +4536,8 @@ IsLower reports whether the rune is a lower case letter.
 
 ```haxe
 function exampleIsLower():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isLower((97 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isLower((65 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((65 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3230,7 +4546,7 @@ function exampleIsLower():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9377>)
+[\(view code\)](<./Unicode.hx#L9716>)
 
 
 ## function isMark
@@ -3244,7 +4560,7 @@ function isMark(_r:stdgo.GoRune):Bool
 
 IsMark reports whether the rune is a mark character \(category M\).  
 
-[\(view code\)](<./Unicode.hx#L9220>)
+[\(view code\)](<./Unicode.hx#L9559>)
 
 
 ## function isNumber
@@ -3267,8 +4583,8 @@ IsNumber reports whether the rune is a number \(category N\).
 
 ```haxe
 function exampleIsNumber():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isNumber((8551 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isNumber((65 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((8551 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((65 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3277,7 +4593,7 @@ function exampleIsNumber():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9226>)
+[\(view code\)](<./Unicode.hx#L9565>)
 
 
 ## function isOneOf
@@ -3292,7 +4608,7 @@ function isOneOf(_ranges:stdgo.Slice<stdgo.Ref<stdgo.unicode.RangeTable>>, _r:st
 IsOneOf reports whether the rune is a member of one of the ranges.
 The function "In" provides a nicer signature and should be used in preference to IsOneOf.  
 
-[\(view code\)](<./Unicode.hx#L9177>)
+[\(view code\)](<./Unicode.hx#L9516>)
 
 
 ## function isPrint
@@ -3310,7 +4626,7 @@ ASCII space character, from categories L, M, N, P, S and the ASCII space
 character. This categorization is the same as IsGraphic except that the
 only spacing character is ASCII space, U\+0020.  
 
-[\(view code\)](<./Unicode.hx#L9167>)
+[\(view code\)](<./Unicode.hx#L9506>)
 
 
 ## function isPunct
@@ -3325,7 +4641,7 @@ function isPunct(_r:stdgo.GoRune):Bool
 IsPunct reports whether the rune is a Unicode punctuation character
 \(category P\).  
 
-[\(view code\)](<./Unicode.hx#L9236>)
+[\(view code\)](<./Unicode.hx#L9575>)
 
 
 ## function isSpace
@@ -3357,10 +4673,10 @@ Z and property Pattern\_White\_Space.
 
 ```haxe
 function exampleIsSpace():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace((32 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace((10 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace((9 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace((97 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((32 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((10 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((9 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((97 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3369,7 +4685,7 @@ function exampleIsSpace():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9252>)
+[\(view code\)](<./Unicode.hx#L9591>)
 
 
 ## function isSymbol
@@ -3383,7 +4699,7 @@ function isSymbol(_r:stdgo.GoRune):Bool
 
 IsSymbol reports whether the rune is a symbolic character.  
 
-[\(view code\)](<./Unicode.hx#L9267>)
+[\(view code\)](<./Unicode.hx#L9606>)
 
 
 ## function isTitle
@@ -3406,8 +4722,8 @@ IsTitle reports whether the rune is a title case letter.
 
 ```haxe
 function exampleIsTitle():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isTitle((453 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isTitle((97 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((453 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((97 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3416,7 +4732,7 @@ function exampleIsTitle():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9386>)
+[\(view code\)](<./Unicode.hx#L9725>)
 
 
 ## function isUpper
@@ -3439,8 +4755,8 @@ IsUpper reports whether the rune is an upper case letter.
 
 ```haxe
 function exampleIsUpper():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isUpper((65 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isUpper((97 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((97 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3449,7 +4765,7 @@ function exampleIsUpper():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9368>)
+[\(view code\)](<./Unicode.hx#L9707>)
 
 
 ## function is\_
@@ -3463,7 +4779,7 @@ function is_(_rangeTab:stdgo.Ref<stdgo.unicode.RangeTable>, _r:stdgo.GoRune):Boo
 
 Is reports whether the rune is in the specified table of ranges.  
 
-[\(view code\)](<./Unicode.hx#L9340>)
+[\(view code\)](<./Unicode.hx#L9679>)
 
 
 ## function simpleFold
@@ -3508,12 +4824,12 @@ For example:
 
 ```haxe
 function exampleSimpleFold():Void {
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((65 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((97 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((75 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((107 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((8490 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((49 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((75 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((107 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((8490 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((49 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3522,7 +4838,7 @@ function exampleSimpleFold():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9487>)
+[\(view code\)](<./Unicode.hx#L9826>)
 
 
 ## function to
@@ -3546,13 +4862,13 @@ To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
 ```haxe
 function exampleTo():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (103 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (103 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (103 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (71 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (71 : GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (71 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3561,7 +4877,7 @@ function exampleTo():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9424>)
+[\(view code\)](<./Unicode.hx#L9763>)
 
 
 ## function toLower
@@ -3585,7 +4901,7 @@ ToLower maps the rune to lower case.
 ```haxe
 function exampleToLower():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.toLower((71 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toLower((71 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3594,7 +4910,7 @@ function exampleToLower():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9446>)
+[\(view code\)](<./Unicode.hx#L9785>)
 
 
 ## function toTitle
@@ -3618,7 +4934,7 @@ ToTitle maps the rune to title case.
 ```haxe
 function exampleToTitle():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3627,7 +4943,7 @@ function exampleToTitle():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9458>)
+[\(view code\)](<./Unicode.hx#L9797>)
 
 
 ## function toUpper
@@ -3651,7 +4967,7 @@ ToUpper maps the rune to upper case.
 ```haxe
 function exampleToUpper():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -3660,7 +4976,7 @@ function exampleToUpper():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9434>)
+[\(view code\)](<./Unicode.hx#L9773>)
 
 
 # Classes
@@ -3691,7 +5007,7 @@ pairs. It appears with a fixed Delta of
 The constant UpperLower has an otherwise impossible delta value.  
 
 ```haxe
-var delta:stdgo.unicode._Unicode.T_d
+var delta:stdgo.unicode.T_d
 ```
 
 
@@ -3709,11 +5025,11 @@ var lo:stdgo.GoUInt32
 
 
 ```haxe
-function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo.unicode._Unicode.T_d>):Void
+function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo.unicode.T_d>):Void
 ```
 
 
-[\(view code\)](<./Unicode.hx#L9104>)
+[\(view code\)](<./Unicode.hx#L9443>)
 
 
 ## class Range16
@@ -3746,7 +5062,7 @@ function new(?lo:stdgo.GoUInt16, ?hi:stdgo.GoUInt16, ?stride:stdgo.GoUInt16):Voi
 ```
 
 
-[\(view code\)](<./Unicode.hx#L9053>)
+[\(view code\)](<./Unicode.hx#L9392>)
 
 
 ## class Range32
@@ -3780,7 +5096,7 @@ function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?stride:stdgo.GoUInt32):Voi
 ```
 
 
-[\(view code\)](<./Unicode.hx#L9074>)
+[\(view code\)](<./Unicode.hx#L9413>)
 
 
 ## class RangeTable
@@ -3816,7 +5132,7 @@ function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.uni
 ```
 
 
-[\(view code\)](<./Unicode.hx#L9033>)
+[\(view code\)](<./Unicode.hx#L9372>)
 
 
 # Typedefs
@@ -3838,4 +5154,12 @@ typedef SpecialCase = stdgo.Slice<stdgo.unicode.CaseRange>;
 
 SpecialCase represents language\-specific case mappings such as Turkish.
 Methods of SpecialCase customize \(by overriding\) the standard mappings.  
+
+## typedef T\_d
+
+
+```haxe
+typedef T_d = stdgo.GoArray<stdgo.GoInt32>;
+```
+
 

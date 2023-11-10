@@ -19,6 +19,8 @@
 
 - [`function short():Bool`](<#function-short>)
 
+- [`function testing():Bool`](<#function-testing>)
+
 - [`function verbose():Bool`](<#function-verbose>)
 
 - [class B](<#class-b>)
@@ -239,7 +241,7 @@ function allocsPerRun(_runs:stdgo.GoInt, f:():Void):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Testing.hx#L516>)
+[\(view code\)](<./Testing.hx#L548>)
 
 
 ## function benchmark
@@ -250,7 +252,7 @@ function benchmark(f:()):stdgo.testing.BenchmarkResult
 ```
 
 
-[\(view code\)](<./Testing.hx#L508>)
+[\(view code\)](<./Testing.hx#L540>)
 
 
 ## function coverMode
@@ -261,7 +263,7 @@ function coverMode():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testing.hx#L506>)
+[\(view code\)](<./Testing.hx#L538>)
 
 
 ## function mainStart
@@ -272,7 +274,7 @@ function mainStart(deps:stdgo.testing.T_testDeps, tests:stdgo.Slice<stdgo.testin
 ```
 
 
-[\(view code\)](<./Testing.hx#L471>)
+[\(view code\)](<./Testing.hx#L503>)
 
 
 ## function short
@@ -283,7 +285,18 @@ function short():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L513>)
+[\(view code\)](<./Testing.hx#L545>)
+
+
+## function testing
+
+
+```haxe
+function testing():Bool
+```
+
+
+[\(view code\)](<./Testing.hx#L10>)
 
 
 ## function verbose
@@ -294,7 +307,7 @@ function verbose():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L519>)
+[\(view code\)](<./Testing.hx#L551>)
 
 
 # Classes
@@ -321,7 +334,7 @@ function cleanup(f:():Void):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L107>)
+[\(view code\)](<./Testing.hx#L110>)
 
 
 ### B function error
@@ -332,7 +345,7 @@ function error(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L109>)
+[\(view code\)](<./Testing.hx#L112>)
 
 
 ### B function errorf
@@ -343,7 +356,7 @@ function errorf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L114>)
+[\(view code\)](<./Testing.hx#L117>)
 
 
 ### B function fail
@@ -354,7 +367,7 @@ function fail():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L121>)
+[\(view code\)](<./Testing.hx#L124>)
 
 
 ### B function failNow
@@ -365,7 +378,7 @@ function failNow():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L123>)
+[\(view code\)](<./Testing.hx#L126>)
 
 
 ### B function failed
@@ -376,7 +389,7 @@ function failed():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L130>)
+[\(view code\)](<./Testing.hx#L133>)
 
 
 ### B function fatal
@@ -387,7 +400,7 @@ function fatal(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L132>)
+[\(view code\)](<./Testing.hx#L135>)
 
 
 ### B function fatalf
@@ -398,7 +411,7 @@ function fatalf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L134>)
+[\(view code\)](<./Testing.hx#L137>)
 
 
 ### B function helper
@@ -409,7 +422,7 @@ function helper():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L136>)
+[\(view code\)](<./Testing.hx#L139>)
 
 
 ### B function log
@@ -420,7 +433,7 @@ function log(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L138>)
+[\(view code\)](<./Testing.hx#L141>)
 
 
 ### B function logf
@@ -431,7 +444,7 @@ function logf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L140>)
+[\(view code\)](<./Testing.hx#L143>)
 
 
 ### B function name
@@ -442,7 +455,7 @@ function name():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testing.hx#L105>)
+[\(view code\)](<./Testing.hx#L108>)
 
 
 ### B function new
@@ -453,7 +466,7 @@ function new(?n:Null<stdgo.GoInt>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L92>)
+[\(view code\)](<./Testing.hx#L95>)
 
 
 ### B function reportAllocs
@@ -464,7 +477,7 @@ function reportAllocs():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L142>)
+[\(view code\)](<./Testing.hx#L145>)
 
 
 ### B function reportMetric
@@ -475,7 +488,7 @@ function reportMetric(n:stdgo.GoFloat64, uint:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L144>)
+[\(view code\)](<./Testing.hx#L147>)
 
 
 ### B function resetTimer
@@ -486,7 +499,7 @@ function resetTimer():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L97>)
+[\(view code\)](<./Testing.hx#L100>)
 
 
 ### B function run
@@ -497,7 +510,7 @@ function run(name:stdgo.GoString, f:()):Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L100>)
+[\(view code\)](<./Testing.hx#L103>)
 
 
 ### B function runParallel
@@ -508,7 +521,7 @@ function runParallel(body:()):Null<Dynamic>
 ```
 
 
-[\(view code\)](<./Testing.hx#L146>)
+[\(view code\)](<./Testing.hx#L149>)
 
 
 ### B function setBytes
@@ -519,7 +532,7 @@ function setBytes(n:stdgo.GoInt64):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L150>)
+[\(view code\)](<./Testing.hx#L153>)
 
 
 ### B function setParallelism
@@ -530,7 +543,7 @@ function setParallelism(p:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L152>)
+[\(view code\)](<./Testing.hx#L155>)
 
 
 ### B function setenv
@@ -541,7 +554,7 @@ function setenv(key:stdgo.GoString, value:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L102>)
+[\(view code\)](<./Testing.hx#L105>)
 
 
 ### B function skip
@@ -552,7 +565,7 @@ function skip(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L154>)
+[\(view code\)](<./Testing.hx#L157>)
 
 
 ### B function skipNow
@@ -563,7 +576,7 @@ function skipNow():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L156>)
+[\(view code\)](<./Testing.hx#L159>)
 
 
 ### B function skipf
@@ -574,7 +587,7 @@ function skipf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L158>)
+[\(view code\)](<./Testing.hx#L161>)
 
 
 ### B function skipped
@@ -585,7 +598,7 @@ function skipped():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L161>)
+[\(view code\)](<./Testing.hx#L164>)
 
 
 ### B function startTimer
@@ -596,7 +609,7 @@ function startTimer():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L163>)
+[\(view code\)](<./Testing.hx#L166>)
 
 
 ### B function stopTimer
@@ -607,7 +620,7 @@ function stopTimer():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L165>)
+[\(view code\)](<./Testing.hx#L168>)
 
 
 ### B function tempDir
@@ -618,7 +631,7 @@ function tempDir():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testing.hx#L167>)
+[\(view code\)](<./Testing.hx#L170>)
 
 
 ## class BenchmarkResult
@@ -662,7 +675,7 @@ function allocedBytesPerOp():stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Testing.hx#L61>)
+[\(view code\)](<./Testing.hx#L64>)
 
 
 ### BenchmarkResult function allocsPerOp
@@ -673,7 +686,7 @@ function allocsPerOp():stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Testing.hx#L64>)
+[\(view code\)](<./Testing.hx#L67>)
 
 
 ### BenchmarkResult function memString
@@ -684,7 +697,7 @@ function memString():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testing.hx#L67>)
+[\(view code\)](<./Testing.hx#L70>)
 
 
 ### BenchmarkResult function new
@@ -695,7 +708,7 @@ function new(?n:stdgo.GoInt, ?t:Dynamic, ?bytes:stdgo.GoInt64, ?memAllocs:stdgo.
 ```
 
 
-[\(view code\)](<./Testing.hx#L39>)
+[\(view code\)](<./Testing.hx#L42>)
 
 
 ### BenchmarkResult function nsPerOp
@@ -706,7 +719,7 @@ function nsPerOp():stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Testing.hx#L58>)
+[\(view code\)](<./Testing.hx#L61>)
 
 
 ### BenchmarkResult function string
@@ -717,7 +730,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testing.hx#L70>)
+[\(view code\)](<./Testing.hx#L73>)
 
 
 ## class F
@@ -731,7 +744,7 @@ function cleanup(f:():Void):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L185>)
+[\(view code\)](<./Testing.hx#L188>)
 
 
 ### F function error
@@ -742,7 +755,7 @@ function error(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L187>)
+[\(view code\)](<./Testing.hx#L190>)
 
 
 ### F function errorf
@@ -753,7 +766,7 @@ function errorf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L192>)
+[\(view code\)](<./Testing.hx#L195>)
 
 
 ### F function fail
@@ -764,7 +777,7 @@ function fail():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L199>)
+[\(view code\)](<./Testing.hx#L202>)
 
 
 ### F function failNow
@@ -775,7 +788,7 @@ function failNow():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L201>)
+[\(view code\)](<./Testing.hx#L204>)
 
 
 ### F function failed
@@ -786,7 +799,7 @@ function failed():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L208>)
+[\(view code\)](<./Testing.hx#L211>)
 
 
 ### F function fatal
@@ -797,7 +810,7 @@ function fatal(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L210>)
+[\(view code\)](<./Testing.hx#L213>)
 
 
 ### F function fatalf
@@ -808,7 +821,7 @@ function fatalf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L212>)
+[\(view code\)](<./Testing.hx#L215>)
 
 
 ### F function helper
@@ -819,7 +832,7 @@ function helper():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L214>)
+[\(view code\)](<./Testing.hx#L217>)
 
 
 ### F function log
@@ -830,7 +843,7 @@ function log(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L216>)
+[\(view code\)](<./Testing.hx#L219>)
 
 
 ### F function logf
@@ -841,7 +854,7 @@ function logf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L218>)
+[\(view code\)](<./Testing.hx#L221>)
 
 
 ### F function new
@@ -852,7 +865,7 @@ function new(output:StringBuf):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L181>)
+[\(view code\)](<./Testing.hx#L184>)
 
 
 ### F function parallel
@@ -863,7 +876,7 @@ function parallel():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L220>)
+[\(view code\)](<./Testing.hx#L223>)
 
 
 ### F function run
@@ -874,7 +887,7 @@ function run(name:stdgo.GoString, f:()):Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L222>)
+[\(view code\)](<./Testing.hx#L225>)
 
 
 ### F function setenv
@@ -885,7 +898,7 @@ function setenv(key:stdgo.GoString, value:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L226>)
+[\(view code\)](<./Testing.hx#L229>)
 
 
 ### F function skip
@@ -896,7 +909,7 @@ function skip(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L228>)
+[\(view code\)](<./Testing.hx#L231>)
 
 
 ### F function skipNow
@@ -907,7 +920,7 @@ function skipNow():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L230>)
+[\(view code\)](<./Testing.hx#L233>)
 
 
 ### F function skipf
@@ -918,7 +931,7 @@ function skipf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L232>)
+[\(view code\)](<./Testing.hx#L235>)
 
 
 ### F function skipped
@@ -929,7 +942,7 @@ function skipped():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L235>)
+[\(view code\)](<./Testing.hx#L238>)
 
 
 ### F function tempDir
@@ -940,7 +953,7 @@ function tempDir():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testing.hx#L238>)
+[\(view code\)](<./Testing.hx#L241>)
 
 
 ## class InternalBenchmark
@@ -967,7 +980,7 @@ function new(?name:stdgo.GoString, ?f:()):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L395>)
+[\(view code\)](<./Testing.hx#L427>)
 
 
 ## class InternalExample
@@ -1004,7 +1017,7 @@ function new(?name:stdgo.GoString, ?f:():Void, ?output:stdgo.GoString, ?unordere
 ```
 
 
-[\(view code\)](<./Testing.hx#L435>)
+[\(view code\)](<./Testing.hx#L467>)
 
 
 ## class InternalFuzzTarget
@@ -1031,7 +1044,7 @@ function new(?name:stdgo.GoString, ?f:():Void):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L414>)
+[\(view code\)](<./Testing.hx#L446>)
 
 
 ## class InternalTest
@@ -1058,7 +1071,7 @@ function new(?name:stdgo.GoString, ?f:()):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L458>)
+[\(view code\)](<./Testing.hx#L490>)
 
 
 ## class M
@@ -1077,7 +1090,7 @@ function new(deps:stdgo.testing.T_testDeps, tests:stdgo.Slice<stdgo.testing.Inte
 ```
 
 
-[\(view code\)](<./Testing.hx#L336>)
+[\(view code\)](<./Testing.hx#L368>)
 
 
 ### M function run
@@ -1088,7 +1101,7 @@ function run():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Testing.hx#L347>)
+[\(view code\)](<./Testing.hx#L379>)
 
 
 ## class PB
@@ -1102,7 +1115,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L75>)
+[\(view code\)](<./Testing.hx#L78>)
 
 
 ### PB function next
@@ -1113,7 +1126,7 @@ function next():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L78>)
+[\(view code\)](<./Testing.hx#L81>)
 
 
 ## class T
@@ -1127,7 +1140,7 @@ function cleanup(f:():Void):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L263>)
+[\(view code\)](<./Testing.hx#L295>)
 
 
 ### T function error
@@ -1138,7 +1151,7 @@ function error(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L265>)
+[\(view code\)](<./Testing.hx#L297>)
 
 
 ### T function errorf
@@ -1149,7 +1162,7 @@ function errorf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L270>)
+[\(view code\)](<./Testing.hx#L302>)
 
 
 ### T function fail
@@ -1160,7 +1173,7 @@ function fail():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L277>)
+[\(view code\)](<./Testing.hx#L309>)
 
 
 ### T function failNow
@@ -1171,7 +1184,7 @@ function failNow():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L279>)
+[\(view code\)](<./Testing.hx#L311>)
 
 
 ### T function failed
@@ -1182,7 +1195,7 @@ function failed():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L285>)
+[\(view code\)](<./Testing.hx#L317>)
 
 
 ### T function fatal
@@ -1193,7 +1206,7 @@ function fatal(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L287>)
+[\(view code\)](<./Testing.hx#L319>)
 
 
 ### T function fatalf
@@ -1204,7 +1217,7 @@ function fatalf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L289>)
+[\(view code\)](<./Testing.hx#L321>)
 
 
 ### T function helper
@@ -1215,7 +1228,7 @@ function helper():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L291>)
+[\(view code\)](<./Testing.hx#L323>)
 
 
 ### T function log
@@ -1226,7 +1239,7 @@ function log(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L293>)
+[\(view code\)](<./Testing.hx#L325>)
 
 
 ### T function logf
@@ -1237,7 +1250,7 @@ function logf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L295>)
+[\(view code\)](<./Testing.hx#L327>)
 
 
 ### T function name
@@ -1248,7 +1261,7 @@ function name():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testing.hx#L261>)
+[\(view code\)](<./Testing.hx#L293>)
 
 
 ### T function new
@@ -1259,7 +1272,7 @@ function new(?output:StringBuf):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L256>)
+[\(view code\)](<./Testing.hx#L288>)
 
 
 ### T function parallel
@@ -1270,7 +1283,7 @@ function parallel():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L297>)
+[\(view code\)](<./Testing.hx#L329>)
 
 
 ### T function run
@@ -1281,7 +1294,7 @@ function run(name:stdgo.GoString, f:()):Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L299>)
+[\(view code\)](<./Testing.hx#L331>)
 
 
 ### T function setenv
@@ -1292,7 +1305,7 @@ function setenv(key:stdgo.GoString, value:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L303>)
+[\(view code\)](<./Testing.hx#L335>)
 
 
 ### T function skip
@@ -1303,7 +1316,7 @@ function skip(args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L305>)
+[\(view code\)](<./Testing.hx#L337>)
 
 
 ### T function skipNow
@@ -1314,7 +1327,7 @@ function skipNow():Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L307>)
+[\(view code\)](<./Testing.hx#L339>)
 
 
 ### T function skipf
@@ -1325,7 +1338,7 @@ function skipf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
-[\(view code\)](<./Testing.hx#L309>)
+[\(view code\)](<./Testing.hx#L341>)
 
 
 ### T function skipped
@@ -1336,7 +1349,7 @@ function skipped():Bool
 ```
 
 
-[\(view code\)](<./Testing.hx#L312>)
+[\(view code\)](<./Testing.hx#L344>)
 
 
 ### T function tempDir
@@ -1347,7 +1360,7 @@ function tempDir():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testing.hx#L315>)
+[\(view code\)](<./Testing.hx#L347>)
 
 
 # Typedefs

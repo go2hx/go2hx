@@ -15,11 +15,13 @@
 
 - [`function sizeof(x:stdgo.AnyInterface):stdgo.GoUIntptr`](<#function-sizeof>)
 
-- [`function sliceData(s:stdgo.Slice<sliceData.T>):stdgo.Slice<sliceData.T>`](<#function-slicedata>)
+- [`function slice(_ptr:stdgo.Pointer<Dynamic>, _len:stdgo.GoInt):Array<Dynamic>`](<#function-slice>)
 
-- [`function string(s:stdgo.GoString, len:stdgo.GoInt):stdgo.GoString`](<#function-string>)
+- [`function sliceData(s:stdgo.Slice<sliceData.T>):Dynamic`](<#function-slicedata>)
 
-- [`function stringData(s:stdgo.GoString):stdgo.GoString`](<#function-stringdata>)
+- [`function string(s:stdgo.Pointer<stdgo.GoByte>, len:stdgo.GoInt):stdgo.GoString`](<#function-string>)
+
+- [`function stringData(s:stdgo.GoString):Dynamic`](<#function-stringdata>)
 
 - [typedef Pointer\_](<#typedef-pointer_>)
 
@@ -41,7 +43,7 @@ function alignof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Unsafe.hx#L67>)
+[\(view code\)](<./Unsafe.hx#L70>)
 
 
 ## function offsetof\_
@@ -52,7 +54,7 @@ function offsetof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Unsafe.hx#L63>)
+[\(view code\)](<./Unsafe.hx#L66>)
 
 
 ## function sizeof
@@ -63,40 +65,51 @@ function sizeof(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Unsafe.hx#L59>)
+[\(view code\)](<./Unsafe.hx#L62>)
+
+
+## function slice
+
+
+```haxe
+function slice(_ptr:stdgo.Pointer<Dynamic>, _len:stdgo.GoInt):Array<Dynamic>
+```
+
+
+[\(view code\)](<./Unsafe.hx#L84>)
 
 
 ## function sliceData
 
 
 ```haxe
-function sliceData(s:stdgo.Slice<sliceData.T>):stdgo.Slice<sliceData.T>
-```
-
-
-[\(view code\)](<./Unsafe.hx#L75>)
-
-
-## function string
-
-
-```haxe
-function string(s:stdgo.GoString, len:stdgo.GoInt):stdgo.GoString
+function sliceData(s:stdgo.Slice<sliceData.T>):Dynamic
 ```
 
 
 [\(view code\)](<./Unsafe.hx#L78>)
 
 
+## function string
+
+
+```haxe
+function string(s:stdgo.Pointer<stdgo.GoByte>, len:stdgo.GoInt):stdgo.GoString
+```
+
+
+[\(view code\)](<./Unsafe.hx#L81>)
+
+
 ## function stringData
 
 
 ```haxe
-function stringData(s:stdgo.GoString):stdgo.GoString
+function stringData(s:stdgo.GoString):Dynamic
 ```
 
 
-[\(view code\)](<./Unsafe.hx#L72>)
+[\(view code\)](<./Unsafe.hx#L75>)
 
 
 # Typedefs

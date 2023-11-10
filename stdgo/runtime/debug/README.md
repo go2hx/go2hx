@@ -85,7 +85,7 @@ attempt to return as much memory to the operating system
 as possible. \(Even if this is not called, the runtime gradually
 returns memory to the operating system in a background task.\)  
 
-[\(view code\)](<./Debug.hx#L173>)
+[\(view code\)](<./Debug.hx#L164>)
 
 
 ## function parseBuildInfo
@@ -99,7 +99,7 @@ function parseBuildInfo(_data:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Debug.hx#L311>)
+[\(view code\)](<./Debug.hx#L302>)
 
 
 ## function printStack
@@ -113,7 +113,7 @@ function printStack():Void
 
 PrintStack prints to standard error the stack trace returned by runtime.Stack.  
 
-[\(view code\)](<./Debug.hx#L315>)
+[\(view code\)](<./Debug.hx#L306>)
 
 
 ## function readBuildInfo
@@ -132,7 +132,7 @@ ReadBuildInfo returns the build information embedded
 in the running binary. The information is available only
 in binaries built with module support.  
 
-[\(view code\)](<./Debug.hx#L310>)
+[\(view code\)](<./Debug.hx#L301>)
 
 
 ## function readGCStats
@@ -153,7 +153,7 @@ summarizing the distribution of pause time. For example, if
 len\(stats.PauseQuantiles\) is 5, it will be filled with the minimum,
 25%, 50%, 75%, and maximum pause times.  
 
-[\(view code\)](<./Debug.hx#L152>)
+[\(view code\)](<./Debug.hx#L143>)
 
 
 ## function setGCPercent
@@ -177,7 +177,7 @@ A negative percentage effectively disables garbage collection, unless
 the memory limit is reached.
 See SetMemoryLimit for more details.  
 
-[\(view code\)](<./Debug.hx#L166>)
+[\(view code\)](<./Debug.hx#L157>)
 
 
 ## function setMaxStack
@@ -203,7 +203,7 @@ SetMaxStack is useful mainly for limiting the damage done by
 goroutines that enter an infinite recursion. It only limits future
 stack growth.  
 
-[\(view code\)](<./Debug.hx#L188>)
+[\(view code\)](<./Debug.hx#L179>)
 
 
 ## function setMaxThreads
@@ -232,7 +232,7 @@ SetMaxThreads is useful mainly for limiting the damage done by
 programs that create an unbounded number of threads. The idea is
 to take down the program before it takes down the operating system.  
 
-[\(view code\)](<./Debug.hx#L205>)
+[\(view code\)](<./Debug.hx#L196>)
 
 
 ## function setMemoryLimit
@@ -309,7 +309,7 @@ SetMemoryLimit returns the previously set memory limit.
 A negative input does not adjust the limit, and allows for
 retrieval of the currently set memory limit.  
 
-[\(view code\)](<./Debug.hx#L304>)
+[\(view code\)](<./Debug.hx#L295>)
 
 
 ## function setPanicOnFault
@@ -340,7 +340,7 @@ may depend on the platform.
 SetPanicOnFault applies only to the current goroutine.
 It returns the previous setting.  
 
-[\(view code\)](<./Debug.hx#L224>)
+[\(view code\)](<./Debug.hx#L215>)
 
 
 ## function setTraceback
@@ -362,7 +362,7 @@ See the package runtime documentation for details.
 If SetTraceback is called with a level lower than that of the
 environment variable, the call is ignored.  
 
-[\(view code\)](<./Debug.hx#L248>)
+[\(view code\)](<./Debug.hx#L239>)
 
 
 ## function stack
@@ -377,7 +377,7 @@ function stack():stdgo.Slice<stdgo.GoByte>
 Stack returns a formatted stack trace of the goroutine that calls it.
 It calls runtime.Stack with a large enough buffer to capture the entire trace.  
 
-[\(view code\)](<./Debug.hx#L320>)
+[\(view code\)](<./Debug.hx#L311>)
 
 
 ## function writeHeapDump
@@ -401,7 +401,7 @@ process; instead, use a temporary file or network socket.
 
 The heap dump format is defined at https://golang.org/s/go15heapdump.  
 
-[\(view code\)](<./Debug.hx#L236>)
+[\(view code\)](<./Debug.hx#L227>)
 
 
 # Classes
@@ -469,7 +469,7 @@ function new(?goVersion:stdgo.GoString, ?path:stdgo.GoString, ?_Main:stdgo.runti
 ```
 
 
-[\(view code\)](<./Debug.hx#L70>)
+[\(view code\)](<./Debug.hx#L61>)
 
 
 ### BuildInfo function string
@@ -480,7 +480,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Debug.hx#L334>)
+[\(view code\)](<./Debug.hx#L325>)
 
 
 ## class BuildSetting
@@ -501,7 +501,7 @@ Defined keys include:
    - CGO_CXXFLAGS:  the effective CGO_CPPFLAGS environment variable
    - CGO_LDFLAGS: the effective CGO_CPPFLAGS environment variable
    - GOARCH: the architecture target
-   - GOAMD64/GOARM64/GO386/etc: the architecture feature level for GOARCH
+   - GOAMD64/GOARM/GO386/etc: the architecture feature level for GOARCH
    - GOOS: the operating system target
    - vcs: the version control system for the source tree where the build ran
    - vcs.revision: the revision identifier for the current commit or checkout
@@ -531,7 +531,7 @@ function new(?key:stdgo.GoString, ?value:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Debug.hx#L133>)
+[\(view code\)](<./Debug.hx#L124>)
 
 
 ## class GCStats
@@ -578,7 +578,7 @@ function new(?lastGC:stdgo.time.Time, ?numGC:stdgo.GoInt64, ?pauseTotal:Null<std
 ```
 
 
-[\(view code\)](<./Debug.hx#L28>)
+[\(view code\)](<./Debug.hx#L19>)
 
 
 ## class Module
@@ -615,6 +615,6 @@ function new(?path:stdgo.GoString, ?version:stdgo.GoString, ?sum:stdgo.GoString,
 ```
 
 
-[\(view code\)](<./Debug.hx#L92>)
+[\(view code\)](<./Debug.hx#L83>)
 
 

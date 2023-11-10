@@ -10,7 +10,7 @@
 Package errors implements functions to manipulate errors.  
 
 
-The New function creates errors whose only content is a text message.  
+The \[New\] function creates errors whose only content is a text message.  
 
 
 An error e wraps another error if e's type has one of the methods  
@@ -26,14 +26,14 @@ indicates that e does not wrap any error. It is invalid for an
 Unwrap method to return an \[\]error containing a nil error value.  
 
 
-An easy way to create wrapped errors is to call fmt.Errorf and apply
+An easy way to create wrapped errors is to call \[fmt.Errorf\] and apply
 the %w verb to the error argument:  
 
 ```
 	wrapsErr := fmt.Errorf("... %w ...", ..., err, ...)
 ```
 
-Successive unwrapping of an error creates a tree. The Is and As
+Successive unwrapping of an error creates a tree. The \[Is\] and \[As\]
 functions inspect an error's tree by examining first the error
 itself followed by the tree of each of its children in turn
 \(pre\-order, depth\-first traversal\).  
@@ -53,7 +53,7 @@ is preferable to
 	if err == fs.ErrExist
 ```
 
-because the former will succeed if err wraps fs.ErrExist.  
+because the former will succeed if err wraps \[io/fs.ErrExist\].  
 
 
 As examines the tree of its first argument looking for an error that can be
@@ -75,90 +75,13 @@ is preferable to
 	}
 ```
 
-because the former will succeed if err wraps an \*fs.PathError.  
-
-<details><summary>hl tests passed</summary>
-<p>
-
-```
-=== RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=0.0001518726348876953))
-
-=== RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=1.0013580322265625e-05))
-
-=== RUN  TestJoinReturnsNil
---- PASS: TestJoinReturnsNil (%!s(float64=1.3113021850585938e-05))
-
-=== RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0006561279296875))
-
-=== RUN  TestJoinErrorMethod
---- PASS: TestJoinErrorMethod (%!s(float64=5.698204040527344e-05))
-
-=== RUN  TestIs
---- PASS: TestIs (%!s(float64=9.989738464355469e-05))
-
-=== RUN  TestAs
---- PASS: TestAs (%!s(float64=0.01963520050048828))
-
-=== RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0008680820465087891))
-
-=== RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.00019812583923339844))
-
-```
-</p>
-</details>
-
-<details><summary>interp tests passed</summary>
-<p>
-
-```
-=== RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=0.0001461505889892578))
-
-=== RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=4.100799560546875e-05))
-
-=== RUN  TestJoinReturnsNil
---- PASS: TestJoinReturnsNil (%!s(float64=4.506111145019531e-05))
-
-=== RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0008280277252197266))
-
-=== RUN  TestJoinErrorMethod
---- PASS: TestJoinErrorMethod (%!s(float64=0.00015807151794433594))
-
-=== RUN  TestIs
---- PASS: TestIs (%!s(float64=0.00024509429931640625))
-
-=== RUN  TestAs
---- PASS: TestAs (%!s(float64=0.01810288429260254))
-
-=== RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0013921260833740234))
-
-=== RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.0002288818359375))
-
-```
-</p>
-</details>
-
-<details><summary>jvm tests failed</summary>
-<p>
-
-```
-IO.Overflow("write_ui16")
-```
-</p>
-</details>
+because the former will succeed if err wraps an \[\*io/fs.PathError\].  
 
 
 # Index
 
+
+- [Variables](<#variables>)
 
 - [`function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool`](<#function-as>)
 
@@ -170,6 +93,14 @@ IO.Overflow("write_ui16")
 
 - [`function unwrap(_err:stdgo.Error):stdgo.Error`](<#function-unwrap>)
 
+- [typedef T\_\_interface\_0](<#typedef-t__interface_0>)
+
+- [typedef T\_\_interface\_1](<#typedef-t__interface_1>)
+
+- [typedef T\_\_interface\_2](<#typedef-t__interface_2>)
+
+- [typedef T\_\_interface\_3](<#typedef-t__interface_3>)
+
 # Examples
 
 
@@ -178,6 +109,43 @@ IO.Overflow("write_ui16")
 - [`exampleJoin`](<#examplejoin>)
 
 - [`exampleUnwrap`](<#exampleunwrap>)
+
+# Variables
+
+
+```haxe
+import stdgo.errors.Errors
+```
+
+
+```haxe
+var _errorType:stdgo.internal.reflectlite.Type
+```
+
+
+```haxe
+var errUnsupported:stdgo.Error
+```
+
+
+
+ErrUnsupported indicates that a requested operation cannot be performed,
+because it is unsupported. For example, a call to \[os.Link\] when using a
+file system that does not support hard links.  
+
+
+Functions and methods should not return this error but should instead
+return an error including appropriate context that satisfies  
+
+```
+	errors.Is(err, errors.ErrUnsupported)
+```
+
+either by directly wrapping ErrUnsupported or by implementing an Is method.  
+
+
+Functions and methods should document the cases in which an error
+wrapping this will be returned.  
 
 # Functions
 
@@ -228,13 +196,13 @@ error, or to any interface type.
 ```haxe
 function exampleAs():Void {
         {
-            var __tmp__ = stdgo.os.Os.open(("non-existing" : GoString)), __0:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
+            var __tmp__ = stdgo.os.Os.open(("non-existing" : stdgo.GoString)), __0:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : Ref<stdgo.io.fs.Fs.PathError>);
-                if (stdgo.errors.Errors.as(_err, Go.toInterface((Go.setRef(_pathError) : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
-                    stdgo.fmt.Fmt.println(Go.toInterface(("Failed at path:" : GoString)), Go.toInterface(_pathError.path));
+                var _pathError:stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>);
+                if (stdgo.errors.Errors.as(_err, stdgo.Go.toInterface((stdgo.Go.setRef(_pathError) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>)))) {
+                    stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Failed at path:" : stdgo.GoString)), stdgo.Go.toInterface(_pathError.path));
                 } else {
-                    stdgo.fmt.Fmt.println(Go.toInterface(_err));
+                    stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_err));
                 };
             };
         };
@@ -246,7 +214,7 @@ function exampleAs():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L286>)
+[\(view code\)](<./Errors.hx#L298>)
 
 
 ## function is\_
@@ -277,11 +245,11 @@ to an existing error. For example, if MyError defines
 	func (m MyError) Is(target error) bool { return target == fs.ErrExist }
 ```
 
-then Is\(MyError\{\}, fs.ErrExist\) returns true. See syscall.Errno.Is for
+then Is\(MyError\{\}, fs.ErrExist\) returns true. See \[syscall.Errno.Is\] for
 an example in the standard library. An Is method should only shallowly
 compare err and the target and not call Unwrap on either.  
 
-[\(view code\)](<./Errors.hx#L225>)
+[\(view code\)](<./Errors.hx#L237>)
 
 
 ## function join
@@ -295,10 +263,13 @@ function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error
 
 Join returns an error that wraps the given errors.
 Any nil error values are discarded.
-Join returns nil if errs contains no non\-nil values.
+Join returns nil if every value in errs is nil.
 The error formats as the concatenation of the strings obtained
 by calling the Error method of each element of errs, with a newline
 between each string.  
+
+
+A non\-nil error returned by Join implements the Unwrap\(\) \[\]error method.  
 
 ### exampleJoin
 
@@ -309,15 +280,15 @@ between each string.
 
 ```haxe
 function exampleJoin():Void {
-        var _err1:Error = stdgo.errors.Errors.new_(("err1" : GoString));
-        var _err2:Error = stdgo.errors.Errors.new_(("err2" : GoString));
-        var _err:Error = stdgo.errors.Errors.join(_err1, _err2);
-        stdgo.fmt.Fmt.println(Go.toInterface(_err));
+        var _err1:stdgo.Error = stdgo.errors.Errors.new_(("err1" : stdgo.GoString));
+        var _err2:stdgo.Error = stdgo.errors.Errors.new_(("err2" : stdgo.GoString));
+        var _err:stdgo.Error = stdgo.errors.Errors.join(_err1, _err2);
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_err));
         if (stdgo.errors.Errors.is_(_err, _err1)) {
-            stdgo.fmt.Fmt.println(Go.toInterface(("err is err1" : GoString)));
+            stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("err is err1" : stdgo.GoString)));
         };
         if (stdgo.errors.Errors.is_(_err, _err2)) {
-            stdgo.fmt.Fmt.println(Go.toInterface(("err is err2" : GoString)));
+            stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("err is err2" : stdgo.GoString)));
         };
     }
 ```
@@ -327,7 +298,7 @@ function exampleJoin():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L169>)
+[\(view code\)](<./Errors.hx#L180>)
 
 
 ## function new\_
@@ -342,7 +313,7 @@ function new_(_text:stdgo.GoString):stdgo.Error
 New returns an error that formats as the given text.
 Each call to New returns a distinct error value even if the text is identical.  
 
-[\(view code\)](<./Errors.hx#L158>)
+[\(view code\)](<./Errors.hx#L167>)
 
 
 ## function unwrap
@@ -359,7 +330,8 @@ type contains an Unwrap method returning error.
 Otherwise, Unwrap returns nil.  
 
 
-Unwrap returns nil if the Unwrap method returns \[\]error.  
+Unwrap only calls a method of the form "Unwrap\(\) error".
+In particular Unwrap does not unwrap errors returned by \[Join\].  
 
 ### exampleUnwrap
 
@@ -370,10 +342,10 @@ Unwrap returns nil if the Unwrap method returns \[\]error.
 
 ```haxe
 function exampleUnwrap():Void {
-        var _err1:Error = stdgo.errors.Errors.new_(("error1" : GoString));
-        var _err2:Error = stdgo.fmt.Fmt.errorf(("error2: [%w]" : GoString), Go.toInterface(_err1));
-        stdgo.fmt.Fmt.println(Go.toInterface(_err2));
-        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.errors.Errors.unwrap(_err2)));
+        var _err1:stdgo.Error = stdgo.errors.Errors.new_(("error1" : stdgo.GoString));
+        var _err2:stdgo.Error = stdgo.fmt.Fmt.errorf(("error2: [%w]" : stdgo.GoString), stdgo.Go.toInterface(_err1));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_err2));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.errors.Errors.unwrap(_err2)));
     }
 ```
 
@@ -382,6 +354,54 @@ function exampleUnwrap():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L195>)
+[\(view code\)](<./Errors.hx#L207>)
+
+
+# Typedefs
+
+
+```haxe
+import stdgo.errors.*
+```
+
+
+## typedef T\_\_interface\_0
+
+
+```haxe
+typedef T__interface_0 = {
+	public function unwrap():stdgo.Error;
+};
+```
+
+
+## typedef T\_\_interface\_1
+
+
+```haxe
+typedef T__interface_1 = {
+	public function is_(_0:stdgo.Error):Bool;
+};
+```
+
+
+## typedef T\_\_interface\_2
+
+
+```haxe
+typedef T__interface_2 = {
+	public function unwrap():stdgo.Slice<stdgo.Error>;
+};
+```
+
+
+## typedef T\_\_interface\_3
+
+
+```haxe
+typedef T__interface_3 = {
+	public function as(_0:stdgo.AnyInterface):Bool;
+};
+```
 
 

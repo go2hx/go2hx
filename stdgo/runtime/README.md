@@ -64,9 +64,20 @@ It is a comma\-separated list of name=val pairs setting these named variables:
     	cgocheck: setting cgocheck=0 disables all checks for packages
     	using cgo to incorrectly pass Go pointers to non-Go code.
     	Setting cgocheck=1 (the default) enables relatively cheap
-    	checks that may miss some errors.  Setting cgocheck=2 enables
-    	expensive checks that should not miss any errors, but will
-    	cause your program to run slower.
+    	checks that may miss some errors. A more complete, but slow,
+    	cgocheck mode can be enabled using GOEXPERIMENT (which
+    	requires a rebuild), see https://pkg.go.dev/internal/goexperiment for details.
+```
+```
+    	dontfreezetheworld: by default, the start of a fatal panic or throw
+    	"freezes the world", preempting all threads to stop all running
+    	goroutines, which makes it possible to traceback all goroutines, and
+    	keeps their state close to the point of panic. Setting
+    	dontfreezetheworld=1 disables this preemption, allowing goroutines to
+    	continue executing during panic processing. Note that goroutines that
+    	naturally enter the scheduler will still stop. This can be useful when
+    	debugging the runtime scheduler, as freezetheworld perturbs scheduler
+    	state and thus may hide problems.
 ```
 ```
     	efence: setting efence=1 causes the allocator to run in a mode
@@ -96,7 +107,8 @@ It is a comma\-separated list of name=val pairs setting these named variables:
 ```
     	gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard
     	error at each collection, summarizing the amount of memory collected and the
-    	length of the pause. The format of this line is subject to change.
+    	length of the pause. The format of this line is subject to change. Included in
+    	the explanation below is also the relevant runtime/metrics metric for each field.
     	Currently, it is:
     		gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #->#-># MB, # MB goal, # MB stacks, #MB globals, # P
     	where the fields are as follows:
@@ -104,11 +116,11 @@ It is a comma\-separated list of name=val pairs setting these named variables:
     		@#s          time in seconds since program start
     		#%           percentage of time spent in GC since program start
     		#+...+#      wall-clock/CPU times for the phases of the GC
-    		#->#-># MB   heap size at GC start, at GC end, and live heap
-    		# MB goal    goal heap size
-    		# MB stacks  estimated scannable stack size
-    		# MB globals scannable global size
-    		# P          number of processors used
+    		#->#-># MB   heap size at GC start, at GC end, and live heap, or /gc/scan/heap:bytes
+    		# MB goal    goal heap size, or /gc/heap/goal:bytes
+    		# MB stacks  estimated scannable stack size, or /gc/scan/stack:bytes
+    		# MB globals scannable global size, or /gc/scan/globals:bytes
+    		# P          number of processors used, or /sched/gomaxprocs:threads
     	The phases are stop-the-world (STW) sweep termination, concurrent
     	mark and scan, and STW mark termination. The CPU times
     	for mark/scan are broken down in to assist time (GC performed in
@@ -176,11 +188,13 @@ It is a comma\-separated list of name=val pairs setting these named variables:
     	scavenger as well as the total amount of memory returned to the operating system
     	and an estimate of physical memory utilization. The format of this line is subject
     	to change, but currently it is:
-    		scav # KiB work, # KiB total, #% util
+    		scav # KiB work (bg), # KiB work (eager), # KiB total, #% util
     	where the fields are as follows:
-    		# KiB work   the amount of memory returned to the OS since the last line
-    		# KiB total  the total amount of memory returned to the OS
-    		#% util      the fraction of all unscavenged memory which is in-use
+    		# KiB work (bg)    the amount of memory returned to the OS in the background since
+    		                   the last line
+    		# KiB work (eager) the amount of memory returned to the OS eagerly since the last line
+    		# KiB now          the amount of address space currently returned to the OS
+    		#% util            the fraction of all unscavenged heap memory which is in-use
     	If the line ends with "(forced)", then scavenging was forced by a
     	debug.FreeOSMemory() call.
 ```
@@ -199,6 +213,12 @@ It is a comma\-separated list of name=val pairs setting these named variables:
     	report. This also extends the information returned by runtime.Stack. Ancestor's goroutine
     	IDs will refer to the ID of the goroutine at the time of creation; it's possible for this
     	ID to be reused for another goroutine. Setting N to 0 will report no ancestry information.
+```
+```
+    	tracefpunwindoff: setting tracefpunwindoff=1 forces the execution tracer to
+    	use the runtime's default stack unwinder instead of frame pointer unwinding.
+    	This increases tracer overhead, but could be helpful as a workaround or for
+    	debugging unexpected regressions caused by frame pointer unwinding.
 ```
 ```
     	asyncpreemptoff: asyncpreemptoff=1 disables signal-based
@@ -238,6 +258,7 @@ and shows goroutines created internally by the run\-time.
 GOTRACEBACK=crash is like “system” but crashes in an operating system\-specific
 manner instead of exiting. For example, on Unix systems, the crash raises
 SIGABRT to trigger a core dump.
+GOTRACEBACK=wer is like “crash” but doesn't disable Windows Error Reporting \(WER\).
 For historical reasons, the GOTRACEBACK settings 0, 1, and 2 are synonyms for
 none, all, and system, respectively.
 The runtime/debug package's SetTraceback function allows increasing the
@@ -253,6 +274,28 @@ GOARCH, GOOS, and GOROOT are recorded at compile time and made available by
 constants or functions in this package, but they do not influence the execution
 of the run\-time system.  
 
+## Security
+
+
+
+On Unix platforms, Go's runtime system behaves slightly differently when a
+binary is setuid/setgid or executed with setuid/setgid\-like properties, in order
+to prevent dangerous behaviors. On Linux this is determined by checking for the
+AT\_SECURE flag in the auxiliary vector, on the BSDs and Solaris/Illumos it is
+determined by checking the issetugid syscall, and on AIX it is determined by
+checking if the uid/gid match the effective uid/gid.  
+
+```
+    When the runtime determines the binary is setuid/setgid-like, it does three main
+    things:
+      - The standard input/output file descriptors (0, 1, 2) are checked to be open.
+        If any of them are closed, they are opened pointing at /dev/null.
+      - The value of the GOTRACEBACK environment variable is set to 'none'.
+      - When a signal is received that terminates the program, or the program
+        encounters an unrecoverable panic that would otherwise override the value
+        of GOTRACEBACK, the goroutine stack, registers, and other memory related
+        information are omitted.
+```
 # Index
 
 
@@ -388,6 +431,26 @@ of the run\-time system.
 
   - [`function new(?alloc:stdgo.GoUInt64, ?totalAlloc:stdgo.GoUInt64, ?sys:stdgo.GoUInt64, ?lookups:stdgo.GoUInt64, ?mallocs:stdgo.GoUInt64, ?frees:stdgo.GoUInt64, ?heapAlloc:stdgo.GoUInt64, ?heapSys:stdgo.GoUInt64, ?heapIdle:stdgo.GoUInt64, ?heapInuse:stdgo.GoUInt64, ?heapReleased:stdgo.GoUInt64, ?heapObjects:stdgo.GoUInt64, ?stackInuse:stdgo.GoUInt64, ?stackSys:stdgo.GoUInt64, ?mspanInuse:stdgo.GoUInt64, ?mspanSys:stdgo.GoUInt64, ?mcacheInuse:stdgo.GoUInt64, ?mcacheSys:stdgo.GoUInt64, ?buckHashSys:stdgo.GoUInt64, ?gcsys:stdgo.GoUInt64, ?otherSys:stdgo.GoUInt64, ?nextGC:stdgo.GoUInt64, ?lastGC:stdgo.GoUInt64, ?pauseTotalNs:stdgo.GoUInt64, ?pauseNs:stdgo.GoArray<stdgo.GoUInt64>, ?pauseEnd:stdgo.GoArray<stdgo.GoUInt64>, ?numGC:stdgo.GoUInt32, ?numForcedGC:stdgo.GoUInt32, ?gccpufraction:stdgo.GoFloat64, ?enableGC:Bool, ?debugGC:Bool, ?bySize:stdgo.GoArray<{ size:stdgo.GoUInt32; mallocs:stdgo.GoUInt64; frees:stdgo.GoUInt64;}>):Void`](<#memstats-function-new>)
 
+- [class PanicNilError](<#class-panicnilerror>)
+
+  - [`function new():Void`](<#panicnilerror-function-new>)
+
+  - [`function error():stdgo.GoString`](<#panicnilerror-function-error>)
+
+  - [`function runtimeError():Void`](<#panicnilerror-function-runtimeerror>)
+
+- [class Pinner](<#class-pinner>)
+
+  - [`function _unpin():Void`](<#pinner-function-_unpin>)
+
+  - [`function new():Void`](<#pinner-function-new>)
+
+  - [`function _unpin():Void`](<#pinner-function-_unpin>)
+
+  - [`function pin( _pointer:stdgo.AnyInterface):Void`](<#pinner-function-pin>)
+
+  - [`function unpin():Void`](<#pinner-function-unpin>)
+
 - [class StackRecord](<#class-stackrecord>)
 
   - [`function new(?stack0:stdgo.GoArray<stdgo.GoUIntptr>):Void`](<#stackrecord-function-new>)
@@ -402,6 +465,8 @@ of the run\-time system.
 
   - [`function runtimeError():Void`](<#typeassertionerror-function-runtimeerror>)
 
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
 - [typedef T\_error](<#typedef-t_error>)
 
 # Constants
@@ -413,7 +478,7 @@ import stdgo.runtime.Runtime
 
 
 ```haxe
-final compiler:stdgo.GoString = (("" : GoString))
+final compiler:stdgo.GoString = "go2hx"
 ```
 
 
@@ -426,7 +491,7 @@ running binary. Known toolchains are:
 	gccgo   The gccgo front end, part of the GCC compiler suite.
 ```
 ```haxe
-final goarch:stdgo.GoString = (("" : GoString))
+final goarch:stdgo.GoString = (("" : stdgo.GoString))
 ```
 
 
@@ -435,7 +500,7 @@ GOARCH is the running program's architecture target:
 one of 386, amd64, arm, s390x, and so on.  
 
 ```haxe
-final goos:stdgo.GoString = (("" : GoString))
+final goos:stdgo.GoString = (("" : stdgo.GoString))
 ```
 
 
@@ -504,7 +569,7 @@ Most clients should use the runtime/pprof package or
 the testing package's \-test.blockprofile flag instead
 of calling BlockProfile directly.  
 
-[\(view code\)](<./Runtime.hx#L1053>)
+[\(view code\)](<./Runtime.hx#L1124>)
 
 
 ## function breakpoint
@@ -518,7 +583,7 @@ function breakpoint():Void
 
 Breakpoint executes a breakpoint trap.  
 
-[\(view code\)](<./Runtime.hx#L1116>)
+[\(view code\)](<./Runtime.hx#L1189>)
 
 
 ## function caller
@@ -542,7 +607,7 @@ meaning of skip differs between Caller and Callers.\) The return values report t
 program counter, file name, and line number within the file of the corresponding
 call. The boolean ok is false if it was not possible to recover the information.  
 
-[\(view code\)](<./Runtime.hx#L850>)
+[\(view code\)](<./Runtime.hx#L921>)
 
 
 ## function callers
@@ -569,7 +634,7 @@ directly is discouraged, as is using FuncForPC on any of the
 returned PCs, since these cannot account for inlining or return
 program counter adjustment.  
 
-[\(view code\)](<./Runtime.hx#L866>)
+[\(view code\)](<./Runtime.hx#L937>)
 
 
 ## function callersFrames
@@ -585,7 +650,7 @@ CallersFrames takes a slice of PC values returned by Callers and
 prepares to return function/file/line information.
 Do not change the slice until you are done with the Frames.  
 
-[\(view code\)](<./Runtime.hx#L1154>)
+[\(view code\)](<./Runtime.hx#L1231>)
 
 
 ## function cpuprofile
@@ -608,7 +673,7 @@ Deprecated: Use the runtime/pprof package,
 or the handlers in the net/http/pprof package,
 or the testing package's \-test.cpuprofile flag instead.  
 
-[\(view code\)](<./Runtime.hx#L818>)
+[\(view code\)](<./Runtime.hx#L889>)
 
 
 ## function funcForPC
@@ -628,7 +693,7 @@ If pc represents multiple functions because of inlining, it returns
 the \*Func describing the innermost function, but with an entry of
 the outermost function.  
 
-[\(view code\)](<./Runtime.hx#L1163>)
+[\(view code\)](<./Runtime.hx#L1240>)
 
 
 ## function gc
@@ -644,7 +709,7 @@ GC runs a garbage collection and blocks the caller until the
 garbage collection is complete. It may also block the entire
 program.  
 
-[\(view code\)](<./Runtime.hx#L1000>)
+[\(view code\)](<./Runtime.hx#L1071>)
 
 
 ## function goexit
@@ -666,7 +731,7 @@ without func main returning. Since func main has not returned,
 the program continues execution of other goroutines.
 If all other goroutines exit, the program crashes.  
 
-[\(view code\)](<./Runtime.hx#L1107>)
+[\(view code\)](<./Runtime.hx#L1178>)
 
 
 ## function gomaxprocs
@@ -683,7 +748,7 @@ simultaneously and returns the previous setting. It defaults to
 the value of runtime.NumCPU. If n \< 1, it does not change the current setting.
 This call will go away when the scheduler improves.  
 
-[\(view code\)](<./Runtime.hx#L825>)
+[\(view code\)](<./Runtime.hx#L896>)
 
 
 ## function goroot
@@ -699,7 +764,7 @@ GOROOT returns the root of the Go tree. It uses the
 GOROOT environment variable, if set at process start,
 or else the root used during the Go build.  
 
-[\(view code\)](<./Runtime.hx#L872>)
+[\(view code\)](<./Runtime.hx#L943>)
 
 
 ## function goroutineProfile
@@ -722,7 +787,7 @@ If len\(p\) \< n, GoroutineProfile does not change p and returns n, false.
 Most clients should use the runtime/pprof package instead
 of calling GoroutineProfile directly.  
 
-[\(view code\)](<./Runtime.hx#L1080>)
+[\(view code\)](<./Runtime.hx#L1151>)
 
 
 ## function gosched
@@ -737,7 +802,10 @@ function gosched():Void
 Gosched yields the processor, allowing other goroutines to run. It does not
 suspend the current goroutine, so execution resumes automatically.  
 
-[\(view code\)](<./Runtime.hx#L1112>)
+```
+go:nosplit
+```
+[\(view code\)](<./Runtime.hx#L1185>)
 
 
 ## function keepAlive
@@ -778,7 +846,7 @@ Note: KeepAlive should only be used to prevent finalizers from
 running prematurely. In particular, when used with unsafe.Pointer,
 the rules for valid uses of unsafe.Pointer still apply.  
 
-[\(view code\)](<./Runtime.hx#L994>)
+[\(view code\)](<./Runtime.hx#L1065>)
 
 
 ## function lockOSThread
@@ -807,7 +875,10 @@ that thread.
 A goroutine should call LockOSThread before calling OS services or
 non\-Go library functions that depend on per\-thread state.  
 
-[\(view code\)](<./Runtime.hx#L1133>)
+```
+go:nosplit
+```
+[\(view code\)](<./Runtime.hx#L1208>)
 
 
 ## function memProfile
@@ -848,7 +919,7 @@ Most clients should use the runtime/pprof package or
 the testing package's \-test.memprofile flag instead
 of calling MemProfile directly.  
 
-[\(view code\)](<./Runtime.hx#L1043>)
+[\(view code\)](<./Runtime.hx#L1114>)
 
 
 ## function mutexProfile
@@ -871,7 +942,7 @@ Otherwise, MutexProfile does not change p, and returns n, false.
 Most clients should use the runtime/pprof package
 instead of calling MutexProfile directly.  
 
-[\(view code\)](<./Runtime.hx#L1062>)
+[\(view code\)](<./Runtime.hx#L1133>)
 
 
 ## function numCPU
@@ -890,7 +961,7 @@ The set of available CPUs is checked by querying the operating system
 at process startup. Changes to operating system CPU allocation after
 process startup are not reflected.  
 
-[\(view code\)](<./Runtime.hx#L833>)
+[\(view code\)](<./Runtime.hx#L904>)
 
 
 ## function numCgoCall
@@ -904,7 +975,7 @@ function numCgoCall():stdgo.GoInt64
 
 NumCgoCall returns the number of cgo calls made by the current process.  
 
-[\(view code\)](<./Runtime.hx#L837>)
+[\(view code\)](<./Runtime.hx#L908>)
 
 
 ## function numGoroutine
@@ -918,7 +989,7 @@ function numGoroutine():stdgo.GoInt
 
 NumGoroutine returns the number of goroutines that currently exist.  
 
-[\(view code\)](<./Runtime.hx#L841>)
+[\(view code\)](<./Runtime.hx#L912>)
 
 
 ## function readMemStats
@@ -938,7 +1009,7 @@ call to ReadMemStats. This is in contrast with a heap profile,
 which is a snapshot as of the most recently completed garbage
 collection cycle.  
 
-[\(view code\)](<./Runtime.hx#L1096>)
+[\(view code\)](<./Runtime.hx#L1167>)
 
 
 ## function readTrace
@@ -956,7 +1027,7 @@ was on has been returned, ReadTrace returns nil. The caller must copy the
 returned data before calling ReadTrace again.
 ReadTrace must be called from one goroutine at a time.  
 
-[\(view code\)](<./Runtime.hx#L1184>)
+[\(view code\)](<./Runtime.hx#L1261>)
 
 
 ## function setBlockProfileRate
@@ -976,7 +1047,7 @@ an average of one blocking event per rate nanoseconds spent blocked.
 To include every blocking event in the profile, pass rate = 1.
 To turn off profiling entirely, pass rate \<= 0.  
 
-[\(view code\)](<./Runtime.hx#L1009>)
+[\(view code\)](<./Runtime.hx#L1080>)
 
 
 ## function setCPUProfileRate
@@ -997,7 +1068,7 @@ Most clients should use the runtime/pprof package or
 the testing package's \-test.cpuprofile flag instead of calling
 SetCPUProfileRate directly.  
 
-[\(view code\)](<./Runtime.hx#L806>)
+[\(view code\)](<./Runtime.hx#L877>)
 
 
 ## function setCgoTraceback
@@ -1198,7 +1269,7 @@ to Go will not show a traceback for the C portion of the call stack.
 
 SetCgoTraceback should be called only once, ideally from an init function.  
 
-[\(view code\)](<./Runtime.hx#L1348>)
+[\(view code\)](<./Runtime.hx#L1425>)
 
 
 ## function setFinalizer
@@ -1308,7 +1379,7 @@ The modifications in the main program and the inspection in the finalizer
 need to use appropriate synchronization, such as mutexes or atomic updates,
 to avoid read\-write races.  
 
-[\(view code\)](<./Runtime.hx#L967>)
+[\(view code\)](<./Runtime.hx#L1038>)
 
 
 ## function setMutexProfileFraction
@@ -1329,7 +1400,7 @@ To turn off profiling entirely, pass rate 0.
 To just read the current rate, pass rate \< 0.
 \(For n\>1 the details of sampling may change.\)  
 
-[\(view code\)](<./Runtime.hx#L1019>)
+[\(view code\)](<./Runtime.hx#L1090>)
 
 
 ## function stack
@@ -1346,7 +1417,7 @@ and returns the number of bytes written to buf.
 If all is true, Stack formats stack traces of all other goroutines
 into buf after the trace for the current goroutine.  
 
-[\(view code\)](<./Runtime.hx#L1087>)
+[\(view code\)](<./Runtime.hx#L1158>)
 
 
 ## function startTrace
@@ -1364,7 +1435,7 @@ StartTrace returns an error if tracing is already enabled.
 Most clients should use the runtime/trace package or the testing package's
 \-test.trace flag instead of calling StartTrace directly.  
 
-[\(view code\)](<./Runtime.hx#L1171>)
+[\(view code\)](<./Runtime.hx#L1248>)
 
 
 ## function stopTrace
@@ -1379,7 +1450,7 @@ function stopTrace():Void
 StopTrace stops tracing, if it was previously enabled.
 StopTrace only returns after all the reads for the trace have completed.  
 
-[\(view code\)](<./Runtime.hx#L1176>)
+[\(view code\)](<./Runtime.hx#L1253>)
 
 
 ## function threadCreateProfile
@@ -1402,7 +1473,7 @@ If len\(p\) \< n, ThreadCreateProfile does not change p and returns n, false.
 Most clients should use the runtime/pprof package instead
 of calling ThreadCreateProfile directly.  
 
-[\(view code\)](<./Runtime.hx#L1071>)
+[\(view code\)](<./Runtime.hx#L1142>)
 
 
 ## function unlockOSThread
@@ -1428,7 +1499,10 @@ other goroutines, it should not call this function and thus leave
 the goroutine locked to the OS thread until the goroutine \(and
 hence the thread\) exits.  
 
-[\(view code\)](<./Runtime.hx#L1148>)
+```
+go:nosplit
+```
+[\(view code\)](<./Runtime.hx#L1225>)
 
 
 ## function version
@@ -1444,7 +1518,7 @@ Version returns the Go tree's version string.
 It is either the commit hash and date at the time of the build or,
 when possible, a release tag like "go1.3".  
 
-[\(view code\)](<./Runtime.hx#L878>)
+[\(view code\)](<./Runtime.hx#L949>)
 
 
 # Classes
@@ -1485,7 +1559,7 @@ function new(?count:stdgo.GoInt64, ?cycles:stdgo.GoInt64, ?stackRecord:stdgo.run
 ```
 
 
-[\(view code\)](<./Runtime.hx#L352>)
+[\(view code\)](<./Runtime.hx#L381>)
 
 
 ### BlockProfileRecord function stack
@@ -1496,7 +1570,7 @@ function stack():stdgo.Slice<stdgo.GoUIntptr>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L359>)
+[\(view code\)](<./Runtime.hx#L388>)
 
 
 ### BlockProfileRecord function stack
@@ -1507,7 +1581,7 @@ function stack():stdgo.Slice<stdgo.GoUIntptr>
 ```
 
 
-[\(view code\)](<./Runtime.hx#L1447>)
+[\(view code\)](<./Runtime.hx#L1524>)
 
 
 ## class Frame
@@ -1583,7 +1657,7 @@ function new(?pc:stdgo.GoUIntptr, ?func:stdgo.Ref<stdgo.runtime.Func>, ?function
 ```
 
 
-[\(view code\)](<./Runtime.hx#L741>)
+[\(view code\)](<./Runtime.hx#L812>)
 
 
 ## class Frames
@@ -1601,7 +1675,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L694>)
+[\(view code\)](<./Runtime.hx#L765>)
 
 
 ### Frames function next
@@ -1628,7 +1702,7 @@ returned one.
 
 See the Frames example for idiomatic usage.  
 
-[\(view code\)](<./Runtime.hx#L1484>)
+[\(view code\)](<./Runtime.hx#L1639>)
 
 
 ## class Func
@@ -1645,7 +1719,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L760>)
+[\(view code\)](<./Runtime.hx#L831>)
 
 
 ### Func function entry
@@ -1659,7 +1733,7 @@ function entry():stdgo.GoUIntptr
 
 Entry returns the entry address of the function.  
 
-[\(view code\)](<./Runtime.hx#L1526>)
+[\(view code\)](<./Runtime.hx#L1681>)
 
 
 ### Func function fileLine
@@ -1679,7 +1753,7 @@ source code corresponding to the program counter pc.
 The result will not be accurate if pc is not a program
 counter within f.  
 
-[\(view code\)](<./Runtime.hx#L1521>)
+[\(view code\)](<./Runtime.hx#L1676>)
 
 
 ### Func function name
@@ -1693,7 +1767,7 @@ function name():stdgo.GoString
 
 Name returns the name of the function.  
 
-[\(view code\)](<./Runtime.hx#L1531>)
+[\(view code\)](<./Runtime.hx#L1686>)
 
 
 ## class MemProfileRecord
@@ -1736,7 +1810,7 @@ function new(?allocBytes:stdgo.GoInt64, ?freeBytes:stdgo.GoInt64, ?allocObjects:
 ```
 
 
-[\(view code\)](<./Runtime.hx#L329>)
+[\(view code\)](<./Runtime.hx#L358>)
 
 
 ### MemProfileRecord function inUseBytes
@@ -1750,7 +1824,7 @@ function inUseBytes():stdgo.GoInt64
 
 InUseBytes returns the number of bytes in use \(AllocBytes \- FreeBytes\).  
 
-[\(view code\)](<./Runtime.hx#L1432>)
+[\(view code\)](<./Runtime.hx#L1509>)
 
 
 ### MemProfileRecord function inUseObjects
@@ -1764,7 +1838,7 @@ function inUseObjects():stdgo.GoInt64
 
 InUseObjects returns the number of objects in use \(AllocObjects \- FreeObjects\).  
 
-[\(view code\)](<./Runtime.hx#L1427>)
+[\(view code\)](<./Runtime.hx#L1504>)
 
 
 ### MemProfileRecord function stack
@@ -1779,7 +1853,7 @@ function stack():stdgo.Slice<stdgo.GoUIntptr>
 Stack returns the stack trace associated with the record,
 a prefix of r.Stack0.  
 
-[\(view code\)](<./Runtime.hx#L1422>)
+[\(view code\)](<./Runtime.hx#L1499>)
 
 
 ## class MemStats
@@ -2159,7 +2233,19 @@ StackSys is bytes of stack memory obtained from the OS.
 
 
 StackSys is StackInuse, plus any memory obtained directly
-from the OS for OS thread stacks \(which should be minimal\).  
+from the OS for OS thread stacks.  
+
+
+In non\-cgo programs this metric is currently equal to StackInuse
+\(but this should not be relied upon, and the value may change in
+the future\).  
+
+
+In cgo programs this metric includes OS thread stacks allocated
+directly from the OS. Currently, this only accounts for one stack in
+c\-shared and c\-archive build modes and other sources of stacks from
+the OS \(notably, any allocated by C code\) are not currently measured.
+Note this too may change in the future.  
 
 ```haxe
 var sys:stdgo.GoUInt64
@@ -2202,7 +2288,134 @@ function new(?alloc:stdgo.GoUInt64, ?totalAlloc:stdgo.GoUInt64, ?sys:stdgo.GoUIn
 ```
 
 
-[\(view code\)](<./Runtime.hx#L616>)
+[\(view code\)](<./Runtime.hx#L655>)
+
+
+## class PanicNilError
+
+
+
+A PanicNilError happens when code calls panic\(nil\).  
+
+
+Before Go 1.21, programs that called panic\(nil\) observed recover returning nil.
+Starting in Go 1.21, programs that call panic\(nil\) observe recover returning a \*PanicNilError.
+Programs can change back to the old behavior by setting GODEBUG=panicnil=1.  
+
+### PanicNilError function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./Runtime.hx#L736>)
+
+
+### PanicNilError function error
+
+
+```haxe
+function error():stdgo.GoString
+```
+
+
+[\(view code\)](<./Runtime.hx#L1543>)
+
+
+### PanicNilError function runtimeError
+
+
+```haxe
+function runtimeError():Void
+```
+
+
+[\(view code\)](<./Runtime.hx#L1541>)
+
+
+## class Pinner
+
+
+
+A Pinner is a set of pinned Go objects. An object can be pinned with
+the Pin method and all pinned objects of a Pinner can be unpinned with the
+Unpin method.  
+
+### Pinner function \_unpin
+
+
+```haxe
+function _unpin():Void
+```
+
+
+[\(view code\)](<./Runtime.hx#L753>)
+
+
+### Pinner function new
+
+
+```haxe
+function new():Void
+```
+
+
+[\(view code\)](<./Runtime.hx#L750>)
+
+
+### Pinner function \_unpin
+
+
+```haxe
+function _unpin():Void
+```
+
+
+[\(view code\)](<./Runtime.hx#L1602>)
+
+
+### Pinner function pin
+
+
+```haxe
+function pin( _pointer:stdgo.AnyInterface):Void
+```
+
+
+
+Pin pins a Go object, preventing it from being moved or freed by the garbage
+collector until the Unpin method has been called.  
+
+
+A pointer to a pinned
+object can be directly stored in C memory or can be contained in Go memory
+passed to C functions. If the pinned object itself contains pointers to Go
+objects, these objects must be pinned separately if they are going to be
+accessed from C code.  
+
+
+The argument must be a pointer of any type or an
+unsafe.Pointer. It must be the result of calling new,
+taking the address of a composite literal, or taking the address of a
+local variable. If one of these conditions is not met, Pin will panic.  
+
+[\(view code\)](<./Runtime.hx#L1600>)
+
+
+### Pinner function unpin
+
+
+```haxe
+function unpin():Void
+```
+
+
+
+Unpin unpins all pinned objects of the Pinner.  
+
+[\(view code\)](<./Runtime.hx#L1583>)
 
 
 ## class StackRecord
@@ -2224,7 +2437,7 @@ function new(?stack0:stdgo.GoArray<stdgo.GoUIntptr>):Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L309>)
+[\(view code\)](<./Runtime.hx#L338>)
 
 
 ### StackRecord function stack
@@ -2239,7 +2452,7 @@ function stack():stdgo.Slice<stdgo.GoUIntptr>
 Stack returns the stack trace associated with the record,
 a prefix of r.Stack0.  
 
-[\(view code\)](<./Runtime.hx#L1389>)
+[\(view code\)](<./Runtime.hx#L1466>)
 
 
 ## class TypeAssertionError
@@ -2256,7 +2469,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L296>)
+[\(view code\)](<./Runtime.hx#L325>)
 
 
 ### TypeAssertionError function error
@@ -2267,7 +2480,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Runtime.hx#L1364>)
+[\(view code\)](<./Runtime.hx#L1441>)
 
 
 ### TypeAssertionError function runtimeError
@@ -2278,7 +2491,7 @@ function runtimeError():Void
 ```
 
 
-[\(view code\)](<./Runtime.hx#L1366>)
+[\(view code\)](<./Runtime.hx#L1443>)
 
 
 # Typedefs
@@ -2286,6 +2499,18 @@ function runtimeError():Void
 
 ```haxe
 import stdgo.runtime.*
+```
+
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+	size:stdgo.GoUInt32;	//  Size is the maximum byte size of an object in this size class.
+	mallocs:stdgo.GoUInt64;	//  Mallocs is the cumulative count of heap objects allocated in this size class. The cumulative bytes of allocation is Size*Mallocs. The number of live objects in this size class is Mallocs - Frees.
+	frees:stdgo.GoUInt64;	//  Frees is the cumulative count of heap objects freed in this size class.
+};
 ```
 
 

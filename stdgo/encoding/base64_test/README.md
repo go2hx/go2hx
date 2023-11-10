@@ -23,6 +23,8 @@
 
 - [`function exampleNewEncoder():Void`](<#function-examplenewencoder>)
 
+- [`function main():Void`](<#function-main>)
+
 # Variables
 
 
@@ -33,6 +35,26 @@ import stdgo.encoding.base64_test.Base64
 
 ```haxe
 var _:Bool
+```
+
+
+```haxe
+var _benchmarks:stdgo.Slice<stdgo.testing.InternalBenchmark>
+```
+
+
+```haxe
+var _examples:stdgo.Slice<stdgo.testing.InternalExample>
+```
+
+
+```haxe
+var _fuzzTargets:stdgo.Slice<stdgo.testing.InternalFuzzTarget>
+```
+
+
+```haxe
+var _tests:stdgo.Slice<stdgo.testing.InternalTest>
 ```
 
 
@@ -52,7 +74,7 @@ function example():Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L12>)
+[\(view code\)](<./Base64.hx#L3>)
 
 
 ## function exampleEncoding\_Decode
@@ -63,7 +85,7 @@ function exampleEncoding_Decode():Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L43>)
+[\(view code\)](<./Base64.hx#L34>)
 
 
 ## function exampleEncoding\_DecodeString
@@ -74,7 +96,7 @@ function exampleEncoding_DecodeString():Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L34>)
+[\(view code\)](<./Base64.hx#L25>)
 
 
 ## function exampleEncoding\_Encode
@@ -85,7 +107,7 @@ function exampleEncoding_Encode():Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L28>)
+[\(view code\)](<./Base64.hx#L19>)
 
 
 ## function exampleEncoding\_EncodeToString
@@ -96,7 +118,7 @@ function exampleEncoding_EncodeToString():Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L23>)
+[\(view code\)](<./Base64.hx#L14>)
 
 
 ## function exampleNewEncoder
@@ -107,6 +129,17 @@ function exampleNewEncoder():Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L54>)
+[\(view code\)](<./Base64.hx#L45>)
+
+
+## function main
+
+
+```haxe
+function main():Void
+```
+
+
+[\(view code\)](<./Base64.hx#L46>)
 
 

@@ -27,7 +27,7 @@ function main() {
 	}
 	trace(libs);
 	libCount = libs.length;
-	Main.setup(0, 10); // amount of processes to spawn
+	Main.setup(0, 12); // amount of processes to spawn
 	Main.onComplete = complete;
 	if (libs.length == 0)
 		return;

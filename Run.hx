@@ -150,7 +150,7 @@ function setupNodeJS(rebuild:Bool,args:Array<String>) {
 	}
 	args.unshift("build.js");
 	// 4gb = 4096, 2gb = 2048
-	args.unshift("--max-old-space-size=4096");
+	// args.unshift("--max-old-space-size=4096");
 	//args.unshift("--expose-gc");
 	Sys.command("node", args);
 }

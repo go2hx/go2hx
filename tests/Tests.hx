@@ -124,7 +124,7 @@ function update() {
 		}
 		tests.remove(test);
 	}
-	if (tasks.length > 0 && runningCount < 3 ) {
+	if (tasks.length > 0 && runningCount < 11 ) {
 		final task = tasks.pop();
 		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " lastTaskLogs: " + lastTaskLogs);
 		final taskString = task.command + " " + task.args.join(" ");

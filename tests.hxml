@@ -7,4 +7,4 @@
 -dce full
 -lib hxnodejs
 --js tests.js
---cmd node --expose-gc --max-old-space-size=4098 tests.js
+--cmd node --expose-gc tests.js

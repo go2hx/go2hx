@@ -34,7 +34,7 @@
 | [stdgo.internal.godebug](./internal/godebug/README.md) | ✅ | no |
 | [stdgo.internal.godebugs](./internal/godebugs/README.md) | ✅ | no |
 | [stdgo.internal.oserror](./internal/oserror/README.md) | ✅ | no |
-| [stdgo.internal.platform](./internal/platform/README.md) | ❌ | yes |
+| [stdgo.internal.platform](./internal/platform/README.md) | ✅ | no |
 | [stdgo.internal.poll](./internal/poll/README.md) | ✅ | no |
 | [stdgo.internal.reflect](./internal/reflect/README.md) | ✅ | no |
 | [stdgo.internal.reflectlite](./internal/reflectlite/README.md) | ✅ | no |

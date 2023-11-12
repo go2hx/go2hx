@@ -419,7 +419,7 @@ function split(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.G
     // an empty string.
 **/
 function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
-        var _elem = new Slice<stdgo.GoString>(_elem.length, 0, ..._elem);
+        var _elem = new stdgo.Slice<stdgo.GoString>(_elem.length, 0, ..._elem);
         var _size:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         for (__0 => _e in _elem) {
             _size = _size + ((_e.length));

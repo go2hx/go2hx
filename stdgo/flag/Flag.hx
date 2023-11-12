@@ -1283,7 +1283,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function _failf( _f:stdgo.StdGoTypes.Ref<FlagSet>, _format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.Error {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _msg:stdgo.GoString = _f._sprintf(_format, ..._a.__toArray__());
         _f._usage();
         return stdgo.errors.Errors.new_(_msg);
@@ -1293,7 +1293,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function _sprintf( _f:stdgo.StdGoTypes.Ref<FlagSet>, _format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.GoString {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _msg:stdgo.GoString = stdgo.fmt.Fmt.sprintf(_format, ..._a.__toArray__());
         stdgo.fmt.Fmt.fprintln(_f.output(), stdgo.Go.toInterface(_msg));
         return _msg;

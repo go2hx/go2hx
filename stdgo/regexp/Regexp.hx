@@ -2926,7 +2926,7 @@ function testProgramTooLongForBacktrack(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Te
     // This represents n matches with len(x)/n submatches each.
 **/
 function _build(_n:stdgo.StdGoTypes.GoInt, _x:haxe.Rest<stdgo.StdGoTypes.GoInt>):stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoInt>> {
-        var _x = new Slice<stdgo.StdGoTypes.GoInt>(_x.length, 0, ..._x);
+        var _x = new stdgo.Slice<stdgo.StdGoTypes.GoInt>(_x.length, 0, ..._x);
         var _ret = new stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoInt>>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         var _runLength:stdgo.StdGoTypes.GoInt = (_x.length) / _n;
         var _j:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);

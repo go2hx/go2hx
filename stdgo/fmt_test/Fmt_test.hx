@@ -3268,7 +3268,7 @@ function testFormatterPrintln(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
         };
     }
 function _args(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.Slice<stdgo.StdGoTypes.AnyInterface> {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         return _a;
     }
 function testWidthAndPrecision(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {

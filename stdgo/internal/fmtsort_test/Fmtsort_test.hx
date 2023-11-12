@@ -192,7 +192,7 @@ class T__struct_0_asInterface {
     public var _y : stdgo.StdGoTypes.GoInt;
 };
 function _ct(_typ:stdgo.reflect.Reflect.Type, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.Slice<stdgo.reflect.Reflect.Value> {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         var _value = new stdgo.Slice<stdgo.reflect.Reflect.Value>((_args.length : stdgo.StdGoTypes.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_args.length : stdgo.StdGoTypes.GoInt).toBasic() > 0 ? (_args.length : stdgo.StdGoTypes.GoInt).toBasic() : 0 : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.reflect.Reflect.Value)]);
         for (_i => _v in _args) {
             var _x:stdgo.reflect.Reflect.Value = stdgo.reflect.Reflect.valueOf(_v)?.__copy__();

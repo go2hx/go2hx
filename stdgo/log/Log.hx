@@ -445,7 +445,7 @@ function writer():stdgo.io.Io.Writer {
     // Arguments are handled in the manner of fmt.Print.
 **/
 function print(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _std._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
             return stdgo.fmt.Fmt.append(_b, ..._v.__toArray__());
         });
@@ -455,7 +455,7 @@ function print(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
     // Arguments are handled in the manner of fmt.Printf.
 **/
 function printf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _std._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
             return stdgo.fmt.Fmt.appendf(_b, _format, ..._v.__toArray__());
         });
@@ -465,7 +465,7 @@ function printf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterfa
     // Arguments are handled in the manner of fmt.Println.
 **/
 function println(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _std._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
             return stdgo.fmt.Fmt.appendln(_b, ..._v.__toArray__());
         });
@@ -474,7 +474,7 @@ function println(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
     // Fatal is equivalent to Print() followed by a call to os.Exit(1).
 **/
 function fatal(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _std.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
         Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
@@ -482,7 +482,7 @@ function fatal(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
     // Fatalf is equivalent to Printf() followed by a call to os.Exit(1).
 **/
 function fatalf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _std.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
         Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
@@ -490,7 +490,7 @@ function fatalf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterfa
     // Fatalln is equivalent to Println() followed by a call to os.Exit(1).
 **/
 function fatalln(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _std.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
         Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
@@ -498,7 +498,7 @@ function fatalln(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
     // Panic is equivalent to Print() followed by a call to panic().
 **/
 function panic(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         var _s:stdgo.GoString = stdgo.fmt.Fmt.sprint(..._v.__toArray__());
         _std.output((2 : stdgo.StdGoTypes.GoInt), _s);
         throw stdgo.Go.toInterface(_s);
@@ -507,7 +507,7 @@ function panic(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
     // Panicf is equivalent to Printf() followed by a call to panic().
 **/
 function panicf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__());
         _std.output((2 : stdgo.StdGoTypes.GoInt), _s);
         throw stdgo.Go.toInterface(_s);
@@ -516,7 +516,7 @@ function panicf(_format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterfa
     // Panicln is equivalent to Println() followed by a call to panic().
 **/
 function panicln(_v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintln(..._v.__toArray__());
         _std.output((2 : stdgo.StdGoTypes.GoInt), _s);
         throw stdgo.Go.toInterface(_s);
@@ -1018,7 +1018,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function panicln( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintln(..._v.__toArray__());
         _l.output((2 : stdgo.StdGoTypes.GoInt), _s);
         throw stdgo.Go.toInterface(_s);
@@ -1028,7 +1028,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function panicf( _l:stdgo.StdGoTypes.Ref<Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__());
         _l.output((2 : stdgo.StdGoTypes.GoInt), _s);
         throw stdgo.Go.toInterface(_s);
@@ -1038,7 +1038,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function panic( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         var _s:stdgo.GoString = stdgo.fmt.Fmt.sprint(..._v.__toArray__());
         _l.output((2 : stdgo.StdGoTypes.GoInt), _s);
         throw stdgo.Go.toInterface(_s);
@@ -1048,7 +1048,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function fatalln( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _l.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
         Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
@@ -1057,7 +1057,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function fatalf( _l:stdgo.StdGoTypes.Ref<Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _l.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
         Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
@@ -1066,7 +1066,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function fatal( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _l.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
         Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
@@ -1076,7 +1076,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function println( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _l._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
             return stdgo.fmt.Fmt.appendln(_b, ..._v.__toArray__());
         });
@@ -1087,7 +1087,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function printf( _l:stdgo.StdGoTypes.Ref<Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _l._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
             return stdgo.fmt.Fmt.appendf(_b, _format, ..._v.__toArray__());
         });
@@ -1098,7 +1098,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function print( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _v = new Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
         _l._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
             return stdgo.fmt.Fmt.append(_b, ..._v.__toArray__());
         });

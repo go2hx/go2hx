@@ -802,7 +802,7 @@ function split(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.G
     // non-empty element is a UNC path.
 **/
 function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
-        var _elem = new Slice<stdgo.GoString>(_elem.length, 0, ..._elem);
+        var _elem = new stdgo.Slice<stdgo.GoString>(_elem.length, 0, ..._elem);
         return _join(_elem);
     }
 /**
@@ -1328,7 +1328,7 @@ class T_lazybuf_asInterface {
     }
     @:keep
     static public function _prepend( _b:stdgo.StdGoTypes.Ref<T_lazybuf>, _prefix:haxe.Rest<stdgo.StdGoTypes.GoByte>):Void {
-        var _prefix = new Slice<stdgo.StdGoTypes.GoByte>(_prefix.length, 0, ..._prefix);
+        var _prefix = new stdgo.Slice<stdgo.StdGoTypes.GoByte>(_prefix.length, 0, ..._prefix);
         _b._buf = (_prefix.__append__(..._b._buf.__toArray__()));
         _b._w = _b._w + ((_prefix.length));
     }

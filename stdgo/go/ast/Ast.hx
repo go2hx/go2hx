@@ -5299,7 +5299,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _printf( _p:stdgo.StdGoTypes.Ref<T_printer>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         {
             var __tmp__ = stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_p), _format, ..._args.__toArray__()), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -5392,7 +5392,7 @@ class T_pkgBuilder_asInterface {
     }
     @:keep
     static public function _errorf( _p:stdgo.StdGoTypes.Ref<T_pkgBuilder>, _pos:stdgo.go.token.Token.Pos, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         _p._error(_pos, stdgo.fmt.Fmt.sprintf(_format, ..._args.__toArray__()));
     }
     @:keep

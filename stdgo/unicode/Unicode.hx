@@ -9525,7 +9525,7 @@ function isOneOf(_ranges:stdgo.Slice<stdgo.StdGoTypes.Ref<RangeTable>>, _r:stdgo
     // In reports whether the rune is a member of one of the ranges.
 **/
 function in_(_r:stdgo.StdGoTypes.GoRune, _ranges:haxe.Rest<stdgo.StdGoTypes.Ref<RangeTable>>):Bool {
-        var _ranges = new Slice<stdgo.StdGoTypes.Ref<RangeTable>>(_ranges.length, 0, ..._ranges);
+        var _ranges = new stdgo.Slice<stdgo.StdGoTypes.Ref<RangeTable>>(_ranges.length, 0, ..._ranges);
         for (__0 => _inside in _ranges) {
             if (is_(_inside, _r)) {
                 return true;

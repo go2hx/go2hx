@@ -1084,7 +1084,7 @@ function readAll(_r:Reader):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var
     // return a non-nil, non-EOF error, Read will return that error.
 **/
 function multiReader(_readers:haxe.Rest<Reader>):Reader {
-        var _readers = new Slice<Reader>(_readers.length, 0, ..._readers);
+        var _readers = new stdgo.Slice<Reader>(_readers.length, 0, ..._readers);
         var _r = new stdgo.Slice<stdgo.io.Io.Reader>((_readers.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         stdgo.Go.copySlice(_r, _readers);
         return stdgo.Go.asInterface((stdgo.Go.setRef((new T_multiReader(_r) : T_multiReader)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.T_multiReader>));
@@ -1098,7 +1098,7 @@ function multiReader(_readers:haxe.Rest<Reader>):Reader {
     // stops and returns the error; it does not continue down the list.
 **/
 function multiWriter(_writers:haxe.Rest<Writer>):Writer {
-        var _writers = new Slice<Writer>(_writers.length, 0, ..._writers);
+        var _writers = new stdgo.Slice<Writer>(_writers.length, 0, ..._writers);
         var _allWriters = new stdgo.Slice<stdgo.io.Io.Writer>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (_writers.length));
         for (__0 => _w in _writers) {
             {

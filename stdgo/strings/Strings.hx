@@ -414,7 +414,7 @@ function newReader(_s:stdgo.GoString):stdgo.StdGoTypes.Ref<Reader> {
     // NewReplacer panics if given an odd number of arguments.
 **/
 function newReplacer(_oldnew:haxe.Rest<stdgo.GoString>):stdgo.StdGoTypes.Ref<Replacer> {
-        var _oldnew = new Slice<stdgo.GoString>(_oldnew.length, 0, ..._oldnew);
+        var _oldnew = new stdgo.Slice<stdgo.GoString>(_oldnew.length, 0, ..._oldnew);
         if ((_oldnew.length) % (2 : stdgo.StdGoTypes.GoInt) == ((1 : stdgo.StdGoTypes.GoInt))) {
             throw stdgo.Go.toInterface(("strings.NewReplacer: odd argument count" : stdgo.GoString));
         };

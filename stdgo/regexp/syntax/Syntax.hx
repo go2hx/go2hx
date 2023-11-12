@@ -2843,7 +2843,7 @@ function isWordChar(_r:stdgo.StdGoTypes.GoRune):Bool {
         return (((((97 : stdgo.StdGoTypes.GoInt32) <= _r) && (_r <= (122 : stdgo.StdGoTypes.GoInt32))) || (((65 : stdgo.StdGoTypes.GoInt32) <= _r) && (_r <= (90 : stdgo.StdGoTypes.GoInt32)))) || (((48 : stdgo.StdGoTypes.GoInt32) <= _r) && (_r <= (57 : stdgo.StdGoTypes.GoInt32)))) || (_r == (95 : stdgo.StdGoTypes.GoInt32));
     }
 function _bw(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _args:haxe.Rest<stdgo.GoString>):Void {
-        var _args = new Slice<stdgo.GoString>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         for (__0 => _s in _args) {
             _b.writeString(_s);
         };

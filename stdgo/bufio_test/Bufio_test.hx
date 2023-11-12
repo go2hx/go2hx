@@ -2083,7 +2083,7 @@ function testWriterSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function _newScriptedReader(_steps:haxe.Rest<(_p:stdgo.Slice<stdgo.StdGoTypes.GoByte>) -> { var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; }>):stdgo.io.Io.Reader {
-        var _steps = new Slice<(_p:stdgo.Slice<stdgo.StdGoTypes.GoByte>) -> { var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; }>(_steps.length, 0, ..._steps);
+        var _steps = new stdgo.Slice<(_p:stdgo.Slice<stdgo.StdGoTypes.GoByte>) -> { var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; }>(_steps.length, 0, ..._steps);
         var _sr:stdgo.bufio_test.Bufio_test.T_scriptedReader = (_steps : T_scriptedReader);
         return stdgo.Go.asInterface((stdgo.Go.setRef(_sr) : stdgo.StdGoTypes.Ref<stdgo.bufio_test.Bufio_test.T_scriptedReader>));
     }

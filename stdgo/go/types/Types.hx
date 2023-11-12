@@ -4215,7 +4215,7 @@ function _hasVarSize(_t:Type, _seen:GoMap<stdgo.StdGoTypes.Ref<Named>, Bool>):Bo
     // Default types are used for untyped arguments, and res may be nil.
 **/
 function _makeSig(_res:Type, _args:haxe.Rest<Type>):stdgo.StdGoTypes.Ref<Signature> {
-        var _args = new Slice<Type>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<Type>(_args.length, 0, ..._args);
         var _list = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Var>>((_args.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         for (_i => _param in _args) {
             _list[(_i : stdgo.StdGoTypes.GoInt)] = newVar(_nopos, null, stdgo.Go.str(), default_(_param));
@@ -4696,7 +4696,7 @@ function _unreachable():Void {
         throw stdgo.Go.toInterface(("unreachable" : stdgo.GoString));
     }
 function _sprintf(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _qf:Qualifier, _tpSubscripts:Bool, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.GoString {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         for (_i => _arg in _args) {
             {
                 final __type__ = _arg;
@@ -4772,7 +4772,7 @@ function _sprintf(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _qf:
     // newErrorf creates a new error_ for later reporting with check.report.
 **/
 function _newErrorf(_at:T_positioner, _code:Code, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.StdGoTypes.Ref<T_error_> {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         return (stdgo.Go.setRef(({ _desc : (new stdgo.Slice<stdgo.go.types.Types.T_errorDesc>(1, 1, (new stdgo.go.types.Types.T_errorDesc(_at, _format, _args) : stdgo.go.types.Types.T_errorDesc)) : stdgo.Slice<stdgo.go.types.Types.T_errorDesc>), _code : _code } : T_error_)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_error_>);
     }
 /**
@@ -7834,7 +7834,7 @@ function testAssignOp(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // NewTuple returns a new tuple for the given variables.
 **/
 function newTuple(_x:haxe.Rest<stdgo.StdGoTypes.Ref<Var>>):stdgo.StdGoTypes.Ref<Tuple> {
-        var _x = new Slice<stdgo.StdGoTypes.Ref<Var>>(_x.length, 0, ..._x);
+        var _x = new stdgo.Slice<stdgo.StdGoTypes.Ref<Var>>(_x.length, 0, ..._x);
         if ((_x.length) > (0 : stdgo.StdGoTypes.GoInt)) {
             return (stdgo.Go.setRef(({ _vars : _x } : Tuple)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Tuple>);
         };
@@ -9706,7 +9706,7 @@ class T_action_asInterface {
     **/
     @:keep
     static public function _describef( _a:stdgo.StdGoTypes.Ref<T_action>, _pos:T_positioner, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         if (false) {
             _a._desc = (stdgo.Go.setRef((new T_actionDesc(_pos, _format, _args) : T_actionDesc)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_actionDesc>);
         };
@@ -10698,7 +10698,7 @@ class Checker_asInterface {
     **/
     @:keep
     static public function _verifyVersionf( _check:stdgo.StdGoTypes.Ref<Checker>, _at:T_positioner, _v:T_version, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Bool {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         if (!_check._allowVersion(_check._pkg, _at, _v?.__copy__())) {
             _check._versionErrorf(_at, _v?.__copy__(), _format, ..._args.__toArray__());
             return false;
@@ -16704,7 +16704,7 @@ class Checker_asInterface {
     }
     @:keep
     static public function _versionErrorf( _check:stdgo.StdGoTypes.Ref<Checker>, _at:T_positioner, _v:T_version, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         var _msg:stdgo.GoString = _check._sprintf(_format, ..._args.__toArray__());
         var _err:stdgo.StdGoTypes.Ref<T_error_> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_error_>);
         _err = _newErrorf(_at, (135 : stdgo.internal.types.errors.Errors.Code), ("%s requires %s or later" : stdgo.GoString), stdgo.Go.toInterface(_msg), stdgo.Go.toInterface(stdgo.Go.asInterface(_v)));
@@ -16712,14 +16712,14 @@ class Checker_asInterface {
     }
     @:keep
     static public function _softErrorf( _check:stdgo.StdGoTypes.Ref<Checker>, _at:T_positioner, _code:Code, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         var _err = _newErrorf(_at, _code, _format, ..._args.__toArray__());
         _err._soft = true;
         _check._report(_err);
     }
     @:keep
     static public function _errorf( _check:stdgo.StdGoTypes.Ref<Checker>, _at:T_positioner, _code:Code, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         _check._report(_newErrorf(_at, _code, _format, ..._args.__toArray__()));
     }
     @:keep
@@ -16788,12 +16788,12 @@ class Checker_asInterface {
     **/
     @:keep
     static public function _dump( _check:stdgo.StdGoTypes.Ref<Checker>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.go.types.Types._sprintf(_check._fset, _check._qualifier, true, _format, ..._args.__toArray__())));
     }
     @:keep
     static public function _trace( _check:stdgo.StdGoTypes.Ref<Checker>, _pos:stdgo.go.token.Token.Pos, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         stdgo.fmt.Fmt.printf(("%s:\t%s%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_check._fset.position(_pos))), stdgo.Go.toInterface(stdgo.strings.Strings.repeat((".  " : stdgo.GoString), _check._indent)), stdgo.Go.toInterface(stdgo.go.types.Types._sprintf(_check._fset, _check._qualifier, true, _format, ..._args.__toArray__())));
     }
     /**
@@ -16801,7 +16801,7 @@ class Checker_asInterface {
     **/
     @:keep
     static public function _sprintf( _check:stdgo.StdGoTypes.Ref<Checker>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.GoString {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         var _fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet> = (null : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>);
         var _qf:Qualifier = (null : stdgo.go.types.Types.Qualifier);
         if (_check != null && ((_check : Dynamic).__nil__ == null || !(_check : Dynamic).__nil__)) {
@@ -18537,7 +18537,7 @@ class Checker_asInterface {
     **/
     @:keep
     static public function _useLHS( _check:stdgo.StdGoTypes.Ref<Checker>, _args:haxe.Rest<stdgo.go.ast.Ast.Expr>):Bool {
-        var _args = new Slice<stdgo.go.ast.Ast.Expr>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.go.ast.Ast.Expr>(_args.length, 0, ..._args);
         return _check._useN(_args, true);
     }
     /**
@@ -18549,7 +18549,7 @@ class Checker_asInterface {
     **/
     @:keep
     static public function _use( _check:stdgo.StdGoTypes.Ref<Checker>, _args:haxe.Rest<stdgo.go.ast.Ast.Expr>):Bool {
-        var _args = new Slice<stdgo.go.ast.Ast.Expr>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.go.ast.Ast.Expr>(_args.length, 0, ..._args);
         return _check._useN(_args, false);
     }
     @:keep
@@ -21490,7 +21490,7 @@ class T_error__asInterface {
     **/
     @:keep
     static public function _errorf( _err:stdgo.StdGoTypes.Ref<T_error_>, _at:stdgo.go.token.Token.Pos, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         _err._desc = (_err._desc.__append__((new T_errorDesc(stdgo.Go.asInterface((_at : T_atPos)), _format, _args) : T_errorDesc)));
     }
     /**
@@ -28886,7 +28886,7 @@ class T_unifier_asInterface {
     }
     @:keep
     static public function _tracef( _u:stdgo.StdGoTypes.Ref<T_unifier>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.repeat((".  " : stdgo.GoString), _u._depth) + _sprintf(null, null, true, _format, ..._args.__toArray__())));
     }
     /**

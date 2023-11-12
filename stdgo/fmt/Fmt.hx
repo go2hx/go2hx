@@ -1058,7 +1058,7 @@ typedef Scanner = stdgo.StdGoTypes.StructType & {
     // the error interface. The %w verb is otherwise a synonym for %v.
 **/
 function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.Error {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _p = _newPrinter();
         _p._wrapErrs = true;
         _p._doPrintf(_format, _a);
@@ -1153,7 +1153,7 @@ function _newPrinter():stdgo.StdGoTypes.Ref<T_pp> {
     // It returns the number of bytes written and any write error encountered.
 **/
 function fprintf(_w:stdgo.io.Io.Writer, _format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         var _p = _newPrinter();
         _p._doPrintf(_format, _a);
@@ -1170,7 +1170,7 @@ function fprintf(_w:stdgo.io.Io.Writer, _format:stdgo.GoString, _a:haxe.Rest<std
     // It returns the number of bytes written and any write error encountered.
 **/
 function printf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return fprintf(stdgo.Go.asInterface(stdgo.os.Os.stdout), _format, ..._a.__toArray__());
     }
@@ -1178,7 +1178,7 @@ function printf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterfa
     // Sprintf formats according to a format specifier and returns the resulting string.
 **/
 function sprintf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.GoString {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _p = _newPrinter();
         _p._doPrintf(_format, _a);
         var _s:stdgo.GoString = (_p._buf : stdgo.GoString);
@@ -1190,7 +1190,7 @@ function sprintf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterf
     // slice, and returns the updated slice.
 **/
 function appendf(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _p = _newPrinter();
         _p._doPrintf(_format, _a);
         _b = (_b.__append__(..._p._buf.__toArray__()));
@@ -1203,7 +1203,7 @@ function appendf(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _format:stdgo.GoString
     // It returns the number of bytes written and any write error encountered.
 **/
 function fprint(_w:stdgo.io.Io.Writer, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         var _p = _newPrinter();
         _p._doPrint(_a);
@@ -1221,7 +1221,7 @@ function fprint(_w:stdgo.io.Io.Writer, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterfac
     // It returns the number of bytes written and any write error encountered.
 **/
 function print(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return fprint(stdgo.Go.asInterface(stdgo.os.Os.stdout), ..._a.__toArray__());
     }
@@ -1230,7 +1230,7 @@ function print(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.Std
     // Spaces are added between operands when neither is a string.
 **/
 function sprint(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.GoString {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _p = _newPrinter();
         _p._doPrint(_a);
         var _s:stdgo.GoString = (_p._buf : stdgo.GoString);
@@ -1242,7 +1242,7 @@ function sprint(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.GoString {
     // the byte slice, and returns the updated slice.
 **/
 function append(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _p = _newPrinter();
         _p._doPrint(_a);
         _b = (_b.__append__(..._p._buf.__toArray__()));
@@ -1255,7 +1255,7 @@ function append(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _a:haxe.Rest<stdgo.StdG
     // It returns the number of bytes written and any write error encountered.
 **/
 function fprintln(_w:stdgo.io.Io.Writer, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         var _p = _newPrinter();
         _p._doPrintln(_a);
@@ -1273,7 +1273,7 @@ function fprintln(_w:stdgo.io.Io.Writer, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterf
     // It returns the number of bytes written and any write error encountered.
 **/
 function println(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return fprintln(stdgo.Go.asInterface(stdgo.os.Os.stdout), ..._a.__toArray__());
     }
@@ -1282,7 +1282,7 @@ function println(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.S
     // Spaces are always added between operands and a newline is appended.
 **/
 function sprintln(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.GoString {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _p = _newPrinter();
         _p._doPrintln(_a);
         var _s:stdgo.GoString = (_p._buf : stdgo.GoString);
@@ -1295,7 +1295,7 @@ function sprintln(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.GoString {
     // between operands and a newline is appended.
 **/
 function appendln(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _p = _newPrinter();
         _p._doPrintln(_a);
         _b = (_b.__append__(..._p._buf.__toArray__()));
@@ -1421,7 +1421,7 @@ function _parseArgNumber(_format:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoI
     // If that is less than the number of arguments, err will report why.
 **/
 function scan(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return fscan(stdgo.Go.asInterface(stdgo.os.Os.stdin), ..._a.__toArray__());
     }
@@ -1430,7 +1430,7 @@ function scan(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdG
     // after the final item there must be a newline or EOF.
 **/
 function scanln(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return fscanln(stdgo.Go.asInterface(stdgo.os.Os.stdin), ..._a.__toArray__());
     }
@@ -1444,7 +1444,7 @@ function scanln(_a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.St
     // input, even if it is a space (or tab etc.) or newline.
 **/
 function scanf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return fscanf(stdgo.Go.asInterface(stdgo.os.Os.stdin), _format, ..._a.__toArray__());
     }
@@ -1455,7 +1455,7 @@ function scanf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterfac
     // than the number of arguments, err will report why.
 **/
 function sscan(_str:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return fscan(stdgo.Go.asInterface(new stdgo.Pointer<stdgo.fmt.Fmt.T_stringReader>(() -> (stdgo.Go.pointer(_str).value : stdgo.fmt.Fmt.T_stringReader), v -> (stdgo.Go.pointer(_str).value = (v : stdgo.GoString) : stdgo.fmt.Fmt.T_stringReader))), ..._a.__toArray__());
     }
@@ -1464,7 +1464,7 @@ function sscan(_str:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>)
     // after the final item there must be a newline or EOF.
 **/
 function sscanln(_str:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return fscanln(stdgo.Go.asInterface(new stdgo.Pointer<stdgo.fmt.Fmt.T_stringReader>(() -> (stdgo.Go.pointer(_str).value : stdgo.fmt.Fmt.T_stringReader), v -> (stdgo.Go.pointer(_str).value = (v : stdgo.GoString) : stdgo.fmt.Fmt.T_stringReader))), ..._a.__toArray__());
     }
@@ -1475,7 +1475,7 @@ function sscanln(_str:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface
     // Newlines in the input must match newlines in the format.
 **/
 function sscanf(_str:stdgo.GoString, _format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return fscanf(stdgo.Go.asInterface(new stdgo.Pointer<stdgo.fmt.Fmt.T_stringReader>(() -> (stdgo.Go.pointer(_str).value : stdgo.fmt.Fmt.T_stringReader), v -> (stdgo.Go.pointer(_str).value = (v : stdgo.GoString) : stdgo.fmt.Fmt.T_stringReader))), _format, ..._a.__toArray__());
     }
@@ -1486,7 +1486,7 @@ function sscanf(_str:stdgo.GoString, _format:stdgo.GoString, _a:haxe.Rest<stdgo.
     // than the number of arguments, err will report why.
 **/
 function fscan(_r:stdgo.io.Io.Reader, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         var __tmp__ = _newScanState(_r, true, false), _s:stdgo.StdGoTypes.Ref<stdgo.fmt.Fmt.T_ss> = __tmp__._0, _old:stdgo.fmt.Fmt.T_ssave = __tmp__._1;
         {
@@ -1502,7 +1502,7 @@ function fscan(_r:stdgo.io.Io.Reader, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface
     // after the final item there must be a newline or EOF.
 **/
 function fscanln(_r:stdgo.io.Io.Reader, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         var __tmp__ = _newScanState(_r, false, true), _s:stdgo.StdGoTypes.Ref<stdgo.fmt.Fmt.T_ss> = __tmp__._0, _old:stdgo.fmt.Fmt.T_ssave = __tmp__._1;
         {
@@ -1520,7 +1520,7 @@ function fscanln(_r:stdgo.io.Io.Reader, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterfa
     // Newlines in the input must match newlines in the format.
 **/
 function fscanf(_r:stdgo.io.Io.Reader, _format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
-        var _a = new Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         var __tmp__ = _newScanState(_r, false, false), _s:stdgo.StdGoTypes.Ref<stdgo.fmt.Fmt.T_ss> = __tmp__._0, _old:stdgo.fmt.Fmt.T_ssave = __tmp__._1;
         {

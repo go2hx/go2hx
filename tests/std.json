@@ -11,6 +11,7 @@
  "hl|unicode/utf16",
  "hl|unicode/utf8",
  "interp|errors",
+ "interp|math",
  "interp|math/bits",
  "interp|path",
  "interp|sort",

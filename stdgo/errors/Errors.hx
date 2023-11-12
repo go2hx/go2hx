@@ -178,7 +178,7 @@ function new_(_text:stdgo.GoString):stdgo.Error {
     // A non-nil error returned by Join implements the Unwrap() []error method.
 **/
 function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error {
-        var _errs = new Slice<stdgo.Error>(_errs.length, 0, ..._errs);
+        var _errs = new stdgo.Slice<stdgo.Error>(_errs.length, 0, ..._errs);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         for (__0 => _err in _errs) {
             if (_err != null) {

@@ -3335,7 +3335,7 @@ function _parseFlags(_src:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _flags:stdgo.Std
     // If provided, opts may be used to mutate the Config before type-checking.
 **/
 function _testFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _filenames:stdgo.Slice<stdgo.GoString>, _srcs:stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoByte>>, _manual:Bool, _opts:haxe.Rest<stdgo.StdGoTypes.Ref<Config> -> Void>):Void {
-        var _opts = new Slice<stdgo.StdGoTypes.Ref<Config> -> Void>(_opts.length, 0, ..._opts);
+        var _opts = new stdgo.Slice<stdgo.StdGoTypes.Ref<Config> -> Void>(_opts.length, 0, ..._opts);
         if ((_filenames.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             _t.fatal(stdgo.Go.toInterface(("no source files" : stdgo.GoString)));
         };
@@ -5488,7 +5488,7 @@ function benchmarkNamed(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         });
     }
 function _mustInstantiate(_tb:stdgo.testing.Testing.TB, _orig:Type, _targs:haxe.Rest<Type>):Type {
-        var _targs = new Slice<Type>(_targs.length, 0, ..._targs);
+        var _targs = new stdgo.Slice<Type>(_targs.length, 0, ..._targs);
         var __tmp__ = instantiate(null, _orig, _targs, true), _inst:stdgo.go.types.Types.Type = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _tb.fatal(stdgo.Go.toInterface(_err));
@@ -6146,7 +6146,7 @@ function _firstComment(_filename:stdgo.GoString):stdgo.GoString {
         };
     }
 function _testTestDir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _path:stdgo.GoString, _ignore:haxe.Rest<stdgo.GoString>):Void {
-        var _ignore = new Slice<stdgo.GoString>(_ignore.length, 0, ..._ignore);
+        var _ignore = new stdgo.Slice<stdgo.GoString>(_ignore.length, 0, ..._ignore);
         var __tmp__ = stdgo.os.Os.readDir(_path), _files:stdgo.Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             {
@@ -6678,7 +6678,7 @@ stdgo.Go.toInterface(_i));
     }
     @:keep
     static public function _p( _g:stdgo.StdGoTypes.Ref<T_gen>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_g.buffer) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _format, ..._args.__toArray__());
     }
     @:embedded

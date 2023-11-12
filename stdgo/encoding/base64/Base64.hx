@@ -928,7 +928,7 @@ function _funnyRef(_ref:stdgo.GoString):stdgo.GoString {
         return stdgo.strings.Strings.replaceAll(_ref, ("=" : stdgo.GoString), ("@" : stdgo.GoString));
     }
 function _testEqual(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _msg:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Bool {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         _t.helper();
         if (_args[((_args.length) - (2 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] != (_args[((_args.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)])) {
             _t.errorf(_msg, ..._args.__toArray__());

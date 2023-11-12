@@ -2547,7 +2547,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _print( _p:stdgo.StdGoTypes.Ref<T_printer>, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _args = new Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         for (__0 => _arg in _args) {
             var _data:stdgo.GoString = ("" : stdgo.GoString);
             var _isLit:Bool = false;
@@ -3256,7 +3256,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _internalError( _p:stdgo.StdGoTypes.Ref<T_printer>, _msg:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
-        var _msg = new Slice<stdgo.StdGoTypes.AnyInterface>(_msg.length, 0, ..._msg);
+        var _msg = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_msg.length, 0, ..._msg);
         if (false) {
             stdgo.fmt.Fmt.print(stdgo.Go.toInterface((_p._pos.string() : stdgo.GoString) + (": " : stdgo.GoString)));
             stdgo.fmt.Fmt.println(..._msg.__toArray__());

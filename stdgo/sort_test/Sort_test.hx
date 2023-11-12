@@ -628,7 +628,7 @@ function example_sortKeys():Void {
     // Call its Sort method to sort the data.
 **/
 function orderedBy(_less:haxe.Rest<T_lessFunc>):stdgo.StdGoTypes.Ref<T_multiSorter> {
-        var _less = new Slice<T_lessFunc>(_less.length, 0, ..._less);
+        var _less = new stdgo.Slice<T_lessFunc>(_less.length, 0, ..._less);
         return (stdgo.Go.setRef(({ _less : _less } : T_multiSorter)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_multiSorter>);
     }
 /**

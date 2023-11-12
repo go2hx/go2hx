@@ -215,7 +215,7 @@ function cleanCmdEnv(_cmd:stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.Cmd>):stdgo.St
     //   - sets a Cleanup function that verifies that the test did not leak a subprocess.
 **/
 function commandContext(_t:stdgo.testing.Testing.TB, _ctx:stdgo.context.Context.Context, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.Cmd> {
-        var _args = new Slice<stdgo.GoString>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         _t.helper();
         mustHaveExec(_t);
         var __0:stdgo.context.Context.CancelFunc = (null : stdgo.context.Context.CancelFunc), __1:stdgo.time.Time.Duration = ((0 : stdgo.StdGoTypes.GoInt64) : stdgo.time.Time.Duration), _gracePeriod:stdgo.time.Time.Duration = __1, _cancelCtx:stdgo.context.Context.CancelFunc = __0;
@@ -287,7 +287,7 @@ function commandContext(_t:stdgo.testing.Testing.TB, _ctx:stdgo.context.Context.
     // testenv.CommandContext (with a default Context).
 **/
 function command(_t:stdgo.testing.Testing.TB, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.Cmd> {
-        var _args = new Slice<stdgo.GoString>(_args.length, 0, ..._args);
+        var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         _t.helper();
         return commandContext(_t, stdgo.context.Context.background(), _name, ..._args.__toArray__());
     }
@@ -642,7 +642,7 @@ function skipIfOptimizationOff(_t:stdgo.testing.Testing.TB):Void {
     // so it may also be a list of Go source files all in the same directory.
 **/
 function writeImportcfg(_t:stdgo.testing.Testing.TB, _dstPath:stdgo.GoString, _packageFiles:GoMap<stdgo.GoString, stdgo.GoString>, _pkgs:haxe.Rest<stdgo.GoString>):Void {
-        var _pkgs = new Slice<stdgo.GoString>(_pkgs.length, 0, ..._pkgs);
+        var _pkgs = new stdgo.Slice<stdgo.GoString>(_pkgs.length, 0, ..._pkgs);
         _t.helper();
         var _icfg = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
         _icfg.writeString(("# import config\n" : stdgo.GoString));

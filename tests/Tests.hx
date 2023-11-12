@@ -124,9 +124,12 @@ function update() {
 		}
 		tests.remove(test);
 	}
-	if (tasks.length > 0 && runningCount < 12 + 1 ) {
+	var runnerCount = Compiler.getDefine("runnerCount");
+	if (runnerCount == null)
+		runnerCount = 2;
+	if (tasks.length > 0 && runningCount < runnerCount + 1 ) {
 		final task = tasks.pop();
-		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " lastTaskLogs: " + lastTaskLogs);
+		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount);
 		final taskString = task.command + " " + task.args.join(" ");
 		lastTaskLogs.push(taskString);
 		runningCount++;
@@ -147,7 +150,7 @@ function update() {
 			ls.kill();
 		};
 		ls.stdout.on('data', function(data) {
-			log(task.target + "|" + task.path + "|" + task.runtime + " ~ " + lastTaskLogs);
+			log(task.target + "|" + task.path + "|" + task.runtime);
 			log(data);
 			timeout = 0;
 		});

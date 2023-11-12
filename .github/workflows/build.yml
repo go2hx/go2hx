@@ -12,8 +12,8 @@ jobs:
       matrix:
         os: [ubuntu-latest]
       fail-fast: true
-    runs-on: self-hosted
-    #runs-on: ${{ matrix.os }}
+    #runs-on: self-hosted
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: cedx/setup-hashlink@v3

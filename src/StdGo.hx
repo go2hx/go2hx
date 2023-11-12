@@ -27,10 +27,8 @@ function main() {
 	}
 	trace(libs);
 	libCount = libs.length;
-	var runnerCount = Compiler.getDefine("runnerCount");
-	if (runnerCount == null)
-		runnerCount = 2;
-	Main.setup(0, runnerCount); // amount of processes to spawn
+	final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
+	Main.setup(0, Std.parseInt(runnerCount)); // amount of processes to spawn
 	Main.onComplete = complete;
 	if (libs.length == 0)
 		return;

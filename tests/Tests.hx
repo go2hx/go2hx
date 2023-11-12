@@ -124,10 +124,8 @@ function update() {
 		}
 		tests.remove(test);
 	}
-	var runnerCount = Compiler.getDefine("runnerCount");
-	if (runnerCount == null)
-		runnerCount = 2;
-	if (tasks.length > 0 && runningCount < runnerCount + 1 ) {
+	final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
+	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) + 1 ) {
 		final task = tasks.pop();
 		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount);
 		final taskString = task.command + " " + task.args.join(" ");

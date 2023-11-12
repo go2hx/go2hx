@@ -1954,9 +1954,14 @@ private function cleanType(type:GoType):GoType {
 	}
 }
 
-private function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:Ast.FieldList, info:Info):Expr {
+private function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:Ast.FieldList, info:Info, recvArg):Expr {
 	switch block.expr {
 		case EBlock(exprs):
+			if (recvArg != null && !isPointer(recvArg.vt)) {
+				final name = recvArg.name;
+				final expr = passByCopy(recvArg.vt, macro $i{name}, info);
+				exprs.unshift(macro var $name = $expr);
+			}
 			for (arg in args) {
 				switch arg.type {
 					case TPath(p):
@@ -5445,7 +5450,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		} else {
 			varName = "_";
 		}
-		recvArg = {name: varName, type: ct, meta: isPointer(varType) ? [{name: ":pointer", pos: null}] : []};
+		recvArg = {name: varName, type: ct, vt: varType, meta: isPointer(varType) ? [{name: ":pointer", pos: null}] : []};
 		args.unshift(recvArg);
 	}
 	info.restricted = restricted;
@@ -5501,7 +5506,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		block = patch;
 	}
 
-	block = argsTranslate(args, block, decl.type.params, info);
+	block = argsTranslate(args, block, decl.type.params, info, recvArg);
 
 	info.restricted = [];
 	if (info.gotoSystem) {

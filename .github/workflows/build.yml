@@ -28,6 +28,8 @@ jobs:
         run: npx lix download
       - name: Set source
         run: npx haxelib dev go2hx .
+      - name: Test run
+        run: npx haxelib run go2hx ./rnd
       - name: Memory info
         run: free -m
         if: runner.os != 'macos'

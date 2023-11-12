@@ -9,8 +9,8 @@ concurrency:
 jobs:
   build:
     strategy:
-      matrix:
-        os: [ubuntu-latest]
+      #matrix:
+      #  os: [ubuntu-latest]
       fail-fast: true
     runs-on: self-hosted
     # runs-on: ${{ matrix.os }}

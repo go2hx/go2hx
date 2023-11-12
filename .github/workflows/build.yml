@@ -28,10 +28,6 @@ jobs:
         run: npx lix download
       - name: Set source
         run: npx haxelib dev go2hx .
-      - name: Show libpath
-        run: npx haxelib libpath go2hx
-      - name: Test run
-        run: npx haxelib run go2hx ./rnd
       - name: Memory info
         run: free -m
         if: runner.os != 'macos'
@@ -67,7 +63,7 @@ jobs:
       - name: Build go2hxdoc
         run: go build github.com/go2hx/go2hxdoc
       - name: Run go2hxdoc
-        run: ./go2hxdoc -dir `npx haxelib libpath go2hx`stdgo -stats -force -seq 
+        run: ./go2hxdoc -dir `npx haxelib libpath go2hx`stdgo -stats -force
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: stdgo doc generation

@@ -1964,7 +1964,7 @@ private function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:A
 							final name = arg.name;
 							switch p.params[0] {
 								case TPType(ct):
-									exprs.unshift(macro var $name = new Slice<$ct>($i{name}.length, 0, ...$i{name}));
+									exprs.unshift(macro var $name = new stdgo.Slice<$ct>($i{name}.length, 0, ...$i{name}));
 								default:
 							}
 						}

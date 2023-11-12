@@ -34,6 +34,7 @@ jobs:
         run: npx haxelib run go2hx ./rnd
       - name: Memory info
         run: free -m
+        if: runner.os != 'macos'
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
       - name: Run stdgo automatic compile

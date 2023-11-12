@@ -19,7 +19,7 @@ jobs:
       - uses: cedx/setup-hashlink@v3
       - name: Install hashlink on macos
         if: runner.os == 'macos'
-        run: brew install hashlink
+        run: arch -x86_64 brew install hashlink
       - run: hl --version
       - uses: actions/setup-go@v3
         with:

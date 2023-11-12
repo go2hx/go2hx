@@ -151,6 +151,8 @@ class Macro {
 			return switch (expr.expr) {
 				case EMeta(s, e):
 					switch s.name {
+						case ":recv":
+							expr;
 						case ":label":
 							{
 								expr: EMeta(s, func(e, inLoop, scopeIndex,s.params[0],true,label)),
@@ -220,6 +222,7 @@ class Macro {
 						vars = vars.concat(v);
 						if (v.length == 1) {
 							macro $i{v[0].name} = ${v[0].expr};
+
 						} else {
 							{
 								expr: EBlock([for (v in vars) macro $i{v.name} = ${v.expr}]),

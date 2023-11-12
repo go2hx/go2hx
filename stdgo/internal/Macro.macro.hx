@@ -219,7 +219,12 @@ class Macro {
 							obj.isFinal = false; // all vars need to be able to be reassigned
 						vars = vars.concat(v);
 						if (v.length == 1) {
-							macro $i{v[0].name} = ${v[0].expr};
+							switch v[0].expr.expr {
+								case EConst(CIdent(s)) if (s == v[0].name):
+									expr;
+								default:
+									macro $i{v[0].name} = ${v[0].expr};
+							}
 						} else {
 							{
 								expr: EBlock([for (v in vars) macro $i{v.name} = ${v.expr}]),

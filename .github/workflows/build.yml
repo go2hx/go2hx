@@ -36,13 +36,13 @@ jobs:
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
       - name: Run stdgo automatic compile
-        run: npx haxe stdgo.hxml -D runnerCount=$([[ ${{ runner.os }} == 'macos' ]] && echo 12 || echo 2)
+        run: npx haxe stdgo.hxml -D runnerCount=12
       - name: Run unit tests
-        run: haxe tests.hxml -D unit -D ci -D runnerCount=$([[ ${{ runner.os }} == 'macos' ]] && echo 12 || echo 2)
+        run: haxe tests.hxml -D unit -D ci -D runnerCount=12
         env:
           HXCPP_COMPILE_CACHE: ~/hxcppcache
       - name: Run std tests
-        run: haxe tests.hxml -D std -D ci -D runnerCount=$([[ ${{ runner.os }} == 'macos' ]] && echo 12 || echo 2)
+        run: haxe tests.hxml -D std -D ci -D runnerCount=12
         env:
             HXCPP_COMPILE_CACHE: ~/hxcppcache
       # - name: Run yaegi tests

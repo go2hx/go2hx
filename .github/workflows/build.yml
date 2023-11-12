@@ -16,8 +16,8 @@ jobs:
     # runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-      if: runner.os != 'macos'
-            uses: cedx/setup-hashlink@v3
+      - uses: cedx/setup-hashlink@v3
+        if: runner.os != 'macos'
       - name: Install hashlink on macos
         if: runner.os == 'macos'
         run: arch -x86_64 brew install hashlink

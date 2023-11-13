@@ -8,19 +8,19 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var _digits : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = _mustLoadFile(("testdata/e.txt.bz2" : stdgo.GoString));
+var _digits : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = _mustLoadFile(("testdata/e.txt.bz2" : stdgo.GoString)?.__copy__());
 /**
     
     
     
 **/
-var _newton : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = _mustLoadFile(("testdata/Isaac.Newton-Opticks.txt.bz2" : stdgo.GoString));
+var _newton : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = _mustLoadFile(("testdata/Isaac.Newton-Opticks.txt.bz2" : stdgo.GoString)?.__copy__());
 /**
     
     
     
 **/
-var _random : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = _mustLoadFile(("testdata/random.data.bz2" : stdgo.GoString));
+var _random : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = _mustLoadFile(("testdata/random.data.bz2" : stdgo.GoString)?.__copy__());
 /**
     
     
@@ -350,7 +350,7 @@ function _updateCRC(_val:stdgo.StdGoTypes.GoUInt32, _b:stdgo.Slice<stdgo.StdGoTy
         return (-1 ^ _crc);
     }
 function _mustDecodeHex(_s:stdgo.GoString):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
-        var __tmp__ = stdgo.encoding.hex.Hex.decodeString(_s), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.encoding.hex.Hex.decodeString(_s?.__copy__()), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             throw stdgo.Go.toInterface(_err);
         };
@@ -362,22 +362,22 @@ function _mustLoadFile(_f:stdgo.GoString):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
 function _trim(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.GoString {
         {};
         if ((_b.length) < (1024 : stdgo.StdGoTypes.GoInt)) {
-            return stdgo.fmt.Fmt.sprintf(("%q" : stdgo.GoString), stdgo.Go.toInterface(_b));
+            return stdgo.fmt.Fmt.sprintf(("%q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_b))?.__copy__();
         };
-        return stdgo.fmt.Fmt.sprintf(("%q..." : stdgo.GoString), stdgo.Go.toInterface((_b.__slice__(0, (1024 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
+        return stdgo.fmt.Fmt.sprintf(("%q..." : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((_b.__slice__(0, (1024 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)))?.__copy__();
     }
 function testReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _vectors:stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
 12,
 12,
-({ _desc : ("hello world" : stdgo.GoString), _input : _mustDecodeHex(("425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb9431f8bb9229c28482776741b0" : stdgo.GoString)), _output : (("hello world\n" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _fail : false } : T__struct_0),
-({ _desc : ("concatenated files" : stdgo.GoString), _input : _mustDecodeHex(("425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb9431f8bb9229c28482776741b0425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb9431f8bb9229c28482776741b0" : stdgo.GoString)), _output : (("hello world\nhello world\n" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _fail : false } : T__struct_0),
-({ _desc : ("32B zeros" : stdgo.GoString), _input : _mustDecodeHex(("425a6839314159265359b5aa5098000000600040000004200021008283177245385090b5aa5098" : stdgo.GoString)), _output : new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((32 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__(), _fail : false } : T__struct_0),
-({ _desc : ("1MiB zeros" : stdgo.GoString), _input : _mustDecodeHex(("425a683931415926535938571ce50008084000c0040008200030cc0529a60806c4201e2ee48a70a12070ae39ca" : stdgo.GoString)), _output : new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((1048576 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__(), _fail : false } : T__struct_0),
-({ _desc : ("random data" : stdgo.GoString), _input : _mustLoadFile(("testdata/pass-random1.bz2" : stdgo.GoString)), _output : _mustLoadFile(("testdata/pass-random1.bin" : stdgo.GoString)), _fail : false } : T__struct_0),
-({ _desc : ("random data - full symbol range" : stdgo.GoString), _input : _mustLoadFile(("testdata/pass-random2.bz2" : stdgo.GoString)), _output : _mustLoadFile(("testdata/pass-random2.bin" : stdgo.GoString)), _fail : false } : T__struct_0),
-({ _desc : ("random data - uses RLE1 stage" : stdgo.GoString), _input : _mustDecodeHex(("425a6839314159265359d992d0f60000137dfe84020310091c1e280e100e042801099210094806c0110002e70806402000546034000034000000f2830000032000d3403264049270eb7a9280d308ca06ad28f6981bee1bf8160727c7364510d73a1e123083421b63f031f63993a0f40051fbf177245385090d992d0f60" : stdgo.GoString)), _output : _mustDecodeHex(("92d5652616ac444a4a04af1a8a3964aca0450d43d6cf233bd03233f4ba92f8719e6c2a2bd4f5f88db07ecd0da3a33b263483db9b2c158786ad6363be35d17335ba" : stdgo.GoString)), _fail : false } : T__struct_0),
-({ _desc : ("1MiB sawtooth" : stdgo.GoString), _input : _mustLoadFile(("testdata/pass-sawtooth.bz2" : stdgo.GoString)), _output : {
+({ _desc : ("hello world" : stdgo.GoString)?.__copy__(), _input : _mustDecodeHex(("425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb9431f8bb9229c28482776741b0" : stdgo.GoString)?.__copy__()), _output : (("hello world\n" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _fail : false } : T__struct_0),
+({ _desc : ("concatenated files" : stdgo.GoString)?.__copy__(), _input : _mustDecodeHex(("425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb9431f8bb9229c28482776741b0425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb9431f8bb9229c28482776741b0" : stdgo.GoString)?.__copy__()), _output : (("hello world\nhello world\n" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _fail : false } : T__struct_0),
+({ _desc : ("32B zeros" : stdgo.GoString)?.__copy__(), _input : _mustDecodeHex(("425a6839314159265359b5aa5098000000600040000004200021008283177245385090b5aa5098" : stdgo.GoString)?.__copy__()), _output : new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((32 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__(), _fail : false } : T__struct_0),
+({ _desc : ("1MiB zeros" : stdgo.GoString)?.__copy__(), _input : _mustDecodeHex(("425a683931415926535938571ce50008084000c0040008200030cc0529a60806c4201e2ee48a70a12070ae39ca" : stdgo.GoString)?.__copy__()), _output : new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((1048576 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__(), _fail : false } : T__struct_0),
+({ _desc : ("random data" : stdgo.GoString)?.__copy__(), _input : _mustLoadFile(("testdata/pass-random1.bz2" : stdgo.GoString)?.__copy__()), _output : _mustLoadFile(("testdata/pass-random1.bin" : stdgo.GoString)?.__copy__()), _fail : false } : T__struct_0),
+({ _desc : ("random data - full symbol range" : stdgo.GoString)?.__copy__(), _input : _mustLoadFile(("testdata/pass-random2.bz2" : stdgo.GoString)?.__copy__()), _output : _mustLoadFile(("testdata/pass-random2.bin" : stdgo.GoString)?.__copy__()), _fail : false } : T__struct_0),
+({ _desc : ("random data - uses RLE1 stage" : stdgo.GoString)?.__copy__(), _input : _mustDecodeHex(("425a6839314159265359d992d0f60000137dfe84020310091c1e280e100e042801099210094806c0110002e70806402000546034000034000000f2830000032000d3403264049270eb7a9280d308ca06ad28f6981bee1bf8160727c7364510d73a1e123083421b63f031f63993a0f40051fbf177245385090d992d0f60" : stdgo.GoString)?.__copy__()), _output : _mustDecodeHex(("92d5652616ac444a4a04af1a8a3964aca0450d43d6cf233bd03233f4ba92f8719e6c2a2bd4f5f88db07ecd0da3a33b263483db9b2c158786ad6363be35d17335ba" : stdgo.GoString)?.__copy__()), _fail : false } : T__struct_0),
+({ _desc : ("1MiB sawtooth" : stdgo.GoString)?.__copy__(), _input : _mustLoadFile(("testdata/pass-sawtooth.bz2" : stdgo.GoString)?.__copy__()), _output : {
             var a = function():stdgo.Slice<stdgo.StdGoTypes.GoByte> {
                 var _b = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((1048576 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
                 for (_i in 0 ... _b.length.toBasic()) {
@@ -387,10 +387,10 @@ function testReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             a();
         }, _fail : false } : T__struct_0),
-({ _desc : ("RLE2 buffer overrun - issue 5747" : stdgo.GoString), _input : _mustLoadFile(("testdata/fail-issue5747.bz2" : stdgo.GoString)), _output : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _fail : true } : T__struct_0),
-({ _desc : ("out-of-range selector - issue 8363" : stdgo.GoString), _input : _mustDecodeHex(("425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb943117724538509000000000" : stdgo.GoString)), _output : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _fail : true } : T__struct_0),
-({ _desc : ("bad block size - issue 13941" : stdgo.GoString), _input : _mustDecodeHex(("425a683131415926535936dc55330063ffc0006000200020a40830008b0008b8bb9229c28481b6e2a998" : stdgo.GoString)), _output : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _fail : true } : T__struct_0),
-({ _desc : ("bad huffman delta" : stdgo.GoString), _input : _mustDecodeHex(("425a6836314159265359b1f7404b000000400040002000217d184682ee48a70a12163ee80960" : stdgo.GoString)), _output : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _fail : true } : T__struct_0)) : stdgo.Slice<T__struct_0>);
+({ _desc : ("RLE2 buffer overrun - issue 5747" : stdgo.GoString)?.__copy__(), _input : _mustLoadFile(("testdata/fail-issue5747.bz2" : stdgo.GoString)?.__copy__()), _output : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _fail : true } : T__struct_0),
+({ _desc : ("out-of-range selector - issue 8363" : stdgo.GoString)?.__copy__(), _input : _mustDecodeHex(("425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb943117724538509000000000" : stdgo.GoString)?.__copy__()), _output : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _fail : true } : T__struct_0),
+({ _desc : ("bad block size - issue 13941" : stdgo.GoString)?.__copy__(), _input : _mustDecodeHex(("425a683131415926535936dc55330063ffc0006000200020a40830008b0008b8bb9229c28481b6e2a998" : stdgo.GoString)?.__copy__()), _output : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _fail : true } : T__struct_0),
+({ _desc : ("bad huffman delta" : stdgo.GoString)?.__copy__(), _input : _mustDecodeHex(("425a6836314159265359b1f7404b000000400040002000217d184682ee48a70a12163ee80960" : stdgo.GoString)?.__copy__()), _output : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _fail : true } : T__struct_0)) : stdgo.Slice<T__struct_0>);
         for (_i => _v in _vectors) {
             var _rd:stdgo.io.Io.Reader = newReader(stdgo.Go.asInterface(stdgo.bytes.Bytes.newReader(_v._input)));
             var __tmp__ = stdgo.io.Io.readAll(_rd), _buf:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -398,14 +398,14 @@ function testReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 var _fail:Bool = (_err != null : Bool);
                 if (_fail != (_v._fail)) {
                     if (_fail) {
-                        _t.errorf(("test %d (%s), unexpected failure: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(_err));
+                        _t.errorf(("test %d (%s), unexpected failure: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(_err));
                     } else {
-                        _t.errorf(("test %d (%s), unexpected success" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc));
+                        _t.errorf(("test %d (%s), unexpected success" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc));
                     };
                 };
             };
             if (!_v._fail && !stdgo.bytes.Bytes.equal(_buf, _v._output)) {
-                _t.errorf(("test %d (%s), output mismatch:\ngot  %s\nwant %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(_trim(_buf)), stdgo.Go.toInterface(_trim(_v._output)));
+                _t.errorf(("test %d (%s), output mismatch:\ngot  %s\nwant %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(_trim(_buf)), stdgo.Go.toInterface(_trim(_v._output)));
             };
         };
     }
@@ -430,14 +430,14 @@ function testBitReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 var _fail:Bool = (_br._err != null : Bool);
                 if (_fail != (_v._fail)) {
                     if (_fail) {
-                        _t.errorf(("test %d, unexpected failure: ReadBits(%d) = %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._nbits), stdgo.Go.toInterface(_br._err));
+                        _t.errorf(("test %d, unexpected failure: ReadBits(%d) = %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._nbits), stdgo.Go.toInterface(_br._err));
                     } else {
-                        _t.errorf(("test %d, unexpected success: ReadBits(%d) = nil" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._nbits));
+                        _t.errorf(("test %d, unexpected success: ReadBits(%d) = nil" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._nbits));
                     };
                 };
             };
             if (!_v._fail && (_val != _v._value)) {
-                _t.errorf(("test %d, mismatching value: ReadBits(%d) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._nbits), stdgo.Go.toInterface(_val), stdgo.Go.toInterface(_v._value));
+                _t.errorf(("test %d, mismatching value: ReadBits(%d) = %d, want %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._nbits), stdgo.Go.toInterface(_val), stdgo.Go.toInterface(_v._value));
             };
         };
     }
@@ -448,17 +448,17 @@ function testMTF(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var _sym:stdgo.StdGoTypes.GoUInt8 = _mtf.decode(_v._idx);
             _t.log(stdgo.Go.toInterface(stdgo.Go.asInterface(_mtf)));
             if (_sym != (_v._sym)) {
-                _t.errorf(("test %d, symbol mismatch: Decode(%d) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._idx), stdgo.Go.toInterface(_sym), stdgo.Go.toInterface(_v._sym));
+                _t.errorf(("test %d, symbol mismatch: Decode(%d) = %d, want %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._idx), stdgo.Go.toInterface(_sym), stdgo.Go.toInterface(_v._sym));
             };
         };
     }
 function testZeroRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        var _b = _mustDecodeHex(("425a6839314159265359b5aa5098000000600040000004200021008283177245385090b5aa5098" : stdgo.GoString));
+        var _b = _mustDecodeHex(("425a6839314159265359b5aa5098000000600040000004200021008283177245385090b5aa5098" : stdgo.GoString)?.__copy__());
         var _r:stdgo.io.Io.Reader = newReader(stdgo.Go.asInterface(stdgo.bytes.Bytes.newReader(_b)));
         {
             var __tmp__ = _r.read((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if ((_n != (0 : stdgo.StdGoTypes.GoInt)) || (_err != null)) {
-                _t.errorf(("Read(nil) = (%d, %v), want (0, nil)" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
+                _t.errorf(("Read(nil) = (%d, %v), want (0, nil)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
             };
         };
     }
@@ -1137,7 +1137,7 @@ class StructuralError_asInterface {
     @:keep
     static public function error( _s:StructuralError):stdgo.GoString {
         @:recv var _s:StructuralError = _s;
-        return ("bzip2 data invalid: " : stdgo.GoString) + (_s : stdgo.GoString);
+        return ("bzip2 data invalid: " : stdgo.GoString) + (_s : stdgo.GoString)?.__copy__()?.__copy__();
     }
 }
 class T_moveToFrontDecoder_asInterface {

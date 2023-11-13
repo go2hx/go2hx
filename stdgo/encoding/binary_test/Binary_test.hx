@@ -25,7 +25,7 @@ function exampleWrite():Void {
         if (_err != null) {
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("binary.Write failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        stdgo.fmt.Fmt.printf(("% x" : stdgo.GoString), stdgo.Go.toInterface(_buf.bytes()));
+        stdgo.fmt.Fmt.printf(("% x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_buf.bytes()));
     }
 function exampleWrite_multi():Void {
         var _buf = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
@@ -36,7 +36,7 @@ function exampleWrite_multi():Void {
                 stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("binary.Write failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
         };
-        stdgo.fmt.Fmt.printf(("%x" : stdgo.GoString), stdgo.Go.toInterface(_buf.bytes()));
+        stdgo.fmt.Fmt.printf(("%x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_buf.bytes()));
     }
 function exampleRead():Void {
         var _pi:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
@@ -76,26 +76,26 @@ function exampleRead_multi():Void {
         };
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_data.pi));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_data.uate));
-        stdgo.fmt.Fmt.printf(("% x\n" : stdgo.GoString), stdgo.Go.toInterface(_data.mine));
+        stdgo.fmt.Fmt.printf(("% x\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_data.mine));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_data.too));
     }
 function exampleByteOrder_put():Void {
         var _b = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((4 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         stdgo.encoding.binary.Binary.littleEndian.putUint16((_b.__slice__((0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (1000 : stdgo.StdGoTypes.GoUInt16));
         stdgo.encoding.binary.Binary.littleEndian.putUint16((_b.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (2000 : stdgo.StdGoTypes.GoUInt16));
-        stdgo.fmt.Fmt.printf(("% x\n" : stdgo.GoString), stdgo.Go.toInterface(_b));
+        stdgo.fmt.Fmt.printf(("% x\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_b));
     }
 function exampleByteOrder_get():Void {
         var _b = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(4, 4, (232 : stdgo.StdGoTypes.GoUInt8), (3 : stdgo.StdGoTypes.GoUInt8), (208 : stdgo.StdGoTypes.GoUInt8), (7 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         var _x1:stdgo.StdGoTypes.GoUInt16 = stdgo.encoding.binary.Binary.littleEndian.uint16((_b.__slice__((0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
         var _x2:stdgo.StdGoTypes.GoUInt16 = stdgo.encoding.binary.Binary.littleEndian.uint16((_b.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
-        stdgo.fmt.Fmt.printf(("%#04x %#04x\n" : stdgo.GoString), stdgo.Go.toInterface(_x1), stdgo.Go.toInterface(_x2));
+        stdgo.fmt.Fmt.printf(("%#04x %#04x\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x1), stdgo.Go.toInterface(_x2));
     }
 function examplePutUvarint():Void {
         var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((10 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         for (__0 => _x in (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(6, 6, (1i64 : stdgo.StdGoTypes.GoUInt64), (2i64 : stdgo.StdGoTypes.GoUInt64), (127i64 : stdgo.StdGoTypes.GoUInt64), (128i64 : stdgo.StdGoTypes.GoUInt64), (255i64 : stdgo.StdGoTypes.GoUInt64), (256i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>)) {
             var _n:stdgo.StdGoTypes.GoInt = stdgo.encoding.binary.Binary.putUvarint(_buf, _x);
-            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
+            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
         };
     }
 function examplePutVarint():Void {
@@ -113,7 +113,7 @@ function examplePutVarint():Void {
 (63i64 : stdgo.StdGoTypes.GoInt64),
 (64i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoInt64>)) {
             var _n:stdgo.StdGoTypes.GoInt = stdgo.encoding.binary.Binary.putVarint(_buf, _x);
-            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
+            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
         };
     }
 function exampleUvarint():Void {

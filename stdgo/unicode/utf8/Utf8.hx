@@ -700,7 +700,7 @@ function decodeLastRuneInString(_s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.G
             _start = (0 : stdgo.StdGoTypes.GoInt);
         };
         {
-            var __tmp__ = decodeRuneInString((_s.__slice__(_start, _end) : stdgo.GoString));
+            var __tmp__ = decodeRuneInString((_s.__slice__(_start, _end) : stdgo.GoString)?.__copy__());
             _r = __tmp__._0;
             _size = __tmp__._1;
         };
@@ -994,7 +994,7 @@ function validString(_s:stdgo.GoString):Bool {
             if ((_first32 | _second32) & (-2139062144u32 : stdgo.StdGoTypes.GoUInt32) != ((0u32 : stdgo.StdGoTypes.GoUInt32))) {
                 break;
             };
-            _s = (_s.__slice__((8 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+            _s = (_s.__slice__((8 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
         };
         var _n:stdgo.StdGoTypes.GoInt = (_s.length);
         {

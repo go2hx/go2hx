@@ -5,7 +5,7 @@ import stdgo.testing.quick.Quick;
     
     
 **/
-var _tests : stdgo.Slice<stdgo.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo.testing.Testing.InternalTest>(8, 8, (new stdgo.testing.Testing.InternalTest(("TestCheckEqual" : stdgo.GoString), stdgo.testing.quick.Quick.testCheckEqual) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestCheckProperty" : stdgo.GoString), stdgo.testing.quick.Quick.testCheckProperty) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestFailure" : stdgo.GoString), stdgo.testing.quick.Quick.testFailure) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestRecursive" : stdgo.GoString), stdgo.testing.quick.Quick.testRecursive) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestEmptyStruct" : stdgo.GoString), stdgo.testing.quick.Quick.testEmptyStruct) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestMutuallyRecursive" : stdgo.GoString), stdgo.testing.quick.Quick.testMutuallyRecursive) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestNonZeroSliceAndMap" : stdgo.GoString), stdgo.testing.quick.Quick.testNonZeroSliceAndMap) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestInt64" : stdgo.GoString), stdgo.testing.quick.Quick.testInt64) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
+var _tests : stdgo.Slice<stdgo.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo.testing.Testing.InternalTest>(8, 8, (new stdgo.testing.Testing.InternalTest(("TestCheckEqual" : stdgo.GoString)?.__copy__(), stdgo.testing.quick.Quick.testCheckEqual) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestCheckProperty" : stdgo.GoString)?.__copy__(), stdgo.testing.quick.Quick.testCheckProperty) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestFailure" : stdgo.GoString)?.__copy__(), stdgo.testing.quick.Quick.testFailure) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestRecursive" : stdgo.GoString)?.__copy__(), stdgo.testing.quick.Quick.testRecursive) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestEmptyStruct" : stdgo.GoString)?.__copy__(), stdgo.testing.quick.Quick.testEmptyStruct) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestMutuallyRecursive" : stdgo.GoString)?.__copy__(), stdgo.testing.quick.Quick.testMutuallyRecursive) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestNonZeroSliceAndMap" : stdgo.GoString)?.__copy__(), stdgo.testing.quick.Quick.testNonZeroSliceAndMap) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestInt64" : stdgo.GoString)?.__copy__(), stdgo.testing.quick.Quick.testInt64) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
 /**
     
     
@@ -30,7 +30,7 @@ function main():Void {
     }
 @:keep var _ = {
         try {
-            stdgo.testing.internal.testdeps.Testdeps.importPath = ("testing/quick" : stdgo.GoString);
+            stdgo.testing.internal.testdeps.Testdeps.importPath = ("testing/quick" : stdgo.GoString)?.__copy__();
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

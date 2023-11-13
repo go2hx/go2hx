@@ -9,74 +9,74 @@ import stdgo.path.filepath.Filepath;
 var _matchTests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.MatchTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.MatchTest>(
 56,
 56,
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("abc" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("*" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("*c" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*" : stdgo.GoString), ("a" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*" : stdgo.GoString), ("ab/c" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*/b" : stdgo.GoString), ("abc/b" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*/b" : stdgo.GoString), ("a/c/b" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString), ("axbxcxdxe/f" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString), ("axbxcxdxexxx/f" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString), ("axbxcxdxe/xxx/f" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString), ("axbxcxdxexxx/fff" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b?c*x" : stdgo.GoString), ("abxbbxdbxebxczzx" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b?c*x" : stdgo.GoString), ("abxbbxdbxebxczzy" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[c]" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[b-d]" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[e-g]" : stdgo.GoString), ("abc" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[^c]" : stdgo.GoString), ("abc" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[^b-d]" : stdgo.GoString), ("abc" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[^e-g]" : stdgo.GoString), ("abc" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a\\*b" : stdgo.GoString), ("a*b" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a\\*b" : stdgo.GoString), ("ab" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a?b" : stdgo.GoString), ("a☺b" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a[^a]b" : stdgo.GoString), ("a☺b" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a???b" : stdgo.GoString), ("a☺b" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a[^a][^a][^a]b" : stdgo.GoString), ("a☺b" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[a-ζ]*" : stdgo.GoString), ("α" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("*[a-ζ]" : stdgo.GoString), ("A" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a?b" : stdgo.GoString), ("a/b" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b" : stdgo.GoString), ("a/b" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[\\]a]" : stdgo.GoString), ("]" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[\\-]" : stdgo.GoString), ("-" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x\\-]" : stdgo.GoString), ("x" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x\\-]" : stdgo.GoString), ("-" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x\\-]" : stdgo.GoString), ("z" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[\\-x]" : stdgo.GoString), ("x" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[\\-x]" : stdgo.GoString), ("-" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[\\-x]" : stdgo.GoString), ("a" : stdgo.GoString), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[]a]" : stdgo.GoString), ("]" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[-]" : stdgo.GoString), ("-" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x-]" : stdgo.GoString), ("x" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x-]" : stdgo.GoString), ("-" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x-]" : stdgo.GoString), ("z" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[-x]" : stdgo.GoString), ("x" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[-x]" : stdgo.GoString), ("-" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[-x]" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("\\" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[a-b-c]" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[^" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[^bc" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a[" : stdgo.GoString), ("a" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a[" : stdgo.GoString), ("ab" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a[" : stdgo.GoString), ("x" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a/b[" : stdgo.GoString), ("x" : stdgo.GoString), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
-(new stdgo.path.filepath_test.Filepath_test.MatchTest(("*x" : stdgo.GoString), ("xxx" : stdgo.GoString), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.MatchTest>);
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("abc" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("*" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("*c" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*" : stdgo.GoString)?.__copy__(), ("ab/c" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*/b" : stdgo.GoString)?.__copy__(), ("abc/b" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*/b" : stdgo.GoString)?.__copy__(), ("a/c/b" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString)?.__copy__(), ("axbxcxdxe/f" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString)?.__copy__(), ("axbxcxdxexxx/f" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString)?.__copy__(), ("axbxcxdxe/xxx/f" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b*c*d*e*/f" : stdgo.GoString)?.__copy__(), ("axbxcxdxexxx/fff" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b?c*x" : stdgo.GoString)?.__copy__(), ("abxbbxdbxebxczzx" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b?c*x" : stdgo.GoString)?.__copy__(), ("abxbbxdbxebxczzy" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[c]" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[b-d]" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[e-g]" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[^c]" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[^b-d]" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("ab[^e-g]" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a\\*b" : stdgo.GoString)?.__copy__(), ("a*b" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a\\*b" : stdgo.GoString)?.__copy__(), ("ab" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a?b" : stdgo.GoString)?.__copy__(), ("a☺b" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a[^a]b" : stdgo.GoString)?.__copy__(), ("a☺b" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a???b" : stdgo.GoString)?.__copy__(), ("a☺b" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a[^a][^a][^a]b" : stdgo.GoString)?.__copy__(), ("a☺b" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[a-ζ]*" : stdgo.GoString)?.__copy__(), ("α" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("*[a-ζ]" : stdgo.GoString)?.__copy__(), ("A" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a?b" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a*b" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[\\]a]" : stdgo.GoString)?.__copy__(), ("]" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[\\-]" : stdgo.GoString)?.__copy__(), ("-" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x\\-]" : stdgo.GoString)?.__copy__(), ("x" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x\\-]" : stdgo.GoString)?.__copy__(), ("-" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x\\-]" : stdgo.GoString)?.__copy__(), ("z" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[\\-x]" : stdgo.GoString)?.__copy__(), ("x" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[\\-x]" : stdgo.GoString)?.__copy__(), ("-" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[\\-x]" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), false, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[]a]" : stdgo.GoString)?.__copy__(), ("]" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[-]" : stdgo.GoString)?.__copy__(), ("-" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x-]" : stdgo.GoString)?.__copy__(), ("x" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x-]" : stdgo.GoString)?.__copy__(), ("-" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[x-]" : stdgo.GoString)?.__copy__(), ("z" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[-x]" : stdgo.GoString)?.__copy__(), ("x" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[-x]" : stdgo.GoString)?.__copy__(), ("-" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[-x]" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("\\" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[a-b-c]" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[^" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("[^bc" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a[" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a[" : stdgo.GoString)?.__copy__(), ("ab" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a[" : stdgo.GoString)?.__copy__(), ("x" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("a/b[" : stdgo.GoString)?.__copy__(), ("x" : stdgo.GoString)?.__copy__(), false, errBadPattern) : stdgo.path.filepath_test.Filepath_test.MatchTest),
+(new stdgo.path.filepath_test.Filepath_test.MatchTest(("*x" : stdgo.GoString)?.__copy__(), ("xxx" : stdgo.GoString)?.__copy__(), true, (null : stdgo.Error)) : stdgo.path.filepath_test.Filepath_test.MatchTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.MatchTest>);
 /**
     
     
     
 **/
-var _globTests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(4, 4, ({ _pattern : ("match.go" : stdgo.GoString), _result : ("match.go" : stdgo.GoString) } : T__struct_0), ({ _pattern : ("mat?h.go" : stdgo.GoString), _result : ("match.go" : stdgo.GoString) } : T__struct_0), ({ _pattern : ("*" : stdgo.GoString), _result : ("match.go" : stdgo.GoString) } : T__struct_0), ({ _pattern : ("../*/match.go" : stdgo.GoString), _result : ("../filepath/match.go" : stdgo.GoString) } : T__struct_0)) : stdgo.Slice<T__struct_0>);
+var _globTests : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(4, 4, ({ _pattern : ("match.go" : stdgo.GoString)?.__copy__(), _result : ("match.go" : stdgo.GoString)?.__copy__() } : T__struct_0), ({ _pattern : ("mat?h.go" : stdgo.GoString)?.__copy__(), _result : ("match.go" : stdgo.GoString)?.__copy__() } : T__struct_0), ({ _pattern : ("*" : stdgo.GoString)?.__copy__(), _result : ("match.go" : stdgo.GoString)?.__copy__() } : T__struct_0), ({ _pattern : ("../*/match.go" : stdgo.GoString)?.__copy__(), _result : ("../filepath/match.go" : stdgo.GoString)?.__copy__() } : T__struct_0)) : stdgo.Slice<T__struct_0>);
 /**
     
     
     
 **/
-var _globSymlinkTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(2, 2, ({ _path : ("test1" : stdgo.GoString), _dest : ("link1" : stdgo.GoString), _brokenLink : false } : T__struct_1), ({ _path : ("test2" : stdgo.GoString), _dest : ("link2" : stdgo.GoString), _brokenLink : true } : T__struct_1)) : stdgo.Slice<T__struct_1>);
+var _globSymlinkTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(2, 2, ({ _path : ("test1" : stdgo.GoString)?.__copy__(), _dest : ("link1" : stdgo.GoString)?.__copy__(), _brokenLink : false } : T__struct_1), ({ _path : ("test2" : stdgo.GoString)?.__copy__(), _dest : ("link2" : stdgo.GoString)?.__copy__(), _brokenLink : true } : T__struct_1)) : stdgo.Slice<T__struct_1>);
 /**
     
     
@@ -85,47 +85,47 @@ var _globSymlinkTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>
 var _cleantests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(
 35,
 35,
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc" : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def" : stdgo.GoString), ("abc/def" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c" : stdgo.GoString), ("a/b/c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest((".." : stdgo.GoString), (".." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("../.." : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("../../abc" : stdgo.GoString), ("../../abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/abc" : stdgo.GoString), ("/abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(stdgo.Go.str(), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/" : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/" : stdgo.GoString), ("abc/def" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c/" : stdgo.GoString), ("a/b/c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("./" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("../" : stdgo.GoString), (".." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("../../" : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/abc/" : stdgo.GoString), ("/abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc//def//ghi" : stdgo.GoString), ("abc/def/ghi" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc//" : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/./def" : stdgo.GoString), ("abc/def" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/./abc/def" : stdgo.GoString), ("/abc/def" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/." : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/ghi/../jkl" : stdgo.GoString), ("abc/def/jkl" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/../ghi/../jkl" : stdgo.GoString), ("abc/jkl" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/.." : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/../.." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/abc/def/../.." : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/../../.." : stdgo.GoString), (".." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/abc/def/../../.." : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/../../../ghi/jkl/../../../mno" : stdgo.GoString), ("../../mno" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/../abc" : stdgo.GoString), ("/abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/../b:/../../c" : stdgo.GoString), ("../c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/./../def" : stdgo.GoString), ("def" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc//./../def" : stdgo.GoString), ("def" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/../../././../def" : stdgo.GoString), ("../../def" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def" : stdgo.GoString)?.__copy__(), ("abc/def" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c" : stdgo.GoString)?.__copy__(), ("a/b/c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("." : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest((".." : stdgo.GoString)?.__copy__(), (".." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("../.." : stdgo.GoString)?.__copy__(), ("../.." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("../../abc" : stdgo.GoString)?.__copy__(), ("../../abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/abc" : stdgo.GoString)?.__copy__(), ("/abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(stdgo.Go.str()?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/" : stdgo.GoString)?.__copy__(), ("abc/def" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c/" : stdgo.GoString)?.__copy__(), ("a/b/c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("./" : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("../" : stdgo.GoString)?.__copy__(), (".." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("../../" : stdgo.GoString)?.__copy__(), ("../.." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/abc/" : stdgo.GoString)?.__copy__(), ("/abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc//def//ghi" : stdgo.GoString)?.__copy__(), ("abc/def/ghi" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc//" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/./def" : stdgo.GoString)?.__copy__(), ("abc/def" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/./abc/def" : stdgo.GoString)?.__copy__(), ("/abc/def" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/." : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/ghi/../jkl" : stdgo.GoString)?.__copy__(), ("abc/def/jkl" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/../ghi/../jkl" : stdgo.GoString)?.__copy__(), ("abc/jkl" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/.." : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/../.." : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/abc/def/../.." : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/../../.." : stdgo.GoString)?.__copy__(), (".." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/abc/def/../../.." : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def/../../../ghi/jkl/../../../mno" : stdgo.GoString)?.__copy__(), ("../../mno" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/../abc" : stdgo.GoString)?.__copy__(), ("/abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/../b:/../../c" : stdgo.GoString)?.__copy__(), ("../c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/./../def" : stdgo.GoString)?.__copy__(), ("def" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc//./../def" : stdgo.GoString)?.__copy__(), ("def" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/../../././../def" : stdgo.GoString)?.__copy__(), ("../../def" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
 /**
     
     
     
 **/
-var _nonwincleantests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(3, 3, (new stdgo.path.filepath_test.Filepath_test.PathTest(("//abc" : stdgo.GoString), ("/abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("///abc" : stdgo.GoString), ("/abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("//abc//" : stdgo.GoString), ("/abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
+var _nonwincleantests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(3, 3, (new stdgo.path.filepath_test.Filepath_test.PathTest(("//abc" : stdgo.GoString)?.__copy__(), ("/abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("///abc" : stdgo.GoString)?.__copy__(), ("/abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("//abc//" : stdgo.GoString)?.__copy__(), ("/abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
 /**
     
     
@@ -134,37 +134,37 @@ var _nonwincleantests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathT
 var _wincleantests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(
 31,
 31,
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:" : stdgo.GoString), ("c:." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\" : stdgo.GoString), ("c:\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\abc" : stdgo.GoString), ("c:\\abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:abc\\..\\..\\.\\.\\..\\def" : stdgo.GoString), ("c:..\\..\\def" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\abc\\def\\..\\.." : stdgo.GoString), ("c:\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\..\\abc" : stdgo.GoString), ("c:\\abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:..\\abc" : stdgo.GoString), ("c:..\\abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\b:\\..\\..\\..\\d" : stdgo.GoString), ("c:\\d" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\" : stdgo.GoString), ("\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : stdgo.GoString), ("\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\c$" : stdgo.GoString), ("\\\\i\\..\\c$" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\i\\c$" : stdgo.GoString), ("\\\\i\\..\\i\\c$" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\I\\c$" : stdgo.GoString), ("\\\\i\\..\\I\\c$" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\foo\\..\\bar" : stdgo.GoString), ("\\\\host\\share\\bar" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("//host/share/foo/../baz" : stdgo.GoString), ("\\\\host\\share\\baz" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\foo\\..\\..\\..\\..\\bar" : stdgo.GoString), ("\\\\host\\share\\bar" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\.\\C:\\a\\..\\..\\..\\..\\bar" : stdgo.GoString), ("\\\\.\\C:\\bar" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\.\\C:\\\\\\\\a" : stdgo.GoString), ("\\\\.\\C:\\a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\a\\b\\..\\c" : stdgo.GoString), ("\\\\a\\b\\c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\a\\b" : stdgo.GoString), ("\\\\a\\b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest((".\\c:" : stdgo.GoString), (".\\c:" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest((".\\c:\\foo" : stdgo.GoString), (".\\c:\\foo" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest((".\\c:foo" : stdgo.GoString), (".\\c:foo" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("//abc" : stdgo.GoString), ("\\\\abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("///abc" : stdgo.GoString), ("\\\\\\abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("//abc//" : stdgo.GoString), ("\\\\abc\\\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/../c:" : stdgo.GoString), (".\\c:" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a\\..\\c:" : stdgo.GoString), (".\\c:" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/../c:/a" : stdgo.GoString), (".\\c:\\a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/../../c:" : stdgo.GoString), ("..\\c:" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("foo:bar" : stdgo.GoString), ("foo:bar" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:" : stdgo.GoString)?.__copy__(), ("c:." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\" : stdgo.GoString)?.__copy__(), ("c:\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\abc" : stdgo.GoString)?.__copy__(), ("c:\\abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:abc\\..\\..\\.\\.\\..\\def" : stdgo.GoString)?.__copy__(), ("c:..\\..\\def" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\abc\\def\\..\\.." : stdgo.GoString)?.__copy__(), ("c:\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\..\\abc" : stdgo.GoString)?.__copy__(), ("c:\\abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:..\\abc" : stdgo.GoString)?.__copy__(), ("c:..\\abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\b:\\..\\..\\..\\d" : stdgo.GoString)?.__copy__(), ("c:\\d" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\" : stdgo.GoString)?.__copy__(), ("\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : stdgo.GoString)?.__copy__(), ("\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\c$" : stdgo.GoString)?.__copy__(), ("\\\\i\\..\\c$" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\i\\c$" : stdgo.GoString)?.__copy__(), ("\\\\i\\..\\i\\c$" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\i\\..\\I\\c$" : stdgo.GoString)?.__copy__(), ("\\\\i\\..\\I\\c$" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\foo\\..\\bar" : stdgo.GoString)?.__copy__(), ("\\\\host\\share\\bar" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("//host/share/foo/../baz" : stdgo.GoString)?.__copy__(), ("\\\\host\\share\\baz" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\foo\\..\\..\\..\\..\\bar" : stdgo.GoString)?.__copy__(), ("\\\\host\\share\\bar" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\.\\C:\\a\\..\\..\\..\\..\\bar" : stdgo.GoString)?.__copy__(), ("\\\\.\\C:\\bar" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\.\\C:\\\\\\\\a" : stdgo.GoString)?.__copy__(), ("\\\\.\\C:\\a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\a\\b\\..\\c" : stdgo.GoString)?.__copy__(), ("\\\\a\\b\\c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\a\\b" : stdgo.GoString)?.__copy__(), ("\\\\a\\b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest((".\\c:" : stdgo.GoString)?.__copy__(), (".\\c:" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest((".\\c:\\foo" : stdgo.GoString)?.__copy__(), (".\\c:\\foo" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest((".\\c:foo" : stdgo.GoString)?.__copy__(), (".\\c:foo" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("//abc" : stdgo.GoString)?.__copy__(), ("\\\\abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("///abc" : stdgo.GoString)?.__copy__(), ("\\\\\\abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("//abc//" : stdgo.GoString)?.__copy__(), ("\\\\abc\\\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/../c:" : stdgo.GoString)?.__copy__(), (".\\c:" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a\\..\\c:" : stdgo.GoString)?.__copy__(), (".\\c:" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/../c:/a" : stdgo.GoString)?.__copy__(), (".\\c:\\a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/../../c:" : stdgo.GoString)?.__copy__(), ("..\\c:" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("foo:bar" : stdgo.GoString)?.__copy__(), ("foo:bar" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
 /**
     
     
@@ -173,19 +173,19 @@ var _wincleantests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest
 var _islocaltests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>(
 13,
 13,
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(stdgo.Go.str(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("." : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest((".." : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("../a" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("/" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("/a" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("/a/../.." : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/../a" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/." : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/./b/./c" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/../b:/../../c" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>);
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(stdgo.Go.str()?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("." : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest((".." : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("../a" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("/" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("/a" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("/a/../.." : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/../a" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/." : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/./b/./c" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/../b:/../../c" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>);
 /**
     
     
@@ -194,40 +194,40 @@ var _islocaltests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTe
 var _winislocaltests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>(
 16,
 16,
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("NUL" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("nul" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("nul." : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("com1" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("./nul" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("\\" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("\\a" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("C:" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("C:\\a" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("..\\a" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/../c:" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("CONIN$" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("conin$" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("CONOUT$" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("conout$" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
-(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("dollar$" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>);
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("NUL" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("nul" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("nul." : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("com1" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("./nul" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("\\" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("\\a" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("C:" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("C:\\a" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("..\\a" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("a/../c:" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("CONIN$" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("conin$" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("CONOUT$" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("conout$" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest),
+(new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("dollar$" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsLocalTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>);
 /**
     
     
     
 **/
-var _plan9islocaltests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>(1, 1, (new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("#a" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>);
+var _plan9islocaltests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>(1, 1, (new stdgo.path.filepath_test.Filepath_test.IsLocalTest(("#a" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsLocalTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsLocalTest>);
 /**
     
     
     
 **/
-var _slashtests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(4, 4, (new stdgo.path.filepath_test.Filepath_test.PathTest(stdgo.Go.str(), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : stdgo.GoString), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("/a/b" : stdgo.GoString), ((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(4, 4, (47 : stdgo.StdGoTypes.GoUInt8), (97 : stdgo.StdGoTypes.GoUInt8), (47 : stdgo.StdGoTypes.GoUInt8), (98 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("a//b" : stdgo.GoString), ((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(4, 4, (97 : stdgo.StdGoTypes.GoUInt8), (47 : stdgo.StdGoTypes.GoUInt8), (47 : stdgo.StdGoTypes.GoUInt8), (98 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
+var _slashtests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(4, 4, (new stdgo.path.filepath_test.Filepath_test.PathTest(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : stdgo.GoString)?.__copy__(), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("/a/b" : stdgo.GoString)?.__copy__(), ((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(4, 4, (47 : stdgo.StdGoTypes.GoUInt8), (97 : stdgo.StdGoTypes.GoUInt8), (47 : stdgo.StdGoTypes.GoUInt8), (98 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("a//b" : stdgo.GoString)?.__copy__(), ((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(4, 4, (97 : stdgo.StdGoTypes.GoUInt8), (47 : stdgo.StdGoTypes.GoUInt8), (47 : stdgo.StdGoTypes.GoUInt8), (98 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
 /**
     
     
     
 **/
-var _splitlisttests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitListTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitListTest>(3, 3, (new stdgo.path.filepath_test.Filepath_test.SplitListTest(stdgo.Go.str(), (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest), (new stdgo.path.filepath_test.Filepath_test.SplitListTest(((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(3, 3, (97 : stdgo.StdGoTypes.GoUInt8), (58 : stdgo.StdGoTypes.GoUInt8), (98 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest), (new stdgo.path.filepath_test.Filepath_test.SplitListTest(((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(4, 4, (58 : stdgo.StdGoTypes.GoUInt8), (97 : stdgo.StdGoTypes.GoUInt8), (58 : stdgo.StdGoTypes.GoUInt8), (98 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(3, 3, stdgo.Go.str(), ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitListTest>);
+var _splitlisttests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitListTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitListTest>(3, 3, (new stdgo.path.filepath_test.Filepath_test.SplitListTest(stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest), (new stdgo.path.filepath_test.Filepath_test.SplitListTest(((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(3, 3, (97 : stdgo.StdGoTypes.GoUInt8), (58 : stdgo.StdGoTypes.GoUInt8), (98 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest), (new stdgo.path.filepath_test.Filepath_test.SplitListTest(((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(4, 4, (58 : stdgo.StdGoTypes.GoUInt8), (97 : stdgo.StdGoTypes.GoUInt8), (58 : stdgo.StdGoTypes.GoUInt8), (98 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(3, 3, stdgo.Go.str()?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitListTest>);
 /**
     
     
@@ -236,26 +236,26 @@ var _splitlisttests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitLi
 var _winsplitlisttests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitListTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitListTest>(
 14,
 14,
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"a\"" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\";\"" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, (";" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"a;b\"" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a;b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\";\";" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(2, 2, (";" : stdgo.GoString), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest((";\";\"" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(2, 2, stdgo.Go.str(), (";" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("a\";\"b" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a;b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("a; \"\"b" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), (" b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"a;b" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a;b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"\"a;b" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"\"\"a;b" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a;b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"\"\"\"a;b" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("a\";b" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a;b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("a;b\";c" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("b;c" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"a\";b\";c" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("b;c" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitListTest>);
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"a\"" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\";\"" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, (";" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"a;b\"" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a;b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\";\";" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, (";" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest((";\";\"" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, stdgo.Go.str()?.__copy__(), (";" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("a\";\"b" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a;b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("a; \"\"b" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString)?.__copy__(), (" b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"a;b" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a;b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"\"a;b" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"\"\"a;b" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a;b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"\"\"\"a;b" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("a\";b" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a;b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("a;b\";c" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString)?.__copy__(), ("b;c" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitListTest(("\"a\";b\";c" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString)?.__copy__(), ("b;c" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.SplitListTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitListTest>);
 /**
     
     
     
 **/
-var _unixsplittests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTest>(5, 5, (new stdgo.path.filepath_test.Filepath_test.SplitTest(("a/b" : stdgo.GoString), ("a/" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.SplitTest), (new stdgo.path.filepath_test.Filepath_test.SplitTest(("a/b/" : stdgo.GoString), ("a/b/" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.SplitTest), (new stdgo.path.filepath_test.Filepath_test.SplitTest(("a/" : stdgo.GoString), ("a/" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.SplitTest), (new stdgo.path.filepath_test.Filepath_test.SplitTest(("a" : stdgo.GoString), stdgo.Go.str(), ("a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.SplitTest), (new stdgo.path.filepath_test.Filepath_test.SplitTest(("/" : stdgo.GoString), ("/" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.SplitTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTest>);
+var _unixsplittests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTest>(5, 5, (new stdgo.path.filepath_test.Filepath_test.SplitTest(("a/b" : stdgo.GoString)?.__copy__(), ("a/" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest), (new stdgo.path.filepath_test.Filepath_test.SplitTest(("a/b/" : stdgo.GoString)?.__copy__(), ("a/b/" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest), (new stdgo.path.filepath_test.Filepath_test.SplitTest(("a/" : stdgo.GoString)?.__copy__(), ("a/" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest), (new stdgo.path.filepath_test.Filepath_test.SplitTest(("a" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), ("a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest), (new stdgo.path.filepath_test.Filepath_test.SplitTest(("/" : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTest>);
 /**
     
     
@@ -264,16 +264,16 @@ var _unixsplittests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTe
 var _winsplittests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTest>(
 10,
 10,
-(new stdgo.path.filepath_test.Filepath_test.SplitTest(("c:" : stdgo.GoString), ("c:" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitTest(("c:/" : stdgo.GoString), ("c:/" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitTest(("c:/foo" : stdgo.GoString), ("c:/" : stdgo.GoString), ("foo" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.SplitTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitTest(("c:/foo/bar" : stdgo.GoString), ("c:/foo/" : stdgo.GoString), ("bar" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.SplitTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitTest(("//host/share" : stdgo.GoString), ("//host/share" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitTest(("//host/share/" : stdgo.GoString), ("//host/share/" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitTest(("//host/share/foo" : stdgo.GoString), ("//host/share/" : stdgo.GoString), ("foo" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.SplitTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitTest(("\\\\host\\share" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitTest(("\\\\host\\share\\" : stdgo.GoString), ("\\\\host\\share\\" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
-(new stdgo.path.filepath_test.Filepath_test.SplitTest(("\\\\host\\share\\foo" : stdgo.GoString), ("\\\\host\\share\\" : stdgo.GoString), ("foo" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.SplitTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTest>);
+(new stdgo.path.filepath_test.Filepath_test.SplitTest(("c:" : stdgo.GoString)?.__copy__(), ("c:" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitTest(("c:/" : stdgo.GoString)?.__copy__(), ("c:/" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitTest(("c:/foo" : stdgo.GoString)?.__copy__(), ("c:/" : stdgo.GoString)?.__copy__(), ("foo" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitTest(("c:/foo/bar" : stdgo.GoString)?.__copy__(), ("c:/foo/" : stdgo.GoString)?.__copy__(), ("bar" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitTest(("//host/share" : stdgo.GoString)?.__copy__(), ("//host/share" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitTest(("//host/share/" : stdgo.GoString)?.__copy__(), ("//host/share/" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitTest(("//host/share/foo" : stdgo.GoString)?.__copy__(), ("//host/share/" : stdgo.GoString)?.__copy__(), ("foo" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitTest(("\\\\host\\share" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitTest(("\\\\host\\share\\" : stdgo.GoString)?.__copy__(), ("\\\\host\\share\\" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest),
+(new stdgo.path.filepath_test.Filepath_test.SplitTest(("\\\\host\\share\\foo" : stdgo.GoString)?.__copy__(), ("\\\\host\\share\\" : stdgo.GoString)?.__copy__(), ("foo" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.SplitTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTest>);
 /**
     
     
@@ -282,29 +282,29 @@ var _winsplittests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.SplitTes
 var _jointests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest>(
 17,
 17,
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, ("/" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("a/b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), ("a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, stdgo.Go.str(), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/" : stdgo.GoString), ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("/a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/" : stdgo.GoString), ("a/b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("/a/b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/" : stdgo.GoString), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("/a/b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("/b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("a/b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/a" : stdgo.GoString), ("/b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("/a/b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a/" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("a/b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a/" : stdgo.GoString), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), ("a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, stdgo.Go.str(), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("/" : stdgo.GoString), ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("/a/b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest>);
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, ("/" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, ("a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("a/b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, stdgo.Go.str()?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("/a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("/a/b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("/a/b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString)?.__copy__(), ("/b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("a/b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("/a" : stdgo.GoString)?.__copy__(), ("/b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("/a/b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a/" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("a/b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a/" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("/" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("/a/b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest>);
 /**
     
     
     
 **/
-var _nonwinjointests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest>(1, 1, (new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("//" : stdgo.GoString), ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("/a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest>);
+var _nonwinjointests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest>(1, 1, (new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("//" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("/a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest>);
 /**
     
     
@@ -313,48 +313,48 @@ var _nonwinjointests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTe
 var _winjointests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest>(
 30,
 30,
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("directory" : stdgo.GoString), ("file" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("directory\\file" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:\\Windows\\" : stdgo.GoString), ("System32" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:\\Windows\\System32" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:\\Windows\\" : stdgo.GoString), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), ("C:\\Windows" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:\\" : stdgo.GoString), ("Windows" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:\\Windows" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:" : stdgo.GoString), ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:" : stdgo.GoString), ("a\\b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:a\\b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("C:" : stdgo.GoString), ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:a\\b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("C:" : stdgo.GoString), stdgo.Go.str(), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(4, 4, ("C:" : stdgo.GoString), stdgo.Go.str(), stdgo.Go.str(), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:" : stdgo.GoString), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), ("C:." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("C:" : stdgo.GoString), stdgo.Go.str(), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), ("C:." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:" : stdgo.GoString), ("\\a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:\\a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("C:" : stdgo.GoString), stdgo.Go.str(), ("\\a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:\\a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:." : stdgo.GoString), ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:a\\b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("C:a" : stdgo.GoString), ("b" : stdgo.GoString), ("d" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("C:a\\b\\d" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("\\\\host\\share" : stdgo.GoString), ("foo" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\\\host\\share\\foo" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, ("\\\\host\\share\\foo" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\\\host\\share\\foo" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("//host/share" : stdgo.GoString), ("foo/bar" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\\\host\\share\\foo\\bar" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, ("\\" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("\\" : stdgo.GoString), stdgo.Go.str()) : stdgo.Slice<stdgo.GoString>), ("\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("\\" : stdgo.GoString), ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("\\\\" : stdgo.GoString), ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\\\a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("\\" : stdgo.GoString), ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\a\\b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("\\\\" : stdgo.GoString), ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\\\a\\b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("\\" : stdgo.GoString), ("\\\\a\\b" : stdgo.GoString), ("c" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\a\\b\\c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("\\\\a" : stdgo.GoString), ("b" : stdgo.GoString), ("c" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\\\a\\b\\c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("\\\\a\\" : stdgo.GoString), ("b" : stdgo.GoString), ("c" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\\\a\\b\\c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("//" : stdgo.GoString), ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("\\\\a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest),
-(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a:\\b\\c" : stdgo.GoString), ("x\\..\\y:\\..\\..\\z" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ("a:\\b\\z" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.JoinTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest>);
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("directory" : stdgo.GoString)?.__copy__(), ("file" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("directory\\file" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:\\Windows\\" : stdgo.GoString)?.__copy__(), ("System32" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:\\Windows\\System32" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:\\Windows\\" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:\\Windows" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:\\" : stdgo.GoString)?.__copy__(), ("Windows" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:\\Windows" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:" : stdgo.GoString)?.__copy__(), ("a\\b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:a\\b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("C:" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:a\\b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("C:" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(4, 4, ("C:" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("C:" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:" : stdgo.GoString)?.__copy__(), ("\\a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:\\a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("C:" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), ("\\a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:\\a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:." : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("C:a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:a\\b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("C:a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__(), ("d" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("C:a\\b\\d" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("\\\\host\\share" : stdgo.GoString)?.__copy__(), ("foo" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\\\host\\share\\foo" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, ("\\\\host\\share\\foo" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\\\host\\share\\foo" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("//host/share" : stdgo.GoString)?.__copy__(), ("foo/bar" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\\\host\\share\\foo\\bar" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(1, 1, ("\\" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("\\" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("\\" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("\\\\" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\\\a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("\\" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\a\\b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("\\\\" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\\\a\\b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("\\" : stdgo.GoString)?.__copy__(), ("\\\\a\\b" : stdgo.GoString)?.__copy__(), ("c" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\a\\b\\c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("\\\\a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__(), ("c" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\\\a\\b\\c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(3, 3, ("\\\\a\\" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__(), ("c" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\\\a\\b\\c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("//" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("\\\\a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest),
+(new stdgo.path.filepath_test.Filepath_test.JoinTest((new stdgo.Slice<stdgo.GoString>(2, 2, ("a:\\b\\c" : stdgo.GoString)?.__copy__(), ("x\\..\\y:\\..\\..\\z" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ("a:\\b\\z" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.JoinTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.JoinTest>);
 /**
     
     
     
 **/
-var _exttests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.ExtTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.ExtTest>(5, 5, (new stdgo.path.filepath_test.Filepath_test.ExtTest(("path.go" : stdgo.GoString), (".go" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.ExtTest), (new stdgo.path.filepath_test.Filepath_test.ExtTest(("path.pb.go" : stdgo.GoString), (".go" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.ExtTest), (new stdgo.path.filepath_test.Filepath_test.ExtTest(("a.dir/b" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.ExtTest), (new stdgo.path.filepath_test.Filepath_test.ExtTest(("a.dir/b.go" : stdgo.GoString), (".go" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.ExtTest), (new stdgo.path.filepath_test.Filepath_test.ExtTest(("a.dir/" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.ExtTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.ExtTest>);
+var _exttests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.ExtTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.ExtTest>(5, 5, (new stdgo.path.filepath_test.Filepath_test.ExtTest(("path.go" : stdgo.GoString)?.__copy__(), (".go" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.ExtTest), (new stdgo.path.filepath_test.Filepath_test.ExtTest(("path.pb.go" : stdgo.GoString)?.__copy__(), (".go" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.ExtTest), (new stdgo.path.filepath_test.Filepath_test.ExtTest(("a.dir/b" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.ExtTest), (new stdgo.path.filepath_test.Filepath_test.ExtTest(("a.dir/b.go" : stdgo.GoString)?.__copy__(), (".go" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.ExtTest), (new stdgo.path.filepath_test.Filepath_test.ExtTest(("a.dir/" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.ExtTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.ExtTest>);
 /**
     
     
     
 **/
-var _tree : stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node> = (stdgo.Go.setRef((new Node(("testdata" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>(4, 4, (new stdgo.path.filepath_test.Filepath_test.Node(("a" : stdgo.GoString), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("b" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>(0, 0) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("c" : stdgo.GoString), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("d" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>(3, 3, (new stdgo.path.filepath_test.Filepath_test.Node(("x" : stdgo.GoString), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("y" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>(0, 0) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("z" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>(2, 2, (new stdgo.path.filepath_test.Filepath_test.Node(("u" : stdgo.GoString), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("v" : stdgo.GoString), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : Node)) : stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>);
+var _tree : stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node> = (stdgo.Go.setRef((new Node(("testdata" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>(4, 4, (new stdgo.path.filepath_test.Filepath_test.Node(("a" : stdgo.GoString)?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("b" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>(0, 0) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("c" : stdgo.GoString)?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("d" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>(3, 3, (new stdgo.path.filepath_test.Filepath_test.Node(("x" : stdgo.GoString)?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("y" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>(0, 0) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("z" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>(2, 2, (new stdgo.path.filepath_test.Filepath_test.Node(("u" : stdgo.GoString)?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node), (new stdgo.path.filepath_test.Filepath_test.Node(("v" : stdgo.GoString)?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.path.filepath_test.Filepath_test.Node)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>>), (0 : stdgo.StdGoTypes.GoInt)) : Node)) : stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node>);
 /**
     
     
@@ -363,23 +363,23 @@ var _tree : stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.Node> = 
 var _basetests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(
 11,
 11,
-(new stdgo.path.filepath_test.Filepath_test.PathTest(stdgo.Go.str(), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("////" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("x/" : stdgo.GoString), ("x" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc" : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def" : stdgo.GoString), ("def" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/.x" : stdgo.GoString), (".x" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c." : stdgo.GoString), ("c." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c.x" : stdgo.GoString), ("c.x" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
+(new stdgo.path.filepath_test.Filepath_test.PathTest(stdgo.Go.str()?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("." : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/." : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("////" : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("x/" : stdgo.GoString)?.__copy__(), ("x" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def" : stdgo.GoString)?.__copy__(), ("def" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/.x" : stdgo.GoString)?.__copy__(), (".x" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c." : stdgo.GoString)?.__copy__(), ("c." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c.x" : stdgo.GoString)?.__copy__(), ("c.x" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
 /**
     
     
     
 **/
-var _winbasetests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(8, 8, (new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\" : stdgo.GoString), ("\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("c:." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\a\\b" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("c:a\\b" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("c:a\\b\\c" : stdgo.GoString), ("c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\" : stdgo.GoString), ("\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\a" : stdgo.GoString), ("a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\a\\b" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
+var _winbasetests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(8, 8, (new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\" : stdgo.GoString)?.__copy__(), ("\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("c:." : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\a\\b" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("c:a\\b" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("c:a\\b\\c" : stdgo.GoString)?.__copy__(), ("c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\" : stdgo.GoString)?.__copy__(), ("\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\a" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest), (new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\a\\b" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
 /**
     
     
@@ -388,23 +388,23 @@ var _winbasetests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>
 var _dirtests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(
 11,
 11,
-(new stdgo.path.filepath_test.Filepath_test.PathTest(stdgo.Go.str(), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/." : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("/foo" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("x/" : stdgo.GoString), ("x" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def" : stdgo.GoString), ("abc" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/.x" : stdgo.GoString), ("a/b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c." : stdgo.GoString), ("a/b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c.x" : stdgo.GoString), ("a/b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
+(new stdgo.path.filepath_test.Filepath_test.PathTest(stdgo.Go.str()?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("." : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/." : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/" : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("/foo" : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("x/" : stdgo.GoString)?.__copy__(), ("x" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc" : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("abc/def" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/.x" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c." : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("a/b/c.x" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
 /**
     
     
     
 **/
-var _nonwindirtests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(1, 1, (new stdgo.path.filepath_test.Filepath_test.PathTest(("////" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
+var _nonwindirtests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(1, 1, (new stdgo.path.filepath_test.Filepath_test.PathTest(("////" : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
 /**
     
     
@@ -413,22 +413,22 @@ var _nonwindirtests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTes
 var _windirtests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>(
 10,
 10,
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\" : stdgo.GoString), ("c:\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:." : stdgo.GoString), ("c:." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\a\\b" : stdgo.GoString), ("c:\\a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:a\\b" : stdgo.GoString), ("c:a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:a\\b\\c" : stdgo.GoString), ("c:a\\b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\" : stdgo.GoString), ("\\\\host\\share\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\a" : stdgo.GoString), ("\\\\host\\share\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\a\\b" : stdgo.GoString), ("\\\\host\\share\\a" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest),
-(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\\\\\" : stdgo.GoString), ("\\\\\\\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\" : stdgo.GoString)?.__copy__(), ("c:\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:." : stdgo.GoString)?.__copy__(), ("c:." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:\\a\\b" : stdgo.GoString)?.__copy__(), ("c:\\a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:a\\b" : stdgo.GoString)?.__copy__(), ("c:a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("c:a\\b\\c" : stdgo.GoString)?.__copy__(), ("c:a\\b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\" : stdgo.GoString)?.__copy__(), ("\\\\host\\share\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\a" : stdgo.GoString)?.__copy__(), ("\\\\host\\share\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\host\\share\\a\\b" : stdgo.GoString)?.__copy__(), ("\\\\host\\share\\a" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest),
+(new stdgo.path.filepath_test.Filepath_test.PathTest(("\\\\\\\\" : stdgo.GoString)?.__copy__(), ("\\\\\\\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.PathTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.PathTest>);
 /**
     
     
     
 **/
-var _isabstests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTest>(8, 8, (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(stdgo.Go.str(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("/" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("/usr/bin/gcc" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest((".." : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("/a/../bb" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("." : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("./" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("lala" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTest>);
+var _isabstests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTest>(8, 8, (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(stdgo.Go.str()?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("/" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("/usr/bin/gcc" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest((".." : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("/a/../bb" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("." : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("./" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest), (new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("lala" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTest>);
 /**
     
     
@@ -437,20 +437,20 @@ var _isabstests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTest> 
 var _winisabstests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTest>(
 14,
 14,
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("C:\\" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c\\" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c::" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c:" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("/" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("\\" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("\\Windows" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c:a\\b" : stdgo.GoString), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c:\\a\\b" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c:/a/b" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("\\\\host\\share" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("\\\\host\\share\\" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("\\\\host\\share\\foo" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
-(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("//host/share/foo/bar" : stdgo.GoString), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTest>);
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("C:\\" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c\\" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c::" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c:" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("/" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("\\" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("\\Windows" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c:a\\b" : stdgo.GoString)?.__copy__(), false) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c:\\a\\b" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("c:/a/b" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("\\\\host\\share" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("\\\\host\\share\\" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("\\\\host\\share\\foo" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest),
+(new stdgo.path.filepath_test.Filepath_test.IsAbsTest(("//host/share/foo/bar" : stdgo.GoString)?.__copy__(), true) : stdgo.path.filepath_test.Filepath_test.IsAbsTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTest>);
 /**
     
     
@@ -459,23 +459,23 @@ var _winisabstests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.IsAbsTes
 var evalSymlinksTestDirs : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest>(
 17,
 17,
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/dir" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/dir/link3" : stdgo.GoString), ("../../" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link1" : stdgo.GoString), ("../test" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link2" : stdgo.GoString), ("dir" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/linkabs" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link4" : stdgo.GoString), ("../test2" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test2" : stdgo.GoString), ("test/dir" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/pool" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/pool/test" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions/current" : stdgo.GoString), ("../../version" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions/v1" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions/v1/modules" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions/v1/modules/test" : stdgo.GoString), ("../../../pool/test" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("version" : stdgo.GoString), ("src/versions/v1" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest>);
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/dir" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/dir/link3" : stdgo.GoString)?.__copy__(), ("../../" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link1" : stdgo.GoString)?.__copy__(), ("../test" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link2" : stdgo.GoString)?.__copy__(), ("dir" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/linkabs" : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link4" : stdgo.GoString)?.__copy__(), ("../test2" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test2" : stdgo.GoString)?.__copy__(), ("test/dir" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/pool" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/pool/test" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions/current" : stdgo.GoString)?.__copy__(), ("../../version" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions/v1" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions/v1/modules" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions/v1/modules/test" : stdgo.GoString)?.__copy__(), ("../../../pool/test" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("version" : stdgo.GoString)?.__copy__(), ("src/versions/v1" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest>);
 /**
     
     
@@ -484,25 +484,25 @@ var evalSymlinksTestDirs : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.Ev
 var evalSymlinksTests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest>(
 12,
 12,
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test" : stdgo.GoString), ("test" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/dir" : stdgo.GoString), ("test/dir" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/dir/../.." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link1" : stdgo.GoString), ("test" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link2" : stdgo.GoString), ("test/dir" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link1/dir" : stdgo.GoString), ("test/dir" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link2/.." : stdgo.GoString), ("test" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/dir/link3" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link2/link3/test" : stdgo.GoString), ("test" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/linkabs" : stdgo.GoString), ("/" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link4/.." : stdgo.GoString), ("test" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
-(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions/current/modules/test" : stdgo.GoString), ("src/pool/test" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest>);
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test" : stdgo.GoString)?.__copy__(), ("test" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/dir" : stdgo.GoString)?.__copy__(), ("test/dir" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/dir/../.." : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link1" : stdgo.GoString)?.__copy__(), ("test" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link2" : stdgo.GoString)?.__copy__(), ("test/dir" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link1/dir" : stdgo.GoString)?.__copy__(), ("test/dir" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link2/.." : stdgo.GoString)?.__copy__(), ("test" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/dir/link3" : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link2/link3/test" : stdgo.GoString)?.__copy__(), ("test" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/linkabs" : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("test/link4/.." : stdgo.GoString)?.__copy__(), ("test" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest),
+(new stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest(("src/versions/current/modules/test" : stdgo.GoString)?.__copy__(), ("src/pool/test" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.EvalSymlinksTest>);
 /**
     // Test directories relative to temporary directory.
     // The tests are run in absTestDirs[0].
     
     
 **/
-var _absTestDirs : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("a" : stdgo.GoString), ("a/b" : stdgo.GoString), ("a/b/c" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+var _absTestDirs : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("a" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__(), ("a/b/c" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
 /**
     // Test paths relative to temporary directory. $ expands to the directory.
     // The tests are run in absTestDirs[0].
@@ -513,18 +513,18 @@ var _absTestDirs : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString
 var _absTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 12,
 12,
-("." : stdgo.GoString),
-("b" : stdgo.GoString),
-("b/" : stdgo.GoString),
-("../a" : stdgo.GoString),
-("../a/b" : stdgo.GoString),
-("../a/b/./c/../../.././a" : stdgo.GoString),
-("../a/b/./c/../../.././a/" : stdgo.GoString),
-("$" : stdgo.GoString),
-("$/." : stdgo.GoString),
-("$/a/../a/b" : stdgo.GoString),
-("$/a/b/c/../../.././a" : stdgo.GoString),
-("$/a/b/c/../../.././a/" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+("." : stdgo.GoString)?.__copy__(),
+("b" : stdgo.GoString)?.__copy__(),
+("b/" : stdgo.GoString)?.__copy__(),
+("../a" : stdgo.GoString)?.__copy__(),
+("../a/b" : stdgo.GoString)?.__copy__(),
+("../a/b/./c/../../.././a" : stdgo.GoString)?.__copy__(),
+("../a/b/./c/../../.././a/" : stdgo.GoString)?.__copy__(),
+("$" : stdgo.GoString)?.__copy__(),
+("$/." : stdgo.GoString)?.__copy__(),
+("$/a/../a/b" : stdgo.GoString)?.__copy__(),
+("$/a/b/c/../../.././a" : stdgo.GoString)?.__copy__(),
+("$/a/b/c/../../.././a/" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
 /**
     
     
@@ -533,51 +533,51 @@ var _absTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 var _reltests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests>(
 39,
 39,
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString), ("a/b" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/." : stdgo.GoString), ("a/b" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString), ("a/b/." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("./a/b" : stdgo.GoString), ("a/b" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString), ("./a/b" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("ab/cd" : stdgo.GoString), ("ab/cde" : stdgo.GoString), ("../cde" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("ab/cd" : stdgo.GoString), ("ab/c" : stdgo.GoString), ("../c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString), ("a/b/c/d" : stdgo.GoString), ("c/d" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString), ("a/b/../c" : stdgo.GoString), ("../c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/../c" : stdgo.GoString), ("a/b" : stdgo.GoString), ("../b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/c" : stdgo.GoString), ("a/c/d" : stdgo.GoString), ("../../c/d" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString), ("c/d" : stdgo.GoString), ("../../c/d" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/c/d" : stdgo.GoString), ("a/b" : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/c/d" : stdgo.GoString), ("a/b/" : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/c/d/" : stdgo.GoString), ("a/b" : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/c/d/" : stdgo.GoString), ("a/b/" : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("../../a/b" : stdgo.GoString), ("../../a/b/c/d" : stdgo.GoString), ("c/d" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b" : stdgo.GoString), ("/a/b" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/." : stdgo.GoString), ("/a/b" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b" : stdgo.GoString), ("/a/b/." : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/ab/cd" : stdgo.GoString), ("/ab/cde" : stdgo.GoString), ("../cde" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/ab/cd" : stdgo.GoString), ("/ab/c" : stdgo.GoString), ("../c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b" : stdgo.GoString), ("/a/b/c/d" : stdgo.GoString), ("c/d" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b" : stdgo.GoString), ("/a/b/../c" : stdgo.GoString), ("../c" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/../c" : stdgo.GoString), ("/a/b" : stdgo.GoString), ("../b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/c" : stdgo.GoString), ("/a/c/d" : stdgo.GoString), ("../../c/d" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b" : stdgo.GoString), ("/c/d" : stdgo.GoString), ("../../c/d" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/c/d" : stdgo.GoString), ("/a/b" : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/c/d" : stdgo.GoString), ("/a/b/" : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/c/d/" : stdgo.GoString), ("/a/b" : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/c/d/" : stdgo.GoString), ("/a/b/" : stdgo.GoString), ("../.." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/../../a/b" : stdgo.GoString), ("/../../a/b/c/d" : stdgo.GoString), ("c/d" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("." : stdgo.GoString), ("a/b" : stdgo.GoString), ("a/b" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("." : stdgo.GoString), (".." : stdgo.GoString), (".." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests((".." : stdgo.GoString), ("." : stdgo.GoString), ("err" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests((".." : stdgo.GoString), ("a" : stdgo.GoString), ("err" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("../.." : stdgo.GoString), (".." : stdgo.GoString), ("err" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("a" : stdgo.GoString), ("/a" : stdgo.GoString), ("err" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests),
-(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a" : stdgo.GoString), ("a" : stdgo.GoString), ("err" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests>);
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/." : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString)?.__copy__(), ("a/b/." : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("./a/b" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString)?.__copy__(), ("./a/b" : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("ab/cd" : stdgo.GoString)?.__copy__(), ("ab/cde" : stdgo.GoString)?.__copy__(), ("../cde" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("ab/cd" : stdgo.GoString)?.__copy__(), ("ab/c" : stdgo.GoString)?.__copy__(), ("../c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString)?.__copy__(), ("a/b/c/d" : stdgo.GoString)?.__copy__(), ("c/d" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString)?.__copy__(), ("a/b/../c" : stdgo.GoString)?.__copy__(), ("../c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/../c" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__(), ("../b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/c" : stdgo.GoString)?.__copy__(), ("a/c/d" : stdgo.GoString)?.__copy__(), ("../../c/d" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b" : stdgo.GoString)?.__copy__(), ("c/d" : stdgo.GoString)?.__copy__(), ("../../c/d" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/c/d" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__(), ("../.." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/c/d" : stdgo.GoString)?.__copy__(), ("a/b/" : stdgo.GoString)?.__copy__(), ("../.." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/c/d/" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__(), ("../.." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a/b/c/d/" : stdgo.GoString)?.__copy__(), ("a/b/" : stdgo.GoString)?.__copy__(), ("../.." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("../../a/b" : stdgo.GoString)?.__copy__(), ("../../a/b/c/d" : stdgo.GoString)?.__copy__(), ("c/d" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b" : stdgo.GoString)?.__copy__(), ("/a/b" : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/." : stdgo.GoString)?.__copy__(), ("/a/b" : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b" : stdgo.GoString)?.__copy__(), ("/a/b/." : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/ab/cd" : stdgo.GoString)?.__copy__(), ("/ab/cde" : stdgo.GoString)?.__copy__(), ("../cde" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/ab/cd" : stdgo.GoString)?.__copy__(), ("/ab/c" : stdgo.GoString)?.__copy__(), ("../c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b" : stdgo.GoString)?.__copy__(), ("/a/b/c/d" : stdgo.GoString)?.__copy__(), ("c/d" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b" : stdgo.GoString)?.__copy__(), ("/a/b/../c" : stdgo.GoString)?.__copy__(), ("../c" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/../c" : stdgo.GoString)?.__copy__(), ("/a/b" : stdgo.GoString)?.__copy__(), ("../b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/c" : stdgo.GoString)?.__copy__(), ("/a/c/d" : stdgo.GoString)?.__copy__(), ("../../c/d" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b" : stdgo.GoString)?.__copy__(), ("/c/d" : stdgo.GoString)?.__copy__(), ("../../c/d" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/c/d" : stdgo.GoString)?.__copy__(), ("/a/b" : stdgo.GoString)?.__copy__(), ("../.." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/c/d" : stdgo.GoString)?.__copy__(), ("/a/b/" : stdgo.GoString)?.__copy__(), ("../.." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/c/d/" : stdgo.GoString)?.__copy__(), ("/a/b" : stdgo.GoString)?.__copy__(), ("../.." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a/b/c/d/" : stdgo.GoString)?.__copy__(), ("/a/b/" : stdgo.GoString)?.__copy__(), ("../.." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/../../a/b" : stdgo.GoString)?.__copy__(), ("/../../a/b/c/d" : stdgo.GoString)?.__copy__(), ("c/d" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("." : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__(), ("a/b" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("." : stdgo.GoString)?.__copy__(), (".." : stdgo.GoString)?.__copy__(), (".." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests((".." : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__(), ("err" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests((".." : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), ("err" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("../.." : stdgo.GoString)?.__copy__(), (".." : stdgo.GoString)?.__copy__(), ("err" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("a" : stdgo.GoString)?.__copy__(), ("/a" : stdgo.GoString)?.__copy__(), ("err" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests),
+(new stdgo.path.filepath_test.Filepath_test.RelTests(("/a" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), ("err" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests>);
 /**
     
     
     
 **/
-var _winreltests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests>(7, 7, (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:a\\b\\c" : stdgo.GoString), ("C:a/b/d" : stdgo.GoString), ("..\\d" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:\\" : stdgo.GoString), ("D:\\" : stdgo.GoString), ("err" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:" : stdgo.GoString), ("D:" : stdgo.GoString), ("err" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:\\Projects" : stdgo.GoString), ("c:\\projects\\src" : stdgo.GoString), ("src" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:\\Projects" : stdgo.GoString), ("c:\\projects" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:\\Projects\\a\\.." : stdgo.GoString), ("c:\\projects" : stdgo.GoString), ("." : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("\\\\host\\share" : stdgo.GoString), ("\\\\host\\share\\file.txt" : stdgo.GoString), ("file.txt" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.RelTests)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests>);
+var _winreltests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests>(7, 7, (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:a\\b\\c" : stdgo.GoString)?.__copy__(), ("C:a/b/d" : stdgo.GoString)?.__copy__(), ("..\\d" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:\\" : stdgo.GoString)?.__copy__(), ("D:\\" : stdgo.GoString)?.__copy__(), ("err" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:" : stdgo.GoString)?.__copy__(), ("D:" : stdgo.GoString)?.__copy__(), ("err" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:\\Projects" : stdgo.GoString)?.__copy__(), ("c:\\projects\\src" : stdgo.GoString)?.__copy__(), ("src" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:\\Projects" : stdgo.GoString)?.__copy__(), ("c:\\projects" : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("C:\\Projects\\a\\.." : stdgo.GoString)?.__copy__(), ("c:\\projects" : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests), (new stdgo.path.filepath_test.Filepath_test.RelTests(("\\\\host\\share" : stdgo.GoString)?.__copy__(), ("\\\\host\\share\\file.txt" : stdgo.GoString)?.__copy__(), ("file.txt" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.RelTests)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests>);
 /**
     
     
@@ -586,34 +586,34 @@ var _winreltests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests> 
 var _volumenametests : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.VolumeNameTest> = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.VolumeNameTest>(
 28,
 28,
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("c:/foo/bar" : stdgo.GoString), ("c:" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("c:" : stdgo.GoString), ("c:" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("2:" : stdgo.GoString), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(stdgo.Go.str(), stdgo.Go.str()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\\\host" : stdgo.GoString), ("\\\\\\host" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\\\host\\" : stdgo.GoString), ("\\\\\\host" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\\\host\\share" : stdgo.GoString), ("\\\\\\host" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\\\host\\\\share" : stdgo.GoString), ("\\\\\\host" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host" : stdgo.GoString), ("\\\\host" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host" : stdgo.GoString), ("\\\\host" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\" : stdgo.GoString), ("\\\\host\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/" : stdgo.GoString), ("\\\\host\\" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\share" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/share" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\share\\" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/share/" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\share\\foo" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/share/foo" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\share\\\\foo\\\\\\bar\\\\\\\\baz" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/share//foo///bar////baz" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\share\\foo\\..\\bar" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/share/foo/../bar" : stdgo.GoString), ("\\\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./NUL" : stdgo.GoString), ("\\\\.\\NUL" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//?/NUL" : stdgo.GoString), ("\\\\?\\NUL" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./C:" : stdgo.GoString), ("\\\\.\\C:" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./C:/a/b/c" : stdgo.GoString), ("\\\\.\\C:" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./UNC/host/share/a/b/c" : stdgo.GoString), ("\\\\.\\UNC\\host\\share" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
-(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./UNC/host" : stdgo.GoString), ("\\\\.\\UNC\\host" : stdgo.GoString)) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.VolumeNameTest>);
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("c:/foo/bar" : stdgo.GoString)?.__copy__(), ("c:" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("c:" : stdgo.GoString)?.__copy__(), ("c:" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("2:" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\\\host" : stdgo.GoString)?.__copy__(), ("\\\\\\host" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\\\host\\" : stdgo.GoString)?.__copy__(), ("\\\\\\host" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\\\host\\share" : stdgo.GoString)?.__copy__(), ("\\\\\\host" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\\\host\\\\share" : stdgo.GoString)?.__copy__(), ("\\\\\\host" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host" : stdgo.GoString)?.__copy__(), ("\\\\host" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host" : stdgo.GoString)?.__copy__(), ("\\\\host" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\" : stdgo.GoString)?.__copy__(), ("\\\\host\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/" : stdgo.GoString)?.__copy__(), ("\\\\host\\" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\share" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/share" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\share\\" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/share/" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\share\\foo" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/share/foo" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\share\\\\foo\\\\\\bar\\\\\\\\baz" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/share//foo///bar////baz" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("\\\\host\\share\\foo\\..\\bar" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//host/share/foo/../bar" : stdgo.GoString)?.__copy__(), ("\\\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./NUL" : stdgo.GoString)?.__copy__(), ("\\\\.\\NUL" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//?/NUL" : stdgo.GoString)?.__copy__(), ("\\\\?\\NUL" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./C:" : stdgo.GoString)?.__copy__(), ("\\\\.\\C:" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./C:/a/b/c" : stdgo.GoString)?.__copy__(), ("\\\\.\\C:" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./UNC/host/share/a/b/c" : stdgo.GoString)?.__copy__(), ("\\\\.\\UNC\\host\\share" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest),
+(new stdgo.path.filepath_test.Filepath_test.VolumeNameTest(("//./UNC/host" : stdgo.GoString)?.__copy__(), ("\\\\.\\UNC\\host" : stdgo.GoString)?.__copy__()) : stdgo.path.filepath_test.Filepath_test.VolumeNameTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.VolumeNameTest>);
 /**
     
     
@@ -943,132 +943,132 @@ class T__struct_3_asInterface {
     public var _want : stdgo.GoString;
 };
 function exampleExt():Void {
-        stdgo.fmt.Fmt.printf(("No dots: %q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.path.filepath.Filepath.ext(("index" : stdgo.GoString))));
-        stdgo.fmt.Fmt.printf(("One dot: %q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.path.filepath.Filepath.ext(("index.js" : stdgo.GoString))));
-        stdgo.fmt.Fmt.printf(("Two dots: %q\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.path.filepath.Filepath.ext(("main.test.js" : stdgo.GoString))));
+        stdgo.fmt.Fmt.printf(("No dots: %q\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.path.filepath.Filepath.ext(("index" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.printf(("One dot: %q\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.path.filepath.Filepath.ext(("index.js" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.printf(("Two dots: %q\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.path.filepath.Filepath.ext(("main.test.js" : stdgo.GoString)?.__copy__())));
     }
 function exampleSplitList():Void {
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.path.filepath.Filepath.splitList(("/a/b/c:/usr/bin" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.path.filepath.Filepath.splitList(("/a/b/c:/usr/bin" : stdgo.GoString)?.__copy__())));
     }
 function exampleRel():Void {
-        var _paths = (new stdgo.Slice<stdgo.GoString>(3, 3, ("/a/b/c" : stdgo.GoString), ("/b/c" : stdgo.GoString), ("./b/c" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        var _base:stdgo.GoString = ("/a" : stdgo.GoString);
+        var _paths = (new stdgo.Slice<stdgo.GoString>(3, 3, ("/a/b/c" : stdgo.GoString)?.__copy__(), ("/b/c" : stdgo.GoString)?.__copy__(), ("./b/c" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+        var _base:stdgo.GoString = ("/a" : stdgo.GoString)?.__copy__();
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)));
         for (__0 => _p in _paths) {
-            var __tmp__ = stdgo.path.filepath.Filepath.rel(_base, _p), _rel:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            stdgo.fmt.Fmt.printf(("%q: %q %v\n" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_rel), stdgo.Go.toInterface(_err));
+            var __tmp__ = stdgo.path.filepath.Filepath.rel(_base?.__copy__(), _p?.__copy__()), _rel:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            stdgo.fmt.Fmt.printf(("%q: %q %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_rel), stdgo.Go.toInterface(_err));
         };
     }
 function exampleSplit():Void {
-        var _paths = (new stdgo.Slice<stdgo.GoString>(4, 4, ("/home/arnie/amelia.jpg" : stdgo.GoString), ("/mnt/photos/" : stdgo.GoString), ("rabbit.jpg" : stdgo.GoString), ("/usr/local//go" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _paths = (new stdgo.Slice<stdgo.GoString>(4, 4, ("/home/arnie/amelia.jpg" : stdgo.GoString)?.__copy__(), ("/mnt/photos/" : stdgo.GoString)?.__copy__(), ("rabbit.jpg" : stdgo.GoString)?.__copy__(), ("/usr/local//go" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)));
         for (__0 => _p in _paths) {
-            var __tmp__ = stdgo.path.filepath.Filepath.split(_p), _dir:stdgo.GoString = __tmp__._0, _file:stdgo.GoString = __tmp__._1;
-            stdgo.fmt.Fmt.printf(("input: %q\n\tdir: %q\n\tfile: %q\n" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_dir), stdgo.Go.toInterface(_file));
+            var __tmp__ = stdgo.path.filepath.Filepath.split(_p?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _file:stdgo.GoString = __tmp__._1;
+            stdgo.fmt.Fmt.printf(("input: %q\n\tdir: %q\n\tfile: %q\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_dir), stdgo.Go.toInterface(_file));
         };
     }
 function exampleJoin():Void {
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("b" : stdgo.GoString), ("c" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("b/c" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.join(("a/b" : stdgo.GoString), ("c" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.join(("a/b" : stdgo.GoString), ("/c" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.join(("a/b" : stdgo.GoString), ("../../../xyz" : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__(), ("c" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString)?.__copy__(), ("b/c" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.join(("a/b" : stdgo.GoString)?.__copy__(), ("c" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.join(("a/b" : stdgo.GoString)?.__copy__(), ("/c" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.join(("a/b" : stdgo.GoString)?.__copy__(), ("../../../xyz" : stdgo.GoString)?.__copy__())));
     }
 function exampleMatch():Void {
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)));
         {
-            var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/catch/*" : stdgo.GoString), ("/home/catch/foo" : stdgo.GoString));
+            var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/catch/*" : stdgo.GoString)?.__copy__(), ("/home/catch/foo" : stdgo.GoString)?.__copy__());
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
         };
         {
-            var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/catch/*" : stdgo.GoString), ("/home/catch/foo/bar" : stdgo.GoString));
+            var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/catch/*" : stdgo.GoString)?.__copy__(), ("/home/catch/foo/bar" : stdgo.GoString)?.__copy__());
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
         };
         {
-            var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/?opher" : stdgo.GoString), ("/home/gopher" : stdgo.GoString));
+            var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/?opher" : stdgo.GoString)?.__copy__(), ("/home/gopher" : stdgo.GoString)?.__copy__());
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
         };
         {
-            var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/\\*" : stdgo.GoString), ("/home/*" : stdgo.GoString));
+            var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/\\*" : stdgo.GoString)?.__copy__(), ("/home/*" : stdgo.GoString)?.__copy__());
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
         };
     }
 function exampleBase():Void {
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("/foo/bar/baz.js" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("/foo/bar/baz" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("/foo/bar/baz/" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("dev.txt" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("../todo.txt" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base((".." : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("." : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("/" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(stdgo.Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("/foo/bar/baz.js" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("/foo/bar/baz" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("/foo/bar/baz/" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("dev.txt" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("../todo.txt" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base((".." : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("." : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(("/" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.base(stdgo.Go.str()?.__copy__())));
     }
 function exampleDir():Void {
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("/foo/bar/baz.js" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("/foo/bar/baz" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("/foo/bar/baz/" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("/dirty//path///" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("dev.txt" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("../todo.txt" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir((".." : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("." : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("/" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(stdgo.Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("/foo/bar/baz.js" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("/foo/bar/baz" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("/foo/bar/baz/" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("/dirty//path///" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("dev.txt" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("../todo.txt" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir((".." : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("." : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(("/" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.dir(stdgo.Go.str()?.__copy__())));
     }
 function exampleIsAbs():Void {
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs(("/home/gopher" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs((".bashrc" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs((".." : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs(("." : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs(("/" : stdgo.GoString))));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs(stdgo.Go.str())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs(("/home/gopher" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs((".bashrc" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs((".." : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs(("." : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs(("/" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.filepath.Filepath.isAbs(stdgo.Go.str()?.__copy__())));
     }
 function _prepareTestDirTree(_tree:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
-        var __tmp__ = stdgo.os.Os.mkdirTemp(stdgo.Go.str(), stdgo.Go.str()), _tmpDir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.os.Os.mkdirTemp(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()), _tmpDir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : stdgo.Go.str(), _1 : stdgo.fmt.Fmt.errorf(("error creating temp directory: %v\n" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.fmt.Fmt.errorf(("error creating temp directory: %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err)) };
         };
-        _err = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_tmpDir, _tree), (493u32 : stdgo.io.fs.Fs.FileMode));
+        _err = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_tmpDir?.__copy__(), _tree?.__copy__())?.__copy__(), (493u32 : stdgo.io.fs.Fs.FileMode));
         if (_err != null) {
-            stdgo.os.Os.removeAll(_tmpDir);
-            return { _0 : stdgo.Go.str(), _1 : _err };
+            stdgo.os.Os.removeAll(_tmpDir?.__copy__());
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
         };
-        return { _0 : _tmpDir, _1 : (null : stdgo.Error) };
+        return { _0 : _tmpDir?.__copy__(), _1 : (null : stdgo.Error) };
     }
 function exampleWalk():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var __tmp__ = _prepareTestDirTree(("dir/to/walk/skip" : stdgo.GoString)), _tmpDir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _prepareTestDirTree(("dir/to/walk/skip" : stdgo.GoString)?.__copy__()), _tmpDir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                stdgo.fmt.Fmt.printf(("unable to create test dir tree: %v\n" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                stdgo.fmt.Fmt.printf(("unable to create test dir tree: %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
                 return;
             };
             {
                 var _a0 = _tmpDir;
-                __deferstack__.unshift(() -> stdgo.os.Os.removeAll(_a0));
+                __deferstack__.unshift(() -> stdgo.os.Os.removeAll(_a0?.__copy__()));
             };
-            stdgo.os.Os.chdir(_tmpDir);
-            var _subDirToSkip:stdgo.GoString = ("skip" : stdgo.GoString);
+            stdgo.os.Os.chdir(_tmpDir?.__copy__());
+            var _subDirToSkip:stdgo.GoString = ("skip" : stdgo.GoString)?.__copy__();
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)));
-            _err = stdgo.path.filepath.Filepath.walk(("." : stdgo.GoString), function(_path:stdgo.GoString, _info:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
+            _err = stdgo.path.filepath.Filepath.walk(("." : stdgo.GoString)?.__copy__(), function(_path:stdgo.GoString, _info:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
                 if (_err != null) {
-                    stdgo.fmt.Fmt.printf(("prevent panic by handling failure accessing a path %q: %v\n" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_err));
+                    stdgo.fmt.Fmt.printf(("prevent panic by handling failure accessing a path %q: %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_err));
                     return _err;
                 };
                 if (_info.isDir() && (_info.name() == _subDirToSkip)) {
-                    stdgo.fmt.Fmt.printf(("skipping a dir without errors: %+v \n" : stdgo.GoString), stdgo.Go.toInterface(_info.name()));
+                    stdgo.fmt.Fmt.printf(("skipping a dir without errors: %+v \n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_info.name()));
                     return stdgo.path.filepath.Filepath.skipDir;
                 };
-                stdgo.fmt.Fmt.printf(("visited file or dir: %q\n" : stdgo.GoString), stdgo.Go.toInterface(_path));
+                stdgo.fmt.Fmt.printf(("visited file or dir: %q\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path));
                 return (null : stdgo.Error);
             });
             if (_err != null) {
-                stdgo.fmt.Fmt.printf(("error walking the path %q: %v\n" : stdgo.GoString), stdgo.Go.toInterface(_tmpDir), stdgo.Go.toInterface(_err));
+                stdgo.fmt.Fmt.printf(("error walking the path %q: %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tmpDir), stdgo.Go.toInterface(_err));
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -1102,24 +1102,24 @@ function exampleWalk():Void {
     }
 function _errp(_e:stdgo.Error):stdgo.GoString {
         if (_e == null) {
-            return ("<nil>" : stdgo.GoString);
+            return ("<nil>" : stdgo.GoString)?.__copy__();
         };
-        return _e.error();
+        return _e.error()?.__copy__();
     }
 function testMatch(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tt in _matchTests) {
-            var _pattern:stdgo.GoString = _tt._pattern;
-            var _s:stdgo.GoString = _tt._s;
+            var _pattern:stdgo.GoString = _tt._pattern?.__copy__();
+            var _s:stdgo.GoString = _tt._s?.__copy__();
             if (false) {
-                if (stdgo.strings.Strings.contains(_pattern, ("\\" : stdgo.GoString))) {
+                if (stdgo.strings.Strings.contains(_pattern?.__copy__(), ("\\" : stdgo.GoString)?.__copy__())) {
                     continue;
                 };
-                _pattern = clean(_pattern);
-                _s = clean(_s);
+                _pattern = clean(_pattern?.__copy__())?.__copy__();
+                _s = clean(_s?.__copy__())?.__copy__();
             };
-            var __tmp__ = match(_pattern, _s), _ok:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = match(_pattern?.__copy__(), _s?.__copy__()), _ok:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if ((_ok != _tt._match) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(_tt._err))) {
-                _t.errorf(("Match(%#q, %#q) = %v, %q want %v, %q" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_ok), stdgo.Go.toInterface(_errp(_err)), stdgo.Go.toInterface(_tt._match), stdgo.Go.toInterface(_errp(_tt._err)));
+                _t.errorf(("Match(%#q, %#q) = %v, %q want %v, %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_ok), stdgo.Go.toInterface(_errp(_err)), stdgo.Go.toInterface(_tt._match), stdgo.Go.toInterface(_errp(_tt._err)));
             };
         };
     }
@@ -1136,59 +1136,59 @@ function _contains(_vector:stdgo.Slice<stdgo.GoString>, _s:stdgo.GoString):Bool 
     }
 function testGlob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tt in _globTests) {
-            var _pattern:stdgo.GoString = _tt._pattern;
-            var _result:stdgo.GoString = _tt._result;
+            var _pattern:stdgo.GoString = _tt._pattern?.__copy__();
+            var _result:stdgo.GoString = _tt._result?.__copy__();
             if (false) {
-                _pattern = clean(_pattern);
-                _result = clean(_result);
+                _pattern = clean(_pattern?.__copy__())?.__copy__();
+                _result = clean(_result?.__copy__())?.__copy__();
             };
-            var __tmp__ = glob(_pattern), _matches:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = glob(_pattern?.__copy__()), _matches:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.errorf(("Glob error for %q: %s" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_err));
+                _t.errorf(("Glob error for %q: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_err));
                 continue;
             };
-            if (!_contains(_matches, _result)) {
-                _t.errorf(("Glob(%#q) = %#v want %v" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_matches), stdgo.Go.toInterface(_result));
+            if (!_contains(_matches, _result?.__copy__())) {
+                _t.errorf(("Glob(%#q) = %#v want %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_matches), stdgo.Go.toInterface(_result));
             };
         };
-        for (__1 => _pattern in (new stdgo.Slice<stdgo.GoString>(2, 2, ("no_match" : stdgo.GoString), ("../*/no_match" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
-            var __tmp__ = glob(_pattern), _matches:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        for (__1 => _pattern in (new stdgo.Slice<stdgo.GoString>(2, 2, ("no_match" : stdgo.GoString)?.__copy__(), ("../*/no_match" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) {
+            var __tmp__ = glob(_pattern?.__copy__()), _matches:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.errorf(("Glob error for %q: %s" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_err));
+                _t.errorf(("Glob error for %q: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_err));
                 continue;
             };
             if ((_matches.length) != ((0 : stdgo.StdGoTypes.GoInt))) {
-                _t.errorf(("Glob(%#q) = %#v want []" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_matches));
+                _t.errorf(("Glob(%#q) = %#v want []" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_matches));
             };
         };
     }
 function testCVE202230632(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        var __tmp__ = glob(("/*" : stdgo.GoString) + stdgo.strings.Strings.repeat(("/" : stdgo.GoString), (10001 : stdgo.StdGoTypes.GoInt))), __0:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = glob(("/*" : stdgo.GoString) + stdgo.strings.Strings.repeat(("/" : stdgo.GoString)?.__copy__(), (10001 : stdgo.StdGoTypes.GoInt))?.__copy__()?.__copy__()), __0:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(errBadPattern))) {
-            _t.fatalf(("Glob returned err=%v, want ErrBadPattern" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            _t.fatalf(("Glob returned err=%v, want ErrBadPattern" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
         };
     }
 function testGlobError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        var _bad = (new stdgo.Slice<stdgo.GoString>(2, 2, ("[]" : stdgo.GoString), ("nonexist/[]" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _bad = (new stdgo.Slice<stdgo.GoString>(2, 2, ("[]" : stdgo.GoString)?.__copy__(), ("nonexist/[]" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         for (__0 => _pattern in _bad) {
             {
-                var __tmp__ = glob(_pattern), __1:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = glob(_pattern?.__copy__()), __1:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(errBadPattern))) {
-                    _t.errorf(("Glob(%#q) returned err=%v, want ErrBadPattern" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_err));
+                    _t.errorf(("Glob(%#q) returned err=%v, want ErrBadPattern" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_err));
                 };
             };
         };
     }
 function testGlobUNC(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        glob(("\\\\?\\C:\\*" : stdgo.GoString));
+        glob(("\\\\?\\C:\\*" : stdgo.GoString)?.__copy__());
     }
 function testGlobSymlink(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveSymlink(stdgo.Go.asInterface(_t));
-        var _tmpDir:stdgo.GoString = _t.tempDir();
+        var _tmpDir:stdgo.GoString = _t.tempDir()?.__copy__();
         for (__0 => _tt in _globSymlinkTests) {
-            var _path:stdgo.GoString = join(_tmpDir, _tt._path);
-            var _dest:stdgo.GoString = join(_tmpDir, _tt._dest);
-            var __tmp__ = stdgo.os.Os.create(_path), _f:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var _path:stdgo.GoString = join(_tmpDir?.__copy__(), _tt._path?.__copy__())?.__copy__();
+            var _dest:stdgo.GoString = join(_tmpDir?.__copy__(), _tt._dest?.__copy__())?.__copy__();
+            var __tmp__ = stdgo.os.Os.create(_path?.__copy__()), _f:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
@@ -1198,19 +1198,19 @@ function testGlobSymlink(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
-            _err = stdgo.os.Os.symlink(_path, _dest);
+            _err = stdgo.os.Os.symlink(_path?.__copy__(), _dest?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             if (_tt._brokenLink) {
-                stdgo.os.Os.remove(_path);
+                stdgo.os.Os.remove(_path?.__copy__());
             };
-            var __tmp__ = glob(_dest), _matches:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = glob(_dest?.__copy__()), _matches:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.errorf(("GlobSymlink error for %q: %s" : stdgo.GoString), stdgo.Go.toInterface(_dest), stdgo.Go.toInterface(_err));
+                _t.errorf(("GlobSymlink error for %q: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_dest), stdgo.Go.toInterface(_err));
             };
-            if (!_contains(_matches, _dest)) {
-                _t.errorf(("Glob(%#q) = %#v want %v" : stdgo.GoString), stdgo.Go.toInterface(_dest), stdgo.Go.toInterface(_matches), stdgo.Go.toInterface(_dest));
+            if (!_contains(_matches, _dest?.__copy__())) {
+                _t.errorf(("Glob(%#q) = %#v want %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_dest), stdgo.Go.toInterface(_matches), stdgo.Go.toInterface(_dest));
             };
         };
     }
@@ -1218,25 +1218,25 @@ function testWindowsGlob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
         var __deferstack__:Array<Void -> Void> = [];
         try {
             if (true) {
-                _t.skipf(("skipping windows specific test" : stdgo.GoString));
+                _t.skipf(("skipping windows specific test" : stdgo.GoString)?.__copy__());
             };
-            var _tmpDir:stdgo.GoString = _tempDirCanonical(_t);
+            var _tmpDir:stdgo.GoString = _tempDirCanonical(_t)?.__copy__();
             if ((_tmpDir.length) < (3 : stdgo.StdGoTypes.GoInt)) {
-                _t.fatalf(("tmpDir path %q is too short" : stdgo.GoString), stdgo.Go.toInterface(_tmpDir));
+                _t.fatalf(("tmpDir path %q is too short" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tmpDir));
             };
             if (_tmpDir[(1 : stdgo.StdGoTypes.GoInt)] != ((58 : stdgo.StdGoTypes.GoUInt8))) {
-                _t.fatalf(("tmpDir path %q must have drive letter in it" : stdgo.GoString), stdgo.Go.toInterface(_tmpDir));
+                _t.fatalf(("tmpDir path %q must have drive letter in it" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tmpDir));
             };
-            var _dirs = (new stdgo.Slice<stdgo.GoString>(3, 3, ("a" : stdgo.GoString), ("b" : stdgo.GoString), ("dir/d/bin" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-            var _files = (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir/d/bin/git.exe" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+            var _dirs = (new stdgo.Slice<stdgo.GoString>(3, 3, ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__(), ("dir/d/bin" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+            var _files = (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir/d/bin/git.exe" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             for (__0 => _dir in _dirs) {
-                var _err:stdgo.Error = stdgo.os.Os.mkdirAll(join(_tmpDir, _dir), (511u32 : stdgo.io.fs.Fs.FileMode));
+                var _err:stdgo.Error = stdgo.os.Os.mkdirAll(join(_tmpDir?.__copy__(), _dir?.__copy__())?.__copy__(), (511u32 : stdgo.io.fs.Fs.FileMode));
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
             for (__1 => _file in _files) {
-                var _err:stdgo.Error = stdgo.os.Os.writeFile(join(_tmpDir, _file), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (438u32 : stdgo.io.fs.Fs.FileMode));
+                var _err:stdgo.Error = stdgo.os.Os.writeFile(join(_tmpDir?.__copy__(), _file?.__copy__())?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (438u32 : stdgo.io.fs.Fs.FileMode));
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
@@ -1244,38 +1244,38 @@ function testWindowsGlob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             var _tests = (new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.T_globTest>(
 10,
 10,
-(new stdgo.path.filepath_test.Filepath_test.T_globTest(("a" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
-(new stdgo.path.filepath_test.Filepath_test.T_globTest(("b" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
-(new stdgo.path.filepath_test.Filepath_test.T_globTest(("c" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
-(new stdgo.path.filepath_test.Filepath_test.T_globTest(("*" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(3, 3, ("a" : stdgo.GoString), ("b" : stdgo.GoString), ("dir" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
-(new stdgo.path.filepath_test.Filepath_test.T_globTest(("d*" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
-(new stdgo.path.filepath_test.Filepath_test.T_globTest(("*i*" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
-(new stdgo.path.filepath_test.Filepath_test.T_globTest(("*r" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
-(new stdgo.path.filepath_test.Filepath_test.T_globTest(("?ir" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
-(new stdgo.path.filepath_test.Filepath_test.T_globTest(("?r" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
-(new stdgo.path.filepath_test.Filepath_test.T_globTest(("d*/*/bin/git.exe" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir/d/bin/git.exe" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.T_globTest>);
+(new stdgo.path.filepath_test.Filepath_test.T_globTest(("a" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("a" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
+(new stdgo.path.filepath_test.Filepath_test.T_globTest(("b" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("b" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
+(new stdgo.path.filepath_test.Filepath_test.T_globTest(("c" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
+(new stdgo.path.filepath_test.Filepath_test.T_globTest(("*" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(3, 3, ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__(), ("dir" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
+(new stdgo.path.filepath_test.Filepath_test.T_globTest(("d*" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
+(new stdgo.path.filepath_test.Filepath_test.T_globTest(("*i*" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
+(new stdgo.path.filepath_test.Filepath_test.T_globTest(("*r" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
+(new stdgo.path.filepath_test.Filepath_test.T_globTest(("?ir" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
+(new stdgo.path.filepath_test.Filepath_test.T_globTest(("?r" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest),
+(new stdgo.path.filepath_test.Filepath_test.T_globTest(("d*/*/bin/git.exe" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(1, 1, ("dir/d/bin/git.exe" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.path.filepath_test.Filepath_test.T_globTest)) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.T_globTest>);
             for (__2 => _test in _tests) {
                 var _p:stdgo.GoString = ("" : stdgo.GoString);
                 {
-                    var _err:stdgo.Error = _test._globAbs(_tmpDir, _tmpDir);
+                    var _err:stdgo.Error = _test._globAbs(_tmpDir?.__copy__(), _tmpDir?.__copy__());
                     if (_err != null) {
                         _t.error(stdgo.Go.toInterface(_err));
                     };
                 };
-                _p = _tmpDir;
-                _p = stdgo.strings.Strings.replace(_p, (":\\" : stdgo.GoString), (":\\*" : stdgo.GoString), (1 : stdgo.StdGoTypes.GoInt));
+                _p = _tmpDir?.__copy__();
+                _p = stdgo.strings.Strings.replace(_p?.__copy__(), (":\\" : stdgo.GoString)?.__copy__(), (":\\*" : stdgo.GoString)?.__copy__(), (1 : stdgo.StdGoTypes.GoInt))?.__copy__();
                 {
-                    var _err:stdgo.Error = _test._globAbs(_tmpDir, _p);
+                    var _err:stdgo.Error = _test._globAbs(_tmpDir?.__copy__(), _p?.__copy__());
                     if (_err != null) {
                         _t.error(stdgo.Go.toInterface(_err));
                     };
                 };
-                _p = _tmpDir;
-                _p = stdgo.strings.Strings.replace(_p, (":\\" : stdgo.GoString), (":" : stdgo.GoString), (1 : stdgo.StdGoTypes.GoInt));
-                _p = stdgo.strings.Strings.replace(_p, ("\\" : stdgo.GoString), ("*\\" : stdgo.GoString), (1 : stdgo.StdGoTypes.GoInt));
-                _p = stdgo.strings.Strings.replace(_p, (":" : stdgo.GoString), (":\\" : stdgo.GoString), (1 : stdgo.StdGoTypes.GoInt));
+                _p = _tmpDir?.__copy__();
+                _p = stdgo.strings.Strings.replace(_p?.__copy__(), (":\\" : stdgo.GoString)?.__copy__(), (":" : stdgo.GoString)?.__copy__(), (1 : stdgo.StdGoTypes.GoInt))?.__copy__();
+                _p = stdgo.strings.Strings.replace(_p?.__copy__(), ("\\" : stdgo.GoString)?.__copy__(), ("*\\" : stdgo.GoString)?.__copy__(), (1 : stdgo.StdGoTypes.GoInt))?.__copy__();
+                _p = stdgo.strings.Strings.replace(_p?.__copy__(), (":" : stdgo.GoString)?.__copy__(), (":\\" : stdgo.GoString)?.__copy__(), (1 : stdgo.StdGoTypes.GoInt))?.__copy__();
                 {
-                    var _err:stdgo.Error = _test._globAbs(_tmpDir, _p);
+                    var _err:stdgo.Error = _test._globAbs(_tmpDir?.__copy__(), _p?.__copy__());
                     if (_err != null) {
                         _t.error(stdgo.Go.toInterface(_err));
                     };
@@ -1285,13 +1285,13 @@ function testWindowsGlob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
-            _err = stdgo.os.Os.chdir(_tmpDir);
+            _err = stdgo.os.Os.chdir(_tmpDir?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var _err:stdgo.Error = stdgo.os.Os.chdir(_wd);
+                    var _err:stdgo.Error = stdgo.os.Os.chdir(_wd?.__copy__());
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
@@ -1299,15 +1299,15 @@ function testWindowsGlob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                 a();
             });
             for (__3 => _test in _tests) {
-                var _err:stdgo.Error = _test._globRel(stdgo.Go.str());
+                var _err:stdgo.Error = _test._globRel(stdgo.Go.str()?.__copy__());
                 if (_err != null) {
                     _t.error(stdgo.Go.toInterface(_err));
                 };
-                _err = _test._globRel((".\\" : stdgo.GoString));
+                _err = _test._globRel((".\\" : stdgo.GoString)?.__copy__());
                 if (_err != null) {
                     _t.error(stdgo.Go.toInterface(_err));
                 };
-                _err = _test._globRel((_tmpDir.__slice__(0, (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString));
+                _err = _test._globRel((_tmpDir.__slice__(0, (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__());
                 if (_err != null) {
                     _t.error(stdgo.Go.toInterface(_err));
                 };
@@ -1338,23 +1338,23 @@ function testWindowsGlob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
     }
 function testNonWindowsGlobEscape(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         if (false) {
-            _t.skipf(("skipping non-windows specific test" : stdgo.GoString));
+            _t.skipf(("skipping non-windows specific test" : stdgo.GoString)?.__copy__());
         };
-        var _pattern:stdgo.GoString = ("\\match.go" : stdgo.GoString);
-        var _want = (new stdgo.Slice<stdgo.GoString>(1, 1, ("match.go" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        var __tmp__ = glob(_pattern), _matches:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var _pattern:stdgo.GoString = ("\\match.go" : stdgo.GoString)?.__copy__();
+        var _want = (new stdgo.Slice<stdgo.GoString>(1, 1, ("match.go" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+        var __tmp__ = glob(_pattern?.__copy__()), _matches:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("Glob error for %q: %s" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_err));
+            _t.fatalf(("Glob error for %q: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_err));
         };
         if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_matches), stdgo.Go.toInterface(_want))) {
-            _t.fatalf(("Glob(%#q) = %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_matches), stdgo.Go.toInterface(_want));
+            _t.fatalf(("Glob(%#q) = %v want %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_matches), stdgo.Go.toInterface(_want));
         };
     }
 function testClean(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _tests = _cleantests;
         if (false) {
             for (_i in 0 ... _tests.length.toBasic()) {
-                _tests[(_i : stdgo.StdGoTypes.GoInt)]._result = stdgo.path.filepath.Filepath.fromSlash(_tests[(_i : stdgo.StdGoTypes.GoInt)]._result);
+                _tests[(_i : stdgo.StdGoTypes.GoInt)]._result = stdgo.path.filepath.Filepath.fromSlash(_tests[(_i : stdgo.StdGoTypes.GoInt)]._result?.__copy__())?.__copy__();
             };
             _tests = (_tests.__append__(..._wincleantests.__toArray__()));
         } else {
@@ -1362,15 +1362,15 @@ function testClean(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         for (__0 => _test in _tests) {
             {
-                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.clean(_test._path);
+                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.clean(_test._path?.__copy__())?.__copy__();
                 if (_s != (_test._result)) {
-                    _t.errorf(("Clean(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
+                    _t.errorf(("Clean(%q) = %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
             };
             {
-                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.clean(_test._result);
+                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.clean(_test._result?.__copy__())?.__copy__();
                 if (_s != (_test._result)) {
-                    _t.errorf(("Clean(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
+                    _t.errorf(("Clean(%q) = %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
             };
         };
@@ -1383,10 +1383,10 @@ function testClean(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         for (__1 => _test in _tests) {
             var _allocs:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : stdgo.StdGoTypes.GoInt), function():Void {
-                stdgo.path.filepath.Filepath.clean(_test._result);
+                stdgo.path.filepath.Filepath.clean(_test._result?.__copy__());
             });
             if (_allocs > (0 : stdgo.StdGoTypes.GoFloat64)) {
-                _t.errorf(("Clean(%q): %v allocs, want zero" : stdgo.GoString), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_allocs));
+                _t.errorf(("Clean(%q): %v allocs, want zero" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_allocs));
             };
         };
     }
@@ -1400,9 +1400,9 @@ function testIsLocal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         for (__0 => _test in _tests) {
             {
-                var _got:Bool = stdgo.path.filepath.Filepath.isLocal(_test._path);
+                var _got:Bool = stdgo.path.filepath.Filepath.isLocal(_test._path?.__copy__());
                 if (_got != (_test._isLocal)) {
-                    _t.errorf(("IsLocal(%q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._isLocal));
+                    _t.errorf(("IsLocal(%q) = %v, want %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._isLocal));
                 };
             };
         };
@@ -1410,15 +1410,15 @@ function testIsLocal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 function testFromAndToSlash(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in _slashtests) {
             {
-                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.fromSlash(_test._path);
+                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.fromSlash(_test._path?.__copy__())?.__copy__();
                 if (_s != (_test._result)) {
-                    _t.errorf(("FromSlash(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
+                    _t.errorf(("FromSlash(%q) = %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
             };
             {
-                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.toSlash(_test._result);
+                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.toSlash(_test._result?.__copy__())?.__copy__();
                 if (_s != (_test._path)) {
-                    _t.errorf(("ToSlash(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._path));
+                    _t.errorf(("ToSlash(%q) = %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._path));
                 };
             };
         };
@@ -1430,9 +1430,9 @@ function testSplitList(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         for (__0 => _test in _tests) {
             {
-                var _l = stdgo.path.filepath.Filepath.splitList(_test._list);
+                var _l = stdgo.path.filepath.Filepath.splitList(_test._list?.__copy__());
                 if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_l), stdgo.Go.toInterface(_test._result))) {
-                    _t.errorf(("SplitList(%#q) = %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_test._list), stdgo.Go.toInterface(_l), stdgo.Go.toInterface(_test._result));
+                    _t.errorf(("SplitList(%#q) = %#q, want %#q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._list), stdgo.Go.toInterface(_l), stdgo.Go.toInterface(_test._result));
                 };
             };
         };
@@ -1445,9 +1445,9 @@ function testSplit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         for (__0 => _test in _splittests) {
             {
-                var __tmp__ = stdgo.path.filepath.Filepath.split(_test._path), _d:stdgo.GoString = __tmp__._0, _f:stdgo.GoString = __tmp__._1;
+                var __tmp__ = stdgo.path.filepath.Filepath.split(_test._path?.__copy__()), _d:stdgo.GoString = __tmp__._0, _f:stdgo.GoString = __tmp__._1;
                 if ((_d != _test._dir) || (_f != _test._file)) {
-                    _t.errorf(("Split(%q) = %q, %q, want %q, %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_test._dir), stdgo.Go.toInterface(_test._file));
+                    _t.errorf(("Split(%q) = %q, %q, want %q, %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_test._dir), stdgo.Go.toInterface(_test._file));
                 };
             };
         };
@@ -1459,11 +1459,11 @@ function testJoin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _jointests = (_jointests.__append__(..._nonwinjointests.__toArray__()));
         };
         for (__0 => _test in _jointests) {
-            var _expected:stdgo.GoString = stdgo.path.filepath.Filepath.fromSlash(_test._path);
+            var _expected:stdgo.GoString = stdgo.path.filepath.Filepath.fromSlash(_test._path?.__copy__())?.__copy__();
             {
-                var _p:stdgo.GoString = stdgo.path.filepath.Filepath.join(..._test._elem.__toArray__());
+                var _p:stdgo.GoString = stdgo.path.filepath.Filepath.join(..._test._elem.__toArray__())?.__copy__();
                 if (_p != (_expected)) {
-                    _t.errorf(("join(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._elem), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_expected));
+                    _t.errorf(("join(%q) = %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._elem), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_expected));
                 };
             };
         };
@@ -1471,42 +1471,42 @@ function testJoin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 function testExt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in _exttests) {
             {
-                var _x:stdgo.GoString = stdgo.path.filepath.Filepath.ext(_test._path);
+                var _x:stdgo.GoString = stdgo.path.filepath.Filepath.ext(_test._path?.__copy__())?.__copy__();
                 if (_x != (_test._ext)) {
-                    _t.errorf(("Ext(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_test._ext));
+                    _t.errorf(("Ext(%q) = %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_test._ext));
                 };
             };
         };
     }
 function _walkTree(_n:stdgo.StdGoTypes.Ref<Node>, _path:stdgo.GoString, _f:(_path:stdgo.GoString, _n:stdgo.StdGoTypes.Ref<Node>) -> Void):Void {
-        _f(_path, _n);
+        _f(_path?.__copy__(), _n);
         for (__0 => _e in _n._entries) {
-            _walkTree(_e, stdgo.path.filepath.Filepath.join(_path, _e._name), _f);
+            _walkTree(_e, stdgo.path.filepath.Filepath.join(_path?.__copy__(), _e._name?.__copy__())?.__copy__(), _f);
         };
     }
 function _makeTree(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        _walkTree(_tree, _tree._name, function(_path:stdgo.GoString, _n:stdgo.StdGoTypes.Ref<Node>):Void {
+        _walkTree(_tree, _tree._name?.__copy__(), function(_path:stdgo.GoString, _n:stdgo.StdGoTypes.Ref<Node>):Void {
             if (_n._entries == null) {
-                var __tmp__ = stdgo.os.Os.create(_path), _fd:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.os.Os.create(_path?.__copy__()), _fd:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _t.errorf(("makeTree: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                    _t.errorf(("makeTree: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
                     return;
                 };
                 _fd.close();
             } else {
-                stdgo.os.Os.mkdir(_path, (504u32 : stdgo.io.fs.Fs.FileMode));
+                stdgo.os.Os.mkdir(_path?.__copy__(), (504u32 : stdgo.io.fs.Fs.FileMode));
             };
         });
     }
 function _markTree(_n:stdgo.StdGoTypes.Ref<Node>):Void {
-        _walkTree(_n, stdgo.Go.str(), function(_path:stdgo.GoString, _n:stdgo.StdGoTypes.Ref<Node>):Void {
+        _walkTree(_n, stdgo.Go.str()?.__copy__(), function(_path:stdgo.GoString, _n:stdgo.StdGoTypes.Ref<Node>):Void {
             _n._mark++;
         });
     }
 function _checkMarks(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _report:Bool):Void {
-        _walkTree(_tree, _tree._name, function(_path:stdgo.GoString, _n:stdgo.StdGoTypes.Ref<Node>):Void {
+        _walkTree(_tree, _tree._name?.__copy__(), function(_path:stdgo.GoString, _n:stdgo.StdGoTypes.Ref<Node>):Void {
             if ((_n._mark != (1 : stdgo.StdGoTypes.GoInt)) && _report) {
-                _t.errorf(("node %s mark = %d; expected 1" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_n._mark));
+                _t.errorf(("node %s mark = %d; expected 1" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_n._mark));
             };
             _n._mark = (0 : stdgo.StdGoTypes.GoInt);
         });
@@ -1517,8 +1517,8 @@ function _checkMarks(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _report:B
     // are always accumulated, though.
 **/
 function _mark(_d:stdgo.io.fs.Fs.DirEntry, _err:stdgo.Error, _errors:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.Error>>, _clear:Bool):stdgo.Error {
-        var _name:stdgo.GoString = _d.name();
-        _walkTree(_tree, _tree._name, function(_path:stdgo.GoString, _n:stdgo.StdGoTypes.Ref<Node>):Void {
+        var _name:stdgo.GoString = _d.name()?.__copy__();
+        _walkTree(_tree, _tree._name?.__copy__(), function(_path:stdgo.GoString, _n:stdgo.StdGoTypes.Ref<Node>):Void {
             if (_n._name == (_name)) {
                 _n._mark++;
             };
@@ -1539,19 +1539,19 @@ function _mark(_d:stdgo.io.fs.Fs.DirEntry, _err:stdgo.Error, _errors:stdgo.StdGo
 function _chdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _dir:stdgo.GoString):Void {
         var __tmp__ = stdgo.os.Os.getwd(), _olddir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("getwd %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_dir), stdgo.Go.toInterface(_err));
+            _t.fatalf(("getwd %s: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_dir), stdgo.Go.toInterface(_err));
         };
         {
-            var _err:stdgo.Error = stdgo.os.Os.chdir(_dir);
+            var _err:stdgo.Error = stdgo.os.Os.chdir(_dir?.__copy__());
             if (_err != null) {
-                _t.fatalf(("chdir %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_dir), stdgo.Go.toInterface(_err));
+                _t.fatalf(("chdir %s: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_dir), stdgo.Go.toInterface(_err));
             };
         };
         _t.cleanup(function():Void {
             {
-                var _err:stdgo.Error = stdgo.os.Os.chdir(_olddir);
+                var _err:stdgo.Error = stdgo.os.Os.chdir(_olddir?.__copy__());
                 if (_err != null) {
-                    _t.errorf(("restore original working directory %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_olddir), stdgo.Go.toInterface(_err));
+                    _t.errorf(("restore original working directory %s: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_olddir), stdgo.Go.toInterface(_err));
                     Sys.exit((1 : stdgo.StdGoTypes.GoInt));
                 };
             };
@@ -1561,26 +1561,26 @@ function _chtmpdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):() -> Void 
         var _restore:() -> Void = null;
         var __tmp__ = stdgo.os.Os.getwd(), _oldwd:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("chtmpdir: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            _t.fatalf(("chtmpdir: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
         };
-        var __tmp__ = stdgo.os.Os.mkdirTemp(stdgo.Go.str(), ("test" : stdgo.GoString)), _d:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.os.Os.mkdirTemp(stdgo.Go.str()?.__copy__(), ("test" : stdgo.GoString)?.__copy__()), _d:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("chtmpdir: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            _t.fatalf(("chtmpdir: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
         };
         {
-            var _err:stdgo.Error = stdgo.os.Os.chdir(_d);
+            var _err:stdgo.Error = stdgo.os.Os.chdir(_d?.__copy__());
             if (_err != null) {
-                _t.fatalf(("chtmpdir: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                _t.fatalf(("chtmpdir: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
             };
         };
         return function():Void {
             {
-                var _err:stdgo.Error = stdgo.os.Os.chdir(_oldwd);
+                var _err:stdgo.Error = stdgo.os.Os.chdir(_oldwd?.__copy__());
                 if (_err != null) {
-                    _t.fatalf(("chtmpdir: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                    _t.fatalf(("chtmpdir: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
                 };
             };
-            stdgo.os.Os.removeAll(_d);
+            stdgo.os.Os.removeAll(_d?.__copy__());
         };
     }
 /**
@@ -1588,17 +1588,17 @@ function _chtmpdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):() -> Void 
     // that the returned path does not contain symlinks.
 **/
 function _tempDirCanonical(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):stdgo.GoString {
-        var _dir:stdgo.GoString = _t.tempDir();
-        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_dir), _cdir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var _dir:stdgo.GoString = _t.tempDir()?.__copy__();
+        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_dir?.__copy__()), _cdir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.errorf(("tempDirCanonical: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            _t.errorf(("tempDirCanonical: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
         };
-        return _cdir;
+        return _cdir?.__copy__();
     }
 function testWalk(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _walk:(stdgo.GoString, stdgo.io.fs.Fs.WalkDirFunc) -> stdgo.Error = function(_root:stdgo.GoString, _fn:stdgo.io.fs.Fs.WalkDirFunc):stdgo.Error {
-            return stdgo.path.filepath.Filepath.walk(_root, function(_path:stdgo.GoString, _info:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
-                return _fn(_path, stdgo.Go.asInterface((stdgo.Go.setRef((new T_statDirEntry(_info) : T_statDirEntry)) : stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.T_statDirEntry>)), _err);
+            return stdgo.path.filepath.Filepath.walk(_root?.__copy__(), function(_path:stdgo.GoString, _info:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
+                return _fn(_path?.__copy__(), stdgo.Go.asInterface((stdgo.Go.setRef((new T_statDirEntry(_info) : T_statDirEntry)) : stdgo.StdGoTypes.Ref<stdgo.path.filepath_test.Filepath_test.T_statDirEntry>)), _err);
             });
         };
         _testWalk(_t, _walk, (1 : stdgo.StdGoTypes.GoInt));
@@ -1613,20 +1613,20 @@ function _testWalk(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _walk:(stdg
                 var _restore:() -> Void = _chtmpdir(_t);
                 __deferstack__.unshift(() -> _restore());
             };
-            var _tmpDir:stdgo.GoString = _t.tempDir();
+            var _tmpDir:stdgo.GoString = _t.tempDir()?.__copy__();
             var __tmp__ = stdgo.os.Os.getwd(), _origDir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("finding working dir:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
             {
-                _err = stdgo.os.Os.chdir(_tmpDir);
+                _err = stdgo.os.Os.chdir(_tmpDir?.__copy__());
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(("entering temp dir:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                 };
             };
             {
                 var _a0 = _origDir;
-                __deferstack__.unshift(() -> stdgo.os.Os.chdir(_a0));
+                __deferstack__.unshift(() -> stdgo.os.Os.chdir(_a0?.__copy__()));
             };
             _makeTree(_t);
             var _errors = new stdgo.Slice<stdgo.Error>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (10 : stdgo.StdGoTypes.GoInt));
@@ -1634,16 +1634,16 @@ function _testWalk(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _walk:(stdg
             var _markFn:(stdgo.GoString, stdgo.io.fs.Fs.DirEntry, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, _d:stdgo.io.fs.Fs.DirEntry, _err:stdgo.Error):stdgo.Error {
                 return _mark(_d, _err, (stdgo.Go.setRef(_errors) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.Error>>), _clear);
             };
-            _err = _walk(_tree._name, _markFn);
+            _err = _walk(_tree._name?.__copy__(), _markFn);
             if (_err != null) {
-                _t.fatalf(("no error expected, found: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                _t.fatalf(("no error expected, found: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
             };
             if ((_errors.length) != ((0 : stdgo.StdGoTypes.GoInt))) {
-                _t.fatalf(("unexpected errors: %s" : stdgo.GoString), stdgo.Go.toInterface(_errors));
+                _t.fatalf(("unexpected errors: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_errors));
             };
             _checkMarks(_t, true);
             _errors = (_errors.__slice__((0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.Error>);
-            _t.run(("PermErr" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+            _t.run(("PermErr" : stdgo.GoString)?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 if (false) {
                     _t.skip(stdgo.Go.toInterface(("skipping on js" : stdgo.GoString)));
                 };
@@ -1653,18 +1653,18 @@ function _testWalk(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _walk:(stdg
                 if (stdgo.testing.Testing.short()) {
                     _t.skip(stdgo.Go.toInterface(("skipping in short mode" : stdgo.GoString)));
                 };
-                stdgo.os.Os.chmod(stdgo.path.filepath.Filepath.join(_tree._name, _tree._entries[(1 : stdgo.StdGoTypes.GoInt)]._name), (0u32 : stdgo.io.fs.Fs.FileMode));
-                stdgo.os.Os.chmod(stdgo.path.filepath.Filepath.join(_tree._name, _tree._entries[(3 : stdgo.StdGoTypes.GoInt)]._name), (0u32 : stdgo.io.fs.Fs.FileMode));
+                stdgo.os.Os.chmod(stdgo.path.filepath.Filepath.join(_tree._name?.__copy__(), _tree._entries[(1 : stdgo.StdGoTypes.GoInt)]._name?.__copy__())?.__copy__(), (0u32 : stdgo.io.fs.Fs.FileMode));
+                stdgo.os.Os.chmod(stdgo.path.filepath.Filepath.join(_tree._name?.__copy__(), _tree._entries[(3 : stdgo.StdGoTypes.GoInt)]._name?.__copy__())?.__copy__(), (0u32 : stdgo.io.fs.Fs.FileMode));
                 _markTree(_tree._entries[(1 : stdgo.StdGoTypes.GoInt)]);
                 _markTree(_tree._entries[(3 : stdgo.StdGoTypes.GoInt)]);
                 _tree._entries[(1 : stdgo.StdGoTypes.GoInt)]._mark = _tree._entries[(1 : stdgo.StdGoTypes.GoInt)]._mark - (_errVisit);
                 _tree._entries[(3 : stdgo.StdGoTypes.GoInt)]._mark = _tree._entries[(3 : stdgo.StdGoTypes.GoInt)]._mark - (_errVisit);
-                var _err:stdgo.Error = _walk(_tree._name, _markFn);
+                var _err:stdgo.Error = _walk(_tree._name?.__copy__(), _markFn);
                 if (_err != null) {
-                    _t.fatalf(("expected no error return from Walk, got %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                    _t.fatalf(("expected no error return from Walk, got %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
                 };
                 if ((_errors.length) != ((2 : stdgo.StdGoTypes.GoInt))) {
-                    _t.errorf(("expected 2 errors, got %d: %s" : stdgo.GoString), stdgo.Go.toInterface((_errors.length)), stdgo.Go.toInterface(_errors));
+                    _t.errorf(("expected 2 errors, got %d: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((_errors.length)), stdgo.Go.toInterface(_errors));
                 };
                 _checkMarks(_t, true);
                 _errors = (_errors.__slice__((0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.Error>);
@@ -1673,17 +1673,17 @@ function _testWalk(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _walk:(stdg
                 _tree._entries[(1 : stdgo.StdGoTypes.GoInt)]._mark = _tree._entries[(1 : stdgo.StdGoTypes.GoInt)]._mark - (_errVisit);
                 _tree._entries[(3 : stdgo.StdGoTypes.GoInt)]._mark = _tree._entries[(3 : stdgo.StdGoTypes.GoInt)]._mark - (_errVisit);
                 _clear = false;
-                _err = _walk(_tree._name, _markFn);
+                _err = _walk(_tree._name?.__copy__(), _markFn);
                 if (_err == null) {
-                    _t.fatalf(("expected error return from Walk" : stdgo.GoString));
+                    _t.fatalf(("expected error return from Walk" : stdgo.GoString)?.__copy__());
                 };
                 if ((_errors.length) != ((1 : stdgo.StdGoTypes.GoInt))) {
-                    _t.errorf(("expected 1 error, got %d: %s" : stdgo.GoString), stdgo.Go.toInterface((_errors.length)), stdgo.Go.toInterface(_errors));
+                    _t.errorf(("expected 1 error, got %d: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((_errors.length)), stdgo.Go.toInterface(_errors));
                 };
                 _checkMarks(_t, false);
                 _errors = (_errors.__slice__((0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.Error>);
-                stdgo.os.Os.chmod(stdgo.path.filepath.Filepath.join(_tree._name, _tree._entries[(1 : stdgo.StdGoTypes.GoInt)]._name), (504u32 : stdgo.io.fs.Fs.FileMode));
-                stdgo.os.Os.chmod(stdgo.path.filepath.Filepath.join(_tree._name, _tree._entries[(3 : stdgo.StdGoTypes.GoInt)]._name), (504u32 : stdgo.io.fs.Fs.FileMode));
+                stdgo.os.Os.chmod(stdgo.path.filepath.Filepath.join(_tree._name?.__copy__(), _tree._entries[(1 : stdgo.StdGoTypes.GoInt)]._name?.__copy__())?.__copy__(), (504u32 : stdgo.io.fs.Fs.FileMode));
+                stdgo.os.Os.chmod(stdgo.path.filepath.Filepath.join(_tree._name?.__copy__(), _tree._entries[(3 : stdgo.StdGoTypes.GoInt)]._name?.__copy__())?.__copy__(), (504u32 : stdgo.io.fs.Fs.FileMode));
             });
             for (defer in __deferstack__) {
                 defer();
@@ -1710,7 +1710,7 @@ function _testWalk(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _walk:(stdg
         };
     }
 function _touch(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _name:stdgo.GoString):Void {
-        var __tmp__ = stdgo.os.Os.create(_name), _f:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.os.Os.create(_name?.__copy__()), _f:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
@@ -1722,148 +1722,148 @@ function _touch(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _name:stdgo.Go
         };
     }
 function testWalkSkipDirOnFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        var _td:stdgo.GoString = _t.tempDir();
+        var _td:stdgo.GoString = _t.tempDir()?.__copy__();
         {
-            var _err:stdgo.Error = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString)), (493u32 : stdgo.io.fs.Fs.FileMode));
+            var _err:stdgo.Error = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__())?.__copy__(), (493u32 : stdgo.io.fs.Fs.FileMode));
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        _touch(_t, stdgo.path.filepath.Filepath.join(_td, ("dir/foo1" : stdgo.GoString)));
-        _touch(_t, stdgo.path.filepath.Filepath.join(_td, ("dir/foo2" : stdgo.GoString)));
+        _touch(_t, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir/foo1" : stdgo.GoString)?.__copy__())?.__copy__());
+        _touch(_t, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir/foo2" : stdgo.GoString)?.__copy__())?.__copy__());
         var _sawFoo2:Bool = false;
         var _walker:stdgo.GoString -> stdgo.Error = function(_path:stdgo.GoString):stdgo.Error {
-            if (stdgo.strings.Strings.hasSuffix(_path, ("foo2" : stdgo.GoString))) {
+            if (stdgo.strings.Strings.hasSuffix(_path?.__copy__(), ("foo2" : stdgo.GoString)?.__copy__())) {
                 _sawFoo2 = true;
             };
-            if (stdgo.strings.Strings.hasSuffix(_path, ("foo1" : stdgo.GoString))) {
+            if (stdgo.strings.Strings.hasSuffix(_path?.__copy__(), ("foo1" : stdgo.GoString)?.__copy__())) {
                 return stdgo.path.filepath.Filepath.skipDir;
             };
             return (null : stdgo.Error);
         };
         var _walkFn:(stdgo.GoString, stdgo.io.fs.Fs.FileInfo, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __0:stdgo.io.fs.Fs.FileInfo, __1:stdgo.Error):stdgo.Error {
-            return _walker(_path);
+            return _walker(_path?.__copy__());
         };
         var _walkDirFn:(stdgo.GoString, stdgo.io.fs.Fs.DirEntry, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __0:stdgo.io.fs.Fs.DirEntry, __1:stdgo.Error):stdgo.Error {
-            return _walker(_path);
+            return _walker(_path?.__copy__());
         };
         var _check = function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _walk:(_root:stdgo.GoString) -> stdgo.Error, _root:stdgo.GoString):Void {
             _t.helper();
             _sawFoo2 = false;
-            var _err:stdgo.Error = _walk(_root);
+            var _err:stdgo.Error = _walk(_root?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             if (_sawFoo2) {
-                _t.errorf(("SkipDir on file foo1 did not block processing of foo2" : stdgo.GoString));
+                _t.errorf(("SkipDir on file foo1 did not block processing of foo2" : stdgo.GoString)?.__copy__());
             };
         };
-        _t.run(("Walk" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        _t.run(("Walk" : stdgo.GoString)?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var walk:stdgo.GoString -> stdgo.Error = function(_root:stdgo.GoString):stdgo.Error {
-                return stdgo.path.filepath.Filepath.walk(_td, _walkFn);
+                return stdgo.path.filepath.Filepath.walk(_td?.__copy__(), _walkFn);
             };
-            _check(_t, walk, _td);
-            _check(_t, walk, stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString)));
+            _check(_t, walk, _td?.__copy__());
+            _check(_t, walk, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__())?.__copy__());
         });
-        _t.run(("WalkDir" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        _t.run(("WalkDir" : stdgo.GoString)?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var walkDir:stdgo.GoString -> stdgo.Error = function(_root:stdgo.GoString):stdgo.Error {
-                return stdgo.path.filepath.Filepath.walkDir(_td, _walkDirFn);
+                return stdgo.path.filepath.Filepath.walkDir(_td?.__copy__(), _walkDirFn);
             };
-            _check(_t, walkDir, _td);
-            _check(_t, walkDir, stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString)));
+            _check(_t, walkDir, _td?.__copy__());
+            _check(_t, walkDir, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__())?.__copy__());
         });
     }
 function testWalkSkipAllOnFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        var _td:stdgo.GoString = _t.tempDir();
+        var _td:stdgo.GoString = _t.tempDir()?.__copy__();
         {
-            var _err:stdgo.Error = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString), ("subdir" : stdgo.GoString)), (493u32 : stdgo.io.fs.Fs.FileMode));
+            var _err:stdgo.Error = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__(), ("subdir" : stdgo.GoString)?.__copy__())?.__copy__(), (493u32 : stdgo.io.fs.Fs.FileMode));
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
         {
-            var _err:stdgo.Error = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_td, ("dir2" : stdgo.GoString)), (493u32 : stdgo.io.fs.Fs.FileMode));
+            var _err:stdgo.Error = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir2" : stdgo.GoString)?.__copy__())?.__copy__(), (493u32 : stdgo.io.fs.Fs.FileMode));
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        _touch(_t, stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString), ("foo1" : stdgo.GoString)));
-        _touch(_t, stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString), ("foo2" : stdgo.GoString)));
-        _touch(_t, stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString), ("subdir" : stdgo.GoString), ("foo3" : stdgo.GoString)));
-        _touch(_t, stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString), ("foo4" : stdgo.GoString)));
-        _touch(_t, stdgo.path.filepath.Filepath.join(_td, ("dir2" : stdgo.GoString), ("bar" : stdgo.GoString)));
-        _touch(_t, stdgo.path.filepath.Filepath.join(_td, ("last" : stdgo.GoString)));
+        _touch(_t, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__(), ("foo1" : stdgo.GoString)?.__copy__())?.__copy__());
+        _touch(_t, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__(), ("foo2" : stdgo.GoString)?.__copy__())?.__copy__());
+        _touch(_t, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__(), ("subdir" : stdgo.GoString)?.__copy__(), ("foo3" : stdgo.GoString)?.__copy__())?.__copy__());
+        _touch(_t, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__(), ("foo4" : stdgo.GoString)?.__copy__())?.__copy__());
+        _touch(_t, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir2" : stdgo.GoString)?.__copy__(), ("bar" : stdgo.GoString)?.__copy__())?.__copy__());
+        _touch(_t, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("last" : stdgo.GoString)?.__copy__())?.__copy__());
         var _remainingWereSkipped:Bool = true;
         var _walker:stdgo.GoString -> stdgo.Error = function(_path:stdgo.GoString):stdgo.Error {
-            if (stdgo.strings.Strings.hasSuffix(_path, ("foo2" : stdgo.GoString))) {
+            if (stdgo.strings.Strings.hasSuffix(_path?.__copy__(), ("foo2" : stdgo.GoString)?.__copy__())) {
                 return stdgo.path.filepath.Filepath.skipAll;
             };
-            if (((stdgo.strings.Strings.hasSuffix(_path, ("foo3" : stdgo.GoString)) || stdgo.strings.Strings.hasSuffix(_path, ("foo4" : stdgo.GoString))) || stdgo.strings.Strings.hasSuffix(_path, ("bar" : stdgo.GoString))) || stdgo.strings.Strings.hasSuffix(_path, ("last" : stdgo.GoString))) {
+            if (((stdgo.strings.Strings.hasSuffix(_path?.__copy__(), ("foo3" : stdgo.GoString)?.__copy__()) || stdgo.strings.Strings.hasSuffix(_path?.__copy__(), ("foo4" : stdgo.GoString)?.__copy__())) || stdgo.strings.Strings.hasSuffix(_path?.__copy__(), ("bar" : stdgo.GoString)?.__copy__())) || stdgo.strings.Strings.hasSuffix(_path?.__copy__(), ("last" : stdgo.GoString)?.__copy__())) {
                 _remainingWereSkipped = false;
             };
             return (null : stdgo.Error);
         };
         var _walkFn:(stdgo.GoString, stdgo.io.fs.Fs.FileInfo, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __0:stdgo.io.fs.Fs.FileInfo, __1:stdgo.Error):stdgo.Error {
-            return _walker(_path);
+            return _walker(_path?.__copy__());
         };
         var _walkDirFn:(stdgo.GoString, stdgo.io.fs.Fs.DirEntry, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __0:stdgo.io.fs.Fs.DirEntry, __1:stdgo.Error):stdgo.Error {
-            return _walker(_path);
+            return _walker(_path?.__copy__());
         };
         var _check = function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _walk:(_root:stdgo.GoString) -> stdgo.Error, _root:stdgo.GoString):Void {
             _t.helper();
             _remainingWereSkipped = true;
             {
-                var _err:stdgo.Error = _walk(_root);
+                var _err:stdgo.Error = _walk(_root?.__copy__());
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
             if (!_remainingWereSkipped) {
-                _t.errorf(("SkipAll on file foo2 did not block processing of remaining files and directories" : stdgo.GoString));
+                _t.errorf(("SkipAll on file foo2 did not block processing of remaining files and directories" : stdgo.GoString)?.__copy__());
             };
         };
-        _t.run(("Walk" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        _t.run(("Walk" : stdgo.GoString)?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var walk:stdgo.GoString -> stdgo.Error = function(__0:stdgo.GoString):stdgo.Error {
-                return stdgo.path.filepath.Filepath.walk(_td, _walkFn);
+                return stdgo.path.filepath.Filepath.walk(_td?.__copy__(), _walkFn);
             };
-            _check(_t, walk, _td);
-            _check(_t, walk, stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString)));
+            _check(_t, walk, _td?.__copy__());
+            _check(_t, walk, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__())?.__copy__());
         });
-        _t.run(("WalkDir" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        _t.run(("WalkDir" : stdgo.GoString)?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var walkDir:stdgo.GoString -> stdgo.Error = function(__0:stdgo.GoString):stdgo.Error {
-                return stdgo.path.filepath.Filepath.walkDir(_td, _walkDirFn);
+                return stdgo.path.filepath.Filepath.walkDir(_td?.__copy__(), _walkDirFn);
             };
-            _check(_t, walkDir, _td);
-            _check(_t, walkDir, stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString)));
+            _check(_t, walkDir, _td?.__copy__());
+            _check(_t, walkDir, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__())?.__copy__());
         });
     }
 function testWalkFileError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _td:stdgo.GoString = _t.tempDir();
-            _touch(_t, stdgo.path.filepath.Filepath.join(_td, ("foo" : stdgo.GoString)));
-            _touch(_t, stdgo.path.filepath.Filepath.join(_td, ("bar" : stdgo.GoString)));
-            var _dir:stdgo.GoString = stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString));
+            var _td:stdgo.GoString = _t.tempDir()?.__copy__();
+            _touch(_t, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("foo" : stdgo.GoString)?.__copy__())?.__copy__());
+            _touch(_t, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("bar" : stdgo.GoString)?.__copy__())?.__copy__());
+            var _dir:stdgo.GoString = stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__())?.__copy__();
             {
-                var _err:stdgo.Error = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString)), (493u32 : stdgo.io.fs.Fs.FileMode));
+                var _err:stdgo.Error = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__())?.__copy__(), (493u32 : stdgo.io.fs.Fs.FileMode));
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
-            _touch(_t, stdgo.path.filepath.Filepath.join(_dir, ("baz" : stdgo.GoString)));
-            _touch(_t, stdgo.path.filepath.Filepath.join(_dir, ("stat-error" : stdgo.GoString)));
+            _touch(_t, stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("baz" : stdgo.GoString)?.__copy__())?.__copy__());
+            _touch(_t, stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("stat-error" : stdgo.GoString)?.__copy__())?.__copy__());
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     stdgo.path.filepath.Filepath.lstatP = stdgo.os.Os.lstat;
                 };
                 a();
             });
-            var _statErr:stdgo.Error = stdgo.errors.Errors.new_(("some stat error" : stdgo.GoString));
+            var _statErr:stdgo.Error = stdgo.errors.Errors.new_(("some stat error" : stdgo.GoString)?.__copy__());
             stdgo.path.filepath.Filepath.lstatP = function(_path:stdgo.GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } {
-                if (stdgo.strings.Strings.hasSuffix(_path, ("stat-error" : stdgo.GoString))) {
+                if (stdgo.strings.Strings.hasSuffix(_path?.__copy__(), ("stat-error" : stdgo.GoString)?.__copy__())) {
                     return { _0 : (null : stdgo.io.fs.Fs.FileInfo), _1 : _statErr };
                 };
-                return stdgo.os.Os.lstat(_path);
+                return stdgo.os.Os.lstat(_path?.__copy__());
             };
             var _got = ({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Error>();
@@ -1871,13 +1871,13 @@ function testWalkFileError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 @:mergeBlock {};
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Error>);
-            var _err:stdgo.Error = stdgo.path.filepath.Filepath.walk(_td, function(_path:stdgo.GoString, _fi:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
-                var __tmp__ = stdgo.path.filepath.Filepath.rel(_td, _path), _rel:stdgo.GoString = __tmp__._0, __0:stdgo.Error = __tmp__._1;
-                _got[stdgo.path.filepath.Filepath.toSlash(_rel)] = _err;
+            var _err:stdgo.Error = stdgo.path.filepath.Filepath.walk(_td?.__copy__(), function(_path:stdgo.GoString, _fi:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
+                var __tmp__ = stdgo.path.filepath.Filepath.rel(_td?.__copy__(), _path?.__copy__()), _rel:stdgo.GoString = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+                _got[stdgo.path.filepath.Filepath.toSlash(_rel?.__copy__())?.__copy__()] = _err;
                 return (null : stdgo.Error);
             });
             if (_err != null) {
-                _t.errorf(("Walk error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                _t.errorf(("Walk error: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
             };
             var _want = ({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Error>();
@@ -1893,7 +1893,7 @@ function testWalkFileError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Error>);
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want))) {
-                _t.errorf(("Walked %#v; want %#v" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                _t.errorf(("Walked %#v; want %#v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
             for (defer in __deferstack__) {
                 defer();
@@ -1921,58 +1921,58 @@ function testWalkFileError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     }
 function testWalkSymlinkRoot(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveSymlink(stdgo.Go.asInterface(_t));
-        var _td:stdgo.GoString = _t.tempDir();
-        var _dir:stdgo.GoString = stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString));
+        var _td:stdgo.GoString = _t.tempDir()?.__copy__();
+        var _dir:stdgo.GoString = stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__())?.__copy__();
         {
-            var _err:stdgo.Error = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_td, ("dir" : stdgo.GoString)), (493u32 : stdgo.io.fs.Fs.FileMode));
+            var _err:stdgo.Error = stdgo.os.Os.mkdirAll(stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString)?.__copy__())?.__copy__(), (493u32 : stdgo.io.fs.Fs.FileMode));
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        _touch(_t, stdgo.path.filepath.Filepath.join(_dir, ("foo" : stdgo.GoString)));
-        var _link:stdgo.GoString = stdgo.path.filepath.Filepath.join(_td, ("link" : stdgo.GoString));
+        _touch(_t, stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("foo" : stdgo.GoString)?.__copy__())?.__copy__());
+        var _link:stdgo.GoString = stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("link" : stdgo.GoString)?.__copy__())?.__copy__();
         {
-            var _err:stdgo.Error = stdgo.os.Os.symlink(("dir" : stdgo.GoString), _link);
+            var _err:stdgo.Error = stdgo.os.Os.symlink(("dir" : stdgo.GoString)?.__copy__(), _link?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        var _abslink:stdgo.GoString = stdgo.path.filepath.Filepath.join(_td, ("abslink" : stdgo.GoString));
+        var _abslink:stdgo.GoString = stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("abslink" : stdgo.GoString)?.__copy__())?.__copy__();
         {
-            var _err:stdgo.Error = stdgo.os.Os.symlink(_dir, _abslink);
+            var _err:stdgo.Error = stdgo.os.Os.symlink(_dir?.__copy__(), _abslink?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        var _linklink:stdgo.GoString = stdgo.path.filepath.Filepath.join(_td, ("linklink" : stdgo.GoString));
+        var _linklink:stdgo.GoString = stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("linklink" : stdgo.GoString)?.__copy__())?.__copy__();
         {
-            var _err:stdgo.Error = stdgo.os.Os.symlink(("link" : stdgo.GoString), _linklink);
+            var _err:stdgo.Error = stdgo.os.Os.symlink(("link" : stdgo.GoString)?.__copy__(), _linklink?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        for (__0 => _tt in (new stdgo.Slice<T__struct_2>(6, 6, ({ _desc : ("no slash" : stdgo.GoString), _root : _link, _want : (new stdgo.Slice<stdgo.GoString>(1, 1, _link) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (null : stdgo.Slice<stdgo.GoString>) } : T__struct_2), ({ _desc : ("slash" : stdgo.GoString), _root : _link + ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString), _want : (new stdgo.Slice<stdgo.GoString>(2, 2, _link, stdgo.path.filepath.Filepath.join(_link, ("foo" : stdgo.GoString))) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (null : stdgo.Slice<stdgo.GoString>) } : T__struct_2), ({ _desc : ("abs no slash" : stdgo.GoString), _root : _abslink, _want : (new stdgo.Slice<stdgo.GoString>(1, 1, _abslink) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (null : stdgo.Slice<stdgo.GoString>) } : T__struct_2), ({ _desc : ("abs with slash" : stdgo.GoString), _root : _abslink + ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString), _want : (new stdgo.Slice<stdgo.GoString>(2, 2, _abslink, stdgo.path.filepath.Filepath.join(_abslink, ("foo" : stdgo.GoString))) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (null : stdgo.Slice<stdgo.GoString>) } : T__struct_2), ({ _desc : ("double link no slash" : stdgo.GoString), _root : _linklink, _want : (new stdgo.Slice<stdgo.GoString>(1, 1, _linklink) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (null : stdgo.Slice<stdgo.GoString>) } : T__struct_2), ({ _desc : ("double link with slash" : stdgo.GoString), _root : _linklink + ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString), _want : (new stdgo.Slice<stdgo.GoString>(2, 2, _linklink, stdgo.path.filepath.Filepath.join(_linklink, ("foo" : stdgo.GoString))) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (new stdgo.Slice<stdgo.GoString>(2, 2, ("darwin" : stdgo.GoString), ("ios" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>) } : T__struct_2)) : stdgo.Slice<T__struct_2>)) {
+        for (__0 => _tt in (new stdgo.Slice<T__struct_2>(6, 6, ({ _desc : ("no slash" : stdgo.GoString)?.__copy__(), _root : _link?.__copy__(), _want : (new stdgo.Slice<stdgo.GoString>(1, 1, _link?.__copy__()) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (null : stdgo.Slice<stdgo.GoString>) } : T__struct_2), ({ _desc : ("slash" : stdgo.GoString)?.__copy__(), _root : _link + ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__()?.__copy__(), _want : (new stdgo.Slice<stdgo.GoString>(2, 2, _link?.__copy__(), stdgo.path.filepath.Filepath.join(_link?.__copy__(), ("foo" : stdgo.GoString)?.__copy__())?.__copy__()) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (null : stdgo.Slice<stdgo.GoString>) } : T__struct_2), ({ _desc : ("abs no slash" : stdgo.GoString)?.__copy__(), _root : _abslink?.__copy__(), _want : (new stdgo.Slice<stdgo.GoString>(1, 1, _abslink?.__copy__()) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (null : stdgo.Slice<stdgo.GoString>) } : T__struct_2), ({ _desc : ("abs with slash" : stdgo.GoString)?.__copy__(), _root : _abslink + ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__()?.__copy__(), _want : (new stdgo.Slice<stdgo.GoString>(2, 2, _abslink?.__copy__(), stdgo.path.filepath.Filepath.join(_abslink?.__copy__(), ("foo" : stdgo.GoString)?.__copy__())?.__copy__()) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (null : stdgo.Slice<stdgo.GoString>) } : T__struct_2), ({ _desc : ("double link no slash" : stdgo.GoString)?.__copy__(), _root : _linklink?.__copy__(), _want : (new stdgo.Slice<stdgo.GoString>(1, 1, _linklink?.__copy__()) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (null : stdgo.Slice<stdgo.GoString>) } : T__struct_2), ({ _desc : ("double link with slash" : stdgo.GoString)?.__copy__(), _root : _linklink + ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__()?.__copy__(), _want : (new stdgo.Slice<stdgo.GoString>(2, 2, _linklink?.__copy__(), stdgo.path.filepath.Filepath.join(_linklink?.__copy__(), ("foo" : stdgo.GoString)?.__copy__())?.__copy__()) : stdgo.Slice<stdgo.GoString>), _buggyGOOS : (new stdgo.Slice<stdgo.GoString>(2, 2, ("darwin" : stdgo.GoString)?.__copy__(), ("ios" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>) } : T__struct_2)) : stdgo.Slice<T__struct_2>)) {
             var _tt:T__struct_2 = {
                 final x = _tt;
-                ({ _desc : x._desc, _root : x._root, _want : x._want, _buggyGOOS : x._buggyGOOS } : T__struct_2);
+                ({ _desc : x._desc?.__copy__(), _root : x._root?.__copy__(), _want : x._want, _buggyGOOS : x._buggyGOOS } : T__struct_2);
             };
-            _t.run(_tt._desc, function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+            _t.run(_tt._desc?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 var _walked:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-                var _err:stdgo.Error = stdgo.path.filepath.Filepath.walk(_tt._root, function(_path:stdgo.GoString, _info:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
+                var _err:stdgo.Error = stdgo.path.filepath.Filepath.walk(_tt._root?.__copy__(), function(_path:stdgo.GoString, _info:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
                     if (_err != null) {
                         return _err;
                     };
-                    _t.logf(("%#q: %v" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(stdgo.Go.asInterface(_info.mode())));
-                    _walked = (_walked.__append__(stdgo.path.filepath.Filepath.clean(_path)));
+                    _t.logf(("%#q: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(stdgo.Go.asInterface(_info.mode())));
+                    _walked = (_walked.__append__(stdgo.path.filepath.Filepath.clean(_path?.__copy__())?.__copy__()));
                     return (null : stdgo.Error);
                 });
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
                 if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_walked), stdgo.Go.toInterface(_tt._want))) {
-                    _t.logf(("Walk(%#q) visited %#q; want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt._root), stdgo.Go.toInterface(_walked), stdgo.Go.toInterface(_tt._want));
-                    if (stdgo.slices.Slices.contains((null : stdgo.Slice<stdgo.GoString>), ("" : stdgo.GoString), _tt._buggyGOOS, ("js" : stdgo.GoString))) {
-                        _t.logf(("(ignoring known bug on %v)" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)));
+                    _t.logf(("Walk(%#q) visited %#q; want %#q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt._root), stdgo.Go.toInterface(_walked), stdgo.Go.toInterface(_tt._want));
+                    if (stdgo.slices.Slices.contains((null : stdgo.Slice<stdgo.GoString>), ("" : stdgo.GoString), _tt._buggyGOOS, ("js" : stdgo.GoString)?.__copy__())) {
+                        _t.logf(("(ignoring known bug on %v)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("js" : stdgo.GoString)));
                     } else {
                         _t.fail();
                     };
@@ -1984,15 +1984,15 @@ function testBase(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _tests = _basetests;
         if (false) {
             for (_i in 0 ... _tests.length.toBasic()) {
-                _tests[(_i : stdgo.StdGoTypes.GoInt)]._result = stdgo.path.filepath.Filepath.clean(_tests[(_i : stdgo.StdGoTypes.GoInt)]._result);
+                _tests[(_i : stdgo.StdGoTypes.GoInt)]._result = stdgo.path.filepath.Filepath.clean(_tests[(_i : stdgo.StdGoTypes.GoInt)]._result?.__copy__())?.__copy__();
             };
             _tests = (_tests.__append__(..._winbasetests.__toArray__()));
         };
         for (__0 => _test in _tests) {
             {
-                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.base(_test._path);
+                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.base(_test._path?.__copy__())?.__copy__();
                 if (_s != (_test._result)) {
-                    _t.errorf(("Base(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
+                    _t.errorf(("Base(%q) = %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
             };
         };
@@ -2001,7 +2001,7 @@ function testDir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _tests = _dirtests;
         if (false) {
             for (_i in 0 ... _tests.length.toBasic()) {
-                _tests[(_i : stdgo.StdGoTypes.GoInt)]._result = stdgo.path.filepath.Filepath.clean(_tests[(_i : stdgo.StdGoTypes.GoInt)]._result);
+                _tests[(_i : stdgo.StdGoTypes.GoInt)]._result = stdgo.path.filepath.Filepath.clean(_tests[(_i : stdgo.StdGoTypes.GoInt)]._result?.__copy__())?.__copy__();
             };
             _tests = (_tests.__append__(..._windirtests.__toArray__()));
         } else {
@@ -2009,9 +2009,9 @@ function testDir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         for (__0 => _test in _tests) {
             {
-                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.dir(_test._path);
+                var _s:stdgo.GoString = stdgo.path.filepath.Filepath.dir(_test._path?.__copy__())?.__copy__();
                 if (_s != (_test._result)) {
-                    _t.errorf(("Dir(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
+                    _t.errorf(("Dir(%q) = %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
             };
         };
@@ -2021,19 +2021,19 @@ function testIsAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         if (false) {
             _tests = (_tests.__append__(..._winisabstests.__toArray__()));
             for (__0 => _test in _isabstests) {
-                _tests = (_tests.__append__((new IsAbsTest(_test._path, false) : IsAbsTest)));
+                _tests = (_tests.__append__((new IsAbsTest(_test._path?.__copy__(), false) : IsAbsTest)));
             };
             for (__1 => _test in _isabstests) {
-                _tests = (_tests.__append__((new IsAbsTest(("c:" : stdgo.GoString) + _test._path, _test._isAbs) : IsAbsTest)));
+                _tests = (_tests.__append__((new IsAbsTest(("c:" : stdgo.GoString) + _test._path?.__copy__()?.__copy__(), _test._isAbs) : IsAbsTest)));
             };
         } else {
             _tests = _isabstests;
         };
         for (__2 => _test in _tests) {
             {
-                var _r:Bool = stdgo.path.filepath.Filepath.isAbs(_test._path);
+                var _r:Bool = stdgo.path.filepath.Filepath.isAbs(_test._path?.__copy__());
                 if (_r != (_test._isAbs)) {
-                    _t.errorf(("IsAbs(%q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_test._isAbs));
+                    _t.errorf(("IsAbs(%q) = %v, want %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_test._isAbs));
                 };
             };
         };
@@ -2043,16 +2043,16 @@ function testIsAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     // It does not use Join because we don't want ".." to be evaluated.
 **/
 function _simpleJoin(_dir:stdgo.GoString, _path:stdgo.GoString):stdgo.GoString {
-        return (_dir + ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)) + _path;
+        return _dir + ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__() + _path?.__copy__()?.__copy__();
     }
 function _testEvalSymlinks(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _path:stdgo.GoString, _want:stdgo.GoString):Void {
-        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_path), _have:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_path?.__copy__()), _have:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.errorf(("EvalSymlinks(%q) error: %v" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_err));
+            _t.errorf(("EvalSymlinks(%q) error: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_err));
             return;
         };
-        if (stdgo.path.filepath.Filepath.clean(_have) != (stdgo.path.filepath.Filepath.clean(_want))) {
-            _t.errorf(("EvalSymlinks(%q) returns %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_want));
+        if (stdgo.path.filepath.Filepath.clean(_have?.__copy__()) != (stdgo.path.filepath.Filepath.clean(_want?.__copy__()))) {
+            _t.errorf(("EvalSymlinks(%q) returns %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_want));
         };
     }
 function _testEvalSymlinksAfterChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _wd:stdgo.GoString, _path:stdgo.GoString, _want:stdgo.GoString):Void {
@@ -2064,20 +2064,20 @@ function _testEvalSymlinksAfterChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
             };
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var _err:stdgo.Error = stdgo.os.Os.chdir(_cwd);
+                    var _err:stdgo.Error = stdgo.os.Os.chdir(_cwd?.__copy__());
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
                 };
                 a();
             });
-            _err = stdgo.os.Os.chdir(_wd);
+            _err = stdgo.os.Os.chdir(_wd?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
-            var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_path), _have:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_path?.__copy__()), _have:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.errorf(("EvalSymlinks(%q) in %q directory error: %v" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_wd), stdgo.Go.toInterface(_err));
+                _t.errorf(("EvalSymlinks(%q) in %q directory error: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_wd), stdgo.Go.toInterface(_err));
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -2085,8 +2085,8 @@ function _testEvalSymlinksAfterChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
                     return;
                 };
             };
-            if (stdgo.path.filepath.Filepath.clean(_have) != (stdgo.path.filepath.Filepath.clean(_want))) {
-                _t.errorf(("EvalSymlinks(%q) in %q directory returns %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_wd), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_want));
+            if (stdgo.path.filepath.Filepath.clean(_have?.__copy__()) != (stdgo.path.filepath.Filepath.clean(_want?.__copy__()))) {
+                _t.errorf(("EvalSymlinks(%q) in %q directory returns %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_wd), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_want));
             };
             for (defer in __deferstack__) {
                 defer();
@@ -2114,11 +2114,11 @@ function _testEvalSymlinksAfterChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
     }
 function testEvalSymlinks(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveSymlink(stdgo.Go.asInterface(_t));
-        var _tmpDir:stdgo.GoString = _t.tempDir();
+        var _tmpDir:stdgo.GoString = _t.tempDir()?.__copy__();
         var _err:stdgo.Error = (null : stdgo.Error);
         {
-            var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_tmpDir);
-            _tmpDir = __tmp__._0;
+            var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_tmpDir?.__copy__());
+            _tmpDir = __tmp__._0?.__copy__();
             _err = __tmp__._1;
         };
         if (_err != null) {
@@ -2126,34 +2126,34 @@ function testEvalSymlinks(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
         };
         for (__0 => _d in evalSymlinksTestDirs) {
             var _err:stdgo.Error = (null : stdgo.Error);
-            var _path:stdgo.GoString = _simpleJoin(_tmpDir, _d._path);
+            var _path:stdgo.GoString = _simpleJoin(_tmpDir?.__copy__(), _d._path?.__copy__())?.__copy__();
             if (_d._dest == (stdgo.Go.str())) {
-                _err = stdgo.os.Os.mkdir(_path, (493u32 : stdgo.io.fs.Fs.FileMode));
+                _err = stdgo.os.Os.mkdir(_path?.__copy__(), (493u32 : stdgo.io.fs.Fs.FileMode));
             } else {
-                _err = stdgo.os.Os.symlink(_d._dest, _path);
+                _err = stdgo.os.Os.symlink(_d._dest?.__copy__(), _path?.__copy__());
             };
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
         for (__1 => _test in evalSymlinksTests) {
-            var _path:stdgo.GoString = _simpleJoin(_tmpDir, _test._path);
-            var _dest:stdgo.GoString = _simpleJoin(_tmpDir, _test._dest);
-            if (stdgo.path.filepath.Filepath.isAbs(_test._dest) || stdgo.os.Os.isPathSeparator(_test._dest[(0 : stdgo.StdGoTypes.GoInt)])) {
-                _dest = _test._dest;
+            var _path:stdgo.GoString = _simpleJoin(_tmpDir?.__copy__(), _test._path?.__copy__())?.__copy__();
+            var _dest:stdgo.GoString = _simpleJoin(_tmpDir?.__copy__(), _test._dest?.__copy__())?.__copy__();
+            if (stdgo.path.filepath.Filepath.isAbs(_test._dest?.__copy__()) || stdgo.os.Os.isPathSeparator(_test._dest[(0 : stdgo.StdGoTypes.GoInt)])) {
+                _dest = _test._dest?.__copy__();
             };
-            _testEvalSymlinks(_t, _path, _dest);
-            _testEvalSymlinksAfterChdir(_t, _path, ("." : stdgo.GoString), ("." : stdgo.GoString));
+            _testEvalSymlinks(_t, _path?.__copy__(), _dest?.__copy__());
+            _testEvalSymlinksAfterChdir(_t, _path?.__copy__(), ("." : stdgo.GoString)?.__copy__(), ("." : stdgo.GoString)?.__copy__());
             if (false) {
-                var _volDot:stdgo.GoString = stdgo.path.filepath.Filepath.volumeName(_tmpDir) + ("." : stdgo.GoString);
-                _testEvalSymlinksAfterChdir(_t, _path, _volDot, _volDot);
+                var _volDot:stdgo.GoString = stdgo.path.filepath.Filepath.volumeName(_tmpDir?.__copy__()) + ("." : stdgo.GoString)?.__copy__()?.__copy__();
+                _testEvalSymlinksAfterChdir(_t, _path?.__copy__(), _volDot?.__copy__(), _volDot?.__copy__());
             };
-            var _dotdotPath:stdgo.GoString = _simpleJoin((".." : stdgo.GoString), _test._dest);
-            if (stdgo.path.filepath.Filepath.isAbs(_test._dest) || stdgo.os.Os.isPathSeparator(_test._dest[(0 : stdgo.StdGoTypes.GoInt)])) {
-                _dotdotPath = _test._dest;
+            var _dotdotPath:stdgo.GoString = _simpleJoin((".." : stdgo.GoString)?.__copy__(), _test._dest?.__copy__())?.__copy__();
+            if (stdgo.path.filepath.Filepath.isAbs(_test._dest?.__copy__()) || stdgo.os.Os.isPathSeparator(_test._dest[(0 : stdgo.StdGoTypes.GoInt)])) {
+                _dotdotPath = _test._dest?.__copy__();
             };
-            _testEvalSymlinksAfterChdir(_t, _simpleJoin(_tmpDir, ("test" : stdgo.GoString)), _simpleJoin((".." : stdgo.GoString), _test._path), _dotdotPath);
-            _testEvalSymlinksAfterChdir(_t, _tmpDir, _test._path, _test._dest);
+            _testEvalSymlinksAfterChdir(_t, _simpleJoin(_tmpDir?.__copy__(), ("test" : stdgo.GoString)?.__copy__())?.__copy__(), _simpleJoin((".." : stdgo.GoString)?.__copy__(), _test._path?.__copy__())?.__copy__(), _dotdotPath?.__copy__());
+            _testEvalSymlinksAfterChdir(_t, _tmpDir?.__copy__(), _test._path?.__copy__(), _test._dest?.__copy__());
         };
     }
 function testEvalSymlinksIsNotExist(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
@@ -2161,24 +2161,24 @@ function testEvalSymlinksIsNotExist(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
         try {
             stdgo.internal.testenv.Testenv.mustHaveSymlink(stdgo.Go.asInterface(_t));
             __deferstack__.unshift(() -> _chtmpdir(_t)());
-            var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(("notexist" : stdgo.GoString)), __0:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(("notexist" : stdgo.GoString)?.__copy__()), __0:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (!stdgo.os.Os.isNotExist(_err)) {
-                _t.errorf(("expected the file is not found, got %v\n" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                _t.errorf(("expected the file is not found, got %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
             };
-            _err = stdgo.os.Os.symlink(("notexist" : stdgo.GoString), ("link" : stdgo.GoString));
+            _err = stdgo.os.Os.symlink(("notexist" : stdgo.GoString)?.__copy__(), ("link" : stdgo.GoString)?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             {
                 var _a0 = ("link" : stdgo.GoString);
-                __deferstack__.unshift(() -> stdgo.os.Os.remove(_a0));
+                __deferstack__.unshift(() -> stdgo.os.Os.remove(_a0?.__copy__()));
             };
             {
-                var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(("link" : stdgo.GoString));
+                var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(("link" : stdgo.GoString)?.__copy__());
                 _err = __tmp__._1;
             };
             if (!stdgo.os.Os.isNotExist(_err)) {
-                _t.errorf(("expected the file is not found, got %v\n" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                _t.errorf(("expected the file is not found, got %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
             };
             for (defer in __deferstack__) {
                 defer();
@@ -2206,46 +2206,46 @@ function testEvalSymlinksIsNotExist(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
     }
 function testIssue13582(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveSymlink(stdgo.Go.asInterface(_t));
-        var _tmpDir:stdgo.GoString = _t.tempDir();
-        var _dir:stdgo.GoString = stdgo.path.filepath.Filepath.join(_tmpDir, ("dir" : stdgo.GoString));
-        var _err:stdgo.Error = stdgo.os.Os.mkdir(_dir, (493u32 : stdgo.io.fs.Fs.FileMode));
+        var _tmpDir:stdgo.GoString = _t.tempDir()?.__copy__();
+        var _dir:stdgo.GoString = stdgo.path.filepath.Filepath.join(_tmpDir?.__copy__(), ("dir" : stdgo.GoString)?.__copy__())?.__copy__();
+        var _err:stdgo.Error = stdgo.os.Os.mkdir(_dir?.__copy__(), (493u32 : stdgo.io.fs.Fs.FileMode));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        var _linkToDir:stdgo.GoString = stdgo.path.filepath.Filepath.join(_tmpDir, ("link_to_dir" : stdgo.GoString));
-        _err = stdgo.os.Os.symlink(_dir, _linkToDir);
+        var _linkToDir:stdgo.GoString = stdgo.path.filepath.Filepath.join(_tmpDir?.__copy__(), ("link_to_dir" : stdgo.GoString)?.__copy__())?.__copy__();
+        _err = stdgo.os.Os.symlink(_dir?.__copy__(), _linkToDir?.__copy__());
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        var _file:stdgo.GoString = stdgo.path.filepath.Filepath.join(_linkToDir, ("file" : stdgo.GoString));
-        _err = stdgo.os.Os.writeFile(_file, (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (420u32 : stdgo.io.fs.Fs.FileMode));
+        var _file:stdgo.GoString = stdgo.path.filepath.Filepath.join(_linkToDir?.__copy__(), ("file" : stdgo.GoString)?.__copy__())?.__copy__();
+        _err = stdgo.os.Os.writeFile(_file?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (420u32 : stdgo.io.fs.Fs.FileMode));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        var _link1:stdgo.GoString = stdgo.path.filepath.Filepath.join(_linkToDir, ("link1" : stdgo.GoString));
-        _err = stdgo.os.Os.symlink(_file, _link1);
+        var _link1:stdgo.GoString = stdgo.path.filepath.Filepath.join(_linkToDir?.__copy__(), ("link1" : stdgo.GoString)?.__copy__())?.__copy__();
+        _err = stdgo.os.Os.symlink(_file?.__copy__(), _link1?.__copy__());
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        var _link2:stdgo.GoString = stdgo.path.filepath.Filepath.join(_linkToDir, ("link2" : stdgo.GoString));
-        _err = stdgo.os.Os.symlink(_link1, _link2);
+        var _link2:stdgo.GoString = stdgo.path.filepath.Filepath.join(_linkToDir?.__copy__(), ("link2" : stdgo.GoString)?.__copy__())?.__copy__();
+        _err = stdgo.os.Os.symlink(_link1?.__copy__(), _link2?.__copy__());
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_tmpDir), _realTmpDir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_tmpDir?.__copy__()), _realTmpDir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        var _realDir:stdgo.GoString = stdgo.path.filepath.Filepath.join(_realTmpDir, ("dir" : stdgo.GoString));
-        var _realFile:stdgo.GoString = stdgo.path.filepath.Filepath.join(_realDir, ("file" : stdgo.GoString));
-        var _tests = (new stdgo.Slice<T__struct_3>(5, 5, ({ _path : _dir, _want : _realDir } : T__struct_3), ({ _path : _linkToDir, _want : _realDir } : T__struct_3), ({ _path : _file, _want : _realFile } : T__struct_3), ({ _path : _link1, _want : _realFile } : T__struct_3), ({ _path : _link2, _want : _realFile } : T__struct_3)) : stdgo.Slice<T__struct_3>);
+        var _realDir:stdgo.GoString = stdgo.path.filepath.Filepath.join(_realTmpDir?.__copy__(), ("dir" : stdgo.GoString)?.__copy__())?.__copy__();
+        var _realFile:stdgo.GoString = stdgo.path.filepath.Filepath.join(_realDir?.__copy__(), ("file" : stdgo.GoString)?.__copy__())?.__copy__();
+        var _tests = (new stdgo.Slice<T__struct_3>(5, 5, ({ _path : _dir?.__copy__(), _want : _realDir?.__copy__() } : T__struct_3), ({ _path : _linkToDir?.__copy__(), _want : _realDir?.__copy__() } : T__struct_3), ({ _path : _file?.__copy__(), _want : _realFile?.__copy__() } : T__struct_3), ({ _path : _link1?.__copy__(), _want : _realFile?.__copy__() } : T__struct_3), ({ _path : _link2?.__copy__(), _want : _realFile?.__copy__() } : T__struct_3)) : stdgo.Slice<T__struct_3>);
         for (_i => _test in _tests) {
-            var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_test._path), _have:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_test._path?.__copy__()), _have:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             if (_have != (_test._want)) {
-                _t.errorf(("test#%d: EvalSymlinks(%q) returns %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_test._want));
+                _t.errorf(("test#%d: EvalSymlinks(%q) returns %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_test._want));
             };
         };
     }
@@ -2254,87 +2254,87 @@ function testIssue13582(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testRelativeSymlinkToAbsolute(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveSymlink(stdgo.Go.asInterface(_t));
-        var _tmpDir:stdgo.GoString = _t.tempDir();
-        _chdir(_t, _tmpDir);
+        var _tmpDir:stdgo.GoString = _t.tempDir()?.__copy__();
+        _chdir(_t, _tmpDir?.__copy__());
         {
-            var _err:stdgo.Error = stdgo.os.Os.symlink(_tmpDir, ("link" : stdgo.GoString));
+            var _err:stdgo.Error = stdgo.os.Os.symlink(_tmpDir?.__copy__(), ("link" : stdgo.GoString)?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        _t.logf(("os.Symlink(%q, \"link\")" : stdgo.GoString), stdgo.Go.toInterface(_tmpDir));
-        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(("link" : stdgo.GoString)), _p:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        _t.logf(("os.Symlink(%q, \"link\")" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tmpDir));
+        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(("link" : stdgo.GoString)?.__copy__()), _p:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("EvalSymlinks(\"link\"): %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            _t.fatalf(("EvalSymlinks(\"link\"): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
         };
-        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_tmpDir), _want:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_tmpDir?.__copy__()), _want:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("EvalSymlinks(%q): %v" : stdgo.GoString), stdgo.Go.toInterface(_tmpDir), stdgo.Go.toInterface(_err));
+            _t.fatalf(("EvalSymlinks(%q): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tmpDir), stdgo.Go.toInterface(_err));
         };
         if (_p != (_want)) {
-            _t.errorf(("EvalSymlinks(\"link\") = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_want));
+            _t.errorf(("EvalSymlinks(\"link\") = %q; want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_want));
         };
-        _t.logf(("EvalSymlinks(\"link\") = %q" : stdgo.GoString), stdgo.Go.toInterface(_p));
+        _t.logf(("EvalSymlinks(\"link\") = %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_p));
     }
 function testAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _root:stdgo.GoString = _t.tempDir();
+            var _root:stdgo.GoString = _t.tempDir()?.__copy__();
             var __tmp__ = stdgo.os.Os.getwd(), _wd:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("getwd failed: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
-            _err = stdgo.os.Os.chdir(_root);
+            _err = stdgo.os.Os.chdir(_root?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("chdir failed: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
             {
                 var _a0 = _wd;
-                __deferstack__.unshift(() -> stdgo.os.Os.chdir(_a0));
+                __deferstack__.unshift(() -> stdgo.os.Os.chdir(_a0?.__copy__()));
             };
             for (__0 => _dir in _absTestDirs) {
-                _err = stdgo.os.Os.mkdir(_dir, (511u32 : stdgo.io.fs.Fs.FileMode));
+                _err = stdgo.os.Os.mkdir(_dir?.__copy__(), (511u32 : stdgo.io.fs.Fs.FileMode));
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(("Mkdir failed: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
                 };
             };
             if (false) {
-                var _vol:stdgo.GoString = stdgo.path.filepath.Filepath.volumeName(_root);
+                var _vol:stdgo.GoString = stdgo.path.filepath.Filepath.volumeName(_root?.__copy__())?.__copy__();
                 var _extra:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                 for (__1 => _path in _absTests) {
-                    if (stdgo.strings.Strings.contains(_path, ("$" : stdgo.GoString))) {
+                    if (stdgo.strings.Strings.contains(_path?.__copy__(), ("$" : stdgo.GoString)?.__copy__())) {
                         continue;
                     };
-                    _path = _vol + _path;
-                    _extra = (_extra.__append__(_path));
+                    _path = _vol + _path?.__copy__()?.__copy__();
+                    _extra = (_extra.__append__(_path?.__copy__()));
                 };
                 _absTests = (_absTests.__append__(..._extra.__toArray__()));
             };
-            _err = stdgo.os.Os.chdir(_absTestDirs[(0 : stdgo.StdGoTypes.GoInt)]);
+            _err = stdgo.os.Os.chdir(_absTestDirs[(0 : stdgo.StdGoTypes.GoInt)]?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("chdir failed: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
             for (__2 => _path in _absTests) {
-                _path = stdgo.strings.Strings.replaceAll(_path, ("$" : stdgo.GoString), _root);
-                var __tmp__ = stdgo.os.Os.stat(_path), _info:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                _path = stdgo.strings.Strings.replaceAll(_path?.__copy__(), ("$" : stdgo.GoString)?.__copy__(), _root?.__copy__())?.__copy__();
+                var __tmp__ = stdgo.os.Os.stat(_path?.__copy__()), _info:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _t.errorf(("%s: %s" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_err));
+                    _t.errorf(("%s: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_err));
                     continue;
                 };
-                var __tmp__ = stdgo.path.filepath.Filepath.abs(_path), _abspath:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.path.filepath.Filepath.abs(_path?.__copy__()), _abspath:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _t.errorf(("Abs(%q) error: %v" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_err));
+                    _t.errorf(("Abs(%q) error: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_err));
                     continue;
                 };
-                var __tmp__ = stdgo.os.Os.stat(_abspath), _absinfo:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.os.Os.stat(_abspath?.__copy__()), _absinfo:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if ((_err != null) || !stdgo.os.Os.sameFile(_absinfo, _info)) {
-                    _t.errorf(("Abs(%q)=%q, not the same file" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_abspath));
+                    _t.errorf(("Abs(%q)=%q, not the same file" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_abspath));
                 };
-                if (!stdgo.path.filepath.Filepath.isAbs(_abspath)) {
-                    _t.errorf(("Abs(%q)=%q, not an absolute path" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_abspath));
+                if (!stdgo.path.filepath.Filepath.isAbs(_abspath?.__copy__())) {
+                    _t.errorf(("Abs(%q)=%q, not an absolute path" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_abspath));
                 };
-                if (stdgo.path.filepath.Filepath.isAbs(_abspath) && (_abspath != stdgo.path.filepath.Filepath.clean(_abspath))) {
-                    _t.errorf(("Abs(%q)=%q, isn\'t clean" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_abspath));
+                if (stdgo.path.filepath.Filepath.isAbs(_abspath?.__copy__()) && (_abspath != stdgo.path.filepath.Filepath.clean(_abspath?.__copy__()))) {
+                    _t.errorf(("Abs(%q)=%q, isn\'t clean" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_abspath));
                 };
             };
             for (defer in __deferstack__) {
@@ -2369,36 +2369,36 @@ function testAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 function testAbsEmptyString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _root:stdgo.GoString = _t.tempDir();
+            var _root:stdgo.GoString = _t.tempDir()?.__copy__();
             var __tmp__ = stdgo.os.Os.getwd(), _wd:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("getwd failed: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
-            _err = stdgo.os.Os.chdir(_root);
+            _err = stdgo.os.Os.chdir(_root?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("chdir failed: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
             {
                 var _a0 = _wd;
-                __deferstack__.unshift(() -> stdgo.os.Os.chdir(_a0));
+                __deferstack__.unshift(() -> stdgo.os.Os.chdir(_a0?.__copy__()));
             };
-            var __tmp__ = stdgo.os.Os.stat(_root), _info:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.os.Os.stat(_root?.__copy__()), _info:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.fatalf(("%s: %s" : stdgo.GoString), stdgo.Go.toInterface(_root), stdgo.Go.toInterface(_err));
+                _t.fatalf(("%s: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_root), stdgo.Go.toInterface(_err));
             };
-            var __tmp__ = stdgo.path.filepath.Filepath.abs(stdgo.Go.str()), _abspath:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.path.filepath.Filepath.abs(stdgo.Go.str()?.__copy__()), _abspath:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.fatalf(("Abs(\"\") error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                _t.fatalf(("Abs(\"\") error: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
             };
-            var __tmp__ = stdgo.os.Os.stat(_abspath), _absinfo:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.os.Os.stat(_abspath?.__copy__()), _absinfo:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if ((_err != null) || !stdgo.os.Os.sameFile(_absinfo, _info)) {
-                _t.errorf(("Abs(\"\")=%q, not the same file" : stdgo.GoString), stdgo.Go.toInterface(_abspath));
+                _t.errorf(("Abs(\"\")=%q, not the same file" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_abspath));
             };
-            if (!stdgo.path.filepath.Filepath.isAbs(_abspath)) {
-                _t.errorf(("Abs(\"\")=%q, not an absolute path" : stdgo.GoString), stdgo.Go.toInterface(_abspath));
+            if (!stdgo.path.filepath.Filepath.isAbs(_abspath?.__copy__())) {
+                _t.errorf(("Abs(\"\")=%q, not an absolute path" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_abspath));
             };
-            if (stdgo.path.filepath.Filepath.isAbs(_abspath) && (_abspath != stdgo.path.filepath.Filepath.clean(_abspath))) {
-                _t.errorf(("Abs(\"\")=%q, isn\'t clean" : stdgo.GoString), stdgo.Go.toInterface(_abspath));
+            if (stdgo.path.filepath.Filepath.isAbs(_abspath?.__copy__()) && (_abspath != stdgo.path.filepath.Filepath.clean(_abspath?.__copy__()))) {
+                _t.errorf(("Abs(\"\")=%q, isn\'t clean" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_abspath));
             };
             for (defer in __deferstack__) {
                 defer();
@@ -2428,23 +2428,23 @@ function testRel(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _tests = ((new stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests>(0, 0) : stdgo.Slice<stdgo.path.filepath_test.Filepath_test.RelTests>).__append__(..._reltests.__toArray__()));
         if (false) {
             for (_i in 0 ... _tests.length.toBasic()) {
-                _tests[(_i : stdgo.StdGoTypes.GoInt)]._want = stdgo.path.filepath.Filepath.fromSlash(_tests[(_i : stdgo.StdGoTypes.GoInt)]._want);
+                _tests[(_i : stdgo.StdGoTypes.GoInt)]._want = stdgo.path.filepath.Filepath.fromSlash(_tests[(_i : stdgo.StdGoTypes.GoInt)]._want?.__copy__())?.__copy__();
             };
             _tests = (_tests.__append__(..._winreltests.__toArray__()));
         };
         for (__0 => _test in _tests) {
-            var __tmp__ = stdgo.path.filepath.Filepath.rel(_test._root, _test._path), _got:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.path.filepath.Filepath.rel(_test._root?.__copy__(), _test._path?.__copy__()), _got:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_test._want == (("err" : stdgo.GoString))) {
                 if (_err == null) {
-                    _t.errorf(("Rel(%q, %q)=%q, want error" : stdgo.GoString), stdgo.Go.toInterface(_test._root), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_got));
+                    _t.errorf(("Rel(%q, %q)=%q, want error" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._root), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_got));
                 };
                 continue;
             };
             if (_err != null) {
-                _t.errorf(("Rel(%q, %q): want %q, got error: %s" : stdgo.GoString), stdgo.Go.toInterface(_test._root), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_test._want), stdgo.Go.toInterface(_err));
+                _t.errorf(("Rel(%q, %q): want %q, got error: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._root), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_test._want), stdgo.Go.toInterface(_err));
             };
             if (_got != (_test._want)) {
-                _t.errorf(("Rel(%q, %q)=%q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._root), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                _t.errorf(("Rel(%q, %q)=%q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._root), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
             };
         };
     }
@@ -2454,9 +2454,9 @@ function testVolumeName(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         for (__0 => _v in _volumenametests) {
             {
-                var _vol:stdgo.GoString = stdgo.path.filepath.Filepath.volumeName(_v._path);
+                var _vol:stdgo.GoString = stdgo.path.filepath.Filepath.volumeName(_v._path?.__copy__())?.__copy__();
                 if (_vol != (_v._vol)) {
-                    _t.errorf(("VolumeName(%q)=%q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_v._path), stdgo.Go.toInterface(_vol), stdgo.Go.toInterface(_v._vol));
+                    _t.errorf(("VolumeName(%q)=%q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_v._path), stdgo.Go.toInterface(_vol), stdgo.Go.toInterface(_v._vol));
                 };
             };
         };
@@ -2467,32 +2467,32 @@ function testDriveLetterInEvalSymlinks(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
         };
         var __tmp__ = stdgo.os.Os.getwd(), _wd:stdgo.GoString = __tmp__._0, __0:stdgo.Error = __tmp__._1;
         if ((_wd.length) < (3 : stdgo.StdGoTypes.GoInt)) {
-            _t.errorf(("Current directory path %q is too short" : stdgo.GoString), stdgo.Go.toInterface(_wd));
+            _t.errorf(("Current directory path %q is too short" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_wd));
         };
-        var _lp:stdgo.GoString = stdgo.strings.Strings.toLower(_wd);
-        var _up:stdgo.GoString = stdgo.strings.Strings.toUpper(_wd);
-        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_lp), _flp:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var _lp:stdgo.GoString = stdgo.strings.Strings.toLower(_wd?.__copy__())?.__copy__();
+        var _up:stdgo.GoString = stdgo.strings.Strings.toUpper(_wd?.__copy__())?.__copy__();
+        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_lp?.__copy__()), _flp:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("EvalSymlinks(%q) failed: %q" : stdgo.GoString), stdgo.Go.toInterface(_lp), stdgo.Go.toInterface(_err));
+            _t.fatalf(("EvalSymlinks(%q) failed: %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_lp), stdgo.Go.toInterface(_err));
         };
-        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_up), _fup:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_up?.__copy__()), _fup:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("EvalSymlinks(%q) failed: %q" : stdgo.GoString), stdgo.Go.toInterface(_up), stdgo.Go.toInterface(_err));
+            _t.fatalf(("EvalSymlinks(%q) failed: %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_up), stdgo.Go.toInterface(_err));
         };
         if (_flp != (_fup)) {
-            _t.errorf(("Results of EvalSymlinks do not match: %q and %q" : stdgo.GoString), stdgo.Go.toInterface(_flp), stdgo.Go.toInterface(_fup));
+            _t.errorf(("Results of EvalSymlinks do not match: %q and %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_flp), stdgo.Go.toInterface(_fup));
         };
     }
 function testBug3486(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         if (false) {
-            _t.skipf(("skipping on %s/%s" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
+            _t.skipf(("skipping on %s/%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
         };
-        var _root:stdgo.GoString = stdgo.path.filepath.Filepath.join(stdgo.internal.testenv.Testenv.goroot(stdgo.Go.asInterface(_t)), ("src" : stdgo.GoString), ("unicode" : stdgo.GoString));
-        var _utf16:stdgo.GoString = stdgo.path.filepath.Filepath.join(_root, ("utf16" : stdgo.GoString));
-        var _utf8:stdgo.GoString = stdgo.path.filepath.Filepath.join(_root, ("utf8" : stdgo.GoString));
+        var _root:stdgo.GoString = stdgo.path.filepath.Filepath.join(stdgo.internal.testenv.Testenv.goroot(stdgo.Go.asInterface(_t))?.__copy__(), ("src" : stdgo.GoString)?.__copy__(), ("unicode" : stdgo.GoString)?.__copy__())?.__copy__();
+        var _utf16:stdgo.GoString = stdgo.path.filepath.Filepath.join(_root?.__copy__(), ("utf16" : stdgo.GoString)?.__copy__())?.__copy__();
+        var _utf8:stdgo.GoString = stdgo.path.filepath.Filepath.join(_root?.__copy__(), ("utf8" : stdgo.GoString)?.__copy__())?.__copy__();
         var _seenUTF16:Bool = false;
         var _seenUTF8:Bool = false;
-        var _err:stdgo.Error = stdgo.path.filepath.Filepath.walk(_root, function(_pth:stdgo.GoString, _info:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
+        var _err:stdgo.Error = stdgo.path.filepath.Filepath.walk(_root?.__copy__(), function(_pth:stdgo.GoString, _info:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
@@ -2514,48 +2514,48 @@ function testBug3486(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         if (!_seenUTF8) {
-            _t.fatalf(("%q not seen" : stdgo.GoString), stdgo.Go.toInterface(_utf8));
+            _t.fatalf(("%q not seen" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_utf8));
         };
     }
 function _testWalkSymlink(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _mklink:(_target:stdgo.GoString, _link:stdgo.GoString) -> stdgo.Error):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _tmpdir:stdgo.GoString = _t.tempDir();
+            var _tmpdir:stdgo.GoString = _t.tempDir()?.__copy__();
             var __tmp__ = stdgo.os.Os.getwd(), _wd:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             {
                 var _a0 = _wd;
-                __deferstack__.unshift(() -> stdgo.os.Os.chdir(_a0));
+                __deferstack__.unshift(() -> stdgo.os.Os.chdir(_a0?.__copy__()));
             };
-            _err = stdgo.os.Os.chdir(_tmpdir);
+            _err = stdgo.os.Os.chdir(_tmpdir?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
-            _err = _mklink(_tmpdir, ("link" : stdgo.GoString));
+            _err = _mklink(_tmpdir?.__copy__(), ("link" : stdgo.GoString)?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             var _visited:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-            _err = stdgo.path.filepath.Filepath.walk(_tmpdir, function(_path:stdgo.GoString, _info:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
+            _err = stdgo.path.filepath.Filepath.walk(_tmpdir?.__copy__(), function(_path:stdgo.GoString, _info:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
-                var __tmp__ = stdgo.path.filepath.Filepath.rel(_tmpdir, _path), _rel:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.path.filepath.Filepath.rel(_tmpdir?.__copy__(), _path?.__copy__()), _rel:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
-                _visited = (_visited.__append__(_rel));
+                _visited = (_visited.__append__(_rel?.__copy__()));
                 return (null : stdgo.Error);
             });
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             stdgo.sort.Sort.strings(_visited);
-            var _want = (new stdgo.Slice<stdgo.GoString>(2, 2, ("." : stdgo.GoString), ("link" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-            if (stdgo.fmt.Fmt.sprintf(("%q" : stdgo.GoString), stdgo.Go.toInterface(_visited)) != (stdgo.fmt.Fmt.sprintf(("%q" : stdgo.GoString), stdgo.Go.toInterface(_want)))) {
-                _t.errorf(("unexpected paths visited %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_visited), stdgo.Go.toInterface(_want));
+            var _want = (new stdgo.Slice<stdgo.GoString>(2, 2, ("." : stdgo.GoString)?.__copy__(), ("link" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+            if (stdgo.fmt.Fmt.sprintf(("%q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_visited)) != (stdgo.fmt.Fmt.sprintf(("%q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_want)))) {
+                _t.errorf(("unexpected paths visited %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_visited), stdgo.Go.toInterface(_want));
             };
             for (defer in __deferstack__) {
                 defer();
@@ -2586,21 +2586,21 @@ function testWalkSymlink(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
         _testWalkSymlink(_t, stdgo.os.Os.symlink);
     }
 function testIssue29372(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        var _tmpDir:stdgo.GoString = _t.tempDir();
-        var _path:stdgo.GoString = stdgo.path.filepath.Filepath.join(_tmpDir, ("file.txt" : stdgo.GoString));
-        var _err:stdgo.Error = stdgo.os.Os.writeFile(_path, (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (420u32 : stdgo.io.fs.Fs.FileMode));
+        var _tmpDir:stdgo.GoString = _t.tempDir()?.__copy__();
+        var _path:stdgo.GoString = stdgo.path.filepath.Filepath.join(_tmpDir?.__copy__(), ("file.txt" : stdgo.GoString)?.__copy__())?.__copy__();
+        var _err:stdgo.Error = stdgo.os.Os.writeFile(_path?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (420u32 : stdgo.io.fs.Fs.FileMode));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        var _pathSeparator:stdgo.GoString = ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString);
-        var _tests = (new stdgo.Slice<stdgo.GoString>(6, 6, _path + stdgo.strings.Strings.repeat(_pathSeparator, (1 : stdgo.StdGoTypes.GoInt)), _path + stdgo.strings.Strings.repeat(_pathSeparator, (2 : stdgo.StdGoTypes.GoInt)), (_path + stdgo.strings.Strings.repeat(_pathSeparator, (1 : stdgo.StdGoTypes.GoInt))) + ("." : stdgo.GoString), (_path + stdgo.strings.Strings.repeat(_pathSeparator, (2 : stdgo.StdGoTypes.GoInt))) + ("." : stdgo.GoString), (_path + stdgo.strings.Strings.repeat(_pathSeparator, (1 : stdgo.StdGoTypes.GoInt))) + (".." : stdgo.GoString), (_path + stdgo.strings.Strings.repeat(_pathSeparator, (2 : stdgo.StdGoTypes.GoInt))) + (".." : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+        var _pathSeparator:stdgo.GoString = ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__();
+        var _tests = (new stdgo.Slice<stdgo.GoString>(6, 6, _path + stdgo.strings.Strings.repeat(_pathSeparator?.__copy__(), (1 : stdgo.StdGoTypes.GoInt))?.__copy__()?.__copy__(), _path + stdgo.strings.Strings.repeat(_pathSeparator?.__copy__(), (2 : stdgo.StdGoTypes.GoInt))?.__copy__()?.__copy__(), _path + stdgo.strings.Strings.repeat(_pathSeparator?.__copy__(), (1 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("." : stdgo.GoString)?.__copy__()?.__copy__(), _path + stdgo.strings.Strings.repeat(_pathSeparator?.__copy__(), (2 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("." : stdgo.GoString)?.__copy__()?.__copy__(), _path + stdgo.strings.Strings.repeat(_pathSeparator?.__copy__(), (1 : stdgo.StdGoTypes.GoInt))?.__copy__() + (".." : stdgo.GoString)?.__copy__()?.__copy__(), _path + stdgo.strings.Strings.repeat(_pathSeparator?.__copy__(), (2 : stdgo.StdGoTypes.GoInt))?.__copy__() + (".." : stdgo.GoString)?.__copy__()?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         for (_i => _test in _tests) {
             {
-                var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_test);
+                var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_test?.__copy__());
                 _err = __tmp__._1;
             };
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface((20 : stdgo.syscall.Syscall.Errno))))) {
-                _t.fatalf(("test#%d: want %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface((20 : stdgo.syscall.Syscall.Errno))), stdgo.Go.toInterface(_err));
+                _t.fatalf(("test#%d: want %q, got %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface((20 : stdgo.syscall.Syscall.Errno))), stdgo.Go.toInterface(_err));
             };
         };
     }
@@ -2610,50 +2610,50 @@ function testIssue29372(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 function testEvalSymlinksAboveRoot(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveSymlink(stdgo.Go.asInterface(_t));
         _t.parallel();
-        var _tmpDir:stdgo.GoString = _t.tempDir();
-        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_tmpDir), _evalTmpDir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var _tmpDir:stdgo.GoString = _t.tempDir()?.__copy__();
+        var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_tmpDir?.__copy__()), _evalTmpDir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         {
-            var _err:stdgo.Error = stdgo.os.Os.mkdir(stdgo.path.filepath.Filepath.join(_evalTmpDir, ("a" : stdgo.GoString)), (511u32 : stdgo.io.fs.Fs.FileMode));
+            var _err:stdgo.Error = stdgo.os.Os.mkdir(stdgo.path.filepath.Filepath.join(_evalTmpDir?.__copy__(), ("a" : stdgo.GoString)?.__copy__())?.__copy__(), (511u32 : stdgo.io.fs.Fs.FileMode));
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
         {
-            var _err:stdgo.Error = stdgo.os.Os.symlink(stdgo.path.filepath.Filepath.join(_evalTmpDir, ("a" : stdgo.GoString)), stdgo.path.filepath.Filepath.join(_evalTmpDir, ("b" : stdgo.GoString)));
+            var _err:stdgo.Error = stdgo.os.Os.symlink(stdgo.path.filepath.Filepath.join(_evalTmpDir?.__copy__(), ("a" : stdgo.GoString)?.__copy__())?.__copy__(), stdgo.path.filepath.Filepath.join(_evalTmpDir?.__copy__(), ("b" : stdgo.GoString)?.__copy__())?.__copy__());
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
         {
-            var _err:stdgo.Error = stdgo.os.Os.writeFile(stdgo.path.filepath.Filepath.join(_evalTmpDir, ("a" : stdgo.GoString), ("file" : stdgo.GoString)), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (438u32 : stdgo.io.fs.Fs.FileMode));
+            var _err:stdgo.Error = stdgo.os.Os.writeFile(stdgo.path.filepath.Filepath.join(_evalTmpDir?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), ("file" : stdgo.GoString)?.__copy__())?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (438u32 : stdgo.io.fs.Fs.FileMode));
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        var _vol:stdgo.GoString = stdgo.path.filepath.Filepath.volumeName(_evalTmpDir);
-        var _c:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.count((_evalTmpDir.__slice__((_vol.length)) : stdgo.GoString), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString));
+        var _vol:stdgo.GoString = stdgo.path.filepath.Filepath.volumeName(_evalTmpDir?.__copy__())?.__copy__();
+        var _c:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.count((_evalTmpDir.__slice__((_vol.length)) : stdgo.GoString)?.__copy__(), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__());
         var _dd:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_c + (2 : stdgo.StdGoTypes.GoInt)), _i++, {
-                _dd = (_dd.__append__((".." : stdgo.GoString)));
+                _dd = (_dd.__append__((".." : stdgo.GoString)?.__copy__()));
             });
         };
-        var _wantSuffix:stdgo.GoString = stdgo.strings.Strings.join((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("file" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString));
+        var _wantSuffix:stdgo.GoString = stdgo.strings.Strings.join((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString)?.__copy__(), ("file" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__())?.__copy__();
         for (__0 => _i in (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(3, 3, _c, _c + (1 : stdgo.StdGoTypes.GoInt), _c + (2 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)) {
-            var _check:stdgo.GoString = stdgo.strings.Strings.join((new stdgo.Slice<stdgo.GoString>(5, 5, _evalTmpDir, stdgo.strings.Strings.join((_dd.__slice__(0, _i) : stdgo.Slice<stdgo.GoString>), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)), (_evalTmpDir.__slice__((_vol.length) + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString), ("b" : stdgo.GoString), ("file" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString));
-            var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_check), _resolved:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var _check:stdgo.GoString = stdgo.strings.Strings.join((new stdgo.Slice<stdgo.GoString>(5, 5, _evalTmpDir?.__copy__(), stdgo.strings.Strings.join((_dd.__slice__(0, _i) : stdgo.Slice<stdgo.GoString>), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__())?.__copy__(), (_evalTmpDir.__slice__((_vol.length) + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__(), ("file" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__())?.__copy__();
+            var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_check?.__copy__()), _resolved:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (false && stdgo.errors.Errors.is_(_err, stdgo.io.fs.Fs.errNotExist)) {
                 stdgo.internal.testenv.Testenv.skipFlaky(stdgo.Go.asInterface(_t), (37910 : stdgo.StdGoTypes.GoInt));
             } else if (_err != null) {
-                _t.errorf(("EvalSymlinks(%q) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_err));
-            } else if (!stdgo.strings.Strings.hasSuffix(_resolved, _wantSuffix)) {
-                _t.errorf(("EvalSymlinks(%q) = %q does not end with %q" : stdgo.GoString), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_resolved), stdgo.Go.toInterface(_wantSuffix));
+                _t.errorf(("EvalSymlinks(%q) failed: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_err));
+            } else if (!stdgo.strings.Strings.hasSuffix(_resolved?.__copy__(), _wantSuffix?.__copy__())) {
+                _t.errorf(("EvalSymlinks(%q) = %q does not end with %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_resolved), stdgo.Go.toInterface(_wantSuffix));
             } else {
-                _t.logf(("EvalSymlinks(%q) = %q" : stdgo.GoString), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_resolved));
+                _t.logf(("EvalSymlinks(%q) = %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_resolved));
             };
         };
     }
@@ -2664,57 +2664,57 @@ function testEvalSymlinksAboveRootChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Te
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo.internal.testenv.Testenv.mustHaveSymlink(stdgo.Go.asInterface(_t));
-            var __tmp__ = stdgo.os.Os.mkdirTemp(stdgo.Go.str(), ("TestEvalSymlinksAboveRootChdir" : stdgo.GoString)), _tmpDir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.os.Os.mkdirTemp(stdgo.Go.str()?.__copy__(), ("TestEvalSymlinksAboveRootChdir" : stdgo.GoString)?.__copy__()), _tmpDir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             {
                 var _a0 = _tmpDir;
-                __deferstack__.unshift(() -> stdgo.os.Os.removeAll(_a0));
+                __deferstack__.unshift(() -> stdgo.os.Os.removeAll(_a0?.__copy__()));
             };
-            _chdir(_t, _tmpDir);
-            var _subdir:stdgo.GoString = stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("b" : stdgo.GoString));
+            _chdir(_t, _tmpDir?.__copy__());
+            var _subdir:stdgo.GoString = stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__())?.__copy__();
             {
-                var _err:stdgo.Error = stdgo.os.Os.mkdirAll(_subdir, (511u32 : stdgo.io.fs.Fs.FileMode));
+                var _err:stdgo.Error = stdgo.os.Os.mkdirAll(_subdir?.__copy__(), (511u32 : stdgo.io.fs.Fs.FileMode));
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
             {
-                var _err:stdgo.Error = stdgo.os.Os.symlink(_subdir, ("c" : stdgo.GoString));
+                var _err:stdgo.Error = stdgo.os.Os.symlink(_subdir?.__copy__(), ("c" : stdgo.GoString)?.__copy__());
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
             {
-                var _err:stdgo.Error = stdgo.os.Os.writeFile(stdgo.path.filepath.Filepath.join(_subdir, ("file" : stdgo.GoString)), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (438u32 : stdgo.io.fs.Fs.FileMode));
+                var _err:stdgo.Error = stdgo.os.Os.writeFile(stdgo.path.filepath.Filepath.join(_subdir?.__copy__(), ("file" : stdgo.GoString)?.__copy__())?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (438u32 : stdgo.io.fs.Fs.FileMode));
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
-            _subdir = stdgo.path.filepath.Filepath.join(("d" : stdgo.GoString), ("e" : stdgo.GoString), ("f" : stdgo.GoString));
+            _subdir = stdgo.path.filepath.Filepath.join(("d" : stdgo.GoString)?.__copy__(), ("e" : stdgo.GoString)?.__copy__(), ("f" : stdgo.GoString)?.__copy__())?.__copy__();
             {
-                var _err:stdgo.Error = stdgo.os.Os.mkdirAll(_subdir, (511u32 : stdgo.io.fs.Fs.FileMode));
+                var _err:stdgo.Error = stdgo.os.Os.mkdirAll(_subdir?.__copy__(), (511u32 : stdgo.io.fs.Fs.FileMode));
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
             {
-                var _err:stdgo.Error = stdgo.os.Os.chdir(_subdir);
+                var _err:stdgo.Error = stdgo.os.Os.chdir(_subdir?.__copy__());
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
-            var _check:stdgo.GoString = stdgo.path.filepath.Filepath.join((".." : stdgo.GoString), (".." : stdgo.GoString), (".." : stdgo.GoString), ("c" : stdgo.GoString), ("file" : stdgo.GoString));
-            var _wantSuffix:stdgo.GoString = stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("b" : stdgo.GoString), ("file" : stdgo.GoString));
+            var _check:stdgo.GoString = stdgo.path.filepath.Filepath.join((".." : stdgo.GoString)?.__copy__(), (".." : stdgo.GoString)?.__copy__(), (".." : stdgo.GoString)?.__copy__(), ("c" : stdgo.GoString)?.__copy__(), ("file" : stdgo.GoString)?.__copy__())?.__copy__();
+            var _wantSuffix:stdgo.GoString = stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__(), ("file" : stdgo.GoString)?.__copy__())?.__copy__();
             {
-                var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_check), _resolved:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_check?.__copy__()), _resolved:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _t.errorf(("EvalSymlinks(%q) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_err));
-                } else if (!stdgo.strings.Strings.hasSuffix(_resolved, _wantSuffix)) {
-                    _t.errorf(("EvalSymlinks(%q) = %q does not end with %q" : stdgo.GoString), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_resolved), stdgo.Go.toInterface(_wantSuffix));
+                    _t.errorf(("EvalSymlinks(%q) failed: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_err));
+                } else if (!stdgo.strings.Strings.hasSuffix(_resolved?.__copy__(), _wantSuffix?.__copy__())) {
+                    _t.errorf(("EvalSymlinks(%q) = %q does not end with %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_resolved), stdgo.Go.toInterface(_wantSuffix));
                 } else {
-                    _t.logf(("EvalSymlinks(%q) = %q" : stdgo.GoString), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_resolved));
+                    _t.logf(("EvalSymlinks(%q) = %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_resolved));
                 };
             };
             for (defer in __deferstack__) {
@@ -2744,18 +2744,18 @@ function testEvalSymlinksAboveRootChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Te
 function testIssue51617(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _dir:stdgo.GoString = _t.tempDir();
-            for (__0 => _sub in (new stdgo.Slice<stdgo.GoString>(3, 3, ("a" : stdgo.GoString), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("bad" : stdgo.GoString)), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("next" : stdgo.GoString))) : stdgo.Slice<stdgo.GoString>)) {
+            var _dir:stdgo.GoString = _t.tempDir()?.__copy__();
+            for (__0 => _sub in (new stdgo.Slice<stdgo.GoString>(3, 3, ("a" : stdgo.GoString)?.__copy__(), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString)?.__copy__(), ("bad" : stdgo.GoString)?.__copy__())?.__copy__(), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString)?.__copy__(), ("next" : stdgo.GoString)?.__copy__())?.__copy__()) : stdgo.Slice<stdgo.GoString>)) {
                 {
-                    var _err:stdgo.Error = stdgo.os.Os.mkdir(stdgo.path.filepath.Filepath.join(_dir, _sub), (493u32 : stdgo.io.fs.Fs.FileMode));
+                    var _err:stdgo.Error = stdgo.os.Os.mkdir(stdgo.path.filepath.Filepath.join(_dir?.__copy__(), _sub?.__copy__())?.__copy__(), (493u32 : stdgo.io.fs.Fs.FileMode));
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
                 };
             };
-            var _bad:stdgo.GoString = stdgo.path.filepath.Filepath.join(_dir, ("a" : stdgo.GoString), ("bad" : stdgo.GoString));
+            var _bad:stdgo.GoString = stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), ("bad" : stdgo.GoString)?.__copy__())?.__copy__();
             {
-                var _err:stdgo.Error = stdgo.os.Os.chmod(_bad, (0u32 : stdgo.io.fs.Fs.FileMode));
+                var _err:stdgo.Error = stdgo.os.Os.chmod(_bad?.__copy__(), (0u32 : stdgo.io.fs.Fs.FileMode));
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
@@ -2763,28 +2763,28 @@ function testIssue51617(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             {
                 var _a0 = _bad;
                 var _a1 = (448u32 : stdgo.io.fs.Fs.FileMode);
-                __deferstack__.unshift(() -> stdgo.os.Os.chmod(_a0, _a1));
+                __deferstack__.unshift(() -> stdgo.os.Os.chmod(_a0?.__copy__(), _a1));
             };
             var _saw:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-            var _err:stdgo.Error = stdgo.path.filepath.Filepath.walkDir(_dir, function(_path:stdgo.GoString, _d:stdgo.io.fs.Fs.DirEntry, _err:stdgo.Error):stdgo.Error {
+            var _err:stdgo.Error = stdgo.path.filepath.Filepath.walkDir(_dir?.__copy__(), function(_path:stdgo.GoString, _d:stdgo.io.fs.Fs.DirEntry, _err:stdgo.Error):stdgo.Error {
                 if (_err != null) {
                     return stdgo.path.filepath.Filepath.skipDir;
                 };
                 if (_d.isDir()) {
-                    var __tmp__ = stdgo.path.filepath.Filepath.rel(_dir, _path), _rel:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo.path.filepath.Filepath.rel(_dir?.__copy__(), _path?.__copy__()), _rel:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
-                    _saw = (_saw.__append__(_rel));
+                    _saw = (_saw.__append__(_rel?.__copy__()));
                 };
                 return (null : stdgo.Error);
             });
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
-            var _want = (new stdgo.Slice<stdgo.GoString>(4, 4, ("." : stdgo.GoString), ("a" : stdgo.GoString), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("bad" : stdgo.GoString)), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("next" : stdgo.GoString))) : stdgo.Slice<stdgo.GoString>);
+            var _want = (new stdgo.Slice<stdgo.GoString>(4, 4, ("." : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString)?.__copy__(), ("bad" : stdgo.GoString)?.__copy__())?.__copy__(), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString)?.__copy__(), ("next" : stdgo.GoString)?.__copy__())?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_saw), stdgo.Go.toInterface(_want))) {
-                _t.errorf(("got directories %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_saw), stdgo.Go.toInterface(_want));
+                _t.errorf(("got directories %v, want %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_saw), stdgo.Go.toInterface(_want));
             };
             for (defer in __deferstack__) {
                 defer();
@@ -2829,43 +2829,43 @@ class T_globTest_asInterface {
     @:keep
     static public function _globRel( _test:stdgo.StdGoTypes.Ref<T_globTest>, _root:stdgo.GoString):stdgo.Error {
         @:recv var _test:stdgo.StdGoTypes.Ref<T_globTest> = _test;
-        var _p:stdgo.GoString = _root + fromSlash(_test._pattern);
-        var __tmp__ = glob(_p), _have:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var _p:stdgo.GoString = _root + fromSlash(_test._pattern?.__copy__())?.__copy__()?.__copy__();
+        var __tmp__ = glob(_p?.__copy__()), _have:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return _err;
         };
         stdgo.sort.Sort.strings(_have);
-        var _want = _test._buildWant(_root);
-        if (stdgo.strings.Strings.join(_want, ("_" : stdgo.GoString)) == (stdgo.strings.Strings.join(_have, ("_" : stdgo.GoString)))) {
+        var _want = _test._buildWant(_root?.__copy__());
+        if (stdgo.strings.Strings.join(_want, ("_" : stdgo.GoString)?.__copy__()) == (stdgo.strings.Strings.join(_have, ("_" : stdgo.GoString)?.__copy__()))) {
             return (null : stdgo.Error);
         };
-        var _wantWithNoRoot = _test._buildWant(stdgo.Go.str());
-        if (stdgo.strings.Strings.join(_wantWithNoRoot, ("_" : stdgo.GoString)) == (stdgo.strings.Strings.join(_have, ("_" : stdgo.GoString)))) {
+        var _wantWithNoRoot = _test._buildWant(stdgo.Go.str()?.__copy__());
+        if (stdgo.strings.Strings.join(_wantWithNoRoot, ("_" : stdgo.GoString)?.__copy__()) == (stdgo.strings.Strings.join(_have, ("_" : stdgo.GoString)?.__copy__()))) {
             return (null : stdgo.Error);
         };
-        return stdgo.fmt.Fmt.errorf(("Glob(%q) returns %q, but %q expected" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_want));
+        return stdgo.fmt.Fmt.errorf(("Glob(%q) returns %q, but %q expected" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_want));
     }
     @:keep
     static public function _globAbs( _test:stdgo.StdGoTypes.Ref<T_globTest>, _root:stdgo.GoString, _rootPattern:stdgo.GoString):stdgo.Error {
         @:recv var _test:stdgo.StdGoTypes.Ref<T_globTest> = _test;
-        var _p:stdgo.GoString = fromSlash((_rootPattern + ("\\" : stdgo.GoString)) + _test._pattern);
-        var __tmp__ = glob(_p), _have:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var _p:stdgo.GoString = fromSlash(_rootPattern + ("\\" : stdgo.GoString)?.__copy__() + _test._pattern?.__copy__()?.__copy__())?.__copy__();
+        var __tmp__ = glob(_p?.__copy__()), _have:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return _err;
         };
         stdgo.sort.Sort.strings(_have);
-        var _want = _test._buildWant(_root + ("\\" : stdgo.GoString));
-        if (stdgo.strings.Strings.join(_want, ("_" : stdgo.GoString)) == (stdgo.strings.Strings.join(_have, ("_" : stdgo.GoString)))) {
+        var _want = _test._buildWant(_root + ("\\" : stdgo.GoString)?.__copy__()?.__copy__());
+        if (stdgo.strings.Strings.join(_want, ("_" : stdgo.GoString)?.__copy__()) == (stdgo.strings.Strings.join(_have, ("_" : stdgo.GoString)?.__copy__()))) {
             return (null : stdgo.Error);
         };
-        return stdgo.fmt.Fmt.errorf(("Glob(%q) returns %q, but %q expected" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_want));
+        return stdgo.fmt.Fmt.errorf(("Glob(%q) returns %q, but %q expected" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_want));
     }
     @:keep
     static public function _buildWant( _test:stdgo.StdGoTypes.Ref<T_globTest>, _root:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
         @:recv var _test:stdgo.StdGoTypes.Ref<T_globTest> = _test;
         var _want = new stdgo.Slice<stdgo.GoString>((0 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setString__();
         for (__0 => _m in _test._matches) {
-            _want = (_want.__append__(_root + fromSlash(_m)));
+            _want = (_want.__append__(_root + fromSlash(_m?.__copy__())?.__copy__()?.__copy__()));
         };
         stdgo.sort.Sort.strings(_want);
         return _want;
@@ -2894,7 +2894,7 @@ class T_statDirEntry_asInterface {
     @:keep
     static public function string( _d:stdgo.StdGoTypes.Ref<T_statDirEntry>):stdgo.GoString {
         @:recv var _d:stdgo.StdGoTypes.Ref<T_statDirEntry> = _d;
-        return stdgo.io.fs.Fs.formatDirEntry(stdgo.Go.asInterface(_d));
+        return stdgo.io.fs.Fs.formatDirEntry(stdgo.Go.asInterface(_d))?.__copy__();
     }
     @:keep
     static public function info( _d:stdgo.StdGoTypes.Ref<T_statDirEntry>):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } {
@@ -2914,6 +2914,6 @@ class T_statDirEntry_asInterface {
     @:keep
     static public function name( _d:stdgo.StdGoTypes.Ref<T_statDirEntry>):stdgo.GoString {
         @:recv var _d:stdgo.StdGoTypes.Ref<T_statDirEntry> = _d;
-        return _d._info.name();
+        return _d._info.name()?.__copy__();
     }
 }

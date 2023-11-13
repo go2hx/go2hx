@@ -288,7 +288,7 @@ class T__struct_5_asInterface {
 **/
 function initialize(_env:stdgo.GoString):Void {
         _doinit();
-        _processOptions(_env);
+        _processOptions(_env?.__copy__());
     }
 /**
     // processOptions enables or disables CPU feature values based on the parsed env string.
@@ -301,19 +301,19 @@ function initialize(_env:stdgo.GoString):Void {
 function _processOptions(_env:stdgo.GoString):Void {
         stdgo.internal.Macro.controlFlow({
             @:label("field") while (_env != (stdgo.Go.str())) {
-                var _field:stdgo.GoString = stdgo.Go.str();
-                var _i:stdgo.StdGoTypes.GoInt = _indexByte(_env, (44 : stdgo.StdGoTypes.GoUInt8));
+                var _field:stdgo.GoString = stdgo.Go.str()?.__copy__();
+                var _i:stdgo.StdGoTypes.GoInt = _indexByte(_env?.__copy__(), (44 : stdgo.StdGoTypes.GoUInt8));
                 if (_i < (0 : stdgo.StdGoTypes.GoInt)) {
                     {
-                        final __tmp__0 = _env;
-                        final __tmp__1 = stdgo.Go.str();
+                        final __tmp__0 = _env?.__copy__();
+                        final __tmp__1 = stdgo.Go.str()?.__copy__();
                         _field = __tmp__0;
                         _env = __tmp__1;
                     };
                 } else {
                     {
-                        final __tmp__0 = (_env.__slice__(0, _i) : stdgo.GoString);
-                        final __tmp__1 = (_env.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                        final __tmp__0 = (_env.__slice__(0, _i) : stdgo.GoString)?.__copy__();
+                        final __tmp__1 = (_env.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                         _field = __tmp__0;
                         _env = __tmp__1;
                     };
@@ -321,12 +321,12 @@ function _processOptions(_env:stdgo.GoString):Void {
                 if ((_field.length < (4 : stdgo.StdGoTypes.GoInt)) || ((_field.__slice__(0, (4 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString) != ("cpu." : stdgo.GoString))) {
                     continue;
                 };
-                _i = _indexByte(_field, (61 : stdgo.StdGoTypes.GoUInt8));
+                _i = _indexByte(_field?.__copy__(), (61 : stdgo.StdGoTypes.GoUInt8));
                 if (_i < (0 : stdgo.StdGoTypes.GoInt)) {
                     trace(("GODEBUG: no value specified for \"" : stdgo.GoString), _field, ("\"\n" : stdgo.GoString));
                     continue;
                 };
-                var __0:stdgo.GoString = (_field.__slice__((4 : stdgo.StdGoTypes.GoInt), _i) : stdgo.GoString), __1:stdgo.GoString = (_field.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString), _value:stdgo.GoString = __1, _key:stdgo.GoString = __0;
+                var __0:stdgo.GoString = (_field.__slice__((4 : stdgo.StdGoTypes.GoInt), _i) : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = (_field.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), _value:stdgo.GoString = __1, _key:stdgo.GoString = __0;
                 var _enable:Bool = false;
                 {
                     final __value__ = _value;
@@ -391,6 +391,6 @@ function _indexByte(_s:stdgo.GoString, _c:stdgo.StdGoTypes.GoByte):stdgo.StdGoTy
     // to gather CPU information for display should be placed in internal/sysinfo.
 **/
 function name():stdgo.GoString {
-        return stdgo.Go.str();
+        return stdgo.Go.str()?.__copy__();
     }
 function _doinit():Void {}

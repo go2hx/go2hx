@@ -71,7 +71,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var errUnsupported : stdgo.Error = new_(("unsupported operation" : stdgo.GoString));
+var errUnsupported : stdgo.Error = new_(("unsupported operation" : stdgo.GoString)?.__copy__());
 /**
     
     
@@ -165,7 +165,7 @@ typedef T__interface_3 = stdgo.StdGoTypes.StructType & {
     // Each call to New returns a distinct error value even if the text is identical.
 **/
 function new_(_text:stdgo.GoString):stdgo.Error {
-        return stdgo.Go.asInterface((stdgo.Go.setRef((new T_errorString(_text) : T_errorString)) : stdgo.StdGoTypes.Ref<stdgo.errors.Errors.T_errorString>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef((new T_errorString(_text?.__copy__()) : T_errorString)) : stdgo.StdGoTypes.Ref<stdgo.errors.Errors.T_errorString>));
     }
 /**
     // Join returns an error that wraps the given errors.
@@ -364,7 +364,7 @@ class T_errorString_asInterface {
     @:keep
     static public function error( _e:stdgo.StdGoTypes.Ref<T_errorString>):stdgo.GoString {
         @:recv var _e:stdgo.StdGoTypes.Ref<T_errorString> = _e;
-        return _e._s;
+        return _e._s?.__copy__();
     }
 }
 class T_joinError_asInterface {
@@ -396,6 +396,6 @@ class T_joinError_asInterface {
             };
             _b = (_b.__append__(..._err.error().__toArray__()));
         };
-        return (_b : stdgo.GoString);
+        return (_b : stdgo.GoString)?.__copy__();
     }
 }

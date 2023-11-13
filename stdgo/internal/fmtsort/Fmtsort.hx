@@ -95,7 +95,7 @@ function _compare(_aVal:stdgo.reflect.Reflect.Value, _bVal:stdgo.reflect.Reflect
                     return (0 : stdgo.StdGoTypes.GoInt);
                 };
             } else if (__value__ == ((24u32 : stdgo.reflect.Reflect.Kind))) {
-                var __0:stdgo.GoString = (_aVal.string() : stdgo.GoString), __1:stdgo.GoString = (_bVal.string() : stdgo.GoString), _b:stdgo.GoString = __1, _a:stdgo.GoString = __0;
+                var __0:stdgo.GoString = (_aVal.string() : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = (_bVal.string() : stdgo.GoString)?.__copy__(), _b:stdgo.GoString = __1, _a:stdgo.GoString = __0;
                 if (_a < _b) {
                     return (-1 : stdgo.StdGoTypes.GoInt);
                 } else if (_a > _b) {
@@ -186,7 +186,7 @@ function _compare(_aVal:stdgo.reflect.Reflect.Value, _bVal:stdgo.reflect.Reflect
                 };
                 return _compare(_aVal.elem()?.__copy__(), _bVal.elem()?.__copy__());
             } else {
-                throw stdgo.Go.toInterface(("bad type in compare: " : stdgo.GoString) + (_aType.string() : stdgo.GoString));
+                throw stdgo.Go.toInterface(("bad type in compare: " : stdgo.GoString) + (_aType.string() : stdgo.GoString)?.__copy__());
             };
         };
     }

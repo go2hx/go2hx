@@ -10,7 +10,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var _separator : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment> = (stdgo.Go.setRef((new Comment((0 : stdgo.go.token.Token.Pos), ("//" : stdgo.GoString)) : Comment)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>);
+var _separator : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment> = (stdgo.Go.setRef((new Comment((0 : stdgo.go.token.Token.Pos), ("//" : stdgo.GoString)?.__copy__()) : Comment)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>);
 /**
     
     
@@ -24,13 +24,13 @@ var _indent : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = ((".  " : stdgo.GoString) 
 **/
 var _objKindStrings : stdgo.GoArray<stdgo.GoString> = {
         var s:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 7) ""]);
-        s[0] = ("bad" : stdgo.GoString);
-        s[1] = ("package" : stdgo.GoString);
-        s[2] = ("const" : stdgo.GoString);
-        s[3] = ("type" : stdgo.GoString);
-        s[4] = ("var" : stdgo.GoString);
-        s[5] = ("func" : stdgo.GoString);
-        s[6] = ("label" : stdgo.GoString);
+        s[0] = ("bad" : stdgo.GoString)?.__copy__();
+        s[1] = ("package" : stdgo.GoString)?.__copy__();
+        s[2] = ("const" : stdgo.GoString)?.__copy__();
+        s[3] = ("type" : stdgo.GoString)?.__copy__();
+        s[4] = ("var" : stdgo.GoString)?.__copy__();
+        s[5] = ("func" : stdgo.GoString)?.__copy__();
+        s[6] = ("label" : stdgo.GoString)?.__copy__();
         s;
     };
 /**
@@ -41,28 +41,28 @@ var _objKindStrings : stdgo.GoArray<stdgo.GoString> = {
 var _comments : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
 22,
 22,
-({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("//" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str() } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("//   " : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str() } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(3, 3, ("//" : stdgo.GoString), ("//" : stdgo.GoString), ("//   " : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str() } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("// foo   " : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : ("foo\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(3, 3, ("//" : stdgo.GoString), ("//" : stdgo.GoString), ("// foo" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : ("foo\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("// foo  bar  " : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : ("foo  bar\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(2, 2, ("// foo" : stdgo.GoString), ("// bar" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : ("foo\nbar\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(5, 5, ("// foo" : stdgo.GoString), ("//" : stdgo.GoString), ("//" : stdgo.GoString), ("//" : stdgo.GoString), ("// bar" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : ("foo\n\nbar\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(2, 2, ("// foo" : stdgo.GoString), ("/* bar */" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : ("foo\n bar\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(7, 7, ("//" : stdgo.GoString), ("//" : stdgo.GoString), ("//" : stdgo.GoString), ("// foo" : stdgo.GoString), ("//" : stdgo.GoString), ("//" : stdgo.GoString), ("//" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : ("foo\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("/**/" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str() } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("/*   */" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str() } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(3, 3, ("/**/" : stdgo.GoString), ("/**/" : stdgo.GoString), ("/*   */" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str() } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("/* Foo   */" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("/* Foo  Bar  */" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : (" Foo  Bar\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(2, 2, ("/* Foo*/" : stdgo.GoString), ("/* Bar*/" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\n Bar\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(5, 5, ("/* Foo*/" : stdgo.GoString), ("/**/" : stdgo.GoString), ("/**/" : stdgo.GoString), ("/**/" : stdgo.GoString), ("// Bar" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\n\nBar\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(5, 5, ("/* Foo*/" : stdgo.GoString), ("/*\n*/" : stdgo.GoString), ("//" : stdgo.GoString), ("/*\n*/" : stdgo.GoString), ("// Bar" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\n\nBar\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(2, 2, ("/* Foo*/" : stdgo.GoString), ("// Bar" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\nBar\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("/* Foo\n Bar*/" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\n Bar\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(4, 4, ("// foo" : stdgo.GoString), ("//go:noinline" : stdgo.GoString), ("// bar" : stdgo.GoString), ("//:baz" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : ("foo\nbar\n:baz\n" : stdgo.GoString) } : T__struct_0),
-({ _list : (new stdgo.Slice<stdgo.GoString>(3, 3, ("// foo" : stdgo.GoString), ("//lint123:ignore" : stdgo.GoString), ("// bar" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _text : ("foo\nbar\n" : stdgo.GoString) } : T__struct_0)) : stdgo.Slice<T__struct_0>);
+({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("//" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str()?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("//   " : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str()?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(3, 3, ("//" : stdgo.GoString)?.__copy__(), ("//" : stdgo.GoString)?.__copy__(), ("//   " : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str()?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("// foo   " : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : ("foo\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(3, 3, ("//" : stdgo.GoString)?.__copy__(), ("//" : stdgo.GoString)?.__copy__(), ("// foo" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : ("foo\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("// foo  bar  " : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : ("foo  bar\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(2, 2, ("// foo" : stdgo.GoString)?.__copy__(), ("// bar" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : ("foo\nbar\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(5, 5, ("// foo" : stdgo.GoString)?.__copy__(), ("//" : stdgo.GoString)?.__copy__(), ("//" : stdgo.GoString)?.__copy__(), ("//" : stdgo.GoString)?.__copy__(), ("// bar" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : ("foo\n\nbar\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(2, 2, ("// foo" : stdgo.GoString)?.__copy__(), ("/* bar */" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : ("foo\n bar\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(7, 7, ("//" : stdgo.GoString)?.__copy__(), ("//" : stdgo.GoString)?.__copy__(), ("//" : stdgo.GoString)?.__copy__(), ("// foo" : stdgo.GoString)?.__copy__(), ("//" : stdgo.GoString)?.__copy__(), ("//" : stdgo.GoString)?.__copy__(), ("//" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : ("foo\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("/**/" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str()?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("/*   */" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str()?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(3, 3, ("/**/" : stdgo.GoString)?.__copy__(), ("/**/" : stdgo.GoString)?.__copy__(), ("/*   */" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : stdgo.Go.str()?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("/* Foo   */" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("/* Foo  Bar  */" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : (" Foo  Bar\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(2, 2, ("/* Foo*/" : stdgo.GoString)?.__copy__(), ("/* Bar*/" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\n Bar\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(5, 5, ("/* Foo*/" : stdgo.GoString)?.__copy__(), ("/**/" : stdgo.GoString)?.__copy__(), ("/**/" : stdgo.GoString)?.__copy__(), ("/**/" : stdgo.GoString)?.__copy__(), ("// Bar" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\n\nBar\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(5, 5, ("/* Foo*/" : stdgo.GoString)?.__copy__(), ("/*\n*/" : stdgo.GoString)?.__copy__(), ("//" : stdgo.GoString)?.__copy__(), ("/*\n*/" : stdgo.GoString)?.__copy__(), ("// Bar" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\n\nBar\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(2, 2, ("/* Foo*/" : stdgo.GoString)?.__copy__(), ("// Bar" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\nBar\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(1, 1, ("/* Foo\n Bar*/" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : (" Foo\n Bar\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(4, 4, ("// foo" : stdgo.GoString)?.__copy__(), ("//go:noinline" : stdgo.GoString)?.__copy__(), ("// bar" : stdgo.GoString)?.__copy__(), ("//:baz" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : ("foo\nbar\n:baz\n" : stdgo.GoString)?.__copy__() } : T__struct_0),
+({ _list : (new stdgo.Slice<stdgo.GoString>(3, 3, ("// foo" : stdgo.GoString)?.__copy__(), ("//lint123:ignore" : stdgo.GoString)?.__copy__(), ("// bar" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>), _text : ("foo\nbar\n" : stdgo.GoString)?.__copy__() } : T__struct_0)) : stdgo.Slice<T__struct_0>);
 /**
     
     
@@ -71,21 +71,21 @@ var _comments : stdgo.Slice<T__struct_0> = (new stdgo.Slice<T__struct_0>(
 var _isDirectiveTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(
 15,
 15,
-({ _in : ("abc" : stdgo.GoString), _ok : false } : T__struct_1),
-({ _in : ("go:inline" : stdgo.GoString), _ok : true } : T__struct_1),
-({ _in : ("Go:inline" : stdgo.GoString), _ok : false } : T__struct_1),
-({ _in : ("go:Inline" : stdgo.GoString), _ok : false } : T__struct_1),
-({ _in : (":inline" : stdgo.GoString), _ok : false } : T__struct_1),
-({ _in : ("lint:ignore" : stdgo.GoString), _ok : true } : T__struct_1),
-({ _in : ("lint:1234" : stdgo.GoString), _ok : true } : T__struct_1),
-({ _in : ("1234:lint" : stdgo.GoString), _ok : true } : T__struct_1),
-({ _in : ("go: inline" : stdgo.GoString), _ok : false } : T__struct_1),
-({ _in : ("go:" : stdgo.GoString), _ok : false } : T__struct_1),
-({ _in : ("go:*" : stdgo.GoString), _ok : false } : T__struct_1),
-({ _in : ("go:x*" : stdgo.GoString), _ok : true } : T__struct_1),
-({ _in : ("export foo" : stdgo.GoString), _ok : true } : T__struct_1),
-({ _in : ("extern foo" : stdgo.GoString), _ok : true } : T__struct_1),
-({ _in : ("expert foo" : stdgo.GoString), _ok : false } : T__struct_1)) : stdgo.Slice<T__struct_1>);
+({ _in : ("abc" : stdgo.GoString)?.__copy__(), _ok : false } : T__struct_1),
+({ _in : ("go:inline" : stdgo.GoString)?.__copy__(), _ok : true } : T__struct_1),
+({ _in : ("Go:inline" : stdgo.GoString)?.__copy__(), _ok : false } : T__struct_1),
+({ _in : ("go:Inline" : stdgo.GoString)?.__copy__(), _ok : false } : T__struct_1),
+({ _in : (":inline" : stdgo.GoString)?.__copy__(), _ok : false } : T__struct_1),
+({ _in : ("lint:ignore" : stdgo.GoString)?.__copy__(), _ok : true } : T__struct_1),
+({ _in : ("lint:1234" : stdgo.GoString)?.__copy__(), _ok : true } : T__struct_1),
+({ _in : ("1234:lint" : stdgo.GoString)?.__copy__(), _ok : true } : T__struct_1),
+({ _in : ("go: inline" : stdgo.GoString)?.__copy__(), _ok : false } : T__struct_1),
+({ _in : ("go:" : stdgo.GoString)?.__copy__(), _ok : false } : T__struct_1),
+({ _in : ("go:*" : stdgo.GoString)?.__copy__(), _ok : false } : T__struct_1),
+({ _in : ("go:x*" : stdgo.GoString)?.__copy__(), _ok : true } : T__struct_1),
+({ _in : ("export foo" : stdgo.GoString)?.__copy__(), _ok : true } : T__struct_1),
+({ _in : ("extern foo" : stdgo.GoString)?.__copy__(), _ok : true } : T__struct_1),
+({ _in : ("expert foo" : stdgo.GoString)?.__copy__(), _ok : false } : T__struct_1)) : stdgo.Slice<T__struct_1>);
 /**
     
     
@@ -94,19 +94,19 @@ var _isDirectiveTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>
 var _tests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(
 18,
 18,
-({ _x : (null : stdgo.StdGoTypes.AnyInterface), _s : ("0  nil" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface(true), _s : ("0  true" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface((42 : stdgo.StdGoTypes.GoInt)), _s : ("0  42" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface((3.14 : stdgo.StdGoTypes.GoFloat64)), _s : ("0  3.14" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface(((1f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 2.718f64))), _s : ("0  (1+2.718i)" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface(("foobar" : stdgo.GoString)), _s : ("0  \"foobar\"" : stdgo.GoString) } : T__struct_2),
+({ _x : (null : stdgo.StdGoTypes.AnyInterface), _s : ("0  nil" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface(true), _s : ("0  true" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface((42 : stdgo.StdGoTypes.GoInt)), _s : ("0  42" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface((3.14 : stdgo.StdGoTypes.GoFloat64)), _s : ("0  3.14" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface(((1f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 2.718f64))), _s : ("0  (1+2.718i)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface(("foobar" : stdgo.GoString)), _s : ("0  \"foobar\"" : stdgo.GoString)?.__copy__() } : T__struct_2),
 ({ _x : stdgo.Go.toInterface(({
         final x = new stdgo.GoMap.GoObjectMap<stdgo.go.ast.Ast.Expr, stdgo.GoString>();
         x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Expr", [], stdgo.internal.reflect.Reflect.GoType.named("Expr", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
         x.__defaultValue__ = () -> ("" : stdgo.GoString);
         @:mergeBlock {};
         cast x;
-    } : stdgo.GoMap<stdgo.go.ast.Ast.Expr, stdgo.GoString>)), _s : ("0  map[ast.Expr]string (len = 0) {}" : stdgo.GoString) } : T__struct_2),
+    } : stdgo.GoMap<stdgo.go.ast.Ast.Expr, stdgo.GoString>)), _s : ("0  map[ast.Expr]string (len = 0) {}" : stdgo.GoString)?.__copy__() } : T__struct_2),
 ({ _x : stdgo.Go.toInterface(({
         final x = new stdgo.GoMap.GoStringMap<stdgo.StdGoTypes.GoInt>();
         x.__defaultValue__ = () -> (0 : stdgo.StdGoTypes.GoInt);
@@ -114,17 +114,17 @@ var _tests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(
             x.set(("a" : stdgo.GoString), (1 : stdgo.StdGoTypes.GoInt));
         };
         x;
-    } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.GoInt>)), _s : ("0  map[string]int (len = 1) {\n\t\t1  .  \"a\": 1\n\t\t2  }" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoInt))), _s : ("0  *0" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>() : stdgo.GoArray<stdgo.StdGoTypes.GoInt>)), _s : ("0  [0]int {}" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>((1 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt), (3 : stdgo.StdGoTypes.GoInt)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>)), _s : ("0  [3]int {\n\t\t1  .  0: 1\n\t\t2  .  1: 2\n\t\t3  .  2: 3\n\t\t4  }" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>((42 : stdgo.StdGoTypes.GoInt)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>)), _s : ("0  [1]int {\n\t\t1  .  0: 42\n\t\t2  }" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface((new stdgo.Slice<stdgo.StdGoTypes.GoInt>(0, 0) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)), _s : ("0  []int (len = 0) {}" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface((new stdgo.Slice<stdgo.StdGoTypes.GoInt>(3, 3, (1 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt), (3 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)), _s : ("0  []int (len = 3) {\n\t\t1  .  0: 1\n\t\t2  .  1: 2\n\t\t3  .  2: 3\n\t\t4  }" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface(stdgo.Go.asInterface(({  } : T__struct_3))), _s : ("0  struct {} {}" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface(stdgo.Go.asInterface(({ _x : (7 : stdgo.StdGoTypes.GoInt) } : T__struct_4))), _s : ("0  struct { x int } {}" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface(stdgo.Go.asInterface(({ x : (42 : stdgo.StdGoTypes.GoInt), _y : (991 : stdgo.StdGoTypes.GoInt) } : T__struct_5))), _s : ("0  struct { X int; y int } {\n\t\t1  .  X: 42\n\t\t2  }" : stdgo.GoString) } : T__struct_2),
-({ _x : stdgo.Go.toInterface(stdgo.Go.asInterface(({ x : (42 : stdgo.StdGoTypes.GoInt), y : (991 : stdgo.StdGoTypes.GoInt) } : T__struct_6))), _s : ("0  struct { X int; Y int } {\n\t\t1  .  X: 42\n\t\t2  .  Y: 991\n\t\t3  }" : stdgo.GoString) } : T__struct_2)) : stdgo.Slice<T__struct_2>);
+    } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.GoInt>)), _s : ("0  map[string]int (len = 1) {\n\t\t1  .  \"a\": 1\n\t\t2  }" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoInt))), _s : ("0  *0" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>() : stdgo.GoArray<stdgo.StdGoTypes.GoInt>)), _s : ("0  [0]int {}" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>((1 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt), (3 : stdgo.StdGoTypes.GoInt)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>)), _s : ("0  [3]int {\n\t\t1  .  0: 1\n\t\t2  .  1: 2\n\t\t3  .  2: 3\n\t\t4  }" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>((42 : stdgo.StdGoTypes.GoInt)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>)), _s : ("0  [1]int {\n\t\t1  .  0: 42\n\t\t2  }" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface((new stdgo.Slice<stdgo.StdGoTypes.GoInt>(0, 0) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)), _s : ("0  []int (len = 0) {}" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface((new stdgo.Slice<stdgo.StdGoTypes.GoInt>(3, 3, (1 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt), (3 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)), _s : ("0  []int (len = 3) {\n\t\t1  .  0: 1\n\t\t2  .  1: 2\n\t\t3  .  2: 3\n\t\t4  }" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface(stdgo.Go.asInterface(({  } : T__struct_3))), _s : ("0  struct {} {}" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface(stdgo.Go.asInterface(({ _x : (7 : stdgo.StdGoTypes.GoInt) } : T__struct_4))), _s : ("0  struct { x int } {}" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface(stdgo.Go.asInterface(({ x : (42 : stdgo.StdGoTypes.GoInt), _y : (991 : stdgo.StdGoTypes.GoInt) } : T__struct_5))), _s : ("0  struct { X int; y int } {\n\t\t1  .  X: 42\n\t\t2  }" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ _x : stdgo.Go.toInterface(stdgo.Go.asInterface(({ x : (42 : stdgo.StdGoTypes.GoInt), y : (991 : stdgo.StdGoTypes.GoInt) } : T__struct_6))), _s : ("0  struct { X int; Y int } {\n\t\t1  .  X: 42\n\t\t2  .  Y: 991\n\t\t3  }" : stdgo.GoString)?.__copy__() } : T__struct_2)) : stdgo.Slice<T__struct_2>);
 /**
     
     
@@ -1838,17 +1838,17 @@ function _stripTrailingWhitespace(_s:stdgo.GoString):stdgo.GoString {
         while ((_i > (0 : stdgo.StdGoTypes.GoInt)) && _isWhitespace(_s[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)])) {
             _i--;
         };
-        return (_s.__slice__((0 : stdgo.StdGoTypes.GoInt), _i) : stdgo.GoString);
+        return (_s.__slice__((0 : stdgo.StdGoTypes.GoInt), _i) : stdgo.GoString)?.__copy__();
     }
 /**
     // isDirective reports whether c is a comment directive.
     // This code is also in go/printer.
 **/
 function _isDirective(_c:stdgo.GoString):Bool {
-        if ((stdgo.strings.Strings.hasPrefix(_c, ("line " : stdgo.GoString)) || stdgo.strings.Strings.hasPrefix(_c, ("extern " : stdgo.GoString))) || stdgo.strings.Strings.hasPrefix(_c, ("export " : stdgo.GoString))) {
+        if ((stdgo.strings.Strings.hasPrefix(_c?.__copy__(), ("line " : stdgo.GoString)?.__copy__()) || stdgo.strings.Strings.hasPrefix(_c?.__copy__(), ("extern " : stdgo.GoString)?.__copy__())) || stdgo.strings.Strings.hasPrefix(_c?.__copy__(), ("export " : stdgo.GoString)?.__copy__())) {
             return true;
         };
-        var _colon:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.index(_c, (":" : stdgo.GoString));
+        var _colon:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.index(_c?.__copy__(), (":" : stdgo.GoString)?.__copy__());
         if ((_colon <= (0 : stdgo.StdGoTypes.GoInt)) || ((_colon + (1 : stdgo.StdGoTypes.GoInt)) >= _c.length)) {
             return false;
         };
@@ -1871,13 +1871,13 @@ function _isDirective(_c:stdgo.GoString):Bool {
     // Useful for ASTs generated by code other than the Go parser.
 **/
 function newIdent(_name:stdgo.GoString):stdgo.StdGoTypes.Ref<Ident> {
-        return (stdgo.Go.setRef((new Ident((0 : stdgo.go.token.Token.Pos), _name, null) : Ident)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>);
+        return (stdgo.Go.setRef((new Ident((0 : stdgo.go.token.Token.Pos), _name?.__copy__(), null) : Ident)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>);
     }
 /**
     // IsExported reports whether name starts with an upper-case letter.
 **/
 function isExported(_name:stdgo.GoString):Bool {
-        return stdgo.go.token.Token.isExported(_name);
+        return stdgo.go.token.Token.isExported(_name?.__copy__());
     }
 /**
     // IsGenerated reports whether the file was generated by a program,
@@ -1902,15 +1902,15 @@ function _generator(_file:stdgo.StdGoTypes.Ref<File>):{ var _0 : stdgo.GoString;
                     break;
                 };
                 {};
-                if (stdgo.strings.Strings.contains(_comment.text, ("// Code generated " : stdgo.GoString))) {
-                    for (__2 => _line in stdgo.strings.Strings.split(_comment.text, ("\n" : stdgo.GoString))) {
+                if (stdgo.strings.Strings.contains(_comment.text?.__copy__(), ("// Code generated " : stdgo.GoString)?.__copy__())) {
+                    for (__2 => _line in stdgo.strings.Strings.split(_comment.text?.__copy__(), ("\n" : stdgo.GoString)?.__copy__())) {
                         {
-                            var __tmp__ = stdgo.strings.Strings.cutPrefix(_line, ("// Code generated " : stdgo.GoString)), _rest:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                            var __tmp__ = stdgo.strings.Strings.cutPrefix(_line?.__copy__(), ("// Code generated " : stdgo.GoString)?.__copy__()), _rest:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (_ok) {
                                 {
-                                    var __tmp__ = stdgo.strings.Strings.cutSuffix(_rest, (" DO NOT EDIT." : stdgo.GoString)), _gen:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                                    var __tmp__ = stdgo.strings.Strings.cutSuffix(_rest?.__copy__(), (" DO NOT EDIT." : stdgo.GoString)?.__copy__()), _gen:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                                     if (_ok) {
-                                        return { _0 : _gen, _1 : true };
+                                        return { _0 : _gen?.__copy__(), _1 : true };
                                     };
                                 };
                             };
@@ -1919,26 +1919,26 @@ function _generator(_file:stdgo.StdGoTypes.Ref<File>):{ var _0 : stdgo.GoString;
                 };
             };
         };
-        return { _0 : stdgo.Go.str(), _1 : false };
+        return { _0 : stdgo.Go.str()?.__copy__(), _1 : false };
     }
 function testCommentText(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (_i => _c in _comments) {
             var _list = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>>((_c._list.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
             for (_i => _s in _c._list) {
-                _list[(_i : stdgo.StdGoTypes.GoInt)] = (stdgo.Go.setRef(({ text : _s } : Comment)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>);
+                _list[(_i : stdgo.StdGoTypes.GoInt)] = (stdgo.Go.setRef(({ text : _s?.__copy__() } : Comment)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>);
             };
-            var _text:stdgo.GoString = (stdgo.Go.setRef((new CommentGroup(_list) : CommentGroup)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>).text();
+            var _text:stdgo.GoString = (stdgo.Go.setRef((new CommentGroup(_list) : CommentGroup)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>).text()?.__copy__();
             if (_text != (_c._text)) {
-                _t.errorf(("case %d: got %q; expected %q" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_c._text));
+                _t.errorf(("case %d: got %q; expected %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_c._text));
             };
         };
     }
 function testIsDirective(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tt in _isDirectiveTests) {
             {
-                var _ok:Bool = _isDirective(_tt._in);
+                var _ok:Bool = _isDirective(_tt._in?.__copy__());
                 if (_ok != (_tt._ok)) {
-                    _t.errorf(("isDirective(%q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_ok), stdgo.Go.toInterface(_tt._ok));
+                    _t.errorf(("isDirective(%q) = %v, want %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_ok), stdgo.Go.toInterface(_tt._ok));
                 };
             };
         };
@@ -2061,12 +2061,12 @@ function _summary(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<CommentGroup>>):stdgo.G
                     if (_buf.len() >= (40 : stdgo.StdGoTypes.GoInt)) {
                         @:jump("loop") break;
                     };
-                    _buf.writeString(_comment.text);
+                    _buf.writeString(_comment.text?.__copy__());
                 };
             };
             if (_buf.len() > (40 : stdgo.StdGoTypes.GoInt)) {
                 _buf.truncate((37 : stdgo.StdGoTypes.GoInt));
-                _buf.writeString(("..." : stdgo.GoString));
+                _buf.writeString(("..." : stdgo.GoString)?.__copy__());
             };
             var _bytes = _buf.bytes();
             for (_i => _b in _bytes) {
@@ -2077,7 +2077,7 @@ function _summary(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<CommentGroup>>):stdgo.G
                     };
                 };
             };
-            return (_bytes : stdgo.GoString);
+            return (_bytes : stdgo.GoString)?.__copy__();
         });
         throw "controlFlow did not return";
     }
@@ -2085,7 +2085,7 @@ function _summary(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<CommentGroup>>):stdgo.G
     // exportFilter is a special filter function to extract exported nodes.
 **/
 function _exportFilter(_name:stdgo.GoString):Bool {
-        return isExported(_name);
+        return isExported(_name?.__copy__());
     }
 /**
     // FileExports trims the AST for a Go source file in place such that
@@ -2113,7 +2113,7 @@ function packageExports(_pkg:stdgo.StdGoTypes.Ref<Package>):Bool {
 function _filterIdentList(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<Ident>>, _f:Filter):stdgo.Slice<stdgo.StdGoTypes.Ref<Ident>> {
         var _j:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         for (__0 => _x in _list) {
-            if (_f(_x.name)) {
+            if (_f(_x.name?.__copy__())) {
                 _list[(_j : stdgo.StdGoTypes.GoInt)] = _x;
                 _j++;
             };
@@ -2161,7 +2161,7 @@ function _filterFieldList(_fields:stdgo.StdGoTypes.Ref<FieldList>, _filter:Filte
             var _keepField:Bool = false;
             if ((_f.names.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
                 var _name = _fieldName(_f.type);
-                _keepField = ((_name != null) && ((_name : Dynamic).__nil__ == null || !(_name : Dynamic).__nil__)) && _filter(_name.name);
+                _keepField = ((_name != null) && ((_name : Dynamic).__nil__ == null || !(_name : Dynamic).__nil__)) && _filter(_name.name?.__copy__());
             } else {
                 var _n:stdgo.StdGoTypes.GoInt = (_f.names.length);
                 _f.names = _filterIdentList(_f.names, _filter);
@@ -2207,7 +2207,7 @@ function _filterExprList(_list:stdgo.Slice<Expr>, _filter:Filter, _export:Bool):
                         } catch(_) {
                             { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
                         }, _x = __tmp__.value, _ok = __tmp__.ok;
-                        if (_ok && !_filter(_x.name)) {
+                        if (_ok && !_filter(_x.name?.__copy__())) {
                             continue;
                         };
                     };
@@ -2245,7 +2245,7 @@ function _filterType(_typ:Expr, _f:Filter, _export:Bool):Bool {
             final __type__ = _typ;
             if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Ident>))) {
                 var _t:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>) : __type__.__underlying__().value;
-                return _f(_t.name);
+                return _f(_t.name?.__copy__());
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<ParenExpr>))) {
                 var _t:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>) : __type__.__underlying__().value;
                 return _filterType(_t.x, _f, _export);
@@ -2296,7 +2296,7 @@ function _filterSpec(_spec:Spec, _f:Filter, _export:Bool):Bool {
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<TypeSpec>))) {
                 var _s:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeSpec> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeSpec>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeSpec>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.TypeSpec>) : __type__.__underlying__().value;
-                if (_f(_s.name.name)) {
+                if (_f(_s.name.name?.__copy__())) {
                     if (_export) {
                         _filterType(_s.type, _f, _export);
                     };
@@ -2339,7 +2339,7 @@ function _filterDecl(_decl:Decl, _f:Filter, _export:Bool):Bool {
                 return (_d.specs.length) > (0 : stdgo.StdGoTypes.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<FuncDecl>))) {
                 var _d:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl> = __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>) : __type__.__underlying__() == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>) : __type__ == null ? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>) : __type__.__underlying__().value;
-                return _f(_d.name.name);
+                return _f(_d.name.name?.__copy__());
             };
         };
         return false;
@@ -2420,12 +2420,12 @@ function _nameOf(_f:stdgo.StdGoTypes.Ref<FuncDecl>):stdgo.GoString {
                         { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
                     }, _p = __tmp__.value, __1 = __tmp__.ok;
                     if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
-                        return (_p.name + ("." : stdgo.GoString)) + _f.name.name;
+                        return _p.name + ("." : stdgo.GoString)?.__copy__() + _f.name.name?.__copy__()?.__copy__();
                     };
                 };
             };
         };
-        return _f.name.name;
+        return _f.name.name?.__copy__();
     }
 /**
     // MergePackageFiles creates a file AST by merging the ASTs of the
@@ -2439,7 +2439,7 @@ function mergePackageFiles(_pkg:stdgo.StdGoTypes.Ref<Package>, _mode:MergeMode):
         var __0:stdgo.go.token.Token.Pos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos), __1:stdgo.go.token.Token.Pos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos), _maxPos:stdgo.go.token.Token.Pos = __1, _minPos:stdgo.go.token.Token.Pos = __0;
         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         for (_filename => _f in _pkg.files) {
-            _filenames[(_i : stdgo.StdGoTypes.GoInt)] = _filename;
+            _filenames[(_i : stdgo.StdGoTypes.GoInt)] = _filename?.__copy__();
             _i++;
             if (_f.doc != null && ((_f.doc : Dynamic).__nil__ == null || !(_f.doc : Dynamic).__nil__)) {
                 _ndocs = _ndocs + (_f.doc.list.length + (1 : stdgo.StdGoTypes.GoInt));
@@ -2460,7 +2460,7 @@ function mergePackageFiles(_pkg:stdgo.StdGoTypes.Ref<Package>, _mode:MergeMode):
             var _list = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>>((_ndocs - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt).toBasic(), 0);
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             for (__0 => _filename in _filenames) {
-                var _f = (_pkg.files[_filename] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>));
+                var _f = (_pkg.files[_filename?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>));
                 if (_f.doc != null && ((_f.doc : Dynamic).__nil__ == null || !(_f.doc : Dynamic).__nil__)) {
                     if (_i > (0 : stdgo.StdGoTypes.GoInt)) {
                         _list[(_i : stdgo.StdGoTypes.GoInt)] = _separator;
@@ -2489,7 +2489,7 @@ function mergePackageFiles(_pkg:stdgo.StdGoTypes.Ref<Package>, _mode:MergeMode):
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             for (__2 => _filename in _filenames) {
-                var _f = (_pkg.files[_filename] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>));
+                var _f = (_pkg.files[_filename?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>));
                 for (__3 => _d in _f.decls) {
                     if (_mode & (1u32 : stdgo.go.ast.Ast.MergeMode) != ((0u32 : stdgo.go.ast.Ast.MergeMode))) {
                         {
@@ -2499,7 +2499,7 @@ function mergePackageFiles(_pkg:stdgo.StdGoTypes.Ref<Package>, _mode:MergeMode):
                                 { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>), ok : false };
                             }, _f = __tmp__.value, _isFun = __tmp__.ok;
                             if (_isFun) {
-                                var _name:stdgo.GoString = _nameOf(_f);
+                                var _name:stdgo.GoString = _nameOf(_f)?.__copy__();
                                 {
                                     var __tmp__ = (_funcs != null && _funcs.exists(_name) ? { value : _funcs[_name], ok : true } : { value : (0 : stdgo.StdGoTypes.GoInt), ok : false }), _j:stdgo.StdGoTypes.GoInt = __tmp__.value, _exists:Bool = __tmp__.ok;
                                     if (_exists) {
@@ -2510,7 +2510,7 @@ function mergePackageFiles(_pkg:stdgo.StdGoTypes.Ref<Package>, _mode:MergeMode):
                                         };
                                         _n++;
                                     } else {
-                                        _funcs[_name] = _i;
+                                        _funcs[_name?.__copy__()] = _i;
                                     };
                                 };
                             };
@@ -2540,20 +2540,20 @@ function mergePackageFiles(_pkg:stdgo.StdGoTypes.Ref<Package>, _mode:MergeMode):
                 x;
             } : stdgo.GoMap<stdgo.GoString, Bool>);
             for (__5 => _filename in _filenames) {
-                var _f = (_pkg.files[_filename] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>));
+                var _f = (_pkg.files[_filename?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>));
                 for (__6 => _imp in _f.imports) {
                     {
-                        var _path:stdgo.GoString = _imp.path.value;
-                        if (!(_seen[_path] ?? false)) {
+                        var _path:stdgo.GoString = _imp.path.value?.__copy__();
+                        if (!(_seen[_path?.__copy__()] ?? false)) {
                             _imports = (_imports.__append__(_imp));
-                            _seen[_path] = true;
+                            _seen[_path?.__copy__()] = true;
                         };
                     };
                 };
             };
         } else {
             for (__7 => _filename in _filenames) {
-                var _f = (_pkg.files[_filename] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>));
+                var _f = (_pkg.files[_filename?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>));
                 _imports = (_imports.__append__(..._f.imports.__toArray__()));
             };
         };
@@ -2562,14 +2562,14 @@ function mergePackageFiles(_pkg:stdgo.StdGoTypes.Ref<Package>, _mode:MergeMode):
             _comments = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>>((_ncomments : stdgo.StdGoTypes.GoInt).toBasic(), 0);
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             for (__8 => _filename in _filenames) {
-                var _f = (_pkg.files[_filename] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>));
+                var _f = (_pkg.files[_filename?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>));
                 _i = _i + (stdgo.Go.copySlice((_comments.__slice__(_i) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>>), _f.comments));
             };
         };
         return (stdgo.Go.setRef((new File(
 _doc,
 _pos,
-newIdent(_pkg.name),
+newIdent(_pkg.name?.__copy__()),
 _decls,
 _minPos,
 _maxPos,
@@ -2577,7 +2577,7 @@ _pkg.scope,
 _imports,
 (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>>),
 _comments,
-stdgo.Go.str()) : File)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>);
+stdgo.Go.str()?.__copy__()) : File)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>);
     }
 /**
     // SortImports sorts runs of consecutive import lines in import blocks in f.
@@ -2621,25 +2621,25 @@ function _lineAt(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _pos:
         return _fset.positionFor(_pos, false).line;
     }
 function _importPath(_s:Spec):stdgo.GoString {
-        var __tmp__ = stdgo.strconv.Strconv.unquote((stdgo.Go.typeAssert((stdgo.Go.toInterface(_s) : stdgo.StdGoTypes.Ref<ImportSpec>)) : stdgo.StdGoTypes.Ref<ImportSpec>).path.value), _t:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.strconv.Strconv.unquote((stdgo.Go.typeAssert((stdgo.Go.toInterface(_s) : stdgo.StdGoTypes.Ref<ImportSpec>)) : stdgo.StdGoTypes.Ref<ImportSpec>).path.value?.__copy__()), _t:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err == null) {
-            return _t;
+            return _t?.__copy__();
         };
-        return stdgo.Go.str();
+        return stdgo.Go.str()?.__copy__();
     }
 function _importName(_s:Spec):stdgo.GoString {
         var _n = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s) : stdgo.StdGoTypes.Ref<ImportSpec>)) : stdgo.StdGoTypes.Ref<ImportSpec>).name;
         if (_n == null || (_n : Dynamic).__nil__) {
-            return stdgo.Go.str();
+            return stdgo.Go.str()?.__copy__();
         };
-        return _n.name;
+        return _n.name?.__copy__();
     }
 function _importComment(_s:Spec):stdgo.GoString {
         var _c = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s) : stdgo.StdGoTypes.Ref<ImportSpec>)) : stdgo.StdGoTypes.Ref<ImportSpec>).comment;
         if (_c == null || (_c : Dynamic).__nil__) {
-            return stdgo.Go.str();
+            return stdgo.Go.str()?.__copy__();
         };
-        return _c.text();
+        return _c.text()?.__copy__();
     }
 /**
     // collapse indicates whether prev may be removed, leaving only next.
@@ -2709,13 +2709,13 @@ function _sortSpecs(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _f
             _importComments[_s] = ((_importComments[_s] ?? (null : stdgo.Slice<stdgo.go.ast.Ast.T_cgPos>)).__append__(({ _left : _left, _cg : _g } : T_cgPos)));
         };
         stdgo.sort.Sort.slice(stdgo.Go.toInterface(_specs), function(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
-            var _ipath:stdgo.GoString = _importPath(_specs[(_i : stdgo.StdGoTypes.GoInt)]);
-            var _jpath:stdgo.GoString = _importPath(_specs[(_j : stdgo.StdGoTypes.GoInt)]);
+            var _ipath:stdgo.GoString = _importPath(_specs[(_i : stdgo.StdGoTypes.GoInt)])?.__copy__();
+            var _jpath:stdgo.GoString = _importPath(_specs[(_j : stdgo.StdGoTypes.GoInt)])?.__copy__();
             if (_ipath != (_jpath)) {
                 return _ipath < _jpath;
             };
-            var _iname:stdgo.GoString = _importName(_specs[(_i : stdgo.StdGoTypes.GoInt)]);
-            var _jname:stdgo.GoString = _importName(_specs[(_j : stdgo.StdGoTypes.GoInt)]);
+            var _iname:stdgo.GoString = _importName(_specs[(_i : stdgo.StdGoTypes.GoInt)])?.__copy__();
+            var _jname:stdgo.GoString = _importName(_specs[(_j : stdgo.StdGoTypes.GoInt)])?.__copy__();
             if (_iname != (_jname)) {
                 return _iname < _jname;
             };
@@ -2806,7 +2806,7 @@ function _fprint(_w:stdgo.io.Io.Writer, _fset:stdgo.StdGoTypes.Ref<stdgo.go.toke
                 a();
             });
             if (_x == null) {
-                _p._printf(("nil\n" : stdgo.GoString));
+                _p._printf(("nil\n" : stdgo.GoString)?.__copy__());
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -2815,7 +2815,7 @@ function _fprint(_w:stdgo.io.Io.Writer, _fset:stdgo.StdGoTypes.Ref<stdgo.go.toke
                 };
             };
             _p._print(stdgo.reflect.Reflect.valueOf(_x)?.__copy__());
-            _p._printf(("\n" : stdgo.GoString));
+            _p._printf(("\n" : stdgo.GoString)?.__copy__());
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2858,16 +2858,16 @@ function print(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _x:stdg
     // the concatenated non-empty lines.
 **/
 function _trim(_s:stdgo.GoString):stdgo.GoString {
-        var _lines = stdgo.strings.Strings.split(_s, ("\n" : stdgo.GoString));
+        var _lines = stdgo.strings.Strings.split(_s?.__copy__(), ("\n" : stdgo.GoString)?.__copy__());
         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         for (__0 => _line in _lines) {
-            _line = stdgo.strings.Strings.trimSpace(_line);
+            _line = stdgo.strings.Strings.trimSpace(_line?.__copy__())?.__copy__();
             if (_line != (stdgo.Go.str())) {
-                _lines[(_i : stdgo.StdGoTypes.GoInt)] = _line;
+                _lines[(_i : stdgo.StdGoTypes.GoInt)] = _line?.__copy__();
                 _i++;
             };
         };
-        return stdgo.strings.Strings.join((_lines.__slice__((0 : stdgo.StdGoTypes.GoInt), _i) : stdgo.Slice<stdgo.GoString>), ("\n" : stdgo.GoString));
+        return stdgo.strings.Strings.join((_lines.__slice__((0 : stdgo.StdGoTypes.GoInt), _i) : stdgo.Slice<stdgo.GoString>), ("\n" : stdgo.GoString)?.__copy__())?.__copy__();
     }
 function testPrint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
@@ -2876,13 +2876,13 @@ function testPrint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             {
                 var _err:stdgo.Error = fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), null, _test._x, null);
                 if (_err != null) {
-                    _t.errorf(("Fprint failed: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                    _t.errorf(("Fprint failed: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
                 };
             };
             {
-                var __0:stdgo.GoString = _trim((_buf.string() : stdgo.GoString)), __1:stdgo.GoString = _trim(_test._s), _ts:stdgo.GoString = __1, _s:stdgo.GoString = __0;
+                var __0:stdgo.GoString = _trim((_buf.string() : stdgo.GoString)?.__copy__())?.__copy__(), __1:stdgo.GoString = _trim(_test._s?.__copy__())?.__copy__(), _ts:stdgo.GoString = __1, _s:stdgo.GoString = __0;
                 if (_s != (_ts)) {
-                    _t.errorf(("got:\n%s\nexpected:\n%s\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_ts));
+                    _t.errorf(("got:\n%s\nexpected:\n%s\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_ts));
                 };
             };
         };
@@ -2890,7 +2890,7 @@ function testPrint(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 function _resolve(_scope:stdgo.StdGoTypes.Ref<Scope>, _ident:stdgo.StdGoTypes.Ref<Ident>):Bool {
         stdgo.Go.cfor(_scope != null && ((_scope : Dynamic).__nil__ == null || !(_scope : Dynamic).__nil__), _scope = _scope.outer, {
             {
-                var _obj = _scope.lookup(_ident.name);
+                var _obj = _scope.lookup(_ident.name?.__copy__());
                 if (_obj != null && ((_obj : Dynamic).__nil__ == null || !(_obj : Dynamic).__nil__)) {
                     _ident.obj = _obj;
                     return true;
@@ -2912,15 +2912,15 @@ function _resolve(_scope:stdgo.StdGoTypes.Ref<Scope>, _ident:stdgo.StdGoTypes.Re
 function newPackage(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _files:GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<File>>, _importer:Importer, _universe:stdgo.StdGoTypes.Ref<Scope>):{ var _0 : stdgo.StdGoTypes.Ref<Package>; var _1 : stdgo.Error; } {
         var _p:T_pkgBuilder = ({} : stdgo.go.ast.Ast.T_pkgBuilder);
         _p._fset = _fset;
-        var _pkgName:stdgo.GoString = stdgo.Go.str();
+        var _pkgName:stdgo.GoString = stdgo.Go.str()?.__copy__();
         var _pkgScope = newScope(_universe);
         for (__8 => _file in _files) {
             {
-                var _name:stdgo.GoString = _file.name.name;
+                var _name:stdgo.GoString = _file.name.name?.__copy__();
                 if (_pkgName == (stdgo.Go.str())) {
-                    _pkgName = _name;
+                    _pkgName = _name?.__copy__();
                 } else if (_name != (_pkgName)) {
-                    _p._errorf(_file.package_, ("package %s; expected %s" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_pkgName));
+                    _p._errorf(_file.package_, ("package %s; expected %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_pkgName));
                     continue;
                 };
             };
@@ -2945,23 +2945,23 @@ function newPackage(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _f
                     _importErrors = true;
                     continue;
                 };
-                var __tmp__ = stdgo.strconv.Strconv.unquote(_spec.path.value), _path:stdgo.GoString = __tmp__._0, __12:stdgo.Error = __tmp__._1;
-                var __tmp__ = _importer(_imports, _path), _pkg:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.strconv.Strconv.unquote(_spec.path.value?.__copy__()), _path:stdgo.GoString = __tmp__._0, __12:stdgo.Error = __tmp__._1;
+                var __tmp__ = _importer(_imports, _path?.__copy__()), _pkg:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _p._errorf(_spec.path.pos(), ("could not import %s (%s)" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_err));
+                    _p._errorf(_spec.path.pos(), ("could not import %s (%s)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_err));
                     _importErrors = true;
                     continue;
                 };
-                var _name:stdgo.GoString = _pkg.name;
+                var _name:stdgo.GoString = _pkg.name?.__copy__();
                 if (_spec.name != null && ((_spec.name : Dynamic).__nil__ == null || !(_spec.name : Dynamic).__nil__)) {
-                    _name = _spec.name.name;
+                    _name = _spec.name.name?.__copy__();
                 };
                 if (_name == (("." : stdgo.GoString))) {
                     for (__13 => _obj in (stdgo.Go.typeAssert((_pkg.data : stdgo.StdGoTypes.Ref<Scope>)) : stdgo.StdGoTypes.Ref<Scope>).objects) {
                         _p._declare(_fileScope, _pkgScope, _obj);
                     };
                 } else if (_name != (("_" : stdgo.GoString))) {
-                    var _obj = newObj((1 : stdgo.go.ast.Ast.ObjKind), _name);
+                    var _obj = newObj((1 : stdgo.go.ast.Ast.ObjKind), _name?.__copy__());
                     _obj.decl = stdgo.Go.toInterface(stdgo.Go.asInterface(_spec));
                     _obj.data = _pkg.data;
                     _p._declare(_fileScope, _pkgScope, _obj);
@@ -2973,7 +2973,7 @@ function newPackage(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _f
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             for (__14 => _ident in _file.unresolved) {
                 if (!_resolve(_fileScope, _ident)) {
-                    _p._errorf(_ident.pos(), ("undeclared name: %s" : stdgo.GoString), stdgo.Go.toInterface(_ident.name));
+                    _p._errorf(_ident.pos(), ("undeclared name: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_ident.name));
                     _file.unresolved[(_i : stdgo.StdGoTypes.GoInt)] = _ident;
                     _i++;
                 };
@@ -2982,7 +2982,7 @@ function newPackage(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _f
             _pkgScope.outer = _universe;
         };
         _p._errors.sort();
-        return { _0 : (stdgo.Go.setRef((new Package(_pkgName, _pkgScope, _imports, _files) : Package)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Package>), _1 : _p._errors.err() };
+        return { _0 : (stdgo.Go.setRef((new Package(_pkgName?.__copy__(), _pkgScope, _imports, _files) : Package)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Package>), _1 : _p._errors.err() };
     }
 /**
     // NewScope creates a new scope nested in the outer scope.
@@ -3000,7 +3000,7 @@ function newScope(_outer:stdgo.StdGoTypes.Ref<Scope>):stdgo.StdGoTypes.Ref<Scope
     // NewObj creates a new object of a given kind and name.
 **/
 function newObj(_kind:ObjKind, _name:stdgo.GoString):stdgo.StdGoTypes.Ref<Object> {
-        return (stdgo.Go.setRef(({ kind : _kind, name : _name } : Object)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object>);
+        return (stdgo.Go.setRef(({ kind : _kind, name : _name?.__copy__() } : Object)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object>);
     }
 function _walkIdentList(_v:Visitor, _list:stdgo.Slice<stdgo.StdGoTypes.Ref<Ident>>):Void {
         for (__0 => _x in _list) {
@@ -3343,7 +3343,7 @@ function walk(_v:Visitor, _node:Node):Void {
                 };
             } else {
                 var _n:stdgo.go.ast.Ast.Node = __type__ == null ? (null : stdgo.go.ast.Ast.Node) : cast __type__;
-                throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("ast.Walk: unexpected node type %T" : stdgo.GoString), stdgo.Go.toInterface(_n)));
+                throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("ast.Walk: unexpected node type %T" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n)));
             };
         };
         _v.visit((null : stdgo.go.ast.Ast.Node));
@@ -3418,11 +3418,11 @@ class CommentGroup_asInterface {
     static public function text( _g:stdgo.StdGoTypes.Ref<CommentGroup>):stdgo.GoString {
         @:recv var _g:stdgo.StdGoTypes.Ref<CommentGroup> = _g;
         if (_g == null || (_g : Dynamic).__nil__) {
-            return stdgo.Go.str();
+            return stdgo.Go.str()?.__copy__();
         };
         var _comments = new stdgo.Slice<stdgo.GoString>((_g.list.length : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setString__();
         for (_i => _c in _g.list) {
-            _comments[(_i : stdgo.StdGoTypes.GoInt)] = _c.text;
+            _comments[(_i : stdgo.StdGoTypes.GoInt)] = _c.text?.__copy__();
         };
         var _lines = new stdgo.Slice<stdgo.GoString>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (10 : stdgo.StdGoTypes.GoInt)).__setString__();
         for (__0 => _c in _comments) {
@@ -3435,15 +3435,15 @@ class CommentGroup_asInterface {
                     {
                         final __value__ = _c[(1 : stdgo.StdGoTypes.GoInt)];
                         if (__value__ == ((47 : stdgo.StdGoTypes.GoUInt8))) {
-                            _c = (_c.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                            _c = (_c.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                             if ((_c.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
                                 break;
                             };
                             if (_c[(0 : stdgo.StdGoTypes.GoInt)] == ((32 : stdgo.StdGoTypes.GoUInt8))) {
-                                _c = (_c.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                _c = (_c.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                 break;
                             };
-                            if (_isDirective(_c)) {
+                            if (_isDirective(_c?.__copy__())) {
                                 {
                                     __continue__ = true;
                                     break;
@@ -3451,7 +3451,7 @@ class CommentGroup_asInterface {
                             };
                             break;
                         } else if (__value__ == ((42 : stdgo.StdGoTypes.GoUInt8))) {
-                            _c = (_c.__slice__((2 : stdgo.StdGoTypes.GoInt), (_c.length) - (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                            _c = (_c.__slice__((2 : stdgo.StdGoTypes.GoInt), (_c.length) - (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                             break;
                         };
                     };
@@ -3459,23 +3459,23 @@ class CommentGroup_asInterface {
                 };
                 if (__continue__) continue;
             };
-            var _cl = stdgo.strings.Strings.split(_c, ("\n" : stdgo.GoString));
+            var _cl = stdgo.strings.Strings.split(_c?.__copy__(), ("\n" : stdgo.GoString)?.__copy__());
             for (__1 => _l in _cl) {
-                _lines = (_lines.__append__(_stripTrailingWhitespace(_l)));
+                _lines = (_lines.__append__(_stripTrailingWhitespace(_l?.__copy__())?.__copy__()));
             };
         };
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         for (__2 => _line in _lines) {
             if ((_line != stdgo.Go.str()) || ((_n > (0 : stdgo.StdGoTypes.GoInt)) && (_lines[(_n - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] != stdgo.Go.str()))) {
-                _lines[(_n : stdgo.StdGoTypes.GoInt)] = _line;
+                _lines[(_n : stdgo.StdGoTypes.GoInt)] = _line?.__copy__();
                 _n++;
             };
         };
         _lines = (_lines.__slice__((0 : stdgo.StdGoTypes.GoInt), _n) : stdgo.Slice<stdgo.GoString>);
         if ((_n > (0 : stdgo.StdGoTypes.GoInt)) && (_lines[(_n - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] != stdgo.Go.str())) {
-            _lines = (_lines.__append__(stdgo.Go.str()));
+            _lines = (_lines.__append__(stdgo.Go.str()?.__copy__()));
         };
-        return stdgo.strings.Strings.join(_lines, ("\n" : stdgo.GoString));
+        return stdgo.strings.Strings.join(_lines, ("\n" : stdgo.GoString)?.__copy__())?.__copy__();
     }
     @:keep
     static public function end( _g:stdgo.StdGoTypes.Ref<CommentGroup>):stdgo.go.token.Token.Pos {
@@ -3657,9 +3657,9 @@ class Ident_asInterface {
     static public function string( _id:stdgo.StdGoTypes.Ref<Ident>):stdgo.GoString {
         @:recv var _id:stdgo.StdGoTypes.Ref<Ident> = _id;
         if (_id != null && ((_id : Dynamic).__nil__ == null || !(_id : Dynamic).__nil__)) {
-            return _id.name;
+            return _id.name?.__copy__();
         };
-        return ("<nil>" : stdgo.GoString);
+        return ("<nil>" : stdgo.GoString)?.__copy__();
     }
     /**
         // IsExported reports whether id starts with an upper-case letter.
@@ -3667,7 +3667,7 @@ class Ident_asInterface {
     @:keep
     static public function isExported( _id:stdgo.StdGoTypes.Ref<Ident>):Bool {
         @:recv var _id:stdgo.StdGoTypes.Ref<Ident> = _id;
-        return stdgo.go.token.Token.isExported(_id.name);
+        return stdgo.go.token.Token.isExported(_id.name?.__copy__());
     }
     @:keep
     static public function _exprNode( _:stdgo.StdGoTypes.Ref<Ident>):Void {
@@ -5389,8 +5389,8 @@ class T_printer_asInterface {
     @:keep
     static public function _print( _p:stdgo.StdGoTypes.Ref<T_printer>, _x:stdgo.reflect.Reflect.Value):Void {
         @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
-        if (!notNilFilter(stdgo.Go.str(), _x?.__copy__())) {
-            _p._printf(("nil" : stdgo.GoString));
+        if (!notNilFilter(stdgo.Go.str()?.__copy__(), _x?.__copy__())) {
+            _p._printf(("nil" : stdgo.GoString)?.__copy__());
             return;
         };
         {
@@ -5398,47 +5398,47 @@ class T_printer_asInterface {
             if (__value__ == ((20u32 : stdgo.reflect.Reflect.Kind))) {
                 _p._print(_x.elem()?.__copy__());
             } else if (__value__ == ((21u32 : stdgo.reflect.Reflect.Kind))) {
-                _p._printf(("%s (len = %d) {" : stdgo.GoString), stdgo.Go.toInterface(_x.type()), stdgo.Go.toInterface(_x.len()));
+                _p._printf(("%s (len = %d) {" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x.type()), stdgo.Go.toInterface(_x.len()));
                 if (_x.len() > (0 : stdgo.StdGoTypes.GoInt)) {
                     _p._indent++;
-                    _p._printf(("\n" : stdgo.GoString));
+                    _p._printf(("\n" : stdgo.GoString)?.__copy__());
                     for (__8 => _key in _x.mapKeys()) {
                         _p._print(_key?.__copy__());
-                        _p._printf((": " : stdgo.GoString));
+                        _p._printf((": " : stdgo.GoString)?.__copy__());
                         _p._print(_x.mapIndex(_key?.__copy__())?.__copy__());
-                        _p._printf(("\n" : stdgo.GoString));
+                        _p._printf(("\n" : stdgo.GoString)?.__copy__());
                     };
                     _p._indent--;
                 };
-                _p._printf(("}" : stdgo.GoString));
+                _p._printf(("}" : stdgo.GoString)?.__copy__());
             } else if (__value__ == ((22u32 : stdgo.reflect.Reflect.Kind))) {
-                _p._printf(("*" : stdgo.GoString));
+                _p._printf(("*" : stdgo.GoString)?.__copy__());
                 var _ptr:stdgo.StdGoTypes.AnyInterface = _x.interface_();
                 {
                     var __tmp__ = (_p._ptrmap != null && _p._ptrmap.exists(_ptr) ? { value : _p._ptrmap[_ptr], ok : true } : { value : (0 : stdgo.StdGoTypes.GoInt), ok : false }), _line:stdgo.StdGoTypes.GoInt = __tmp__.value, _exists:Bool = __tmp__.ok;
                     if (_exists) {
-                        _p._printf(("(obj @ %d)" : stdgo.GoString), stdgo.Go.toInterface(_line));
+                        _p._printf(("(obj @ %d)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_line));
                     } else {
                         _p._ptrmap[_ptr] = _p._line;
                         _p._print(_x.elem()?.__copy__());
                     };
                 };
             } else if (__value__ == ((17u32 : stdgo.reflect.Reflect.Kind))) {
-                _p._printf(("%s {" : stdgo.GoString), stdgo.Go.toInterface(_x.type()));
+                _p._printf(("%s {" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x.type()));
                 if (_x.len() > (0 : stdgo.StdGoTypes.GoInt)) {
                     _p._indent++;
-                    _p._printf(("\n" : stdgo.GoString));
+                    _p._printf(("\n" : stdgo.GoString)?.__copy__());
                     {
                         var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _x.len(), _n:stdgo.StdGoTypes.GoInt = __1, _i:stdgo.StdGoTypes.GoInt = __0;
                         stdgo.Go.cfor(_i < _n, _i++, {
-                            _p._printf(("%d: " : stdgo.GoString), stdgo.Go.toInterface(_i));
+                            _p._printf(("%d: " : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
                             _p._print(_x.index(_i)?.__copy__());
-                            _p._printf(("\n" : stdgo.GoString));
+                            _p._printf(("\n" : stdgo.GoString)?.__copy__());
                         });
                     };
                     _p._indent--;
                 };
-                _p._printf(("}" : stdgo.GoString));
+                _p._printf(("}" : stdgo.GoString)?.__copy__());
             } else if (__value__ == ((23u32 : stdgo.reflect.Reflect.Kind))) {
                 {
                     var __tmp__ = try {
@@ -5447,69 +5447,69 @@ class T_printer_asInterface {
                         { value : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), ok : false };
                     }, _s = __tmp__.value, _ok = __tmp__.ok;
                     if (_ok) {
-                        _p._printf(("%#q" : stdgo.GoString), stdgo.Go.toInterface(_s));
+                        _p._printf(("%#q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_s));
                         return;
                     };
                 };
-                _p._printf(("%s (len = %d) {" : stdgo.GoString), stdgo.Go.toInterface(_x.type()), stdgo.Go.toInterface(_x.len()));
+                _p._printf(("%s (len = %d) {" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x.type()), stdgo.Go.toInterface(_x.len()));
                 if (_x.len() > (0 : stdgo.StdGoTypes.GoInt)) {
                     _p._indent++;
-                    _p._printf(("\n" : stdgo.GoString));
+                    _p._printf(("\n" : stdgo.GoString)?.__copy__());
                     {
                         var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _x.len(), _n:stdgo.StdGoTypes.GoInt = __1, _i:stdgo.StdGoTypes.GoInt = __0;
                         stdgo.Go.cfor(_i < _n, _i++, {
-                            _p._printf(("%d: " : stdgo.GoString), stdgo.Go.toInterface(_i));
+                            _p._printf(("%d: " : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
                             _p._print(_x.index(_i)?.__copy__());
-                            _p._printf(("\n" : stdgo.GoString));
+                            _p._printf(("\n" : stdgo.GoString)?.__copy__());
                         });
                     };
                     _p._indent--;
                 };
-                _p._printf(("}" : stdgo.GoString));
+                _p._printf(("}" : stdgo.GoString)?.__copy__());
             } else if (__value__ == ((25u32 : stdgo.reflect.Reflect.Kind))) {
                 var _t:stdgo.reflect.Reflect.Type = _x.type();
-                _p._printf(("%s {" : stdgo.GoString), stdgo.Go.toInterface(_t));
+                _p._printf(("%s {" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_t));
                 _p._indent++;
                 var _first:Bool = true;
                 {
                     var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = _t.numField(), _n:stdgo.StdGoTypes.GoInt = __1, _i:stdgo.StdGoTypes.GoInt = __0;
                     stdgo.Go.cfor(_i < _n, _i++, {
                         {
-                            var _name:stdgo.GoString = _t.field(_i).name;
-                            if (isExported(_name)) {
+                            var _name:stdgo.GoString = _t.field(_i).name?.__copy__();
+                            if (isExported(_name?.__copy__())) {
                                 var _value:stdgo.reflect.Reflect.Value = _x.field(_i)?.__copy__();
-                                if ((_p._filter == null) || _p._filter(_name, _value?.__copy__())) {
+                                if ((_p._filter == null) || _p._filter(_name?.__copy__(), _value?.__copy__())) {
                                     if (_first) {
-                                        _p._printf(("\n" : stdgo.GoString));
+                                        _p._printf(("\n" : stdgo.GoString)?.__copy__());
                                         _first = false;
                                     };
-                                    _p._printf(("%s: " : stdgo.GoString), stdgo.Go.toInterface(_name));
+                                    _p._printf(("%s: " : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_name));
                                     _p._print(_value?.__copy__());
-                                    _p._printf(("\n" : stdgo.GoString));
+                                    _p._printf(("\n" : stdgo.GoString)?.__copy__());
                                 };
                             };
                         };
                     });
                 };
                 _p._indent--;
-                _p._printf(("}" : stdgo.GoString));
+                _p._printf(("}" : stdgo.GoString)?.__copy__());
             } else {
                 var _v:stdgo.StdGoTypes.AnyInterface = _x.interface_();
                 {
                     final __type__ = _v;
                     if (stdgo.Go.typeEquals((__type__ : stdgo.GoString))) {
                         var _v:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__().value;
-                        _p._printf(("%q" : stdgo.GoString), stdgo.Go.toInterface(_v));
+                        _p._printf(("%q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_v));
                         return;
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.go.token.Token.Pos))) {
                         var _v:stdgo.go.token.Token.Pos = __type__ == null ? ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos) : __type__.__underlying__() == null ? ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos) : __type__ == null ? ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos) : __type__.__underlying__().value;
                         if (_p._fset != null && ((_p._fset : Dynamic).__nil__ == null || !(_p._fset : Dynamic).__nil__)) {
-                            _p._printf(("%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p._fset.position(_v))));
+                            _p._printf(("%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_p._fset.position(_v))));
                             return;
                         };
                     };
                 };
-                _p._printf(("%v" : stdgo.GoString), _v);
+                _p._printf(("%v" : stdgo.GoString)?.__copy__(), _v);
             };
         };
     }
@@ -5521,7 +5521,7 @@ class T_printer_asInterface {
         var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         {
-            var __tmp__ = stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_p), _format, ..._args.__toArray__()), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_p), _format?.__copy__(), ..._args.__toArray__()), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 throw stdgo.Go.toInterface((new T_localError(_err) : T_localError));
             };
@@ -5546,7 +5546,7 @@ class T_printer_asInterface {
                 _p._line++;
             } else if (_p._last == ((10 : stdgo.StdGoTypes.GoUInt8))) {
                 {
-                    var __tmp__ = stdgo.fmt.Fmt.fprintf(_p._output, ("%6d  " : stdgo.GoString), stdgo.Go.toInterface(_p._line));
+                    var __tmp__ = stdgo.fmt.Fmt.fprintf(_p._output, ("%6d  " : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_p._line));
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
@@ -5599,29 +5599,29 @@ class T_pkgBuilder_asInterface {
         @:recv var _p:stdgo.StdGoTypes.Ref<T_pkgBuilder> = _p;
         var _alt = _scope.insert(_obj);
         if ((_alt == null) || (_alt : Dynamic).__nil__ && ((_altScope != null) && ((_altScope : Dynamic).__nil__ == null || !(_altScope : Dynamic).__nil__))) {
-            _alt = _altScope.lookup(_obj.name);
+            _alt = _altScope.lookup(_obj.name?.__copy__());
         };
         if (_alt != null && ((_alt : Dynamic).__nil__ == null || !(_alt : Dynamic).__nil__)) {
-            var _prevDecl:stdgo.GoString = stdgo.Go.str();
+            var _prevDecl:stdgo.GoString = stdgo.Go.str()?.__copy__();
             {
                 var _pos:stdgo.go.token.Token.Pos = _alt.pos();
                 if (_pos.isValid()) {
-                    _prevDecl = stdgo.fmt.Fmt.sprintf(("\n\tprevious declaration at %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p._fset.position(_pos))));
+                    _prevDecl = stdgo.fmt.Fmt.sprintf(("\n\tprevious declaration at %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_p._fset.position(_pos))))?.__copy__();
                 };
             };
-            _p._error(_obj.pos(), stdgo.fmt.Fmt.sprintf(("%s redeclared in this block%s" : stdgo.GoString), stdgo.Go.toInterface(_obj.name), stdgo.Go.toInterface(_prevDecl)));
+            _p._error(_obj.pos(), stdgo.fmt.Fmt.sprintf(("%s redeclared in this block%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_obj.name), stdgo.Go.toInterface(_prevDecl))?.__copy__());
         };
     }
     @:keep
     static public function _errorf( _p:stdgo.StdGoTypes.Ref<T_pkgBuilder>, _pos:stdgo.go.token.Token.Pos, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _p:stdgo.StdGoTypes.Ref<T_pkgBuilder> = _p;
-        _p._error(_pos, stdgo.fmt.Fmt.sprintf(_format, ..._args.__toArray__()));
+        _p._error(_pos, stdgo.fmt.Fmt.sprintf(_format?.__copy__(), ..._args.__toArray__())?.__copy__());
     }
     @:keep
     static public function _error( _p:stdgo.StdGoTypes.Ref<T_pkgBuilder>, _pos:stdgo.go.token.Token.Pos, _msg:stdgo.GoString):Void {
         @:recv var _p:stdgo.StdGoTypes.Ref<T_pkgBuilder> = _p;
-        _p._errors.add(_p._fset.position(_pos)?.__copy__(), _msg);
+        _p._errors.add(_p._fset.position(_pos)?.__copy__(), _msg?.__copy__());
     }
 }
 class Scope_asInterface {
@@ -5661,15 +5661,15 @@ class Scope_asInterface {
     static public function string( _s:stdgo.StdGoTypes.Ref<Scope>):stdgo.GoString {
         @:recv var _s:stdgo.StdGoTypes.Ref<Scope> = _s;
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-        stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("scope %p {" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)));
+        stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("scope %p {" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)));
         if (((_s != null) && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) && (_s.objects.length > (0 : stdgo.StdGoTypes.GoInt))) {
             stdgo.fmt.Fmt.fprintln(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)));
             for (__0 => _obj in _s.objects) {
-                stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("\t%s %s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_obj.kind)), stdgo.Go.toInterface(_obj.name));
+                stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("\t%s %s\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_obj.kind)), stdgo.Go.toInterface(_obj.name));
             };
         };
-        stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("}\n" : stdgo.GoString));
-        return (_buf.string() : stdgo.GoString);
+        stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("}\n" : stdgo.GoString)?.__copy__());
+        return (_buf.string() : stdgo.GoString)?.__copy__();
     }
     /**
         // Insert attempts to insert a named object obj into the scope s.
@@ -5682,9 +5682,9 @@ class Scope_asInterface {
         @:recv var _s:stdgo.StdGoTypes.Ref<Scope> = _s;
         var _alt:stdgo.StdGoTypes.Ref<Object> = (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object>);
         {
-            _alt = (_s.objects[_obj.name] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object>));
+            _alt = (_s.objects[_obj.name?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object>));
             if (_alt == null || (_alt : Dynamic).__nil__) {
-                _s.objects[_obj.name] = _obj;
+                _s.objects[_obj.name?.__copy__()] = _obj;
             };
         };
         return _alt;
@@ -5697,7 +5697,7 @@ class Scope_asInterface {
     @:keep
     static public function lookup( _s:stdgo.StdGoTypes.Ref<Scope>, _name:stdgo.GoString):stdgo.StdGoTypes.Ref<Object> {
         @:recv var _s:stdgo.StdGoTypes.Ref<Scope> = _s;
-        return (_s.objects[_name] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object>));
+        return (_s.objects[_name?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object>));
     }
 }
 class Object_asInterface {
@@ -5725,7 +5725,7 @@ class Object_asInterface {
     @:keep
     static public function pos( _obj:stdgo.StdGoTypes.Ref<Object>):stdgo.go.token.Token.Pos {
         @:recv var _obj:stdgo.StdGoTypes.Ref<Object> = _obj;
-        var _name:stdgo.GoString = _obj.name;
+        var _name:stdgo.GoString = _obj.name?.__copy__();
         {
             final __type__ = _obj.decl;
             if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<Field>))) {
@@ -5875,15 +5875,15 @@ class CommentMap_asInterface {
                     { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>), ok : false };
                 }, _ident = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
-                    _s = _ident.name;
+                    _s = _ident.name?.__copy__();
                 } else {
-                    _s = stdgo.fmt.Fmt.sprintf(("%T" : stdgo.GoString), stdgo.Go.toInterface(_node));
+                    _s = stdgo.fmt.Fmt.sprintf(("%T" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_node))?.__copy__();
                 };
             };
-            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("\t%p  %20s:  %s\n" : stdgo.GoString), stdgo.Go.toInterface(_node), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_summary(_comment)));
+            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("\t%p  %20s:  %s\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_node), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_summary(_comment)));
         };
         stdgo.fmt.Fmt.fprintln(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), stdgo.Go.toInterface(("}" : stdgo.GoString)));
-        return (_buf.string() : stdgo.GoString);
+        return (_buf.string() : stdgo.GoString)?.__copy__();
     }
     /**
         // Comments returns the list of comment groups in the comment map.
@@ -6058,7 +6058,7 @@ class ObjKind_asInterface {
     @:keep
     static public function string( _kind:ObjKind):stdgo.GoString {
         @:recv var _kind:ObjKind = _kind;
-        return _objKindStrings[(_kind : stdgo.StdGoTypes.GoInt)];
+        return _objKindStrings[(_kind : stdgo.StdGoTypes.GoInt)]?.__copy__();
     }
 }
 class T_inspector_asInterface {

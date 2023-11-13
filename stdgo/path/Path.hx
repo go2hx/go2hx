@@ -14,7 +14,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var errBadPattern : stdgo.Error = stdgo.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString));
+var errBadPattern : stdgo.Error = stdgo.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString)?.__copy__());
 /**
     // A lazybuf is a lazily constructed path buffer.
     // It supports append, reading previously appended bytes,
@@ -67,17 +67,17 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                 var _star:Bool = false;
                 var _chunk:stdgo.GoString = ("" : stdgo.GoString);
                 {
-                    var __tmp__ = _scanChunk(_pattern);
+                    var __tmp__ = _scanChunk(_pattern?.__copy__());
                     _star = __tmp__._0;
-                    _chunk = __tmp__._1;
-                    _pattern = __tmp__._2;
+                    _chunk = __tmp__._1?.__copy__();
+                    _pattern = __tmp__._2?.__copy__();
                 };
                 if (_star && (_chunk == stdgo.Go.str())) {
-                    return { _0 : stdgo.internal.bytealg.Bytealg.indexByteString(_name, (47 : stdgo.StdGoTypes.GoUInt8)) < (0 : stdgo.StdGoTypes.GoInt), _1 : (null : stdgo.Error) };
+                    return { _0 : stdgo.internal.bytealg.Bytealg.indexByteString(_name?.__copy__(), (47 : stdgo.StdGoTypes.GoUInt8)) < (0 : stdgo.StdGoTypes.GoInt), _1 : (null : stdgo.Error) };
                 };
-                var __tmp__ = _matchChunk(_chunk, _name), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                var __tmp__ = _matchChunk(_chunk?.__copy__(), _name?.__copy__()), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                 if (_ok && ((_t.length == (0 : stdgo.StdGoTypes.GoInt)) || (_pattern.length > (0 : stdgo.StdGoTypes.GoInt)))) {
-                    _name = _t;
+                    _name = _t?.__copy__();
                     continue;
                 };
                 if (_err != null) {
@@ -87,12 +87,12 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                     {
                         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                         stdgo.Go.cfor((_i < _name.length) && (_name[(_i : stdgo.StdGoTypes.GoInt)] != (47 : stdgo.StdGoTypes.GoUInt8)), _i++, {
-                            var __tmp__ = _matchChunk(_chunk, (_name.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                            var __tmp__ = _matchChunk(_chunk?.__copy__(), (_name.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__()), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                             if (_ok) {
                                 if ((_pattern.length == (0 : stdgo.StdGoTypes.GoInt)) && (_t.length > (0 : stdgo.StdGoTypes.GoInt))) {
                                     continue;
                                 };
-                                _name = _t;
+                                _name = _t?.__copy__();
                                 @:jump("Pattern") continue;
                             };
                             if (_err != null) {
@@ -103,12 +103,12 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                 };
                 while ((_pattern.length) > (0 : stdgo.StdGoTypes.GoInt)) {
                     {
-                        var __tmp__ = _scanChunk(_pattern);
-                        _chunk = __tmp__._1;
-                        _pattern = __tmp__._2;
+                        var __tmp__ = _scanChunk(_pattern?.__copy__());
+                        _chunk = __tmp__._1?.__copy__();
+                        _pattern = __tmp__._2?.__copy__();
                     };
                     {
-                        var __tmp__ = _matchChunk(_chunk, stdgo.Go.str()), __0:stdgo.GoString = __tmp__._0, __1:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                        var __tmp__ = _matchChunk(_chunk?.__copy__(), stdgo.Go.str()?.__copy__()), __0:stdgo.GoString = __tmp__._0, __1:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                         if (_err != null) {
                             return { _0 : false, _1 : _err };
                         };
@@ -128,7 +128,7 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
         stdgo.internal.Macro.controlFlow({
             var _star:Bool = false, _chunk:stdgo.GoString = ("" : stdgo.GoString), _rest:stdgo.GoString = ("" : stdgo.GoString);
             while ((_pattern.length > (0 : stdgo.StdGoTypes.GoInt)) && (_pattern[(0 : stdgo.StdGoTypes.GoInt)] == (42 : stdgo.StdGoTypes.GoUInt8))) {
-                _pattern = (_pattern.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                _pattern = (_pattern.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                 _star = true;
             };
             var _inrange:Bool = false;
@@ -166,7 +166,7 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
                     };
                 });
             };
-            return { _0 : _star, _1 : (_pattern.__slice__((0 : stdgo.StdGoTypes.GoInt), _i) : stdgo.GoString), _2 : (_pattern.__slice__(_i) : stdgo.GoString) };
+            return { _0 : _star, _1 : (_pattern.__slice__((0 : stdgo.StdGoTypes.GoInt), _i) : stdgo.GoString)?.__copy__(), _2 : (_pattern.__slice__(_i) : stdgo.GoString)?.__copy__() };
         });
         throw "controlFlow did not return";
     }
@@ -194,48 +194,48 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
                             if (!_failed) {
                                 var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                                 {
-                                    var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s);
+                                    var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s?.__copy__());
                                     _r = __tmp__._0;
                                     _n = __tmp__._1;
                                 };
-                                _s = (_s.__slice__(_n) : stdgo.GoString);
+                                _s = (_s.__slice__(_n) : stdgo.GoString)?.__copy__();
                             };
-                            _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                            _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                             var _negated:Bool = false;
                             if ((_chunk.length > (0 : stdgo.StdGoTypes.GoInt)) && (_chunk[(0 : stdgo.StdGoTypes.GoInt)] == (94 : stdgo.StdGoTypes.GoUInt8))) {
                                 _negated = true;
-                                _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                             };
                             var _match:Bool = false;
                             var _nrange:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                             while (true) {
                                 if (((_chunk.length > (0 : stdgo.StdGoTypes.GoInt)) && (_chunk[(0 : stdgo.StdGoTypes.GoInt)] == (93 : stdgo.StdGoTypes.GoUInt8))) && (_nrange > (0 : stdgo.StdGoTypes.GoInt))) {
-                                    _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                    _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                     break;
                                 };
                                 var __0:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), __1:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), _hi:stdgo.StdGoTypes.GoRune = __1, _lo:stdgo.StdGoTypes.GoRune = __0;
                                 {
                                     {
-                                        var __tmp__ = _getEsc(_chunk);
+                                        var __tmp__ = _getEsc(_chunk?.__copy__());
                                         _lo = __tmp__._0;
-                                        _chunk = __tmp__._1;
+                                        _chunk = __tmp__._1?.__copy__();
                                         _err = __tmp__._2;
                                     };
                                     if (_err != null) {
-                                        return { _0 : stdgo.Go.str(), _1 : false, _2 : _err };
+                                        return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : _err };
                                     };
                                 };
                                 _hi = _lo;
                                 if (_chunk[(0 : stdgo.StdGoTypes.GoInt)] == ((45 : stdgo.StdGoTypes.GoUInt8))) {
                                     {
                                         {
-                                            var __tmp__ = _getEsc((_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString));
+                                            var __tmp__ = _getEsc((_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__());
                                             _hi = __tmp__._0;
-                                            _chunk = __tmp__._1;
+                                            _chunk = __tmp__._1?.__copy__();
                                             _err = __tmp__._2;
                                         };
                                         if (_err != null) {
-                                            return { _0 : stdgo.Go.str(), _1 : false, _2 : _err };
+                                            return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : _err };
                                         };
                                     };
                                 };
@@ -254,16 +254,16 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
                                 if (_s[(0 : stdgo.StdGoTypes.GoInt)] == ((47 : stdgo.StdGoTypes.GoUInt8))) {
                                     _failed = true;
                                 };
-                                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s), __0:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _n:stdgo.StdGoTypes.GoInt = __tmp__._1;
-                                _s = (_s.__slice__(_n) : stdgo.GoString);
+                                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s?.__copy__()), __0:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _n:stdgo.StdGoTypes.GoInt = __tmp__._1;
+                                _s = (_s.__slice__(_n) : stdgo.GoString)?.__copy__();
                             };
-                            _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                            _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                             break;
                             break;
                         } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == (92 : stdgo.StdGoTypes.GoUInt8)))) {
-                            _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                            _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                             if ((_chunk.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
-                                return { _0 : stdgo.Go.str(), _1 : false, _2 : errBadPattern };
+                                return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : errBadPattern };
                             };
                             @:fallthrough {
                                 __switchIndex__ = 3;
@@ -276,9 +276,9 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
                                 if (_chunk[(0 : stdgo.StdGoTypes.GoInt)] != (_s[((0 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)])) {
                                     _failed = true;
                                 };
-                                _s = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                _s = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                             };
-                            _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                            _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                             break;
                         };
                     };
@@ -287,9 +287,9 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
             };
         };
         if (_failed) {
-            return { _0 : stdgo.Go.str(), _1 : false, _2 : (null : stdgo.Error) };
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
         };
-        return { _0 : _s, _1 : true, _2 : (null : stdgo.Error) };
+        return { _0 : _s?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
     }
 /**
     // getEsc gets a possibly-escaped character from chunk, for a character class.
@@ -301,17 +301,17 @@ function _getEsc(_chunk:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoRune; var 
             return { _0 : _r, _1 : _nchunk, _2 : _err };
         };
         if (_chunk[(0 : stdgo.StdGoTypes.GoInt)] == ((92 : stdgo.StdGoTypes.GoUInt8))) {
-            _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+            _chunk = (_chunk.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
             if ((_chunk.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
                 _err = errBadPattern;
                 return { _0 : _r, _1 : _nchunk, _2 : _err };
             };
         };
-        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_chunk), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _n:stdgo.StdGoTypes.GoInt = __tmp__._1;
+        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_chunk?.__copy__()), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _n:stdgo.StdGoTypes.GoInt = __tmp__._1;
         if ((_r == (65533 : stdgo.StdGoTypes.GoInt32)) && (_n == (1 : stdgo.StdGoTypes.GoInt))) {
             _err = errBadPattern;
         };
-        _nchunk = (_chunk.__slice__(_n) : stdgo.GoString);
+        _nchunk = (_chunk.__slice__(_n) : stdgo.GoString)?.__copy__();
         if ((_nchunk.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             _err = errBadPattern;
         };
@@ -340,11 +340,11 @@ function _getEsc(_chunk:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoRune; var 
 **/
 function clean(_path:stdgo.GoString):stdgo.GoString {
         if (_path == (stdgo.Go.str())) {
-            return ("." : stdgo.GoString);
+            return ("." : stdgo.GoString)?.__copy__();
         };
         var _rooted:Bool = _path[(0 : stdgo.StdGoTypes.GoInt)] == ((47 : stdgo.StdGoTypes.GoUInt8));
         var _n:stdgo.StdGoTypes.GoInt = (_path.length);
-        var _out:stdgo.path.Path.T_lazybuf = ({ _s : _path } : T_lazybuf);
+        var _out:stdgo.path.Path.T_lazybuf = ({ _s : _path?.__copy__() } : T_lazybuf);
         var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _dotdot:stdgo.StdGoTypes.GoInt = __1, _r:stdgo.StdGoTypes.GoInt = __0;
         if (_rooted) {
             _out._append((47 : stdgo.StdGoTypes.GoUInt8));
@@ -385,9 +385,9 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
             };
         };
         if (_out._w == ((0 : stdgo.StdGoTypes.GoInt))) {
-            return ("." : stdgo.GoString);
+            return ("." : stdgo.GoString)?.__copy__();
         };
-        return _out._string();
+        return _out._string()?.__copy__();
     }
 /**
     // lastSlash(s) is strings.LastIndex(s, "/") but we can't import strings.
@@ -408,8 +408,8 @@ function _lastSlash(_s:stdgo.GoString):stdgo.StdGoTypes.GoInt {
 **/
 function split(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
         var _dir:stdgo.GoString = ("" : stdgo.GoString), _file:stdgo.GoString = ("" : stdgo.GoString);
-        var _i:stdgo.StdGoTypes.GoInt = _lastSlash(_path);
-        return { _0 : (_path.__slice__(0, _i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString), _1 : (_path.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString) };
+        var _i:stdgo.StdGoTypes.GoInt = _lastSlash(_path?.__copy__());
+        return { _0 : (_path.__slice__(0, _i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), _1 : (_path.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__() };
     }
 /**
     // Join joins any number of path elements into a single path,
@@ -425,7 +425,7 @@ function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
             _size = _size + ((_e.length));
         };
         if (_size == ((0 : stdgo.StdGoTypes.GoInt))) {
-            return stdgo.Go.str();
+            return stdgo.Go.str()?.__copy__();
         };
         var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (_size + _elem.length) - (1 : stdgo.StdGoTypes.GoInt)).__setNumber32__();
         for (__1 => _e in _elem) {
@@ -436,7 +436,7 @@ function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
                 _buf = (_buf.__append__(..._e.__toArray__()));
             };
         };
-        return clean((_buf : stdgo.GoString));
+        return clean((_buf : stdgo.GoString)?.__copy__())?.__copy__();
     }
 /**
     // Ext returns the file name extension used by path.
@@ -449,11 +449,11 @@ function ext(_path:stdgo.GoString):stdgo.GoString {
             var _i:stdgo.StdGoTypes.GoInt = (_path.length) - (1 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor((_i >= (0 : stdgo.StdGoTypes.GoInt)) && (_path[(_i : stdgo.StdGoTypes.GoInt)] != (47 : stdgo.StdGoTypes.GoUInt8)), _i--, {
                 if (_path[(_i : stdgo.StdGoTypes.GoInt)] == ((46 : stdgo.StdGoTypes.GoUInt8))) {
-                    return (_path.__slice__(_i) : stdgo.GoString);
+                    return (_path.__slice__(_i) : stdgo.GoString)?.__copy__();
                 };
             });
         };
-        return stdgo.Go.str();
+        return stdgo.Go.str()?.__copy__();
     }
 /**
     // Base returns the last element of path.
@@ -463,21 +463,21 @@ function ext(_path:stdgo.GoString):stdgo.GoString {
 **/
 function base(_path:stdgo.GoString):stdgo.GoString {
         if (_path == (stdgo.Go.str())) {
-            return ("." : stdgo.GoString);
+            return ("." : stdgo.GoString)?.__copy__();
         };
         while ((_path.length > (0 : stdgo.StdGoTypes.GoInt)) && (_path[((_path.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] == (47 : stdgo.StdGoTypes.GoUInt8))) {
-            _path = (_path.__slice__((0 : stdgo.StdGoTypes.GoInt), (_path.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+            _path = (_path.__slice__((0 : stdgo.StdGoTypes.GoInt), (_path.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
         };
         {
-            var _i:stdgo.StdGoTypes.GoInt = _lastSlash(_path);
+            var _i:stdgo.StdGoTypes.GoInt = _lastSlash(_path?.__copy__());
             if (_i >= (0 : stdgo.StdGoTypes.GoInt)) {
-                _path = (_path.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                _path = (_path.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
             };
         };
         if (_path == (stdgo.Go.str())) {
-            return ("/" : stdgo.GoString);
+            return ("/" : stdgo.GoString)?.__copy__();
         };
-        return _path;
+        return _path?.__copy__();
     }
 /**
     // IsAbs reports whether the path is absolute.
@@ -495,8 +495,8 @@ function isAbs(_path:stdgo.GoString):Bool {
     // slash.
 **/
 function dir(_path:stdgo.GoString):stdgo.GoString {
-        var __tmp__ = split(_path), _dir:stdgo.GoString = __tmp__._0, __0:stdgo.GoString = __tmp__._1;
-        return clean(_dir);
+        var __tmp__ = split(_path?.__copy__()), _dir:stdgo.GoString = __tmp__._0, __0:stdgo.GoString = __tmp__._1;
+        return clean(_dir?.__copy__())?.__copy__();
     }
 class T_lazybuf_asInterface {
     @:keep
@@ -518,9 +518,9 @@ class T_lazybuf_asInterface {
     static public function _string( _b:stdgo.StdGoTypes.Ref<T_lazybuf>):stdgo.GoString {
         @:recv var _b:stdgo.StdGoTypes.Ref<T_lazybuf> = _b;
         if (_b._buf == null) {
-            return (_b._s.__slice__(0, _b._w) : stdgo.GoString);
+            return (_b._s.__slice__(0, _b._w) : stdgo.GoString)?.__copy__();
         };
-        return ((_b._buf.__slice__(0, _b._w) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString);
+        return ((_b._buf.__slice__(0, _b._w) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)?.__copy__();
     }
     @:keep
     static public function _append( _b:stdgo.StdGoTypes.Ref<T_lazybuf>, _c:stdgo.StdGoTypes.GoByte):Void {

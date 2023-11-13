@@ -562,7 +562,7 @@ function testSqDiff(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 {
                     var __0:stdgo.StdGoTypes.GoUInt32 = _sqDiff(_x, _y), __1:stdgo.StdGoTypes.GoUInt32 = _orig(_x, _y), _want:stdgo.StdGoTypes.GoUInt32 = __1, _got:stdgo.StdGoTypes.GoUInt32 = __0;
                     if (_got != (_want)) {
-                        _t.fatalf(("sqDiff(%#x, %#x): got %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                        _t.fatalf(("sqDiff(%#x, %#x): got %d, want %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                     };
                 };
             };
@@ -715,7 +715,7 @@ function _eq(_c0:Color, _c1:Color):stdgo.Error {
         var __tmp__ = _c0.rgba(), _r0:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _g0:stdgo.StdGoTypes.GoUInt32 = __tmp__._1, _b0:stdgo.StdGoTypes.GoUInt32 = __tmp__._2, _a0:stdgo.StdGoTypes.GoUInt32 = __tmp__._3;
         var __tmp__ = _c1.rgba(), _r1:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _g1:stdgo.StdGoTypes.GoUInt32 = __tmp__._1, _b1:stdgo.StdGoTypes.GoUInt32 = __tmp__._2, _a1:stdgo.StdGoTypes.GoUInt32 = __tmp__._3;
         if ((((_r0 != _r1) || (_g0 != _g1)) || (_b0 != _b1)) || (_a0 != _a1)) {
-            return stdgo.fmt.Fmt.errorf(("got  0x%04x 0x%04x 0x%04x 0x%04x\nwant 0x%04x 0x%04x 0x%04x 0x%04x" : stdgo.GoString), stdgo.Go.toInterface(_r0), stdgo.Go.toInterface(_g0), stdgo.Go.toInterface(_b0), stdgo.Go.toInterface(_a0), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_g1), stdgo.Go.toInterface(_b1), stdgo.Go.toInterface(_a1));
+            return stdgo.fmt.Fmt.errorf(("got  0x%04x 0x%04x 0x%04x 0x%04x\nwant 0x%04x 0x%04x 0x%04x 0x%04x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r0), stdgo.Go.toInterface(_g0), stdgo.Go.toInterface(_b0), stdgo.Go.toInterface(_a0), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_g1), stdgo.Go.toInterface(_b1), stdgo.Go.toInterface(_a1));
         };
         return (null : stdgo.Error);
     }
@@ -737,7 +737,7 @@ function testYCbCrRoundtrip(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                                 var __tmp__ = rgbtoYCbCr(_r0, _g0, _b0), _y:stdgo.StdGoTypes.GoUInt8 = __tmp__._0, _cb:stdgo.StdGoTypes.GoUInt8 = __tmp__._1, _cr:stdgo.StdGoTypes.GoUInt8 = __tmp__._2;
                                 var __tmp__ = ycbCrToRGB(_y, _cb, _cr), _r1:stdgo.StdGoTypes.GoUInt8 = __tmp__._0, _g1:stdgo.StdGoTypes.GoUInt8 = __tmp__._1, _b1:stdgo.StdGoTypes.GoUInt8 = __tmp__._2;
                                 if (((_delta(_r0, _r1) > (2 : stdgo.StdGoTypes.GoUInt8)) || (_delta(_g0, _g1) > (2 : stdgo.StdGoTypes.GoUInt8))) || (_delta(_b0, _b1) > (2 : stdgo.StdGoTypes.GoUInt8))) {
-                                    _t.fatalf(("\nr0, g0, b0 = %d, %d, %d\ny,  cb, cr = %d, %d, %d\nr1, g1, b1 = %d, %d, %d" : stdgo.GoString), stdgo.Go.toInterface(_r0), stdgo.Go.toInterface(_g0), stdgo.Go.toInterface(_b0), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_cb), stdgo.Go.toInterface(_cr), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_g1), stdgo.Go.toInterface(_b1));
+                                    _t.fatalf(("\nr0, g0, b0 = %d, %d, %d\ny,  cb, cr = %d, %d, %d\nr1, g1, b1 = %d, %d, %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r0), stdgo.Go.toInterface(_g0), stdgo.Go.toInterface(_b0), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_cb), stdgo.Go.toInterface(_cr), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_g1), stdgo.Go.toInterface(_b1));
                                 };
                             });
                         };
@@ -766,7 +766,7 @@ function testYCbCrToRGBConsistency(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
                                 var __0:stdgo.StdGoTypes.GoUInt8 = (_r0 >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt8), __1:stdgo.StdGoTypes.GoUInt8 = (_g0 >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt8), __2:stdgo.StdGoTypes.GoUInt8 = (_b0 >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt8), _b1:stdgo.StdGoTypes.GoUInt8 = __2, _g1:stdgo.StdGoTypes.GoUInt8 = __1, _r1:stdgo.StdGoTypes.GoUInt8 = __0;
                                 var __tmp__ = ycbCrToRGB(_x.y, _x.cb, _x.cr), _r2:stdgo.StdGoTypes.GoUInt8 = __tmp__._0, _g2:stdgo.StdGoTypes.GoUInt8 = __tmp__._1, _b2:stdgo.StdGoTypes.GoUInt8 = __tmp__._2;
                                 if (((_r1 != _r2) || (_g1 != _g2)) || (_b1 != _b2)) {
-                                    _t.fatalf(("y, cb, cr = %d, %d, %d\nr1, g1, b1 = %d, %d, %d\nr2, g2, b2 = %d, %d, %d" : stdgo.GoString), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_cb), stdgo.Go.toInterface(_cr), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_g1), stdgo.Go.toInterface(_b1), stdgo.Go.toInterface(_r2), stdgo.Go.toInterface(_g2), stdgo.Go.toInterface(_b2));
+                                    _t.fatalf(("y, cb, cr = %d, %d, %d\nr1, g1, b1 = %d, %d, %d\nr2, g2, b2 = %d, %d, %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_cb), stdgo.Go.toInterface(_cr), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_g1), stdgo.Go.toInterface(_b1), stdgo.Go.toInterface(_r2), stdgo.Go.toInterface(_g2), stdgo.Go.toInterface(_b2));
                                 };
                             });
                         };
@@ -787,7 +787,7 @@ function testYCbCrGray(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 {
                     var _err:stdgo.Error = _eq(stdgo.Go.asInterface(_c0), stdgo.Go.asInterface(_c1));
                     if (_err != null) {
-                        _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
+                        _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     };
                 };
             });
@@ -805,7 +805,7 @@ function testNYCbCrAAlpha(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 {
                     var _err:stdgo.Error = _eq(stdgo.Go.asInterface(_c0), stdgo.Go.asInterface(_c1));
                     if (_err != null) {
-                        _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
+                        _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     };
                 };
             });
@@ -823,7 +823,7 @@ function testNYCbCrAYCbCr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 {
                     var _err:stdgo.Error = _eq(stdgo.Go.asInterface(_c0), stdgo.Go.asInterface(_c1));
                     if (_err != null) {
-                        _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
+                        _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     };
                 };
             });
@@ -847,7 +847,7 @@ function testCMYKRoundtrip(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                                 var __tmp__ = rgbtoCMYK(_r0, _g0, _b0), _c:stdgo.StdGoTypes.GoUInt8 = __tmp__._0, _m:stdgo.StdGoTypes.GoUInt8 = __tmp__._1, _y:stdgo.StdGoTypes.GoUInt8 = __tmp__._2, _k:stdgo.StdGoTypes.GoUInt8 = __tmp__._3;
                                 var __tmp__ = cmyktoRGB(_c, _m, _y, _k), _r1:stdgo.StdGoTypes.GoUInt8 = __tmp__._0, _g1:stdgo.StdGoTypes.GoUInt8 = __tmp__._1, _b1:stdgo.StdGoTypes.GoUInt8 = __tmp__._2;
                                 if (((_delta(_r0, _r1) > (1 : stdgo.StdGoTypes.GoUInt8)) || (_delta(_g0, _g1) > (1 : stdgo.StdGoTypes.GoUInt8))) || (_delta(_b0, _b1) > (1 : stdgo.StdGoTypes.GoUInt8))) {
-                                    _t.fatalf(("\nr0, g0, b0 = %d, %d, %d\nc, m, y, k = %d, %d, %d, %d\nr1, g1, b1 = %d, %d, %d" : stdgo.GoString),
+                                    _t.fatalf(("\nr0, g0, b0 = %d, %d, %d\nc, m, y, k = %d, %d, %d, %d\nr1, g1, b1 = %d, %d, %d" : stdgo.GoString)?.__copy__(),
 stdgo.Go.toInterface(_r0),
 stdgo.Go.toInterface(_g0),
 stdgo.Go.toInterface(_b0),
@@ -889,7 +889,7 @@ function testCMYKToRGBConsistency(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
                                         var __0:stdgo.StdGoTypes.GoUInt8 = (_r0 >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt8), __1:stdgo.StdGoTypes.GoUInt8 = (_g0 >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt8), __2:stdgo.StdGoTypes.GoUInt8 = (_b0 >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt8), _b1:stdgo.StdGoTypes.GoUInt8 = __2, _g1:stdgo.StdGoTypes.GoUInt8 = __1, _r1:stdgo.StdGoTypes.GoUInt8 = __0;
                                         var __tmp__ = cmyktoRGB(_x.c, _x.m, _x.y, _x.k), _r2:stdgo.StdGoTypes.GoUInt8 = __tmp__._0, _g2:stdgo.StdGoTypes.GoUInt8 = __tmp__._1, _b2:stdgo.StdGoTypes.GoUInt8 = __tmp__._2;
                                         if (((_r1 != _r2) || (_g1 != _g2)) || (_b1 != _b2)) {
-                                            _t.fatalf(("c, m, y, k = %d, %d, %d, %d\nr1, g1, b1 = %d, %d, %d\nr2, g2, b2 = %d, %d, %d" : stdgo.GoString),
+                                            _t.fatalf(("c, m, y, k = %d, %d, %d, %d\nr1, g1, b1 = %d, %d, %d\nr2, g2, b2 = %d, %d, %d" : stdgo.GoString)?.__copy__(),
 stdgo.Go.toInterface(_c),
 stdgo.Go.toInterface(_m),
 stdgo.Go.toInterface(_y),
@@ -920,7 +920,7 @@ function testCMYKGray(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 {
                     var _err:stdgo.Error = _eq(stdgo.Go.asInterface((new CMYK((0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), ((255 : stdgo.StdGoTypes.GoInt) - _i : stdgo.StdGoTypes.GoUInt8)) : CMYK)), stdgo.Go.asInterface((new Gray((_i : stdgo.StdGoTypes.GoUInt8)) : Gray)));
                     if (_err != null) {
-                        _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
+                        _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     };
                 };
             });
@@ -931,17 +931,17 @@ function testPalette(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (_i => _c in _p) {
             var _j:stdgo.StdGoTypes.GoInt = _p.index(_c);
             if (_i != (_j)) {
-                _t.errorf(("Index(%v): got %d (color = %v), want %d" : stdgo.GoString), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_p[(_j : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_i));
+                _t.errorf(("Index(%v): got %d (color = %v), want %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_p[(_j : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_i));
             };
         };
         var _got:stdgo.image.color.Color.Color = _p.convert(stdgo.Go.asInterface((new RGBA((128 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (128 : stdgo.StdGoTypes.GoUInt8)) : RGBA)));
         var _want:stdgo.image.color.Color.RGBA = (new RGBA((127 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (127 : stdgo.StdGoTypes.GoUInt8)) : RGBA);
         if (stdgo.Go.toInterface(_got) != (stdgo.Go.toInterface(stdgo.Go.asInterface(_want)))) {
-            _t.errorf(("got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
+            _t.errorf(("got %v, want %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
         };
     }
 function benchmarkYCbCrToRGB(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _b.run(("0" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("0" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < _b.n, _i++, {
@@ -954,7 +954,7 @@ function benchmarkYCbCrToRGB(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):V
                 });
             };
         });
-        _b.run(("128" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("128" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < _b.n, _i++, {
@@ -967,7 +967,7 @@ function benchmarkYCbCrToRGB(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):V
                 });
             };
         });
-        _b.run(("255" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("255" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < _b.n, _i++, {
@@ -982,7 +982,7 @@ function benchmarkYCbCrToRGB(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):V
         });
     }
 function benchmarkRGBToYCbCr(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _b.run(("0" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("0" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < _b.n, _i++, {
@@ -995,7 +995,7 @@ function benchmarkRGBToYCbCr(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):V
                 });
             };
         });
-        _b.run(("Cb" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("Cb" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < _b.n, _i++, {
@@ -1008,7 +1008,7 @@ function benchmarkRGBToYCbCr(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):V
                 });
             };
         });
-        _b.run(("Cr" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("Cr" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < _b.n, _i++, {
@@ -1023,7 +1023,7 @@ function benchmarkRGBToYCbCr(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):V
         });
     }
 function benchmarkYCbCrToRGBA(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _b.run(("0" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("0" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             var _c:stdgo.image.color.Color.YCbCr = (new YCbCr((0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8)) : YCbCr);
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1038,7 +1038,7 @@ function benchmarkYCbCrToRGBA(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):
                 });
             };
         });
-        _b.run(("128" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("128" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             var _c:stdgo.image.color.Color.YCbCr = (new YCbCr((128 : stdgo.StdGoTypes.GoUInt8), (128 : stdgo.StdGoTypes.GoUInt8), (128 : stdgo.StdGoTypes.GoUInt8)) : YCbCr);
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1053,7 +1053,7 @@ function benchmarkYCbCrToRGBA(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):
                 });
             };
         });
-        _b.run(("255" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("255" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             var _c:stdgo.image.color.Color.YCbCr = (new YCbCr((255 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8)) : YCbCr);
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1070,7 +1070,7 @@ function benchmarkYCbCrToRGBA(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):
         });
     }
 function benchmarkNYCbCrAToRGBA(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _b.run(("0" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("0" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             var _c:stdgo.image.color.Color.NYCbCrA = (new NYCbCrA((new YCbCr((0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8)) : YCbCr), (255 : stdgo.StdGoTypes.GoUInt8)) : NYCbCrA);
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1085,7 +1085,7 @@ function benchmarkNYCbCrAToRGBA(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>
                 });
             };
         });
-        _b.run(("128" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("128" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             var _c:stdgo.image.color.Color.NYCbCrA = (new NYCbCrA((new YCbCr((128 : stdgo.StdGoTypes.GoUInt8), (128 : stdgo.StdGoTypes.GoUInt8), (128 : stdgo.StdGoTypes.GoUInt8)) : YCbCr), (255 : stdgo.StdGoTypes.GoUInt8)) : NYCbCrA);
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1100,7 +1100,7 @@ function benchmarkNYCbCrAToRGBA(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>
                 });
             };
         });
-        _b.run(("255" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("255" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             var _c:stdgo.image.color.Color.NYCbCrA = (new NYCbCrA((new YCbCr((255 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8)) : YCbCr), (255 : stdgo.StdGoTypes.GoUInt8)) : NYCbCrA);
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);

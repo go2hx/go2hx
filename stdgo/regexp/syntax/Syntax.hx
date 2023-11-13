@@ -348,41 +348,41 @@ var _posixGroup : stdgo.GoMap<stdgo.GoString, stdgo.regexp.syntax.Syntax.T_charG
 var _instOpNames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 11,
 11,
-("InstAlt" : stdgo.GoString),
-("InstAltMatch" : stdgo.GoString),
-("InstCapture" : stdgo.GoString),
-("InstEmptyWidth" : stdgo.GoString),
-("InstMatch" : stdgo.GoString),
-("InstFail" : stdgo.GoString),
-("InstNop" : stdgo.GoString),
-("InstRune" : stdgo.GoString),
-("InstRune1" : stdgo.GoString),
-("InstRuneAny" : stdgo.GoString),
-("InstRuneAnyNotNL" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+("InstAlt" : stdgo.GoString)?.__copy__(),
+("InstAltMatch" : stdgo.GoString)?.__copy__(),
+("InstCapture" : stdgo.GoString)?.__copy__(),
+("InstEmptyWidth" : stdgo.GoString)?.__copy__(),
+("InstMatch" : stdgo.GoString)?.__copy__(),
+("InstFail" : stdgo.GoString)?.__copy__(),
+("InstNop" : stdgo.GoString)?.__copy__(),
+("InstRune" : stdgo.GoString)?.__copy__(),
+("InstRune1" : stdgo.GoString)?.__copy__(),
+("InstRuneAny" : stdgo.GoString)?.__copy__(),
+("InstRuneAnyNotNL" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
 /**
     
     
     
 **/
-var _foldcaseTests : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest> = (new stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(6, 6, (new stdgo.regexp.syntax.Syntax.T_parseTest(("AbCdE" : stdgo.GoString), ("strfold{ABCDE}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[Aa]" : stdgo.GoString), ("litfold{A}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("a" : stdgo.GoString), ("litfold{A}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("A[F-g]" : stdgo.GoString), ("cat{litfold{A}cc{0x41-0x7a 0x17f 0x212a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[[:upper:]]" : stdgo.GoString), ("cc{0x41-0x5a 0x61-0x7a 0x17f 0x212a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[[:lower:]]" : stdgo.GoString), ("cc{0x41-0x5a 0x61-0x7a 0x17f 0x212a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest)) : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
+var _foldcaseTests : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest> = (new stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(6, 6, (new stdgo.regexp.syntax.Syntax.T_parseTest(("AbCdE" : stdgo.GoString)?.__copy__(), ("strfold{ABCDE}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[Aa]" : stdgo.GoString)?.__copy__(), ("litfold{A}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("a" : stdgo.GoString)?.__copy__(), ("litfold{A}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("A[F-g]" : stdgo.GoString)?.__copy__(), ("cat{litfold{A}cc{0x41-0x7a 0x17f 0x212a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[[:upper:]]" : stdgo.GoString)?.__copy__(), ("cc{0x41-0x5a 0x61-0x7a 0x17f 0x212a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[[:lower:]]" : stdgo.GoString)?.__copy__(), ("cc{0x41-0x5a 0x61-0x7a 0x17f 0x212a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest)) : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
 /**
     
     
     
 **/
-var _literalTests : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest> = (new stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(1, 1, (new stdgo.regexp.syntax.Syntax.T_parseTest(("(|)^$.[*+?]{5,10},\\" : stdgo.GoString), ("str{(|)^$.[*+?]{5,10},\\}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest)) : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
+var _literalTests : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest> = (new stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(1, 1, (new stdgo.regexp.syntax.Syntax.T_parseTest(("(|)^$.[*+?]{5,10},\\" : stdgo.GoString)?.__copy__(), ("str{(|)^$.[*+?]{5,10},\\}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest)) : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
 /**
     
     
     
 **/
-var _matchnlTests : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest> = (new stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(4, 4, (new stdgo.regexp.syntax.Syntax.T_parseTest(("." : stdgo.GoString), ("dot{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("\n" : stdgo.GoString), ("lit{\n}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[^a]" : stdgo.GoString), ("cc{0x0-0x60 0x62-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[a\\n]" : stdgo.GoString), ("cc{0xa 0x61}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest)) : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
+var _matchnlTests : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest> = (new stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(4, 4, (new stdgo.regexp.syntax.Syntax.T_parseTest(("." : stdgo.GoString)?.__copy__(), ("dot{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("\n" : stdgo.GoString)?.__copy__(), ("lit{\n}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[^a]" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x60 0x62-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[a\\n]" : stdgo.GoString)?.__copy__(), ("cc{0xa 0x61}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest)) : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
 /**
     
     
     
 **/
-var _nomatchnlTests : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest> = (new stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(4, 4, (new stdgo.regexp.syntax.Syntax.T_parseTest(("." : stdgo.GoString), ("dnl{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("\n" : stdgo.GoString), ("lit{\n}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[^a]" : stdgo.GoString), ("cc{0x0-0x9 0xb-0x60 0x62-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[a\\n]" : stdgo.GoString), ("cc{0xa 0x61}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest)) : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
+var _nomatchnlTests : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest> = (new stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(4, 4, (new stdgo.regexp.syntax.Syntax.T_parseTest(("." : stdgo.GoString)?.__copy__(), ("dnl{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("\n" : stdgo.GoString)?.__copy__(), ("lit{\n}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[^a]" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x9 0xb-0x60 0x62-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest), (new stdgo.regexp.syntax.Syntax.T_parseTest(("[a\\n]" : stdgo.GoString)?.__copy__(), ("cc{0xa 0x61}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest)) : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
 /**
     
     
@@ -390,25 +390,25 @@ var _nomatchnlTests : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest> = (new
 **/
 var _opNames : stdgo.Slice<stdgo.GoString> = {
         var s = new stdgo.Slice<stdgo.GoString>(20, 0).__setString__();
-        s[1] = ("no" : stdgo.GoString);
-        s[2] = ("emp" : stdgo.GoString);
-        s[3] = ("lit" : stdgo.GoString);
-        s[4] = ("cc" : stdgo.GoString);
-        s[5] = ("dnl" : stdgo.GoString);
-        s[6] = ("dot" : stdgo.GoString);
-        s[7] = ("bol" : stdgo.GoString);
-        s[8] = ("eol" : stdgo.GoString);
-        s[9] = ("bot" : stdgo.GoString);
-        s[10] = ("eot" : stdgo.GoString);
-        s[11] = ("wb" : stdgo.GoString);
-        s[12] = ("nwb" : stdgo.GoString);
-        s[13] = ("cap" : stdgo.GoString);
-        s[14] = ("star" : stdgo.GoString);
-        s[15] = ("plus" : stdgo.GoString);
-        s[16] = ("que" : stdgo.GoString);
-        s[17] = ("rep" : stdgo.GoString);
-        s[18] = ("cat" : stdgo.GoString);
-        s[19] = ("alt" : stdgo.GoString);
+        s[1] = ("no" : stdgo.GoString)?.__copy__();
+        s[2] = ("emp" : stdgo.GoString)?.__copy__();
+        s[3] = ("lit" : stdgo.GoString)?.__copy__();
+        s[4] = ("cc" : stdgo.GoString)?.__copy__();
+        s[5] = ("dnl" : stdgo.GoString)?.__copy__();
+        s[6] = ("dot" : stdgo.GoString)?.__copy__();
+        s[7] = ("bol" : stdgo.GoString)?.__copy__();
+        s[8] = ("eol" : stdgo.GoString)?.__copy__();
+        s[9] = ("bot" : stdgo.GoString)?.__copy__();
+        s[10] = ("eot" : stdgo.GoString)?.__copy__();
+        s[11] = ("wb" : stdgo.GoString)?.__copy__();
+        s[12] = ("nwb" : stdgo.GoString)?.__copy__();
+        s[13] = ("cap" : stdgo.GoString)?.__copy__();
+        s[14] = ("star" : stdgo.GoString)?.__copy__();
+        s[15] = ("plus" : stdgo.GoString)?.__copy__();
+        s[16] = ("que" : stdgo.GoString)?.__copy__();
+        s[17] = ("rep" : stdgo.GoString)?.__copy__();
+        s[18] = ("cat" : stdgo.GoString)?.__copy__();
+        s[19] = ("alt" : stdgo.GoString)?.__copy__();
         s;
     };
 /**
@@ -419,161 +419,161 @@ var _opNames : stdgo.Slice<stdgo.GoString> = {
 var _parseTests : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest> = (new stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>(
 155,
 155,
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a" : stdgo.GoString), ("lit{a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a." : stdgo.GoString), ("cat{lit{a}dot{}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a.b" : stdgo.GoString), ("cat{lit{a}dot{}lit{b}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("ab" : stdgo.GoString), ("str{ab}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a.b.c" : stdgo.GoString), ("cat{lit{a}dot{}lit{b}dot{}lit{c}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc" : stdgo.GoString), ("str{abc}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a|^" : stdgo.GoString), ("alt{lit{a}bol{}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a|b" : stdgo.GoString), ("cc{0x61-0x62}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(a)" : stdgo.GoString), ("cap{lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(a)|b" : stdgo.GoString), ("alt{cap{lit{a}}lit{b}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a*" : stdgo.GoString), ("star{lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a+" : stdgo.GoString), ("plus{lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a?" : stdgo.GoString), ("que{lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2}" : stdgo.GoString), ("rep{2,2 lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2,3}" : stdgo.GoString), ("rep{2,3 lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2,}" : stdgo.GoString), ("rep{2,-1 lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a*?" : stdgo.GoString), ("nstar{lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a+?" : stdgo.GoString), ("nplus{lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a??" : stdgo.GoString), ("nque{lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2}?" : stdgo.GoString), ("nrep{2,2 lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2,3}?" : stdgo.GoString), ("nrep{2,3 lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2,}?" : stdgo.GoString), ("nrep{2,-1 lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{1001" : stdgo.GoString), ("str{x{1001}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{9876543210" : stdgo.GoString), ("str{x{9876543210}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{9876543210," : stdgo.GoString), ("str{x{9876543210,}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{2,1" : stdgo.GoString), ("str{x{2,1}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{1,9876543210" : stdgo.GoString), ("str{x{1,9876543210}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(stdgo.Go.str(), ("emp{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("|" : stdgo.GoString), ("emp{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("|x|" : stdgo.GoString), ("alt{emp{}lit{x}emp{}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("." : stdgo.GoString), ("dot{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("^" : stdgo.GoString), ("bol{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("$" : stdgo.GoString), ("eol{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\|" : stdgo.GoString), ("lit{|}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\(" : stdgo.GoString), ("lit{(}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\)" : stdgo.GoString), ("lit{)}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\*" : stdgo.GoString), ("lit{*}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\+" : stdgo.GoString), ("lit{+}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\?" : stdgo.GoString), ("lit{?}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("{" : stdgo.GoString), ("lit{{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("}" : stdgo.GoString), ("lit{}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\." : stdgo.GoString), ("lit{.}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\^" : stdgo.GoString), ("lit{^}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\$" : stdgo.GoString), ("lit{$}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\\\" : stdgo.GoString), ("lit{\\}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[ace]" : stdgo.GoString), ("cc{0x61 0x63 0x65}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[abc]" : stdgo.GoString), ("cc{0x61-0x63}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[a-z]" : stdgo.GoString), ("cc{0x61-0x7a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[a]" : stdgo.GoString), ("lit{a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\-" : stdgo.GoString), ("lit{-}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("-" : stdgo.GoString), ("lit{-}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\_" : stdgo.GoString), ("lit{_}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc" : stdgo.GoString), ("str{abc}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|def" : stdgo.GoString), ("alt{str{abc}str{def}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|def|ghi" : stdgo.GoString), ("alt{str{abc}str{def}str{ghi}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[[:lower:]]" : stdgo.GoString), ("cc{0x61-0x7a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[a-z]" : stdgo.GoString), ("cc{0x61-0x7a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[^[:lower:]]" : stdgo.GoString), ("cc{0x0-0x60 0x7b-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[[:^lower:]]" : stdgo.GoString), ("cc{0x0-0x60 0x7b-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)[[:lower:]]" : stdgo.GoString), ("cc{0x41-0x5a 0x61-0x7a 0x17f 0x212a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)[a-z]" : stdgo.GoString), ("cc{0x41-0x5a 0x61-0x7a 0x17f 0x212a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)[^[:lower:]]" : stdgo.GoString), ("cc{0x0-0x40 0x5b-0x60 0x7b-0x17e 0x180-0x2129 0x212b-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)[[:^lower:]]" : stdgo.GoString), ("cc{0x0-0x40 0x5b-0x60 0x7b-0x17e 0x180-0x2129 0x212b-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\d" : stdgo.GoString), ("cc{0x30-0x39}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\D" : stdgo.GoString), ("cc{0x0-0x2f 0x3a-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\s" : stdgo.GoString), ("cc{0x9-0xa 0xc-0xd 0x20}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\S" : stdgo.GoString), ("cc{0x0-0x8 0xb 0xe-0x1f 0x21-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\w" : stdgo.GoString), ("cc{0x30-0x39 0x41-0x5a 0x5f 0x61-0x7a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\W" : stdgo.GoString), ("cc{0x0-0x2f 0x3a-0x40 0x5b-0x5e 0x60 0x7b-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)\\w" : stdgo.GoString), ("cc{0x30-0x39 0x41-0x5a 0x5f 0x61-0x7a 0x17f 0x212a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)\\W" : stdgo.GoString), ("cc{0x0-0x2f 0x3a-0x40 0x5b-0x5e 0x60 0x7b-0x17e 0x180-0x2129 0x212b-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[^\\\\]" : stdgo.GoString), ("cc{0x0-0x5b 0x5d-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\p{Braille}" : stdgo.GoString), ("cc{0x2800-0x28ff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\P{Braille}" : stdgo.GoString), ("cc{0x0-0x27ff 0x2900-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\p{^Braille}" : stdgo.GoString), ("cc{0x0-0x27ff 0x2900-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\P{^Braille}" : stdgo.GoString), ("cc{0x2800-0x28ff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\pZ" : stdgo.GoString), ("cc{0x20 0xa0 0x1680 0x2000-0x200a 0x2028-0x2029 0x202f 0x205f 0x3000}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\p{Braille}]" : stdgo.GoString), ("cc{0x2800-0x28ff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\P{Braille}]" : stdgo.GoString), ("cc{0x0-0x27ff 0x2900-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\p{^Braille}]" : stdgo.GoString), ("cc{0x0-0x27ff 0x2900-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\P{^Braille}]" : stdgo.GoString), ("cc{0x2800-0x28ff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\pZ]" : stdgo.GoString), ("cc{0x20 0xa0 0x1680 0x2000-0x200a 0x2028-0x2029 0x202f 0x205f 0x3000}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\p{Lu}" : stdgo.GoString), _mkCharClass(stdgo.unicode.Unicode.isUpper)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\p{Lu}]" : stdgo.GoString), _mkCharClass(stdgo.unicode.Unicode.isUpper)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)[\\p{Lu}]" : stdgo.GoString), _mkCharClass(_isUpperFold)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\p{Any}" : stdgo.GoString), ("dot{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\p{^Any}" : stdgo.GoString), ("cc{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\012-\\234]\\141" : stdgo.GoString), ("cat{cc{0xa-0x9c}lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\x{41}-\\x7a]\\x61" : stdgo.GoString), ("cat{cc{0x41-0x7a}lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{,2}" : stdgo.GoString), ("str{a{,2}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\.\\^\\$\\\\" : stdgo.GoString), ("str{.^$\\}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[a-zABC]" : stdgo.GoString), ("cc{0x41-0x43 0x61-0x7a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[^a]" : stdgo.GoString), ("cc{0x0-0x60 0x62-0x10ffff}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[α-ε☺]" : stdgo.GoString), ("cc{0x3b1-0x3b5 0x263a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a*{" : stdgo.GoString), ("cat{star{lit{a}}lit{{}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:ab)*" : stdgo.GoString), ("star{str{ab}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(ab)*" : stdgo.GoString), ("star{cap{str{ab}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("ab|cd" : stdgo.GoString), ("alt{str{ab}str{cd}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a(b|c)d" : stdgo.GoString), ("cat{lit{a}cap{cc{0x62-0x63}}lit{d}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:a)" : stdgo.GoString), ("lit{a}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:ab)(?:cd)" : stdgo.GoString), ("str{abcd}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:a+b+)(?:c+d+)" : stdgo.GoString), ("cat{plus{lit{a}}plus{lit{b}}plus{lit{c}}plus{lit{d}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:a+|b+)|(?:c+|d+)" : stdgo.GoString), ("alt{plus{lit{a}}plus{lit{b}}plus{lit{c}}plus{lit{d}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:a|b)|(?:c|d)" : stdgo.GoString), ("cc{0x61-0x64}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a|." : stdgo.GoString), ("dot{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest((".|a" : stdgo.GoString), ("dot{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:[abc]|A|Z|hello|world)" : stdgo.GoString), ("alt{cc{0x41 0x5a 0x61-0x63}str{hello}str{world}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:[abc]|A|Z)" : stdgo.GoString), ("cc{0x41 0x5a 0x61-0x63}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Q+|*?{[\\E" : stdgo.GoString), ("str{+|*?{[}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Q+\\E+" : stdgo.GoString), ("plus{lit{+}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Qab\\E+" : stdgo.GoString), ("cat{lit{a}plus{lit{b}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Q\\\\E" : stdgo.GoString), ("lit{\\}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Q\\\\\\E" : stdgo.GoString), ("str{\\\\}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)^" : stdgo.GoString), ("bol{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)$" : stdgo.GoString), ("eol{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)^" : stdgo.GoString), ("bot{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)$" : stdgo.GoString), ("eot{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)\\A" : stdgo.GoString), ("bot{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)\\z" : stdgo.GoString), ("eot{\\z}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)\\A" : stdgo.GoString), ("bot{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)\\z" : stdgo.GoString), ("eot{\\z}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?P<name>a)" : stdgo.GoString), ("cap{name:lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[Aa]" : stdgo.GoString), ("litfold{A}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\x{100}\\x{101}]" : stdgo.GoString), ("litfold{Ā}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[Δδ]" : stdgo.GoString), ("litfold{Δ}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("abcde" : stdgo.GoString), ("str{abcde}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[Aa][Bb]cd" : stdgo.GoString), ("cat{strfold{AB}str{cd}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|abd|aef|bcx|bcy" : stdgo.GoString), ("alt{cat{lit{a}alt{cat{lit{b}cc{0x63-0x64}}str{ef}}}cat{str{bc}cc{0x78-0x79}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("ax+y|ax+z|ay+w" : stdgo.GoString), ("cat{lit{a}alt{cat{plus{lit{x}}lit{y}}cat{plus{lit{x}}lit{z}}cat{plus{lit{y}}lit{w}}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:.)" : stdgo.GoString), ("dot{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:x|(?:xa))" : stdgo.GoString), ("cat{lit{x}alt{emp{}lit{a}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:.|(?:.a))" : stdgo.GoString), ("cat{dot{}alt{emp{}lit{a}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:A(?:A|a))" : stdgo.GoString), ("cat{lit{A}litfold{A}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:A|a)" : stdgo.GoString), ("litfold{A}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("A|(?:A|a)" : stdgo.GoString), ("litfold{A}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?s)." : stdgo.GoString), ("dot{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-s)." : stdgo.GoString), ("dnl{}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:(?:^).)" : stdgo.GoString), ("cat{bol{}dot{}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-s)(?:(?:^).)" : stdgo.GoString), ("cat{bol{}dnl{}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\s\\S]a" : stdgo.GoString), ("cat{cc{0x0-0x10ffff}lit{a}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|abd" : stdgo.GoString), ("cat{str{ab}cc{0x63-0x64}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a(?:b)c|abd" : stdgo.GoString), ("cat{str{ab}cc{0x63-0x64}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|abd|aef|bcx|bcy" : stdgo.GoString), ("alt{cat{lit{a}alt{cat{lit{b}cc{0x63-0x64}}str{ef}}}cat{str{bc}cc{0x78-0x79}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|x|abd" : stdgo.GoString), ("alt{str{abc}lit{x}str{abd}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)abc|ABD" : stdgo.GoString), ("cat{strfold{AB}cc{0x43-0x44 0x63-0x64}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("[ab]c|[ab]d" : stdgo.GoString), ("cat{cc{0x61-0x62}cc{0x63-0x64}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest((".c|.d" : stdgo.GoString), ("cat{dot{}cc{0x63-0x64}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{2}|x{2}[0-9]" : stdgo.GoString), ("cat{rep{2,2 lit{x}}alt{emp{}cc{0x30-0x39}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{2}y|x{2}[0-9]y" : stdgo.GoString), ("cat{rep{2,2 lit{x}}alt{lit{y}cat{cc{0x30-0x39}lit{y}}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("a.*?c|a.*?b" : stdgo.GoString), ("cat{lit{a}alt{cat{nstar{dot{}}lit{c}}cat{nstar{dot{}}lit{b}}}}" : stdgo.GoString)) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("((((((((((x{2}){2}){2}){2}){2}){2}){2}){2}){2}))" : stdgo.GoString), stdgo.Go.str()) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(("((((((((((x{1}){2}){2}){2}){2}){2}){2}){2}){2}){2})" : stdgo.GoString), stdgo.Go.str()) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(stdgo.strings.Strings.repeat(("(" : stdgo.GoString), (999 : stdgo.StdGoTypes.GoInt)) + stdgo.strings.Strings.repeat((")" : stdgo.GoString), (999 : stdgo.StdGoTypes.GoInt)), stdgo.Go.str()) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest(stdgo.strings.Strings.repeat(("(?:" : stdgo.GoString), (999 : stdgo.StdGoTypes.GoInt)) + stdgo.strings.Strings.repeat((")*" : stdgo.GoString), (999 : stdgo.StdGoTypes.GoInt)), stdgo.Go.str()) : stdgo.regexp.syntax.Syntax.T_parseTest),
-(new stdgo.regexp.syntax.Syntax.T_parseTest((("(" : stdgo.GoString) + stdgo.strings.Strings.repeat(("|" : stdgo.GoString), (12345 : stdgo.StdGoTypes.GoInt))) + (")" : stdgo.GoString), stdgo.Go.str()) : stdgo.regexp.syntax.Syntax.T_parseTest)) : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a" : stdgo.GoString)?.__copy__(), ("lit{a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a." : stdgo.GoString)?.__copy__(), ("cat{lit{a}dot{}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a.b" : stdgo.GoString)?.__copy__(), ("cat{lit{a}dot{}lit{b}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("ab" : stdgo.GoString)?.__copy__(), ("str{ab}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a.b.c" : stdgo.GoString)?.__copy__(), ("cat{lit{a}dot{}lit{b}dot{}lit{c}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc" : stdgo.GoString)?.__copy__(), ("str{abc}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a|^" : stdgo.GoString)?.__copy__(), ("alt{lit{a}bol{}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a|b" : stdgo.GoString)?.__copy__(), ("cc{0x61-0x62}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(a)" : stdgo.GoString)?.__copy__(), ("cap{lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(a)|b" : stdgo.GoString)?.__copy__(), ("alt{cap{lit{a}}lit{b}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a*" : stdgo.GoString)?.__copy__(), ("star{lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a+" : stdgo.GoString)?.__copy__(), ("plus{lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a?" : stdgo.GoString)?.__copy__(), ("que{lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2}" : stdgo.GoString)?.__copy__(), ("rep{2,2 lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2,3}" : stdgo.GoString)?.__copy__(), ("rep{2,3 lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2,}" : stdgo.GoString)?.__copy__(), ("rep{2,-1 lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a*?" : stdgo.GoString)?.__copy__(), ("nstar{lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a+?" : stdgo.GoString)?.__copy__(), ("nplus{lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a??" : stdgo.GoString)?.__copy__(), ("nque{lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2}?" : stdgo.GoString)?.__copy__(), ("nrep{2,2 lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2,3}?" : stdgo.GoString)?.__copy__(), ("nrep{2,3 lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{2,}?" : stdgo.GoString)?.__copy__(), ("nrep{2,-1 lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{1001" : stdgo.GoString)?.__copy__(), ("str{x{1001}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{9876543210" : stdgo.GoString)?.__copy__(), ("str{x{9876543210}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{9876543210," : stdgo.GoString)?.__copy__(), ("str{x{9876543210,}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{2,1" : stdgo.GoString)?.__copy__(), ("str{x{2,1}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{1,9876543210" : stdgo.GoString)?.__copy__(), ("str{x{1,9876543210}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(stdgo.Go.str()?.__copy__(), ("emp{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("|" : stdgo.GoString)?.__copy__(), ("emp{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("|x|" : stdgo.GoString)?.__copy__(), ("alt{emp{}lit{x}emp{}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("." : stdgo.GoString)?.__copy__(), ("dot{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("^" : stdgo.GoString)?.__copy__(), ("bol{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("$" : stdgo.GoString)?.__copy__(), ("eol{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\|" : stdgo.GoString)?.__copy__(), ("lit{|}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\(" : stdgo.GoString)?.__copy__(), ("lit{(}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\)" : stdgo.GoString)?.__copy__(), ("lit{)}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\*" : stdgo.GoString)?.__copy__(), ("lit{*}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\+" : stdgo.GoString)?.__copy__(), ("lit{+}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\?" : stdgo.GoString)?.__copy__(), ("lit{?}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("{" : stdgo.GoString)?.__copy__(), ("lit{{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("}" : stdgo.GoString)?.__copy__(), ("lit{}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\." : stdgo.GoString)?.__copy__(), ("lit{.}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\^" : stdgo.GoString)?.__copy__(), ("lit{^}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\$" : stdgo.GoString)?.__copy__(), ("lit{$}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\\\" : stdgo.GoString)?.__copy__(), ("lit{\\}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[ace]" : stdgo.GoString)?.__copy__(), ("cc{0x61 0x63 0x65}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[abc]" : stdgo.GoString)?.__copy__(), ("cc{0x61-0x63}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[a-z]" : stdgo.GoString)?.__copy__(), ("cc{0x61-0x7a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[a]" : stdgo.GoString)?.__copy__(), ("lit{a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\-" : stdgo.GoString)?.__copy__(), ("lit{-}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("-" : stdgo.GoString)?.__copy__(), ("lit{-}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\_" : stdgo.GoString)?.__copy__(), ("lit{_}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc" : stdgo.GoString)?.__copy__(), ("str{abc}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|def" : stdgo.GoString)?.__copy__(), ("alt{str{abc}str{def}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|def|ghi" : stdgo.GoString)?.__copy__(), ("alt{str{abc}str{def}str{ghi}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[[:lower:]]" : stdgo.GoString)?.__copy__(), ("cc{0x61-0x7a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[a-z]" : stdgo.GoString)?.__copy__(), ("cc{0x61-0x7a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[^[:lower:]]" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x60 0x7b-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[[:^lower:]]" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x60 0x7b-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)[[:lower:]]" : stdgo.GoString)?.__copy__(), ("cc{0x41-0x5a 0x61-0x7a 0x17f 0x212a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)[a-z]" : stdgo.GoString)?.__copy__(), ("cc{0x41-0x5a 0x61-0x7a 0x17f 0x212a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)[^[:lower:]]" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x40 0x5b-0x60 0x7b-0x17e 0x180-0x2129 0x212b-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)[[:^lower:]]" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x40 0x5b-0x60 0x7b-0x17e 0x180-0x2129 0x212b-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\d" : stdgo.GoString)?.__copy__(), ("cc{0x30-0x39}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\D" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x2f 0x3a-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\s" : stdgo.GoString)?.__copy__(), ("cc{0x9-0xa 0xc-0xd 0x20}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\S" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x8 0xb 0xe-0x1f 0x21-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\w" : stdgo.GoString)?.__copy__(), ("cc{0x30-0x39 0x41-0x5a 0x5f 0x61-0x7a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\W" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x2f 0x3a-0x40 0x5b-0x5e 0x60 0x7b-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)\\w" : stdgo.GoString)?.__copy__(), ("cc{0x30-0x39 0x41-0x5a 0x5f 0x61-0x7a 0x17f 0x212a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)\\W" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x2f 0x3a-0x40 0x5b-0x5e 0x60 0x7b-0x17e 0x180-0x2129 0x212b-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[^\\\\]" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x5b 0x5d-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\p{Braille}" : stdgo.GoString)?.__copy__(), ("cc{0x2800-0x28ff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\P{Braille}" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x27ff 0x2900-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\p{^Braille}" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x27ff 0x2900-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\P{^Braille}" : stdgo.GoString)?.__copy__(), ("cc{0x2800-0x28ff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\pZ" : stdgo.GoString)?.__copy__(), ("cc{0x20 0xa0 0x1680 0x2000-0x200a 0x2028-0x2029 0x202f 0x205f 0x3000}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\p{Braille}]" : stdgo.GoString)?.__copy__(), ("cc{0x2800-0x28ff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\P{Braille}]" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x27ff 0x2900-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\p{^Braille}]" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x27ff 0x2900-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\P{^Braille}]" : stdgo.GoString)?.__copy__(), ("cc{0x2800-0x28ff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\pZ]" : stdgo.GoString)?.__copy__(), ("cc{0x20 0xa0 0x1680 0x2000-0x200a 0x2028-0x2029 0x202f 0x205f 0x3000}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\p{Lu}" : stdgo.GoString)?.__copy__(), _mkCharClass(stdgo.unicode.Unicode.isUpper)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\p{Lu}]" : stdgo.GoString)?.__copy__(), _mkCharClass(stdgo.unicode.Unicode.isUpper)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)[\\p{Lu}]" : stdgo.GoString)?.__copy__(), _mkCharClass(_isUpperFold)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\p{Any}" : stdgo.GoString)?.__copy__(), ("dot{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\p{^Any}" : stdgo.GoString)?.__copy__(), ("cc{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\012-\\234]\\141" : stdgo.GoString)?.__copy__(), ("cat{cc{0xa-0x9c}lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\x{41}-\\x7a]\\x61" : stdgo.GoString)?.__copy__(), ("cat{cc{0x41-0x7a}lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a{,2}" : stdgo.GoString)?.__copy__(), ("str{a{,2}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\.\\^\\$\\\\" : stdgo.GoString)?.__copy__(), ("str{.^$\\}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[a-zABC]" : stdgo.GoString)?.__copy__(), ("cc{0x41-0x43 0x61-0x7a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[^a]" : stdgo.GoString)?.__copy__(), ("cc{0x0-0x60 0x62-0x10ffff}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[α-ε☺]" : stdgo.GoString)?.__copy__(), ("cc{0x3b1-0x3b5 0x263a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a*{" : stdgo.GoString)?.__copy__(), ("cat{star{lit{a}}lit{{}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:ab)*" : stdgo.GoString)?.__copy__(), ("star{str{ab}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(ab)*" : stdgo.GoString)?.__copy__(), ("star{cap{str{ab}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("ab|cd" : stdgo.GoString)?.__copy__(), ("alt{str{ab}str{cd}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a(b|c)d" : stdgo.GoString)?.__copy__(), ("cat{lit{a}cap{cc{0x62-0x63}}lit{d}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:a)" : stdgo.GoString)?.__copy__(), ("lit{a}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:ab)(?:cd)" : stdgo.GoString)?.__copy__(), ("str{abcd}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:a+b+)(?:c+d+)" : stdgo.GoString)?.__copy__(), ("cat{plus{lit{a}}plus{lit{b}}plus{lit{c}}plus{lit{d}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:a+|b+)|(?:c+|d+)" : stdgo.GoString)?.__copy__(), ("alt{plus{lit{a}}plus{lit{b}}plus{lit{c}}plus{lit{d}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:a|b)|(?:c|d)" : stdgo.GoString)?.__copy__(), ("cc{0x61-0x64}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a|." : stdgo.GoString)?.__copy__(), ("dot{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest((".|a" : stdgo.GoString)?.__copy__(), ("dot{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:[abc]|A|Z|hello|world)" : stdgo.GoString)?.__copy__(), ("alt{cc{0x41 0x5a 0x61-0x63}str{hello}str{world}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:[abc]|A|Z)" : stdgo.GoString)?.__copy__(), ("cc{0x41 0x5a 0x61-0x63}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Q+|*?{[\\E" : stdgo.GoString)?.__copy__(), ("str{+|*?{[}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Q+\\E+" : stdgo.GoString)?.__copy__(), ("plus{lit{+}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Qab\\E+" : stdgo.GoString)?.__copy__(), ("cat{lit{a}plus{lit{b}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Q\\\\E" : stdgo.GoString)?.__copy__(), ("lit{\\}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("\\Q\\\\\\E" : stdgo.GoString)?.__copy__(), ("str{\\\\}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)^" : stdgo.GoString)?.__copy__(), ("bol{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)$" : stdgo.GoString)?.__copy__(), ("eol{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)^" : stdgo.GoString)?.__copy__(), ("bot{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)$" : stdgo.GoString)?.__copy__(), ("eot{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)\\A" : stdgo.GoString)?.__copy__(), ("bot{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?m)\\z" : stdgo.GoString)?.__copy__(), ("eot{\\z}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)\\A" : stdgo.GoString)?.__copy__(), ("bot{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-m)\\z" : stdgo.GoString)?.__copy__(), ("eot{\\z}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?P<name>a)" : stdgo.GoString)?.__copy__(), ("cap{name:lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[Aa]" : stdgo.GoString)?.__copy__(), ("litfold{A}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\x{100}\\x{101}]" : stdgo.GoString)?.__copy__(), ("litfold{Ā}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[Δδ]" : stdgo.GoString)?.__copy__(), ("litfold{Δ}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("abcde" : stdgo.GoString)?.__copy__(), ("str{abcde}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[Aa][Bb]cd" : stdgo.GoString)?.__copy__(), ("cat{strfold{AB}str{cd}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|abd|aef|bcx|bcy" : stdgo.GoString)?.__copy__(), ("alt{cat{lit{a}alt{cat{lit{b}cc{0x63-0x64}}str{ef}}}cat{str{bc}cc{0x78-0x79}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("ax+y|ax+z|ay+w" : stdgo.GoString)?.__copy__(), ("cat{lit{a}alt{cat{plus{lit{x}}lit{y}}cat{plus{lit{x}}lit{z}}cat{plus{lit{y}}lit{w}}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:.)" : stdgo.GoString)?.__copy__(), ("dot{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:x|(?:xa))" : stdgo.GoString)?.__copy__(), ("cat{lit{x}alt{emp{}lit{a}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:.|(?:.a))" : stdgo.GoString)?.__copy__(), ("cat{dot{}alt{emp{}lit{a}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:A(?:A|a))" : stdgo.GoString)?.__copy__(), ("cat{lit{A}litfold{A}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:A|a)" : stdgo.GoString)?.__copy__(), ("litfold{A}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("A|(?:A|a)" : stdgo.GoString)?.__copy__(), ("litfold{A}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?s)." : stdgo.GoString)?.__copy__(), ("dot{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-s)." : stdgo.GoString)?.__copy__(), ("dnl{}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?:(?:^).)" : stdgo.GoString)?.__copy__(), ("cat{bol{}dot{}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?-s)(?:(?:^).)" : stdgo.GoString)?.__copy__(), ("cat{bol{}dnl{}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[\\s\\S]a" : stdgo.GoString)?.__copy__(), ("cat{cc{0x0-0x10ffff}lit{a}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|abd" : stdgo.GoString)?.__copy__(), ("cat{str{ab}cc{0x63-0x64}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a(?:b)c|abd" : stdgo.GoString)?.__copy__(), ("cat{str{ab}cc{0x63-0x64}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|abd|aef|bcx|bcy" : stdgo.GoString)?.__copy__(), ("alt{cat{lit{a}alt{cat{lit{b}cc{0x63-0x64}}str{ef}}}cat{str{bc}cc{0x78-0x79}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("abc|x|abd" : stdgo.GoString)?.__copy__(), ("alt{str{abc}lit{x}str{abd}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(?i)abc|ABD" : stdgo.GoString)?.__copy__(), ("cat{strfold{AB}cc{0x43-0x44 0x63-0x64}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("[ab]c|[ab]d" : stdgo.GoString)?.__copy__(), ("cat{cc{0x61-0x62}cc{0x63-0x64}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest((".c|.d" : stdgo.GoString)?.__copy__(), ("cat{dot{}cc{0x63-0x64}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{2}|x{2}[0-9]" : stdgo.GoString)?.__copy__(), ("cat{rep{2,2 lit{x}}alt{emp{}cc{0x30-0x39}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("x{2}y|x{2}[0-9]y" : stdgo.GoString)?.__copy__(), ("cat{rep{2,2 lit{x}}alt{lit{y}cat{cc{0x30-0x39}lit{y}}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("a.*?c|a.*?b" : stdgo.GoString)?.__copy__(), ("cat{lit{a}alt{cat{nstar{dot{}}lit{c}}cat{nstar{dot{}}lit{b}}}}" : stdgo.GoString)?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("((((((((((x{2}){2}){2}){2}){2}){2}){2}){2}){2}))" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("((((((((((x{1}){2}){2}){2}){2}){2}){2}){2}){2}){2})" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(stdgo.strings.Strings.repeat(("(" : stdgo.GoString)?.__copy__(), (999 : stdgo.StdGoTypes.GoInt)) + stdgo.strings.Strings.repeat((")" : stdgo.GoString)?.__copy__(), (999 : stdgo.StdGoTypes.GoInt))?.__copy__()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(stdgo.strings.Strings.repeat(("(?:" : stdgo.GoString)?.__copy__(), (999 : stdgo.StdGoTypes.GoInt)) + stdgo.strings.Strings.repeat((")*" : stdgo.GoString)?.__copy__(), (999 : stdgo.StdGoTypes.GoInt))?.__copy__()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest),
+(new stdgo.regexp.syntax.Syntax.T_parseTest(("(" : stdgo.GoString) + stdgo.strings.Strings.repeat(("|" : stdgo.GoString)?.__copy__(), (12345 : stdgo.StdGoTypes.GoInt))?.__copy__() + (")" : stdgo.GoString)?.__copy__()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo.regexp.syntax.Syntax.T_parseTest)) : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest>);
 /**
     
     
@@ -582,45 +582,45 @@ var _parseTests : stdgo.Slice<stdgo.regexp.syntax.Syntax.T_parseTest> = (new std
 var _invalidRegexps : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 39,
 39,
-("(" : stdgo.GoString),
-(")" : stdgo.GoString),
-("(a" : stdgo.GoString),
-("a)" : stdgo.GoString),
-("(a))" : stdgo.GoString),
-("(a|b|" : stdgo.GoString),
-("a|b|)" : stdgo.GoString),
-("(a|b|))" : stdgo.GoString),
-("(a|b" : stdgo.GoString),
-("a|b)" : stdgo.GoString),
-("(a|b))" : stdgo.GoString),
-("[a-z" : stdgo.GoString),
-("([a-z)" : stdgo.GoString),
-("[a-z)" : stdgo.GoString),
-("([a-z]))" : stdgo.GoString),
-("x{1001}" : stdgo.GoString),
-("x{9876543210}" : stdgo.GoString),
-("x{2,1}" : stdgo.GoString),
-("x{1,9876543210}" : stdgo.GoString),
-stdgo.Go.str(255),
-stdgo.Go.str("[", 255, "]"),
-stdgo.Go.str("[\\", 255, "]"),
-stdgo.Go.str("\\", 255),
-("(?P<name>a" : stdgo.GoString),
-("(?P<name>" : stdgo.GoString),
-("(?P<name" : stdgo.GoString),
-("(?P<x y>a)" : stdgo.GoString),
-("(?P<>a)" : stdgo.GoString),
-("[a-Z]" : stdgo.GoString),
-("(?i)[a-Z]" : stdgo.GoString),
-("\\Q\\E*" : stdgo.GoString),
-("a{100000}" : stdgo.GoString),
-("a{100000,}" : stdgo.GoString),
-("((((((((((x{2}){2}){2}){2}){2}){2}){2}){2}){2}){2})" : stdgo.GoString),
-stdgo.strings.Strings.repeat(("(" : stdgo.GoString), (1000 : stdgo.StdGoTypes.GoInt)) + stdgo.strings.Strings.repeat((")" : stdgo.GoString), (1000 : stdgo.StdGoTypes.GoInt)),
-stdgo.strings.Strings.repeat(("(?:" : stdgo.GoString), (1000 : stdgo.StdGoTypes.GoInt)) + stdgo.strings.Strings.repeat((")*" : stdgo.GoString), (1000 : stdgo.StdGoTypes.GoInt)),
-(("(" : stdgo.GoString) + stdgo.strings.Strings.repeat(("(xx?)" : stdgo.GoString), (1000 : stdgo.StdGoTypes.GoInt))) + ("){1000}" : stdgo.GoString),
-stdgo.strings.Strings.repeat(("(xx?){1000}" : stdgo.GoString), (1000 : stdgo.StdGoTypes.GoInt)),
-stdgo.strings.Strings.repeat(("\\pL" : stdgo.GoString), (27000 : stdgo.StdGoTypes.GoInt))) : stdgo.Slice<stdgo.GoString>);
+("(" : stdgo.GoString)?.__copy__(),
+(")" : stdgo.GoString)?.__copy__(),
+("(a" : stdgo.GoString)?.__copy__(),
+("a)" : stdgo.GoString)?.__copy__(),
+("(a))" : stdgo.GoString)?.__copy__(),
+("(a|b|" : stdgo.GoString)?.__copy__(),
+("a|b|)" : stdgo.GoString)?.__copy__(),
+("(a|b|))" : stdgo.GoString)?.__copy__(),
+("(a|b" : stdgo.GoString)?.__copy__(),
+("a|b)" : stdgo.GoString)?.__copy__(),
+("(a|b))" : stdgo.GoString)?.__copy__(),
+("[a-z" : stdgo.GoString)?.__copy__(),
+("([a-z)" : stdgo.GoString)?.__copy__(),
+("[a-z)" : stdgo.GoString)?.__copy__(),
+("([a-z]))" : stdgo.GoString)?.__copy__(),
+("x{1001}" : stdgo.GoString)?.__copy__(),
+("x{9876543210}" : stdgo.GoString)?.__copy__(),
+("x{2,1}" : stdgo.GoString)?.__copy__(),
+("x{1,9876543210}" : stdgo.GoString)?.__copy__(),
+stdgo.Go.str(255)?.__copy__(),
+stdgo.Go.str("[", 255, "]")?.__copy__(),
+stdgo.Go.str("[\\", 255, "]")?.__copy__(),
+stdgo.Go.str("\\", 255)?.__copy__(),
+("(?P<name>a" : stdgo.GoString)?.__copy__(),
+("(?P<name>" : stdgo.GoString)?.__copy__(),
+("(?P<name" : stdgo.GoString)?.__copy__(),
+("(?P<x y>a)" : stdgo.GoString)?.__copy__(),
+("(?P<>a)" : stdgo.GoString)?.__copy__(),
+("[a-Z]" : stdgo.GoString)?.__copy__(),
+("(?i)[a-Z]" : stdgo.GoString)?.__copy__(),
+("\\Q\\E*" : stdgo.GoString)?.__copy__(),
+("a{100000}" : stdgo.GoString)?.__copy__(),
+("a{100000,}" : stdgo.GoString)?.__copy__(),
+("((((((((((x{2}){2}){2}){2}){2}){2}){2}){2}){2}){2})" : stdgo.GoString)?.__copy__(),
+stdgo.strings.Strings.repeat(("(" : stdgo.GoString)?.__copy__(), (1000 : stdgo.StdGoTypes.GoInt)) + stdgo.strings.Strings.repeat((")" : stdgo.GoString)?.__copy__(), (1000 : stdgo.StdGoTypes.GoInt))?.__copy__()?.__copy__(),
+stdgo.strings.Strings.repeat(("(?:" : stdgo.GoString)?.__copy__(), (1000 : stdgo.StdGoTypes.GoInt)) + stdgo.strings.Strings.repeat((")*" : stdgo.GoString)?.__copy__(), (1000 : stdgo.StdGoTypes.GoInt))?.__copy__()?.__copy__(),
+("(" : stdgo.GoString) + stdgo.strings.Strings.repeat(("(xx?)" : stdgo.GoString)?.__copy__(), (1000 : stdgo.StdGoTypes.GoInt))?.__copy__() + ("){1000}" : stdgo.GoString)?.__copy__()?.__copy__(),
+stdgo.strings.Strings.repeat(("(xx?){1000}" : stdgo.GoString)?.__copy__(), (1000 : stdgo.StdGoTypes.GoInt))?.__copy__(),
+stdgo.strings.Strings.repeat(("\\pL" : stdgo.GoString)?.__copy__(), (27000 : stdgo.StdGoTypes.GoInt))?.__copy__()) : stdgo.Slice<stdgo.GoString>);
 /**
     
     
@@ -629,21 +629,21 @@ stdgo.strings.Strings.repeat(("\\pL" : stdgo.GoString), (27000 : stdgo.StdGoType
 var _onlyPerl : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 9,
 9,
-("[a-b-c]" : stdgo.GoString),
-("\\Qabc\\E" : stdgo.GoString),
-("\\Q*+?{[\\E" : stdgo.GoString),
-("\\Q\\\\E" : stdgo.GoString),
-("\\Q\\\\\\E" : stdgo.GoString),
-("\\Q\\\\\\\\E" : stdgo.GoString),
-("\\Q\\\\\\\\\\E" : stdgo.GoString),
-("(?:a)" : stdgo.GoString),
-("(?P<name>a)" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+("[a-b-c]" : stdgo.GoString)?.__copy__(),
+("\\Qabc\\E" : stdgo.GoString)?.__copy__(),
+("\\Q*+?{[\\E" : stdgo.GoString)?.__copy__(),
+("\\Q\\\\E" : stdgo.GoString)?.__copy__(),
+("\\Q\\\\\\E" : stdgo.GoString)?.__copy__(),
+("\\Q\\\\\\\\E" : stdgo.GoString)?.__copy__(),
+("\\Q\\\\\\\\\\E" : stdgo.GoString)?.__copy__(),
+("(?:a)" : stdgo.GoString)?.__copy__(),
+("(?P<name>a)" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
 /**
     
     
     
 **/
-var _onlyPOSIX : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(6, 6, ("a++" : stdgo.GoString), ("a**" : stdgo.GoString), ("a?*" : stdgo.GoString), ("a+*" : stdgo.GoString), ("a{1}*" : stdgo.GoString), (".{1}{2}.{3}" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
+var _onlyPOSIX : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(6, 6, ("a++" : stdgo.GoString)?.__copy__(), ("a**" : stdgo.GoString)?.__copy__(), ("a?*" : stdgo.GoString)?.__copy__(), ("a+*" : stdgo.GoString)?.__copy__(), ("a{1}*" : stdgo.GoString)?.__copy__(), (".{1}{2}.{3}" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
 /**
     
     
@@ -652,22 +652,22 @@ var _onlyPOSIX : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 var _compileTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(
 16,
 16,
-({ regexp : ("a" : stdgo.GoString), prog : ("  0\tfail\n  1*\trune1 \"a\" -> 2\n  2\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("[A-M][n-z]" : stdgo.GoString), prog : ("  0\tfail\n  1*\trune \"AM\" -> 2\n  2\trune \"nz\" -> 3\n  3\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : stdgo.Go.str(), prog : ("  0\tfail\n  1*\tnop -> 2\n  2\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("a?" : stdgo.GoString), prog : ("  0\tfail\n  1\trune1 \"a\" -> 3\n  2*\talt -> 1, 3\n  3\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("a??" : stdgo.GoString), prog : ("  0\tfail\n  1\trune1 \"a\" -> 3\n  2*\talt -> 3, 1\n  3\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("a+" : stdgo.GoString), prog : ("  0\tfail\n  1*\trune1 \"a\" -> 2\n  2\talt -> 1, 3\n  3\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("a+?" : stdgo.GoString), prog : ("  0\tfail\n  1*\trune1 \"a\" -> 2\n  2\talt -> 3, 1\n  3\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("a*" : stdgo.GoString), prog : ("  0\tfail\n  1\trune1 \"a\" -> 2\n  2*\talt -> 1, 3\n  3\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("a*?" : stdgo.GoString), prog : ("  0\tfail\n  1\trune1 \"a\" -> 2\n  2*\talt -> 3, 1\n  3\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("a+b+" : stdgo.GoString), prog : ("  0\tfail\n  1*\trune1 \"a\" -> 2\n  2\talt -> 1, 3\n  3\trune1 \"b\" -> 4\n  4\talt -> 3, 5\n  5\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("(a+)(b+)" : stdgo.GoString), prog : ("  0\tfail\n  1*\tcap 2 -> 2\n  2\trune1 \"a\" -> 3\n  3\talt -> 2, 4\n  4\tcap 3 -> 5\n  5\tcap 4 -> 6\n  6\trune1 \"b\" -> 7\n  7\talt -> 6, 8\n  8\tcap 5 -> 9\n  9\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("a+|b+" : stdgo.GoString), prog : ("  0\tfail\n  1\trune1 \"a\" -> 2\n  2\talt -> 1, 6\n  3\trune1 \"b\" -> 4\n  4\talt -> 3, 6\n  5*\talt -> 1, 3\n  6\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("A[Aa]" : stdgo.GoString), prog : ("  0\tfail\n  1*\trune1 \"A\" -> 2\n  2\trune \"A\"/i -> 3\n  3\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("(?:(?:^).)" : stdgo.GoString), prog : ("  0\tfail\n  1*\tempty 4 -> 2\n  2\tanynotnl -> 3\n  3\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("(?:|a)+" : stdgo.GoString), prog : ("  0\tfail\n  1\tnop -> 4\n  2\trune1 \"a\" -> 4\n  3*\talt -> 1, 2\n  4\talt -> 3, 5\n  5\tmatch\n" : stdgo.GoString) } : T__struct_1),
-({ regexp : ("(?:|a)*" : stdgo.GoString), prog : ("  0\tfail\n  1\tnop -> 4\n  2\trune1 \"a\" -> 4\n  3\talt -> 1, 2\n  4\talt -> 3, 6\n  5*\talt -> 3, 6\n  6\tmatch\n" : stdgo.GoString) } : T__struct_1)) : stdgo.Slice<T__struct_1>);
+({ regexp : ("a" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1*\trune1 \"a\" -> 2\n  2\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("[A-M][n-z]" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1*\trune \"AM\" -> 2\n  2\trune \"nz\" -> 3\n  3\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : stdgo.Go.str()?.__copy__(), prog : ("  0\tfail\n  1*\tnop -> 2\n  2\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("a?" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1\trune1 \"a\" -> 3\n  2*\talt -> 1, 3\n  3\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("a??" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1\trune1 \"a\" -> 3\n  2*\talt -> 3, 1\n  3\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("a+" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1*\trune1 \"a\" -> 2\n  2\talt -> 1, 3\n  3\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("a+?" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1*\trune1 \"a\" -> 2\n  2\talt -> 3, 1\n  3\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("a*" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1\trune1 \"a\" -> 2\n  2*\talt -> 1, 3\n  3\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("a*?" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1\trune1 \"a\" -> 2\n  2*\talt -> 3, 1\n  3\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("a+b+" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1*\trune1 \"a\" -> 2\n  2\talt -> 1, 3\n  3\trune1 \"b\" -> 4\n  4\talt -> 3, 5\n  5\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("(a+)(b+)" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1*\tcap 2 -> 2\n  2\trune1 \"a\" -> 3\n  3\talt -> 2, 4\n  4\tcap 3 -> 5\n  5\tcap 4 -> 6\n  6\trune1 \"b\" -> 7\n  7\talt -> 6, 8\n  8\tcap 5 -> 9\n  9\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("a+|b+" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1\trune1 \"a\" -> 2\n  2\talt -> 1, 6\n  3\trune1 \"b\" -> 4\n  4\talt -> 3, 6\n  5*\talt -> 1, 3\n  6\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("A[Aa]" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1*\trune1 \"A\" -> 2\n  2\trune \"A\"/i -> 3\n  3\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("(?:(?:^).)" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1*\tempty 4 -> 2\n  2\tanynotnl -> 3\n  3\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("(?:|a)+" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1\tnop -> 4\n  2\trune1 \"a\" -> 4\n  3*\talt -> 1, 2\n  4\talt -> 3, 5\n  5\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1),
+({ regexp : ("(?:|a)*" : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1\tnop -> 4\n  2\trune1 \"a\" -> 4\n  3\talt -> 1, 2\n  4\talt -> 3, 6\n  5*\talt -> 3, 6\n  6\tmatch\n" : stdgo.GoString)?.__copy__() } : T__struct_1)) : stdgo.Slice<T__struct_1>);
 /**
     
     
@@ -676,103 +676,103 @@ var _compileTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(
 var _simplifyTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(
 97,
 97,
-({ regexp : ("a" : stdgo.GoString), simple : ("a" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("ab" : stdgo.GoString), simple : ("ab" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a|b" : stdgo.GoString), simple : ("[a-b]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("ab|cd" : stdgo.GoString), simple : ("ab|cd" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(ab)*" : stdgo.GoString), simple : ("(ab)*" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(ab)+" : stdgo.GoString), simple : ("(ab)+" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(ab)?" : stdgo.GoString), simple : ("(ab)?" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("." : stdgo.GoString), simple : ("(?s:.)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("^" : stdgo.GoString), simple : ("(?m:^)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("$" : stdgo.GoString), simple : ("(?m:$)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[ac]" : stdgo.GoString), simple : ("[ac]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[^ac]" : stdgo.GoString), simple : ("[^ac]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:alnum:]]" : stdgo.GoString), simple : ("[0-9A-Za-z]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:alpha:]]" : stdgo.GoString), simple : ("[A-Za-z]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:blank:]]" : stdgo.GoString), simple : ("[\\t ]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:cntrl:]]" : stdgo.GoString), simple : ("[\\x00-\\x1f\\x7f]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:digit:]]" : stdgo.GoString), simple : ("[0-9]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:graph:]]" : stdgo.GoString), simple : ("[!-~]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:lower:]]" : stdgo.GoString), simple : ("[a-z]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:print:]]" : stdgo.GoString), simple : ("[ -~]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:punct:]]" : stdgo.GoString), simple : ("[!-/:-@\\[-`\\{-~]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:space:]]" : stdgo.GoString), simple : ("[\\t-\\r ]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:upper:]]" : stdgo.GoString), simple : ("[A-Z]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:xdigit:]]" : stdgo.GoString), simple : ("[0-9A-Fa-f]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("\\d" : stdgo.GoString), simple : ("[0-9]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("\\s" : stdgo.GoString), simple : ("[\\t-\\n\\f-\\r ]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("\\w" : stdgo.GoString), simple : ("[0-9A-Z_a-z]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("\\D" : stdgo.GoString), simple : ("[^0-9]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("\\S" : stdgo.GoString), simple : ("[^\\t-\\n\\f-\\r ]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("\\W" : stdgo.GoString), simple : ("[^0-9A-Z_a-z]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[\\d]" : stdgo.GoString), simple : ("[0-9]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[\\s]" : stdgo.GoString), simple : ("[\\t-\\n\\f-\\r ]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[\\w]" : stdgo.GoString), simple : ("[0-9A-Z_a-z]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[\\D]" : stdgo.GoString), simple : ("[^0-9]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[\\S]" : stdgo.GoString), simple : ("[^\\t-\\n\\f-\\r ]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[\\W]" : stdgo.GoString), simple : ("[^0-9A-Z_a-z]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{1}" : stdgo.GoString), simple : ("a" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{2}" : stdgo.GoString), simple : ("aa" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{5}" : stdgo.GoString), simple : ("aaaaa" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{0,1}" : stdgo.GoString), simple : ("a?" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(a){0,2}" : stdgo.GoString), simple : ("(?:(a)(a)?)?" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(a){0,4}" : stdgo.GoString), simple : ("(?:(a)(?:(a)(?:(a)(a)?)?)?)?" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(a){2,6}" : stdgo.GoString), simple : ("(a)(a)(?:(a)(?:(a)(?:(a)(a)?)?)?)?" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{0,2}" : stdgo.GoString), simple : ("(?:aa?)?" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{0,4}" : stdgo.GoString), simple : ("(?:a(?:a(?:aa?)?)?)?" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{2,6}" : stdgo.GoString), simple : ("aa(?:a(?:a(?:aa?)?)?)?" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{0,}" : stdgo.GoString), simple : ("a*" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{1,}" : stdgo.GoString), simple : ("a+" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{2,}" : stdgo.GoString), simple : ("aa+" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{5,}" : stdgo.GoString), simple : ("aaaaa+" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?:a{1,}){1,}" : stdgo.GoString), simple : ("a+" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(a{1,}b{1,})" : stdgo.GoString), simple : ("(a+b+)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{1,}|b{1,}" : stdgo.GoString), simple : ("a+|b+" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?:a{1,})*" : stdgo.GoString), simple : ("(?:a+)*" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?:a{1,})+" : stdgo.GoString), simple : ("a+" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?:a{1,})?" : stdgo.GoString), simple : ("(?:a+)?" : stdgo.GoString) } : T__struct_2),
-({ regexp : stdgo.Go.str(), simple : ("(?:)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a{0}" : stdgo.GoString), simple : ("(?:)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[ab]" : stdgo.GoString), simple : ("[a-b]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[a-za-za-z]" : stdgo.GoString), simple : ("[a-z]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[A-Za-zA-Za-z]" : stdgo.GoString), simple : ("[A-Za-z]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[ABCDEFGH]" : stdgo.GoString), simple : ("[A-H]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[AB-CD-EF-GH]" : stdgo.GoString), simple : ("[A-H]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[W-ZP-XE-R]" : stdgo.GoString), simple : ("[E-Z]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[a-ee-gg-m]" : stdgo.GoString), simple : ("[a-m]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[a-ea-ha-m]" : stdgo.GoString), simple : ("[a-m]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[a-ma-ha-e]" : stdgo.GoString), simple : ("[a-m]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[a-zA-Z0-9 -~]" : stdgo.GoString), simple : ("[ -~]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[^[:cntrl:][:^cntrl:]]" : stdgo.GoString), simple : ("[^\\x00-\\x{10FFFF}]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("[[:cntrl:][:^cntrl:]]" : stdgo.GoString), simple : ("(?s:.)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)A" : stdgo.GoString), simple : ("(?i:A)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)a" : stdgo.GoString), simple : ("(?i:A)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)[A]" : stdgo.GoString), simple : ("(?i:A)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)[a]" : stdgo.GoString), simple : ("(?i:A)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)K" : stdgo.GoString), simple : ("(?i:K)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)k" : stdgo.GoString), simple : ("(?i:K)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)\\x{212a}" : stdgo.GoString), simple : ("(?i:K)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)[K]" : stdgo.GoString), simple : ("[KkK]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)[k]" : stdgo.GoString), simple : ("[KkK]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)[\\x{212a}]" : stdgo.GoString), simple : ("[KkK]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)[a-z]" : stdgo.GoString), simple : ("[A-Za-zſK]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)[\\x00-\\x{FFFD}]" : stdgo.GoString), simple : ("[\\x00-�]" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(?i)[\\x00-\\x{10FFFF}]" : stdgo.GoString), simple : ("(?s:.)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(a|b|)" : stdgo.GoString), simple : ("([a-b]|(?:))" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(|)" : stdgo.GoString), simple : ("()" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("a()" : stdgo.GoString), simple : ("a()" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(()|())" : stdgo.GoString), simple : ("(()|())" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(a|)" : stdgo.GoString), simple : ("(a|(?:))" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("ab()cd()" : stdgo.GoString), simple : ("ab()cd()" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("()" : stdgo.GoString), simple : ("()" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("()*" : stdgo.GoString), simple : ("()*" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("()+" : stdgo.GoString), simple : ("()+" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("()?" : stdgo.GoString), simple : ("()?" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(){0}" : stdgo.GoString), simple : ("(?:)" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(){1}" : stdgo.GoString), simple : ("()" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(){1,}" : stdgo.GoString), simple : ("()+" : stdgo.GoString) } : T__struct_2),
-({ regexp : ("(){0,2}" : stdgo.GoString), simple : ("(?:()()?)?" : stdgo.GoString) } : T__struct_2)) : stdgo.Slice<T__struct_2>);
+({ regexp : ("a" : stdgo.GoString)?.__copy__(), simple : ("a" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("ab" : stdgo.GoString)?.__copy__(), simple : ("ab" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a|b" : stdgo.GoString)?.__copy__(), simple : ("[a-b]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("ab|cd" : stdgo.GoString)?.__copy__(), simple : ("ab|cd" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(ab)*" : stdgo.GoString)?.__copy__(), simple : ("(ab)*" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(ab)+" : stdgo.GoString)?.__copy__(), simple : ("(ab)+" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(ab)?" : stdgo.GoString)?.__copy__(), simple : ("(ab)?" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("." : stdgo.GoString)?.__copy__(), simple : ("(?s:.)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("^" : stdgo.GoString)?.__copy__(), simple : ("(?m:^)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("$" : stdgo.GoString)?.__copy__(), simple : ("(?m:$)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[ac]" : stdgo.GoString)?.__copy__(), simple : ("[ac]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[^ac]" : stdgo.GoString)?.__copy__(), simple : ("[^ac]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:alnum:]]" : stdgo.GoString)?.__copy__(), simple : ("[0-9A-Za-z]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:alpha:]]" : stdgo.GoString)?.__copy__(), simple : ("[A-Za-z]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:blank:]]" : stdgo.GoString)?.__copy__(), simple : ("[\\t ]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:cntrl:]]" : stdgo.GoString)?.__copy__(), simple : ("[\\x00-\\x1f\\x7f]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:digit:]]" : stdgo.GoString)?.__copy__(), simple : ("[0-9]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:graph:]]" : stdgo.GoString)?.__copy__(), simple : ("[!-~]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:lower:]]" : stdgo.GoString)?.__copy__(), simple : ("[a-z]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:print:]]" : stdgo.GoString)?.__copy__(), simple : ("[ -~]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:punct:]]" : stdgo.GoString)?.__copy__(), simple : ("[!-/:-@\\[-`\\{-~]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:space:]]" : stdgo.GoString)?.__copy__(), simple : ("[\\t-\\r ]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:upper:]]" : stdgo.GoString)?.__copy__(), simple : ("[A-Z]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:xdigit:]]" : stdgo.GoString)?.__copy__(), simple : ("[0-9A-Fa-f]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("\\d" : stdgo.GoString)?.__copy__(), simple : ("[0-9]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("\\s" : stdgo.GoString)?.__copy__(), simple : ("[\\t-\\n\\f-\\r ]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("\\w" : stdgo.GoString)?.__copy__(), simple : ("[0-9A-Z_a-z]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("\\D" : stdgo.GoString)?.__copy__(), simple : ("[^0-9]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("\\S" : stdgo.GoString)?.__copy__(), simple : ("[^\\t-\\n\\f-\\r ]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("\\W" : stdgo.GoString)?.__copy__(), simple : ("[^0-9A-Z_a-z]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[\\d]" : stdgo.GoString)?.__copy__(), simple : ("[0-9]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[\\s]" : stdgo.GoString)?.__copy__(), simple : ("[\\t-\\n\\f-\\r ]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[\\w]" : stdgo.GoString)?.__copy__(), simple : ("[0-9A-Z_a-z]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[\\D]" : stdgo.GoString)?.__copy__(), simple : ("[^0-9]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[\\S]" : stdgo.GoString)?.__copy__(), simple : ("[^\\t-\\n\\f-\\r ]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[\\W]" : stdgo.GoString)?.__copy__(), simple : ("[^0-9A-Z_a-z]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{1}" : stdgo.GoString)?.__copy__(), simple : ("a" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{2}" : stdgo.GoString)?.__copy__(), simple : ("aa" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{5}" : stdgo.GoString)?.__copy__(), simple : ("aaaaa" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{0,1}" : stdgo.GoString)?.__copy__(), simple : ("a?" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(a){0,2}" : stdgo.GoString)?.__copy__(), simple : ("(?:(a)(a)?)?" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(a){0,4}" : stdgo.GoString)?.__copy__(), simple : ("(?:(a)(?:(a)(?:(a)(a)?)?)?)?" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(a){2,6}" : stdgo.GoString)?.__copy__(), simple : ("(a)(a)(?:(a)(?:(a)(?:(a)(a)?)?)?)?" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{0,2}" : stdgo.GoString)?.__copy__(), simple : ("(?:aa?)?" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{0,4}" : stdgo.GoString)?.__copy__(), simple : ("(?:a(?:a(?:aa?)?)?)?" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{2,6}" : stdgo.GoString)?.__copy__(), simple : ("aa(?:a(?:a(?:aa?)?)?)?" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{0,}" : stdgo.GoString)?.__copy__(), simple : ("a*" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{1,}" : stdgo.GoString)?.__copy__(), simple : ("a+" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{2,}" : stdgo.GoString)?.__copy__(), simple : ("aa+" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{5,}" : stdgo.GoString)?.__copy__(), simple : ("aaaaa+" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?:a{1,}){1,}" : stdgo.GoString)?.__copy__(), simple : ("a+" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(a{1,}b{1,})" : stdgo.GoString)?.__copy__(), simple : ("(a+b+)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{1,}|b{1,}" : stdgo.GoString)?.__copy__(), simple : ("a+|b+" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?:a{1,})*" : stdgo.GoString)?.__copy__(), simple : ("(?:a+)*" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?:a{1,})+" : stdgo.GoString)?.__copy__(), simple : ("a+" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?:a{1,})?" : stdgo.GoString)?.__copy__(), simple : ("(?:a+)?" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : stdgo.Go.str()?.__copy__(), simple : ("(?:)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a{0}" : stdgo.GoString)?.__copy__(), simple : ("(?:)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[ab]" : stdgo.GoString)?.__copy__(), simple : ("[a-b]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[a-za-za-z]" : stdgo.GoString)?.__copy__(), simple : ("[a-z]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[A-Za-zA-Za-z]" : stdgo.GoString)?.__copy__(), simple : ("[A-Za-z]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[ABCDEFGH]" : stdgo.GoString)?.__copy__(), simple : ("[A-H]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[AB-CD-EF-GH]" : stdgo.GoString)?.__copy__(), simple : ("[A-H]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[W-ZP-XE-R]" : stdgo.GoString)?.__copy__(), simple : ("[E-Z]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[a-ee-gg-m]" : stdgo.GoString)?.__copy__(), simple : ("[a-m]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[a-ea-ha-m]" : stdgo.GoString)?.__copy__(), simple : ("[a-m]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[a-ma-ha-e]" : stdgo.GoString)?.__copy__(), simple : ("[a-m]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[a-zA-Z0-9 -~]" : stdgo.GoString)?.__copy__(), simple : ("[ -~]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[^[:cntrl:][:^cntrl:]]" : stdgo.GoString)?.__copy__(), simple : ("[^\\x00-\\x{10FFFF}]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("[[:cntrl:][:^cntrl:]]" : stdgo.GoString)?.__copy__(), simple : ("(?s:.)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)A" : stdgo.GoString)?.__copy__(), simple : ("(?i:A)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)a" : stdgo.GoString)?.__copy__(), simple : ("(?i:A)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)[A]" : stdgo.GoString)?.__copy__(), simple : ("(?i:A)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)[a]" : stdgo.GoString)?.__copy__(), simple : ("(?i:A)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)K" : stdgo.GoString)?.__copy__(), simple : ("(?i:K)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)k" : stdgo.GoString)?.__copy__(), simple : ("(?i:K)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)\\x{212a}" : stdgo.GoString)?.__copy__(), simple : ("(?i:K)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)[K]" : stdgo.GoString)?.__copy__(), simple : ("[KkK]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)[k]" : stdgo.GoString)?.__copy__(), simple : ("[KkK]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)[\\x{212a}]" : stdgo.GoString)?.__copy__(), simple : ("[KkK]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)[a-z]" : stdgo.GoString)?.__copy__(), simple : ("[A-Za-zſK]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)[\\x00-\\x{FFFD}]" : stdgo.GoString)?.__copy__(), simple : ("[\\x00-�]" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(?i)[\\x00-\\x{10FFFF}]" : stdgo.GoString)?.__copy__(), simple : ("(?s:.)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(a|b|)" : stdgo.GoString)?.__copy__(), simple : ("([a-b]|(?:))" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(|)" : stdgo.GoString)?.__copy__(), simple : ("()" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("a()" : stdgo.GoString)?.__copy__(), simple : ("a()" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(()|())" : stdgo.GoString)?.__copy__(), simple : ("(()|())" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(a|)" : stdgo.GoString)?.__copy__(), simple : ("(a|(?:))" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("ab()cd()" : stdgo.GoString)?.__copy__(), simple : ("ab()cd()" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("()" : stdgo.GoString)?.__copy__(), simple : ("()" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("()*" : stdgo.GoString)?.__copy__(), simple : ("()*" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("()+" : stdgo.GoString)?.__copy__(), simple : ("()+" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("()?" : stdgo.GoString)?.__copy__(), simple : ("()?" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(){0}" : stdgo.GoString)?.__copy__(), simple : ("(?:)" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(){1}" : stdgo.GoString)?.__copy__(), simple : ("()" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(){1,}" : stdgo.GoString)?.__copy__(), simple : ("()+" : stdgo.GoString)?.__copy__() } : T__struct_2),
+({ regexp : ("(){0,2}" : stdgo.GoString)?.__copy__(), simple : ("(?:()()?)?" : stdgo.GoString)?.__copy__() } : T__struct_2)) : stdgo.Slice<T__struct_2>);
 /**
     
     
@@ -1734,7 +1734,7 @@ function _literalRegexp(_s:stdgo.GoString, _flags:Flags):stdgo.StdGoTypes.Ref<Re
     // described in the top-level comment.
 **/
 function parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref<Regexp>; var _1 : stdgo.Error; } {
-        return _parse(_s, _flags);
+        return _parse(_s?.__copy__(), _flags);
     }
 function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref<Regexp>; var _1 : stdgo.Error; } {
         stdgo.internal.Macro.controlFlow({
@@ -1751,9 +1751,9 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                         {
                             final __value__ = _r;
                             if (__value__ == null) {} else if (__value__ == (stdgo.Go.toInterface(stdgo.Go.asInterface((("expression too large" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode))))) {
-                                _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("expression too large" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
+                                _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("expression too large" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s?.__copy__() } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
                             } else if (__value__ == (stdgo.Go.toInterface(stdgo.Go.asInterface((("expression nests too deeply" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode))))) {
-                                _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("expression nests too deeply" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
+                                _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("expression nests too deeply" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s?.__copy__() } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
                             } else {
                                 throw stdgo.Go.toInterface(_r);
                             };
@@ -1765,7 +1765,7 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
             try {
                 if (_flags & (2 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
                     {
-                        var _err:stdgo.Error = _checkUTF8(_s);
+                        var _err:stdgo.Error = _checkUTF8(_s?.__copy__());
                         if (_err != null) {
                             {
                                 for (defer in __deferstack__) {
@@ -1779,15 +1779,15 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : _literalRegexp(_s, _flags), _1 : (null : stdgo.Error) };
+                        return { _0 : _literalRegexp(_s?.__copy__(), _flags), _1 : (null : stdgo.Error) };
                     };
                 };
                 var __0:T_parser = ({} : stdgo.regexp.syntax.Syntax.T_parser), __1:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), __2:Op = ((0 : stdgo.StdGoTypes.GoUInt8) : stdgo.regexp.syntax.Syntax.Op), __3:stdgo.GoString = ("" : stdgo.GoString), _lastRepeat:stdgo.GoString = __3, _op:Op = __2, _c:stdgo.StdGoTypes.GoRune = __1, _p:T_parser = __0;
                 _p._flags = _flags;
-                _p._wholeRegexp = _s;
-                var _t:stdgo.GoString = _s;
+                _p._wholeRegexp = _s?.__copy__();
+                var _t:stdgo.GoString = _s?.__copy__();
                 while (_t != (stdgo.Go.str())) {
-                    var _repeat:stdgo.GoString = stdgo.Go.str();
+                    var _repeat:stdgo.GoString = stdgo.Go.str()?.__copy__();
                     @:label("BigSwitch") {
                         var __switchIndex__ = -1;
                         var __run__ = true;
@@ -1799,8 +1799,8 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                     if ((((_p._flags & (64 : stdgo.regexp.syntax.Syntax.Flags)) != (0 : stdgo.regexp.syntax.Syntax.Flags)) && (_t.length >= (2 : stdgo.StdGoTypes.GoInt))) && (_t[(1 : stdgo.StdGoTypes.GoInt)] == (63 : stdgo.StdGoTypes.GoUInt8))) {
                                         {
                                             {
-                                                var __tmp__ = _p._parsePerlFlags(_t);
-                                                _t = __tmp__._0;
+                                                var __tmp__ = _p._parsePerlFlags(_t?.__copy__());
+                                                _t = __tmp__._0?.__copy__();
                                                 _err = __tmp__._1;
                                             };
                                             if (_err != null) {
@@ -1816,7 +1816,7 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                     };
                                     _p._numCap++;
                                     _p._op((128 : stdgo.regexp.syntax.Syntax.Op)).cap = _p._numCap;
-                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                     break;
                                 } else if (__value__ == ((124 : stdgo.StdGoTypes.GoUInt8))) {
                                     {
@@ -1830,7 +1830,7 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                             };
                                         };
                                     };
-                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                     break;
                                 } else if (__value__ == ((41 : stdgo.StdGoTypes.GoUInt8))) {
                                     {
@@ -1844,7 +1844,7 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                             };
                                         };
                                     };
-                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                     break;
                                 } else if (__value__ == ((94 : stdgo.StdGoTypes.GoUInt8))) {
                                     if (_p._flags & (16 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
@@ -1852,7 +1852,7 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                     } else {
                                         _p._op((7 : stdgo.regexp.syntax.Syntax.Op));
                                     };
-                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                     break;
                                 } else if (__value__ == ((36 : stdgo.StdGoTypes.GoUInt8))) {
                                     if (_p._flags & (16 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
@@ -1860,7 +1860,7 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                     } else {
                                         _p._op((8 : stdgo.regexp.syntax.Syntax.Op));
                                     };
-                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                     break;
                                 } else if (__value__ == ((46 : stdgo.StdGoTypes.GoUInt8))) {
                                     if (_p._flags & (8 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
@@ -1868,13 +1868,13 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                     } else {
                                         _p._op((5 : stdgo.regexp.syntax.Syntax.Op));
                                     };
-                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                     break;
                                 } else if (__value__ == ((91 : stdgo.StdGoTypes.GoUInt8))) {
                                     {
                                         {
-                                            var __tmp__ = _p._parseClass(_t);
-                                            _t = __tmp__._0;
+                                            var __tmp__ = _p._parseClass(_t?.__copy__());
+                                            _t = __tmp__._0?.__copy__();
                                             _err = __tmp__._1;
                                         };
                                         if (_err != null) {
@@ -1888,7 +1888,7 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                     };
                                     break;
                                 } else if (__value__ == ((42 : stdgo.StdGoTypes.GoUInt8)) || __value__ == ((43 : stdgo.StdGoTypes.GoUInt8)) || __value__ == ((63 : stdgo.StdGoTypes.GoUInt8))) {
-                                    var _before:stdgo.GoString = _t;
+                                    var _before:stdgo.GoString = _t?.__copy__();
                                     {
                                         final __value__ = _t[(0 : stdgo.StdGoTypes.GoInt)];
                                         if (__value__ == ((42 : stdgo.StdGoTypes.GoUInt8))) {
@@ -1899,11 +1899,11 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                             _op = (16 : stdgo.regexp.syntax.Syntax.Op);
                                         };
                                     };
-                                    var _after:stdgo.GoString = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                    var _after:stdgo.GoString = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                     {
                                         {
-                                            var __tmp__ = _p._repeat(_op, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), _before, _after, _lastRepeat);
-                                            _after = __tmp__._0;
+                                            var __tmp__ = _p._repeat(_op, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), _before?.__copy__(), _after?.__copy__(), _lastRepeat?.__copy__());
+                                            _after = __tmp__._0?.__copy__();
                                             _err = __tmp__._1;
                                         };
                                         if (_err != null) {
@@ -1915,16 +1915,16 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                             };
                                         };
                                     };
-                                    _repeat = _before;
-                                    _t = _after;
+                                    _repeat = _before?.__copy__();
+                                    _t = _after?.__copy__();
                                     break;
                                 } else if (__value__ == ((123 : stdgo.StdGoTypes.GoUInt8))) {
                                     _op = (17 : stdgo.regexp.syntax.Syntax.Op);
-                                    var _before:stdgo.GoString = _t;
-                                    var __tmp__ = _p._parseRepeat(_t), _min:stdgo.StdGoTypes.GoInt = __tmp__._0, _max:stdgo.StdGoTypes.GoInt = __tmp__._1, _after:stdgo.GoString = __tmp__._2, _ok:Bool = __tmp__._3;
+                                    var _before:stdgo.GoString = _t?.__copy__();
+                                    var __tmp__ = _p._parseRepeat(_t?.__copy__()), _min:stdgo.StdGoTypes.GoInt = __tmp__._0, _max:stdgo.StdGoTypes.GoInt = __tmp__._1, _after:stdgo.GoString = __tmp__._2, _ok:Bool = __tmp__._3;
                                     if (!_ok) {
                                         _p._literal((123 : stdgo.StdGoTypes.GoInt32));
-                                        _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                        _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                         break;
                                     };
                                     if ((((_min < (0 : stdgo.StdGoTypes.GoInt)) || (_min > (1000 : stdgo.StdGoTypes.GoInt))) || (_max > (1000 : stdgo.StdGoTypes.GoInt))) || ((_max >= (0 : stdgo.StdGoTypes.GoInt)) && (_min > _max))) {
@@ -1932,13 +1932,13 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                             for (defer in __deferstack__) {
                                                 defer();
                                             };
-                                            return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid repeat count" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_before.__slice__(0, (_before.length) - (_after.length)) : stdgo.GoString)) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+                                            return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid repeat count" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_before.__slice__(0, (_before.length) - (_after.length)) : stdgo.GoString)?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
                                         };
                                     };
                                     {
                                         {
-                                            var __tmp__ = _p._repeat(_op, _min, _max, _before, _after, _lastRepeat);
-                                            _after = __tmp__._0;
+                                            var __tmp__ = _p._repeat(_op, _min, _max, _before?.__copy__(), _after?.__copy__(), _lastRepeat?.__copy__());
+                                            _after = __tmp__._0?.__copy__();
                                             _err = __tmp__._1;
                                         };
                                         if (_err != null) {
@@ -1950,8 +1950,8 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                             };
                                         };
                                     };
-                                    _repeat = _before;
-                                    _t = _after;
+                                    _repeat = _before?.__copy__();
+                                    _t = _after?.__copy__();
                                     break;
                                 } else if (__value__ == ((92 : stdgo.StdGoTypes.GoUInt8))) {
                                     if (((_p._flags & (64 : stdgo.regexp.syntax.Syntax.Flags)) != (0 : stdgo.regexp.syntax.Syntax.Flags)) && (_t.length >= (2 : stdgo.StdGoTypes.GoInt))) {
@@ -1964,17 +1964,17 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                                     final __value__ = _t[(1 : stdgo.StdGoTypes.GoInt)];
                                                     if (__value__ == ((65 : stdgo.StdGoTypes.GoUInt8))) {
                                                         _p._op((9 : stdgo.regexp.syntax.Syntax.Op));
-                                                        _t = (_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                                        _t = (_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                                         @:jump("BigSwitch") break;
                                                         break;
                                                     } else if (__value__ == ((98 : stdgo.StdGoTypes.GoUInt8))) {
                                                         _p._op((11 : stdgo.regexp.syntax.Syntax.Op));
-                                                        _t = (_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                                        _t = (_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                                         @:jump("BigSwitch") break;
                                                         break;
                                                     } else if (__value__ == ((66 : stdgo.StdGoTypes.GoUInt8))) {
                                                         _p._op((12 : stdgo.regexp.syntax.Syntax.Op));
-                                                        _t = (_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                                        _t = (_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                                         @:jump("BigSwitch") break;
                                                         break;
                                                     } else if (__value__ == ((67 : stdgo.StdGoTypes.GoUInt8))) {
@@ -1982,18 +1982,18 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                                             for (defer in __deferstack__) {
                                                                 defer();
                                                             };
-                                                            return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid escape sequence" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_t.__slice__(0, (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+                                                            return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid escape sequence" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_t.__slice__(0, (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
                                                         };
                                                         break;
                                                     } else if (__value__ == ((81 : stdgo.StdGoTypes.GoUInt8))) {
                                                         var _lit:stdgo.GoString = ("" : stdgo.GoString);
                                                         {
-                                                            var __tmp__ = stdgo.strings.Strings.cut((_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString), ("\\E" : stdgo.GoString));
-                                                            _lit = __tmp__._0;
-                                                            _t = __tmp__._1;
+                                                            var __tmp__ = stdgo.strings.Strings.cut((_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), ("\\E" : stdgo.GoString)?.__copy__());
+                                                            _lit = __tmp__._0?.__copy__();
+                                                            _t = __tmp__._1?.__copy__();
                                                         };
                                                         while (_lit != (stdgo.Go.str())) {
-                                                            var __tmp__ = _nextRune(_lit), _c:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _rest:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                                                            var __tmp__ = _nextRune(_lit?.__copy__()), _c:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _rest:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                                                             if (_err != null) {
                                                                 {
                                                                     for (defer in __deferstack__) {
@@ -2003,13 +2003,13 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                                                 };
                                                             };
                                                             _p._literal(_c);
-                                                            _lit = _rest;
+                                                            _lit = _rest?.__copy__();
                                                         };
                                                         @:jump("BigSwitch") break;
                                                         break;
                                                     } else if (__value__ == ((122 : stdgo.StdGoTypes.GoUInt8))) {
                                                         _p._op((10 : stdgo.regexp.syntax.Syntax.Op));
-                                                        _t = (_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                                        _t = (_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                                         @:jump("BigSwitch") break;
                                                         break;
                                                     };
@@ -2021,7 +2021,7 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                     var _re = _p._newRegexp((4 : stdgo.regexp.syntax.Syntax.Op));
                                     _re.flags = _p._flags;
                                     if ((_t.length >= (2 : stdgo.StdGoTypes.GoInt)) && ((_t[(1 : stdgo.StdGoTypes.GoInt)] == (112 : stdgo.StdGoTypes.GoUInt8)) || (_t[(1 : stdgo.StdGoTypes.GoInt)] == (80 : stdgo.StdGoTypes.GoUInt8)))) {
-                                        var __tmp__ = _p._parseUnicodeClass(_t, (_re.rune0.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt32>)), _r:stdgo.Slice<stdgo.StdGoTypes.GoInt32> = __tmp__._0, _rest:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                                        var __tmp__ = _p._parseUnicodeClass(_t?.__copy__(), (_re.rune0.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt32>)), _r:stdgo.Slice<stdgo.StdGoTypes.GoInt32> = __tmp__._0, _rest:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                                         if (_err != null) {
                                             {
                                                 for (defer in __deferstack__) {
@@ -2032,16 +2032,16 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                         };
                                         if (_r != null) {
                                             _re.rune = _r;
-                                            _t = _rest;
+                                            _t = _rest?.__copy__();
                                             _p._push(_re);
                                             @:jump("BigSwitch") break;
                                         };
                                     };
                                     {
-                                        var __tmp__ = _p._parsePerlClassEscape(_t, (_re.rune0.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt32>)), _r:stdgo.Slice<stdgo.StdGoTypes.GoInt32> = __tmp__._0, _rest:stdgo.GoString = __tmp__._1;
+                                        var __tmp__ = _p._parsePerlClassEscape(_t?.__copy__(), (_re.rune0.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt32>)), _r:stdgo.Slice<stdgo.StdGoTypes.GoInt32> = __tmp__._0, _rest:stdgo.GoString = __tmp__._1;
                                         if (_r != null) {
                                             _re.rune = _r;
-                                            _t = _rest;
+                                            _t = _rest?.__copy__();
                                             _p._push(_re);
                                             @:jump("BigSwitch") break;
                                         };
@@ -2049,9 +2049,9 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                     _p._reuse(_re);
                                     {
                                         {
-                                            var __tmp__ = _p._parseEscape(_t);
+                                            var __tmp__ = _p._parseEscape(_t?.__copy__());
                                             _c = __tmp__._0;
-                                            _t = __tmp__._1;
+                                            _t = __tmp__._1?.__copy__();
                                             _err = __tmp__._2;
                                         };
                                         if (_err != null) {
@@ -2068,9 +2068,9 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                                 } else {
                                     {
                                         {
-                                            var __tmp__ = _nextRune(_t);
+                                            var __tmp__ = _nextRune(_t?.__copy__());
                                             _c = __tmp__._0;
-                                            _t = __tmp__._1;
+                                            _t = __tmp__._1?.__copy__();
                                             _err = __tmp__._2;
                                         };
                                         if (_err != null) {
@@ -2088,7 +2088,7 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                             break;
                         };
                     };
-                    _lastRepeat = _repeat;
+                    _lastRepeat = _repeat?.__copy__();
                 };
                 _p._concat();
                 if (_p._swapVerticalBar()) {
@@ -2101,7 +2101,7 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("missing closing )" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _s) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+                        return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("missing closing )" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _s?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
                     };
                 };
                 {
@@ -2237,15 +2237,15 @@ function _unicodeTable(_name:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<std
             return { _0 : _anyTable, _1 : _anyTable };
         };
         {
-            var _t = (stdgo.unicode.Unicode.categories[_name] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>));
+            var _t = (stdgo.unicode.Unicode.categories[_name?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>));
             if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
-                return { _0 : _t, _1 : (stdgo.unicode.Unicode.foldCategory[_name] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>)) };
+                return { _0 : _t, _1 : (stdgo.unicode.Unicode.foldCategory[_name?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>)) };
             };
         };
         {
-            var _t = (stdgo.unicode.Unicode.scripts[_name] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>));
+            var _t = (stdgo.unicode.Unicode.scripts[_name?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>));
             if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
-                return { _0 : _t, _1 : (stdgo.unicode.Unicode.foldScript[_name] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>)) };
+                return { _0 : _t, _1 : (stdgo.unicode.Unicode.foldScript[_name?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>)) };
             };
         };
         return { _0 : null, _1 : null };
@@ -2496,21 +2496,21 @@ function _negateClass(_r:stdgo.Slice<stdgo.StdGoTypes.GoRune>):stdgo.Slice<stdgo
     }
 function _checkUTF8(_s:stdgo.GoString):stdgo.Error {
         while (_s != (stdgo.Go.str())) {
-            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s), _rune:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
+            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s?.__copy__()), _rune:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
             if ((_rune == (65533 : stdgo.StdGoTypes.GoInt32)) && (_size == (1 : stdgo.StdGoTypes.GoInt))) {
-                return stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("invalid UTF-8" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
+                return stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("invalid UTF-8" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s?.__copy__() } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
             };
-            _s = (_s.__slice__(_size) : stdgo.GoString);
+            _s = (_s.__slice__(_size) : stdgo.GoString)?.__copy__();
         };
         return (null : stdgo.Error);
     }
 function _nextRune(_s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoRune; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         var _c:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), _t:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
-        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s), _c:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
+        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s?.__copy__()), _c:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
         if ((_c == (65533 : stdgo.StdGoTypes.GoInt32)) && (_size == (1 : stdgo.StdGoTypes.GoInt))) {
-            return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("invalid UTF-8" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+            return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str()?.__copy__(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("invalid UTF-8" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s?.__copy__() } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
         };
-        return { _0 : _c, _1 : (_s.__slice__(_size) : stdgo.GoString), _2 : (null : stdgo.Error) };
+        return { _0 : _c, _1 : (_s.__slice__(_size) : stdgo.GoString)?.__copy__(), _2 : (null : stdgo.Error) };
     }
 function _isalnum(_c:stdgo.StdGoTypes.GoRune):Bool {
         return ((((48 : stdgo.StdGoTypes.GoInt32) <= _c) && (_c <= (57 : stdgo.StdGoTypes.GoInt32))) || (((65 : stdgo.StdGoTypes.GoInt32) <= _c) && (_c <= (90 : stdgo.StdGoTypes.GoInt32)))) || (((97 : stdgo.StdGoTypes.GoInt32) <= _c) && (_c <= (122 : stdgo.StdGoTypes.GoInt32)));
@@ -2547,17 +2547,17 @@ function testParseNoMatchNL(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
 **/
 function _testParseDump(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _tests:stdgo.Slice<T_parseTest>, _flags:Flags):Void {
         for (__0 => _tt in _tests) {
-            var __tmp__ = parse(_tt.regexp, _flags), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = parse(_tt.regexp?.__copy__(), _flags), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.errorf(("Parse(%#q): %v" : stdgo.GoString), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_err));
+                _t.errorf(("Parse(%#q): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_err));
                 continue;
             };
             if (_tt.dump == (stdgo.Go.str())) {
                 continue;
             };
-            var _d:stdgo.GoString = _dump(_re);
+            var _d:stdgo.GoString = _dump(_re)?.__copy__();
             if (_d != (_tt.dump)) {
-                _t.errorf(("Parse(%#q).Dump() = %#q want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_tt.dump));
+                _t.errorf(("Parse(%#q).Dump() = %#q want %#q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_tt.dump));
             };
         };
     }
@@ -2568,7 +2568,7 @@ function _testParseDump(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _tests
 function _dump(_re:stdgo.StdGoTypes.Ref<Regexp>):stdgo.GoString {
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         _dumpRegexp((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>), _re);
-        return (_b.string() : stdgo.GoString);
+        return (_b.string() : stdgo.GoString)?.__copy__();
     }
 /**
     // dumpRegexp writes an encoding of the syntax tree for the regexp re to b.
@@ -2577,7 +2577,7 @@ function _dump(_re:stdgo.StdGoTypes.Ref<Regexp>):stdgo.GoString {
 **/
 function _dumpRegexp(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _re:stdgo.StdGoTypes.Ref<Regexp>):Void {
         if (((_re.op : stdgo.StdGoTypes.GoInt) >= _opNames.length) || (_opNames[(_re.op : stdgo.StdGoTypes.GoInt)] == stdgo.Go.str())) {
-            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_b), ("op%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_re.op)));
+            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_b), ("op%d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_re.op)));
         } else {
             {
                 var __switchIndex__ = -1;
@@ -2590,25 +2590,25 @@ function _dumpRegexp(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _re
                             if (_re.flags & (32 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
                                 _b.writeByte((110 : stdgo.StdGoTypes.GoUInt8));
                             };
-                            _b.writeString(_opNames[(_re.op : stdgo.StdGoTypes.GoInt)]);
+                            _b.writeString(_opNames[(_re.op : stdgo.StdGoTypes.GoInt)]?.__copy__());
                             break;
                         } else if (__value__ == ((3 : stdgo.regexp.syntax.Syntax.Op))) {
                             if ((_re.rune.length) > (1 : stdgo.StdGoTypes.GoInt)) {
-                                _b.writeString(("str" : stdgo.GoString));
+                                _b.writeString(("str" : stdgo.GoString)?.__copy__());
                             } else {
-                                _b.writeString(("lit" : stdgo.GoString));
+                                _b.writeString(("lit" : stdgo.GoString)?.__copy__());
                             };
                             if (_re.flags & (1 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
                                 for (__0 => _r in _re.rune) {
                                     if (stdgo.unicode.Unicode.simpleFold(_r) != (_r)) {
-                                        _b.writeString(("fold" : stdgo.GoString));
+                                        _b.writeString(("fold" : stdgo.GoString)?.__copy__());
                                         break;
                                     };
                                 };
                             };
                             break;
                         } else {
-                            _b.writeString(_opNames[(_re.op : stdgo.StdGoTypes.GoInt)]);
+                            _b.writeString(_opNames[(_re.op : stdgo.StdGoTypes.GoInt)]?.__copy__());
                         };
                     };
                     break;
@@ -2620,7 +2620,7 @@ function _dumpRegexp(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _re
             final __value__ = _re.op;
             if (__value__ == ((10 : stdgo.regexp.syntax.Syntax.Op))) {
                 if (_re.flags & (256 : stdgo.regexp.syntax.Syntax.Flags) == ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
-                    _b.writeString(("\\z" : stdgo.GoString));
+                    _b.writeString(("\\z" : stdgo.GoString)?.__copy__());
                 };
             } else if (__value__ == ((3 : stdgo.regexp.syntax.Syntax.Op))) {
                 for (__1 => _r in _re.rune) {
@@ -2633,26 +2633,26 @@ function _dumpRegexp(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _re
             } else if (__value__ == ((14 : stdgo.regexp.syntax.Syntax.Op)) || __value__ == ((15 : stdgo.regexp.syntax.Syntax.Op)) || __value__ == ((16 : stdgo.regexp.syntax.Syntax.Op))) {
                 _dumpRegexp(_b, _re.sub[(0 : stdgo.StdGoTypes.GoInt)]);
             } else if (__value__ == ((17 : stdgo.regexp.syntax.Syntax.Op))) {
-                stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_b), ("%d,%d " : stdgo.GoString), stdgo.Go.toInterface(_re.min), stdgo.Go.toInterface(_re.max));
+                stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_b), ("%d,%d " : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_re.min), stdgo.Go.toInterface(_re.max));
                 _dumpRegexp(_b, _re.sub[(0 : stdgo.StdGoTypes.GoInt)]);
             } else if (__value__ == ((13 : stdgo.regexp.syntax.Syntax.Op))) {
                 if (_re.name != (stdgo.Go.str())) {
-                    _b.writeString(_re.name);
+                    _b.writeString(_re.name?.__copy__());
                     _b.writeByte((58 : stdgo.StdGoTypes.GoUInt8));
                 };
                 _dumpRegexp(_b, _re.sub[(0 : stdgo.StdGoTypes.GoInt)]);
             } else if (__value__ == ((4 : stdgo.regexp.syntax.Syntax.Op))) {
-                var _sep:stdgo.GoString = stdgo.Go.str();
+                var _sep:stdgo.GoString = stdgo.Go.str()?.__copy__();
                 {
                     var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                     stdgo.Go.cfor(_i < (_re.rune.length), _i = _i + ((2 : stdgo.StdGoTypes.GoInt)), {
-                        _b.writeString(_sep);
-                        _sep = (" " : stdgo.GoString);
+                        _b.writeString(_sep?.__copy__());
+                        _sep = (" " : stdgo.GoString)?.__copy__();
                         var __0:stdgo.StdGoTypes.GoInt32 = _re.rune[(_i : stdgo.StdGoTypes.GoInt)], __1:stdgo.StdGoTypes.GoInt32 = _re.rune[(_i + (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)], _hi:stdgo.StdGoTypes.GoInt32 = __1, _lo:stdgo.StdGoTypes.GoInt32 = __0;
                         if (_lo == (_hi)) {
-                            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_b), ("%#x" : stdgo.GoString), stdgo.Go.toInterface(_lo));
+                            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_b), ("%#x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_lo));
                         } else {
-                            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_b), ("%#x-%#x" : stdgo.GoString), stdgo.Go.toInterface(_lo), stdgo.Go.toInterface(_hi));
+                            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_b), ("%#x-%#x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_lo), stdgo.Go.toInterface(_hi));
                         };
                     });
                 };
@@ -2681,7 +2681,7 @@ function _mkCharClass(_f:stdgo.StdGoTypes.GoRune -> Bool):stdgo.GoString {
         if (_lo >= (0 : stdgo.StdGoTypes.GoInt32)) {
             _re.rune = (_re.rune.__append__(_lo, (1114111 : stdgo.StdGoTypes.GoInt32)));
         };
-        return _dump(_re);
+        return _dump(_re)?.__copy__();
     }
 function _isUpperFold(_r:stdgo.StdGoTypes.GoRune):Bool {
         if (stdgo.unicode.Unicode.isUpper(_r)) {
@@ -2705,13 +2705,13 @@ function testFoldConstants(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                     continue;
                 };
                 if ((_last == (-1 : stdgo.StdGoTypes.GoInt32)) && ((65 : stdgo.StdGoTypes.GoInt32) != _i)) {
-                    _t.errorf(("minFold=%#U should be %#U" : stdgo.GoString), stdgo.Go.toInterface((65 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(_i));
+                    _t.errorf(("minFold=%#U should be %#U" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((65 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(_i));
                 };
                 _last = _i;
             });
         };
         if ((125251 : stdgo.StdGoTypes.GoInt32) != (_last)) {
-            _t.errorf(("maxFold=%#U should be %#U" : stdgo.GoString), stdgo.Go.toInterface((125251 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(_last));
+            _t.errorf(("maxFold=%#U should be %#U" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((125251 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(_last));
         };
     }
 function testAppendRangeCollapse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
@@ -2724,82 +2724,82 @@ function testAppendRangeCollapse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             });
         };
         if ((_r : stdgo.GoString) != (("AZaz" : stdgo.GoString))) {
-            _t.errorf(("appendRange interlaced A-Z a-z = %s, want AZaz" : stdgo.GoString), stdgo.Go.toInterface((_r : stdgo.GoString)));
+            _t.errorf(("appendRange interlaced A-Z a-z = %s, want AZaz" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((_r : stdgo.GoString)));
         };
     }
 function testParseInvalidRegexps(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _regexp in _invalidRegexps) {
             {
-                var __tmp__ = parse(_regexp, (212 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = parse(_regexp?.__copy__(), (212 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
-                    _t.errorf(("Parse(%#q, Perl) = %s, should have failed" : stdgo.GoString), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_dump(_re)));
+                    _t.errorf(("Parse(%#q, Perl) = %s, should have failed" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_dump(_re)));
                 };
             };
             {
-                var __tmp__ = parse(_regexp, (0 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = parse(_regexp?.__copy__(), (0 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
-                    _t.errorf(("Parse(%#q, POSIX) = %s, should have failed" : stdgo.GoString), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_dump(_re)));
+                    _t.errorf(("Parse(%#q, POSIX) = %s, should have failed" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_dump(_re)));
                 };
             };
         };
         for (__1 => _regexp in _onlyPerl) {
             {
-                var __tmp__ = parse(_regexp, (212 : stdgo.regexp.syntax.Syntax.Flags)), __2:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = parse(_regexp?.__copy__(), (212 : stdgo.regexp.syntax.Syntax.Flags)), __2:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _t.errorf(("Parse(%#q, Perl): %v" : stdgo.GoString), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_err));
+                    _t.errorf(("Parse(%#q, Perl): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_err));
                 };
             };
             {
-                var __tmp__ = parse(_regexp, (0 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = parse(_regexp?.__copy__(), (0 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
-                    _t.errorf(("Parse(%#q, POSIX) = %s, should have failed" : stdgo.GoString), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_dump(_re)));
+                    _t.errorf(("Parse(%#q, POSIX) = %s, should have failed" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_dump(_re)));
                 };
             };
         };
         for (__3 => _regexp in _onlyPOSIX) {
             {
-                var __tmp__ = parse(_regexp, (212 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = parse(_regexp?.__copy__(), (212 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
-                    _t.errorf(("Parse(%#q, Perl) = %s, should have failed" : stdgo.GoString), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_dump(_re)));
+                    _t.errorf(("Parse(%#q, Perl) = %s, should have failed" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_dump(_re)));
                 };
             };
             {
-                var __tmp__ = parse(_regexp, (0 : stdgo.regexp.syntax.Syntax.Flags)), __4:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = parse(_regexp?.__copy__(), (0 : stdgo.regexp.syntax.Syntax.Flags)), __4:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _t.errorf(("Parse(%#q, POSIX): %v" : stdgo.GoString), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_err));
+                    _t.errorf(("Parse(%#q, POSIX): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_err));
                 };
             };
         };
     }
 function testToStringEquivalentParse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tt in _parseTests) {
-            var __tmp__ = parse(_tt.regexp, (204 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = parse(_tt.regexp?.__copy__(), (204 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.errorf(("Parse(%#q): %v" : stdgo.GoString), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_err));
+                _t.errorf(("Parse(%#q): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_err));
                 continue;
             };
             if (_tt.dump == (stdgo.Go.str())) {
                 continue;
             };
-            var _d:stdgo.GoString = _dump(_re);
+            var _d:stdgo.GoString = _dump(_re)?.__copy__();
             if (_d != (_tt.dump)) {
-                _t.errorf(("Parse(%#q).Dump() = %#q want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_tt.dump));
+                _t.errorf(("Parse(%#q).Dump() = %#q want %#q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_tt.dump));
                 continue;
             };
-            var _s:stdgo.GoString = (_re.string() : stdgo.GoString);
+            var _s:stdgo.GoString = (_re.string() : stdgo.GoString)?.__copy__();
             if (_s != (_tt.regexp)) {
-                var __tmp__ = parse(_s, (204 : stdgo.regexp.syntax.Syntax.Flags)), _nre:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = parse(_s?.__copy__(), (204 : stdgo.regexp.syntax.Syntax.Flags)), _nre:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _t.errorf(("Parse(%#q.String() = %#q): %v" : stdgo.GoString), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_err));
+                    _t.errorf(("Parse(%#q.String() = %#q): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_err));
                     continue;
                 };
-                var _nd:stdgo.GoString = _dump(_nre);
+                var _nd:stdgo.GoString = _dump(_nre)?.__copy__();
                 if (_d != (_nd)) {
-                    _t.errorf(("Parse(%#q) -> %#q; %#q vs %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_nd));
+                    _t.errorf(("Parse(%#q) -> %#q; %#q vs %#q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_nd));
                 };
-                var _ns:stdgo.GoString = (_nre.string() : stdgo.GoString);
+                var _ns:stdgo.GoString = (_nre.string() : stdgo.GoString)?.__copy__();
                 if (_s != (_ns)) {
-                    _t.errorf(("Parse(%#q) -> %#q -> %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_ns));
+                    _t.errorf(("Parse(%#q) -> %#q -> %#q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_ns));
                 };
             };
         };
@@ -2845,69 +2845,69 @@ function isWordChar(_r:stdgo.StdGoTypes.GoRune):Bool {
 function _bw(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _args:haxe.Rest<stdgo.GoString>):Void {
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         for (__0 => _s in _args) {
-            _b.writeString(_s);
+            _b.writeString(_s?.__copy__());
         };
     }
 function _dumpProg(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _p:stdgo.StdGoTypes.Ref<Prog>):Void {
         for (_j in 0 ... _p.inst.length.toBasic()) {
             var _i = (stdgo.Go.setRef(_p.inst[(_j : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Inst>);
-            var _pc:stdgo.GoString = stdgo.strconv.Strconv.itoa(_j);
+            var _pc:stdgo.GoString = stdgo.strconv.Strconv.itoa(_j)?.__copy__();
             if ((_pc.length) < (3 : stdgo.StdGoTypes.GoInt)) {
-                _b.writeString((("   " : stdgo.GoString).__slice__((_pc.length)) : stdgo.GoString));
+                _b.writeString((("   " : stdgo.GoString).__slice__((_pc.length)) : stdgo.GoString)?.__copy__());
             };
             if (_j == (_p.start)) {
-                _pc = _pc + (("*" : stdgo.GoString));
+                _pc = _pc + (("*" : stdgo.GoString))?.__copy__();
             };
-            _bw(_b, _pc, ("\t" : stdgo.GoString));
+            _bw(_b, _pc?.__copy__(), ("\t" : stdgo.GoString)?.__copy__());
             _dumpInst(_b, _i);
-            _bw(_b, ("\n" : stdgo.GoString));
+            _bw(_b, ("\n" : stdgo.GoString)?.__copy__());
         };
     }
 function _u32(_i:stdgo.StdGoTypes.GoUInt32):stdgo.GoString {
-        return stdgo.strconv.Strconv.formatUint((_i : stdgo.StdGoTypes.GoUInt64), (10 : stdgo.StdGoTypes.GoInt));
+        return stdgo.strconv.Strconv.formatUint((_i : stdgo.StdGoTypes.GoUInt64), (10 : stdgo.StdGoTypes.GoInt))?.__copy__();
     }
 function _dumpInst(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _i:stdgo.StdGoTypes.Ref<Inst>):Void {
         {
             final __value__ = _i.op;
             if (__value__ == ((0 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                _bw(_b, ("alt -> " : stdgo.GoString), _u32(_i.out), (", " : stdgo.GoString), _u32(_i.arg));
+                _bw(_b, ("alt -> " : stdgo.GoString)?.__copy__(), _u32(_i.out)?.__copy__(), (", " : stdgo.GoString)?.__copy__(), _u32(_i.arg)?.__copy__());
             } else if (__value__ == ((1 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                _bw(_b, ("altmatch -> " : stdgo.GoString), _u32(_i.out), (", " : stdgo.GoString), _u32(_i.arg));
+                _bw(_b, ("altmatch -> " : stdgo.GoString)?.__copy__(), _u32(_i.out)?.__copy__(), (", " : stdgo.GoString)?.__copy__(), _u32(_i.arg)?.__copy__());
             } else if (__value__ == ((2 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                _bw(_b, ("cap " : stdgo.GoString), _u32(_i.arg), (" -> " : stdgo.GoString), _u32(_i.out));
+                _bw(_b, ("cap " : stdgo.GoString)?.__copy__(), _u32(_i.arg)?.__copy__(), (" -> " : stdgo.GoString)?.__copy__(), _u32(_i.out)?.__copy__());
             } else if (__value__ == ((3 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                _bw(_b, ("empty " : stdgo.GoString), _u32(_i.arg), (" -> " : stdgo.GoString), _u32(_i.out));
+                _bw(_b, ("empty " : stdgo.GoString)?.__copy__(), _u32(_i.arg)?.__copy__(), (" -> " : stdgo.GoString)?.__copy__(), _u32(_i.out)?.__copy__());
             } else if (__value__ == ((4 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                _bw(_b, ("match" : stdgo.GoString));
+                _bw(_b, ("match" : stdgo.GoString)?.__copy__());
             } else if (__value__ == ((5 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                _bw(_b, ("fail" : stdgo.GoString));
+                _bw(_b, ("fail" : stdgo.GoString)?.__copy__());
             } else if (__value__ == ((6 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                _bw(_b, ("nop -> " : stdgo.GoString), _u32(_i.out));
+                _bw(_b, ("nop -> " : stdgo.GoString)?.__copy__(), _u32(_i.out)?.__copy__());
             } else if (__value__ == ((7 : stdgo.regexp.syntax.Syntax.InstOp))) {
                 if (_i.rune == null) {
-                    _bw(_b, ("rune <nil>" : stdgo.GoString));
+                    _bw(_b, ("rune <nil>" : stdgo.GoString)?.__copy__());
                 };
-                _bw(_b, ("rune " : stdgo.GoString), stdgo.strconv.Strconv.quoteToASCII((_i.rune : stdgo.GoString)));
+                _bw(_b, ("rune " : stdgo.GoString)?.__copy__(), stdgo.strconv.Strconv.quoteToASCII((_i.rune : stdgo.GoString)?.__copy__())?.__copy__());
                 if ((_i.arg : Flags) & (1 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
-                    _bw(_b, ("/i" : stdgo.GoString));
+                    _bw(_b, ("/i" : stdgo.GoString)?.__copy__());
                 };
-                _bw(_b, (" -> " : stdgo.GoString), _u32(_i.out));
+                _bw(_b, (" -> " : stdgo.GoString)?.__copy__(), _u32(_i.out)?.__copy__());
             } else if (__value__ == ((8 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                _bw(_b, ("rune1 " : stdgo.GoString), stdgo.strconv.Strconv.quoteToASCII((_i.rune : stdgo.GoString)), (" -> " : stdgo.GoString), _u32(_i.out));
+                _bw(_b, ("rune1 " : stdgo.GoString)?.__copy__(), stdgo.strconv.Strconv.quoteToASCII((_i.rune : stdgo.GoString)?.__copy__())?.__copy__(), (" -> " : stdgo.GoString)?.__copy__(), _u32(_i.out)?.__copy__());
             } else if (__value__ == ((9 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                _bw(_b, ("any -> " : stdgo.GoString), _u32(_i.out));
+                _bw(_b, ("any -> " : stdgo.GoString)?.__copy__(), _u32(_i.out)?.__copy__());
             } else if (__value__ == ((10 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                _bw(_b, ("anynotnl -> " : stdgo.GoString), _u32(_i.out));
+                _bw(_b, ("anynotnl -> " : stdgo.GoString)?.__copy__(), _u32(_i.out)?.__copy__());
             };
         };
     }
 function testCompile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tt in _compileTests) {
-            var __tmp__ = parse(_tt.regexp, (212 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, __1:stdgo.Error = __tmp__._1;
+            var __tmp__ = parse(_tt.regexp?.__copy__(), (212 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, __1:stdgo.Error = __tmp__._1;
             var __tmp__ = compile(_re), _p:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Prog> = __tmp__._0, __2:stdgo.Error = __tmp__._1;
-            var _s:stdgo.GoString = (_p.string() : stdgo.GoString);
+            var _s:stdgo.GoString = (_p.string() : stdgo.GoString)?.__copy__();
             if (_s != (_tt.prog)) {
-                _t.errorf(("compiled %#q:\n--- have\n%s---\n--- want\n%s---" : stdgo.GoString), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt.prog));
+                _t.errorf(("compiled %#q:\n--- have\n%s---\n--- want\n%s---" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt.prog));
             };
         };
     }
@@ -2951,30 +2951,30 @@ function _writeRegexp(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _r
                 {
                     final __value__ = _re.op;
                     if (__value__ == ((1 : stdgo.regexp.syntax.Syntax.Op))) {
-                        _b.writeString(("[^\\x00-\\x{10FFFF}]" : stdgo.GoString));
+                        _b.writeString(("[^\\x00-\\x{10FFFF}]" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((2 : stdgo.regexp.syntax.Syntax.Op))) {
-                        _b.writeString(("(?:)" : stdgo.GoString));
+                        _b.writeString(("(?:)" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((3 : stdgo.regexp.syntax.Syntax.Op))) {
                         if (_re.flags & (1 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
-                            _b.writeString(("(?i:" : stdgo.GoString));
+                            _b.writeString(("(?i:" : stdgo.GoString)?.__copy__());
                         };
                         for (__0 => _r in _re.rune) {
                             _escape(_b, _r, false);
                         };
                         if (_re.flags & (1 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
-                            _b.writeString((")" : stdgo.GoString));
+                            _b.writeString((")" : stdgo.GoString)?.__copy__());
                         };
                         break;
                     } else if (__value__ == ((4 : stdgo.regexp.syntax.Syntax.Op))) {
                         if ((_re.rune.length) % (2 : stdgo.StdGoTypes.GoInt) != ((0 : stdgo.StdGoTypes.GoInt))) {
-                            _b.writeString(("[invalid char class]" : stdgo.GoString));
+                            _b.writeString(("[invalid char class]" : stdgo.GoString)?.__copy__());
                             break;
                         };
                         _b.writeRune((91 : stdgo.StdGoTypes.GoInt32));
                         if ((_re.rune.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
-                            _b.writeString(("^\\x00-\\x{10FFFF}" : stdgo.GoString));
+                            _b.writeString(("^\\x00-\\x{10FFFF}" : stdgo.GoString)?.__copy__());
                         } else if (((_re.rune[(0 : stdgo.StdGoTypes.GoInt)] == (0 : stdgo.StdGoTypes.GoInt32)) && (_re.rune[((_re.rune.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] == (1114111 : stdgo.StdGoTypes.GoInt32))) && (_re.rune.length > (2 : stdgo.StdGoTypes.GoInt))) {
                             _b.writeRune((94 : stdgo.StdGoTypes.GoInt32));
                             {
@@ -3004,37 +3004,37 @@ function _writeRegexp(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _r
                         _b.writeRune((93 : stdgo.StdGoTypes.GoInt32));
                         break;
                     } else if (__value__ == ((5 : stdgo.regexp.syntax.Syntax.Op))) {
-                        _b.writeString(("(?-s:.)" : stdgo.GoString));
+                        _b.writeString(("(?-s:.)" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((6 : stdgo.regexp.syntax.Syntax.Op))) {
-                        _b.writeString(("(?s:.)" : stdgo.GoString));
+                        _b.writeString(("(?s:.)" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((7 : stdgo.regexp.syntax.Syntax.Op))) {
-                        _b.writeString(("(?m:^)" : stdgo.GoString));
+                        _b.writeString(("(?m:^)" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((8 : stdgo.regexp.syntax.Syntax.Op))) {
-                        _b.writeString(("(?m:$)" : stdgo.GoString));
+                        _b.writeString(("(?m:$)" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((9 : stdgo.regexp.syntax.Syntax.Op))) {
-                        _b.writeString(("\\A" : stdgo.GoString));
+                        _b.writeString(("\\A" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((10 : stdgo.regexp.syntax.Syntax.Op))) {
                         if (_re.flags & (256 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
-                            _b.writeString(("(?-m:$)" : stdgo.GoString));
+                            _b.writeString(("(?-m:$)" : stdgo.GoString)?.__copy__());
                         } else {
-                            _b.writeString(("\\z" : stdgo.GoString));
+                            _b.writeString(("\\z" : stdgo.GoString)?.__copy__());
                         };
                         break;
                     } else if (__value__ == ((11 : stdgo.regexp.syntax.Syntax.Op))) {
-                        _b.writeString(("\\b" : stdgo.GoString));
+                        _b.writeString(("\\b" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((12 : stdgo.regexp.syntax.Syntax.Op))) {
-                        _b.writeString(("\\B" : stdgo.GoString));
+                        _b.writeString(("\\B" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((13 : stdgo.regexp.syntax.Syntax.Op))) {
                         if (_re.name != (stdgo.Go.str())) {
-                            _b.writeString(("(?P<" : stdgo.GoString));
-                            _b.writeString(_re.name);
+                            _b.writeString(("(?P<" : stdgo.GoString)?.__copy__());
+                            _b.writeString(_re.name?.__copy__());
                             _b.writeRune((62 : stdgo.StdGoTypes.GoInt32));
                         } else {
                             _b.writeRune((40 : stdgo.StdGoTypes.GoInt32));
@@ -3048,9 +3048,9 @@ function _writeRegexp(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _r
                         {
                             var _sub = _re.sub[(0 : stdgo.StdGoTypes.GoInt)];
                             if ((_sub.op > (13 : stdgo.regexp.syntax.Syntax.Op)) || ((_sub.op == (3 : stdgo.regexp.syntax.Syntax.Op)) && (_sub.rune.length > (1 : stdgo.StdGoTypes.GoInt)))) {
-                                _b.writeString(("(?:" : stdgo.GoString));
+                                _b.writeString(("(?:" : stdgo.GoString)?.__copy__());
                                 _writeRegexp(_b, _sub);
-                                _b.writeString((")" : stdgo.GoString));
+                                _b.writeString((")" : stdgo.GoString)?.__copy__());
                             } else {
                                 _writeRegexp(_b, _sub);
                             };
@@ -3065,11 +3065,11 @@ function _writeRegexp(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _r
                                 _b.writeRune((63 : stdgo.StdGoTypes.GoInt32));
                             } else if (__value__ == ((17 : stdgo.regexp.syntax.Syntax.Op))) {
                                 _b.writeRune((123 : stdgo.StdGoTypes.GoInt32));
-                                _b.writeString(stdgo.strconv.Strconv.itoa(_re.min));
+                                _b.writeString(stdgo.strconv.Strconv.itoa(_re.min)?.__copy__());
                                 if (_re.max != (_re.min)) {
                                     _b.writeRune((44 : stdgo.StdGoTypes.GoInt32));
                                     if (_re.max >= (0 : stdgo.StdGoTypes.GoInt)) {
-                                        _b.writeString(stdgo.strconv.Strconv.itoa(_re.max));
+                                        _b.writeString(stdgo.strconv.Strconv.itoa(_re.max)?.__copy__());
                                     };
                                 };
                                 _b.writeRune((125 : stdgo.StdGoTypes.GoInt32));
@@ -3082,9 +3082,9 @@ function _writeRegexp(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _r
                     } else if (__value__ == ((18 : stdgo.regexp.syntax.Syntax.Op))) {
                         for (__1 => _sub in _re.sub) {
                             if (_sub.op == ((19 : stdgo.regexp.syntax.Syntax.Op))) {
-                                _b.writeString(("(?:" : stdgo.GoString));
+                                _b.writeString(("(?:" : stdgo.GoString)?.__copy__());
                                 _writeRegexp(_b, _sub);
-                                _b.writeString((")" : stdgo.GoString));
+                                _b.writeString((")" : stdgo.GoString)?.__copy__());
                             } else {
                                 _writeRegexp(_b, _sub);
                             };
@@ -3099,7 +3099,7 @@ function _writeRegexp(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _r
                         };
                         break;
                     } else {
-                        _b.writeString((("<invalid op" : stdgo.GoString) + stdgo.strconv.Strconv.itoa((_re.op : stdgo.StdGoTypes.GoInt))) + (">" : stdgo.GoString));
+                        _b.writeString(("<invalid op" : stdgo.GoString) + stdgo.strconv.Strconv.itoa((_re.op : stdgo.StdGoTypes.GoInt))?.__copy__() + (">" : stdgo.GoString)?.__copy__()?.__copy__());
                     };
                 };
                 break;
@@ -3108,7 +3108,7 @@ function _writeRegexp(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _r
     }
 function _escape(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _r:stdgo.StdGoTypes.GoRune, _force:Bool):Void {
         if (stdgo.unicode.Unicode.isPrint(_r)) {
-            if (stdgo.strings.Strings.containsRune(("\\.+*?()|[]{}^$" : stdgo.GoString), _r) || _force) {
+            if (stdgo.strings.Strings.containsRune(("\\.+*?()|[]{}^$" : stdgo.GoString)?.__copy__(), _r) || _force) {
                 _b.writeRune((92 : stdgo.StdGoTypes.GoInt32));
             };
             _b.writeRune(_r);
@@ -3122,36 +3122,36 @@ function _escape(_b:stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>, _r:stdg
                 {
                     final __value__ = _r;
                     if (__value__ == ((7 : stdgo.StdGoTypes.GoInt32))) {
-                        _b.writeString(("\\a" : stdgo.GoString));
+                        _b.writeString(("\\a" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((12 : stdgo.StdGoTypes.GoInt32))) {
-                        _b.writeString(("\\f" : stdgo.GoString));
+                        _b.writeString(("\\f" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((10 : stdgo.StdGoTypes.GoInt32))) {
-                        _b.writeString(("\\n" : stdgo.GoString));
+                        _b.writeString(("\\n" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((13 : stdgo.StdGoTypes.GoInt32))) {
-                        _b.writeString(("\\r" : stdgo.GoString));
+                        _b.writeString(("\\r" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((9 : stdgo.StdGoTypes.GoInt32))) {
-                        _b.writeString(("\\t" : stdgo.GoString));
+                        _b.writeString(("\\t" : stdgo.GoString)?.__copy__());
                         break;
                     } else if (__value__ == ((11 : stdgo.StdGoTypes.GoInt32))) {
-                        _b.writeString(("\\v" : stdgo.GoString));
+                        _b.writeString(("\\v" : stdgo.GoString)?.__copy__());
                         break;
                     } else {
                         if (_r < (256 : stdgo.StdGoTypes.GoInt32)) {
-                            _b.writeString(("\\x" : stdgo.GoString));
-                            var _s:stdgo.GoString = stdgo.strconv.Strconv.formatInt((_r : stdgo.StdGoTypes.GoInt64), (16 : stdgo.StdGoTypes.GoInt));
+                            _b.writeString(("\\x" : stdgo.GoString)?.__copy__());
+                            var _s:stdgo.GoString = stdgo.strconv.Strconv.formatInt((_r : stdgo.StdGoTypes.GoInt64), (16 : stdgo.StdGoTypes.GoInt))?.__copy__();
                             if ((_s.length) == ((1 : stdgo.StdGoTypes.GoInt))) {
                                 _b.writeRune((48 : stdgo.StdGoTypes.GoInt32));
                             };
-                            _b.writeString(_s);
+                            _b.writeString(_s?.__copy__());
                             break;
                         };
-                        _b.writeString(("\\x{" : stdgo.GoString));
-                        _b.writeString(stdgo.strconv.Strconv.formatInt((_r : stdgo.StdGoTypes.GoInt64), (16 : stdgo.StdGoTypes.GoInt)));
-                        _b.writeString(("}" : stdgo.GoString));
+                        _b.writeString(("\\x{" : stdgo.GoString)?.__copy__());
+                        _b.writeString(stdgo.strconv.Strconv.formatInt((_r : stdgo.StdGoTypes.GoInt64), (16 : stdgo.StdGoTypes.GoInt))?.__copy__());
+                        _b.writeString(("}" : stdgo.GoString)?.__copy__());
                     };
                 };
                 break;
@@ -3191,14 +3191,14 @@ function _simplify1(_op:Op, _flags:Flags, _sub:stdgo.StdGoTypes.Ref<Regexp>, _re
     }
 function testSimplify(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tt in _simplifyTests) {
-            var __tmp__ = parse(_tt.regexp, (204 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = parse(_tt.regexp?.__copy__(), (204 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.errorf(("Parse(%#q) = error %v" : stdgo.GoString), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_err));
+                _t.errorf(("Parse(%#q) = error %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_err));
                 continue;
             };
-            var _s:stdgo.GoString = (_re.simplify().string() : stdgo.GoString);
+            var _s:stdgo.GoString = (_re.simplify().string() : stdgo.GoString)?.__copy__();
             if (_s != (_tt.simple)) {
-                _t.errorf(("Simplify(%#q) = %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt.simple));
+                _t.errorf(("Simplify(%#q) = %#q, want %#q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt.simple));
             };
         };
     }
@@ -3528,7 +3528,7 @@ class T_error_asInterface {
     @:keep
     static public function error( _e:stdgo.StdGoTypes.Ref<T_error>):stdgo.GoString {
         @:recv var _e:stdgo.StdGoTypes.Ref<T_error> = _e;
-        return (((("error parsing regexp: " : stdgo.GoString) + (_e.code.string() : stdgo.GoString)) + (": `" : stdgo.GoString)) + _e.expr) + ("`" : stdgo.GoString);
+        return ("error parsing regexp: " : stdgo.GoString) + (_e.code.string() : stdgo.GoString)?.__copy__() + (": `" : stdgo.GoString)?.__copy__() + _e.expr?.__copy__() + ("`" : stdgo.GoString)?.__copy__()?.__copy__();
     }
 }
 class T_parser_asInterface {
@@ -3739,14 +3739,14 @@ class T_parser_asInterface {
     static public function _parseClass( _p:stdgo.StdGoTypes.Ref<T_parser>, _s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _rest:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
-        var _t:stdgo.GoString = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+        var _t:stdgo.GoString = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
         var _re = _p._newRegexp((4 : stdgo.regexp.syntax.Syntax.Op));
         _re.flags = _p._flags;
         _re.rune = (_re.rune0.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt32>);
         var _sign:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
         if ((_t != stdgo.Go.str()) && (_t[(0 : stdgo.StdGoTypes.GoInt)] == (94 : stdgo.StdGoTypes.GoUInt8))) {
             _sign = (-1 : stdgo.StdGoTypes.GoInt);
-            _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+            _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
             if (_p._flags & (4 : stdgo.regexp.syntax.Syntax.Flags) == ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
                 _re.rune = (_re.rune.__append__((10 : stdgo.StdGoTypes.GoInt32), (10 : stdgo.StdGoTypes.GoInt32)));
             };
@@ -3755,80 +3755,80 @@ class T_parser_asInterface {
         var _first:Bool = true;
         while (((_t == stdgo.Go.str()) || (_t[(0 : stdgo.StdGoTypes.GoInt)] != (93 : stdgo.StdGoTypes.GoUInt8))) || _first) {
             if (((((_t != stdgo.Go.str()) && (_t[(0 : stdgo.StdGoTypes.GoInt)] == (45 : stdgo.StdGoTypes.GoUInt8))) && ((_p._flags & (64 : stdgo.regexp.syntax.Syntax.Flags)) == (0 : stdgo.regexp.syntax.Syntax.Flags))) && !_first) && ((_t.length == (1 : stdgo.StdGoTypes.GoInt)) || (_t[(1 : stdgo.StdGoTypes.GoInt)] != (93 : stdgo.StdGoTypes.GoUInt8)))) {
-                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)), __0:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
-                return { _0 : stdgo.Go.str(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("invalid character class range" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : (_t.__slice__(0, (1 : stdgo.StdGoTypes.GoInt) + _size) : stdgo.GoString) } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+                var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__()), __0:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
+                return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("invalid character class range" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : (_t.__slice__(0, (1 : stdgo.StdGoTypes.GoInt) + _size) : stdgo.GoString)?.__copy__() } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
             };
             _first = false;
             if (((_t.length > (2 : stdgo.StdGoTypes.GoInt)) && (_t[(0 : stdgo.StdGoTypes.GoInt)] == (91 : stdgo.StdGoTypes.GoUInt8))) && (_t[(1 : stdgo.StdGoTypes.GoInt)] == (58 : stdgo.StdGoTypes.GoUInt8))) {
-                var __tmp__ = _p._parseNamedClass(_t, _class), _nclass:stdgo.Slice<stdgo.StdGoTypes.GoInt32> = __tmp__._0, _nt:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                var __tmp__ = _p._parseNamedClass(_t?.__copy__(), _class), _nclass:stdgo.Slice<stdgo.StdGoTypes.GoInt32> = __tmp__._0, _nt:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                 if (_err != null) {
-                    return { _0 : stdgo.Go.str(), _1 : _err };
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                 };
                 if (_nclass != null) {
                     {
                         final __tmp__0 = _nclass;
-                        final __tmp__1 = _nt;
+                        final __tmp__1 = _nt?.__copy__();
                         _class = __tmp__0;
                         _t = __tmp__1;
                     };
                     continue;
                 };
             };
-            var __tmp__ = _p._parseUnicodeClass(_t, _class), _nclass:stdgo.Slice<stdgo.StdGoTypes.GoInt32> = __tmp__._0, _nt:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            var __tmp__ = _p._parseUnicodeClass(_t?.__copy__(), _class), _nclass:stdgo.Slice<stdgo.StdGoTypes.GoInt32> = __tmp__._0, _nt:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
-                return { _0 : stdgo.Go.str(), _1 : _err };
+                return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
             };
             if (_nclass != null) {
                 {
                     final __tmp__0 = _nclass;
-                    final __tmp__1 = _nt;
+                    final __tmp__1 = _nt?.__copy__();
                     _class = __tmp__0;
                     _t = __tmp__1;
                 };
                 continue;
             };
             {
-                var __tmp__ = _p._parsePerlClassEscape(_t, _class), _nclass:stdgo.Slice<stdgo.StdGoTypes.GoInt32> = __tmp__._0, _nt:stdgo.GoString = __tmp__._1;
+                var __tmp__ = _p._parsePerlClassEscape(_t?.__copy__(), _class), _nclass:stdgo.Slice<stdgo.StdGoTypes.GoInt32> = __tmp__._0, _nt:stdgo.GoString = __tmp__._1;
                 if (_nclass != null) {
                     {
                         final __tmp__0 = _nclass;
-                        final __tmp__1 = _nt;
+                        final __tmp__1 = _nt?.__copy__();
                         _class = __tmp__0;
                         _t = __tmp__1;
                     };
                     continue;
                 };
             };
-            var _rng:stdgo.GoString = _t;
+            var _rng:stdgo.GoString = _t?.__copy__();
             var __0:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), __1:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), _hi:stdgo.StdGoTypes.GoRune = __1, _lo:stdgo.StdGoTypes.GoRune = __0;
             {
                 {
-                    var __tmp__ = _p._parseClassChar(_t, _s);
+                    var __tmp__ = _p._parseClassChar(_t?.__copy__(), _s?.__copy__());
                     _lo = __tmp__._0;
-                    _t = __tmp__._1;
+                    _t = __tmp__._1?.__copy__();
                     _err = __tmp__._2;
                 };
                 if (_err != null) {
-                    return { _0 : stdgo.Go.str(), _1 : _err };
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                 };
             };
             _hi = _lo;
             if (((_t.length >= (2 : stdgo.StdGoTypes.GoInt)) && (_t[(0 : stdgo.StdGoTypes.GoInt)] == (45 : stdgo.StdGoTypes.GoUInt8))) && (_t[(1 : stdgo.StdGoTypes.GoInt)] != (93 : stdgo.StdGoTypes.GoUInt8))) {
-                _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                 {
                     {
-                        var __tmp__ = _p._parseClassChar(_t, _s);
+                        var __tmp__ = _p._parseClassChar(_t?.__copy__(), _s?.__copy__());
                         _hi = __tmp__._0;
-                        _t = __tmp__._1;
+                        _t = __tmp__._1?.__copy__();
                         _err = __tmp__._2;
                     };
                     if (_err != null) {
-                        return { _0 : stdgo.Go.str(), _1 : _err };
+                        return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                     };
                 };
                 if (_hi < _lo) {
-                    _rng = (_rng.__slice__(0, (_rng.length) - (_t.length)) : stdgo.GoString);
-                    return { _0 : stdgo.Go.str(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("invalid character class range" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _rng } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+                    _rng = (_rng.__slice__(0, (_rng.length) - (_t.length)) : stdgo.GoString)?.__copy__();
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("invalid character class range" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _rng?.__copy__() } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
                 };
             };
             if (_p._flags & (1 : stdgo.regexp.syntax.Syntax.Flags) == ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
@@ -3837,7 +3837,7 @@ class T_parser_asInterface {
                 _class = _appendFoldedRange(_class, _lo, _hi);
             };
         };
-        _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+        _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
         _re.rune = _class;
         _class = _cleanClass((stdgo.Go.setRef(_re.rune) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoInt32>>));
         if (_sign < (0 : stdgo.StdGoTypes.GoInt)) {
@@ -3845,7 +3845,7 @@ class T_parser_asInterface {
         };
         _re.rune = _class;
         _p._push(_re);
-        return { _0 : _t, _1 : (null : stdgo.Error) };
+        return { _0 : _t?.__copy__(), _1 : (null : stdgo.Error) };
     }
     /**
         // parseUnicodeClass parses a leading Unicode character class like \p{Han}
@@ -3863,35 +3863,35 @@ class T_parser_asInterface {
         if (_s[(1 : stdgo.StdGoTypes.GoInt)] == ((80 : stdgo.StdGoTypes.GoUInt8))) {
             _sign = (-1 : stdgo.StdGoTypes.GoInt);
         };
-        var _t:stdgo.GoString = (_s.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
-        var __tmp__ = _nextRune(_t), _c:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _t:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var _t:stdgo.GoString = (_s.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
+        var __tmp__ = _nextRune(_t?.__copy__()), _c:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _t:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             return { _0 : _out, _1 : _rest, _2 : _err };
         };
         var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString), _name:stdgo.GoString = __1, _seq:stdgo.GoString = __0;
         if (_c != ((123 : stdgo.StdGoTypes.GoInt32))) {
-            _seq = (_s.__slice__(0, (_s.length) - (_t.length)) : stdgo.GoString);
-            _name = (_seq.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+            _seq = (_s.__slice__(0, (_s.length) - (_t.length)) : stdgo.GoString)?.__copy__();
+            _name = (_seq.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
         } else {
-            var _end:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.indexRune(_s, (125 : stdgo.StdGoTypes.GoInt32));
+            var _end:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.indexRune(_s?.__copy__(), (125 : stdgo.StdGoTypes.GoInt32));
             if (_end < (0 : stdgo.StdGoTypes.GoInt)) {
                 {
-                    _err = _checkUTF8(_s);
+                    _err = _checkUTF8(_s?.__copy__());
                     if (_err != null) {
                         return { _0 : _out, _1 : _rest, _2 : _err };
                     };
                 };
-                return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoInt32>), _1 : stdgo.Go.str(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid character class range" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _s) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+                return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoInt32>), _1 : stdgo.Go.str()?.__copy__(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid character class range" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _s?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
             };
             {
-                final __tmp__0 = (_s.__slice__(0, _end + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
-                final __tmp__1 = (_s.__slice__(_end + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                final __tmp__0 = (_s.__slice__(0, _end + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
+                final __tmp__1 = (_s.__slice__(_end + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                 _seq = __tmp__0;
                 _t = __tmp__1;
             };
-            _name = (_s.__slice__((3 : stdgo.StdGoTypes.GoInt), _end) : stdgo.GoString);
+            _name = (_s.__slice__((3 : stdgo.StdGoTypes.GoInt), _end) : stdgo.GoString)?.__copy__();
             {
-                _err = _checkUTF8(_name);
+                _err = _checkUTF8(_name?.__copy__());
                 if (_err != null) {
                     return { _0 : _out, _1 : _rest, _2 : _err };
                 };
@@ -3899,11 +3899,11 @@ class T_parser_asInterface {
         };
         if ((_name != stdgo.Go.str()) && (_name[(0 : stdgo.StdGoTypes.GoInt)] == (94 : stdgo.StdGoTypes.GoUInt8))) {
             _sign = -_sign;
-            _name = (_name.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+            _name = (_name.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
         };
-        var __tmp__ = _unicodeTable(_name), _tab:stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__._0, _fold:stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__._1;
+        var __tmp__ = _unicodeTable(_name?.__copy__()), _tab:stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__._0, _fold:stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__._1;
         if (_tab == null || (_tab : Dynamic).__nil__) {
-            return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoInt32>), _1 : stdgo.Go.str(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid character class range" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _seq) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+            return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoInt32>), _1 : stdgo.Go.str()?.__copy__(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid character class range" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _seq?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
         };
         if (((_p._flags & (1 : stdgo.regexp.syntax.Syntax.Flags)) == (0 : stdgo.regexp.syntax.Syntax.Flags)) || ((_fold == null) || (_fold : Dynamic).__nil__)) {
             if (_sign > (0 : stdgo.StdGoTypes.GoInt)) {
@@ -3923,7 +3923,7 @@ class T_parser_asInterface {
                 _r = _appendNegatedClass(_r, _tmp);
             };
         };
-        return { _0 : _r, _1 : _t, _2 : (null : stdgo.Error) };
+        return { _0 : _r, _1 : _t?.__copy__(), _2 : (null : stdgo.Error) };
     }
     @:keep
     static public function _appendGroup( _p:stdgo.StdGoTypes.Ref<T_parser>, _r:stdgo.Slice<stdgo.StdGoTypes.GoRune>, _g:T_charGroup):stdgo.Slice<stdgo.StdGoTypes.GoRune> {
@@ -3959,17 +3959,17 @@ class T_parser_asInterface {
         if (((_s.length < (2 : stdgo.StdGoTypes.GoInt)) || (_s[(0 : stdgo.StdGoTypes.GoInt)] != (91 : stdgo.StdGoTypes.GoUInt8))) || (_s[(1 : stdgo.StdGoTypes.GoInt)] != (58 : stdgo.StdGoTypes.GoUInt8))) {
             return { _0 : _out, _1 : _rest, _2 : _err };
         };
-        var _i:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.index((_s.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString), (":]" : stdgo.GoString));
+        var _i:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.index((_s.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), (":]" : stdgo.GoString)?.__copy__());
         if (_i < (0 : stdgo.StdGoTypes.GoInt)) {
             return { _0 : _out, _1 : _rest, _2 : _err };
         };
         _i = _i + ((2 : stdgo.StdGoTypes.GoInt));
-        var __0:stdgo.GoString = (_s.__slice__((0 : stdgo.StdGoTypes.GoInt), _i + (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString), __1:stdgo.GoString = (_s.__slice__(_i + (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString), _s:stdgo.GoString = __1, _name:stdgo.GoString = __0;
-        var _g:stdgo.regexp.syntax.Syntax.T_charGroup = (_posixGroup[_name] ?? ({} : stdgo.regexp.syntax.Syntax.T_charGroup))?.__copy__();
+        var __0:stdgo.GoString = (_s.__slice__((0 : stdgo.StdGoTypes.GoInt), _i + (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = (_s.__slice__(_i + (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), _s:stdgo.GoString = __1, _name:stdgo.GoString = __0;
+        var _g:stdgo.regexp.syntax.Syntax.T_charGroup = (_posixGroup[_name?.__copy__()] ?? ({} : stdgo.regexp.syntax.Syntax.T_charGroup))?.__copy__();
         if (_g._sign == ((0 : stdgo.StdGoTypes.GoInt))) {
-            return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoInt32>), _1 : stdgo.Go.str(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid character class range" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _name) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+            return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoInt32>), _1 : stdgo.Go.str()?.__copy__(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid character class range" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _name?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
         };
-        return { _0 : _p._appendGroup(_r, _g?.__copy__()), _1 : _s, _2 : (null : stdgo.Error) };
+        return { _0 : _p._appendGroup(_r, _g?.__copy__()), _1 : _s?.__copy__(), _2 : (null : stdgo.Error) };
     }
     /**
         // parsePerlClassEscape parses a leading Perl character class escape like \d
@@ -3983,11 +3983,11 @@ class T_parser_asInterface {
         if ((((_p._flags & (64 : stdgo.regexp.syntax.Syntax.Flags)) == (0 : stdgo.regexp.syntax.Syntax.Flags)) || (_s.length < (2 : stdgo.StdGoTypes.GoInt))) || (_s[(0 : stdgo.StdGoTypes.GoInt)] != (92 : stdgo.StdGoTypes.GoUInt8))) {
             return { _0 : _out, _1 : _rest };
         };
-        var _g:stdgo.regexp.syntax.Syntax.T_charGroup = (_perlGroup[(_s.__slice__((0 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)] ?? ({} : stdgo.regexp.syntax.Syntax.T_charGroup))?.__copy__();
+        var _g:stdgo.regexp.syntax.Syntax.T_charGroup = (_perlGroup[(_s.__slice__((0 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__()] ?? ({} : stdgo.regexp.syntax.Syntax.T_charGroup))?.__copy__();
         if (_g._sign == ((0 : stdgo.StdGoTypes.GoInt))) {
             return { _0 : _out, _1 : _rest };
         };
-        return { _0 : _p._appendGroup(_r, _g?.__copy__()), _1 : (_s.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString) };
+        return { _0 : _p._appendGroup(_r, _g?.__copy__()), _1 : (_s.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__() };
     }
     /**
         // parseClassChar parses a character class character at the beginning of s
@@ -3998,12 +3998,12 @@ class T_parser_asInterface {
         @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _r:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), _rest:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
         if (_s == (stdgo.Go.str())) {
-            return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("missing closing ]" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _wholeClass } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+            return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str()?.__copy__(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("missing closing ]" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _wholeClass?.__copy__() } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
         };
         if (_s[(0 : stdgo.StdGoTypes.GoInt)] == ((92 : stdgo.StdGoTypes.GoUInt8))) {
-            return _p._parseEscape(_s);
+            return _p._parseEscape(_s?.__copy__());
         };
-        return _nextRune(_s);
+        return _nextRune(_s?.__copy__());
     }
     /**
         // parseEscape parses an escape sequence at the beginning of s
@@ -4014,13 +4014,13 @@ class T_parser_asInterface {
         stdgo.internal.Macro.controlFlow({
             @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
             var _r:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), _rest:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
-            var _t:stdgo.GoString = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+            var _t:stdgo.GoString = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
             if (_t == (stdgo.Go.str())) {
-                return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("trailing backslash at end of expression" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), stdgo.Go.str()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+                return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str()?.__copy__(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("trailing backslash at end of expression" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), stdgo.Go.str()?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
             };
-            var __tmp__ = _nextRune(_t), _c:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _t:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            var __tmp__ = _nextRune(_t?.__copy__()), _c:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _t:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
-                return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str(), _2 : _err };
+                return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
             };
             @:label("Switch") {
                 var __switchIndex__ = -1;
@@ -4048,10 +4048,10 @@ class T_parser_asInterface {
                                         break;
                                     };
                                     _r = ((_r * (8 : stdgo.StdGoTypes.GoInt32)) + (_t[(0 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoRune)) - (48 : stdgo.StdGoTypes.GoInt32);
-                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                                    _t = (_t.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                                 });
                             };
-                            return { _0 : _r, _1 : _t, _2 : (null : stdgo.Error) };
+                            return { _0 : _r, _1 : _t?.__copy__(), _2 : (null : stdgo.Error) };
                             break;
                             break;
                         } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (__value__ == (120 : stdgo.StdGoTypes.GoInt32)))) {
@@ -4060,13 +4060,13 @@ class T_parser_asInterface {
                             };
                             {
                                 {
-                                    var __tmp__ = _nextRune(_t);
+                                    var __tmp__ = _nextRune(_t?.__copy__());
                                     _c = __tmp__._0;
-                                    _t = __tmp__._1;
+                                    _t = __tmp__._1?.__copy__();
                                     _err = __tmp__._2;
                                 };
                                 if (_err != null) {
-                                    return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str(), _2 : _err };
+                                    return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
                                 };
                             };
                             if (_c == ((123 : stdgo.StdGoTypes.GoInt32))) {
@@ -4078,13 +4078,13 @@ class T_parser_asInterface {
                                     };
                                     {
                                         {
-                                            var __tmp__ = _nextRune(_t);
+                                            var __tmp__ = _nextRune(_t?.__copy__());
                                             _c = __tmp__._0;
-                                            _t = __tmp__._1;
+                                            _t = __tmp__._1?.__copy__();
                                             _err = __tmp__._2;
                                         };
                                         if (_err != null) {
-                                            return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str(), _2 : _err };
+                                            return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
                                         };
                                     };
                                     if (_c == ((125 : stdgo.StdGoTypes.GoInt32))) {
@@ -4103,54 +4103,54 @@ class T_parser_asInterface {
                                 if (_nhex == ((0 : stdgo.StdGoTypes.GoInt))) {
                                     @:jump("Switch") break;
                                 };
-                                return { _0 : _r, _1 : _t, _2 : (null : stdgo.Error) };
+                                return { _0 : _r, _1 : _t?.__copy__(), _2 : (null : stdgo.Error) };
                             };
                             var _x:stdgo.StdGoTypes.GoInt32 = _unhex(_c);
                             {
                                 {
-                                    var __tmp__ = _nextRune(_t);
+                                    var __tmp__ = _nextRune(_t?.__copy__());
                                     _c = __tmp__._0;
-                                    _t = __tmp__._1;
+                                    _t = __tmp__._1?.__copy__();
                                     _err = __tmp__._2;
                                 };
                                 if (_err != null) {
-                                    return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str(), _2 : _err };
+                                    return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
                                 };
                             };
                             var _y:stdgo.StdGoTypes.GoInt32 = _unhex(_c);
                             if ((_x < (0 : stdgo.StdGoTypes.GoInt32)) || (_y < (0 : stdgo.StdGoTypes.GoInt32))) {
                                 break;
                             };
-                            return { _0 : (_x * (16 : stdgo.StdGoTypes.GoInt32)) + _y, _1 : _t, _2 : (null : stdgo.Error) };
+                            return { _0 : (_x * (16 : stdgo.StdGoTypes.GoInt32)) + _y, _1 : _t?.__copy__(), _2 : (null : stdgo.Error) };
                             break;
                             break;
                         } else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && (__value__ == (97 : stdgo.StdGoTypes.GoInt32)))) {
-                            return { _0 : (7 : stdgo.StdGoTypes.GoInt32), _1 : _t, _2 : _err };
+                            return { _0 : (7 : stdgo.StdGoTypes.GoInt32), _1 : _t?.__copy__(), _2 : _err };
                             break;
                             break;
                         } else if (__switchIndex__ == 5 || (__switchIndex__ == -1 && (__value__ == (102 : stdgo.StdGoTypes.GoInt32)))) {
-                            return { _0 : (12 : stdgo.StdGoTypes.GoInt32), _1 : _t, _2 : _err };
+                            return { _0 : (12 : stdgo.StdGoTypes.GoInt32), _1 : _t?.__copy__(), _2 : _err };
                             break;
                             break;
                         } else if (__switchIndex__ == 6 || (__switchIndex__ == -1 && (__value__ == (110 : stdgo.StdGoTypes.GoInt32)))) {
-                            return { _0 : (10 : stdgo.StdGoTypes.GoInt32), _1 : _t, _2 : _err };
+                            return { _0 : (10 : stdgo.StdGoTypes.GoInt32), _1 : _t?.__copy__(), _2 : _err };
                             break;
                             break;
                         } else if (__switchIndex__ == 7 || (__switchIndex__ == -1 && (__value__ == (114 : stdgo.StdGoTypes.GoInt32)))) {
-                            return { _0 : (13 : stdgo.StdGoTypes.GoInt32), _1 : _t, _2 : _err };
+                            return { _0 : (13 : stdgo.StdGoTypes.GoInt32), _1 : _t?.__copy__(), _2 : _err };
                             break;
                             break;
                         } else if (__switchIndex__ == 8 || (__switchIndex__ == -1 && (__value__ == (116 : stdgo.StdGoTypes.GoInt32)))) {
-                            return { _0 : (9 : stdgo.StdGoTypes.GoInt32), _1 : _t, _2 : _err };
+                            return { _0 : (9 : stdgo.StdGoTypes.GoInt32), _1 : _t?.__copy__(), _2 : _err };
                             break;
                             break;
                         } else if (__switchIndex__ == 9 || (__switchIndex__ == -1 && (__value__ == (118 : stdgo.StdGoTypes.GoInt32)))) {
-                            return { _0 : (11 : stdgo.StdGoTypes.GoInt32), _1 : _t, _2 : _err };
+                            return { _0 : (11 : stdgo.StdGoTypes.GoInt32), _1 : _t?.__copy__(), _2 : _err };
                             break;
                             break;
                         } else {
                             if ((_c < (128 : stdgo.StdGoTypes.GoInt32)) && !_isalnum(_c)) {
-                                return { _0 : _c, _1 : _t, _2 : (null : stdgo.Error) };
+                                return { _0 : _c, _1 : _t?.__copy__(), _2 : (null : stdgo.Error) };
                             };
                             break;
                         };
@@ -4158,7 +4158,7 @@ class T_parser_asInterface {
                     break;
                 };
             };
-            return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid escape sequence" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_s.__slice__(0, (_s.length) - (_t.length)) : stdgo.GoString)) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+            return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str()?.__copy__(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid escape sequence" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_s.__slice__(0, (_s.length) - (_t.length)) : stdgo.GoString)?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
         });
         throw "controlFlow did not return";
     }
@@ -4175,13 +4175,13 @@ class T_parser_asInterface {
         _p._alternate();
         var _n:stdgo.StdGoTypes.GoInt = (_p._stack.length);
         if (_n < (2 : stdgo.StdGoTypes.GoInt)) {
-            return stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("unexpected )" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _p._wholeRegexp) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
+            return stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("unexpected )" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _p._wholeRegexp?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
         };
         var _re1 = _p._stack[(_n - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)];
         var _re2 = _p._stack[(_n - (2 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)];
         _p._stack = (_p._stack.__slice__(0, _n - (2 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp>>);
         if (_re2.op != ((128 : stdgo.regexp.syntax.Syntax.Op))) {
-            return stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("unexpected )" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _p._wholeRegexp) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
+            return stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("unexpected )" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _p._wholeRegexp?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
         };
         _p._flags = _re2.flags;
         if (_re2.cap == ((0 : stdgo.StdGoTypes.GoInt))) {
@@ -4259,13 +4259,13 @@ class T_parser_asInterface {
         if ((((_s.length >= (2 : stdgo.StdGoTypes.GoInt)) && (_s[(0 : stdgo.StdGoTypes.GoInt)] == (48 : stdgo.StdGoTypes.GoUInt8))) && ((48 : stdgo.StdGoTypes.GoUInt8) <= _s[(1 : stdgo.StdGoTypes.GoInt)])) && (_s[(1 : stdgo.StdGoTypes.GoInt)] <= (57 : stdgo.StdGoTypes.GoUInt8))) {
             return { _0 : _n, _1 : _rest, _2 : _ok };
         };
-        var _t:stdgo.GoString = _s;
+        var _t:stdgo.GoString = _s?.__copy__();
         while (((_s != stdgo.Go.str()) && ((48 : stdgo.StdGoTypes.GoUInt8) <= _s[(0 : stdgo.StdGoTypes.GoInt)])) && (_s[(0 : stdgo.StdGoTypes.GoInt)] <= (57 : stdgo.StdGoTypes.GoUInt8))) {
-            _s = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+            _s = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
         };
-        _rest = _s;
+        _rest = _s?.__copy__();
         _ok = true;
-        _t = (_t.__slice__(0, (_t.length) - (_s.length)) : stdgo.GoString);
+        _t = (_t.__slice__(0, (_t.length) - (_s.length)) : stdgo.GoString)?.__copy__();
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_t.length), _i++, {
@@ -4288,50 +4288,50 @@ class T_parser_asInterface {
         stdgo.internal.Macro.controlFlow({
             @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
             var _rest:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
-            var _t:stdgo.GoString = _s;
+            var _t:stdgo.GoString = _s?.__copy__();
             if (((_t.length > (4 : stdgo.StdGoTypes.GoInt)) && (_t[(2 : stdgo.StdGoTypes.GoInt)] == (80 : stdgo.StdGoTypes.GoUInt8))) && (_t[(3 : stdgo.StdGoTypes.GoInt)] == (60 : stdgo.StdGoTypes.GoUInt8))) {
-                var _end:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.indexRune(_t, (62 : stdgo.StdGoTypes.GoInt32));
+                var _end:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.indexRune(_t?.__copy__(), (62 : stdgo.StdGoTypes.GoInt32));
                 if (_end < (0 : stdgo.StdGoTypes.GoInt)) {
                     {
-                        _err = _checkUTF8(_t);
+                        _err = _checkUTF8(_t?.__copy__());
                         if (_err != null) {
-                            return { _0 : stdgo.Go.str(), _1 : _err };
+                            return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                         };
                     };
-                    return { _0 : stdgo.Go.str(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid named capture" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _s) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid named capture" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _s?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
                 };
-                var _capture:stdgo.GoString = (_t.__slice__(0, _end + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
-                var _name:stdgo.GoString = (_t.__slice__((4 : stdgo.StdGoTypes.GoInt), _end) : stdgo.GoString);
+                var _capture:stdgo.GoString = (_t.__slice__(0, _end + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
+                var _name:stdgo.GoString = (_t.__slice__((4 : stdgo.StdGoTypes.GoInt), _end) : stdgo.GoString)?.__copy__();
                 {
-                    _err = _checkUTF8(_name);
+                    _err = _checkUTF8(_name?.__copy__());
                     if (_err != null) {
-                        return { _0 : stdgo.Go.str(), _1 : _err };
+                        return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                     };
                 };
-                if (!_isValidCaptureName(_name)) {
-                    return { _0 : stdgo.Go.str(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid named capture" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _capture) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+                if (!_isValidCaptureName(_name?.__copy__())) {
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid named capture" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), _capture?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
                 };
                 _p._numCap++;
                 var _re = _p._op((128 : stdgo.regexp.syntax.Syntax.Op));
                 _re.cap = _p._numCap;
-                _re.name = _name;
-                return { _0 : (_t.__slice__(_end + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString), _1 : (null : stdgo.Error) };
+                _re.name = _name?.__copy__();
+                return { _0 : (_t.__slice__(_end + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
             };
             var _c:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32);
-            _t = (_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+            _t = (_t.__slice__((2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
             var _flags:stdgo.regexp.syntax.Syntax.Flags = _p._flags;
             var _sign:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
             var _sawFlag:Bool = false;
             @:label("Loop") while (_t != (stdgo.Go.str())) {
                 {
                     {
-                        var __tmp__ = _nextRune(_t);
+                        var __tmp__ = _nextRune(_t?.__copy__());
                         _c = __tmp__._0;
-                        _t = __tmp__._1;
+                        _t = __tmp__._1?.__copy__();
                         _err = __tmp__._2;
                     };
                     if (_err != null) {
-                        return { _0 : stdgo.Go.str(), _1 : _err };
+                        return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                     };
                 };
                 {
@@ -4376,7 +4376,7 @@ class T_parser_asInterface {
                                     _p._op((128 : stdgo.regexp.syntax.Syntax.Op));
                                 };
                                 _p._flags = _flags;
-                                return { _0 : _t, _1 : (null : stdgo.Error) };
+                                return { _0 : _t?.__copy__(), _1 : (null : stdgo.Error) };
                                 break;
                             } else {
                                 @:jump("Loop") break;
@@ -4386,7 +4386,7 @@ class T_parser_asInterface {
                     };
                 };
             };
-            return { _0 : stdgo.Go.str(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid or unsupported Perl syntax" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_s.__slice__(0, (_s.length) - (_t.length)) : stdgo.GoString)) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid or unsupported Perl syntax" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_s.__slice__(0, (_s.length) - (_t.length)) : stdgo.GoString)?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
         });
         throw "controlFlow did not return";
     }
@@ -4402,13 +4402,13 @@ class T_parser_asInterface {
         if ((_s == stdgo.Go.str()) || (_s[(0 : stdgo.StdGoTypes.GoInt)] != (123 : stdgo.StdGoTypes.GoUInt8))) {
             return { _0 : _min, _1 : _max, _2 : _rest, _3 : _ok };
         };
-        _s = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+        _s = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
         var _ok1:Bool = false;
         {
             {
-                var __tmp__ = _p._parseInt(_s);
+                var __tmp__ = _p._parseInt(_s?.__copy__());
                 _min = __tmp__._0;
-                _s = __tmp__._1;
+                _s = __tmp__._1?.__copy__();
                 _ok1 = __tmp__._2;
             };
             if (!_ok1) {
@@ -4421,7 +4421,7 @@ class T_parser_asInterface {
         if (_s[(0 : stdgo.StdGoTypes.GoInt)] != ((44 : stdgo.StdGoTypes.GoUInt8))) {
             _max = _min;
         } else {
-            _s = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+            _s = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
             if (_s == (stdgo.Go.str())) {
                 return { _0 : _min, _1 : _max, _2 : _rest, _3 : _ok };
             };
@@ -4429,9 +4429,9 @@ class T_parser_asInterface {
                 _max = (-1 : stdgo.StdGoTypes.GoInt);
             } else {
                 {
-                    var __tmp__ = _p._parseInt(_s);
+                    var __tmp__ = _p._parseInt(_s?.__copy__());
                     _max = __tmp__._0;
-                    _s = __tmp__._1;
+                    _s = __tmp__._1?.__copy__();
                     _ok1 = __tmp__._2;
                 };
                 if (!_ok1) {
@@ -4444,7 +4444,7 @@ class T_parser_asInterface {
         if ((_s == stdgo.Go.str()) || (_s[(0 : stdgo.StdGoTypes.GoInt)] != (125 : stdgo.StdGoTypes.GoUInt8))) {
             return { _0 : _min, _1 : _max, _2 : _rest, _3 : _ok };
         };
-        _rest = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+        _rest = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
         _ok = true;
         return { _0 : _min, _1 : _max, _2 : _rest, _3 : _ok };
     }
@@ -4795,20 +4795,20 @@ class T_parser_asInterface {
         var _flags:stdgo.regexp.syntax.Syntax.Flags = _p._flags;
         if (_p._flags & (64 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
             if ((_after.length > (0 : stdgo.StdGoTypes.GoInt)) && (_after[(0 : stdgo.StdGoTypes.GoInt)] == (63 : stdgo.StdGoTypes.GoUInt8))) {
-                _after = (_after.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                _after = (_after.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                 _flags = _flags ^ ((32 : stdgo.regexp.syntax.Syntax.Flags));
             };
             if (_lastRepeat != (stdgo.Go.str())) {
-                return { _0 : stdgo.Go.str(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid nested repetition operator" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_lastRepeat.__slice__(0, (_lastRepeat.length) - (_after.length)) : stdgo.GoString)) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+                return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid nested repetition operator" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_lastRepeat.__slice__(0, (_lastRepeat.length) - (_after.length)) : stdgo.GoString)?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
             };
         };
         var _n:stdgo.StdGoTypes.GoInt = (_p._stack.length);
         if (_n == ((0 : stdgo.StdGoTypes.GoInt))) {
-            return { _0 : stdgo.Go.str(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("missing argument to repetition operator" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_before.__slice__(0, (_before.length) - (_after.length)) : stdgo.GoString)) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("missing argument to repetition operator" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_before.__slice__(0, (_before.length) - (_after.length)) : stdgo.GoString)?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
         };
         var _sub = _p._stack[(_n - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)];
         if (_sub.op >= (128 : stdgo.regexp.syntax.Syntax.Op)) {
-            return { _0 : stdgo.Go.str(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("missing argument to repetition operator" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_before.__slice__(0, (_before.length) - (_after.length)) : stdgo.GoString)) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("missing argument to repetition operator" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_before.__slice__(0, (_before.length) - (_after.length)) : stdgo.GoString)?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
         };
         var _re = _p._newRegexp(_op);
         _re.min = _min;
@@ -4819,9 +4819,9 @@ class T_parser_asInterface {
         _p._stack[(_n - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] = _re;
         _p._checkLimits(_re);
         if (((_op == (17 : stdgo.regexp.syntax.Syntax.Op)) && ((_min >= (2 : stdgo.StdGoTypes.GoInt)) || (_max >= (2 : stdgo.StdGoTypes.GoInt)))) && !_repeatIsValid(_re, (1000 : stdgo.StdGoTypes.GoInt))) {
-            return { _0 : stdgo.Go.str(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid repeat count" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_before.__slice__(0, (_before.length) - (_after.length)) : stdgo.GoString)) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_error((("invalid repeat count" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), (_before.__slice__(0, (_before.length) - (_after.length)) : stdgo.GoString)?.__copy__()) : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
         };
-        return { _0 : _after, _1 : (null : stdgo.Error) };
+        return { _0 : _after?.__copy__(), _1 : (null : stdgo.Error) };
     }
     /**
         // op pushes a regexp with the given op onto the stack
@@ -5227,14 +5227,14 @@ class Prog_asInterface {
         var _prefix:stdgo.GoString = ("" : stdgo.GoString), _complete:Bool = false;
         var _i = _p._skipNop((_p.start : stdgo.StdGoTypes.GoUInt32));
         if ((_i._op() != (7 : stdgo.regexp.syntax.Syntax.InstOp)) || (_i.rune.length != (1 : stdgo.StdGoTypes.GoInt))) {
-            return { _0 : stdgo.Go.str(), _1 : _i.op == ((4 : stdgo.regexp.syntax.Syntax.InstOp)) };
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : _i.op == ((4 : stdgo.regexp.syntax.Syntax.InstOp)) };
         };
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         while ((((_i._op() == (7 : stdgo.regexp.syntax.Syntax.InstOp)) && (_i.rune.length == (1 : stdgo.StdGoTypes.GoInt))) && (((_i.arg : Flags) & (1 : stdgo.regexp.syntax.Syntax.Flags)) == (0 : stdgo.regexp.syntax.Syntax.Flags))) && (_i.rune[(0 : stdgo.StdGoTypes.GoInt)] != (65533 : stdgo.StdGoTypes.GoInt32))) {
             _buf.writeRune(_i.rune[(0 : stdgo.StdGoTypes.GoInt)]);
             _i = _p._skipNop(_i.out);
         };
-        return { _0 : (_buf.string() : stdgo.GoString), _1 : _i.op == ((4 : stdgo.regexp.syntax.Syntax.InstOp)) };
+        return { _0 : (_buf.string() : stdgo.GoString)?.__copy__(), _1 : _i.op == ((4 : stdgo.regexp.syntax.Syntax.InstOp)) };
     }
     /**
         // skipNop follows any no-op or capturing instructions.
@@ -5253,7 +5253,7 @@ class Prog_asInterface {
         @:recv var _p:stdgo.StdGoTypes.Ref<Prog> = _p;
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         _dumpProg((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>), _p);
-        return (_b.string() : stdgo.GoString);
+        return (_b.string() : stdgo.GoString)?.__copy__();
     }
 }
 class Inst_asInterface {
@@ -5300,7 +5300,7 @@ class Inst_asInterface {
         @:recv var _i:stdgo.StdGoTypes.Ref<Inst> = _i;
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         _dumpInst((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>), _i);
-        return (_b.string() : stdgo.GoString);
+        return (_b.string() : stdgo.GoString)?.__copy__();
     }
     /**
         // MatchEmptyWidth reports whether the instruction matches
@@ -5573,7 +5573,7 @@ class Regexp_asInterface {
     static public function _capNames( _re:stdgo.StdGoTypes.Ref<Regexp>, _names:stdgo.Slice<stdgo.GoString>):Void {
         @:recv var _re:stdgo.StdGoTypes.Ref<Regexp> = _re;
         if (_re.op == ((13 : stdgo.regexp.syntax.Syntax.Op))) {
-            _names[(_re.cap : stdgo.StdGoTypes.GoInt)] = _re.name;
+            _names[(_re.cap : stdgo.StdGoTypes.GoInt)] = _re.name?.__copy__();
         };
         for (__0 => _sub in _re.sub) {
             _sub._capNames(_names);
@@ -5614,7 +5614,7 @@ class Regexp_asInterface {
         @:recv var _re:stdgo.StdGoTypes.Ref<Regexp> = _re;
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         _writeRegexp((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>), _re);
-        return (_b.string() : stdgo.GoString);
+        return (_b.string() : stdgo.GoString)?.__copy__();
     }
     /**
         // Equal reports whether x and y have identical structure.
@@ -5684,7 +5684,7 @@ class ErrorCode_asInterface {
     @:keep
     static public function string( _e:ErrorCode):stdgo.GoString {
         @:recv var _e:ErrorCode = _e;
-        return (_e : stdgo.GoString);
+        return (_e : stdgo.GoString)?.__copy__();
     }
 }
 class InstOp_asInterface {
@@ -5703,9 +5703,9 @@ class InstOp_asInterface {
     static public function string( _i:InstOp):stdgo.GoString {
         @:recv var _i:InstOp = _i;
         if ((_i : stdgo.StdGoTypes.GoUInt) >= (_instOpNames.length : stdgo.StdGoTypes.GoUInt)) {
-            return stdgo.Go.str();
+            return stdgo.Go.str()?.__copy__();
         };
-        return _instOpNames[(_i : stdgo.StdGoTypes.GoInt)];
+        return _instOpNames[(_i : stdgo.StdGoTypes.GoInt)]?.__copy__();
     }
 }
 class Op_asInterface {
@@ -5725,11 +5725,11 @@ class Op_asInterface {
         @:recv var _i:Op = _i;
         if (((1 : stdgo.regexp.syntax.Syntax.Op) <= _i) && (_i <= (19 : stdgo.regexp.syntax.Syntax.Op))) {
             _i = _i - ((1 : stdgo.regexp.syntax.Syntax.Op));
-            return (("NoMatchEmptyMatchLiteralCharClassAnyCharNotNLAnyCharBeginLineEndLineBeginTextEndTextWordBoundaryNoWordBoundaryCaptureStarPlusQuestRepeatConcatAlternate" : stdgo.GoString).__slice__(__Op_index_0[(_i : stdgo.StdGoTypes.GoInt)], __Op_index_0[(_i + (1 : stdgo.regexp.syntax.Syntax.Op) : stdgo.StdGoTypes.GoInt)]) : stdgo.GoString);
+            return (("NoMatchEmptyMatchLiteralCharClassAnyCharNotNLAnyCharBeginLineEndLineBeginTextEndTextWordBoundaryNoWordBoundaryCaptureStarPlusQuestRepeatConcatAlternate" : stdgo.GoString).__slice__(__Op_index_0[(_i : stdgo.StdGoTypes.GoInt)], __Op_index_0[(_i + (1 : stdgo.regexp.syntax.Syntax.Op) : stdgo.StdGoTypes.GoInt)]) : stdgo.GoString)?.__copy__();
         } else if (_i == ((128 : stdgo.regexp.syntax.Syntax.Op))) {
-            return ("opPseudo" : stdgo.GoString);
+            return ("opPseudo" : stdgo.GoString)?.__copy__();
         } else {
-            return (("Op(" : stdgo.GoString) + stdgo.strconv.Strconv.formatInt((_i : stdgo.StdGoTypes.GoInt64), (10 : stdgo.StdGoTypes.GoInt))) + (")" : stdgo.GoString);
+            return ("Op(" : stdgo.GoString) + stdgo.strconv.Strconv.formatInt((_i : stdgo.StdGoTypes.GoInt64), (10 : stdgo.StdGoTypes.GoInt))?.__copy__() + (")" : stdgo.GoString)?.__copy__()?.__copy__();
         };
     }
 }

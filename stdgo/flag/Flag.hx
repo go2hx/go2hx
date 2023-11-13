@@ -86,21 +86,21 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var errHelp : stdgo.Error = stdgo.errors.Errors.new_(("flag: help requested" : stdgo.GoString));
+var errHelp : stdgo.Error = stdgo.errors.Errors.new_(("flag: help requested" : stdgo.GoString)?.__copy__());
 /**
     // errParse is returned by Set if a flag's value fails to parse, such as with an invalid integer for Int.
     // It then gets wrapped through failf to provide more information.
     
     
 **/
-var _errParse : stdgo.Error = stdgo.errors.Errors.new_(("parse error" : stdgo.GoString));
+var _errParse : stdgo.Error = stdgo.errors.Errors.new_(("parse error" : stdgo.GoString)?.__copy__());
 /**
     // errRange is returned by Set if a flag's value is out of range.
     // It then gets wrapped through failf to provide more information.
     
     
 **/
-var _errRange : stdgo.Error = stdgo.errors.Errors.new_(("value out of range" : stdgo.GoString));
+var _errRange : stdgo.Error = stdgo.errors.Errors.new_(("value out of range" : stdgo.GoString)?.__copy__());
 /**
     // CommandLine is the default set of command-line flags, parsed from os.Args.
     // The top-level functions such as BoolVar, Arg, and so on are wrappers for the
@@ -108,7 +108,7 @@ var _errRange : stdgo.Error = stdgo.errors.Errors.new_(("value out of range" : s
     
     
 **/
-var commandLine : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.FlagSet> = newFlagSet(stdgo.os.Os.args[(0 : stdgo.StdGoTypes.GoInt)], (1 : stdgo.flag.Flag.ErrorHandling));
+var commandLine : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.FlagSet> = newFlagSet(stdgo.os.Os.args[(0 : stdgo.StdGoTypes.GoInt)]?.__copy__(), (1 : stdgo.flag.Flag.ErrorHandling));
 /**
     // Usage prints a usage message documenting all defined command-line flags
     // to CommandLine's output, which by default is os.Stderr.
@@ -123,7 +123,7 @@ var commandLine : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.FlagSet> = newFlagSet(std
     
 **/
 var usage : () -> Void = function():Void {
-        stdgo.fmt.Fmt.fprintf(commandLine.output(), ("Usage of %s:\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.os.Os.args[(0 : stdgo.StdGoTypes.GoInt)]));
+        stdgo.fmt.Fmt.fprintf(commandLine.output(), ("Usage of %s:\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.os.Os.args[(0 : stdgo.StdGoTypes.GoInt)]));
         printDefaults();
     };
 /**
@@ -338,7 +338,7 @@ typedef Getter = stdgo.StdGoTypes.StructType & {
     // exit the program.
 **/
 function resetForTesting(_usage:() -> Void):Void {
-        commandLine = newFlagSet(stdgo.os.Os.args[(0 : stdgo.StdGoTypes.GoInt)], (0 : stdgo.flag.Flag.ErrorHandling));
+        commandLine = newFlagSet(stdgo.os.Os.args[(0 : stdgo.StdGoTypes.GoInt)]?.__copy__(), (0 : stdgo.flag.Flag.ErrorHandling));
         commandLine.setOutput(stdgo.io.Io.discard);
         commandLine.usage = _commandLineUsage;
         usage = _usage;
@@ -381,7 +381,7 @@ function _newUint64Value(_val:stdgo.StdGoTypes.GoUInt64, _p:stdgo.Pointer<stdgo.
         return new stdgo.Pointer<stdgo.flag.Flag.T_uint64Value>(() -> (_p.value : stdgo.flag.Flag.T_uint64Value), v -> (_p.value = (v : stdgo.StdGoTypes.GoUInt64) : stdgo.flag.Flag.T_uint64Value));
     }
 function _newStringValue(_val:stdgo.GoString, _p:stdgo.Pointer<stdgo.GoString>):stdgo.Pointer<T_stringValue> {
-        _p.value = _val;
+        _p.value = _val?.__copy__();
         return new stdgo.Pointer<stdgo.flag.Flag.T_stringValue>(() -> (_p.value : stdgo.flag.Flag.T_stringValue), v -> (_p.value = (v : stdgo.GoString) : stdgo.flag.Flag.T_stringValue));
     }
 function _newFloat64Value(_val:stdgo.StdGoTypes.GoFloat64, _p:stdgo.Pointer<stdgo.StdGoTypes.GoFloat64>):stdgo.Pointer<T_float64Value> {
@@ -402,7 +402,7 @@ function _newTextValue(_val:stdgo.encoding.Encoding.TextMarshaler, _p:stdgo.enco
             _defVal = _defVal.elem()?.__copy__();
         };
         if (!((_defVal.type().string() : String) == (_ptrVal.type().elem().string() : String))) {
-            throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("default type does not match variable type: %v != %v" : stdgo.GoString), stdgo.Go.toInterface(_defVal.type()), stdgo.Go.toInterface(_ptrVal.type().elem())));
+            throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("default type does not match variable type: %v != %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_defVal.type()), stdgo.Go.toInterface(_ptrVal.type().elem())));
         };
         _ptrVal.elem().set(_defVal?.__copy__());
         return (new T_textValue(_p) : T_textValue);
@@ -441,13 +441,13 @@ function visit(_fn:stdgo.StdGoTypes.Ref<Flag> -> Void):Void {
     // returning nil if none exists.
 **/
 function lookup(_name:stdgo.GoString):stdgo.StdGoTypes.Ref<Flag> {
-        return (commandLine._formal[_name] ?? (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>));
+        return (commandLine._formal[_name?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>));
     }
 /**
     // Set sets the value of the named command-line flag.
 **/
 function set(_name:stdgo.GoString, _value:stdgo.GoString):stdgo.Error {
-        return commandLine._set(_name, _value);
+        return commandLine._set(_name?.__copy__(), _value?.__copy__());
     }
 /**
     // isZeroValue determines whether the string represents the zero
@@ -476,7 +476,7 @@ function _isZeroValue(_flag:stdgo.StdGoTypes.Ref<Flag>, _value:stdgo.GoString):{
                             if (_typ.kind() == ((22u32 : stdgo.reflect.Reflect.Kind))) {
                                 _typ = _typ.elem();
                             };
-                            _err = stdgo.fmt.Fmt.errorf(("panic calling String method on zero %v for flag %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(_flag.name), _e);
+                            _err = stdgo.fmt.Fmt.errorf(("panic calling String method on zero %v for flag %s: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(_flag.name), _e);
                         };
                     };
                 };
@@ -521,7 +521,7 @@ function _isZeroValue(_flag:stdgo.StdGoTypes.Ref<Flag>, _value:stdgo.GoString):{
 **/
 function unquoteUsage(_flag:stdgo.StdGoTypes.Ref<Flag>):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
         var _name:stdgo.GoString = ("" : stdgo.GoString), _usage:stdgo.GoString = ("" : stdgo.GoString);
-        _usage = _flag.usage;
+        _usage = _flag.usage?.__copy__();
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_usage.length), _i++, {
@@ -530,9 +530,9 @@ function unquoteUsage(_flag:stdgo.StdGoTypes.Ref<Flag>):{ var _0 : stdgo.GoStrin
                         var _j:stdgo.StdGoTypes.GoInt = _i + (1 : stdgo.StdGoTypes.GoInt);
                         stdgo.Go.cfor(_j < (_usage.length), _j++, {
                             if (_usage[(_j : stdgo.StdGoTypes.GoInt)] == ((96 : stdgo.StdGoTypes.GoUInt8))) {
-                                _name = (_usage.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt), _j) : stdgo.GoString);
-                                _usage = ((_usage.__slice__(0, _i) : stdgo.GoString) + _name) + (_usage.__slice__(_j + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
-                                return { _0 : _name, _1 : _usage };
+                                _name = (_usage.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt), _j) : stdgo.GoString)?.__copy__();
+                                _usage = (_usage.__slice__(0, _i) : stdgo.GoString) + _name?.__copy__() + (_usage.__slice__(_j + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__()?.__copy__();
+                                return { _0 : _name?.__copy__(), _1 : _usage?.__copy__() };
                             };
                         });
                     };
@@ -540,29 +540,29 @@ function unquoteUsage(_flag:stdgo.StdGoTypes.Ref<Flag>):{ var _0 : stdgo.GoStrin
                 };
             });
         };
-        _name = ("value" : stdgo.GoString);
+        _name = ("value" : stdgo.GoString)?.__copy__();
         {
             final __type__ = _flag.value;
             if (stdgo.Go.typeEquals((__type__ : T_boolFlag))) {
                 var _fv:stdgo.flag.Flag.T_boolFlag = __type__ == null ? (null : stdgo.flag.Flag.T_boolFlag) : cast __type__;
                 if (_fv.isBoolFlag()) {
-                    _name = stdgo.Go.str();
+                    _name = stdgo.Go.str()?.__copy__();
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<T_durationValue>))) {
                 var _fv:stdgo.Pointer<stdgo.flag.Flag.T_durationValue> = __type__ == null ? (null : stdgo.Pointer<stdgo.flag.Flag.T_durationValue>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.flag.Flag.T_durationValue>) : __type__ == null ? (null : stdgo.Pointer<stdgo.flag.Flag.T_durationValue>) : __type__.__underlying__().value;
-                _name = ("duration" : stdgo.GoString);
+                _name = ("duration" : stdgo.GoString)?.__copy__();
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<T_float64Value>))) {
                 var _fv:stdgo.Pointer<stdgo.flag.Flag.T_float64Value> = __type__ == null ? (null : stdgo.Pointer<stdgo.flag.Flag.T_float64Value>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.flag.Flag.T_float64Value>) : __type__ == null ? (null : stdgo.Pointer<stdgo.flag.Flag.T_float64Value>) : __type__.__underlying__().value;
-                _name = ("float" : stdgo.GoString);
+                _name = ("float" : stdgo.GoString)?.__copy__();
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<T_intValue>)) || stdgo.Go.typeEquals((__type__ : stdgo.Pointer<T_int64Value>))) {
                 var _fv:stdgo.flag.Flag.Value = __type__ == null ? (null : stdgo.flag.Flag.Value) : cast __type__;
-                _name = ("int" : stdgo.GoString);
+                _name = ("int" : stdgo.GoString)?.__copy__();
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<T_stringValue>))) {
                 var _fv:stdgo.Pointer<stdgo.flag.Flag.T_stringValue> = __type__ == null ? (null : stdgo.Pointer<stdgo.flag.Flag.T_stringValue>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.flag.Flag.T_stringValue>) : __type__ == null ? (null : stdgo.Pointer<stdgo.flag.Flag.T_stringValue>) : __type__.__underlying__().value;
-                _name = ("string" : stdgo.GoString);
+                _name = ("string" : stdgo.GoString)?.__copy__();
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<T_uintValue>)) || stdgo.Go.typeEquals((__type__ : stdgo.Pointer<T_uint64Value>))) {
                 var _fv:stdgo.flag.Flag.Value = __type__ == null ? (null : stdgo.flag.Flag.Value) : cast __type__;
-                _name = ("uint" : stdgo.GoString);
+                _name = ("uint" : stdgo.GoString)?.__copy__();
             };
         };
         return { _0 : _name, _1 : _usage };
@@ -610,7 +610,7 @@ function nflag():stdgo.StdGoTypes.GoInt {
     // requested element does not exist.
 **/
 function arg(_i:stdgo.StdGoTypes.GoInt):stdgo.GoString {
-        return commandLine.arg(_i);
+        return commandLine.arg(_i)?.__copy__();
     }
 /**
     // NArg is the number of arguments remaining after flags have been processed.
@@ -629,98 +629,98 @@ function args():stdgo.Slice<stdgo.GoString> {
     // The argument p points to a bool variable in which to store the value of the flag.
 **/
 function boolVar(_p:stdgo.Pointer<Bool>, _name:stdgo.GoString, _value:Bool, _usage:stdgo.GoString):Void {
-        commandLine.var_(stdgo.Go.asInterface(_newBoolValue(_value, _p)), _name, _usage);
+        commandLine.var_(stdgo.Go.asInterface(_newBoolValue(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
 /**
     // Bool defines a bool flag with specified name, default value, and usage string.
     // The return value is the address of a bool variable that stores the value of the flag.
 **/
 function bool_(_name:stdgo.GoString, _value:Bool, _usage:stdgo.GoString):stdgo.Pointer<Bool> {
-        return commandLine.bool_(_name, _value, _usage);
+        return commandLine.bool_(_name?.__copy__(), _value, _usage?.__copy__());
     }
 /**
     // IntVar defines an int flag with specified name, default value, and usage string.
     // The argument p points to an int variable in which to store the value of the flag.
 **/
 function intVar(_p:stdgo.Pointer<stdgo.StdGoTypes.GoInt>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt, _usage:stdgo.GoString):Void {
-        commandLine.var_(stdgo.Go.asInterface(_newIntValue(_value, _p)), _name, _usage);
+        commandLine.var_(stdgo.Go.asInterface(_newIntValue(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
 /**
     // Int defines an int flag with specified name, default value, and usage string.
     // The return value is the address of an int variable that stores the value of the flag.
 **/
 function int_(_name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoInt> {
-        return commandLine.int_(_name, _value, _usage);
+        return commandLine.int_(_name?.__copy__(), _value, _usage?.__copy__());
     }
 /**
     // Int64Var defines an int64 flag with specified name, default value, and usage string.
     // The argument p points to an int64 variable in which to store the value of the flag.
 **/
 function int64Var(_p:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt64, _usage:stdgo.GoString):Void {
-        commandLine.var_(stdgo.Go.asInterface(_newInt64Value(_value, _p)), _name, _usage);
+        commandLine.var_(stdgo.Go.asInterface(_newInt64Value(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
 /**
     // Int64 defines an int64 flag with specified name, default value, and usage string.
     // The return value is the address of an int64 variable that stores the value of the flag.
 **/
 function int64(_name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt64, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoInt64> {
-        return commandLine.int64(_name, _value, _usage);
+        return commandLine.int64(_name?.__copy__(), _value, _usage?.__copy__());
     }
 /**
     // UintVar defines a uint flag with specified name, default value, and usage string.
     // The argument p points to a uint variable in which to store the value of the flag.
 **/
 function uintVar(_p:stdgo.Pointer<stdgo.StdGoTypes.GoUInt>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt, _usage:stdgo.GoString):Void {
-        commandLine.var_(stdgo.Go.asInterface(_newUintValue(_value, _p)), _name, _usage);
+        commandLine.var_(stdgo.Go.asInterface(_newUintValue(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
 /**
     // Uint defines a uint flag with specified name, default value, and usage string.
     // The return value is the address of a uint variable that stores the value of the flag.
 **/
 function uint(_name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoUInt> {
-        return commandLine.uint(_name, _value, _usage);
+        return commandLine.uint(_name?.__copy__(), _value, _usage?.__copy__());
     }
 /**
     // Uint64Var defines a uint64 flag with specified name, default value, and usage string.
     // The argument p points to a uint64 variable in which to store the value of the flag.
 **/
 function uint64Var(_p:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt64, _usage:stdgo.GoString):Void {
-        commandLine.var_(stdgo.Go.asInterface(_newUint64Value(_value, _p)), _name, _usage);
+        commandLine.var_(stdgo.Go.asInterface(_newUint64Value(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
 /**
     // Uint64 defines a uint64 flag with specified name, default value, and usage string.
     // The return value is the address of a uint64 variable that stores the value of the flag.
 **/
 function uint64(_name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt64, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoUInt64> {
-        return commandLine.uint64(_name, _value, _usage);
+        return commandLine.uint64(_name?.__copy__(), _value, _usage?.__copy__());
     }
 /**
     // StringVar defines a string flag with specified name, default value, and usage string.
     // The argument p points to a string variable in which to store the value of the flag.
 **/
 function stringVar(_p:stdgo.Pointer<stdgo.GoString>, _name:stdgo.GoString, _value:stdgo.GoString, _usage:stdgo.GoString):Void {
-        commandLine.var_(stdgo.Go.asInterface(_newStringValue(_value, _p)), _name, _usage);
+        commandLine.var_(stdgo.Go.asInterface(_newStringValue(_value?.__copy__(), _p)), _name?.__copy__(), _usage?.__copy__());
     }
 /**
     // String defines a string flag with specified name, default value, and usage string.
     // The return value is the address of a string variable that stores the value of the flag.
 **/
 function string(_name:stdgo.GoString, _value:stdgo.GoString, _usage:stdgo.GoString):stdgo.Pointer<stdgo.GoString> {
-        return commandLine.string(_name, _value, _usage);
+        return commandLine.string(_name?.__copy__(), _value?.__copy__(), _usage?.__copy__());
     }
 /**
     // Float64Var defines a float64 flag with specified name, default value, and usage string.
     // The argument p points to a float64 variable in which to store the value of the flag.
 **/
 function float64Var(_p:stdgo.Pointer<stdgo.StdGoTypes.GoFloat64>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoFloat64, _usage:stdgo.GoString):Void {
-        commandLine.var_(stdgo.Go.asInterface(_newFloat64Value(_value, _p)), _name, _usage);
+        commandLine.var_(stdgo.Go.asInterface(_newFloat64Value(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
 /**
     // Float64 defines a float64 flag with specified name, default value, and usage string.
     // The return value is the address of a float64 variable that stores the value of the flag.
 **/
 function float64(_name:stdgo.GoString, _value:stdgo.StdGoTypes.GoFloat64, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoFloat64> {
-        return commandLine.float64(_name, _value, _usage);
+        return commandLine.float64(_name?.__copy__(), _value, _usage?.__copy__());
     }
 /**
     // DurationVar defines a time.Duration flag with specified name, default value, and usage string.
@@ -728,7 +728,7 @@ function float64(_name:stdgo.GoString, _value:stdgo.StdGoTypes.GoFloat64, _usage
     // The flag accepts a value acceptable to time.ParseDuration.
 **/
 function durationVar(_p:stdgo.Pointer<stdgo.time.Time.Duration>, _name:stdgo.GoString, _value:stdgo.time.Time.Duration, _usage:stdgo.GoString):Void {
-        commandLine.var_(stdgo.Go.asInterface(_newDurationValue(_value, _p)), _name, _usage);
+        commandLine.var_(stdgo.Go.asInterface(_newDurationValue(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
 /**
     // Duration defines a time.Duration flag with specified name, default value, and usage string.
@@ -736,7 +736,7 @@ function durationVar(_p:stdgo.Pointer<stdgo.time.Time.Duration>, _name:stdgo.GoS
     // The flag accepts a value acceptable to time.ParseDuration.
 **/
 function duration(_name:stdgo.GoString, _value:stdgo.time.Time.Duration, _usage:stdgo.GoString):stdgo.Pointer<stdgo.time.Time.Duration> {
-        return commandLine.duration(_name, _value, _usage);
+        return commandLine.duration(_name?.__copy__(), _value, _usage?.__copy__());
     }
 /**
     // TextVar defines a flag with a specified name, default value, and usage string.
@@ -746,7 +746,7 @@ function duration(_name:stdgo.GoString, _value:stdgo.time.Time.Duration, _usage:
     // The type of the default value must be the same as the type of p.
 **/
 function textVar(_p:stdgo.encoding.Encoding.TextUnmarshaler, _name:stdgo.GoString, _value:stdgo.encoding.Encoding.TextMarshaler, _usage:stdgo.GoString):Void {
-        commandLine.var_(stdgo.Go.asInterface(_newTextValue(_value, _p)), _name, _usage);
+        commandLine.var_(stdgo.Go.asInterface(_newTextValue(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
 /**
     // Func defines a flag with the specified name and usage string.
@@ -754,7 +754,7 @@ function textVar(_p:stdgo.encoding.Encoding.TextUnmarshaler, _name:stdgo.GoStrin
     // If fn returns a non-nil error, it will be treated as a flag value parsing error.
 **/
 function func(_name:stdgo.GoString, _usage:stdgo.GoString, _fn:stdgo.GoString -> stdgo.Error):Void {
-        commandLine.func(_name, _usage, _fn);
+        commandLine.func(_name?.__copy__(), _usage?.__copy__(), _fn);
     }
 /**
     // BoolFunc defines a flag with the specified name and usage string without requiring values.
@@ -762,7 +762,7 @@ function func(_name:stdgo.GoString, _usage:stdgo.GoString, _fn:stdgo.GoString ->
     // If fn returns a non-nil error, it will be treated as a flag value parsing error.
 **/
 function boolFunc(_name:stdgo.GoString, _usage:stdgo.GoString, _fn:stdgo.GoString -> stdgo.Error):Void {
-        commandLine.boolFunc(_name, _usage, _fn);
+        commandLine.boolFunc(_name?.__copy__(), _usage?.__copy__(), _fn);
     }
 /**
     // Var defines a flag with the specified name and usage string. The type and
@@ -773,7 +773,7 @@ function boolFunc(_name:stdgo.GoString, _usage:stdgo.GoString, _fn:stdgo.GoStrin
     // decompose the comma-separated string into the slice.
 **/
 function var_(_value:Value, _name:stdgo.GoString, _usage:stdgo.GoString):Void {
-        commandLine.var_(_value, _name, _usage);
+        commandLine.var_(_value, _name?.__copy__(), _usage?.__copy__());
     }
 /**
     // Parse parses the command-line flags from os.Args[1:]. Must be called
@@ -797,7 +797,7 @@ function _commandLineUsage():Void {
     // in the default usage message and in error messages.
 **/
 function newFlagSet(_name:stdgo.GoString, _errorHandling:ErrorHandling):stdgo.StdGoTypes.Ref<FlagSet> {
-        var _f = (stdgo.Go.setRef(({ _name : _name, _errorHandling : _errorHandling } : FlagSet)) : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.FlagSet>);
+        var _f = (stdgo.Go.setRef(({ _name : _name?.__copy__(), _errorHandling : _errorHandling } : FlagSet)) : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.FlagSet>);
         _f.usage = _f._defaultUsage;
         return _f;
     }
@@ -836,12 +836,12 @@ class T_textValue_asInterface {
                 {
                     var __tmp__ = _m.marshalText(), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err == null) {
-                        return (_b : stdgo.GoString);
+                        return (_b : stdgo.GoString)?.__copy__();
                     };
                 };
             };
         };
-        return stdgo.Go.str();
+        return stdgo.Go.str()?.__copy__();
     }
     @:keep
     static public function get( _v:T_textValue):stdgo.StdGoTypes.AnyInterface {
@@ -1125,7 +1125,7 @@ class FlagSet_asInterface {
     @:keep
     static public function init( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _errorHandling:ErrorHandling):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f._name = _name;
+        _f._name = _name?.__copy__();
         _f._errorHandling = _errorHandling;
     }
     /**
@@ -1180,7 +1180,7 @@ class FlagSet_asInterface {
         if ((_f._args.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             return { _0 : false, _1 : (null : stdgo.Error) };
         };
-        var _s:stdgo.GoString = _f._args[(0 : stdgo.StdGoTypes.GoInt)];
+        var _s:stdgo.GoString = _f._args[(0 : stdgo.StdGoTypes.GoInt)]?.__copy__();
         if ((_s.length < (2 : stdgo.StdGoTypes.GoInt)) || (_s[(0 : stdgo.StdGoTypes.GoInt)] != (45 : stdgo.StdGoTypes.GoUInt8))) {
             return { _0 : false, _1 : (null : stdgo.Error) };
         };
@@ -1192,20 +1192,20 @@ class FlagSet_asInterface {
                 return { _0 : false, _1 : (null : stdgo.Error) };
             };
         };
-        var _name:stdgo.GoString = (_s.__slice__(_numMinuses) : stdgo.GoString);
+        var _name:stdgo.GoString = (_s.__slice__(_numMinuses) : stdgo.GoString)?.__copy__();
         if (((_name.length == (0 : stdgo.StdGoTypes.GoInt)) || (_name[(0 : stdgo.StdGoTypes.GoInt)] == (45 : stdgo.StdGoTypes.GoUInt8))) || (_name[(0 : stdgo.StdGoTypes.GoInt)] == (61 : stdgo.StdGoTypes.GoUInt8))) {
-            return { _0 : false, _1 : _f._failf(("bad flag syntax: %s" : stdgo.GoString), stdgo.Go.toInterface(_s)) };
+            return { _0 : false, _1 : _f._failf(("bad flag syntax: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_s)) };
         };
         _f._args = (_f._args.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.GoString>);
         var _hasValue:Bool = false;
-        var _value:stdgo.GoString = stdgo.Go.str();
+        var _value:stdgo.GoString = stdgo.Go.str()?.__copy__();
         {
             var _i:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_name.length), _i++, {
                 if (_name[(_i : stdgo.StdGoTypes.GoInt)] == ((61 : stdgo.StdGoTypes.GoUInt8))) {
-                    _value = (_name.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
+                    _value = (_name.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
                     _hasValue = true;
-                    _name = (_name.__slice__((0 : stdgo.StdGoTypes.GoInt), _i) : stdgo.GoString);
+                    _name = (_name.__slice__((0 : stdgo.StdGoTypes.GoInt), _i) : stdgo.GoString)?.__copy__();
                     break;
                 };
             });
@@ -1216,7 +1216,7 @@ class FlagSet_asInterface {
                 _f._usage();
                 return { _0 : false, _1 : errHelp };
             };
-            return { _0 : false, _1 : _f._failf(("flag provided but not defined: -%s" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
+            return { _0 : false, _1 : _f._failf(("flag provided but not defined: -%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_name)) };
         };
         {
             var __tmp__ = try {
@@ -1227,16 +1227,16 @@ class FlagSet_asInterface {
             if (_ok && _fv.isBoolFlag()) {
                 if (_hasValue) {
                     {
-                        var _err:stdgo.Error = _fv.set(_value);
+                        var _err:stdgo.Error = _fv.set(_value?.__copy__());
                         if (_err != null) {
-                            return { _0 : false, _1 : _f._failf(("invalid boolean value %q for -%s: %v" : stdgo.GoString), stdgo.Go.toInterface(_value), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_err)) };
+                            return { _0 : false, _1 : _f._failf(("invalid boolean value %q for -%s: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_value), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_err)) };
                         };
                     };
                 } else {
                     {
-                        var _err:stdgo.Error = _fv.set(("true" : stdgo.GoString));
+                        var _err:stdgo.Error = _fv.set(("true" : stdgo.GoString)?.__copy__());
                         if (_err != null) {
-                            return { _0 : false, _1 : _f._failf(("invalid boolean flag %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_err)) };
+                            return { _0 : false, _1 : _f._failf(("invalid boolean flag %s: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_err)) };
                         };
                     };
                 };
@@ -1244,19 +1244,19 @@ class FlagSet_asInterface {
                 if (!_hasValue && (_f._args.length > (0 : stdgo.StdGoTypes.GoInt))) {
                     _hasValue = true;
                     {
-                        final __tmp__0 = _f._args[(0 : stdgo.StdGoTypes.GoInt)];
+                        final __tmp__0 = _f._args[(0 : stdgo.StdGoTypes.GoInt)]?.__copy__();
                         final __tmp__1 = (_f._args.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.GoString>);
                         _value = __tmp__0;
                         _f._args = __tmp__1;
                     };
                 };
                 if (!_hasValue) {
-                    return { _0 : false, _1 : _f._failf(("flag needs an argument: -%s" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
+                    return { _0 : false, _1 : _f._failf(("flag needs an argument: -%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_name)) };
                 };
                 {
-                    var _err:stdgo.Error = _flag.value.set(_value);
+                    var _err:stdgo.Error = _flag.value.set(_value?.__copy__());
                     if (_err != null) {
-                        return { _0 : false, _1 : _f._failf(("invalid value %q for flag -%s: %v" : stdgo.GoString), stdgo.Go.toInterface(_value), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_err)) };
+                        return { _0 : false, _1 : _f._failf(("invalid value %q for flag -%s: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_value), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_err)) };
                     };
                 };
             };
@@ -1269,7 +1269,7 @@ class FlagSet_asInterface {
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>>);
         };
-        _f._actual[_name] = _flag;
+        _f._actual[_name?.__copy__()] = _flag;
         return { _0 : true, _1 : (null : stdgo.Error) };
     }
     /**
@@ -1293,9 +1293,9 @@ class FlagSet_asInterface {
     static public function _failf( _f:stdgo.StdGoTypes.Ref<FlagSet>, _format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.Error {
         var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        var _msg:stdgo.GoString = _f._sprintf(_format, ..._a.__toArray__());
+        var _msg:stdgo.GoString = _f._sprintf(_format?.__copy__(), ..._a.__toArray__())?.__copy__();
         _f._usage();
-        return stdgo.errors.Errors.new_(_msg);
+        return stdgo.errors.Errors.new_(_msg?.__copy__());
     }
     /**
         // sprintf formats the message, prints it to output, and returns it.
@@ -1304,9 +1304,9 @@ class FlagSet_asInterface {
     static public function _sprintf( _f:stdgo.StdGoTypes.Ref<FlagSet>, _format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.GoString {
         var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        var _msg:stdgo.GoString = stdgo.fmt.Fmt.sprintf(_format, ..._a.__toArray__());
+        var _msg:stdgo.GoString = stdgo.fmt.Fmt.sprintf(_format?.__copy__(), ..._a.__toArray__())?.__copy__();
         stdgo.fmt.Fmt.fprintln(_f.output(), stdgo.Go.toInterface(_msg));
-        return _msg;
+        return _msg?.__copy__();
     }
     /**
         // Var defines a flag with the specified name and usage string. The type and
@@ -1319,26 +1319,26 @@ class FlagSet_asInterface {
     @:keep
     static public function var_( _f:stdgo.StdGoTypes.Ref<FlagSet>, _value:Value, _name:stdgo.GoString, _usage:stdgo.GoString):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        if (stdgo.strings.Strings.hasPrefix(_name, ("-" : stdgo.GoString))) {
-            throw stdgo.Go.toInterface(_f._sprintf(("flag %q begins with -" : stdgo.GoString), stdgo.Go.toInterface(_name)));
-        } else if (stdgo.strings.Strings.contains(_name, ("=" : stdgo.GoString))) {
-            throw stdgo.Go.toInterface(_f._sprintf(("flag %q contains =" : stdgo.GoString), stdgo.Go.toInterface(_name)));
+        if (stdgo.strings.Strings.hasPrefix(_name?.__copy__(), ("-" : stdgo.GoString)?.__copy__())) {
+            throw stdgo.Go.toInterface(_f._sprintf(("flag %q begins with -" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_name)));
+        } else if (stdgo.strings.Strings.contains(_name?.__copy__(), ("=" : stdgo.GoString)?.__copy__())) {
+            throw stdgo.Go.toInterface(_f._sprintf(("flag %q contains =" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_name)));
         };
-        var _flag = (stdgo.Go.setRef((new Flag(_name, _usage, _value, (_value.string() : stdgo.GoString)) : Flag)) : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>);
+        var _flag = (stdgo.Go.setRef((new Flag(_name?.__copy__(), _usage?.__copy__(), _value, (_value.string() : stdgo.GoString)?.__copy__()) : Flag)) : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>);
         var __tmp__ = (_f._formal != null && _f._formal.exists(_name) ? { value : _f._formal[_name], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>), ok : false }), __0:stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag> = __tmp__.value, _alreadythere:Bool = __tmp__.ok;
         if (_alreadythere) {
             var _msg:stdgo.GoString = ("" : stdgo.GoString);
             if (_f._name == (stdgo.Go.str())) {
-                _msg = _f._sprintf(("flag redefined: %s" : stdgo.GoString), stdgo.Go.toInterface(_name));
+                _msg = _f._sprintf(("flag redefined: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_name))?.__copy__();
             } else {
-                _msg = _f._sprintf(("%s flag redefined: %s" : stdgo.GoString), stdgo.Go.toInterface(_f._name), stdgo.Go.toInterface(_name));
+                _msg = _f._sprintf(("%s flag redefined: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_f._name), stdgo.Go.toInterface(_name))?.__copy__();
             };
             throw stdgo.Go.toInterface(_msg);
         };
         {
-            var _pos:stdgo.GoString = (_f._undef[_name] ?? ("" : stdgo.GoString));
+            var _pos:stdgo.GoString = (_f._undef[_name?.__copy__()] ?? ("" : stdgo.GoString))?.__copy__();
             if (_pos != (stdgo.Go.str())) {
-                throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("flag %s set at %s before being defined" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_pos)));
+                throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("flag %s set at %s before being defined" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_pos)));
             };
         };
         if (_f._formal == null) {
@@ -1349,7 +1349,7 @@ class FlagSet_asInterface {
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>>);
         };
-        _f._formal[_name] = _flag;
+        _f._formal[_name?.__copy__()] = _flag;
     }
     /**
         // BoolFunc defines a flag with the specified name and usage string without requiring values.
@@ -1359,7 +1359,7 @@ class FlagSet_asInterface {
     @:keep
     static public function boolFunc( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _usage:stdgo.GoString, _fn:stdgo.GoString -> stdgo.Error):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f.var_(stdgo.Go.asInterface((_fn : T_boolFuncValue)), _name, _usage);
+        _f.var_(stdgo.Go.asInterface((_fn : T_boolFuncValue)), _name?.__copy__(), _usage?.__copy__());
     }
     /**
         // Func defines a flag with the specified name and usage string.
@@ -1369,7 +1369,7 @@ class FlagSet_asInterface {
     @:keep
     static public function func( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _usage:stdgo.GoString, _fn:stdgo.GoString -> stdgo.Error):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f.var_(stdgo.Go.asInterface((_fn : T_funcValue)), _name, _usage);
+        _f.var_(stdgo.Go.asInterface((_fn : T_funcValue)), _name?.__copy__(), _usage?.__copy__());
     }
     /**
         // TextVar defines a flag with a specified name, default value, and usage string.
@@ -1381,7 +1381,7 @@ class FlagSet_asInterface {
     @:keep
     static public function textVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.encoding.Encoding.TextUnmarshaler, _name:stdgo.GoString, _value:stdgo.encoding.Encoding.TextMarshaler, _usage:stdgo.GoString):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f.var_(stdgo.Go.asInterface(_newTextValue(_value, _p)), _name, _usage);
+        _f.var_(stdgo.Go.asInterface(_newTextValue(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
     /**
         // Duration defines a time.Duration flag with specified name, default value, and usage string.
@@ -1392,7 +1392,7 @@ class FlagSet_asInterface {
     static public function duration( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.time.Time.Duration, _usage:stdgo.GoString):stdgo.Pointer<stdgo.time.Time.Duration> {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer(((0 : stdgo.StdGoTypes.GoInt64) : stdgo.time.Time.Duration));
-        _f.durationVar(_p, _name, _value, _usage);
+        _f.durationVar(_p, _name?.__copy__(), _value, _usage?.__copy__());
         return _p;
     }
     /**
@@ -1403,7 +1403,7 @@ class FlagSet_asInterface {
     @:keep
     static public function durationVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.time.Time.Duration>, _name:stdgo.GoString, _value:stdgo.time.Time.Duration, _usage:stdgo.GoString):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f.var_(stdgo.Go.asInterface(_newDurationValue(_value, _p)), _name, _usage);
+        _f.var_(stdgo.Go.asInterface(_newDurationValue(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
     /**
         // Float64 defines a float64 flag with specified name, default value, and usage string.
@@ -1413,7 +1413,7 @@ class FlagSet_asInterface {
     static public function float64( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoFloat64, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoFloat64> {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoFloat64));
-        _f.float64Var(_p, _name, _value, _usage);
+        _f.float64Var(_p, _name?.__copy__(), _value, _usage?.__copy__());
         return _p;
     }
     /**
@@ -1423,7 +1423,7 @@ class FlagSet_asInterface {
     @:keep
     static public function float64Var( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.StdGoTypes.GoFloat64>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoFloat64, _usage:stdgo.GoString):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f.var_(stdgo.Go.asInterface(_newFloat64Value(_value, _p)), _name, _usage);
+        _f.var_(stdgo.Go.asInterface(_newFloat64Value(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
     /**
         // String defines a string flag with specified name, default value, and usage string.
@@ -1433,7 +1433,7 @@ class FlagSet_asInterface {
     static public function string( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.GoString, _usage:stdgo.GoString):stdgo.Pointer<stdgo.GoString> {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer(("" : stdgo.GoString));
-        _f.stringVar(_p, _name, _value, _usage);
+        _f.stringVar(_p, _name?.__copy__(), _value?.__copy__(), _usage?.__copy__());
         return _p;
     }
     /**
@@ -1443,7 +1443,7 @@ class FlagSet_asInterface {
     @:keep
     static public function stringVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.GoString>, _name:stdgo.GoString, _value:stdgo.GoString, _usage:stdgo.GoString):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f.var_(stdgo.Go.asInterface(_newStringValue(_value, _p)), _name, _usage);
+        _f.var_(stdgo.Go.asInterface(_newStringValue(_value?.__copy__(), _p)), _name?.__copy__(), _usage?.__copy__());
     }
     /**
         // Uint64 defines a uint64 flag with specified name, default value, and usage string.
@@ -1453,7 +1453,7 @@ class FlagSet_asInterface {
     static public function uint64( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt64, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoUInt64> {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoUInt64));
-        _f.uint64Var(_p, _name, _value, _usage);
+        _f.uint64Var(_p, _name?.__copy__(), _value, _usage?.__copy__());
         return _p;
     }
     /**
@@ -1463,7 +1463,7 @@ class FlagSet_asInterface {
     @:keep
     static public function uint64Var( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt64, _usage:stdgo.GoString):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f.var_(stdgo.Go.asInterface(_newUint64Value(_value, _p)), _name, _usage);
+        _f.var_(stdgo.Go.asInterface(_newUint64Value(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
     /**
         // Uint defines a uint flag with specified name, default value, and usage string.
@@ -1473,7 +1473,7 @@ class FlagSet_asInterface {
     static public function uint( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoUInt> {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoUInt));
-        _f.uintVar(_p, _name, _value, _usage);
+        _f.uintVar(_p, _name?.__copy__(), _value, _usage?.__copy__());
         return _p;
     }
     /**
@@ -1483,7 +1483,7 @@ class FlagSet_asInterface {
     @:keep
     static public function uintVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.StdGoTypes.GoUInt>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt, _usage:stdgo.GoString):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f.var_(stdgo.Go.asInterface(_newUintValue(_value, _p)), _name, _usage);
+        _f.var_(stdgo.Go.asInterface(_newUintValue(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
     /**
         // Int64 defines an int64 flag with specified name, default value, and usage string.
@@ -1493,7 +1493,7 @@ class FlagSet_asInterface {
     static public function int64( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt64, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoInt64> {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoInt64));
-        _f.int64Var(_p, _name, _value, _usage);
+        _f.int64Var(_p, _name?.__copy__(), _value, _usage?.__copy__());
         return _p;
     }
     /**
@@ -1503,7 +1503,7 @@ class FlagSet_asInterface {
     @:keep
     static public function int64Var( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt64, _usage:stdgo.GoString):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f.var_(stdgo.Go.asInterface(_newInt64Value(_value, _p)), _name, _usage);
+        _f.var_(stdgo.Go.asInterface(_newInt64Value(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
     /**
         // Int defines an int flag with specified name, default value, and usage string.
@@ -1513,7 +1513,7 @@ class FlagSet_asInterface {
     static public function int_( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoInt> {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoInt));
-        _f.intVar(_p, _name, _value, _usage);
+        _f.intVar(_p, _name?.__copy__(), _value, _usage?.__copy__());
         return _p;
     }
     /**
@@ -1523,7 +1523,7 @@ class FlagSet_asInterface {
     @:keep
     static public function intVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.StdGoTypes.GoInt>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt, _usage:stdgo.GoString):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f.var_(stdgo.Go.asInterface(_newIntValue(_value, _p)), _name, _usage);
+        _f.var_(stdgo.Go.asInterface(_newIntValue(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
     /**
         // Bool defines a bool flag with specified name, default value, and usage string.
@@ -1533,7 +1533,7 @@ class FlagSet_asInterface {
     static public function bool_( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:Bool, _usage:stdgo.GoString):stdgo.Pointer<Bool> {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer(false);
-        _f.boolVar(_p, _name, _value, _usage);
+        _f.boolVar(_p, _name?.__copy__(), _value, _usage?.__copy__());
         return _p;
     }
     /**
@@ -1543,7 +1543,7 @@ class FlagSet_asInterface {
     @:keep
     static public function boolVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<Bool>, _name:stdgo.GoString, _value:Bool, _usage:stdgo.GoString):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        _f.var_(stdgo.Go.asInterface(_newBoolValue(_value, _p)), _name, _usage);
+        _f.var_(stdgo.Go.asInterface(_newBoolValue(_value, _p)), _name?.__copy__(), _usage?.__copy__());
     }
     /**
         // Args returns the non-flag arguments.
@@ -1570,9 +1570,9 @@ class FlagSet_asInterface {
     static public function arg( _f:stdgo.StdGoTypes.Ref<FlagSet>, _i:stdgo.StdGoTypes.GoInt):stdgo.GoString {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         if ((_i < (0 : stdgo.StdGoTypes.GoInt)) || (_i >= _f._args.length)) {
-            return stdgo.Go.str();
+            return stdgo.Go.str()?.__copy__();
         };
-        return _f._args[(_i : stdgo.StdGoTypes.GoInt)];
+        return _f._args[(_i : stdgo.StdGoTypes.GoInt)]?.__copy__();
     }
     /**
         // NFlag returns the number of flags that have been set.
@@ -1589,9 +1589,9 @@ class FlagSet_asInterface {
     static public function _defaultUsage( _f:stdgo.StdGoTypes.Ref<FlagSet>):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         if (_f._name == (stdgo.Go.str())) {
-            stdgo.fmt.Fmt.fprintf(_f.output(), ("Usage:\n" : stdgo.GoString));
+            stdgo.fmt.Fmt.fprintf(_f.output(), ("Usage:\n" : stdgo.GoString)?.__copy__());
         } else {
-            stdgo.fmt.Fmt.fprintf(_f.output(), ("Usage of %s:\n" : stdgo.GoString), stdgo.Go.toInterface(_f._name));
+            stdgo.fmt.Fmt.fprintf(_f.output(), ("Usage of %s:\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_f._name));
         };
         _f.printDefaults();
     }
@@ -1606,20 +1606,20 @@ class FlagSet_asInterface {
         var _isZeroValueErrs:stdgo.Slice<stdgo.Error> = (null : stdgo.Slice<stdgo.Error>);
         _f.visitAll(function(_flag:stdgo.StdGoTypes.Ref<Flag>):Void {
             var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("  -%s" : stdgo.GoString), stdgo.Go.toInterface(_flag.name));
+            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("  -%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_flag.name));
             var __tmp__ = unquoteUsage(_flag), _name:stdgo.GoString = __tmp__._0, _usage:stdgo.GoString = __tmp__._1;
             if ((_name.length) > (0 : stdgo.StdGoTypes.GoInt)) {
-                _b.writeString((" " : stdgo.GoString));
-                _b.writeString(_name);
+                _b.writeString((" " : stdgo.GoString)?.__copy__());
+                _b.writeString(_name?.__copy__());
             };
             if (_b.len() <= (4 : stdgo.StdGoTypes.GoInt)) {
-                _b.writeString(("\t" : stdgo.GoString));
+                _b.writeString(("\t" : stdgo.GoString)?.__copy__());
             } else {
-                _b.writeString(("\n    \t" : stdgo.GoString));
+                _b.writeString(("\n    \t" : stdgo.GoString)?.__copy__());
             };
-            _b.writeString(stdgo.strings.Strings.replaceAll(_usage, ("\n" : stdgo.GoString), ("\n    \t" : stdgo.GoString)));
+            _b.writeString(stdgo.strings.Strings.replaceAll(_usage?.__copy__(), ("\n" : stdgo.GoString)?.__copy__(), ("\n    \t" : stdgo.GoString)?.__copy__())?.__copy__());
             {
-                var __tmp__ = _isZeroValue(_flag, _flag.defValue), _isZero:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = _isZeroValue(_flag, _flag.defValue?.__copy__()), _isZero:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _isZeroValueErrs = (_isZeroValueErrs.__append__(_err));
                 } else if (!_isZero) {
@@ -1630,9 +1630,9 @@ class FlagSet_asInterface {
                             { value : (null : stdgo.Pointer<stdgo.flag.Flag.T_stringValue>), ok : false };
                         }, __0 = __tmp__.value, _ok = __tmp__.ok;
                         if (_ok) {
-                            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), (" (default %q)" : stdgo.GoString), stdgo.Go.toInterface(_flag.defValue));
+                            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), (" (default %q)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_flag.defValue));
                         } else {
-                            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), (" (default %v)" : stdgo.GoString), stdgo.Go.toInterface(_flag.defValue));
+                            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), (" (default %v)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_flag.defValue));
                         };
                     };
                 };
@@ -1656,7 +1656,7 @@ class FlagSet_asInterface {
         if (!_ok) {
             var __tmp__ = stdgo.runtime.Runtime.caller((2 : stdgo.StdGoTypes.GoInt)), __0:stdgo.StdGoTypes.GoUIntptr = __tmp__._0, _file:stdgo.GoString = __tmp__._1, _line:stdgo.StdGoTypes.GoInt = __tmp__._2, _ok:Bool = __tmp__._3;
             if (!_ok) {
-                _file = ("?" : stdgo.GoString);
+                _file = ("?" : stdgo.GoString)?.__copy__();
                 _line = (0 : stdgo.StdGoTypes.GoInt);
             };
             if (_f._undef == null) {
@@ -1667,10 +1667,10 @@ class FlagSet_asInterface {
                     x;
                 } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
             };
-            _f._undef[_name] = stdgo.fmt.Fmt.sprintf(("%s:%d" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_line));
-            return stdgo.fmt.Fmt.errorf(("no such flag -%v" : stdgo.GoString), stdgo.Go.toInterface(_name));
+            _f._undef[_name?.__copy__()] = stdgo.fmt.Fmt.sprintf(("%s:%d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_line))?.__copy__();
+            return stdgo.fmt.Fmt.errorf(("no such flag -%v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_name));
         };
-        var _err:stdgo.Error = _flag.value.set(_value);
+        var _err:stdgo.Error = _flag.value.set(_value?.__copy__());
         if (_err != null) {
             return _err;
         };
@@ -1682,7 +1682,7 @@ class FlagSet_asInterface {
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>>);
         };
-        _f._actual[_name] = _flag;
+        _f._actual[_name?.__copy__()] = _flag;
         return (null : stdgo.Error);
     }
     /**
@@ -1691,7 +1691,7 @@ class FlagSet_asInterface {
     @:keep
     static public function set( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.GoString):stdgo.Error {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        return _f._set(_name, _value);
+        return _f._set(_name?.__copy__(), _value?.__copy__());
     }
     /**
         // Lookup returns the Flag structure of the named flag, returning nil if none exists.
@@ -1699,7 +1699,7 @@ class FlagSet_asInterface {
     @:keep
     static public function lookup( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString):stdgo.StdGoTypes.Ref<Flag> {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        return (_f._formal[_name] ?? (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>));
+        return (_f._formal[_name?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>));
     }
     /**
         // Visit visits the flags in lexicographical order, calling fn for each.
@@ -1746,7 +1746,7 @@ class FlagSet_asInterface {
     @:keep
     static public function name( _f:stdgo.StdGoTypes.Ref<FlagSet>):stdgo.GoString {
         @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
-        return _f._name;
+        return _f._name?.__copy__();
     }
     /**
         // Output returns the destination for usage and error messages. os.Stderr is returned if
@@ -1791,7 +1791,7 @@ class T_boolValue_asInterface {
     @:keep
     @:pointer
     static public function string(____:T_boolValue,  _b:stdgo.Pointer<T_boolValue>):stdgo.GoString {
-        return stdgo.strconv.Strconv.formatBool((_b.value : Bool));
+        return stdgo.strconv.Strconv.formatBool((_b.value : Bool))?.__copy__();
     }
     @:keep
     @:pointer
@@ -1801,7 +1801,7 @@ class T_boolValue_asInterface {
     @:keep
     @:pointer
     static public function set(____:T_boolValue,  _b:stdgo.Pointer<T_boolValue>, _s:stdgo.GoString):stdgo.Error {
-        var __tmp__ = stdgo.strconv.Strconv.parseBool(_s), _v:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.strconv.Strconv.parseBool(_s?.__copy__()), _v:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _errParse;
         };
@@ -1831,7 +1831,7 @@ class T_intValue_asInterface {
     @:keep
     @:pointer
     static public function string(____:T_intValue,  _i:stdgo.Pointer<T_intValue>):stdgo.GoString {
-        return stdgo.strconv.Strconv.itoa((_i.value : stdgo.StdGoTypes.GoInt));
+        return stdgo.strconv.Strconv.itoa((_i.value : stdgo.StdGoTypes.GoInt))?.__copy__();
     }
     @:keep
     @:pointer
@@ -1841,7 +1841,7 @@ class T_intValue_asInterface {
     @:keep
     @:pointer
     static public function set(____:T_intValue,  _i:stdgo.Pointer<T_intValue>, _s:stdgo.GoString):stdgo.Error {
-        var __tmp__ = stdgo.strconv.Strconv.parseInt(_s, (0 : stdgo.StdGoTypes.GoInt), (32 : stdgo.StdGoTypes.GoInt)), _v:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.strconv.Strconv.parseInt(_s?.__copy__(), (0 : stdgo.StdGoTypes.GoInt), (32 : stdgo.StdGoTypes.GoInt)), _v:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _numError(_err);
         };
@@ -1871,7 +1871,7 @@ class T_int64Value_asInterface {
     @:keep
     @:pointer
     static public function string(____:T_int64Value,  _i:stdgo.Pointer<T_int64Value>):stdgo.GoString {
-        return stdgo.strconv.Strconv.formatInt((_i.value : stdgo.StdGoTypes.GoInt64), (10 : stdgo.StdGoTypes.GoInt));
+        return stdgo.strconv.Strconv.formatInt((_i.value : stdgo.StdGoTypes.GoInt64), (10 : stdgo.StdGoTypes.GoInt))?.__copy__();
     }
     @:keep
     @:pointer
@@ -1881,7 +1881,7 @@ class T_int64Value_asInterface {
     @:keep
     @:pointer
     static public function set(____:T_int64Value,  _i:stdgo.Pointer<T_int64Value>, _s:stdgo.GoString):stdgo.Error {
-        var __tmp__ = stdgo.strconv.Strconv.parseInt(_s, (0 : stdgo.StdGoTypes.GoInt), (64 : stdgo.StdGoTypes.GoInt)), _v:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.strconv.Strconv.parseInt(_s?.__copy__(), (0 : stdgo.StdGoTypes.GoInt), (64 : stdgo.StdGoTypes.GoInt)), _v:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _numError(_err);
         };
@@ -1911,7 +1911,7 @@ class T_uintValue_asInterface {
     @:keep
     @:pointer
     static public function string(____:T_uintValue,  _i:stdgo.Pointer<T_uintValue>):stdgo.GoString {
-        return stdgo.strconv.Strconv.formatUint((_i.value : stdgo.StdGoTypes.GoUInt64), (10 : stdgo.StdGoTypes.GoInt));
+        return stdgo.strconv.Strconv.formatUint((_i.value : stdgo.StdGoTypes.GoUInt64), (10 : stdgo.StdGoTypes.GoInt))?.__copy__();
     }
     @:keep
     @:pointer
@@ -1921,7 +1921,7 @@ class T_uintValue_asInterface {
     @:keep
     @:pointer
     static public function set(____:T_uintValue,  _i:stdgo.Pointer<T_uintValue>, _s:stdgo.GoString):stdgo.Error {
-        var __tmp__ = stdgo.strconv.Strconv.parseUint(_s, (0 : stdgo.StdGoTypes.GoInt), (32 : stdgo.StdGoTypes.GoInt)), _v:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.strconv.Strconv.parseUint(_s?.__copy__(), (0 : stdgo.StdGoTypes.GoInt), (32 : stdgo.StdGoTypes.GoInt)), _v:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _numError(_err);
         };
@@ -1951,7 +1951,7 @@ class T_uint64Value_asInterface {
     @:keep
     @:pointer
     static public function string(____:T_uint64Value,  _i:stdgo.Pointer<T_uint64Value>):stdgo.GoString {
-        return stdgo.strconv.Strconv.formatUint((_i.value : stdgo.StdGoTypes.GoUInt64), (10 : stdgo.StdGoTypes.GoInt));
+        return stdgo.strconv.Strconv.formatUint((_i.value : stdgo.StdGoTypes.GoUInt64), (10 : stdgo.StdGoTypes.GoInt))?.__copy__();
     }
     @:keep
     @:pointer
@@ -1961,7 +1961,7 @@ class T_uint64Value_asInterface {
     @:keep
     @:pointer
     static public function set(____:T_uint64Value,  _i:stdgo.Pointer<T_uint64Value>, _s:stdgo.GoString):stdgo.Error {
-        var __tmp__ = stdgo.strconv.Strconv.parseUint(_s, (0 : stdgo.StdGoTypes.GoInt), (64 : stdgo.StdGoTypes.GoInt)), _v:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.strconv.Strconv.parseUint(_s?.__copy__(), (0 : stdgo.StdGoTypes.GoInt), (64 : stdgo.StdGoTypes.GoInt)), _v:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _numError(_err);
         };
@@ -1991,7 +1991,7 @@ class T_stringValue_asInterface {
     @:keep
     @:pointer
     static public function string(____:T_stringValue,  _s:stdgo.Pointer<T_stringValue>):stdgo.GoString {
-        return (_s.value : stdgo.GoString);
+        return (_s.value : stdgo.GoString)?.__copy__();
     }
     @:keep
     @:pointer
@@ -2027,7 +2027,7 @@ class T_float64Value_asInterface {
     @:keep
     @:pointer
     static public function string(____:T_float64Value,  _f:stdgo.Pointer<T_float64Value>):stdgo.GoString {
-        return stdgo.strconv.Strconv.formatFloat((_f.value : stdgo.StdGoTypes.GoFloat64), (103 : stdgo.StdGoTypes.GoUInt8), (-1 : stdgo.StdGoTypes.GoInt), (64 : stdgo.StdGoTypes.GoInt));
+        return stdgo.strconv.Strconv.formatFloat((_f.value : stdgo.StdGoTypes.GoFloat64), (103 : stdgo.StdGoTypes.GoUInt8), (-1 : stdgo.StdGoTypes.GoInt), (64 : stdgo.StdGoTypes.GoInt))?.__copy__();
     }
     @:keep
     @:pointer
@@ -2037,7 +2037,7 @@ class T_float64Value_asInterface {
     @:keep
     @:pointer
     static public function set(____:T_float64Value,  _f:stdgo.Pointer<T_float64Value>, _s:stdgo.GoString):stdgo.Error {
-        var __tmp__ = stdgo.strconv.Strconv.parseFloat(_s, (64 : stdgo.StdGoTypes.GoInt)), _v:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.strconv.Strconv.parseFloat(_s?.__copy__(), (64 : stdgo.StdGoTypes.GoInt)), _v:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _numError(_err);
         };
@@ -2067,7 +2067,7 @@ class T_durationValue_asInterface {
     @:keep
     @:pointer
     static public function string(____:T_durationValue,  _d:stdgo.Pointer<T_durationValue>):stdgo.GoString {
-        return (new stdgo.Pointer<stdgo.time.Time.Duration>(() -> (_d.value : stdgo.time.Time.Duration), v -> (_d.value = (v : stdgo.flag.Flag.T_durationValue) : stdgo.time.Time.Duration)).value.string() : stdgo.GoString);
+        return (new stdgo.Pointer<stdgo.time.Time.Duration>(() -> (_d.value : stdgo.time.Time.Duration), v -> (_d.value = (v : stdgo.flag.Flag.T_durationValue) : stdgo.time.Time.Duration)).value.string() : stdgo.GoString)?.__copy__();
     }
     @:keep
     @:pointer
@@ -2077,7 +2077,7 @@ class T_durationValue_asInterface {
     @:keep
     @:pointer
     static public function set(____:T_durationValue,  _d:stdgo.Pointer<T_durationValue>, _s:stdgo.GoString):stdgo.Error {
-        var __tmp__ = stdgo.time.Time.parseDuration(_s), _v:stdgo.time.Time.Duration = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.time.Time.parseDuration(_s?.__copy__()), _v:stdgo.time.Time.Duration = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _errParse;
         };
@@ -2102,12 +2102,12 @@ class T_funcValue_asInterface {
     @:keep
     static public function string( _f:T_funcValue):stdgo.GoString {
         @:recv var _f:T_funcValue = _f;
-        return stdgo.Go.str();
+        return stdgo.Go.str()?.__copy__();
     }
     @:keep
     static public function set( _f:T_funcValue, _s:stdgo.GoString):stdgo.Error {
         @:recv var _f:T_funcValue = _f;
-        return _f(_s);
+        return _f(_s?.__copy__());
     }
 }
 class T_boolFuncValue_asInterface {
@@ -2134,11 +2134,11 @@ class T_boolFuncValue_asInterface {
     @:keep
     static public function string( _f:T_boolFuncValue):stdgo.GoString {
         @:recv var _f:T_boolFuncValue = _f;
-        return stdgo.Go.str();
+        return stdgo.Go.str()?.__copy__();
     }
     @:keep
     static public function set( _f:T_boolFuncValue, _s:stdgo.GoString):stdgo.Error {
         @:recv var _f:T_boolFuncValue = _f;
-        return _f(_s);
+        return _f(_s?.__copy__());
     }
 }

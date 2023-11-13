@@ -16,19 +16,19 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var errShortWrite : stdgo.Error = stdgo.errors.Errors.new_(("short write" : stdgo.GoString));
+var errShortWrite : stdgo.Error = stdgo.errors.Errors.new_(("short write" : stdgo.GoString)?.__copy__());
 /**
     // errInvalidWrite means that a write returned an impossible count.
     
     
 **/
-var _errInvalidWrite : stdgo.Error = stdgo.errors.Errors.new_(("invalid write result" : stdgo.GoString));
+var _errInvalidWrite : stdgo.Error = stdgo.errors.Errors.new_(("invalid write result" : stdgo.GoString)?.__copy__());
 /**
     // ErrShortBuffer means that a read required a longer buffer than was provided.
     
     
 **/
-var errShortBuffer : stdgo.Error = stdgo.errors.Errors.new_(("short buffer" : stdgo.GoString));
+var errShortBuffer : stdgo.Error = stdgo.errors.Errors.new_(("short buffer" : stdgo.GoString)?.__copy__());
 /**
     // EOF is the error returned by Read when no more input is available.
     // (Read must return EOF itself, not an error wrapping EOF,
@@ -40,14 +40,14 @@ var errShortBuffer : stdgo.Error = stdgo.errors.Errors.new_(("short buffer" : st
     
     
 **/
-var eof : stdgo.Error = stdgo.errors.Errors.new_(("EOF" : stdgo.GoString));
+var eof : stdgo.Error = stdgo.errors.Errors.new_(("EOF" : stdgo.GoString)?.__copy__());
 /**
     // ErrUnexpectedEOF means that EOF was encountered in the
     // middle of reading a fixed-size block or data structure.
     
     
 **/
-var errUnexpectedEOF : stdgo.Error = stdgo.errors.Errors.new_(("unexpected EOF" : stdgo.GoString));
+var errUnexpectedEOF : stdgo.Error = stdgo.errors.Errors.new_(("unexpected EOF" : stdgo.GoString)?.__copy__());
 /**
     // ErrNoProgress is returned by some clients of a Reader when
     // many calls to Read have failed to return any data or error,
@@ -55,19 +55,19 @@ var errUnexpectedEOF : stdgo.Error = stdgo.errors.Errors.new_(("unexpected EOF" 
     
     
 **/
-var errNoProgress : stdgo.Error = stdgo.errors.Errors.new_(("multiple Read calls return no data or error" : stdgo.GoString));
+var errNoProgress : stdgo.Error = stdgo.errors.Errors.new_(("multiple Read calls return no data or error" : stdgo.GoString)?.__copy__());
 /**
     
     
     
 **/
-var _errWhence : stdgo.Error = stdgo.errors.Errors.new_(("Seek: invalid whence" : stdgo.GoString));
+var _errWhence : stdgo.Error = stdgo.errors.Errors.new_(("Seek: invalid whence" : stdgo.GoString)?.__copy__());
 /**
     
     
     
 **/
-var _errOffset : stdgo.Error = stdgo.errors.Errors.new_(("Seek: invalid offset" : stdgo.GoString));
+var _errOffset : stdgo.Error = stdgo.errors.Errors.new_(("Seek: invalid offset" : stdgo.GoString)?.__copy__());
 /**
     // Discard is a Writer on which all Write calls succeed
     // without doing anything.
@@ -89,7 +89,7 @@ var _blackHolePool : stdgo.sync.Sync.Pool = ({ new_ : function():stdgo.StdGoType
     
     
 **/
-var errClosedPipe : stdgo.Error = stdgo.errors.Errors.new_(("io: read/write on closed pipe" : stdgo.GoString));
+var errClosedPipe : stdgo.Error = stdgo.errors.Errors.new_(("io: read/write on closed pipe" : stdgo.GoString)?.__copy__());
 /**
     // exported for test
     
@@ -817,7 +817,7 @@ function writeString(_w:Writer, _s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.G
                 { value : (null : stdgo.io.Io.StringWriter), ok : false };
             }, _sw = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
-                return _sw.writeString(_s);
+                return _sw.writeString(_s?.__copy__());
             };
         };
         return _w.write((_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
@@ -1597,7 +1597,7 @@ class T_multiWriter_asInterface {
                 }, _sw = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     {
-                        var __tmp__ = _sw.writeString(_s);
+                        var __tmp__ = _sw.writeString(_s?.__copy__());
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                     };

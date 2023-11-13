@@ -1590,8 +1590,8 @@ class StringSlice_asInterface {
     static public function swap( _x:StringSlice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
         @:recv var _x:StringSlice = _x;
         {
-            final __tmp__0 = _x[(_j : stdgo.StdGoTypes.GoInt)];
-            final __tmp__1 = _x[(_i : stdgo.StdGoTypes.GoInt)];
+            final __tmp__0 = _x[(_j : stdgo.StdGoTypes.GoInt)]?.__copy__();
+            final __tmp__1 = _x[(_i : stdgo.StdGoTypes.GoInt)]?.__copy__();
             _x[(_i : stdgo.StdGoTypes.GoInt)] = __tmp__0;
             _x[(_j : stdgo.StdGoTypes.GoInt)] = __tmp__1;
         };
@@ -1612,6 +1612,6 @@ class StringSlice_asInterface {
     @:keep
     static public function search( _p:StringSlice, _x:stdgo.GoString):stdgo.StdGoTypes.GoInt {
         @:recv var _p:StringSlice = _p;
-        return searchStrings(_p, _x);
+        return searchStrings(_p, _x?.__copy__());
     }
 }

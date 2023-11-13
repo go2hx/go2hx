@@ -132,17 +132,17 @@ class T__struct_1_asInterface {
 **/
 function testConstants(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         if (false) {
-            _t.errorf(("utf16.maxRune is wrong: %x should be %x" : stdgo.GoString), stdgo.Go.toInterface((1114111 : stdgo.StdGoTypes.GoInt32)), stdgo.Go.toInterface((1114111 : stdgo.StdGoTypes.GoInt32)));
+            _t.errorf(("utf16.maxRune is wrong: %x should be %x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((1114111 : stdgo.StdGoTypes.GoInt32)), stdgo.Go.toInterface((1114111 : stdgo.StdGoTypes.GoInt32)));
         };
         if (false) {
-            _t.errorf(("utf16.replacementChar is wrong: %x should be %x" : stdgo.GoString), stdgo.Go.toInterface((65533 : stdgo.StdGoTypes.GoInt32)), stdgo.Go.toInterface((65533 : stdgo.StdGoTypes.GoInt32)));
+            _t.errorf(("utf16.replacementChar is wrong: %x should be %x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((65533 : stdgo.StdGoTypes.GoInt32)), stdgo.Go.toInterface((65533 : stdgo.StdGoTypes.GoInt32)));
         };
     }
 function testEncode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tt in _encodeTests) {
             var _out = encode(_tt._in);
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out))) {
-                _t.errorf(("Encode(%x) = %x; want %x" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
+                _t.errorf(("Encode(%x) = %x; want %x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
             };
         };
     }
@@ -153,7 +153,7 @@ function testAppendRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _out = appendRune(_out, _u);
             };
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out))) {
-                _t.errorf(("AppendRune(%x) = %x; want %x" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
+                _t.errorf(("AppendRune(%x) = %x; want %x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
             };
         };
     }
@@ -164,30 +164,30 @@ function testEncodeRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 var __tmp__ = encodeRune(_r), _r1:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _r2:stdgo.StdGoTypes.GoInt32 = __tmp__._1;
                 if ((_r < (65536 : stdgo.StdGoTypes.GoInt32)) || (_r > (1114111 : stdgo.StdGoTypes.GoInt32))) {
                     if (_j >= (_tt._out.length)) {
-                        _t.errorf(("#%d: ran out of tt.out" : stdgo.GoString), stdgo.Go.toInterface(_i));
+                        _t.errorf(("#%d: ran out of tt.out" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
                         break;
                     };
                     if ((_r1 != (65533 : stdgo.StdGoTypes.GoInt32)) || (_r2 != (65533 : stdgo.StdGoTypes.GoInt32))) {
-                        _t.errorf(("EncodeRune(%#x) = %#x, %#x; want 0xfffd, 0xfffd" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_r2));
+                        _t.errorf(("EncodeRune(%#x) = %#x, %#x; want 0xfffd, 0xfffd" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_r2));
                     };
                     _j++;
                 } else {
                     if ((_j + (1 : stdgo.StdGoTypes.GoInt)) >= (_tt._out.length)) {
-                        _t.errorf(("#%d: ran out of tt.out" : stdgo.GoString), stdgo.Go.toInterface(_i));
+                        _t.errorf(("#%d: ran out of tt.out" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
                         break;
                     };
                     if ((_r1 != (_tt._out[(_j : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoRune)) || (_r2 != (_tt._out[(_j + (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoRune))) {
-                        _t.errorf(("EncodeRune(%#x) = %#x, %#x; want %#x, %#x" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_r2), stdgo.Go.toInterface(_tt._out[(_j : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_tt._out[(_j + (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)]));
+                        _t.errorf(("EncodeRune(%#x) = %#x, %#x; want %#x, %#x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_r2), stdgo.Go.toInterface(_tt._out[(_j : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_tt._out[(_j + (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)]));
                     };
                     _j = _j + ((2 : stdgo.StdGoTypes.GoInt));
                     var _dec:stdgo.StdGoTypes.GoInt32 = decodeRune(_r1, _r2);
                     if (_dec != (_r)) {
-                        _t.errorf(("DecodeRune(%#x, %#x) = %#x; want %#x" : stdgo.GoString), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_r2), stdgo.Go.toInterface(_dec), stdgo.Go.toInterface(_r));
+                        _t.errorf(("DecodeRune(%#x, %#x) = %#x; want %#x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_r2), stdgo.Go.toInterface(_dec), stdgo.Go.toInterface(_r));
                     };
                 };
             };
             if (_j != ((_tt._out.length))) {
-                _t.errorf(("#%d: EncodeRune didn\'t generate enough output" : stdgo.GoString), stdgo.Go.toInterface(_i));
+                _t.errorf(("#%d: EncodeRune didn\'t generate enough output" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
             };
         };
     }
@@ -197,11 +197,11 @@ function testAllocationsDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             var _allocs:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((10 : stdgo.StdGoTypes.GoInt), function():Void {
                 var _out = decode(_tt._in);
                 if (_out == null) {
-                    _t.errorf(("Decode(%x) = nil" : stdgo.GoString), stdgo.Go.toInterface(_tt._in));
+                    _t.errorf(("Decode(%x) = nil" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt._in));
                 };
             });
             if (_allocs > (0 : stdgo.StdGoTypes.GoFloat64)) {
-                _t.errorf(("Decode allocated %v times" : stdgo.GoString), stdgo.Go.toInterface(_allocs));
+                _t.errorf(("Decode allocated %v times" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_allocs));
             };
         };
     }
@@ -209,7 +209,7 @@ function testDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _tt in _decodeTests) {
             var _out = decode(_tt._in);
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out))) {
-                _t.errorf(("Decode(%x) = %x; want %x" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
+                _t.errorf(("Decode(%x) = %x; want %x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
             };
         };
     }
@@ -217,7 +217,7 @@ function testDecodeRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (_i => _tt in _decodeRuneTests) {
             var _got:stdgo.StdGoTypes.GoInt32 = decodeRune(_tt._r1, _tt._r2);
             if (_got != (_tt._want)) {
-                _t.errorf(("%d: DecodeRune(%q, %q) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tt._r1), stdgo.Go.toInterface(_tt._r2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
+                _t.errorf(("%d: DecodeRune(%q, %q) = %v; want %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tt._r1), stdgo.Go.toInterface(_tt._r2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
             };
         };
     }
@@ -225,7 +225,7 @@ function testIsSurrogate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
         for (_i => _tt in _surrogateTests) {
             var _got:Bool = isSurrogate(_tt._r);
             if (_got != (_tt._want)) {
-                _t.errorf(("%d: IsSurrogate(%q) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tt._r), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
+                _t.errorf(("%d: IsSurrogate(%q) = %v; want %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tt._r), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
             };
         };
     }

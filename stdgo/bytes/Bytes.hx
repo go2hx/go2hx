@@ -9,19 +9,19 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var errTooLarge : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: too large" : stdgo.GoString));
+var errTooLarge : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: too large" : stdgo.GoString)?.__copy__());
 /**
     
     
     
 **/
-var _errNegativeRead : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: reader returned negative count from Read" : stdgo.GoString));
+var _errNegativeRead : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: reader returned negative count from Read" : stdgo.GoString)?.__copy__());
 /**
     
     
     
 **/
-var _errUnreadByte : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: UnreadByte: previous operation was not a successful read" : stdgo.GoString));
+var _errUnreadByte : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: UnreadByte: previous operation was not a successful read" : stdgo.GoString)?.__copy__());
 /**
     
     
@@ -321,7 +321,7 @@ function contains(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _subslice:stdgo.Slice
     // ContainsAny reports whether any of the UTF-8-encoded code points in chars are within b.
 **/
 function containsAny(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _chars:stdgo.GoString):Bool {
-        return indexAny(_b, _chars) >= (0 : stdgo.StdGoTypes.GoInt);
+        return indexAny(_b, _chars?.__copy__()) >= (0 : stdgo.StdGoTypes.GoInt);
     }
 /**
     // ContainsRune reports whether the rune is contained in the UTF-8-encoded byte slice b.
@@ -456,7 +456,7 @@ function indexAny(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _chars:stdgo.GoString
                 };
                 return (-1 : stdgo.StdGoTypes.GoInt);
             };
-            if (stdgo.internal.bytealg.Bytealg.indexByteString(_chars, _s[(0 : stdgo.StdGoTypes.GoInt)]) >= (0 : stdgo.StdGoTypes.GoInt)) {
+            if (stdgo.internal.bytealg.Bytealg.indexByteString(_chars?.__copy__(), _s[(0 : stdgo.StdGoTypes.GoInt)]) >= (0 : stdgo.StdGoTypes.GoInt)) {
                 return (0 : stdgo.StdGoTypes.GoInt);
             };
             return (-1 : stdgo.StdGoTypes.GoInt);
@@ -470,7 +470,7 @@ function indexAny(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _chars:stdgo.GoString
         };
         if ((_s.length) > (8 : stdgo.StdGoTypes.GoInt)) {
             {
-                var __tmp__ = _makeASCIISet(_chars), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _isASCII:Bool = __tmp__._1;
+                var __tmp__ = _makeASCIISet(_chars?.__copy__()), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _isASCII:Bool = __tmp__._1;
                 if (_isASCII) {
                     for (_i => _c in _s) {
                         if (_as._contains(_c)) {
@@ -487,7 +487,7 @@ function indexAny(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _chars:stdgo.GoString
             stdgo.Go.cfor(_i < (_s.length), _i = _i + (_width), {
                 var _r:stdgo.StdGoTypes.GoInt32 = (_s[(_i : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoRune);
                 if (_r < (128 : stdgo.StdGoTypes.GoInt32)) {
-                    if (stdgo.internal.bytealg.Bytealg.indexByteString(_chars, _s[(_i : stdgo.StdGoTypes.GoInt)]) >= (0 : stdgo.StdGoTypes.GoInt)) {
+                    if (stdgo.internal.bytealg.Bytealg.indexByteString(_chars?.__copy__(), _s[(_i : stdgo.StdGoTypes.GoInt)]) >= (0 : stdgo.StdGoTypes.GoInt)) {
                         return _i;
                     };
                     _width = (1 : stdgo.StdGoTypes.GoInt);
@@ -506,7 +506,7 @@ function indexAny(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _chars:stdgo.GoString
                         continue;
                     };
                     if (stdgo.internal.bytealg.Bytealg.maxLen >= _width) {
-                        if (stdgo.internal.bytealg.Bytealg.indexString(_chars, (_r : stdgo.GoString)) >= (0 : stdgo.StdGoTypes.GoInt)) {
+                        if (stdgo.internal.bytealg.Bytealg.indexString(_chars?.__copy__(), (_r : stdgo.GoString)?.__copy__()) >= (0 : stdgo.StdGoTypes.GoInt)) {
                             return _i;
                         };
                         continue;
@@ -533,7 +533,7 @@ function lastIndexAny(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _chars:stdgo.GoSt
         };
         if ((_s.length) > (8 : stdgo.StdGoTypes.GoInt)) {
             {
-                var __tmp__ = _makeASCIISet(_chars), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _isASCII:Bool = __tmp__._1;
+                var __tmp__ = _makeASCIISet(_chars?.__copy__()), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _isASCII:Bool = __tmp__._1;
                 if (_isASCII) {
                     {
                         var _i:stdgo.StdGoTypes.GoInt = (_s.length) - (1 : stdgo.StdGoTypes.GoInt);
@@ -558,7 +558,7 @@ function lastIndexAny(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _chars:stdgo.GoSt
                 };
                 return (-1 : stdgo.StdGoTypes.GoInt);
             };
-            if (stdgo.internal.bytealg.Bytealg.indexByteString(_chars, _s[(0 : stdgo.StdGoTypes.GoInt)]) >= (0 : stdgo.StdGoTypes.GoInt)) {
+            if (stdgo.internal.bytealg.Bytealg.indexByteString(_chars?.__copy__(), _s[(0 : stdgo.StdGoTypes.GoInt)]) >= (0 : stdgo.StdGoTypes.GoInt)) {
                 return (0 : stdgo.StdGoTypes.GoInt);
             };
             return (-1 : stdgo.StdGoTypes.GoInt);
@@ -585,7 +585,7 @@ function lastIndexAny(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _chars:stdgo.GoSt
             while (_i > (0 : stdgo.StdGoTypes.GoInt)) {
                 var _r:stdgo.StdGoTypes.GoInt32 = (_s[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoRune);
                 if (_r < (128 : stdgo.StdGoTypes.GoInt32)) {
-                    if (stdgo.internal.bytealg.Bytealg.indexByteString(_chars, _s[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)]) >= (0 : stdgo.StdGoTypes.GoInt)) {
+                    if (stdgo.internal.bytealg.Bytealg.indexByteString(_chars?.__copy__(), _s[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)]) >= (0 : stdgo.StdGoTypes.GoInt)) {
                         return _i - (1 : stdgo.StdGoTypes.GoInt);
                     };
                     _i--;
@@ -601,7 +601,7 @@ function lastIndexAny(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _chars:stdgo.GoSt
                         continue;
                     };
                     if (stdgo.internal.bytealg.Bytealg.maxLen >= _size) {
-                        if (stdgo.internal.bytealg.Bytealg.indexString(_chars, (_r : stdgo.GoString)) >= (0 : stdgo.StdGoTypes.GoInt)) {
+                        if (stdgo.internal.bytealg.Bytealg.indexString(_chars?.__copy__(), (_r : stdgo.GoString)?.__copy__()) >= (0 : stdgo.StdGoTypes.GoInt)) {
                             return _i;
                         };
                         continue;
@@ -1257,12 +1257,12 @@ function trim(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _cutset:stdgo.GoString):s
             return _trimLeftByte(_trimRightByte(_s, _cutset[(0 : stdgo.StdGoTypes.GoInt)]), _cutset[(0 : stdgo.StdGoTypes.GoInt)]);
         };
         {
-            var __tmp__ = _makeASCIISet(_cutset), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _makeASCIISet(_cutset?.__copy__()), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return _trimLeftASCII(_trimRightASCII(_s, (stdgo.Go.setRef(_as) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.T_asciiSet>)), (stdgo.Go.setRef(_as) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.T_asciiSet>));
             };
         };
-        return _trimLeftUnicode(_trimRightUnicode(_s, _cutset), _cutset);
+        return _trimLeftUnicode(_trimRightUnicode(_s, _cutset?.__copy__()), _cutset?.__copy__());
     }
 /**
     // TrimLeft returns a subslice of s by slicing off all leading
@@ -1279,12 +1279,12 @@ function trimLeft(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _cutset:stdgo.GoStrin
             return _trimLeftByte(_s, _cutset[(0 : stdgo.StdGoTypes.GoInt)]);
         };
         {
-            var __tmp__ = _makeASCIISet(_cutset), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _makeASCIISet(_cutset?.__copy__()), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return _trimLeftASCII(_s, (stdgo.Go.setRef(_as) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.T_asciiSet>));
             };
         };
-        return _trimLeftUnicode(_s, _cutset);
+        return _trimLeftUnicode(_s, _cutset?.__copy__());
     }
 function _trimLeftByte(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _c:stdgo.StdGoTypes.GoByte):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
         while ((_s.length > (0 : stdgo.StdGoTypes.GoInt)) && (_s[(0 : stdgo.StdGoTypes.GoInt)] == _c)) {
@@ -1317,7 +1317,7 @@ function _trimLeftUnicode(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _cutset:stdgo
                     _n = __tmp__._1;
                 };
             };
-            if (!_containsRune(_cutset, _r)) {
+            if (!_containsRune(_cutset?.__copy__(), _r)) {
                 break;
             };
             _s = (_s.__slice__(_n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
@@ -1339,12 +1339,12 @@ function trimRight(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _cutset:stdgo.GoStri
             return _trimRightByte(_s, _cutset[(0 : stdgo.StdGoTypes.GoInt)]);
         };
         {
-            var __tmp__ = _makeASCIISet(_cutset), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _makeASCIISet(_cutset?.__copy__()), _as:stdgo.bytes.Bytes.T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return _trimRightASCII(_s, (stdgo.Go.setRef(_as) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.T_asciiSet>));
             };
         };
-        return _trimRightUnicode(_s, _cutset);
+        return _trimRightUnicode(_s, _cutset?.__copy__());
     }
 function _trimRightByte(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _c:stdgo.StdGoTypes.GoByte):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
         while ((_s.length > (0 : stdgo.StdGoTypes.GoInt)) && (_s[((_s.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] == _c)) {
@@ -1371,7 +1371,7 @@ function _trimRightUnicode(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _cutset:stdg
                     _n = __tmp__._1;
                 };
             };
-            if (!_containsRune(_cutset, _r)) {
+            if (!_containsRune(_cutset?.__copy__(), _r)) {
                 break;
             };
             _s = (_s.__slice__(0, (_s.length) - _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
@@ -1939,7 +1939,7 @@ class Buffer_asInterface {
         @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _line:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
         var __tmp__ = _b._readSlice(_delim), _slice:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        return { _0 : (_slice : stdgo.GoString), _1 : _err };
+        return { _0 : (_slice : stdgo.GoString)?.__copy__(), _1 : _err };
     }
     /**
         // readSlice is like ReadBytes but returns a reference to internal buffer data.
@@ -2004,7 +2004,7 @@ class Buffer_asInterface {
     static public function unreadRune( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.Error {
         @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         if (_b._lastRead <= (0 : stdgo.bytes.Bytes.T_readOp)) {
-            return stdgo.errors.Errors.new_(("bytes.Buffer: UnreadRune: previous operation was not a successful ReadRune" : stdgo.GoString));
+            return stdgo.errors.Errors.new_(("bytes.Buffer: UnreadRune: previous operation was not a successful ReadRune" : stdgo.GoString)?.__copy__());
         };
         if (_b._off >= (_b._lastRead : stdgo.StdGoTypes.GoInt)) {
             _b._off = _b._off - ((_b._lastRead : stdgo.StdGoTypes.GoInt));
@@ -2371,9 +2371,9 @@ class Buffer_asInterface {
     static public function string( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.GoString {
         @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         if (_b == null || (_b : Dynamic).__nil__) {
-            return ("<nil>" : stdgo.GoString);
+            return ("<nil>" : stdgo.GoString)?.__copy__();
         };
-        return ((_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString);
+        return ((_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)?.__copy__();
     }
     /**
         // AvailableBuffer returns an empty buffer with b.Available() capacity.
@@ -2520,11 +2520,11 @@ class Reader_asInterface {
             } else if (__value__ == ((2 : stdgo.StdGoTypes.GoInt))) {
                 _abs = (_r._s.length : stdgo.StdGoTypes.GoInt64) + _offset;
             } else {
-                return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: invalid whence" : stdgo.GoString)) };
+                return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: invalid whence" : stdgo.GoString)?.__copy__()) };
             };
         };
         if (_abs < (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: negative position" : stdgo.GoString)) };
+            return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: negative position" : stdgo.GoString)?.__copy__()) };
         };
         _r._i = _abs;
         return { _0 : _abs, _1 : (null : stdgo.Error) };
@@ -2536,10 +2536,10 @@ class Reader_asInterface {
     static public function unreadRune( _r:stdgo.StdGoTypes.Ref<Reader>):stdgo.Error {
         @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         if (_r._i <= (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadRune: at beginning of slice" : stdgo.GoString));
+            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadRune: at beginning of slice" : stdgo.GoString)?.__copy__());
         };
         if (_r._prevRune < (0 : stdgo.StdGoTypes.GoInt)) {
-            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadRune: previous operation was not ReadRune" : stdgo.GoString));
+            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadRune: previous operation was not ReadRune" : stdgo.GoString)?.__copy__());
         };
         _r._i = (_r._prevRune : stdgo.StdGoTypes.GoInt64);
         _r._prevRune = (-1 : stdgo.StdGoTypes.GoInt);
@@ -2579,7 +2579,7 @@ class Reader_asInterface {
     static public function unreadByte( _r:stdgo.StdGoTypes.Ref<Reader>):stdgo.Error {
         @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         if (_r._i <= (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadByte: at beginning of slice" : stdgo.GoString));
+            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadByte: at beginning of slice" : stdgo.GoString)?.__copy__());
         };
         _r._prevRune = (-1 : stdgo.StdGoTypes.GoInt);
         _r._i--;
@@ -2607,7 +2607,7 @@ class Reader_asInterface {
         @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (_off < (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.errors.Errors.new_(("bytes.Reader.ReadAt: negative offset" : stdgo.GoString)) };
+            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.errors.Errors.new_(("bytes.Reader.ReadAt: negative offset" : stdgo.GoString)?.__copy__()) };
         };
         if (_off >= (_r._s.length : stdgo.StdGoTypes.GoInt64)) {
             return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.io.Io.eof };

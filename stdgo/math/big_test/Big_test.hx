@@ -671,7 +671,7 @@ function _checkAliasingOneArg(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, 
         {
             var _out = _f(_v1, _v1);
             if ((_out != _v1) || !_equal(_v1, _v)) {
-                _t.logf(("f(v, x) != f(x, x)" : stdgo.GoString));
+                _t.logf(("f(v, x) != f(x, x)" : stdgo.GoString)?.__copy__());
                 return false;
             };
         };
@@ -704,7 +704,7 @@ function _checkAliasingTwoArgs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>,
         {
             var _out = _f(_v1, _v1, _y);
             if ((_out != _v1) || !_equal(_v1, _v)) {
-                _t.logf(("f(v, x, y) != f(x, x, y)" : stdgo.GoString));
+                _t.logf(("f(v, x, y) != f(x, x, y)" : stdgo.GoString)?.__copy__());
                 return false;
             };
         };
@@ -712,7 +712,7 @@ function _checkAliasingTwoArgs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>,
         {
             var _out = _f(_v1, _x, _v1);
             if ((_out != _v1) || !_equal(_v1, _v)) {
-                _t.logf(("f(v, x, y) != f(y, x, y)" : stdgo.GoString));
+                _t.logf(("f(v, x, y) != f(y, x, y)" : stdgo.GoString)?.__copy__());
                 return false;
             };
         };
@@ -729,7 +729,7 @@ function _checkAliasingTwoArgs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>,
         {
             var _out = _f(_v1, _y, _y);
             if ((_out != _v1) || !_equal(_v1, _v)) {
-                _t.logf(("f(v, y1, y2) != f(v, y, y)" : stdgo.GoString));
+                _t.logf(("f(v, y1, y2) != f(v, y, y)" : stdgo.GoString)?.__copy__());
                 return false;
             };
         };
@@ -737,7 +737,7 @@ function _checkAliasingTwoArgs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>,
         {
             var _out = _f(_v1, _v1, _v1);
             if ((_out != _v1) || !_equal(_v1, _v)) {
-                _t.logf(("f(v, y1, y2) != f(y, y, y)" : stdgo.GoString));
+                _t.logf(("f(v, y1, y2) != f(y, y, y)" : stdgo.GoString)?.__copy__());
                 return false;
             };
         };
@@ -860,7 +860,7 @@ function testAliasing(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.AnyInterface>)) {
-            _t.run(_name, function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+            _t.run(_name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 var _scale:stdgo.StdGoTypes.GoFloat64 = (1 : stdgo.StdGoTypes.GoFloat64);
                 {
                     final __value__ = _name;
@@ -916,28 +916,28 @@ function example_eConvergents():Void {
             var _i:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i <= (15 : stdgo.StdGoTypes.GoInt), _i++, {
                 var _r = _recur((0i64 : stdgo.StdGoTypes.GoInt64), (_i : stdgo.StdGoTypes.GoInt64));
-                stdgo.fmt.Fmt.printf(("%-13s = %s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(_r.floatString((8 : stdgo.StdGoTypes.GoInt))));
+                stdgo.fmt.Fmt.printf(("%-13s = %s\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(_r.floatString((8 : stdgo.StdGoTypes.GoInt))));
             });
         };
     }
 function exampleRat_SetString():Void {
         var _r = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Rat)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Rat>);
-        _r.setString(("355/113" : stdgo.GoString));
+        _r.setString(("355/113" : stdgo.GoString)?.__copy__());
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_r.floatString((3 : stdgo.StdGoTypes.GoInt))));
     }
 function exampleInt_SetString():Void {
         var _i = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
-        _i.setString(("644" : stdgo.GoString), (8 : stdgo.StdGoTypes.GoInt));
+        _i.setString(("644" : stdgo.GoString)?.__copy__(), (8 : stdgo.StdGoTypes.GoInt));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.Go.asInterface(_i)));
     }
 function exampleFloat_SetString():Void {
         var _f = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Float_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>);
-        _f.setString(("3.14159" : stdgo.GoString));
+        _f.setString(("3.14159" : stdgo.GoString)?.__copy__());
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.Go.asInterface(_f)));
     }
 function exampleRat_Scan():Void {
         var _r = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Rat)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Rat>);
-        var __tmp__ = stdgo.fmt.Fmt.sscan(("1.5000" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.sscan(("1.5000" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_r))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.println(stdgo.Go.toInterface(("error scanning value:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         } else {
@@ -946,7 +946,7 @@ function exampleRat_Scan():Void {
     }
 function exampleInt_Scan():Void {
         var _i = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
-        var __tmp__ = stdgo.fmt.Fmt.sscan(("18446744073709551617" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_i))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.sscan(("18446744073709551617" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_i))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.println(stdgo.Go.toInterface(("error scanning value:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         } else {
@@ -955,7 +955,7 @@ function exampleInt_Scan():Void {
     }
 function exampleFloat_Scan():Void {
         var _f = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Float_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>);
-        var __tmp__ = stdgo.fmt.Fmt.sscan(("1.19282e99" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_f))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.sscan(("1.19282e99" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_f))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.println(stdgo.Go.toInterface(("error scanning value:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         } else {
@@ -1002,9 +1002,9 @@ function example_sqrt2():Void {
                 _x.mul(_half, _t);
             });
         };
-        stdgo.fmt.Fmt.printf(("sqrt(2) = %.50f\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
+        stdgo.fmt.Fmt.printf(("sqrt(2) = %.50f\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
         _t.mul(_x, _x);
-        stdgo.fmt.Fmt.printf(("error = %e\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_t.sub(_two, _t))));
+        stdgo.fmt.Fmt.printf(("error = %e\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_t.sub(_two, _t))));
     }
 function exampleFloat_Add():Void {
         var __0:stdgo.math.big.Big.Float_ = ({} : stdgo.math.big.Big.Float_), __1:stdgo.math.big.Big.Float_ = ({} : stdgo.math.big.Big.Float_), __2:stdgo.math.big.Big.Float_ = ({} : stdgo.math.big.Big.Float_), _z:stdgo.math.big.Big.Float_ = __2, _y:stdgo.math.big.Big.Float_ = __1, _x:stdgo.math.big.Big.Float_ = __0;
@@ -1012,9 +1012,9 @@ function exampleFloat_Add():Void {
         _y.setFloat64((2.718281828 : stdgo.StdGoTypes.GoFloat64));
         _z.setPrec((32u32 : stdgo.StdGoTypes.GoUInt));
         _z.add((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>), (stdgo.Go.setRef(_y) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>));
-        stdgo.fmt.Fmt.printf(("x = %.10g (%s, prec = %d, acc = %s)\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>))), stdgo.Go.toInterface(_x.text((112 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoInt))), stdgo.Go.toInterface(_x.prec()), stdgo.Go.toInterface(stdgo.Go.asInterface(_x.acc())));
-        stdgo.fmt.Fmt.printf(("y = %.10g (%s, prec = %d, acc = %s)\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_y) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>))), stdgo.Go.toInterface(_y.text((112 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoInt))), stdgo.Go.toInterface(_y.prec()), stdgo.Go.toInterface(stdgo.Go.asInterface(_y.acc())));
-        stdgo.fmt.Fmt.printf(("z = %.10g (%s, prec = %d, acc = %s)\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>))), stdgo.Go.toInterface(_z.text((112 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoInt))), stdgo.Go.toInterface(_z.prec()), stdgo.Go.toInterface(stdgo.Go.asInterface(_z.acc())));
+        stdgo.fmt.Fmt.printf(("x = %.10g (%s, prec = %d, acc = %s)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>))), stdgo.Go.toInterface(_x.text((112 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoInt))), stdgo.Go.toInterface(_x.prec()), stdgo.Go.toInterface(stdgo.Go.asInterface(_x.acc())));
+        stdgo.fmt.Fmt.printf(("y = %.10g (%s, prec = %d, acc = %s)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_y) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>))), stdgo.Go.toInterface(_y.text((112 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoInt))), stdgo.Go.toInterface(_y.prec()), stdgo.Go.toInterface(stdgo.Go.asInterface(_y.acc())));
+        stdgo.fmt.Fmt.printf(("z = %.10g (%s, prec = %d, acc = %s)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>))), stdgo.Go.toInterface(_z.text((112 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoInt))), stdgo.Go.toInterface(_z.prec()), stdgo.Go.toInterface(stdgo.Go.asInterface(_z.acc())));
     }
 function exampleFloat_shift():Void {
         {
@@ -1036,7 +1036,7 @@ function exampleFloat_Cmp():Void {
             var _x = stdgo.math.big.Big.newFloat(_x64);
             for (__1 => _y64 in _operands) {
                 var _y = stdgo.math.big.Big.newFloat(_y64);
-                stdgo.fmt.Fmt.printf(("%4g  %4g  %3d\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(stdgo.Go.asInterface(_y)), stdgo.Go.toInterface(_x.cmp(_y)));
+                stdgo.fmt.Fmt.printf(("%4g  %4g  %3d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(stdgo.Go.asInterface(_y)), stdgo.Go.toInterface(_x.cmp(_y)));
             };
             stdgo.fmt.Fmt.println();
         };
@@ -1047,17 +1047,17 @@ function exampleRoundingMode():Void {
         {
             var _mode:stdgo.math.big.Big.RoundingMode = (0 : stdgo.math.big.Big.RoundingMode);
             stdgo.Go.cfor(_mode <= (5 : stdgo.math.big.Big.RoundingMode), _mode++, {
-                stdgo.fmt.Fmt.printf(("  %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)));
+                stdgo.fmt.Fmt.printf(("  %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)));
             });
         };
         stdgo.fmt.Fmt.println();
         for (__0 => _f64 in _operands) {
-            stdgo.fmt.Fmt.printf(("%4g" : stdgo.GoString), stdgo.Go.toInterface(_f64));
+            stdgo.fmt.Fmt.printf(("%4g" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_f64));
             {
                 var _mode:stdgo.math.big.Big.RoundingMode = (0 : stdgo.math.big.Big.RoundingMode);
                 stdgo.Go.cfor(_mode <= (5 : stdgo.math.big.Big.RoundingMode), _mode++, {
                     var _f = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Float_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>).setPrec((2u32 : stdgo.StdGoTypes.GoUInt)).setMode(_mode).setFloat64(_f64);
-                    stdgo.fmt.Fmt.printf(("  %*g" : stdgo.GoString), stdgo.Go.toInterface(((_mode.string() : stdgo.GoString).length)), stdgo.Go.toInterface(stdgo.Go.asInterface(_f)));
+                    stdgo.fmt.Fmt.printf(("  %*g" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(((_mode.string() : stdgo.GoString).length)), stdgo.Go.toInterface(stdgo.Go.asInterface(_f)));
                 });
             };
             stdgo.fmt.Fmt.println();

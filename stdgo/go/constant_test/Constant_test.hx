@@ -8,11 +8,11 @@ function example_complexNumbers():Void {
         var _c:stdgo.go.constant.Constant.Value = stdgo.go.constant.Constant.binaryOp(_a, (14 : stdgo.go.token.Token.Token), _b);
         var __tmp__ = stdgo.go.constant.Constant.float64Val(stdgo.go.constant.Constant.real(_c)), ar:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, _exact:Bool = __tmp__._1;
         if (!_exact) {
-            stdgo.fmt.Fmt.printf(("Could not represent real part %s exactly as float64\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.go.constant.Constant.real(_c)));
+            stdgo.fmt.Fmt.printf(("Could not represent real part %s exactly as float64\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.go.constant.Constant.real(_c)));
         };
         var __tmp__ = stdgo.go.constant.Constant.float64Val(stdgo.go.constant.Constant.imag(_c)), ai:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, _exact:Bool = __tmp__._1;
         if (!_exact) {
-            stdgo.fmt.Fmt.printf(("Could not represent imaginary part %s as exactly as float64\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.go.constant.Constant.imag(_c)));
+            stdgo.fmt.Fmt.printf(("Could not represent imaginary part %s as exactly as float64\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.go.constant.Constant.imag(_c)));
         };
         var c:stdgo.StdGoTypes.GoComplex128 = new stdgo.StdGoTypes.GoComplex128(ar, ai);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("literal" : stdgo.GoString)), stdgo.Go.toInterface(((25.3f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 55f64))));
@@ -44,7 +44,7 @@ function exampleUnaryOp():Void {
         };
     }
 function exampleCompare():Void {
-        var _vs = (new stdgo.Slice<stdgo.go.constant.Constant.Value>(6, 6, stdgo.go.constant.Constant.makeString(("Z" : stdgo.GoString)), stdgo.go.constant.Constant.makeString(("bacon" : stdgo.GoString)), stdgo.go.constant.Constant.makeString(("go" : stdgo.GoString)), stdgo.go.constant.Constant.makeString(("Frame" : stdgo.GoString)), stdgo.go.constant.Constant.makeString(("defer" : stdgo.GoString)), stdgo.go.constant.Constant.makeFromLiteral(("\"a\"" : stdgo.GoString), (9 : stdgo.go.token.Token.Token), (0u32 : stdgo.StdGoTypes.GoUInt))) : stdgo.Slice<stdgo.go.constant.Constant.Value>);
+        var _vs = (new stdgo.Slice<stdgo.go.constant.Constant.Value>(6, 6, stdgo.go.constant.Constant.makeString(("Z" : stdgo.GoString)?.__copy__()), stdgo.go.constant.Constant.makeString(("bacon" : stdgo.GoString)?.__copy__()), stdgo.go.constant.Constant.makeString(("go" : stdgo.GoString)?.__copy__()), stdgo.go.constant.Constant.makeString(("Frame" : stdgo.GoString)?.__copy__()), stdgo.go.constant.Constant.makeString(("defer" : stdgo.GoString)?.__copy__()), stdgo.go.constant.Constant.makeFromLiteral(("\"a\"" : stdgo.GoString)?.__copy__(), (9 : stdgo.go.token.Token.Token), (0u32 : stdgo.StdGoTypes.GoUInt))) : stdgo.Slice<stdgo.go.constant.Constant.Value>);
         stdgo.sort.Sort.slice(stdgo.Go.toInterface(_vs), function(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
             return stdgo.go.constant.Constant.compare(_vs[(_i : stdgo.StdGoTypes.GoInt)], (45 : stdgo.go.token.Token.Token), _vs[(_j : stdgo.StdGoTypes.GoInt)]);
         });
@@ -74,16 +74,16 @@ _one,
 _mkComplex(_zero, _one),
 _mkComplex(_one, _one)) : stdgo.Slice<stdgo.go.constant.Constant.Value>);
         for (__0 => _v in _vs) {
-            stdgo.fmt.Fmt.printf(("% d %s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.go.constant.Constant.sign(_v)), stdgo.Go.toInterface(_v));
+            stdgo.fmt.Fmt.printf(("% d %s\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.go.constant.Constant.sign(_v)), stdgo.Go.toInterface(_v));
         };
     }
 function exampleVal():Void {
         var _maxint:stdgo.go.constant.Constant.Value = stdgo.go.constant.Constant.makeInt64((9223372036854775807i64 : stdgo.StdGoTypes.GoInt64));
-        stdgo.fmt.Fmt.printf(("%v\n" : stdgo.GoString), stdgo.go.constant.Constant.val(_maxint));
+        stdgo.fmt.Fmt.printf(("%v\n" : stdgo.GoString)?.__copy__(), stdgo.go.constant.Constant.val(_maxint));
         var _e:stdgo.go.constant.Constant.Value = stdgo.go.constant.Constant.makeFloat64((2.718281828459045 : stdgo.StdGoTypes.GoFloat64));
-        stdgo.fmt.Fmt.printf(("%v\n" : stdgo.GoString), stdgo.go.constant.Constant.val(_e));
+        stdgo.fmt.Fmt.printf(("%v\n" : stdgo.GoString)?.__copy__(), stdgo.go.constant.Constant.val(_e));
         var _b:stdgo.go.constant.Constant.Value = stdgo.go.constant.Constant.makeBool(true);
-        stdgo.fmt.Fmt.printf(("%v\n" : stdgo.GoString), stdgo.go.constant.Constant.val(_b));
+        stdgo.fmt.Fmt.printf(("%v\n" : stdgo.GoString)?.__copy__(), stdgo.go.constant.Constant.val(_b));
         _b = stdgo.go.constant.Constant.make(stdgo.Go.toInterface(false));
-        stdgo.fmt.Fmt.printf(("%v\n" : stdgo.GoString), stdgo.go.constant.Constant.val(_b));
+        stdgo.fmt.Fmt.printf(("%v\n" : stdgo.GoString)?.__copy__(), stdgo.go.constant.Constant.val(_b));
     }

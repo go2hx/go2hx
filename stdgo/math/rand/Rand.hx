@@ -1208,7 +1208,7 @@ var _fn : stdgo.GoArray<stdgo.StdGoTypes.GoFloat32> = (new stdgo.GoArray<stdgo.S
     
     
 **/
-var _randautoseed : stdgo.StdGoTypes.Ref<stdgo.internal.godebug.Godebug.Setting> = stdgo.internal.godebug.Godebug.new_(("randautoseed" : stdgo.GoString));
+var _randautoseed : stdgo.StdGoTypes.Ref<stdgo.internal.godebug.Godebug.Setting> = stdgo.internal.godebug.Godebug.new_(("randautoseed" : stdgo.GoString)?.__copy__());
 /**
     // rngCooked used for seeding. See gen_cooked.go for details.
     

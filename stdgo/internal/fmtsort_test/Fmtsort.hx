@@ -5,7 +5,7 @@ import stdgo.internal.fmtsort.Fmtsort;
     
     
 **/
-var _tests : stdgo.Slice<stdgo.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo.testing.Testing.InternalTest>(3, 3, (new stdgo.testing.Testing.InternalTest(("TestCompare" : stdgo.GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testCompare) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestOrder" : stdgo.GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testOrder) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestInterface" : stdgo.GoString), stdgo.internal.fmtsort_test.Fmtsort_test.testInterface) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
+var _tests : stdgo.Slice<stdgo.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo.testing.Testing.InternalTest>(3, 3, (new stdgo.testing.Testing.InternalTest(("TestCompare" : stdgo.GoString)?.__copy__(), stdgo.internal.fmtsort_test.Fmtsort_test.testCompare) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestOrder" : stdgo.GoString)?.__copy__(), stdgo.internal.fmtsort_test.Fmtsort_test.testOrder) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestInterface" : stdgo.GoString)?.__copy__(), stdgo.internal.fmtsort_test.Fmtsort_test.testInterface) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
 /**
     
     
@@ -30,7 +30,7 @@ function main():Void {
     }
 @:keep var _ = {
         try {
-            stdgo.testing.internal.testdeps.Testdeps.importPath = ("internal/fmtsort" : stdgo.GoString);
+            stdgo.testing.internal.testdeps.Testdeps.importPath = ("internal/fmtsort" : stdgo.GoString)?.__copy__();
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

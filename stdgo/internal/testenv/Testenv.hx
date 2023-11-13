@@ -22,7 +22,7 @@ var _origEnv : stdgo.Slice<stdgo.GoString> = stdgo.os.Os.environ();
     
     
 **/
-var _flaky : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("flaky" : stdgo.GoString), false, ("run known-flaky tests too" : stdgo.GoString));
+var _flaky : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("flaky" : stdgo.GoString)?.__copy__(), false, ("run known-flaky tests too" : stdgo.GoString)?.__copy__());
 /**
     // Sigquit is the signal to send to kill a hanging subprocess.
     // On Unix we send SIGQUIT, but on non-Unix we only have os.Kill.
@@ -141,7 +141,7 @@ function mustHaveExec(_t:stdgo.testing.Testing.TB):Void {
             _tryExecErr = _tryExec();
         });
         if (_tryExecErr != null) {
-            _t.skipf(("skipping test: cannot exec subprocess on %s/%s: %v" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)), stdgo.Go.toInterface(_tryExecErr));
+            _t.skipf(("skipping test: cannot exec subprocess on %s/%s: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)), stdgo.Go.toInterface(_tryExecErr));
         };
     }
 function _tryExec():stdgo.Error {
@@ -152,13 +152,13 @@ function _tryExec():stdgo.Error {
             };
         };
         if (!stdgo.testing.Testing.testing()) {
-            return stdgo.errors.Errors.new_(("can\'t probe for exec support with a non-test executable" : stdgo.GoString));
+            return stdgo.errors.Errors.new_(("can\'t probe for exec support with a non-test executable" : stdgo.GoString)?.__copy__());
         };
         var __tmp__ = stdgo.os.Os.executable(), _exe:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return stdgo.fmt.Fmt.errorf(("can\'t probe for exec support: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            return stdgo.fmt.Fmt.errorf(("can\'t probe for exec support: %w" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
         };
-        var _cmd = stdgo.os.exec.Exec.command(_exe, ("-test.list=^$" : stdgo.GoString));
+        var _cmd = stdgo.os.exec.Exec.command(_exe?.__copy__(), ("-test.list=^$" : stdgo.GoString)?.__copy__());
         _cmd.env = _origEnv;
         return _cmd.run();
     }
@@ -172,7 +172,7 @@ function mustHaveExecPath(_t:stdgo.testing.Testing.TB, _path:stdgo.GoString):Voi
         var __tmp__ = _execPaths.load(stdgo.Go.toInterface(_path)), _err:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _found:Bool = __tmp__._1;
         if (!_found) {
             {
-                var __tmp__ = stdgo.os.exec.Exec.lookPath(_path);
+                var __tmp__ = stdgo.os.exec.Exec.lookPath(_path?.__copy__());
                 _err = stdgo.Go.toInterface(__tmp__._1);
             };
             {
@@ -181,7 +181,7 @@ function mustHaveExecPath(_t:stdgo.testing.Testing.TB, _path:stdgo.GoString):Voi
             };
         };
         if (_err != null) {
-            _t.skipf(("skipping test: %s: %s" : stdgo.GoString), stdgo.Go.toInterface(_path), _err);
+            _t.skipf(("skipping test: %s: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path), _err);
         };
     }
 /**
@@ -194,13 +194,13 @@ function cleanCmdEnv(_cmd:stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.Cmd>):stdgo.St
             throw stdgo.Go.toInterface(("environment already set" : stdgo.GoString));
         };
         for (__6 => _env in stdgo.os.Os.environ()) {
-            if (stdgo.strings.Strings.hasPrefix(_env, ("GODEBUG=" : stdgo.GoString))) {
+            if (stdgo.strings.Strings.hasPrefix(_env?.__copy__(), ("GODEBUG=" : stdgo.GoString)?.__copy__())) {
                 continue;
             };
-            if (stdgo.strings.Strings.hasPrefix(_env, ("GOTRACEBACK=" : stdgo.GoString))) {
+            if (stdgo.strings.Strings.hasPrefix(_env?.__copy__(), ("GOTRACEBACK=" : stdgo.GoString)?.__copy__())) {
                 continue;
             };
-            _cmd.env = (_cmd.env.__append__(_env));
+            _cmd.env = (_cmd.env.__append__(_env?.__copy__()));
         };
         return _cmd;
     }
@@ -231,11 +231,11 @@ function commandContext(_t:stdgo.testing.Testing.TB, _ctx:stdgo.context.Context.
                     if (_ok) {
                         _gracePeriod = (100000000i64 : stdgo.time.Time.Duration);
                         {
-                            var _s:stdgo.GoString = stdgo.os.Os.getenv(("GO_TEST_TIMEOUT_SCALE" : stdgo.GoString));
+                            var _s:stdgo.GoString = stdgo.os.Os.getenv(("GO_TEST_TIMEOUT_SCALE" : stdgo.GoString)?.__copy__())?.__copy__();
                             if (_s != (stdgo.Go.str())) {
-                                var __tmp__ = stdgo.strconv.Strconv.atoi(_s), _scale:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                var __tmp__ = stdgo.strconv.Strconv.atoi(_s?.__copy__()), _scale:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {
-                                    _t.fatalf(("invalid GO_TEST_TIMEOUT_SCALE: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                                    _t.fatalf(("invalid GO_TEST_TIMEOUT_SCALE: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
                                 };
                                 _gracePeriod = _gracePeriod * ((_scale : stdgo.time.Time.Duration));
                             };
@@ -262,12 +262,12 @@ function commandContext(_t:stdgo.testing.Testing.TB, _ctx:stdgo.context.Context.
                 };
             };
         };
-        var _cmd = stdgo.os.exec.Exec.commandContext(_ctx, _name, ..._args.__toArray__());
+        var _cmd = stdgo.os.exec.Exec.commandContext(_ctx, _name?.__copy__(), ..._args.__toArray__());
         _cmd.cancel = function():stdgo.Error {
             if ((_cancelCtx != null) && (stdgo.Go.toInterface(_ctx.err()) == stdgo.Go.toInterface(stdgo.context.Context.deadlineExceeded))) {
-                _t.errorf(("test timed out while running command: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
+                _t.errorf(("test timed out while running command: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
             } else {
-                _t.logf(("%v: terminating command: %v" : stdgo.GoString), stdgo.Go.toInterface(_ctx.err()), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
+                _t.logf(("%v: terminating command: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_ctx.err()), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
             };
             return _cmd.process.signal(sigquit);
         };
@@ -277,7 +277,7 @@ function commandContext(_t:stdgo.testing.Testing.TB, _ctx:stdgo.context.Context.
                 _cancelCtx();
             };
             if (((_cmd.process != null) && ((_cmd.process : Dynamic).__nil__ == null || !(_cmd.process : Dynamic).__nil__)) && (_cmd.processState == null) || (_cmd.processState : Dynamic).__nil__) {
-                _t.errorf(("command was started, but test did not wait for it to complete: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
+                _t.errorf(("command was started, but test did not wait for it to complete: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
             };
         });
         return _cmd;
@@ -289,7 +289,7 @@ function commandContext(_t:stdgo.testing.Testing.TB, _ctx:stdgo.context.Context.
 function command(_t:stdgo.testing.Testing.TB, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.Cmd> {
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         _t.helper();
-        return commandContext(_t, stdgo.context.Context.background(), _name, ..._args.__toArray__());
+        return commandContext(_t, stdgo.context.Context.background(), _name?.__copy__(), ..._args.__toArray__());
     }
 /**
     // OptimizationOff reports whether optimization is disabled.
@@ -315,13 +315,13 @@ function hasGoBuild():Bool return false;
     // If not, MustHaveGoBuild calls t.Skip with an explanation.
 **/
 function mustHaveGoBuild(_t:stdgo.testing.Testing.TB):Void {
-        if (stdgo.os.Os.getenv(("GO_GCFLAGS" : stdgo.GoString)) != (stdgo.Go.str())) {
+        if (stdgo.os.Os.getenv(("GO_GCFLAGS" : stdgo.GoString)?.__copy__()) != (stdgo.Go.str())) {
             _t.helper();
-            _t.skipf(("skipping test: \'go build\' not compatible with setting $GO_GCFLAGS" : stdgo.GoString));
+            _t.skipf(("skipping test: \'go build\' not compatible with setting $GO_GCFLAGS" : stdgo.GoString)?.__copy__());
         };
         if (!hasGoBuild()) {
             _t.helper();
-            _t.skipf(("skipping test: \'go build\' unavailable: %v" : stdgo.GoString), stdgo.Go.toInterface(_goBuildErr));
+            _t.skipf(("skipping test: \'go build\' unavailable: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_goBuildErr));
         };
     }
 /**
@@ -334,7 +334,7 @@ function hasGoRun():Bool return false;
 **/
 function mustHaveGoRun(_t:stdgo.testing.Testing.TB):Void {
         if (!hasGoRun()) {
-            _t.skipf(("skipping test: \'go run\' not available on %s/%s" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
+            _t.skipf(("skipping test: \'go run\' not available on %s/%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
         };
     }
 /**
@@ -349,7 +349,7 @@ function hasParallelism():Bool return false;
 **/
 function mustHaveParallelism(_t:stdgo.testing.Testing.TB):Void {
         if (!hasParallelism()) {
-            _t.skipf(("skipping test: no parallelism available on %s/%s" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
+            _t.skipf(("skipping test: no parallelism available on %s/%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
         };
     }
 /**
@@ -364,62 +364,62 @@ function goToolPath(_t:stdgo.testing.Testing.TB):stdgo.GoString {
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        for (__0 => _envVar in stdgo.strings.Strings.fields(("\n\tAR\n\tCC\n\tCGO_CFLAGS\n\tCGO_CFLAGS_ALLOW\n\tCGO_CFLAGS_DISALLOW\n\tCGO_CPPFLAGS\n\tCGO_CPPFLAGS_ALLOW\n\tCGO_CPPFLAGS_DISALLOW\n\tCGO_CXXFLAGS\n\tCGO_CXXFLAGS_ALLOW\n\tCGO_CXXFLAGS_DISALLOW\n\tCGO_ENABLED\n\tCGO_FFLAGS\n\tCGO_FFLAGS_ALLOW\n\tCGO_FFLAGS_DISALLOW\n\tCGO_LDFLAGS\n\tCGO_LDFLAGS_ALLOW\n\tCGO_LDFLAGS_DISALLOW\n\tCXX\n\tFC\n\tGCCGO\n\tGO111MODULE\n\tGO386\n\tGOAMD64\n\tGOARCH\n\tGOARM\n\tGOBIN\n\tGOCACHE\n\tGOCACHEPROG\n\tGOENV\n\tGOEXE\n\tGOEXPERIMENT\n\tGOFLAGS\n\tGOGCCFLAGS\n\tGOHOSTARCH\n\tGOHOSTOS\n\tGOINSECURE\n\tGOMIPS\n\tGOMIPS64\n\tGOMODCACHE\n\tGONOPROXY\n\tGONOSUMDB\n\tGOOS\n\tGOPATH\n\tGOPPC64\n\tGOPRIVATE\n\tGOPROXY\n\tGOROOT\n\tGOSUMDB\n\tGOTMPDIR\n\tGOTOOLCHAIN\n\tGOTOOLDIR\n\tGOVCS\n\tGOWASM\n\tGOWORK\n\tGO_EXTLINK_ENABLED\n\tPKG_CONFIG\n" : stdgo.GoString))) {
-            stdgo.os.Os.getenv(_envVar);
+        for (__0 => _envVar in stdgo.strings.Strings.fields(("\n\tAR\n\tCC\n\tCGO_CFLAGS\n\tCGO_CFLAGS_ALLOW\n\tCGO_CFLAGS_DISALLOW\n\tCGO_CPPFLAGS\n\tCGO_CPPFLAGS_ALLOW\n\tCGO_CPPFLAGS_DISALLOW\n\tCGO_CXXFLAGS\n\tCGO_CXXFLAGS_ALLOW\n\tCGO_CXXFLAGS_DISALLOW\n\tCGO_ENABLED\n\tCGO_FFLAGS\n\tCGO_FFLAGS_ALLOW\n\tCGO_FFLAGS_DISALLOW\n\tCGO_LDFLAGS\n\tCGO_LDFLAGS_ALLOW\n\tCGO_LDFLAGS_DISALLOW\n\tCXX\n\tFC\n\tGCCGO\n\tGO111MODULE\n\tGO386\n\tGOAMD64\n\tGOARCH\n\tGOARM\n\tGOBIN\n\tGOCACHE\n\tGOCACHEPROG\n\tGOENV\n\tGOEXE\n\tGOEXPERIMENT\n\tGOFLAGS\n\tGOGCCFLAGS\n\tGOHOSTARCH\n\tGOHOSTOS\n\tGOINSECURE\n\tGOMIPS\n\tGOMIPS64\n\tGOMODCACHE\n\tGONOPROXY\n\tGONOSUMDB\n\tGOOS\n\tGOPATH\n\tGOPPC64\n\tGOPRIVATE\n\tGOPROXY\n\tGOROOT\n\tGOSUMDB\n\tGOTMPDIR\n\tGOTOOLCHAIN\n\tGOTOOLDIR\n\tGOVCS\n\tGOWASM\n\tGOWORK\n\tGO_EXTLINK_ENABLED\n\tPKG_CONFIG\n" : stdgo.GoString)?.__copy__())) {
+            stdgo.os.Os.getenv(_envVar?.__copy__());
         };
-        return _path;
+        return _path?.__copy__();
     }
 function _findGOROOT():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         _gorootOnce.do_(function():Void {
-            _gorootPath = stdgo.runtime.Runtime.goroot();
+            _gorootPath = stdgo.runtime.Runtime.goroot()?.__copy__();
             if (_gorootPath != (stdgo.Go.str())) {
                 return;
             };
             var __tmp__ = stdgo.os.Os.getwd(), _cwd:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _gorootErr = stdgo.fmt.Fmt.errorf(("finding GOROOT: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                _gorootErr = stdgo.fmt.Fmt.errorf(("finding GOROOT: %w" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
                 return;
             };
-            var _dir:stdgo.GoString = _cwd;
+            var _dir:stdgo.GoString = _cwd?.__copy__();
             while (true) {
-                var _parent:stdgo.GoString = stdgo.path.filepath.Filepath.dir(_dir);
+                var _parent:stdgo.GoString = stdgo.path.filepath.Filepath.dir(_dir?.__copy__())?.__copy__();
                 if (_parent == (_dir)) {
-                    _gorootErr = stdgo.fmt.Fmt.errorf(("failed to locate GOROOT/src in any parent directory" : stdgo.GoString));
+                    _gorootErr = stdgo.fmt.Fmt.errorf(("failed to locate GOROOT/src in any parent directory" : stdgo.GoString)?.__copy__());
                     return;
                 };
                 {
-                    var _base:stdgo.GoString = stdgo.path.filepath.Filepath.base(_dir);
+                    var _base:stdgo.GoString = stdgo.path.filepath.Filepath.base(_dir?.__copy__())?.__copy__();
                     if (_base != (("src" : stdgo.GoString))) {
-                        _dir = _parent;
+                        _dir = _parent?.__copy__();
                         continue;
                     };
                 };
-                var __tmp__ = stdgo.os.Os.readFile(stdgo.path.filepath.Filepath.join(_dir, ("go.mod" : stdgo.GoString))), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.os.Os.readFile(stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("go.mod" : stdgo.GoString)?.__copy__())?.__copy__()), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     if (stdgo.os.Os.isNotExist(_err)) {
-                        _dir = _parent;
+                        _dir = _parent?.__copy__();
                         continue;
                     };
-                    _gorootErr = stdgo.fmt.Fmt.errorf(("finding GOROOT: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                    _gorootErr = stdgo.fmt.Fmt.errorf(("finding GOROOT: %w" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
                     return;
                 };
-                var _goMod:stdgo.GoString = (_b : stdgo.GoString);
+                var _goMod:stdgo.GoString = (_b : stdgo.GoString)?.__copy__();
                 while (_goMod != (stdgo.Go.str())) {
                     var _line:stdgo.GoString = ("" : stdgo.GoString);
                     {
-                        var __tmp__ = stdgo.strings.Strings.cut(_goMod, ("\n" : stdgo.GoString));
-                        _line = __tmp__._0;
-                        _goMod = __tmp__._1;
+                        var __tmp__ = stdgo.strings.Strings.cut(_goMod?.__copy__(), ("\n" : stdgo.GoString)?.__copy__());
+                        _line = __tmp__._0?.__copy__();
+                        _goMod = __tmp__._1?.__copy__();
                     };
-                    var _fields = stdgo.strings.Strings.fields(_line);
+                    var _fields = stdgo.strings.Strings.fields(_line?.__copy__());
                     if (((_fields.length >= (2 : stdgo.StdGoTypes.GoInt)) && (_fields[(0 : stdgo.StdGoTypes.GoInt)] == ("module" : stdgo.GoString))) && (_fields[(1 : stdgo.StdGoTypes.GoInt)] == ("std" : stdgo.GoString))) {
-                        _gorootPath = _parent;
+                        _gorootPath = _parent?.__copy__();
                         return;
                     };
                 };
             };
         });
-        return { _0 : _gorootPath, _1 : _gorootErr };
+        return { _0 : _gorootPath?.__copy__(), _1 : _gorootErr };
     }
 /**
     // GOROOT reports the path to the directory containing the root of the Go
@@ -439,23 +439,23 @@ function goroot(_t:stdgo.testing.Testing.TB):stdgo.GoString {
             _t.helper();
             _t.skip(stdgo.Go.toInterface(_err));
         };
-        return _path;
+        return _path?.__copy__();
     }
 /**
     // GoTool reports the path to the Go tool.
 **/
 function goTool():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         if (!hasGoBuild()) {
-            return { _0 : stdgo.Go.str(), _1 : stdgo.errors.Errors.new_(("platform cannot run go tool" : stdgo.GoString)) };
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.errors.Errors.new_(("platform cannot run go tool" : stdgo.GoString)?.__copy__()) };
         };
         _goToolOnce.do_(function():Void {
             {
-                var __tmp__ = stdgo.os.exec.Exec.lookPath(("go" : stdgo.GoString));
-                _goToolPath = __tmp__._0;
+                var __tmp__ = stdgo.os.exec.Exec.lookPath(("go" : stdgo.GoString)?.__copy__());
+                _goToolPath = __tmp__._0?.__copy__();
                 _goToolErr = __tmp__._1;
             };
         });
-        return { _0 : _goToolPath, _1 : _goToolErr };
+        return { _0 : _goToolPath?.__copy__(), _1 : _goToolErr };
     }
 /**
     // HasSrc reports whether the entire source tree is available under GOROOT.
@@ -484,11 +484,11 @@ function hasExternalNetwork():Bool {
 function mustHaveExternalNetwork(_t:stdgo.testing.Testing.TB):Void {
         if (true) {
             _t.helper();
-            _t.skipf(("skipping test: no external network on %s" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)));
+            _t.skipf(("skipping test: no external network on %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("js" : stdgo.GoString)));
         };
         if (stdgo.testing.Testing.short()) {
             _t.helper();
-            _t.skipf(("skipping test: no external network in -short mode" : stdgo.GoString));
+            _t.skipf(("skipping test: no external network in -short mode" : stdgo.GoString)?.__copy__());
         };
     }
 /**
@@ -500,19 +500,19 @@ function hasCGO():Bool {
             if (_err != null) {
                 return;
             };
-            var _cmd = stdgo.os.exec.Exec.command(_goTool, ("env" : stdgo.GoString), ("CGO_ENABLED" : stdgo.GoString));
+            var _cmd = stdgo.os.exec.Exec.command(_goTool?.__copy__(), ("env" : stdgo.GoString)?.__copy__(), ("CGO_ENABLED" : stdgo.GoString)?.__copy__());
             _cmd.env = _origEnv;
             var __tmp__ = _cmd.output(), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_out)));
+                throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_out)));
             };
             {
-                var __tmp__ = stdgo.strconv.Strconv.parseBool((stdgo.bytes.Bytes.trimSpace(_out) : stdgo.GoString));
+                var __tmp__ = stdgo.strconv.Strconv.parseBool((stdgo.bytes.Bytes.trimSpace(_out) : stdgo.GoString)?.__copy__());
                 _hasCgo = __tmp__._0;
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v: non-boolean output %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_out)));
+                throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("%v: non-boolean output %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_out)));
             };
         });
         return _hasCgo;
@@ -522,7 +522,7 @@ function hasCGO():Bool {
 **/
 function mustHaveCGO(_t:stdgo.testing.Testing.TB):Void {
         if (!hasCGO()) {
-            _t.skipf(("skipping test: no cgo" : stdgo.GoString));
+            _t.skipf(("skipping test: no cgo" : stdgo.GoString)?.__copy__());
         };
     }
 /**
@@ -538,9 +538,9 @@ function canInternalLink(_withCgo:Bool):Bool return false;
 function mustInternalLink(_t:stdgo.testing.Testing.TB, _withCgo:Bool):Void {
         if (!canInternalLink(_withCgo)) {
             if (_withCgo && canInternalLink(false)) {
-                _t.skipf(("skipping test: internal linking on %s/%s is not supported with cgo" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
+                _t.skipf(("skipping test: internal linking on %s/%s is not supported with cgo" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
             };
-            _t.skipf(("skipping test: internal linking on %s/%s is not supported" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
+            _t.skipf(("skipping test: internal linking on %s/%s is not supported" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
         };
     }
 /**
@@ -549,8 +549,8 @@ function mustInternalLink(_t:stdgo.testing.Testing.TB, _withCgo:Bool):Void {
     // If not, MustHaveBuildMode calls t.Skip with an explanation.
 **/
 function mustHaveBuildMode(_t:stdgo.testing.Testing.TB, _buildmode:stdgo.GoString):Void {
-        if (!stdgo.internal.platform.Platform.buildModeSupported(stdgo.runtime.Runtime.compiler, _buildmode, ("js" : stdgo.GoString), ("wasm" : stdgo.GoString))) {
-            _t.skipf(("skipping test: build mode %s on %s/%s is not supported by the %s compiler" : stdgo.GoString), stdgo.Go.toInterface(_buildmode), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.runtime.Runtime.compiler));
+        if (!stdgo.internal.platform.Platform.buildModeSupported(stdgo.runtime.Runtime.compiler?.__copy__(), _buildmode?.__copy__(), ("js" : stdgo.GoString)?.__copy__(), ("wasm" : stdgo.GoString)?.__copy__())) {
+            _t.skipf(("skipping test: build mode %s on %s/%s is not supported by the %s compiler" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_buildmode), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.runtime.Runtime.compiler));
         };
     }
 /**
@@ -567,7 +567,7 @@ function hasSymlink():Bool {
 function mustHaveSymlink(_t:stdgo.testing.Testing.TB):Void {
         var __tmp__ = _hasSymlink(), _ok:Bool = __tmp__._0, _reason:stdgo.GoString = __tmp__._1;
         if (!_ok) {
-            _t.skipf(("skipping test: cannot make symlinks on %s/%s: %s" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)), stdgo.Go.toInterface(_reason));
+            _t.skipf(("skipping test: cannot make symlinks on %s/%s: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)), stdgo.Go.toInterface(_reason));
         };
     }
 /**
@@ -582,19 +582,19 @@ function hasLink():Bool {
 **/
 function mustHaveLink(_t:stdgo.testing.Testing.TB):Void {
         if (!hasLink()) {
-            _t.skipf(("skipping test: hardlinks are not supported on %s/%s" : stdgo.GoString), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
+            _t.skipf(("skipping test: hardlinks are not supported on %s/%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("js" : stdgo.GoString)), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
         };
     }
 function skipFlaky(_t:stdgo.testing.Testing.TB, _issue:stdgo.StdGoTypes.GoInt):Void {
         _t.helper();
         if (!_flaky.value) {
-            _t.skipf(("skipping known flaky test without the -flaky flag; see golang.org/issue/%d" : stdgo.GoString), stdgo.Go.toInterface(_issue));
+            _t.skipf(("skipping known flaky test without the -flaky flag; see golang.org/issue/%d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_issue));
         };
     }
 function skipFlakyNet(_t:stdgo.testing.Testing.TB):Void {
         _t.helper();
         {
-            var __tmp__ = stdgo.strconv.Strconv.parseBool(stdgo.os.Os.getenv(("GO_BUILDER_FLAKY_NET" : stdgo.GoString))), _v:Bool = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.strconv.Strconv.parseBool(stdgo.os.Os.getenv(("GO_BUILDER_FLAKY_NET" : stdgo.GoString)?.__copy__())?.__copy__()), _v:Bool = __tmp__._0, __0:stdgo.Error = __tmp__._1;
             if (_v) {
                 _t.skip(stdgo.Go.toInterface(("skipping test on builder known to have frequent network failures" : stdgo.GoString)));
             };
@@ -621,7 +621,7 @@ function cpuisSlow():Bool {
 function skipIfShortAndSlow(_t:stdgo.testing.Testing.TB):Void {
         if (stdgo.testing.Testing.short() && cpuisSlow()) {
             _t.helper();
-            _t.skipf(("skipping test in -short mode on %s" : stdgo.GoString), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
+            _t.skipf(("skipping test in -short mode on %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
         };
     }
 /**
@@ -645,33 +645,33 @@ function writeImportcfg(_t:stdgo.testing.Testing.TB, _dstPath:stdgo.GoString, _p
         var _pkgs = new stdgo.Slice<stdgo.GoString>(_pkgs.length, 0, ..._pkgs);
         _t.helper();
         var _icfg = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
-        _icfg.writeString(("# import config\n" : stdgo.GoString));
+        _icfg.writeString(("# import config\n" : stdgo.GoString)?.__copy__());
         for (_k => _v in _packageFiles) {
-            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_icfg), ("packagefile %s=%s\n" : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v));
+            stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_icfg), ("packagefile %s=%s\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v));
         };
         if ((_pkgs.length) > (0 : stdgo.StdGoTypes.GoInt)) {
-            var _cmd = command(_t, goToolPath(_t), ("list" : stdgo.GoString), ("-export" : stdgo.GoString), ("-deps" : stdgo.GoString), ("-f" : stdgo.GoString), ("{{if ne .ImportPath \"command-line-arguments\"}}{{if .Export}}{{.ImportPath}}={{.Export}}{{end}}{{end}}" : stdgo.GoString));
+            var _cmd = command(_t, goToolPath(_t)?.__copy__(), ("list" : stdgo.GoString)?.__copy__(), ("-export" : stdgo.GoString)?.__copy__(), ("-deps" : stdgo.GoString)?.__copy__(), ("-f" : stdgo.GoString)?.__copy__(), ("{{if ne .ImportPath \"command-line-arguments\"}}{{if .Export}}{{.ImportPath}}={{.Export}}{{end}}{{end}}" : stdgo.GoString)?.__copy__());
             _cmd.args = (_cmd.args.__append__(..._pkgs.__toArray__()));
             _cmd.stderr = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.strings.Strings.Builder)) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>));
             var __tmp__ = _cmd.output(), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.fatalf(("%v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_cmd.stderr));
+                _t.fatalf(("%v: %v\n%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_cmd.stderr));
             };
-            for (__24 => _line in stdgo.strings.Strings.split((_out : stdgo.GoString), ("\n" : stdgo.GoString))) {
+            for (__24 => _line in stdgo.strings.Strings.split((_out : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString)?.__copy__())) {
                 if (_line == (stdgo.Go.str())) {
                     continue;
                 };
-                var __tmp__ = stdgo.strings.Strings.cut(_line, ("=" : stdgo.GoString)), _importPath:stdgo.GoString = __tmp__._0, _export:stdgo.GoString = __tmp__._1, _ok:Bool = __tmp__._2;
+                var __tmp__ = stdgo.strings.Strings.cut(_line?.__copy__(), ("=" : stdgo.GoString)?.__copy__()), _importPath:stdgo.GoString = __tmp__._0, _export:stdgo.GoString = __tmp__._1, _ok:Bool = __tmp__._2;
                 if (!_ok) {
-                    _t.fatalf(("invalid line in output from %v:\n%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_line));
+                    _t.fatalf(("invalid line in output from %v:\n%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_line));
                 };
-                if ((_packageFiles[_importPath] ?? ("" : stdgo.GoString)) == (stdgo.Go.str())) {
-                    stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_icfg), ("packagefile %s=%s\n" : stdgo.GoString), stdgo.Go.toInterface(_importPath), stdgo.Go.toInterface(_export));
+                if ((_packageFiles[_importPath?.__copy__()] ?? ("" : stdgo.GoString)) == (stdgo.Go.str())) {
+                    stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_icfg), ("packagefile %s=%s\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_importPath), stdgo.Go.toInterface(_export));
                 };
             };
         };
         {
-            var _err:stdgo.Error = stdgo.os.Os.writeFile(_dstPath, _icfg.bytes(), (438u32 : stdgo.io.fs.Fs.FileMode));
+            var _err:stdgo.Error = stdgo.os.Os.writeFile(_dstPath?.__copy__(), _icfg.bytes(), (438u32 : stdgo.io.fs.Fs.FileMode));
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
@@ -693,46 +693,46 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
         {
             final __value__ = ("js" : stdgo.GoString);
             if (__value__ == (("plan9" : stdgo.GoString))) {
-                return { _0 : false, _1 : stdgo.Go.str() };
+                return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
             } else if (__value__ == (("android" : stdgo.GoString)) || __value__ == (("wasip1" : stdgo.GoString))) {
-                var __tmp__ = stdgo.os.Os.mkdirTemp(stdgo.Go.str(), stdgo.Go.str()), _dir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.os.Os.mkdirTemp(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    return { _0 : false, _1 : stdgo.Go.str() };
+                    return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
                 };
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
-                        stdgo.os.Os.removeAll(_dir);
+                        stdgo.os.Os.removeAll(_dir?.__copy__());
                     };
                     a();
                 });
-                var _fpath:stdgo.GoString = stdgo.path.filepath.Filepath.join(_dir, ("testfile.txt" : stdgo.GoString));
+                var _fpath:stdgo.GoString = stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("testfile.txt" : stdgo.GoString)?.__copy__())?.__copy__();
                 {
-                    var _err:stdgo.Error = stdgo.os.Os.writeFile(_fpath, (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (420u32 : stdgo.io.fs.Fs.FileMode));
+                    var _err:stdgo.Error = stdgo.os.Os.writeFile(_fpath?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (420u32 : stdgo.io.fs.Fs.FileMode));
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : false, _1 : stdgo.Go.str() };
+                            return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
                         };
                     };
                 };
                 {
-                    var _err:stdgo.Error = stdgo.os.Os.symlink(_fpath, stdgo.path.filepath.Filepath.join(_dir, ("testlink" : stdgo.GoString)));
+                    var _err:stdgo.Error = stdgo.os.Os.symlink(_fpath?.__copy__(), stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("testlink" : stdgo.GoString)?.__copy__())?.__copy__());
                     if (_err != null) {
                         if (syscallIsNotSupported(_err)) {
                             {
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : false, _1 : stdgo.fmt.Fmt.sprintf(("symlinks unsupported: %s" : stdgo.GoString), stdgo.Go.toInterface(_err.error())) };
+                                return { _0 : false, _1 : stdgo.fmt.Fmt.sprintf(("symlinks unsupported: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err.error()))?.__copy__() };
                             };
                         };
                         {
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return { _0 : false, _1 : stdgo.Go.str() };
+                            return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
                         };
                     };
                 };
@@ -743,7 +743,7 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return { _0 : true, _1 : stdgo.Go.str() };
+                return { _0 : true, _1 : stdgo.Go.str()?.__copy__() };
             };
             for (defer in __deferstack__) {
                 defer();

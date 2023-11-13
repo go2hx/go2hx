@@ -180,7 +180,7 @@ function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _sep:stdgo
     // first occurrence of substr in s, or -1 if not present.
 **/
 function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.StdGoTypes.GoInt {
-        var __tmp__ = hashStr(_substr), _hashss:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _pow:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
+        var __tmp__ = hashStr(_substr?.__copy__()), _hashss:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _pow:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
         var _n:stdgo.StdGoTypes.GoInt = (_substr.length);
         var _h:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
         {

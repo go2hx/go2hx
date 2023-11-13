@@ -78,7 +78,7 @@ function forCompiler(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _
             } else if (__value__ == (("gccgo" : stdgo.GoString))) {
                 var _inst:stdgo.go.internal.gccgoimporter.Gccgoimporter.GccgoInstallation = ({} : stdgo.go.internal.gccgoimporter.Gccgoimporter.GccgoInstallation);
                 {
-                    var _err:stdgo.Error = _inst.initFromDriver(("gccgo" : stdgo.GoString));
+                    var _err:stdgo.Error = _inst.initFromDriver(("gccgo" : stdgo.GoString)?.__copy__());
                     if (_err != null) {
                         return (null : stdgo.go.types.Types.Importer);
                     };
@@ -110,74 +110,74 @@ function forCompiler(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _
     // with the positions of objects created by the importer.
 **/
 function for_(_compiler:stdgo.GoString, _lookup:Lookup):stdgo.go.types.Types.Importer {
-        return forCompiler(stdgo.go.token.Token.newFileSet(), _compiler, _lookup);
+        return forCompiler(stdgo.go.token.Token.newFileSet(), _compiler?.__copy__(), _lookup);
     }
 /**
     // Default returns an Importer for the compiler that built the running binary.
     // If available, the result implements types.ImporterFrom.
 **/
 function default_():stdgo.go.types.Types.Importer {
-        return for_(stdgo.runtime.Runtime.compiler, null);
+        return for_(stdgo.runtime.Runtime.compiler?.__copy__(), null);
     }
 function testMain(_m:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.M>):Void {
-        stdgo.go.build.Build.default_.goroot = stdgo.internal.testenv.Testenv.goroot((null : stdgo.testing.Testing.TB));
+        stdgo.go.build.Build.default_.goroot = stdgo.internal.testenv.Testenv.goroot((null : stdgo.testing.Testing.TB))?.__copy__();
         Sys.exit(_m.run());
     }
 function testForCompiler(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveGoBuild(stdgo.Go.asInterface(_t));
         {};
-        var __tmp__ = stdgo.internal.testenv.Testenv.command(stdgo.Go.asInterface(_t), stdgo.internal.testenv.Testenv.goToolPath(stdgo.Go.asInterface(_t)), ("list" : stdgo.GoString), ("-export" : stdgo.GoString), ("-f={{context.Compiler}}:{{.Export}}" : stdgo.GoString), ("math/big" : stdgo.GoString)).combinedOutput(), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.internal.testenv.Testenv.command(stdgo.Go.asInterface(_t), stdgo.internal.testenv.Testenv.goToolPath(stdgo.Go.asInterface(_t))?.__copy__(), ("list" : stdgo.GoString)?.__copy__(), ("-export" : stdgo.GoString)?.__copy__(), ("-f={{context.Compiler}}:{{.Export}}" : stdgo.GoString)?.__copy__(), ("math/big" : stdgo.GoString)?.__copy__()).combinedOutput(), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("go list %s: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(("math/big" : stdgo.GoString)), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_out));
+            _t.fatalf(("go list %s: %v\n%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("math/big" : stdgo.GoString)), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_out));
         };
-        var _export:stdgo.GoString = stdgo.strings.Strings.trimSpace((_out : stdgo.GoString));
-        var __tmp__ = stdgo.strings.Strings.cut(_export, (":" : stdgo.GoString)), _compiler:stdgo.GoString = __tmp__._0, _target:stdgo.GoString = __tmp__._1, __0:Bool = __tmp__._2;
+        var _export:stdgo.GoString = stdgo.strings.Strings.trimSpace((_out : stdgo.GoString)?.__copy__())?.__copy__();
+        var __tmp__ = stdgo.strings.Strings.cut(_export?.__copy__(), (":" : stdgo.GoString)?.__copy__()), _compiler:stdgo.GoString = __tmp__._0, _target:stdgo.GoString = __tmp__._1, __0:Bool = __tmp__._2;
         if (_compiler == (("gccgo" : stdgo.GoString))) {
             _t.skip(stdgo.Go.toInterface(("golang.org/issue/22500" : stdgo.GoString)));
         };
         var _fset = stdgo.go.token.Token.newFileSet();
-        _t.run(("LookupDefault" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-            var _imp:stdgo.go.types.Types.Importer = forCompiler(_fset, _compiler, null);
-            var __tmp__ = _imp.import_(("math/big" : stdgo.GoString)), _pkg:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        _t.run(("LookupDefault" : stdgo.GoString)?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+            var _imp:stdgo.go.types.Types.Importer = forCompiler(_fset, _compiler?.__copy__(), null);
+            var __tmp__ = _imp.import_(("math/big" : stdgo.GoString)?.__copy__()), _pkg:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             if (_pkg.path() != (("math/big" : stdgo.GoString))) {
-                _t.fatalf(("Path() = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_pkg.path()), stdgo.Go.toInterface(("math/big" : stdgo.GoString)));
+                _t.fatalf(("Path() = %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_pkg.path()), stdgo.Go.toInterface(("math/big" : stdgo.GoString)));
             };
-            var _mathBigInt:stdgo.go.types.Types.Object = _pkg.scope().lookup(("Int" : stdgo.GoString));
+            var _mathBigInt:stdgo.go.types.Types.Object = _pkg.scope().lookup(("Int" : stdgo.GoString)?.__copy__());
             var _posn:stdgo.go.token.Token.Position = _fset.position(_mathBigInt.pos())?.__copy__();
-            var _filename:stdgo.GoString = stdgo.strings.Strings.replace(_posn.filename, ("$GOROOT" : stdgo.GoString), stdgo.internal.testenv.Testenv.goroot(stdgo.Go.asInterface(_t)), (1 : stdgo.StdGoTypes.GoInt));
-            var __tmp__ = stdgo.os.Os.readFile(_filename), _data:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var _filename:stdgo.GoString = stdgo.strings.Strings.replace(_posn.filename?.__copy__(), ("$GOROOT" : stdgo.GoString)?.__copy__(), stdgo.internal.testenv.Testenv.goroot(stdgo.Go.asInterface(_t))?.__copy__(), (1 : stdgo.StdGoTypes.GoInt))?.__copy__();
+            var __tmp__ = stdgo.os.Os.readFile(_filename?.__copy__()), _data:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.fatalf(("can\'t read file containing declaration of math/big.Int: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                _t.fatalf(("can\'t read file containing declaration of math/big.Int: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
             };
-            var _lines = stdgo.strings.Strings.split((_data : stdgo.GoString), ("\n" : stdgo.GoString));
-            if ((_posn.line > _lines.length) || !stdgo.strings.Strings.hasPrefix(_lines[(_posn.line - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)], ("type Int" : stdgo.GoString))) {
-                _t.fatalf(("Object %v position %s does not contain its declaration" : stdgo.GoString), stdgo.Go.toInterface(_mathBigInt), stdgo.Go.toInterface(stdgo.Go.asInterface(_posn)));
+            var _lines = stdgo.strings.Strings.split((_data : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString)?.__copy__());
+            if ((_posn.line > _lines.length) || !stdgo.strings.Strings.hasPrefix(_lines[(_posn.line - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)]?.__copy__(), ("type Int" : stdgo.GoString)?.__copy__())) {
+                _t.fatalf(("Object %v position %s does not contain its declaration" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_mathBigInt), stdgo.Go.toInterface(stdgo.Go.asInterface(_posn)));
             };
         });
-        _t.run(("LookupCustom" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
+        _t.run(("LookupCustom" : stdgo.GoString)?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             if (true) {
                 _t.skip(stdgo.Go.toInterface(("not supported by GOEXPERIMENT=unified; see go.dev/cl/406319" : stdgo.GoString)));
             };
             var _lookup:stdgo.GoString -> { var _0 : stdgo.io.Io.ReadCloser; var _1 : stdgo.Error; } = function(_path:stdgo.GoString):{ var _0 : stdgo.io.Io.ReadCloser; var _1 : stdgo.Error; } {
                 if (_path != (("math/bigger" : stdgo.GoString))) {
-                    _t.fatalf(("lookup called with unexpected path %q" : stdgo.GoString), stdgo.Go.toInterface(_path));
+                    _t.fatalf(("lookup called with unexpected path %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_path));
                 };
-                var __tmp__ = stdgo.os.Os.open(_target), _f:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.os.Os.open(_target?.__copy__()), _f:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
                 return { _0 : stdgo.Go.asInterface(_f), _1 : (null : stdgo.Error) };
             };
-            var _imp:stdgo.go.types.Types.Importer = forCompiler(_fset, _compiler, _lookup);
-            var __tmp__ = _imp.import_(("math/bigger" : stdgo.GoString)), _pkg:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var _imp:stdgo.go.types.Types.Importer = forCompiler(_fset, _compiler?.__copy__(), _lookup);
+            var __tmp__ = _imp.import_(("math/bigger" : stdgo.GoString)?.__copy__()), _pkg:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
             if (_pkg.path() != (("math/bigger" : stdgo.GoString))) {
-                _t.fatalf(("Path() = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_pkg.path()), stdgo.Go.toInterface(("math/bigger" : stdgo.GoString)));
+                _t.fatalf(("Path() = %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_pkg.path()), stdgo.Go.toInterface(("math/bigger" : stdgo.GoString)));
             };
         });
     }
@@ -201,12 +201,12 @@ class T_gcimports_asInterface {
         if (_mode != ((0 : stdgo.go.types.Types.ImportMode))) {
             throw stdgo.Go.toInterface(("mode must be 0" : stdgo.GoString));
         };
-        return stdgo.go.internal.gcimporter.Gcimporter.import_(_m._fset, _m._packages, _path, _srcDir, _m._lookup);
+        return stdgo.go.internal.gcimporter.Gcimporter.import_(_m._fset, _m._packages, _path?.__copy__(), _srcDir?.__copy__(), _m._lookup);
     }
     @:keep
     static public function import_( _m:stdgo.StdGoTypes.Ref<T_gcimports>, _path:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>; var _1 : stdgo.Error; } {
         @:recv var _m:stdgo.StdGoTypes.Ref<T_gcimports> = _m;
-        return _m.importFrom(_path, stdgo.Go.str(), (0 : stdgo.go.types.Types.ImportMode));
+        return _m.importFrom(_path?.__copy__(), stdgo.Go.str()?.__copy__(), (0 : stdgo.go.types.Types.ImportMode));
     }
 }
 class T_gccgoimports_asInterface {
@@ -229,11 +229,11 @@ class T_gccgoimports_asInterface {
         if (_mode != ((0 : stdgo.go.types.Types.ImportMode))) {
             throw stdgo.Go.toInterface(("mode must be 0" : stdgo.GoString));
         };
-        return _m._importer(_m._packages, _path, _srcDir, _m._lookup);
+        return _m._importer(_m._packages, _path?.__copy__(), _srcDir?.__copy__(), _m._lookup);
     }
     @:keep
     static public function import_( _m:stdgo.StdGoTypes.Ref<T_gccgoimports>, _path:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>; var _1 : stdgo.Error; } {
         @:recv var _m:stdgo.StdGoTypes.Ref<T_gccgoimports> = _m;
-        return _m.importFrom(_path, stdgo.Go.str(), (0 : stdgo.go.types.Types.ImportMode));
+        return _m.importFrom(_path?.__copy__(), stdgo.Go.str()?.__copy__(), (0 : stdgo.go.types.Types.ImportMode));
     }
 }

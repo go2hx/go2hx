@@ -2005,6 +2005,11 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 		switch fromType {
 			case typeParam(_):
 			case basic(basicKind):
+				switch basicKind {
+					case string_kind:
+						return macro $y?.__copy__();
+					default:
+				}
 			case signature(_, _, _, _):
 			case interfaceType(_, _):
 			case sliceType(_), mapType(_, _), chanType(_, _): // pass by ref

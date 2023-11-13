@@ -2745,7 +2745,7 @@ function _empty():Bool
 
 empty reports whether the unread portion of the buffer is empty.  
 
-[\(view code\)](<./Bytes.hx#L2337>)
+[\(view code\)](<./Bytes.hx#L2360>)
 
 
 ### Buffer function \_grow
@@ -2761,7 +2761,7 @@ grow grows the buffer to guarantee space for n more bytes.
 It returns the index where bytes should be written.
 If the buffer can't grow it will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2239>)
+[\(view code\)](<./Bytes.hx#L2255>)
 
 
 ### Buffer function \_readSlice
@@ -2778,7 +2778,7 @@ function _readSlice( _delim:stdgo.GoByte):{
 
 readSlice is like ReadBytes but returns a reference to internal buffer data.  
 
-[\(view code\)](<./Bytes.hx#L1947>)
+[\(view code\)](<./Bytes.hx#L1948>)
 
 
 ### Buffer function \_tryGrowByReslice
@@ -2797,7 +2797,7 @@ tryGrowByReslice is an inlineable version of grow for the fast\-case where the
 internal buffer only needs to be resliced.
 It returns the index where bytes should be written and whether it succeeded.  
 
-[\(view code\)](<./Bytes.hx#L2272>)
+[\(view code\)](<./Bytes.hx#L2289>)
 
 
 ### Buffer function available
@@ -2811,7 +2811,7 @@ function available():stdgo.GoInt
 
 Available returns how many bytes are unused in the buffer.  
 
-[\(view code\)](<./Bytes.hx#L2314>)
+[\(view code\)](<./Bytes.hx#L2334>)
 
 
 ### Buffer function availableBuffer
@@ -2828,7 +2828,7 @@ This buffer is intended to be appended to and
 passed to an immediately succeeding Write call.
 The buffer is only valid until the next write operation on b.  
 
-[\(view code\)](<./Bytes.hx#L2360>)
+[\(view code\)](<./Bytes.hx#L2385>)
 
 
 ### Buffer function bytes
@@ -2846,7 +2846,7 @@ only until the next call to a method like Read, Write, Reset, or Truncate\).
 The slice aliases the buffer content at least until the next buffer modification,
 so immediate changes to the slice will affect the result of future reads.  
 
-[\(view code\)](<./Bytes.hx#L2371>)
+[\(view code\)](<./Bytes.hx#L2397>)
 
 
 ### Buffer function cap
@@ -2861,7 +2861,7 @@ function cap():stdgo.GoInt
 Cap returns the capacity of the buffer's underlying byte slice, that is, the
 total space allocated for the buffer's data.  
 
-[\(view code\)](<./Bytes.hx#L2322>)
+[\(view code\)](<./Bytes.hx#L2343>)
 
 
 ### Buffer function grow
@@ -2879,7 +2879,7 @@ buffer without another allocation.
 If n is negative, Grow will panic.
 If the buffer can't grow it will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2226>)
+[\(view code\)](<./Bytes.hx#L2241>)
 
 
 ### Buffer function len
@@ -2894,7 +2894,7 @@ function len():stdgo.GoInt
 Len returns the number of bytes of the unread portion of the buffer;
 b.Len\(\) == len\(b.Bytes\(\)\).  
 
-[\(view code\)](<./Bytes.hx#L2330>)
+[\(view code\)](<./Bytes.hx#L2352>)
 
 
 ### Buffer function next
@@ -2911,7 +2911,7 @@ advancing the buffer as if the bytes had been returned by Read.
 If there are fewer than n bytes in the buffer, Next returns the entire buffer.
 The slice is only valid until the next call to a read or write method.  
 
-[\(view code\)](<./Bytes.hx#L2057>)
+[\(view code\)](<./Bytes.hx#L2064>)
 
 
 ### Buffer function read
@@ -2931,7 +2931,7 @@ is drained. The return value n is the number of bytes read. If the
 buffer has no data to return, err is io.EOF \(unless len\(p\) is zero\);
 otherwise it is nil.  
 
-[\(view code\)](<./Bytes.hx#L2077>)
+[\(view code\)](<./Bytes.hx#L2085>)
 
 
 ### Buffer function readByte
@@ -2949,7 +2949,7 @@ function readByte():{
 ReadByte reads and returns the next byte from the buffer.
 If no byte is available, it returns error io.EOF.  
 
-[\(view code\)](<./Bytes.hx#L2040>)
+[\(view code\)](<./Bytes.hx#L2046>)
 
 
 ### Buffer function readBytes
@@ -2971,7 +2971,7 @@ it returns the data read before the error and the error itself \(often io.EOF\).
 ReadBytes returns err \!= nil if and only if the returned data does not end in
 delim.  
 
-[\(view code\)](<./Bytes.hx#L1969>)
+[\(view code\)](<./Bytes.hx#L1971>)
 
 
 ### Buffer function readFrom
@@ -2991,7 +2991,7 @@ the buffer as needed. The return value n is the number of bytes read. Any
 error except io.EOF encountered during the read is also returned. If the
 buffer becomes too large, ReadFrom will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2168>)
+[\(view code\)](<./Bytes.hx#L2180>)
 
 
 ### Buffer function readRune
@@ -3013,7 +3013,7 @@ If no bytes are available, the error returned is io.EOF.
 If the bytes are an erroneous UTF\-8 encoding, it
 consumes one byte and returns U\+FFFD, 1.  
 
-[\(view code\)](<./Bytes.hx#L2018>)
+[\(view code\)](<./Bytes.hx#L2023>)
 
 
 ### Buffer function readString
@@ -3051,7 +3051,7 @@ Reset resets the buffer to be empty,
 but it retains the underlying storage for use by future writes.
 Reset is the same as Truncate\(0\).  
 
-[\(view code\)](<./Bytes.hx#L2288>)
+[\(view code\)](<./Bytes.hx#L2306>)
 
 
 ### Buffer function string
@@ -3069,7 +3069,7 @@ as a string. If the Buffer is a nil pointer, it returns "\<nil\>".
 
 To build strings more efficiently, see the strings.Builder type.  
 
-[\(view code\)](<./Bytes.hx#L2347>)
+[\(view code\)](<./Bytes.hx#L2371>)
 
 
 ### Buffer function truncate
@@ -3085,7 +3085,7 @@ Truncate discards all but the first n unread bytes from the buffer
 but continues to use the same allocated storage.
 It panics if n is negative or greater than the length of the buffer.  
 
-[\(view code\)](<./Bytes.hx#L2299>)
+[\(view code\)](<./Bytes.hx#L2318>)
 
 
 ### Buffer function unreadByte
@@ -3102,7 +3102,7 @@ read operation that read at least one byte. If a write has happened since
 the last read, if the last read returned an error, or if the read read zero
 bytes, UnreadByte returns an error.  
 
-[\(view code\)](<./Bytes.hx#L1982>)
+[\(view code\)](<./Bytes.hx#L1985>)
 
 
 ### Buffer function unreadRune
@@ -3120,7 +3120,7 @@ not a successful ReadRune, UnreadRune returns an error.  \(In this regard
 it is stricter than UnreadByte, which will unread the last byte
 from any read operation.\)  
 
-[\(view code\)](<./Bytes.hx#L2000>)
+[\(view code\)](<./Bytes.hx#L2004>)
 
 
 ### Buffer function write
@@ -3139,7 +3139,7 @@ Write appends the contents of p to the buffer, growing the buffer as
 needed. The return value n is the length of p; err is always nil. If the
 buffer becomes too large, Write will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2209>)
+[\(view code\)](<./Bytes.hx#L2223>)
 
 
 ### Buffer function writeByte
@@ -3156,7 +3156,7 @@ The returned error is always nil, but is included to match bufio.Writer's
 WriteByte. If the buffer becomes too large, WriteByte will panic with
 ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2122>)
+[\(view code\)](<./Bytes.hx#L2132>)
 
 
 ### Buffer function writeRune
@@ -3176,7 +3176,7 @@ buffer, returning its length and an error, which is always nil but is
 included to match bufio.Writer's WriteRune. The buffer is grown as needed;
 if it becomes too large, WriteRune will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2101>)
+[\(view code\)](<./Bytes.hx#L2110>)
 
 
 ### Buffer function writeString
@@ -3195,7 +3195,7 @@ WriteString appends the contents of s to the buffer, growing the buffer as
 needed. The return value n is the length of s; err is always nil. If the
 buffer becomes too large, WriteString will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2194>)
+[\(view code\)](<./Bytes.hx#L2207>)
 
 
 ### Buffer function writeTo
@@ -3215,7 +3215,7 @@ The return value n is the number of bytes written; it always fits into an
 int, but it is int64 to match the io.WriterTo interface. Any error
 encountered during the write is also returned.  
 
-[\(view code\)](<./Bytes.hx#L2138>)
+[\(view code\)](<./Bytes.hx#L2149>)
 
 
 ## class Reader
@@ -3266,7 +3266,7 @@ function len():stdgo.GoInt
 Len returns the number of bytes of the unread portion of the
 slice.  
 
-[\(view code\)](<./Bytes.hx#L2614>)
+[\(view code\)](<./Bytes.hx#L2651>)
 
 
 ### Reader function read
@@ -3283,7 +3283,7 @@ function read( _b:stdgo.Slice<stdgo.GoByte>):{
 
 Read implements the io.Reader interface.  
 
-[\(view code\)](<./Bytes.hx#L2590>)
+[\(view code\)](<./Bytes.hx#L2625>)
 
 
 ### Reader function readAt
@@ -3300,7 +3300,7 @@ function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{
 
 ReadAt implements the io.ReaderAt interface.  
 
-[\(view code\)](<./Bytes.hx#L2572>)
+[\(view code\)](<./Bytes.hx#L2606>)
 
 
 ### Reader function readByte
@@ -3317,7 +3317,7 @@ function readByte():{
 
 ReadByte implements the io.ByteReader interface.  
 
-[\(view code\)](<./Bytes.hx#L2559>)
+[\(view code\)](<./Bytes.hx#L2592>)
 
 
 ### Reader function readRune
@@ -3335,7 +3335,7 @@ function readRune():{
 
 ReadRune implements the io.RuneReader interface.  
 
-[\(view code\)](<./Bytes.hx#L2521>)
+[\(view code\)](<./Bytes.hx#L2552>)
 
 
 ### Reader function reset
@@ -3349,7 +3349,7 @@ function reset( _b:stdgo.Slice<stdgo.GoByte>):Void
 
 Reset resets the Reader to be reading from b.  
 
-[\(view code\)](<./Bytes.hx#L2447>)
+[\(view code\)](<./Bytes.hx#L2474>)
 
 
 ### Reader function seek
@@ -3366,7 +3366,7 @@ function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
 
 Seek implements the io.Seeker interface.  
 
-[\(view code\)](<./Bytes.hx#L2481>)
+[\(view code\)](<./Bytes.hx#L2510>)
 
 
 ### Reader function size
@@ -3382,7 +3382,7 @@ Size returns the original length of the underlying byte slice.
 Size is the number of bytes available for reading via ReadAt.
 The result is unaffected by any method calls except Reset.  
 
-[\(view code\)](<./Bytes.hx#L2606>)
+[\(view code\)](<./Bytes.hx#L2642>)
 
 
 ### Reader function unreadByte
@@ -3396,7 +3396,7 @@ function unreadByte():stdgo.Error
 
 UnreadByte complements ReadByte in implementing the io.ByteScanner interface.  
 
-[\(view code\)](<./Bytes.hx#L2547>)
+[\(view code\)](<./Bytes.hx#L2579>)
 
 
 ### Reader function unreadRune
@@ -3410,7 +3410,7 @@ function unreadRune():stdgo.Error
 
 UnreadRune complements ReadRune in implementing the io.RuneScanner interface.  
 
-[\(view code\)](<./Bytes.hx#L2506>)
+[\(view code\)](<./Bytes.hx#L2536>)
 
 
 ### Reader function writeTo
@@ -3427,7 +3427,7 @@ function writeTo( _w:stdgo.io.Writer):{
 
 WriteTo implements the io.WriterTo interface.  
 
-[\(view code\)](<./Bytes.hx#L2459>)
+[\(view code\)](<./Bytes.hx#L2487>)
 
 
 ## class T\_fieldsFunc\_0\_\_\_localname\_\_\_span

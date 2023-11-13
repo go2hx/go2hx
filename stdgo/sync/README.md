@@ -27,7 +27,7 @@ stdgo/sync_test/Sync_test.hx:1560: characters 18-22 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:1650: characters 22-26 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:1912: characters 18-22 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:1913: characters 21-25 : Unknown identifier : _new
-stdgo/sync_test/Sync_test.hx:1929: characters 103-133 : invalid type: TDynamic(null)
+stdgo/sync_test/Sync_test.hx:1929: characters 103-133 : invalid type run asInterface: TDynamic(null)
 stdgo/sync_test/Sync_test.hx:1929: characters 103-133 : ... For function argument 'args'
 stdgo/sync/Sync.macro.hx:18: character 70 : Type not found : T
 stdgo/sync/Sync.macro.hx:47: character 100 : Type not found : T1

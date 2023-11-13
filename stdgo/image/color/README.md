@@ -792,7 +792,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1236>)
+[\(view code\)](<./Color.hx#L1240>)
 
 
 ## class Alpha16
@@ -830,7 +830,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1256>)
+[\(view code\)](<./Color.hx#L1261>)
 
 
 ## class CMYK
@@ -887,7 +887,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1408>)
+[\(view code\)](<./Color.hx#L1419>)
 
 
 ## class Gray
@@ -925,7 +925,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1275>)
+[\(view code\)](<./Color.hx#L1281>)
 
 
 ## class Gray16
@@ -963,7 +963,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1295>)
+[\(view code\)](<./Color.hx#L1302>)
 
 
 ## class NRGBA
@@ -1016,7 +1016,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1176>)
+[\(view code\)](<./Color.hx#L1178>)
 
 
 ## class NRGBA64
@@ -1070,7 +1070,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1208>)
+[\(view code\)](<./Color.hx#L1211>)
 
 
 ## class NYCbCrA
@@ -1114,7 +1114,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1369>)
+[\(view code\)](<./Color.hx#L1379>)
 
 
 ## class RGBA
@@ -1230,7 +1230,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1158>)
+[\(view code\)](<./Color.hx#L1159>)
 
 
 ## class YCbCr
@@ -1290,7 +1290,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1331>)
+[\(view code\)](<./Color.hx#L1340>)
 
 
 # Typedefs

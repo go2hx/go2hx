@@ -2604,7 +2604,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3445>)
+[\(view code\)](<./Abi.hx#L3484>)
 
 
 ### ArrayType function arrayType
@@ -2615,7 +2615,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3443>)
+[\(view code\)](<./Abi.hx#L3482>)
 
 
 ### ArrayType function chanDir
@@ -2626,7 +2626,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L3441>)
+[\(view code\)](<./Abi.hx#L3480>)
 
 
 ### ArrayType function common
@@ -2637,7 +2637,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3439>)
+[\(view code\)](<./Abi.hx#L3478>)
 
 
 ### ArrayType function exportedMethods
@@ -2648,7 +2648,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3437>)
+[\(view code\)](<./Abi.hx#L3476>)
 
 
 ### ArrayType function fieldAlign
@@ -2659,7 +2659,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3435>)
+[\(view code\)](<./Abi.hx#L3474>)
 
 
 ### ArrayType function funcType
@@ -2670,7 +2670,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3433>)
+[\(view code\)](<./Abi.hx#L3472>)
 
 
 ### ArrayType function gcSlice
@@ -2681,7 +2681,7 @@ function gcSlice( _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Abi.hx#L3431>)
+[\(view code\)](<./Abi.hx#L3470>)
 
 
 ### ArrayType function hasName
@@ -2692,7 +2692,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3429>)
+[\(view code\)](<./Abi.hx#L3468>)
 
 
 ### ArrayType function ifaceIndir
@@ -2703,7 +2703,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3427>)
+[\(view code\)](<./Abi.hx#L3466>)
 
 
 ### ArrayType function interfaceType
@@ -2714,7 +2714,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3425>)
+[\(view code\)](<./Abi.hx#L3464>)
 
 
 ### ArrayType function isDirectIface
@@ -2725,7 +2725,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3423>)
+[\(view code\)](<./Abi.hx#L3462>)
 
 
 ### ArrayType function key
@@ -2736,7 +2736,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3421>)
+[\(view code\)](<./Abi.hx#L3460>)
 
 
 ### ArrayType function kind
@@ -2747,7 +2747,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L3419>)
+[\(view code\)](<./Abi.hx#L3458>)
 
 
 ### ArrayType function mapType
@@ -2758,7 +2758,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3417>)
+[\(view code\)](<./Abi.hx#L3456>)
 
 
 ### ArrayType function numMethod
@@ -2769,7 +2769,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3415>)
+[\(view code\)](<./Abi.hx#L3454>)
 
 
 ### ArrayType function pointers
@@ -2780,7 +2780,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3413>)
+[\(view code\)](<./Abi.hx#L3452>)
 
 
 ### ArrayType function size
@@ -2791,7 +2791,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L3411>)
+[\(view code\)](<./Abi.hx#L3450>)
 
 
 ### ArrayType function structType
@@ -2802,7 +2802,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3409>)
+[\(view code\)](<./Abi.hx#L3448>)
 
 
 ### ArrayType function uncommon
@@ -2813,7 +2813,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3407>)
+[\(view code\)](<./Abi.hx#L3446>)
 
 
 ## class ChanType
@@ -3087,7 +3087,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3540>)
+[\(view code\)](<./Abi.hx#L3579>)
 
 
 ### ChanType function arrayType
@@ -3098,7 +3098,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3538>)
+[\(view code\)](<./Abi.hx#L3577>)
 
 
 ### ChanType function chanDir
@@ -3109,7 +3109,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L3536>)
+[\(view code\)](<./Abi.hx#L3575>)
 
 
 ### ChanType function common
@@ -3120,7 +3120,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3534>)
+[\(view code\)](<./Abi.hx#L3573>)
 
 
 ### ChanType function exportedMethods
@@ -3131,7 +3131,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3532>)
+[\(view code\)](<./Abi.hx#L3571>)
 
 
 ### ChanType function fieldAlign
@@ -3142,7 +3142,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3530>)
+[\(view code\)](<./Abi.hx#L3569>)
 
 
 ### ChanType function funcType
@@ -3153,7 +3153,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3528>)
+[\(view code\)](<./Abi.hx#L3567>)
 
 
 ### ChanType function gcSlice
@@ -3164,7 +3164,7 @@ function gcSlice( _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Abi.hx#L3526>)
+[\(view code\)](<./Abi.hx#L3565>)
 
 
 ### ChanType function hasName
@@ -3175,7 +3175,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3524>)
+[\(view code\)](<./Abi.hx#L3563>)
 
 
 ### ChanType function ifaceIndir
@@ -3186,7 +3186,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3522>)
+[\(view code\)](<./Abi.hx#L3561>)
 
 
 ### ChanType function interfaceType
@@ -3197,7 +3197,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3520>)
+[\(view code\)](<./Abi.hx#L3559>)
 
 
 ### ChanType function isDirectIface
@@ -3208,7 +3208,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3518>)
+[\(view code\)](<./Abi.hx#L3557>)
 
 
 ### ChanType function key
@@ -3219,7 +3219,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3516>)
+[\(view code\)](<./Abi.hx#L3555>)
 
 
 ### ChanType function kind
@@ -3230,7 +3230,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L3514>)
+[\(view code\)](<./Abi.hx#L3553>)
 
 
 ### ChanType function len
@@ -3241,7 +3241,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3512>)
+[\(view code\)](<./Abi.hx#L3551>)
 
 
 ### ChanType function mapType
@@ -3252,7 +3252,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3510>)
+[\(view code\)](<./Abi.hx#L3549>)
 
 
 ### ChanType function numMethod
@@ -3263,7 +3263,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3508>)
+[\(view code\)](<./Abi.hx#L3547>)
 
 
 ### ChanType function pointers
@@ -3274,7 +3274,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3506>)
+[\(view code\)](<./Abi.hx#L3545>)
 
 
 ### ChanType function size
@@ -3285,7 +3285,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L3504>)
+[\(view code\)](<./Abi.hx#L3543>)
 
 
 ### ChanType function structType
@@ -3296,7 +3296,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3502>)
+[\(view code\)](<./Abi.hx#L3541>)
 
 
 ### ChanType function uncommon
@@ -3307,7 +3307,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3500>)
+[\(view code\)](<./Abi.hx#L3539>)
 
 
 ## class FuncType
@@ -3604,7 +3604,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4144>)
+[\(view code\)](<./Abi.hx#L4196>)
 
 
 ### FuncType function arrayType
@@ -3615,7 +3615,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4142>)
+[\(view code\)](<./Abi.hx#L4194>)
 
 
 ### FuncType function chanDir
@@ -3626,7 +3626,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L4140>)
+[\(view code\)](<./Abi.hx#L4192>)
 
 
 ### FuncType function common
@@ -3637,7 +3637,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4138>)
+[\(view code\)](<./Abi.hx#L4190>)
 
 
 ### FuncType function elem
@@ -3648,7 +3648,7 @@ function elem():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4136>)
+[\(view code\)](<./Abi.hx#L4188>)
 
 
 ### FuncType function exportedMethods
@@ -3659,7 +3659,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4134>)
+[\(view code\)](<./Abi.hx#L4186>)
 
 
 ### FuncType function fieldAlign
@@ -3670,7 +3670,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4132>)
+[\(view code\)](<./Abi.hx#L4184>)
 
 
 ### FuncType function funcType
@@ -3681,7 +3681,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4130>)
+[\(view code\)](<./Abi.hx#L4182>)
 
 
 ### FuncType function gcSlice
@@ -3692,7 +3692,7 @@ function gcSlice( _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Abi.hx#L4128>)
+[\(view code\)](<./Abi.hx#L4180>)
 
 
 ### FuncType function hasName
@@ -3703,7 +3703,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4126>)
+[\(view code\)](<./Abi.hx#L4178>)
 
 
 ### FuncType function ifaceIndir
@@ -3714,7 +3714,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4124>)
+[\(view code\)](<./Abi.hx#L4176>)
 
 
 ### FuncType function inSlice
@@ -3725,7 +3725,7 @@ function inSlice():stdgo.Slice<stdgo.Ref<stdgo.internal.abi.Type>>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4064>)
+[\(view code\)](<./Abi.hx#L4111>)
 
 
 ### FuncType function in\_
@@ -3736,7 +3736,7 @@ function in_( _i:stdgo.GoInt):stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4098>)
+[\(view code\)](<./Abi.hx#L4149>)
 
 
 ### FuncType function interfaceType
@@ -3747,7 +3747,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4122>)
+[\(view code\)](<./Abi.hx#L4174>)
 
 
 ### FuncType function isDirectIface
@@ -3758,7 +3758,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4120>)
+[\(view code\)](<./Abi.hx#L4172>)
 
 
 ### FuncType function isVariadic
@@ -3769,7 +3769,7 @@ function isVariadic():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4037>)
+[\(view code\)](<./Abi.hx#L4082>)
 
 
 ### FuncType function key
@@ -3780,7 +3780,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4118>)
+[\(view code\)](<./Abi.hx#L4170>)
 
 
 ### FuncType function kind
@@ -3791,7 +3791,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L4116>)
+[\(view code\)](<./Abi.hx#L4168>)
 
 
 ### FuncType function len
@@ -3802,7 +3802,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4114>)
+[\(view code\)](<./Abi.hx#L4166>)
 
 
 ### FuncType function mapType
@@ -3813,7 +3813,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4112>)
+[\(view code\)](<./Abi.hx#L4164>)
 
 
 ### FuncType function numIn
@@ -3824,7 +3824,7 @@ function numIn():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4094>)
+[\(view code\)](<./Abi.hx#L4144>)
 
 
 ### FuncType function numMethod
@@ -3835,7 +3835,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4110>)
+[\(view code\)](<./Abi.hx#L4162>)
 
 
 ### FuncType function numOut
@@ -3846,7 +3846,7 @@ function numOut():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4090>)
+[\(view code\)](<./Abi.hx#L4139>)
 
 
 ### FuncType function out
@@ -3857,7 +3857,7 @@ function out( _i:stdgo.GoInt):stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4086>)
+[\(view code\)](<./Abi.hx#L4134>)
 
 
 ### FuncType function outSlice
@@ -3868,7 +3868,7 @@ function outSlice():stdgo.Slice<stdgo.Ref<stdgo.internal.abi.Type>>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4041>)
+[\(view code\)](<./Abi.hx#L4087>)
 
 
 ### FuncType function pointers
@@ -3879,7 +3879,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4108>)
+[\(view code\)](<./Abi.hx#L4160>)
 
 
 ### FuncType function size
@@ -3890,7 +3890,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L4106>)
+[\(view code\)](<./Abi.hx#L4158>)
 
 
 ### FuncType function structType
@@ -3901,7 +3901,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4104>)
+[\(view code\)](<./Abi.hx#L4156>)
 
 
 ### FuncType function uncommon
@@ -3912,7 +3912,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4102>)
+[\(view code\)](<./Abi.hx#L4154>)
 
 
 ## class Imethod
@@ -4210,7 +4210,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3742>)
+[\(view code\)](<./Abi.hx#L3782>)
 
 
 ### InterfaceType function arrayType
@@ -4221,7 +4221,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3740>)
+[\(view code\)](<./Abi.hx#L3780>)
 
 
 ### InterfaceType function chanDir
@@ -4232,7 +4232,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L3738>)
+[\(view code\)](<./Abi.hx#L3778>)
 
 
 ### InterfaceType function common
@@ -4243,7 +4243,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3736>)
+[\(view code\)](<./Abi.hx#L3776>)
 
 
 ### InterfaceType function elem
@@ -4254,7 +4254,7 @@ function elem():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3734>)
+[\(view code\)](<./Abi.hx#L3774>)
 
 
 ### InterfaceType function exportedMethods
@@ -4265,7 +4265,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3732>)
+[\(view code\)](<./Abi.hx#L3772>)
 
 
 ### InterfaceType function fieldAlign
@@ -4276,7 +4276,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3730>)
+[\(view code\)](<./Abi.hx#L3770>)
 
 
 ### InterfaceType function funcType
@@ -4287,7 +4287,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3728>)
+[\(view code\)](<./Abi.hx#L3768>)
 
 
 ### InterfaceType function gcSlice
@@ -4298,7 +4298,7 @@ function gcSlice( _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Abi.hx#L3726>)
+[\(view code\)](<./Abi.hx#L3766>)
 
 
 ### InterfaceType function hasName
@@ -4309,7 +4309,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3724>)
+[\(view code\)](<./Abi.hx#L3764>)
 
 
 ### InterfaceType function ifaceIndir
@@ -4320,7 +4320,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3722>)
+[\(view code\)](<./Abi.hx#L3762>)
 
 
 ### InterfaceType function interfaceType
@@ -4331,7 +4331,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3720>)
+[\(view code\)](<./Abi.hx#L3760>)
 
 
 ### InterfaceType function isDirectIface
@@ -4342,7 +4342,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3718>)
+[\(view code\)](<./Abi.hx#L3758>)
 
 
 ### InterfaceType function key
@@ -4353,7 +4353,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3716>)
+[\(view code\)](<./Abi.hx#L3756>)
 
 
 ### InterfaceType function kind
@@ -4364,7 +4364,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L3714>)
+[\(view code\)](<./Abi.hx#L3754>)
 
 
 ### InterfaceType function len
@@ -4375,7 +4375,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3712>)
+[\(view code\)](<./Abi.hx#L3752>)
 
 
 ### InterfaceType function mapType
@@ -4386,7 +4386,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3710>)
+[\(view code\)](<./Abi.hx#L3750>)
 
 
 ### InterfaceType function numMethod
@@ -4400,7 +4400,7 @@ function numMethod():stdgo.GoInt
 
 NumMethod returns the number of interface methods in the type's method set.  
 
-[\(view code\)](<./Abi.hx#L3698>)
+[\(view code\)](<./Abi.hx#L3737>)
 
 
 ### InterfaceType function pointers
@@ -4411,7 +4411,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3708>)
+[\(view code\)](<./Abi.hx#L3748>)
 
 
 ### InterfaceType function size
@@ -4422,7 +4422,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L3706>)
+[\(view code\)](<./Abi.hx#L3746>)
 
 
 ### InterfaceType function structType
@@ -4433,7 +4433,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3704>)
+[\(view code\)](<./Abi.hx#L3744>)
 
 
 ### InterfaceType function uncommon
@@ -4444,7 +4444,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3702>)
+[\(view code\)](<./Abi.hx#L3742>)
 
 
 ## class MapType
@@ -4740,7 +4740,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3871>)
+[\(view code\)](<./Abi.hx#L3916>)
 
 
 ### MapType function arrayType
@@ -4751,7 +4751,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3869>)
+[\(view code\)](<./Abi.hx#L3914>)
 
 
 ### MapType function chanDir
@@ -4762,7 +4762,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L3867>)
+[\(view code\)](<./Abi.hx#L3912>)
 
 
 ### MapType function common
@@ -4773,7 +4773,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3865>)
+[\(view code\)](<./Abi.hx#L3910>)
 
 
 ### MapType function exportedMethods
@@ -4784,7 +4784,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3863>)
+[\(view code\)](<./Abi.hx#L3908>)
 
 
 ### MapType function fieldAlign
@@ -4795,7 +4795,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3861>)
+[\(view code\)](<./Abi.hx#L3906>)
 
 
 ### MapType function funcType
@@ -4806,7 +4806,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3859>)
+[\(view code\)](<./Abi.hx#L3904>)
 
 
 ### MapType function gcSlice
@@ -4817,7 +4817,7 @@ function gcSlice( _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Abi.hx#L3857>)
+[\(view code\)](<./Abi.hx#L3902>)
 
 
 ### MapType function hasName
@@ -4828,7 +4828,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3855>)
+[\(view code\)](<./Abi.hx#L3900>)
 
 
 ### MapType function hashMightPanic
@@ -4839,7 +4839,7 @@ function hashMightPanic():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3809>)
+[\(view code\)](<./Abi.hx#L3849>)
 
 
 ### MapType function ifaceIndir
@@ -4850,7 +4850,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3853>)
+[\(view code\)](<./Abi.hx#L3898>)
 
 
 ### MapType function indirectElem
@@ -4861,7 +4861,7 @@ function indirectElem():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3821>)
+[\(view code\)](<./Abi.hx#L3864>)
 
 
 ### MapType function indirectKey
@@ -4876,7 +4876,7 @@ function indirectKey():Bool
 Note: flag values must match those used in the TMAP case
 in ../cmd/compile/internal/reflectdata/reflect.go:writeType.  
 
-[\(view code\)](<./Abi.hx#L3829>)
+[\(view code\)](<./Abi.hx#L3873>)
 
 
 ### MapType function interfaceType
@@ -4887,7 +4887,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3851>)
+[\(view code\)](<./Abi.hx#L3896>)
 
 
 ### MapType function isDirectIface
@@ -4898,7 +4898,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3849>)
+[\(view code\)](<./Abi.hx#L3894>)
 
 
 ### MapType function kind
@@ -4909,7 +4909,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L3847>)
+[\(view code\)](<./Abi.hx#L3892>)
 
 
 ### MapType function len
@@ -4920,7 +4920,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3845>)
+[\(view code\)](<./Abi.hx#L3890>)
 
 
 ### MapType function mapType
@@ -4931,7 +4931,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3843>)
+[\(view code\)](<./Abi.hx#L3888>)
 
 
 ### MapType function needKeyUpdate
@@ -4942,7 +4942,7 @@ function needKeyUpdate():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3813>)
+[\(view code\)](<./Abi.hx#L3854>)
 
 
 ### MapType function numMethod
@@ -4953,7 +4953,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3841>)
+[\(view code\)](<./Abi.hx#L3886>)
 
 
 ### MapType function pointers
@@ -4964,7 +4964,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3839>)
+[\(view code\)](<./Abi.hx#L3884>)
 
 
 ### MapType function reflexiveKey
@@ -4975,7 +4975,7 @@ function reflexiveKey():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3817>)
+[\(view code\)](<./Abi.hx#L3859>)
 
 
 ### MapType function size
@@ -4986,7 +4986,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L3837>)
+[\(view code\)](<./Abi.hx#L3882>)
 
 
 ### MapType function structType
@@ -4997,7 +4997,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3835>)
+[\(view code\)](<./Abi.hx#L3880>)
 
 
 ### MapType function uncommon
@@ -5008,7 +5008,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3833>)
+[\(view code\)](<./Abi.hx#L3878>)
 
 
 ## class Method
@@ -5079,7 +5079,7 @@ function data( _off:stdgo.GoInt):stdgo.Pointer<stdgo.GoByte>
 Data does pointer arithmetic on n's Bytes, and that arithmetic is asserted to
 be safe because the runtime made the call \(other packages use DataChecked\)  
 
-[\(view code\)](<./Abi.hx#L4493>)
+[\(view code\)](<./Abi.hx#L4553>)
 
 
 ### Name function dataChecked
@@ -5094,7 +5094,7 @@ function dataChecked( _off:stdgo.GoInt, _whySafe:stdgo.GoString):stdgo.Pointer<s
 DataChecked does pointer arithmetic on n's Bytes, and that arithmetic is asserted to
 be safe for the reason in whySafe \(which can appear in a backtrace, etc.\)  
 
-[\(view code\)](<./Abi.hx#L4501>)
+[\(view code\)](<./Abi.hx#L4562>)
 
 
 ### Name function hasTag
@@ -5108,7 +5108,7 @@ function hasTag():Bool
 
 HasTag returns true iff there is tag data following this name  
 
-[\(view code\)](<./Abi.hx#L4478>)
+[\(view code\)](<./Abi.hx#L4536>)
 
 
 ### Name function isBlank
@@ -5122,7 +5122,7 @@ function isBlank():Bool
 
 IsBlank indicates whether n is "\_".  
 
-[\(view code\)](<./Abi.hx#L4442>)
+[\(view code\)](<./Abi.hx#L4497>)
 
 
 ### Name function isEmbedded
@@ -5136,7 +5136,7 @@ function isEmbedded():Bool
 
 IsEmbedded returns true iff n is embedded \(an anonymous field\).  
 
-[\(view code\)](<./Abi.hx#L4471>)
+[\(view code\)](<./Abi.hx#L4528>)
 
 
 ### Name function isExported
@@ -5150,7 +5150,7 @@ function isExported():Bool
 
 IsExported returns "is n exported?"  
 
-[\(view code\)](<./Abi.hx#L4485>)
+[\(view code\)](<./Abi.hx#L4544>)
 
 
 ### Name function name
@@ -5164,7 +5164,7 @@ function name():stdgo.GoString
 
 Name returns the tag string for n, or empty if there is none.  
 
-[\(view code\)](<./Abi.hx#L4431>)
+[\(view code\)](<./Abi.hx#L4485>)
 
 
 ### Name function readVarint
@@ -5182,7 +5182,7 @@ function readVarint( _off:stdgo.GoInt):{
 ReadVarint parses a varint as encoded by encoding/binary.
 It returns the number of encoded bytes and the encoded value.  
 
-[\(view code\)](<./Abi.hx#L4454>)
+[\(view code\)](<./Abi.hx#L4510>)
 
 
 ### Name function tag
@@ -5196,7 +5196,7 @@ function tag():stdgo.GoString
 
 Tag returns the tag string for n, or empty if there is none.  
 
-[\(view code\)](<./Abi.hx#L4419>)
+[\(view code\)](<./Abi.hx#L4472>)
 
 
 ## class Offset
@@ -5248,7 +5248,7 @@ function _align_( _a:stdgo.GoUInt8):stdgo.internal.abi.Offset
 ```
 
 
-[\(view code\)](<./Abi.hx#L1944>)
+[\(view code\)](<./Abi.hx#L1958>)
 
 
 ### Offset function \_plus
@@ -5262,7 +5262,7 @@ function _plus( _x:stdgo.GoUInt64):stdgo.internal.abi.Offset
 
 plus returns the offset obtained by appending a power\-of\-2\-sized\-and\-aligned object to o.  
 
-[\(view code\)](<./Abi.hx#L1929>)
+[\(view code\)](<./Abi.hx#L1941>)
 
 
 ### Offset function align
@@ -5277,7 +5277,7 @@ function align( _a:stdgo.GoUInt8):stdgo.internal.abi.Offset
 Align returns the offset obtained by aligning offset to a multiple of a.
 a must be a power of two.  
 
-[\(view code\)](<./Abi.hx#L1939>)
+[\(view code\)](<./Abi.hx#L1952>)
 
 
 ### Offset function d16
@@ -5291,7 +5291,7 @@ function d16():stdgo.internal.abi.Offset
 
 D16 returns the offset obtained by appending a 16\-bit field to o.  
 
-[\(view code\)](<./Abi.hx#L1915>)
+[\(view code\)](<./Abi.hx#L1925>)
 
 
 ### Offset function d32
@@ -5305,7 +5305,7 @@ function d32():stdgo.internal.abi.Offset
 
 D32 returns the offset obtained by appending a 32\-bit field to o.  
 
-[\(view code\)](<./Abi.hx#L1908>)
+[\(view code\)](<./Abi.hx#L1917>)
 
 
 ### Offset function d64
@@ -5319,7 +5319,7 @@ function d64():stdgo.internal.abi.Offset
 
 D64 returns the offset obtained by appending a 64\-bit field to o.  
 
-[\(view code\)](<./Abi.hx#L1901>)
+[\(view code\)](<./Abi.hx#L1909>)
 
 
 ### Offset function d8
@@ -5333,7 +5333,7 @@ function d8():stdgo.internal.abi.Offset
 
 D8 returns the offset obtained by appending an 8\-bit field to o.  
 
-[\(view code\)](<./Abi.hx#L1922>)
+[\(view code\)](<./Abi.hx#L1933>)
 
 
 ### Offset function interface\_
@@ -5347,7 +5347,7 @@ function interface_():stdgo.internal.abi.Offset
 
 Interface returns the offset obtained by appending an interface field to o.  
 
-[\(view code\)](<./Abi.hx#L1864>)
+[\(view code\)](<./Abi.hx#L1868>)
 
 
 ### Offset function offset
@@ -5362,7 +5362,7 @@ function offset():stdgo.GoUInt64
 Offset returns the struct\-aligned offset \(size\) of o.
 This is at least as large as the current internal offset; it may be larger.  
 
-[\(view code\)](<./Abi.hx#L1857>)
+[\(view code\)](<./Abi.hx#L1860>)
 
 
 ### Offset function p
@@ -5376,7 +5376,7 @@ function p():stdgo.internal.abi.Offset
 
 D64 returns the offset obtained by appending a pointer field to o.  
 
-[\(view code\)](<./Abi.hx#L1891>)
+[\(view code\)](<./Abi.hx#L1898>)
 
 
 ### Offset function plusUncommon
@@ -5387,7 +5387,7 @@ function plusUncommon():stdgo.internal.abi.Offset
 ```
 
 
-[\(view code\)](<./Abi.hx#L1848>)
+[\(view code\)](<./Abi.hx#L1850>)
 
 
 ### Offset function slice
@@ -5401,7 +5401,7 @@ function slice():stdgo.internal.abi.Offset
 
 Slice returns the offset obtained by appending a slice field to o.  
 
-[\(view code\)](<./Abi.hx#L1882>)
+[\(view code\)](<./Abi.hx#L1888>)
 
 
 ### Offset function string
@@ -5415,7 +5415,7 @@ function string():stdgo.internal.abi.Offset
 
 String returns the offset obtained by appending a string field to o.  
 
-[\(view code\)](<./Abi.hx#L1873>)
+[\(view code\)](<./Abi.hx#L1878>)
 
 
 ## class PtrType
@@ -5681,7 +5681,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4239>)
+[\(view code\)](<./Abi.hx#L4291>)
 
 
 ### PtrType function arrayType
@@ -5692,7 +5692,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4237>)
+[\(view code\)](<./Abi.hx#L4289>)
 
 
 ### PtrType function chanDir
@@ -5703,7 +5703,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L4235>)
+[\(view code\)](<./Abi.hx#L4287>)
 
 
 ### PtrType function common
@@ -5714,7 +5714,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4233>)
+[\(view code\)](<./Abi.hx#L4285>)
 
 
 ### PtrType function exportedMethods
@@ -5725,7 +5725,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4231>)
+[\(view code\)](<./Abi.hx#L4283>)
 
 
 ### PtrType function fieldAlign
@@ -5736,7 +5736,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4229>)
+[\(view code\)](<./Abi.hx#L4281>)
 
 
 ### PtrType function funcType
@@ -5747,7 +5747,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4227>)
+[\(view code\)](<./Abi.hx#L4279>)
 
 
 ### PtrType function gcSlice
@@ -5758,7 +5758,7 @@ function gcSlice( _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Abi.hx#L4225>)
+[\(view code\)](<./Abi.hx#L4277>)
 
 
 ### PtrType function hasName
@@ -5769,7 +5769,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4223>)
+[\(view code\)](<./Abi.hx#L4275>)
 
 
 ### PtrType function ifaceIndir
@@ -5780,7 +5780,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4221>)
+[\(view code\)](<./Abi.hx#L4273>)
 
 
 ### PtrType function interfaceType
@@ -5791,7 +5791,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4219>)
+[\(view code\)](<./Abi.hx#L4271>)
 
 
 ### PtrType function isDirectIface
@@ -5802,7 +5802,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4217>)
+[\(view code\)](<./Abi.hx#L4269>)
 
 
 ### PtrType function key
@@ -5813,7 +5813,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4215>)
+[\(view code\)](<./Abi.hx#L4267>)
 
 
 ### PtrType function kind
@@ -5824,7 +5824,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L4213>)
+[\(view code\)](<./Abi.hx#L4265>)
 
 
 ### PtrType function len
@@ -5835,7 +5835,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4211>)
+[\(view code\)](<./Abi.hx#L4263>)
 
 
 ### PtrType function mapType
@@ -5846,7 +5846,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4209>)
+[\(view code\)](<./Abi.hx#L4261>)
 
 
 ### PtrType function numMethod
@@ -5857,7 +5857,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4207>)
+[\(view code\)](<./Abi.hx#L4259>)
 
 
 ### PtrType function pointers
@@ -5868,7 +5868,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4205>)
+[\(view code\)](<./Abi.hx#L4257>)
 
 
 ### PtrType function size
@@ -5879,7 +5879,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L4203>)
+[\(view code\)](<./Abi.hx#L4255>)
 
 
 ### PtrType function structType
@@ -5890,7 +5890,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4201>)
+[\(view code\)](<./Abi.hx#L4253>)
 
 
 ### PtrType function uncommon
@@ -5901,7 +5901,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4199>)
+[\(view code\)](<./Abi.hx#L4251>)
 
 
 ## class RegArgs
@@ -5981,7 +5981,7 @@ function dump():Void
 ```
 
 
-[\(view code\)](<./Abi.hx#L1758>)
+[\(view code\)](<./Abi.hx#L1759>)
 
 
 ### RegArgs function intRegArgAddr
@@ -6271,7 +6271,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3966>)
+[\(view code\)](<./Abi.hx#L4011>)
 
 
 ### SliceType function arrayType
@@ -6282,7 +6282,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3964>)
+[\(view code\)](<./Abi.hx#L4009>)
 
 
 ### SliceType function chanDir
@@ -6293,7 +6293,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L3962>)
+[\(view code\)](<./Abi.hx#L4007>)
 
 
 ### SliceType function common
@@ -6304,7 +6304,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3960>)
+[\(view code\)](<./Abi.hx#L4005>)
 
 
 ### SliceType function exportedMethods
@@ -6315,7 +6315,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3958>)
+[\(view code\)](<./Abi.hx#L4003>)
 
 
 ### SliceType function fieldAlign
@@ -6326,7 +6326,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3956>)
+[\(view code\)](<./Abi.hx#L4001>)
 
 
 ### SliceType function funcType
@@ -6337,7 +6337,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3954>)
+[\(view code\)](<./Abi.hx#L3999>)
 
 
 ### SliceType function gcSlice
@@ -6348,7 +6348,7 @@ function gcSlice( _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Abi.hx#L3952>)
+[\(view code\)](<./Abi.hx#L3997>)
 
 
 ### SliceType function hasName
@@ -6359,7 +6359,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3950>)
+[\(view code\)](<./Abi.hx#L3995>)
 
 
 ### SliceType function ifaceIndir
@@ -6370,7 +6370,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3948>)
+[\(view code\)](<./Abi.hx#L3993>)
 
 
 ### SliceType function interfaceType
@@ -6381,7 +6381,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3946>)
+[\(view code\)](<./Abi.hx#L3991>)
 
 
 ### SliceType function isDirectIface
@@ -6392,7 +6392,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3944>)
+[\(view code\)](<./Abi.hx#L3989>)
 
 
 ### SliceType function key
@@ -6403,7 +6403,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3942>)
+[\(view code\)](<./Abi.hx#L3987>)
 
 
 ### SliceType function kind
@@ -6414,7 +6414,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L3940>)
+[\(view code\)](<./Abi.hx#L3985>)
 
 
 ### SliceType function len
@@ -6425,7 +6425,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3938>)
+[\(view code\)](<./Abi.hx#L3983>)
 
 
 ### SliceType function mapType
@@ -6436,7 +6436,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3936>)
+[\(view code\)](<./Abi.hx#L3981>)
 
 
 ### SliceType function numMethod
@@ -6447,7 +6447,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3934>)
+[\(view code\)](<./Abi.hx#L3979>)
 
 
 ### SliceType function pointers
@@ -6458,7 +6458,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3932>)
+[\(view code\)](<./Abi.hx#L3977>)
 
 
 ### SliceType function size
@@ -6469,7 +6469,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L3930>)
+[\(view code\)](<./Abi.hx#L3975>)
 
 
 ### SliceType function structType
@@ -6480,7 +6480,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3928>)
+[\(view code\)](<./Abi.hx#L3973>)
 
 
 ### SliceType function uncommon
@@ -6491,7 +6491,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3926>)
+[\(view code\)](<./Abi.hx#L3971>)
 
 
 ## class StructField
@@ -6531,7 +6531,7 @@ function embedded():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4254>)
+[\(view code\)](<./Abi.hx#L4306>)
 
 
 ## class StructType
@@ -6813,7 +6813,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4355>)
+[\(view code\)](<./Abi.hx#L4408>)
 
 
 ### StructType function arrayType
@@ -6824,7 +6824,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4353>)
+[\(view code\)](<./Abi.hx#L4406>)
 
 
 ### StructType function chanDir
@@ -6835,7 +6835,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L4351>)
+[\(view code\)](<./Abi.hx#L4404>)
 
 
 ### StructType function common
@@ -6846,7 +6846,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4349>)
+[\(view code\)](<./Abi.hx#L4402>)
 
 
 ### StructType function elem
@@ -6857,7 +6857,7 @@ function elem():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4347>)
+[\(view code\)](<./Abi.hx#L4400>)
 
 
 ### StructType function exportedMethods
@@ -6868,7 +6868,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4345>)
+[\(view code\)](<./Abi.hx#L4398>)
 
 
 ### StructType function fieldAlign
@@ -6879,7 +6879,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4343>)
+[\(view code\)](<./Abi.hx#L4396>)
 
 
 ### StructType function funcType
@@ -6890,7 +6890,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4341>)
+[\(view code\)](<./Abi.hx#L4394>)
 
 
 ### StructType function gcSlice
@@ -6901,7 +6901,7 @@ function gcSlice( _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Abi.hx#L4339>)
+[\(view code\)](<./Abi.hx#L4392>)
 
 
 ### StructType function hasName
@@ -6912,7 +6912,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4337>)
+[\(view code\)](<./Abi.hx#L4390>)
 
 
 ### StructType function ifaceIndir
@@ -6923,7 +6923,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4335>)
+[\(view code\)](<./Abi.hx#L4388>)
 
 
 ### StructType function interfaceType
@@ -6934,7 +6934,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4333>)
+[\(view code\)](<./Abi.hx#L4386>)
 
 
 ### StructType function isDirectIface
@@ -6945,7 +6945,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4331>)
+[\(view code\)](<./Abi.hx#L4384>)
 
 
 ### StructType function key
@@ -6956,7 +6956,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4329>)
+[\(view code\)](<./Abi.hx#L4382>)
 
 
 ### StructType function kind
@@ -6967,7 +6967,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L4327>)
+[\(view code\)](<./Abi.hx#L4380>)
 
 
 ### StructType function len
@@ -6978,7 +6978,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4325>)
+[\(view code\)](<./Abi.hx#L4378>)
 
 
 ### StructType function mapType
@@ -6989,7 +6989,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4323>)
+[\(view code\)](<./Abi.hx#L4376>)
 
 
 ### StructType function numMethod
@@ -7000,7 +7000,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L4321>)
+[\(view code\)](<./Abi.hx#L4374>)
 
 
 ### StructType function pointers
@@ -7011,7 +7011,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L4319>)
+[\(view code\)](<./Abi.hx#L4372>)
 
 
 ### StructType function size
@@ -7022,7 +7022,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L4317>)
+[\(view code\)](<./Abi.hx#L4370>)
 
 
 ### StructType function structType
@@ -7033,7 +7033,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4315>)
+[\(view code\)](<./Abi.hx#L4368>)
 
 
 ### StructType function uncommon
@@ -7044,7 +7044,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L4313>)
+[\(view code\)](<./Abi.hx#L4366>)
 
 
 ## class T\_uncommon\_0\_\_\_localname\_\_\_u
@@ -7068,7 +7068,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2844>)
+[\(view code\)](<./Abi.hx#L2881>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function arrayType
@@ -7079,7 +7079,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2846>)
+[\(view code\)](<./Abi.hx#L2883>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function chanDir
@@ -7090,7 +7090,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L2848>)
+[\(view code\)](<./Abi.hx#L2885>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function common
@@ -7101,7 +7101,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2850>)
+[\(view code\)](<./Abi.hx#L2887>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function exportedMethods
@@ -7112,7 +7112,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2852>)
+[\(view code\)](<./Abi.hx#L2889>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function fieldAlign
@@ -7123,7 +7123,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2854>)
+[\(view code\)](<./Abi.hx#L2891>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function funcType
@@ -7134,7 +7134,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2856>)
+[\(view code\)](<./Abi.hx#L2893>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function gcSlice
@@ -7145,7 +7145,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 ```
 
 
-[\(view code\)](<./Abi.hx#L2858>)
+[\(view code\)](<./Abi.hx#L2895>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function hasName
@@ -7156,7 +7156,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2860>)
+[\(view code\)](<./Abi.hx#L2897>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function ifaceIndir
@@ -7167,7 +7167,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2862>)
+[\(view code\)](<./Abi.hx#L2899>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function interfaceType
@@ -7178,7 +7178,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2864>)
+[\(view code\)](<./Abi.hx#L2901>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function isDirectIface
@@ -7189,7 +7189,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2866>)
+[\(view code\)](<./Abi.hx#L2903>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function key
@@ -7200,7 +7200,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2868>)
+[\(view code\)](<./Abi.hx#L2905>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function kind
@@ -7211,7 +7211,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L2870>)
+[\(view code\)](<./Abi.hx#L2907>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function len
@@ -7222,7 +7222,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2872>)
+[\(view code\)](<./Abi.hx#L2909>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function mapType
@@ -7233,7 +7233,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2874>)
+[\(view code\)](<./Abi.hx#L2911>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function new
@@ -7244,7 +7244,7 @@ function new(?ptrType:stdgo.internal.abi.PtrType, ?_u:stdgo.internal.abi.Uncommo
 ```
 
 
-[\(view code\)](<./Abi.hx#L2838>)
+[\(view code\)](<./Abi.hx#L2875>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function numMethod
@@ -7255,7 +7255,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2876>)
+[\(view code\)](<./Abi.hx#L2913>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function pointers
@@ -7266,7 +7266,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2878>)
+[\(view code\)](<./Abi.hx#L2915>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function size
@@ -7277,7 +7277,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L2880>)
+[\(view code\)](<./Abi.hx#L2917>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function structType
@@ -7288,7 +7288,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2882>)
+[\(view code\)](<./Abi.hx#L2919>)
 
 
 ### T\_uncommon\_0\_\_\_localname\_\_\_u function uncommon
@@ -7299,7 +7299,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2884>)
+[\(view code\)](<./Abi.hx#L2921>)
 
 
 ## class T\_uncommon\_1\_\_\_localname\_\_\_u
@@ -7323,7 +7323,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2904>)
+[\(view code\)](<./Abi.hx#L2941>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function arrayType
@@ -7334,7 +7334,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2906>)
+[\(view code\)](<./Abi.hx#L2943>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function chanDir
@@ -7345,7 +7345,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L2908>)
+[\(view code\)](<./Abi.hx#L2945>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function common
@@ -7356,7 +7356,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2910>)
+[\(view code\)](<./Abi.hx#L2947>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function elem
@@ -7367,7 +7367,7 @@ function elem():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2912>)
+[\(view code\)](<./Abi.hx#L2949>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function exportedMethods
@@ -7378,7 +7378,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2914>)
+[\(view code\)](<./Abi.hx#L2951>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function fieldAlign
@@ -7389,7 +7389,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2916>)
+[\(view code\)](<./Abi.hx#L2953>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function gcSlice
@@ -7400,7 +7400,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 ```
 
 
-[\(view code\)](<./Abi.hx#L2918>)
+[\(view code\)](<./Abi.hx#L2955>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function hasName
@@ -7411,7 +7411,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2920>)
+[\(view code\)](<./Abi.hx#L2957>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function ifaceIndir
@@ -7422,7 +7422,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2922>)
+[\(view code\)](<./Abi.hx#L2959>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function inSlice
@@ -7433,7 +7433,7 @@ function inSlice():stdgo.Slice<stdgo.Ref<stdgo.internal.abi.Type>>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2926>)
+[\(view code\)](<./Abi.hx#L2963>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function in\_
@@ -7444,7 +7444,7 @@ function in_(_i:stdgo.GoInt):stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2924>)
+[\(view code\)](<./Abi.hx#L2961>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function interfaceType
@@ -7455,7 +7455,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2928>)
+[\(view code\)](<./Abi.hx#L2965>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function isDirectIface
@@ -7466,7 +7466,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2930>)
+[\(view code\)](<./Abi.hx#L2967>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function isVariadic
@@ -7477,7 +7477,7 @@ function isVariadic():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2932>)
+[\(view code\)](<./Abi.hx#L2969>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function key
@@ -7488,7 +7488,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2934>)
+[\(view code\)](<./Abi.hx#L2971>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function kind
@@ -7499,7 +7499,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L2936>)
+[\(view code\)](<./Abi.hx#L2973>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function len
@@ -7510,7 +7510,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2938>)
+[\(view code\)](<./Abi.hx#L2975>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function mapType
@@ -7521,7 +7521,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2940>)
+[\(view code\)](<./Abi.hx#L2977>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function new
@@ -7532,7 +7532,7 @@ function new(?funcType:stdgo.internal.abi.FuncType, ?_u:stdgo.internal.abi.Uncom
 ```
 
 
-[\(view code\)](<./Abi.hx#L2898>)
+[\(view code\)](<./Abi.hx#L2935>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function numIn
@@ -7543,7 +7543,7 @@ function numIn():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2942>)
+[\(view code\)](<./Abi.hx#L2979>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function numMethod
@@ -7554,7 +7554,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2944>)
+[\(view code\)](<./Abi.hx#L2981>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function numOut
@@ -7565,7 +7565,7 @@ function numOut():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2946>)
+[\(view code\)](<./Abi.hx#L2983>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function out
@@ -7576,7 +7576,7 @@ function out(_i:stdgo.GoInt):stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2948>)
+[\(view code\)](<./Abi.hx#L2985>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function outSlice
@@ -7587,7 +7587,7 @@ function outSlice():stdgo.Slice<stdgo.Ref<stdgo.internal.abi.Type>>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2950>)
+[\(view code\)](<./Abi.hx#L2987>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function pointers
@@ -7598,7 +7598,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2952>)
+[\(view code\)](<./Abi.hx#L2989>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function size
@@ -7609,7 +7609,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L2954>)
+[\(view code\)](<./Abi.hx#L2991>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function structType
@@ -7620,7 +7620,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2956>)
+[\(view code\)](<./Abi.hx#L2993>)
 
 
 ### T\_uncommon\_1\_\_\_localname\_\_\_u function uncommon
@@ -7631,7 +7631,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2958>)
+[\(view code\)](<./Abi.hx#L2995>)
 
 
 ## class T\_uncommon\_2\_\_\_localname\_\_\_u
@@ -7655,7 +7655,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2978>)
+[\(view code\)](<./Abi.hx#L3015>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function arrayType
@@ -7666,7 +7666,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2980>)
+[\(view code\)](<./Abi.hx#L3017>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function chanDir
@@ -7677,7 +7677,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L2982>)
+[\(view code\)](<./Abi.hx#L3019>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function common
@@ -7688,7 +7688,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2984>)
+[\(view code\)](<./Abi.hx#L3021>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function exportedMethods
@@ -7699,7 +7699,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2986>)
+[\(view code\)](<./Abi.hx#L3023>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function fieldAlign
@@ -7710,7 +7710,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2988>)
+[\(view code\)](<./Abi.hx#L3025>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function funcType
@@ -7721,7 +7721,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2990>)
+[\(view code\)](<./Abi.hx#L3027>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function gcSlice
@@ -7732,7 +7732,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 ```
 
 
-[\(view code\)](<./Abi.hx#L2992>)
+[\(view code\)](<./Abi.hx#L3029>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function hasName
@@ -7743,7 +7743,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2994>)
+[\(view code\)](<./Abi.hx#L3031>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function ifaceIndir
@@ -7754,7 +7754,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2996>)
+[\(view code\)](<./Abi.hx#L3033>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function interfaceType
@@ -7765,7 +7765,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2998>)
+[\(view code\)](<./Abi.hx#L3035>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function isDirectIface
@@ -7776,7 +7776,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3000>)
+[\(view code\)](<./Abi.hx#L3037>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function key
@@ -7787,7 +7787,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3002>)
+[\(view code\)](<./Abi.hx#L3039>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function kind
@@ -7798,7 +7798,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L3004>)
+[\(view code\)](<./Abi.hx#L3041>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function len
@@ -7809,7 +7809,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3006>)
+[\(view code\)](<./Abi.hx#L3043>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function mapType
@@ -7820,7 +7820,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3008>)
+[\(view code\)](<./Abi.hx#L3045>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function new
@@ -7831,7 +7831,7 @@ function new(?sliceType:stdgo.internal.abi.SliceType, ?_u:stdgo.internal.abi.Unc
 ```
 
 
-[\(view code\)](<./Abi.hx#L2972>)
+[\(view code\)](<./Abi.hx#L3009>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function numMethod
@@ -7842,7 +7842,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3010>)
+[\(view code\)](<./Abi.hx#L3047>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function pointers
@@ -7853,7 +7853,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3012>)
+[\(view code\)](<./Abi.hx#L3049>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function size
@@ -7864,7 +7864,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L3014>)
+[\(view code\)](<./Abi.hx#L3051>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function structType
@@ -7875,7 +7875,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3016>)
+[\(view code\)](<./Abi.hx#L3053>)
 
 
 ### T\_uncommon\_2\_\_\_localname\_\_\_u function uncommon
@@ -7886,7 +7886,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3018>)
+[\(view code\)](<./Abi.hx#L3055>)
 
 
 ## class T\_uncommon\_3\_\_\_localname\_\_\_u
@@ -7910,7 +7910,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3038>)
+[\(view code\)](<./Abi.hx#L3075>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function chanDir
@@ -7921,7 +7921,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L3040>)
+[\(view code\)](<./Abi.hx#L3077>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function common
@@ -7932,7 +7932,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3042>)
+[\(view code\)](<./Abi.hx#L3079>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function exportedMethods
@@ -7943,7 +7943,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3044>)
+[\(view code\)](<./Abi.hx#L3081>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function fieldAlign
@@ -7954,7 +7954,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3046>)
+[\(view code\)](<./Abi.hx#L3083>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function funcType
@@ -7965,7 +7965,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3048>)
+[\(view code\)](<./Abi.hx#L3085>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function gcSlice
@@ -7976,7 +7976,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 ```
 
 
-[\(view code\)](<./Abi.hx#L3050>)
+[\(view code\)](<./Abi.hx#L3087>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function hasName
@@ -7987,7 +7987,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3052>)
+[\(view code\)](<./Abi.hx#L3089>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function ifaceIndir
@@ -7998,7 +7998,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3054>)
+[\(view code\)](<./Abi.hx#L3091>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function interfaceType
@@ -8009,7 +8009,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3056>)
+[\(view code\)](<./Abi.hx#L3093>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function isDirectIface
@@ -8020,7 +8020,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3058>)
+[\(view code\)](<./Abi.hx#L3095>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function key
@@ -8031,7 +8031,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3060>)
+[\(view code\)](<./Abi.hx#L3097>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function kind
@@ -8042,7 +8042,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L3062>)
+[\(view code\)](<./Abi.hx#L3099>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function mapType
@@ -8053,7 +8053,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3064>)
+[\(view code\)](<./Abi.hx#L3101>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function new
@@ -8064,7 +8064,7 @@ function new(?arrayType:stdgo.internal.abi.ArrayType, ?_u:stdgo.internal.abi.Unc
 ```
 
 
-[\(view code\)](<./Abi.hx#L3032>)
+[\(view code\)](<./Abi.hx#L3069>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function numMethod
@@ -8075,7 +8075,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3066>)
+[\(view code\)](<./Abi.hx#L3103>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function pointers
@@ -8086,7 +8086,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3068>)
+[\(view code\)](<./Abi.hx#L3105>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function size
@@ -8097,7 +8097,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L3070>)
+[\(view code\)](<./Abi.hx#L3107>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function structType
@@ -8108,7 +8108,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3072>)
+[\(view code\)](<./Abi.hx#L3109>)
 
 
 ### T\_uncommon\_3\_\_\_localname\_\_\_u function uncommon
@@ -8119,7 +8119,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3074>)
+[\(view code\)](<./Abi.hx#L3111>)
 
 
 ## class T\_uncommon\_4\_\_\_localname\_\_\_u
@@ -8143,7 +8143,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3094>)
+[\(view code\)](<./Abi.hx#L3131>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function arrayType
@@ -8154,7 +8154,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3096>)
+[\(view code\)](<./Abi.hx#L3133>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function chanDir
@@ -8165,7 +8165,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L3098>)
+[\(view code\)](<./Abi.hx#L3135>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function common
@@ -8176,7 +8176,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3100>)
+[\(view code\)](<./Abi.hx#L3137>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function exportedMethods
@@ -8187,7 +8187,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3102>)
+[\(view code\)](<./Abi.hx#L3139>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function fieldAlign
@@ -8198,7 +8198,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3104>)
+[\(view code\)](<./Abi.hx#L3141>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function funcType
@@ -8209,7 +8209,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3106>)
+[\(view code\)](<./Abi.hx#L3143>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function gcSlice
@@ -8220,7 +8220,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 ```
 
 
-[\(view code\)](<./Abi.hx#L3108>)
+[\(view code\)](<./Abi.hx#L3145>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function hasName
@@ -8231,7 +8231,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3110>)
+[\(view code\)](<./Abi.hx#L3147>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function ifaceIndir
@@ -8242,7 +8242,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3112>)
+[\(view code\)](<./Abi.hx#L3149>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function interfaceType
@@ -8253,7 +8253,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3114>)
+[\(view code\)](<./Abi.hx#L3151>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function isDirectIface
@@ -8264,7 +8264,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3116>)
+[\(view code\)](<./Abi.hx#L3153>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function key
@@ -8275,7 +8275,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3118>)
+[\(view code\)](<./Abi.hx#L3155>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function kind
@@ -8286,7 +8286,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L3120>)
+[\(view code\)](<./Abi.hx#L3157>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function len
@@ -8297,7 +8297,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3122>)
+[\(view code\)](<./Abi.hx#L3159>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function mapType
@@ -8308,7 +8308,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3124>)
+[\(view code\)](<./Abi.hx#L3161>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function new
@@ -8319,7 +8319,7 @@ function new(?chanType:stdgo.internal.abi.ChanType, ?_u:stdgo.internal.abi.Uncom
 ```
 
 
-[\(view code\)](<./Abi.hx#L3088>)
+[\(view code\)](<./Abi.hx#L3125>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function numMethod
@@ -8330,7 +8330,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3126>)
+[\(view code\)](<./Abi.hx#L3163>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function pointers
@@ -8341,7 +8341,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3128>)
+[\(view code\)](<./Abi.hx#L3165>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function size
@@ -8352,7 +8352,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L3130>)
+[\(view code\)](<./Abi.hx#L3167>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function structType
@@ -8363,7 +8363,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3132>)
+[\(view code\)](<./Abi.hx#L3169>)
 
 
 ### T\_uncommon\_4\_\_\_localname\_\_\_u function uncommon
@@ -8374,7 +8374,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3134>)
+[\(view code\)](<./Abi.hx#L3171>)
 
 
 ## class T\_uncommon\_5\_\_\_localname\_\_\_u
@@ -8398,7 +8398,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3154>)
+[\(view code\)](<./Abi.hx#L3191>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function arrayType
@@ -8409,7 +8409,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3156>)
+[\(view code\)](<./Abi.hx#L3193>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function chanDir
@@ -8420,7 +8420,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L3158>)
+[\(view code\)](<./Abi.hx#L3195>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function common
@@ -8431,7 +8431,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3160>)
+[\(view code\)](<./Abi.hx#L3197>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function exportedMethods
@@ -8442,7 +8442,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3162>)
+[\(view code\)](<./Abi.hx#L3199>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function fieldAlign
@@ -8453,7 +8453,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3164>)
+[\(view code\)](<./Abi.hx#L3201>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function funcType
@@ -8464,7 +8464,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3166>)
+[\(view code\)](<./Abi.hx#L3203>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function gcSlice
@@ -8475,7 +8475,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 ```
 
 
-[\(view code\)](<./Abi.hx#L3168>)
+[\(view code\)](<./Abi.hx#L3205>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function hasName
@@ -8486,7 +8486,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3170>)
+[\(view code\)](<./Abi.hx#L3207>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function hashMightPanic
@@ -8497,7 +8497,7 @@ function hashMightPanic():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3172>)
+[\(view code\)](<./Abi.hx#L3209>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function ifaceIndir
@@ -8508,7 +8508,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3174>)
+[\(view code\)](<./Abi.hx#L3211>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function indirectElem
@@ -8519,7 +8519,7 @@ function indirectElem():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3176>)
+[\(view code\)](<./Abi.hx#L3213>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function indirectKey
@@ -8530,7 +8530,7 @@ function indirectKey():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3178>)
+[\(view code\)](<./Abi.hx#L3215>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function interfaceType
@@ -8541,7 +8541,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3180>)
+[\(view code\)](<./Abi.hx#L3217>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function isDirectIface
@@ -8552,7 +8552,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3182>)
+[\(view code\)](<./Abi.hx#L3219>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function kind
@@ -8563,7 +8563,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L3184>)
+[\(view code\)](<./Abi.hx#L3221>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function len
@@ -8574,7 +8574,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3186>)
+[\(view code\)](<./Abi.hx#L3223>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function needKeyUpdate
@@ -8585,7 +8585,7 @@ function needKeyUpdate():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3188>)
+[\(view code\)](<./Abi.hx#L3225>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function new
@@ -8596,7 +8596,7 @@ function new(?mapType:stdgo.internal.abi.MapType, ?_u:stdgo.internal.abi.Uncommo
 ```
 
 
-[\(view code\)](<./Abi.hx#L3148>)
+[\(view code\)](<./Abi.hx#L3185>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function numMethod
@@ -8607,7 +8607,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3190>)
+[\(view code\)](<./Abi.hx#L3227>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function pointers
@@ -8618,7 +8618,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3192>)
+[\(view code\)](<./Abi.hx#L3229>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function reflexiveKey
@@ -8629,7 +8629,7 @@ function reflexiveKey():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3194>)
+[\(view code\)](<./Abi.hx#L3231>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function size
@@ -8640,7 +8640,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L3196>)
+[\(view code\)](<./Abi.hx#L3233>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function structType
@@ -8651,7 +8651,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3198>)
+[\(view code\)](<./Abi.hx#L3235>)
 
 
 ### T\_uncommon\_5\_\_\_localname\_\_\_u function uncommon
@@ -8662,7 +8662,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3200>)
+[\(view code\)](<./Abi.hx#L3237>)
 
 
 ## class T\_uncommon\_6\_\_\_localname\_\_\_u
@@ -8686,7 +8686,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3220>)
+[\(view code\)](<./Abi.hx#L3257>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function arrayType
@@ -8697,7 +8697,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3222>)
+[\(view code\)](<./Abi.hx#L3259>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function chanDir
@@ -8708,7 +8708,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L3224>)
+[\(view code\)](<./Abi.hx#L3261>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function common
@@ -8719,7 +8719,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3226>)
+[\(view code\)](<./Abi.hx#L3263>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function elem
@@ -8730,7 +8730,7 @@ function elem():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3228>)
+[\(view code\)](<./Abi.hx#L3265>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function exportedMethods
@@ -8741,7 +8741,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3230>)
+[\(view code\)](<./Abi.hx#L3267>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function fieldAlign
@@ -8752,7 +8752,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3232>)
+[\(view code\)](<./Abi.hx#L3269>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function funcType
@@ -8763,7 +8763,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3234>)
+[\(view code\)](<./Abi.hx#L3271>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function gcSlice
@@ -8774,7 +8774,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 ```
 
 
-[\(view code\)](<./Abi.hx#L3236>)
+[\(view code\)](<./Abi.hx#L3273>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function hasName
@@ -8785,7 +8785,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3238>)
+[\(view code\)](<./Abi.hx#L3275>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function ifaceIndir
@@ -8796,7 +8796,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3240>)
+[\(view code\)](<./Abi.hx#L3277>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function isDirectIface
@@ -8807,7 +8807,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3242>)
+[\(view code\)](<./Abi.hx#L3279>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function key
@@ -8818,7 +8818,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3244>)
+[\(view code\)](<./Abi.hx#L3281>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function kind
@@ -8829,7 +8829,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L3246>)
+[\(view code\)](<./Abi.hx#L3283>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function len
@@ -8840,7 +8840,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3248>)
+[\(view code\)](<./Abi.hx#L3285>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function mapType
@@ -8851,7 +8851,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3250>)
+[\(view code\)](<./Abi.hx#L3287>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function new
@@ -8862,7 +8862,7 @@ function new(?interfaceType:stdgo.internal.abi.InterfaceType, ?_u:stdgo.internal
 ```
 
 
-[\(view code\)](<./Abi.hx#L3214>)
+[\(view code\)](<./Abi.hx#L3251>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function numMethod
@@ -8873,7 +8873,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3252>)
+[\(view code\)](<./Abi.hx#L3289>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function pointers
@@ -8884,7 +8884,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3254>)
+[\(view code\)](<./Abi.hx#L3291>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function size
@@ -8895,7 +8895,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L3256>)
+[\(view code\)](<./Abi.hx#L3293>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function structType
@@ -8906,7 +8906,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3258>)
+[\(view code\)](<./Abi.hx#L3295>)
 
 
 ### T\_uncommon\_6\_\_\_localname\_\_\_u function uncommon
@@ -8917,7 +8917,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3260>)
+[\(view code\)](<./Abi.hx#L3297>)
 
 
 ## class T\_uncommon\_7\_\_\_localname\_\_\_u
@@ -8941,7 +8941,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3280>)
+[\(view code\)](<./Abi.hx#L3317>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function arrayType
@@ -8952,7 +8952,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3282>)
+[\(view code\)](<./Abi.hx#L3319>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function chanDir
@@ -8963,7 +8963,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 ```
 
 
-[\(view code\)](<./Abi.hx#L3284>)
+[\(view code\)](<./Abi.hx#L3321>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function common
@@ -8974,7 +8974,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3286>)
+[\(view code\)](<./Abi.hx#L3323>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function elem
@@ -8985,7 +8985,7 @@ function elem():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3288>)
+[\(view code\)](<./Abi.hx#L3325>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function exportedMethods
@@ -8996,7 +8996,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3290>)
+[\(view code\)](<./Abi.hx#L3327>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function fieldAlign
@@ -9007,7 +9007,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3292>)
+[\(view code\)](<./Abi.hx#L3329>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function funcType
@@ -9018,7 +9018,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3294>)
+[\(view code\)](<./Abi.hx#L3331>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function gcSlice
@@ -9029,7 +9029,7 @@ function gcSlice(_begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdgo
 ```
 
 
-[\(view code\)](<./Abi.hx#L3296>)
+[\(view code\)](<./Abi.hx#L3333>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function hasName
@@ -9040,7 +9040,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3298>)
+[\(view code\)](<./Abi.hx#L3335>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function ifaceIndir
@@ -9051,7 +9051,7 @@ function ifaceIndir():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3300>)
+[\(view code\)](<./Abi.hx#L3337>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function interfaceType
@@ -9062,7 +9062,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3302>)
+[\(view code\)](<./Abi.hx#L3339>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function isDirectIface
@@ -9073,7 +9073,7 @@ function isDirectIface():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3304>)
+[\(view code\)](<./Abi.hx#L3341>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function key
@@ -9084,7 +9084,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3306>)
+[\(view code\)](<./Abi.hx#L3343>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function kind
@@ -9095,7 +9095,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L3308>)
+[\(view code\)](<./Abi.hx#L3345>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function len
@@ -9106,7 +9106,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3310>)
+[\(view code\)](<./Abi.hx#L3347>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function mapType
@@ -9117,7 +9117,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3312>)
+[\(view code\)](<./Abi.hx#L3349>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function new
@@ -9128,7 +9128,7 @@ function new(?type:stdgo.internal.abi.Type, ?_u:stdgo.internal.abi.UncommonType)
 ```
 
 
-[\(view code\)](<./Abi.hx#L3274>)
+[\(view code\)](<./Abi.hx#L3311>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function numMethod
@@ -9139,7 +9139,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L3314>)
+[\(view code\)](<./Abi.hx#L3351>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function pointers
@@ -9150,7 +9150,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L3316>)
+[\(view code\)](<./Abi.hx#L3353>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function size
@@ -9161,7 +9161,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Abi.hx#L3318>)
+[\(view code\)](<./Abi.hx#L3355>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function structType
@@ -9172,7 +9172,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3320>)
+[\(view code\)](<./Abi.hx#L3357>)
 
 
 ### T\_uncommon\_7\_\_\_localname\_\_\_u function uncommon
@@ -9183,7 +9183,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3322>)
+[\(view code\)](<./Abi.hx#L3359>)
 
 
 ## class Type
@@ -9290,7 +9290,7 @@ function align():stdgo.GoInt
 
 Align returns the alignment of data with type t.  
 
-[\(view code\)](<./Abi.hx#L2131>)
+[\(view code\)](<./Abi.hx#L2150>)
 
 
 ### Type function arrayType
@@ -9304,7 +9304,7 @@ function arrayType():stdgo.Ref<stdgo.internal.abi.ArrayType>
 
 ArrayType returns t cast to a \*ArrayType, or nil if its tag does not match.  
 
-[\(view code\)](<./Abi.hx#L2187>)
+[\(view code\)](<./Abi.hx#L2210>)
 
 
 ### Type function chanDir
@@ -9318,7 +9318,7 @@ function chanDir():stdgo.internal.abi.ChanDir
 
 ChanDir returns the direction of t if t is a channel type, otherwise InvalidDir \(0\).  
 
-[\(view code\)](<./Abi.hx#L2722>)
+[\(view code\)](<./Abi.hx#L2750>)
 
 
 ### Type function common
@@ -9329,7 +9329,7 @@ function common():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2752>)
+[\(view code\)](<./Abi.hx#L2781>)
 
 
 ### Type function elem
@@ -9343,7 +9343,7 @@ function elem():stdgo.Ref<stdgo.internal.abi.Type>
 
 Elem returns the element type for t if t is an array, channel, map, pointer, or slice, otherwise nil.  
 
-[\(view code\)](<./Abi.hx#L2316>)
+[\(view code\)](<./Abi.hx#L2342>)
 
 
 ### Type function exportedMethods
@@ -9354,7 +9354,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2116>)
+[\(view code\)](<./Abi.hx#L2133>)
 
 
 ### Type function fieldAlign
@@ -9365,7 +9365,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2124>)
+[\(view code\)](<./Abi.hx#L2142>)
 
 
 ### Type function funcType
@@ -9379,7 +9379,7 @@ function funcType():stdgo.Ref<stdgo.internal.abi.FuncType>
 
 FuncType returns t cast to a \*FuncType, or nil if its tag does not match.  
 
-[\(view code\)](<./Abi.hx#L2166>)
+[\(view code\)](<./Abi.hx#L2188>)
 
 
 ### Type function gcSlice
@@ -9390,7 +9390,7 @@ function gcSlice( _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Abi.hx#L2799>)
+[\(view code\)](<./Abi.hx#L2830>)
 
 
 ### Type function hasName
@@ -9401,7 +9401,7 @@ function hasName():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2821>)
+[\(view code\)](<./Abi.hx#L2856>)
 
 
 ### Type function ifaceIndir
@@ -9415,7 +9415,7 @@ function ifaceIndir():Bool
 
 IfaceIndir reports whether t is stored indirectly in an interface value.  
 
-[\(view code\)](<./Abi.hx#L2813>)
+[\(view code\)](<./Abi.hx#L2846>)
 
 
 ### Type function interfaceType
@@ -9429,7 +9429,7 @@ function interfaceType():stdgo.Ref<stdgo.internal.abi.InterfaceType>
 
 InterfaceType returns t cast to a \*InterfaceType, or nil if its tag does not match.  
 
-[\(view code\)](<./Abi.hx#L2145>)
+[\(view code\)](<./Abi.hx#L2166>)
 
 
 ### Type function isDirectIface
@@ -9443,7 +9443,7 @@ function isDirectIface():Bool
 
 isDirectIface reports whether t is stored directly in an interface value.  
 
-[\(view code\)](<./Abi.hx#L2806>)
+[\(view code\)](<./Abi.hx#L2838>)
 
 
 ### Type function key
@@ -9454,7 +9454,7 @@ function key():stdgo.Ref<stdgo.internal.abi.Type>
 ```
 
 
-[\(view code\)](<./Abi.hx#L2046>)
+[\(view code\)](<./Abi.hx#L2061>)
 
 
 ### Type function kind
@@ -9465,7 +9465,7 @@ function kind():stdgo.internal.abi.Kind
 ```
 
 
-[\(view code\)](<./Abi.hx#L2825>)
+[\(view code\)](<./Abi.hx#L2861>)
 
 
 ### Type function len
@@ -9479,7 +9479,7 @@ function len():stdgo.GoInt
 
 Len returns the length of t if t is an array type, otherwise 0  
 
-[\(view code\)](<./Abi.hx#L2759>)
+[\(view code\)](<./Abi.hx#L2789>)
 
 
 ### Type function mapType
@@ -9493,7 +9493,7 @@ function mapType():stdgo.Ref<stdgo.internal.abi.MapType>
 
 MapType returns t cast to a \*MapType, or nil if its tag does not match.  
 
-[\(view code\)](<./Abi.hx#L2230>)
+[\(view code\)](<./Abi.hx#L2254>)
 
 
 ### Type function numMethod
@@ -9504,7 +9504,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Abi.hx#L2097>)
+[\(view code\)](<./Abi.hx#L2113>)
 
 
 ### Type function pointers
@@ -9515,7 +9515,7 @@ function pointers():Bool
 ```
 
 
-[\(view code\)](<./Abi.hx#L2817>)
+[\(view code\)](<./Abi.hx#L2851>)
 
 
 ### Type function size
@@ -9529,7 +9529,7 @@ function size():stdgo.GoUIntptr
 
 Size returns the size of data with type t.  
 
-[\(view code\)](<./Abi.hx#L2138>)
+[\(view code\)](<./Abi.hx#L2158>)
 
 
 ### Type function structType
@@ -9543,7 +9543,7 @@ function structType():stdgo.Ref<stdgo.internal.abi.StructType>
 
 StructType returns t cast to a \*StructType, or nil if its tag does not match.  
 
-[\(view code\)](<./Abi.hx#L2284>)
+[\(view code\)](<./Abi.hx#L2309>)
 
 
 ### Type function uncommon
@@ -9557,7 +9557,7 @@ function uncommon():stdgo.Ref<stdgo.internal.abi.UncommonType>
 
 Uncommon returns a pointer to T's "uncommon" data if there is any, otherwise nil  
 
-[\(view code\)](<./Abi.hx#L2485>)
+[\(view code\)](<./Abi.hx#L2512>)
 
 
 ## class UncommonType
@@ -9613,7 +9613,7 @@ function exportedMethods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3342>)
+[\(view code\)](<./Abi.hx#L3379>)
 
 
 ### UncommonType function methods
@@ -9624,7 +9624,7 @@ function methods():stdgo.Slice<stdgo.internal.abi.Method>
 ```
 
 
-[\(view code\)](<./Abi.hx#L3349>)
+[\(view code\)](<./Abi.hx#L3387>)
 
 
 # Typedefs

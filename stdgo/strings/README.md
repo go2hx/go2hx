@@ -2611,7 +2611,7 @@ function _copyCheck():Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L2008>)
+[\(view code\)](<./Strings.hx#L2018>)
 
 
 ### Builder function \_grow
@@ -2626,7 +2626,7 @@ function _grow( _n:stdgo.GoInt):Void
 grow copies the buffer to a new, larger buffer so that there are at least n
 bytes of capacity beyond len\(b.buf\).  
 
-[\(view code\)](<./Strings.hx#L1971>)
+[\(view code\)](<./Strings.hx#L1976>)
 
 
 ### Builder function cap
@@ -2642,7 +2642,7 @@ Cap returns the capacity of the builder's underlying byte slice. It is the
 total space allocated for the string being built and includes any bytes
 already written.  
 
-[\(view code\)](<./Strings.hx#L1990>)
+[\(view code\)](<./Strings.hx#L1997>)
 
 
 ### Builder function grow
@@ -2658,7 +2658,7 @@ Grow grows b's capacity, if necessary, to guarantee space for
 another n bytes. After Grow\(n\), at least n bytes can be written to b
 without another allocation. If n is negative, Grow panics.  
 
-[\(view code\)](<./Strings.hx#L1957>)
+[\(view code\)](<./Strings.hx#L1961>)
 
 
 ### Builder function len
@@ -2672,7 +2672,7 @@ function len():stdgo.GoInt
 
 Len returns the number of accumulated bytes; b.Len\(\) == len\(b.String\(\)\).  
 
-[\(view code\)](<./Strings.hx#L1997>)
+[\(view code\)](<./Strings.hx#L2005>)
 
 
 ### Builder function reset
@@ -2686,7 +2686,7 @@ function reset():Void
 
 Reset resets the Builder to be empty.  
 
-[\(view code\)](<./Strings.hx#L1980>)
+[\(view code\)](<./Strings.hx#L1986>)
 
 
 ### Builder function string
@@ -2700,7 +2700,7 @@ function string():stdgo.GoString
 
 String returns the accumulated string.  
 
-[\(view code\)](<./Strings.hx#L2004>)
+[\(view code\)](<./Strings.hx#L2013>)
 
 
 ### Builder function write
@@ -2718,7 +2718,7 @@ function write( _p:stdgo.Slice<stdgo.GoByte>):{
 Write appends the contents of p to b's buffer.
 Write always returns len\(p\), nil.  
 
-[\(view code\)](<./Strings.hx#L1946>)
+[\(view code\)](<./Strings.hx#L1949>)
 
 
 ### Builder function writeByte
@@ -2733,7 +2733,7 @@ function writeByte( _c:stdgo.GoByte):stdgo.Error
 WriteByte appends the byte c to b's buffer.
 The returned error is always nil.  
 
-[\(view code\)](<./Strings.hx#L1936>)
+[\(view code\)](<./Strings.hx#L1938>)
 
 
 ### Builder function writeRune
@@ -2751,7 +2751,7 @@ function writeRune( _r:stdgo.GoRune):{
 WriteRune appends the UTF\-8 encoding of Unicode code point r to b's buffer.
 It returns the length of r and a nil error.  
 
-[\(view code\)](<./Strings.hx#L1925>)
+[\(view code\)](<./Strings.hx#L1926>)
 
 
 ### Builder function writeString
@@ -2819,7 +2819,7 @@ function len():stdgo.GoInt
 Len returns the number of bytes of the unread portion of the
 string.  
 
-[\(view code\)](<./Strings.hx#L2251>)
+[\(view code\)](<./Strings.hx#L2271>)
 
 
 ### Reader function read
@@ -2836,7 +2836,7 @@ function read( _b:stdgo.Slice<stdgo.GoByte>):{
 
 Read implements the io.Reader interface.  
 
-[\(view code\)](<./Strings.hx#L2226>)
+[\(view code\)](<./Strings.hx#L2244>)
 
 
 ### Reader function readAt
@@ -2853,7 +2853,7 @@ function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{
 
 ReadAt implements the io.ReaderAt interface.  
 
-[\(view code\)](<./Strings.hx#L2208>)
+[\(view code\)](<./Strings.hx#L2225>)
 
 
 ### Reader function readByte
@@ -2870,7 +2870,7 @@ function readByte():{
 
 ReadByte implements the io.ByteReader interface.  
 
-[\(view code\)](<./Strings.hx#L2195>)
+[\(view code\)](<./Strings.hx#L2211>)
 
 
 ### Reader function readRune
@@ -2888,7 +2888,7 @@ function readRune():{
 
 ReadRune implements the io.RuneReader interface.  
 
-[\(view code\)](<./Strings.hx#L2157>)
+[\(view code\)](<./Strings.hx#L2171>)
 
 
 ### Reader function reset
@@ -2902,7 +2902,7 @@ function reset( _s:stdgo.GoString):Void
 
 Reset resets the Reader to be reading from s.  
 
-[\(view code\)](<./Strings.hx#L2083>)
+[\(view code\)](<./Strings.hx#L2093>)
 
 
 ### Reader function seek
@@ -2919,7 +2919,7 @@ function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
 
 Seek implements the io.Seeker interface.  
 
-[\(view code\)](<./Strings.hx#L2117>)
+[\(view code\)](<./Strings.hx#L2129>)
 
 
 ### Reader function size
@@ -2936,7 +2936,7 @@ Size is the number of bytes available for reading via ReadAt.
 The returned value is always the same and is not affected by calls
 to any other method.  
 
-[\(view code\)](<./Strings.hx#L2243>)
+[\(view code\)](<./Strings.hx#L2262>)
 
 
 ### Reader function unreadByte
@@ -2950,7 +2950,7 @@ function unreadByte():stdgo.Error
 
 UnreadByte implements the io.ByteScanner interface.  
 
-[\(view code\)](<./Strings.hx#L2183>)
+[\(view code\)](<./Strings.hx#L2198>)
 
 
 ### Reader function unreadRune
@@ -2964,7 +2964,7 @@ function unreadRune():stdgo.Error
 
 UnreadRune implements the io.RuneScanner interface.  
 
-[\(view code\)](<./Strings.hx#L2142>)
+[\(view code\)](<./Strings.hx#L2155>)
 
 
 ### Reader function writeTo
@@ -2981,7 +2981,7 @@ function writeTo( _w:stdgo.io.Writer):{
 
 WriteTo implements the io.WriterTo interface.  
 
-[\(view code\)](<./Strings.hx#L2095>)
+[\(view code\)](<./Strings.hx#L2106>)
 
 
 ## class Replacer
@@ -3025,7 +3025,7 @@ function _build():stdgo.strings.T_replacer
 ```
 
 
-[\(view code\)](<./Strings.hx#L2304>)
+[\(view code\)](<./Strings.hx#L2327>)
 
 
 ### Replacer function \_buildOnce
@@ -3036,7 +3036,7 @@ function _buildOnce():Void
 ```
 
 
-[\(view code\)](<./Strings.hx#L2351>)
+[\(view code\)](<./Strings.hx#L2375>)
 
 
 ### Replacer function printTrie
@@ -3047,7 +3047,7 @@ function printTrie():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strings.hx#L2356>)
+[\(view code\)](<./Strings.hx#L2381>)
 
 
 ### Replacer function replace
@@ -3061,7 +3061,7 @@ function replace( _s:stdgo.GoString):stdgo.GoString
 
 Replace returns a copy of s with all replacements performed.  
 
-[\(view code\)](<./Strings.hx#L2299>)
+[\(view code\)](<./Strings.hx#L2321>)
 
 
 ### Replacer function replacer
@@ -3072,7 +3072,7 @@ function replacer():stdgo.AnyInterface
 ```
 
 
-[\(view code\)](<./Strings.hx#L2362>)
+[\(view code\)](<./Strings.hx#L2388>)
 
 
 ### Replacer function writeString
@@ -3089,7 +3089,7 @@ function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{
 
 WriteString writes s to w with all replacements performed.  
 
-[\(view code\)](<./Strings.hx#L2290>)
+[\(view code\)](<./Strings.hx#L2311>)
 
 
 ## class T\_fieldsFunc\_0\_\_\_localname\_\_\_span

@@ -713,7 +713,7 @@ source buffer si.
 It returns the number of bytes read from src, the number of bytes written
 to dst, and an error, if any.  
 
-[\(view code\)](<./Base64.hx#L1566>)
+[\(view code\)](<./Base64.hx#L1569>)
 
 
 ### Encoding function decode
@@ -734,7 +734,7 @@ written. If src contains invalid base64 data, it will return the
 number of bytes successfully written and CorruptInputError.
 New line characters \(\\r and \\n\) are ignored.  
 
-[\(view code\)](<./Base64.hx#L1481>)
+[\(view code\)](<./Base64.hx#L1482>)
 
 
 ### Encoding function decodeString
@@ -751,7 +751,7 @@ function decodeString( _s:stdgo.GoString):{
 
 DecodeString returns the bytes represented by the base64 string s.  
 
-[\(view code\)](<./Base64.hx#L1553>)
+[\(view code\)](<./Base64.hx#L1555>)
 
 
 ### Encoding function decodedLen
@@ -786,7 +786,7 @@ The encoding pads the output to a multiple of 4 bytes,
 so Encode is not appropriate for use on individual blocks
 of a large data stream. Use NewEncoder\(\) instead.  
 
-[\(view code\)](<./Base64.hx#L1704>)
+[\(view code\)](<./Base64.hx#L1710>)
 
 
 ### Encoding function encodeToString
@@ -800,7 +800,7 @@ function encodeToString( _src:stdgo.Slice<stdgo.GoByte>):stdgo.GoString
 
 EncodeToString returns the base64 encoding of src.  
 
-[\(view code\)](<./Base64.hx#L1690>)
+[\(view code\)](<./Base64.hx#L1695>)
 
 
 ### Encoding function encodedLen
@@ -815,7 +815,7 @@ function encodedLen( _n:stdgo.GoInt):stdgo.GoInt
 EncodedLen returns the length in bytes of the base64 encoding
 of an input buffer of length n.  
 
-[\(view code\)](<./Base64.hx#L1680>)
+[\(view code\)](<./Base64.hx#L1684>)
 
 
 ### Encoding function strict
@@ -835,7 +835,7 @@ trailing padding bits are zero, as described in RFC 4648 section 3.5.
 Note that the input is still malleable, as new line characters
 \(CR and LF\) are still ignored.  
 
-[\(view code\)](<./Base64.hx#L1754>)
+[\(view code\)](<./Base64.hx#L1761>)
 
 
 ### Encoding function withPadding
@@ -855,7 +855,7 @@ below '\\xff'.
 Padding characters above '\\x7f' are encoded as their exact byte value
 rather than using the UTF\-8 representation of the codepoint.  
 
-[\(view code\)](<./Base64.hx#L1768>)
+[\(view code\)](<./Base64.hx#L1776>)
 
 
 # Typedefs

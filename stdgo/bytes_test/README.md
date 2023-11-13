@@ -3906,7 +3906,7 @@ function read( __0:stdgo.Slice<stdgo.GoUInt8>):{
 ```
 
 
-[\(view code\)](<./Bytes_test.hx#L5285>)
+[\(view code\)](<./Bytes_test.hx#L5287>)
 
 
 ## class T\_testReaderCopyNothing\_2\_\_\_localname\_\_\_justWriter
@@ -3953,7 +3953,7 @@ function write( __0:stdgo.Slice<stdgo.GoUInt8>):{
 ```
 
 
-[\(view code\)](<./Bytes_test.hx#L5300>)
+[\(view code\)](<./Bytes_test.hx#L5302>)
 
 
 ## class TitleTest

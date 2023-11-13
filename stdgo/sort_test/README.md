@@ -1315,7 +1315,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1918>)
+[\(view code\)](<./Sort_test.hx#L1927>)
 
 
 ### ByName function less
@@ -1326,7 +1326,7 @@ function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1912>)
+[\(view code\)](<./Sort_test.hx#L1920>)
 
 
 ### ByName function swap
@@ -1337,7 +1337,7 @@ function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1916>)
+[\(view code\)](<./Sort_test.hx#L1925>)
 
 
 ## class ByWeight
@@ -1393,7 +1393,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1943>)
+[\(view code\)](<./Sort_test.hx#L1953>)
 
 
 ### ByWeight function less
@@ -1404,7 +1404,7 @@ function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1937>)
+[\(view code\)](<./Sort_test.hx#L1946>)
 
 
 ### ByWeight function swap
@@ -1415,7 +1415,7 @@ function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1941>)
+[\(view code\)](<./Sort_test.hx#L1951>)
 
 
 ## class Change

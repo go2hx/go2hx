@@ -3213,7 +3213,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strconv.hx#L5416>)
+[\(view code\)](<./Strconv.hx#L5417>)
 
 
 ### NumError function unwrap

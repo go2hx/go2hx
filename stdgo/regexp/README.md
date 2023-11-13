@@ -2638,7 +2638,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Regexp.hx#L4532>)
+[\(view code\)](<./Regexp.hx#L4546>)
 
 
 ## class MetaTest
@@ -2791,7 +2791,7 @@ allMatches calls deliver at most n times
 with the location of successive matches in the input text.
 The input text is b if non\-nil, otherwise s.  
 
-[\(view code\)](<./Regexp.hx#L5530>)
+[\(view code\)](<./Regexp.hx#L5575>)
 
 
 ### Regexp function \_backtrack
@@ -2805,7 +2805,7 @@ function _backtrack( _ib:stdgo.Slice<stdgo.GoByte>, _is:stdgo.GoString, _pos:std
 
 backtrack runs a backtracking search of prog on the input starting at pos.  
 
-[\(view code\)](<./Regexp.hx#L6062>)
+[\(view code\)](<./Regexp.hx#L6131>)
 
 
 ### Regexp function \_doExecute
@@ -2823,7 +2823,7 @@ of its subexpressions to dstCap and returns dstCap.
 
 nil is returned if no matches are found and non\-nil if matches are found.  
 
-[\(view code\)](<./Regexp.hx#L5892>)
+[\(view code\)](<./Regexp.hx#L5958>)
 
 
 ### Regexp function \_doMatch
@@ -2837,7 +2837,7 @@ function _doMatch( _r:stdgo.io.RuneReader, _b:stdgo.Slice<stdgo.GoByte>, _s:stdg
 
 doMatch reports whether either r, b or s match the regexp.  
 
-[\(view code\)](<./Regexp.hx#L5920>)
+[\(view code\)](<./Regexp.hx#L5987>)
 
 
 ### Regexp function \_doOnePass
@@ -2851,7 +2851,7 @@ function _doOnePass( _ir:stdgo.io.RuneReader, _ib:stdgo.Slice<stdgo.GoByte>, _is
 
 doOnePass implements r.doExecute using the one\-pass execution engine.  
 
-[\(view code\)](<./Regexp.hx#L5927>)
+[\(view code\)](<./Regexp.hx#L5995>)
 
 
 ### Regexp function \_expand
@@ -2862,7 +2862,7 @@ function _expand( _dst:stdgo.Slice<stdgo.GoByte>, _template:stdgo.GoString, _bsr
 ```
 
 
-[\(view code\)](<./Regexp.hx#L5352>)
+[\(view code\)](<./Regexp.hx#L5388>)
 
 
 ### Regexp function \_get
@@ -2878,7 +2878,7 @@ get returns a machine to use for matching re.
 It uses the re's machine cache if possible, to avoid
 unnecessary allocation.  
 
-[\(view code\)](<./Regexp.hx#L5824>)
+[\(view code\)](<./Regexp.hx#L5886>)
 
 
 ### Regexp function \_pad
@@ -2896,7 +2896,7 @@ For example, "\(a\)\{0\}" turns into an empty program, so the
 maximum capture in the program is 0 but we need to return
 an expression for \\1.  Pad appends \-1s to the slice a as needed.  
 
-[\(view code\)](<./Regexp.hx#L5587>)
+[\(view code\)](<./Regexp.hx#L5633>)
 
 
 ### Regexp function \_put
@@ -2910,7 +2910,7 @@ function _put( _m:stdgo.Ref<stdgo.regexp.T_machine>):Void
 
 put returns a machine to the correct machine pool.  
 
-[\(view code\)](<./Regexp.hx#L5812>)
+[\(view code\)](<./Regexp.hx#L5873>)
 
 
 ### Regexp function \_replaceAll
@@ -2921,7 +2921,7 @@ function _replaceAll( _bsrc:stdgo.Slice<stdgo.GoByte>, _src:stdgo.GoString, _nma
 ```
 
 
-[\(view code\)](<./Regexp.hx#L5641>)
+[\(view code\)](<./Regexp.hx#L5691>)
 
 
 ### Regexp function \_tryBacktrack
@@ -2935,7 +2935,7 @@ function _tryBacktrack( _b:stdgo.Ref<stdgo.regexp.T_bitState>, _i:stdgo.regexp.T
 
 tryBacktrack runs a backtracking search starting at pos.  
 
-[\(view code\)](<./Regexp.hx#L6117>)
+[\(view code\)](<./Regexp.hx#L6187>)
 
 
 ### Regexp function copy
@@ -2957,7 +2957,7 @@ As of Go 1.12, using Copy is no longer necessary to avoid lock contention.
 Copy may still be appropriate if the reason for its use is to make
 two copies with different Longest settings.  
 
-[\(view code\)](<./Regexp.hx#L5874>)
+[\(view code\)](<./Regexp.hx#L5938>)
 
 
 ### Regexp function expand
@@ -2990,7 +2990,7 @@ equivalent to $\{1x\}, not $\{1\}x, and, $10 is equivalent to $\{10\}, not $\{1\
 
 To insert a literal $ in the output, use $$ in the template.  
 
-[\(view code\)](<./Regexp.hx#L5424>)
+[\(view code\)](<./Regexp.hx#L5462>)
 
 
 ### Regexp function expandString
@@ -3006,7 +3006,7 @@ ExpandString is like Expand but the template and source are strings.
 It appends to and returns a byte slice in order to give the calling
 code control over allocation.  
 
-[\(view code\)](<./Regexp.hx#L5401>)
+[\(view code\)](<./Regexp.hx#L5438>)
 
 
 ### Regexp function find
@@ -3021,7 +3021,7 @@ function find( _b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
 Find returns a slice holding the text of the leftmost match in b of the regular expression.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5516>)
+[\(view code\)](<./Regexp.hx#L5560>)
 
 
 ### Regexp function findAll
@@ -3038,7 +3038,7 @@ matches of the expression, as defined by the 'All' description in the
 package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5283>)
+[\(view code\)](<./Regexp.hx#L5314>)
 
 
 ### Regexp function findAllIndex
@@ -3055,7 +3055,7 @@ successive matches of the expression, as defined by the 'All' description
 in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5263>)
+[\(view code\)](<./Regexp.hx#L5293>)
 
 
 ### Regexp function findAllString
@@ -3072,7 +3072,7 @@ successive matches of the expression, as defined by the 'All' description
 in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5243>)
+[\(view code\)](<./Regexp.hx#L5272>)
 
 
 ### Regexp function findAllStringIndex
@@ -3089,7 +3089,7 @@ slice of all successive matches of the expression, as defined by the 'All'
 description in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5223>)
+[\(view code\)](<./Regexp.hx#L5251>)
 
 
 ### Regexp function findAllStringSubmatch
@@ -3106,7 +3106,7 @@ returns a slice of all successive matches of the expression, as defined by
 the 'All' description in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5151>)
+[\(view code\)](<./Regexp.hx#L5176>)
 
 
 ### Regexp function findAllStringSubmatchIndex
@@ -3124,7 +3124,7 @@ the expression, as defined by the 'All' description in the package
 comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5131>)
+[\(view code\)](<./Regexp.hx#L5155>)
 
 
 ### Regexp function findAllSubmatch
@@ -3141,7 +3141,7 @@ of all successive matches of the expression, as defined by the 'All'
 description in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5197>)
+[\(view code\)](<./Regexp.hx#L5224>)
 
 
 ### Regexp function findAllSubmatchIndex
@@ -3158,7 +3158,7 @@ a slice of all successive matches of the expression, as defined by the
 'All' description in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5177>)
+[\(view code\)](<./Regexp.hx#L5203>)
 
 
 ### Regexp function findIndex
@@ -3175,7 +3175,7 @@ the leftmost match in b of the regular expression. The match itself is at
 b\[loc\[0\]:loc\[1\]\].
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5503>)
+[\(view code\)](<./Regexp.hx#L5546>)
 
 
 ### Regexp function findReaderIndex
@@ -3193,7 +3193,7 @@ the RuneReader. The match text was found in the input stream at
 byte offset loc\[0\] through loc\[1\]\-1.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5457>)
+[\(view code\)](<./Regexp.hx#L5497>)
 
 
 ### Regexp function findReaderSubmatchIndex
@@ -3211,7 +3211,7 @@ the RuneReader, and the matches, if any, of its subexpressions, as defined
 by the 'Submatch' and 'Index' descriptions in the package comment. A
 return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5304>)
+[\(view code\)](<./Regexp.hx#L5336>)
 
 
 ### Regexp function findString
@@ -3229,7 +3229,7 @@ but it will also be empty if the regular expression successfully matches
 an empty string. Use FindStringIndex or FindStringSubmatch if it is
 necessary to distinguish these cases.  
 
-[\(view code\)](<./Regexp.hx#L5488>)
+[\(view code\)](<./Regexp.hx#L5530>)
 
 
 ### Regexp function findStringIndex
@@ -3246,7 +3246,7 @@ location of the leftmost match in s of the regular expression. The match
 itself is at s\[loc\[0\]:loc\[1\]\].
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5472>)
+[\(view code\)](<./Regexp.hx#L5513>)
 
 
 ### Regexp function findStringSubmatch
@@ -3264,7 +3264,7 @@ its subexpressions, as defined by the 'Submatch' description in the
 package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5326>)
+[\(view code\)](<./Regexp.hx#L5360>)
 
 
 ### Regexp function findStringSubmatchIndex
@@ -3282,7 +3282,7 @@ matches, if any, of its subexpressions, as defined by the 'Submatch' and
 'Index' descriptions in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5315>)
+[\(view code\)](<./Regexp.hx#L5348>)
 
 
 ### Regexp function findSubmatch
@@ -3300,7 +3300,7 @@ subexpressions, as defined by the 'Submatch' descriptions in the package
 comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5435>)
+[\(view code\)](<./Regexp.hx#L5474>)
 
 
 ### Regexp function findSubmatchIndex
@@ -3318,7 +3318,7 @@ its subexpressions, as defined by the 'Submatch' and 'Index' descriptions
 in the package comment.
 A return value of nil indicates no match.  
 
-[\(view code\)](<./Regexp.hx#L5348>)
+[\(view code\)](<./Regexp.hx#L5383>)
 
 
 ### Regexp function literalPrefix
@@ -3337,7 +3337,7 @@ LiteralPrefix returns a literal string that must begin any match
 of the regular expression re. It returns the boolean true if the
 literal string comprises the entire regular expression.  
 
-[\(view code\)](<./Regexp.hx#L5766>)
+[\(view code\)](<./Regexp.hx#L5823>)
 
 
 ### Regexp function longest
@@ -3356,7 +3356,7 @@ it chooses a match that is as long as possible.
 This method modifies the Regexp and may not be called concurrently
 with any other methods.  
 
-[\(view code\)](<./Regexp.hx#L5860>)
+[\(view code\)](<./Regexp.hx#L5923>)
 
 
 ### Regexp function marshalText
@@ -3379,7 +3379,7 @@ Note that the output is lossy in some cases: This method does not indicate
 POSIX regular expressions \(i.e. those compiled by calling \[CompilePOSIX\]\), or
 those for which the \[Regexp.Longest\] method has been called.  
 
-[\(view code\)](<./Regexp.hx#L5074>)
+[\(view code\)](<./Regexp.hx#L5096>)
 
 
 ### Regexp function match
@@ -3394,7 +3394,7 @@ function match( _b:stdgo.Slice<stdgo.GoByte>):Bool
 Match reports whether the byte slice b
 contains any match of the regular expression re.  
 
-[\(view code\)](<./Regexp.hx#L5741>)
+[\(view code\)](<./Regexp.hx#L5795>)
 
 
 ### Regexp function matchReader
@@ -3409,7 +3409,7 @@ function matchReader( _r:stdgo.io.RuneReader):Bool
 MatchReader reports whether the text returned by the RuneReader
 contains any match of the regular expression re.  
 
-[\(view code\)](<./Regexp.hx#L5757>)
+[\(view code\)](<./Regexp.hx#L5813>)
 
 
 ### Regexp function matchString
@@ -3424,7 +3424,7 @@ function matchString( _s:stdgo.GoString):Bool
 MatchString reports whether the string s
 contains any match of the regular expression re.  
 
-[\(view code\)](<./Regexp.hx#L5749>)
+[\(view code\)](<./Regexp.hx#L5804>)
 
 
 ### Regexp function numSubexp
@@ -3438,7 +3438,7 @@ function numSubexp():stdgo.GoInt
 
 NumSubexp returns the number of parenthesized subexpressions in this Regexp.  
 
-[\(view code\)](<./Regexp.hx#L5805>)
+[\(view code\)](<./Regexp.hx#L5865>)
 
 
 ### Regexp function replaceAll
@@ -3454,7 +3454,7 @@ ReplaceAll returns a copy of src, replacing matches of the Regexp
 with the replacement text repl. Inside repl, $ signs are interpreted as
 in Expand, so for instance $1 represents the text of the first submatch.  
 
-[\(view code\)](<./Regexp.hx#L5626>)
+[\(view code\)](<./Regexp.hx#L5675>)
 
 
 ### Regexp function replaceAllFunc
@@ -3471,7 +3471,7 @@ Regexp have been replaced by the return value of function repl applied
 to the matched byte slice. The replacement returned by repl is substituted
 directly, without using Expand.  
 
-[\(view code\)](<./Regexp.hx#L5604>)
+[\(view code\)](<./Regexp.hx#L5651>)
 
 
 ### Regexp function replaceAllLiteral
@@ -3487,7 +3487,7 @@ ReplaceAllLiteral returns a copy of src, replacing matches of the Regexp
 with the replacement bytes repl. The replacement repl is substituted directly,
 without using Expand.  
 
-[\(view code\)](<./Regexp.hx#L5615>)
+[\(view code\)](<./Regexp.hx#L5663>)
 
 
 ### Regexp function replaceAllLiteralString
@@ -3503,7 +3503,7 @@ ReplaceAllLiteralString returns a copy of src, replacing matches of the Regexp
 with the replacement string repl. The replacement repl is substituted directly,
 without using Expand.  
 
-[\(view code\)](<./Regexp.hx#L5715>)
+[\(view code\)](<./Regexp.hx#L5767>)
 
 
 ### Regexp function replaceAllString
@@ -3519,7 +3519,7 @@ ReplaceAllString returns a copy of src, replacing matches of the Regexp
 with the replacement string repl. Inside repl, $ signs are interpreted as
 in Expand, so for instance $1 represents the text of the first submatch.  
 
-[\(view code\)](<./Regexp.hx#L5726>)
+[\(view code\)](<./Regexp.hx#L5779>)
 
 
 ### Regexp function replaceAllStringFunc
@@ -3536,7 +3536,7 @@ Regexp have been replaced by the return value of function repl applied
 to the matched substring. The replacement returned by repl is substituted
 directly, without using Expand.  
 
-[\(view code\)](<./Regexp.hx#L5703>)
+[\(view code\)](<./Regexp.hx#L5754>)
 
 
 ### Regexp function split
@@ -3571,7 +3571,7 @@ The count determines the number of substrings to return:
 	n == 0: the result is nil (zero substrings)
 	n < 0: all substrings
 ```
-[\(view code\)](<./Regexp.hx#L5097>)
+[\(view code\)](<./Regexp.hx#L5120>)
 
 
 ### Regexp function string
@@ -3585,7 +3585,7 @@ function string():stdgo.GoString
 
 String returns the source text used to compile the regular expression.  
 
-[\(view code\)](<./Regexp.hx#L5882>)
+[\(view code\)](<./Regexp.hx#L5947>)
 
 
 ### Regexp function subexpIndex
@@ -3606,7 +3606,7 @@ Note that multiple subexpressions can be written using the same name, as in
 In this case, SubexpIndex returns the index of the leftmost such subexpression
 in the regular expression.  
 
-[\(view code\)](<./Regexp.hx#L5780>)
+[\(view code\)](<./Regexp.hx#L5838>)
 
 
 ### Regexp function subexpNames
@@ -3624,7 +3624,7 @@ so that if m is a match slice, the name for m\[i\] is SubexpNames\(\)\[i\].
 Since the Regexp as a whole cannot be named, names\[0\] is always
 the empty string. The slice should not be modified.  
 
-[\(view code\)](<./Regexp.hx#L5798>)
+[\(view code\)](<./Regexp.hx#L5857>)
 
 
 ### Regexp function unmarshalText
@@ -3639,7 +3639,7 @@ function unmarshalText( _text:stdgo.Slice<stdgo.GoByte>):stdgo.Error
 UnmarshalText implements \[encoding.TextUnmarshaler\] by calling
 \[Compile\] on the encoded value.  
 
-[\(view code\)](<./Regexp.hx#L5039>)
+[\(view code\)](<./Regexp.hx#L5060>)
 
 
 ## class ReplaceFuncTest

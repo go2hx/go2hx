@@ -11,7 +11,7 @@ stdgo/go/token_test/Token_test.hx:18: characters 74-79 : ... For function argume
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : Any should be { pos : () -> stdgo.go.token.Pos }
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : ... For function argument 'value'
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : ... For function argument 'v'
-stdgo/Go.macro.hx:687: characters 13-19 : Unknown identifier : TClass
+stdgo/Go.macro.hx:695: characters 13-19 : Unknown identifier : TClass
 stdgo/go/token_test/Token_test.hx:18: characters 32-131 : ... Called from macro here
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : Any should be { pos : () -> stdgo.go.token.Pos }
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : ... For function argument 'value'
@@ -20,15 +20,15 @@ stdgo/go/token_test/Token_test.hx:18: characters 74-79 : ... For function argume
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : Any should be { pos : () -> stdgo.go.token.Pos }
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : ... For function argument 'value'
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : ... For function argument 'value'
-stdgo/Go.macro.hx:697: lines 697-699 : Void should be stdgo.Ref<stdgo.go.ast.GenDecl>
+stdgo/Go.macro.hx:705: lines 705-707 : Void should be stdgo.Ref<stdgo.go.ast.GenDecl>
 stdgo/go/token_test/Token_test.hx:18: characters 32-131 : ... Called from macro here
-stdgo/Go.macro.hx:699: lines 699-705 : Void should be stdgo.Ref<stdgo.go.ast.GenDecl>
+stdgo/Go.macro.hx:707: lines 707-713 : Void should be stdgo.Ref<stdgo.go.ast.GenDecl>
 stdgo/go/token_test/Token_test.hx:18: characters 32-131 : ... Called from macro here
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : Any should be { pos : () -> stdgo.go.token.Pos }
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : ... For function argument 'value'
-stdgo/Go.macro.hx:706: lines 706-717 : Void should be stdgo.Ref<stdgo.go.ast.GenDecl>
+stdgo/Go.macro.hx:714: lines 714-725 : Void should be stdgo.Ref<stdgo.go.ast.GenDecl>
 stdgo/go/token_test/Token_test.hx:18: characters 32-131 : ... Called from macro here
-stdgo/go/ast/Ast.hx:5400: characters 12-19 : stdgo.Ref<stdgo.go.ast.T_pkgBuilder> has no field _errors
+stdgo/go/ast/Ast.hx:5624: characters 12-19 : stdgo.Ref<stdgo.go.ast.T_pkgBuilder> has no field _errors
 stdgo/go/ast/Ast.hx:2913: characters 32-34 : stdgo.go.ast.T_pkgBuilder does not have a constructor
 
 ```

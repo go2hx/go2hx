@@ -1162,7 +1162,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Quick.hx#L973>)
+[\(view code\)](<./Quick.hx#L976>)
 
 
 ## class CheckError
@@ -1200,7 +1200,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Quick.hx#L956>)
+[\(view code\)](<./Quick.hx#L958>)
 
 
 ## class Config
@@ -1289,7 +1289,7 @@ function _getRand():stdgo.Ref<stdgo.math.rand.Rand>
 
 getRand returns the \*rand.Rand to use for a given Config.  
 
-[\(view code\)](<./Quick.hx#L936>)
+[\(view code\)](<./Quick.hx#L937>)
 
 
 ## class T\_testNonZeroSliceAndMap\_0\_\_\_localname\_\_\_Q

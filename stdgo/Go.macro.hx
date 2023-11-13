@@ -506,6 +506,9 @@ class Go {
 						case "stdgo.AnyInterface":
 							// force cast into
 							value = macro new stdgo.StdGoTypes.AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
+						case ".Null":
+							t = params[0];
+							value = gen(isNull);
 						default:
 							throw "invalid path tabstract setRef: " + path;
 					}

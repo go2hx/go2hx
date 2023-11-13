@@ -1960,7 +1960,7 @@ private function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:A
 			if (recvArg != null && !isPointer(recvArg.vt)) {
 				final name = recvArg.name;
 				final expr = passByCopy(recvArg.vt, macro $i{name}, info);
-				final ct = recvArg.ct;
+				final ct = recvArg.type;
 				exprs.unshift(macro @:recv var $name:$ct = $expr);
 			}
 			for (arg in args) {

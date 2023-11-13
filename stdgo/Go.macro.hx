@@ -412,7 +412,7 @@ class Go {
 						return e;
 					}
 				default:
-					Context.error("invalid type: " + t, Context.currentPos());
+					Context.error("invalid type f asInterface: " + t, Context.currentPos());
 					return null;
 			}
 		}
@@ -428,15 +428,19 @@ class Go {
 				case TInst(_.get() => ct, params):
 					f(ct, params);
 				case TAbstract(_.get() => ct, params):
+					if (ct.name == "Null" && ct.pack == null || ct.pack.length == 0) {
+						t = params[0];
+						return run();
+					}
 					if (ct.name == "Pointer" && ct.pack != null && ct.pack[0] == "stdgo") {
 						t = params[0];
 						selfPointer = true;
 						return run();
 					}
-					Context.error("invalid type: " + t, Context.currentPos());
+					Context.error("invalid type abstract run asInterface: " + t, Context.currentPos());
 					null;
 				default:
-					Context.error("invalid type: " + t, Context.currentPos());
+					Context.error("invalid type run asInterface: " + t, Context.currentPos());
 					null;
 			}
 		}
@@ -551,6 +555,7 @@ class Go {
 		final exprType = Context.typeof(expr);
 		if (exprType != null) {
 			final ct = Context.toComplexType(exprType);
+			// add support for the tuple case
 			switch ct {
 				case TPath(p):
 					if (p.name == "Ref" && p.pack.length == 1 && p.pack[0] == "stdgo") {

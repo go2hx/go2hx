@@ -1957,11 +1957,11 @@ private function cleanType(type:GoType):GoType {
 private function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:Ast.FieldList, info:Info, recvArg):Expr {
 	switch block.expr {
 		case EBlock(exprs):
-			/*if (recvArg != null && !isPointer(recvArg.vt)) {
+			if (recvArg != null && !isPointer(recvArg.vt)) {
 				final name = recvArg.name;
 				final expr = passByCopy(recvArg.vt, macro $i{name}, info);
 				exprs.unshift(macro @:recv var $name = $expr);
-			}*/
+			}
 			for (arg in args) {
 				switch arg.type {
 					case TPath(p):

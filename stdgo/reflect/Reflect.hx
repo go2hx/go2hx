@@ -1776,6 +1776,7 @@ class Value_asInterface {
     **/
     @:keep
     static public function uint( _v:Value):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _v:Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo.internal.reflect.Reflect.isNamed(t)) {
@@ -1814,6 +1815,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function canUint( _v:Value):Bool {
+        @:recv var _v:Value = _v?.__copy__();
         return switch _v.kind() {
             case stdgo.internal.reflect.Reflect.KindType.uint, stdgo.internal.reflect.Reflect.KindType.uint8, stdgo.internal.reflect.Reflect.KindType.uint16, stdgo.internal.reflect.Reflect.KindType.uint32, stdgo.internal.reflect.Reflect.KindType.uint64, stdgo.internal.reflect.Reflect.KindType.uintptr:
                 true;
@@ -1826,6 +1828,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function type( _v:Value):Type {
+        @:recv var _v:Value = _v?.__copy__();
         if (@:privateAccess _v.value == null) {
             var t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType);
             return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t);
@@ -1859,6 +1862,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function string( _v:Value):stdgo.GoString {
+        @:recv var _v:Value = _v?.__copy__();
         if (@:privateAccess _v.value == null) {
             return "<invalid Value>";
         };
@@ -1905,6 +1909,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function slice( _v:Value, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Value {
+        @:recv var _v:Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         var t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo.internal.reflect.Reflect.isNamed(t)) {
@@ -1941,6 +1946,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function setString( _v:Value, _x:stdgo.GoString):Void {
+        @:recv var _v:Value = _v?.__copy__();
         @:privateAccess _v.value.value = _x;
         stdgo.internal.reflect.Reflect._set(_v);
     }
@@ -1956,6 +1962,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function setUint( _v:Value, _x:stdgo.StdGoTypes.GoUInt64):Void {
+        @:recv var _v:Value = _v?.__copy__();
         final k = _v.kind();
         @:privateAccess _v.value.value = switch k {
             case stdgo.internal.reflect.Reflect.KindType.int8:
@@ -2015,6 +2022,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function setInt( _v:Value, _x:stdgo.StdGoTypes.GoInt64):Void {
+        @:recv var _v:Value = _v?.__copy__();
         final k = _v.kind();
         @:privateAccess _v.value.value = switch k {
             case stdgo.internal.reflect.Reflect.KindType.int8:
@@ -2048,6 +2056,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function setFloat( _v:Value, _x:stdgo.StdGoTypes.GoFloat64):Void {
+        @:recv var _v:Value = _v?.__copy__();
         final k = _v.kind();
         @:privateAccess _v.value.value = switch k {
             case stdgo.internal.reflect.Reflect.KindType.float32:
@@ -2065,6 +2074,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function setComplex( _v:Value, _x:stdgo.StdGoTypes.GoComplex128):Void {
+        @:recv var _v:Value = _v?.__copy__();
         final k = _v.kind();
         @:privateAccess _v.value.value = switch k {
             case stdgo.internal.reflect.Reflect.KindType.complex64:
@@ -2088,6 +2098,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function setBool( _v:Value, _x:Bool):Void {
+        @:recv var _v:Value = _v?.__copy__();
         @:privateAccess _v.value.value = _x;
         stdgo.internal.reflect.Reflect._set(_v);
     }
@@ -2099,6 +2110,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function set( _v:Value, _x:Value):Void {
+        @:recv var _v:Value = _v?.__copy__();
         var value = @:privateAccess _x.value.value;
         final gt = @:privateAccess _x.value.type._common();
         if (value != null) {
@@ -2192,6 +2204,7 @@ stdgo.internal.reflect.Reflect._set(_v);
     **/
     @:keep
     static public function pointer( _v:Value):stdgo.StdGoTypes.GoUIntptr {
+        @:recv var _v:Value = _v?.__copy__();
         if (@:privateAccess _v.value == null) return 0;
         var value = @:privateAccess _v.value.value;
         return value != null ? 1 : 0;
@@ -2226,6 +2239,7 @@ stdgo.internal.reflect.Reflect._set(_v);
     **/
     @:keep
     static public function numField( _v:Value):stdgo.StdGoTypes.GoInt {
+        @:recv var _v:Value = _v?.__copy__();
         return _v.type().numField();
     }
     /**
@@ -2273,6 +2287,7 @@ stdgo.internal.reflect.Reflect._set(_v);
     **/
     @:keep
     static public function mapRange( _v:Value):stdgo.StdGoTypes.Ref<MapIter> {
+        @:recv var _v:Value = _v?.__copy__();
         return new MapIter(@:privateAccess _v.value.value, @:privateAccess _v.value.type);
     }
     /**
@@ -2313,6 +2328,7 @@ stdgo.internal.reflect.Reflect._set(_v);
     **/
     @:keep
     static public function len( _v:Value):stdgo.StdGoTypes.GoInt {
+        @:recv var _v:Value = _v?.__copy__();
         final _v = _v.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
@@ -2373,6 +2389,7 @@ throw "not supported";
     **/
     @:keep
     static public function isValid( _v:Value):Bool {
+        @:recv var _v:Value = _v?.__copy__();
         if (@:privateAccess _v.value == null) return false;
         if (@:privateAccess _v.value.type._common() != stdgo.internal.reflect.Reflect.GoType.invalidType) return true;
         return switch @:privateAccess _v.value.type._common() {
@@ -2393,6 +2410,7 @@ throw "not supported";
     **/
     @:keep
     static public function isNil( _v:Value):Bool {
+        @:recv var _v:Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         final k = _v.kind();
         final gt:stdgo.internal.reflect.Reflect.GoType = (_v.type() : Dynamic)._common();
@@ -2472,6 +2490,7 @@ value == null;
     **/
     @:keep
     static public function canInterface( _v:Value):Bool {
+        @:recv var _v:Value = _v?.__copy__();
         return true;
     }
     /**
@@ -2480,6 +2499,7 @@ value == null;
     **/
     @:keep
     static public function int_( _v:Value):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _v:Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo.internal.reflect.Reflect.isNamed(t)) {
@@ -2522,6 +2542,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function index( _v:Value, _i:stdgo.StdGoTypes.GoInt):Value {
+        @:recv var _v:Value = _v?.__copy__();
         final _v = _v.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
@@ -2569,6 +2590,7 @@ new Value(new stdgo.StdGoTypes.AnyInterface((value : stdgo.GoString)[_i], new st
     **/
     @:keep
     static public function float_( _v:Value):stdgo.StdGoTypes.GoFloat64 {
+        @:recv var _v:Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo.internal.reflect.Reflect.isNamed(t)) {
@@ -2635,6 +2657,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function field( _v:Value, _i:stdgo.StdGoTypes.GoInt):Value {
+        @:recv var _v:Value = _v?.__copy__();
         final gt = @:privateAccess stdgo.internal.reflect.Reflect.getUnderlying(_v.value.type._common());
         return switch gt {
             case structType(fields):
@@ -2657,6 +2680,7 @@ valueType;
     **/
     @:keep
     static public function elem( _v:Value):Value {
+        @:recv var _v:Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo.internal.reflect.Reflect.isNamed(t) && !stdgo.internal.reflect.Reflect.isRef(t) && !stdgo.internal.reflect.Reflect.isPointer(t)) {
@@ -2705,6 +2729,7 @@ return new Value(value, @:privateAccess _v.value.type);
     **/
     @:keep
     static public function complex( _v:Value):stdgo.StdGoTypes.GoComplex128 {
+        @:recv var _v:Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo.internal.reflect.Reflect.isNamed(t)) {
@@ -2768,6 +2793,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function call( _v:Value, _in:stdgo.Slice<Value>):stdgo.Slice<Value> {
+        @:recv var _v:Value = _v?.__copy__();
         final gt = @:privateAccess stdgo.internal.reflect.Reflect.getUnderlying(_v.value.type._common());
         switch gt {
             case signature(_, _.get() => params, _.get() => out, _):
@@ -2794,6 +2820,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function canAddr( _v:Value):Bool {
+        @:recv var _v:Value = _v?.__copy__();
         return @:privateAccess _v.canAddrBool;
     }
     /**
@@ -2803,6 +2830,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     **/
     @:keep
     static public function bytes( _v:Value):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _v:Value = _v?.__copy__();
         final _v = _v.__copy__();
         var value = @:privateAccess _v.value.value;
         var t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
@@ -2847,6 +2875,7 @@ switch elem {
     **/
     @:keep
     static public function bool_( _v:Value):Bool {
+        @:recv var _v:Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo.internal.reflect.Reflect.isNamed(t)) {
@@ -2938,6 +2967,7 @@ class MapIter_asInterface {
     **/
     @:keep
     static public function reset( _iter:stdgo.StdGoTypes.Ref<MapIter>, _v:Value):Void {
+        @:recv var _iter:stdgo.StdGoTypes.Ref<MapIter> = _iter;
         @:privateAccess _iter.index = 0;
         @:privateAccess _iter.map = _v.value.value;
         @:privateAccess _iter.keys = null;
@@ -2950,6 +2980,7 @@ class MapIter_asInterface {
     **/
     @:keep
     static public function next( _iter:stdgo.StdGoTypes.Ref<MapIter>):Bool {
+        @:recv var _iter:stdgo.StdGoTypes.Ref<MapIter> = _iter;
         if (@:privateAccess _iter.map == null) return false;
         @:privateAccess if (_iter.keys == null) {
             @:privateAccess _iter.keys = [for (key in _iter.map.keys()) key];
@@ -2964,6 +2995,7 @@ class MapIter_asInterface {
     **/
     @:keep
     static public function value( _iter:stdgo.StdGoTypes.Ref<MapIter>):Value {
+        @:recv var _iter:stdgo.StdGoTypes.Ref<MapIter> = _iter;
         @:privateAccess if (_iter.keys == null) {
             @:privateAccess _iter.keys = [for (key in _iter.map.keys()) key];
             @:privateAccess _iter.values = [for (key in _iter.map.iterator()) key];
@@ -2982,6 +3014,7 @@ class MapIter_asInterface {
     **/
     @:keep
     static public function key( _iter:stdgo.StdGoTypes.Ref<MapIter>):Value {
+        @:recv var _iter:stdgo.StdGoTypes.Ref<MapIter> = _iter;
         @:privateAccess if (_iter.keys == null) {
             @:privateAccess _iter.keys = [for (key in _iter.map.keys()) key];
             @:privateAccess _iter.values = [for (key in _iter.map.iterator()) key];
@@ -3016,6 +3049,7 @@ class Kind_asInterface {
     **/
     @:keep
     static public function string( _k:Kind):stdgo.GoString {
+        @:recv var _k:Kind = _k;
         var idx:Int = _k.toBasic();
         return switch idx {
             case 0:

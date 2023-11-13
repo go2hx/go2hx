@@ -1380,6 +1380,7 @@ class T_reverse_asInterface {
     **/
     @:keep
     static public function less( _r:T_reverse, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _r:T_reverse = _r?.__copy__();
         return _r.interface_.less(_j, _i);
     }
     @:embedded
@@ -1440,10 +1441,12 @@ class IntSlice_asInterface {
     **/
     @:keep
     static public function sort( _x:IntSlice):Void {
+        @:recv var _x:IntSlice = _x;
         stdgo.sort.Sort.sort(stdgo.Go.asInterface(_x));
     }
     @:keep
     static public function swap( _x:IntSlice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _x:IntSlice = _x;
         {
             final __tmp__0 = _x[(_j : stdgo.StdGoTypes.GoInt)];
             final __tmp__1 = _x[(_i : stdgo.StdGoTypes.GoInt)];
@@ -1453,10 +1456,12 @@ class IntSlice_asInterface {
     }
     @:keep
     static public function less( _x:IntSlice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _x:IntSlice = _x;
         return _x[(_i : stdgo.StdGoTypes.GoInt)] < _x[(_j : stdgo.StdGoTypes.GoInt)];
     }
     @:keep
     static public function len( _x:IntSlice):stdgo.StdGoTypes.GoInt {
+        @:recv var _x:IntSlice = _x;
         return (_x.length);
     }
     /**
@@ -1464,6 +1469,7 @@ class IntSlice_asInterface {
     **/
     @:keep
     static public function search( _p:IntSlice, _x:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:IntSlice = _p;
         return searchInts(_p, _x);
     }
 }
@@ -1506,10 +1512,12 @@ class Float64Slice_asInterface {
     **/
     @:keep
     static public function sort( _x:Float64Slice):Void {
+        @:recv var _x:Float64Slice = _x;
         stdgo.sort.Sort.sort(stdgo.Go.asInterface(_x));
     }
     @:keep
     static public function swap( _x:Float64Slice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _x:Float64Slice = _x;
         {
             final __tmp__0 = _x[(_j : stdgo.StdGoTypes.GoInt)];
             final __tmp__1 = _x[(_i : stdgo.StdGoTypes.GoInt)];
@@ -1527,10 +1535,12 @@ class Float64Slice_asInterface {
     **/
     @:keep
     static public function less( _x:Float64Slice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _x:Float64Slice = _x;
         return (_x[(_i : stdgo.StdGoTypes.GoInt)] < _x[(_j : stdgo.StdGoTypes.GoInt)]) || (_isNaN(_x[(_i : stdgo.StdGoTypes.GoInt)]) && !_isNaN(_x[(_j : stdgo.StdGoTypes.GoInt)]));
     }
     @:keep
     static public function len( _x:Float64Slice):stdgo.StdGoTypes.GoInt {
+        @:recv var _x:Float64Slice = _x;
         return (_x.length);
     }
     /**
@@ -1538,6 +1548,7 @@ class Float64Slice_asInterface {
     **/
     @:keep
     static public function search( _p:Float64Slice, _x:stdgo.StdGoTypes.GoFloat64):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:Float64Slice = _p;
         return searchFloat64s(_p, _x);
     }
 }
@@ -1572,10 +1583,12 @@ class StringSlice_asInterface {
     **/
     @:keep
     static public function sort( _x:StringSlice):Void {
+        @:recv var _x:StringSlice = _x;
         stdgo.sort.Sort.sort(stdgo.Go.asInterface(_x));
     }
     @:keep
     static public function swap( _x:StringSlice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _x:StringSlice = _x;
         {
             final __tmp__0 = _x[(_j : stdgo.StdGoTypes.GoInt)];
             final __tmp__1 = _x[(_i : stdgo.StdGoTypes.GoInt)];
@@ -1585,10 +1598,12 @@ class StringSlice_asInterface {
     }
     @:keep
     static public function less( _x:StringSlice, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _x:StringSlice = _x;
         return _x[(_i : stdgo.StdGoTypes.GoInt)] < _x[(_j : stdgo.StdGoTypes.GoInt)];
     }
     @:keep
     static public function len( _x:StringSlice):stdgo.StdGoTypes.GoInt {
+        @:recv var _x:StringSlice = _x;
         return (_x.length);
     }
     /**
@@ -1596,6 +1611,7 @@ class StringSlice_asInterface {
     **/
     @:keep
     static public function search( _p:StringSlice, _x:stdgo.GoString):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:StringSlice = _p;
         return searchStrings(_p, _x);
     }
 }

@@ -2456,17 +2456,22 @@ class T_unknownVal_asInterface {
 }
 @:keep @:allow(stdgo.go.constant.Constant.T_unknownVal_asInterface) class T_unknownVal_static_extension {
     @:keep
-    static public function _implementsValue( _:T_unknownVal):Void {}
+    static public function _implementsValue( _:T_unknownVal):Void {
+        @:recv var _:T_unknownVal = _?.__copy__();
+    }
     @:keep
     static public function exactString( _x:T_unknownVal):stdgo.GoString {
+        @:recv var _x:T_unknownVal = _x?.__copy__();
         return (_x.string() : stdgo.GoString);
     }
     @:keep
     static public function string( _:T_unknownVal):stdgo.GoString {
+        @:recv var _:T_unknownVal = _?.__copy__();
         return ("unknown" : stdgo.GoString);
     }
     @:keep
     static public function kind( _:T_unknownVal):Kind {
+        @:recv var _:T_unknownVal = _?.__copy__();
         return (0 : stdgo.go.constant.Constant.Kind);
     }
 }
@@ -2511,9 +2516,12 @@ class T_stringVal_asInterface {
 }
 @:keep @:allow(stdgo.go.constant.Constant.T_stringVal_asInterface) class T_stringVal_static_extension {
     @:keep
-    static public function _implementsValue( _:stdgo.StdGoTypes.Ref<T_stringVal>):Void {}
+    static public function _implementsValue( _:stdgo.StdGoTypes.Ref<T_stringVal>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<T_stringVal> = _;
+    }
     @:keep
     static public function exactString( _x:stdgo.StdGoTypes.Ref<T_stringVal>):stdgo.GoString {
+        @:recv var _x:stdgo.StdGoTypes.Ref<T_stringVal> = _x;
         return stdgo.strconv.Strconv.quote(_x._string());
     }
     /**
@@ -2526,6 +2534,7 @@ class T_stringVal_asInterface {
     **/
     @:keep
     static public function _appendReverse( _x:stdgo.StdGoTypes.Ref<T_stringVal>, _list:stdgo.Slice<stdgo.GoString>):stdgo.Slice<stdgo.GoString> {
+        @:recv var _x:stdgo.StdGoTypes.Ref<T_stringVal> = _x;
         var _y = _x;
         while (_y._r != null && ((_y._r : Dynamic).__nil__ == null || !(_y._r : Dynamic).__nil__)) {
             _y._r._mu.lock();
@@ -2553,6 +2562,7 @@ class T_stringVal_asInterface {
     **/
     @:keep
     static public function _string( _x:stdgo.StdGoTypes.Ref<T_stringVal>):stdgo.GoString {
+        @:recv var _x:stdgo.StdGoTypes.Ref<T_stringVal> = _x;
         _x._mu.lock();
         if (_x._l != null && ((_x._l : Dynamic).__nil__ == null || !(_x._l : Dynamic).__nil__)) {
             _x._s = stdgo.strings.Strings.join(_reverse(_x._appendReverse((null : stdgo.Slice<stdgo.GoString>))), stdgo.Go.str());
@@ -2568,6 +2578,7 @@ class T_stringVal_asInterface {
     **/
     @:keep
     static public function string( _x:stdgo.StdGoTypes.Ref<T_stringVal>):stdgo.GoString {
+        @:recv var _x:stdgo.StdGoTypes.Ref<T_stringVal> = _x;
         {};
         var _s:stdgo.GoString = stdgo.strconv.Strconv.quote(_x._string());
         if (stdgo.unicode.utf8.Utf8.runeCountInString(_s) > (72 : stdgo.StdGoTypes.GoInt)) {
@@ -2585,6 +2596,7 @@ class T_stringVal_asInterface {
     }
     @:keep
     static public function kind( _:stdgo.StdGoTypes.Ref<T_stringVal>):Kind {
+        @:recv var _:stdgo.StdGoTypes.Ref<T_stringVal> = _;
         return (2 : stdgo.go.constant.Constant.Kind);
     }
 }
@@ -2607,17 +2619,22 @@ class T_intVal_asInterface {
 }
 @:keep @:allow(stdgo.go.constant.Constant.T_intVal_asInterface) class T_intVal_static_extension {
     @:keep
-    static public function _implementsValue( _:T_intVal):Void {}
+    static public function _implementsValue( _:T_intVal):Void {
+        @:recv var _:T_intVal = _?.__copy__();
+    }
     @:keep
     static public function exactString( _x:T_intVal):stdgo.GoString {
+        @:recv var _x:T_intVal = _x?.__copy__();
         return (_x.string() : stdgo.GoString);
     }
     @:keep
     static public function string( _x:T_intVal):stdgo.GoString {
+        @:recv var _x:T_intVal = _x?.__copy__();
         return (_x._val.string() : stdgo.GoString);
     }
     @:keep
     static public function kind( _:T_intVal):Kind {
+        @:recv var _:T_intVal = _?.__copy__();
         return (3 : stdgo.go.constant.Constant.Kind);
     }
 }
@@ -2640,9 +2657,12 @@ class T_ratVal_asInterface {
 }
 @:keep @:allow(stdgo.go.constant.Constant.T_ratVal_asInterface) class T_ratVal_static_extension {
     @:keep
-    static public function _implementsValue( _:T_ratVal):Void {}
+    static public function _implementsValue( _:T_ratVal):Void {
+        @:recv var _:T_ratVal = _?.__copy__();
+    }
     @:keep
     static public function exactString( _x:T_ratVal):stdgo.GoString {
+        @:recv var _x:T_ratVal = _x?.__copy__();
         var _r = _x._val;
         if (_r.isInt()) {
             return (_r.num().string() : stdgo.GoString);
@@ -2651,10 +2671,12 @@ class T_ratVal_asInterface {
     }
     @:keep
     static public function string( _x:T_ratVal):stdgo.GoString {
+        @:recv var _x:T_ratVal = _x?.__copy__();
         return (_rtof(_x?.__copy__()).string() : stdgo.GoString);
     }
     @:keep
     static public function kind( _:T_ratVal):Kind {
+        @:recv var _:T_ratVal = _?.__copy__();
         return (4 : stdgo.go.constant.Constant.Kind);
     }
 }
@@ -2680,9 +2702,12 @@ class T_floatVal_asInterface {
 }
 @:keep @:allow(stdgo.go.constant.Constant.T_floatVal_asInterface) class T_floatVal_static_extension {
     @:keep
-    static public function _implementsValue( _:T_floatVal):Void {}
+    static public function _implementsValue( _:T_floatVal):Void {
+        @:recv var _:T_floatVal = _?.__copy__();
+    }
     @:keep
     static public function exactString( _x:T_floatVal):stdgo.GoString {
+        @:recv var _x:T_floatVal = _x?.__copy__();
         return _x._val.text((112 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoInt));
     }
     /**
@@ -2690,6 +2715,7 @@ class T_floatVal_asInterface {
     **/
     @:keep
     static public function string( _x:T_floatVal):stdgo.GoString {
+        @:recv var _x:T_floatVal = _x?.__copy__();
         var _f = _x._val;
         if (_f.isInf()) {
             return (_f.string() : stdgo.GoString);
@@ -2724,6 +2750,7 @@ class T_floatVal_asInterface {
     }
     @:keep
     static public function kind( _:T_floatVal):Kind {
+        @:recv var _:T_floatVal = _?.__copy__();
         return (4 : stdgo.go.constant.Constant.Kind);
     }
 }
@@ -2746,17 +2773,22 @@ class T_complexVal_asInterface {
 }
 @:keep @:allow(stdgo.go.constant.Constant.T_complexVal_asInterface) class T_complexVal_static_extension {
     @:keep
-    static public function _implementsValue( _:T_complexVal):Void {}
+    static public function _implementsValue( _:T_complexVal):Void {
+        @:recv var _:T_complexVal = _?.__copy__();
+    }
     @:keep
     static public function exactString( _x:T_complexVal):stdgo.GoString {
+        @:recv var _x:T_complexVal = _x?.__copy__();
         return stdgo.fmt.Fmt.sprintf(("(%s + %si)" : stdgo.GoString), stdgo.Go.toInterface(_x._re.exactString()), stdgo.Go.toInterface(_x._im.exactString()));
     }
     @:keep
     static public function string( _x:T_complexVal):stdgo.GoString {
+        @:recv var _x:T_complexVal = _x?.__copy__();
         return stdgo.fmt.Fmt.sprintf(("(%s + %si)" : stdgo.GoString), stdgo.Go.toInterface(_x._re), stdgo.Go.toInterface(_x._im));
     }
     @:keep
     static public function kind( _:T_complexVal):Kind {
+        @:recv var _:T_complexVal = _?.__copy__();
         return (5 : stdgo.go.constant.Constant.Kind);
     }
 }
@@ -2774,6 +2806,7 @@ class Kind_asInterface {
 @:keep @:allow(stdgo.go.constant.Constant.Kind_asInterface) class Kind_static_extension {
     @:keep
     static public function string( _i:Kind):stdgo.GoString {
+        @:recv var _i:Kind = _i;
         if ((_i < (0 : stdgo.go.constant.Constant.Kind)) || (_i >= ((6 : stdgo.StdGoTypes.GoInt) : Kind))) {
             return (("Kind(" : stdgo.GoString) + stdgo.strconv.Strconv.formatInt((_i : stdgo.StdGoTypes.GoInt64), (10 : stdgo.StdGoTypes.GoInt))) + (")" : stdgo.GoString);
         };
@@ -2799,17 +2832,22 @@ class T_boolVal_asInterface {
 }
 @:keep @:allow(stdgo.go.constant.Constant.T_boolVal_asInterface) class T_boolVal_static_extension {
     @:keep
-    static public function _implementsValue( _:T_boolVal):Void {}
+    static public function _implementsValue( _:T_boolVal):Void {
+        @:recv var _:T_boolVal = _;
+    }
     @:keep
     static public function exactString( _x:T_boolVal):stdgo.GoString {
+        @:recv var _x:T_boolVal = _x;
         return (_x.string() : stdgo.GoString);
     }
     @:keep
     static public function string( _x:T_boolVal):stdgo.GoString {
+        @:recv var _x:T_boolVal = _x;
         return stdgo.strconv.Strconv.formatBool((_x : Bool));
     }
     @:keep
     static public function kind( _:T_boolVal):Kind {
+        @:recv var _:T_boolVal = _;
         return (1 : stdgo.go.constant.Constant.Kind);
     }
 }
@@ -2832,17 +2870,22 @@ class T_int64Val_asInterface {
 }
 @:keep @:allow(stdgo.go.constant.Constant.T_int64Val_asInterface) class T_int64Val_static_extension {
     @:keep
-    static public function _implementsValue( _:T_int64Val):Void {}
+    static public function _implementsValue( _:T_int64Val):Void {
+        @:recv var _:T_int64Val = _;
+    }
     @:keep
     static public function exactString( _x:T_int64Val):stdgo.GoString {
+        @:recv var _x:T_int64Val = _x;
         return (_x.string() : stdgo.GoString);
     }
     @:keep
     static public function string( _x:T_int64Val):stdgo.GoString {
+        @:recv var _x:T_int64Val = _x;
         return stdgo.strconv.Strconv.formatInt((_x : stdgo.StdGoTypes.GoInt64), (10 : stdgo.StdGoTypes.GoInt));
     }
     @:keep
     static public function kind( _:T_int64Val):Kind {
+        @:recv var _:T_int64Val = _;
         return (3 : stdgo.go.constant.Constant.Kind);
     }
 }

@@ -8349,6 +8349,7 @@ class T_myErrorIs_asInterface {
 @:keep @:allow(stdgo.os_test.Os_test.T_myErrorIs_asInterface) class T_myErrorIs_static_extension {
     @:keep
     static public function is_( _e:T_myErrorIs, _target:stdgo.Error):Bool {
+        @:recv var _e:T_myErrorIs = _e?.__copy__();
         return stdgo.Go.toInterface(_target) == (stdgo.Go.toInterface(_e._error));
     }
     @:embedded

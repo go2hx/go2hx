@@ -1213,6 +1213,7 @@ class T_bigInt_asInterface {
 @:keep @:allow(stdgo.math.big_test.Big_test.T_bigInt_asInterface) class T_bigInt_static_extension {
     @:keep
     static public function generate( _:T_bigInt, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):stdgo.reflect.Reflect.Value {
+        @:recv var _:T_bigInt = _?.__copy__();
         var _n = _generatePositiveInt(_rand, _size);
         if (_rand.intn((4 : stdgo.StdGoTypes.GoInt)) == ((0 : stdgo.StdGoTypes.GoInt))) {
             _n.neg(_n);
@@ -1506,6 +1507,7 @@ class T_notZeroInt_asInterface {
 @:keep @:allow(stdgo.math.big_test.Big_test.T_notZeroInt_asInterface) class T_notZeroInt_static_extension {
     @:keep
     static public function generate( _:T_notZeroInt, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):stdgo.reflect.Reflect.Value {
+        @:recv var _:T_notZeroInt = _?.__copy__();
         var _n = _generatePositiveInt(_rand, _size);
         if (_rand.intn((4 : stdgo.StdGoTypes.GoInt)) == ((0 : stdgo.StdGoTypes.GoInt))) {
             _n.neg(_n);
@@ -1802,6 +1804,7 @@ class T_positiveInt_asInterface {
 @:keep @:allow(stdgo.math.big_test.Big_test.T_positiveInt_asInterface) class T_positiveInt_static_extension {
     @:keep
     static public function generate( _:T_positiveInt, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):stdgo.reflect.Reflect.Value {
+        @:recv var _:T_positiveInt = _?.__copy__();
         var _n = _generatePositiveInt(_rand, _size);
         return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new T_positiveInt(_n) : T_positiveInt))))?.__copy__();
     }
@@ -2092,6 +2095,7 @@ class T_prime_asInterface {
 @:keep @:allow(stdgo.math.big_test.Big_test.T_prime_asInterface) class T_prime_static_extension {
     @:keep
     static public function generate( _:T_prime, _r:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):stdgo.reflect.Reflect.Value {
+        @:recv var _:T_prime = _?.__copy__();
         var __tmp__ = stdgo.crypto.rand.Rand.prime(stdgo.Go.asInterface(_r), _r.intn((_size * (8 : stdgo.StdGoTypes.GoInt)) - (2 : stdgo.StdGoTypes.GoInt)) + (2 : stdgo.StdGoTypes.GoInt)), _n:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             throw stdgo.Go.toInterface(_err);
@@ -2249,6 +2253,7 @@ class T_zeroOrOne_asInterface {
 @:keep @:allow(stdgo.math.big_test.Big_test.T_zeroOrOne_asInterface) class T_zeroOrOne_static_extension {
     @:keep
     static public function generate( _:T_zeroOrOne, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):stdgo.reflect.Reflect.Value {
+        @:recv var _:T_zeroOrOne = _?.__copy__();
         return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new T_zeroOrOne((_rand.intn((2 : stdgo.StdGoTypes.GoInt)) : stdgo.StdGoTypes.GoUInt)) : T_zeroOrOne))))?.__copy__();
     }
 }
@@ -2266,6 +2271,7 @@ class T_smallUint_asInterface {
 @:keep @:allow(stdgo.math.big_test.Big_test.T_smallUint_asInterface) class T_smallUint_static_extension {
     @:keep
     static public function generate( _:T_smallUint, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):stdgo.reflect.Reflect.Value {
+        @:recv var _:T_smallUint = _?.__copy__();
         return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new T_smallUint((_rand.intn((1024 : stdgo.StdGoTypes.GoInt)) : stdgo.StdGoTypes.GoUInt)) : T_smallUint))))?.__copy__();
     }
 }

@@ -3218,6 +3218,7 @@ class T_patchList_asInterface {
 @:keep @:allow(stdgo.regexp.syntax.Syntax.T_patchList_asInterface) class T_patchList_static_extension {
     @:keep
     static public function _append( _l1:T_patchList, _p:stdgo.StdGoTypes.Ref<Prog>, _l2:T_patchList):T_patchList {
+        @:recv var _l1:T_patchList = _l1?.__copy__();
         if (_l1._head == ((0u32 : stdgo.StdGoTypes.GoUInt32))) {
             return _l2?.__copy__();
         };
@@ -3234,6 +3235,7 @@ class T_patchList_asInterface {
     }
     @:keep
     static public function _patch( _l:T_patchList, _p:stdgo.StdGoTypes.Ref<Prog>, _val:stdgo.StdGoTypes.GoUInt32):Void {
+        @:recv var _l:T_patchList = _l?.__copy__();
         var _head:stdgo.StdGoTypes.GoUInt32 = _l._head;
         while (_head != ((0u32 : stdgo.StdGoTypes.GoUInt32))) {
             var _i = (stdgo.Go.setRef(_p.inst[(_head >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Inst>);
@@ -3294,6 +3296,7 @@ class T_compiler_asInterface {
 @:keep @:allow(stdgo.regexp.syntax.Syntax.T_compiler_asInterface) class T_compiler_static_extension {
     @:keep
     static public function _rune( _c:stdgo.StdGoTypes.Ref<T_compiler>, _r:stdgo.Slice<stdgo.StdGoTypes.GoRune>, _flags:Flags):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         var _f:stdgo.regexp.syntax.Syntax.T_frag = _c._inst((7 : stdgo.regexp.syntax.Syntax.InstOp))?.__copy__();
         _f._nullable = false;
         var _i = (stdgo.Go.setRef(_c._p.inst[(_f._i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Inst>);
@@ -3315,6 +3318,7 @@ class T_compiler_asInterface {
     }
     @:keep
     static public function _empty( _c:stdgo.StdGoTypes.Ref<T_compiler>, _op:EmptyOp):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         var _f:stdgo.regexp.syntax.Syntax.T_frag = _c._inst((3 : stdgo.regexp.syntax.Syntax.InstOp))?.__copy__();
         _c._p.inst[(_f._i : stdgo.StdGoTypes.GoInt)].arg = (_op : stdgo.StdGoTypes.GoUInt32);
         _f._out = _makePatchList(_f._i << (1i64 : stdgo.StdGoTypes.GoUInt64))?.__copy__();
@@ -3322,10 +3326,12 @@ class T_compiler_asInterface {
     }
     @:keep
     static public function _plus( _c:stdgo.StdGoTypes.Ref<T_compiler>, _f1:T_frag, _nongreedy:Bool):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         return (new T_frag(_f1._i, _c._loop(_f1?.__copy__(), _nongreedy)._out?.__copy__(), _f1._nullable) : T_frag);
     }
     @:keep
     static public function _star( _c:stdgo.StdGoTypes.Ref<T_compiler>, _f1:T_frag, _nongreedy:Bool):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         if (_f1._nullable) {
             return _c._quest(_c._plus(_f1?.__copy__(), _nongreedy)?.__copy__(), _nongreedy)?.__copy__();
         };
@@ -3340,6 +3346,7 @@ class T_compiler_asInterface {
     **/
     @:keep
     static public function _loop( _c:stdgo.StdGoTypes.Ref<T_compiler>, _f1:T_frag, _nongreedy:Bool):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         var _f:stdgo.regexp.syntax.Syntax.T_frag = _c._inst((0 : stdgo.regexp.syntax.Syntax.InstOp))?.__copy__();
         var _i = (stdgo.Go.setRef(_c._p.inst[(_f._i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Inst>);
         if (_nongreedy) {
@@ -3354,6 +3361,7 @@ class T_compiler_asInterface {
     }
     @:keep
     static public function _quest( _c:stdgo.StdGoTypes.Ref<T_compiler>, _f1:T_frag, _nongreedy:Bool):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         var _f:stdgo.regexp.syntax.Syntax.T_frag = _c._inst((0 : stdgo.regexp.syntax.Syntax.InstOp))?.__copy__();
         var _i = (stdgo.Go.setRef(_c._p.inst[(_f._i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Inst>);
         if (_nongreedy) {
@@ -3368,6 +3376,7 @@ class T_compiler_asInterface {
     }
     @:keep
     static public function _alt( _c:stdgo.StdGoTypes.Ref<T_compiler>, _f1:T_frag, _f2:T_frag):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         if (_f1._i == ((0u32 : stdgo.StdGoTypes.GoUInt32))) {
             return _f2?.__copy__();
         };
@@ -3384,6 +3393,7 @@ class T_compiler_asInterface {
     }
     @:keep
     static public function _cat( _c:stdgo.StdGoTypes.Ref<T_compiler>, _f1:T_frag, _f2:T_frag):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         if ((_f1._i == (0u32 : stdgo.StdGoTypes.GoUInt32)) || (_f2._i == (0u32 : stdgo.StdGoTypes.GoUInt32))) {
             return (new T_frag() : T_frag);
         };
@@ -3392,6 +3402,7 @@ class T_compiler_asInterface {
     }
     @:keep
     static public function _cap( _c:stdgo.StdGoTypes.Ref<T_compiler>, _arg:stdgo.StdGoTypes.GoUInt32):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         var _f:stdgo.regexp.syntax.Syntax.T_frag = _c._inst((2 : stdgo.regexp.syntax.Syntax.InstOp))?.__copy__();
         _f._out = _makePatchList(_f._i << (1i64 : stdgo.StdGoTypes.GoUInt64))?.__copy__();
         _c._p.inst[(_f._i : stdgo.StdGoTypes.GoInt)].arg = _arg;
@@ -3402,22 +3413,26 @@ class T_compiler_asInterface {
     }
     @:keep
     static public function _fail( _c:stdgo.StdGoTypes.Ref<T_compiler>):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         return (new T_frag() : T_frag);
     }
     @:keep
     static public function _nop( _c:stdgo.StdGoTypes.Ref<T_compiler>):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         var _f:stdgo.regexp.syntax.Syntax.T_frag = _c._inst((6 : stdgo.regexp.syntax.Syntax.InstOp))?.__copy__();
         _f._out = _makePatchList(_f._i << (1i64 : stdgo.StdGoTypes.GoUInt64))?.__copy__();
         return _f?.__copy__();
     }
     @:keep
     static public function _inst( _c:stdgo.StdGoTypes.Ref<T_compiler>, _op:InstOp):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         var _f:stdgo.regexp.syntax.Syntax.T_frag = ({ _i : (_c._p.inst.length : stdgo.StdGoTypes.GoUInt32), _nullable : true } : T_frag);
         _c._p.inst = (_c._p.inst.__append__(({ op : _op } : Inst)));
         return _f?.__copy__();
     }
     @:keep
     static public function _compile( _c:stdgo.StdGoTypes.Ref<T_compiler>, _re:stdgo.StdGoTypes.Ref<Regexp>):T_frag {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         {
             final __value__ = _re.op;
             if (__value__ == ((1 : stdgo.regexp.syntax.Syntax.Op))) {
@@ -3492,6 +3507,7 @@ class T_compiler_asInterface {
     }
     @:keep
     static public function _init( _c:stdgo.StdGoTypes.Ref<T_compiler>):Void {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_compiler> = _c;
         _c._p = (stdgo.Go.setRef(({} : stdgo.regexp.syntax.Syntax.Prog)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Prog>);
         _c._p.numCap = (2 : stdgo.StdGoTypes.GoInt);
         _c._inst((5 : stdgo.regexp.syntax.Syntax.InstOp));
@@ -3511,6 +3527,7 @@ class T_error_asInterface {
 @:keep @:allow(stdgo.regexp.syntax.Syntax.T_error_asInterface) class T_error_static_extension {
     @:keep
     static public function error( _e:stdgo.StdGoTypes.Ref<T_error>):stdgo.GoString {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_error> = _e;
         return (((("error parsing regexp: " : stdgo.GoString) + (_e.code.string() : stdgo.GoString)) + (": `" : stdgo.GoString)) + _e.expr) + ("`" : stdgo.GoString);
     }
 }
@@ -3720,6 +3737,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _parseClass( _p:stdgo.StdGoTypes.Ref<T_parser>, _s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _rest:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
         var _t:stdgo.GoString = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
         var _re = _p._newRegexp((4 : stdgo.regexp.syntax.Syntax.Op));
@@ -3836,6 +3854,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _parseUnicodeClass( _p:stdgo.StdGoTypes.Ref<T_parser>, _s:stdgo.GoString, _r:stdgo.Slice<stdgo.StdGoTypes.GoRune>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoRune>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _out:stdgo.Slice<stdgo.StdGoTypes.GoRune> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt32>), _rest:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
         if (((((_p._flags & (128 : stdgo.regexp.syntax.Syntax.Flags)) == (0 : stdgo.regexp.syntax.Syntax.Flags)) || (_s.length < (2 : stdgo.StdGoTypes.GoInt))) || (_s[(0 : stdgo.StdGoTypes.GoInt)] != (92 : stdgo.StdGoTypes.GoUInt8))) || ((_s[(1 : stdgo.StdGoTypes.GoInt)] != (112 : stdgo.StdGoTypes.GoUInt8)) && (_s[(1 : stdgo.StdGoTypes.GoInt)] != (80 : stdgo.StdGoTypes.GoUInt8)))) {
             return { _0 : _out, _1 : _rest, _2 : _err };
@@ -3908,6 +3927,7 @@ class T_parser_asInterface {
     }
     @:keep
     static public function _appendGroup( _p:stdgo.StdGoTypes.Ref<T_parser>, _r:stdgo.Slice<stdgo.StdGoTypes.GoRune>, _g:T_charGroup):stdgo.Slice<stdgo.StdGoTypes.GoRune> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if (_p._flags & (1 : stdgo.regexp.syntax.Syntax.Flags) == ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
             if (_g._sign < (0 : stdgo.StdGoTypes.GoInt)) {
                 _r = _appendNegatedClass(_r, _g._class);
@@ -3934,6 +3954,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _parseNamedClass( _p:stdgo.StdGoTypes.Ref<T_parser>, _s:stdgo.GoString, _r:stdgo.Slice<stdgo.StdGoTypes.GoRune>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoRune>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _out:stdgo.Slice<stdgo.StdGoTypes.GoRune> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt32>), _rest:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
         if (((_s.length < (2 : stdgo.StdGoTypes.GoInt)) || (_s[(0 : stdgo.StdGoTypes.GoInt)] != (91 : stdgo.StdGoTypes.GoUInt8))) || (_s[(1 : stdgo.StdGoTypes.GoInt)] != (58 : stdgo.StdGoTypes.GoUInt8))) {
             return { _0 : _out, _1 : _rest, _2 : _err };
@@ -3957,6 +3978,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _parsePerlClassEscape( _p:stdgo.StdGoTypes.Ref<T_parser>, _s:stdgo.GoString, _r:stdgo.Slice<stdgo.StdGoTypes.GoRune>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoRune>; var _1 : stdgo.GoString; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _out:stdgo.Slice<stdgo.StdGoTypes.GoRune> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt32>), _rest:stdgo.GoString = ("" : stdgo.GoString);
         if ((((_p._flags & (64 : stdgo.regexp.syntax.Syntax.Flags)) == (0 : stdgo.regexp.syntax.Syntax.Flags)) || (_s.length < (2 : stdgo.StdGoTypes.GoInt))) || (_s[(0 : stdgo.StdGoTypes.GoInt)] != (92 : stdgo.StdGoTypes.GoUInt8))) {
             return { _0 : _out, _1 : _rest };
@@ -3973,6 +3995,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _parseClassChar( _p:stdgo.StdGoTypes.Ref<T_parser>, _s:stdgo.GoString, _wholeClass:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoRune; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _r:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), _rest:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
         if (_s == (stdgo.Go.str())) {
             return { _0 : (0 : stdgo.StdGoTypes.GoInt32), _1 : stdgo.Go.str(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("missing closing ]" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _wholeClass } : T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>)) };
@@ -3989,6 +4012,7 @@ class T_parser_asInterface {
     @:keep
     static public function _parseEscape( _p:stdgo.StdGoTypes.Ref<T_parser>, _s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoRune; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         stdgo.internal.Macro.controlFlow({
+            @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
             var _r:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), _rest:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
             var _t:stdgo.GoString = (_s.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString);
             if (_t == (stdgo.Go.str())) {
@@ -4143,6 +4167,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _parseRightParen( _p:stdgo.StdGoTypes.Ref<T_parser>):stdgo.Error {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         _p._concat();
         if (_p._swapVerticalBar()) {
             _p._stack = (_p._stack.__slice__(0, (_p._stack.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp>>);
@@ -4176,6 +4201,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _swapVerticalBar( _p:stdgo.StdGoTypes.Ref<T_parser>):Bool {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _n:stdgo.StdGoTypes.GoInt = (_p._stack.length);
         if ((((_n >= (3 : stdgo.StdGoTypes.GoInt)) && (_p._stack[(_n - (2 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)].op == (129 : stdgo.regexp.syntax.Syntax.Op))) && _isCharClass(_p._stack[(_n - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)])) && _isCharClass(_p._stack[(_n - (3 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)])) {
             var _re1 = _p._stack[(_n - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)];
@@ -4213,6 +4239,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _parseVerticalBar( _p:stdgo.StdGoTypes.Ref<T_parser>):stdgo.Error {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         _p._concat();
         if (!_p._swapVerticalBar()) {
             _p._op((129 : stdgo.regexp.syntax.Syntax.Op));
@@ -4224,6 +4251,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _parseInt( _p:stdgo.StdGoTypes.Ref<T_parser>, _s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _rest:stdgo.GoString = ("" : stdgo.GoString), _ok:Bool = false;
         if (((_s == stdgo.Go.str()) || (_s[(0 : stdgo.StdGoTypes.GoInt)] < (48 : stdgo.StdGoTypes.GoUInt8))) || ((57 : stdgo.StdGoTypes.GoUInt8) < _s[(0 : stdgo.StdGoTypes.GoInt)])) {
             return { _0 : _n, _1 : _rest, _2 : _ok };
@@ -4258,6 +4286,7 @@ class T_parser_asInterface {
     @:keep
     static public function _parsePerlFlags( _p:stdgo.StdGoTypes.Ref<T_parser>, _s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         stdgo.internal.Macro.controlFlow({
+            @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
             var _rest:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
             var _t:stdgo.GoString = _s;
             if (((_t.length > (4 : stdgo.StdGoTypes.GoInt)) && (_t[(2 : stdgo.StdGoTypes.GoInt)] == (80 : stdgo.StdGoTypes.GoUInt8))) && (_t[(3 : stdgo.StdGoTypes.GoInt)] == (60 : stdgo.StdGoTypes.GoUInt8))) {
@@ -4368,6 +4397,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _parseRepeat( _p:stdgo.StdGoTypes.Ref<T_parser>, _s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; var _2 : stdgo.GoString; var _3 : Bool; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _min:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _max:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _rest:stdgo.GoString = ("" : stdgo.GoString), _ok:Bool = false;
         if ((_s == stdgo.Go.str()) || (_s[(0 : stdgo.StdGoTypes.GoInt)] != (123 : stdgo.StdGoTypes.GoUInt8))) {
             return { _0 : _min, _1 : _max, _2 : _rest, _3 : _ok };
@@ -4425,6 +4455,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _removeLeadingRegexp( _p:stdgo.StdGoTypes.Ref<T_parser>, _re:stdgo.StdGoTypes.Ref<Regexp>, _reuse:Bool):stdgo.StdGoTypes.Ref<Regexp> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if ((_re.op == (18 : stdgo.regexp.syntax.Syntax.Op)) && (_re.sub.length > (0 : stdgo.StdGoTypes.GoInt))) {
             if (_reuse) {
                 _p._reuse(_re.sub[(0 : stdgo.StdGoTypes.GoInt)]);
@@ -4454,6 +4485,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _leadingRegexp( _p:stdgo.StdGoTypes.Ref<T_parser>, _re:stdgo.StdGoTypes.Ref<Regexp>):stdgo.StdGoTypes.Ref<Regexp> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if (_re.op == ((2 : stdgo.regexp.syntax.Syntax.Op))) {
             return null;
         };
@@ -4472,6 +4504,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _removeLeadingString( _p:stdgo.StdGoTypes.Ref<T_parser>, _re:stdgo.StdGoTypes.Ref<Regexp>, _n:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Regexp> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if ((_re.op == (18 : stdgo.regexp.syntax.Syntax.Op)) && (_re.sub.length > (0 : stdgo.StdGoTypes.GoInt))) {
             var _sub = _re.sub[(0 : stdgo.StdGoTypes.GoInt)];
             _sub = _p._removeLeadingString(_sub, _n);
@@ -4509,6 +4542,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _leadingString( _p:stdgo.StdGoTypes.Ref<T_parser>, _re:stdgo.StdGoTypes.Ref<Regexp>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoRune>; var _1 : Flags; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if ((_re.op == (18 : stdgo.regexp.syntax.Syntax.Op)) && (_re.sub.length > (0 : stdgo.StdGoTypes.GoInt))) {
             _re = _re.sub[(0 : stdgo.StdGoTypes.GoInt)];
         };
@@ -4536,6 +4570,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _factor( _p:stdgo.StdGoTypes.Ref<T_parser>, _sub:stdgo.Slice<stdgo.StdGoTypes.Ref<Regexp>>):stdgo.Slice<stdgo.StdGoTypes.Ref<Regexp>> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if ((_sub.length) < (2 : stdgo.StdGoTypes.GoInt)) {
             return _sub;
         };
@@ -4686,6 +4721,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _collapse( _p:stdgo.StdGoTypes.Ref<T_parser>, _subs:stdgo.Slice<stdgo.StdGoTypes.Ref<Regexp>>, _op:Op):stdgo.StdGoTypes.Ref<Regexp> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if ((_subs.length) == ((1 : stdgo.StdGoTypes.GoInt))) {
             return _subs[(0 : stdgo.StdGoTypes.GoInt)];
         };
@@ -4714,6 +4750,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _alternate( _p:stdgo.StdGoTypes.Ref<T_parser>):stdgo.StdGoTypes.Ref<Regexp> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _i:stdgo.StdGoTypes.GoInt = (_p._stack.length);
         while ((_i > (0 : stdgo.StdGoTypes.GoInt)) && (_p._stack[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)].op < (128 : stdgo.regexp.syntax.Syntax.Op))) {
             _i--;
@@ -4733,6 +4770,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _concat( _p:stdgo.StdGoTypes.Ref<T_parser>):stdgo.StdGoTypes.Ref<Regexp> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         _p._maybeConcat((-1 : stdgo.StdGoTypes.GoInt32), (0 : stdgo.regexp.syntax.Syntax.Flags));
         var _i:stdgo.StdGoTypes.GoInt = (_p._stack.length);
         while ((_i > (0 : stdgo.StdGoTypes.GoInt)) && (_p._stack[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)].op < (128 : stdgo.regexp.syntax.Syntax.Op))) {
@@ -4753,6 +4791,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _repeat( _p:stdgo.StdGoTypes.Ref<T_parser>, _op:Op, _min:stdgo.StdGoTypes.GoInt, _max:stdgo.StdGoTypes.GoInt, _before:stdgo.GoString, _after:stdgo.GoString, _lastRepeat:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _flags:stdgo.regexp.syntax.Syntax.Flags = _p._flags;
         if (_p._flags & (64 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
             if ((_after.length > (0 : stdgo.StdGoTypes.GoInt)) && (_after[(0 : stdgo.StdGoTypes.GoInt)] == (63 : stdgo.StdGoTypes.GoUInt8))) {
@@ -4790,6 +4829,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _op( _p:stdgo.StdGoTypes.Ref<T_parser>, _op:Op):stdgo.StdGoTypes.Ref<Regexp> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _re = _p._newRegexp(_op);
         _re.flags = _p._flags;
         return _p._push(_re);
@@ -4799,6 +4839,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _literal( _p:stdgo.StdGoTypes.Ref<T_parser>, _r:stdgo.StdGoTypes.GoRune):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _re = _p._newRegexp((3 : stdgo.regexp.syntax.Syntax.Op));
         _re.flags = _p._flags;
         if (_p._flags & (1 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
@@ -4821,6 +4862,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _maybeConcat( _p:stdgo.StdGoTypes.Ref<T_parser>, _r:stdgo.StdGoTypes.GoRune, _flags:Flags):Bool {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _n:stdgo.StdGoTypes.GoInt = (_p._stack.length);
         if (_n < (2 : stdgo.StdGoTypes.GoInt)) {
             return false;
@@ -4846,6 +4888,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _push( _p:stdgo.StdGoTypes.Ref<T_parser>, _re:stdgo.StdGoTypes.Ref<Regexp>):stdgo.StdGoTypes.Ref<Regexp> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         _p._numRunes = _p._numRunes + ((_re.rune.length));
         if (((_re.op == (4 : stdgo.regexp.syntax.Syntax.Op)) && (_re.rune.length == (2 : stdgo.StdGoTypes.GoInt))) && (_re.rune[(0 : stdgo.StdGoTypes.GoInt)] == _re.rune[(1 : stdgo.StdGoTypes.GoInt)])) {
             if (_p._maybeConcat(_re.rune[(0 : stdgo.StdGoTypes.GoInt)], _p._flags & ((1 : stdgo.regexp.syntax.Syntax.Flags) ^ (-1i32 : stdgo.StdGoTypes.GoInt)))) {
@@ -4870,6 +4913,7 @@ class T_parser_asInterface {
     }
     @:keep
     static public function _calcHeight( _p:stdgo.StdGoTypes.Ref<T_parser>, _re:stdgo.StdGoTypes.Ref<Regexp>, _force:Bool):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if (!_force) {
             {
                 var __tmp__ = (_p._height != null && _p._height.exists(_re) ? { value : _p._height[_re], ok : true } : { value : (0 : stdgo.StdGoTypes.GoInt), ok : false }), _h:stdgo.StdGoTypes.GoInt = __tmp__.value, _ok:Bool = __tmp__.ok;
@@ -4890,6 +4934,7 @@ class T_parser_asInterface {
     }
     @:keep
     static public function _checkHeight( _p:stdgo.StdGoTypes.Ref<T_parser>, _re:stdgo.StdGoTypes.Ref<Regexp>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if (_p._numRegexp < (1000 : stdgo.StdGoTypes.GoInt)) {
             return;
         };
@@ -4909,6 +4954,7 @@ class T_parser_asInterface {
     }
     @:keep
     static public function _calcSize( _p:stdgo.StdGoTypes.Ref<T_parser>, _re:stdgo.StdGoTypes.Ref<Regexp>, _force:Bool):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if (!_force) {
             {
                 var __tmp__ = (_p._size != null && _p._size.exists(_re) ? { value : _p._size[_re], ok : true } : { value : (0 : stdgo.StdGoTypes.GoInt64), ok : false }), _size:stdgo.StdGoTypes.GoInt64 = __tmp__.value, _ok:Bool = __tmp__.ok;
@@ -4972,6 +5018,7 @@ class T_parser_asInterface {
     }
     @:keep
     static public function _checkSize( _p:stdgo.StdGoTypes.Ref<T_parser>, _re:stdgo.StdGoTypes.Ref<Regexp>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if (_p._size == null) {
             if (_p._repeats == ((0i64 : stdgo.StdGoTypes.GoInt64))) {
                 _p._repeats = (1i64 : stdgo.StdGoTypes.GoInt64);
@@ -5008,6 +5055,7 @@ class T_parser_asInterface {
     }
     @:keep
     static public function _checkLimits( _p:stdgo.StdGoTypes.Ref<T_parser>, _re:stdgo.StdGoTypes.Ref<Regexp>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if (_p._numRunes > (33554432 : stdgo.StdGoTypes.GoInt)) {
             throw stdgo.Go.toInterface(stdgo.Go.asInterface((("expression too large" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode)));
         };
@@ -5016,6 +5064,7 @@ class T_parser_asInterface {
     }
     @:keep
     static public function _reuse( _p:stdgo.StdGoTypes.Ref<T_parser>, _re:stdgo.StdGoTypes.Ref<Regexp>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         if (_p._height != null) {
             if (_p._height != null) _p._height.remove(_re);
         };
@@ -5024,6 +5073,7 @@ class T_parser_asInterface {
     }
     @:keep
     static public function _newRegexp( _p:stdgo.StdGoTypes.Ref<T_parser>, _op:Op):stdgo.StdGoTypes.Ref<Regexp> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_parser> = _p;
         var _re = _p._free;
         if (_re != null && ((_re : Dynamic).__nil__ == null || !(_re : Dynamic).__nil__)) {
             _p._free = _re.sub0[(0 : stdgo.StdGoTypes.GoInt)];
@@ -5066,6 +5116,7 @@ class T_ranges_asInterface {
 @:keep @:allow(stdgo.regexp.syntax.Syntax.T_ranges_asInterface) class T_ranges_static_extension {
     @:keep
     static public function swap( _ra:T_ranges, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _ra:T_ranges = _ra?.__copy__();
         var _p = (_ra._p : stdgo.Slice<stdgo.StdGoTypes.GoInt32>);
         _i = _i * ((2 : stdgo.StdGoTypes.GoInt));
         _j = _j * ((2 : stdgo.StdGoTypes.GoInt));
@@ -5082,10 +5133,12 @@ class T_ranges_asInterface {
     }
     @:keep
     static public function len( _ra:T_ranges):stdgo.StdGoTypes.GoInt {
+        @:recv var _ra:T_ranges = _ra?.__copy__();
         return ((_ra._p : stdgo.Slice<stdgo.StdGoTypes.GoInt32>).length) / (2 : stdgo.StdGoTypes.GoInt);
     }
     @:keep
     static public function less( _ra:T_ranges, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _ra:T_ranges = _ra?.__copy__();
         var _p = (_ra._p : stdgo.Slice<stdgo.StdGoTypes.GoInt32>);
         _i = _i * ((2 : stdgo.StdGoTypes.GoInt));
         _j = _j * ((2 : stdgo.StdGoTypes.GoInt));
@@ -5129,6 +5182,7 @@ class Prog_asInterface {
     @:keep
     static public function startCond( _p:stdgo.StdGoTypes.Ref<Prog>):EmptyOp {
         stdgo.internal.Macro.controlFlow({
+            @:recv var _p:stdgo.StdGoTypes.Ref<Prog> = _p;
             var _flag:EmptyOp = ((0 : stdgo.StdGoTypes.GoUInt8) : stdgo.regexp.syntax.Syntax.EmptyOp);
             var _pc:stdgo.StdGoTypes.GoUInt32 = (_p.start : stdgo.StdGoTypes.GoUInt32);
             var _i = (stdgo.Go.setRef(_p.inst[(_pc : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Inst>);
@@ -5169,6 +5223,7 @@ class Prog_asInterface {
     **/
     @:keep
     static public function prefix( _p:stdgo.StdGoTypes.Ref<Prog>):{ var _0 : stdgo.GoString; var _1 : Bool; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<Prog> = _p;
         var _prefix:stdgo.GoString = ("" : stdgo.GoString), _complete:Bool = false;
         var _i = _p._skipNop((_p.start : stdgo.StdGoTypes.GoUInt32));
         if ((_i._op() != (7 : stdgo.regexp.syntax.Syntax.InstOp)) || (_i.rune.length != (1 : stdgo.StdGoTypes.GoInt))) {
@@ -5186,6 +5241,7 @@ class Prog_asInterface {
     **/
     @:keep
     static public function _skipNop( _p:stdgo.StdGoTypes.Ref<Prog>, _pc:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.Ref<Inst> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<Prog> = _p;
         var _i = (stdgo.Go.setRef(_p.inst[(_pc : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Inst>);
         while ((_i.op == (6 : stdgo.regexp.syntax.Syntax.InstOp)) || (_i.op == (2 : stdgo.regexp.syntax.Syntax.InstOp))) {
             _i = (stdgo.Go.setRef(_p.inst[(_i.out : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Inst>);
@@ -5194,6 +5250,7 @@ class Prog_asInterface {
     }
     @:keep
     static public function string( _p:stdgo.StdGoTypes.Ref<Prog>):stdgo.GoString {
+        @:recv var _p:stdgo.StdGoTypes.Ref<Prog> = _p;
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         _dumpProg((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>), _p);
         return (_b.string() : stdgo.GoString);
@@ -5240,6 +5297,7 @@ class Inst_asInterface {
 @:keep @:allow(stdgo.regexp.syntax.Syntax.Inst_asInterface) class Inst_static_extension {
     @:keep
     static public function string( _i:stdgo.StdGoTypes.Ref<Inst>):stdgo.GoString {
+        @:recv var _i:stdgo.StdGoTypes.Ref<Inst> = _i;
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         _dumpInst((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>), _i);
         return (_b.string() : stdgo.GoString);
@@ -5251,6 +5309,7 @@ class Inst_asInterface {
     **/
     @:keep
     static public function matchEmptyWidth( _i:stdgo.StdGoTypes.Ref<Inst>, _before:stdgo.StdGoTypes.GoRune, _after:stdgo.StdGoTypes.GoRune):Bool {
+        @:recv var _i:stdgo.StdGoTypes.Ref<Inst> = _i;
         {
             final __value__ = (_i.arg : EmptyOp);
             if (__value__ == ((1 : stdgo.regexp.syntax.Syntax.EmptyOp))) {
@@ -5278,6 +5337,7 @@ class Inst_asInterface {
     **/
     @:keep
     static public function matchRunePos( _i:stdgo.StdGoTypes.Ref<Inst>, _r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoInt {
+        @:recv var _i:stdgo.StdGoTypes.Ref<Inst> = _i;
         var _rune = _i.rune;
         {
             final __value__ = (_rune.length);
@@ -5343,6 +5403,7 @@ class Inst_asInterface {
     **/
     @:keep
     static public function matchRune( _i:stdgo.StdGoTypes.Ref<Inst>, _r:stdgo.StdGoTypes.GoRune):Bool {
+        @:recv var _i:stdgo.StdGoTypes.Ref<Inst> = _i;
         return _i.matchRunePos(_r) != ((-1 : stdgo.StdGoTypes.GoInt));
     }
     /**
@@ -5350,6 +5411,7 @@ class Inst_asInterface {
     **/
     @:keep
     static public function _op( _i:stdgo.StdGoTypes.Ref<Inst>):InstOp {
+        @:recv var _i:stdgo.StdGoTypes.Ref<Inst> = _i;
         var _op:stdgo.regexp.syntax.Syntax.InstOp = _i.op;
         {
             final __value__ = _op;
@@ -5411,6 +5473,7 @@ class Regexp_asInterface {
     **/
     @:keep
     static public function simplify( _re:stdgo.StdGoTypes.Ref<Regexp>):stdgo.StdGoTypes.Ref<Regexp> {
+        @:recv var _re:stdgo.StdGoTypes.Ref<Regexp> = _re;
         if (_re == null || (_re : Dynamic).__nil__) {
             return null;
         };
@@ -5508,6 +5571,7 @@ class Regexp_asInterface {
     }
     @:keep
     static public function _capNames( _re:stdgo.StdGoTypes.Ref<Regexp>, _names:stdgo.Slice<stdgo.GoString>):Void {
+        @:recv var _re:stdgo.StdGoTypes.Ref<Regexp> = _re;
         if (_re.op == ((13 : stdgo.regexp.syntax.Syntax.Op))) {
             _names[(_re.cap : stdgo.StdGoTypes.GoInt)] = _re.name;
         };
@@ -5520,6 +5584,7 @@ class Regexp_asInterface {
     **/
     @:keep
     static public function capNames( _re:stdgo.StdGoTypes.Ref<Regexp>):stdgo.Slice<stdgo.GoString> {
+        @:recv var _re:stdgo.StdGoTypes.Ref<Regexp> = _re;
         var _names = new stdgo.Slice<stdgo.GoString>((_re.maxCap() + (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setString__();
         _re._capNames(_names);
         return _names;
@@ -5529,6 +5594,7 @@ class Regexp_asInterface {
     **/
     @:keep
     static public function maxCap( _re:stdgo.StdGoTypes.Ref<Regexp>):stdgo.StdGoTypes.GoInt {
+        @:recv var _re:stdgo.StdGoTypes.Ref<Regexp> = _re;
         var _m:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         if (_re.op == ((13 : stdgo.regexp.syntax.Syntax.Op))) {
             _m = _re.cap;
@@ -5545,6 +5611,7 @@ class Regexp_asInterface {
     }
     @:keep
     static public function string( _re:stdgo.StdGoTypes.Ref<Regexp>):stdgo.GoString {
+        @:recv var _re:stdgo.StdGoTypes.Ref<Regexp> = _re;
         var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         _writeRegexp((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>), _re);
         return (_b.string() : stdgo.GoString);
@@ -5554,6 +5621,7 @@ class Regexp_asInterface {
     **/
     @:keep
     static public function equal( _x:stdgo.StdGoTypes.Ref<Regexp>, _y:stdgo.StdGoTypes.Ref<Regexp>):Bool {
+        @:recv var _x:stdgo.StdGoTypes.Ref<Regexp> = _x;
         if (((_x == null) || (_x : Dynamic).__nil__) || ((_y == null) || (_y : Dynamic).__nil__)) {
             return _x == (_y);
         };
@@ -5615,6 +5683,7 @@ class ErrorCode_asInterface {
 @:keep @:allow(stdgo.regexp.syntax.Syntax.ErrorCode_asInterface) class ErrorCode_static_extension {
     @:keep
     static public function string( _e:ErrorCode):stdgo.GoString {
+        @:recv var _e:ErrorCode = _e;
         return (_e : stdgo.GoString);
     }
 }
@@ -5632,6 +5701,7 @@ class InstOp_asInterface {
 @:keep @:allow(stdgo.regexp.syntax.Syntax.InstOp_asInterface) class InstOp_static_extension {
     @:keep
     static public function string( _i:InstOp):stdgo.GoString {
+        @:recv var _i:InstOp = _i;
         if ((_i : stdgo.StdGoTypes.GoUInt) >= (_instOpNames.length : stdgo.StdGoTypes.GoUInt)) {
             return stdgo.Go.str();
         };
@@ -5652,6 +5722,7 @@ class Op_asInterface {
 @:keep @:allow(stdgo.regexp.syntax.Syntax.Op_asInterface) class Op_static_extension {
     @:keep
     static public function string( _i:Op):stdgo.GoString {
+        @:recv var _i:Op = _i;
         if (((1 : stdgo.regexp.syntax.Syntax.Op) <= _i) && (_i <= (19 : stdgo.regexp.syntax.Syntax.Op))) {
             _i = _i - ((1 : stdgo.regexp.syntax.Syntax.Op));
             return (("NoMatchEmptyMatchLiteralCharClassAnyCharNotNLAnyCharBeginLineEndLineBeginTextEndTextWordBoundaryNoWordBoundaryCaptureStarPlusQuestRepeatConcatAlternate" : stdgo.GoString).__slice__(__Op_index_0[(_i : stdgo.StdGoTypes.GoInt)], __Op_index_0[(_i + (1 : stdgo.regexp.syntax.Syntax.Op) : stdgo.StdGoTypes.GoInt)]) : stdgo.GoString);

@@ -1049,6 +1049,7 @@ class URLValue_asInterface {
 @:keep @:allow(stdgo.flag_test.Flag_test.URLValue_asInterface) class URLValue_static_extension {
     @:keep
     static public function set( _v:URLValue, _s:stdgo.GoString):stdgo.Error {
+        @:recv var _v:URLValue = _v?.__copy__();
         {
             var __tmp__ = stdgo.net.url.Url.parse(_s), _u:stdgo.StdGoTypes.Ref<stdgo.net.url.Url.URL> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -1074,6 +1075,7 @@ class URLValue_asInterface {
     }
     @:keep
     static public function string( _v:URLValue):stdgo.GoString {
+        @:recv var _v:URLValue = _v?.__copy__();
         if (_v.url != null && ((_v.url : Dynamic).__nil__ == null || !(_v.url : Dynamic).__nil__)) {
             return (_v.url.string() : stdgo.GoString);
         };
@@ -1098,10 +1100,12 @@ class T_boolFlagVar_asInterface {
 @:keep @:allow(stdgo.flag_test.Flag_test.T_boolFlagVar_asInterface) class T_boolFlagVar_static_extension {
     @:keep
     static public function isBoolFlag( _b:stdgo.StdGoTypes.Ref<T_boolFlagVar>):Bool {
+        @:recv var _b:stdgo.StdGoTypes.Ref<T_boolFlagVar> = _b;
         return _b._count < (4 : stdgo.StdGoTypes.GoInt);
     }
     @:keep
     static public function set( _b:stdgo.StdGoTypes.Ref<T_boolFlagVar>, _value:stdgo.GoString):stdgo.Error {
+        @:recv var _b:stdgo.StdGoTypes.Ref<T_boolFlagVar> = _b;
         if (_value == (("true" : stdgo.GoString))) {
             _b._count++;
         };
@@ -1109,6 +1113,7 @@ class T_boolFlagVar_asInterface {
     }
     @:keep
     static public function string( _b:stdgo.StdGoTypes.Ref<T_boolFlagVar>):stdgo.GoString {
+        @:recv var _b:stdgo.StdGoTypes.Ref<T_boolFlagVar> = _b;
         return stdgo.fmt.Fmt.sprintf(("%d" : stdgo.GoString), stdgo.Go.toInterface(_b._count));
     }
 }
@@ -1128,6 +1133,7 @@ class T_zeroPanicker_asInterface {
 @:keep @:allow(stdgo.flag_test.Flag_test.T_zeroPanicker_asInterface) class T_zeroPanicker_static_extension {
     @:keep
     static public function string( _f:stdgo.StdGoTypes.Ref<T_zeroPanicker>):stdgo.GoString {
+        @:recv var _f:stdgo.StdGoTypes.Ref<T_zeroPanicker> = _f;
         if (!_f._dontPanic) {
             throw stdgo.Go.toInterface(("panic!" : stdgo.GoString));
         };
@@ -1135,6 +1141,7 @@ class T_zeroPanicker_asInterface {
     }
     @:keep
     static public function set( _f:stdgo.StdGoTypes.Ref<T_zeroPanicker>, _s:stdgo.GoString):stdgo.Error {
+        @:recv var _f:stdgo.StdGoTypes.Ref<T_zeroPanicker> = _f;
         _f._v = _s;
         return (null : stdgo.Error);
     }
@@ -1169,6 +1176,7 @@ class T_interval_asInterface {
     **/
     @:keep
     static public function set( _i:stdgo.StdGoTypes.Ref<T_interval>, _value:stdgo.GoString):stdgo.Error {
+        @:recv var _i:stdgo.StdGoTypes.Ref<T_interval> = _i;
         if (((_i : stdgo.flag_test.Flag_test.T_interval).length) > (0 : stdgo.StdGoTypes.GoInt)) {
             return stdgo.errors.Errors.new_(("interval flag already set" : stdgo.GoString));
         };
@@ -1187,6 +1195,7 @@ class T_interval_asInterface {
     **/
     @:keep
     static public function string( _i:stdgo.StdGoTypes.Ref<T_interval>):stdgo.GoString {
+        @:recv var _i:stdgo.StdGoTypes.Ref<T_interval> = _i;
         return stdgo.fmt.Fmt.sprint(stdgo.Go.toInterface(stdgo.Go.asInterface((_i : stdgo.flag_test.Flag_test.T_interval))));
     }
 }
@@ -1206,11 +1215,13 @@ class T_flagVar_asInterface {
 @:keep @:allow(stdgo.flag_test.Flag_test.T_flagVar_asInterface) class T_flagVar_static_extension {
     @:keep
     static public function set( _f:stdgo.StdGoTypes.Ref<T_flagVar>, _value:stdgo.GoString):stdgo.Error {
+        @:recv var _f:stdgo.StdGoTypes.Ref<T_flagVar> = _f;
         _f.__setData__(((_f : stdgo.flag_test.Flag_test.T_flagVar).__append__(_value)));
         return (null : stdgo.Error);
     }
     @:keep
     static public function string( _f:stdgo.StdGoTypes.Ref<T_flagVar>):stdgo.GoString {
+        @:recv var _f:stdgo.StdGoTypes.Ref<T_flagVar> = _f;
         return stdgo.fmt.Fmt.sprint(stdgo.Go.toInterface(((_f : stdgo.flag_test.Flag_test.T_flagVar) : stdgo.Slice<stdgo.GoString>)));
     }
 }

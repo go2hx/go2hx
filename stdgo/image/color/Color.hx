@@ -1130,6 +1130,7 @@ class RGBA_asInterface {
 @:keep @:allow(stdgo.image.color.Color.RGBA_asInterface) class RGBA_static_extension {
     @:keep
     static public function rgba( _c:RGBA):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; var _2 : stdgo.StdGoTypes.GoUInt32; var _3 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _c:RGBA = _c?.__copy__();
         var _r:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _g:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _b:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _a:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
         _r = (_c.r : stdgo.StdGoTypes.GoUInt32);
         _r = _r | (_r << (8i64 : stdgo.StdGoTypes.GoUInt64));
@@ -1156,6 +1157,7 @@ class RGBA64_asInterface {
 @:keep @:allow(stdgo.image.color.Color.RGBA64_asInterface) class RGBA64_static_extension {
     @:keep
     static public function rgba( _c:RGBA64):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; var _2 : stdgo.StdGoTypes.GoUInt32; var _3 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _c:RGBA64 = _c?.__copy__();
         var _r:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _g:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _b:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _a:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
         return { _0 : (_c.r : stdgo.StdGoTypes.GoUInt32), _1 : (_c.g : stdgo.StdGoTypes.GoUInt32), _2 : (_c.b : stdgo.StdGoTypes.GoUInt32), _3 : (_c.a : stdgo.StdGoTypes.GoUInt32) };
     }
@@ -1174,6 +1176,7 @@ class NRGBA_asInterface {
 @:keep @:allow(stdgo.image.color.Color.NRGBA_asInterface) class NRGBA_static_extension {
     @:keep
     static public function rgba( _c:NRGBA):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; var _2 : stdgo.StdGoTypes.GoUInt32; var _3 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _c:NRGBA = _c?.__copy__();
         var _r:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _g:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _b:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _a:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
         _r = (_c.r : stdgo.StdGoTypes.GoUInt32);
         _r = _r | (_r << (8i64 : stdgo.StdGoTypes.GoUInt64));
@@ -1206,6 +1209,7 @@ class NRGBA64_asInterface {
 @:keep @:allow(stdgo.image.color.Color.NRGBA64_asInterface) class NRGBA64_static_extension {
     @:keep
     static public function rgba( _c:NRGBA64):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; var _2 : stdgo.StdGoTypes.GoUInt32; var _3 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _c:NRGBA64 = _c?.__copy__();
         var _r:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _g:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _b:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _a:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
         _r = (_c.r : stdgo.StdGoTypes.GoUInt32);
         _r = _r * ((_c.a : stdgo.StdGoTypes.GoUInt32));
@@ -1234,6 +1238,7 @@ class Alpha_asInterface {
 @:keep @:allow(stdgo.image.color.Color.Alpha_asInterface) class Alpha_static_extension {
     @:keep
     static public function rgba( _c:Alpha):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; var _2 : stdgo.StdGoTypes.GoUInt32; var _3 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _c:Alpha = _c?.__copy__();
         var _r:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _g:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _b:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _a:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
         _a = (_c.a : stdgo.StdGoTypes.GoUInt32);
         _a = _a | (_a << (8i64 : stdgo.StdGoTypes.GoUInt64));
@@ -1254,6 +1259,7 @@ class Alpha16_asInterface {
 @:keep @:allow(stdgo.image.color.Color.Alpha16_asInterface) class Alpha16_static_extension {
     @:keep
     static public function rgba( _c:Alpha16):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; var _2 : stdgo.StdGoTypes.GoUInt32; var _3 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _c:Alpha16 = _c?.__copy__();
         var _r:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _g:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _b:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _a:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
         _a = (_c.a : stdgo.StdGoTypes.GoUInt32);
         return { _0 : _a, _1 : _a, _2 : _a, _3 : _a };
@@ -1273,6 +1279,7 @@ class Gray_asInterface {
 @:keep @:allow(stdgo.image.color.Color.Gray_asInterface) class Gray_static_extension {
     @:keep
     static public function rgba( _c:Gray):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; var _2 : stdgo.StdGoTypes.GoUInt32; var _3 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _c:Gray = _c?.__copy__();
         var _r:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _g:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _b:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _a:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
         var _y:stdgo.StdGoTypes.GoUInt32 = (_c.y : stdgo.StdGoTypes.GoUInt32);
         _y = _y | (_y << (8i64 : stdgo.StdGoTypes.GoUInt64));
@@ -1293,6 +1300,7 @@ class Gray16_asInterface {
 @:keep @:allow(stdgo.image.color.Color.Gray16_asInterface) class Gray16_static_extension {
     @:keep
     static public function rgba( _c:Gray16):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; var _2 : stdgo.StdGoTypes.GoUInt32; var _3 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _c:Gray16 = _c?.__copy__();
         var _r:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _g:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _b:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _a:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
         var _y:stdgo.StdGoTypes.GoUInt32 = (_c.y : stdgo.StdGoTypes.GoUInt32);
         return { _0 : _y, _1 : _y, _2 : _y, _3 : (65535u32 : stdgo.StdGoTypes.GoUInt32) };
@@ -1312,6 +1320,7 @@ class T_modelFunc_asInterface {
 @:keep @:allow(stdgo.image.color.Color.T_modelFunc_asInterface) class T_modelFunc_static_extension {
     @:keep
     static public function convert( _m:stdgo.StdGoTypes.Ref<T_modelFunc>, _c:Color):Color {
+        @:recv var _m:stdgo.StdGoTypes.Ref<T_modelFunc> = _m;
         return _m._f(_c);
     }
 }
@@ -1329,6 +1338,7 @@ class YCbCr_asInterface {
 @:keep @:allow(stdgo.image.color.Color.YCbCr_asInterface) class YCbCr_static_extension {
     @:keep
     static public function rgba( _c:YCbCr):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; var _2 : stdgo.StdGoTypes.GoUInt32; var _3 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _c:YCbCr = _c?.__copy__();
         var _yy1:stdgo.StdGoTypes.GoInt32 = (_c.y : stdgo.StdGoTypes.GoInt32) * (65793 : stdgo.StdGoTypes.GoInt32);
         var _cb1:stdgo.StdGoTypes.GoInt32 = (_c.cb : stdgo.StdGoTypes.GoInt32) - (128 : stdgo.StdGoTypes.GoInt32);
         var _cr1:stdgo.StdGoTypes.GoInt32 = (_c.cr : stdgo.StdGoTypes.GoInt32) - (128 : stdgo.StdGoTypes.GoInt32);
@@ -1367,6 +1377,7 @@ class NYCbCrA_asInterface {
 @:keep @:allow(stdgo.image.color.Color.NYCbCrA_asInterface) class NYCbCrA_static_extension {
     @:keep
     static public function rgba( _c:NYCbCrA):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; var _2 : stdgo.StdGoTypes.GoUInt32; var _3 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _c:NYCbCrA = _c?.__copy__();
         var _yy1:stdgo.StdGoTypes.GoInt32 = (_c.ycbCr.y : stdgo.StdGoTypes.GoInt32) * (65793 : stdgo.StdGoTypes.GoInt32);
         var _cb1:stdgo.StdGoTypes.GoInt32 = (_c.ycbCr.cb : stdgo.StdGoTypes.GoInt32) - (128 : stdgo.StdGoTypes.GoInt32);
         var _cr1:stdgo.StdGoTypes.GoInt32 = (_c.ycbCr.cr : stdgo.StdGoTypes.GoInt32) - (128 : stdgo.StdGoTypes.GoInt32);
@@ -1406,6 +1417,7 @@ class CMYK_asInterface {
 @:keep @:allow(stdgo.image.color.Color.CMYK_asInterface) class CMYK_static_extension {
     @:keep
     static public function rgba( _c:CMYK):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; var _2 : stdgo.StdGoTypes.GoUInt32; var _3 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _c:CMYK = _c?.__copy__();
         var _w:stdgo.StdGoTypes.GoUInt32 = (65535u32 : stdgo.StdGoTypes.GoUInt32) - ((_c.k : stdgo.StdGoTypes.GoUInt32) * (257u32 : stdgo.StdGoTypes.GoUInt32));
         var _r:stdgo.StdGoTypes.GoUInt32 = (((65535u32 : stdgo.StdGoTypes.GoUInt32) - ((_c.c : stdgo.StdGoTypes.GoUInt32) * (257u32 : stdgo.StdGoTypes.GoUInt32))) * _w) / (65535u32 : stdgo.StdGoTypes.GoUInt32);
         var _g:stdgo.StdGoTypes.GoUInt32 = (((65535u32 : stdgo.StdGoTypes.GoUInt32) - ((_c.m : stdgo.StdGoTypes.GoUInt32) * (257u32 : stdgo.StdGoTypes.GoUInt32))) * _w) / (65535u32 : stdgo.StdGoTypes.GoUInt32);
@@ -1440,6 +1452,7 @@ class Palette_asInterface {
     **/
     @:keep
     static public function index( _p:Palette, _c:Color):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:Palette = _p;
         var __tmp__ = _c.rgba(), _cr:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _cg:stdgo.StdGoTypes.GoUInt32 = __tmp__._1, _cb:stdgo.StdGoTypes.GoUInt32 = __tmp__._2, _ca:stdgo.StdGoTypes.GoUInt32 = __tmp__._3;
         var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoUInt32 = (-1u32 : stdgo.StdGoTypes.GoUInt32), _bestSum:stdgo.StdGoTypes.GoUInt32 = __1, _ret:stdgo.StdGoTypes.GoInt = __0;
         for (_i => _v in _p) {
@@ -1464,6 +1477,7 @@ class Palette_asInterface {
     **/
     @:keep
     static public function convert( _p:Palette, _c:Color):Color {
+        @:recv var _p:Palette = _p;
         if ((_p.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             return (null : stdgo.image.color.Color.Color);
         };

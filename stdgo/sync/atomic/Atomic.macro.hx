@@ -13,6 +13,7 @@ class Pointer__static_extension {
                 final f = macro function f( _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>>, __generic__0:$T, _old:stdgo.StdGoTypes.Ref<$T>, _new:stdgo.StdGoTypes.Ref<$T>) {
                     var _new = stdgo.Go.refPointer(_new);
                     var _old = stdgo.Go.refPointer(_old);
+                    @:recv var _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>> = _x;
                     final b = stdgo.Go.toInterface(_old) == stdgo.Go.toInterface(_new);
                     if (b) _x._v = stdgo.Go.toInterface(_new);
                     return b;
@@ -62,6 +63,7 @@ haxe.macro.Context.defineType(td);
             } catch(_) {
                 final f = macro function f( _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>>, __generic__0:$T, _val:stdgo.StdGoTypes.Ref<$T>) {
                     var _val = stdgo.Go.refPointer(_val);
+                    @:recv var _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>> = _x;
                     _x._v = stdgo.Go.toInterface(_val);
                 };
                 switch f.expr {
@@ -86,6 +88,7 @@ haxe.macro.Context.defineType(td);
                 haxe.macro.Context.getType(id);
             } catch(_) {
                 final f = macro function f( _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>>, __generic__0:$T) {
+                    @:recv var _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>> = _x;
                     return @:privateAccess _x._v.__toRef__();
                 };
                 switch f.expr {

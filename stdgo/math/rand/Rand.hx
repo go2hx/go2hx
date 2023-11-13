@@ -2455,6 +2455,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<Rand>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         {
             final __type__ = _r._src;
@@ -2475,6 +2476,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function shuffle( _r:stdgo.StdGoTypes.Ref<Rand>, _n:stdgo.StdGoTypes.GoInt, _swap:(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt) -> Void):Void {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         if (_n < (0 : stdgo.StdGoTypes.GoInt)) {
             throw stdgo.Go.toInterface(("invalid argument to Shuffle" : stdgo.GoString));
         };
@@ -2494,6 +2496,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function perm( _r:stdgo.StdGoTypes.Ref<Rand>, _n:stdgo.StdGoTypes.GoInt):stdgo.Slice<stdgo.StdGoTypes.GoInt> {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         var _m = new stdgo.Slice<stdgo.StdGoTypes.GoInt>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -2511,6 +2514,7 @@ class Rand_asInterface {
     @:keep
     static public function float32( _r:stdgo.StdGoTypes.Ref<Rand>):stdgo.StdGoTypes.GoFloat32 {
         stdgo.internal.Macro.controlFlow({
+            @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
             @:label("again") var _f:stdgo.StdGoTypes.GoFloat32 = (_r.float64() : stdgo.StdGoTypes.GoFloat32);
             if (_f == (1 : stdgo.StdGoTypes.GoFloat64)) {
                 @:goto "again";
@@ -2525,6 +2529,7 @@ class Rand_asInterface {
     @:keep
     static public function float64( _r:stdgo.StdGoTypes.Ref<Rand>):stdgo.StdGoTypes.GoFloat64 {
         stdgo.internal.Macro.controlFlow({
+            @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
             @:label("again") var _f:stdgo.StdGoTypes.GoFloat64 = (_r.int63() : stdgo.StdGoTypes.GoFloat64) / (9.223372036854776e+18 : stdgo.StdGoTypes.GoFloat64);
             if (_f == (1 : stdgo.StdGoTypes.GoFloat64)) {
                 @:goto "again";
@@ -2539,6 +2544,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function intn( _r:stdgo.StdGoTypes.Ref<Rand>, _n:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         if (_n <= (0 : stdgo.StdGoTypes.GoInt)) {
             throw stdgo.Go.toInterface(("invalid argument to Intn" : stdgo.GoString));
         };
@@ -2560,6 +2566,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function _int31n( _r:stdgo.StdGoTypes.Ref<Rand>, _n:stdgo.StdGoTypes.GoInt32):stdgo.StdGoTypes.GoInt32 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         var _v:stdgo.StdGoTypes.GoUInt32 = _r.uint32();
         var _prod:stdgo.StdGoTypes.GoUInt64 = (_v : stdgo.StdGoTypes.GoUInt64) * (_n : stdgo.StdGoTypes.GoUInt64);
         var _low:stdgo.StdGoTypes.GoUInt32 = (_prod : stdgo.StdGoTypes.GoUInt32);
@@ -2579,6 +2586,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function int31n( _r:stdgo.StdGoTypes.Ref<Rand>, _n:stdgo.StdGoTypes.GoInt32):stdgo.StdGoTypes.GoInt32 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         if (_n <= (0 : stdgo.StdGoTypes.GoInt32)) {
             throw stdgo.Go.toInterface(("invalid argument to Int31n" : stdgo.GoString));
         };
@@ -2598,6 +2606,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function int63n( _r:stdgo.StdGoTypes.Ref<Rand>, _n:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         if (_n <= (0i64 : stdgo.StdGoTypes.GoInt64)) {
             throw stdgo.Go.toInterface(("invalid argument to Int63n" : stdgo.GoString));
         };
@@ -2616,6 +2625,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function int_( _r:stdgo.StdGoTypes.Ref<Rand>):stdgo.StdGoTypes.GoInt {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         var _u:stdgo.StdGoTypes.GoUInt = (_r.int63() : stdgo.StdGoTypes.GoUInt);
         return ((_u << (1i64 : stdgo.StdGoTypes.GoUInt64)) >> (1i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
     }
@@ -2624,6 +2634,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function int31( _r:stdgo.StdGoTypes.Ref<Rand>):stdgo.StdGoTypes.GoInt32 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         return (_r.int63() >> (32i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt32);
     }
     /**
@@ -2631,6 +2642,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function uint64( _r:stdgo.StdGoTypes.Ref<Rand>):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         if (_r._s64 != null) {
             return _r._s64.uint64();
         };
@@ -2641,6 +2653,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function uint32( _r:stdgo.StdGoTypes.Ref<Rand>):stdgo.StdGoTypes.GoUInt32 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         return (_r.int63() >> (31i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt32);
     }
     /**
@@ -2648,6 +2661,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function int63( _r:stdgo.StdGoTypes.Ref<Rand>):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         return _r._src.int63();
     }
     /**
@@ -2656,6 +2670,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function seed( _r:stdgo.StdGoTypes.Ref<Rand>, _seed:stdgo.StdGoTypes.GoInt64):Void {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         {
             var __tmp__ = try {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r._src) : stdgo.StdGoTypes.Ref<T_lockedSource>)) : stdgo.StdGoTypes.Ref<T_lockedSource>), ok : true };
@@ -2681,6 +2696,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function normFloat64( _r:stdgo.StdGoTypes.Ref<Rand>):stdgo.StdGoTypes.GoFloat64 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         while (true) {
             var _j:stdgo.StdGoTypes.GoInt32 = (_r.uint32() : stdgo.StdGoTypes.GoInt32);
             var _i:stdgo.StdGoTypes.GoInt32 = _j & (127 : stdgo.StdGoTypes.GoInt32);
@@ -2717,6 +2733,7 @@ class Rand_asInterface {
     **/
     @:keep
     static public function expFloat64( _r:stdgo.StdGoTypes.Ref<Rand>):stdgo.StdGoTypes.GoFloat64 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Rand> = _r;
         while (true) {
             var _j:stdgo.StdGoTypes.GoUInt32 = _r.uint32();
             var _i:stdgo.StdGoTypes.GoUInt32 = _j & (255u32 : stdgo.StdGoTypes.GoUInt32);
@@ -2753,6 +2770,7 @@ class T_fastSource_asInterface {
 @:keep @:allow(stdgo.math.rand.Rand.T_fastSource_asInterface) class T_fastSource_static_extension {
     @:keep
     static public function _read( _fs:stdgo.StdGoTypes.Ref<T_fastSource>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _readVal:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _readPos:stdgo.Pointer<stdgo.StdGoTypes.GoInt8>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _fs:stdgo.StdGoTypes.Ref<T_fastSource> = _fs;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         _fs._mu.lock();
         {
@@ -2765,14 +2783,17 @@ class T_fastSource_asInterface {
     }
     @:keep
     static public function uint64( _:stdgo.StdGoTypes.Ref<T_fastSource>):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _:stdgo.StdGoTypes.Ref<T_fastSource> = _;
         return _fastrand64();
     }
     @:keep
     static public function seed( _:stdgo.StdGoTypes.Ref<T_fastSource>, _0:stdgo.StdGoTypes.GoInt64):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<T_fastSource> = _;
         throw stdgo.Go.toInterface(("internal error: call to fastSource.Seed" : stdgo.GoString));
     }
     @:keep
     static public function int63( _:stdgo.StdGoTypes.Ref<T_fastSource>):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _:stdgo.StdGoTypes.Ref<T_fastSource> = _;
         return (_fastrand64() & (9223372036854775807i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt64);
     }
 }
@@ -2813,6 +2834,7 @@ class T_lockedSource_asInterface {
     **/
     @:keep
     static public function _read( _r:stdgo.StdGoTypes.Ref<T_lockedSource>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _readVal:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _readPos:stdgo.Pointer<stdgo.StdGoTypes.GoInt8>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_lockedSource> = _r;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         _r._lk.lock();
         {
@@ -2829,6 +2851,7 @@ class T_lockedSource_asInterface {
     **/
     @:keep
     static public function _seed( _r:stdgo.StdGoTypes.Ref<T_lockedSource>, _seed:stdgo.StdGoTypes.GoInt64):Void {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_lockedSource> = _r;
         if (_r._s == null || (_r._s : Dynamic).__nil__) {
             _r._s = _newSource(_seed);
         } else {
@@ -2840,6 +2863,7 @@ class T_lockedSource_asInterface {
     **/
     @:keep
     static public function _seedPos( _r:stdgo.StdGoTypes.Ref<T_lockedSource>, _seed:stdgo.StdGoTypes.GoInt64, _readPos:stdgo.Pointer<stdgo.StdGoTypes.GoInt8>):Void {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_lockedSource> = _r;
         _r._lk.lock();
         _r._seed(_seed);
         _readPos.value = (0 : stdgo.StdGoTypes.GoInt8);
@@ -2847,12 +2871,14 @@ class T_lockedSource_asInterface {
     }
     @:keep
     static public function seed( _r:stdgo.StdGoTypes.Ref<T_lockedSource>, _seed:stdgo.StdGoTypes.GoInt64):Void {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_lockedSource> = _r;
         _r._lk.lock();
         _r._seed(_seed);
         _r._lk.unlock();
     }
     @:keep
     static public function uint64( _r:stdgo.StdGoTypes.Ref<T_lockedSource>):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_lockedSource> = _r;
         var _n:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
         _r._lk.lock();
         _n = _r._s.uint64();
@@ -2861,6 +2887,7 @@ class T_lockedSource_asInterface {
     }
     @:keep
     static public function int63( _r:stdgo.StdGoTypes.Ref<T_lockedSource>):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_lockedSource> = _r;
         var _n:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
         _r._lk.lock();
         _n = _r._s.int63();
@@ -2898,6 +2925,7 @@ class T_rngSource_asInterface {
     **/
     @:keep
     static public function uint64( _rng:stdgo.StdGoTypes.Ref<T_rngSource>):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _rng:stdgo.StdGoTypes.Ref<T_rngSource> = _rng;
         _rng._tap--;
         if (_rng._tap < (0 : stdgo.StdGoTypes.GoInt)) {
             _rng._tap = _rng._tap + ((607 : stdgo.StdGoTypes.GoInt));
@@ -2915,6 +2943,7 @@ class T_rngSource_asInterface {
     **/
     @:keep
     static public function int63( _rng:stdgo.StdGoTypes.Ref<T_rngSource>):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _rng:stdgo.StdGoTypes.Ref<T_rngSource> = _rng;
         return (_rng.uint64() & (9223372036854775807i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt64);
     }
     /**
@@ -2922,6 +2951,7 @@ class T_rngSource_asInterface {
     **/
     @:keep
     static public function seed( _rng:stdgo.StdGoTypes.Ref<T_rngSource>, _seed:stdgo.StdGoTypes.GoInt64):Void {
+        @:recv var _rng:stdgo.StdGoTypes.Ref<T_rngSource> = _rng;
         _rng._tap = (0 : stdgo.StdGoTypes.GoInt);
         _rng._feed = (334 : stdgo.StdGoTypes.GoInt);
         _seed = _seed % (2147483647i64 : stdgo.StdGoTypes.GoInt64);
@@ -2976,6 +3006,7 @@ class Zipf_asInterface {
     **/
     @:keep
     static public function uint64( _z:stdgo.StdGoTypes.Ref<Zipf>):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _z:stdgo.StdGoTypes.Ref<Zipf> = _z;
         if (_z == null || (_z : Dynamic).__nil__) {
             throw stdgo.Go.toInterface(("rand: nil Zipf" : stdgo.GoString));
         };
@@ -2996,10 +3027,12 @@ class Zipf_asInterface {
     }
     @:keep
     static public function _hinv( _z:stdgo.StdGoTypes.Ref<Zipf>, _x:stdgo.StdGoTypes.GoFloat64):stdgo.StdGoTypes.GoFloat64 {
+        @:recv var _z:stdgo.StdGoTypes.Ref<Zipf> = _z;
         return stdgo.math.Math.exp(_z._oneminusQinv * stdgo.math.Math.log(_z._oneminusQ * _x)) - _z._v;
     }
     @:keep
     static public function _h( _z:stdgo.StdGoTypes.Ref<Zipf>, _x:stdgo.StdGoTypes.GoFloat64):stdgo.StdGoTypes.GoFloat64 {
+        @:recv var _z:stdgo.StdGoTypes.Ref<Zipf> = _z;
         return stdgo.math.Math.exp(_z._oneminusQ * stdgo.math.Math.log(_z._v + _x)) * _z._oneminusQinv;
     }
 }

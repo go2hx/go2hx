@@ -363,6 +363,7 @@ class T_errorString_asInterface {
 @:keep @:allow(stdgo.errors.Errors.T_errorString_asInterface) class T_errorString_static_extension {
     @:keep
     static public function error( _e:stdgo.StdGoTypes.Ref<T_errorString>):stdgo.GoString {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_errorString> = _e;
         return _e._s;
     }
 }
@@ -382,10 +383,12 @@ class T_joinError_asInterface {
 @:keep @:allow(stdgo.errors.Errors.T_joinError_asInterface) class T_joinError_static_extension {
     @:keep
     static public function unwrap( _e:stdgo.StdGoTypes.Ref<T_joinError>):stdgo.Slice<stdgo.Error> {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_joinError> = _e;
         return _e._errs;
     }
     @:keep
     static public function error( _e:stdgo.StdGoTypes.Ref<T_joinError>):stdgo.GoString {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_joinError> = _e;
         var _b:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         for (_i => _err in _e._errs) {
             if (_i > (0 : stdgo.StdGoTypes.GoInt)) {

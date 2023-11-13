@@ -943,6 +943,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function writer( _l:stdgo.StdGoTypes.Ref<Logger>):stdgo.io.Io.Writer {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         var __deferstack__:Array<Void -> Void> = [];
         _l._outMu.lock();
         try {
@@ -982,6 +983,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function setPrefix( _l:stdgo.StdGoTypes.Ref<Logger>, _prefix:stdgo.GoString):Void {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         _l._prefix.store(("" : stdgo.GoString), stdgo.Go.pointer(_prefix));
     }
     /**
@@ -989,6 +991,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function prefix( _l:stdgo.StdGoTypes.Ref<Logger>):stdgo.GoString {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         {
             var _p = _l._prefix.load(("" : stdgo.GoString));
             if (_p != null) {
@@ -1003,6 +1006,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function setFlags( _l:stdgo.StdGoTypes.Ref<Logger>, _flag:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         _l._flag.store((_flag : stdgo.StdGoTypes.GoInt32));
     }
     /**
@@ -1011,6 +1015,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function flags( _l:stdgo.StdGoTypes.Ref<Logger>):stdgo.StdGoTypes.GoInt {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         return (_l._flag.load() : stdgo.StdGoTypes.GoInt);
     }
     /**
@@ -1019,6 +1024,7 @@ class Logger_asInterface {
     @:keep
     static public function panicln( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintln(..._v.__toArray__());
         _l.output((2 : stdgo.StdGoTypes.GoInt), _s);
         throw stdgo.Go.toInterface(_s);
@@ -1029,6 +1035,7 @@ class Logger_asInterface {
     @:keep
     static public function panicf( _l:stdgo.StdGoTypes.Ref<Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__());
         _l.output((2 : stdgo.StdGoTypes.GoInt), _s);
         throw stdgo.Go.toInterface(_s);
@@ -1039,6 +1046,7 @@ class Logger_asInterface {
     @:keep
     static public function panic( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         var _s:stdgo.GoString = stdgo.fmt.Fmt.sprint(..._v.__toArray__());
         _l.output((2 : stdgo.StdGoTypes.GoInt), _s);
         throw stdgo.Go.toInterface(_s);
@@ -1049,6 +1057,7 @@ class Logger_asInterface {
     @:keep
     static public function fatalln( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         _l.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
         Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
@@ -1058,6 +1067,7 @@ class Logger_asInterface {
     @:keep
     static public function fatalf( _l:stdgo.StdGoTypes.Ref<Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         _l.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
         Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
@@ -1067,6 +1077,7 @@ class Logger_asInterface {
     @:keep
     static public function fatal( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         _l.output((2 : stdgo.StdGoTypes.GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
         Sys.exit((1 : stdgo.StdGoTypes.GoInt));
     }
@@ -1077,6 +1088,7 @@ class Logger_asInterface {
     @:keep
     static public function println( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         _l._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
             return stdgo.fmt.Fmt.appendln(_b, ..._v.__toArray__());
         });
@@ -1088,6 +1100,7 @@ class Logger_asInterface {
     @:keep
     static public function printf( _l:stdgo.StdGoTypes.Ref<Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         _l._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
             return stdgo.fmt.Fmt.appendf(_b, _format, ..._v.__toArray__());
         });
@@ -1099,6 +1112,7 @@ class Logger_asInterface {
     @:keep
     static public function print( _l:stdgo.StdGoTypes.Ref<Logger>, _v:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_v.length, 0, ..._v);
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         _l._output((0 : stdgo.StdGoTypes.GoUIntptr), (2 : stdgo.StdGoTypes.GoInt), function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
             return stdgo.fmt.Fmt.append(_b, ..._v.__toArray__());
         });
@@ -1109,6 +1123,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function _output( _l:stdgo.StdGoTypes.Ref<Logger>, _pc:stdgo.StdGoTypes.GoUIntptr, _calldepth:stdgo.StdGoTypes.GoInt, _appendOutput:stdgo.Slice<stdgo.StdGoTypes.GoByte> -> stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         var __deferstack__:Array<Void -> Void> = [];
         if (_l._isDiscard.load()) {
             return (null : stdgo.Error);
@@ -1195,6 +1210,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function output( _l:stdgo.StdGoTypes.Ref<Logger>, _calldepth:stdgo.StdGoTypes.GoInt, _s:stdgo.GoString):stdgo.Error {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         _calldepth++;
         return _l._output((0 : stdgo.StdGoTypes.GoUIntptr), _calldepth, function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
             return (_b.__append__(..._s.__toArray__()));
@@ -1205,6 +1221,7 @@ class Logger_asInterface {
     **/
     @:keep
     static public function setOutput( _l:stdgo.StdGoTypes.Ref<Logger>, _w:stdgo.io.Io.Writer):Void {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _l._outMu.lock();
@@ -1250,6 +1267,7 @@ class T_discard_asInterface {
 @:keep @:allow(stdgo.log.Log.T_discard_asInterface) class T_discard_static_extension {
     @:keep
     static public function write( _:T_discard, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _:T_discard = _?.__copy__();
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
 }

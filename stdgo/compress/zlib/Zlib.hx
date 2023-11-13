@@ -824,6 +824,7 @@ class T_reader_asInterface {
 @:keep @:allow(stdgo.compress.zlib.Zlib.T_reader_asInterface) class T_reader_static_extension {
     @:keep
     static public function reset( _z:stdgo.StdGoTypes.Ref<T_reader>, _r:stdgo.io.Io.Reader, _dict:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
+        @:recv var _z:stdgo.StdGoTypes.Ref<T_reader> = _z;
         {
             var __tmp__ = ({ _decompressor : _z._decompressor } : T_reader);
             _z._r = __tmp__._r;
@@ -896,6 +897,7 @@ class T_reader_asInterface {
     **/
     @:keep
     static public function close( _z:stdgo.StdGoTypes.Ref<T_reader>):stdgo.Error {
+        @:recv var _z:stdgo.StdGoTypes.Ref<T_reader> = _z;
         if ((_z._err != null) && (stdgo.Go.toInterface(_z._err) != stdgo.Go.toInterface(stdgo.io.Io.eof))) {
             return _z._err;
         };
@@ -904,6 +906,7 @@ class T_reader_asInterface {
     }
     @:keep
     static public function read( _z:stdgo.StdGoTypes.Ref<T_reader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _z:stdgo.StdGoTypes.Ref<T_reader> = _z;
         if (_z._err != null) {
             return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _z._err };
         };
@@ -981,6 +984,7 @@ class Writer_asInterface {
     **/
     @:keep
     static public function close( _z:stdgo.StdGoTypes.Ref<Writer>):stdgo.Error {
+        @:recv var _z:stdgo.StdGoTypes.Ref<Writer> = _z;
         if (!_z._wroteHeader) {
             _z._err = _z._writeHeader();
         };
@@ -1004,6 +1008,7 @@ class Writer_asInterface {
     **/
     @:keep
     static public function flush( _z:stdgo.StdGoTypes.Ref<Writer>):stdgo.Error {
+        @:recv var _z:stdgo.StdGoTypes.Ref<Writer> = _z;
         if (!_z._wroteHeader) {
             _z._err = _z._writeHeader();
         };
@@ -1020,6 +1025,7 @@ class Writer_asInterface {
     **/
     @:keep
     static public function write( _z:stdgo.StdGoTypes.Ref<Writer>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _z:stdgo.StdGoTypes.Ref<Writer> = _z;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (!_z._wroteHeader) {
             _z._err = _z._writeHeader();
@@ -1047,6 +1053,7 @@ class Writer_asInterface {
     **/
     @:keep
     static public function _writeHeader( _z:stdgo.StdGoTypes.Ref<Writer>):stdgo.Error {
+        @:recv var _z:stdgo.StdGoTypes.Ref<Writer> = _z;
         var _err:stdgo.Error = (null : stdgo.Error);
         _z._wroteHeader = true;
         _z._scratch[(0 : stdgo.StdGoTypes.GoInt)] = (120 : stdgo.StdGoTypes.GoUInt8);
@@ -1109,6 +1116,7 @@ class Writer_asInterface {
     **/
     @:keep
     static public function reset( _z:stdgo.StdGoTypes.Ref<Writer>, _w:stdgo.io.Io.Writer):Void {
+        @:recv var _z:stdgo.StdGoTypes.Ref<Writer> = _z;
         _z._w = _w;
         if (_z._compressor != null && ((_z._compressor : Dynamic).__nil__ == null || !(_z._compressor : Dynamic).__nil__)) {
             _z._compressor.reset(_w);

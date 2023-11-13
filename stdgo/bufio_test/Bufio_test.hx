@@ -3080,6 +3080,7 @@ class T_rot13Reader_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_rot13Reader_asInterface) class T_rot13Reader_static_extension {
     @:keep
     static public function read( _r13:stdgo.StdGoTypes.Ref<T_rot13Reader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r13:stdgo.StdGoTypes.Ref<T_rot13Reader> = _r13;
         var __tmp__ = _r13._r.read(_p), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -3109,6 +3110,7 @@ class T_zeroReader_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_zeroReader_asInterface) class T_zeroReader_static_extension {
     @:keep
     static public function read( _:T_zeroReader, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _:T_zeroReader = _?.__copy__();
         return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : (null : stdgo.Error) };
     }
 }
@@ -3126,6 +3128,7 @@ class StringReader_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.StringReader_asInterface) class StringReader_static_extension {
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<StringReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<StringReader> = _r;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (_r._step < (_r._data.length)) {
             var _s:stdgo.GoString = _r._data[(_r._step : stdgo.StdGoTypes.GoInt)];
@@ -3151,6 +3154,7 @@ class T_errorWriterTest_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_errorWriterTest_asInterface) class T_errorWriterTest_static_extension {
     @:keep
     static public function write( _w:T_errorWriterTest, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _w:T_errorWriterTest = _w?.__copy__();
         return { _0 : (_p.length * _w._n) / _w._m, _1 : _w._err };
     }
 }
@@ -3172,6 +3176,7 @@ class T_teststringwriter_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_teststringwriter_asInterface) class T_teststringwriter_static_extension {
     @:keep
     static public function _check( _w:stdgo.StdGoTypes.Ref<T_teststringwriter>, _t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _write:stdgo.GoString, _writeString:stdgo.GoString):Void {
+        @:recv var _w:stdgo.StdGoTypes.Ref<T_teststringwriter> = _w;
         _t.helper();
         if (_w._write != (_write)) {
             _t.errorf(("write: expected %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_write), stdgo.Go.toInterface(_w._write));
@@ -3182,11 +3187,13 @@ class T_teststringwriter_asInterface {
     }
     @:keep
     static public function writeString( _w:stdgo.StdGoTypes.Ref<T_teststringwriter>, _s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _w:stdgo.StdGoTypes.Ref<T_teststringwriter> = _w;
         _w._writeString = _w._writeString + (_s);
         return { _0 : (_s.length), _1 : (null : stdgo.Error) };
     }
     @:keep
     static public function write( _w:stdgo.StdGoTypes.Ref<T_teststringwriter>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _w:stdgo.StdGoTypes.Ref<T_teststringwriter> = _w;
         _w._write = _w._write + ((_b : stdgo.GoString));
         return { _0 : (_b.length), _1 : (null : stdgo.Error) };
     }
@@ -3205,6 +3212,7 @@ class T_testReader_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_testReader_asInterface) class T_testReader_static_extension {
     @:keep
     static public function read( _t:stdgo.StdGoTypes.Ref<T_testReader>, _buf:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _t:stdgo.StdGoTypes.Ref<T_testReader> = _t;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         _n = _t._stride;
         if (_n > (_t._data.length)) {
@@ -3237,10 +3245,12 @@ class T_errorWriterToTest_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_errorWriterToTest_asInterface) class T_errorWriterToTest_static_extension {
     @:keep
     static public function write( _w:T_errorWriterToTest, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _w:T_errorWriterToTest = _w?.__copy__();
         return { _0 : (_p.length) * _w._wn, _1 : _w._werr };
     }
     @:keep
     static public function read( _r:T_errorWriterToTest, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:T_errorWriterToTest = _r?.__copy__();
         return { _0 : (_p.length) * _r._rn, _1 : _r._rerr };
     }
 }
@@ -3260,10 +3270,12 @@ class T_errorReaderFromTest_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_errorReaderFromTest_asInterface) class T_errorReaderFromTest_static_extension {
     @:keep
     static public function write( _w:T_errorReaderFromTest, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _w:T_errorReaderFromTest = _w?.__copy__();
         return { _0 : (_p.length) * _w._wn, _1 : _w._werr };
     }
     @:keep
     static public function read( _r:T_errorReaderFromTest, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:T_errorReaderFromTest = _r?.__copy__();
         return { _0 : (_p.length) * _r._rn, _1 : _r._rerr };
     }
 }
@@ -3281,6 +3293,7 @@ class T_errorThenGoodReader_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_errorThenGoodReader_asInterface) class T_errorThenGoodReader_static_extension {
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<T_errorThenGoodReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_errorThenGoodReader> = _r;
         _r._nread++;
         if (!_r._didErr) {
             _r._didErr = true;
@@ -3303,6 +3316,7 @@ class T_emptyThenNonEmptyReader_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_emptyThenNonEmptyReader_asInterface) class T_emptyThenNonEmptyReader_static_extension {
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<T_emptyThenNonEmptyReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_emptyThenNonEmptyReader> = _r;
         if (_r._n <= (0 : stdgo.StdGoTypes.GoInt)) {
             return _r._r.read(_p);
         };
@@ -3326,6 +3340,7 @@ class T_readFromWriter_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_readFromWriter_asInterface) class T_readFromWriter_static_extension {
     @:keep
     static public function readFrom( _w:stdgo.StdGoTypes.Ref<T_readFromWriter>, _r:stdgo.io.Io.Reader):{ var _0 : stdgo.StdGoTypes.GoInt64; var _1 : stdgo.Error; } {
+        @:recv var _w:stdgo.StdGoTypes.Ref<T_readFromWriter> = _w;
         var __tmp__ = stdgo.io.Io.readAll(_r), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         _w._buf = (_w._buf.__append__(..._b.__toArray__()));
         _w._readFromBytes = _w._readFromBytes + ((_b.length));
@@ -3333,6 +3348,7 @@ class T_readFromWriter_asInterface {
     }
     @:keep
     static public function write( _w:stdgo.StdGoTypes.Ref<T_readFromWriter>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _w:stdgo.StdGoTypes.Ref<T_readFromWriter> = _w;
         _w._buf = (_w._buf.__append__(..._p.__toArray__()));
         _w._writeBytes = _w._writeBytes + ((_p.length));
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
@@ -3382,6 +3398,7 @@ class T_eofReader_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_eofReader_asInterface) class T_eofReader_static_extension {
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<T_eofReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_eofReader> = _r;
         var _read:stdgo.StdGoTypes.GoInt = stdgo.Go.copySlice(_p, _r._buf);
         _r._buf = (_r._buf.__slice__(_read) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         {
@@ -3409,11 +3426,13 @@ class T_writerWithReadFromError_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_writerWithReadFromError_asInterface) class T_writerWithReadFromError_static_extension {
     @:keep
     static public function write( _w:T_writerWithReadFromError, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _w:T_writerWithReadFromError = _w?.__copy__();
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return { _0 : (10 : stdgo.StdGoTypes.GoInt), _1 : (null : stdgo.Error) };
     }
     @:keep
     static public function readFrom( _w:T_writerWithReadFromError, _r:stdgo.io.Io.Reader):{ var _0 : stdgo.StdGoTypes.GoInt64; var _1 : stdgo.Error; } {
+        @:recv var _w:T_writerWithReadFromError = _w?.__copy__();
         return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("writerWithReadFromError error" : stdgo.GoString)) };
     }
 }
@@ -3431,6 +3450,7 @@ class T_writeErrorOnlyWriter_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_writeErrorOnlyWriter_asInterface) class T_writeErrorOnlyWriter_static_extension {
     @:keep
     static public function write( _w:T_writeErrorOnlyWriter, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _w:T_writeErrorOnlyWriter = _w?.__copy__();
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.errors.Errors.new_(("writeErrorOnlyWriter error" : stdgo.GoString)) };
     }
@@ -3449,6 +3469,7 @@ class T_slowReader_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_slowReader_asInterface) class T_slowReader_static_extension {
     @:keep
     static public function read( _sr:stdgo.StdGoTypes.Ref<T_slowReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _sr:stdgo.StdGoTypes.Ref<T_slowReader> = _sr;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if ((_p.length) > _sr._max) {
             _p = (_p.__slice__((0 : stdgo.StdGoTypes.GoInt), _sr._max) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
@@ -3470,6 +3491,7 @@ class T_alwaysError_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_alwaysError_asInterface) class T_alwaysError_static_extension {
     @:keep
     static public function read( _:T_alwaysError, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _:T_alwaysError = _?.__copy__();
         return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.io.Io.errUnexpectedEOF };
     }
 }
@@ -3487,6 +3509,7 @@ class T_endlessZeros_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_endlessZeros_asInterface) class T_endlessZeros_static_extension {
     @:keep
     static public function read( _:T_endlessZeros, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _:T_endlessZeros = _?.__copy__();
         return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : (null : stdgo.Error) };
     }
 }
@@ -3504,6 +3527,7 @@ class T_largeReader_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_largeReader_asInterface) class T_largeReader_static_extension {
     @:keep
     static public function read( _:T_largeReader, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _:T_largeReader = _?.__copy__();
         return { _0 : (_p.length) + (1 : stdgo.StdGoTypes.GoInt), _1 : (null : stdgo.Error) };
     }
 }
@@ -3521,6 +3545,7 @@ class T_dataAndEOFReader_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_dataAndEOFReader_asInterface) class T_dataAndEOFReader_static_extension {
     @:keep
     static public function read( _r:T_dataAndEOFReader, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:T_dataAndEOFReader = _r;
         return { _0 : stdgo.Go.copySlice(_p, _r), _1 : stdgo.io.Io.eof };
     }
 }
@@ -3577,6 +3602,7 @@ class T_scriptedReader_asInterface {
 @:keep @:allow(stdgo.bufio_test.Bufio_test.T_scriptedReader_asInterface) class T_scriptedReader_static_extension {
     @:keep
     static public function read( _sr:stdgo.StdGoTypes.Ref<T_scriptedReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _sr:stdgo.StdGoTypes.Ref<T_scriptedReader> = _sr;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (((_sr : stdgo.bufio_test.Bufio_test.T_scriptedReader).length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             throw stdgo.Go.toInterface(("too many Read calls on scripted Reader. No steps remain." : stdgo.GoString));

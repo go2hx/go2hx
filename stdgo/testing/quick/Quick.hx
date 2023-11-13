@@ -918,6 +918,7 @@ class Config_asInterface {
     **/
     @:keep
     static public function _getMaxCount( _c:stdgo.StdGoTypes.Ref<Config>):stdgo.StdGoTypes.GoInt {
+        @:recv var _c:stdgo.StdGoTypes.Ref<Config> = _c;
         var _maxCount:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         _maxCount = _c.maxCount;
         if (_maxCount == ((0 : stdgo.StdGoTypes.GoInt))) {
@@ -934,6 +935,7 @@ class Config_asInterface {
     **/
     @:keep
     static public function _getRand( _c:stdgo.StdGoTypes.Ref<Config>):stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand> {
+        @:recv var _c:stdgo.StdGoTypes.Ref<Config> = _c;
         if (_c.rand == null || (_c.rand : Dynamic).__nil__) {
             return stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(stdgo.time.Time.now().unixNano()));
         };
@@ -954,6 +956,7 @@ class CheckError_asInterface {
 @:keep @:allow(stdgo.testing.quick.Quick.CheckError_asInterface) class CheckError_static_extension {
     @:keep
     static public function error( _s:stdgo.StdGoTypes.Ref<CheckError>):stdgo.GoString {
+        @:recv var _s:stdgo.StdGoTypes.Ref<CheckError> = _s;
         return stdgo.fmt.Fmt.sprintf(("#%d: failed on input %s" : stdgo.GoString), stdgo.Go.toInterface(_s.count), stdgo.Go.toInterface(_toString(_s.in_)));
     }
 }
@@ -971,6 +974,7 @@ class CheckEqualError_asInterface {
 @:keep @:allow(stdgo.testing.quick.Quick.CheckEqualError_asInterface) class CheckEqualError_static_extension {
     @:keep
     static public function error( _s:stdgo.StdGoTypes.Ref<CheckEqualError>):stdgo.GoString {
+        @:recv var _s:stdgo.StdGoTypes.Ref<CheckEqualError> = _s;
         return stdgo.fmt.Fmt.sprintf(("#%d: failed on input %s. Output 1: %s. Output 2: %s" : stdgo.GoString), stdgo.Go.toInterface(_s.checkError.count), stdgo.Go.toInterface(_toString(_s.checkError.in_)), stdgo.Go.toInterface(_toString(_s.out1)), stdgo.Go.toInterface(_toString(_s.out2)));
     }
 }
@@ -988,6 +992,7 @@ class T_myStruct_asInterface {
 @:keep @:allow(stdgo.testing.quick.Quick.T_myStruct_asInterface) class T_myStruct_static_extension {
     @:keep
     static public function generate( _m:T_myStruct, _r:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, __0:stdgo.StdGoTypes.GoInt):stdgo.reflect.Reflect.Value {
+        @:recv var _m:T_myStruct = _m?.__copy__();
         return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface(({ _x : (42 : stdgo.StdGoTypes.GoInt) } : T_myStruct))))?.__copy__();
     }
 }
@@ -1005,6 +1010,7 @@ class SetupError_asInterface {
 @:keep @:allow(stdgo.testing.quick.Quick.SetupError_asInterface) class SetupError_static_extension {
     @:keep
     static public function error( _s:SetupError):stdgo.GoString {
+        @:recv var _s:SetupError = _s;
         return (_s : stdgo.GoString);
     }
 }

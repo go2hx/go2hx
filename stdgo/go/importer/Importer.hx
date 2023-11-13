@@ -197,6 +197,7 @@ class T_gcimports_asInterface {
 @:keep @:allow(stdgo.go.importer.Importer.T_gcimports_asInterface) class T_gcimports_static_extension {
     @:keep
     static public function importFrom( _m:stdgo.StdGoTypes.Ref<T_gcimports>, _path:stdgo.GoString, _srcDir:stdgo.GoString, _mode:stdgo.go.types.Types.ImportMode):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>; var _1 : stdgo.Error; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<T_gcimports> = _m;
         if (_mode != ((0 : stdgo.go.types.Types.ImportMode))) {
             throw stdgo.Go.toInterface(("mode must be 0" : stdgo.GoString));
         };
@@ -204,6 +205,7 @@ class T_gcimports_asInterface {
     }
     @:keep
     static public function import_( _m:stdgo.StdGoTypes.Ref<T_gcimports>, _path:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>; var _1 : stdgo.Error; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<T_gcimports> = _m;
         return _m.importFrom(_path, stdgo.Go.str(), (0 : stdgo.go.types.Types.ImportMode));
     }
 }
@@ -223,6 +225,7 @@ class T_gccgoimports_asInterface {
 @:keep @:allow(stdgo.go.importer.Importer.T_gccgoimports_asInterface) class T_gccgoimports_static_extension {
     @:keep
     static public function importFrom( _m:stdgo.StdGoTypes.Ref<T_gccgoimports>, _path:stdgo.GoString, _srcDir:stdgo.GoString, _mode:stdgo.go.types.Types.ImportMode):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>; var _1 : stdgo.Error; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<T_gccgoimports> = _m;
         if (_mode != ((0 : stdgo.go.types.Types.ImportMode))) {
             throw stdgo.Go.toInterface(("mode must be 0" : stdgo.GoString));
         };
@@ -230,6 +233,7 @@ class T_gccgoimports_asInterface {
     }
     @:keep
     static public function import_( _m:stdgo.StdGoTypes.Ref<T_gccgoimports>, _path:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>; var _1 : stdgo.Error; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<T_gccgoimports> = _m;
         return _m.importFrom(_path, stdgo.Go.str(), (0 : stdgo.go.types.Types.ImportMode));
     }
 }

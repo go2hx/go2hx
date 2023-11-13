@@ -5246,6 +5246,7 @@ class T_negativeReader_asInterface {
 @:keep @:allow(stdgo.bytes_test.Bytes_test.T_negativeReader_asInterface) class T_negativeReader_static_extension {
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<T_negativeReader>, _0:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_negativeReader> = _r;
         return { _0 : (-1 : stdgo.StdGoTypes.GoInt), _1 : (null : stdgo.Error) };
     }
 }
@@ -5263,6 +5264,7 @@ class T_panicReader_asInterface {
 @:keep @:allow(stdgo.bytes_test.Bytes_test.T_panicReader_asInterface) class T_panicReader_static_extension {
     @:keep
     static public function read( _r:T_panicReader, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:T_panicReader = _r?.__copy__();
         if (_r._panic) {
             throw stdgo.Go.toInterface(("oops" : stdgo.GoString));
         };

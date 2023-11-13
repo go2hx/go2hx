@@ -245,6 +245,7 @@ class SortedMap_asInterface {
 @:keep @:allow(stdgo.internal.fmtsort.Fmtsort.SortedMap_asInterface) class SortedMap_static_extension {
     @:keep
     static public function swap( _o:stdgo.StdGoTypes.Ref<SortedMap>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _o:stdgo.StdGoTypes.Ref<SortedMap> = _o;
         {
             final __tmp__0 = _o.key[(_j : stdgo.StdGoTypes.GoInt)];
             final __tmp__1 = _o.key[(_i : stdgo.StdGoTypes.GoInt)];
@@ -260,10 +261,12 @@ class SortedMap_asInterface {
     }
     @:keep
     static public function less( _o:stdgo.StdGoTypes.Ref<SortedMap>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _o:stdgo.StdGoTypes.Ref<SortedMap> = _o;
         return _compare(_o.key[(_i : stdgo.StdGoTypes.GoInt)], _o.key[(_j : stdgo.StdGoTypes.GoInt)]) < (0 : stdgo.StdGoTypes.GoInt);
     }
     @:keep
     static public function len( _o:stdgo.StdGoTypes.Ref<SortedMap>):stdgo.StdGoTypes.GoInt {
+        @:recv var _o:stdgo.StdGoTypes.Ref<SortedMap> = _o;
         return (_o.key.length);
     }
 }

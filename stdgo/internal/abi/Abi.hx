@@ -1745,6 +1745,7 @@ class RegArgs_asInterface {
     **/
     @:keep
     static public function intRegArgAddr( _r:stdgo.StdGoTypes.Ref<RegArgs>, _reg:stdgo.StdGoTypes.GoInt, _argSize:stdgo.StdGoTypes.GoUIntptr):stdgo.unsafe.Unsafe.UnsafePointer {
+        @:recv var _r:stdgo.StdGoTypes.Ref<RegArgs> = _r;
         if (((_argSize > (4 : stdgo.StdGoTypes.GoUIntptr)) || (_argSize == (0 : stdgo.StdGoTypes.GoUIntptr))) || ((_argSize & (_argSize - (1 : stdgo.StdGoTypes.GoUIntptr))) != (0 : stdgo.StdGoTypes.GoUIntptr))) {
             throw stdgo.Go.toInterface(("invalid argSize" : stdgo.GoString));
         };
@@ -1756,6 +1757,7 @@ class RegArgs_asInterface {
     }
     @:keep
     static public function dump( _r:stdgo.StdGoTypes.Ref<RegArgs>):Void {
+        @:recv var _r:stdgo.StdGoTypes.Ref<RegArgs> = _r;
         trace(("Ints:" : stdgo.GoString));
         for (__0 => _x in _r.ints) {
             trace((" " : stdgo.GoString), _x);
@@ -1846,6 +1848,7 @@ class Offset_asInterface {
 @:keep @:allow(stdgo.internal.abi.Abi.Offset_asInterface) class Offset_static_extension {
     @:keep
     static public function plusUncommon( _o:Offset):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         _o._off = _o._off + (uncommonSize());
         return _o?.__copy__();
     }
@@ -1855,6 +1858,7 @@ class Offset_asInterface {
     **/
     @:keep
     static public function offset( _o:Offset):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _o:Offset = _o?.__copy__();
         return _o.align(_o._align)._off;
     }
     /**
@@ -1862,6 +1866,7 @@ class Offset_asInterface {
     **/
     @:keep
     static public function interface_( _o:Offset):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         _o = _o._align_(_o._sliceAlign)?.__copy__();
         _o._off = _o._off + ((2i64 : stdgo.StdGoTypes.GoUInt64) * (_o._ptrSize : stdgo.StdGoTypes.GoUInt64));
         return _o?.__copy__();
@@ -1871,6 +1876,7 @@ class Offset_asInterface {
     **/
     @:keep
     static public function string( _o:Offset):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         _o = _o._align_(_o._sliceAlign)?.__copy__();
         _o._off = _o._off + ((2i64 : stdgo.StdGoTypes.GoUInt64) * (_o._ptrSize : stdgo.StdGoTypes.GoUInt64));
         return _o?.__copy__();
@@ -1880,6 +1886,7 @@ class Offset_asInterface {
     **/
     @:keep
     static public function slice( _o:Offset):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         _o = _o._align_(_o._sliceAlign)?.__copy__();
         _o._off = _o._off + ((3i64 : stdgo.StdGoTypes.GoUInt64) * (_o._ptrSize : stdgo.StdGoTypes.GoUInt64));
         return _o.align(_o._sliceAlign)?.__copy__();
@@ -1889,6 +1896,7 @@ class Offset_asInterface {
     **/
     @:keep
     static public function p( _o:Offset):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         if (_o._ptrSize == ((0 : stdgo.StdGoTypes.GoUInt8))) {
             throw stdgo.Go.toInterface(("This offset has no defined pointer size" : stdgo.GoString));
         };
@@ -1899,6 +1907,7 @@ class Offset_asInterface {
     **/
     @:keep
     static public function d64( _o:Offset):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         return _o._plus((8i64 : stdgo.StdGoTypes.GoUInt64))?.__copy__();
     }
     /**
@@ -1906,6 +1915,7 @@ class Offset_asInterface {
     **/
     @:keep
     static public function d32( _o:Offset):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         return _o._plus((4i64 : stdgo.StdGoTypes.GoUInt64))?.__copy__();
     }
     /**
@@ -1913,6 +1923,7 @@ class Offset_asInterface {
     **/
     @:keep
     static public function d16( _o:Offset):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         return _o._plus((2i64 : stdgo.StdGoTypes.GoUInt64))?.__copy__();
     }
     /**
@@ -1920,6 +1931,7 @@ class Offset_asInterface {
     **/
     @:keep
     static public function d8( _o:Offset):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         return _o._plus((1i64 : stdgo.StdGoTypes.GoUInt64))?.__copy__();
     }
     /**
@@ -1927,6 +1939,7 @@ class Offset_asInterface {
     **/
     @:keep
     static public function _plus( _o:Offset, _x:stdgo.StdGoTypes.GoUInt64):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         _o = _o._align_((_x : stdgo.StdGoTypes.GoUInt8))?.__copy__();
         _o._off = _o._off + (_x);
         return _o?.__copy__();
@@ -1937,11 +1950,13 @@ class Offset_asInterface {
     **/
     @:keep
     static public function align( _o:Offset, _a:stdgo.StdGoTypes.GoUInt8):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         _assertIsAPowerOfTwo(_a);
         return _o._align_(_a)?.__copy__();
     }
     @:keep
     static public function _align_( _o:Offset, _a:stdgo.StdGoTypes.GoUInt8):Offset {
+        @:recv var _o:Offset = _o?.__copy__();
         _o._off = ((_o._off + (_a : stdgo.StdGoTypes.GoUInt64)) - (1i64 : stdgo.StdGoTypes.GoUInt64)) & (-1 ^ ((_a : stdgo.StdGoTypes.GoUInt64) - (1i64 : stdgo.StdGoTypes.GoUInt64)));
         if (_o._align < _a) {
             _o._align = _a;
@@ -2044,6 +2059,7 @@ class Type_asInterface {
 @:keep @:allow(stdgo.internal.abi.Abi.Type_asInterface) class Type_static_extension {
     @:keep
     static public function key( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<Type> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         if (_t.kind() == ((21u32 : stdgo.internal.abi.Abi.Kind))) {
             return ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.MapType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
@@ -2095,6 +2111,7 @@ class Type_asInterface {
     }
     @:keep
     static public function numMethod( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         if (_t.kind() == ((20u32 : stdgo.internal.abi.Abi.Kind))) {
             var _tt = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.InterfaceType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
@@ -2114,6 +2131,7 @@ class Type_asInterface {
     }
     @:keep
     static public function exportedMethods( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.Slice<Method> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         var _ut = _t.uncommon();
         if (_ut == null || (_ut : Dynamic).__nil__) {
             return (null : stdgo.Slice<stdgo.internal.abi.Abi.Method>);
@@ -2122,6 +2140,7 @@ class Type_asInterface {
     }
     @:keep
     static public function fieldAlign( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         return (_t.fieldAlign_ : stdgo.StdGoTypes.GoInt);
     }
     /**
@@ -2129,6 +2148,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function align( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         return (_t.align_ : stdgo.StdGoTypes.GoInt);
     }
     /**
@@ -2136,6 +2156,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function size( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.GoUIntptr {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         return _t.size_;
     }
     /**
@@ -2143,6 +2164,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function interfaceType( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<InterfaceType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         if (_t.kind() != ((20u32 : stdgo.internal.abi.Abi.Kind))) {
             return null;
         };
@@ -2164,6 +2186,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function funcType( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<FuncType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         if (_t.kind() != ((19u32 : stdgo.internal.abi.Abi.Kind))) {
             return null;
         };
@@ -2185,6 +2208,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function arrayType( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<ArrayType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         if (_t.kind() != ((17u32 : stdgo.internal.abi.Abi.Kind))) {
             return null;
         };
@@ -2228,6 +2252,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function mapType( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<MapType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         if (_t.kind() != ((21u32 : stdgo.internal.abi.Abi.Kind))) {
             return null;
         };
@@ -2282,6 +2307,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function structType( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<StructType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         if (_t.kind() != ((25u32 : stdgo.internal.abi.Abi.Kind))) {
             return null;
         };
@@ -2314,6 +2340,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function elem( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<Type> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         {
             final __value__ = _t.kind();
             if (__value__ == ((17u32 : stdgo.internal.abi.Abi.Kind))) {
@@ -2483,6 +2510,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function uncommon( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<UncommonType> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         if (_t.tflag & (1 : stdgo.internal.abi.Abi.TFlag) == ((0 : stdgo.internal.abi.Abi.TFlag))) {
             return null;
         };
@@ -2720,6 +2748,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function chanDir( _t:stdgo.StdGoTypes.Ref<Type>):ChanDir {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         if (_t.kind() == ((18u32 : stdgo.internal.abi.Abi.Kind))) {
             var _ch = ((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ChanType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
@@ -2750,6 +2779,7 @@ class Type_asInterface {
     }
     @:keep
     static public function common( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.Ref<Type> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         return _t;
     }
     /**
@@ -2757,6 +2787,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function len( _t:stdgo.StdGoTypes.Ref<Type>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         if (_t.kind() == ((17u32 : stdgo.internal.abi.Abi.Kind))) {
             return (((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.ArrayType", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "type", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
@@ -2797,6 +2828,7 @@ class Type_asInterface {
     }
     @:keep
     static public function gcSlice( _t:stdgo.StdGoTypes.Ref<Type>, _begin:stdgo.StdGoTypes.GoUIntptr, _end:stdgo.StdGoTypes.GoUIntptr):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         return (_unsafeSliceFor(_t.gcdata, (_end : stdgo.StdGoTypes.GoInt)).__slice__(_begin) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
     }
     /**
@@ -2804,6 +2836,7 @@ class Type_asInterface {
     **/
     @:keep
     static public function isDirectIface( _t:stdgo.StdGoTypes.Ref<Type>):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         return _t.kind_ & (32 : stdgo.StdGoTypes.GoUInt8) != ((0 : stdgo.StdGoTypes.GoUInt8));
     }
     /**
@@ -2811,18 +2844,22 @@ class Type_asInterface {
     **/
     @:keep
     static public function ifaceIndir( _t:stdgo.StdGoTypes.Ref<Type>):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         return _t.kind_ & (32 : stdgo.StdGoTypes.GoUInt8) == ((0 : stdgo.StdGoTypes.GoUInt8));
     }
     @:keep
     static public function pointers( _t:stdgo.StdGoTypes.Ref<Type>):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         return _t.ptrBytes != ((0 : stdgo.StdGoTypes.GoUIntptr));
     }
     @:keep
     static public function hasName( _t:stdgo.StdGoTypes.Ref<Type>):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         return _t.tflag & (4 : stdgo.internal.abi.Abi.TFlag) != ((0 : stdgo.internal.abi.Abi.TFlag));
     }
     @:keep
     static public function kind( _t:stdgo.StdGoTypes.Ref<Type>):Kind {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Type> = _t;
         return (_t.kind_ & (31 : stdgo.StdGoTypes.GoUInt8) : Kind);
     }
 }
@@ -3340,6 +3377,7 @@ class UncommonType_asInterface {
 @:keep @:allow(stdgo.internal.abi.Abi.UncommonType_asInterface) class UncommonType_static_extension {
     @:keep
     static public function exportedMethods( _t:stdgo.StdGoTypes.Ref<UncommonType>):stdgo.Slice<Method> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<UncommonType> = _t;
         if (_t.xcount == ((0 : stdgo.StdGoTypes.GoUInt16))) {
             return (null : stdgo.Slice<stdgo.internal.abi.Abi.Method>);
         };
@@ -3347,6 +3385,7 @@ class UncommonType_asInterface {
     }
     @:keep
     static public function methods( _t:stdgo.StdGoTypes.Ref<UncommonType>):stdgo.Slice<Method> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<UncommonType> = _t;
         if (_t.mcount == ((0 : stdgo.StdGoTypes.GoUInt16))) {
             return (null : stdgo.Slice<stdgo.internal.abi.Abi.Method>);
         };
@@ -3696,6 +3735,7 @@ class InterfaceType_asInterface {
     **/
     @:keep
     static public function numMethod( _t:stdgo.StdGoTypes.Ref<InterfaceType>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<InterfaceType> = _t;
         return (_t.methods.length);
     }
     @:embedded
@@ -3807,18 +3847,22 @@ class MapType_asInterface {
 @:keep @:allow(stdgo.internal.abi.Abi.MapType_asInterface) class MapType_static_extension {
     @:keep
     static public function hashMightPanic( _mt:stdgo.StdGoTypes.Ref<MapType>):Bool {
+        @:recv var _mt:stdgo.StdGoTypes.Ref<MapType> = _mt;
         return _mt.flags & (16u32 : stdgo.StdGoTypes.GoUInt32) != ((0u32 : stdgo.StdGoTypes.GoUInt32));
     }
     @:keep
     static public function needKeyUpdate( _mt:stdgo.StdGoTypes.Ref<MapType>):Bool {
+        @:recv var _mt:stdgo.StdGoTypes.Ref<MapType> = _mt;
         return _mt.flags & (8u32 : stdgo.StdGoTypes.GoUInt32) != ((0u32 : stdgo.StdGoTypes.GoUInt32));
     }
     @:keep
     static public function reflexiveKey( _mt:stdgo.StdGoTypes.Ref<MapType>):Bool {
+        @:recv var _mt:stdgo.StdGoTypes.Ref<MapType> = _mt;
         return _mt.flags & (4u32 : stdgo.StdGoTypes.GoUInt32) != ((0u32 : stdgo.StdGoTypes.GoUInt32));
     }
     @:keep
     static public function indirectElem( _mt:stdgo.StdGoTypes.Ref<MapType>):Bool {
+        @:recv var _mt:stdgo.StdGoTypes.Ref<MapType> = _mt;
         return _mt.flags & (2u32 : stdgo.StdGoTypes.GoUInt32) != ((0u32 : stdgo.StdGoTypes.GoUInt32));
     }
     /**
@@ -3827,6 +3871,7 @@ class MapType_asInterface {
     **/
     @:keep
     static public function indirectKey( _mt:stdgo.StdGoTypes.Ref<MapType>):Bool {
+        @:recv var _mt:stdgo.StdGoTypes.Ref<MapType> = _mt;
         return _mt.flags & (1u32 : stdgo.StdGoTypes.GoUInt32) != ((0u32 : stdgo.StdGoTypes.GoUInt32));
     }
     @:embedded
@@ -4035,10 +4080,12 @@ class FuncType_asInterface {
 @:keep @:allow(stdgo.internal.abi.Abi.FuncType_asInterface) class FuncType_static_extension {
     @:keep
     static public function isVariadic( _t:stdgo.StdGoTypes.Ref<FuncType>):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<FuncType> = _t;
         return _t.outCount & (32768 : stdgo.StdGoTypes.GoUInt16) != ((0 : stdgo.StdGoTypes.GoUInt16));
     }
     @:keep
     static public function outSlice( _t:stdgo.StdGoTypes.Ref<FuncType>):stdgo.Slice<stdgo.StdGoTypes.Ref<Type>> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<FuncType> = _t;
         var _outCount:stdgo.StdGoTypes.GoUInt16 = (_t.numOut() : stdgo.StdGoTypes.GoUInt16);
         if (_outCount == ((0 : stdgo.StdGoTypes.GoUInt16))) {
             return (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>>);
@@ -4062,6 +4109,7 @@ class FuncType_asInterface {
     }
     @:keep
     static public function inSlice( _t:stdgo.StdGoTypes.Ref<FuncType>):stdgo.Slice<stdgo.StdGoTypes.Ref<Type>> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<FuncType> = _t;
         var _uadd:stdgo.StdGoTypes.GoUIntptr = stdgo.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((_t : stdgo.internal.abi.Abi.FuncType)));
         if (_t.type.tflag & (1 : stdgo.internal.abi.Abi.TFlag) != ((0 : stdgo.internal.abi.Abi.TFlag))) {
             _uadd = _uadd + (stdgo.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new UncommonType() : UncommonType))));
@@ -4084,18 +4132,22 @@ class FuncType_asInterface {
     }
     @:keep
     static public function out( _t:stdgo.StdGoTypes.Ref<FuncType>, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Type> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<FuncType> = _t;
         return (_t.outSlice()[(_i : stdgo.StdGoTypes.GoInt)]);
     }
     @:keep
     static public function numOut( _t:stdgo.StdGoTypes.Ref<FuncType>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<FuncType> = _t;
         return (_t.outCount & (32767 : stdgo.StdGoTypes.GoUInt16) : stdgo.StdGoTypes.GoInt);
     }
     @:keep
     static public function numIn( _t:stdgo.StdGoTypes.Ref<FuncType>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<FuncType> = _t;
         return (_t.inCount : stdgo.StdGoTypes.GoInt);
     }
     @:keep
     static public function in_( _t:stdgo.StdGoTypes.Ref<FuncType>, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<Type> {
+        @:recv var _t:stdgo.StdGoTypes.Ref<FuncType> = _t;
         return _t.inSlice()[(_i : stdgo.StdGoTypes.GoInt)];
     }
     @:embedded
@@ -4252,6 +4304,7 @@ class StructField_asInterface {
 @:keep @:allow(stdgo.internal.abi.Abi.StructField_asInterface) class StructField_static_extension {
     @:keep
     static public function embedded( _f:stdgo.StdGoTypes.Ref<StructField>):Bool {
+        @:recv var _f:stdgo.StdGoTypes.Ref<StructField> = _f;
         return _f.name.isEmbedded();
     }
 }
@@ -4417,6 +4470,7 @@ class Name_asInterface {
     **/
     @:keep
     static public function tag( _n:Name):stdgo.GoString {
+        @:recv var _n:Name = _n?.__copy__();
         if (!_n.hasTag()) {
             return stdgo.Go.str();
         };
@@ -4429,6 +4483,7 @@ class Name_asInterface {
     **/
     @:keep
     static public function name( _n:Name):stdgo.GoString {
+        @:recv var _n:Name = _n?.__copy__();
         if (_n.bytes == null) {
             return stdgo.Go.str();
         };
@@ -4440,6 +4495,7 @@ class Name_asInterface {
     **/
     @:keep
     static public function isBlank( _n:Name):Bool {
+        @:recv var _n:Name = _n?.__copy__();
         if (_n.bytes == null) {
             return false;
         };
@@ -4452,6 +4508,7 @@ class Name_asInterface {
     **/
     @:keep
     static public function readVarint( _n:Name, _off:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; } {
+        @:recv var _n:Name = _n?.__copy__();
         var _v:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -4469,6 +4526,7 @@ class Name_asInterface {
     **/
     @:keep
     static public function isEmbedded( _n:Name):Bool {
+        @:recv var _n:Name = _n?.__copy__();
         return (_n.bytes.value) & (8 : stdgo.StdGoTypes.GoUInt8) != ((0 : stdgo.StdGoTypes.GoUInt8));
     }
     /**
@@ -4476,6 +4534,7 @@ class Name_asInterface {
     **/
     @:keep
     static public function hasTag( _n:Name):Bool {
+        @:recv var _n:Name = _n?.__copy__();
         return (_n.bytes.value) & (2 : stdgo.StdGoTypes.GoUInt8) != ((0 : stdgo.StdGoTypes.GoUInt8));
     }
     /**
@@ -4483,6 +4542,7 @@ class Name_asInterface {
     **/
     @:keep
     static public function isExported( _n:Name):Bool {
+        @:recv var _n:Name = _n?.__copy__();
         return (_n.bytes.value) & (1 : stdgo.StdGoTypes.GoUInt8) != ((0 : stdgo.StdGoTypes.GoUInt8));
     }
     /**
@@ -4491,6 +4551,7 @@ class Name_asInterface {
     **/
     @:keep
     static public function data( _n:Name, _off:stdgo.StdGoTypes.GoInt):stdgo.Pointer<stdgo.StdGoTypes.GoByte> {
+        @:recv var _n:Name = _n?.__copy__();
         return (_addChecked((stdgo.Go.toInterface(_n.bytes) : stdgo.unsafe.Unsafe.UnsafePointer), (_off : stdgo.StdGoTypes.GoUIntptr), ("the runtime doesn\'t need to give you a reason" : stdgo.GoString)).__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.StdGoTypes.GoByte>);
     }
     /**
@@ -4499,6 +4560,7 @@ class Name_asInterface {
     **/
     @:keep
     static public function dataChecked( _n:Name, _off:stdgo.StdGoTypes.GoInt, _whySafe:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoByte> {
+        @:recv var _n:Name = _n?.__copy__();
         return (_addChecked((stdgo.Go.toInterface(_n.bytes) : stdgo.unsafe.Unsafe.UnsafePointer), (_off : stdgo.StdGoTypes.GoUIntptr), _whySafe).__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.StdGoTypes.GoByte>);
     }
 }
@@ -4537,6 +4599,7 @@ class IntArgRegBitmap_asInterface {
     **/
     @:keep
     static public function get( _b:stdgo.StdGoTypes.Ref<IntArgRegBitmap>, _i:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _b:stdgo.StdGoTypes.Ref<IntArgRegBitmap> = _b;
         return _b[(_i / (8 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] & (((1 : stdgo.StdGoTypes.GoUInt8) : stdgo.StdGoTypes.GoUInt8) << (_i % (8 : stdgo.StdGoTypes.GoInt))) != ((0 : stdgo.StdGoTypes.GoUInt8));
     }
     /**
@@ -4544,6 +4607,7 @@ class IntArgRegBitmap_asInterface {
     **/
     @:keep
     static public function set( _b:stdgo.StdGoTypes.Ref<IntArgRegBitmap>, _i:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _b:stdgo.StdGoTypes.Ref<IntArgRegBitmap> = _b;
         _b[(_i / (8 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] = _b[(_i / (8 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] | (((1 : stdgo.StdGoTypes.GoUInt8) : stdgo.StdGoTypes.GoUInt8) << (_i % (8 : stdgo.StdGoTypes.GoInt)));
     }
 }
@@ -4567,6 +4631,7 @@ class Kind_asInterface {
     **/
     @:keep
     static public function string( _k:Kind):stdgo.GoString {
+        @:recv var _k:Kind = _k;
         if ((_k : stdgo.StdGoTypes.GoInt) < (_kindNames.length)) {
             return _kindNames[(_k : stdgo.StdGoTypes.GoInt)];
         };

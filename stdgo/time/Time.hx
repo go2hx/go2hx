@@ -6338,6 +6338,7 @@ class ParseError_asInterface {
     **/
     @:keep
     static public function error( _e:stdgo.StdGoTypes.Ref<ParseError>):stdgo.GoString {
+        @:recv var _e:stdgo.StdGoTypes.Ref<ParseError> = _e;
         if (_e.message == (stdgo.Go.str())) {
             return ((((((("parsing time " : stdgo.GoString) + _quote(_e.value)) + (" as " : stdgo.GoString)) + _quote(_e.layout)) + (": cannot parse " : stdgo.GoString)) + _quote(_e.valueElem)) + (" as " : stdgo.GoString)) + _quote(_e.layoutElem);
         };
@@ -6456,6 +6457,7 @@ class Timer_asInterface {
     **/
     @:keep
     static public function reset( _t:stdgo.StdGoTypes.Ref<Timer>, _d:Duration):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Timer> = _t;
         if (_t._r._f == null) {
             throw stdgo.Go.toInterface(("time: Reset called on uninitialized Timer" : stdgo.GoString));
         };
@@ -6488,6 +6490,7 @@ class Timer_asInterface {
     **/
     @:keep
     static public function stop( _t:stdgo.StdGoTypes.Ref<Timer>):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Timer> = _t;
         if (_t._r._f == null) {
             throw stdgo.Go.toInterface(("time: Stop called on uninitialized Timer" : stdgo.GoString));
         };
@@ -6525,6 +6528,7 @@ class Ticker_asInterface {
     **/
     @:keep
     static public function reset( _t:stdgo.StdGoTypes.Ref<Ticker>, _d:Duration):Void {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Ticker> = _t;
         if (_d <= (0i64 : stdgo.time.Time.Duration)) {
             throw stdgo.Go.toInterface(("non-positive interval for Ticker.Reset" : stdgo.GoString));
         };
@@ -6540,6 +6544,7 @@ class Ticker_asInterface {
     **/
     @:keep
     static public function stop( _t:stdgo.StdGoTypes.Ref<Ticker>):Void {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Ticker> = _t;
         _stopTimer((stdgo.Go.setRef(_t._r) : stdgo.StdGoTypes.Ref<stdgo.time.Time.T_runtimeTimer>));
     }
 }
@@ -6947,6 +6952,7 @@ class Time_asInterface {
     **/
     @:keep
     static public function round( _t:Time, _d:Duration):Time {
+        @:recv var _t:Time = _t?.__copy__();
         _t._stripMono();
         if (_d <= (0i64 : stdgo.time.Time.Duration)) {
             return _t?.__copy__();
@@ -6968,6 +6974,7 @@ class Time_asInterface {
     **/
     @:keep
     static public function truncate( _t:Time, _d:Duration):Time {
+        @:recv var _t:Time = _t?.__copy__();
         _t._stripMono();
         if (_d <= (0i64 : stdgo.time.Time.Duration)) {
             return _t?.__copy__();
@@ -6980,6 +6987,7 @@ class Time_asInterface {
     **/
     @:keep
     static public function isDST( _t:Time):Bool {
+        @:recv var _t:Time = _t?.__copy__();
         var __tmp__ = _t._loc._lookup(_t.unix()), __0:stdgo.GoString = __tmp__._0, __1:stdgo.StdGoTypes.GoInt = __tmp__._1, __2:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __3:stdgo.StdGoTypes.GoInt64 = __tmp__._3, _isDST:Bool = __tmp__._4;
         return _isDST;
     }
@@ -6989,6 +6997,7 @@ class Time_asInterface {
     **/
     @:keep
     static public function unmarshalText( _t:stdgo.StdGoTypes.Ref<Time>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = _parseStrictRFC3339(_data);
@@ -7005,6 +7014,7 @@ class Time_asInterface {
     **/
     @:keep
     static public function marshalText( _t:Time):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
+        @:recv var _t:Time = _t?.__copy__();
         var _b = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (("2006-01-02T15:04:05.999999999Z07:00" : stdgo.GoString).length)).__setNumber32__();
         var __tmp__ = _t._appendStrictRFC3339(_b), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -7018,6 +7028,7 @@ class Time_asInterface {
     **/
     @:keep
     static public function unmarshalJSON( _t:stdgo.StdGoTypes.Ref<Time>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         if ((_data : stdgo.GoString) == (("null" : stdgo.GoString))) {
             return (null : stdgo.Error);
         };
@@ -7041,6 +7052,7 @@ class Time_asInterface {
     **/
     @:keep
     static public function marshalJSON( _t:Time):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
+        @:recv var _t:Time = _t?.__copy__();
         var _b = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (37 : stdgo.StdGoTypes.GoInt)).__setNumber32__();
         _b = (_b.__append__((34 : stdgo.StdGoTypes.GoUInt8)));
         var __tmp__ = _t._appendStrictRFC3339(_b), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -7055,6 +7067,7 @@ class Time_asInterface {
     **/
     @:keep
     static public function gobDecode( _t:stdgo.StdGoTypes.Ref<Time>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         return _t.unmarshalBinary(_data);
     }
     /**
@@ -7062,6 +7075,7 @@ class Time_asInterface {
     **/
     @:keep
     static public function gobEncode( _t:Time):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
+        @:recv var _t:Time = _t?.__copy__();
         return _t.marshalBinary();
     }
     /**
@@ -7069,6 +7083,7 @@ class Time_asInterface {
     **/
     @:keep
     static public function unmarshalBinary( _t:stdgo.StdGoTypes.Ref<Time>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         var _buf = _data;
         if ((_buf.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             return stdgo.errors.Errors.new_(("Time.UnmarshalBinary: no data" : stdgo.GoString));
@@ -7118,6 +7133,7 @@ class Time_asInterface {
     **/
     @:keep
     static public function marshalBinary( _t:Time):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
+        @:recv var _t:Time = _t?.__copy__();
         var _offsetMin:stdgo.StdGoTypes.GoInt16 = (0 : stdgo.StdGoTypes.GoInt16);
         var _offsetSec:stdgo.StdGoTypes.GoInt8 = (0 : stdgo.StdGoTypes.GoInt8);
         var _version:stdgo.StdGoTypes.GoUInt8 = (1 : stdgo.StdGoTypes.GoUInt8);
@@ -7170,6 +7186,7 @@ _version,
     **/
     @:keep
     static public function unixNano( _t:Time):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _t:Time = _t?.__copy__();
         return (_t._unixSec() * (1000000000i64 : stdgo.StdGoTypes.GoInt64)) + (_t._nsec() : stdgo.StdGoTypes.GoInt64);
     }
     /**
@@ -7181,6 +7198,7 @@ _version,
     **/
     @:keep
     static public function unixMicro( _t:Time):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _t:Time = _t?.__copy__();
         return (_t._unixSec() * (1000000i64 : stdgo.StdGoTypes.GoInt64)) + ((_t._nsec() : stdgo.StdGoTypes.GoInt64) / (1000i64 : stdgo.StdGoTypes.GoInt64));
     }
     /**
@@ -7192,6 +7210,7 @@ _version,
     **/
     @:keep
     static public function unixMilli( _t:Time):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _t:Time = _t?.__copy__();
         return (_t._unixSec() * (1000i64 : stdgo.StdGoTypes.GoInt64)) + ((_t._nsec() : stdgo.StdGoTypes.GoInt64) / (1000000i64 : stdgo.StdGoTypes.GoInt64));
     }
     /**
@@ -7204,6 +7223,7 @@ _version,
     **/
     @:keep
     static public function unix( _t:Time):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _t:Time = _t?.__copy__();
         return _t._unixSec();
     }
     /**
@@ -7215,6 +7235,7 @@ _version,
     **/
     @:keep
     static public function zoneBounds( _t:Time):{ var _0 : Time; var _1 : Time; } {
+        @:recv var _t:Time = _t?.__copy__();
         var _start:Time = ({} : stdgo.time.Time.Time), _end:Time = ({} : stdgo.time.Time.Time);
         var __tmp__ = _t._loc._lookup(_t._unixSec()), __0:stdgo.GoString = __tmp__._0, __1:stdgo.StdGoTypes.GoInt = __tmp__._1, _startSec:stdgo.StdGoTypes.GoInt64 = __tmp__._2, _endSec:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __2:Bool = __tmp__._4;
         if (_startSec != ((-9223372036854775808i64 : stdgo.StdGoTypes.GoInt64))) {
@@ -7233,6 +7254,7 @@ _version,
     **/
     @:keep
     static public function zone( _t:Time):{ var _0 : stdgo.GoString; var _1 : stdgo.StdGoTypes.GoInt; } {
+        @:recv var _t:Time = _t?.__copy__();
         var _name:stdgo.GoString = ("" : stdgo.GoString), _offset:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         {
             var __tmp__ = _t._loc._lookup(_t._unixSec());
@@ -7246,6 +7268,7 @@ _version,
     **/
     @:keep
     static public function location( _t:Time):stdgo.StdGoTypes.Ref<Location> {
+        @:recv var _t:Time = _t?.__copy__();
         var _l = _t._loc;
         if (_l == null || (_l : Dynamic).__nil__) {
             _l = stdgo.time.Time.utc;
@@ -7261,6 +7284,7 @@ _version,
     **/
     @:keep
     static public function in_( _t:Time, _loc:stdgo.StdGoTypes.Ref<Location>):Time {
+        @:recv var _t:Time = _t?.__copy__();
         if (_loc == null || (_loc : Dynamic).__nil__) {
             throw stdgo.Go.toInterface(("time: missing Location in call to Time.In" : stdgo.GoString));
         };
@@ -7272,6 +7296,7 @@ _version,
     **/
     @:keep
     static public function local( _t:Time):Time {
+        @:recv var _t:Time = _t?.__copy__();
         _t._setLoc(stdgo.time.Time.local);
         return _t?.__copy__();
     }
@@ -7280,6 +7305,7 @@ _version,
     **/
     @:keep
     static public function utc( _t:Time):Time {
+        @:recv var _t:Time = _t?.__copy__();
         _t._setLoc((stdgo.Go.setRef(_utcLoc) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Location>));
         return _t?.__copy__();
     }
@@ -7289,6 +7315,7 @@ _version,
     **/
     @:keep
     static public function _date( _t:Time, _full:Bool):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Month; var _2 : stdgo.StdGoTypes.GoInt; var _3 : stdgo.StdGoTypes.GoInt; } {
+        @:recv var _t:Time = _t?.__copy__();
         var _year:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _month:Month = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.time.Time.Month), _day:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _yday:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         return _absDate(_t._abs(), _full);
     }
@@ -7304,6 +7331,7 @@ _version,
     **/
     @:keep
     static public function addDate( _t:Time, _years:stdgo.StdGoTypes.GoInt, _months:stdgo.StdGoTypes.GoInt, _days:stdgo.StdGoTypes.GoInt):Time {
+        @:recv var _t:Time = _t?.__copy__();
         var __tmp__ = _t.date(), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, _day:stdgo.StdGoTypes.GoInt = __tmp__._2;
         var __tmp__ = _t.clock(), _hour:stdgo.StdGoTypes.GoInt = __tmp__._0, _min:stdgo.StdGoTypes.GoInt = __tmp__._1, _sec:stdgo.StdGoTypes.GoInt = __tmp__._2;
         return stdgo.time.Time.date(_year + _years, _month + (_months : Month), _day + _days, _hour, _min, _sec, (_t._nsec() : stdgo.StdGoTypes.GoInt), _t.location())?.__copy__();
@@ -7316,6 +7344,7 @@ _version,
     **/
     @:keep
     static public function sub( _t:Time, _u:Time):Duration {
+        @:recv var _t:Time = _t?.__copy__();
         if (_t._wall & _u._wall & (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64) != ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
             var _te:stdgo.StdGoTypes.GoInt64 = _t._ext;
             var _ue:stdgo.StdGoTypes.GoInt64 = _u._ext;
@@ -7342,6 +7371,7 @@ _version,
     **/
     @:keep
     static public function add( _t:Time, _d:Duration):Time {
+        @:recv var _t:Time = _t?.__copy__();
         var _dsec:stdgo.StdGoTypes.GoInt64 = (_d / (1000000000i64 : stdgo.time.Time.Duration) : stdgo.StdGoTypes.GoInt64);
         var _nsec:stdgo.StdGoTypes.GoInt32 = _t._nsec() + (_d % (1000000000i64 : stdgo.time.Time.Duration) : stdgo.StdGoTypes.GoInt32);
         if (_nsec >= (1000000000 : stdgo.StdGoTypes.GoInt32)) {
@@ -7369,6 +7399,7 @@ _version,
     **/
     @:keep
     static public function yearDay( _t:Time):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:Time = _t?.__copy__();
         var __tmp__ = _t._date(false), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, __1:stdgo.time.Time.Month = __tmp__._1, __2:stdgo.StdGoTypes.GoInt = __tmp__._2, _yday:stdgo.StdGoTypes.GoInt = __tmp__._3;
         return _yday + (1 : stdgo.StdGoTypes.GoInt);
     }
@@ -7378,6 +7409,7 @@ _version,
     **/
     @:keep
     static public function nanosecond( _t:Time):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:Time = _t?.__copy__();
         return (_t._nsec() : stdgo.StdGoTypes.GoInt);
     }
     /**
@@ -7385,6 +7417,7 @@ _version,
     **/
     @:keep
     static public function second( _t:Time):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:Time = _t?.__copy__();
         return (_t._abs() % (60i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt);
     }
     /**
@@ -7392,6 +7425,7 @@ _version,
     **/
     @:keep
     static public function minute( _t:Time):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:Time = _t?.__copy__();
         return (_t._abs() % (3600i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt) / (60 : stdgo.StdGoTypes.GoInt);
     }
     /**
@@ -7399,6 +7433,7 @@ _version,
     **/
     @:keep
     static public function hour( _t:Time):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:Time = _t?.__copy__();
         return (_t._abs() % (86400i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt) / (3600 : stdgo.StdGoTypes.GoInt);
     }
     /**
@@ -7406,6 +7441,7 @@ _version,
     **/
     @:keep
     static public function clock( _t:Time):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; var _2 : stdgo.StdGoTypes.GoInt; } {
+        @:recv var _t:Time = _t?.__copy__();
         var _hour:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _min:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _sec:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         return _absClock(_t._abs());
     }
@@ -7417,6 +7453,7 @@ _version,
     **/
     @:keep
     static public function isoweek( _t:Time):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; } {
+        @:recv var _t:Time = _t?.__copy__();
         var _year:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _week:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _abs:stdgo.StdGoTypes.GoUInt64 = _t._abs();
         var _d:stdgo.time.Time.Weekday = (4 : stdgo.time.Time.Weekday) - _absWeekday(_abs);
@@ -7432,6 +7469,7 @@ _version,
     **/
     @:keep
     static public function weekday( _t:Time):Weekday {
+        @:recv var _t:Time = _t?.__copy__();
         return _absWeekday(_t._abs());
     }
     /**
@@ -7439,6 +7477,7 @@ _version,
     **/
     @:keep
     static public function day( _t:Time):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:Time = _t?.__copy__();
         var __tmp__ = _t._date(true), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, __1:stdgo.time.Time.Month = __tmp__._1, _day:stdgo.StdGoTypes.GoInt = __tmp__._2, __2:stdgo.StdGoTypes.GoInt = __tmp__._3;
         return _day;
     }
@@ -7447,6 +7486,7 @@ _version,
     **/
     @:keep
     static public function month( _t:Time):Month {
+        @:recv var _t:Time = _t?.__copy__();
         var __tmp__ = _t._date(true), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, __1:stdgo.StdGoTypes.GoInt = __tmp__._2, __2:stdgo.StdGoTypes.GoInt = __tmp__._3;
         return _month;
     }
@@ -7455,6 +7495,7 @@ _version,
     **/
     @:keep
     static public function year( _t:Time):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:Time = _t?.__copy__();
         var __tmp__ = _t._date(false), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, __0:stdgo.time.Time.Month = __tmp__._1, __1:stdgo.StdGoTypes.GoInt = __tmp__._2, __2:stdgo.StdGoTypes.GoInt = __tmp__._3;
         return _year;
     }
@@ -7463,6 +7504,7 @@ _version,
     **/
     @:keep
     static public function date( _t:Time):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Month; var _2 : stdgo.StdGoTypes.GoInt; } {
+        @:recv var _t:Time = _t?.__copy__();
         var _year:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _month:Month = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.time.Time.Month), _day:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         {
             var __tmp__ = _t._date(true);
@@ -7478,6 +7520,7 @@ _version,
     **/
     @:keep
     static public function _locabs( _t:Time):{ var _0 : stdgo.GoString; var _1 : stdgo.StdGoTypes.GoInt; var _2 : stdgo.StdGoTypes.GoUInt64; } {
+        @:recv var _t:Time = _t?.__copy__();
         var _name:stdgo.GoString = ("" : stdgo.GoString), _offset:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _abs:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
         var _l = _t._loc;
         if (((_l == null) || (_l : Dynamic).__nil__) || (_l == (stdgo.Go.setRef(_localLoc) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Location>))) {
@@ -7508,6 +7551,7 @@ _version,
     **/
     @:keep
     static public function _abs( _t:Time):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _t:Time = _t?.__copy__();
         var _l = _t._loc;
         if (((_l == null) || (_l : Dynamic).__nil__) || (_l == (stdgo.Go.setRef(_localLoc) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Location>))) {
             _l = _l._get();
@@ -7529,6 +7573,7 @@ _version,
     **/
     @:keep
     static public function isZero( _t:Time):Bool {
+        @:recv var _t:Time = _t?.__copy__();
         return (_t._sec() == (0i64 : stdgo.StdGoTypes.GoInt64)) && (_t._nsec() == (0 : stdgo.StdGoTypes.GoInt32));
     }
     /**
@@ -7540,6 +7585,7 @@ _version,
     **/
     @:keep
     static public function equal( _t:Time, _u:Time):Bool {
+        @:recv var _t:Time = _t?.__copy__();
         if (_t._wall & _u._wall & (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64) != ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
             return _t._ext == (_u._ext);
         };
@@ -7551,6 +7597,7 @@ _version,
     **/
     @:keep
     static public function compare( _t:Time, _u:Time):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:Time = _t?.__copy__();
         var __0:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64), __1:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64), _uc:stdgo.StdGoTypes.GoInt64 = __1, _tc:stdgo.StdGoTypes.GoInt64 = __0;
         if (_t._wall & _u._wall & (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64) != ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
             {
@@ -7587,6 +7634,7 @@ _version,
     **/
     @:keep
     static public function before( _t:Time, _u:Time):Bool {
+        @:recv var _t:Time = _t?.__copy__();
         if (_t._wall & _u._wall & (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64) != ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
             return _t._ext < _u._ext;
         };
@@ -7599,6 +7647,7 @@ _version,
     **/
     @:keep
     static public function after( _t:Time, _u:Time):Bool {
+        @:recv var _t:Time = _t?.__copy__();
         if (_t._wall & _u._wall & (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64) != ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
             return _t._ext > _u._ext;
         };
@@ -7615,6 +7664,7 @@ _version,
     **/
     @:keep
     static public function _mono( _t:stdgo.StdGoTypes.Ref<Time>):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         if (_t._wall & (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64) == ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
             return (0i64 : stdgo.StdGoTypes.GoInt64);
         };
@@ -7628,6 +7678,7 @@ _version,
     **/
     @:keep
     static public function _setMono( _t:stdgo.StdGoTypes.Ref<Time>, _m:stdgo.StdGoTypes.GoInt64):Void {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         if (_t._wall & (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64) == ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
             var _sec:stdgo.StdGoTypes.GoInt64 = _t._ext;
             if ((_sec < (59453308800i64 : stdgo.StdGoTypes.GoInt64)) || ((68043243391i64 : stdgo.StdGoTypes.GoInt64) < _sec)) {
@@ -7642,6 +7693,7 @@ _version,
     **/
     @:keep
     static public function _stripMono( _t:stdgo.StdGoTypes.Ref<Time>):Void {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         if (_t._wall & (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64) != ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
             _t._ext = _t._sec();
             _t._wall = _t._wall & ((1073741823i64 : stdgo.StdGoTypes.GoUInt64));
@@ -7652,6 +7704,7 @@ _version,
     **/
     @:keep
     static public function _setLoc( _t:stdgo.StdGoTypes.Ref<Time>, _loc:stdgo.StdGoTypes.Ref<Location>):Void {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         if (_loc == ((stdgo.Go.setRef(_utcLoc) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Location>))) {
             _loc = null;
         };
@@ -7663,6 +7716,7 @@ _version,
     **/
     @:keep
     static public function _addSec( _t:stdgo.StdGoTypes.Ref<Time>, _d:stdgo.StdGoTypes.GoInt64):Void {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         if (_t._wall & (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64) != ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
             var _sec:stdgo.StdGoTypes.GoInt64 = ((_t._wall << (1i64 : stdgo.StdGoTypes.GoUInt64)) >> (31i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt64);
             var _dsec:stdgo.StdGoTypes.GoInt64 = _sec + _d;
@@ -7686,6 +7740,7 @@ _version,
     **/
     @:keep
     static public function _unixSec( _t:stdgo.StdGoTypes.Ref<Time>):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         return _t._sec() + (-62135596800i64 : stdgo.StdGoTypes.GoInt64);
     }
     /**
@@ -7693,6 +7748,7 @@ _version,
     **/
     @:keep
     static public function _sec( _t:stdgo.StdGoTypes.Ref<Time>):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         if (_t._wall & (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64) != ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
             return (59453308800i64 : stdgo.StdGoTypes.GoInt64) + ((_t._wall << (1i64 : stdgo.StdGoTypes.GoUInt64)) >> (31i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt64);
         };
@@ -7703,10 +7759,12 @@ _version,
     **/
     @:keep
     static public function _nsec( _t:stdgo.StdGoTypes.Ref<Time>):stdgo.StdGoTypes.GoInt32 {
+        @:recv var _t:stdgo.StdGoTypes.Ref<Time> = _t;
         return (_t._wall & (1073741823i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt32);
     }
     @:keep
     static public function _appendStrictRFC3339( _t:Time, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
+        @:recv var _t:Time = _t?.__copy__();
         var _n0:stdgo.StdGoTypes.GoInt = (_b.length);
         _b = _t._appendFormatRFC3339(_b, true);
         var _num2 = function(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.GoByte {
@@ -7724,6 +7782,7 @@ _version,
     }
     @:keep
     static public function _appendFormatRFC3339( _t:Time, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _nanos:Bool):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _t:Time = _t?.__copy__();
         var __tmp__ = _t._locabs(), __0:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, _abs:stdgo.StdGoTypes.GoUInt64 = __tmp__._2;
         var __tmp__ = _absDate(_abs, true), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, _day:stdgo.StdGoTypes.GoInt = __tmp__._2, __1:stdgo.StdGoTypes.GoInt = __tmp__._3;
         _b = _appendInt(_b, _year, (4 : stdgo.StdGoTypes.GoInt));
@@ -7759,6 +7818,7 @@ _version,
     }
     @:keep
     static public function _appendFormat( _t:Time, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _layout:stdgo.GoString):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _t:Time = _t?.__copy__();
         var __0:stdgo.StdGoTypes.GoInt = (-1 : stdgo.StdGoTypes.GoInt), __1:Month = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.time.Time.Month), __2:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __3:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __4:stdgo.StdGoTypes.GoInt = (-1 : stdgo.StdGoTypes.GoInt), __5:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __6:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __tmp__ = _t._locabs(), _name:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, _abs:stdgo.StdGoTypes.GoUInt64 = __tmp__._2, _sec:stdgo.StdGoTypes.GoInt = __6, _min:stdgo.StdGoTypes.GoInt = __5, _hour:stdgo.StdGoTypes.GoInt = __4, _yday:stdgo.StdGoTypes.GoInt = __3, _day:stdgo.StdGoTypes.GoInt = __2, _month:Month = __1, _year:stdgo.StdGoTypes.GoInt = __0;
         while (_layout != (stdgo.Go.str())) {
             var __tmp__ = _nextStdChunk(_layout), _prefix:stdgo.GoString = __tmp__._0, _std:stdgo.StdGoTypes.GoInt = __tmp__._1, _suffix:stdgo.GoString = __tmp__._2;
@@ -7951,6 +8011,7 @@ _version,
     **/
     @:keep
     static public function appendFormat( _t:Time, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _layout:stdgo.GoString):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _t:Time = _t?.__copy__();
         {
             final __value__ = _layout;
             if (__value__ == (("2006-01-02T15:04:05Z07:00" : stdgo.GoString))) {
@@ -7972,6 +8033,7 @@ _version,
     **/
     @:keep
     static public function format( _t:Time, _layout:stdgo.GoString):stdgo.GoString {
+        @:recv var _t:Time = _t?.__copy__();
         {};
         var _b:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         var _max:stdgo.StdGoTypes.GoInt = (_layout.length) + (10 : stdgo.StdGoTypes.GoInt);
@@ -7990,6 +8052,7 @@ _version,
     **/
     @:keep
     static public function goString( _t:Time):stdgo.GoString {
+        @:recv var _t:Time = _t?.__copy__();
         var _abs:stdgo.StdGoTypes.GoUInt64 = _t._abs();
         var __tmp__ = _absDate(_abs, true), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, _day:stdgo.StdGoTypes.GoInt = __tmp__._2, __0:stdgo.StdGoTypes.GoInt = __tmp__._3;
         var __tmp__ = _absClock(_abs), _hour:stdgo.StdGoTypes.GoInt = __tmp__._0, _minute:stdgo.StdGoTypes.GoInt = __tmp__._1, _second:stdgo.StdGoTypes.GoInt = __tmp__._2;
@@ -8046,6 +8109,7 @@ _version,
     **/
     @:keep
     static public function string( _t:Time):stdgo.GoString {
+        @:recv var _t:Time = _t?.__copy__();
         var _s:stdgo.GoString = _t.format(("2006-01-02 15:04:05.999999999 -0700 MST" : stdgo.GoString));
         if (_t._wall & (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64) != ((0i64 : stdgo.StdGoTypes.GoUInt64))) {
             var _m2:stdgo.StdGoTypes.GoUInt64 = (_t._ext : stdgo.StdGoTypes.GoUInt64);
@@ -8140,6 +8204,7 @@ class Location_asInterface {
     **/
     @:keep
     static public function _lookupName( _l:stdgo.StdGoTypes.Ref<Location>, _name:stdgo.GoString, _unix:stdgo.StdGoTypes.GoInt64):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Location> = _l;
         var _offset:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _ok:Bool = false;
         _l = _l._get();
         for (_i in 0 ... _l._zone.length.toBasic()) {
@@ -8165,6 +8230,7 @@ class Location_asInterface {
     **/
     @:keep
     static public function _firstZoneUsed( _l:stdgo.StdGoTypes.Ref<Location>):Bool {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Location> = _l;
         for (__0 => _tx in _l._tx) {
             if (_tx._index == ((0 : stdgo.StdGoTypes.GoUInt8))) {
                 return true;
@@ -8191,6 +8257,7 @@ class Location_asInterface {
     **/
     @:keep
     static public function _lookupFirstZone( _l:stdgo.StdGoTypes.Ref<Location>):stdgo.StdGoTypes.GoInt {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Location> = _l;
         if (!_l._firstZoneUsed()) {
             return (0 : stdgo.StdGoTypes.GoInt);
         };
@@ -8222,6 +8289,7 @@ class Location_asInterface {
     **/
     @:keep
     static public function _lookup( _l:stdgo.StdGoTypes.Ref<Location>, _sec:stdgo.StdGoTypes.GoInt64):{ var _0 : stdgo.GoString; var _1 : stdgo.StdGoTypes.GoInt; var _2 : stdgo.StdGoTypes.GoInt64; var _3 : stdgo.StdGoTypes.GoInt64; var _4 : Bool; } {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Location> = _l;
         var _name:stdgo.GoString = ("" : stdgo.GoString), _offset:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _start:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64), _end:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64), _isDST:Bool = false;
         _l = _l._get();
         if ((_l._zone.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
@@ -8291,10 +8359,12 @@ class Location_asInterface {
     **/
     @:keep
     static public function string( _l:stdgo.StdGoTypes.Ref<Location>):stdgo.GoString {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Location> = _l;
         return _l._get()._name;
     }
     @:keep
     static public function _get( _l:stdgo.StdGoTypes.Ref<Location>):stdgo.StdGoTypes.Ref<Location> {
+        @:recv var _l:stdgo.StdGoTypes.Ref<Location> = _l;
         if (_l == null || (_l : Dynamic).__nil__) {
             return (stdgo.Go.setRef(_utcLoc) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Location>);
         };
@@ -8332,12 +8402,14 @@ class T_dataIO_asInterface {
     **/
     @:keep
     static public function _rest( _d:stdgo.StdGoTypes.Ref<T_dataIO>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_dataIO> = _d;
         var _r = _d._p;
         _d._p = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         return _r;
     }
     @:keep
     static public function _byte( _d:stdgo.StdGoTypes.Ref<T_dataIO>):{ var _0 : stdgo.StdGoTypes.GoByte; var _1 : Bool; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_dataIO> = _d;
         var _n:stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUInt8), _ok:Bool = false;
         var _p = _d._read((1 : stdgo.StdGoTypes.GoInt));
         if ((_p.length) < (1 : stdgo.StdGoTypes.GoInt)) {
@@ -8348,6 +8420,7 @@ class T_dataIO_asInterface {
     }
     @:keep
     static public function _big8( _d:stdgo.StdGoTypes.Ref<T_dataIO>):{ var _0 : stdgo.StdGoTypes.GoUInt64; var _1 : Bool; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_dataIO> = _d;
         var _n:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64), _ok:Bool = false;
         var __tmp__ = _d._big4(), _n1:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _ok1:Bool = __tmp__._1;
         var __tmp__ = _d._big4(), _n2:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _ok2:Bool = __tmp__._1;
@@ -8359,6 +8432,7 @@ class T_dataIO_asInterface {
     }
     @:keep
     static public function _big4( _d:stdgo.StdGoTypes.Ref<T_dataIO>):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : Bool; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_dataIO> = _d;
         var _n:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _ok:Bool = false;
         var _p = _d._read((4 : stdgo.StdGoTypes.GoInt));
         if ((_p.length) < (4 : stdgo.StdGoTypes.GoInt)) {
@@ -8369,6 +8443,7 @@ class T_dataIO_asInterface {
     }
     @:keep
     static public function _read( _d:stdgo.StdGoTypes.Ref<T_dataIO>, _n:stdgo.StdGoTypes.GoInt):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_dataIO> = _d;
         if ((_d._p.length) < _n) {
             _d._p = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
             _d._error = true;
@@ -8399,6 +8474,7 @@ class Month_asInterface {
     **/
     @:keep
     static public function string( _m:Month):stdgo.GoString {
+        @:recv var _m:Month = _m;
         if (((1 : stdgo.time.Time.Month) <= _m) && (_m <= (12 : stdgo.time.Time.Month))) {
             return _longMonthNames[(_m - (1 : stdgo.time.Time.Month) : stdgo.StdGoTypes.GoInt)];
         };
@@ -8427,6 +8503,7 @@ class Weekday_asInterface {
     **/
     @:keep
     static public function string( _d:Weekday):stdgo.GoString {
+        @:recv var _d:Weekday = _d;
         if (((0 : stdgo.time.Time.Weekday) <= _d) && (_d <= (6 : stdgo.time.Time.Weekday))) {
             return _longDayNames[(_d : stdgo.StdGoTypes.GoInt)];
         };
@@ -8511,6 +8588,7 @@ class Duration_asInterface {
     **/
     @:keep
     static public function abs( _d:Duration):Duration {
+        @:recv var _d:Duration = _d;
         if (_d >= (0i64 : stdgo.time.Time.Duration)) {
             return _d;
         } else if (_d == ((-9223372036854775808i64 : stdgo.time.Time.Duration))) {
@@ -8529,6 +8607,7 @@ class Duration_asInterface {
     **/
     @:keep
     static public function round( _d:Duration, _m:Duration):Duration {
+        @:recv var _d:Duration = _d;
         if (_m <= (0i64 : stdgo.time.Time.Duration)) {
             return _d;
         };
@@ -8563,6 +8642,7 @@ class Duration_asInterface {
     **/
     @:keep
     static public function truncate( _d:Duration, _m:Duration):Duration {
+        @:recv var _d:Duration = _d;
         if (_m <= (0i64 : stdgo.time.Time.Duration)) {
             return _d;
         };
@@ -8573,6 +8653,7 @@ class Duration_asInterface {
     **/
     @:keep
     static public function hours( _d:Duration):stdgo.StdGoTypes.GoFloat64 {
+        @:recv var _d:Duration = _d;
         var _hour:stdgo.time.Time.Duration = _d / (3600000000000i64 : stdgo.time.Time.Duration);
         var _nsec:stdgo.time.Time.Duration = _d % (3600000000000i64 : stdgo.time.Time.Duration);
         return (_hour : stdgo.StdGoTypes.GoFloat64) + ((_nsec : stdgo.StdGoTypes.GoFloat64) / (3.6e+12 : stdgo.StdGoTypes.GoFloat64));
@@ -8582,6 +8663,7 @@ class Duration_asInterface {
     **/
     @:keep
     static public function minutes( _d:Duration):stdgo.StdGoTypes.GoFloat64 {
+        @:recv var _d:Duration = _d;
         var _min:stdgo.time.Time.Duration = _d / (60000000000i64 : stdgo.time.Time.Duration);
         var _nsec:stdgo.time.Time.Duration = _d % (60000000000i64 : stdgo.time.Time.Duration);
         return (_min : stdgo.StdGoTypes.GoFloat64) + ((_nsec : stdgo.StdGoTypes.GoFloat64) / (6e+10 : stdgo.StdGoTypes.GoFloat64));
@@ -8591,6 +8673,7 @@ class Duration_asInterface {
     **/
     @:keep
     static public function seconds( _d:Duration):stdgo.StdGoTypes.GoFloat64 {
+        @:recv var _d:Duration = _d;
         var _sec:stdgo.time.Time.Duration = _d / (1000000000i64 : stdgo.time.Time.Duration);
         var _nsec:stdgo.time.Time.Duration = _d % (1000000000i64 : stdgo.time.Time.Duration);
         return (_sec : stdgo.StdGoTypes.GoFloat64) + ((_nsec : stdgo.StdGoTypes.GoFloat64) / (1e+09 : stdgo.StdGoTypes.GoFloat64));
@@ -8600,6 +8683,7 @@ class Duration_asInterface {
     **/
     @:keep
     static public function milliseconds( _d:Duration):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _d:Duration = _d;
         return (_d : stdgo.StdGoTypes.GoInt64) / (1000000i64 : stdgo.StdGoTypes.GoInt64);
     }
     /**
@@ -8607,6 +8691,7 @@ class Duration_asInterface {
     **/
     @:keep
     static public function microseconds( _d:Duration):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _d:Duration = _d;
         return (_d : stdgo.StdGoTypes.GoInt64) / (1000i64 : stdgo.StdGoTypes.GoInt64);
     }
     /**
@@ -8614,6 +8699,7 @@ class Duration_asInterface {
     **/
     @:keep
     static public function nanoseconds( _d:Duration):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _d:Duration = _d;
         return (_d : stdgo.StdGoTypes.GoInt64);
     }
     /**
@@ -8624,6 +8710,7 @@ class Duration_asInterface {
     **/
     @:keep
     static public function string( _d:Duration):stdgo.GoString {
+        @:recv var _d:Duration = _d;
         var _buf:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 32) (0 : stdgo.StdGoTypes.GoUInt8)]);
         var _w:stdgo.StdGoTypes.GoInt = (_buf.length);
         var _u:stdgo.StdGoTypes.GoUInt64 = (_d : stdgo.StdGoTypes.GoUInt64);
@@ -8698,6 +8785,7 @@ class T_fileSizeError_asInterface {
 @:keep @:allow(stdgo.time.Time.T_fileSizeError_asInterface) class T_fileSizeError_static_extension {
     @:keep
     static public function error( _f:T_fileSizeError):stdgo.GoString {
+        @:recv var _f:T_fileSizeError = _f;
         return (("time: file " : stdgo.GoString) + (_f : stdgo.GoString)) + (" is too large" : stdgo.GoString);
     }
 }

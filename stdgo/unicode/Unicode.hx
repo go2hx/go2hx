@@ -9881,6 +9881,7 @@ class SpecialCase_asInterface {
     **/
     @:keep
     static public function toLower( _special:SpecialCase, _r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
+        @:recv var _special:SpecialCase = _special;
         var __tmp__ = _to((1 : stdgo.StdGoTypes.GoInt), _r, (_special : stdgo.Slice<CaseRange>)), _r1:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toLower(_r);
@@ -9892,6 +9893,7 @@ class SpecialCase_asInterface {
     **/
     @:keep
     static public function toTitle( _special:SpecialCase, _r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
+        @:recv var _special:SpecialCase = _special;
         var __tmp__ = _to((2 : stdgo.StdGoTypes.GoInt), _r, (_special : stdgo.Slice<CaseRange>)), _r1:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toTitle(_r);
@@ -9903,6 +9905,7 @@ class SpecialCase_asInterface {
     **/
     @:keep
     static public function toUpper( _special:SpecialCase, _r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
+        @:recv var _special:SpecialCase = _special;
         var __tmp__ = _to((0 : stdgo.StdGoTypes.GoInt), _r, (_special : stdgo.Slice<CaseRange>)), _r1:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toUpper(_r);

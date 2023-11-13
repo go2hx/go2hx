@@ -2134,6 +2134,7 @@ class Code_asInterface {
 @:keep @:allow(stdgo.internal.types.errors.Errors.Code_asInterface) class Code_static_extension {
     @:keep
     static public function string( _i:Code):stdgo.GoString {
+        @:recv var _i:Code = _i;
         if (_i == ((-1 : stdgo.internal.types.errors.Errors.Code))) {
             return ("InvalidSyntaxTree" : stdgo.GoString);
         } else if (((1 : stdgo.internal.types.errors.Errors.Code) <= _i) && (_i <= (28 : stdgo.internal.types.errors.Errors.Code))) {

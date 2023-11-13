@@ -595,6 +595,7 @@ class Int32_asInterface {
     **/
     @:keep
     static public function store( _x:stdgo.StdGoTypes.Ref<Int32>, _val:stdgo.StdGoTypes.GoInt32):Void {
+        @:recv var _x:stdgo.StdGoTypes.Ref<Int32> = _x;
         _x._v = _val;
     }
     /**
@@ -602,6 +603,7 @@ class Int32_asInterface {
     **/
     @:keep
     static public function load( _x:stdgo.StdGoTypes.Ref<Int32>):stdgo.StdGoTypes.GoInt32 {
+        @:recv var _x:stdgo.StdGoTypes.Ref<Int32> = _x;
         return @:privateAccess _x._v;
     }
 }

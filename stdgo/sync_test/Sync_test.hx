@@ -3596,7 +3596,9 @@ class T_httpPkg_asInterface {
 }
 @:keep @:allow(stdgo.sync_test.Sync_test.T_httpPkg_asInterface) class T_httpPkg_static_extension {
     @:keep
-    static public function get( _:T_httpPkg, _url:stdgo.GoString):Void {}
+    static public function get( _:T_httpPkg, _url:stdgo.GoString):Void {
+        @:recv var _:T_httpPkg = _?.__copy__();
+    }
 }
 class RWMutexMap_asInterface {
     @:keep
@@ -3628,6 +3630,7 @@ class RWMutexMap_asInterface {
 @:keep @:allow(stdgo.sync_test.Sync_test.RWMutexMap_asInterface) class RWMutexMap_static_extension {
     @:keep
     static public function range( _m:stdgo.StdGoTypes.Ref<RWMutexMap>, _f:(_key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface) -> Bool):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<RWMutexMap> = _m;
         _m._mu.rlock();
         var _keys = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (_m._dirty.length));
         for (_k => _ in _m._dirty) {
@@ -3646,6 +3649,7 @@ class RWMutexMap_asInterface {
     }
     @:keep
     static public function compareAndDelete( _m:stdgo.StdGoTypes.Ref<RWMutexMap>, _key:stdgo.StdGoTypes.AnyInterface, _old:stdgo.StdGoTypes.AnyInterface):Bool {
+        @:recv var _m:stdgo.StdGoTypes.Ref<RWMutexMap> = _m;
         var __deferstack__:Array<Void -> Void> = [];
         var _deleted:Bool = false;
         try {
@@ -3701,6 +3705,7 @@ class RWMutexMap_asInterface {
     }
     @:keep
     static public function compareAndSwap( _m:stdgo.StdGoTypes.Ref<RWMutexMap>, _key:stdgo.StdGoTypes.AnyInterface, _old:stdgo.StdGoTypes.AnyInterface, _new:stdgo.StdGoTypes.AnyInterface):Bool {
+        @:recv var _m:stdgo.StdGoTypes.Ref<RWMutexMap> = _m;
         var __deferstack__:Array<Void -> Void> = [];
         var _swapped:Bool = false;
         try {
@@ -3756,12 +3761,14 @@ class RWMutexMap_asInterface {
     }
     @:keep
     static public function delete( _m:stdgo.StdGoTypes.Ref<RWMutexMap>, _key:stdgo.StdGoTypes.AnyInterface):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<RWMutexMap> = _m;
         _m._mu.lock();
         if (_m._dirty != null) _m._dirty.remove(_key);
         _m._mu.unlock();
     }
     @:keep
     static public function loadAndDelete( _m:stdgo.StdGoTypes.Ref<RWMutexMap>, _key:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<RWMutexMap> = _m;
         var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         _m._mu.lock();
         {
@@ -3779,6 +3786,7 @@ class RWMutexMap_asInterface {
     }
     @:keep
     static public function swap( _m:stdgo.StdGoTypes.Ref<RWMutexMap>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<RWMutexMap> = _m;
         var _previous:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         _m._mu.lock();
         if (_m._dirty == null) {
@@ -3800,6 +3808,7 @@ class RWMutexMap_asInterface {
     }
     @:keep
     static public function loadOrStore( _m:stdgo.StdGoTypes.Ref<RWMutexMap>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<RWMutexMap> = _m;
         var _actual:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         _m._mu.lock();
         {
@@ -3824,6 +3833,7 @@ class RWMutexMap_asInterface {
     }
     @:keep
     static public function store( _m:stdgo.StdGoTypes.Ref<RWMutexMap>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<RWMutexMap> = _m;
         _m._mu.lock();
         if (_m._dirty == null) {
             _m._dirty = ({
@@ -3838,6 +3848,7 @@ class RWMutexMap_asInterface {
     }
     @:keep
     static public function load( _m:stdgo.StdGoTypes.Ref<RWMutexMap>, _key:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<RWMutexMap> = _m;
         var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _ok:Bool = false;
         _m._mu.rlock();
         {
@@ -3881,6 +3892,7 @@ class DeepCopyMap_asInterface {
 @:keep @:allow(stdgo.sync_test.Sync_test.DeepCopyMap_asInterface) class DeepCopyMap_static_extension {
     @:keep
     static public function _dirty( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>):GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface> {
+        @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var __tmp__ = try {
             { value : (stdgo.Go.typeAssert((_m._clean.load() : GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
         } catch(_) {
@@ -3899,6 +3911,7 @@ class DeepCopyMap_asInterface {
     }
     @:keep
     static public function range( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>, _f:(_key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface) -> Bool):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var __tmp__ = try {
             { value : (stdgo.Go.typeAssert((_m._clean.load() : GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
         } catch(_) {
@@ -3912,6 +3925,7 @@ class DeepCopyMap_asInterface {
     }
     @:keep
     static public function compareAndDelete( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>, _key:stdgo.StdGoTypes.AnyInterface, _old:stdgo.StdGoTypes.AnyInterface):Bool {
+        @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var __deferstack__:Array<Void -> Void> = [];
         var _deleted:Bool = false;
         try {
@@ -3972,6 +3986,7 @@ class DeepCopyMap_asInterface {
     }
     @:keep
     static public function compareAndSwap( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>, _key:stdgo.StdGoTypes.AnyInterface, _old:stdgo.StdGoTypes.AnyInterface, _new:stdgo.StdGoTypes.AnyInterface):Bool {
+        @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var __deferstack__:Array<Void -> Void> = [];
         var _swapped:Bool = false;
         try {
@@ -4032,6 +4047,7 @@ class DeepCopyMap_asInterface {
     }
     @:keep
     static public function delete( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>, _key:stdgo.StdGoTypes.AnyInterface):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         _m._mu.lock();
         var _dirty = _m._dirty();
         if (_dirty != null) _dirty.remove(_key);
@@ -4040,6 +4056,7 @@ class DeepCopyMap_asInterface {
     }
     @:keep
     static public function loadAndDelete( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>, _key:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         _m._mu.lock();
         var _dirty = _m._dirty();
@@ -4055,6 +4072,7 @@ class DeepCopyMap_asInterface {
     }
     @:keep
     static public function swap( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var _previous:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         _m._mu.lock();
         var _dirty = _m._dirty();
@@ -4070,6 +4088,7 @@ class DeepCopyMap_asInterface {
     }
     @:keep
     static public function loadOrStore( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var _actual:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
         var __tmp__ = try {
             { value : (stdgo.Go.typeAssert((_m._clean.load() : GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
@@ -4109,6 +4128,7 @@ class DeepCopyMap_asInterface {
     }
     @:keep
     static public function store( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         _m._mu.lock();
         var _dirty = _m._dirty();
         _dirty[_key] = _value;
@@ -4117,6 +4137,7 @@ class DeepCopyMap_asInterface {
     }
     @:keep
     static public function load( _m:stdgo.StdGoTypes.Ref<DeepCopyMap>, _key:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<DeepCopyMap> = _m;
         var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _ok:Bool = false;
         var __tmp__ = try {
             { value : (stdgo.Go.typeAssert((_m._clean.load() : GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
@@ -4147,6 +4168,7 @@ class T_mapCall_asInterface {
 @:keep @:allow(stdgo.sync_test.Sync_test.T_mapCall_asInterface) class T_mapCall_static_extension {
     @:keep
     static public function generate( _:T_mapCall, _r:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):stdgo.reflect.Reflect.Value {
+        @:recv var _:T_mapCall = _?.__copy__();
         var _c:stdgo.sync_test.Sync_test.T_mapCall = ({ _op : _mapOps[(stdgo.math.rand.Rand.intn((_mapOps.length)) : stdgo.StdGoTypes.GoInt)], _k : _randValue(_r) } : T_mapCall);
         {
             final __value__ = _c._op;
@@ -4158,6 +4180,7 @@ class T_mapCall_asInterface {
     }
     @:keep
     static public function _apply( _c:T_mapCall, _m:T_mapInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _c:T_mapCall = _c?.__copy__();
         {
             final __value__ = _c._op;
             if (__value__ == ((("Load" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp))) {

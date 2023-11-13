@@ -5410,10 +5410,12 @@ class NumError_asInterface {
 @:keep @:allow(stdgo.strconv.Strconv.NumError_asInterface) class NumError_static_extension {
     @:keep
     static public function unwrap( _e:stdgo.StdGoTypes.Ref<NumError>):stdgo.Error {
+        @:recv var _e:stdgo.StdGoTypes.Ref<NumError> = _e;
         return _e.err;
     }
     @:keep
     static public function error( _e:stdgo.StdGoTypes.Ref<NumError>):stdgo.GoString {
+        @:recv var _e:stdgo.StdGoTypes.Ref<NumError> = _e;
         return (((((("strconv." : stdgo.GoString) + _e.func) + (": " : stdgo.GoString)) + ("parsing " : stdgo.GoString)) + quote(_e.num)) + (": " : stdgo.GoString)) + _e.err.error();
     }
 }
@@ -5473,6 +5475,7 @@ class T_decimal_asInterface {
     **/
     @:keep
     static public function roundedInteger( _a:stdgo.StdGoTypes.Ref<T_decimal>):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _a:stdgo.StdGoTypes.Ref<T_decimal> = _a;
         if (_a._dp > (20 : stdgo.StdGoTypes.GoInt)) {
             return (-1i64 : stdgo.StdGoTypes.GoUInt64);
         };
@@ -5497,6 +5500,7 @@ class T_decimal_asInterface {
     **/
     @:keep
     static public function roundUp( _a:stdgo.StdGoTypes.Ref<T_decimal>, _nd:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _a:stdgo.StdGoTypes.Ref<T_decimal> = _a;
         if ((_nd < (0 : stdgo.StdGoTypes.GoInt)) || (_nd >= _a._nd)) {
             return;
         };
@@ -5520,6 +5524,7 @@ class T_decimal_asInterface {
     **/
     @:keep
     static public function roundDown( _a:stdgo.StdGoTypes.Ref<T_decimal>, _nd:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _a:stdgo.StdGoTypes.Ref<T_decimal> = _a;
         if ((_nd < (0 : stdgo.StdGoTypes.GoInt)) || (_nd >= _a._nd)) {
             return;
         };
@@ -5534,6 +5539,7 @@ class T_decimal_asInterface {
     **/
     @:keep
     static public function round( _a:stdgo.StdGoTypes.Ref<T_decimal>, _nd:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _a:stdgo.StdGoTypes.Ref<T_decimal> = _a;
         if ((_nd < (0 : stdgo.StdGoTypes.GoInt)) || (_nd >= _a._nd)) {
             return;
         };
@@ -5548,6 +5554,7 @@ class T_decimal_asInterface {
     **/
     @:keep
     static public function shift( _a:stdgo.StdGoTypes.Ref<T_decimal>, _k:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _a:stdgo.StdGoTypes.Ref<T_decimal> = _a;
         if (_a._nd == ((0 : stdgo.StdGoTypes.GoInt))) {} else if (_k > (0 : stdgo.StdGoTypes.GoInt)) {
             while (_k > (28 : stdgo.StdGoTypes.GoInt)) {
                 _leftShift(_a, (28u32 : stdgo.StdGoTypes.GoUInt));
@@ -5567,6 +5574,7 @@ class T_decimal_asInterface {
     **/
     @:keep
     static public function assign( _a:stdgo.StdGoTypes.Ref<T_decimal>, _v:stdgo.StdGoTypes.GoUInt64):Void {
+        @:recv var _a:stdgo.StdGoTypes.Ref<T_decimal> = _a;
         var _buf:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 24) (0 : stdgo.StdGoTypes.GoUInt8)]);
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         while (_v > (0i64 : stdgo.StdGoTypes.GoUInt64)) {
@@ -5589,6 +5597,7 @@ class T_decimal_asInterface {
     }
     @:keep
     static public function string( _a:stdgo.StdGoTypes.Ref<T_decimal>):stdgo.GoString {
+        @:recv var _a:stdgo.StdGoTypes.Ref<T_decimal> = _a;
         var _n:stdgo.StdGoTypes.GoInt = (10 : stdgo.StdGoTypes.GoInt) + _a._nd;
         if (_a._dp > (0 : stdgo.StdGoTypes.GoInt)) {
             _n = _n + (_a._dp);
@@ -5621,6 +5630,7 @@ class T_decimal_asInterface {
     @:keep
     static public function _floatBits( _d:stdgo.StdGoTypes.Ref<T_decimal>, _flt:stdgo.StdGoTypes.Ref<T_floatInfo>):{ var _0 : stdgo.StdGoTypes.GoUInt64; var _1 : Bool; } {
         stdgo.internal.Macro.controlFlow({
+            @:recv var _d:stdgo.StdGoTypes.Ref<T_decimal> = _d;
             var _b:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64), _overflow:Bool = false;
             var _exp:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             var _mant:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
@@ -5694,6 +5704,7 @@ class T_decimal_asInterface {
     }
     @:keep
     static public function _set( _b:stdgo.StdGoTypes.Ref<T_decimal>, _s:stdgo.GoString):Bool {
+        @:recv var _b:stdgo.StdGoTypes.Ref<T_decimal> = _b;
         var _ok:Bool = false;
         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         _b._neg = false;

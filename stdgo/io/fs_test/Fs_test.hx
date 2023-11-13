@@ -757,34 +757,42 @@ class T_formatTest_asInterface {
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_formatTest_asInterface) class T_formatTest_static_extension {
     @:keep
     static public function info( _fs:stdgo.StdGoTypes.Ref<T_formatTest>):{ var _0 : FileInfo; var _1 : stdgo.Error; } {
+        @:recv var _fs:stdgo.StdGoTypes.Ref<T_formatTest> = _fs;
         return { _0 : stdgo.Go.asInterface(_fs), _1 : (null : stdgo.Error) };
     }
     @:keep
     static public function type( _fs:stdgo.StdGoTypes.Ref<T_formatTest>):FileMode {
+        @:recv var _fs:stdgo.StdGoTypes.Ref<T_formatTest> = _fs;
         return _fs._mode.type();
     }
     @:keep
     static public function sys( _fs:stdgo.StdGoTypes.Ref<T_formatTest>):stdgo.StdGoTypes.AnyInterface {
+        @:recv var _fs:stdgo.StdGoTypes.Ref<T_formatTest> = _fs;
         return (null : stdgo.StdGoTypes.AnyInterface);
     }
     @:keep
     static public function isDir( _fs:stdgo.StdGoTypes.Ref<T_formatTest>):Bool {
+        @:recv var _fs:stdgo.StdGoTypes.Ref<T_formatTest> = _fs;
         return _fs._isDir;
     }
     @:keep
     static public function modTime( _fs:stdgo.StdGoTypes.Ref<T_formatTest>):stdgo.time.Time.Time {
+        @:recv var _fs:stdgo.StdGoTypes.Ref<T_formatTest> = _fs;
         return _fs._modTime?.__copy__();
     }
     @:keep
     static public function mode( _fs:stdgo.StdGoTypes.Ref<T_formatTest>):FileMode {
+        @:recv var _fs:stdgo.StdGoTypes.Ref<T_formatTest> = _fs;
         return _fs._mode;
     }
     @:keep
     static public function size( _fs:stdgo.StdGoTypes.Ref<T_formatTest>):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _fs:stdgo.StdGoTypes.Ref<T_formatTest> = _fs;
         return _fs._size;
     }
     @:keep
     static public function name( _fs:stdgo.StdGoTypes.Ref<T_formatTest>):stdgo.GoString {
+        @:recv var _fs:stdgo.StdGoTypes.Ref<T_formatTest> = _fs;
         return _fs._name;
     }
 }
@@ -804,6 +812,7 @@ class T_globOnly_asInterface {
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_globOnly_asInterface) class T_globOnly_static_extension {
     @:keep
     static public function open( _:T_globOnly, _name:stdgo.GoString):{ var _0 : File; var _1 : stdgo.Error; } {
+        @:recv var _:T_globOnly = _?.__copy__();
         return { _0 : (null : stdgo.io.fs.Fs.File), _1 : errNotExist };
     }
     @:embedded
@@ -825,6 +834,7 @@ class T_readDirOnly_asInterface {
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_readDirOnly_asInterface) class T_readDirOnly_static_extension {
     @:keep
     static public function open( _:T_readDirOnly, _name:stdgo.GoString):{ var _0 : File; var _1 : stdgo.Error; } {
+        @:recv var _:T_readDirOnly = _?.__copy__();
         return { _0 : (null : stdgo.io.fs.Fs.File), _1 : errNotExist };
     }
     @:embedded
@@ -846,6 +856,7 @@ class T_readFileOnly_asInterface {
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_readFileOnly_asInterface) class T_readFileOnly_static_extension {
     @:keep
     static public function open( _:T_readFileOnly, _name:stdgo.GoString):{ var _0 : File; var _1 : stdgo.Error; } {
+        @:recv var _:T_readFileOnly = _?.__copy__();
         return { _0 : (null : stdgo.io.fs.Fs.File), _1 : errNotExist };
     }
     @:embedded
@@ -882,6 +893,7 @@ class T_statOnly_asInterface {
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_statOnly_asInterface) class T_statOnly_static_extension {
     @:keep
     static public function open( _:T_statOnly, _name:stdgo.GoString):{ var _0 : File; var _1 : stdgo.Error; } {
+        @:recv var _:T_statOnly = _?.__copy__();
         return { _0 : (null : stdgo.io.fs.Fs.File), _1 : errNotExist };
     }
     @:embedded
@@ -903,6 +915,7 @@ class T_subOnly_asInterface {
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_subOnly_asInterface) class T_subOnly_static_extension {
     @:keep
     static public function open( _:T_subOnly, _name:stdgo.GoString):{ var _0 : File; var _1 : stdgo.Error; } {
+        @:recv var _:T_subOnly = _?.__copy__();
         return { _0 : (null : stdgo.io.fs.Fs.File), _1 : errNotExist };
     }
     @:embedded

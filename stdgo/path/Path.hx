@@ -516,6 +516,7 @@ class T_lazybuf_asInterface {
 @:keep @:allow(stdgo.path.Path.T_lazybuf_asInterface) class T_lazybuf_static_extension {
     @:keep
     static public function _string( _b:stdgo.StdGoTypes.Ref<T_lazybuf>):stdgo.GoString {
+        @:recv var _b:stdgo.StdGoTypes.Ref<T_lazybuf> = _b;
         if (_b._buf == null) {
             return (_b._s.__slice__(0, _b._w) : stdgo.GoString);
         };
@@ -523,6 +524,7 @@ class T_lazybuf_asInterface {
     }
     @:keep
     static public function _append( _b:stdgo.StdGoTypes.Ref<T_lazybuf>, _c:stdgo.StdGoTypes.GoByte):Void {
+        @:recv var _b:stdgo.StdGoTypes.Ref<T_lazybuf> = _b;
         if (_b._buf == null) {
             if ((_b._w < _b._s.length) && (_b._s[(_b._w : stdgo.StdGoTypes.GoInt)] == _c)) {
                 _b._w++;
@@ -536,6 +538,7 @@ class T_lazybuf_asInterface {
     }
     @:keep
     static public function _index( _b:stdgo.StdGoTypes.Ref<T_lazybuf>, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoByte {
+        @:recv var _b:stdgo.StdGoTypes.Ref<T_lazybuf> = _b;
         if (_b._buf != null) {
             return _b._buf[(_i : stdgo.StdGoTypes.GoInt)];
         };

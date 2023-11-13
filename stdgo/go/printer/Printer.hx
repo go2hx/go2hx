@@ -2025,6 +2025,7 @@ class T_sizeCounter_asInterface {
 @:keep @:allow(stdgo.go.printer.Printer.T_sizeCounter_asInterface) class T_sizeCounter_static_extension {
     @:keep
     static public function write( _c:stdgo.StdGoTypes.Ref<T_sizeCounter>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_sizeCounter> = _c;
         if (!_c._hasNewline) {
             for (__0 => _b in _p) {
                 if ((_b == (10 : stdgo.StdGoTypes.GoUInt8)) || (_b == (12 : stdgo.StdGoTypes.GoUInt8))) {
@@ -2386,6 +2387,7 @@ class T_printer_asInterface {
 @:keep @:allow(stdgo.go.printer.Printer.T_printer_asInterface) class T_printer_static_extension {
     @:keep
     static public function _free( _p:stdgo.StdGoTypes.Ref<T_printer>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if (_p._output.capacity > (65536 : stdgo.StdGoTypes.GoInt)) {
             return;
         };
@@ -2394,6 +2396,7 @@ class T_printer_asInterface {
     @:keep
     static public function _printNode( _p:stdgo.StdGoTypes.Ref<T_printer>, _node:stdgo.StdGoTypes.AnyInterface):stdgo.Error {
         stdgo.internal.Macro.controlFlow({
+            @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
             var _comments:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>>);
             {
                 var __tmp__ = try {
@@ -2521,6 +2524,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _flush( _p:stdgo.StdGoTypes.Ref<T_printer>, _next:stdgo.go.token.Token.Position, _tok:stdgo.go.token.Token.Token):{ var _0 : Bool; var _1 : Bool; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _wroteNewline:Bool = false, _droppedFF:Bool = false;
         if (_p._commentBefore(_next?.__copy__())) {
             {
@@ -2548,6 +2552,7 @@ class T_printer_asInterface {
     @:keep
     static public function _print( _p:stdgo.StdGoTypes.Ref<T_printer>, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         for (__0 => _arg in _args) {
             var _data:stdgo.GoString = ("" : stdgo.GoString);
             var _isLit:Bool = false;
@@ -2650,6 +2655,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _setPos( _p:stdgo.StdGoTypes.Ref<T_printer>, _pos:stdgo.go.token.Token.Pos):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if (_pos.isValid()) {
             _p._pos = _p._posFor(_pos)?.__copy__();
         };
@@ -2659,6 +2665,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _writeWhitespace( _p:stdgo.StdGoTypes.Ref<T_printer>, _n:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _n, _i++, {
@@ -2730,6 +2737,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _intersperseComments( _p:stdgo.StdGoTypes.Ref<T_printer>, _next:stdgo.go.token.Token.Position, _tok:stdgo.go.token.Token.Token):{ var _0 : Bool; var _1 : Bool; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _wroteNewline:Bool = false, _droppedFF:Bool = false;
         var _last:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment> = (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>);
         while (_p._commentBefore(_next?.__copy__())) {
@@ -2780,6 +2788,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _containsLinebreak( _p:stdgo.StdGoTypes.Ref<T_printer>):Bool {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         for (__0 => _ch in _p._wsbuf) {
             if ((_ch == (10 : stdgo.go.printer.Printer.T_whiteSpace)) || (_ch == (12 : stdgo.go.printer.Printer.T_whiteSpace))) {
                 return true;
@@ -2797,6 +2806,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _writeCommentSuffix( _p:stdgo.StdGoTypes.Ref<T_printer>, _needsLinebreak:Bool):{ var _0 : Bool; var _1 : Bool; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _wroteNewline:Bool = false, _droppedFF:Bool = false;
         for (_i => _ch in _p._wsbuf) {
             {
@@ -2825,6 +2835,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _writeComment( _p:stdgo.StdGoTypes.Ref<T_printer>, _comment:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _text:stdgo.GoString = _comment.text;
@@ -2906,6 +2917,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _writeCommentPrefix( _p:stdgo.StdGoTypes.Ref<T_printer>, _pos:stdgo.go.token.Token.Position, _next:stdgo.go.token.Token.Position, _prev:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>, _tok:stdgo.go.token.Token.Token):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if ((_p._output.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             return;
         };
@@ -3001,6 +3013,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _writeString( _p:stdgo.StdGoTypes.Ref<T_printer>, _pos:stdgo.go.token.Token.Position, _s:stdgo.GoString, _isLit:Bool):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if (_p._out.column == ((1 : stdgo.StdGoTypes.GoInt))) {
             if (_p.config.mode & (8u32 : stdgo.go.printer.Printer.Mode) != ((0u32 : stdgo.go.printer.Printer.Mode))) {
                 _p._writeLineDirective(_pos?.__copy__());
@@ -3054,6 +3067,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _writeByte( _p:stdgo.StdGoTypes.Ref<T_printer>, _ch:stdgo.StdGoTypes.GoByte, _n:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if (_p._endAlignment) {
             {
                 final __value__ = _ch;
@@ -3090,6 +3104,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _writeIndent( _p:stdgo.StdGoTypes.Ref<T_printer>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _n:stdgo.StdGoTypes.GoInt = _p.config.indent + _p._indent;
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -3106,6 +3121,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _writeLineDirective( _p:stdgo.StdGoTypes.Ref<T_printer>, _pos:stdgo.go.token.Token.Position):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if (_pos.isValid() && ((_p._out.line != _pos.line) || (_p._out.filename != _pos.filename))) {
             if (stdgo.strings.Strings.containsAny(_pos.filename, ("\r\n" : stdgo.GoString))) {
                 if (_p._sourcePosErr == null) {
@@ -3122,6 +3138,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _lineFor( _p:stdgo.StdGoTypes.Ref<T_printer>, _pos:stdgo.go.token.Token.Pos):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if (_pos != (_p._cachedPos)) {
             _p._cachedPos = _pos;
             _p._cachedLine = _p._fset.positionFor(_pos, false).line;
@@ -3130,6 +3147,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _posFor( _p:stdgo.StdGoTypes.Ref<T_printer>, _pos:stdgo.go.token.Token.Pos):stdgo.go.token.Token.Position {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         return _p._fset.positionFor(_pos, false)?.__copy__();
     }
     /**
@@ -3140,6 +3158,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _linesFrom( _p:stdgo.StdGoTypes.Ref<T_printer>, _line:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         return _p._out.line - _line;
     }
     /**
@@ -3150,6 +3169,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _recordLine( _p:stdgo.StdGoTypes.Ref<T_printer>, _linePtr:stdgo.Pointer<stdgo.StdGoTypes.GoInt>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._linePtr = _linePtr;
     }
     /**
@@ -3158,6 +3178,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _commentSizeBefore( _p:stdgo.StdGoTypes.Ref<T_printer>, _next:stdgo.go.token.Token.Position):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var __deferstack__:Array<Void -> Void> = [];
         {
             var _a0 = _p._commentInfo;
@@ -3213,10 +3234,12 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _commentBefore( _p:stdgo.StdGoTypes.Ref<T_printer>, _next:stdgo.go.token.Token.Position):Bool {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         return (_p._commentInfo._commentOffset < _next.offset) && (!_p._impliedSemi || !_p._commentInfo._commentNewline);
     }
     @:keep
     static public function _nextComment( _p:stdgo.StdGoTypes.Ref<T_printer>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         while (_p._commentInfo._cindex < (_p._comments.length)) {
             var _c = _p._comments[(_p._commentInfo._cindex : stdgo.StdGoTypes.GoInt)];
             _p._commentInfo._cindex++;
@@ -3239,6 +3262,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _commentsHaveNewline( _p:stdgo.StdGoTypes.Ref<T_printer>, _list:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>>):Bool {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _line:stdgo.StdGoTypes.GoInt = _p._lineFor(_list[(0 : stdgo.StdGoTypes.GoInt)].pos());
         for (_i => _c in _list) {
             if ((_i > (0 : stdgo.StdGoTypes.GoInt)) && (_p._lineFor(_list[(_i : stdgo.StdGoTypes.GoInt)].pos()) != _line)) {
@@ -3257,6 +3281,7 @@ class T_printer_asInterface {
     @:keep
     static public function _internalError( _p:stdgo.StdGoTypes.Ref<T_printer>, _msg:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _msg = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_msg.length, 0, ..._msg);
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if (false) {
             stdgo.fmt.Fmt.print(stdgo.Go.toInterface((_p._pos.string() : stdgo.GoString) + (": " : stdgo.GoString)));
             stdgo.fmt.Fmt.println(..._msg.__toArray__());
@@ -3265,6 +3290,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _file( _p:stdgo.StdGoTypes.Ref<T_printer>, _src:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._setComment(_src.doc);
         _p._setPos(_src.pos());
         _p._print(stdgo.Go.toInterface(stdgo.Go.asInterface((78 : stdgo.go.token.Token.Token))), stdgo.Go.toInterface((32 : stdgo.go.printer.Printer.T_whiteSpace)));
@@ -3274,6 +3300,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _declList( _p:stdgo.StdGoTypes.Ref<T_printer>, _list:stdgo.Slice<stdgo.go.ast.Ast.Decl>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _tok:stdgo.go.token.Token.Token = (0 : stdgo.go.token.Token.Token);
         for (__0 => _d in _list) {
             var _prev:stdgo.go.token.Token.Token = _tok;
@@ -3290,6 +3317,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _decl( _p:stdgo.StdGoTypes.Ref<T_printer>, _decl:stdgo.go.ast.Ast.Decl):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         {
             final __type__ = _decl;
             if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BadDecl>))) {
@@ -3310,6 +3338,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _funcDecl( _p:stdgo.StdGoTypes.Ref<T_printer>, _d:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._setComment(_d.doc);
         _p._setPos(_d.pos());
         _p._print(stdgo.Go.toInterface(stdgo.Go.asInterface((71 : stdgo.go.token.Token.Token))), stdgo.Go.toInterface((32 : stdgo.go.printer.Printer.T_whiteSpace)));
@@ -3329,6 +3358,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _distanceFrom( _p:stdgo.StdGoTypes.Ref<T_printer>, _startPos:stdgo.go.token.Token.Pos, _startOutCol:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if ((_startPos.isValid() && _p._pos.isValid()) && (_p._posFor(_startPos).line == _p._pos.line)) {
             return _p._out.column - _startOutCol;
         };
@@ -3343,6 +3373,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _funcBody( _p:stdgo.StdGoTypes.Ref<T_printer>, _headerSize:stdgo.StdGoTypes.GoInt, _sep:T_whiteSpace, _b:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BlockStmt>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             if (_b == null || (_b : Dynamic).__nil__) {
@@ -3416,6 +3447,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _bodySize( _p:stdgo.StdGoTypes.Ref<T_printer>, _b:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BlockStmt>, _maxSize:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _pos1:stdgo.go.token.Token.Pos = _b.pos();
         var _pos2:stdgo.go.token.Token.Pos = _b.rbrace;
         if ((_pos1.isValid() && _pos2.isValid()) && (_p._lineFor(_pos1) != _p._lineFor(_pos2))) {
@@ -3441,6 +3473,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _numLines( _p:stdgo.StdGoTypes.Ref<T_printer>, _n:stdgo.go.ast.Ast.Node):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         {
             var _from:stdgo.go.token.Token.Pos = _n.pos();
             if (_from.isValid()) {
@@ -3462,6 +3495,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _nodeSize( _p:stdgo.StdGoTypes.Ref<T_printer>, _n:stdgo.go.ast.Ast.Node, _maxSize:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _size:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         {
             var __tmp__ = (_p._nodeSizes != null && _p._nodeSizes.exists(_n) ? { value : _p._nodeSizes[_n], ok : true } : { value : (0 : stdgo.StdGoTypes.GoInt), ok : false }), _size:stdgo.StdGoTypes.GoInt = __tmp__.value, _found:Bool = __tmp__.ok;
@@ -3487,6 +3521,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _genDecl( _p:stdgo.StdGoTypes.Ref<T_printer>, _d:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.GenDecl>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._setComment(_d.doc);
         _p._setPos(_d.pos());
         _p._print(stdgo.Go.toInterface(stdgo.Go.asInterface(_d.tok)), stdgo.Go.toInterface((32 : stdgo.go.printer.Printer.T_whiteSpace)));
@@ -3533,6 +3568,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _spec( _p:stdgo.StdGoTypes.Ref<T_printer>, _spec:stdgo.go.ast.Ast.Spec, _n:stdgo.StdGoTypes.GoInt, _doIndent:Bool):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         {
             final __type__ = _spec;
             if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ImportSpec>))) {
@@ -3586,6 +3622,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _valueSpec( _p:stdgo.StdGoTypes.Ref<T_printer>, _s:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ValueSpec>, _keepType:Bool):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._setComment(_s.doc);
         _p._identList(_s.names, false);
         var _extraTabs:stdgo.StdGoTypes.GoInt = (3 : stdgo.StdGoTypes.GoInt);
@@ -3610,6 +3647,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _stmt( _p:stdgo.StdGoTypes.Ref<T_printer>, _stmt:stdgo.go.ast.Ast.Stmt, _nextIsRBrace:Bool):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._setPos(_stmt.pos());
         {
             final __type__ = _stmt;
@@ -3817,6 +3855,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _indentList( _p:stdgo.StdGoTypes.Ref<T_printer>, _list:stdgo.Slice<stdgo.go.ast.Ast.Expr>):Bool {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if ((_list.length) >= (2 : stdgo.StdGoTypes.GoInt)) {
             var _b:stdgo.StdGoTypes.GoInt = _p._lineFor(_list[(0 : stdgo.StdGoTypes.GoInt)].pos());
             var _e:stdgo.StdGoTypes.GoInt = _p._lineFor(_list[((_list.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)].end());
@@ -3841,6 +3880,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _controlClause( _p:stdgo.StdGoTypes.Ref<T_printer>, _isForStmt:Bool, _init:stdgo.go.ast.Ast.Stmt, _expr:stdgo.go.ast.Ast.Expr, _post:stdgo.go.ast.Ast.Stmt):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._print(stdgo.Go.toInterface((32 : stdgo.go.printer.Printer.T_whiteSpace)));
         var _needsBlank:Bool = false;
         if ((_init == null) && (_post == null)) {
@@ -3875,6 +3915,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _block( _p:stdgo.StdGoTypes.Ref<T_printer>, _b:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BlockStmt>, _nindent:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._setPos(_b.lbrace);
         _p._print(stdgo.Go.toInterface(stdgo.Go.asInterface((51 : stdgo.go.token.Token.Token))));
         _p._stmtList(_b.list, _nindent, true);
@@ -3889,6 +3930,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _stmtList( _p:stdgo.StdGoTypes.Ref<T_printer>, _list:stdgo.Slice<stdgo.go.ast.Ast.Stmt>, _nindent:stdgo.StdGoTypes.GoInt, _nextIsRBrace:Bool):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if (_nindent > (0 : stdgo.StdGoTypes.GoInt)) {
             _p._print(stdgo.Go.toInterface((62 : stdgo.go.printer.Printer.T_whiteSpace)));
         };
@@ -3932,11 +3974,13 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _expr( _p:stdgo.StdGoTypes.Ref<T_printer>, _x:stdgo.go.ast.Ast.Expr):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         {};
         _p._expr1(_x, (0 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt));
     }
     @:keep
     static public function _expr0( _p:stdgo.StdGoTypes.Ref<T_printer>, _x:stdgo.go.ast.Ast.Expr, _depth:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._expr1(_x, (0 : stdgo.StdGoTypes.GoInt), _depth);
     }
     /**
@@ -3945,6 +3989,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _selectorExpr( _p:stdgo.StdGoTypes.Ref<T_printer>, _x:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>, _depth:stdgo.StdGoTypes.GoInt, _isMethod:Bool):Bool {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._expr1(_x.x, (7 : stdgo.StdGoTypes.GoInt), _depth);
         _p._print(stdgo.Go.toInterface(stdgo.Go.asInterface((53 : stdgo.go.token.Token.Token))));
         {
@@ -3965,6 +4010,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _possibleSelectorExpr( _p:stdgo.StdGoTypes.Ref<T_printer>, _expr:stdgo.go.ast.Ast.Expr, _prec1:stdgo.StdGoTypes.GoInt, _depth:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         {
             var __tmp__ = try {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_expr) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.SelectorExpr>), ok : true };
@@ -3980,6 +4026,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _expr1( _p:stdgo.StdGoTypes.Ref<T_printer>, _expr:stdgo.go.ast.Ast.Expr, _prec1:stdgo.StdGoTypes.GoInt, _depth:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._setPos(_expr.pos());
         {
             final __type__ = _expr;
@@ -4279,6 +4326,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _binaryExpr( _p:stdgo.StdGoTypes.Ref<T_printer>, _x:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.BinaryExpr>, _prec1:stdgo.StdGoTypes.GoInt, _cutoff:stdgo.StdGoTypes.GoInt, _depth:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _prec:stdgo.StdGoTypes.GoInt = _x.op.precedence();
         if (_prec < _prec1) {
             _p._print(stdgo.Go.toInterface(stdgo.Go.asInterface((49 : stdgo.go.token.Token.Token))));
@@ -4312,6 +4360,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _fieldList( _p:stdgo.StdGoTypes.Ref<T_printer>, _fields:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FieldList>, _isStruct:Bool, _isIncomplete:Bool):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _lbrace:stdgo.go.token.Token.Pos = _fields.opening;
         var _list = _fields.list;
         var _rbrace:stdgo.go.token.Token.Pos = _fields.closing;
@@ -4445,10 +4494,12 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _setLineComment( _p:stdgo.StdGoTypes.Ref<T_printer>, _text:stdgo.GoString):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         _p._setComment((stdgo.Go.setRef(({ list : (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>>(1, 1, ({ slash : (0 : stdgo.go.token.Token.Pos), text : _text } : stdgo.go.ast.Ast.Comment)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Comment>>) } : stdgo.go.ast.Ast.CommentGroup)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>));
     }
     @:keep
     static public function _isOneLineFieldList( _p:stdgo.StdGoTypes.Ref<T_printer>, _list:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Field>>):Bool {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if ((_list.length) != ((1 : stdgo.StdGoTypes.GoInt))) {
             return false;
         };
@@ -4466,6 +4517,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _signature( _p:stdgo.StdGoTypes.Ref<T_printer>, _sig:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if (_sig.typeParams != null && ((_sig.typeParams : Dynamic).__nil__ == null || !(_sig.typeParams : Dynamic).__nil__)) {
             _p._parameters(_sig.typeParams, (1 : stdgo.go.printer.Printer.T_paramMode));
         };
@@ -4487,6 +4539,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _parameters( _p:stdgo.StdGoTypes.Ref<T_printer>, _fields:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FieldList>, _mode:T_paramMode):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var __0:stdgo.go.token.Token.Token = (49 : stdgo.go.token.Token.Token), __1:stdgo.go.token.Token.Token = (54 : stdgo.go.token.Token.Token), _closeTok:stdgo.go.token.Token.Token = __1, _openTok:stdgo.go.token.Token.Token = __0;
         if (_mode != ((0 : stdgo.go.printer.Printer.T_paramMode))) {
             {
@@ -4551,6 +4604,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _exprList( _p:stdgo.StdGoTypes.Ref<T_printer>, _prev0:stdgo.go.token.Token.Pos, _list:stdgo.Slice<stdgo.go.ast.Ast.Expr>, _depth:stdgo.StdGoTypes.GoInt, _mode:T_exprListMode, _next0:stdgo.go.token.Token.Pos, _isIncomplete:Bool):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if ((_list.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             if (_isIncomplete) {
                 var _prev:stdgo.go.token.Token.Position = _p._posFor(_prev0)?.__copy__();
@@ -4686,6 +4740,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _identList( _p:stdgo.StdGoTypes.Ref<T_printer>, _list:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Ident>>, _indent:Bool):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _xlist = new stdgo.Slice<stdgo.go.ast.Ast.Expr>((_list.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         for (_i => _x in _list) {
             _xlist[(_i : stdgo.StdGoTypes.GoInt)] = stdgo.Go.asInterface(_x);
@@ -4704,6 +4759,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _setComment( _p:stdgo.StdGoTypes.Ref<T_printer>, _g:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if (((_g == null) || (_g : Dynamic).__nil__) || !_p._useNodeComments) {
             return;
         };
@@ -4738,6 +4794,7 @@ class T_printer_asInterface {
     **/
     @:keep
     static public function _linebreak( _p:stdgo.StdGoTypes.Ref<T_printer>, _line:stdgo.StdGoTypes.GoInt, _min:stdgo.StdGoTypes.GoInt, _ws:T_whiteSpace, _newSection:Bool):stdgo.StdGoTypes.GoInt {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _nbreaks:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _n:stdgo.StdGoTypes.GoInt = _nlimit(_line - _p._pos.line);
         if (_n < _min) {
@@ -4759,6 +4816,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _commentTextAt( _p:stdgo.StdGoTypes.Ref<T_printer>, _start:stdgo.StdGoTypes.GoInt):stdgo.GoString {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if ((_start < _p._output.length) && (_p._output[(_start : stdgo.StdGoTypes.GoInt)] == (255 : stdgo.StdGoTypes.GoUInt8))) {
             _start++;
         };
@@ -4770,6 +4828,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _lineAt( _p:stdgo.StdGoTypes.Ref<T_printer>, _start:stdgo.StdGoTypes.GoInt):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _pos:stdgo.StdGoTypes.GoInt = _start;
         while ((_pos < _p._output.length) && !_isNL(_p._output[(_pos : stdgo.StdGoTypes.GoInt)])) {
             _pos++;
@@ -4781,6 +4840,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function _fixGoBuildLines( _p:stdgo.StdGoTypes.Ref<T_printer>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if ((_p._goBuild.length) + (_p._plusBuild.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             return;
         };
@@ -4914,6 +4974,7 @@ class T_trimmer_asInterface {
 @:keep @:allow(stdgo.go.printer.Printer.T_trimmer_asInterface) class T_trimmer_static_extension {
     @:keep
     static public function write( _p:stdgo.StdGoTypes.Ref<T_trimmer>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_trimmer> = _p;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         var _m:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _b:stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUInt8);
@@ -5014,6 +5075,7 @@ class T_trimmer_asInterface {
     }
     @:keep
     static public function _resetSpace( _p:stdgo.StdGoTypes.Ref<T_trimmer>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_trimmer> = _p;
         _p._state = (0 : stdgo.StdGoTypes.GoInt);
         _p._space = (_p._space.__slice__((0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
     }
@@ -5049,6 +5111,7 @@ class Config_asInterface {
     **/
     @:keep
     static public function fprint( _cfg:stdgo.StdGoTypes.Ref<Config>, _output:stdgo.io.Io.Writer, _fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _node:stdgo.StdGoTypes.AnyInterface):stdgo.Error {
+        @:recv var _cfg:stdgo.StdGoTypes.Ref<Config> = _cfg;
         return _cfg._fprint(_output, _fset, _node, ({
             final x = new stdgo.GoMap.GoObjectMap<stdgo.go.ast.Ast.Node, stdgo.StdGoTypes.GoInt>();
             x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }));
@@ -5062,6 +5125,7 @@ class Config_asInterface {
     **/
     @:keep
     static public function _fprint( _cfg:stdgo.StdGoTypes.Ref<Config>, _output:stdgo.io.Io.Writer, _fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _node:stdgo.StdGoTypes.AnyInterface, _nodeSizes:GoMap<stdgo.go.ast.Ast.Node, stdgo.StdGoTypes.GoInt>):stdgo.Error {
+        @:recv var _cfg:stdgo.StdGoTypes.Ref<Config> = _cfg;
         var __deferstack__:Array<Void -> Void> = [];
         var _err:stdgo.Error = (null : stdgo.Error);
         try {
@@ -5164,6 +5228,7 @@ class T_limitWriter_asInterface {
 @:keep @:allow(stdgo.go.printer.Printer.T_limitWriter_asInterface) class T_limitWriter_static_extension {
     @:keep
     static public function write( _l:stdgo.StdGoTypes.Ref<T_limitWriter>, _buf:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _l:stdgo.StdGoTypes.Ref<T_limitWriter> = _l;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         _n = (_buf.length);
         if (_n >= _l._remaining) {
@@ -5189,6 +5254,7 @@ class T_visitor_asInterface {
 @:keep @:allow(stdgo.go.printer.Printer.T_visitor_asInterface) class T_visitor_static_extension {
     @:keep
     static public function visit( _v:T_visitor, _n:stdgo.go.ast.Ast.Node):stdgo.go.ast.Ast.Visitor {
+        @:recv var _v:T_visitor = _v;
         var _w:stdgo.go.ast.Ast.Visitor = (null : stdgo.go.ast.Ast.Visitor);
         {
             var __tmp__ = try {

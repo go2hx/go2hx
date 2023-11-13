@@ -1547,6 +1547,7 @@ class T_encoder_asInterface {
 @:keep @:allow(stdgo.encoding.hex.Hex.T_encoder_asInterface) class T_encoder_static_extension {
     @:keep
     static public function write( _e:stdgo.StdGoTypes.Ref<T_encoder>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         while ((_p.length > (0 : stdgo.StdGoTypes.GoInt)) && (_e._err == null)) {
             var _chunkSize:stdgo.StdGoTypes.GoInt = (512 : stdgo.StdGoTypes.GoInt);
@@ -1580,6 +1581,7 @@ class T_decoder_asInterface {
 @:keep @:allow(stdgo.encoding.hex.Hex.T_decoder_asInterface) class T_decoder_static_extension {
     @:keep
     static public function read( _d:stdgo.StdGoTypes.Ref<T_decoder>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if ((_d._in.length < (2 : stdgo.StdGoTypes.GoInt)) && (_d._err == null)) {
             var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _numRead:stdgo.StdGoTypes.GoInt = __1, _numCopy:stdgo.StdGoTypes.GoInt = __0;
@@ -1886,6 +1888,7 @@ class T_dumper_asInterface {
 @:keep @:allow(stdgo.encoding.hex.Hex.T_dumper_asInterface) class T_dumper_static_extension {
     @:keep
     static public function close( _h:stdgo.StdGoTypes.Ref<T_dumper>):stdgo.Error {
+        @:recv var _h:stdgo.StdGoTypes.Ref<T_dumper> = _h;
         var _err:stdgo.Error = (null : stdgo.Error);
         if (_h._closed) {
             return _err;
@@ -1926,6 +1929,7 @@ class T_dumper_asInterface {
     }
     @:keep
     static public function write( _h:stdgo.StdGoTypes.Ref<T_dumper>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _h:stdgo.StdGoTypes.Ref<T_dumper> = _h;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (_h._closed) {
             return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.errors.Errors.new_(("encoding/hex: dumper closed" : stdgo.GoString)) };
@@ -1999,6 +2003,7 @@ class InvalidByteError_asInterface {
 @:keep @:allow(stdgo.encoding.hex.Hex.InvalidByteError_asInterface) class InvalidByteError_static_extension {
     @:keep
     static public function error( _e:InvalidByteError):stdgo.GoString {
+        @:recv var _e:InvalidByteError = _e;
         return stdgo.fmt.Fmt.sprintf(("encoding/hex: invalid byte: %#U" : stdgo.GoString), stdgo.Go.toInterface((_e : stdgo.StdGoTypes.GoRune)));
     }
 }

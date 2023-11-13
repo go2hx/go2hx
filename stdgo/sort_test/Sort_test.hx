@@ -1749,6 +1749,7 @@ class Person_asInterface {
 @:keep @:allow(stdgo.sort_test.Sort_test.Person_asInterface) class Person_static_extension {
     @:keep
     static public function string( _p:Person):stdgo.GoString {
+        @:recv var _p:Person = _p?.__copy__();
         return stdgo.fmt.Fmt.sprintf(("%s: %d" : stdgo.GoString), stdgo.Go.toInterface(_p.name), stdgo.Go.toInterface(_p.age));
     }
 }
@@ -1782,6 +1783,7 @@ class T_planetSorter_asInterface {
     **/
     @:keep
     static public function less( _s:stdgo.StdGoTypes.Ref<T_planetSorter>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _s:stdgo.StdGoTypes.Ref<T_planetSorter> = _s;
         return _s._by((stdgo.Go.setRef(_s._planets[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.Planet>), (stdgo.Go.setRef(_s._planets[(_j : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.Planet>));
     }
     /**
@@ -1789,6 +1791,7 @@ class T_planetSorter_asInterface {
     **/
     @:keep
     static public function swap( _s:stdgo.StdGoTypes.Ref<T_planetSorter>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _s:stdgo.StdGoTypes.Ref<T_planetSorter> = _s;
         {
             final __tmp__0 = _s._planets[(_j : stdgo.StdGoTypes.GoInt)];
             final __tmp__1 = _s._planets[(_i : stdgo.StdGoTypes.GoInt)];
@@ -1801,6 +1804,7 @@ class T_planetSorter_asInterface {
     **/
     @:keep
     static public function len( _s:stdgo.StdGoTypes.Ref<T_planetSorter>):stdgo.StdGoTypes.GoInt {
+        @:recv var _s:stdgo.StdGoTypes.Ref<T_planetSorter> = _s;
         return (_s._planets.length);
     }
 }
@@ -1849,6 +1853,7 @@ class T_multiSorter_asInterface {
     **/
     @:keep
     static public function less( _ms:stdgo.StdGoTypes.Ref<T_multiSorter>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _ms:stdgo.StdGoTypes.Ref<T_multiSorter> = _ms;
         var __0 = (stdgo.Go.setRef(_ms._changes[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.Change>), __1 = (stdgo.Go.setRef(_ms._changes[(_j : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.Change>), _q = __1, _p = __0;
         var _k:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         {
@@ -1869,6 +1874,7 @@ class T_multiSorter_asInterface {
     **/
     @:keep
     static public function swap( _ms:stdgo.StdGoTypes.Ref<T_multiSorter>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _ms:stdgo.StdGoTypes.Ref<T_multiSorter> = _ms;
         {
             final __tmp__0 = _ms._changes[(_j : stdgo.StdGoTypes.GoInt)];
             final __tmp__1 = _ms._changes[(_i : stdgo.StdGoTypes.GoInt)];
@@ -1881,6 +1887,7 @@ class T_multiSorter_asInterface {
     **/
     @:keep
     static public function len( _ms:stdgo.StdGoTypes.Ref<T_multiSorter>):stdgo.StdGoTypes.GoInt {
+        @:recv var _ms:stdgo.StdGoTypes.Ref<T_multiSorter> = _ms;
         return (_ms._changes.length);
     }
     /**
@@ -1888,6 +1895,7 @@ class T_multiSorter_asInterface {
     **/
     @:keep
     static public function sort( _ms:stdgo.StdGoTypes.Ref<T_multiSorter>, _changes:stdgo.Slice<Change>):Void {
+        @:recv var _ms:stdgo.StdGoTypes.Ref<T_multiSorter> = _ms;
         _ms._changes = _changes;
         stdgo.sort.Sort.sort(stdgo.Go.asInterface(_ms));
     }
@@ -1910,6 +1918,7 @@ class ByName_asInterface {
 @:keep @:allow(stdgo.sort_test.Sort_test.ByName_asInterface) class ByName_static_extension {
     @:keep
     static public function less( _s:ByName, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _s:ByName = _s?.__copy__();
         return _s.organs[(_i : stdgo.StdGoTypes.GoInt)].name < _s.organs[(_j : stdgo.StdGoTypes.GoInt)].name;
     }
     @:embedded
@@ -1935,6 +1944,7 @@ class ByWeight_asInterface {
 @:keep @:allow(stdgo.sort_test.Sort_test.ByWeight_asInterface) class ByWeight_static_extension {
     @:keep
     static public function less( _s:ByWeight, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _s:ByWeight = _s?.__copy__();
         return _s.organs[(_i : stdgo.StdGoTypes.GoInt)].weight < _s.organs[(_j : stdgo.StdGoTypes.GoInt)].weight;
     }
     @:embedded
@@ -1960,12 +1970,14 @@ class T_nonDeterministicTestingData_asInterface {
 @:keep @:allow(stdgo.sort_test.Sort_test.T_nonDeterministicTestingData_asInterface) class T_nonDeterministicTestingData_static_extension {
     @:keep
     static public function swap( _t:stdgo.StdGoTypes.Ref<T_nonDeterministicTestingData>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _t:stdgo.StdGoTypes.Ref<T_nonDeterministicTestingData> = _t;
         if ((((_i < (0 : stdgo.StdGoTypes.GoInt)) || (_j < (0 : stdgo.StdGoTypes.GoInt))) || (_i >= _t.len())) || (_j >= _t.len())) {
             throw stdgo.Go.toInterface(("nondeterministic comparison out of bounds" : stdgo.GoString));
         };
     }
     @:keep
     static public function less( _t:stdgo.StdGoTypes.Ref<T_nonDeterministicTestingData>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _t:stdgo.StdGoTypes.Ref<T_nonDeterministicTestingData> = _t;
         if ((((_i < (0 : stdgo.StdGoTypes.GoInt)) || (_j < (0 : stdgo.StdGoTypes.GoInt))) || (_i >= _t.len())) || (_j >= _t.len())) {
             throw stdgo.Go.toInterface(("nondeterministic comparison out of bounds" : stdgo.GoString));
         };
@@ -1973,6 +1985,7 @@ class T_nonDeterministicTestingData_asInterface {
     }
     @:keep
     static public function len( _t:stdgo.StdGoTypes.Ref<T_nonDeterministicTestingData>):stdgo.StdGoTypes.GoInt {
+        @:recv var _t:stdgo.StdGoTypes.Ref<T_nonDeterministicTestingData> = _t;
         return (500 : stdgo.StdGoTypes.GoInt);
     }
 }
@@ -1994,6 +2007,7 @@ class T_testingData_asInterface {
 @:keep @:allow(stdgo.sort_test.Sort_test.T_testingData_asInterface) class T_testingData_static_extension {
     @:keep
     static public function swap( _d:stdgo.StdGoTypes.Ref<T_testingData>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_testingData> = _d;
         if (_d._nswap >= _d._maxswap) {
             _d._t.fatalf(("%s: used %d swaps sorting slice of %d" : stdgo.GoString), stdgo.Go.toInterface(_d._desc), stdgo.Go.toInterface(_d._nswap), stdgo.Go.toInterface((_d._data.length)));
         };
@@ -2007,11 +2021,13 @@ class T_testingData_asInterface {
     }
     @:keep
     static public function less( _d:stdgo.StdGoTypes.Ref<T_testingData>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_testingData> = _d;
         _d._ncmp++;
         return _d._data[(_i : stdgo.StdGoTypes.GoInt)] < _d._data[(_j : stdgo.StdGoTypes.GoInt)];
     }
     @:keep
     static public function len( _d:stdgo.StdGoTypes.Ref<T_testingData>):stdgo.StdGoTypes.GoInt {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_testingData> = _d;
         return (_d._data.length);
     }
 }
@@ -2033,6 +2049,7 @@ class T_adversaryTestingData_asInterface {
 @:keep @:allow(stdgo.sort_test.Sort_test.T_adversaryTestingData_asInterface) class T_adversaryTestingData_static_extension {
     @:keep
     static public function swap( _d:stdgo.StdGoTypes.Ref<T_adversaryTestingData>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_adversaryTestingData> = _d;
         {
             final __tmp__0 = _d._data[(_j : stdgo.StdGoTypes.GoInt)];
             final __tmp__1 = _d._data[(_i : stdgo.StdGoTypes.GoInt)];
@@ -2042,6 +2059,7 @@ class T_adversaryTestingData_asInterface {
     }
     @:keep
     static public function less( _d:stdgo.StdGoTypes.Ref<T_adversaryTestingData>, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_adversaryTestingData> = _d;
         if (_d._ncmp >= _d._maxcmp) {
             _d._t.fatalf(("used %d comparisons sorting adversary data with size %d" : stdgo.GoString), stdgo.Go.toInterface(_d._ncmp), stdgo.Go.toInterface((_d._data.length)));
         };
@@ -2064,6 +2082,7 @@ class T_adversaryTestingData_asInterface {
     }
     @:keep
     static public function len( _d:stdgo.StdGoTypes.Ref<T_adversaryTestingData>):stdgo.StdGoTypes.GoInt {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_adversaryTestingData> = _d;
         return (_d._data.length);
     }
 }
@@ -2085,10 +2104,12 @@ class ByAge_asInterface {
 @:keep @:allow(stdgo.sort_test.Sort_test.ByAge_asInterface) class ByAge_static_extension {
     @:keep
     static public function less( _a:ByAge, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _a:ByAge = _a;
         return _a[(_i : stdgo.StdGoTypes.GoInt)].age < _a[(_j : stdgo.StdGoTypes.GoInt)].age;
     }
     @:keep
     static public function swap( _a:ByAge, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _a:ByAge = _a;
         {
             final __tmp__0 = _a[(_j : stdgo.StdGoTypes.GoInt)];
             final __tmp__1 = _a[(_i : stdgo.StdGoTypes.GoInt)];
@@ -2098,6 +2119,7 @@ class ByAge_asInterface {
     }
     @:keep
     static public function len( _a:ByAge):stdgo.StdGoTypes.GoInt {
+        @:recv var _a:ByAge = _a;
         return (_a.length);
     }
 }
@@ -2121,6 +2143,7 @@ class By_asInterface {
     **/
     @:keep
     static public function sort( _by:By, _planets:stdgo.Slice<Planet>):Void {
+        @:recv var _by:By = _by;
         var _ps = (stdgo.Go.setRef(({ _planets : _planets, _by : _by } : T_planetSorter)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_planetSorter>);
         stdgo.sort.Sort.sort(stdgo.Go.asInterface(_ps));
     }
@@ -2139,6 +2162,7 @@ class Grams_asInterface {
 @:keep @:allow(stdgo.sort_test.Sort_test.Grams_asInterface) class Grams_static_extension {
     @:keep
     static public function string( _g:Grams):stdgo.GoString {
+        @:recv var _g:Grams = _g;
         return stdgo.fmt.Fmt.sprintf(("%dg" : stdgo.GoString), stdgo.Go.toInterface((_g : stdgo.StdGoTypes.GoInt)));
     }
 }
@@ -2158,6 +2182,7 @@ class Organs_asInterface {
 @:keep @:allow(stdgo.sort_test.Sort_test.Organs_asInterface) class Organs_static_extension {
     @:keep
     static public function swap( _s:Organs, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _s:Organs = _s;
         {
             final __tmp__0 = _s[(_j : stdgo.StdGoTypes.GoInt)];
             final __tmp__1 = _s[(_i : stdgo.StdGoTypes.GoInt)];
@@ -2167,6 +2192,7 @@ class Organs_asInterface {
     }
     @:keep
     static public function len( _s:Organs):stdgo.StdGoTypes.GoInt {
+        @:recv var _s:Organs = _s;
         return (_s.length);
     }
 }
@@ -2204,6 +2230,7 @@ class T_intPairs_asInterface {
     **/
     @:keep
     static public function _inOrder( _d:T_intPairs):Bool {
+        @:recv var _d:T_intPairs = _d;
         var __0:stdgo.StdGoTypes.GoInt = (-1 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _lastB:stdgo.StdGoTypes.GoInt = __1, _lastA:stdgo.StdGoTypes.GoInt = __0;
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -2226,12 +2253,14 @@ class T_intPairs_asInterface {
     **/
     @:keep
     static public function _initB( _d:T_intPairs):Void {
+        @:recv var _d:T_intPairs = _d;
         for (_i => _ in _d) {
             _d[(_i : stdgo.StdGoTypes.GoInt)]._b = _i;
         };
     }
     @:keep
     static public function swap( _d:T_intPairs, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _d:T_intPairs = _d;
         {
             final __tmp__0 = {
                 final x = _d[(_j : stdgo.StdGoTypes.GoInt)];
@@ -2247,6 +2276,7 @@ class T_intPairs_asInterface {
     }
     @:keep
     static public function less( _d:T_intPairs, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _d:T_intPairs = _d;
         return _d[(_i : stdgo.StdGoTypes.GoInt)]._a < _d[(_j : stdgo.StdGoTypes.GoInt)]._a;
     }
     /**
@@ -2254,6 +2284,7 @@ class T_intPairs_asInterface {
     **/
     @:keep
     static public function len( _d:T_intPairs):stdgo.StdGoTypes.GoInt {
+        @:recv var _d:T_intPairs = _d;
         return (_d.length);
     }
 }

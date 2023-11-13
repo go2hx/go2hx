@@ -1465,6 +1465,7 @@ class Encoding_asInterface {
     **/
     @:keep
     static public function decodedLen( _enc:stdgo.StdGoTypes.Ref<Encoding>, _n:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        @:recv var _enc:stdgo.StdGoTypes.Ref<Encoding> = _enc;
         if (_enc._padChar == ((-1 : stdgo.StdGoTypes.GoInt32))) {
             return (_n * (6 : stdgo.StdGoTypes.GoInt)) / (8 : stdgo.StdGoTypes.GoInt);
         };
@@ -1479,6 +1480,7 @@ class Encoding_asInterface {
     **/
     @:keep
     static public function decode( _enc:stdgo.StdGoTypes.Ref<Encoding>, _dst:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _src:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _enc:stdgo.StdGoTypes.Ref<Encoding> = _enc;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if ((_src.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : (null : stdgo.Error) };
@@ -1551,6 +1553,7 @@ class Encoding_asInterface {
     **/
     @:keep
     static public function decodeString( _enc:stdgo.StdGoTypes.Ref<Encoding>, _s:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
+        @:recv var _enc:stdgo.StdGoTypes.Ref<Encoding> = _enc;
         var _dbuf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((_enc.decodedLen((_s.length)) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         var __tmp__ = _enc.decode(_dbuf, (_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return { _0 : (_dbuf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _1 : _err };
@@ -1564,6 +1567,7 @@ class Encoding_asInterface {
     **/
     @:keep
     static public function _decodeQuantum( _enc:stdgo.StdGoTypes.Ref<Encoding>, _dst:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _src:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _si:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.StdGoTypes.GoInt; var _2 : stdgo.Error; } {
+        @:recv var _enc:stdgo.StdGoTypes.Ref<Encoding> = _enc;
         var _nsi:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         var _dbuf:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 4) (0 : stdgo.StdGoTypes.GoUInt8)]);
         var _dlen:stdgo.StdGoTypes.GoInt = (4 : stdgo.StdGoTypes.GoInt);
@@ -1678,6 +1682,7 @@ class Encoding_asInterface {
     **/
     @:keep
     static public function encodedLen( _enc:stdgo.StdGoTypes.Ref<Encoding>, _n:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        @:recv var _enc:stdgo.StdGoTypes.Ref<Encoding> = _enc;
         if (_enc._padChar == ((-1 : stdgo.StdGoTypes.GoInt32))) {
             return ((_n * (8 : stdgo.StdGoTypes.GoInt)) + (5 : stdgo.StdGoTypes.GoInt)) / (6 : stdgo.StdGoTypes.GoInt);
         };
@@ -1688,6 +1693,7 @@ class Encoding_asInterface {
     **/
     @:keep
     static public function encodeToString( _enc:stdgo.StdGoTypes.Ref<Encoding>, _src:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.GoString {
+        @:recv var _enc:stdgo.StdGoTypes.Ref<Encoding> = _enc;
         var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((_enc.encodedLen((_src.length)) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         _enc.encode(_buf, _src);
         return (_buf : stdgo.GoString);
@@ -1702,6 +1708,7 @@ class Encoding_asInterface {
     **/
     @:keep
     static public function encode( _enc:stdgo.StdGoTypes.Ref<Encoding>, _dst:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _src:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
+        @:recv var _enc:stdgo.StdGoTypes.Ref<Encoding> = _enc;
         if ((_src.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             return;
         };
@@ -1752,6 +1759,7 @@ class Encoding_asInterface {
     **/
     @:keep
     static public function strict( _enc:Encoding):stdgo.StdGoTypes.Ref<Encoding> {
+        @:recv var _enc:Encoding = _enc?.__copy__();
         _enc._strict = true;
         return (stdgo.Go.setRef(_enc) : stdgo.StdGoTypes.Ref<stdgo.encoding.base64.Base64.Encoding>);
     }
@@ -1766,6 +1774,7 @@ class Encoding_asInterface {
     **/
     @:keep
     static public function withPadding( _enc:Encoding, _padding:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.Ref<Encoding> {
+        @:recv var _enc:Encoding = _enc?.__copy__();
         if (((_padding == (13 : stdgo.StdGoTypes.GoInt32)) || (_padding == (10 : stdgo.StdGoTypes.GoInt32))) || (_padding > (255 : stdgo.StdGoTypes.GoInt32))) {
             throw stdgo.Go.toInterface(("invalid padding" : stdgo.GoString));
         };
@@ -1805,6 +1814,7 @@ class T_encoder_asInterface {
     **/
     @:keep
     static public function close( _e:stdgo.StdGoTypes.Ref<T_encoder>):stdgo.Error {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         if ((_e._err == null) && (_e._nbuf > (0 : stdgo.StdGoTypes.GoInt))) {
             _e._enc.encode((_e._out.__slice__(0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (_e._buf.__slice__(0, _e._nbuf) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
             {
@@ -1817,6 +1827,7 @@ class T_encoder_asInterface {
     }
     @:keep
     static public function write( _e:stdgo.StdGoTypes.Ref<T_encoder>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (_e._err != null) {
             return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _e._err };
@@ -1886,6 +1897,7 @@ class T_decoder_asInterface {
 @:keep @:allow(stdgo.encoding.base64.Base64.T_decoder_asInterface) class T_decoder_static_extension {
     @:keep
     static public function read( _d:stdgo.StdGoTypes.Ref<T_decoder>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if ((_d._out.length) > (0 : stdgo.StdGoTypes.GoInt)) {
             _n = stdgo.Go.copySlice(_p, _d._out);
@@ -1972,6 +1984,7 @@ class T_newlineFilteringReader_asInterface {
 @:keep @:allow(stdgo.encoding.base64.Base64.T_newlineFilteringReader_asInterface) class T_newlineFilteringReader_static_extension {
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<T_newlineFilteringReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_newlineFilteringReader> = _r;
         var __tmp__ = _r._wrapped.read(_p), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         while (_n > (0 : stdgo.StdGoTypes.GoInt)) {
             var _offset:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -2009,6 +2022,7 @@ class T_faultInjectReader_asInterface {
 @:keep @:allow(stdgo.encoding.base64.Base64.T_faultInjectReader_asInterface) class T_faultInjectReader_static_extension {
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<T_faultInjectReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_faultInjectReader> = _r;
         var _nr:stdgo.encoding.base64.Base64.T_nextRead = _r._nextc.__get__()?.__copy__();
         if ((_p.length) > _nr._n) {
             _p = (_p.__slice__(0, _nr._n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
@@ -2032,6 +2046,7 @@ class CorruptInputError_asInterface {
 @:keep @:allow(stdgo.encoding.base64.Base64.CorruptInputError_asInterface) class CorruptInputError_static_extension {
     @:keep
     static public function error( _e:CorruptInputError):stdgo.GoString {
+        @:recv var _e:CorruptInputError = _e;
         return ("illegal base64 data at input byte " : stdgo.GoString) + stdgo.strconv.Strconv.formatInt((_e : stdgo.StdGoTypes.GoInt64), (10 : stdgo.StdGoTypes.GoInt));
     }
 }

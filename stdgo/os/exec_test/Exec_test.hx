@@ -2633,6 +2633,7 @@ class T_delayedInfiniteReader_asInterface {
 @:keep @:allow(stdgo.os.exec_test.Exec_test.T_delayedInfiniteReader_asInterface) class T_delayedInfiniteReader_static_extension {
     @:keep
     static public function read( _:T_delayedInfiniteReader, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _:T_delayedInfiniteReader = _?.__copy__();
         stdgo.time.Time.sleep((100000000i64 : stdgo.time.Time.Duration));
         for (_i in 0 ... _b.length.toBasic()) {
             _b[(_i : stdgo.StdGoTypes.GoInt)] = (120 : stdgo.StdGoTypes.GoUInt8);
@@ -2654,6 +2655,7 @@ class T_badWriter_asInterface {
 @:keep @:allow(stdgo.os.exec_test.Exec_test.T_badWriter_asInterface) class T_badWriter_static_extension {
     @:keep
     static public function write( _w:stdgo.StdGoTypes.Ref<T_badWriter>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _w:stdgo.StdGoTypes.Ref<T_badWriter> = _w;
         return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.io.Io.errUnexpectedEOF };
     }
 }
@@ -2671,6 +2673,7 @@ class T_tickReader_asInterface {
 @:keep @:allow(stdgo.os.exec_test.Exec_test.T_tickReader_asInterface) class T_tickReader_static_extension {
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<T_tickReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_tickReader> = _r;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if ((_r._s.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             {

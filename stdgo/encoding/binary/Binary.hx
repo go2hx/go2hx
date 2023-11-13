@@ -2576,18 +2576,22 @@ class T_littleEndian_asInterface {
 @:keep @:allow(stdgo.encoding.binary.Binary.T_littleEndian_asInterface) class T_littleEndian_static_extension {
     @:keep
     static public function goString( _:T_littleEndian):stdgo.GoString {
+        @:recv var _:T_littleEndian = _?.__copy__();
         return ("binary.LittleEndian" : stdgo.GoString);
     }
     @:keep
     static public function string( _:T_littleEndian):stdgo.GoString {
+        @:recv var _:T_littleEndian = _?.__copy__();
         return ("LittleEndian" : stdgo.GoString);
     }
     @:keep
     static public function appendUint64( _:T_littleEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt64):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _:T_littleEndian = _?.__copy__();
         return (_b.__append__((_v : stdgo.StdGoTypes.GoByte), (_v >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (16i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (24i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (32i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (40i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (48i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (56i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte)));
     }
     @:keep
     static public function putUint64( _:T_littleEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt64):Void {
+        @:recv var _:T_littleEndian = _?.__copy__();
         _b[(7 : stdgo.StdGoTypes.GoInt)];
         _b[(0 : stdgo.StdGoTypes.GoInt)] = (_v : stdgo.StdGoTypes.GoByte);
         _b[(1 : stdgo.StdGoTypes.GoInt)] = (_v >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte);
@@ -2600,15 +2604,18 @@ class T_littleEndian_asInterface {
     }
     @:keep
     static public function uint64( _:T_littleEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _:T_littleEndian = _?.__copy__();
         _b[(7 : stdgo.StdGoTypes.GoInt)];
         return (((((((_b[(0 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) | ((_b[(1 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (8i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(2 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (16i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(3 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (24i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(4 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (32i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(5 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (40i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(6 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (48i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(7 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (56i64 : stdgo.StdGoTypes.GoUInt64));
     }
     @:keep
     static public function appendUint32( _:T_littleEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt32):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _:T_littleEndian = _?.__copy__();
         return (_b.__append__((_v : stdgo.StdGoTypes.GoByte), (_v >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (16i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (24i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte)));
     }
     @:keep
     static public function putUint32( _:T_littleEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt32):Void {
+        @:recv var _:T_littleEndian = _?.__copy__();
         _b[(3 : stdgo.StdGoTypes.GoInt)];
         _b[(0 : stdgo.StdGoTypes.GoInt)] = (_v : stdgo.StdGoTypes.GoByte);
         _b[(1 : stdgo.StdGoTypes.GoInt)] = (_v >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte);
@@ -2617,21 +2624,25 @@ class T_littleEndian_asInterface {
     }
     @:keep
     static public function uint32( _:T_littleEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.GoUInt32 {
+        @:recv var _:T_littleEndian = _?.__copy__();
         _b[(3 : stdgo.StdGoTypes.GoInt)];
         return (((_b[(0 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt32) | ((_b[(1 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt32) << (8i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(2 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt32) << (16i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(3 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt32) << (24i64 : stdgo.StdGoTypes.GoUInt64));
     }
     @:keep
     static public function appendUint16( _:T_littleEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt16):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _:T_littleEndian = _?.__copy__();
         return (_b.__append__((_v : stdgo.StdGoTypes.GoByte), (_v >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte)));
     }
     @:keep
     static public function putUint16( _:T_littleEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt16):Void {
+        @:recv var _:T_littleEndian = _?.__copy__();
         _b[(1 : stdgo.StdGoTypes.GoInt)];
         _b[(0 : stdgo.StdGoTypes.GoInt)] = (_v : stdgo.StdGoTypes.GoByte);
         _b[(1 : stdgo.StdGoTypes.GoInt)] = (_v >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte);
     }
     @:keep
     static public function uint16( _:T_littleEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.GoUInt16 {
+        @:recv var _:T_littleEndian = _?.__copy__();
         _b[(1 : stdgo.StdGoTypes.GoInt)];
         return (_b[(0 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt16) | ((_b[(1 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt16) << (8i64 : stdgo.StdGoTypes.GoUInt64));
     }
@@ -2670,18 +2681,22 @@ class T_bigEndian_asInterface {
 @:keep @:allow(stdgo.encoding.binary.Binary.T_bigEndian_asInterface) class T_bigEndian_static_extension {
     @:keep
     static public function goString( _:T_bigEndian):stdgo.GoString {
+        @:recv var _:T_bigEndian = _?.__copy__();
         return ("binary.BigEndian" : stdgo.GoString);
     }
     @:keep
     static public function string( _:T_bigEndian):stdgo.GoString {
+        @:recv var _:T_bigEndian = _?.__copy__();
         return ("BigEndian" : stdgo.GoString);
     }
     @:keep
     static public function appendUint64( _:T_bigEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt64):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _:T_bigEndian = _?.__copy__();
         return (_b.__append__((_v >> (56i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (48i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (40i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (32i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (24i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (16i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v : stdgo.StdGoTypes.GoByte)));
     }
     @:keep
     static public function putUint64( _:T_bigEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt64):Void {
+        @:recv var _:T_bigEndian = _?.__copy__();
         _b[(7 : stdgo.StdGoTypes.GoInt)];
         _b[(0 : stdgo.StdGoTypes.GoInt)] = (_v >> (56i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte);
         _b[(1 : stdgo.StdGoTypes.GoInt)] = (_v >> (48i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte);
@@ -2694,15 +2709,18 @@ class T_bigEndian_asInterface {
     }
     @:keep
     static public function uint64( _:T_bigEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _:T_bigEndian = _?.__copy__();
         _b[(7 : stdgo.StdGoTypes.GoInt)];
         return (((((((_b[(7 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) | ((_b[(6 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (8i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(5 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (16i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(4 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (24i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(3 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (32i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(2 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (40i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(1 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (48i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(0 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt64) << (56i64 : stdgo.StdGoTypes.GoUInt64));
     }
     @:keep
     static public function appendUint32( _:T_bigEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt32):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _:T_bigEndian = _?.__copy__();
         return (_b.__append__((_v >> (24i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (16i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v : stdgo.StdGoTypes.GoByte)));
     }
     @:keep
     static public function putUint32( _:T_bigEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt32):Void {
+        @:recv var _:T_bigEndian = _?.__copy__();
         _b[(3 : stdgo.StdGoTypes.GoInt)];
         _b[(0 : stdgo.StdGoTypes.GoInt)] = (_v >> (24i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte);
         _b[(1 : stdgo.StdGoTypes.GoInt)] = (_v >> (16i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte);
@@ -2711,21 +2729,25 @@ class T_bigEndian_asInterface {
     }
     @:keep
     static public function uint32( _:T_bigEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.GoUInt32 {
+        @:recv var _:T_bigEndian = _?.__copy__();
         _b[(3 : stdgo.StdGoTypes.GoInt)];
         return (((_b[(3 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt32) | ((_b[(2 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt32) << (8i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(1 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt32) << (16i64 : stdgo.StdGoTypes.GoUInt64))) | ((_b[(0 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt32) << (24i64 : stdgo.StdGoTypes.GoUInt64));
     }
     @:keep
     static public function appendUint16( _:T_bigEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt16):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _:T_bigEndian = _?.__copy__();
         return (_b.__append__((_v >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte), (_v : stdgo.StdGoTypes.GoByte)));
     }
     @:keep
     static public function putUint16( _:T_bigEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _v:stdgo.StdGoTypes.GoUInt16):Void {
+        @:recv var _:T_bigEndian = _?.__copy__();
         _b[(1 : stdgo.StdGoTypes.GoInt)];
         _b[(0 : stdgo.StdGoTypes.GoInt)] = (_v >> (8i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoByte);
         _b[(1 : stdgo.StdGoTypes.GoInt)] = (_v : stdgo.StdGoTypes.GoByte);
     }
     @:keep
     static public function uint16( _:T_bigEndian, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.GoUInt16 {
+        @:recv var _:T_bigEndian = _?.__copy__();
         _b[(1 : stdgo.StdGoTypes.GoInt)];
         return (_b[(1 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt16) | ((_b[(0 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoUInt16) << (8i64 : stdgo.StdGoTypes.GoUInt64));
     }
@@ -2744,6 +2766,7 @@ class T_byteSliceReader_asInterface {
 @:keep @:allow(stdgo.encoding.binary.Binary.T_byteSliceReader_asInterface) class T_byteSliceReader_static_extension {
     @:keep
     static public function read( _br:stdgo.StdGoTypes.Ref<T_byteSliceReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _br:stdgo.StdGoTypes.Ref<T_byteSliceReader> = _br;
         var _n:stdgo.StdGoTypes.GoInt = stdgo.Go.copySlice(_p, _br._remain);
         _br._remain = (_br._remain.__slice__(_n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         return { _0 : _n, _1 : (null : stdgo.Error) };
@@ -2783,10 +2806,12 @@ class T_nativeEndian_asInterface {
 @:keep @:allow(stdgo.encoding.binary.Binary.T_nativeEndian_asInterface) class T_nativeEndian_static_extension {
     @:keep
     static public function goString( _:T_nativeEndian):stdgo.GoString {
+        @:recv var _:T_nativeEndian = _?.__copy__();
         return ("binary.NativeEndian" : stdgo.GoString);
     }
     @:keep
     static public function string( _:T_nativeEndian):stdgo.GoString {
+        @:recv var _:T_nativeEndian = _?.__copy__();
         return ("NativeEndian" : stdgo.GoString);
     }
     @:embedded
@@ -2842,10 +2867,12 @@ class T_decoder_asInterface {
 @:keep @:allow(stdgo.encoding.binary.Binary.T_decoder_asInterface) class T_decoder_static_extension {
     @:keep
     static public function _skip( _d:stdgo.StdGoTypes.Ref<T_decoder>, _v:stdgo.reflect.Reflect.Value):Void {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         _d._offset = _d._offset + (_dataSize(_v?.__copy__()));
     }
     @:keep
     static public function _value( _d:stdgo.StdGoTypes.Ref<T_decoder>, _v:stdgo.reflect.Reflect.Value):Void {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         {
             final __value__ = _v.kind();
             if (__value__ == ((17u32 : stdgo.reflect.Reflect.Kind))) {
@@ -2911,46 +2938,55 @@ class T_decoder_asInterface {
     }
     @:keep
     static public function _int64( _d:stdgo.StdGoTypes.Ref<T_decoder>):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         return (_d._uint64() : stdgo.StdGoTypes.GoInt64);
     }
     @:keep
     static public function _int32( _d:stdgo.StdGoTypes.Ref<T_decoder>):stdgo.StdGoTypes.GoInt32 {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         return (_d._uint32() : stdgo.StdGoTypes.GoInt32);
     }
     @:keep
     static public function _int16( _d:stdgo.StdGoTypes.Ref<T_decoder>):stdgo.StdGoTypes.GoInt16 {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         return (_d._uint16() : stdgo.StdGoTypes.GoInt16);
     }
     @:keep
     static public function _int8( _d:stdgo.StdGoTypes.Ref<T_decoder>):stdgo.StdGoTypes.GoInt8 {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         return (_d._uint8() : stdgo.StdGoTypes.GoInt8);
     }
     @:keep
     static public function _uint64( _d:stdgo.StdGoTypes.Ref<T_decoder>):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         var _x:stdgo.StdGoTypes.GoUInt64 = _d._order.uint64((_d._buf.__slice__(_d._offset, _d._offset + (8 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
         _d._offset = _d._offset + ((8 : stdgo.StdGoTypes.GoInt));
         return _x;
     }
     @:keep
     static public function _uint32( _d:stdgo.StdGoTypes.Ref<T_decoder>):stdgo.StdGoTypes.GoUInt32 {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         var _x:stdgo.StdGoTypes.GoUInt32 = _d._order.uint32((_d._buf.__slice__(_d._offset, _d._offset + (4 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
         _d._offset = _d._offset + ((4 : stdgo.StdGoTypes.GoInt));
         return _x;
     }
     @:keep
     static public function _uint16( _d:stdgo.StdGoTypes.Ref<T_decoder>):stdgo.StdGoTypes.GoUInt16 {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         var _x:stdgo.StdGoTypes.GoUInt16 = _d._order.uint16((_d._buf.__slice__(_d._offset, _d._offset + (2 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
         _d._offset = _d._offset + ((2 : stdgo.StdGoTypes.GoInt));
         return _x;
     }
     @:keep
     static public function _uint8( _d:stdgo.StdGoTypes.Ref<T_decoder>):stdgo.StdGoTypes.GoUInt8 {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         var _x:stdgo.StdGoTypes.GoUInt8 = _d._buf[(_d._offset : stdgo.StdGoTypes.GoInt)];
         _d._offset++;
         return _x;
     }
     @:keep
     static public function _bool( _d:stdgo.StdGoTypes.Ref<T_decoder>):Bool {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_decoder> = _d;
         var _x:stdgo.StdGoTypes.GoUInt8 = _d._buf[(_d._offset : stdgo.StdGoTypes.GoInt)];
         _d._offset++;
         return _x != ((0 : stdgo.StdGoTypes.GoUInt8));
@@ -2990,6 +3026,7 @@ class T_encoder_asInterface {
 @:keep @:allow(stdgo.encoding.binary.Binary.T_encoder_asInterface) class T_encoder_static_extension {
     @:keep
     static public function _skip( _e:stdgo.StdGoTypes.Ref<T_encoder>, _v:stdgo.reflect.Reflect.Value):Void {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         var _n:stdgo.StdGoTypes.GoInt = _dataSize(_v?.__copy__());
         var _zero = (_e._buf.__slice__(_e._offset, _e._offset + _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         for (_i in 0 ... _zero.length.toBasic()) {
@@ -2999,6 +3036,7 @@ class T_encoder_asInterface {
     }
     @:keep
     static public function _value( _e:stdgo.StdGoTypes.Ref<T_encoder>, _v:stdgo.reflect.Reflect.Value):Void {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         {
             final __value__ = _v.kind();
             if (__value__ == ((17u32 : stdgo.reflect.Reflect.Kind))) {
@@ -3088,42 +3126,51 @@ class T_encoder_asInterface {
     }
     @:keep
     static public function _int64( _e:stdgo.StdGoTypes.Ref<T_encoder>, _x:stdgo.StdGoTypes.GoInt64):Void {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         _e._uint64((_x : stdgo.StdGoTypes.GoUInt64));
     }
     @:keep
     static public function _int32( _e:stdgo.StdGoTypes.Ref<T_encoder>, _x:stdgo.StdGoTypes.GoInt32):Void {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         _e._uint32((_x : stdgo.StdGoTypes.GoUInt32));
     }
     @:keep
     static public function _int16( _e:stdgo.StdGoTypes.Ref<T_encoder>, _x:stdgo.StdGoTypes.GoInt16):Void {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         _e._uint16((_x : stdgo.StdGoTypes.GoUInt16));
     }
     @:keep
     static public function _int8( _e:stdgo.StdGoTypes.Ref<T_encoder>, _x:stdgo.StdGoTypes.GoInt8):Void {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         _e._uint8((_x : stdgo.StdGoTypes.GoUInt8));
     }
     @:keep
     static public function _uint64( _e:stdgo.StdGoTypes.Ref<T_encoder>, _x:stdgo.StdGoTypes.GoUInt64):Void {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         _e._order.putUint64((_e._buf.__slice__(_e._offset, _e._offset + (8 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _x);
         _e._offset = _e._offset + ((8 : stdgo.StdGoTypes.GoInt));
     }
     @:keep
     static public function _uint32( _e:stdgo.StdGoTypes.Ref<T_encoder>, _x:stdgo.StdGoTypes.GoUInt32):Void {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         _e._order.putUint32((_e._buf.__slice__(_e._offset, _e._offset + (4 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _x);
         _e._offset = _e._offset + ((4 : stdgo.StdGoTypes.GoInt));
     }
     @:keep
     static public function _uint16( _e:stdgo.StdGoTypes.Ref<T_encoder>, _x:stdgo.StdGoTypes.GoUInt16):Void {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         _e._order.putUint16((_e._buf.__slice__(_e._offset, _e._offset + (2 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _x);
         _e._offset = _e._offset + ((2 : stdgo.StdGoTypes.GoInt));
     }
     @:keep
     static public function _uint8( _e:stdgo.StdGoTypes.Ref<T_encoder>, _x:stdgo.StdGoTypes.GoUInt8):Void {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         _e._buf[(_e._offset : stdgo.StdGoTypes.GoInt)] = _x;
         _e._offset++;
     }
     @:keep
     static public function _bool( _e:stdgo.StdGoTypes.Ref<T_encoder>, _x:Bool):Void {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_encoder> = _e;
         if (_x) {
             _e._buf[(_e._offset : stdgo.StdGoTypes.GoInt)] = (1 : stdgo.StdGoTypes.GoUInt8);
         } else {

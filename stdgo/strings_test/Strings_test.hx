@@ -4510,6 +4510,7 @@ class T_errWriter_asInterface {
 @:keep @:allow(stdgo.strings_test.Strings_test.T_errWriter_asInterface) class T_errWriter_static_extension {
     @:keep
     static public function write( _:T_errWriter, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _:T_errWriter = _?.__copy__();
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.fmt.Fmt.errorf(("unwritable" : stdgo.GoString)) };
     }

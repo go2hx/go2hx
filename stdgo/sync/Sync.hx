@@ -1457,6 +1457,7 @@ class Once_asInterface {
     **/
     @:keep
     static public function do_( _o:stdgo.StdGoTypes.Ref<Once>, _f:() -> Void):Void {
+        @:recv var _o:stdgo.StdGoTypes.Ref<Once> = _o;
         if (@:privateAccess _o._done == 1) return;
         @:privateAccess _o._done = 1;
         _f();
@@ -1523,6 +1524,7 @@ class Pool_asInterface {
     **/
     @:keep
     static public function get( _p:stdgo.StdGoTypes.Ref<Pool>):stdgo.StdGoTypes.AnyInterface {
+        @:recv var _p:stdgo.StdGoTypes.Ref<Pool> = _p;
         var obj = #if !js @:privateAccess _p.pool.pop(false) #else @:privateAccess _p.pool.pop() #end;
         if (obj == null && @:privateAccess _p.new_ != null) obj = @:privateAccess _p.new_();
         return obj;
@@ -1532,6 +1534,7 @@ class Pool_asInterface {
     **/
     @:keep
     static public function put( _p:stdgo.StdGoTypes.Ref<Pool>, _x:stdgo.StdGoTypes.AnyInterface):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<Pool> = _p;
         @:privateAccess _p.pool.push(_x);
     }
 }
@@ -1874,6 +1877,7 @@ class WaitGroup_asInterface {
     **/
     @:keep
     static public function done( _wg:stdgo.StdGoTypes.Ref<WaitGroup>):Void {
+        @:recv var _wg:stdgo.StdGoTypes.Ref<WaitGroup> = _wg;
         @:privateAccess _wg.counter--;
         if (@:privateAccess _wg.counter <= 0) {
             @:privateAccess #if !js _wg.lock.release() #else null #end;
@@ -1896,6 +1900,7 @@ class WaitGroup_asInterface {
     **/
     @:keep
     static public function add( _wg:stdgo.StdGoTypes.Ref<WaitGroup>, _delta:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _wg:stdgo.StdGoTypes.Ref<WaitGroup> = _wg;
         @:privateAccess _wg.counter += _delta;
         if (@:privateAccess _wg.counter < 0) throw "sync: negative WaitGroup counter";
     }

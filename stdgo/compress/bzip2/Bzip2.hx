@@ -664,15 +664,18 @@ class T_bitReader_asInterface {
 @:keep @:allow(stdgo.compress.bzip2.Bzip2.T_bitReader_asInterface) class T_bitReader_static_extension {
     @:keep
     static public function err( _br:stdgo.StdGoTypes.Ref<T_bitReader>):stdgo.Error {
+        @:recv var _br:stdgo.StdGoTypes.Ref<T_bitReader> = _br;
         return _br._err;
     }
     @:keep
     static public function readBit( _br:stdgo.StdGoTypes.Ref<T_bitReader>):Bool {
+        @:recv var _br:stdgo.StdGoTypes.Ref<T_bitReader> = _br;
         var _n:stdgo.StdGoTypes.GoInt = _br.readBits((1u32 : stdgo.StdGoTypes.GoUInt));
         return _n != ((0 : stdgo.StdGoTypes.GoInt));
     }
     @:keep
     static public function readBits( _br:stdgo.StdGoTypes.Ref<T_bitReader>, _bits:stdgo.StdGoTypes.GoUInt):stdgo.StdGoTypes.GoInt {
+        @:recv var _br:stdgo.StdGoTypes.Ref<T_bitReader> = _br;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _n64:stdgo.StdGoTypes.GoUInt64 = _br.readBits64(_bits);
         return (_n64 : stdgo.StdGoTypes.GoInt);
@@ -684,6 +687,7 @@ class T_bitReader_asInterface {
     **/
     @:keep
     static public function readBits64( _br:stdgo.StdGoTypes.Ref<T_bitReader>, _bits:stdgo.StdGoTypes.GoUInt):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _br:stdgo.StdGoTypes.Ref<T_bitReader> = _br;
         var _n:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
         while (_bits > _br._bits) {
             var __tmp__ = _br._r.readByte(), _b:stdgo.StdGoTypes.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -734,6 +738,7 @@ class T_reader_asInterface {
     **/
     @:keep
     static public function _readBlock( _bz2:stdgo.StdGoTypes.Ref<T_reader>):stdgo.Error {
+        @:recv var _bz2:stdgo.StdGoTypes.Ref<T_reader> = _bz2;
         var _err:stdgo.Error = (null : stdgo.Error);
         var _br = (stdgo.Go.setRef(_bz2._br) : stdgo.StdGoTypes.Ref<stdgo.compress.bzip2.Bzip2.T_bitReader>);
         _bz2._wantBlockCRC = (_br.readBits64((32u32 : stdgo.StdGoTypes.GoUInt)) : stdgo.StdGoTypes.GoUInt32);
@@ -909,6 +914,7 @@ class T_reader_asInterface {
     }
     @:keep
     static public function _read( _bz2:stdgo.StdGoTypes.Ref<T_reader>, _buf:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _bz2:stdgo.StdGoTypes.Ref<T_reader> = _bz2;
         while (true) {
             var _n:stdgo.StdGoTypes.GoInt = _bz2._readFromBlock(_buf);
             if ((_n > (0 : stdgo.StdGoTypes.GoInt)) || (_buf.length == (0 : stdgo.StdGoTypes.GoInt))) {
@@ -974,6 +980,7 @@ class T_reader_asInterface {
     }
     @:keep
     static public function _readFromBlock( _bz2:stdgo.StdGoTypes.Ref<T_reader>, _buf:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.GoInt {
+        @:recv var _bz2:stdgo.StdGoTypes.Ref<T_reader> = _bz2;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         while (((_bz2._repeats > (0u32 : stdgo.StdGoTypes.GoUInt)) || (_bz2._preRLEUsed < _bz2._preRLE.length)) && (_n < _buf.length)) {
             if (_bz2._repeats > (0u32 : stdgo.StdGoTypes.GoUInt)) {
@@ -1007,6 +1014,7 @@ class T_reader_asInterface {
     }
     @:keep
     static public function read( _bz2:stdgo.StdGoTypes.Ref<T_reader>, _buf:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _bz2:stdgo.StdGoTypes.Ref<T_reader> = _bz2;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (_bz2._eof) {
             return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.io.Io.eof };
@@ -1038,6 +1046,7 @@ class T_reader_asInterface {
     **/
     @:keep
     static public function _setup( _bz2:stdgo.StdGoTypes.Ref<T_reader>, _needMagic:Bool):stdgo.Error {
+        @:recv var _bz2:stdgo.StdGoTypes.Ref<T_reader> = _bz2;
         var _br = (stdgo.Go.setRef(_bz2._br) : stdgo.StdGoTypes.Ref<stdgo.compress.bzip2.Bzip2.T_bitReader>);
         if (_needMagic) {
             var _magic:stdgo.StdGoTypes.GoInt = _br.readBits((16u32 : stdgo.StdGoTypes.GoUInt));
@@ -1083,6 +1092,7 @@ class T_huffmanTree_asInterface {
     **/
     @:keep
     static public function decode( _t:stdgo.StdGoTypes.Ref<T_huffmanTree>, _br:stdgo.StdGoTypes.Ref<T_bitReader>):stdgo.StdGoTypes.GoUInt16 {
+        @:recv var _t:stdgo.StdGoTypes.Ref<T_huffmanTree> = _t;
         var _v:stdgo.StdGoTypes.GoUInt16 = (0 : stdgo.StdGoTypes.GoUInt16);
         var _nodeIndex:stdgo.StdGoTypes.GoUInt16 = (0 : stdgo.StdGoTypes.GoUInt16);
         while (true) {
@@ -1126,6 +1136,7 @@ class StructuralError_asInterface {
 @:keep @:allow(stdgo.compress.bzip2.Bzip2.StructuralError_asInterface) class StructuralError_static_extension {
     @:keep
     static public function error( _s:StructuralError):stdgo.GoString {
+        @:recv var _s:StructuralError = _s;
         return ("bzip2 data invalid: " : stdgo.GoString) + (_s : stdgo.GoString);
     }
 }
@@ -1151,10 +1162,12 @@ class T_moveToFrontDecoder_asInterface {
     **/
     @:keep
     static public function first( _m:T_moveToFrontDecoder):stdgo.StdGoTypes.GoByte {
+        @:recv var _m:T_moveToFrontDecoder = _m;
         return _m[(0 : stdgo.StdGoTypes.GoInt)];
     }
     @:keep
     static public function decode( _m:T_moveToFrontDecoder, _n:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoByte {
+        @:recv var _m:T_moveToFrontDecoder = _m;
         var _b:stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUInt8);
         _b = _m[(_n : stdgo.StdGoTypes.GoInt)];
         stdgo.Go.copySlice((_m.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.compress.bzip2.Bzip2.T_moveToFrontDecoder), (_m.__slice__(0, _n) : stdgo.compress.bzip2.Bzip2.T_moveToFrontDecoder));

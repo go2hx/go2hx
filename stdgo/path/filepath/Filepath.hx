@@ -1321,6 +1321,7 @@ class T_lazybuf_asInterface {
 @:keep @:allow(stdgo.path.filepath.Filepath.T_lazybuf_asInterface) class T_lazybuf_static_extension {
     @:keep
     static public function _string( _b:stdgo.StdGoTypes.Ref<T_lazybuf>):stdgo.GoString {
+        @:recv var _b:stdgo.StdGoTypes.Ref<T_lazybuf> = _b;
         if (_b._buf == null) {
             return (_b._volAndPath.__slice__(0, _b._volLen + _b._w) : stdgo.GoString);
         };
@@ -1329,11 +1330,13 @@ class T_lazybuf_asInterface {
     @:keep
     static public function _prepend( _b:stdgo.StdGoTypes.Ref<T_lazybuf>, _prefix:haxe.Rest<stdgo.StdGoTypes.GoByte>):Void {
         var _prefix = new stdgo.Slice<stdgo.StdGoTypes.GoByte>(_prefix.length, 0, ..._prefix);
+        @:recv var _b:stdgo.StdGoTypes.Ref<T_lazybuf> = _b;
         _b._buf = (_prefix.__append__(..._b._buf.__toArray__()));
         _b._w = _b._w + ((_prefix.length));
     }
     @:keep
     static public function _append( _b:stdgo.StdGoTypes.Ref<T_lazybuf>, _c:stdgo.StdGoTypes.GoByte):Void {
+        @:recv var _b:stdgo.StdGoTypes.Ref<T_lazybuf> = _b;
         if (_b._buf == null) {
             if ((_b._w < _b._path.length) && (_b._path[(_b._w : stdgo.StdGoTypes.GoInt)] == _c)) {
                 _b._w++;
@@ -1347,6 +1350,7 @@ class T_lazybuf_asInterface {
     }
     @:keep
     static public function _index( _b:stdgo.StdGoTypes.Ref<T_lazybuf>, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoByte {
+        @:recv var _b:stdgo.StdGoTypes.Ref<T_lazybuf> = _b;
         if (_b._buf != null) {
             return _b._buf[(_i : stdgo.StdGoTypes.GoInt)];
         };
@@ -1375,22 +1379,27 @@ class T_statDirEntry_asInterface {
 @:keep @:allow(stdgo.path.filepath.Filepath.T_statDirEntry_asInterface) class T_statDirEntry_static_extension {
     @:keep
     static public function string( _d:stdgo.StdGoTypes.Ref<T_statDirEntry>):stdgo.GoString {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_statDirEntry> = _d;
         return stdgo.io.fs.Fs.formatDirEntry(stdgo.Go.asInterface(_d));
     }
     @:keep
     static public function info( _d:stdgo.StdGoTypes.Ref<T_statDirEntry>):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_statDirEntry> = _d;
         return { _0 : _d._info, _1 : (null : stdgo.Error) };
     }
     @:keep
     static public function type( _d:stdgo.StdGoTypes.Ref<T_statDirEntry>):stdgo.io.fs.Fs.FileMode {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_statDirEntry> = _d;
         return _d._info.mode().type();
     }
     @:keep
     static public function isDir( _d:stdgo.StdGoTypes.Ref<T_statDirEntry>):Bool {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_statDirEntry> = _d;
         return _d._info.isDir();
     }
     @:keep
     static public function name( _d:stdgo.StdGoTypes.Ref<T_statDirEntry>):stdgo.GoString {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_statDirEntry> = _d;
         return _d._info.name();
     }
 }

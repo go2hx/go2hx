@@ -510,6 +510,7 @@ class MyError_asInterface {
 @:keep @:allow(stdgo.errors_test.Errors_test.MyError_asInterface) class MyError_static_extension {
     @:keep
     static public function error( _e:MyError):stdgo.GoString {
+        @:recv var _e:MyError = _e?.__copy__();
         return stdgo.fmt.Fmt.sprintf(("%v: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_e.when)), stdgo.Go.toInterface(_e.what));
     }
 }
@@ -531,6 +532,7 @@ class T_poser_asInterface {
 @:keep @:allow(stdgo.errors_test.Errors_test.T_poser_asInterface) class T_poser_static_extension {
     @:keep
     static public function as( _p:stdgo.StdGoTypes.Ref<T_poser>, _err:stdgo.StdGoTypes.AnyInterface):Bool {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_poser> = _p;
         {
             final __type__ = _err;
             if (stdgo.Go.typeEquals((__type__ : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<T_poser>>))) {
@@ -554,10 +556,12 @@ class T_poser_asInterface {
     }
     @:keep
     static public function is_( _p:stdgo.StdGoTypes.Ref<T_poser>, _err:stdgo.Error):Bool {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_poser> = _p;
         return _p._f(_err);
     }
     @:keep
     static public function error( _p:stdgo.StdGoTypes.Ref<T_poser>):stdgo.GoString {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_poser> = _p;
         return _p._msg;
     }
 }
@@ -575,6 +579,7 @@ class T_errorT_asInterface {
 @:keep @:allow(stdgo.errors_test.Errors_test.T_errorT_asInterface) class T_errorT_static_extension {
     @:keep
     static public function error( _e:T_errorT):stdgo.GoString {
+        @:recv var _e:T_errorT = _e?.__copy__();
         return stdgo.fmt.Fmt.sprintf(("errorT(%s)" : stdgo.GoString), stdgo.Go.toInterface(_e._s));
     }
 }
@@ -594,10 +599,12 @@ class T_wrapped_asInterface {
 @:keep @:allow(stdgo.errors_test.Errors_test.T_wrapped_asInterface) class T_wrapped_static_extension {
     @:keep
     static public function unwrap( _e:T_wrapped):stdgo.Error {
+        @:recv var _e:T_wrapped = _e?.__copy__();
         return _e._err;
     }
     @:keep
     static public function error( _e:T_wrapped):stdgo.GoString {
+        @:recv var _e:T_wrapped = _e?.__copy__();
         return _e._msg;
     }
 }
@@ -617,6 +624,7 @@ class T_errorUncomparable_asInterface {
 @:keep @:allow(stdgo.errors_test.Errors_test.T_errorUncomparable_asInterface) class T_errorUncomparable_static_extension {
     @:keep
     static public function is_( _:T_errorUncomparable, _target:stdgo.Error):Bool {
+        @:recv var _:T_errorUncomparable = _?.__copy__();
         var __tmp__ = try {
             { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_target) : T_errorUncomparable)) : T_errorUncomparable), ok : true };
         } catch(_) {
@@ -626,6 +634,7 @@ class T_errorUncomparable_asInterface {
     }
     @:keep
     static public function error( _:T_errorUncomparable):stdgo.GoString {
+        @:recv var _:T_errorUncomparable = _?.__copy__();
         return ("uncomparable error" : stdgo.GoString);
     }
 }
@@ -645,10 +654,12 @@ class T_multiErr_asInterface {
 @:keep @:allow(stdgo.errors_test.Errors_test.T_multiErr_asInterface) class T_multiErr_static_extension {
     @:keep
     static public function unwrap( _m:T_multiErr):stdgo.Slice<stdgo.Error> {
+        @:recv var _m:T_multiErr = _m;
         return (_m : stdgo.Slice<stdgo.Error>);
     }
     @:keep
     static public function error( _m:T_multiErr):stdgo.GoString {
+        @:recv var _m:T_multiErr = _m;
         return ("multiError" : stdgo.GoString);
     }
 }

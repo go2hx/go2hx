@@ -1921,6 +1921,7 @@ class T_statsResults_asInterface {
     **/
     @:keep
     static public function _checkSimilarDistribution( _this:stdgo.StdGoTypes.Ref<T_statsResults>, _expected:stdgo.StdGoTypes.Ref<T_statsResults>):stdgo.Error {
+        @:recv var _this:stdgo.StdGoTypes.Ref<T_statsResults> = _this;
         if (!_nearEqual(_this._mean, _expected._mean, _expected._closeEnough, _expected._maxError)) {
             var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("mean %v != %v (allowed error %v, %v)" : stdgo.GoString), stdgo.Go.toInterface(_this._mean), stdgo.Go.toInterface(_expected._mean), stdgo.Go.toInterface(_expected._closeEnough), stdgo.Go.toInterface(_expected._maxError));
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_s));

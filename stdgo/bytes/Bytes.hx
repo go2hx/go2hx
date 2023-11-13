@@ -1936,6 +1936,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function readString( _b:stdgo.StdGoTypes.Ref<Buffer>, _delim:stdgo.StdGoTypes.GoByte):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _line:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
         var __tmp__ = _b._readSlice(_delim), _slice:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return { _0 : (_slice : stdgo.GoString), _1 : _err };
@@ -1945,6 +1946,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function _readSlice( _b:stdgo.StdGoTypes.Ref<Buffer>, _delim:stdgo.StdGoTypes.GoByte):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _line:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _err:stdgo.Error = (null : stdgo.Error);
         var _i:stdgo.StdGoTypes.GoInt = indexByte((_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _delim);
         var _end:stdgo.StdGoTypes.GoInt = (_b._off + _i) + (1 : stdgo.StdGoTypes.GoInt);
@@ -1967,6 +1969,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function readBytes( _b:stdgo.StdGoTypes.Ref<Buffer>, _delim:stdgo.StdGoTypes.GoByte):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _line:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _err:stdgo.Error = (null : stdgo.Error);
         var __tmp__ = _b._readSlice(_delim), _slice:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         _line = (_line.__append__(..._slice.__toArray__()));
@@ -1980,6 +1983,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function unreadByte( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.Error {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         if (_b._lastRead == ((0 : stdgo.bytes.Bytes.T_readOp))) {
             return _errUnreadByte;
         };
@@ -1998,6 +2002,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function unreadRune( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.Error {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         if (_b._lastRead <= (0 : stdgo.bytes.Bytes.T_readOp)) {
             return stdgo.errors.Errors.new_(("bytes.Buffer: UnreadRune: previous operation was not a successful ReadRune" : stdgo.GoString));
         };
@@ -2016,6 +2021,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function readRune( _b:stdgo.StdGoTypes.Ref<Buffer>):{ var _0 : stdgo.StdGoTypes.GoRune; var _1 : stdgo.StdGoTypes.GoInt; var _2 : stdgo.Error; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _r:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), _size:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (_b._empty()) {
             _b.reset();
@@ -2038,6 +2044,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function readByte( _b:stdgo.StdGoTypes.Ref<Buffer>):{ var _0 : stdgo.StdGoTypes.GoByte; var _1 : stdgo.Error; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         if (_b._empty()) {
             _b.reset();
             return { _0 : (0 : stdgo.StdGoTypes.GoUInt8), _1 : stdgo.io.Io.eof };
@@ -2055,6 +2062,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function next( _b:stdgo.StdGoTypes.Ref<Buffer>, _n:stdgo.StdGoTypes.GoInt):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         var _m:stdgo.StdGoTypes.GoInt = _b.len();
         if (_n > _m) {
@@ -2075,6 +2083,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function read( _b:stdgo.StdGoTypes.Ref<Buffer>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         if (_b._empty()) {
@@ -2099,6 +2108,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function writeRune( _b:stdgo.StdGoTypes.Ref<Buffer>, _r:stdgo.StdGoTypes.GoRune):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if ((_r : stdgo.StdGoTypes.GoUInt32) < (128u32 : stdgo.StdGoTypes.GoUInt32)) {
             _b.writeByte((_r : stdgo.StdGoTypes.GoByte));
@@ -2120,6 +2130,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function writeByte( _b:stdgo.StdGoTypes.Ref<Buffer>, _c:stdgo.StdGoTypes.GoByte):stdgo.Error {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         var __tmp__ = _b._tryGrowByReslice((1 : stdgo.StdGoTypes.GoInt)), _m:stdgo.StdGoTypes.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
@@ -2136,6 +2147,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function writeTo( _b:stdgo.StdGoTypes.Ref<Buffer>, _w:stdgo.io.Io.Writer):{ var _0 : stdgo.StdGoTypes.GoInt64; var _1 : stdgo.Error; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _n:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64), _err:stdgo.Error = (null : stdgo.Error);
         _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         {
@@ -2166,6 +2178,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function readFrom( _b:stdgo.StdGoTypes.Ref<Buffer>, _r:stdgo.io.Io.Reader):{ var _0 : stdgo.StdGoTypes.GoInt64; var _1 : stdgo.Error; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _n:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64), _err:stdgo.Error = (null : stdgo.Error);
         _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         while (true) {
@@ -2192,6 +2205,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function writeString( _b:stdgo.StdGoTypes.Ref<Buffer>, _s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         var __tmp__ = _b._tryGrowByReslice((_s.length)), _m:stdgo.StdGoTypes.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -2207,6 +2221,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function write( _b:stdgo.StdGoTypes.Ref<Buffer>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
         var __tmp__ = _b._tryGrowByReslice((_p.length)), _m:stdgo.StdGoTypes.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -2224,6 +2239,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function grow( _b:stdgo.StdGoTypes.Ref<Buffer>, _n:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         if (_n < (0 : stdgo.StdGoTypes.GoInt)) {
             throw stdgo.Go.toInterface(("bytes.Buffer.Grow: negative count" : stdgo.GoString));
         };
@@ -2237,6 +2253,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function _grow( _b:stdgo.StdGoTypes.Ref<Buffer>, _n:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         var _m:stdgo.StdGoTypes.GoInt = _b.len();
         if ((_m == (0 : stdgo.StdGoTypes.GoInt)) && (_b._off != (0 : stdgo.StdGoTypes.GoInt))) {
             _b.reset();
@@ -2270,6 +2287,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function _tryGrowByReslice( _b:stdgo.StdGoTypes.Ref<Buffer>, _n:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         {
             var _l:stdgo.StdGoTypes.GoInt = (_b._buf.length);
             if (_n <= (_b._buf.capacity - _l)) {
@@ -2286,6 +2304,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function reset( _b:stdgo.StdGoTypes.Ref<Buffer>):Void {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         _b._buf = (_b._buf.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         _b._off = (0 : stdgo.StdGoTypes.GoInt);
         _b._lastRead = (0 : stdgo.bytes.Bytes.T_readOp);
@@ -2297,6 +2316,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function truncate( _b:stdgo.StdGoTypes.Ref<Buffer>, _n:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         if (_n == ((0 : stdgo.StdGoTypes.GoInt))) {
             _b.reset();
             return;
@@ -2312,6 +2332,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function available( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.StdGoTypes.GoInt {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         return _b._buf.capacity - (_b._buf.length);
     }
     /**
@@ -2320,6 +2341,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function cap( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.StdGoTypes.GoInt {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         return _b._buf.capacity;
     }
     /**
@@ -2328,6 +2350,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function len( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.StdGoTypes.GoInt {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         return (_b._buf.length) - _b._off;
     }
     /**
@@ -2335,6 +2358,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function _empty( _b:stdgo.StdGoTypes.Ref<Buffer>):Bool {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         return (_b._buf.length) <= _b._off;
     }
     /**
@@ -2345,6 +2369,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function string( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.GoString {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         if (_b == null || (_b : Dynamic).__nil__) {
             return ("<nil>" : stdgo.GoString);
         };
@@ -2358,6 +2383,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function availableBuffer( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         return (_b._buf.__slice__((_b._buf.length)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
     }
     /**
@@ -2369,6 +2395,7 @@ class Buffer_asInterface {
     **/
     @:keep
     static public function bytes( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         return (_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
     }
 }
@@ -2445,6 +2472,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function reset( _r:stdgo.StdGoTypes.Ref<Reader>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         {
             var __tmp__ = (new Reader(_b, (0i64 : stdgo.StdGoTypes.GoInt64), (-1 : stdgo.StdGoTypes.GoInt)) : Reader);
             _r._s = __tmp__._s;
@@ -2457,6 +2485,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function writeTo( _r:stdgo.StdGoTypes.Ref<Reader>, _w:stdgo.io.Io.Writer):{ var _0 : stdgo.StdGoTypes.GoInt64; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         var _n:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64), _err:stdgo.Error = (null : stdgo.Error);
         _r._prevRune = (-1 : stdgo.StdGoTypes.GoInt);
         if (_r._i >= (_r._s.length : stdgo.StdGoTypes.GoInt64)) {
@@ -2479,6 +2508,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function seek( _r:stdgo.StdGoTypes.Ref<Reader>, _offset:stdgo.StdGoTypes.GoInt64, _whence:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.GoInt64; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         _r._prevRune = (-1 : stdgo.StdGoTypes.GoInt);
         var _abs:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
         {
@@ -2504,6 +2534,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function unreadRune( _r:stdgo.StdGoTypes.Ref<Reader>):stdgo.Error {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         if (_r._i <= (0i64 : stdgo.StdGoTypes.GoInt64)) {
             return stdgo.errors.Errors.new_(("bytes.Reader.UnreadRune: at beginning of slice" : stdgo.GoString));
         };
@@ -2519,6 +2550,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function readRune( _r:stdgo.StdGoTypes.Ref<Reader>):{ var _0 : stdgo.StdGoTypes.GoRune; var _1 : stdgo.StdGoTypes.GoInt; var _2 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         var _ch:stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32), _size:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (_r._i >= (_r._s.length : stdgo.StdGoTypes.GoInt64)) {
             _r._prevRune = (-1 : stdgo.StdGoTypes.GoInt);
@@ -2545,6 +2577,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function unreadByte( _r:stdgo.StdGoTypes.Ref<Reader>):stdgo.Error {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         if (_r._i <= (0i64 : stdgo.StdGoTypes.GoInt64)) {
             return stdgo.errors.Errors.new_(("bytes.Reader.UnreadByte: at beginning of slice" : stdgo.GoString));
         };
@@ -2557,6 +2590,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function readByte( _r:stdgo.StdGoTypes.Ref<Reader>):{ var _0 : stdgo.StdGoTypes.GoByte; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         _r._prevRune = (-1 : stdgo.StdGoTypes.GoInt);
         if (_r._i >= (_r._s.length : stdgo.StdGoTypes.GoInt64)) {
             return { _0 : (0 : stdgo.StdGoTypes.GoUInt8), _1 : stdgo.io.Io.eof };
@@ -2570,6 +2604,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function readAt( _r:stdgo.StdGoTypes.Ref<Reader>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _off:stdgo.StdGoTypes.GoInt64):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (_off < (0i64 : stdgo.StdGoTypes.GoInt64)) {
             return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.errors.Errors.new_(("bytes.Reader.ReadAt: negative offset" : stdgo.GoString)) };
@@ -2588,6 +2623,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<Reader>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (_r._i >= (_r._s.length : stdgo.StdGoTypes.GoInt64)) {
             return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.io.Io.eof };
@@ -2604,6 +2640,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function size( _r:stdgo.StdGoTypes.Ref<Reader>):stdgo.StdGoTypes.GoInt64 {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         return (_r._s.length : stdgo.StdGoTypes.GoInt64);
     }
     /**
@@ -2612,6 +2649,7 @@ class Reader_asInterface {
     **/
     @:keep
     static public function len( _r:stdgo.StdGoTypes.Ref<Reader>):stdgo.StdGoTypes.GoInt {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         if (_r._i >= (_r._s.length : stdgo.StdGoTypes.GoInt64)) {
             return (0 : stdgo.StdGoTypes.GoInt);
         };
@@ -2638,6 +2676,7 @@ class T_asciiSet_asInterface {
     **/
     @:keep
     static public function _contains( _as:stdgo.StdGoTypes.Ref<T_asciiSet>, _c:stdgo.StdGoTypes.GoByte):Bool {
+        @:recv var _as:stdgo.StdGoTypes.Ref<T_asciiSet> = _as;
         return (_as[(_c / (32 : stdgo.StdGoTypes.GoUInt8) : stdgo.StdGoTypes.GoInt)] & ((1u32 : stdgo.StdGoTypes.GoUInt32) << (_c % (32 : stdgo.StdGoTypes.GoUInt8)))) != ((0u32 : stdgo.StdGoTypes.GoUInt32));
     }
 }

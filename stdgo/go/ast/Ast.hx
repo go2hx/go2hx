@@ -3373,10 +3373,12 @@ class Comment_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.Comment_asInterface) class Comment_static_extension {
     @:keep
     static public function end( _c:stdgo.StdGoTypes.Ref<Comment>):stdgo.go.token.Token.Pos {
+        @:recv var _c:stdgo.StdGoTypes.Ref<Comment> = _c;
         return ((_c.slash : stdgo.StdGoTypes.GoInt) + (_c.text.length) : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _c:stdgo.StdGoTypes.Ref<Comment>):stdgo.go.token.Token.Pos {
+        @:recv var _c:stdgo.StdGoTypes.Ref<Comment> = _c;
         return _c.slash;
     }
 }
@@ -3414,6 +3416,7 @@ class CommentGroup_asInterface {
     **/
     @:keep
     static public function text( _g:stdgo.StdGoTypes.Ref<CommentGroup>):stdgo.GoString {
+        @:recv var _g:stdgo.StdGoTypes.Ref<CommentGroup> = _g;
         if (_g == null || (_g : Dynamic).__nil__) {
             return stdgo.Go.str();
         };
@@ -3476,10 +3479,12 @@ class CommentGroup_asInterface {
     }
     @:keep
     static public function end( _g:stdgo.StdGoTypes.Ref<CommentGroup>):stdgo.go.token.Token.Pos {
+        @:recv var _g:stdgo.StdGoTypes.Ref<CommentGroup> = _g;
         return _g.list[((_g.list.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)].end();
     }
     @:keep
     static public function pos( _g:stdgo.StdGoTypes.Ref<CommentGroup>):stdgo.go.token.Token.Pos {
+        @:recv var _g:stdgo.StdGoTypes.Ref<CommentGroup> = _g;
         return _g.list[(0 : stdgo.StdGoTypes.GoInt)].pos();
     }
 }
@@ -3499,6 +3504,7 @@ class Field_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.Field_asInterface) class Field_static_extension {
     @:keep
     static public function end( _f:stdgo.StdGoTypes.Ref<Field>):stdgo.go.token.Token.Pos {
+        @:recv var _f:stdgo.StdGoTypes.Ref<Field> = _f;
         if (_f.tag != null && ((_f.tag : Dynamic).__nil__ == null || !(_f.tag : Dynamic).__nil__)) {
             return _f.tag.end();
         };
@@ -3512,6 +3518,7 @@ class Field_asInterface {
     }
     @:keep
     static public function pos( _f:stdgo.StdGoTypes.Ref<Field>):stdgo.go.token.Token.Pos {
+        @:recv var _f:stdgo.StdGoTypes.Ref<Field> = _f;
         if ((_f.names.length) > (0 : stdgo.StdGoTypes.GoInt)) {
             return _f.names[(0 : stdgo.StdGoTypes.GoInt)].pos();
         };
@@ -3545,6 +3552,7 @@ class FieldList_asInterface {
     **/
     @:keep
     static public function numFields( _f:stdgo.StdGoTypes.Ref<FieldList>):stdgo.StdGoTypes.GoInt {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FieldList> = _f;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         if (_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) {
             for (__0 => _g in _f.list) {
@@ -3559,6 +3567,7 @@ class FieldList_asInterface {
     }
     @:keep
     static public function end( _f:stdgo.StdGoTypes.Ref<FieldList>):stdgo.go.token.Token.Pos {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FieldList> = _f;
         if (_f.closing.isValid()) {
             return _f.closing + (1 : stdgo.go.token.Token.Pos);
         };
@@ -3572,6 +3581,7 @@ class FieldList_asInterface {
     }
     @:keep
     static public function pos( _f:stdgo.StdGoTypes.Ref<FieldList>):stdgo.go.token.Token.Pos {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FieldList> = _f;
         if (_f.opening.isValid()) {
             return _f.opening;
         };
@@ -3606,13 +3616,17 @@ class BadExpr_asInterface {
         // assigned to an Expr.
     **/
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<BadExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<BadExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<BadExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<BadExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<BadExpr> = _x;
         return _x.to;
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<BadExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<BadExpr> = _x;
         return _x.from;
     }
 }
@@ -3641,6 +3655,7 @@ class Ident_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.Ident_asInterface) class Ident_static_extension {
     @:keep
     static public function string( _id:stdgo.StdGoTypes.Ref<Ident>):stdgo.GoString {
+        @:recv var _id:stdgo.StdGoTypes.Ref<Ident> = _id;
         if (_id != null && ((_id : Dynamic).__nil__ == null || !(_id : Dynamic).__nil__)) {
             return _id.name;
         };
@@ -3651,16 +3666,21 @@ class Ident_asInterface {
     **/
     @:keep
     static public function isExported( _id:stdgo.StdGoTypes.Ref<Ident>):Bool {
+        @:recv var _id:stdgo.StdGoTypes.Ref<Ident> = _id;
         return stdgo.go.token.Token.isExported(_id.name);
     }
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<Ident>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<Ident>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<Ident> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<Ident>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<Ident> = _x;
         return ((_x.namePos : stdgo.StdGoTypes.GoInt) + (_x.name.length) : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<Ident>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<Ident> = _x;
         return _x.namePos;
     }
 }
@@ -3681,9 +3701,12 @@ class Ellipsis_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.Ellipsis_asInterface) class Ellipsis_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<Ellipsis>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<Ellipsis>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<Ellipsis> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<Ellipsis>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<Ellipsis> = _x;
         if (_x.elt != null) {
             return _x.elt.end();
         };
@@ -3691,6 +3714,7 @@ class Ellipsis_asInterface {
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<Ellipsis>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<Ellipsis> = _x;
         return _x.ellipsis;
     }
 }
@@ -3711,13 +3735,17 @@ class BasicLit_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.BasicLit_asInterface) class BasicLit_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<BasicLit>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<BasicLit>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<BasicLit> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<BasicLit>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<BasicLit> = _x;
         return ((_x.valuePos : stdgo.StdGoTypes.GoInt) + (_x.value.length) : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<BasicLit>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<BasicLit> = _x;
         return _x.valuePos;
     }
 }
@@ -3738,13 +3766,17 @@ class FuncLit_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.FuncLit_asInterface) class FuncLit_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<FuncLit>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<FuncLit>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<FuncLit> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<FuncLit>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<FuncLit> = _x;
         return _x.body.end();
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<FuncLit>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<FuncLit> = _x;
         return _x.type.pos();
     }
 }
@@ -3765,13 +3797,17 @@ class CompositeLit_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.CompositeLit_asInterface) class CompositeLit_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<CompositeLit>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<CompositeLit>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<CompositeLit> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<CompositeLit>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<CompositeLit> = _x;
         return _x.rbrace + (1 : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<CompositeLit>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<CompositeLit> = _x;
         if (_x.type != null) {
             return _x.type.pos();
         };
@@ -3795,13 +3831,17 @@ class ParenExpr_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.ParenExpr_asInterface) class ParenExpr_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<ParenExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<ParenExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<ParenExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<ParenExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<ParenExpr> = _x;
         return _x.rparen + (1 : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<ParenExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<ParenExpr> = _x;
         return _x.lparen;
     }
 }
@@ -3822,13 +3862,17 @@ class SelectorExpr_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.SelectorExpr_asInterface) class SelectorExpr_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<SelectorExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<SelectorExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<SelectorExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<SelectorExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<SelectorExpr> = _x;
         return _x.sel.end();
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<SelectorExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<SelectorExpr> = _x;
         return _x.x.pos();
     }
 }
@@ -3849,13 +3893,17 @@ class IndexExpr_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.IndexExpr_asInterface) class IndexExpr_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<IndexExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<IndexExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<IndexExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<IndexExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<IndexExpr> = _x;
         return _x.rbrack + (1 : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<IndexExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<IndexExpr> = _x;
         return _x.x.pos();
     }
 }
@@ -3876,13 +3924,17 @@ class IndexListExpr_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.IndexListExpr_asInterface) class IndexListExpr_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<IndexListExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<IndexListExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<IndexListExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<IndexListExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<IndexListExpr> = _x;
         return _x.rbrack + (1 : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<IndexListExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<IndexListExpr> = _x;
         return _x.x.pos();
     }
 }
@@ -3903,13 +3955,17 @@ class SliceExpr_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.SliceExpr_asInterface) class SliceExpr_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<SliceExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<SliceExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<SliceExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<SliceExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<SliceExpr> = _x;
         return _x.rbrack + (1 : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<SliceExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<SliceExpr> = _x;
         return _x.x.pos();
     }
 }
@@ -3930,13 +3986,17 @@ class TypeAssertExpr_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.TypeAssertExpr_asInterface) class TypeAssertExpr_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<TypeAssertExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<TypeAssertExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<TypeAssertExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<TypeAssertExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<TypeAssertExpr> = _x;
         return _x.rparen + (1 : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<TypeAssertExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<TypeAssertExpr> = _x;
         return _x.x.pos();
     }
 }
@@ -3957,13 +4017,17 @@ class CallExpr_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.CallExpr_asInterface) class CallExpr_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<CallExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<CallExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<CallExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<CallExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<CallExpr> = _x;
         return _x.rparen + (1 : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<CallExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<CallExpr> = _x;
         return _x.fun.pos();
     }
 }
@@ -3984,13 +4048,17 @@ class StarExpr_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.StarExpr_asInterface) class StarExpr_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<StarExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<StarExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<StarExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<StarExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<StarExpr> = _x;
         return _x.x.end();
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<StarExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<StarExpr> = _x;
         return _x.star;
     }
 }
@@ -4011,13 +4079,17 @@ class UnaryExpr_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.UnaryExpr_asInterface) class UnaryExpr_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<UnaryExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<UnaryExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<UnaryExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<UnaryExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<UnaryExpr> = _x;
         return _x.x.end();
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<UnaryExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<UnaryExpr> = _x;
         return _x.opPos;
     }
 }
@@ -4038,13 +4110,17 @@ class BinaryExpr_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.BinaryExpr_asInterface) class BinaryExpr_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<BinaryExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<BinaryExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<BinaryExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<BinaryExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<BinaryExpr> = _x;
         return _x.y.end();
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<BinaryExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<BinaryExpr> = _x;
         return _x.x.pos();
     }
 }
@@ -4065,13 +4141,17 @@ class KeyValueExpr_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.KeyValueExpr_asInterface) class KeyValueExpr_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<KeyValueExpr>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<KeyValueExpr>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<KeyValueExpr> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<KeyValueExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<KeyValueExpr> = _x;
         return _x.value.end();
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<KeyValueExpr>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<KeyValueExpr> = _x;
         return _x.key.pos();
     }
 }
@@ -4092,13 +4172,17 @@ class ArrayType_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.ArrayType_asInterface) class ArrayType_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<ArrayType>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<ArrayType>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<ArrayType> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<ArrayType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<ArrayType> = _x;
         return _x.elt.end();
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<ArrayType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<ArrayType> = _x;
         return _x.lbrack;
     }
 }
@@ -4119,13 +4203,17 @@ class StructType_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.StructType_asInterface) class StructType_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<StructType>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<StructType>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<StructType> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<StructType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<StructType> = _x;
         return _x.fields.end();
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<StructType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<StructType> = _x;
         return _x.struct_;
     }
 }
@@ -4146,9 +4234,12 @@ class FuncType_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.FuncType_asInterface) class FuncType_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<FuncType>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<FuncType>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<FuncType> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<FuncType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<FuncType> = _x;
         if (_x.results != null && ((_x.results : Dynamic).__nil__ == null || !(_x.results : Dynamic).__nil__)) {
             return _x.results.end();
         };
@@ -4156,6 +4247,7 @@ class FuncType_asInterface {
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<FuncType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<FuncType> = _x;
         if (_x.func.isValid() || ((_x.params == null) || (_x.params : Dynamic).__nil__)) {
             return _x.func;
         };
@@ -4179,13 +4271,17 @@ class InterfaceType_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.InterfaceType_asInterface) class InterfaceType_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<InterfaceType>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<InterfaceType>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<InterfaceType> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<InterfaceType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<InterfaceType> = _x;
         return _x.methods.end();
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<InterfaceType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<InterfaceType> = _x;
         return _x.interface_;
     }
 }
@@ -4206,13 +4302,17 @@ class MapType_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.MapType_asInterface) class MapType_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<MapType>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<MapType>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<MapType> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<MapType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<MapType> = _x;
         return _x.value.end();
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<MapType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<MapType> = _x;
         return _x.map;
     }
 }
@@ -4233,13 +4333,17 @@ class ChanType_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.ChanType_asInterface) class ChanType_static_extension {
     @:keep
-    static public function _exprNode( _:stdgo.StdGoTypes.Ref<ChanType>):Void {}
+    static public function _exprNode( _:stdgo.StdGoTypes.Ref<ChanType>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<ChanType> = _;
+    }
     @:keep
     static public function end( _x:stdgo.StdGoTypes.Ref<ChanType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<ChanType> = _x;
         return _x.value.end();
     }
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<ChanType>):stdgo.go.token.Token.Pos {
+        @:recv var _x:stdgo.StdGoTypes.Ref<ChanType> = _x;
         return _x.begin;
     }
 }
@@ -4268,13 +4372,17 @@ class BadStmt_asInterface {
         // assigned to a Stmt.
     **/
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<BadStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<BadStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<BadStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<BadStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<BadStmt> = _s;
         return _s.to;
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<BadStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<BadStmt> = _s;
         return _s.from;
     }
 }
@@ -4295,13 +4403,17 @@ class DeclStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.DeclStmt_asInterface) class DeclStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<DeclStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<DeclStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<DeclStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<DeclStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<DeclStmt> = _s;
         return _s.decl.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<DeclStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<DeclStmt> = _s;
         return _s.decl.pos();
     }
 }
@@ -4322,9 +4434,12 @@ class EmptyStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.EmptyStmt_asInterface) class EmptyStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<EmptyStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<EmptyStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<EmptyStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<EmptyStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<EmptyStmt> = _s;
         if (_s.implicit) {
             return _s.semicolon;
         };
@@ -4332,6 +4447,7 @@ class EmptyStmt_asInterface {
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<EmptyStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<EmptyStmt> = _s;
         return _s.semicolon;
     }
 }
@@ -4352,13 +4468,17 @@ class LabeledStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.LabeledStmt_asInterface) class LabeledStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<LabeledStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<LabeledStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<LabeledStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<LabeledStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<LabeledStmt> = _s;
         return _s.stmt.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<LabeledStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<LabeledStmt> = _s;
         return _s.label.pos();
     }
 }
@@ -4379,13 +4499,17 @@ class ExprStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.ExprStmt_asInterface) class ExprStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<ExprStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<ExprStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<ExprStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<ExprStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<ExprStmt> = _s;
         return _s.x.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<ExprStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<ExprStmt> = _s;
         return _s.x.pos();
     }
 }
@@ -4406,13 +4530,17 @@ class SendStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.SendStmt_asInterface) class SendStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<SendStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<SendStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<SendStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<SendStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<SendStmt> = _s;
         return _s.value.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<SendStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<SendStmt> = _s;
         return _s.chan.pos();
     }
 }
@@ -4433,13 +4561,17 @@ class IncDecStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.IncDecStmt_asInterface) class IncDecStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<IncDecStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<IncDecStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<IncDecStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<IncDecStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<IncDecStmt> = _s;
         return _s.tokPos + (2 : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<IncDecStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<IncDecStmt> = _s;
         return _s.x.pos();
     }
 }
@@ -4460,13 +4592,17 @@ class AssignStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.AssignStmt_asInterface) class AssignStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<AssignStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<AssignStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<AssignStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<AssignStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<AssignStmt> = _s;
         return _s.rhs[((_s.rhs.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)].end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<AssignStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<AssignStmt> = _s;
         return _s.lhs[(0 : stdgo.StdGoTypes.GoInt)].pos();
     }
 }
@@ -4487,13 +4623,17 @@ class GoStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.GoStmt_asInterface) class GoStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<GoStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<GoStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<GoStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<GoStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<GoStmt> = _s;
         return _s.call.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<GoStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<GoStmt> = _s;
         return _s.go;
     }
 }
@@ -4514,13 +4654,17 @@ class DeferStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.DeferStmt_asInterface) class DeferStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<DeferStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<DeferStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<DeferStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<DeferStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<DeferStmt> = _s;
         return _s.call.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<DeferStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<DeferStmt> = _s;
         return _s.defer;
     }
 }
@@ -4541,9 +4685,12 @@ class ReturnStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.ReturnStmt_asInterface) class ReturnStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<ReturnStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<ReturnStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<ReturnStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<ReturnStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<ReturnStmt> = _s;
         {
             var _n:stdgo.StdGoTypes.GoInt = (_s.results.length);
             if (_n > (0 : stdgo.StdGoTypes.GoInt)) {
@@ -4554,6 +4701,7 @@ class ReturnStmt_asInterface {
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<ReturnStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<ReturnStmt> = _s;
         return _s.return_;
     }
 }
@@ -4574,9 +4722,12 @@ class BranchStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.BranchStmt_asInterface) class BranchStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<BranchStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<BranchStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<BranchStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<BranchStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<BranchStmt> = _s;
         if (_s.label != null && ((_s.label : Dynamic).__nil__ == null || !(_s.label : Dynamic).__nil__)) {
             return _s.label.end();
         };
@@ -4584,6 +4735,7 @@ class BranchStmt_asInterface {
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<BranchStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<BranchStmt> = _s;
         return _s.tokPos;
     }
 }
@@ -4604,9 +4756,12 @@ class BlockStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.BlockStmt_asInterface) class BlockStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<BlockStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<BlockStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<BlockStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<BlockStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<BlockStmt> = _s;
         if (_s.rbrace.isValid()) {
             return _s.rbrace + (1 : stdgo.go.token.Token.Pos);
         };
@@ -4620,6 +4775,7 @@ class BlockStmt_asInterface {
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<BlockStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<BlockStmt> = _s;
         return _s.lbrace;
     }
 }
@@ -4640,9 +4796,12 @@ class IfStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.IfStmt_asInterface) class IfStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<IfStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<IfStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<IfStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<IfStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<IfStmt> = _s;
         if (_s.else_ != null) {
             return _s.else_.end();
         };
@@ -4650,6 +4809,7 @@ class IfStmt_asInterface {
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<IfStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<IfStmt> = _s;
         return _s.if_;
     }
 }
@@ -4670,9 +4830,12 @@ class CaseClause_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.CaseClause_asInterface) class CaseClause_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<CaseClause>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<CaseClause>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<CaseClause> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<CaseClause>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<CaseClause> = _s;
         {
             var _n:stdgo.StdGoTypes.GoInt = (_s.body.length);
             if (_n > (0 : stdgo.StdGoTypes.GoInt)) {
@@ -4683,6 +4846,7 @@ class CaseClause_asInterface {
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<CaseClause>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<CaseClause> = _s;
         return _s.case_;
     }
 }
@@ -4703,13 +4867,17 @@ class SwitchStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.SwitchStmt_asInterface) class SwitchStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<SwitchStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<SwitchStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<SwitchStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<SwitchStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<SwitchStmt> = _s;
         return _s.body.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<SwitchStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<SwitchStmt> = _s;
         return _s.switch_;
     }
 }
@@ -4730,13 +4898,17 @@ class TypeSwitchStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.TypeSwitchStmt_asInterface) class TypeSwitchStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<TypeSwitchStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<TypeSwitchStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<TypeSwitchStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<TypeSwitchStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<TypeSwitchStmt> = _s;
         return _s.body.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<TypeSwitchStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<TypeSwitchStmt> = _s;
         return _s.switch_;
     }
 }
@@ -4757,9 +4929,12 @@ class CommClause_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.CommClause_asInterface) class CommClause_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<CommClause>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<CommClause>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<CommClause> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<CommClause>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<CommClause> = _s;
         {
             var _n:stdgo.StdGoTypes.GoInt = (_s.body.length);
             if (_n > (0 : stdgo.StdGoTypes.GoInt)) {
@@ -4770,6 +4945,7 @@ class CommClause_asInterface {
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<CommClause>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<CommClause> = _s;
         return _s.case_;
     }
 }
@@ -4790,13 +4966,17 @@ class SelectStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.SelectStmt_asInterface) class SelectStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<SelectStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<SelectStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<SelectStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<SelectStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<SelectStmt> = _s;
         return _s.body.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<SelectStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<SelectStmt> = _s;
         return _s.select;
     }
 }
@@ -4817,13 +4997,17 @@ class ForStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.ForStmt_asInterface) class ForStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<ForStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<ForStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<ForStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<ForStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<ForStmt> = _s;
         return _s.body.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<ForStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<ForStmt> = _s;
         return _s.for_;
     }
 }
@@ -4844,13 +5028,17 @@ class RangeStmt_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.RangeStmt_asInterface) class RangeStmt_static_extension {
     @:keep
-    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<RangeStmt>):Void {}
+    static public function _stmtNode( _:stdgo.StdGoTypes.Ref<RangeStmt>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<RangeStmt> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<RangeStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<RangeStmt> = _s;
         return _s.body.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<RangeStmt>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<RangeStmt> = _s;
         return _s.for_;
     }
 }
@@ -4879,9 +5067,12 @@ class ImportSpec_asInterface {
         // assigned to a Spec.
     **/
     @:keep
-    static public function _specNode( _:stdgo.StdGoTypes.Ref<ImportSpec>):Void {}
+    static public function _specNode( _:stdgo.StdGoTypes.Ref<ImportSpec>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<ImportSpec> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<ImportSpec>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<ImportSpec> = _s;
         if (_s.endPos != ((0 : stdgo.go.token.Token.Pos))) {
             return _s.endPos;
         };
@@ -4889,6 +5080,7 @@ class ImportSpec_asInterface {
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<ImportSpec>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<ImportSpec> = _s;
         if (_s.name != null && ((_s.name : Dynamic).__nil__ == null || !(_s.name : Dynamic).__nil__)) {
             return _s.name.pos();
         };
@@ -4912,9 +5104,12 @@ class ValueSpec_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.ValueSpec_asInterface) class ValueSpec_static_extension {
     @:keep
-    static public function _specNode( _:stdgo.StdGoTypes.Ref<ValueSpec>):Void {}
+    static public function _specNode( _:stdgo.StdGoTypes.Ref<ValueSpec>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<ValueSpec> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<ValueSpec>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<ValueSpec> = _s;
         {
             var _n:stdgo.StdGoTypes.GoInt = (_s.values.length);
             if (_n > (0 : stdgo.StdGoTypes.GoInt)) {
@@ -4928,6 +5123,7 @@ class ValueSpec_asInterface {
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<ValueSpec>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<ValueSpec> = _s;
         return _s.names[(0 : stdgo.StdGoTypes.GoInt)].pos();
     }
 }
@@ -4948,13 +5144,17 @@ class TypeSpec_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.TypeSpec_asInterface) class TypeSpec_static_extension {
     @:keep
-    static public function _specNode( _:stdgo.StdGoTypes.Ref<TypeSpec>):Void {}
+    static public function _specNode( _:stdgo.StdGoTypes.Ref<TypeSpec>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<TypeSpec> = _;
+    }
     @:keep
     static public function end( _s:stdgo.StdGoTypes.Ref<TypeSpec>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<TypeSpec> = _s;
         return _s.type.end();
     }
     @:keep
     static public function pos( _s:stdgo.StdGoTypes.Ref<TypeSpec>):stdgo.go.token.Token.Pos {
+        @:recv var _s:stdgo.StdGoTypes.Ref<TypeSpec> = _s;
         return _s.name.pos();
     }
 }
@@ -4983,13 +5183,17 @@ class BadDecl_asInterface {
         // assigned to a Decl.
     **/
     @:keep
-    static public function _declNode( _:stdgo.StdGoTypes.Ref<BadDecl>):Void {}
+    static public function _declNode( _:stdgo.StdGoTypes.Ref<BadDecl>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<BadDecl> = _;
+    }
     @:keep
     static public function end( _d:stdgo.StdGoTypes.Ref<BadDecl>):stdgo.go.token.Token.Pos {
+        @:recv var _d:stdgo.StdGoTypes.Ref<BadDecl> = _d;
         return _d.to;
     }
     @:keep
     static public function pos( _d:stdgo.StdGoTypes.Ref<BadDecl>):stdgo.go.token.Token.Pos {
+        @:recv var _d:stdgo.StdGoTypes.Ref<BadDecl> = _d;
         return _d.from;
     }
 }
@@ -5010,9 +5214,12 @@ class GenDecl_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.GenDecl_asInterface) class GenDecl_static_extension {
     @:keep
-    static public function _declNode( _:stdgo.StdGoTypes.Ref<GenDecl>):Void {}
+    static public function _declNode( _:stdgo.StdGoTypes.Ref<GenDecl>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<GenDecl> = _;
+    }
     @:keep
     static public function end( _d:stdgo.StdGoTypes.Ref<GenDecl>):stdgo.go.token.Token.Pos {
+        @:recv var _d:stdgo.StdGoTypes.Ref<GenDecl> = _d;
         if (_d.rparen.isValid()) {
             return _d.rparen + (1 : stdgo.go.token.Token.Pos);
         };
@@ -5020,6 +5227,7 @@ class GenDecl_asInterface {
     }
     @:keep
     static public function pos( _d:stdgo.StdGoTypes.Ref<GenDecl>):stdgo.go.token.Token.Pos {
+        @:recv var _d:stdgo.StdGoTypes.Ref<GenDecl> = _d;
         return _d.tokPos;
     }
 }
@@ -5040,9 +5248,12 @@ class FuncDecl_asInterface {
 }
 @:keep @:allow(stdgo.go.ast.Ast.FuncDecl_asInterface) class FuncDecl_static_extension {
     @:keep
-    static public function _declNode( _:stdgo.StdGoTypes.Ref<FuncDecl>):Void {}
+    static public function _declNode( _:stdgo.StdGoTypes.Ref<FuncDecl>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<FuncDecl> = _;
+    }
     @:keep
     static public function end( _d:stdgo.StdGoTypes.Ref<FuncDecl>):stdgo.go.token.Token.Pos {
+        @:recv var _d:stdgo.StdGoTypes.Ref<FuncDecl> = _d;
         if (_d.body != null && ((_d.body : Dynamic).__nil__ == null || !(_d.body : Dynamic).__nil__)) {
             return _d.body.end();
         };
@@ -5050,6 +5261,7 @@ class FuncDecl_asInterface {
     }
     @:keep
     static public function pos( _d:stdgo.StdGoTypes.Ref<FuncDecl>):stdgo.go.token.Token.Pos {
+        @:recv var _d:stdgo.StdGoTypes.Ref<FuncDecl> = _d;
         return _d.type.pos();
     }
 }
@@ -5081,6 +5293,7 @@ class File_asInterface {
     **/
     @:keep
     static public function end( _f:stdgo.StdGoTypes.Ref<File>):stdgo.go.token.Token.Pos {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         {
             var _n:stdgo.StdGoTypes.GoInt = (_f.decls.length);
             if (_n > (0 : stdgo.StdGoTypes.GoInt)) {
@@ -5095,6 +5308,7 @@ class File_asInterface {
     **/
     @:keep
     static public function pos( _f:stdgo.StdGoTypes.Ref<File>):stdgo.go.token.Token.Pos {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         return _f.package_;
     }
 }
@@ -5114,10 +5328,12 @@ class Package_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.Package_asInterface) class Package_static_extension {
     @:keep
     static public function end( _p:stdgo.StdGoTypes.Ref<Package>):stdgo.go.token.Token.Pos {
+        @:recv var _p:stdgo.StdGoTypes.Ref<Package> = _p;
         return (0 : stdgo.go.token.Token.Pos);
     }
     @:keep
     static public function pos( _p:stdgo.StdGoTypes.Ref<Package>):stdgo.go.token.Token.Pos {
+        @:recv var _p:stdgo.StdGoTypes.Ref<Package> = _p;
         return (0 : stdgo.go.token.Token.Pos);
     }
 }
@@ -5137,6 +5353,7 @@ class T_commentListReader_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.T_commentListReader_asInterface) class T_commentListReader_static_extension {
     @:keep
     static public function _next( _r:stdgo.StdGoTypes.Ref<T_commentListReader>):Void {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_commentListReader> = _r;
         if (!_r._eol()) {
             _r._comment = _r._list[(_r._index : stdgo.StdGoTypes.GoInt)];
             _r._pos = _r._fset.position(_r._comment.pos())?.__copy__();
@@ -5146,6 +5363,7 @@ class T_commentListReader_asInterface {
     }
     @:keep
     static public function _eol( _r:stdgo.StdGoTypes.Ref<T_commentListReader>):Bool {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_commentListReader> = _r;
         return _r._index >= (_r._list.length);
     }
 }
@@ -5170,6 +5388,7 @@ class T_printer_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.T_printer_asInterface) class T_printer_static_extension {
     @:keep
     static public function _print( _p:stdgo.StdGoTypes.Ref<T_printer>, _x:stdgo.reflect.Reflect.Value):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         if (!notNilFilter(stdgo.Go.str(), _x?.__copy__())) {
             _p._printf(("nil" : stdgo.GoString));
             return;
@@ -5300,6 +5519,7 @@ class T_printer_asInterface {
     @:keep
     static public function _printf( _p:stdgo.StdGoTypes.Ref<T_printer>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         {
             var __tmp__ = stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(_p), _format, ..._args.__toArray__()), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -5309,6 +5529,7 @@ class T_printer_asInterface {
     }
     @:keep
     static public function write( _p:stdgo.StdGoTypes.Ref<T_printer>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         var _m:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         for (_i => _b in _data) {
@@ -5375,6 +5596,7 @@ class T_pkgBuilder_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.T_pkgBuilder_asInterface) class T_pkgBuilder_static_extension {
     @:keep
     static public function _declare( _p:stdgo.StdGoTypes.Ref<T_pkgBuilder>, _scope:stdgo.StdGoTypes.Ref<Scope>, _altScope:stdgo.StdGoTypes.Ref<Scope>, _obj:stdgo.StdGoTypes.Ref<Object>):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_pkgBuilder> = _p;
         var _alt = _scope.insert(_obj);
         if ((_alt == null) || (_alt : Dynamic).__nil__ && ((_altScope != null) && ((_altScope : Dynamic).__nil__ == null || !(_altScope : Dynamic).__nil__))) {
             _alt = _altScope.lookup(_obj.name);
@@ -5393,10 +5615,12 @@ class T_pkgBuilder_asInterface {
     @:keep
     static public function _errorf( _p:stdgo.StdGoTypes.Ref<T_pkgBuilder>, _pos:stdgo.go.token.Token.Pos, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_pkgBuilder> = _p;
         _p._error(_pos, stdgo.fmt.Fmt.sprintf(_format, ..._args.__toArray__()));
     }
     @:keep
     static public function _error( _p:stdgo.StdGoTypes.Ref<T_pkgBuilder>, _pos:stdgo.go.token.Token.Pos, _msg:stdgo.GoString):Void {
+        @:recv var _p:stdgo.StdGoTypes.Ref<T_pkgBuilder> = _p;
         _p._errors.add(_p._fset.position(_pos)?.__copy__(), _msg);
     }
 }
@@ -5435,6 +5659,7 @@ class Scope_asInterface {
     **/
     @:keep
     static public function string( _s:stdgo.StdGoTypes.Ref<Scope>):stdgo.GoString {
+        @:recv var _s:stdgo.StdGoTypes.Ref<Scope> = _s;
         var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
         stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>)), ("scope %p {" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)));
         if (((_s != null) && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) && (_s.objects.length > (0 : stdgo.StdGoTypes.GoInt))) {
@@ -5454,6 +5679,7 @@ class Scope_asInterface {
     **/
     @:keep
     static public function insert( _s:stdgo.StdGoTypes.Ref<Scope>, _obj:stdgo.StdGoTypes.Ref<Object>):stdgo.StdGoTypes.Ref<Object> {
+        @:recv var _s:stdgo.StdGoTypes.Ref<Scope> = _s;
         var _alt:stdgo.StdGoTypes.Ref<Object> = (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object>);
         {
             _alt = (_s.objects[_obj.name] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object>));
@@ -5470,6 +5696,7 @@ class Scope_asInterface {
     **/
     @:keep
     static public function lookup( _s:stdgo.StdGoTypes.Ref<Scope>, _name:stdgo.GoString):stdgo.StdGoTypes.Ref<Object> {
+        @:recv var _s:stdgo.StdGoTypes.Ref<Scope> = _s;
         return (_s.objects[_name] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object>));
     }
 }
@@ -5497,6 +5724,7 @@ class Object_asInterface {
     **/
     @:keep
     static public function pos( _obj:stdgo.StdGoTypes.Ref<Object>):stdgo.go.token.Token.Pos {
+        @:recv var _obj:stdgo.StdGoTypes.Ref<Object> = _obj;
         var _name:stdgo.GoString = _obj.name;
         {
             final __type__ = _obj.decl;
@@ -5574,6 +5802,7 @@ class T_byPos_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.T_byPos_asInterface) class T_byPos_static_extension {
     @:keep
     static public function swap( _a:T_byPos, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _a:T_byPos = _a;
         {
             final __tmp__0 = _a[(_j : stdgo.StdGoTypes.GoInt)];
             final __tmp__1 = _a[(_i : stdgo.StdGoTypes.GoInt)];
@@ -5583,10 +5812,12 @@ class T_byPos_asInterface {
     }
     @:keep
     static public function less( _a:T_byPos, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _a:T_byPos = _a;
         return _a[(_i : stdgo.StdGoTypes.GoInt)].pos() < _a[(_j : stdgo.StdGoTypes.GoInt)].pos();
     }
     @:keep
     static public function len( _a:T_byPos):stdgo.StdGoTypes.GoInt {
+        @:recv var _a:T_byPos = _a;
         return (_a.length);
     }
 }
@@ -5626,6 +5857,7 @@ class CommentMap_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.CommentMap_asInterface) class CommentMap_static_extension {
     @:keep
     static public function string( _cmap:CommentMap):stdgo.GoString {
+        @:recv var _cmap:CommentMap = _cmap;
         var _nodes:stdgo.Slice<Node> = (null : stdgo.Slice<stdgo.go.ast.Ast.Node>);
         for (_node => _ in _cmap) {
             _nodes = (_nodes.__append__(_node));
@@ -5659,6 +5891,7 @@ class CommentMap_asInterface {
     **/
     @:keep
     static public function comments( _cmap:CommentMap):stdgo.Slice<stdgo.StdGoTypes.Ref<CommentGroup>> {
+        @:recv var _cmap:CommentMap = _cmap;
         var _list = new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (_cmap.length));
         for (__0 => _e in _cmap) {
             _list = (_list.__append__(..._e.__toArray__()));
@@ -5673,6 +5906,7 @@ class CommentMap_asInterface {
     **/
     @:keep
     static public function filter( _cmap:CommentMap, _node:Node):CommentMap {
+        @:recv var _cmap:CommentMap = _cmap;
         var _umap:stdgo.go.ast.Ast.CommentMap = ({
             final x = new stdgo.GoMap.GoObjectMap<stdgo.go.ast.Ast.Node, stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>>>();
             x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.go.ast.Ast.Node", [], stdgo.internal.reflect.Reflect.GoType.named("Node", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }), false, { get : () -> null }));
@@ -5698,6 +5932,7 @@ class CommentMap_asInterface {
     **/
     @:keep
     static public function update( _cmap:CommentMap, _old:Node, _new:Node):Node {
+        @:recv var _cmap:CommentMap = _cmap;
         {
             var _list = (_cmap[_old] ?? (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>>));
             if ((_list.length) > (0 : stdgo.StdGoTypes.GoInt)) {
@@ -5709,6 +5944,7 @@ class CommentMap_asInterface {
     }
     @:keep
     static public function _addComment( _cmap:CommentMap, _n:Node, _c:stdgo.StdGoTypes.Ref<CommentGroup>):Void {
+        @:recv var _cmap:CommentMap = _cmap;
         var _list = (_cmap[_n] ?? (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>>));
         if ((_list.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             _list = (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>>(1, 1, _c) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>>);
@@ -5736,6 +5972,7 @@ class T_byInterval_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.T_byInterval_asInterface) class T_byInterval_static_extension {
     @:keep
     static public function swap( _a:T_byInterval, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _a:T_byInterval = _a;
         {
             final __tmp__0 = _a[(_j : stdgo.StdGoTypes.GoInt)];
             final __tmp__1 = _a[(_i : stdgo.StdGoTypes.GoInt)];
@@ -5745,11 +5982,13 @@ class T_byInterval_asInterface {
     }
     @:keep
     static public function less( _a:T_byInterval, _i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _a:T_byInterval = _a;
         var __0:stdgo.go.token.Token.Pos = _a[(_i : stdgo.StdGoTypes.GoInt)].pos(), __1:stdgo.go.token.Token.Pos = _a[(_j : stdgo.StdGoTypes.GoInt)].pos(), _pj:stdgo.go.token.Token.Pos = __1, _pi:stdgo.go.token.Token.Pos = __0;
         return (_pi < _pj) || ((_pi == _pj) && (_a[(_i : stdgo.StdGoTypes.GoInt)].end() > _a[(_j : stdgo.StdGoTypes.GoInt)].end()));
     }
     @:keep
     static public function len( _a:T_byInterval):stdgo.StdGoTypes.GoInt {
+        @:recv var _a:T_byInterval = _a;
         return (_a.length);
     }
 }
@@ -5783,6 +6022,7 @@ class T_nodeStack_asInterface {
     **/
     @:keep
     static public function _pop( _s:stdgo.StdGoTypes.Ref<T_nodeStack>, _pos:stdgo.go.token.Token.Pos):Node {
+        @:recv var _s:stdgo.StdGoTypes.Ref<T_nodeStack> = _s;
         var _top:Node = (null : stdgo.go.ast.Ast.Node);
         var _i:stdgo.StdGoTypes.GoInt = ((_s : stdgo.go.ast.Ast.T_nodeStack).length);
         while ((_i > (0 : stdgo.StdGoTypes.GoInt)) && (((_s : stdgo.go.ast.Ast.T_nodeStack))[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)].end() <= _pos)) {
@@ -5798,6 +6038,7 @@ class T_nodeStack_asInterface {
     **/
     @:keep
     static public function _push( _s:stdgo.StdGoTypes.Ref<T_nodeStack>, _n:Node):Void {
+        @:recv var _s:stdgo.StdGoTypes.Ref<T_nodeStack> = _s;
         _s._pop(_n.pos());
         _s.__setData__((((_s : stdgo.go.ast.Ast.T_nodeStack)).__append__(_n)));
     }
@@ -5816,6 +6057,7 @@ class ObjKind_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.ObjKind_asInterface) class ObjKind_static_extension {
     @:keep
     static public function string( _kind:ObjKind):stdgo.GoString {
+        @:recv var _kind:ObjKind = _kind;
         return _objKindStrings[(_kind : stdgo.StdGoTypes.GoInt)];
     }
 }
@@ -5833,6 +6075,7 @@ class T_inspector_asInterface {
 @:keep @:allow(stdgo.go.ast.Ast.T_inspector_asInterface) class T_inspector_static_extension {
     @:keep
     static public function visit( _f:T_inspector, _node:Node):Visitor {
+        @:recv var _f:T_inspector = _f;
         if (_f(_node)) {
             return stdgo.Go.asInterface(_f);
         };

@@ -1683,6 +1683,7 @@ class Position_asInterface {
     **/
     @:keep
     static public function string( _pos:Position):stdgo.GoString {
+        @:recv var _pos:Position = _pos?.__copy__();
         var _s:stdgo.GoString = _pos.filename;
         if (_pos.isValid()) {
             if (_s != (stdgo.Go.str())) {
@@ -1703,6 +1704,7 @@ class Position_asInterface {
     **/
     @:keep
     static public function isValid( _pos:stdgo.StdGoTypes.Ref<Position>):Bool {
+        @:recv var _pos:stdgo.StdGoTypes.Ref<Position> = _pos;
         return _pos.line > (0 : stdgo.StdGoTypes.GoInt);
     }
 }
@@ -1849,6 +1851,7 @@ class File_asInterface {
     **/
     @:keep
     static public function position( _f:stdgo.StdGoTypes.Ref<File>, _p:Pos):Position {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         var _pos:Position = ({} : stdgo.go.token.Token.Position);
         return _f.positionFor(_p, true)?.__copy__();
     }
@@ -1860,6 +1863,7 @@ class File_asInterface {
     **/
     @:keep
     static public function positionFor( _f:stdgo.StdGoTypes.Ref<File>, _p:Pos, _adjusted:Bool):Position {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         var _pos:Position = ({} : stdgo.go.token.Token.Position);
         if (_p != ((0 : stdgo.go.token.Token.Pos))) {
             if (((_p : stdgo.StdGoTypes.GoInt) < _f._base) || ((_p : stdgo.StdGoTypes.GoInt) > (_f._base + _f._size))) {
@@ -1871,6 +1875,7 @@ class File_asInterface {
     }
     @:keep
     static public function _position( _f:stdgo.StdGoTypes.Ref<File>, _p:Pos, _adjusted:Bool):Position {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         var _pos:Position = ({} : stdgo.go.token.Token.Position);
         var _offset:stdgo.StdGoTypes.GoInt = (_p : stdgo.StdGoTypes.GoInt) - _f._base;
         _pos.offset = _offset;
@@ -1889,6 +1894,7 @@ class File_asInterface {
     **/
     @:keep
     static public function _unpack( _f:stdgo.StdGoTypes.Ref<File>, _offset:stdgo.StdGoTypes.GoInt, _adjusted:Bool):{ var _0 : stdgo.GoString; var _1 : stdgo.StdGoTypes.GoInt; var _2 : stdgo.StdGoTypes.GoInt; } {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         var _filename:stdgo.GoString = ("" : stdgo.GoString), _line:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _column:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         _f._mutex.lock();
         _filename = _f._name;
@@ -1933,6 +1939,7 @@ class File_asInterface {
     **/
     @:keep
     static public function line( _f:stdgo.StdGoTypes.Ref<File>, _p:Pos):stdgo.StdGoTypes.GoInt {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         return _f.position(_p).line;
     }
     /**
@@ -1942,6 +1949,7 @@ class File_asInterface {
     **/
     @:keep
     static public function offset( _f:stdgo.StdGoTypes.Ref<File>, _p:Pos):stdgo.StdGoTypes.GoInt {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         if (((_p : stdgo.StdGoTypes.GoInt) < _f._base) || ((_p : stdgo.StdGoTypes.GoInt) > (_f._base + _f._size))) {
             throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid Pos value %d (should be in [%d, %d])" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)), stdgo.Go.toInterface(_f._base), stdgo.Go.toInterface(_f._base + _f._size)));
         };
@@ -1954,6 +1962,7 @@ class File_asInterface {
     **/
     @:keep
     static public function pos( _f:stdgo.StdGoTypes.Ref<File>, _offset:stdgo.StdGoTypes.GoInt):Pos {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         if (_offset > _f._size) {
             throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid file offset %d (should be <= %d)" : stdgo.GoString), stdgo.Go.toInterface(_offset), stdgo.Go.toInterface(_f._size)));
         };
@@ -1971,6 +1980,7 @@ class File_asInterface {
     **/
     @:keep
     static public function addLineColumnInfo( _f:stdgo.StdGoTypes.Ref<File>, _offset:stdgo.StdGoTypes.GoInt, _filename:stdgo.GoString, _line:stdgo.StdGoTypes.GoInt, _column:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         _f._mutex.lock();
         {
             var _i:stdgo.StdGoTypes.GoInt = (_f._infos.length);
@@ -1986,6 +1996,7 @@ class File_asInterface {
     **/
     @:keep
     static public function addLineInfo( _f:stdgo.StdGoTypes.Ref<File>, _offset:stdgo.StdGoTypes.GoInt, _filename:stdgo.GoString, _line:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         _f.addLineColumnInfo(_offset, _filename, _line, (1 : stdgo.StdGoTypes.GoInt));
     }
     /**
@@ -1995,6 +2006,7 @@ class File_asInterface {
     **/
     @:keep
     static public function lineStart( _f:stdgo.StdGoTypes.Ref<File>, _line:stdgo.StdGoTypes.GoInt):Pos {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         var __deferstack__:Array<Void -> Void> = [];
         if (_line < (1 : stdgo.StdGoTypes.GoInt)) {
             throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid line number %d (should be >= 1)" : stdgo.GoString), stdgo.Go.toInterface(_line)));
@@ -2041,6 +2053,7 @@ class File_asInterface {
     **/
     @:keep
     static public function setLinesForContent( _f:stdgo.StdGoTypes.Ref<File>, _content:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         var _lines:stdgo.Slice<stdgo.StdGoTypes.GoInt> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
         var _line:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         for (_offset => _b in _content) {
@@ -2068,6 +2081,7 @@ class File_asInterface {
     **/
     @:keep
     static public function setLines( _f:stdgo.StdGoTypes.Ref<File>, _lines:stdgo.Slice<stdgo.StdGoTypes.GoInt>):Bool {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         var _size:stdgo.StdGoTypes.GoInt = _f._size;
         for (_i => _offset in _lines) {
             if (((_i > (0 : stdgo.StdGoTypes.GoInt)) && (_offset <= _lines[(_i - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)])) || (_size <= _offset)) {
@@ -2085,6 +2099,7 @@ class File_asInterface {
     **/
     @:keep
     static public function lines( _f:stdgo.StdGoTypes.Ref<File>):stdgo.Slice<stdgo.StdGoTypes.GoInt> {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         _f._mutex.lock();
         var _lines = _f._lines;
         _f._mutex.unlock();
@@ -2098,6 +2113,7 @@ class File_asInterface {
     **/
     @:keep
     static public function mergeLine( _f:stdgo.StdGoTypes.Ref<File>, _line:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             if (_line < (1 : stdgo.StdGoTypes.GoInt)) {
@@ -2141,6 +2157,7 @@ class File_asInterface {
     **/
     @:keep
     static public function addLine( _f:stdgo.StdGoTypes.Ref<File>, _offset:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         _f._mutex.lock();
         {
             var _i:stdgo.StdGoTypes.GoInt = (_f._lines.length);
@@ -2155,6 +2172,7 @@ class File_asInterface {
     **/
     @:keep
     static public function lineCount( _f:stdgo.StdGoTypes.Ref<File>):stdgo.StdGoTypes.GoInt {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         _f._mutex.lock();
         var _n:stdgo.StdGoTypes.GoInt = (_f._lines.length);
         _f._mutex.unlock();
@@ -2165,6 +2183,7 @@ class File_asInterface {
     **/
     @:keep
     static public function size( _f:stdgo.StdGoTypes.Ref<File>):stdgo.StdGoTypes.GoInt {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         return _f._size;
     }
     /**
@@ -2172,6 +2191,7 @@ class File_asInterface {
     **/
     @:keep
     static public function base( _f:stdgo.StdGoTypes.Ref<File>):stdgo.StdGoTypes.GoInt {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         return _f._base;
     }
     /**
@@ -2179,6 +2199,7 @@ class File_asInterface {
     **/
     @:keep
     static public function name( _f:stdgo.StdGoTypes.Ref<File>):stdgo.GoString {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         return _f._name;
     }
 }
@@ -2271,6 +2292,7 @@ class FileSet_asInterface {
     **/
     @:keep
     static public function write( _s:stdgo.StdGoTypes.Ref<FileSet>, _encode:stdgo.StdGoTypes.AnyInterface -> stdgo.Error):stdgo.Error {
+        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         var _ss:T_serializedFileSet = ({} : stdgo.go.token.Token.T_serializedFileSet);
         _s._mutex.lock();
         _ss.base = _s._base;
@@ -2289,6 +2311,7 @@ class FileSet_asInterface {
     **/
     @:keep
     static public function read( _s:stdgo.StdGoTypes.Ref<FileSet>, _decode:stdgo.StdGoTypes.AnyInterface -> stdgo.Error):stdgo.Error {
+        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         var _ss:T_serializedFileSet = ({} : stdgo.go.token.Token.T_serializedFileSet);
         {
             var _err:stdgo.Error = _decode(stdgo.Go.toInterface((stdgo.Go.setRef(_ss) : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.T_serializedFileSet>)));
@@ -2317,6 +2340,7 @@ class FileSet_asInterface {
     **/
     @:keep
     static public function position( _s:stdgo.StdGoTypes.Ref<FileSet>, _p:Pos):Position {
+        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         var _pos:Position = ({} : stdgo.go.token.Token.Position);
         return _s.positionFor(_p, true)?.__copy__();
     }
@@ -2328,6 +2352,7 @@ class FileSet_asInterface {
     **/
     @:keep
     static public function positionFor( _s:stdgo.StdGoTypes.Ref<FileSet>, _p:Pos, _adjusted:Bool):Position {
+        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         var _pos:Position = ({} : stdgo.go.token.Token.Position);
         if (_p != ((0 : stdgo.go.token.Token.Pos))) {
             {
@@ -2346,6 +2371,7 @@ class FileSet_asInterface {
     **/
     @:keep
     static public function file( _s:stdgo.StdGoTypes.Ref<FileSet>, _p:Pos):stdgo.StdGoTypes.Ref<File> {
+        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         var _f:stdgo.StdGoTypes.Ref<File> = (null : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
         if (_p != ((0 : stdgo.go.token.Token.Pos))) {
             _f = _s._file(_p);
@@ -2354,6 +2380,7 @@ class FileSet_asInterface {
     }
     @:keep
     static public function _file( _s:stdgo.StdGoTypes.Ref<FileSet>, _p:Pos):stdgo.StdGoTypes.Ref<File> {
+        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         var __deferstack__:Array<Void -> Void> = [];
         {
             var _f = _s._last.load(({} : stdgo.go.token.Token.File));
@@ -2415,6 +2442,7 @@ class FileSet_asInterface {
     **/
     @:keep
     static public function iterate( _s:stdgo.StdGoTypes.Ref<FileSet>, _f:stdgo.StdGoTypes.Ref<File> -> Bool):Void {
+        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(true, _i++, {
@@ -2440,6 +2468,7 @@ class FileSet_asInterface {
     **/
     @:keep
     static public function removeFile( _s:stdgo.StdGoTypes.Ref<FileSet>, _file:stdgo.StdGoTypes.Ref<File>):Void {
+        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._last.compareAndSwap(({} : stdgo.go.token.Token.File), _file, null);
@@ -2496,6 +2525,7 @@ class FileSet_asInterface {
     **/
     @:keep
     static public function addFile( _s:stdgo.StdGoTypes.Ref<FileSet>, _filename:stdgo.GoString, _base:stdgo.StdGoTypes.GoInt, _size:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<File> {
+        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         var __deferstack__:Array<Void -> Void> = [];
         var _f = (stdgo.Go.setRef(({ _name : _filename, _size : _size, _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : File)) : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
         try {
@@ -2554,6 +2584,7 @@ class FileSet_asInterface {
     **/
     @:keep
     static public function base( _s:stdgo.StdGoTypes.Ref<FileSet>):stdgo.StdGoTypes.GoInt {
+        @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         _s._mutex.rlock();
         var _b:stdgo.StdGoTypes.GoInt = _s._base;
         _s._mutex.runlock();
@@ -2580,6 +2611,7 @@ class Pos_asInterface {
     **/
     @:keep
     static public function isValid( _p:Pos):Bool {
+        @:recv var _p:Pos = _p;
         return _p != ((0 : stdgo.go.token.Token.Pos));
     }
 }
@@ -2633,6 +2665,7 @@ class Token_asInterface {
     **/
     @:keep
     static public function isKeyword( _tok:Token):Bool {
+        @:recv var _tok:Token = _tok;
         return ((60 : stdgo.go.token.Token.Token) < _tok) && (_tok < (86 : stdgo.go.token.Token.Token));
     }
     /**
@@ -2641,6 +2674,7 @@ class Token_asInterface {
     **/
     @:keep
     static public function isOperator( _tok:Token):Bool {
+        @:recv var _tok:Token = _tok;
         return (((11 : stdgo.go.token.Token.Token) < _tok) && (_tok < (59 : stdgo.go.token.Token.Token))) || (_tok == (88 : stdgo.go.token.Token.Token));
     }
     /**
@@ -2649,6 +2683,7 @@ class Token_asInterface {
     **/
     @:keep
     static public function isLiteral( _tok:Token):Bool {
+        @:recv var _tok:Token = _tok;
         return ((3 : stdgo.go.token.Token.Token) < _tok) && (_tok < (10 : stdgo.go.token.Token.Token));
     }
     /**
@@ -2658,6 +2693,7 @@ class Token_asInterface {
     **/
     @:keep
     static public function precedence( _op:Token):stdgo.StdGoTypes.GoInt {
+        @:recv var _op:Token = _op;
         {
             final __value__ = _op;
             if (__value__ == ((35 : stdgo.go.token.Token.Token))) {
@@ -2683,6 +2719,7 @@ class Token_asInterface {
     **/
     @:keep
     static public function string( _tok:Token):stdgo.GoString {
+        @:recv var _tok:Token = _tok;
         var _s:stdgo.GoString = stdgo.Go.str();
         if (((0 : stdgo.go.token.Token.Token) <= _tok) && (_tok < (_tokens.length : Token))) {
             _s = _tokens[(_tok : stdgo.StdGoTypes.GoInt)];

@@ -2993,6 +2993,7 @@ class T_digest_asInterface {
 @:keep @:allow(stdgo.crypto.sha1.Sha1.T_digest_asInterface) class T_digest_static_extension {
     @:keep
     static public function _constSum( _d:stdgo.StdGoTypes.Ref<T_digest>):stdgo.GoArray<stdgo.StdGoTypes.GoByte> {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_digest> = _d;
         var _length:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 8) (0 : stdgo.StdGoTypes.GoUInt8)]);
         var _l:stdgo.StdGoTypes.GoUInt64 = _d._len << (3i64 : stdgo.StdGoTypes.GoUInt64);
         {
@@ -3049,12 +3050,14 @@ class T_digest_asInterface {
     **/
     @:keep
     static public function constantTimeSum( _d:stdgo.StdGoTypes.Ref<T_digest>, _in:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_digest> = _d;
         var _d0:stdgo.crypto.sha1.Sha1.T_digest = (_d : stdgo.crypto.sha1.Sha1.T_digest)?.__copy__();
         var _hash = _d0._constSum()?.__copy__();
         return (_in.__append__(...(_hash.__slice__(0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>).__toArray__()));
     }
     @:keep
     static public function _checkSum( _d:stdgo.StdGoTypes.Ref<T_digest>):stdgo.GoArray<stdgo.StdGoTypes.GoByte> {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_digest> = _d;
         var _len:stdgo.StdGoTypes.GoUInt64 = _d._len;
         var _tmp:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 72) (0 : stdgo.StdGoTypes.GoUInt8)]);
         _tmp[(0 : stdgo.StdGoTypes.GoInt)] = (128 : stdgo.StdGoTypes.GoUInt8);
@@ -3081,6 +3084,7 @@ class T_digest_asInterface {
     }
     @:keep
     static public function sum( _d:stdgo.StdGoTypes.Ref<T_digest>, _in:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_digest> = _d;
         _boringUnreachable();
         var _d0:stdgo.crypto.sha1.Sha1.T_digest = (_d : stdgo.crypto.sha1.Sha1.T_digest)?.__copy__();
         var _hash = _d0._checkSum()?.__copy__();
@@ -3088,6 +3092,7 @@ class T_digest_asInterface {
     }
     @:keep
     static public function write( _d:stdgo.StdGoTypes.Ref<T_digest>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_digest> = _d;
         var _nn:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         _boringUnreachable();
         _nn = (_p.length);
@@ -3113,14 +3118,17 @@ class T_digest_asInterface {
     }
     @:keep
     static public function blockSize( _d:stdgo.StdGoTypes.Ref<T_digest>):stdgo.StdGoTypes.GoInt {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_digest> = _d;
         return (64 : stdgo.StdGoTypes.GoInt);
     }
     @:keep
     static public function size( _d:stdgo.StdGoTypes.Ref<T_digest>):stdgo.StdGoTypes.GoInt {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_digest> = _d;
         return (20 : stdgo.StdGoTypes.GoInt);
     }
     @:keep
     static public function reset( _d:stdgo.StdGoTypes.Ref<T_digest>):Void {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_digest> = _d;
         _d._h[(0 : stdgo.StdGoTypes.GoInt)] = (1732584193u32 : stdgo.StdGoTypes.GoUInt32);
         _d._h[(1 : stdgo.StdGoTypes.GoInt)] = (-271733879u32 : stdgo.StdGoTypes.GoUInt32);
         _d._h[(2 : stdgo.StdGoTypes.GoInt)] = (-1732584194u32 : stdgo.StdGoTypes.GoUInt32);
@@ -3131,6 +3139,7 @@ class T_digest_asInterface {
     }
     @:keep
     static public function unmarshalBinary( _d:stdgo.StdGoTypes.Ref<T_digest>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_digest> = _d;
         if ((_b.length < stdgo.Go.str("sha", 1).length) || (((_b.__slice__(0, (stdgo.Go.str("sha", 1).length)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("sha", 1))) {
             return stdgo.errors.Errors.new_(("crypto/sha1: invalid hash state identifier" : stdgo.GoString));
         };
@@ -3174,6 +3183,7 @@ class T_digest_asInterface {
     }
     @:keep
     static public function marshalBinary( _d:stdgo.StdGoTypes.Ref<T_digest>):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_digest> = _d;
         var _b = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (96 : stdgo.StdGoTypes.GoInt)).__setNumber32__();
         _b = (_b.__append__(...stdgo.Go.str("sha", 1).__toArray__()));
         _b = stdgo.encoding.binary.Binary.bigEndian.appendUint32(_b, _d._h[(0 : stdgo.StdGoTypes.GoInt)]);

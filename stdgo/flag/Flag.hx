@@ -825,6 +825,7 @@ class T_textValue_asInterface {
 @:keep @:allow(stdgo.flag.Flag.T_textValue_asInterface) class T_textValue_static_extension {
     @:keep
     static public function string( _v:T_textValue):stdgo.GoString {
+        @:recv var _v:T_textValue = _v?.__copy__();
         {
             var __tmp__ = try {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_v._p) : stdgo.encoding.Encoding.TextMarshaler)) : stdgo.encoding.Encoding.TextMarshaler), ok : true };
@@ -844,10 +845,12 @@ class T_textValue_asInterface {
     }
     @:keep
     static public function get( _v:T_textValue):stdgo.StdGoTypes.AnyInterface {
+        @:recv var _v:T_textValue = _v?.__copy__();
         return stdgo.Go.toInterface(_v._p);
     }
     @:keep
     static public function set( _v:T_textValue, _s:stdgo.GoString):stdgo.Error {
+        @:recv var _v:T_textValue = _v?.__copy__();
         return _v._p.unmarshalText((_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
     }
 }
@@ -1121,6 +1124,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function init( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _errorHandling:ErrorHandling):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f._name = _name;
         _f._errorHandling = _errorHandling;
     }
@@ -1129,6 +1133,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function parsed( _f:stdgo.StdGoTypes.Ref<FlagSet>):Bool {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         return _f._parsed;
     }
     /**
@@ -1139,6 +1144,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function parse( _f:stdgo.StdGoTypes.Ref<FlagSet>, _arguments:stdgo.Slice<stdgo.GoString>):stdgo.Error {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f._parsed = true;
         _f._args = _arguments;
         while (true) {
@@ -1170,6 +1176,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function _parseOne( _f:stdgo.StdGoTypes.Ref<FlagSet>):{ var _0 : Bool; var _1 : stdgo.Error; } {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         if ((_f._args.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             return { _0 : false, _1 : (null : stdgo.Error) };
         };
@@ -1271,6 +1278,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function _usage( _f:stdgo.StdGoTypes.Ref<FlagSet>):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         if (_f.usage == null) {
             _f._defaultUsage();
         } else {
@@ -1284,6 +1292,7 @@ class FlagSet_asInterface {
     @:keep
     static public function _failf( _f:stdgo.StdGoTypes.Ref<FlagSet>, _format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.Error {
         var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _msg:stdgo.GoString = _f._sprintf(_format, ..._a.__toArray__());
         _f._usage();
         return stdgo.errors.Errors.new_(_msg);
@@ -1294,6 +1303,7 @@ class FlagSet_asInterface {
     @:keep
     static public function _sprintf( _f:stdgo.StdGoTypes.Ref<FlagSet>, _format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):stdgo.GoString {
         var _a = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_a.length, 0, ..._a);
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _msg:stdgo.GoString = stdgo.fmt.Fmt.sprintf(_format, ..._a.__toArray__());
         stdgo.fmt.Fmt.fprintln(_f.output(), stdgo.Go.toInterface(_msg));
         return _msg;
@@ -1308,6 +1318,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function var_( _f:stdgo.StdGoTypes.Ref<FlagSet>, _value:Value, _name:stdgo.GoString, _usage:stdgo.GoString):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         if (stdgo.strings.Strings.hasPrefix(_name, ("-" : stdgo.GoString))) {
             throw stdgo.Go.toInterface(_f._sprintf(("flag %q begins with -" : stdgo.GoString), stdgo.Go.toInterface(_name)));
         } else if (stdgo.strings.Strings.contains(_name, ("=" : stdgo.GoString))) {
@@ -1347,6 +1358,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function boolFunc( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _usage:stdgo.GoString, _fn:stdgo.GoString -> stdgo.Error):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f.var_(stdgo.Go.asInterface((_fn : T_boolFuncValue)), _name, _usage);
     }
     /**
@@ -1356,6 +1368,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function func( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _usage:stdgo.GoString, _fn:stdgo.GoString -> stdgo.Error):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f.var_(stdgo.Go.asInterface((_fn : T_funcValue)), _name, _usage);
     }
     /**
@@ -1367,6 +1380,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function textVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.encoding.Encoding.TextUnmarshaler, _name:stdgo.GoString, _value:stdgo.encoding.Encoding.TextMarshaler, _usage:stdgo.GoString):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f.var_(stdgo.Go.asInterface(_newTextValue(_value, _p)), _name, _usage);
     }
     /**
@@ -1376,6 +1390,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function duration( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.time.Time.Duration, _usage:stdgo.GoString):stdgo.Pointer<stdgo.time.Time.Duration> {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer(((0 : stdgo.StdGoTypes.GoInt64) : stdgo.time.Time.Duration));
         _f.durationVar(_p, _name, _value, _usage);
         return _p;
@@ -1387,6 +1402,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function durationVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.time.Time.Duration>, _name:stdgo.GoString, _value:stdgo.time.Time.Duration, _usage:stdgo.GoString):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f.var_(stdgo.Go.asInterface(_newDurationValue(_value, _p)), _name, _usage);
     }
     /**
@@ -1395,6 +1411,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function float64( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoFloat64, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoFloat64> {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoFloat64));
         _f.float64Var(_p, _name, _value, _usage);
         return _p;
@@ -1405,6 +1422,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function float64Var( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.StdGoTypes.GoFloat64>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoFloat64, _usage:stdgo.GoString):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f.var_(stdgo.Go.asInterface(_newFloat64Value(_value, _p)), _name, _usage);
     }
     /**
@@ -1413,6 +1431,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function string( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.GoString, _usage:stdgo.GoString):stdgo.Pointer<stdgo.GoString> {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer(("" : stdgo.GoString));
         _f.stringVar(_p, _name, _value, _usage);
         return _p;
@@ -1423,6 +1442,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function stringVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.GoString>, _name:stdgo.GoString, _value:stdgo.GoString, _usage:stdgo.GoString):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f.var_(stdgo.Go.asInterface(_newStringValue(_value, _p)), _name, _usage);
     }
     /**
@@ -1431,6 +1451,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function uint64( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt64, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoUInt64> {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoUInt64));
         _f.uint64Var(_p, _name, _value, _usage);
         return _p;
@@ -1441,6 +1462,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function uint64Var( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt64, _usage:stdgo.GoString):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f.var_(stdgo.Go.asInterface(_newUint64Value(_value, _p)), _name, _usage);
     }
     /**
@@ -1449,6 +1471,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function uint( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoUInt> {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoUInt));
         _f.uintVar(_p, _name, _value, _usage);
         return _p;
@@ -1459,6 +1482,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function uintVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.StdGoTypes.GoUInt>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoUInt, _usage:stdgo.GoString):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f.var_(stdgo.Go.asInterface(_newUintValue(_value, _p)), _name, _usage);
     }
     /**
@@ -1467,6 +1491,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function int64( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt64, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoInt64> {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoInt64));
         _f.int64Var(_p, _name, _value, _usage);
         return _p;
@@ -1477,6 +1502,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function int64Var( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt64, _usage:stdgo.GoString):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f.var_(stdgo.Go.asInterface(_newInt64Value(_value, _p)), _name, _usage);
     }
     /**
@@ -1485,6 +1511,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function int_( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt, _usage:stdgo.GoString):stdgo.Pointer<stdgo.StdGoTypes.GoInt> {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoInt));
         _f.intVar(_p, _name, _value, _usage);
         return _p;
@@ -1495,6 +1522,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function intVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<stdgo.StdGoTypes.GoInt>, _name:stdgo.GoString, _value:stdgo.StdGoTypes.GoInt, _usage:stdgo.GoString):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f.var_(stdgo.Go.asInterface(_newIntValue(_value, _p)), _name, _usage);
     }
     /**
@@ -1503,6 +1531,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function bool_( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:Bool, _usage:stdgo.GoString):stdgo.Pointer<Bool> {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _p = stdgo.Go.pointer(false);
         _f.boolVar(_p, _name, _value, _usage);
         return _p;
@@ -1513,6 +1542,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function boolVar( _f:stdgo.StdGoTypes.Ref<FlagSet>, _p:stdgo.Pointer<Bool>, _name:stdgo.GoString, _value:Bool, _usage:stdgo.GoString):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f.var_(stdgo.Go.asInterface(_newBoolValue(_value, _p)), _name, _usage);
     }
     /**
@@ -1520,6 +1550,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function args( _f:stdgo.StdGoTypes.Ref<FlagSet>):stdgo.Slice<stdgo.GoString> {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         return _f._args;
     }
     /**
@@ -1527,6 +1558,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function narg( _f:stdgo.StdGoTypes.Ref<FlagSet>):stdgo.StdGoTypes.GoInt {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         return (_f._args.length);
     }
     /**
@@ -1536,6 +1568,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function arg( _f:stdgo.StdGoTypes.Ref<FlagSet>, _i:stdgo.StdGoTypes.GoInt):stdgo.GoString {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         if ((_i < (0 : stdgo.StdGoTypes.GoInt)) || (_i >= _f._args.length)) {
             return stdgo.Go.str();
         };
@@ -1546,6 +1579,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function nflag( _f:stdgo.StdGoTypes.Ref<FlagSet>):stdgo.StdGoTypes.GoInt {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         return (_f._actual.length);
     }
     /**
@@ -1553,6 +1587,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function _defaultUsage( _f:stdgo.StdGoTypes.Ref<FlagSet>):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         if (_f._name == (stdgo.Go.str())) {
             stdgo.fmt.Fmt.fprintf(_f.output(), ("Usage:\n" : stdgo.GoString));
         } else {
@@ -1567,6 +1602,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function printDefaults( _f:stdgo.StdGoTypes.Ref<FlagSet>):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var _isZeroValueErrs:stdgo.Slice<stdgo.Error> = (null : stdgo.Slice<stdgo.Error>);
         _f.visitAll(function(_flag:stdgo.StdGoTypes.Ref<Flag>):Void {
             var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
@@ -1615,6 +1651,7 @@ class FlagSet_asInterface {
     }
     @:keep
     static public function _set( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.GoString):stdgo.Error {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         var __tmp__ = (_f._formal != null && _f._formal.exists(_name) ? { value : _f._formal[_name], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>), ok : false }), _flag:stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag> = __tmp__.value, _ok:Bool = __tmp__.ok;
         if (!_ok) {
             var __tmp__ = stdgo.runtime.Runtime.caller((2 : stdgo.StdGoTypes.GoInt)), __0:stdgo.StdGoTypes.GoUIntptr = __tmp__._0, _file:stdgo.GoString = __tmp__._1, _line:stdgo.StdGoTypes.GoInt = __tmp__._2, _ok:Bool = __tmp__._3;
@@ -1653,6 +1690,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function set( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString, _value:stdgo.GoString):stdgo.Error {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         return _f._set(_name, _value);
     }
     /**
@@ -1660,6 +1698,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function lookup( _f:stdgo.StdGoTypes.Ref<FlagSet>, _name:stdgo.GoString):stdgo.StdGoTypes.Ref<Flag> {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         return (_f._formal[_name] ?? (null : stdgo.StdGoTypes.Ref<stdgo.flag.Flag.Flag>));
     }
     /**
@@ -1668,6 +1707,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function visit( _f:stdgo.StdGoTypes.Ref<FlagSet>, _fn:stdgo.StdGoTypes.Ref<Flag> -> Void):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         for (__0 => _flag in _sortFlags(_f._actual)) {
             _fn(_flag);
         };
@@ -1678,6 +1718,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function visitAll( _f:stdgo.StdGoTypes.Ref<FlagSet>, _fn:stdgo.StdGoTypes.Ref<Flag> -> Void):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         for (__0 => _flag in _sortFlags(_f._formal)) {
             _fn(_flag);
         };
@@ -1688,6 +1729,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function setOutput( _f:stdgo.StdGoTypes.Ref<FlagSet>, _output:stdgo.io.Io.Writer):Void {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         _f._output = _output;
     }
     /**
@@ -1695,6 +1737,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function errorHandling( _f:stdgo.StdGoTypes.Ref<FlagSet>):ErrorHandling {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         return _f._errorHandling;
     }
     /**
@@ -1702,6 +1745,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function name( _f:stdgo.StdGoTypes.Ref<FlagSet>):stdgo.GoString {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         return _f._name;
     }
     /**
@@ -1710,6 +1754,7 @@ class FlagSet_asInterface {
     **/
     @:keep
     static public function output( _f:stdgo.StdGoTypes.Ref<FlagSet>):stdgo.io.Io.Writer {
+        @:recv var _f:stdgo.StdGoTypes.Ref<FlagSet> = _f;
         if (_f._output == null) {
             return stdgo.Go.asInterface(stdgo.os.Os.stderr);
         };
@@ -2056,10 +2101,12 @@ class T_funcValue_asInterface {
 @:keep @:allow(stdgo.flag.Flag.T_funcValue_asInterface) class T_funcValue_static_extension {
     @:keep
     static public function string( _f:T_funcValue):stdgo.GoString {
+        @:recv var _f:T_funcValue = _f;
         return stdgo.Go.str();
     }
     @:keep
     static public function set( _f:T_funcValue, _s:stdgo.GoString):stdgo.Error {
+        @:recv var _f:T_funcValue = _f;
         return _f(_s);
     }
 }
@@ -2081,14 +2128,17 @@ class T_boolFuncValue_asInterface {
 @:keep @:allow(stdgo.flag.Flag.T_boolFuncValue_asInterface) class T_boolFuncValue_static_extension {
     @:keep
     static public function isBoolFlag( _f:T_boolFuncValue):Bool {
+        @:recv var _f:T_boolFuncValue = _f;
         return true;
     }
     @:keep
     static public function string( _f:T_boolFuncValue):stdgo.GoString {
+        @:recv var _f:T_boolFuncValue = _f;
         return stdgo.Go.str();
     }
     @:keep
     static public function set( _f:T_boolFuncValue, _s:stdgo.GoString):stdgo.Error {
+        @:recv var _f:T_boolFuncValue = _f;
         return _f(_s);
     }
 }

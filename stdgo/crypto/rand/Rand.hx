@@ -220,6 +220,7 @@ class T_reader_asInterface {
 @:keep @:allow(stdgo.crypto.rand.Rand.T_reader_asInterface) class T_reader_static_extension {
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<T_reader>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_reader> = _r;
         {
             var _err:stdgo.Error = _batchedGetRandom(_b);
             if (_err != null) {

@@ -2665,6 +2665,7 @@ class File_asInterface {
     **/
     @:keep
     static public function truncate( _f:stdgo.StdGoTypes.Ref<File>, _size:stdgo.StdGoTypes.GoInt64):stdgo.Error {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         @:privateAccess _f._output.close();
         final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
         sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0, (_size : stdgo.StdGoTypes.GoInt).toBasic()));
@@ -2718,6 +2719,7 @@ class File_asInterface {
     **/
     @:keep
     static public function close( _f:stdgo.StdGoTypes.Ref<File>):stdgo.Error {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         @:privateAccess _f._input.close();
         @:privateAccess _f._output.close();
         return null;
@@ -2818,6 +2820,7 @@ class File_asInterface {
     **/
     @:keep
     static public function write( _f:stdgo.StdGoTypes.Ref<File>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         if (_b.length == 0) return { _0 : 0, _1 : null };
         final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
         if (i != _b.length.toBasic()) return { _0 : i, _1 : stdgo.errors.Errors.new_("invalid write") };

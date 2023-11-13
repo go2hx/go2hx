@@ -4261,6 +4261,7 @@ class T_flagPrinter_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.T_flagPrinter_asInterface) class T_flagPrinter_static_extension {
     @:keep
     static public function format( _:T_flagPrinter, _f:State, _c:stdgo.StdGoTypes.GoRune):Void {
+        @:recv var _:T_flagPrinter = _?.__copy__();
         var _s:stdgo.GoString = ("%" : stdgo.GoString);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -4306,6 +4307,7 @@ class PanicS_asInterface {
     **/
     @:keep
     static public function string( _p:PanicS):stdgo.GoString {
+        @:recv var _p:PanicS = _p?.__copy__();
         throw stdgo.Go.toInterface(_p._message);
     }
 }
@@ -4329,6 +4331,7 @@ class PanicGo_asInterface {
     **/
     @:keep
     static public function goString( _p:PanicGo):stdgo.GoString {
+        @:recv var _p:PanicGo = _p?.__copy__();
         throw stdgo.Go.toInterface(_p._message);
     }
 }
@@ -4352,6 +4355,7 @@ class PanicF_asInterface {
     **/
     @:keep
     static public function format( _p:PanicF, _f:State, _c:stdgo.StdGoTypes.GoRune):Void {
+        @:recv var _p:PanicF = _p?.__copy__();
         throw stdgo.Go.toInterface(_p._message);
     }
 }
@@ -4369,6 +4373,7 @@ class Recur_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.Recur_asInterface) class Recur_static_extension {
     @:keep
     static public function string( _r:stdgo.StdGoTypes.Ref<Recur>):stdgo.GoString {
+        @:recv var _r:stdgo.StdGoTypes.Ref<Recur> = _r;
         {
             _recurCount++;
             if (_recurCount > (10 : stdgo.StdGoTypes.GoInt)) {
@@ -4401,6 +4406,7 @@ class Person_asInterface {
     **/
     @:keep
     static public function goString( _p:Person):stdgo.GoString {
+        @:recv var _p:Person = _p?.__copy__();
         if (_p.addr != null && ((_p.addr : Dynamic).__nil__ == null || !(_p.addr : Dynamic).__nil__)) {
             return stdgo.fmt.Fmt.sprintf(("Person{Name: %q, Age: %d, Addr: &Address{City: %q, State: %q, Country: %q}}" : stdgo.GoString), stdgo.Go.toInterface(_p.name), stdgo.Go.toInterface((_p.age : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(_p.addr.city), stdgo.Go.toInterface(_p.addr.state), stdgo.Go.toInterface(_p.addr.country));
         };
@@ -4421,6 +4427,7 @@ class IntString_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.IntString_asInterface) class IntString_static_extension {
     @:keep
     static public function scan( _s:stdgo.StdGoTypes.Ref<IntString>, _state:ScanState, _verb:stdgo.StdGoTypes.GoRune):stdgo.Error {
+        @:recv var _s:stdgo.StdGoTypes.Ref<IntString> = _s;
         {
             var __tmp__ = fscan(_state, stdgo.Go.toInterface(stdgo.Go.pointer(_s._i))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -4449,6 +4456,7 @@ class T_eofCounter_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.T_eofCounter_asInterface) class T_eofCounter_static_extension {
     @:keep
     static public function read( _ec:stdgo.StdGoTypes.Ref<T_eofCounter>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _ec:stdgo.StdGoTypes.Ref<T_eofCounter> = _ec;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = _ec._reader.read(_b);
@@ -4475,6 +4483,7 @@ class T_runeScanner_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.T_runeScanner_asInterface) class T_runeScanner_static_extension {
     @:keep
     static public function scan( _rs:stdgo.StdGoTypes.Ref<T_runeScanner>, _state:ScanState, _verb:stdgo.StdGoTypes.GoRune):stdgo.Error {
+        @:recv var _rs:stdgo.StdGoTypes.Ref<T_runeScanner> = _rs;
         var __tmp__ = _state.readRune(), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         _rs._rune = _r;
         _rs._size = _size;
@@ -4495,6 +4504,7 @@ class RecursiveInt_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.RecursiveInt_asInterface) class RecursiveInt_static_extension {
     @:keep
     static public function scan( _r:stdgo.StdGoTypes.Ref<RecursiveInt>, _state:ScanState, _verb:stdgo.StdGoTypes.GoRune):stdgo.Error {
+        @:recv var _r:stdgo.StdGoTypes.Ref<RecursiveInt> = _r;
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = fscan(_state, stdgo.Go.toInterface(stdgo.Go.pointer(_r._i)));
@@ -4538,20 +4548,24 @@ class T_testState_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.T_testState_asInterface) class T_testState_static_extension {
     @:keep
     static public function flag( _s:T_testState, _c:stdgo.StdGoTypes.GoInt):Bool {
+        @:recv var _s:T_testState = _s?.__copy__();
         return (_s._flag[_c] ?? false);
     }
     @:keep
     static public function precision( _s:T_testState):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } {
+        @:recv var _s:T_testState = _s?.__copy__();
         var _prec:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _ok:Bool = false;
         return { _0 : _s._prec, _1 : _s._precOK };
     }
     @:keep
     static public function width( _s:T_testState):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : Bool; } {
+        @:recv var _s:T_testState = _s?.__copy__();
         var _wid:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _ok:Bool = false;
         return { _0 : _s._width, _1 : _s._widthOK };
     }
     @:keep
     static public function write( _s:T_testState, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _s:T_testState = _s?.__copy__();
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         throw stdgo.Go.toInterface(("unimplemented" : stdgo.GoString));
     }
@@ -4576,6 +4590,7 @@ class Animal_asInterface {
     **/
     @:keep
     static public function string( _a:Animal):stdgo.GoString {
+        @:recv var _a:Animal = _a?.__copy__();
         return stdgo.fmt.Fmt.sprintf(("%v (%d)" : stdgo.GoString), stdgo.Go.toInterface(_a.name), stdgo.Go.toInterface(_a.age));
     }
 }
@@ -4593,6 +4608,7 @@ class T_errString_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.T_errString_asInterface) class T_errString_static_extension {
     @:keep
     static public function error( _e:T_errString):stdgo.GoString {
+        @:recv var _e:T_errString = _e;
         return (_e : stdgo.GoString);
     }
 }
@@ -4610,6 +4626,7 @@ class I_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.I_asInterface) class I_static_extension {
     @:keep
     static public function string( _i:I):stdgo.GoString {
+        @:recv var _i:I = _i;
         return sprintf(("<%d>" : stdgo.GoString), stdgo.Go.toInterface((_i : stdgo.StdGoTypes.GoInt)));
     }
 }
@@ -4627,6 +4644,7 @@ class F_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.F_asInterface) class F_static_extension {
     @:keep
     static public function format( _f:F, _s:State, _c:stdgo.StdGoTypes.GoRune):Void {
+        @:recv var _f:F = _f;
         fprintf(_s, ("<%c=F(%d)>" : stdgo.GoString), stdgo.Go.toInterface(_c), stdgo.Go.toInterface((_f : stdgo.StdGoTypes.GoInt)));
     }
 }
@@ -4644,6 +4662,7 @@ class G_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.G_asInterface) class G_static_extension {
     @:keep
     static public function goString( _g:G):stdgo.GoString {
+        @:recv var _g:G = _g;
         return sprintf(("GoString(%d)" : stdgo.GoString), stdgo.Go.toInterface((_g : stdgo.StdGoTypes.GoInt)));
     }
 }
@@ -4680,6 +4699,7 @@ class T_byteStringer_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.T_byteStringer_asInterface) class T_byteStringer_static_extension {
     @:keep
     static public function string( _:T_byteStringer):stdgo.GoString {
+        @:recv var _:T_byteStringer = _;
         return ("X" : stdgo.GoString);
     }
 }
@@ -4697,6 +4717,7 @@ class T_byteFormatter_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.T_byteFormatter_asInterface) class T_byteFormatter_static_extension {
     @:keep
     static public function format( _:T_byteFormatter, _f:State, __0:stdgo.StdGoTypes.GoRune):Void {
+        @:recv var _:T_byteFormatter = _;
         fprint(_f, stdgo.Go.toInterface(("X" : stdgo.GoString)));
     }
 }
@@ -4714,6 +4735,7 @@ class T_writeStringFormatter_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.T_writeStringFormatter_asInterface) class T_writeStringFormatter_static_extension {
     @:keep
     static public function format( _sf:T_writeStringFormatter, _f:State, _c:stdgo.StdGoTypes.GoRune):Void {
+        @:recv var _sf:T_writeStringFormatter = _sf;
         {
             var __tmp__ = try {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_f) : stdgo.io.Io.StringWriter)) : stdgo.io.Io.StringWriter), ok : true };
@@ -4812,6 +4834,7 @@ class T_hexBytes_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.T_hexBytes_asInterface) class T_hexBytes_static_extension {
     @:keep
     static public function scan( _h:stdgo.StdGoTypes.Ref<T_hexBytes>, _ss:ScanState, _verb:stdgo.StdGoTypes.GoRune):stdgo.Error {
+        @:recv var _h:stdgo.StdGoTypes.Ref<T_hexBytes> = _h;
         var _b:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         var __tmp__ = fscanf(_ss, ("%4x" : stdgo.GoString), stdgo.Go.toInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -4835,6 +4858,7 @@ class TI_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TI_asInterface) class TI_static_extension {
     @:keep
     static public function string( _v:TI):stdgo.GoString {
+        @:recv var _v:TI = _v;
         return sprintf(("I: %d" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoInt)));
     }
 }
@@ -4852,6 +4876,7 @@ class TI8_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TI8_asInterface) class TI8_static_extension {
     @:keep
     static public function string( _v:TI8):stdgo.GoString {
+        @:recv var _v:TI8 = _v;
         return sprintf(("I8: %d" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoInt8)));
     }
 }
@@ -4869,6 +4894,7 @@ class TI16_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TI16_asInterface) class TI16_static_extension {
     @:keep
     static public function string( _v:TI16):stdgo.GoString {
+        @:recv var _v:TI16 = _v;
         return sprintf(("I16: %d" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoInt16)));
     }
 }
@@ -4886,6 +4912,7 @@ class TI32_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TI32_asInterface) class TI32_static_extension {
     @:keep
     static public function string( _v:TI32):stdgo.GoString {
+        @:recv var _v:TI32 = _v;
         return sprintf(("I32: %d" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoInt32)));
     }
 }
@@ -4903,6 +4930,7 @@ class TI64_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TI64_asInterface) class TI64_static_extension {
     @:keep
     static public function string( _v:TI64):stdgo.GoString {
+        @:recv var _v:TI64 = _v;
         return sprintf(("I64: %d" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoInt64)));
     }
 }
@@ -4920,6 +4948,7 @@ class TU_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TU_asInterface) class TU_static_extension {
     @:keep
     static public function string( _v:TU):stdgo.GoString {
+        @:recv var _v:TU = _v;
         return sprintf(("U: %d" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoUInt)));
     }
 }
@@ -4937,6 +4966,7 @@ class TU8_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TU8_asInterface) class TU8_static_extension {
     @:keep
     static public function string( _v:TU8):stdgo.GoString {
+        @:recv var _v:TU8 = _v;
         return sprintf(("U8: %d" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoUInt8)));
     }
 }
@@ -4954,6 +4984,7 @@ class TU16_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TU16_asInterface) class TU16_static_extension {
     @:keep
     static public function string( _v:TU16):stdgo.GoString {
+        @:recv var _v:TU16 = _v;
         return sprintf(("U16: %d" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoUInt16)));
     }
 }
@@ -4971,6 +5002,7 @@ class TU32_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TU32_asInterface) class TU32_static_extension {
     @:keep
     static public function string( _v:TU32):stdgo.GoString {
+        @:recv var _v:TU32 = _v;
         return sprintf(("U32: %d" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoUInt32)));
     }
 }
@@ -4988,6 +5020,7 @@ class TU64_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TU64_asInterface) class TU64_static_extension {
     @:keep
     static public function string( _v:TU64):stdgo.GoString {
+        @:recv var _v:TU64 = _v;
         return sprintf(("U64: %d" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoUInt64)));
     }
 }
@@ -5005,6 +5038,7 @@ class TUI_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TUI_asInterface) class TUI_static_extension {
     @:keep
     static public function string( _v:TUI):stdgo.GoString {
+        @:recv var _v:TUI = _v;
         return sprintf(("UI: %d" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoUIntptr)));
     }
 }
@@ -5022,6 +5056,7 @@ class TF_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TF_asInterface) class TF_static_extension {
     @:keep
     static public function string( _v:TF):stdgo.GoString {
+        @:recv var _v:TF = _v;
         return sprintf(("F: %f" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoFloat64)));
     }
 }
@@ -5039,6 +5074,7 @@ class TF32_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TF32_asInterface) class TF32_static_extension {
     @:keep
     static public function string( _v:TF32):stdgo.GoString {
+        @:recv var _v:TF32 = _v;
         return sprintf(("F32: %f" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoFloat32)));
     }
 }
@@ -5056,6 +5092,7 @@ class TF64_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TF64_asInterface) class TF64_static_extension {
     @:keep
     static public function string( _v:TF64):stdgo.GoString {
+        @:recv var _v:TF64 = _v;
         return sprintf(("F64: %f" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.StdGoTypes.GoFloat64)));
     }
 }
@@ -5073,6 +5110,7 @@ class TB_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TB_asInterface) class TB_static_extension {
     @:keep
     static public function string( _v:TB):stdgo.GoString {
+        @:recv var _v:TB = _v;
         return sprintf(("B: %t" : stdgo.GoString), stdgo.Go.toInterface((_v : Bool)));
     }
 }
@@ -5090,6 +5128,7 @@ class TS_asInterface {
 @:keep @:allow(stdgo.fmt_test.Fmt_test.TS_asInterface) class TS_static_extension {
     @:keep
     static public function string( _v:TS):stdgo.GoString {
+        @:recv var _v:TS = _v;
         return sprintf(("S: %q" : stdgo.GoString), stdgo.Go.toInterface((_v : stdgo.GoString)));
     }
 }

@@ -6505,6 +6505,7 @@ class T_gen_asInterface {
 @:keep @:allow(stdgo.go.types_test.Types_test.T_gen_asInterface) class T_gen_static_extension {
     @:keep
     static public function _factorials( _g:stdgo.StdGoTypes.Ref<T_gen>, _n:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _g:stdgo.StdGoTypes.Ref<T_gen> = _g;
         _g._p(("// Factorials\nconst (\n\tf0 = 1\n\tf1 = 1\n" : stdgo.GoString));
         {
             var _i:stdgo.StdGoTypes.GoInt = (2 : stdgo.StdGoTypes.GoInt);
@@ -6516,6 +6517,7 @@ class T_gen_asInterface {
     }
     @:keep
     static public function _binomials( _g:stdgo.StdGoTypes.Ref<T_gen>, _n:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _g:stdgo.StdGoTypes.Ref<T_gen> = _g;
         _g._p(("// Binomials\nconst (\n" : stdgo.GoString));
         {
             var _j:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -6535,6 +6537,7 @@ class T_gen_asInterface {
     }
     @:keep
     static public function _printProduct( _g:stdgo.StdGoTypes.Ref<T_gen>, _n:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _g:stdgo.StdGoTypes.Ref<T_gen> = _g;
         _g._p(("func printProduct() {\n" : stdgo.GoString));
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -6556,6 +6559,7 @@ class T_gen_asInterface {
     }
     @:keep
     static public function _verify( _g:stdgo.StdGoTypes.Ref<T_gen>, _n:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _g:stdgo.StdGoTypes.Ref<T_gen> = _g;
         _g._p(("// Verify that product is the identity matrix\nconst ok =\n" : stdgo.GoString));
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -6585,6 +6589,7 @@ class T_gen_asInterface {
     }
     @:keep
     static public function _product( _g:stdgo.StdGoTypes.Ref<T_gen>, _n:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _g:stdgo.StdGoTypes.Ref<T_gen> = _g;
         _g._p(("// Product matrix\nconst (\n" : stdgo.GoString));
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -6612,6 +6617,7 @@ class T_gen_asInterface {
     }
     @:keep
     static public function _inverse( _g:stdgo.StdGoTypes.Ref<T_gen>, _n:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _g:stdgo.StdGoTypes.Ref<T_gen> = _g;
         _g._p(("// Inverse Hilbert matrix\nconst (\n" : stdgo.GoString));
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -6645,6 +6651,7 @@ stdgo.Go.toInterface(_i));
     }
     @:keep
     static public function _hilbert( _g:stdgo.StdGoTypes.Ref<T_gen>, _n:stdgo.StdGoTypes.GoInt):Void {
+        @:recv var _g:stdgo.StdGoTypes.Ref<T_gen> = _g;
         _g._p(("// Hilbert matrix, n = %d\nconst (\n" : stdgo.GoString), stdgo.Go.toInterface(_n));
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -6679,6 +6686,7 @@ stdgo.Go.toInterface(_i));
     @:keep
     static public function _p( _g:stdgo.StdGoTypes.Ref<T_gen>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_args.length, 0, ..._args);
+        @:recv var _g:stdgo.StdGoTypes.Ref<T_gen> = _g;
         stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_g.buffer) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _format, ..._args.__toArray__());
     }
     @:embedded
@@ -6750,6 +6758,7 @@ class T_importHelper_asInterface {
 @:keep @:allow(stdgo.go.types_test.Types_test.T_importHelper_asInterface) class T_importHelper_static_extension {
     @:keep
     static public function import_( _h:T_importHelper, _path:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<Package>; var _1 : stdgo.Error; } {
+        @:recv var _h:T_importHelper = _h?.__copy__();
         if (_path == (_h._pkg.path())) {
             return { _0 : _h._pkg, _1 : (null : stdgo.Error) };
         };
@@ -6775,6 +6784,7 @@ class T_resolveTestImporter_asInterface {
 @:keep @:allow(stdgo.go.types_test.Types_test.T_resolveTestImporter_asInterface) class T_resolveTestImporter_static_extension {
     @:keep
     static public function importFrom( _imp:stdgo.StdGoTypes.Ref<T_resolveTestImporter>, _path:stdgo.GoString, _srcDir:stdgo.GoString, _mode:ImportMode):{ var _0 : stdgo.StdGoTypes.Ref<Package>; var _1 : stdgo.Error; } {
+        @:recv var _imp:stdgo.StdGoTypes.Ref<T_resolveTestImporter> = _imp;
         if (_mode != ((0 : stdgo.go.types.Types.ImportMode))) {
             throw stdgo.Go.toInterface(("mode must be 0" : stdgo.GoString));
         };
@@ -6796,6 +6806,7 @@ class T_resolveTestImporter_asInterface {
     }
     @:keep
     static public function import_( _imp:stdgo.StdGoTypes.Ref<T_resolveTestImporter>, _0:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<Package>; var _1 : stdgo.Error; } {
+        @:recv var _imp:stdgo.StdGoTypes.Ref<T_resolveTestImporter> = _imp;
         throw stdgo.Go.toInterface(("should not be called" : stdgo.GoString));
     }
 }
@@ -6829,6 +6840,7 @@ class T_stdlibChecker_asInterface {
     **/
     @:keep
     static public function _getDirPackage( _c:stdgo.StdGoTypes.Ref<T_stdlibChecker>, _dir:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<Package>; var _1 : stdgo.Error; } {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_stdlibChecker> = _c;
         _c._mu.lock();
         var __tmp__ = (_c._pkgs != null && _c._pkgs.exists(_dir) ? { value : _c._pkgs[_dir], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types_test.Types_test.T_futurePackage>), ok : false }), _fut:stdgo.StdGoTypes.Ref<stdgo.go.types_test.Types_test.T_futurePackage> = __tmp__.value, _ok:Bool = __tmp__.ok;
         if (!_ok) {
@@ -6854,6 +6866,7 @@ class T_stdlibChecker_asInterface {
     }
     @:keep
     static public function importFrom( _c:stdgo.StdGoTypes.Ref<T_stdlibChecker>, _path:stdgo.GoString, _dir:stdgo.GoString, __0:ImportMode):{ var _0 : stdgo.StdGoTypes.Ref<Package>; var _1 : stdgo.Error; } {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_stdlibChecker> = _c;
         if (_path == (("unsafe" : stdgo.GoString))) {
             return { _0 : unsafe, _1 : (null : stdgo.Error) };
         };
@@ -6869,6 +6882,7 @@ class T_stdlibChecker_asInterface {
     }
     @:keep
     static public function import_( _c:stdgo.StdGoTypes.Ref<T_stdlibChecker>, _path:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<Package>; var _1 : stdgo.Error; } {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_stdlibChecker> = _c;
         throw stdgo.Go.toInterface(("unimplemented: use ImportFrom" : stdgo.GoString));
     }
 }
@@ -6886,6 +6900,7 @@ class T_walker_asInterface {
 @:keep @:allow(stdgo.go.types_test.Types_test.T_walker_asInterface) class T_walker_static_extension {
     @:keep
     static public function _walk( _w:stdgo.StdGoTypes.Ref<T_walker>, _dir:stdgo.GoString):Void {
+        @:recv var _w:stdgo.StdGoTypes.Ref<T_walker> = _w;
         var __tmp__ = stdgo.os.Os.readDir(_dir), _files:stdgo.Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _w._errh(stdgo.Go.toInterface(_err));
@@ -6920,6 +6935,7 @@ class T_testImporter_asInterface {
 @:keep @:allow(stdgo.go.types_test.Types_test.T_testImporter_asInterface) class T_testImporter_static_extension {
     @:keep
     static public function import_( _m:T_testImporter, _path:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<Package>; var _1 : stdgo.Error; } {
+        @:recv var _m:T_testImporter = _m;
         {
             var _pkg = (_m[_path] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>));
             if (_pkg != null && ((_pkg : Dynamic).__nil__ == null || !(_pkg : Dynamic).__nil__)) {

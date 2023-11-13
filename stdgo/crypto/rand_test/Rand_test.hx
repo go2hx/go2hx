@@ -229,6 +229,7 @@ class T_countingReader_asInterface {
 @:keep @:allow(stdgo.crypto.rand_test.Rand_test.T_countingReader_asInterface) class T_countingReader_static_extension {
     @:keep
     static public function read( _r:stdgo.StdGoTypes.Ref<T_countingReader>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_countingReader> = _r;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = _r._r.read(_p);

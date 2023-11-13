@@ -3295,7 +3295,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			if (sig != null) {
 				switch sig {
 					case signature(variadic, _.get() => params, _, _, _):
-						for (i in skip...args.length) {
+						for (i in skip...args.length + (expr.ellipsis > 0 ? -1 : 0)) {
 							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
 							var toType = getVar(params[i - skip]);
 							if (variadic && params.length <= i + 1 - skip) {

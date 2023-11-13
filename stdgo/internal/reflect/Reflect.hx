@@ -253,6 +253,8 @@ function directlyAssignable(t:Type, v:Type):Bool {
 						return true;
 					if (untype(kind2, kind))
 						return true;
+					if((kind == int_kind || kind == int32_kind) && (kind2 == int_kind || kind2 == int32_kind))
+						return true;
 					kind == kind2;
 				default:
 					false;
@@ -760,10 +762,10 @@ function getUnderlying(gt:GoType, once:Bool = false) {
 enum abstract BasicKind(Int) to Int {
 	public final invalid_kind = 0;
 	public final bool_kind;
-	public final int_kind;
+	public final int_kind; // 2
 	public final int8_kind;
 	public final int16_kind;
-	public final int32_kind;
+	public final int32_kind; // 5
 	public final int64_kind;
 	public final uint_kind;
 	public final uint8_kind;
@@ -784,7 +786,7 @@ enum abstract BasicKind(Int) to Int {
 	public final untyped_float_kind;
 	public final untyped_complex_kind;
 	public final untyped_string_kind;
-	public final untyped_nil_kind;
+	public final untyped_nil_kind; // 25
 }
 
 function defaultValue(typ:Type):Any {

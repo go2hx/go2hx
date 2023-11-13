@@ -4454,8 +4454,8 @@ IsDigit reports whether the rune is a decimal digit.
 
 ```haxe
 function exampleIsDigit():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((2537 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((2537 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((65 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -4503,8 +4503,8 @@ IsLetter reports whether the rune is a letter \(category L\).
 
 ```haxe
 function exampleIsLetter():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((65 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((55 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((55 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -4536,8 +4536,8 @@ IsLower reports whether the rune is a lower case letter.
 
 ```haxe
 function exampleIsLower():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((97 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((65 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -4583,8 +4583,8 @@ IsNumber reports whether the rune is a number \(category N\).
 
 ```haxe
 function exampleIsNumber():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((8551 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((8551 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((65 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -4673,10 +4673,10 @@ Z and property Pattern\_White\_Space.
 
 ```haxe
 function exampleIsSpace():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((32 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((10 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((9 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((32 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((10 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((9 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((97 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -4722,8 +4722,8 @@ IsTitle reports whether the rune is a title case letter.
 
 ```haxe
 function exampleIsTitle():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((453 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((453 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((97 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -4755,8 +4755,8 @@ IsUpper reports whether the rune is an upper case letter.
 
 ```haxe
 function exampleIsUpper():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((65 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((97 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -4824,12 +4824,12 @@ For example:
 
 ```haxe
 function exampleSimpleFold():Void {
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((65 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((97 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((75 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((107 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((8490 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((49 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((75 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((107 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((8490 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((49 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -4862,13 +4862,13 @@ To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
 ```haxe
 function exampleTo():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -4901,7 +4901,7 @@ ToLower maps the rune to lower case.
 ```haxe
 function exampleToLower():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toLower((71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.toLower((71 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -4934,7 +4934,7 @@ ToTitle maps the rune to title case.
 ```haxe
 function exampleToTitle():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 
@@ -4967,7 +4967,7 @@ ToUpper maps the rune to upper case.
 ```haxe
 function exampleToUpper():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : stdgo.StdGoTypes.GoInt32))));
     }
 ```
 

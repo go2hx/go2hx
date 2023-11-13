@@ -430,7 +430,7 @@ function exampleAdd32():Void {
         var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(1 : stdgo.StdGoTypes.GoInt)], _n2[(1 : stdgo.StdGoTypes.GoInt)], (0u32 : stdgo.StdGoTypes.GoUInt32)), _d1:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _carry:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(0 : stdgo.StdGoTypes.GoInt)], _n2[(0 : stdgo.StdGoTypes.GoInt)], _carry), _d0:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, __0:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
         var _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, _d0, _d1) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
-        stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : stdgo.GoString), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
+        stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
         _n1 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, (1u32 : stdgo.StdGoTypes.GoUInt32), (-2147483648u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
         _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, (1u32 : stdgo.StdGoTypes.GoUInt32), (-2147483648u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
         {
@@ -443,7 +443,7 @@ function exampleAdd32():Void {
             _d0 = __tmp__._0;
         };
         _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, _d0, _d1) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
-        stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : stdgo.GoString), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
+        stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
     }
 ```
 
@@ -488,7 +488,7 @@ function exampleAdd64():Void {
         var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(1 : stdgo.StdGoTypes.GoInt)], _n2[(1 : stdgo.StdGoTypes.GoInt)], (0i64 : stdgo.StdGoTypes.GoUInt64)), _d1:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _carry:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(0 : stdgo.StdGoTypes.GoInt)], _n2[(0 : stdgo.StdGoTypes.GoInt)], _carry), _d0:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, __0:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
         var _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, _d0, _d1) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
-        stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : stdgo.GoString), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
+        stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
         _n1 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, (1i64 : stdgo.StdGoTypes.GoUInt64), (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
         _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, (1i64 : stdgo.StdGoTypes.GoUInt64), (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
         {
@@ -501,7 +501,7 @@ function exampleAdd64():Void {
             _d0 = __tmp__._0;
         };
         _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, _d0, _d1) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
-        stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : stdgo.GoString), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
+        stdgo.fmt.Fmt.printf(("%v + %v = %v (carry bit was %v)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
     }
 ```
 
@@ -563,7 +563,7 @@ function exampleDiv32():Void {
         var _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, (0u32 : stdgo.StdGoTypes.GoUInt32), (3u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
         var __tmp__ = stdgo.math.bits.Bits.div32(_n1[(0 : stdgo.StdGoTypes.GoInt)], _n1[(1 : stdgo.StdGoTypes.GoInt)], _n2[(1 : stdgo.StdGoTypes.GoInt)]), _quo:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _rem:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
         var _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, _quo, _rem) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
-        stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : stdgo.GoString), stdgo.Go.toInterface(_n1[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
+        stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
         _n1 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, (2u32 : stdgo.StdGoTypes.GoUInt32), (-2147483648u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
         _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, (0u32 : stdgo.StdGoTypes.GoUInt32), (-2147483648u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
         {
@@ -572,7 +572,7 @@ function exampleDiv32():Void {
             _rem = __tmp__._1;
         };
         _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, _quo, _rem) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
-        stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : stdgo.GoString), stdgo.Go.toInterface(_n1[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
+        stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
     }
 ```
 
@@ -614,7 +614,7 @@ function exampleDiv64():Void {
         var _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, (0i64 : stdgo.StdGoTypes.GoUInt64), (3i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
         var __tmp__ = stdgo.math.bits.Bits.div64(_n1[(0 : stdgo.StdGoTypes.GoInt)], _n1[(1 : stdgo.StdGoTypes.GoInt)], _n2[(1 : stdgo.StdGoTypes.GoInt)]), _quo:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _rem:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
         var _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, _quo, _rem) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
-        stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : stdgo.GoString), stdgo.Go.toInterface(_n1[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
+        stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
         _n1 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, (2i64 : stdgo.StdGoTypes.GoUInt64), (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
         _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, (0i64 : stdgo.StdGoTypes.GoUInt64), (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
         {
@@ -623,7 +623,7 @@ function exampleDiv64():Void {
             _rem = __tmp__._1;
         };
         _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, _quo, _rem) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
-        stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : stdgo.GoString), stdgo.Go.toInterface(_n1[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
+        stdgo.fmt.Fmt.printf(("[%v %v] / %v = %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
     }
 ```
 
@@ -669,7 +669,7 @@ LeadingZeros16 returns the number of leading zero bits in x; the result is 16 fo
 
 ```haxe
 function exampleLeadingZeros16():Void {
-        stdgo.fmt.Fmt.printf(("LeadingZeros16(%016b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((1 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.leadingZeros16((1 : stdgo.StdGoTypes.GoUInt16))));
+        stdgo.fmt.Fmt.printf(("LeadingZeros16(%016b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((1 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.leadingZeros16((1 : stdgo.StdGoTypes.GoUInt16))));
     }
 ```
 
@@ -701,7 +701,7 @@ LeadingZeros32 returns the number of leading zero bits in x; the result is 32 fo
 
 ```haxe
 function exampleLeadingZeros32():Void {
-        stdgo.fmt.Fmt.printf(("LeadingZeros32(%032b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((1 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.leadingZeros32((1u32 : stdgo.StdGoTypes.GoUInt32))));
+        stdgo.fmt.Fmt.printf(("LeadingZeros32(%032b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((1 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.leadingZeros32((1u32 : stdgo.StdGoTypes.GoUInt32))));
     }
 ```
 
@@ -733,7 +733,7 @@ LeadingZeros64 returns the number of leading zero bits in x; the result is 64 fo
 
 ```haxe
 function exampleLeadingZeros64():Void {
-        stdgo.fmt.Fmt.printf(("LeadingZeros64(%064b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((1 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.leadingZeros64((1i64 : stdgo.StdGoTypes.GoUInt64))));
+        stdgo.fmt.Fmt.printf(("LeadingZeros64(%064b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((1 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.leadingZeros64((1i64 : stdgo.StdGoTypes.GoUInt64))));
     }
 ```
 
@@ -765,7 +765,7 @@ LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for 
 
 ```haxe
 function exampleLeadingZeros8():Void {
-        stdgo.fmt.Fmt.printf(("LeadingZeros8(%08b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((1 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.leadingZeros8((1 : stdgo.StdGoTypes.GoUInt8))));
+        stdgo.fmt.Fmt.printf(("LeadingZeros8(%08b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((1 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.leadingZeros8((1 : stdgo.StdGoTypes.GoUInt8))));
     }
 ```
 
@@ -811,7 +811,7 @@ Len16 returns the minimum number of bits required to represent x; the result is 
 
 ```haxe
 function exampleLen16():Void {
-        stdgo.fmt.Fmt.printf(("Len16(%016b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((8 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.len16((8 : stdgo.StdGoTypes.GoUInt16))));
+        stdgo.fmt.Fmt.printf(("Len16(%016b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((8 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.len16((8 : stdgo.StdGoTypes.GoUInt16))));
     }
 ```
 
@@ -843,7 +843,7 @@ Len32 returns the minimum number of bits required to represent x; the result is 
 
 ```haxe
 function exampleLen32():Void {
-        stdgo.fmt.Fmt.printf(("Len32(%032b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((8 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.len32((8u32 : stdgo.StdGoTypes.GoUInt32))));
+        stdgo.fmt.Fmt.printf(("Len32(%032b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((8 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.len32((8u32 : stdgo.StdGoTypes.GoUInt32))));
     }
 ```
 
@@ -875,7 +875,7 @@ Len64 returns the minimum number of bits required to represent x; the result is 
 
 ```haxe
 function exampleLen64():Void {
-        stdgo.fmt.Fmt.printf(("Len64(%064b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((8 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.len64((8i64 : stdgo.StdGoTypes.GoUInt64))));
+        stdgo.fmt.Fmt.printf(("Len64(%064b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((8 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.len64((8i64 : stdgo.StdGoTypes.GoUInt64))));
     }
 ```
 
@@ -907,7 +907,7 @@ Len8 returns the minimum number of bits required to represent x; the result is 0
 
 ```haxe
 function exampleLen8():Void {
-        stdgo.fmt.Fmt.printf(("Len8(%08b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((8 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.len8((8 : stdgo.StdGoTypes.GoUInt8))));
+        stdgo.fmt.Fmt.printf(("Len8(%08b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((8 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.len8((8 : stdgo.StdGoTypes.GoUInt8))));
     }
 ```
 
@@ -973,7 +973,7 @@ function exampleMul32():Void {
         var _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, (0u32 : stdgo.StdGoTypes.GoUInt32), (12u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
         var __tmp__ = stdgo.math.bits.Bits.mul32(_n1[(1 : stdgo.StdGoTypes.GoInt)], _n2[(1 : stdgo.StdGoTypes.GoInt)]), _hi:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _lo:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
         var _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, _hi, _lo) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
-        stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : stdgo.GoString), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
+        stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
         _n1 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, (0u32 : stdgo.StdGoTypes.GoUInt32), (-2147483648u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
         _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, (0u32 : stdgo.StdGoTypes.GoUInt32), (2u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
         {
@@ -982,7 +982,7 @@ function exampleMul32():Void {
             _lo = __tmp__._1;
         };
         _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, _hi, _lo) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
-        stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : stdgo.GoString), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
+        stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
     }
 ```
 
@@ -1026,7 +1026,7 @@ function exampleMul64():Void {
         var _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, (0i64 : stdgo.StdGoTypes.GoUInt64), (12i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
         var __tmp__ = stdgo.math.bits.Bits.mul64(_n1[(1 : stdgo.StdGoTypes.GoInt)], _n2[(1 : stdgo.StdGoTypes.GoInt)]), _hi:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _lo:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
         var _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, _hi, _lo) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
-        stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : stdgo.GoString), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
+        stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
         _n1 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, (0i64 : stdgo.StdGoTypes.GoUInt64), (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
         _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, (0i64 : stdgo.StdGoTypes.GoUInt64), (2i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
         {
@@ -1035,7 +1035,7 @@ function exampleMul64():Void {
             _lo = __tmp__._1;
         };
         _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, _hi, _lo) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
-        stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : stdgo.GoString), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
+        stdgo.fmt.Fmt.printf(("%v * %v = %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_n2[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_nsum));
     }
 ```
 
@@ -1067,7 +1067,7 @@ OnesCount returns the number of one bits \("population count"\) in x.
 
 ```haxe
 function exampleOnesCount():Void {
-        stdgo.fmt.Fmt.printf(("OnesCount(%b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.onesCount((14u32 : stdgo.StdGoTypes.GoUInt))));
+        stdgo.fmt.Fmt.printf(("OnesCount(%b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.onesCount((14u32 : stdgo.StdGoTypes.GoUInt))));
     }
 ```
 
@@ -1099,7 +1099,7 @@ OnesCount16 returns the number of one bits \("population count"\) in x.
 
 ```haxe
 function exampleOnesCount16():Void {
-        stdgo.fmt.Fmt.printf(("OnesCount16(%016b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.onesCount16((14 : stdgo.StdGoTypes.GoUInt16))));
+        stdgo.fmt.Fmt.printf(("OnesCount16(%016b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.onesCount16((14 : stdgo.StdGoTypes.GoUInt16))));
     }
 ```
 
@@ -1131,7 +1131,7 @@ OnesCount32 returns the number of one bits \("population count"\) in x.
 
 ```haxe
 function exampleOnesCount32():Void {
-        stdgo.fmt.Fmt.printf(("OnesCount32(%032b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.onesCount32((14u32 : stdgo.StdGoTypes.GoUInt32))));
+        stdgo.fmt.Fmt.printf(("OnesCount32(%032b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.onesCount32((14u32 : stdgo.StdGoTypes.GoUInt32))));
     }
 ```
 
@@ -1163,7 +1163,7 @@ OnesCount64 returns the number of one bits \("population count"\) in x.
 
 ```haxe
 function exampleOnesCount64():Void {
-        stdgo.fmt.Fmt.printf(("OnesCount64(%064b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.onesCount64((14i64 : stdgo.StdGoTypes.GoUInt64))));
+        stdgo.fmt.Fmt.printf(("OnesCount64(%064b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.onesCount64((14i64 : stdgo.StdGoTypes.GoUInt64))));
     }
 ```
 
@@ -1195,7 +1195,7 @@ OnesCount8 returns the number of one bits \("population count"\) in x.
 
 ```haxe
 function exampleOnesCount8():Void {
-        stdgo.fmt.Fmt.printf(("OnesCount8(%08b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.onesCount8((14 : stdgo.StdGoTypes.GoUInt8))));
+        stdgo.fmt.Fmt.printf(("OnesCount8(%08b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.onesCount8((14 : stdgo.StdGoTypes.GoUInt8))));
     }
 ```
 
@@ -1289,8 +1289,8 @@ Reverse16 returns the value of x with its bits in reversed order.
 
 ```haxe
 function exampleReverse16():Void {
-        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString), stdgo.Go.toInterface((19 : stdgo.StdGoTypes.GoInt)));
-        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverse16((19 : stdgo.StdGoTypes.GoUInt16))));
+        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((19 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverse16((19 : stdgo.StdGoTypes.GoUInt16))));
     }
 ```
 
@@ -1322,8 +1322,8 @@ Reverse32 returns the value of x with its bits in reversed order.
 
 ```haxe
 function exampleReverse32():Void {
-        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString), stdgo.Go.toInterface((19 : stdgo.StdGoTypes.GoInt)));
-        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverse32((19u32 : stdgo.StdGoTypes.GoUInt32))));
+        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((19 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverse32((19u32 : stdgo.StdGoTypes.GoUInt32))));
     }
 ```
 
@@ -1355,8 +1355,8 @@ Reverse64 returns the value of x with its bits in reversed order.
 
 ```haxe
 function exampleReverse64():Void {
-        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString), stdgo.Go.toInterface((19 : stdgo.StdGoTypes.GoInt)));
-        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverse64((19i64 : stdgo.StdGoTypes.GoUInt64))));
+        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((19 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverse64((19i64 : stdgo.StdGoTypes.GoUInt64))));
     }
 ```
 
@@ -1388,8 +1388,8 @@ Reverse8 returns the value of x with its bits in reversed order.
 
 ```haxe
 function exampleReverse8():Void {
-        stdgo.fmt.Fmt.printf(("%08b\n" : stdgo.GoString), stdgo.Go.toInterface((19 : stdgo.StdGoTypes.GoInt)));
-        stdgo.fmt.Fmt.printf(("%08b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverse8((19 : stdgo.StdGoTypes.GoUInt8))));
+        stdgo.fmt.Fmt.printf(("%08b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((19 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%08b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverse8((19 : stdgo.StdGoTypes.GoUInt8))));
     }
 ```
 
@@ -1441,8 +1441,8 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleReverseBytes16():Void {
-        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
-        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverseBytes16((15 : stdgo.StdGoTypes.GoUInt16))));
+        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverseBytes16((15 : stdgo.StdGoTypes.GoUInt16))));
     }
 ```
 
@@ -1477,8 +1477,8 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleReverseBytes32():Void {
-        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
-        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverseBytes32((15u32 : stdgo.StdGoTypes.GoUInt32))));
+        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverseBytes32((15u32 : stdgo.StdGoTypes.GoUInt32))));
     }
 ```
 
@@ -1513,8 +1513,8 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleReverseBytes64():Void {
-        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
-        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverseBytes64((15i64 : stdgo.StdGoTypes.GoUInt64))));
+        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.reverseBytes64((15i64 : stdgo.StdGoTypes.GoUInt64))));
     }
 ```
 
@@ -1568,9 +1568,9 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleRotateLeft16():Void {
-        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
-        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft16((15 : stdgo.StdGoTypes.GoUInt16), (2 : stdgo.StdGoTypes.GoInt))));
-        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft16((15 : stdgo.StdGoTypes.GoUInt16), (-2 : stdgo.StdGoTypes.GoInt))));
+        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft16((15 : stdgo.StdGoTypes.GoUInt16), (2 : stdgo.StdGoTypes.GoInt))));
+        stdgo.fmt.Fmt.printf(("%016b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft16((15 : stdgo.StdGoTypes.GoUInt16), (-2 : stdgo.StdGoTypes.GoInt))));
     }
 ```
 
@@ -1606,9 +1606,9 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleRotateLeft32():Void {
-        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
-        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft32((15u32 : stdgo.StdGoTypes.GoUInt32), (2 : stdgo.StdGoTypes.GoInt))));
-        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft32((15u32 : stdgo.StdGoTypes.GoUInt32), (-2 : stdgo.StdGoTypes.GoInt))));
+        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft32((15u32 : stdgo.StdGoTypes.GoUInt32), (2 : stdgo.StdGoTypes.GoInt))));
+        stdgo.fmt.Fmt.printf(("%032b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft32((15u32 : stdgo.StdGoTypes.GoUInt32), (-2 : stdgo.StdGoTypes.GoInt))));
     }
 ```
 
@@ -1644,9 +1644,9 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleRotateLeft64():Void {
-        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
-        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft64((15i64 : stdgo.StdGoTypes.GoUInt64), (2 : stdgo.StdGoTypes.GoInt))));
-        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft64((15i64 : stdgo.StdGoTypes.GoUInt64), (-2 : stdgo.StdGoTypes.GoInt))));
+        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft64((15i64 : stdgo.StdGoTypes.GoUInt64), (2 : stdgo.StdGoTypes.GoInt))));
+        stdgo.fmt.Fmt.printf(("%064b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft64((15i64 : stdgo.StdGoTypes.GoUInt64), (-2 : stdgo.StdGoTypes.GoInt))));
     }
 ```
 
@@ -1682,9 +1682,9 @@ This function's execution time does not depend on the inputs.
 
 ```haxe
 function exampleRotateLeft8():Void {
-        stdgo.fmt.Fmt.printf(("%08b\n" : stdgo.GoString), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
-        stdgo.fmt.Fmt.printf(("%08b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft8((15 : stdgo.StdGoTypes.GoUInt8), (2 : stdgo.StdGoTypes.GoInt))));
-        stdgo.fmt.Fmt.printf(("%08b\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft8((15 : stdgo.StdGoTypes.GoUInt8), (-2 : stdgo.StdGoTypes.GoInt))));
+        stdgo.fmt.Fmt.printf(("%08b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((15 : stdgo.StdGoTypes.GoInt)));
+        stdgo.fmt.Fmt.printf(("%08b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft8((15 : stdgo.StdGoTypes.GoUInt8), (2 : stdgo.StdGoTypes.GoInt))));
+        stdgo.fmt.Fmt.printf(("%08b\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.math.bits.Bits.rotateLeft8((15 : stdgo.StdGoTypes.GoUInt8), (-2 : stdgo.StdGoTypes.GoInt))));
     }
 ```
 
@@ -1751,7 +1751,7 @@ function exampleSub32():Void {
         var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(1 : stdgo.StdGoTypes.GoInt)], _n2[(1 : stdgo.StdGoTypes.GoInt)], (0u32 : stdgo.StdGoTypes.GoUInt32)), _d1:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _carry:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(0 : stdgo.StdGoTypes.GoInt)], _n2[(0 : stdgo.StdGoTypes.GoInt)], _carry), _d0:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, __0:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
         var _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, _d0, _d1) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
-        stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : stdgo.GoString), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
+        stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
         _n1 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, (3u32 : stdgo.StdGoTypes.GoUInt32), (2147483647u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
         _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, (1u32 : stdgo.StdGoTypes.GoUInt32), (-2147483648u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
         {
@@ -1764,7 +1764,7 @@ function exampleSub32():Void {
             _d0 = __tmp__._0;
         };
         _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt32>(2, 2, _d0, _d1) : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>);
-        stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : stdgo.GoString), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
+        stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
     }
 ```
 
@@ -1809,7 +1809,7 @@ function exampleSub64():Void {
         var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(1 : stdgo.StdGoTypes.GoInt)], _n2[(1 : stdgo.StdGoTypes.GoInt)], (0i64 : stdgo.StdGoTypes.GoUInt64)), _d1:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _carry:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(0 : stdgo.StdGoTypes.GoInt)], _n2[(0 : stdgo.StdGoTypes.GoInt)], _carry), _d0:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, __0:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
         var _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, _d0, _d1) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
-        stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : stdgo.GoString), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
+        stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
         _n1 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, (3i64 : stdgo.StdGoTypes.GoUInt64), (9223372036854775807i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
         _n2 = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, (1i64 : stdgo.StdGoTypes.GoUInt64), (-9223372036854775808i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
         {
@@ -1822,7 +1822,7 @@ function exampleSub64():Void {
             _d0 = __tmp__._0;
         };
         _nsum = (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(2, 2, _d0, _d1) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>);
-        stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : stdgo.GoString), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
+        stdgo.fmt.Fmt.printf(("%v - %v = %v (carry bit was %v)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n1), stdgo.Go.toInterface(_n2), stdgo.Go.toInterface(_nsum), stdgo.Go.toInterface(_carry));
     }
 ```
 
@@ -1868,7 +1868,7 @@ TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 
 
 ```haxe
 function exampleTrailingZeros16():Void {
-        stdgo.fmt.Fmt.printf(("TrailingZeros16(%016b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.trailingZeros16((14 : stdgo.StdGoTypes.GoUInt16))));
+        stdgo.fmt.Fmt.printf(("TrailingZeros16(%016b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.trailingZeros16((14 : stdgo.StdGoTypes.GoUInt16))));
     }
 ```
 
@@ -1900,7 +1900,7 @@ TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 
 
 ```haxe
 function exampleTrailingZeros32():Void {
-        stdgo.fmt.Fmt.printf(("TrailingZeros32(%032b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.trailingZeros32((14u32 : stdgo.StdGoTypes.GoUInt32))));
+        stdgo.fmt.Fmt.printf(("TrailingZeros32(%032b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.trailingZeros32((14u32 : stdgo.StdGoTypes.GoUInt32))));
     }
 ```
 
@@ -1932,7 +1932,7 @@ TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 
 
 ```haxe
 function exampleTrailingZeros64():Void {
-        stdgo.fmt.Fmt.printf(("TrailingZeros64(%064b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.trailingZeros64((14i64 : stdgo.StdGoTypes.GoUInt64))));
+        stdgo.fmt.Fmt.printf(("TrailingZeros64(%064b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.trailingZeros64((14i64 : stdgo.StdGoTypes.GoUInt64))));
     }
 ```
 
@@ -1964,7 +1964,7 @@ TrailingZeros8 returns the number of trailing zero bits in x; the result is 8 fo
 
 ```haxe
 function exampleTrailingZeros8():Void {
-        stdgo.fmt.Fmt.printf(("TrailingZeros8(%08b) = %d\n" : stdgo.GoString), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.trailingZeros8((14 : stdgo.StdGoTypes.GoUInt8))));
+        stdgo.fmt.Fmt.printf(("TrailingZeros8(%08b) = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((14 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(stdgo.math.bits.Bits.trailingZeros8((14 : stdgo.StdGoTypes.GoUInt8))));
     }
 ```
 

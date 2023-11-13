@@ -436,7 +436,7 @@ function exampleDecodeLastRune():Void {
         var _b = (("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         while ((_b.length) > (0 : stdgo.StdGoTypes.GoInt)) {
             var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRune(_b), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
-            stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
+            stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
             _b = (_b.__slice__(0, (_b.length) - _size) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         };
     }
@@ -481,11 +481,11 @@ value. No other validation is performed.
 
 ```haxe
 function exampleDecodeLastRuneInString():Void {
-        var _str:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
+        var _str:stdgo.GoString = ("Hello, 世界" : stdgo.GoString)?.__copy__();
         while ((_str.length) > (0 : stdgo.StdGoTypes.GoInt)) {
-            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRuneInString(_str), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
-            stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
-            _str = (_str.__slice__(0, (_str.length) - _size) : stdgo.GoString);
+            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRuneInString(_str?.__copy__()), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
+            stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
+            _str = (_str.__slice__(0, (_str.length) - _size) : stdgo.GoString)?.__copy__();
         };
     }
 ```
@@ -532,7 +532,7 @@ function exampleDecodeRune():Void {
         var _b = (("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         while ((_b.length) > (0 : stdgo.StdGoTypes.GoInt)) {
             var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune(_b), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
-            stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
+            stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
             _b = (_b.__slice__(_size) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         };
     }
@@ -577,11 +577,11 @@ value. No other validation is performed.
 
 ```haxe
 function exampleDecodeRuneInString():Void {
-        var _str:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
+        var _str:stdgo.GoString = ("Hello, 世界" : stdgo.GoString)?.__copy__();
         while ((_str.length) > (0 : stdgo.StdGoTypes.GoInt)) {
-            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_str), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
-            stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
-            _str = (_str.__slice__(_size) : stdgo.GoString);
+            var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_str?.__copy__()), _r:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
+            stdgo.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
+            _str = (_str.__slice__(_size) : stdgo.GoString)?.__copy__();
         };
     }
 ```
@@ -642,7 +642,7 @@ function exampleEncodeRune_outOfRange():Void {
         for (_i => _c in _runes) {
             var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((3 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
             var _size:stdgo.StdGoTypes.GoInt = stdgo.unicode.utf8.Utf8.encodeRune(_buf, _c);
-            stdgo.fmt.Fmt.printf(("%d: %d %[2]s %d\n" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_buf), stdgo.Go.toInterface(_size));
+            stdgo.fmt.Fmt.printf(("%d: %d %[2]s %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_buf), stdgo.Go.toInterface(_size));
         };
     }
 ```
@@ -710,9 +710,9 @@ FullRuneInString is like FullRune but its input is a string.
 
 ```haxe
 function exampleFullRuneInString():Void {
-        var _str:stdgo.GoString = ("世" : stdgo.GoString);
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.fullRuneInString(_str)));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.fullRuneInString((_str.__slice__(0, (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString))));
+        var _str:stdgo.GoString = ("世" : stdgo.GoString)?.__copy__();
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.fullRuneInString(_str?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.fullRuneInString((_str.__slice__(0, (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__())));
     }
 ```
 
@@ -779,9 +779,9 @@ RuneCountInString is like RuneCount but its input is a string.
 
 ```haxe
 function exampleRuneCountInString():Void {
-        var _str:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
+        var _str:stdgo.GoString = ("Hello, 世界" : stdgo.GoString)?.__copy__();
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("bytes =" : stdgo.GoString)), stdgo.Go.toInterface((_str.length)));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("runes =" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeCountInString(_str)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("runes =" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.runeCountInString(_str?.__copy__())));
     }
 ```
 
@@ -955,10 +955,10 @@ ValidString reports whether s consists entirely of valid UTF\-8\-encoded runes.
 
 ```haxe
 function exampleValidString():Void {
-        var _valid:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
+        var _valid:stdgo.GoString = ("Hello, 世界" : stdgo.GoString)?.__copy__();
         var _invalid:stdgo.GoString = ((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(3, 3, (255 : stdgo.StdGoTypes.GoUInt8), (254 : stdgo.StdGoTypes.GoUInt8), (253 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString);
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_valid)));
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_invalid)));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_valid?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_invalid?.__copy__())));
     }
 ```
 

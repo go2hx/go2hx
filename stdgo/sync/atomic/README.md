@@ -2,9 +2,9 @@
 ```
 stdgo/sync/atomic_test/Atomic_test.hx:657: characters 17-19 : Variables of type Void are not allowed
 stdgo/sync/atomic_test/Atomic_test.hx:658: characters 72-80 : stdgo.Pointer<stdgo.GoByte> should be Void
-stdgo/sync/atomic_test/Atomic_test.hx:659: characters 208-210 : Void should be Any
-stdgo/sync/atomic_test/Atomic_test.hx:659: characters 208-210 : ... For function argument 'value'
-stdgo/sync/atomic_test/Atomic_test.hx:659: characters 208-210 : ... For function argument 'args'
+stdgo/sync/atomic_test/Atomic_test.hx:659: characters 220-222 : Void should be Any
+stdgo/sync/atomic_test/Atomic_test.hx:659: characters 220-222 : ... For function argument 'value'
+stdgo/sync/atomic_test/Atomic_test.hx:659: characters 220-222 : ... For function argument 'args'
 stdgo/sync/atomic_test/Atomic_test.hx:2499: characters 68-80 : Not enough arguments, expected __generic__0:Dynamic
 stdgo/sync/atomic_test/Atomic_test.hx:2520: characters 9-265 : Not enough arguments, expected _val:Dynamic
 stdgo/sync/atomic_test/Atomic_test.hx:3118: characters 13-278 : Not enough arguments, expected _new:Dynamic

@@ -196,7 +196,7 @@ error, or to any interface type.
 ```haxe
 function exampleAs():Void {
         {
-            var __tmp__ = stdgo.os.Os.open(("non-existing" : stdgo.GoString)), __0:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.os.Os.open(("non-existing" : stdgo.GoString)?.__copy__()), __0:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 var _pathError:stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>);
                 if (stdgo.errors.Errors.as(_err, stdgo.Go.toInterface((stdgo.Go.setRef(_pathError) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>>)))) {
@@ -280,8 +280,8 @@ A non\-nil error returned by Join implements the Unwrap\(\) \[\]error method.
 
 ```haxe
 function exampleJoin():Void {
-        var _err1:stdgo.Error = stdgo.errors.Errors.new_(("err1" : stdgo.GoString));
-        var _err2:stdgo.Error = stdgo.errors.Errors.new_(("err2" : stdgo.GoString));
+        var _err1:stdgo.Error = stdgo.errors.Errors.new_(("err1" : stdgo.GoString)?.__copy__());
+        var _err2:stdgo.Error = stdgo.errors.Errors.new_(("err2" : stdgo.GoString)?.__copy__());
         var _err:stdgo.Error = stdgo.errors.Errors.join(_err1, _err2);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_err));
         if (stdgo.errors.Errors.is_(_err, _err1)) {
@@ -342,8 +342,8 @@ In particular Unwrap does not unwrap errors returned by \[Join\].
 
 ```haxe
 function exampleUnwrap():Void {
-        var _err1:stdgo.Error = stdgo.errors.Errors.new_(("error1" : stdgo.GoString));
-        var _err2:stdgo.Error = stdgo.fmt.Fmt.errorf(("error2: [%w]" : stdgo.GoString), stdgo.Go.toInterface(_err1));
+        var _err1:stdgo.Error = stdgo.errors.Errors.new_(("error1" : stdgo.GoString)?.__copy__());
+        var _err2:stdgo.Error = stdgo.fmt.Fmt.errorf(("error2: [%w]" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err1));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_err2));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.errors.Errors.unwrap(_err2)));
     }

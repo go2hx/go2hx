@@ -41,7 +41,7 @@ stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : ... want: stdgo.GoMap<..., (st
 stdgo/os/exec_test/Exec_test.hx:454: characters 36-60 : Type not found : stdgo.encoding.json.Json
 stdgo/os/exec_test/Exec_test.hx:1327: characters 25-55 : Type not found : os.exec.internal.fdtest.Fdtest
 stdgo/os/exec_test/Exec_test.hx:1379: characters 27-40 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1379: characters 113-135 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1379: characters 137-159 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1384: characters 150-175 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1389: characters 27-40 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1389: characters 64-86 : Type not found : stdgo.net.Net

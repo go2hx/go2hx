@@ -1,5 +1,7 @@
 [
  "hl|bytes",
+ "hl|encoding/base64",
+ "hl|encoding/base64",
  "hl|encoding/hex",
  "hl|errors",
  "hl|math",
@@ -11,6 +13,8 @@
  "hl|unicode",
  "hl|unicode/utf16",
  "hl|unicode/utf8",
+ "interp|encoding/base64",
+ "interp|encoding/base64",
  "interp|encoding/hex",
  "interp|errors",
  "interp|math",

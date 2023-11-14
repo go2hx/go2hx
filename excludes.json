@@ -6,7 +6,6 @@
     "runtime/internal/sys",
     "runtime/internal/atomic",
     "runtime/internal/math",
-    "internal/race",
     "internal/syscall",
     "internal/syscall/js",
     "internal/syscall/windows/sysdll",

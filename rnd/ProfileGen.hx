@@ -104,7 +104,7 @@ class ProfileGen {
 
     function main() {
         var args = Sys.args();
-        var outFile = null;
+        var outFile = "hlprofile.dump";
 		var file = null;
 		var debug = false;
 		var mintime = 0.0;

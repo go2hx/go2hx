@@ -304,18 +304,18 @@ checking if the uid/gid match the effective uid/gid.
 - [Variables](<#variables>)
 
 - [`function blockProfile(_p:stdgo.Slice<stdgo.runtime.BlockProfileRecord>):{
-	_1:Bool;
-	_0:stdgo.GoInt;
-}`](<#function-blockprofile>)
+		_1:Bool;
+		_0:stdgo.GoInt;
+	}`](<#function-blockprofile>)
 
 - [`function breakpoint():Void`](<#function-breakpoint>)
 
 - [`function caller(_skip:stdgo.GoInt):{
-	_3:Bool;
-	_2:stdgo.GoInt;
-	_1:stdgo.GoString;
-	_0:stdgo.GoUIntptr;
-}`](<#function-caller>)
+		_3:Bool;
+		_2:stdgo.GoInt;
+		_1:stdgo.GoString;
+		_0:stdgo.GoUIntptr;
+	}`](<#function-caller>)
 
 - [`function callers(_skip:stdgo.GoInt, _pc:stdgo.Slice<stdgo.GoUIntptr>):stdgo.GoInt`](<#function-callers>)
 
@@ -334,9 +334,9 @@ checking if the uid/gid match the effective uid/gid.
 - [`function goroot():stdgo.GoString`](<#function-goroot>)
 
 - [`function goroutineProfile(_p:stdgo.Slice<stdgo.runtime.StackRecord>):{
-	_1:Bool;
-	_0:stdgo.GoInt;
-}`](<#function-goroutineprofile>)
+		_1:Bool;
+		_0:stdgo.GoInt;
+	}`](<#function-goroutineprofile>)
 
 - [`function gosched():Void`](<#function-gosched>)
 
@@ -345,14 +345,14 @@ checking if the uid/gid match the effective uid/gid.
 - [`function lockOSThread():Void`](<#function-lockosthread>)
 
 - [`function memProfile(_p:stdgo.Slice<stdgo.runtime.MemProfileRecord>, _inuseZero:Bool):{
-	_1:Bool;
-	_0:stdgo.GoInt;
-}`](<#function-memprofile>)
+		_1:Bool;
+		_0:stdgo.GoInt;
+	}`](<#function-memprofile>)
 
 - [`function mutexProfile(_p:stdgo.Slice<stdgo.runtime.BlockProfileRecord>):{
-	_1:Bool;
-	_0:stdgo.GoInt;
-}`](<#function-mutexprofile>)
+		_1:Bool;
+		_0:stdgo.GoInt;
+	}`](<#function-mutexprofile>)
 
 - [`function numCPU():stdgo.GoInt`](<#function-numcpu>)
 
@@ -381,9 +381,9 @@ checking if the uid/gid match the effective uid/gid.
 - [`function stopTrace():Void`](<#function-stoptrace>)
 
 - [`function threadCreateProfile(_p:stdgo.Slice<stdgo.runtime.StackRecord>):{
-	_1:Bool;
-	_0:stdgo.GoInt;
-}`](<#function-threadcreateprofile>)
+		_1:Bool;
+		_0:stdgo.GoInt;
+	}`](<#function-threadcreateprofile>)
 
 - [`function unlockOSThread():Void`](<#function-unlockosthread>)
 
@@ -405,7 +405,7 @@ checking if the uid/gid match the effective uid/gid.
 
   - [`function new():Void`](<#frames-function-new>)
 
-  - [`function next():{ _1:Bool; _0:stdgo.runtime.Frame;}`](<#frames-function-next>)
+  - [`function next():{  _1:Bool;  _0:stdgo.runtime.Frame; }`](<#frames-function-next>)
 
 - [class Func](<#class-func>)
 
@@ -413,7 +413,7 @@ checking if the uid/gid match the effective uid/gid.
 
   - [`function entry():stdgo.GoUIntptr`](<#func-function-entry>)
 
-  - [`function fileLine( _pc:stdgo.GoUIntptr):{ _1:stdgo.GoInt; _0:stdgo.GoString;}`](<#func-function-fileline>)
+  - [`function fileLine( _pc:stdgo.GoUIntptr):{  _1:stdgo.GoInt;  _0:stdgo.GoString; }`](<#func-function-fileline>)
 
   - [`function name():stdgo.GoString`](<#func-function-name>)
 
@@ -429,7 +429,7 @@ checking if the uid/gid match the effective uid/gid.
 
 - [class MemStats](<#class-memstats>)
 
-  - [`function new(?alloc:stdgo.GoUInt64, ?totalAlloc:stdgo.GoUInt64, ?sys:stdgo.GoUInt64, ?lookups:stdgo.GoUInt64, ?mallocs:stdgo.GoUInt64, ?frees:stdgo.GoUInt64, ?heapAlloc:stdgo.GoUInt64, ?heapSys:stdgo.GoUInt64, ?heapIdle:stdgo.GoUInt64, ?heapInuse:stdgo.GoUInt64, ?heapReleased:stdgo.GoUInt64, ?heapObjects:stdgo.GoUInt64, ?stackInuse:stdgo.GoUInt64, ?stackSys:stdgo.GoUInt64, ?mspanInuse:stdgo.GoUInt64, ?mspanSys:stdgo.GoUInt64, ?mcacheInuse:stdgo.GoUInt64, ?mcacheSys:stdgo.GoUInt64, ?buckHashSys:stdgo.GoUInt64, ?gcsys:stdgo.GoUInt64, ?otherSys:stdgo.GoUInt64, ?nextGC:stdgo.GoUInt64, ?lastGC:stdgo.GoUInt64, ?pauseTotalNs:stdgo.GoUInt64, ?pauseNs:stdgo.GoArray<stdgo.GoUInt64>, ?pauseEnd:stdgo.GoArray<stdgo.GoUInt64>, ?numGC:stdgo.GoUInt32, ?numForcedGC:stdgo.GoUInt32, ?gccpufraction:stdgo.GoFloat64, ?enableGC:Bool, ?debugGC:Bool, ?bySize:stdgo.GoArray<{ size:stdgo.GoUInt32; mallocs:stdgo.GoUInt64; frees:stdgo.GoUInt64;}>):Void`](<#memstats-function-new>)
+  - [`function new(?alloc:stdgo.GoUInt64, ?totalAlloc:stdgo.GoUInt64, ?sys:stdgo.GoUInt64, ?lookups:stdgo.GoUInt64, ?mallocs:stdgo.GoUInt64, ?frees:stdgo.GoUInt64, ?heapAlloc:stdgo.GoUInt64, ?heapSys:stdgo.GoUInt64, ?heapIdle:stdgo.GoUInt64, ?heapInuse:stdgo.GoUInt64, ?heapReleased:stdgo.GoUInt64, ?heapObjects:stdgo.GoUInt64, ?stackInuse:stdgo.GoUInt64, ?stackSys:stdgo.GoUInt64, ?mspanInuse:stdgo.GoUInt64, ?mspanSys:stdgo.GoUInt64, ?mcacheInuse:stdgo.GoUInt64, ?mcacheSys:stdgo.GoUInt64, ?buckHashSys:stdgo.GoUInt64, ?gcsys:stdgo.GoUInt64, ?otherSys:stdgo.GoUInt64, ?nextGC:stdgo.GoUInt64, ?lastGC:stdgo.GoUInt64, ?pauseTotalNs:stdgo.GoUInt64, ?pauseNs:stdgo.GoArray<stdgo.GoUInt64>, ?pauseEnd:stdgo.GoArray<stdgo.GoUInt64>, ?numGC:stdgo.GoUInt32, ?numForcedGC:stdgo.GoUInt32, ?gccpufraction:stdgo.GoFloat64, ?enableGC:Bool, ?debugGC:Bool, ?bySize:stdgo.GoArray<{  size:stdgo.GoUInt32;  mallocs:stdgo.GoUInt64;  frees:stdgo.GoUInt64; }>):Void`](<#memstats-function-new>)
 
 - [class PanicNilError](<#class-panicnilerror>)
 
@@ -553,9 +553,9 @@ import stdgo.runtime.Runtime
 
 ```haxe
 function blockProfile(_p:stdgo.Slice<stdgo.runtime.BlockProfileRecord>):{
-	_1:Bool;
-	_0:stdgo.GoInt;
-}
+		_1:Bool;
+		_0:stdgo.GoInt;
+	}
 ```
 
 
@@ -591,11 +591,11 @@ Breakpoint executes a breakpoint trap.
 
 ```haxe
 function caller(_skip:stdgo.GoInt):{
-	_3:Bool;
-	_2:stdgo.GoInt;
-	_1:stdgo.GoString;
-	_0:stdgo.GoUIntptr;
-}
+		_3:Bool;
+		_2:stdgo.GoInt;
+		_1:stdgo.GoString;
+		_0:stdgo.GoUIntptr;
+	}
 ```
 
 

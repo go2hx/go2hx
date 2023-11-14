@@ -43,6 +43,7 @@
     "sync",
     "internal/bytealg",
     "internal/cpu",
+    "internal/race",
     "testing/quick",
     "hash",
     "crypto/sha1",

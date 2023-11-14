@@ -212,6 +212,8 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	}
 
 	@:op(A == B) static function eq(a:GoString, b:GoString):Bool {
+		if (a == null && b == null)
+			return true;
 		if (a.length != b.length)
 			return false;
 		for (i in 0...a.length.toBasic()) {

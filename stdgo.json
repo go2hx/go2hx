@@ -134,6 +134,7 @@
     "strconv",
     "strings",
     "sync",
+    "internal/race",
     "sync/atomic",
     "syscall",
     "syscall/js",

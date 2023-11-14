@@ -1119,6 +1119,13 @@ final list = [
 		}
 	},
 	// stdgo/atomic/sync
+	// Swap atomically stores new into x and returns the previous value.
+	// func (x *Pointer[T]) Swap(new *T) (old *T) { return (*T)(SwapPointer(&x.v, unsafe.Pointer(new))) }
+	"sync.atomic.Pointer_:swap" => macro {
+		final old = @:privateAccess _x._v;
+		_x._v = stdgo.Go.toInterface(_new);
+		return stdgo.Go.toInterface(old);
+	},
 	"sync.atomic.Pointer_:compareAndSwap" => macro {
 		final b = stdgo.Go.toInterface(_old) == stdgo.Go.toInterface(_new);
 		if (b)
@@ -1155,6 +1162,8 @@ final list = [
 	"sync.Pool:put" => macro {
 		@:privateAccess _p.pool.push(_x);
 	},
+	"sync:_runtime_procPin" => macro return 0,
+	"sync.Map_:_dirtyLocked" => macro {},
 	"sync.Mutex:lock" => macro @:privateAccess @:define("!js") _m.mutex.acquire(),
 	"sync.Mutex:tryLock" => macro @:privateAccess return @:define("!js", true) _m.mutex.tryAcquire(),
 	"sync.Mutex:unlock" => macro @:privateAccess @:define("!js") _m.mutex.release(),

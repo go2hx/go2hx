@@ -1249,10 +1249,10 @@ private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:In
 				case structType(fields):
 					final expr = createNamedObjectDecl(fields, (field, _) -> macro e.$field, info);
 					final toComplexType = toComplexType(toType, info);
-					return macro {
+					return macro (({
 						final e = $e;
 						($expr : $toComplexType);
-					}
+					}));
 				default:
 					throw "not a struct";
 			}

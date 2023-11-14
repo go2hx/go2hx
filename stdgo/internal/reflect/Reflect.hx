@@ -924,8 +924,17 @@ class _Type {
 		}
 	}
 
-	static public function len(t:_Type):GoInt
-		throw "not implemented len";
+	static public function len(t:_Type):GoInt {
+		final gt = @:privateAccess t._common();
+		return switch gt {
+			case arrayType(_, len):
+				len;
+			case sliceType(_):
+				-1;
+			default:
+				throw "reflect.Len not implemented for " + t.string();
+		}
+	}
 
 	static public function key(t:_Type):Type
 		throw "not implemented key";

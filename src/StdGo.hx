@@ -111,4 +111,5 @@ final noMain = [
 	"internal/bisect",
 	"context",
 	"internal/platform",
+	"internal/race",
 ];

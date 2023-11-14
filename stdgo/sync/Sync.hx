@@ -14,55 +14,55 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var _expunged : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface> = (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>);
+var _expunged : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface> = (stdgo.Go.setRef((null : stdgo.StdGoTypes.AnyInterface)) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>);
 /**
     // Export for testing.
     
     
 **/
-var runtime_Semacquire : stdgo.Pointer<stdgo.StdGoTypes.GoUInt32> -> Void = null;
+var runtime_Semacquire : stdgo.Pointer<stdgo.StdGoTypes.GoUInt32> -> Void = _runtime_Semacquire;
 /**
     
     
     
 **/
-var runtime_Semrelease : (stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, Bool, stdgo.StdGoTypes.GoInt) -> Void = null;
+var runtime_Semrelease : (stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, Bool, stdgo.StdGoTypes.GoInt) -> Void = _runtime_Semrelease;
 /**
     
     
     
 **/
-var runtime_procPin : () -> stdgo.StdGoTypes.GoInt = null;
+var runtime_procPin : () -> stdgo.StdGoTypes.GoInt = _runtime_procPin;
 /**
     
     
     
 **/
-var runtime_procUnpin : () -> Void = null;
+var runtime_procUnpin : () -> Void = _runtime_procUnpin;
 /**
     
     
     // mutex is locked
 **/
-final _mutexLocked : stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
+final _mutexLocked : stdgo.StdGoTypes.GoUInt64 = (4i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     
     
     
 **/
-final _mutexWoken = @:invalid_type null;
+final _mutexWoken = (4i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     
     
     
 **/
-final _mutexStarving = @:invalid_type null;
+final _mutexStarving = (4i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     
     
     
 **/
-final _mutexWaiterShift : stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
+final _mutexWaiterShift : stdgo.StdGoTypes.GoUInt64 = (3i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     // Mutex fairness.
     //
@@ -91,7 +91,7 @@ final _mutexWaiterShift : stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUI
     
     
 **/
-final _starvationThresholdNs : stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
+final _starvationThresholdNs : stdgo.StdGoTypes.GoFloat64 = (1e+06 : stdgo.StdGoTypes.GoFloat64);
 /**
     
     
@@ -124,7 +124,7 @@ var _oldPools = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Pool>>)
     
     
 **/
-final _dequeueBits : stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
+final _dequeueBits : stdgo.StdGoTypes.GoUInt64 = (32i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     // dequeueLimit is the maximum size of a poolDequeue.
     //
@@ -134,13 +134,13 @@ final _dequeueBits : stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64)
     
     
 **/
-final _dequeueLimit : stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
+final _dequeueLimit : stdgo.StdGoTypes.GoUInt64 = (1073741824i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     
     
     
 **/
-final _rwmutexMaxReaders : stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
+final _rwmutexMaxReaders : stdgo.StdGoTypes.GoUInt64 = (1073741824i64 : stdgo.StdGoTypes.GoUInt64);
 /**
     // poolDequeue testing.
     
@@ -670,21 +670,21 @@ typedef Locker = stdgo.StdGoTypes.StructType & {
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     @:embedded
-    public function popHead():{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } return @:typeType null;
+    public function popHead():{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } return _poolDequeue.popHead();
     @:embedded
-    public function popTail():{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } return @:typeType null;
+    public function popTail():{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } return _poolDequeue.popTail();
     @:embedded
-    public function pushHead(_val_:stdgo.StdGoTypes.AnyInterface):Bool return false;
+    public function pushHead(_val_:stdgo.StdGoTypes.AnyInterface):Bool return _poolDequeue.pushHead(_val_);
     @:embedded
-    public function _pack(_head:stdgo.StdGoTypes.GoUInt32, _tail:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt64 return (0 : stdgo.StdGoTypes.GoUInt64);
+    public function _pack(_head:stdgo.StdGoTypes.GoUInt32, _tail:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt64 return _poolDequeue._pack(_head, _tail);
     @:embedded
-    public function _popHead():{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } return @:typeType null;
+    public function _popHead():{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } return _poolDequeue._popHead();
     @:embedded
-    public function _popTail():{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } return @:typeType null;
+    public function _popTail():{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } return _poolDequeue._popTail();
     @:embedded
-    public function _pushHead(_val_:stdgo.StdGoTypes.AnyInterface):Bool return false;
+    public function _pushHead(_val_:stdgo.StdGoTypes.AnyInterface):Bool return _poolDequeue._pushHead(_val_);
     @:embedded
-    public function _unpack(__0:stdgo.StdGoTypes.GoUInt64):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; } return @:typeType null;
+    public function _unpack(__0:stdgo.StdGoTypes.GoUInt64):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; } return _poolDequeue._unpack(__0);
     public function __copy__() {
         return new T_poolChainElt(_poolDequeue, _next, _prev);
     }
@@ -818,22 +818,84 @@ class T__struct_0_asInterface {
 /**
     // NewCond returns a new Cond with Locker l.
 **/
-function newCond(_l:Locker):stdgo.StdGoTypes.Ref<Cond> throw ":sync.newCond is not yet implemented";
-function newPoolDequeue(_n:stdgo.StdGoTypes.GoInt):PoolDequeue throw ":sync.newPoolDequeue is not yet implemented";
-function newPoolChain():PoolDequeue throw ":sync.newPoolChain is not yet implemented";
-function _newEntry(_i:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.Ref<T_entry> throw ":sync._newEntry is not yet implemented";
+function newCond(_l:Locker):stdgo.StdGoTypes.Ref<Cond> {
+        return (stdgo.Go.setRef(({ l : _l } : Cond)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Cond>);
+    }
+function newPoolDequeue(_n:stdgo.StdGoTypes.GoInt):PoolDequeue {
+        var _d = (stdgo.Go.setRef(({ _vals : new stdgo.Slice<stdgo.sync.Sync.T_eface>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_n : stdgo.StdGoTypes.GoInt).toBasic() > 0 ? (_n : stdgo.StdGoTypes.GoInt).toBasic() : 0 : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.sync.Sync.T_eface)]) } : T_poolDequeue)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolDequeue>);
+        _d._headTail = _d._pack((-500u32 : stdgo.StdGoTypes.GoUInt32), (-500u32 : stdgo.StdGoTypes.GoUInt32));
+        return stdgo.Go.asInterface(_d);
+    }
+function newPoolChain():PoolDequeue {
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.sync.Sync.T_poolChain)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChain>));
+    }
+function _newEntry(_i:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.Ref<T_entry> {
+        var _e = (stdgo.Go.setRef((new T_entry() : T_entry)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>);
+        _e._p.store((null : stdgo.StdGoTypes.AnyInterface), (stdgo.Go.setRef(_i) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>));
+        return _e;
+    }
 /**
     // Provided by runtime via linkname.
 **/
-function _throw(_0:stdgo.GoString):Void throw ":sync._throw is not yet implemented";
-function _fatal(_0:stdgo.GoString):Void throw ":sync._fatal is not yet implemented";
+function _throw(_0:stdgo.GoString):Void {}
+function _fatal(_0:stdgo.GoString):Void {}
 /**
     // OnceFunc returns a function that invokes f only once. The returned function
     // may be called concurrently.
     //
     // If f panics, the returned function will panic with the same value on every call.
 **/
-function onceFunc(_f:() -> Void):() -> Void throw ":sync.onceFunc is not yet implemented";
+function onceFunc(_f:() -> Void):() -> Void {
+        var __0:Once = ({} : stdgo.sync.Sync.Once), __1:Bool = false, __2:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _p:stdgo.StdGoTypes.AnyInterface = __2, _valid:Bool = __1, _once:Once = __0;
+        var _g:() -> Void = function():Void {
+            var __deferstack__:Array<Void -> Void> = [];
+            try {
+                __deferstack__.unshift(() -> {
+                    var a = function():Void {
+                        _p = ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        });
+                        if (!_valid) {
+                            throw stdgo.Go.toInterface(_p);
+                        };
+                    };
+                    a();
+                });
+                _f();
+                _valid = true;
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                {
+                    for (defer in __deferstack__) {
+                        defer();
+                    };
+                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    return;
+                };
+            } catch(__exception__) {
+                var exe:Dynamic = __exception__.native;
+                if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                    exe = stdgo.Go.toInterface(__exception__.message);
+                };
+                stdgo.Go.recover_exception = exe;
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return;
+            };
+        };
+        return function():Void {
+            _once.do_(_g);
+            if (!_valid) {
+                throw stdgo.Go.toInterface(_p);
+            };
+        };
+    }
 /**
     // OnceValue returns a function that invokes f only once and returns the value
     // returned by f. The returned function may be called concurrently.
@@ -851,7 +913,10 @@ macro function onceValues<T1, T2>(__generic__0:haxe.macro.Expr.ExprOf<T1>, __gen
 /**
     // from runtime
 **/
-function _fastrandn(_n:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 throw ":sync._fastrandn is not yet implemented";
+function _fastrandn(_n:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 {
+        trace("funclit");
+        throw "not implemented: _fastrandn";
+    }
 /**
     // poolRaceAddr returns an address to use as the synchronization point
     // for race detector logic. We don't use the actual pointer stored in x
@@ -859,31 +924,65 @@ function _fastrandn(_n:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt32 thro
     // Instead, we hash the pointer to get an index into poolRaceHash.
     // See discussion on golang.org/cl/31589.
 **/
-function _poolRaceAddr(_x:stdgo.StdGoTypes.AnyInterface):stdgo.unsafe.Unsafe.UnsafePointer throw ":sync._poolRaceAddr is not yet implemented";
-function _poolCleanup():Void throw ":sync._poolCleanup is not yet implemented";
-function _indexLocal(_l:stdgo.unsafe.Unsafe.UnsafePointer, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<T_poolLocal> throw ":sync._indexLocal is not yet implemented";
+function _poolRaceAddr(_x:stdgo.StdGoTypes.AnyInterface):stdgo.unsafe.Unsafe.UnsafePointer {
+        var _ptr:stdgo.StdGoTypes.GoUIntptr = (((((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>).__underlying__().value : Dynamic) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, 2) })) : stdgo.StdGoTypes.Ref<stdgo.GoArray<stdgo.unsafe.Unsafe.UnsafePointer>>)[(1 : stdgo.StdGoTypes.GoInt)].__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr);
+        var _h:stdgo.StdGoTypes.GoUInt32 = ((((_ptr : stdgo.StdGoTypes.GoUInt32) : stdgo.StdGoTypes.GoUInt64) * (2246822507i64 : stdgo.StdGoTypes.GoUInt64)) >> (16i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt32);
+        return (stdgo.Go.toInterface(stdgo.Go.pointer(_poolRaceHash[(_h % (_poolRaceHash.length : stdgo.StdGoTypes.GoUInt32) : stdgo.StdGoTypes.GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer);
+    }
+function _poolCleanup():Void {
+        for (__0 => _p in _oldPools) {
+            _p._victim = @:default_value null;
+            _p._victimSize = (0 : stdgo.StdGoTypes.GoUIntptr);
+        };
+        for (__1 => _p in _allPools) {
+            _p._victim = _p._local;
+            _p._victimSize = _p._localSize;
+            _p._local = @:default_value null;
+            _p._localSize = (0 : stdgo.StdGoTypes.GoUIntptr);
+        };
+        {
+            final __tmp__0 = _allPools;
+            final __tmp__1 = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Pool>>);
+            _oldPools = __tmp__0;
+            _allPools = __tmp__1;
+        };
+    }
+function _indexLocal(_l:stdgo.unsafe.Unsafe.UnsafePointer, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<T_poolLocal> {
+        var _lp:stdgo.unsafe.Unsafe.UnsafePointer = (stdgo.Go.toInterface(((_l.__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr) + ((_i : stdgo.StdGoTypes.GoUIntptr) * stdgo.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new T_poolLocal() : T_poolLocal)))))) : stdgo.unsafe.Unsafe.UnsafePointer);
+        return (_lp.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolLocal", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_poolLocalInternal", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolLocalInternal", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_private", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "_shared", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChain", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_head", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_poolDequeue", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolDequeue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_headTail", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "_vals", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_eface", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }, { name : "_val", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_next", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_prev", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_tail", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_poolDequeue", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolDequeue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_headTail", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "_vals", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_eface", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }, { name : "_val", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_next", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_prev", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_pad", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }, 112) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<T_poolLocal>);
+    }
 /**
     // Implemented in runtime.
 **/
-function _runtime_registerPoolCleanup(_cleanup:() -> Void):Void throw ":sync._runtime_registerPoolCleanup is not yet implemented";
-function _runtime_procPin():stdgo.StdGoTypes.GoInt throw ":sync._runtime_procPin is not yet implemented";
-function _runtime_procUnpin():Void throw ":sync._runtime_procUnpin is not yet implemented";
+function _runtime_registerPoolCleanup(_cleanup:() -> Void):Void {}
+function _runtime_procPin():stdgo.StdGoTypes.GoInt return 0;
+function _runtime_procUnpin():Void {}
 /**
     //go:linkname runtime_LoadAcquintptr runtime/internal/atomic.LoadAcquintptr
 **/
-function _runtime_LoadAcquintptr(_ptr:stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>):stdgo.StdGoTypes.GoUIntptr throw ":sync._runtime_LoadAcquintptr is not yet implemented";
+function _runtime_LoadAcquintptr(_ptr:stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>):stdgo.StdGoTypes.GoUIntptr {
+        trace("funclit");
+        throw "not implemented: _runtime_LoadAcquintptr";
+    }
 /**
     //go:linkname runtime_StoreReluintptr runtime/internal/atomic.StoreReluintptr
 **/
-function _runtime_StoreReluintptr(_ptr:stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>, _val:stdgo.StdGoTypes.GoUIntptr):stdgo.StdGoTypes.GoUIntptr throw ":sync._runtime_StoreReluintptr is not yet implemented";
-function _storePoolChainElt(_pp:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<T_poolChainElt>>, _v:stdgo.StdGoTypes.Ref<T_poolChainElt>):Void throw ":sync._storePoolChainElt is not yet implemented";
-function _loadPoolChainElt(_pp:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<T_poolChainElt>>):stdgo.StdGoTypes.Ref<T_poolChainElt> throw ":sync._loadPoolChainElt is not yet implemented";
+function _runtime_StoreReluintptr(_ptr:stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>, _val:stdgo.StdGoTypes.GoUIntptr):stdgo.StdGoTypes.GoUIntptr {
+        trace("funclit");
+        throw "not implemented: _runtime_StoreReluintptr";
+    }
+function _storePoolChainElt(_pp:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<T_poolChainElt>>, _v:stdgo.StdGoTypes.Ref<T_poolChainElt>):Void {
+        stdgo.sync.atomic.Atomic.storePointer(((stdgo.Go.toInterface(_pp) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) })) : stdgo.Pointer<stdgo.unsafe.Unsafe.UnsafePointer>), (stdgo.Go.toInterface(_v) : stdgo.unsafe.Unsafe.UnsafePointer));
+    }
+function _loadPoolChainElt(_pp:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<T_poolChainElt>>):stdgo.StdGoTypes.Ref<T_poolChainElt> {
+        return (stdgo.sync.atomic.Atomic.loadPointer(((stdgo.Go.toInterface(_pp) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) })) : stdgo.Pointer<stdgo.unsafe.Unsafe.UnsafePointer>)).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_poolDequeue", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolDequeue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_headTail", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "_vals", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_eface", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }, { name : "_val", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_next", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_prev", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<T_poolChainElt>);
+    }
 /**
     // Semacquire waits until *s > 0 and then atomically decrements it.
     // It is intended as a simple sleep primitive for use by the synchronization
     // library and should not be used directly.
 **/
-function _runtime_Semacquire(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>):Void throw ":sync._runtime_Semacquire is not yet implemented";
+function _runtime_Semacquire(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>):Void {}
 /**
     // Semacquire(RW)Mutex(R) is like Semacquire, but for profiling contended
     // Mutexes and RWMutexes.
@@ -894,9 +993,9 @@ function _runtime_Semacquire(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>):Void t
     // the reason for waiting in a backtrace, and is used to compute some metrics.
     // Otherwise they're functionally identical.
 **/
-function _runtime_SemacquireMutex(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _lifo:Bool, _skipframes:stdgo.StdGoTypes.GoInt):Void throw ":sync._runtime_SemacquireMutex is not yet implemented";
-function _runtime_SemacquireRWMutexR(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _lifo:Bool, _skipframes:stdgo.StdGoTypes.GoInt):Void throw ":sync._runtime_SemacquireRWMutexR is not yet implemented";
-function _runtime_SemacquireRWMutex(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _lifo:Bool, _skipframes:stdgo.StdGoTypes.GoInt):Void throw ":sync._runtime_SemacquireRWMutex is not yet implemented";
+function _runtime_SemacquireMutex(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _lifo:Bool, _skipframes:stdgo.StdGoTypes.GoInt):Void {}
+function _runtime_SemacquireRWMutexR(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _lifo:Bool, _skipframes:stdgo.StdGoTypes.GoInt):Void {}
+function _runtime_SemacquireRWMutex(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _lifo:Bool, _skipframes:stdgo.StdGoTypes.GoInt):Void {}
 /**
     // Semrelease atomically increments *s and notifies a waiting goroutine
     // if one is blocked in Semacquire.
@@ -906,37 +1005,46 @@ function _runtime_SemacquireRWMutex(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>,
     // skipframes is the number of frames to omit during tracing, counting from
     // runtime_Semrelease's caller.
 **/
-function _runtime_Semrelease(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _handoff:Bool, _skipframes:stdgo.StdGoTypes.GoInt):Void throw ":sync._runtime_Semrelease is not yet implemented";
+function _runtime_Semrelease(_s:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _handoff:Bool, _skipframes:stdgo.StdGoTypes.GoInt):Void {}
 /**
     // See runtime/sema.go for documentation.
 **/
-function _runtime_notifyListAdd(_l:stdgo.StdGoTypes.Ref<T_notifyList>):stdgo.StdGoTypes.GoUInt32 throw ":sync._runtime_notifyListAdd is not yet implemented";
+function _runtime_notifyListAdd(_l:stdgo.StdGoTypes.Ref<T_notifyList>):stdgo.StdGoTypes.GoUInt32 {
+        trace("funclit");
+        throw "not implemented: _runtime_notifyListAdd";
+    }
 /**
     // See runtime/sema.go for documentation.
 **/
-function _runtime_notifyListWait(_l:stdgo.StdGoTypes.Ref<T_notifyList>, _t:stdgo.StdGoTypes.GoUInt32):Void throw ":sync._runtime_notifyListWait is not yet implemented";
+function _runtime_notifyListWait(_l:stdgo.StdGoTypes.Ref<T_notifyList>, _t:stdgo.StdGoTypes.GoUInt32):Void {}
 /**
     // See runtime/sema.go for documentation.
 **/
-function _runtime_notifyListNotifyAll(_l:stdgo.StdGoTypes.Ref<T_notifyList>):Void throw ":sync._runtime_notifyListNotifyAll is not yet implemented";
+function _runtime_notifyListNotifyAll(_l:stdgo.StdGoTypes.Ref<T_notifyList>):Void {}
 /**
     // See runtime/sema.go for documentation.
 **/
-function _runtime_notifyListNotifyOne(_l:stdgo.StdGoTypes.Ref<T_notifyList>):Void throw ":sync._runtime_notifyListNotifyOne is not yet implemented";
+function _runtime_notifyListNotifyOne(_l:stdgo.StdGoTypes.Ref<T_notifyList>):Void {}
 /**
     // Ensure that sync and runtime agree on size of notifyList.
 **/
-function _runtime_notifyListCheck(_size:stdgo.StdGoTypes.GoUIntptr):Void throw ":sync._runtime_notifyListCheck is not yet implemented";
+function _runtime_notifyListCheck(_size:stdgo.StdGoTypes.GoUIntptr):Void {}
 /**
     // Active spinning runtime support.
     // runtime_canSpin reports whether spinning makes sense at the moment.
 **/
-function _runtime_canSpin(_i:stdgo.StdGoTypes.GoInt):Bool throw ":sync._runtime_canSpin is not yet implemented";
+function _runtime_canSpin(_i:stdgo.StdGoTypes.GoInt):Bool {
+        trace("funclit");
+        throw "not implemented: _runtime_canSpin";
+    }
 /**
     // runtime_doSpin does active spinning.
 **/
-function _runtime_doSpin():Void throw ":sync._runtime_doSpin is not yet implemented";
-function _runtime_nanotime():stdgo.StdGoTypes.GoInt64 throw ":sync._runtime_nanotime is not yet implemented";
+function _runtime_doSpin():Void {}
+function _runtime_nanotime():stdgo.StdGoTypes.GoInt64 {
+        trace("funclit");
+        throw "not implemented: _runtime_nanotime";
+    }
 /**
     // syscall_hasWaitingReaders reports whether any goroutine is waiting
     // to acquire a read lock on rw. This exists because syscall.ForkLock
@@ -947,7 +1055,18 @@ function _runtime_nanotime():stdgo.StdGoTypes.GoInt64 throw ":sync._runtime_nano
     //
     //go:linkname syscall_hasWaitingReaders syscall.hasWaitingReaders
 **/
-function _syscall_hasWaitingReaders(_rw:stdgo.StdGoTypes.Ref<RWMutex>):Bool throw ":sync._syscall_hasWaitingReaders is not yet implemented";
+function _syscall_hasWaitingReaders(_rw:stdgo.StdGoTypes.Ref<RWMutex>):Bool {
+        var _r:stdgo.StdGoTypes.GoInt32 = _rw._readerCount.load();
+        return (_r < (0 : stdgo.StdGoTypes.GoInt32)) && ((_r + (1073741824 : stdgo.StdGoTypes.GoInt32)) > (0 : stdgo.StdGoTypes.GoInt32));
+    }
+@:keep var _ = {
+        try {
+            _runtime_registerPoolCleanup(_poolCleanup);
+            var _n:T_notifyList = ({} : stdgo.sync.Sync.T_notifyList);
+            _runtime_notifyListCheck(stdgo.unsafe.Unsafe.sizeof(stdgo.Go.toInterface(_n)));
+        } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
+        true;
+    };
 class Cond_asInterface {
     /**
         // Broadcast wakes all goroutines waiting on c.
@@ -1003,7 +1122,11 @@ class Cond_asInterface {
         // during the call.
     **/
     @:keep
-    static public function broadcast( _c:stdgo.StdGoTypes.Ref<Cond>):Void throw "Cond:sync.broadcast is not yet implemented";
+    static public function broadcast( _c:stdgo.StdGoTypes.Ref<Cond>):Void {
+        @:recv var _c:stdgo.StdGoTypes.Ref<Cond> = _c;
+        _c._checker._check(stdgo.Go.pointer(_c._checker));
+        _runtime_notifyListNotifyAll((stdgo.Go.setRef(_c._notify) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_notifyList>));
+    }
     /**
         // Signal wakes one goroutine waiting on c, if there is any.
         //
@@ -1014,7 +1137,11 @@ class Cond_asInterface {
         // are attempting to lock c.L, they may be awoken before a "waiting" goroutine.
     **/
     @:keep
-    static public function signal( _c:stdgo.StdGoTypes.Ref<Cond>):Void throw "Cond:sync.signal is not yet implemented";
+    static public function signal( _c:stdgo.StdGoTypes.Ref<Cond>):Void {
+        @:recv var _c:stdgo.StdGoTypes.Ref<Cond> = _c;
+        _c._checker._check(stdgo.Go.pointer(_c._checker));
+        _runtime_notifyListNotifyOne((stdgo.Go.setRef(_c._notify) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_notifyList>));
+    }
     /**
         // Wait atomically unlocks c.L and suspends execution
         // of the calling goroutine. After later resuming execution,
@@ -1033,7 +1160,14 @@ class Cond_asInterface {
         //	c.L.Unlock()
     **/
     @:keep
-    static public function wait_( _c:stdgo.StdGoTypes.Ref<Cond>):Void throw "Cond:sync.wait_ is not yet implemented";
+    static public function wait_( _c:stdgo.StdGoTypes.Ref<Cond>):Void {
+        @:recv var _c:stdgo.StdGoTypes.Ref<Cond> = _c;
+        _c._checker._check(stdgo.Go.pointer(_c._checker));
+        var _t:stdgo.StdGoTypes.GoUInt32 = _runtime_notifyListAdd((stdgo.Go.setRef(_c._notify) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_notifyList>));
+        _c.l.unlock();
+        _runtime_notifyListWait((stdgo.Go.setRef(_c._notify) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_notifyList>), _t);
+        _c.l.lock();
+    }
 }
 class T_noCopy_asInterface {
     @:keep
@@ -1053,12 +1187,16 @@ class T_noCopy_asInterface {
 }
 @:keep @:allow(stdgo.sync.Sync.T_noCopy_asInterface) class T_noCopy_static_extension {
     @:keep
-    static public function unlock( _:stdgo.StdGoTypes.Ref<T_noCopy>):Void throw "T_noCopy:sync.unlock is not yet implemented";
+    static public function unlock( _:stdgo.StdGoTypes.Ref<T_noCopy>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<T_noCopy> = _;
+    }
     /**
         // Lock is a no-op used by -copylocks checker from `go vet`.
     **/
     @:keep
-    static public function lock( _:stdgo.StdGoTypes.Ref<T_noCopy>):Void throw "T_noCopy:sync.lock is not yet implemented";
+    static public function lock( _:stdgo.StdGoTypes.Ref<T_noCopy>):Void {
+        @:recv var _:stdgo.StdGoTypes.Ref<T_noCopy> = _;
+    }
 }
 class Map__asInterface {
     @:keep
@@ -1144,9 +1282,20 @@ class Map__asInterface {
 }
 @:keep @:allow(stdgo.sync.Sync.Map__asInterface) class Map__static_extension {
     @:keep
-    static public function _dirtyLocked( _m:stdgo.StdGoTypes.Ref<Map_>):Void throw "Map_:sync._dirtyLocked is not yet implemented";
+    static public function _dirtyLocked( _m:stdgo.StdGoTypes.Ref<Map_>):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+    }
     @:keep
-    static public function _missLocked( _m:stdgo.StdGoTypes.Ref<Map_>):Void throw "Map_:sync._missLocked is not yet implemented";
+    static public function _missLocked( _m:stdgo.StdGoTypes.Ref<Map_>):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+        _m._misses++;
+        if (_m._misses < (_m._dirty.length)) {
+            return;
+        };
+        _m._read.store(({} : stdgo.sync.Sync.T_readOnly), (stdgo.Go.setRef(({ _m : _m._dirty } : T_readOnly)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_readOnly>));
+        _m._dirty = (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>>);
+        _m._misses = (0 : stdgo.StdGoTypes.GoInt);
+    }
     /**
         // Range calls f sequentially for each key and value present in the map.
         // If f returns false, range stops the iteration.
@@ -1161,7 +1310,30 @@ class Map__asInterface {
         // false after a constant number of calls.
     **/
     @:keep
-    static public function range( _m:stdgo.StdGoTypes.Ref<Map_>, _f:(_key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface) -> Bool):Void throw "Map_:sync.range is not yet implemented";
+    static public function range( _m:stdgo.StdGoTypes.Ref<Map_>, _f:(_key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface) -> Bool):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+        var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        if (_read._amended) {
+            _m._mu.lock();
+            _read = _m._loadReadOnly()?.__copy__();
+            if (_read._amended) {
+                _read = ({ _m : _m._dirty } : T_readOnly);
+                _m._read.store(({} : stdgo.sync.Sync.T_readOnly), (stdgo.Go.setRef(_read) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_readOnly>));
+                _m._dirty = (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>>);
+                _m._misses = (0 : stdgo.StdGoTypes.GoInt);
+            };
+            _m._mu.unlock();
+        };
+        for (_k => _e in _read._m) {
+            var __tmp__ = _e._load(), _v:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+            if (!_ok) {
+                continue;
+            };
+            if (!_f(_k, _v)) {
+                break;
+            };
+        };
+    }
     /**
         // CompareAndDelete deletes the entry for key if its value is equal to old.
         // The old value must be of a comparable type.
@@ -1170,52 +1342,319 @@ class Map__asInterface {
         // returns false (even if the old value is the nil interface value).
     **/
     @:keep
-    static public function compareAndDelete( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface, _old:stdgo.StdGoTypes.AnyInterface):Bool throw "Map_:sync.compareAndDelete is not yet implemented";
+    static public function compareAndDelete( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface, _old:stdgo.StdGoTypes.AnyInterface):Bool {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+        var _deleted:Bool = false;
+        var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        if (!_ok && _read._amended) {
+            _m._mu.lock();
+            _read = _m._loadReadOnly()?.__copy__();
+            {
+                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
+                _e = __tmp__.value;
+                _ok = __tmp__.ok;
+            };
+            if (!_ok && _read._amended) {
+                {
+                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
+                    _e = __tmp__.value;
+                    _ok = __tmp__.ok;
+                };
+                _m._missLocked();
+            };
+            _m._mu.unlock();
+        };
+        while (_ok) {
+            var _p = _e._p.load((null : stdgo.StdGoTypes.AnyInterface));
+            if ((((_p == null) || (_p : Dynamic).__nil__) || (_p == _expunged)) || ((_p : stdgo.StdGoTypes.AnyInterface) != _old)) {
+                return false;
+            };
+            if (_e._p.compareAndSwap((null : stdgo.StdGoTypes.AnyInterface), _p, (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>))) {
+                return true;
+            };
+        };
+        return false;
+    }
     /**
         // CompareAndSwap swaps the old and new values for key
         // if the value stored in the map is equal to old.
         // The old value must be of a comparable type.
     **/
     @:keep
-    static public function compareAndSwap( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface, _old:stdgo.StdGoTypes.AnyInterface, _new:stdgo.StdGoTypes.AnyInterface):Bool throw "Map_:sync.compareAndSwap is not yet implemented";
+    static public function compareAndSwap( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface, _old:stdgo.StdGoTypes.AnyInterface, _new:stdgo.StdGoTypes.AnyInterface):Bool {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+        var __deferstack__:Array<Void -> Void> = [];
+        var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        try {
+            {
+                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                if (_ok) {
+                    return _e._tryCompareAndSwap(_old, _new);
+                } else if (!_read._amended) {
+                    return false;
+                };
+            };
+            _m._mu.lock();
+            __deferstack__.unshift(() -> _m._mu.unlock());
+            _read = _m._loadReadOnly()?.__copy__();
+            var _swapped:Bool = false;
+            {
+                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                if (_ok) {
+                    _swapped = _e._tryCompareAndSwap(_old, _new);
+                } else {
+                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                    if (_ok) {
+                        _swapped = _e._tryCompareAndSwap(_old, _new);
+                        _m._missLocked();
+                    };
+                };
+            };
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                return _swapped;
+            };
+            for (defer in __deferstack__) {
+                defer();
+            };
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return false;
+            };
+        } catch(__exception__) {
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                exe = stdgo.Go.toInterface(__exception__.message);
+            };
+            stdgo.Go.recover_exception = exe;
+            for (defer in __deferstack__) {
+                defer();
+            };
+            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+            return false;
+        };
+    }
     /**
         // Swap swaps the value for a key and returns the previous value if any.
         // The loaded result reports whether the key was present.
     **/
     @:keep
-    static public function swap( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "Map_:sync.swap is not yet implemented";
+    static public function swap( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+        var _previous:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
+        var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        {
+            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+            if (_ok) {
+                {
+                    var __tmp__ = _e._trySwap((stdgo.Go.setRef(_value) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>)), _v:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface> = __tmp__._0, _ok:Bool = __tmp__._1;
+                    if (_ok) {
+                        if (_v == null || (_v : Dynamic).__nil__) {
+                            return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false };
+                        };
+                        return { _0 : (_v : stdgo.StdGoTypes.AnyInterface), _1 : true };
+                    };
+                };
+            };
+        };
+        _m._mu.lock();
+        _read = _m._loadReadOnly()?.__copy__();
+        {
+            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+            if (_ok) {
+                if (_e._unexpungeLocked()) {
+                    _m._dirty[_key] = _e;
+                };
+                {
+                    var _v = _e._swapLocked((stdgo.Go.setRef(_value) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>));
+                    if (_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__)) {
+                        _loaded = true;
+                        _previous = (_v : stdgo.StdGoTypes.AnyInterface);
+                    };
+                };
+            } else {
+                var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                if (_ok) {
+                    {
+                        var _v = _e._swapLocked((stdgo.Go.setRef(_value) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>));
+                        if (_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__)) {
+                            _loaded = true;
+                            _previous = (_v : stdgo.StdGoTypes.AnyInterface);
+                        };
+                    };
+                } else {
+                    if (!_read._amended) {
+                        _m._dirtyLocked();
+                        _m._read.store(({} : stdgo.sync.Sync.T_readOnly), (stdgo.Go.setRef(({ _m : _read._m, _amended : true } : T_readOnly)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_readOnly>));
+                    };
+                    _m._dirty[_key] = _newEntry(_value);
+                };
+            };
+        };
+        _m._mu.unlock();
+        return { _0 : _previous, _1 : _loaded };
+    }
     /**
         // Delete deletes the value for a key.
     **/
     @:keep
-    static public function delete( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface):Void throw "Map_:sync.delete is not yet implemented";
+    static public function delete( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+        _m.loadAndDelete(_key);
+    }
     /**
         // LoadAndDelete deletes the value for a key, returning the previous value if any.
         // The loaded result reports whether the key was present.
     **/
     @:keep
-    static public function loadAndDelete( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "Map_:sync.loadAndDelete is not yet implemented";
+    static public function loadAndDelete( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+        var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
+        var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        if (!_ok && _read._amended) {
+            _m._mu.lock();
+            _read = _m._loadReadOnly()?.__copy__();
+            {
+                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
+                _e = __tmp__.value;
+                _ok = __tmp__.ok;
+            };
+            if (!_ok && _read._amended) {
+                {
+                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
+                    _e = __tmp__.value;
+                    _ok = __tmp__.ok;
+                };
+                if (_m._dirty != null) _m._dirty.remove(_key);
+                _m._missLocked();
+            };
+            _m._mu.unlock();
+        };
+        if (_ok) {
+            return _e._delete();
+        };
+        return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false };
+    }
     /**
         // LoadOrStore returns the existing value for the key if present.
         // Otherwise, it stores and returns the given value.
         // The loaded result is true if the value was loaded, false if stored.
     **/
     @:keep
-    static public function loadOrStore( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "Map_:sync.loadOrStore is not yet implemented";
+    static public function loadOrStore( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+        var _actual:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false;
+        var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        {
+            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+            if (_ok) {
+                var __tmp__ = _e._tryLoadOrStore(_value), _actual:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1, _ok:Bool = __tmp__._2;
+                if (_ok) {
+                    return { _0 : _actual, _1 : _loaded };
+                };
+            };
+        };
+        _m._mu.lock();
+        _read = _m._loadReadOnly()?.__copy__();
+        {
+            var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+            if (_ok) {
+                if (_e._unexpungeLocked()) {
+                    _m._dirty[_key] = _e;
+                };
+                {
+                    var __tmp__ = _e._tryLoadOrStore(_value);
+                    _actual = __tmp__._0;
+                    _loaded = __tmp__._1;
+                };
+            } else {
+                var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                if (_ok) {
+                    {
+                        var __tmp__ = _e._tryLoadOrStore(_value);
+                        _actual = __tmp__._0;
+                        _loaded = __tmp__._1;
+                    };
+                    _m._missLocked();
+                } else {
+                    if (!_read._amended) {
+                        _m._dirtyLocked();
+                        _m._read.store(({} : stdgo.sync.Sync.T_readOnly), (stdgo.Go.setRef(({ _m : _read._m, _amended : true } : T_readOnly)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_readOnly>));
+                    };
+                    _m._dirty[_key] = _newEntry(_value);
+                    {
+                        final __tmp__0 = _value;
+                        final __tmp__1 = false;
+                        _actual = __tmp__0;
+                        _loaded = __tmp__1;
+                    };
+                };
+            };
+        };
+        _m._mu.unlock();
+        return { _0 : _actual, _1 : _loaded };
+    }
     /**
         // Store sets the value for a key.
     **/
     @:keep
-    static public function store( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):Void throw "Map_:sync.store is not yet implemented";
+    static public function store( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface, _value:stdgo.StdGoTypes.AnyInterface):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+        _m.swap(_key, _value);
+    }
     /**
         // Load returns the value stored in the map for a key, or nil if no
         // value is present.
         // The ok result indicates whether value was found in the map.
     **/
     @:keep
-    static public function load( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "Map_:sync.load is not yet implemented";
+    static public function load( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+        var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _ok:Bool = false;
+        var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        if (!_ok && _read._amended) {
+            _m._mu.lock();
+            _read = _m._loadReadOnly()?.__copy__();
+            {
+                var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
+                _e = __tmp__.value;
+                _ok = __tmp__.ok;
+            };
+            if (!_ok && _read._amended) {
+                {
+                    var __tmp__ = (_m._dirty != null && _m._dirty.exists(_key) ? { value : _m._dirty[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false });
+                    _e = __tmp__.value;
+                    _ok = __tmp__.ok;
+                };
+                _m._missLocked();
+            };
+            _m._mu.unlock();
+        };
+        if (!_ok) {
+            return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false };
+        };
+        return _e._load();
+    }
     @:keep
-    static public function _loadReadOnly( _m:stdgo.StdGoTypes.Ref<Map_>):T_readOnly throw "Map_:sync._loadReadOnly is not yet implemented";
+    static public function _loadReadOnly( _m:stdgo.StdGoTypes.Ref<Map_>):T_readOnly {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
+        {
+            var _p = _m._read.load(({} : stdgo.sync.Sync.T_readOnly));
+            if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
+                return (_p : stdgo.sync.Sync.T_readOnly)?.__copy__();
+            };
+        };
+        return (new T_readOnly() : T_readOnly);
+    }
 }
 class T_entry_asInterface {
     @:keep
@@ -1276,7 +1715,18 @@ class T_entry_asInterface {
 }
 @:keep @:allow(stdgo.sync.Sync.T_entry_asInterface) class T_entry_static_extension {
     @:keep
-    static public function _tryExpungeLocked( _e:stdgo.StdGoTypes.Ref<T_entry>):Bool throw "T_entry:sync._tryExpungeLocked is not yet implemented";
+    static public function _tryExpungeLocked( _e:stdgo.StdGoTypes.Ref<T_entry>):Bool {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_entry> = _e;
+        var _isExpunged:Bool = false;
+        var _p = _e._p.load((null : stdgo.StdGoTypes.AnyInterface));
+        while (_p == null || (_p : Dynamic).__nil__) {
+            if (_e._p.compareAndSwap((null : stdgo.StdGoTypes.AnyInterface), (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>), _expunged)) {
+                return true;
+            };
+            _p = _e._p.load((null : stdgo.StdGoTypes.AnyInterface));
+        };
+        return _p == (_expunged);
+    }
     /**
         // trySwap swaps a value if the entry has not been expunged.
         //
@@ -1284,9 +1734,32 @@ class T_entry_asInterface {
         // unchanged.
     **/
     @:keep
-    static public function _trySwap( _e:stdgo.StdGoTypes.Ref<T_entry>, _i:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>; var _1 : Bool; } throw "T_entry:sync._trySwap is not yet implemented";
+    static public function _trySwap( _e:stdgo.StdGoTypes.Ref<T_entry>, _i:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>; var _1 : Bool; } {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_entry> = _e;
+        while (true) {
+            var _p = _e._p.load((null : stdgo.StdGoTypes.AnyInterface));
+            if (_p == (_expunged)) {
+                return { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>), _1 : false };
+            };
+            if (_e._p.compareAndSwap((null : stdgo.StdGoTypes.AnyInterface), _p, _i)) {
+                return { _0 : _p, _1 : true };
+            };
+        };
+    }
     @:keep
-    static public function _delete( _e:stdgo.StdGoTypes.Ref<T_entry>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "T_entry:sync._delete is not yet implemented";
+    static public function _delete( _e:stdgo.StdGoTypes.Ref<T_entry>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_entry> = _e;
+        var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _ok:Bool = false;
+        while (true) {
+            var _p = _e._p.load((null : stdgo.StdGoTypes.AnyInterface));
+            if (((_p == null) || (_p : Dynamic).__nil__) || (_p == _expunged)) {
+                return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false };
+            };
+            if (_e._p.compareAndSwap((null : stdgo.StdGoTypes.AnyInterface), _p, (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>))) {
+                return { _0 : (_p : stdgo.StdGoTypes.AnyInterface), _1 : true };
+            };
+        };
+    }
     /**
         // tryLoadOrStore atomically loads or stores a value if the entry is not
         // expunged.
@@ -1295,14 +1768,40 @@ class T_entry_asInterface {
         // returns with ok==false.
     **/
     @:keep
-    static public function _tryLoadOrStore( _e:stdgo.StdGoTypes.Ref<T_entry>, _i:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; var _2 : Bool; } throw "T_entry:sync._tryLoadOrStore is not yet implemented";
+    static public function _tryLoadOrStore( _e:stdgo.StdGoTypes.Ref<T_entry>, _i:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; var _2 : Bool; } {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_entry> = _e;
+        var _actual:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _loaded:Bool = false, _ok:Bool = false;
+        var _p = _e._p.load((null : stdgo.StdGoTypes.AnyInterface));
+        if (_p == (_expunged)) {
+            return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false, _2 : false };
+        };
+        if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
+            return { _0 : (_p : stdgo.StdGoTypes.AnyInterface), _1 : true, _2 : true };
+        };
+        var _ic:stdgo.StdGoTypes.AnyInterface = _i;
+        while (true) {
+            if (_e._p.compareAndSwap((null : stdgo.StdGoTypes.AnyInterface), (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>), (stdgo.Go.setRef(_ic) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>))) {
+                return { _0 : _i, _1 : false, _2 : true };
+            };
+            _p = _e._p.load((null : stdgo.StdGoTypes.AnyInterface));
+            if (_p == (_expunged)) {
+                return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false, _2 : false };
+            };
+            if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
+                return { _0 : (_p : stdgo.StdGoTypes.AnyInterface), _1 : true, _2 : true };
+            };
+        };
+    }
     /**
         // swapLocked unconditionally swaps a value into the entry.
         //
         // The entry must be known not to be expunged.
     **/
     @:keep
-    static public function _swapLocked( _e:stdgo.StdGoTypes.Ref<T_entry>, _i:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>):stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface> throw "T_entry:sync._swapLocked is not yet implemented";
+    static public function _swapLocked( _e:stdgo.StdGoTypes.Ref<T_entry>, _i:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>):stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface> {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_entry> = _e;
+        return _e._p.swap((null : stdgo.StdGoTypes.AnyInterface), _i);
+    }
     /**
         // unexpungeLocked ensures that the entry is not marked as expunged.
         //
@@ -1310,7 +1809,11 @@ class T_entry_asInterface {
         // before m.mu is unlocked.
     **/
     @:keep
-    static public function _unexpungeLocked( _e:stdgo.StdGoTypes.Ref<T_entry>):Bool throw "T_entry:sync._unexpungeLocked is not yet implemented";
+    static public function _unexpungeLocked( _e:stdgo.StdGoTypes.Ref<T_entry>):Bool {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_entry> = _e;
+        var _wasExpunged:Bool = false;
+        return _e._p.compareAndSwap((null : stdgo.StdGoTypes.AnyInterface), _expunged, (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>));
+    }
     /**
         // tryCompareAndSwap compare the entry with the given old value and swaps
         // it with a new value if the entry is equal to the old value, and the entry
@@ -1320,9 +1823,33 @@ class T_entry_asInterface {
         // the entry unchanged.
     **/
     @:keep
-    static public function _tryCompareAndSwap( _e:stdgo.StdGoTypes.Ref<T_entry>, _old:stdgo.StdGoTypes.AnyInterface, _new:stdgo.StdGoTypes.AnyInterface):Bool throw "T_entry:sync._tryCompareAndSwap is not yet implemented";
+    static public function _tryCompareAndSwap( _e:stdgo.StdGoTypes.Ref<T_entry>, _old:stdgo.StdGoTypes.AnyInterface, _new:stdgo.StdGoTypes.AnyInterface):Bool {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_entry> = _e;
+        var _p = _e._p.load((null : stdgo.StdGoTypes.AnyInterface));
+        if ((((_p == null) || (_p : Dynamic).__nil__) || (_p == _expunged)) || ((_p : stdgo.StdGoTypes.AnyInterface) != _old)) {
+            return false;
+        };
+        var _nc:stdgo.StdGoTypes.AnyInterface = _new;
+        while (true) {
+            if (_e._p.compareAndSwap((null : stdgo.StdGoTypes.AnyInterface), _p, (stdgo.Go.setRef(_nc) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>))) {
+                return true;
+            };
+            _p = _e._p.load((null : stdgo.StdGoTypes.AnyInterface));
+            if ((((_p == null) || (_p : Dynamic).__nil__) || (_p == _expunged)) || ((_p : stdgo.StdGoTypes.AnyInterface) != _old)) {
+                return false;
+            };
+        };
+    }
     @:keep
-    static public function _load( _e:stdgo.StdGoTypes.Ref<T_entry>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "T_entry:sync._load is not yet implemented";
+    static public function _load( _e:stdgo.StdGoTypes.Ref<T_entry>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _e:stdgo.StdGoTypes.Ref<T_entry> = _e;
+        var _value:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), _ok:Bool = false;
+        var _p = _e._p.load((null : stdgo.StdGoTypes.AnyInterface));
+        if (((_p == null) || (_p : Dynamic).__nil__) || (_p == _expunged)) {
+            return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false };
+        };
+        return { _0 : (_p : stdgo.StdGoTypes.AnyInterface), _1 : true };
+    }
 }
 class Mutex_asInterface {
     @:keep
@@ -1365,7 +1892,28 @@ class Mutex_asInterface {
 }
 @:keep @:allow(stdgo.sync.Sync.Mutex_asInterface) class Mutex_static_extension {
     @:keep
-    static public function _unlockSlow( _m:stdgo.StdGoTypes.Ref<Mutex>, _new:stdgo.StdGoTypes.GoInt32):Void throw "Mutex:sync._unlockSlow is not yet implemented";
+    static public function _unlockSlow( _m:stdgo.StdGoTypes.Ref<Mutex>, _new:stdgo.StdGoTypes.GoInt32):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Mutex> = _m;
+        if ((_new + (1 : stdgo.StdGoTypes.GoInt32)) & (1 : stdgo.StdGoTypes.GoInt32) == ((0 : stdgo.StdGoTypes.GoInt32))) {
+            _fatal(("sync: unlock of unlocked mutex" : stdgo.GoString)?.__copy__());
+        };
+        if (_new & (4 : stdgo.StdGoTypes.GoInt32) == ((0 : stdgo.StdGoTypes.GoInt32))) {
+            var _old:stdgo.StdGoTypes.GoInt32 = _new;
+            while (true) {
+                if (((_old >> (3i64 : stdgo.StdGoTypes.GoUInt64)) == (0 : stdgo.StdGoTypes.GoInt32)) || ((_old & (7 : stdgo.StdGoTypes.GoInt32)) != (0 : stdgo.StdGoTypes.GoInt32))) {
+                    return;
+                };
+                _new = (_old - (8 : stdgo.StdGoTypes.GoInt32)) | (2 : stdgo.StdGoTypes.GoInt32);
+                if (stdgo.sync.atomic.Atomic.compareAndSwapInt32(stdgo.Go.pointer(_m._state), _old, _new)) {
+                    _runtime_Semrelease(stdgo.Go.pointer(_m._sema), false, (1 : stdgo.StdGoTypes.GoInt));
+                    return;
+                };
+                _old = _m._state;
+            };
+        } else {
+            _runtime_Semrelease(stdgo.Go.pointer(_m._sema), true, (1 : stdgo.StdGoTypes.GoInt));
+        };
+    }
     /**
         // Unlock unlocks m.
         // It is a run-time error if m is not locked on entry to Unlock.
@@ -1377,7 +1925,71 @@ class Mutex_asInterface {
     @:keep
     static public function unlock( _m:stdgo.StdGoTypes.Ref<Mutex>):Void @:privateAccess #if !js _m.mutex.release() #else null #end;
     @:keep
-    static public function _lockSlow( _m:stdgo.StdGoTypes.Ref<Mutex>):Void throw "Mutex:sync._lockSlow is not yet implemented";
+    static public function _lockSlow( _m:stdgo.StdGoTypes.Ref<Mutex>):Void {
+        @:recv var _m:stdgo.StdGoTypes.Ref<Mutex> = _m;
+        var _waitStartTime:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
+        var _starving:Bool = false;
+        var _awoke:Bool = false;
+        var _iter:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+        var _old:stdgo.StdGoTypes.GoInt32 = _m._state;
+        while (true) {
+            if (((_old & (5 : stdgo.StdGoTypes.GoInt32)) == (1 : stdgo.StdGoTypes.GoInt32)) && _runtime_canSpin(_iter)) {
+                if (((!_awoke && ((_old & (2 : stdgo.StdGoTypes.GoInt32)) == (0 : stdgo.StdGoTypes.GoInt32))) && ((_old >> (3i64 : stdgo.StdGoTypes.GoUInt64)) != (0 : stdgo.StdGoTypes.GoInt32))) && stdgo.sync.atomic.Atomic.compareAndSwapInt32(stdgo.Go.pointer(_m._state), _old, _old | (2 : stdgo.StdGoTypes.GoInt32))) {
+                    _awoke = true;
+                };
+                _runtime_doSpin();
+                _iter++;
+                _old = _m._state;
+                continue;
+            };
+            var _new:stdgo.StdGoTypes.GoInt32 = _old;
+            if (_old & (4 : stdgo.StdGoTypes.GoInt32) == ((0 : stdgo.StdGoTypes.GoInt32))) {
+                _new = _new | ((1 : stdgo.StdGoTypes.GoInt32));
+            };
+            if (_old & (5 : stdgo.StdGoTypes.GoInt32) != ((0 : stdgo.StdGoTypes.GoInt32))) {
+                _new = _new + ((8 : stdgo.StdGoTypes.GoInt32));
+            };
+            if (_starving && ((_old & (1 : stdgo.StdGoTypes.GoInt32)) != (0 : stdgo.StdGoTypes.GoInt32))) {
+                _new = _new | ((4 : stdgo.StdGoTypes.GoInt32));
+            };
+            if (_awoke) {
+                if (_new & (2 : stdgo.StdGoTypes.GoInt32) == ((0 : stdgo.StdGoTypes.GoInt32))) {
+                    _throw(("sync: inconsistent mutex state" : stdgo.GoString)?.__copy__());
+                };
+                _new = _new & ((2 : stdgo.StdGoTypes.GoInt32) ^ (-1i32 : stdgo.StdGoTypes.GoInt));
+            };
+            if (stdgo.sync.atomic.Atomic.compareAndSwapInt32(stdgo.Go.pointer(_m._state), _old, _new)) {
+                if (_old & (5 : stdgo.StdGoTypes.GoInt32) == ((0 : stdgo.StdGoTypes.GoInt32))) {
+                    break;
+                };
+                var _queueLifo:Bool = _waitStartTime != ((0i64 : stdgo.StdGoTypes.GoInt64));
+                if (_waitStartTime == ((0i64 : stdgo.StdGoTypes.GoInt64))) {
+                    _waitStartTime = _runtime_nanotime();
+                };
+                _runtime_SemacquireMutex(stdgo.Go.pointer(_m._sema), _queueLifo, (1 : stdgo.StdGoTypes.GoInt));
+                _starving = _starving || ((_runtime_nanotime() - _waitStartTime) > (1000000i64 : stdgo.StdGoTypes.GoInt64));
+                _old = _m._state;
+                if (_old & (4 : stdgo.StdGoTypes.GoInt32) != ((0 : stdgo.StdGoTypes.GoInt32))) {
+                    if (((_old & (3 : stdgo.StdGoTypes.GoInt32)) != (0 : stdgo.StdGoTypes.GoInt32)) || ((_old >> (3i64 : stdgo.StdGoTypes.GoUInt64)) == (0 : stdgo.StdGoTypes.GoInt32))) {
+                        _throw(("sync: inconsistent mutex state" : stdgo.GoString)?.__copy__());
+                    };
+                    var _delta:stdgo.StdGoTypes.GoInt32 = (-7 : stdgo.StdGoTypes.GoInt32);
+                    if (!_starving || ((_old >> (3i64 : stdgo.StdGoTypes.GoUInt64)) == (1 : stdgo.StdGoTypes.GoInt32))) {
+                        _delta = _delta - ((4 : stdgo.StdGoTypes.GoInt32));
+                    };
+                    stdgo.sync.atomic.Atomic.addInt32(stdgo.Go.pointer(_m._state), _delta);
+                    break;
+                };
+                _awoke = true;
+                _iter = (0 : stdgo.StdGoTypes.GoInt);
+            } else {
+                _old = _m._state;
+            };
+        };
+        if (false) {
+            stdgo.internal.race.Race.acquire((stdgo.Go.toInterface(_m) : stdgo.unsafe.Unsafe.UnsafePointer));
+        };
+    }
     /**
         // TryLock tries to lock m and reports whether it succeeded.
         //
@@ -1432,7 +2044,44 @@ class Once_asInterface {
 }
 @:keep @:allow(stdgo.sync.Sync.Once_asInterface) class Once_static_extension {
     @:keep
-    static public function _doSlow( _o:stdgo.StdGoTypes.Ref<Once>, _f:() -> Void):Void throw "Once:sync._doSlow is not yet implemented";
+    static public function _doSlow( _o:stdgo.StdGoTypes.Ref<Once>, _f:() -> Void):Void {
+        @:recv var _o:stdgo.StdGoTypes.Ref<Once> = _o;
+        var __deferstack__:Array<Void -> Void> = [];
+        try {
+            _o._m.lock();
+            __deferstack__.unshift(() -> _o._m.unlock());
+            if (_o._done == ((0u32 : stdgo.StdGoTypes.GoUInt32))) {
+                {
+                    var _a0 = stdgo.Go.pointer(_o._done);
+                    var _a1 = (1u32 : stdgo.StdGoTypes.GoUInt32);
+                    __deferstack__.unshift(() -> stdgo.sync.atomic.Atomic.storeUint32(_a0, _a1));
+                };
+                _f();
+            };
+            for (defer in __deferstack__) {
+                defer();
+            };
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return;
+            };
+        } catch(__exception__) {
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                exe = stdgo.Go.toInterface(__exception__.message);
+            };
+            stdgo.Go.recover_exception = exe;
+            for (defer in __deferstack__) {
+                defer();
+            };
+            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+            return;
+        };
+    }
     /**
         // Do calls the function f if and only if Do is being called for the
         // first time for this instance of Once. In other words, given
@@ -1502,16 +2151,122 @@ class Pool_asInterface {
 }
 @:keep @:allow(stdgo.sync.Sync.Pool_asInterface) class Pool_static_extension {
     @:keep
-    static public function _pinSlow( _p:stdgo.StdGoTypes.Ref<Pool>):{ var _0 : stdgo.StdGoTypes.Ref<T_poolLocal>; var _1 : stdgo.StdGoTypes.GoInt; } throw "Pool:sync._pinSlow is not yet implemented";
+    static public function _pinSlow( _p:stdgo.StdGoTypes.Ref<Pool>):{ var _0 : stdgo.StdGoTypes.Ref<T_poolLocal>; var _1 : stdgo.StdGoTypes.GoInt; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<Pool> = _p;
+        var __deferstack__:Array<Void -> Void> = [];
+        _runtime_procUnpin();
+        _allPoolsMu.lock();
+        try {
+            __deferstack__.unshift(() -> _allPoolsMu.unlock());
+            var _pid:stdgo.StdGoTypes.GoInt = _runtime_procPin();
+            var _s:stdgo.StdGoTypes.GoUIntptr = _p._localSize;
+            var _l:stdgo.unsafe.Unsafe.UnsafePointer = _p._local;
+            if ((_pid : stdgo.StdGoTypes.GoUIntptr) < _s) {
+                {
+                    for (defer in __deferstack__) {
+                        defer();
+                    };
+                    return { _0 : _indexLocal(_l, _pid), _1 : _pid };
+                };
+            };
+            if (_p._local == null) {
+                _allPools = (_allPools.__append__(_p));
+            };
+            var _size:stdgo.StdGoTypes.GoInt = stdgo.runtime.Runtime.gomaxprocs((0 : stdgo.StdGoTypes.GoInt));
+            var _local = new stdgo.Slice<stdgo.sync.Sync.T_poolLocal>((_size : stdgo.StdGoTypes.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_size : stdgo.StdGoTypes.GoInt).toBasic() > 0 ? (_size : stdgo.StdGoTypes.GoInt).toBasic() : 0 : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.sync.Sync.T_poolLocal)]);
+            stdgo.sync.atomic.Atomic.storePointer(stdgo.Go.pointer(_p._local), (stdgo.Go.toInterface((stdgo.Go.setRef(_local[(0 : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolLocal>)) : stdgo.unsafe.Unsafe.UnsafePointer));
+            _runtime_StoreReluintptr(stdgo.Go.pointer(_p._localSize), (_size : stdgo.StdGoTypes.GoUIntptr));
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                return { _0 : (stdgo.Go.setRef(_local[(_pid : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolLocal>), _1 : _pid };
+            };
+            for (defer in __deferstack__) {
+                defer();
+            };
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolLocal>), _1 : (0 : stdgo.StdGoTypes.GoInt) };
+            };
+        } catch(__exception__) {
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                exe = stdgo.Go.toInterface(__exception__.message);
+            };
+            stdgo.Go.recover_exception = exe;
+            for (defer in __deferstack__) {
+                defer();
+            };
+            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+            return { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolLocal>), _1 : (0 : stdgo.StdGoTypes.GoInt) };
+        };
+    }
     /**
         // pin pins the current goroutine to P, disables preemption and
         // returns poolLocal pool for the P and the P's id.
         // Caller must call runtime_procUnpin() when done with the pool.
     **/
     @:keep
-    static public function _pin( _p:stdgo.StdGoTypes.Ref<Pool>):{ var _0 : stdgo.StdGoTypes.Ref<T_poolLocal>; var _1 : stdgo.StdGoTypes.GoInt; } throw "Pool:sync._pin is not yet implemented";
+    static public function _pin( _p:stdgo.StdGoTypes.Ref<Pool>):{ var _0 : stdgo.StdGoTypes.Ref<T_poolLocal>; var _1 : stdgo.StdGoTypes.GoInt; } {
+        @:recv var _p:stdgo.StdGoTypes.Ref<Pool> = _p;
+        var _pid:stdgo.StdGoTypes.GoInt = _runtime_procPin();
+        var _s:stdgo.StdGoTypes.GoUIntptr = _runtime_LoadAcquintptr(stdgo.Go.pointer(_p._localSize));
+        var _l:stdgo.unsafe.Unsafe.UnsafePointer = _p._local;
+        if ((_pid : stdgo.StdGoTypes.GoUIntptr) < _s) {
+            return { _0 : _indexLocal(_l, _pid), _1 : _pid };
+        };
+        return _p._pinSlow();
+    }
     @:keep
-    static public function _getSlow( _p:stdgo.StdGoTypes.Ref<Pool>, _pid:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.AnyInterface throw "Pool:sync._getSlow is not yet implemented";
+    static public function _getSlow( _p:stdgo.StdGoTypes.Ref<Pool>, _pid:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.AnyInterface {
+        @:recv var _p:stdgo.StdGoTypes.Ref<Pool> = _p;
+        var _size:stdgo.StdGoTypes.GoUIntptr = _runtime_LoadAcquintptr(stdgo.Go.pointer(_p._localSize));
+        var _locals:stdgo.unsafe.Unsafe.UnsafePointer = _p._local;
+        {
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < (_size : stdgo.StdGoTypes.GoInt), _i++, {
+                var _l = _indexLocal(_locals, ((_pid + _i) + (1 : stdgo.StdGoTypes.GoInt)) % (_size : stdgo.StdGoTypes.GoInt));
+                {
+                    var __tmp__ = _l._poolLocalInternal._shared._popTail(), _x:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __0:Bool = __tmp__._1;
+                    if (_x != null) {
+                        return _x;
+                    };
+                };
+            });
+        };
+        _size = stdgo.sync.atomic.Atomic.loadUintptr(stdgo.Go.pointer(_p._victimSize));
+        if ((_pid : stdgo.StdGoTypes.GoUIntptr) >= _size) {
+            return (null : stdgo.StdGoTypes.AnyInterface);
+        };
+        _locals = _p._victim;
+        var _l = _indexLocal(_locals, _pid);
+        {
+            var _x:stdgo.StdGoTypes.AnyInterface = _l._poolLocalInternal._private;
+            if (_x != null) {
+                _l._poolLocalInternal._private = (null : stdgo.StdGoTypes.AnyInterface);
+                return _x;
+            };
+        };
+        {
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < (_size : stdgo.StdGoTypes.GoInt), _i++, {
+                var _l = _indexLocal(_locals, (_pid + _i) % (_size : stdgo.StdGoTypes.GoInt));
+                {
+                    var __tmp__ = _l._poolLocalInternal._shared._popTail(), _x:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __1:Bool = __tmp__._1;
+                    if (_x != null) {
+                        return _x;
+                    };
+                };
+            });
+        };
+        stdgo.sync.atomic.Atomic.storeUintptr(stdgo.Go.pointer(_p._victimSize), (0 : stdgo.StdGoTypes.GoUIntptr));
+        return (null : stdgo.StdGoTypes.AnyInterface);
+    }
     /**
         // Get selects an arbitrary item from the Pool, removes it from the
         // Pool, and returns it to the caller.
@@ -1596,30 +2351,116 @@ class T_poolDequeue_asInterface {
         // number of consumers.
     **/
     @:keep
-    static public function _popTail( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "T_poolDequeue:sync._popTail is not yet implemented";
+    static public function _popTail( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_poolDequeue> = _d;
+        var _slot:stdgo.StdGoTypes.Ref<T_eface> = (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_eface>);
+        while (true) {
+            var _ptrs:stdgo.StdGoTypes.GoUInt64 = stdgo.sync.atomic.Atomic.loadUint64(stdgo.Go.pointer(_d._headTail));
+            var __tmp__ = _d._unpack(_ptrs), _head:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _tail:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
+            if (_tail == (_head)) {
+                return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false };
+            };
+            var _ptrs2:stdgo.StdGoTypes.GoUInt64 = _d._pack(_head, _tail + (1u32 : stdgo.StdGoTypes.GoUInt32));
+            if (stdgo.sync.atomic.Atomic.compareAndSwapUint64(stdgo.Go.pointer(_d._headTail), _ptrs, _ptrs2)) {
+                _slot = (stdgo.Go.setRef(_d._vals[(_tail & ((_d._vals.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoUInt32) : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_eface>);
+                break;
+            };
+        };
+        var _val:stdgo.StdGoTypes.AnyInterface = (((stdgo.Go.toInterface(_slot) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>) : stdgo.StdGoTypes.AnyInterface);
+        if (_val == (stdgo.Go.toInterface((new stdgo.sync.Sync.T_dequeueNil() : T_dequeueNil)))) {
+            _val = (null : stdgo.StdGoTypes.AnyInterface);
+        };
+        _slot._val = @:default_value null;
+        stdgo.sync.atomic.Atomic.storePointer(stdgo.Go.pointer(_slot._typ), @:default_value null);
+        return { _0 : _val, _1 : true };
+    }
     /**
         // popHead removes and returns the element at the head of the queue.
         // It returns false if the queue is empty. It must only be called by a
         // single producer.
     **/
     @:keep
-    static public function _popHead( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "T_poolDequeue:sync._popHead is not yet implemented";
+    static public function _popHead( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_poolDequeue> = _d;
+        var _slot:stdgo.StdGoTypes.Ref<T_eface> = (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_eface>);
+        while (true) {
+            var _ptrs:stdgo.StdGoTypes.GoUInt64 = stdgo.sync.atomic.Atomic.loadUint64(stdgo.Go.pointer(_d._headTail));
+            var __tmp__ = _d._unpack(_ptrs), _head:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _tail:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
+            if (_tail == (_head)) {
+                return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false };
+            };
+            _head--;
+            var _ptrs2:stdgo.StdGoTypes.GoUInt64 = _d._pack(_head, _tail);
+            if (stdgo.sync.atomic.Atomic.compareAndSwapUint64(stdgo.Go.pointer(_d._headTail), _ptrs, _ptrs2)) {
+                _slot = (stdgo.Go.setRef(_d._vals[(_head & ((_d._vals.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoUInt32) : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_eface>);
+                break;
+            };
+        };
+        var _val:stdgo.StdGoTypes.AnyInterface = (((stdgo.Go.toInterface(_slot) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>) : stdgo.StdGoTypes.AnyInterface);
+        if (_val == (stdgo.Go.toInterface((new stdgo.sync.Sync.T_dequeueNil() : T_dequeueNil)))) {
+            _val = (null : stdgo.StdGoTypes.AnyInterface);
+        };
+        {
+            var __tmp__ = (new T_eface() : T_eface);
+            _slot._typ = __tmp__._typ;
+            _slot._val = __tmp__._val;
+        };
+        return { _0 : _val, _1 : true };
+    }
     /**
         // pushHead adds val at the head of the queue. It returns false if the
         // queue is full. It must only be called by a single producer.
     **/
     @:keep
-    static public function _pushHead( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>, _val:stdgo.StdGoTypes.AnyInterface):Bool throw "T_poolDequeue:sync._pushHead is not yet implemented";
+    static public function _pushHead( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>, _val:stdgo.StdGoTypes.AnyInterface):Bool {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_poolDequeue> = _d;
+        var _ptrs:stdgo.StdGoTypes.GoUInt64 = stdgo.sync.atomic.Atomic.loadUint64(stdgo.Go.pointer(_d._headTail));
+        var __tmp__ = _d._unpack(_ptrs), _head:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _tail:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
+        if ((_tail + (_d._vals.length : stdgo.StdGoTypes.GoUInt32)) & (-1u32 : stdgo.StdGoTypes.GoUInt32) == (_head)) {
+            return false;
+        };
+        var _slot = (stdgo.Go.setRef(_d._vals[(_head & ((_d._vals.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoUInt32) : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_eface>);
+        var _typ:stdgo.unsafe.Unsafe.UnsafePointer = stdgo.sync.atomic.Atomic.loadPointer(stdgo.Go.pointer(_slot._typ));
+        if (_typ != null) {
+            return false;
+        };
+        if (_val == null) {
+            _val = stdgo.Go.toInterface((new stdgo.sync.Sync.T_dequeueNil() : T_dequeueNil));
+        };
+        ((stdgo.Go.toInterface(_slot) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>).__setData__(_val);
+        stdgo.sync.atomic.Atomic.addUint64(stdgo.Go.pointer(_d._headTail), (4294967296i64 : stdgo.StdGoTypes.GoUInt64));
+        return true;
+    }
     @:keep
-    static public function _pack( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>, _head:stdgo.StdGoTypes.GoUInt32, _tail:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt64 throw "T_poolDequeue:sync._pack is not yet implemented";
+    static public function _pack( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>, _head:stdgo.StdGoTypes.GoUInt32, _tail:stdgo.StdGoTypes.GoUInt32):stdgo.StdGoTypes.GoUInt64 {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_poolDequeue> = _d;
+        {};
+        return ((_head : stdgo.StdGoTypes.GoUInt64) << (32i64 : stdgo.StdGoTypes.GoUInt64)) | (_tail & (-1u32 : stdgo.StdGoTypes.GoUInt32) : stdgo.StdGoTypes.GoUInt64);
+    }
     @:keep
-    static public function _unpack( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>, _ptrs:stdgo.StdGoTypes.GoUInt64):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; } throw "T_poolDequeue:sync._unpack is not yet implemented";
+    static public function _unpack( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>, _ptrs:stdgo.StdGoTypes.GoUInt64):{ var _0 : stdgo.StdGoTypes.GoUInt32; var _1 : stdgo.StdGoTypes.GoUInt32; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_poolDequeue> = _d;
+        var _head:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32), _tail:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
+        {};
+        _head = ((_ptrs >> (32i64 : stdgo.StdGoTypes.GoUInt64)) & (4294967295i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt32);
+        _tail = (_ptrs & (4294967295i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoUInt32);
+        return { _0 : _head, _1 : _tail };
+    }
     @:keep
-    static public function popTail( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "T_poolDequeue:sync.popTail is not yet implemented";
+    static public function popTail( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_poolDequeue> = _d;
+        return _d._popTail();
+    }
     @:keep
-    static public function popHead( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "T_poolDequeue:sync.popHead is not yet implemented";
+    static public function popHead( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_poolDequeue> = _d;
+        return _d._popHead();
+    }
     @:keep
-    static public function pushHead( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>, _val:stdgo.StdGoTypes.AnyInterface):Bool throw "T_poolDequeue:sync.pushHead is not yet implemented";
+    static public function pushHead( _d:stdgo.StdGoTypes.Ref<T_poolDequeue>, _val:stdgo.StdGoTypes.AnyInterface):Bool {
+        @:recv var _d:stdgo.StdGoTypes.Ref<T_poolDequeue> = _d;
+        return _d._pushHead(_val);
+    }
 }
 class T_poolChain_asInterface {
     @:keep
@@ -1644,17 +2485,84 @@ class T_poolChain_asInterface {
 }
 @:keep @:allow(stdgo.sync.Sync.T_poolChain_asInterface) class T_poolChain_static_extension {
     @:keep
-    static public function _popTail( _c:stdgo.StdGoTypes.Ref<T_poolChain>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "T_poolChain:sync._popTail is not yet implemented";
+    static public function _popTail( _c:stdgo.StdGoTypes.Ref<T_poolChain>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_poolChain> = _c;
+        var _d = _loadPoolChainElt((stdgo.Go.setRef(_c._tail) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>>));
+        if (_d == null || (_d : Dynamic).__nil__) {
+            return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false };
+        };
+        while (true) {
+            var _d2 = _loadPoolChainElt((stdgo.Go.setRef(_d._next) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>>));
+            {
+                var __tmp__ = _d._popTail(), _val:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                if (_ok) {
+                    return { _0 : _val, _1 : _ok };
+                };
+            };
+            if (_d2 == null || (_d2 : Dynamic).__nil__) {
+                return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false };
+            };
+            if (stdgo.sync.atomic.Atomic.compareAndSwapPointer(((stdgo.Go.toInterface((stdgo.Go.setRef(_c._tail) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>>)) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) })) : stdgo.Pointer<stdgo.unsafe.Unsafe.UnsafePointer>), (stdgo.Go.toInterface(_d) : stdgo.unsafe.Unsafe.UnsafePointer), (stdgo.Go.toInterface(_d2) : stdgo.unsafe.Unsafe.UnsafePointer))) {
+                _storePoolChainElt((stdgo.Go.setRef(_d2._prev) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>>), null);
+            };
+            _d = _d2;
+        };
+    }
     @:keep
-    static public function _popHead( _c:stdgo.StdGoTypes.Ref<T_poolChain>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "T_poolChain:sync._popHead is not yet implemented";
+    static public function _popHead( _c:stdgo.StdGoTypes.Ref<T_poolChain>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_poolChain> = _c;
+        var _d = _c._head;
+        while (_d != null && ((_d : Dynamic).__nil__ == null || !(_d : Dynamic).__nil__)) {
+            {
+                var __tmp__ = _d._popHead(), _val:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                if (_ok) {
+                    return { _0 : _val, _1 : _ok };
+                };
+            };
+            _d = _loadPoolChainElt((stdgo.Go.setRef(_d._prev) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>>));
+        };
+        return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : false };
+    }
     @:keep
-    static public function _pushHead( _c:stdgo.StdGoTypes.Ref<T_poolChain>, _val:stdgo.StdGoTypes.AnyInterface):Void throw "T_poolChain:sync._pushHead is not yet implemented";
+    static public function _pushHead( _c:stdgo.StdGoTypes.Ref<T_poolChain>, _val:stdgo.StdGoTypes.AnyInterface):Void {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_poolChain> = _c;
+        var _d = _c._head;
+        if (_d == null || (_d : Dynamic).__nil__) {
+            {};
+            _d = (stdgo.Go.setRef(({} : stdgo.sync.Sync.T_poolChainElt)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>);
+            _d._poolDequeue._vals = new stdgo.Slice<stdgo.sync.Sync.T_eface>((8 : stdgo.StdGoTypes.GoInt).toBasic(), 0, ...[for (i in 0 ... ((8 : stdgo.StdGoTypes.GoInt).toBasic() > 0 ? (8 : stdgo.StdGoTypes.GoInt).toBasic() : 0 : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.sync.Sync.T_eface)]);
+            _c._head = _d;
+            _storePoolChainElt((stdgo.Go.setRef(_c._tail) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>>), _d);
+        };
+        if (_d._pushHead(_val)) {
+            return;
+        };
+        var _newSize:stdgo.StdGoTypes.GoInt = (_d._poolDequeue._vals.length) * (2 : stdgo.StdGoTypes.GoInt);
+        if (_newSize >= (1073741824 : stdgo.StdGoTypes.GoInt)) {
+            _newSize = (1073741824 : stdgo.StdGoTypes.GoInt);
+        };
+        var _d2 = (stdgo.Go.setRef(({ _prev : _d } : T_poolChainElt)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>);
+        _d2._poolDequeue._vals = new stdgo.Slice<stdgo.sync.Sync.T_eface>((_newSize : stdgo.StdGoTypes.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_newSize : stdgo.StdGoTypes.GoInt).toBasic() > 0 ? (_newSize : stdgo.StdGoTypes.GoInt).toBasic() : 0 : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.sync.Sync.T_eface)]);
+        _c._head = _d2;
+        _storePoolChainElt((stdgo.Go.setRef(_d._next) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>>), _d2);
+        _d2._pushHead(_val);
+    }
     @:keep
-    static public function popTail( _c:stdgo.StdGoTypes.Ref<T_poolChain>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "T_poolChain:sync.popTail is not yet implemented";
+    static public function popTail( _c:stdgo.StdGoTypes.Ref<T_poolChain>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_poolChain> = _c;
+        return _c._popTail();
+    }
     @:keep
-    static public function popHead( _c:stdgo.StdGoTypes.Ref<T_poolChain>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } throw "T_poolChain:sync.popHead is not yet implemented";
+    static public function popHead( _c:stdgo.StdGoTypes.Ref<T_poolChain>):{ var _0 : stdgo.StdGoTypes.AnyInterface; var _1 : Bool; } {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_poolChain> = _c;
+        return _c._popHead();
+    }
     @:keep
-    static public function pushHead( _c:stdgo.StdGoTypes.Ref<T_poolChain>, _val:stdgo.StdGoTypes.AnyInterface):Bool throw "T_poolChain:sync.pushHead is not yet implemented";
+    static public function pushHead( _c:stdgo.StdGoTypes.Ref<T_poolChain>, _val:stdgo.StdGoTypes.AnyInterface):Bool {
+        @:recv var _c:stdgo.StdGoTypes.Ref<T_poolChain> = _c;
+        _c._pushHead(_val);
+        return true;
+    }
 }
 class T_poolChainElt_asInterface {
     @:embedded
@@ -1774,7 +2682,13 @@ class RWMutex_asInterface {
         // the Lock and Unlock methods by calling rw.RLock and rw.RUnlock.
     **/
     @:keep
-    static public function rlocker( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Locker throw "RWMutex:sync.rlocker is not yet implemented";
+    static public function rlocker( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Locker {
+        @:recv var _rw:stdgo.StdGoTypes.Ref<RWMutex> = _rw;
+        return stdgo.Go.asInterface((({
+            final e = _rw;
+            ({ _w : e._w, _writerSem : e._writerSem, _readerSem : e._readerSem, _readerCount : e._readerCount, _readerWait : e._readerWait } : stdgo.sync.Sync.T_rlocker);
+        })));
+    }
     /**
         // Unlock unlocks rw for writing. It is a run-time error if rw is
         // not locked for writing on entry to Unlock.
@@ -1784,7 +2698,29 @@ class RWMutex_asInterface {
         // arrange for another goroutine to RUnlock (Unlock) it.
     **/
     @:keep
-    static public function unlock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Void throw "RWMutex:sync.unlock is not yet implemented";
+    static public function unlock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Void {
+        @:recv var _rw:stdgo.StdGoTypes.Ref<RWMutex> = _rw;
+        if (false) {
+            _rw._w._state;
+            stdgo.internal.race.Race.release((stdgo.Go.toInterface(stdgo.Go.pointer(_rw._readerSem)) : stdgo.unsafe.Unsafe.UnsafePointer));
+            stdgo.internal.race.Race.disable();
+        };
+        var _r:stdgo.StdGoTypes.GoInt32 = _rw._readerCount.add((1073741824 : stdgo.StdGoTypes.GoInt32));
+        if (_r >= (1073741824 : stdgo.StdGoTypes.GoInt32)) {
+            stdgo.internal.race.Race.enable();
+            _fatal(("sync: Unlock of unlocked RWMutex" : stdgo.GoString)?.__copy__());
+        };
+        {
+            var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
+            stdgo.Go.cfor(_i < (_r : stdgo.StdGoTypes.GoInt), _i++, {
+                _runtime_Semrelease(stdgo.Go.pointer(_rw._readerSem), false, (0 : stdgo.StdGoTypes.GoInt));
+            });
+        };
+        _rw._w.unlock();
+        if (false) {
+            stdgo.internal.race.Race.enable();
+        };
+    }
     /**
         // TryLock tries to lock rw for writing and reports whether it succeeded.
         //
@@ -1793,16 +2729,66 @@ class RWMutex_asInterface {
         // in a particular use of mutexes.
     **/
     @:keep
-    static public function tryLock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Bool throw "RWMutex:sync.tryLock is not yet implemented";
+    static public function tryLock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Bool {
+        @:recv var _rw:stdgo.StdGoTypes.Ref<RWMutex> = _rw;
+        if (false) {
+            _rw._w._state;
+            stdgo.internal.race.Race.disable();
+        };
+        if (!_rw._w.tryLock()) {
+            if (false) {
+                stdgo.internal.race.Race.enable();
+            };
+            return false;
+        };
+        if (!_rw._readerCount.compareAndSwap((0 : stdgo.StdGoTypes.GoInt32), (-1073741824 : stdgo.StdGoTypes.GoInt32))) {
+            _rw._w.unlock();
+            if (false) {
+                stdgo.internal.race.Race.enable();
+            };
+            return false;
+        };
+        if (false) {
+            stdgo.internal.race.Race.enable();
+            stdgo.internal.race.Race.acquire((stdgo.Go.toInterface(stdgo.Go.pointer(_rw._readerSem)) : stdgo.unsafe.Unsafe.UnsafePointer));
+            stdgo.internal.race.Race.acquire((stdgo.Go.toInterface(stdgo.Go.pointer(_rw._writerSem)) : stdgo.unsafe.Unsafe.UnsafePointer));
+        };
+        return true;
+    }
     /**
         // Lock locks rw for writing.
         // If the lock is already locked for reading or writing,
         // Lock blocks until the lock is available.
     **/
     @:keep
-    static public function lock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Void throw "RWMutex:sync.lock is not yet implemented";
+    static public function lock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Void {
+        @:recv var _rw:stdgo.StdGoTypes.Ref<RWMutex> = _rw;
+        if (false) {
+            _rw._w._state;
+            stdgo.internal.race.Race.disable();
+        };
+        _rw._w.lock();
+        var _r:stdgo.StdGoTypes.GoInt32 = _rw._readerCount.add((-1073741824 : stdgo.StdGoTypes.GoInt32)) + (1073741824 : stdgo.StdGoTypes.GoInt32);
+        if ((_r != (0 : stdgo.StdGoTypes.GoInt32)) && (_rw._readerWait.add(_r) != (0 : stdgo.StdGoTypes.GoInt32))) {
+            _runtime_SemacquireRWMutex(stdgo.Go.pointer(_rw._writerSem), false, (0 : stdgo.StdGoTypes.GoInt));
+        };
+        if (false) {
+            stdgo.internal.race.Race.enable();
+            stdgo.internal.race.Race.acquire((stdgo.Go.toInterface(stdgo.Go.pointer(_rw._readerSem)) : stdgo.unsafe.Unsafe.UnsafePointer));
+            stdgo.internal.race.Race.acquire((stdgo.Go.toInterface(stdgo.Go.pointer(_rw._writerSem)) : stdgo.unsafe.Unsafe.UnsafePointer));
+        };
+    }
     @:keep
-    static public function _rUnlockSlow( _rw:stdgo.StdGoTypes.Ref<RWMutex>, _r:stdgo.StdGoTypes.GoInt32):Void throw "RWMutex:sync._rUnlockSlow is not yet implemented";
+    static public function _rUnlockSlow( _rw:stdgo.StdGoTypes.Ref<RWMutex>, _r:stdgo.StdGoTypes.GoInt32):Void {
+        @:recv var _rw:stdgo.StdGoTypes.Ref<RWMutex> = _rw;
+        if (((_r + (1 : stdgo.StdGoTypes.GoInt32)) == (0 : stdgo.StdGoTypes.GoInt32)) || ((_r + (1 : stdgo.StdGoTypes.GoInt32)) == (-1073741824 : stdgo.StdGoTypes.GoInt32))) {
+            stdgo.internal.race.Race.enable();
+            _fatal(("sync: RUnlock of unlocked RWMutex" : stdgo.GoString)?.__copy__());
+        };
+        if (_rw._readerWait.add((-1 : stdgo.StdGoTypes.GoInt32)) == ((0 : stdgo.StdGoTypes.GoInt32))) {
+            _runtime_Semrelease(stdgo.Go.pointer(_rw._writerSem), false, (1 : stdgo.StdGoTypes.GoInt));
+        };
+    }
     /**
         // RUnlock undoes a single RLock call;
         // it does not affect other simultaneous readers.
@@ -1810,7 +2796,23 @@ class RWMutex_asInterface {
         // on entry to RUnlock.
     **/
     @:keep
-    static public function runlock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Void throw "RWMutex:sync.runlock is not yet implemented";
+    static public function runlock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Void {
+        @:recv var _rw:stdgo.StdGoTypes.Ref<RWMutex> = _rw;
+        if (false) {
+            _rw._w._state;
+            stdgo.internal.race.Race.releaseMerge((stdgo.Go.toInterface(stdgo.Go.pointer(_rw._writerSem)) : stdgo.unsafe.Unsafe.UnsafePointer));
+            stdgo.internal.race.Race.disable();
+        };
+        {
+            var _r:stdgo.StdGoTypes.GoInt32 = _rw._readerCount.add((-1 : stdgo.StdGoTypes.GoInt32));
+            if (_r < (0 : stdgo.StdGoTypes.GoInt32)) {
+                _rw._rUnlockSlow(_r);
+            };
+        };
+        if (false) {
+            stdgo.internal.race.Race.enable();
+        };
+    }
     /**
         // TryRLock tries to lock rw for reading and reports whether it succeeded.
         //
@@ -1819,7 +2821,29 @@ class RWMutex_asInterface {
         // in a particular use of mutexes.
     **/
     @:keep
-    static public function tryRLock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Bool throw "RWMutex:sync.tryRLock is not yet implemented";
+    static public function tryRLock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Bool {
+        @:recv var _rw:stdgo.StdGoTypes.Ref<RWMutex> = _rw;
+        if (false) {
+            _rw._w._state;
+            stdgo.internal.race.Race.disable();
+        };
+        while (true) {
+            var _c:stdgo.StdGoTypes.GoInt32 = _rw._readerCount.load();
+            if (_c < (0 : stdgo.StdGoTypes.GoInt32)) {
+                if (false) {
+                    stdgo.internal.race.Race.enable();
+                };
+                return false;
+            };
+            if (_rw._readerCount.compareAndSwap(_c, _c + (1 : stdgo.StdGoTypes.GoInt32))) {
+                if (false) {
+                    stdgo.internal.race.Race.enable();
+                    stdgo.internal.race.Race.acquire((stdgo.Go.toInterface(stdgo.Go.pointer(_rw._readerSem)) : stdgo.unsafe.Unsafe.UnsafePointer));
+                };
+                return true;
+            };
+        };
+    }
     /**
         // RLock locks rw for reading.
         //
@@ -1828,7 +2852,20 @@ class RWMutex_asInterface {
         // documentation on the RWMutex type.
     **/
     @:keep
-    static public function rlock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Void throw "RWMutex:sync.rlock is not yet implemented";
+    static public function rlock( _rw:stdgo.StdGoTypes.Ref<RWMutex>):Void {
+        @:recv var _rw:stdgo.StdGoTypes.Ref<RWMutex> = _rw;
+        if (false) {
+            _rw._w._state;
+            stdgo.internal.race.Race.disable();
+        };
+        if (_rw._readerCount.add((1 : stdgo.StdGoTypes.GoInt32)) < (0 : stdgo.StdGoTypes.GoInt32)) {
+            _runtime_SemacquireRWMutexR(stdgo.Go.pointer(_rw._readerSem), false, (0 : stdgo.StdGoTypes.GoInt));
+        };
+        if (false) {
+            stdgo.internal.race.Race.enable();
+            stdgo.internal.race.Race.acquire((stdgo.Go.toInterface(stdgo.Go.pointer(_rw._readerSem)) : stdgo.unsafe.Unsafe.UnsafePointer));
+        };
+    }
 }
 class WaitGroup_asInterface {
     /**
@@ -1920,7 +2957,11 @@ class T_copyChecker_asInterface {
 @:keep @:allow(stdgo.sync.Sync.T_copyChecker_asInterface) class T_copyChecker_static_extension {
     @:keep
     @:pointer
-    static public function _check(____:T_copyChecker,  _c:stdgo.Pointer<T_copyChecker>):Void throw "T_copyChecker:sync._check is not yet implemented";
+    static public function _check(____:T_copyChecker,  _c:stdgo.Pointer<T_copyChecker>):Void {
+        if ((((_c.value : stdgo.StdGoTypes.GoUIntptr) != ((stdgo.Go.toInterface(_c) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr)) && !stdgo.sync.atomic.Atomic.compareAndSwapUintptr(new stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>(() -> (_c.value : stdgo.StdGoTypes.GoUIntptr), v -> (_c.value = (v : stdgo.sync.Sync.T_copyChecker) : stdgo.StdGoTypes.GoUIntptr)), (0 : stdgo.StdGoTypes.GoUIntptr), ((stdgo.Go.toInterface(_c) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr))) && ((_c.value : stdgo.StdGoTypes.GoUIntptr) != ((stdgo.Go.toInterface(_c) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr))) {
+            throw stdgo.Go.toInterface(("sync.Cond is copied" : stdgo.GoString));
+        };
+    }
 }
 class T_rlocker_asInterface {
     @:keep
@@ -1937,7 +2978,19 @@ class T_rlocker_asInterface {
 }
 @:keep @:allow(stdgo.sync.Sync.T_rlocker_asInterface) class T_rlocker_static_extension {
     @:keep
-    static public function unlock( _r:stdgo.StdGoTypes.Ref<T_rlocker>):Void throw "T_rlocker:sync.unlock is not yet implemented";
+    static public function unlock( _r:stdgo.StdGoTypes.Ref<T_rlocker>):Void {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_rlocker> = _r;
+        (({
+            final e = _r;
+            ({ _w : e._w, _writerSem : e._writerSem, _readerSem : e._readerSem, _readerCount : e._readerCount, _readerWait : e._readerWait } : stdgo.sync.Sync.RWMutex);
+        })).runlock();
+    }
     @:keep
-    static public function lock( _r:stdgo.StdGoTypes.Ref<T_rlocker>):Void throw "T_rlocker:sync.lock is not yet implemented";
+    static public function lock( _r:stdgo.StdGoTypes.Ref<T_rlocker>):Void {
+        @:recv var _r:stdgo.StdGoTypes.Ref<T_rlocker> = _r;
+        (({
+            final e = _r;
+            ({ _w : e._w, _writerSem : e._writerSem, _readerSem : e._readerSem, _readerCount : e._readerCount, _readerWait : e._readerWait } : stdgo.sync.Sync.RWMutex);
+        })).rlock();
+    }
 }

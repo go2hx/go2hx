@@ -15,7 +15,58 @@ macro function onceValue<T>(__generic__0:haxe.macro.Expr.ExprOf<T>, _f:haxe.macr
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f(__generic__0:$T, _f:() -> T) throw ":sync.onceValue is not yet implemented";
+                final f = macro function f(__generic__0:$T, _f:() -> T) {
+                    var __0:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once), __1:Bool = false, __2:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), __3:$T = stdgo.Go.defaultValue((cast (null) : $T)), _result:$T = __3, _p:stdgo.StdGoTypes.AnyInterface = __2, _valid:Bool = __1, _once:stdgo.sync.Sync.Once = __0;
+                    var _g:() -> Void = function():stdgo.sync.Sync.Void {
+                        var __deferstack__:stdgo.sync.Sync.Array<stdgo.sync.Sync.Void -> Void> = [];
+                        try {
+                            __deferstack__.unshift(() -> {
+                                var a = function():stdgo.sync.Sync.Void {
+                                    _p = ({
+                                        final r = stdgo.Go.recover_exception;
+                                        stdgo.Go.recover_exception = null;
+                                        r;
+                                    });
+                                    if (!_valid) {
+                                        throw stdgo.Go.toInterface(_p);
+                                    };
+                                };
+                                a();
+                            });
+                            _result = _f();
+                            _valid = true;
+                            for (@:privateAccess stdgo.sync.Sync.defer in __deferstack__) {
+                                @:privateAccess stdgo.sync.Sync.defer();
+                            };
+                            {
+                                for (@:privateAccess stdgo.sync.Sync.defer in __deferstack__) {
+                                    @:privateAccess stdgo.sync.Sync.defer();
+                                };
+                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                                return;
+                            };
+                        } catch(__exception__) {
+                            var exe:stdgo.sync.Sync.Dynamic = __exception__.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            for (@:privateAccess stdgo.sync.Sync.defer in __deferstack__) {
+                                @:privateAccess stdgo.sync.Sync.defer();
+                            };
+                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                            return;
+                        };
+                    };
+                    return function():$T {
+                        _once.do_(_g);
+                        if (!_valid) {
+                            throw stdgo.Go.toInterface(_p);
+                        };
+                        return _result;
+                    };
+                };
                 switch f.expr {
                     case EFunction(_, f):
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
@@ -44,7 +95,62 @@ macro function onceValues<T1, T2>(__generic__0:haxe.macro.Expr.ExprOf<T1>, __gen
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f(__generic__0:$T1, __generic__1:$T2, _f:() -> { var _0 : T1; var _1 : T2; }) throw ":sync.onceValues is not yet implemented";
+                final f = macro function f(__generic__0:$T1, __generic__1:$T2, _f:() -> { var _0 : T1; var _1 : T2; }) {
+                    var __0:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once), __1:Bool = false, __2:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface), __3:$T1 = stdgo.Go.defaultValue((cast (null) : $T1)), __4:$T2 = stdgo.Go.defaultValue((cast (null) : $T2)), _r2:$T2 = __4, _r1:$T1 = __3, _p:stdgo.StdGoTypes.AnyInterface = __2, _valid:Bool = __1, _once:stdgo.sync.Sync.Once = __0;
+                    var _g:() -> Void = function():stdgo.sync.Sync.Void {
+                        var __deferstack__:stdgo.sync.Sync.Array<stdgo.sync.Sync.Void -> Void> = [];
+                        try {
+                            __deferstack__.unshift(() -> {
+                                var a = function():stdgo.sync.Sync.Void {
+                                    _p = ({
+                                        final r = stdgo.Go.recover_exception;
+                                        stdgo.Go.recover_exception = null;
+                                        r;
+                                    });
+                                    if (!_valid) {
+                                        throw stdgo.Go.toInterface(_p);
+                                    };
+                                };
+                                a();
+                            });
+                            {
+                                var __tmp__ = _f();
+                                _r1 = __tmp__._0;
+                                _r2 = __tmp__._1;
+                            };
+                            _valid = true;
+                            for (@:privateAccess stdgo.sync.Sync.defer in __deferstack__) {
+                                @:privateAccess stdgo.sync.Sync.defer();
+                            };
+                            {
+                                for (@:privateAccess stdgo.sync.Sync.defer in __deferstack__) {
+                                    @:privateAccess stdgo.sync.Sync.defer();
+                                };
+                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                                return;
+                            };
+                        } catch(__exception__) {
+                            var exe:stdgo.sync.Sync.Dynamic = __exception__.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            for (@:privateAccess stdgo.sync.Sync.defer in __deferstack__) {
+                                @:privateAccess stdgo.sync.Sync.defer();
+                            };
+                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                            return;
+                        };
+                    };
+                    return function():{ var _0 : T1; var _1 : T2; } {
+                        _once.do_(_g);
+                        if (!_valid) {
+                            throw stdgo.Go.toInterface(_p);
+                        };
+                        return { _0 : _r1, _1 : _r2 };
+                    };
+                };
                 switch f.expr {
                     case EFunction(_, f):
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };

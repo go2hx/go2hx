@@ -8111,10 +8111,10 @@ function _computeUnionTypeSet(_check:stdgo.StdGoTypes.Ref<Checker>, _unionSets:G
                     if (_t._tilde && !identical(_t._typ, _u)) {
                         _t = null;
                     };
-                    _terms = (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_term>>(1, 1, {
+                    _terms = (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_term>>(1, 1, (({
                         final e = _t;
                         ({ _tilde : e._tilde, _typ : e._typ } : stdgo.go.types.Types.T_term);
-                    }) : stdgo.go.types.Types.T_termlist);
+                    }))) : stdgo.go.types.Types.T_termlist);
                 };
             };
             _allTerms = _allTerms._union(_terms);
@@ -8828,13 +8828,13 @@ function _overlappingTerm(_terms:stdgo.Slice<stdgo.StdGoTypes.Ref<Term>>, _y:std
                     throw stdgo.Go.toInterface(("empty or top union term" : stdgo.GoString));
                 };
             };
-            if (!{
+            if (!(({
                 final e = _x;
                 ({ _tilde : e._tilde, _typ : e._typ } : stdgo.go.types.Types.T_term);
-            }._disjoint({
+            }))._disjoint((({
                 final e = _y;
                 ({ _tilde : e._tilde, _typ : e._typ } : stdgo.go.types.Types.T_term);
-            })) {
+            })))) {
                 return _i;
             };
         };
@@ -30116,10 +30116,10 @@ class Term_asInterface {
     @:keep
     static public function string( _t:stdgo.StdGoTypes.Ref<Term>):stdgo.GoString {
         @:recv var _t:stdgo.StdGoTypes.Ref<Term> = _t;
-        return ({
+        return ((({
             final e = _t;
             ({ _tilde : e._tilde, _typ : e._typ } : stdgo.go.types.Types.T_term);
-        }.string() : stdgo.GoString)?.__copy__();
+        })).string() : stdgo.GoString)?.__copy__();
     }
     @:keep
     static public function type( _t:stdgo.StdGoTypes.Ref<Term>):Type {

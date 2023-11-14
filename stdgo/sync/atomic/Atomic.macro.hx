@@ -39,7 +39,13 @@ haxe.macro.Context.defineType(td);
             try {
                 haxe.macro.Context.getType(id);
             } catch(_) {
-                final f = macro function f( _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>>, __generic__0:$T, _new:stdgo.StdGoTypes.Ref<$T>) throw "Pointer_:sync.atomic.swap is not yet implemented";
+                final f = macro function f( _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>>, __generic__0:$T, _new:stdgo.StdGoTypes.Ref<$T>) {
+                    var _new = stdgo.Go.refPointer(_new);
+                    @:recv var _x:stdgo.StdGoTypes.Ref<stdgo.sync.atomic.Atomic.Pointer_<$T>> = _x;
+                    final old = @:privateAccess _x._v;
+                    _x._v = stdgo.Go.toInterface(_new);
+                    return stdgo.Go.toInterface(old);
+                };
                 switch f.expr {
                     case EFunction(_, f):
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };

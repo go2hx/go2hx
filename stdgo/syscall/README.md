@@ -46,33 +46,33 @@ information.
 - [`function _copyenv():Void`](<#function-_copyenv>)
 
 - [`function _direntIno(_buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:Bool;
-		_0:stdgo.GoUInt64;
-	}`](<#function-_direntino>)
+	_1:Bool;
+	_0:stdgo.GoUInt64;
+}`](<#function-_direntino>)
 
 - [`function _direntNamlen(_buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:Bool;
-		_0:stdgo.GoUInt64;
-	}`](<#function-_direntnamlen>)
+	_1:Bool;
+	_0:stdgo.GoUInt64;
+}`](<#function-_direntnamlen>)
 
 - [`function _direntReclen(_buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:Bool;
-		_0:stdgo.GoUInt64;
-	}`](<#function-_direntreclen>)
+	_1:Bool;
+	_0:stdgo.GoUInt64;
+}`](<#function-_direntreclen>)
 
 - [`function _errnoErr(_e:stdgo.syscall.Errno):stdgo.Error`](<#function-_errnoerr>)
 
 - [`function _faketimeWrite(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-_faketimewrite>)
 
 - [`function _fdToFile(_fd:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.Ref<stdgo.syscall.T_jsFile>;
-	}`](<#function-_fdtofile>)
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.syscall.T_jsFile>;
+}`](<#function-_fdtofile>)
 
 - [`function _fsCall(_name:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):{
-		_1:stdgo.Error;
-		_0:stdgo.syscall.js.Value;
-	}`](<#function-_fscall>)
+	_1:stdgo.Error;
+	_0:stdgo.syscall.js.Value;
+}`](<#function-_fscall>)
 
 - [`function _mapJSError(_jsErr:stdgo.syscall.js.Value):stdgo.Error`](<#function-_mapjserror>)
 
@@ -81,14 +81,14 @@ information.
 - [`function _msanWrite(_addr:stdgo.unsafe.UnsafePointer, _len:stdgo.GoInt):Void`](<#function-_msanwrite>)
 
 - [`function _now():{
-		_1:stdgo.GoInt32;
-		_0:stdgo.GoInt64;
-	}`](<#function-_now>)
+	_1:stdgo.GoInt32;
+	_0:stdgo.GoInt64;
+}`](<#function-_now>)
 
 - [`function _readInt(_b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoUIntptr, _size:stdgo.GoUIntptr):{
-		_1:Bool;
-		_0:stdgo.GoUInt64;
-	}`](<#function-_readint>)
+	_1:Bool;
+	_0:stdgo.GoUInt64;
+}`](<#function-_readint>)
 
 - [`function _readIntBE(_b:stdgo.Slice<stdgo.GoByte>, _size:stdgo.GoUIntptr):stdgo.GoUInt64`](<#function-_readintbe>)
 
@@ -109,22 +109,22 @@ information.
 - [`function _setTimeval(_sec:stdgo.GoInt64, _usec:stdgo.GoInt64):stdgo.syscall.Timeval`](<#function-_settimeval>)
 
 - [`function accept(_fd:stdgo.GoInt):{
-		_2:stdgo.Error;
-		_1:stdgo.syscall.Sockaddr;
-		_0:stdgo.GoInt;
-	}`](<#function-accept>)
+	_2:stdgo.Error;
+	_1:stdgo.syscall.Sockaddr;
+	_0:stdgo.GoInt;
+}`](<#function-accept>)
 
 - [`function bind(_fd:stdgo.GoInt, _sa:stdgo.syscall.Sockaddr):stdgo.Error`](<#function-bind>)
 
 - [`function bytePtrFromString(_s:stdgo.GoString):{
-		_1:stdgo.Error;
-		_0:stdgo.Pointer<stdgo.GoByte>;
-	}`](<#function-byteptrfromstring>)
+	_1:stdgo.Error;
+	_0:stdgo.Pointer<stdgo.GoByte>;
+}`](<#function-byteptrfromstring>)
 
 - [`function byteSliceFromString(_s:stdgo.GoString):{
-		_1:stdgo.Error;
-		_0:stdgo.Slice<stdgo.GoByte>;
-	}`](<#function-byteslicefromstring>)
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}`](<#function-byteslicefromstring>)
 
 - [`function chdir(_path:stdgo.GoString):stdgo.Error`](<#function-chdir>)
 
@@ -141,9 +141,9 @@ information.
 - [`function connect(_fd:stdgo.GoInt, _sa:stdgo.syscall.Sockaddr):stdgo.Error`](<#function-connect>)
 
 - [`function dup(_fd:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-dup>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-dup>)
 
 - [`function dup2(_fd:stdgo.GoInt, _newfd:stdgo.GoInt):stdgo.Error`](<#function-dup2>)
 
@@ -164,25 +164,25 @@ information.
 - [`function ftruncate(_fd:stdgo.GoInt, _length:stdgo.GoInt64):stdgo.Error`](<#function-ftruncate>)
 
 - [`function getcwd(_buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-getcwd>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-getcwd>)
 
 - [`function getegid():stdgo.GoInt`](<#function-getegid>)
 
 - [`function getenv(_key:stdgo.GoString):{
-		_1:Bool;
-		_0:stdgo.GoString;
-	}`](<#function-getenv>)
+	_1:Bool;
+	_0:stdgo.GoString;
+}`](<#function-getenv>)
 
 - [`function geteuid():stdgo.GoInt`](<#function-geteuid>)
 
 - [`function getgid():stdgo.GoInt`](<#function-getgid>)
 
 - [`function getgroups():{
-		_1:stdgo.Error;
-		_0:stdgo.Slice<stdgo.GoInt>;
-	}`](<#function-getgroups>)
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoInt>;
+}`](<#function-getgroups>)
 
 - [`function getpagesize():stdgo.GoInt`](<#function-getpagesize>)
 
@@ -191,18 +191,18 @@ information.
 - [`function getppid():stdgo.GoInt`](<#function-getppid>)
 
 - [`function getsockoptInt(_fd:stdgo.GoInt, _level:stdgo.GoInt, _opt:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-getsockoptint>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-getsockoptint>)
 
 - [`function gettimeofday(_tv:stdgo.Ref<stdgo.syscall.Timeval>):stdgo.Error`](<#function-gettimeofday>)
 
 - [`function getuid():stdgo.GoInt`](<#function-getuid>)
 
 - [`function getwd():{
-		_1:stdgo.Error;
-		_0:stdgo.GoString;
-	}`](<#function-getwd>)
+	_1:stdgo.Error;
+	_0:stdgo.GoString;
+}`](<#function-getwd>)
 
 - [`function kill(_pid:stdgo.GoInt, _signum:stdgo.syscall.Signal):stdgo.Error`](<#function-kill>)
 
@@ -221,87 +221,87 @@ information.
 - [`function nsecToTimeval(_nsec:stdgo.GoInt64):stdgo.syscall.Timeval`](<#function-nsectotimeval>)
 
 - [`function open(_path:stdgo.GoString, _openmode:stdgo.GoInt, _perm:stdgo.GoUInt32):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-open>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-open>)
 
 - [`function parseDirent(_buf:stdgo.Slice<stdgo.GoByte>, _max:stdgo.GoInt, _names:stdgo.Slice<stdgo.GoString>):{
-		_2:stdgo.Slice<stdgo.GoString>;
-		_1:stdgo.GoInt;
-		_0:stdgo.GoInt;
-	}`](<#function-parsedirent>)
+	_2:stdgo.Slice<stdgo.GoString>;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt;
+}`](<#function-parsedirent>)
 
 - [`function pipe(_fd:stdgo.Slice<stdgo.GoInt>):stdgo.Error`](<#function-pipe>)
 
 - [`function pread(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoInt64):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-pread>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-pread>)
 
 - [`function pwrite(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoInt64):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-pwrite>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-pwrite>)
 
 - [`function rawSyscall(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr):{
-		_2:stdgo.syscall.Errno;
-		_1:stdgo.GoUIntptr;
-		_0:stdgo.GoUIntptr;
-	}`](<#function-rawsyscall>)
+	_2:stdgo.syscall.Errno;
+	_1:stdgo.GoUIntptr;
+	_0:stdgo.GoUIntptr;
+}`](<#function-rawsyscall>)
 
 - [`function rawSyscall6(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr, _a4:stdgo.GoUIntptr, _a5:stdgo.GoUIntptr, _a6:stdgo.GoUIntptr):{
-		_2:stdgo.syscall.Errno;
-		_1:stdgo.GoUIntptr;
-		_0:stdgo.GoUIntptr;
-	}`](<#function-rawsyscall6>)
+	_2:stdgo.syscall.Errno;
+	_1:stdgo.GoUIntptr;
+	_0:stdgo.GoUIntptr;
+}`](<#function-rawsyscall6>)
 
 - [`function read(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-read>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-read>)
 
 - [`function readDirent(_fd:stdgo.GoInt, _buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-readdirent>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-readdirent>)
 
 - [`function readlink(_path:stdgo.GoString, _buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-readlink>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-readlink>)
 
 - [`function recvfrom(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt):{
-		_2:stdgo.Error;
-		_1:stdgo.syscall.Sockaddr;
-		_0:stdgo.GoInt;
-	}`](<#function-recvfrom>)
+	_2:stdgo.Error;
+	_1:stdgo.syscall.Sockaddr;
+	_0:stdgo.GoInt;
+}`](<#function-recvfrom>)
 
 - [`function recvmsg(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt):{
-		_4:stdgo.Error;
-		_3:stdgo.syscall.Sockaddr;
-		_2:stdgo.GoInt;
-		_1:stdgo.GoInt;
-		_0:stdgo.GoInt;
-	}`](<#function-recvmsg>)
+	_4:stdgo.Error;
+	_3:stdgo.syscall.Sockaddr;
+	_2:stdgo.GoInt;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt;
+}`](<#function-recvmsg>)
 
 - [`function rename(_from:stdgo.GoString, _to:stdgo.GoString):stdgo.Error`](<#function-rename>)
 
 - [`function rmdir(_path:stdgo.GoString):stdgo.Error`](<#function-rmdir>)
 
 - [`function seek(_fd:stdgo.GoInt, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt64;
-	}`](<#function-seek>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}`](<#function-seek>)
 
 - [`function sendfile(_outfd:stdgo.GoInt, _infd:stdgo.GoInt, _offset:stdgo.Pointer<stdgo.GoInt64>, _count:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-sendfile>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-sendfile>)
 
 - [`function sendmsgN(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.syscall.Sockaddr, _flags:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-sendmsgn>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-sendmsgn>)
 
 - [`function sendto(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _to:stdgo.syscall.Sockaddr):stdgo.Error`](<#function-sendto>)
 
@@ -318,15 +318,15 @@ information.
 - [`function shutdown(_fd:stdgo.GoInt, _how:stdgo.GoInt):stdgo.Error`](<#function-shutdown>)
 
 - [`function socket(_proto:stdgo.GoInt, _sotype:stdgo.GoInt, _unused:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-socket>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-socket>)
 
 - [`function startProcess(_argv0:stdgo.GoString, _argv:stdgo.Slice<stdgo.GoString>, _attr:stdgo.Ref<stdgo.syscall.ProcAttr>):{
-		_2:stdgo.Error;
-		_1:stdgo.GoUIntptr;
-		_0:stdgo.GoInt;
-	}`](<#function-startprocess>)
+	_2:stdgo.Error;
+	_1:stdgo.GoUIntptr;
+	_0:stdgo.GoInt;
+}`](<#function-startprocess>)
 
 - [`function stat(_path:stdgo.GoString, _st:stdgo.Ref<stdgo.syscall.Stat_t>):stdgo.Error`](<#function-stat>)
 
@@ -339,21 +339,21 @@ information.
 - [`function symlink(_path:stdgo.GoString, _link:stdgo.GoString):stdgo.Error`](<#function-symlink>)
 
 - [`function syscall(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr):{
-		_2:stdgo.syscall.Errno;
-		_1:stdgo.GoUIntptr;
-		_0:stdgo.GoUIntptr;
-	}`](<#function-syscall>)
+	_2:stdgo.syscall.Errno;
+	_1:stdgo.GoUIntptr;
+	_0:stdgo.GoUIntptr;
+}`](<#function-syscall>)
 
 - [`function syscall6(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr, _a4:stdgo.GoUIntptr, _a5:stdgo.GoUIntptr, _a6:stdgo.GoUIntptr):{
-		_2:stdgo.syscall.Errno;
-		_1:stdgo.GoUIntptr;
-		_0:stdgo.GoUIntptr;
-	}`](<#function-syscall6>)
+	_2:stdgo.syscall.Errno;
+	_1:stdgo.GoUIntptr;
+	_0:stdgo.GoUIntptr;
+}`](<#function-syscall6>)
 
 - [`function sysctl(_key:stdgo.GoString):{
-		_1:stdgo.Error;
-		_0:stdgo.GoString;
-	}`](<#function-sysctl>)
+	_1:stdgo.Error;
+	_0:stdgo.GoString;
+}`](<#function-sysctl>)
 
 - [`function timespecToNsec(_ts:stdgo.syscall.Timespec):stdgo.GoInt64`](<#function-timespectonsec>)
 
@@ -370,14 +370,14 @@ information.
 - [`function utimesNano(_path:stdgo.GoString, _ts:stdgo.Slice<stdgo.syscall.Timespec>):stdgo.Error`](<#function-utimesnano>)
 
 - [`function wait4(_pid:stdgo.GoInt, _wstatus:stdgo.Pointer<stdgo.syscall.WaitStatus>, _options:stdgo.GoInt, _rusage:stdgo.Ref<stdgo.syscall.Rusage>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-wait4>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-wait4>)
 
 - [`function write(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}`](<#function-write>)
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-write>)
 
 - [class Dirent](<#class-dirent>)
 
@@ -421,7 +421,7 @@ information.
 
   - [`function nano():stdgo.GoInt64`](<#timespec-function-nano>)
 
-  - [`function unix():{  _1:stdgo.GoInt64;  _0:stdgo.GoInt64; }`](<#timespec-function-unix>)
+  - [`function unix():{ _1:stdgo.GoInt64; _0:stdgo.GoInt64;}`](<#timespec-function-unix>)
 
 - [class Timeval](<#class-timeval>)
 
@@ -429,7 +429,7 @@ information.
 
   - [`function nano():stdgo.GoInt64`](<#timeval-function-nano>)
 
-  - [`function unix():{  _1:stdgo.GoInt64;  _0:stdgo.GoInt64; }`](<#timeval-function-unix>)
+  - [`function unix():{ _1:stdgo.GoInt64; _0:stdgo.GoInt64;}`](<#timeval-function-unix>)
 
 - [typedef Conn](<#typedef-conn>)
 

@@ -5172,9 +5172,9 @@ Name returns the tag string for n, or empty if there is none.
 
 ```haxe
 function readVarint( _off:stdgo.GoInt):{
-	_1:stdgo.GoInt;
-	_0:stdgo.GoInt;
-}
+		_1:stdgo.GoInt;
+		_0:stdgo.GoInt;
+	}
 ```
 
 

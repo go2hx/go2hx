@@ -36,6 +36,7 @@
 | [stdgo.internal.oserror](./internal/oserror/README.md) | ✅ | no |
 | [stdgo.internal.platform](./internal/platform/README.md) | ✅ | no |
 | [stdgo.internal.poll](./internal/poll/README.md) | ✅ | no |
+| [stdgo.internal.race](./internal/race/README.md) | ✅ | no |
 | [stdgo.internal.reflect](./internal/reflect/README.md) | ✅ | no |
 | [stdgo.internal.reflectlite](./internal/reflectlite/README.md) | ✅ | no |
 | [stdgo.internal.testenv](./internal/testenv/README.md) | ✅ | no |

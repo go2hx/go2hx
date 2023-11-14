@@ -12,17 +12,5 @@
  "hl|strings",
  "hl|unicode",
  "hl|unicode/utf16",
- "hl|unicode/utf8",
- "interp|encoding/base64",
- "interp|encoding/base64",
- "interp|encoding/hex",
- "interp|errors",
- "interp|math",
- "interp|math/bits",
- "interp|path",
- "interp|sort",
- "interp|strings",
- "interp|unicode",
- "interp|unicode/utf16",
- "interp|unicode/utf8"
+ "hl|unicode/utf8"
 ]

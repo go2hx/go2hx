@@ -281,7 +281,7 @@ class SliceData<T> {
 		return obj;
 	}
 
-	public function __append__(args:Rest<T>):Slice<T> {
+	public #if hl inline #end function __append__(args:Rest<T>):Slice<T> {
 		final slice:SliceData<T> = __ref__();
 		// Don't set slice.offset to this value because it needs to be computed in the case of a grow.
 		final startOffset = slice.length;
@@ -373,7 +373,7 @@ class SliceData<T> {
 		return vectorObj;
 	}
 
-	public function grow() {
+	public #if hl inline #end function grow() {
 		if (vector == null && bytes == null) {
 			vector = new haxe.ds.Vector<T>(capacity);
 			return;

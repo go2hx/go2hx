@@ -136,6 +136,7 @@
     "sync",
     "internal/race",
     "sync/atomic",
+    "sync/atomic_",
     "syscall",
     "syscall/js",
     "testing",

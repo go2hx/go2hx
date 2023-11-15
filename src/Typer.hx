@@ -15,10 +15,12 @@ final reserved = [
 	"iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function", "dynamic",
 	"else", "enum", "extends", "extern", "final", "for", "function", "if", "interface", "implements", "import", "in", "inline", "macro", "new", "operator",
 	"overload", "override", "package", "private", "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
-	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof",
+	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof", "atomic",
 ];
 
 final reservedClassNames = [
+	"_Atomic",
+	"Atomic",
 	"Class",
 	"Single", // Single is a 32bit float
 	"Array",
@@ -4171,7 +4173,8 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	path = normalizePath(path);
 
 	var pack = path.split("/");
-	if (stdgoList.indexOf(toGoPath(path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+	final path = toGoPath(path);
+	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
 		pack.unshift("stdgo");
 	}
 	if (last == 0 && split == -1)
@@ -4678,7 +4681,10 @@ function getTypePath(ct:ComplexType):TypePath {
 }
 
 private function title(name:String):String {
-	return name.charAt(0).toUpperCase() + name.substring(1);
+	final name = name.charAt(0).toUpperCase() + name.substring(1);
+	if (name == "Atomic")
+		return "Atomic_";
+	return name;
 }
 
 function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):ExprDef {
@@ -7307,6 +7313,9 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 			info.renameIdents[alias] = pack.join(".");
 		}
 	} else {
+		if (name == "atomic_") {
+			info.renameIdents["atomic"] = pack.join(".");
+		}
 		info.renameIdents[name] = pack.join(".");
 	}
 }
@@ -7591,8 +7600,9 @@ function normalizePath(path:String):String {
 	path = StringTools.replace(path, "-", "_");
 	var path = path.split("/");
 	for (i in 0...path.length) {
-		if (reserved.indexOf(path[i]) != -1)
+		if (reserved.indexOf(path[i]) != -1) {
 			path[i] += "_";
+		}
 	}
 	return path.join("/");
 }

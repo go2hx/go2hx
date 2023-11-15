@@ -53,7 +53,7 @@ final list = [
 		@:privateAccess _f._output = sys.io.File.write(@:privateAccess _f._file._name);
 		return null;
 	},
-	"sync.atomic.Value.load" => macro {
+	"sync.atomic_.Value.load" => macro {
 		return @:privateAccess _v._v;
 	},
 	"os.File:close" => macro {
@@ -1121,27 +1121,27 @@ final list = [
 	// stdgo/atomic/sync
 	// Swap atomically stores new into x and returns the previous value.
 	// func (x *Pointer[T]) Swap(new *T) (old *T) { return (*T)(SwapPointer(&x.v, unsafe.Pointer(new))) }
-	"sync.atomic.Pointer_:swap" => macro {
+	"sync.atomic_.Pointer_:swap" => macro {
 		final old = @:privateAccess _x._v;
 		_x._v = stdgo.Go.toInterface(_new);
 		return stdgo.Go.toInterface(old);
 	},
-	"sync.atomic.Pointer_:compareAndSwap" => macro {
+	"sync.atomic_.Pointer_:compareAndSwap" => macro {
 		final b = stdgo.Go.toInterface(_old) == stdgo.Go.toInterface(_new);
 		if (b)
 			_x._v = stdgo.Go.toInterface(_new);
 		return b;
 	},
-	"sync.atomic.Pointer_:store" => macro {
+	"sync.atomic_.Pointer_:store" => macro {
 		_x._v = stdgo.Go.toInterface(_val);
 	},
-	"sync.atomic.Pointer_:load" => macro {
+	"sync.atomic_.Pointer_:load" => macro {
 		return @:privateAccess _x._v.__toRef__();
 	},
-	"sync.atomic.Int32:store" => macro {
+	"sync.atomic_.Int32:store" => macro {
 		_x._v = _val;
 	},
-	"sync.atomic.Int32:load" => macro {
+	"sync.atomic_.Int32:load" => macro {
 		return @:privateAccess _x._v;
 	},
 	"sync.atomic:storeUint32" => macro {
@@ -1150,8 +1150,8 @@ final list = [
 	"sync.atomic:storeUint64" => macro {
 		_addr.value = _val;
 	},
-	"sync.atomic.Bool_:store" => macro storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0),
-	"sync.atomic.Bool_:load" => macro return @:privateAccess _x._v == 1,
+	"sync.atomic_.Bool_:store" => macro storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0),
+	"sync.atomic_.Bool_:load" => macro return @:privateAccess _x._v == 1,
 	// stdgo/sync
 	"sync.Pool:get" => macro {
 		var obj = @:define("!js", @:privateAccess _p.pool.pop()) @:privateAccess _p.pool.pop(false);

@@ -168,7 +168,7 @@ var _closedchan:stdgo.Chan<stdgo.context.T_deadlineExceededError>
 closedchan is a reusable closed channel.  
 
 ```haxe
-var _goroutines:stdgo.sync.atomic.Int32
+var _goroutines:stdgo.sync.atomic_.Int32
 ```
 
 

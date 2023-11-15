@@ -64,7 +64,7 @@
 | [stdgo.strconv](./strconv/README.md) | ✅ | yes |
 | [stdgo.strings](./strings/README.md) | ✅ | yes |
 | [stdgo.sync](./sync/README.md) | ❌ | yes |
-| [stdgo.sync.atomic](./sync/atomic/README.md) | ❌ | yes |
+| [stdgo.sync.atomic_](./sync/atomic_/README.md) | ✅ | no |
 | [stdgo.syscall](./syscall/README.md) | ✅ | no |
 | [stdgo.syscall.js](./syscall/js/README.md) | ✅ | no |
 | [stdgo.testing](./testing/README.md) | ✅ | no |

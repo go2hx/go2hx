@@ -345,7 +345,7 @@ import stdgo.internal.poll.Poll
 
 
 ```haxe
-var _dupCloexecUnsupported:stdgo.sync.atomic.Bool_
+var _dupCloexecUnsupported:stdgo.sync.atomic_.Bool_
 ```
 
 

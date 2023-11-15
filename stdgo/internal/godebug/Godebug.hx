@@ -89,11 +89,11 @@ var _stderr = ({} : stdgo.internal.godebug.Godebug.T_runtimeStderr);
     
 **/
 @:structInit @:private class T_setting {
-    public var _value : stdgo.sync.atomic.Atomic.Pointer_<stdgo.internal.godebug.Godebug.T_value> = ({} : stdgo.sync.atomic.Atomic.Pointer_<stdgo.internal.godebug.Godebug.T_value>);
+    public var _value : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.internal.godebug.Godebug.T_value> = ({} : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.internal.godebug.Godebug.T_value>);
     public var _nonDefaultOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-    public var _nonDefault : stdgo.sync.atomic.Atomic.Uint64 = ({} : stdgo.sync.atomic.Atomic.Uint64);
+    public var _nonDefault : stdgo.sync.atomic_.Atomic_.Uint64 = ({} : stdgo.sync.atomic_.Atomic_.Uint64);
     public var _info : stdgo.StdGoTypes.Ref<stdgo.internal.godebugs.Godebugs.Info> = (null : stdgo.StdGoTypes.Ref<stdgo.internal.godebugs.Godebugs.Info>);
-    public function new(?_value:stdgo.sync.atomic.Atomic.Pointer_<stdgo.internal.godebug.Godebug.T_value>, ?_nonDefaultOnce:stdgo.sync.Sync.Once, ?_nonDefault:stdgo.sync.atomic.Atomic.Uint64, ?_info:stdgo.StdGoTypes.Ref<stdgo.internal.godebugs.Godebugs.Info>) {
+    public function new(?_value:stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.internal.godebug.Godebug.T_value>, ?_nonDefaultOnce:stdgo.sync.Sync.Once, ?_nonDefault:stdgo.sync.atomic_.Atomic_.Uint64, ?_info:stdgo.StdGoTypes.Ref<stdgo.internal.godebugs.Godebugs.Info>) {
         if (_value != null) this._value = _value;
         if (_nonDefaultOnce != null) this._nonDefaultOnce = _nonDefaultOnce;
         if (_nonDefault != null) this._nonDefault = _nonDefault;

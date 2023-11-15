@@ -247,10 +247,10 @@ final rshortfile : stdgo.GoString = ("[A-Za-z0-9_\\-]+\\.go:(63|65):" : stdgo.Go
 @:structInit @:using(stdgo.log.Log.Logger_static_extension) class Logger {
     public var _outMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
     public var _out : stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
-    public var _prefix : stdgo.sync.atomic.Atomic.Pointer_<stdgo.GoString> = ({} : stdgo.sync.atomic.Atomic.Pointer_<stdgo.GoString>);
-    public var _flag : stdgo.sync.atomic.Atomic.Int32 = ({} : stdgo.sync.atomic.Atomic.Int32);
-    public var _isDiscard : stdgo.sync.atomic.Atomic.Bool_ = ({} : stdgo.sync.atomic.Atomic.Bool_);
-    public function new(?_outMu:stdgo.sync.Sync.Mutex, ?_out:stdgo.io.Io.Writer, ?_prefix:stdgo.sync.atomic.Atomic.Pointer_<stdgo.GoString>, ?_flag:stdgo.sync.atomic.Atomic.Int32, ?_isDiscard:stdgo.sync.atomic.Atomic.Bool_) {
+    public var _prefix : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.GoString> = ({} : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.GoString>);
+    public var _flag : stdgo.sync.atomic_.Atomic_.Int32 = ({} : stdgo.sync.atomic_.Atomic_.Int32);
+    public var _isDiscard : stdgo.sync.atomic_.Atomic_.Bool_ = ({} : stdgo.sync.atomic_.Atomic_.Bool_);
+    public function new(?_outMu:stdgo.sync.Sync.Mutex, ?_out:stdgo.io.Io.Writer, ?_prefix:stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.GoString>, ?_flag:stdgo.sync.atomic_.Atomic_.Int32, ?_isDiscard:stdgo.sync.atomic_.Atomic_.Bool_) {
         if (_outMu != null) this._outMu = _outMu;
         if (_out != null) this._out = _out;
         if (_prefix != null) this._prefix = _prefix;

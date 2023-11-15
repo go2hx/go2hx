@@ -3283,7 +3283,7 @@ function testAfterFunc(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         _c.__get__();
     }
 function testAfterStress(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        var _stop:stdgo.sync.atomic.Atomic.Bool_ = ({} : stdgo.sync.atomic.Atomic.Bool_);
+        var _stop:stdgo.sync.atomic_.Atomic_.Bool_ = ({} : stdgo.sync.atomic_.Atomic_.Bool_);
         stdgo.Go.routine(() -> {
             var a = function():Void {
                 while (!_stop.load()) {
@@ -4037,7 +4037,7 @@ function benchmarkParallelTimerLatency(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _b.n, _i++, {
                 _wg.add(_timerCount);
-                stdgo.sync.atomic.Atomic.storeInt32(stdgo.Go.pointer(_count), (0 : stdgo.StdGoTypes.GoInt32));
+                stdgo.sync.atomic_.Atomic_.storeInt32(stdgo.Go.pointer(_count), (0 : stdgo.StdGoTypes.GoInt32));
                 {
                     var _j:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                     stdgo.Go.cfor(_j < _timerCount, _j++, {
@@ -4053,13 +4053,13 @@ function benchmarkParallelTimerLatency(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
                             if (_late > _stats[(_j : stdgo.StdGoTypes.GoInt)]._max) {
                                 _stats[(_j : stdgo.StdGoTypes.GoInt)]._max = _late;
                             };
-                            stdgo.sync.atomic.Atomic.addInt32(stdgo.Go.pointer(_count), (1 : stdgo.StdGoTypes.GoInt32));
-                            while (stdgo.sync.atomic.Atomic.loadInt32(stdgo.Go.pointer(_count)) < (_timerCount : stdgo.StdGoTypes.GoInt32)) {};
+                            stdgo.sync.atomic_.Atomic_.addInt32(stdgo.Go.pointer(_count), (1 : stdgo.StdGoTypes.GoInt32));
+                            while (stdgo.sync.atomic_.Atomic_.loadInt32(stdgo.Go.pointer(_count)) < (_timerCount : stdgo.StdGoTypes.GoInt32)) {};
                             _wg.done();
                         });
                     });
                 };
-                while (stdgo.sync.atomic.Atomic.loadInt32(stdgo.Go.pointer(_count)) < (_timerCount : stdgo.StdGoTypes.GoInt32)) {};
+                while (stdgo.sync.atomic_.Atomic_.loadInt32(stdgo.Go.pointer(_count)) < (_timerCount : stdgo.StdGoTypes.GoInt32)) {};
                 _wg.wait_();
                 _doWork((1000000i64 : stdgo.time.Time.Duration));
             });
@@ -4188,8 +4188,8 @@ function _warmupScheduler(_targetThreadCount:stdgo.StdGoTypes.GoInt):Void {
                 _wg.add((1 : stdgo.StdGoTypes.GoInt));
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
-                        stdgo.sync.atomic.Atomic.addInt32(stdgo.Go.pointer(_count), (1 : stdgo.StdGoTypes.GoInt32));
-                        while (stdgo.sync.atomic.Atomic.loadInt32(stdgo.Go.pointer(_count)) < (_targetThreadCount : stdgo.StdGoTypes.GoInt32)) {};
+                        stdgo.sync.atomic_.Atomic_.addInt32(stdgo.Go.pointer(_count), (1 : stdgo.StdGoTypes.GoInt32));
+                        while (stdgo.sync.atomic_.Atomic_.loadInt32(stdgo.Go.pointer(_count)) < (_targetThreadCount : stdgo.StdGoTypes.GoInt32)) {};
                         _doWork((1000000i64 : stdgo.time.Time.Duration));
                         _wg.done();
                     };

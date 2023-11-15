@@ -279,8 +279,8 @@ typedef T_mapInterface = stdgo.StdGoTypes.StructType & {
 **/
 @:structInit @:using(stdgo.sync_test.Sync_test.DeepCopyMap_static_extension) class DeepCopyMap {
     public var _mu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-    public var _clean : stdgo.sync.atomic.Atomic.Value = ({} : stdgo.sync.atomic.Atomic.Value);
-    public function new(?_mu:stdgo.sync.Sync.Mutex, ?_clean:stdgo.sync.atomic.Atomic.Value) {
+    public var _clean : stdgo.sync.atomic_.Atomic_.Value = ({} : stdgo.sync.atomic_.Atomic_.Value);
+    public function new(?_mu:stdgo.sync.Sync.Mutex, ?_clean:stdgo.sync.atomic_.Atomic_.Value) {
         if (_mu != null) this._mu = _mu;
         if (_clean != null) this._clean = _clean;
     }
@@ -807,7 +807,7 @@ function _benchMap(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _bench:T_be
                 _b.resetTimer();
                 var _i:stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
                 _b.runParallel(function(_pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>):Void {
-                    var _id:stdgo.StdGoTypes.GoInt = (stdgo.sync.atomic.Atomic.addInt64(stdgo.Go.pointer(_i), (1i64 : stdgo.StdGoTypes.GoInt64)) - (1i64 : stdgo.StdGoTypes.GoInt64) : stdgo.StdGoTypes.GoInt);
+                    var _id:stdgo.StdGoTypes.GoInt = (stdgo.sync.atomic_.Atomic_.addInt64(stdgo.Go.pointer(_i), (1i64 : stdgo.StdGoTypes.GoInt64)) - (1i64 : stdgo.StdGoTypes.GoInt64) : stdgo.StdGoTypes.GoInt);
                     _bench._perG(_b, _pb, _id * _b.n, _m);
                 });
             });
@@ -1489,10 +1489,10 @@ function testIssue40999(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _m:stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
         _m.store((null : stdgo.StdGoTypes.AnyInterface), stdgo.Go.toInterface(({  } : T__struct_1)));
         var _finalized:stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
-        while (stdgo.sync.atomic.Atomic.loadUint32(stdgo.Go.pointer(_finalized)) == ((0u32 : stdgo.StdGoTypes.GoUInt32))) {
+        while (stdgo.sync.atomic_.Atomic_.loadUint32(stdgo.Go.pointer(_finalized)) == ((0u32 : stdgo.StdGoTypes.GoUInt32))) {
             var _p = _new(_int);
             stdgo.runtime.Runtime.setFinalizer(stdgo.Go.toInterface(_p), stdgo.Go.toInterface(function(_0:stdgo.Pointer<stdgo.StdGoTypes.GoInt>):Void {
-                stdgo.sync.atomic.Atomic.addUint32(stdgo.Go.pointer(_finalized), (1u32 : stdgo.StdGoTypes.GoUInt32));
+                stdgo.sync.atomic_.Atomic_.addUint32(stdgo.Go.pointer(_finalized), (1u32 : stdgo.StdGoTypes.GoUInt32));
             }));
             _m.store(stdgo.Go.toInterface(_p), stdgo.Go.toInterface(({  } : T__struct_1)));
             _m.delete(stdgo.Go.toInterface(_p));
@@ -2517,7 +2517,7 @@ function _testPool(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _drain:Bool
                         stdgo.Go.cfor(_i < (100 : stdgo.StdGoTypes.GoInt), _i++, {
                             var _v = _new(_string);
                             stdgo.runtime.Runtime.setFinalizer(stdgo.Go.toInterface(_v), stdgo.Go.toInterface(function(_vv:stdgo.Pointer<stdgo.GoString>):Void {
-                                stdgo.sync.atomic.Atomic.addUint32(stdgo.Go.pointer(_fin), (1u32 : stdgo.StdGoTypes.GoUInt32));
+                                stdgo.sync.atomic_.Atomic_.addUint32(stdgo.Go.pointer(_fin), (1u32 : stdgo.StdGoTypes.GoUInt32));
                             }));
                             _p.put(stdgo.Go.toInterface(_v));
                         });
@@ -2536,7 +2536,7 @@ function _testPool(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _drain:Bool
                             stdgo.runtime.Runtime.gc();
                             stdgo.time.Time.sleep(((_i * (100 : stdgo.StdGoTypes.GoInt)) + (10 : stdgo.StdGoTypes.GoInt) : stdgo.time.Time.Duration) * (1000000i64 : stdgo.time.Time.Duration));
                             {
-                                _fin1 = stdgo.sync.atomic.Atomic.loadUint32(stdgo.Go.pointer(_fin));
+                                _fin1 = stdgo.sync.atomic_.Atomic_.loadUint32(stdgo.Go.pointer(_fin));
                                 if (_fin1 >= (99u32 : stdgo.StdGoTypes.GoUInt32)) {
                                     @:jump("loop") continue;
                                 };
@@ -2605,9 +2605,9 @@ function _testPoolDequeue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _d:P
         var _stop:stdgo.StdGoTypes.GoInt32 = (0 : stdgo.StdGoTypes.GoInt32);
         var _wg:WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
         var _record:stdgo.StdGoTypes.GoInt -> Void = function(_val:stdgo.StdGoTypes.GoInt):Void {
-            stdgo.sync.atomic.Atomic.addInt32(stdgo.Go.pointer(_have[(_val : stdgo.StdGoTypes.GoInt)]), (1 : stdgo.StdGoTypes.GoInt32));
+            stdgo.sync.atomic_.Atomic_.addInt32(stdgo.Go.pointer(_have[(_val : stdgo.StdGoTypes.GoInt)]), (1 : stdgo.StdGoTypes.GoInt32));
             if (_val == (n - (1 : stdgo.StdGoTypes.GoInt))) {
-                stdgo.sync.atomic.Atomic.storeInt32(stdgo.Go.pointer(_stop), (1 : stdgo.StdGoTypes.GoInt32));
+                stdgo.sync.atomic_.Atomic_.storeInt32(stdgo.Go.pointer(_stop), (1 : stdgo.StdGoTypes.GoInt32));
             };
         };
         {
@@ -2617,7 +2617,7 @@ function _testPoolDequeue(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _d:P
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
                         var _fail:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-                        while (stdgo.sync.atomic.Atomic.loadInt32(stdgo.Go.pointer(_stop)) == ((0 : stdgo.StdGoTypes.GoInt32))) {
+                        while (stdgo.sync.atomic_.Atomic_.loadInt32(stdgo.Go.pointer(_stop)) == ((0 : stdgo.StdGoTypes.GoInt32))) {
                             var __tmp__ = _d.popTail(), _val:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (_ok) {
                                 _fail = (0 : stdgo.StdGoTypes.GoInt);
@@ -2796,7 +2796,7 @@ function benchmarkPoolExpensiveNew(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
             var _p:Pool = ({} : stdgo.sync.Sync.Pool);
             var _nNew:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
             _p.new_ = function():stdgo.StdGoTypes.AnyInterface {
-                stdgo.sync.atomic.Atomic.addUint64(stdgo.Go.pointer(_nNew), (1i64 : stdgo.StdGoTypes.GoUInt64));
+                stdgo.sync.atomic_.Atomic_.addUint64(stdgo.Go.pointer(_nNew), (1i64 : stdgo.StdGoTypes.GoUInt64));
                 stdgo.time.Time.sleep((1000000i64 : stdgo.time.Time.Duration));
                 return stdgo.Go.toInterface((42 : stdgo.StdGoTypes.GoInt));
             };
@@ -3030,7 +3030,7 @@ function _reader(_rwm:stdgo.StdGoTypes.Ref<RWMutex>, _num_iterations:stdgo.StdGo
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _num_iterations, _i++, {
                 _rwm.rlock();
-                var _n:stdgo.StdGoTypes.GoInt32 = stdgo.sync.atomic.Atomic.addInt32(_activity, (1 : stdgo.StdGoTypes.GoInt32));
+                var _n:stdgo.StdGoTypes.GoInt32 = stdgo.sync.atomic_.Atomic_.addInt32(_activity, (1 : stdgo.StdGoTypes.GoInt32));
                 if ((_n < (1 : stdgo.StdGoTypes.GoInt32)) || (_n >= (10000 : stdgo.StdGoTypes.GoInt32))) {
                     _rwm.runlock();
                     throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("wlock(%d)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n)));
@@ -3039,7 +3039,7 @@ function _reader(_rwm:stdgo.StdGoTypes.Ref<RWMutex>, _num_iterations:stdgo.StdGo
                     var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                     stdgo.Go.cfor(_i < (100 : stdgo.StdGoTypes.GoInt), _i++, {});
                 };
-                stdgo.sync.atomic.Atomic.addInt32(_activity, (-1 : stdgo.StdGoTypes.GoInt32));
+                stdgo.sync.atomic_.Atomic_.addInt32(_activity, (-1 : stdgo.StdGoTypes.GoInt32));
                 _rwm.runlock();
             });
         };
@@ -3050,7 +3050,7 @@ function _writer(_rwm:stdgo.StdGoTypes.Ref<RWMutex>, _num_iterations:stdgo.StdGo
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _num_iterations, _i++, {
                 _rwm.lock();
-                var _n:stdgo.StdGoTypes.GoInt32 = stdgo.sync.atomic.Atomic.addInt32(_activity, (10000 : stdgo.StdGoTypes.GoInt32));
+                var _n:stdgo.StdGoTypes.GoInt32 = stdgo.sync.atomic_.Atomic_.addInt32(_activity, (10000 : stdgo.StdGoTypes.GoInt32));
                 if (_n != ((10000 : stdgo.StdGoTypes.GoInt32))) {
                     _rwm.unlock();
                     throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("wlock(%d)\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n)));
@@ -3059,7 +3059,7 @@ function _writer(_rwm:stdgo.StdGoTypes.Ref<RWMutex>, _num_iterations:stdgo.StdGo
                     var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                     stdgo.Go.cfor(_i < (100 : stdgo.StdGoTypes.GoInt), _i++, {});
                 };
-                stdgo.sync.atomic.Atomic.addInt32(_activity, (-10000 : stdgo.StdGoTypes.GoInt32));
+                stdgo.sync.atomic_.Atomic_.addInt32(_activity, (-10000 : stdgo.StdGoTypes.GoInt32));
                 _rwm.unlock();
             });
         };
@@ -3380,7 +3380,7 @@ function testWaitGroupRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 _wg.add((1 : stdgo.StdGoTypes.GoInt));
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
-                        stdgo.sync.atomic.Atomic.addInt32(_n, (1 : stdgo.StdGoTypes.GoInt32));
+                        stdgo.sync.atomic_.Atomic_.addInt32(_n, (1 : stdgo.StdGoTypes.GoInt32));
                         _wg.done();
                     };
                     a();
@@ -3388,13 +3388,13 @@ function testWaitGroupRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 _wg.add((1 : stdgo.StdGoTypes.GoInt));
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
-                        stdgo.sync.atomic.Atomic.addInt32(_n, (1 : stdgo.StdGoTypes.GoInt32));
+                        stdgo.sync.atomic_.Atomic_.addInt32(_n, (1 : stdgo.StdGoTypes.GoInt32));
                         _wg.done();
                     };
                     a();
                 });
                 _wg.wait_();
-                if (stdgo.sync.atomic.Atomic.loadInt32(_n) != ((2 : stdgo.StdGoTypes.GoInt32))) {
+                if (stdgo.sync.atomic_.Atomic_.loadInt32(_n) != ((2 : stdgo.StdGoTypes.GoInt32))) {
                     _t.fatal(stdgo.Go.toInterface(("Spurious wakeup from Wait" : stdgo.GoString)));
                 };
             });

@@ -651,9 +651,9 @@ typedef Signal = stdgo.StdGoTypes.StructType & {
 @:structInit @:using(stdgo.os.Os.Process_static_extension) class Process {
     public var pid : stdgo.StdGoTypes.GoInt = 0;
     public var _handle : stdgo.StdGoTypes.GoUIntptr = 0;
-    public var _isdone : stdgo.sync.atomic.Atomic.Bool_ = ({} : stdgo.sync.atomic.Atomic.Bool_);
+    public var _isdone : stdgo.sync.atomic_.Atomic_.Bool_ = ({} : stdgo.sync.atomic_.Atomic_.Bool_);
     public var _sigMu : stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
-    public function new(?pid:stdgo.StdGoTypes.GoInt, ?_handle:stdgo.StdGoTypes.GoUIntptr, ?_isdone:stdgo.sync.atomic.Atomic.Bool_, ?_sigMu:stdgo.sync.Sync.RWMutex) {
+    public function new(?pid:stdgo.StdGoTypes.GoInt, ?_handle:stdgo.StdGoTypes.GoUIntptr, ?_isdone:stdgo.sync.atomic_.Atomic_.Bool_, ?_sigMu:stdgo.sync.Sync.RWMutex) {
         if (pid != null) this.pid = pid;
         if (_handle != null) this._handle = _handle;
         if (_isdone != null) this._isdone = _isdone;

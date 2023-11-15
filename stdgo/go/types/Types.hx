@@ -7866,7 +7866,7 @@ function _bindTParams(_list:stdgo.Slice<stdgo.StdGoTypes.Ref<TypeParam>>):stdgo.
     // each call, starting with 1. It may be called concurrently.
 **/
 function _nextID():stdgo.StdGoTypes.GoUInt64 {
-        return (stdgo.sync.atomic.Atomic.addUint32(stdgo.Go.pointer(_lastID), (1u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.StdGoTypes.GoUInt64);
+        return (stdgo.sync.atomic_.Atomic_.addUint32(stdgo.Go.pointer(_lastID), (1u32 : stdgo.StdGoTypes.GoUInt32)) : stdgo.StdGoTypes.GoUInt64);
     }
 /**
     // NewTypeParam returns a new TypeParam. Type parameters may be set on a Named
@@ -23512,7 +23512,7 @@ class Named_asInterface {
     @:keep
     static public function _setState( _n:stdgo.StdGoTypes.Ref<Named>, _state:T_namedState):Void {
         @:recv var _n:stdgo.StdGoTypes.Ref<Named> = _n;
-        stdgo.sync.atomic.Atomic.storeUint32(stdgo.Go.pointer(_n._state_), (_state : stdgo.StdGoTypes.GoUInt32));
+        stdgo.sync.atomic_.Atomic_.storeUint32(stdgo.Go.pointer(_n._state_), (_state : stdgo.StdGoTypes.GoUInt32));
     }
     /**
         // state atomically accesses the current state of the receiver.
@@ -23520,7 +23520,7 @@ class Named_asInterface {
     @:keep
     static public function _state( _n:stdgo.StdGoTypes.Ref<Named>):T_namedState {
         @:recv var _n:stdgo.StdGoTypes.Ref<Named> = _n;
-        return (stdgo.sync.atomic.Atomic.loadUint32(stdgo.Go.pointer(_n._state_)) : T_namedState);
+        return (stdgo.sync.atomic_.Atomic_.loadUint32(stdgo.Go.pointer(_n._state_)) : T_namedState);
     }
     /**
         // resolve resolves the type parameters, methods, and underlying type of n.

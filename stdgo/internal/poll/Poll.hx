@@ -189,7 +189,7 @@ final _maxRW : stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
     
     
 **/
-var _dupCloexecUnsupported = ({} : stdgo.sync.atomic.Atomic.Bool_);
+var _dupCloexecUnsupported = ({} : stdgo.sync.atomic_.Atomic_.Bool_);
 /**
     // errNetClosing is the type of the variable ErrNetClosing.
     // This is used to implement the net.Error interface.

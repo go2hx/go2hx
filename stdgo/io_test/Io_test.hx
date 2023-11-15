@@ -1268,7 +1268,7 @@ function testOffsetWriter_WriteAt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
                                 if (_e != null) {
                                     _t.errorf(("WriteAt failed. off: %d, at: %d, step: %d\n error: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_off), stdgo.Go.toInterface(_at), stdgo.Go.toInterface(_step), stdgo.Go.toInterface(_e));
                                 };
-                                stdgo.sync.atomic.Atomic.addInt64(stdgo.Go.pointer(_writeN), (_n : stdgo.StdGoTypes.GoInt64));
+                                stdgo.sync.atomic_.Atomic_.addInt64(stdgo.Go.pointer(_writeN), (_n : stdgo.StdGoTypes.GoInt64));
                                 for (defer in __deferstack__) {
                                     defer();
                                 };

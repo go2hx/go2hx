@@ -833,8 +833,8 @@ var _keywords = (null : stdgo.GoMap<stdgo.GoString, stdgo.go.token.Token.Token>)
     public var _mutex : stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
     public var _base : stdgo.StdGoTypes.GoInt = 0;
     public var _files : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>>);
-    public var _last : stdgo.sync.atomic.Atomic.Pointer_<stdgo.go.token.Token.File> = ({} : stdgo.sync.atomic.Atomic.Pointer_<stdgo.go.token.Token.File>);
-    public function new(?_mutex:stdgo.sync.Sync.RWMutex, ?_base:stdgo.StdGoTypes.GoInt, ?_files:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>>, ?_last:stdgo.sync.atomic.Atomic.Pointer_<stdgo.go.token.Token.File>) {
+    public var _last : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.go.token.Token.File> = ({} : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.go.token.Token.File>);
+    public function new(?_mutex:stdgo.sync.Sync.RWMutex, ?_base:stdgo.StdGoTypes.GoInt, ?_files:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>>, ?_last:stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.go.token.Token.File>) {
         if (_mutex != null) this._mutex = _mutex;
         if (_base != null) this._base = _base;
         if (_files != null) this._files = _files;

@@ -2281,7 +2281,7 @@ function testCancelErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 };
                 __deferstack__.unshift(() -> _stdin.close());
                 var _errArbitrary:stdgo.Error = stdgo.errors.Errors.new_(("arbitrary error" : stdgo.GoString)?.__copy__());
-                var _interruptCalled:stdgo.sync.atomic.Atomic.Bool_ = ({} : stdgo.sync.atomic.Atomic.Bool_);
+                var _interruptCalled:stdgo.sync.atomic_.Atomic_.Bool_ = ({} : stdgo.sync.atomic_.Atomic_.Bool_);
                 _cmd.cancel = function():stdgo.Error {
                     _t.logf(("Cancel called" : stdgo.GoString)?.__copy__());
                     _interruptCalled.store(true);
@@ -2346,7 +2346,7 @@ function testCancelErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
                 __deferstack__.unshift(() -> _stdin.close());
-                var _interruptCalled:stdgo.sync.atomic.Atomic.Bool_ = ({} : stdgo.sync.atomic.Atomic.Bool_);
+                var _interruptCalled:stdgo.sync.atomic_.Atomic_.Bool_ = ({} : stdgo.sync.atomic_.Atomic_.Bool_);
                 _cmd.cancel = function():stdgo.Error {
                     _t.logf(("Cancel returning an error wrapping ErrProcessDone" : stdgo.GoString)?.__copy__());
                     _interruptCalled.store(true);

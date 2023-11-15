@@ -75,7 +75,7 @@ var _closedchan : stdgo.Chan<T_deadlineExceededError> = (null : stdgo.Chan<T_dea
     
     
 **/
-var _goroutines = ({} : stdgo.sync.atomic.Atomic.Int32);
+var _goroutines = ({} : stdgo.sync.atomic_.Atomic_.Int32);
 /**
     // &cancelCtxKey is the key that a cancelCtx returns itself for.
     
@@ -385,11 +385,11 @@ typedef T_stringer = stdgo.StdGoTypes.StructType & {
     @:embedded
     public var context : stdgo.context.Context.Context = (null : stdgo.context.Context.Context);
     public var _mu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-    public var _done : stdgo.sync.atomic.Atomic.Value = ({} : stdgo.sync.atomic.Atomic.Value);
+    public var _done : stdgo.sync.atomic_.Atomic_.Value = ({} : stdgo.sync.atomic_.Atomic_.Value);
     public var _children : stdgo.GoMap<stdgo.context.Context.T_canceler, T_deadlineExceededError> = (null : stdgo.GoMap<stdgo.context.Context.T_canceler, T_deadlineExceededError>);
     public var _err : stdgo.Error = (null : stdgo.Error);
     public var _cause : stdgo.Error = (null : stdgo.Error);
-    public function new(?context:stdgo.context.Context.Context, ?_mu:stdgo.sync.Sync.Mutex, ?_done:stdgo.sync.atomic.Atomic.Value, ?_children:stdgo.GoMap<stdgo.context.Context.T_canceler, T_deadlineExceededError>, ?_err:stdgo.Error, ?_cause:stdgo.Error) {
+    public function new(?context:stdgo.context.Context.Context, ?_mu:stdgo.sync.Sync.Mutex, ?_done:stdgo.sync.atomic_.Atomic_.Value, ?_children:stdgo.GoMap<stdgo.context.Context.T_canceler, T_deadlineExceededError>, ?_err:stdgo.Error, ?_cause:stdgo.Error) {
         if (context != null) this.context = context;
         if (_mu != null) this._mu = _mu;
         if (_done != null) this._done = _done;

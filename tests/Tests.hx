@@ -291,6 +291,15 @@ private function close() {
 		return count + " " + (Std.int(count / total * 10000) / 100) + "%";
 	}
 	final output:Array<String> = FileSystem.exists('tests/$type.json') ? Json.parse(File.getContent('tests/$type.json')) : [];
+	// remove targets that don't exist
+	output.filter((v) -> {
+		final parts = v.split("|");
+		final target = parts[0];
+		final path = parts[1];
+		if (targets.indexOf(target) == -1)
+			return false;
+		return true;
+	});
 	final input:Array<String> = [];
 	log('--> $type');
 	log('      correct output: ' + calc(suite.correctCount, suite.count));

@@ -60,6 +60,10 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: stdgo automatic compile
+      - name: Run unit tests cpp
+        run: haxe tests.hxml -D unit -D ci -D runnerCount=12 -D cpp
+        env:
+          HXCPP_COMPILE_CACHE: ~/hxcppcache
       - name: Get go2hxdoc
         run: go get github.com/go2hx/go2hxdoc
       - name: Build go2hxdoc

@@ -49,12 +49,14 @@ var tests:Array<String> = [];
 var tasks:Array<TaskData> = [];
 var type:String = "";
 // cpp tests take a long time to compile, so sometimes its not run if quick testing is required
-final targets = ["hl"];
+var targets = ["hl"];
 var suite = new TestSuite();
 var completeBool = false;
 var lastTaskLogs = [];
 
 function main() {
+	if (Compiler.getDefine("cpp") != null)
+		targets = ["cpp"];
 	Main.setup(0, 1); // amount of processes to spawn
 	Main.onComplete = complete;
 

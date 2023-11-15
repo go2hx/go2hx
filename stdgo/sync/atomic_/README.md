@@ -275,7 +275,7 @@ function _b32(_b:Bool):stdgo.GoUInt32
 
 b32 returns a uint32 0 or 1 representing b.  
 
-[\(view code\)](<./Atomic_.hx#L433>)
+[\(view code\)](<./Atomic_.hx#L435>)
 
 
 ## function \_runtime\_procPin
@@ -289,7 +289,7 @@ function _runtime_procPin():stdgo.GoInt
 
 Disable/enable preemption, implemented in runtime.  
 
-[\(view code\)](<./Atomic_.hx#L437>)
+[\(view code\)](<./Atomic_.hx#L439>)
 
 
 ## function \_runtime\_procUnpin
@@ -300,7 +300,7 @@ function _runtime_procUnpin():Void
 ```
 
 
-[\(view code\)](<./Atomic_.hx#L438>)
+[\(view code\)](<./Atomic_.hx#L440>)
 
 
 ## function addInt32
@@ -611,7 +611,7 @@ function storePointer(_addr:stdgo.Pointer<stdgo.unsafe.UnsafePointer>, _val:stdg
 StorePointer atomically stores val into \*addr.
 Consider using the more ergonomic and less error\-prone \[Pointer.Store\] instead.  
 
-[\(view code\)](<./Atomic_.hx#L429>)
+[\(view code\)](<./Atomic_.hx#L431>)
 
 
 ## function storeUint32
@@ -657,7 +657,7 @@ function storeUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _val:stdgo.GoUIntptr
 StoreUintptr atomically stores val into \*addr.
 Consider using the more ergonomic and less error\-prone \[Uintptr.Store\] instead.  
 
-[\(view code\)](<./Atomic_.hx#L424>)
+[\(view code\)](<./Atomic_.hx#L426>)
 
 
 ## function swapInt32
@@ -799,7 +799,7 @@ function compareAndSwap( _old:Bool, _new:Bool):Bool
 
 CompareAndSwap executes the compare\-and\-swap operation for the boolean value x.  
 
-[\(view code\)](<./Atomic_.hx#L473>)
+[\(view code\)](<./Atomic_.hx#L475>)
 
 
 ### Bool\_ function load
@@ -813,7 +813,7 @@ function load():Bool
 
 Load atomically loads and returns the value stored in x.  
 
-[\(view code\)](<./Atomic_.hx#L488>)
+[\(view code\)](<./Atomic_.hx#L490>)
 
 
 ### Bool\_ function store
@@ -827,7 +827,7 @@ function store( _val:Bool):Void
 
 Store atomically stores val into x.  
 
-[\(view code\)](<./Atomic_.hx#L483>)
+[\(view code\)](<./Atomic_.hx#L485>)
 
 
 ### Bool\_ function swap
@@ -841,7 +841,7 @@ function swap( _new:Bool):Bool
 
 Swap atomically stores new into x and returns the previous value.  
 
-[\(view code\)](<./Atomic_.hx#L478>)
+[\(view code\)](<./Atomic_.hx#L480>)
 
 
 ## class Int32
@@ -882,7 +882,7 @@ function add( _delta:stdgo.GoInt32):stdgo.GoInt32
 
 Add atomically adds delta to x and returns the new value.  
 
-[\(view code\)](<./Atomic_.hx#L580>)
+[\(view code\)](<./Atomic_.hx#L582>)
 
 
 ### Int32 function compareAndSwap
@@ -896,7 +896,7 @@ function compareAndSwap( _old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool
 
 CompareAndSwap executes the compare\-and\-swap operation for x.  
 
-[\(view code\)](<./Atomic_.hx#L585>)
+[\(view code\)](<./Atomic_.hx#L587>)
 
 
 ### Int32 function load
@@ -910,7 +910,7 @@ function load():stdgo.GoInt32
 
 Load atomically loads and returns the value stored in x.  
 
-[\(view code\)](<./Atomic_.hx#L603>)
+[\(view code\)](<./Atomic_.hx#L605>)
 
 
 ### Int32 function store
@@ -924,7 +924,7 @@ function store( _val:stdgo.GoInt32):Void
 
 Store atomically stores val into x.  
 
-[\(view code\)](<./Atomic_.hx#L595>)
+[\(view code\)](<./Atomic_.hx#L597>)
 
 
 ### Int32 function swap
@@ -938,7 +938,7 @@ function swap( _new:stdgo.GoInt32):stdgo.GoInt32
 
 Swap atomically stores new into x and returns the previous value.  
 
-[\(view code\)](<./Atomic_.hx#L590>)
+[\(view code\)](<./Atomic_.hx#L592>)
 
 
 ## class Int64\_
@@ -984,7 +984,7 @@ function add( _delta:stdgo.GoInt64):stdgo.GoInt64
 
 Add atomically adds delta to x and returns the new value.  
 
-[\(view code\)](<./Atomic_.hx#L647>)
+[\(view code\)](<./Atomic_.hx#L649>)
 
 
 ### Int64\_ function compareAndSwap
@@ -998,7 +998,7 @@ function compareAndSwap( _old:stdgo.GoInt64, _new:stdgo.GoInt64):Bool
 
 CompareAndSwap executes the compare\-and\-swap operation for x.  
 
-[\(view code\)](<./Atomic_.hx#L652>)
+[\(view code\)](<./Atomic_.hx#L654>)
 
 
 ### Int64\_ function load
@@ -1012,7 +1012,7 @@ function load():stdgo.GoInt64
 
 Load atomically loads and returns the value stored in x.  
 
-[\(view code\)](<./Atomic_.hx#L667>)
+[\(view code\)](<./Atomic_.hx#L669>)
 
 
 ### Int64\_ function store
@@ -1026,7 +1026,7 @@ function store( _val:stdgo.GoInt64):Void
 
 Store atomically stores val into x.  
 
-[\(view code\)](<./Atomic_.hx#L662>)
+[\(view code\)](<./Atomic_.hx#L664>)
 
 
 ### Int64\_ function swap
@@ -1040,7 +1040,7 @@ function swap( _new:stdgo.GoInt64):stdgo.GoInt64
 
 Swap atomically stores new into x and returns the previous value.  
 
-[\(view code\)](<./Atomic_.hx#L657>)
+[\(view code\)](<./Atomic_.hx#L659>)
 
 
 ## class Pointer\_
@@ -1162,7 +1162,7 @@ function add( _delta:stdgo.GoUInt32):stdgo.GoUInt32
 
 Add atomically adds delta to x and returns the new value.  
 
-[\(view code\)](<./Atomic_.hx#L708>)
+[\(view code\)](<./Atomic_.hx#L710>)
 
 
 ### Uint32 function compareAndSwap
@@ -1176,7 +1176,7 @@ function compareAndSwap( _old:stdgo.GoUInt32, _new:stdgo.GoUInt32):Bool
 
 CompareAndSwap executes the compare\-and\-swap operation for x.  
 
-[\(view code\)](<./Atomic_.hx#L713>)
+[\(view code\)](<./Atomic_.hx#L715>)
 
 
 ### Uint32 function load
@@ -1190,7 +1190,7 @@ function load():stdgo.GoUInt32
 
 Load atomically loads and returns the value stored in x.  
 
-[\(view code\)](<./Atomic_.hx#L728>)
+[\(view code\)](<./Atomic_.hx#L730>)
 
 
 ### Uint32 function store
@@ -1204,7 +1204,7 @@ function store( _val:stdgo.GoUInt32):Void
 
 Store atomically stores val into x.  
 
-[\(view code\)](<./Atomic_.hx#L723>)
+[\(view code\)](<./Atomic_.hx#L725>)
 
 
 ### Uint32 function swap
@@ -1218,7 +1218,7 @@ function swap( _new:stdgo.GoUInt32):stdgo.GoUInt32
 
 Swap atomically stores new into x and returns the previous value.  
 
-[\(view code\)](<./Atomic_.hx#L718>)
+[\(view code\)](<./Atomic_.hx#L720>)
 
 
 ## class Uint64
@@ -1264,7 +1264,7 @@ function add( _delta:stdgo.GoUInt64):stdgo.GoUInt64
 
 Add atomically adds delta to x and returns the new value.  
 
-[\(view code\)](<./Atomic_.hx#L769>)
+[\(view code\)](<./Atomic_.hx#L771>)
 
 
 ### Uint64 function compareAndSwap
@@ -1278,7 +1278,7 @@ function compareAndSwap( _old:stdgo.GoUInt64, _new:stdgo.GoUInt64):Bool
 
 CompareAndSwap executes the compare\-and\-swap operation for x.  
 
-[\(view code\)](<./Atomic_.hx#L774>)
+[\(view code\)](<./Atomic_.hx#L776>)
 
 
 ### Uint64 function load
@@ -1292,7 +1292,7 @@ function load():stdgo.GoUInt64
 
 Load atomically loads and returns the value stored in x.  
 
-[\(view code\)](<./Atomic_.hx#L789>)
+[\(view code\)](<./Atomic_.hx#L791>)
 
 
 ### Uint64 function store
@@ -1306,7 +1306,7 @@ function store( _val:stdgo.GoUInt64):Void
 
 Store atomically stores val into x.  
 
-[\(view code\)](<./Atomic_.hx#L784>)
+[\(view code\)](<./Atomic_.hx#L786>)
 
 
 ### Uint64 function swap
@@ -1320,7 +1320,7 @@ function swap( _new:stdgo.GoUInt64):stdgo.GoUInt64
 
 Swap atomically stores new into x and returns the previous value.  
 
-[\(view code\)](<./Atomic_.hx#L779>)
+[\(view code\)](<./Atomic_.hx#L781>)
 
 
 ## class Uintptr
@@ -1361,7 +1361,7 @@ function add( _delta:stdgo.GoUIntptr):stdgo.GoUIntptr
 
 Add atomically adds delta to x and returns the new value.  
 
-[\(view code\)](<./Atomic_.hx#L830>)
+[\(view code\)](<./Atomic_.hx#L832>)
 
 
 ### Uintptr function compareAndSwap
@@ -1375,7 +1375,7 @@ function compareAndSwap( _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool
 
 CompareAndSwap executes the compare\-and\-swap operation for x.  
 
-[\(view code\)](<./Atomic_.hx#L835>)
+[\(view code\)](<./Atomic_.hx#L837>)
 
 
 ### Uintptr function load
@@ -1389,7 +1389,7 @@ function load():stdgo.GoUIntptr
 
 Load atomically loads and returns the value stored in x.  
 
-[\(view code\)](<./Atomic_.hx#L850>)
+[\(view code\)](<./Atomic_.hx#L852>)
 
 
 ### Uintptr function store
@@ -1403,7 +1403,7 @@ function store( _val:stdgo.GoUIntptr):Void
 
 Store atomically stores val into x.  
 
-[\(view code\)](<./Atomic_.hx#L845>)
+[\(view code\)](<./Atomic_.hx#L847>)
 
 
 ### Uintptr function swap
@@ -1417,7 +1417,7 @@ function swap( _new:stdgo.GoUIntptr):stdgo.GoUIntptr
 
 Swap atomically stores new into x and returns the previous value.  
 
-[\(view code\)](<./Atomic_.hx#L840>)
+[\(view code\)](<./Atomic_.hx#L842>)
 
 
 ## class Value
@@ -1463,7 +1463,7 @@ All calls to CompareAndSwap for a given Value must use values of the same
 concrete type. CompareAndSwap of an inconsistent type panics, as does
 CompareAndSwap\(old, nil\).  
 
-[\(view code\)](<./Atomic_.hx#L926>)
+[\(view code\)](<./Atomic_.hx#L928>)
 
 
 ### Value function load
@@ -1478,7 +1478,7 @@ function load():stdgo.AnyInterface
 Load returns the value set by the most recent Store.
 It returns nil if there has been no call to Store for this Value.  
 
-[\(view code\)](<./Atomic_.hx#L948>)
+[\(view code\)](<./Atomic_.hx#L950>)
 
 
 ### Value function store
@@ -1494,7 +1494,7 @@ Store sets the value of the Value v to val.
 All calls to Store for a given Value must use values of the same concrete type.
 Store of an inconsistent type panics, as does Store\(nil\).  
 
-[\(view code\)](<./Atomic_.hx#L942>)
+[\(view code\)](<./Atomic_.hx#L944>)
 
 
 ### Value function swap
@@ -1513,6 +1513,6 @@ the Value is empty.
 All calls to Swap for a given Value must use values of the same concrete
 type. Swap of an inconsistent type panics, as does Swap\(nil\).  
 
-[\(view code\)](<./Atomic_.hx#L935>)
+[\(view code\)](<./Atomic_.hx#L937>)
 
 

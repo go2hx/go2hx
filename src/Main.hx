@@ -230,6 +230,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 		child.on('exit', code -> {
 			final code:Int = code;
 			Sys.println('child process exited: $code');
+			// print out output
+			Sys.print(child.stdout.read());
+			Sys.print(child.stderr.read());
 			Sys.exit(code);
 		});
 		#end

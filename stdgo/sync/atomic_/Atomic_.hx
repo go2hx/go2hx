@@ -416,7 +416,9 @@ function storeUint32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _val:stdgo.
     // Consider using the more ergonomic and less error-prone [Uint64.Store] instead
     // (particularly if you target 32-bit platforms; see the bugs section).
 **/
-function storeUint64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _val:stdgo.StdGoTypes.GoUInt64):Void throw ":sync.atomic_.storeUint64 is not yet implemented";
+function storeUint64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _val:stdgo.StdGoTypes.GoUInt64):Void {
+        _addr.value = _val;
+    }
 /**
     // StoreUintptr atomically stores val into *addr.
     // Consider using the more ergonomic and less error-prone [Uintptr.Store] instead.

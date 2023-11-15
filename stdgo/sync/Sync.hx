@@ -2151,61 +2151,7 @@ class Pool_asInterface {
 }
 @:keep @:allow(stdgo.sync.Sync.Pool_asInterface) class Pool_static_extension {
     @:keep
-    static public function _pinSlow( _p:stdgo.StdGoTypes.Ref<Pool>):{ var _0 : stdgo.StdGoTypes.Ref<T_poolLocal>; var _1 : stdgo.StdGoTypes.GoInt; } {
-        @:recv var _p:stdgo.StdGoTypes.Ref<Pool> = _p;
-        var __deferstack__:Array<Void -> Void> = [];
-        _runtime_procUnpin();
-        _allPoolsMu.lock();
-        try {
-            __deferstack__.unshift(() -> _allPoolsMu.unlock());
-            var _pid:stdgo.StdGoTypes.GoInt = _runtime_procPin();
-            var _s:stdgo.StdGoTypes.GoUIntptr = _p._localSize;
-            var _l:stdgo.unsafe.Unsafe.UnsafePointer = _p._local;
-            if ((_pid : stdgo.StdGoTypes.GoUIntptr) < _s) {
-                {
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    return { _0 : _indexLocal(_l, _pid), _1 : _pid };
-                };
-            };
-            if (_p._local == null) {
-                _allPools = (_allPools.__append__(_p));
-            };
-            var _size:stdgo.StdGoTypes.GoInt = stdgo.runtime.Runtime.gomaxprocs((0 : stdgo.StdGoTypes.GoInt));
-            var _local = new stdgo.Slice<stdgo.sync.Sync.T_poolLocal>((_size : stdgo.StdGoTypes.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_size : stdgo.StdGoTypes.GoInt).toBasic() > 0 ? (_size : stdgo.StdGoTypes.GoInt).toBasic() : 0 : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.sync.Sync.T_poolLocal)]);
-            stdgo.sync.atomic_.Atomic_.storePointer(stdgo.Go.pointer(_p._local), (stdgo.Go.toInterface((stdgo.Go.setRef(_local[(0 : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolLocal>)) : stdgo.unsafe.Unsafe.UnsafePointer));
-            _runtime_StoreReluintptr(stdgo.Go.pointer(_p._localSize), (_size : stdgo.StdGoTypes.GoUIntptr));
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                return { _0 : (stdgo.Go.setRef(_local[(_pid : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolLocal>), _1 : _pid };
-            };
-            for (defer in __deferstack__) {
-                defer();
-            };
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolLocal>), _1 : (0 : stdgo.StdGoTypes.GoInt) };
-            };
-        } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.StdGoTypes.AnyInterfaceData)) {
-                exe = stdgo.Go.toInterface(__exception__.message);
-            };
-            stdgo.Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                defer();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolLocal>), _1 : (0 : stdgo.StdGoTypes.GoInt) };
-        };
-    }
+    static public function _pinSlow( _p:stdgo.StdGoTypes.Ref<Pool>):{ var _0 : stdgo.StdGoTypes.Ref<T_poolLocal>; var _1 : stdgo.StdGoTypes.GoInt; } return { _0 : null, _1 : 0 };
     /**
         // pin pins the current goroutine to P, disables preemption and
         // returns poolLocal pool for the P and the P's id.

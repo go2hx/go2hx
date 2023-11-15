@@ -1427,7 +1427,7 @@ used, independent of the functions being tested.
 
 ```haxe
 typedef T__struct_0 = {
-};
+	};
 ```
 
 

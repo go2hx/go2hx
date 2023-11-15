@@ -1147,9 +1147,10 @@ final list = [
 	"sync.atomic_:storeUint32" => macro {
 		_addr.value = _val;
 	},
-	"sync.atomic):storeUint64" => macro {
+	"sync.atomic_:storeUint64" => macro {
 		_addr.value = _val;
 	},
+	"sync.Pool:_pinSlow" => macro return {_0: null, _1: 0},
 	"sync.atomic_.Bool_:store" => macro storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0),
 	"sync.atomic_.Bool_:load" => macro return @:privateAccess _x._v == 1,
 	// stdgo/sync

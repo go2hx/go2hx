@@ -218,23 +218,31 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	Sys.println('listening on local port: $port');
 	#if !js
 	server.bind(new sys.net.Host("127.0.0.1"), port);
+	#else
+	var resetCount = 0;
+	function jsProcess() {
+		final child = js.node.ChildProcess.exec('./go4hx $port', null, null);
+		child.on('exit', code -> {
+			final code:Int = code;
+			Sys.println('child process exited: $code');
+			// print out output
+			Sys.println(child.stdout.read());
+			Sys.println(child.stderr.read());
+			if (resetCount++ > 4) {
+				Sys.exit(code);
+			}else{
+				jsProcess();
+			}
+		});
+	}
 	#end
-
 	// server.noDelay(true);
 	for (i in 0...processCount) {
 		// sys.thread.Thread.create(() -> Sys.command("./go4hx", ['$port']));
 		#if (target.threaded)
 		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
 		#else
-		final child = js.node.ChildProcess.exec('./go4hx $port', null, null);
-		child.on('exit', code -> {
-			final code:Int = code;
-			Sys.println('child process exited: $code');
-			// print out output
-			Sys.print(child.stdout.read());
-			Sys.print(child.stderr.read());
-			Sys.exit(code);
-		});
+		jsProcess();
 		#end
 	}
 	var index = 0;

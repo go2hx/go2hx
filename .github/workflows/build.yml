@@ -10,10 +10,11 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macos-latest]
+        os: [ubuntu-latest]
+        #os: [macos-latest]
       fail-fast: true
-    runs-on: self-hosted
-    # runs-on: ${{ matrix.os }}
+    #runs-on: self-hosted
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: cedx/setup-hashlink@v3
@@ -36,13 +37,13 @@ jobs:
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
       - name: Run stdgo automatic compile
-        run: npx haxe stdgo.hxml -D runnerCount=12
+        run: npx haxe stdgo.hxml -D runnerCount=2
       - name: Run unit tests
-        run: haxe tests.hxml -D unit -D ci -D runnerCount=12
+        run: haxe tests.hxml -D unit -D ci -D runnerCount=2
         env:
           HXCPP_COMPILE_CACHE: ~/hxcppcache
       - name: Run std tests
-        run: haxe tests.hxml -D std -D ci -D runnerCount=12
+        run: haxe tests.hxml -D std -D ci -D runnerCount=2
         env:
             HXCPP_COMPILE_CACHE: ~/hxcppcache
       # - name: Run yaegi tests
@@ -62,6 +63,7 @@ jobs:
           commit_message: stdgo automatic compile
       - name: Run unit tests cpp
         run: haxe tests.hxml -D unit -D ci -D runnerCount=12 -D cpp
+        if: runner.os == 'macos'
         env:
           HXCPP_COMPILE_CACHE: ~/hxcppcache
       - name: Get go2hxdoc

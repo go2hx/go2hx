@@ -126,8 +126,8 @@ function update() {
 		}
 		tests.remove(test);
 	}
-	final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
-	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) + 1 ) {
+	final runnerCount = Compiler.getDefine("runnerCount") ?? "1";
+	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) ) {
 		final task = tasks.pop();
 		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount);
 		final taskString = task.command + " " + task.args.join(" ");
@@ -179,8 +179,10 @@ function update() {
 				}
 			}else{
 				if (task.runtime) {
+					trace("runtime error: " + task.command + " " + task.args);
 					suite.runtimeError(task.path, task.target);
 				}else{
+					trace("build error: " + task.command + " " + task.args);
 					suite.buildError(task.path, task.target);
 				}
 			}

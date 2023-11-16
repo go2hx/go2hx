@@ -7,7 +7,7 @@ import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes;
 
-class VectorData<T> {
+private class GoArrayData<T> {
 	public var vector:Vector<T>;
 
 	public var length(get, never):Int;
@@ -36,12 +36,12 @@ class VectorData<T> {
 }
 
 // @:generic
-abstract GoArray<T>(VectorData<T>) from VectorData<T> {
+abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;
 
 	@:from private static function fromVector<T>(vector:Vector<T>):GoArray<T> {
-		var data = new VectorData<T>(vector.length);
+		var data = new GoArrayData<T>(vector.length);
 		data.vector = vector;
 		return data;
 	}
@@ -63,7 +63,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	}
 
 	public function new(args:Rest<T>) {
-		this = new VectorData<T>(args.length);
+		this = new GoArrayData<T>(args.length);
 		for (i in 0...args.length) {
 			this.set(i, args[i]);
 		}
@@ -122,7 +122,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	}
 
 	public inline function __setSize__(length:Int) {
-		this = new VectorData<T>(length);
+		this = new GoArrayData<T>(length);
 	}
 
 	public function __copy__() {

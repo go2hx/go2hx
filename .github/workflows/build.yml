@@ -13,11 +13,6 @@ jobs:
     runs-on: [self-hosted]
     steps:
       - uses: actions/checkout@v3
-      - uses: cedx/setup-hashlink@v3
-      - run: hl --version
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -25,17 +20,15 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      # lix setup
-      - name: Install lix if not present
-        run: |
-          if ! command -v lix &> /dev/null
-          then
-            npm i lix -g
-          else
-            echo "lix already installed"
-          fi
-      - name: Run lix
-        run: npx lix download
+      # non self-host setup
+      # - uses: cedx/setup-hashlink@v3
+      # - uses: actions/setup-go@v3
+      #   with:
+      #     go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      # - name: Install lix if not present
+      #   run: npm i lix -g
+      # - name: Run lix
+      #   run: npx lix download
       # go2hx setup
       - name: Set source
         run: npx haxelib dev go2hx .

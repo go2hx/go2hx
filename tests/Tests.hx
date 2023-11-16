@@ -53,11 +53,12 @@ var targets = ["hl"];
 var suite = new TestSuite();
 var completeBool = false;
 var lastTaskLogs = [];
+final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
 
 function main() {
 	if (Compiler.getDefine("cpp") != null)
 		targets = ["cpp"];
-	Main.setup(0, 1); // amount of processes to spawn
+	Main.setup(0, Std.parseInt(runnerCount)); // amount of processes to spawn
 	Main.onComplete = complete;
 
 	File.saveContent("test.log", "");
@@ -126,7 +127,6 @@ function update() {
 		}
 		tests.remove(test);
 	}
-	final runnerCount = Compiler.getDefine("runnerCount") ?? "1";
 	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) ) {
 		final task = tasks.pop();
 		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount);

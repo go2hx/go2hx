@@ -219,6 +219,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	#if !js
 	server.bind(new sys.net.Host("127.0.0.1"), port);
 	#else
+	var processCountIndex = 0;
 	var resetCount = 0;
 	function jsProcess() {
 		final child = js.node.ChildProcess.exec('./go4hx $port', null, null);
@@ -233,6 +234,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			}else{
 				jsProcess();
 			}
+		});
+		child.on('SIGINT', () -> {
+			Sys.println('Received SIGINT. Press Control-D to exit.');
 		});
 	}
 	#end

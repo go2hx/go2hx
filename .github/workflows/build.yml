@@ -9,23 +9,20 @@ concurrency:
 jobs:
   build:
     strategy:
-      matrix:
-        #os: [ubuntu-latest]
-        os: [macos-latest]
       fail-fast: true
-    runs-on: self-hosted
-    #runs-on: ${{ matrix.os }}
+    runs-on: [self-hosted]
     steps:
       - uses: actions/checkout@v3
       - uses: cedx/setup-hashlink@v3
-        if: runner.os != 'macos'
+        if: contains(fromJson('["mac2", "supermacbook"]'), runner.name) == false
       - run: hl --version
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
-        if: runner.os != 'macos'
+        if: contains(fromJson('["mac2", "supermacbook"]'), runner.name) == false
       - name: Install lix
         run: npm i lix -g
+        if: contains(fromJson('["mac2", "supermacbook"]'), runner.name) == false
       - name: Run lix
         run: npx lix download
       - name: Set source
@@ -34,45 +31,43 @@ jobs:
         run: npx haxelib run go2hx ./rnd
       - name: Memory info
         run: free -m
-        if: runner.os != 'macos'
+        if: runner.os == 'Linux'
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
-      - name: Run stdgo automatic compile
+      - name: Run stdgo automatic compile (self hosted)
         run: npx haxe stdgo.hxml -D runnerCount=4
-      - name: Run unit tests
-        run: haxe tests.hxml -D unit -D ci -D runnerCount=4
-        env:
-          HXCPP_COMPILE_CACHE: ~/hxcppcache
-      - name: Run std tests
-        run: haxe tests.hxml -D std -D ci -D runnerCount=4
-        env:
-            HXCPP_COMPILE_CACHE: ~/hxcppcache
-      # - name: Run yaegi tests
-      #   run: hl tests.hl yaegi ci
-      #   env:
-      #       HXCPP_COMPILE_CACHE: ~/hxcppcache
-      # - name: Run go tests
-      #   run: hl tests.hl go ci
-      #   env:
-      #       HXCPP_COMPILE_CACHE: ~/hxcppcache
-      # - name: Run gobyexample tests
-      #   run: hl tests.hl gobyexample ci
-      #   env:
-      #       HXCPP_COMPILE_CACHE: ~/hxcppcache
+        if: contains(fromJson('["mac2", "supermacbook"]'), runner.name)
+      - name: Run stdgo automatic compile
+        run: npx haxe stdgo.hxml -D runnerCount=1
+        if: contains(fromJson('["mac2", "supermacbook"]'), runner.name) == false
+      - name: Run tests (self hosted)
+        run: |
+          npx haxe tests.hxml -D unit -D ci -D runnerCount=4
+          npx haxe tests.hxml -D std -D ci -D runnerCount=4
+        if: contains(fromJson('["mac2", "supermacbook"]'), runner.name)
+      - name: Run tests
+        run: |
+            npx haxe tests.hxml -D unit -D ci -D runnerCount=1
+            npx haxe tests.hxml -D std -D ci -D runnerCount=1
+        if: contains(fromJson('["mac2", "supermacbook"]'), runner.name) == false
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: stdgo automatic compile
       - name: Run unit tests cpp
-        run: haxe tests.hxml -D unit -D ci -D runnerCount=12 -D cpp
-        if: runner.os == 'macos'
+        run: haxe tests.hxml -D unit -D ci -D runnerCount=4 -D cpp
+        if: contains(fromJson('["mac2", "supermacbook"]'), runner.name)
         env:
           HXCPP_COMPILE_CACHE: ~/hxcppcache
       - name: Get go2hxdoc
         run: go get github.com/go2hx/go2hxdoc
       - name: Build go2hxdoc
         run: go build github.com/go2hx/go2hxdoc
-      - name: Run go2hxdoc
+      - name: Run go2hxdoc (self hosted)
         run: ./go2hxdoc -dir `npx haxelib libpath go2hx`stdgo -stats -force
+        if: contains(fromJson('["mac2", "supermacbook"]'), runner.name)
+      - name: Run go2hxdoc
+        run: ./go2hxdoc -dir `npx haxelib libpath go2hx`stdgo -stats -force -seq
+        if: contains(fromJson('["mac2", "supermacbook"]'), runner.name) == false
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: stdgo doc generation

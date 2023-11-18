@@ -66,7 +66,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # run hxcpp tests
-      - run: npx haxe tests.hxml -D unit -D ci -D cpp -D runnerCount=${{ env.CORES }}
+      - run: npx haxe tests.hxml -D unit -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
   generate-docs:
     timeout-minutes: 15
     needs: test-cpp

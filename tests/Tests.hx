@@ -56,7 +56,7 @@ var lastTaskLogs = [];
 final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
 
 function main() {
-	if (Compiler.getDefine("cpp") != null)
+	if (Compiler.getDefine("target_hxcpp") != null)
 		targets = ["cpp"];
 	Main.setup(0, Std.parseInt(runnerCount)); // amount of processes to spawn
 	Main.onComplete = complete;

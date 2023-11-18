@@ -25,7 +25,7 @@ jobs:
       # - uses: actions/setup-go@v3
       #   with:
       #     go-version: '1.21.3' # The Go version to download (if necessary) and use.
-      # - name: Install lix if not present
+      # - name: Install lix
       #   run: npm i lix -g
       # - name: Run lix
       #   run: npx lix download
@@ -53,7 +53,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npx haxe tests.hxml -D unit -D ci -D runnerCount=2 -D cpp
+      # Get the cores 
+      - name: Get number of cores (Ubuntu)
+        if: startsWith(runner.os, 'Linux')
+        run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
+      - name: Get number of cores (macOS)
+        if: startsWith(runner.os, 'macOS')
+        run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
+      # lix
+      - name: Install lix
+        run: npm i lix -g
+      - name: Run lix
+        run: npx lix download
+      # run hxcpp tests
+      - run: npx haxe tests.hxml -D unit -D ci -D cpp -D runnerCount=${{ env.CORES }}
   generate-docs:
     timeout-minutes: 15
     needs: test-cpp

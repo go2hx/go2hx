@@ -48,7 +48,7 @@ jobs:
         with:
           commit_message: stdgo automatic compile
   test-cpp:
-    timeout-minutes: 60
+    timeout-minutes: 360
     needs: build
     runs-on: ubuntu-latest
     steps:

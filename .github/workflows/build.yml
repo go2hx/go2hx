@@ -53,6 +53,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.21.3' # The Go version to download (if necessary) and use.
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -60,13 +63,20 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      # lix
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
         run: npx lix download
+      # go2hx setup
+      - name: Set source
+        run: npx haxelib dev go2hx .
+      - name: Test run
+        run: npx haxelib run go2hx ./rnd
       # run hxcpp tests
-      - run: npx haxe tests.hxml -D unit -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
+      - name: Run unit hxcpp tests
+        run: npx haxe tests.hxml -D unit -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
+      #- name: Run std hxcpp tests
+      #  run: npx haxe tests.hxml -D std -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
   generate-docs:
     timeout-minutes: 15
     needs: test-cpp

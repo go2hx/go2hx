@@ -83,6 +83,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.21.3' # The Go version to download (if necessary) and use.
       # Add any additional setup steps required for the documentation generation
       - name: Get go2hxdoc
         run: go get github.com/go2hx/go2hxdoc

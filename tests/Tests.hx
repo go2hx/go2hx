@@ -134,7 +134,7 @@ function update() {
 		lastTaskLogs.push(taskString);
 		runningCount++;
 		final ls = ChildProcess.spawn(task.command, task.args);
-		var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
+		var timeoutTimer = new haxe.Timer((1000 * 60) * 50);
 		timeoutTimer.run = () -> {
 			runningCount--;
 			lastTaskLogs.remove(taskString);

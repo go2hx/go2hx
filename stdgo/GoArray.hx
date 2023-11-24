@@ -2,7 +2,6 @@ package stdgo;
 
 import haxe.Rest;
 import haxe.ds.Vector;
-import haxe.rtti.Meta;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes;

@@ -65,3 +65,5 @@ check.json
 __debug_bin
 *.jar
 runrnd
+*.dump
+actions-runner

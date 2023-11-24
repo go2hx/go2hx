@@ -292,9 +292,9 @@ private function close() {
 			return "0%";
 		return count + " " + (Std.int(count / total * 10000) / 100) + "%";
 	}
-	final output:Array<String> = FileSystem.exists('tests/$type.json') ? Json.parse(File.getContent('tests/$type.json')) : [];
+	var output:Array<String> = FileSystem.exists('tests/$type.json') ? Json.parse(File.getContent('tests/$type.json')) : [];
 	// remove targets that don't exist
-	output.filter((v) -> {
+	output = output.filter((v) -> {
 		final parts = v.split("|");
 		final target = parts[0];
 		final path = parts[1];

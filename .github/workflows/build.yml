@@ -10,7 +10,7 @@ jobs:
     timeout-minutes: 15
     strategy:
       fail-fast: true
-    runs-on: [self-hosted, ubuntu-latest-m]
+    runs-on: [ubuntu-latest-m]
     steps:
       - uses: actions/checkout@v3
       # Get the cores 

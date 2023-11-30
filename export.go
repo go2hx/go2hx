@@ -13,6 +13,7 @@ import (
 	"go/printer"
 	"go/token"
 	"go/types"
+	"log"
 	"math/rand"
 	"net"
 	"path"
@@ -194,12 +195,21 @@ var r = rand.New(rand.NewSource(99))
 
 func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
+	// set log output to log.out
 	cfg.Env = append(os.Environ(), "CGO_ENABLED=0")
 	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm")
 	args := os.Args
 	port := args[len(args)-1]
 	var excludesData []string
 	var err error
+	var logFile *os.File
+	logFile, err = os.OpenFile("log.out", os.O_RDWR|os.O_CREATE, 0666)
+	if err != nil {
+		fmt.Println(err.Error())
+	} else {
+		log.SetOutput(logFile)
+	}
+
 	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
 		panic(err.Error())
@@ -881,7 +891,7 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 			if excludes[val.PkgPath] {
 				continue
 			}
-			excludes[val.PkgPath] = true
+			// excludes[val.PkgPath] = true
 			dataImport := parsePkgList([]*packages.Package{val}, excludes)
 			if len(dataImport.Pkgs) > 0 {
 				data.Pkgs = append(data.Pkgs, dataImport.Pkgs...)

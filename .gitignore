@@ -67,3 +67,4 @@ __debug_bin
 runrnd
 *.dump
 actions-runner
+log.out

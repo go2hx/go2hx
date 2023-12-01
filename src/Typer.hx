@@ -2896,7 +2896,7 @@ private function mapTypeExpr(expr:Ast.MapType, info:Info):ComplexType {
 		return null;
 	return TPath({
 		name: "GoMap",
-		pack: [],
+		pack: ["stdgo"],
 		params: [TPType(keyType), TPType(valueType)],
 	});
 }
@@ -3441,7 +3441,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							args[i] = assignTranslate(aType, eType, args[i], info);
 						}
 						final ct = toComplexType(t, info);
-						final p = getTypePath(ct);
 						final appendArgs = args.copy();
 						args.unshift(macro 0);
 						args.unshift(macro 0);
@@ -4709,6 +4708,8 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 					if (alias) {
 						isAlias = true;
 					}
+				case structType(_):
+					isAlias = true;
 				default:
 			}
 			if (!isAlias) {
@@ -6484,8 +6485,10 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 		if (field.embedded) {
 			meta.push({name: ":embedded", pos: null});
 		}
-		if (field.tag != "")
-			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
+		if (field.tag != "") {
+			final tag = makeString(rawEscapeSequences(field.tag));
+			meta.push({name: ":tag", pos: null, params: [tag]});
+		}
 		if (field.optional)
 			meta.push({name: ":optional", pos: null});
 		var doc:String = getDocComment({doc: docs == null ? null : docs[i]}, {comment: comments == null ? null : comments[i]});
@@ -6643,7 +6646,6 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			}
 			final meta:Metadata = [];
 			final params = getParams(spec.params, info, true);
-			final ct = TPath(getTypePath(ct));
 			return {
 				name: name,
 				pos: null,

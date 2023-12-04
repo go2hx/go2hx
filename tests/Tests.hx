@@ -151,6 +151,7 @@ function update() {
 		};
 		ls.stdout.on('data', function(data) {
 			log(task.target + "|" + task.path + "|" + task.runtime);
+			Sys.print(data);
 			log(data);
 			timeout = 0;
 		});

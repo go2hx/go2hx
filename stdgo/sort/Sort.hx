@@ -279,7 +279,7 @@ function slice(_x:stdgo.StdGoTypes.AnyInterface, _less:(_i:stdgo.StdGoTypes.GoIn
         var _swap:(stdgo.StdGoTypes.GoInt, stdgo.StdGoTypes.GoInt) -> Void = stdgo.internal.reflectlite.Reflectlite.swapper(_x);
         var _length:stdgo.StdGoTypes.GoInt = _rv.len();
         var _limit:stdgo.StdGoTypes.GoInt = stdgo.math.bits.Bits.len((_length : stdgo.StdGoTypes.GoUInt));
-        _pdqsort_func((new T_lessSwap(_less, _swap) : T_lessSwap), (0 : stdgo.StdGoTypes.GoInt), _length, _limit);
+        _pdqsort_func((new stdgo.sort.Sort.T_lessSwap(_less, _swap) : stdgo.sort.Sort.T_lessSwap), (0 : stdgo.StdGoTypes.GoInt), _length, _limit);
     }
 /**
     // SliceStable sorts the slice x using the provided less
@@ -292,7 +292,7 @@ function slice(_x:stdgo.StdGoTypes.AnyInterface, _less:(_i:stdgo.StdGoTypes.GoIn
 function sliceStable(_x:stdgo.StdGoTypes.AnyInterface, _less:(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt) -> Bool):Void {
         var _rv:stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf(_x)?.__copy__();
         var _swap:(stdgo.StdGoTypes.GoInt, stdgo.StdGoTypes.GoInt) -> Void = stdgo.internal.reflectlite.Reflectlite.swapper(_x);
-        _stable_func((new T_lessSwap(_less, _swap) : T_lessSwap), _rv.len());
+        _stable_func((new stdgo.sort.Sort.T_lessSwap(_less, _swap) : stdgo.sort.Sort.T_lessSwap), _rv.len());
     }
 /**
     // SliceIsSorted reports whether the slice x is sorted according to the provided less function.
@@ -335,7 +335,7 @@ function _nextPowerOfTwo(_length:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoUInt
     // Reverse returns the reverse order for data.
 **/
 function reverse(_data:Interface):Interface {
-        return stdgo.Go.asInterface((stdgo.Go.setRef((new T_reverse(_data) : T_reverse)) : stdgo.StdGoTypes.Ref<stdgo.sort.Sort.T_reverse>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.sort.Sort.T_reverse(_data) : stdgo.sort.Sort.T_reverse)) : stdgo.StdGoTypes.Ref<stdgo.sort.Sort.T_reverse>));
     }
 /**
     // IsSorted reports whether data is sorted.

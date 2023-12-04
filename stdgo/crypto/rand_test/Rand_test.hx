@@ -107,7 +107,7 @@ function testIntReads(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             stdgo.Go.cfor(_i < (32 : stdgo.StdGoTypes.GoInt), _i++, {
                 var _max:stdgo.StdGoTypes.GoInt64 = ((1i64 : stdgo.StdGoTypes.GoInt64) << (_i : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt64);
                 _t.run(stdgo.fmt.Fmt.sprintf(("max=%d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_max))?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-                    var _reader = (stdgo.Go.setRef(({ _r : stdgo.crypto.rand.Rand.reader } : T_countingReader)) : stdgo.StdGoTypes.Ref<stdgo.crypto.rand_test.Rand_test.T_countingReader>);
+                    var _reader = (stdgo.Go.setRef(({ _r : stdgo.crypto.rand.Rand.reader } : stdgo.crypto.rand_test.Rand_test.T_countingReader)) : stdgo.StdGoTypes.Ref<stdgo.crypto.rand_test.Rand_test.T_countingReader>);
                     var __tmp__ = stdgo.crypto.rand.Rand.int_(stdgo.Go.asInterface(_reader), stdgo.math.big.Big.newInt(_max)), __0:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         _t.fatalf(("Can\'t generate random value: %d, %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_max), stdgo.Go.toInterface(_err));

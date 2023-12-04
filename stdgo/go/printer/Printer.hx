@@ -15,7 +15,7 @@ var _aNewline : stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = (("\n" : stdgo.GoString)
     
 **/
 var _printerPool : stdgo.sync.Sync.Pool = ({ new_ : function():stdgo.StdGoTypes.AnyInterface {
-        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({ _output : new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (16384 : stdgo.StdGoTypes.GoInt)).__setNumber32__(), _wsbuf : new stdgo.Slice<stdgo.go.printer.Printer.T_whiteSpace>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (16 : stdgo.StdGoTypes.GoInt)).__setNumber32__() } : T_printer)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.T_printer>)));
+        return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({ _output : new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (16384 : stdgo.StdGoTypes.GoInt)).__setNumber32__(), _wsbuf : new stdgo.Slice<stdgo.go.printer.Printer.T_whiteSpace>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (16 : stdgo.StdGoTypes.GoInt)).__setNumber32__() } : stdgo.go.printer.Printer.T_printer)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.T_printer>)));
     } } : stdgo.sync.Sync.Pool);
 /**
     
@@ -1105,7 +1105,7 @@ function _declToken(_decl:stdgo.go.ast.Ast.Decl):stdgo.go.token.Token.Token {
     }
 function _testprint(_out:stdgo.io.Io.Writer, _node:stdgo.go.ast.Ast.Node):Void {
         {
-            var _err:stdgo.Error = (stdgo.Go.setRef((new Config((1073741830u32 : stdgo.go.printer.Printer.Mode), (8 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(_out, _fset, stdgo.Go.toInterface(_node));
+            var _err:stdgo.Error = (stdgo.Go.setRef((new stdgo.go.printer.Printer.Config((1073741830u32 : stdgo.go.printer.Printer.Mode), (8 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.go.printer.Printer.Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(_out, _fset, stdgo.Go.toInterface(_node));
             if (_err != null) {
                 stdgo.log.Log.fatalf(("print error: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
             };
@@ -1381,10 +1381,10 @@ function _getLastComment(_n:stdgo.go.ast.Ast.Node):stdgo.StdGoTypes.Ref<stdgo.go
         };
         return null;
     }
-function _newPrinter(_cfg:stdgo.StdGoTypes.Ref<Config>, _fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _nodeSizes:GoMap<stdgo.go.ast.Ast.Node, stdgo.StdGoTypes.GoInt>):stdgo.StdGoTypes.Ref<T_printer> {
+function _newPrinter(_cfg:stdgo.StdGoTypes.Ref<Config>, _fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _nodeSizes:stdgo.GoMap<stdgo.go.ast.Ast.Node, stdgo.StdGoTypes.GoInt>):stdgo.StdGoTypes.Ref<T_printer> {
         var _p = (stdgo.Go.typeAssert((_printerPool.get() : stdgo.StdGoTypes.Ref<T_printer>)) : stdgo.StdGoTypes.Ref<T_printer>);
         {
-            var __tmp__ = ({ config : (_cfg : stdgo.go.printer.Printer.Config)?.__copy__(), _fset : _fset, _output : (_p._output.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _wsbuf : (_p._wsbuf.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.go.printer.Printer.T_whiteSpace>), _pos : ({ line : (1 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.Position), _out : ({ line : (1 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.Position), _nodeSizes : _nodeSizes, _cachedPos : (-1 : stdgo.go.token.Token.Pos) } : T_printer);
+            var __tmp__ = ({ config : (_cfg : stdgo.go.printer.Printer.Config)?.__copy__(), _fset : _fset, _output : (_p._output.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _wsbuf : (_p._wsbuf.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.go.printer.Printer.T_whiteSpace>), _pos : ({ line : (1 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.Position), _out : ({ line : (1 : stdgo.StdGoTypes.GoInt), column : (1 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.Position), _nodeSizes : _nodeSizes, _cachedPos : (-1 : stdgo.go.token.Token.Pos) } : stdgo.go.printer.Printer.T_printer);
             _p.config = __tmp__.config;
             _p._fset = __tmp__._fset;
             _p._output = __tmp__._output;
@@ -1419,7 +1419,7 @@ function _newPrinter(_cfg:stdgo.StdGoTypes.Ref<Config>, _fset:stdgo.StdGoTypes.R
     // use format.Node (package go/format) for output that matches gofmt.
 **/
 function fprint(_output:stdgo.io.Io.Writer, _fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _node:stdgo.StdGoTypes.AnyInterface):stdgo.Error {
-        return (stdgo.Go.setRef(({ tabwidth : (8 : stdgo.StdGoTypes.GoInt) } : Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(_output, _fset, _node);
+        return (stdgo.Go.setRef(({ tabwidth : (8 : stdgo.StdGoTypes.GoInt) } : stdgo.go.printer.Printer.Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(_output, _fset, _node);
     }
 /**
     // format parses src, prints the corresponding AST, verifies the resulting
@@ -1435,7 +1435,7 @@ function _format(_src:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _mode:T_checkMode):{
             stdgo.go.ast.Ast.fileExports(_f);
             _f.comments = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CommentGroup>>);
         };
-        var _cfg:stdgo.go.printer.Printer.Config = ({ tabwidth : (8 : stdgo.StdGoTypes.GoInt) } : Config);
+        var _cfg:stdgo.go.printer.Printer.Config = ({ tabwidth : (8 : stdgo.StdGoTypes.GoInt) } : stdgo.go.printer.Printer.Config);
         if (_mode & (2u32 : stdgo.go.printer.Printer.T_checkMode) != ((0u32 : stdgo.go.printer.Printer.T_checkMode))) {
             _cfg.mode = _cfg.mode | ((1u32 : stdgo.go.printer.Printer.Mode));
         };
@@ -1680,7 +1680,7 @@ function testSourcePos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        _err = (stdgo.Go.setRef(({ mode : (12u32 : stdgo.go.printer.Printer.Mode), tabwidth : (8 : stdgo.StdGoTypes.GoInt) } : Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _fset, stdgo.Go.toInterface(stdgo.Go.asInterface(_f1)));
+        _err = (stdgo.Go.setRef(({ mode : (12u32 : stdgo.go.printer.Printer.Mode), tabwidth : (8 : stdgo.StdGoTypes.GoInt) } : stdgo.go.printer.Printer.Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _fset, stdgo.Go.toInterface(stdgo.Go.asInterface(_f1)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
@@ -1724,7 +1724,7 @@ function testIssue5945(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        _err = (stdgo.Go.setRef(({ mode : (12u32 : stdgo.go.printer.Printer.Mode), tabwidth : (8 : stdgo.StdGoTypes.GoInt) } : Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _fset, stdgo.Go.toInterface(stdgo.Go.asInterface(_f1)));
+        _err = (stdgo.Go.setRef(({ mode : (12u32 : stdgo.go.printer.Printer.Mode), tabwidth : (8 : stdgo.StdGoTypes.GoInt) } : stdgo.go.printer.Printer.Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _fset, stdgo.Go.toInterface(stdgo.Go.asInterface(_f1)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
@@ -1785,7 +1785,7 @@ function testBaseIndent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _t.run(stdgo.fmt.Fmt.sprint(stdgo.Go.toInterface(_indent))?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     _t.parallel();
                     var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-                    (stdgo.Go.setRef(({ tabwidth : (8 : stdgo.StdGoTypes.GoInt), indent : _indent } : Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _fset, stdgo.Go.toInterface(stdgo.Go.asInterface(_file)));
+                    (stdgo.Go.setRef(({ tabwidth : (8 : stdgo.StdGoTypes.GoInt), indent : _indent } : stdgo.go.printer.Printer.Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _fset, stdgo.Go.toInterface(stdgo.Go.asInterface(_file)));
                     var _lines = stdgo.bytes.Bytes.split(_buf.bytes(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (10 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
                     for (_i => _line in _lines) {
                         if ((_line.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
@@ -1842,8 +1842,8 @@ function testWriteErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (20 : stdgo.StdGoTypes.GoInt), _i++, {
-                var _lw = (stdgo.Go.setRef(({ _remaining : _i } : T_limitWriter)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.T_limitWriter>);
-                var _err:stdgo.Error = (stdgo.Go.setRef(({ mode : (1u32 : stdgo.go.printer.Printer.Mode) } : Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(stdgo.Go.asInterface(_lw), _fset, stdgo.Go.toInterface(stdgo.Go.asInterface(_file)));
+                var _lw = (stdgo.Go.setRef(({ _remaining : _i } : stdgo.go.printer.Printer.T_limitWriter)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.T_limitWriter>);
+                var _err:stdgo.Error = (stdgo.Go.setRef(({ mode : (1u32 : stdgo.go.printer.Printer.Mode) } : stdgo.go.printer.Printer.Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>).fprint(stdgo.Go.asInterface(_lw), _fset, stdgo.Go.toInterface(stdgo.Go.asInterface(_file)));
                 if (_lw._errCount > (1 : stdgo.StdGoTypes.GoInt)) {
                     _t.fatal(stdgo.Go.toInterface(("Writes continued after first error returned" : stdgo.GoString)));
                 };
@@ -1872,7 +1872,7 @@ function testCommentedNode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        _err = fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _fset, stdgo.Go.toInterface((stdgo.Go.setRef(({ node : stdgo.Go.toInterface(_f.decls[(0 : stdgo.StdGoTypes.GoInt)]), comments : _f.comments } : CommentedNode)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.CommentedNode>)));
+        _err = fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _fset, stdgo.Go.toInterface((stdgo.Go.setRef(({ node : stdgo.Go.toInterface(_f.decls[(0 : stdgo.StdGoTypes.GoInt)]), comments : _f.comments } : stdgo.go.printer.Printer.CommentedNode)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.CommentedNode>)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
@@ -1880,7 +1880,7 @@ function testCommentedNode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             _t.errorf(("got %q, want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((_buf.string() : stdgo.GoString)), stdgo.Go.toInterface(("func foo() {\n\t// comment inside func\n}" : stdgo.GoString)));
         };
         _buf.reset();
-        _err = fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _fset, stdgo.Go.toInterface((stdgo.Go.setRef(({ node : stdgo.Go.toInterface(_f.decls[(1 : stdgo.StdGoTypes.GoInt)]), comments : _f.comments } : CommentedNode)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.CommentedNode>)));
+        _err = fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _fset, stdgo.Go.toInterface((stdgo.Go.setRef(({ node : stdgo.Go.toInterface(_f.decls[(1 : stdgo.StdGoTypes.GoInt)]), comments : _f.comments } : stdgo.go.printer.Printer.CommentedNode)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.CommentedNode>)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
@@ -1980,7 +1980,7 @@ function testSourcePosNewline(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        var _cfg = (stdgo.Go.setRef(({ mode : (8u32 : stdgo.go.printer.Printer.Mode), tabwidth : (8 : stdgo.StdGoTypes.GoInt) } : Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>);
+        var _cfg = (stdgo.Go.setRef(({ mode : (8u32 : stdgo.go.printer.Printer.Mode), tabwidth : (8 : stdgo.StdGoTypes.GoInt) } : stdgo.go.printer.Printer.Config)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.Config>);
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         {
             var _err:stdgo.Error = _cfg.fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), _fset, stdgo.Go.toInterface(stdgo.Go.asInterface(_f)));
@@ -3505,7 +3505,7 @@ class T_printer_asInterface {
         };
         _size = _maxSize + (1 : stdgo.StdGoTypes.GoInt);
         _p._nodeSizes[_n] = _size;
-        var _cfg:stdgo.go.printer.Printer.Config = ({ mode : (1u32 : stdgo.go.printer.Printer.Mode) } : Config);
+        var _cfg:stdgo.go.printer.Printer.Config = ({ mode : (1u32 : stdgo.go.printer.Printer.Mode) } : stdgo.go.printer.Printer.Config);
         var _counter:T_sizeCounter = ({} : stdgo.go.printer.Printer.T_sizeCounter);
         {
             var _err:stdgo.Error = _cfg._fprint(stdgo.Go.asInterface((stdgo.Go.setRef(_counter) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.T_sizeCounter>)), _p._fset, stdgo.Go.toInterface(_n), _p._nodeSizes);
@@ -5093,7 +5093,7 @@ class Config_asInterface {
         // fprint implements Fprint and takes a nodesSizes map for setting up the printer state.
     **/
     @:keep
-    public dynamic function _fprint(_output:stdgo.io.Io.Writer, _fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _node:stdgo.StdGoTypes.AnyInterface, _nodeSizes:GoMap<stdgo.go.ast.Ast.Node, stdgo.StdGoTypes.GoInt>):stdgo.Error return __self__.value._fprint(_output, _fset, _node, _nodeSizes);
+    public dynamic function _fprint(_output:stdgo.io.Io.Writer, _fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _node:stdgo.StdGoTypes.AnyInterface, _nodeSizes:stdgo.GoMap<stdgo.go.ast.Ast.Node, stdgo.StdGoTypes.GoInt>):stdgo.Error return __self__.value._fprint(_output, _fset, _node, _nodeSizes);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -5124,7 +5124,7 @@ class Config_asInterface {
         // fprint implements Fprint and takes a nodesSizes map for setting up the printer state.
     **/
     @:keep
-    static public function _fprint( _cfg:stdgo.StdGoTypes.Ref<Config>, _output:stdgo.io.Io.Writer, _fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _node:stdgo.StdGoTypes.AnyInterface, _nodeSizes:GoMap<stdgo.go.ast.Ast.Node, stdgo.StdGoTypes.GoInt>):stdgo.Error {
+    static public function _fprint( _cfg:stdgo.StdGoTypes.Ref<Config>, _output:stdgo.io.Io.Writer, _fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _node:stdgo.StdGoTypes.AnyInterface, _nodeSizes:stdgo.GoMap<stdgo.go.ast.Ast.Node, stdgo.StdGoTypes.GoInt>):stdgo.Error {
         @:recv var _cfg:stdgo.StdGoTypes.Ref<Config> = _cfg;
         var __deferstack__:Array<Void -> Void> = [];
         var _err:stdgo.Error = (null : stdgo.Error);
@@ -5145,7 +5145,7 @@ class Config_asInterface {
             _p._impliedSemi = false;
             _p._flush(({ offset : (1073741824 : stdgo.StdGoTypes.GoInt), line : (1073741824 : stdgo.StdGoTypes.GoInt) } : stdgo.go.token.Token.Position), (1 : stdgo.go.token.Token.Token));
             _p._fixGoBuildLines();
-            _output = stdgo.Go.asInterface((stdgo.Go.setRef(({ _output : _output } : T_trimmer)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.T_trimmer>));
+            _output = stdgo.Go.asInterface((stdgo.Go.setRef(({ _output : _output } : stdgo.go.printer.Printer.T_trimmer)) : stdgo.StdGoTypes.Ref<stdgo.go.printer.Printer.T_trimmer>));
             if (_cfg.mode & (1u32 : stdgo.go.printer.Printer.Mode) == ((0u32 : stdgo.go.printer.Printer.Mode))) {
                 var _minwidth:stdgo.StdGoTypes.GoInt = _cfg.tabwidth;
                 var _padchar:stdgo.StdGoTypes.GoUInt8 = ((9 : stdgo.StdGoTypes.GoUInt8) : stdgo.StdGoTypes.GoByte);

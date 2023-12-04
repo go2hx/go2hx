@@ -344,7 +344,7 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
         };
         var _rooted:Bool = _path[(0 : stdgo.StdGoTypes.GoInt)] == ((47 : stdgo.StdGoTypes.GoUInt8));
         var _n:stdgo.StdGoTypes.GoInt = (_path.length);
-        var _out:stdgo.path.Path.T_lazybuf = ({ _s : _path?.__copy__() } : T_lazybuf);
+        var _out:stdgo.path.Path.T_lazybuf = ({ _s : _path?.__copy__() } : stdgo.path.Path.T_lazybuf);
         var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _dotdot:stdgo.StdGoTypes.GoInt = __1, _r:stdgo.StdGoTypes.GoInt = __0;
         if (_rooted) {
             _out._append((47 : stdgo.StdGoTypes.GoUInt8));

@@ -670,7 +670,7 @@ function _testSequence(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _s:stdg
                 _t.errorf(("Sequence(%q) mismatched index %d, want %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_si), stdgo.Go.toInterface(_i));
                 return;
             };
-            _index[(_j : stdgo.StdGoTypes.GoInt)] = (new T__testSequence_0___localname___info(_i, _r) : T__testSequence_0___localname___info);
+            _index[(_j : stdgo.StdGoTypes.GoInt)] = (new stdgo.unicode.utf8_test.Utf8_test.T__testSequence_0___localname___info(_i, _r) : stdgo.unicode.utf8_test.Utf8_test.T__testSequence_0___localname___info);
             _j++;
             var __tmp__ = decodeRune((_b.__slice__(_i) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), _r1:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size1:stdgo.StdGoTypes.GoInt = __tmp__._1;
             if (_r != (_r1)) {

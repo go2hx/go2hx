@@ -1218,7 +1218,7 @@ class T_bigInt_asInterface {
         if (_rand.intn((4 : stdgo.StdGoTypes.GoInt)) == ((0 : stdgo.StdGoTypes.GoInt))) {
             _n.neg(_n);
         };
-        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new T_bigInt(_n) : T_bigInt))))?.__copy__();
+        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big_test.Big_test.T_bigInt(_n) : stdgo.math.big_test.Big_test.T_bigInt))))?.__copy__();
     }
     @:embedded
     public static function _setFromScanner( __self__:T_bigInt, _r:stdgo.io.Io.ByteScanner, _base:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>; var _1 : Bool; } return __self__._setFromScanner(_r, _base);
@@ -1515,7 +1515,7 @@ class T_notZeroInt_asInterface {
         if (_n.sign() == ((0 : stdgo.StdGoTypes.GoInt))) {
             _n.setInt64((1i64 : stdgo.StdGoTypes.GoInt64));
         };
-        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new T_notZeroInt(_n) : T_notZeroInt))))?.__copy__();
+        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big_test.Big_test.T_notZeroInt(_n) : stdgo.math.big_test.Big_test.T_notZeroInt))))?.__copy__();
     }
     @:embedded
     public static function _setFromScanner( __self__:T_notZeroInt, _r:stdgo.io.Io.ByteScanner, _base:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>; var _1 : Bool; } return __self__._setFromScanner(_r, _base);
@@ -1806,7 +1806,7 @@ class T_positiveInt_asInterface {
     static public function generate( _:T_positiveInt, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):stdgo.reflect.Reflect.Value {
         @:recv var _:T_positiveInt = _?.__copy__();
         var _n = _generatePositiveInt(_rand, _size);
-        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new T_positiveInt(_n) : T_positiveInt))))?.__copy__();
+        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big_test.Big_test.T_positiveInt(_n) : stdgo.math.big_test.Big_test.T_positiveInt))))?.__copy__();
     }
     @:embedded
     public static function _setFromScanner( __self__:T_positiveInt, _r:stdgo.io.Io.ByteScanner, _base:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>; var _1 : Bool; } return __self__._setFromScanner(_r, _base);
@@ -2100,7 +2100,7 @@ class T_prime_asInterface {
         if (_err != null) {
             throw stdgo.Go.toInterface(_err);
         };
-        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new T_prime(_n) : T_prime))))?.__copy__();
+        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big_test.Big_test.T_prime(_n) : stdgo.math.big_test.Big_test.T_prime))))?.__copy__();
     }
     @:embedded
     public static function _setFromScanner( __self__:T_prime, _r:stdgo.io.Io.ByteScanner, _base:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>; var _1 : Bool; } return __self__._setFromScanner(_r, _base);
@@ -2254,7 +2254,7 @@ class T_zeroOrOne_asInterface {
     @:keep
     static public function generate( _:T_zeroOrOne, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):stdgo.reflect.Reflect.Value {
         @:recv var _:T_zeroOrOne = _?.__copy__();
-        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new T_zeroOrOne((_rand.intn((2 : stdgo.StdGoTypes.GoInt)) : stdgo.StdGoTypes.GoUInt)) : T_zeroOrOne))))?.__copy__();
+        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big_test.Big_test.T_zeroOrOne((_rand.intn((2 : stdgo.StdGoTypes.GoInt)) : stdgo.StdGoTypes.GoUInt)) : stdgo.math.big_test.Big_test.T_zeroOrOne))))?.__copy__();
     }
 }
 class T_smallUint_asInterface {
@@ -2272,6 +2272,6 @@ class T_smallUint_asInterface {
     @:keep
     static public function generate( _:T_smallUint, _rand:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>, _size:stdgo.StdGoTypes.GoInt):stdgo.reflect.Reflect.Value {
         @:recv var _:T_smallUint = _?.__copy__();
-        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new T_smallUint((_rand.intn((1024 : stdgo.StdGoTypes.GoInt)) : stdgo.StdGoTypes.GoUInt)) : T_smallUint))))?.__copy__();
+        return stdgo.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big_test.Big_test.T_smallUint((_rand.intn((1024 : stdgo.StdGoTypes.GoInt)) : stdgo.StdGoTypes.GoUInt)) : stdgo.math.big_test.Big_test.T_smallUint))))?.__copy__();
     }
 }

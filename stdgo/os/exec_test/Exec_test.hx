@@ -615,7 +615,7 @@ function testMain(_m:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.M>):Void {
             Sys.exit((2 : stdgo.StdGoTypes.GoInt));
         };
         var __0:stdgo.GoString = _args[(0 : stdgo.StdGoTypes.GoInt)]?.__copy__(), __1 = (_args.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.GoString>), _args = __1, _cmd:stdgo.GoString = __0;
-        var __tmp__ = (_helperCommands != null && _helperCommands.exists(_cmd) ? { value : _helperCommands[_cmd], ok : true } : { value : null, ok : false }), _f:haxe.Rest<stdgo.GoString> -> Void = __tmp__.value, _ok:Bool = __tmp__.ok;
+        var __tmp__ = (_helperCommands != null && _helperCommands.exists(_cmd?.__copy__()) ? { value : _helperCommands[_cmd?.__copy__()], ok : true } : { value : null, ok : false }), _f:haxe.Rest<stdgo.GoString> -> Void = __tmp__.value, _ok:Bool = __tmp__.ok;
         if (!_ok) {
             stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo.os.Os.stderr), ("Unknown command %q\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_cmd));
             Sys.exit((2 : stdgo.StdGoTypes.GoInt));
@@ -1584,7 +1584,7 @@ function testIgnorePipeErrorOnSuccess(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
             };
         };
         _t.run(("10MB" : stdgo.GoString)?.__copy__(), _testWith(stdgo.Go.asInterface(stdgo.strings.Strings.newReader(stdgo.strings.Strings.repeat(("x" : stdgo.GoString)?.__copy__(), (10485760 : stdgo.StdGoTypes.GoInt))?.__copy__()))));
-        _t.run(("Infinite" : stdgo.GoString)?.__copy__(), _testWith(stdgo.Go.asInterface((new T_delayedInfiniteReader() : T_delayedInfiniteReader))));
+        _t.run(("Infinite" : stdgo.GoString)?.__copy__(), _testWith(stdgo.Go.asInterface((new stdgo.os.exec_test.Exec_test.T_delayedInfiniteReader() : stdgo.os.exec_test.Exec_test.T_delayedInfiniteReader))));
     }
 function testClosePipeOnCopyError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         _t.parallel();
@@ -1948,7 +1948,7 @@ function _cmdHang(_args:haxe.Rest<stdgo.GoString>):Void {
         };
     }
 function _newTickReader(_interval:stdgo.time.Time.Duration):stdgo.StdGoTypes.Ref<T_tickReader> {
-        return (stdgo.Go.setRef(({ _interval : _interval } : T_tickReader)) : stdgo.StdGoTypes.Ref<stdgo.os.exec_test.Exec_test.T_tickReader>);
+        return (stdgo.Go.setRef(({ _interval : _interval } : stdgo.os.exec_test.Exec_test.T_tickReader)) : stdgo.StdGoTypes.Ref<stdgo.os.exec_test.Exec_test.T_tickReader>);
     }
 function _startHang(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _ctx:stdgo.context.Context.Context, _hangTime:stdgo.time.Time.Duration, _interrupt:stdgo.os.Os.Signal, _waitDelay:stdgo.time.Time.Duration, _flags:haxe.Rest<stdgo.GoString>):stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.Cmd> {
         var _flags = new stdgo.Slice<stdgo.GoString>(_flags.length, 0, ..._flags);

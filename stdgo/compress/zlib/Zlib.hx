@@ -468,7 +468,7 @@ function newWriterLevelDict(_w:stdgo.io.Io.Writer, _level:stdgo.StdGoTypes.GoInt
         if ((_level < (-2 : stdgo.StdGoTypes.GoInt)) || (_level > (9 : stdgo.StdGoTypes.GoInt))) {
             return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("zlib: invalid compression level: %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_level)) };
         };
-        return { _0 : (stdgo.Go.setRef(({ _w : _w, _level : _level, _dict : _dict } : Writer)) : stdgo.StdGoTypes.Ref<stdgo.compress.zlib.Zlib.Writer>), _1 : (null : stdgo.Error) };
+        return { _0 : (stdgo.Go.setRef(({ _w : _w, _level : _level, _dict : _dict } : stdgo.compress.zlib.Zlib.Writer)) : stdgo.StdGoTypes.Ref<stdgo.compress.zlib.Zlib.Writer>), _1 : (null : stdgo.Error) };
     }
 /**
     // Tests that compressing and then decompressing the given file at the given compression level and dictionary
@@ -826,7 +826,7 @@ class T_reader_asInterface {
     static public function reset( _z:stdgo.StdGoTypes.Ref<T_reader>, _r:stdgo.io.Io.Reader, _dict:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
         @:recv var _z:stdgo.StdGoTypes.Ref<T_reader> = _z;
         {
-            var __tmp__ = ({ _decompressor : _z._decompressor } : T_reader);
+            var __tmp__ = ({ _decompressor : _z._decompressor } : stdgo.compress.zlib.Zlib.T_reader);
             _z._r = __tmp__._r;
             _z._decompressor = __tmp__._decompressor;
             _z._digest = __tmp__._digest;

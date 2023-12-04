@@ -971,7 +971,7 @@ function _fakeTable(_n:stdgo.StdGoTypes.GoInt):stdgo.Slice<Range16> {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _n, _i++, {
-                _r16 = (_r16.__append__((new Range16(((_i * (5 : stdgo.StdGoTypes.GoInt)) + (10 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoUInt16), ((_i * (5 : stdgo.StdGoTypes.GoInt)) + (12 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoUInt16), (1 : stdgo.StdGoTypes.GoUInt16)) : Range16)));
+                _r16 = (_r16.__append__((new stdgo.unicode.Unicode.Range16(((_i * (5 : stdgo.StdGoTypes.GoInt)) + (10 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoUInt16), ((_i * (5 : stdgo.StdGoTypes.GoInt)) + (12 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoUInt16), (1 : stdgo.StdGoTypes.GoUInt16)) : stdgo.unicode.Unicode.Range16)));
             });
         };
         return _r16;
@@ -1020,7 +1020,7 @@ function testLatinOffset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
         };
     }
 function testSpecialCaseNoMapping(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        var _noChangeForCapitalA:stdgo.unicode.Unicode.CaseRange = (new CaseRange((65u32 : stdgo.StdGoTypes.GoUInt32), (65u32 : stdgo.StdGoTypes.GoUInt32), (new stdgo.GoArray<stdgo.StdGoTypes.GoInt32>((0 : stdgo.StdGoTypes.GoInt32), (0 : stdgo.StdGoTypes.GoInt32), (0 : stdgo.StdGoTypes.GoInt32)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt32>)) : CaseRange);
+        var _noChangeForCapitalA:stdgo.unicode.Unicode.CaseRange = (new stdgo.unicode.Unicode.CaseRange((65u32 : stdgo.StdGoTypes.GoUInt32), (65u32 : stdgo.StdGoTypes.GoUInt32), (new stdgo.GoArray<stdgo.StdGoTypes.GoInt32>((0 : stdgo.StdGoTypes.GoInt32), (0 : stdgo.StdGoTypes.GoInt32), (0 : stdgo.StdGoTypes.GoInt32)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt32>)) : stdgo.unicode.Unicode.CaseRange);
         var _got:stdgo.GoString = stdgo.strings.Strings.toLowerSpecial(((new stdgo.Slice<stdgo.unicode.Unicode.CaseRange>(1, 1, _noChangeForCapitalA?.__copy__()) : stdgo.Slice<stdgo.unicode.Unicode.CaseRange>) : SpecialCase), ("ABC" : stdgo.GoString)?.__copy__())?.__copy__();
         var _want:stdgo.GoString = ("Abc" : stdgo.GoString)?.__copy__();
         if (_got != (_want)) {
@@ -1094,7 +1094,7 @@ function testCategories(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         for (__0 => _test in _inCategoryTest) {
             {
-                var __tmp__ = (categories != null && categories.exists(_test._script) ? { value : categories[_test._script], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>), ok : false }), __1:stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (categories != null && categories.exists(_test._script?.__copy__()) ? { value : categories[_test._script?.__copy__()], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>), ok : false }), __1:stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (!_ok) {
                     _t.fatal(stdgo.Go.toInterface(_test._script), stdgo.Go.toInterface(("not a known category" : stdgo.GoString)));
                 };
@@ -1120,7 +1120,7 @@ function testProperties(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         for (__0 => _test in _inPropTest) {
             {
-                var __tmp__ = (properties != null && properties.exists(_test._script) ? { value : properties[_test._script], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>), ok : false }), __1:stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__.value, _ok:Bool = __tmp__.ok;
+                var __tmp__ = (properties != null && properties.exists(_test._script?.__copy__()) ? { value : properties[_test._script?.__copy__()], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>), ok : false }), __1:stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable> = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (!_ok) {
                     _t.fatal(stdgo.Go.toInterface(_test._script), stdgo.Go.toInterface(("not a known prop" : stdgo.GoString)));
                 };

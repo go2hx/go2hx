@@ -1295,14 +1295,14 @@ function dump(_data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.GoString {
     // NewEncoder returns an io.Writer that writes lowercase hexadecimal characters to w.
 **/
 function newEncoder(_w:stdgo.io.Io.Writer):stdgo.io.Io.Writer {
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _w : _w } : T_encoder)) : stdgo.StdGoTypes.Ref<stdgo.encoding.hex.Hex.T_encoder>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _w : _w } : stdgo.encoding.hex.Hex.T_encoder)) : stdgo.StdGoTypes.Ref<stdgo.encoding.hex.Hex.T_encoder>));
     }
 /**
     // NewDecoder returns an io.Reader that decodes hexadecimal characters from r.
     // NewDecoder expects that r contain only an even number of hexadecimal characters.
 **/
 function newDecoder(_r:stdgo.io.Io.Reader):stdgo.io.Io.Reader {
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _r : _r } : T_decoder)) : stdgo.StdGoTypes.Ref<stdgo.encoding.hex.Hex.T_decoder>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _r : _r } : stdgo.encoding.hex.Hex.T_decoder)) : stdgo.StdGoTypes.Ref<stdgo.encoding.hex.Hex.T_decoder>));
     }
 /**
     // Dumper returns a WriteCloser that writes a hex dump of all written data to
@@ -1310,7 +1310,7 @@ function newDecoder(_r:stdgo.io.Io.Reader):stdgo.io.Io.Reader {
     // line.
 **/
 function dumper(_w:stdgo.io.Io.Writer):stdgo.io.Io.WriteCloser {
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _w : _w } : T_dumper)) : stdgo.StdGoTypes.Ref<stdgo.encoding.hex.Hex.T_dumper>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _w : _w } : stdgo.encoding.hex.Hex.T_dumper)) : stdgo.StdGoTypes.Ref<stdgo.encoding.hex.Hex.T_dumper>));
     }
 function _toChar(_b:stdgo.StdGoTypes.GoByte):stdgo.StdGoTypes.GoByte {
         if ((_b < (32 : stdgo.StdGoTypes.GoUInt8)) || (_b > (126 : stdgo.StdGoTypes.GoUInt8))) {
@@ -1331,7 +1331,7 @@ function testEncode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testDecode(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        var _decTests = (_encDecTests.__append__((new T_encDecTest(("F8F9FAFBFCFDFEFF" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (248 : stdgo.StdGoTypes.GoUInt8), (249 : stdgo.StdGoTypes.GoUInt8), (250 : stdgo.StdGoTypes.GoUInt8), (251 : stdgo.StdGoTypes.GoUInt8), (252 : stdgo.StdGoTypes.GoUInt8), (253 : stdgo.StdGoTypes.GoUInt8), (254 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) : T_encDecTest)));
+        var _decTests = (_encDecTests.__append__((new stdgo.encoding.hex.Hex.T_encDecTest(("F8F9FAFBFCFDFEFF" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (248 : stdgo.StdGoTypes.GoUInt8), (249 : stdgo.StdGoTypes.GoUInt8), (250 : stdgo.StdGoTypes.GoUInt8), (251 : stdgo.StdGoTypes.GoUInt8), (252 : stdgo.StdGoTypes.GoUInt8), (253 : stdgo.StdGoTypes.GoUInt8), (254 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) : stdgo.encoding.hex.Hex.T_encDecTest)));
         for (_i => _test in _decTests) {
             var _dst = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((decodedLen((_test._enc.length)) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
             var __tmp__ = decode(_dst, (_test._enc : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;

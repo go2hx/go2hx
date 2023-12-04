@@ -2069,7 +2069,7 @@ function testParseComplex(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
         for (_i in 0 ... _tests.length.toBasic()) {
             var _test = (stdgo.Go.setRef(_tests[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.strconv_test.Strconv_test.T_atocTest>);
             if (_test._err != null) {
-                _test._err = stdgo.Go.asInterface((stdgo.Go.setRef(({ func : ("ParseComplex" : stdgo.GoString)?.__copy__(), num : _test._in?.__copy__(), err : _test._err } : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
+                _test._err = stdgo.Go.asInterface((stdgo.Go.setRef(({ func : ("ParseComplex" : stdgo.GoString)?.__copy__(), num : _test._in?.__copy__(), err : _test._err } : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
             };
             var __tmp__ = parseComplex(_test._in?.__copy__(), (128 : stdgo.StdGoTypes.GoInt)), _got:stdgo.StdGoTypes.GoComplex128 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_test._err))) {
@@ -2113,13 +2113,13 @@ function _initAtofOnce():Void {
         for (_i in 0 ... _atoftests.length.toBasic()) {
             var _test = (stdgo.Go.setRef(_atoftests[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.strconv_test.Strconv_test.T_atofTest>);
             if (_test._err != null) {
-                _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new NumError(("ParseFloat" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
+                _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(("ParseFloat" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
             };
         };
         for (_i in 0 ... _atof32tests.length.toBasic()) {
             var _test = (stdgo.Go.setRef(_atof32tests[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.strconv_test.Strconv_test.T_atofTest>);
             if (_test._err != null) {
-                _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new NumError(("ParseFloat" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
+                _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(("ParseFloat" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
             };
         };
         if (stdgo.testing.Testing.short()) {
@@ -2131,7 +2131,7 @@ function _initAtofOnce():Void {
             var _n:stdgo.StdGoTypes.GoUInt64 = ((stdgo.math.rand.Rand.uint32() : stdgo.StdGoTypes.GoUInt64) << (32i64 : stdgo.StdGoTypes.GoUInt64)) | (stdgo.math.rand.Rand.uint32() : stdgo.StdGoTypes.GoUInt64);
             var _x:stdgo.StdGoTypes.GoFloat64 = stdgo.math.Math.float64frombits(_n);
             var _s:stdgo.GoString = formatFloat(_x, (103 : stdgo.StdGoTypes.GoUInt8), (-1 : stdgo.StdGoTypes.GoInt), (64 : stdgo.StdGoTypes.GoInt))?.__copy__();
-            _atofRandomTests[(_i : stdgo.StdGoTypes.GoInt)] = (new T_atofSimpleTest(_x, _s?.__copy__()) : T_atofSimpleTest);
+            _atofRandomTests[(_i : stdgo.StdGoTypes.GoInt)] = (new stdgo.strconv_test.Strconv_test.T_atofSimpleTest(_x, _s?.__copy__()) : stdgo.strconv_test.Strconv_test.T_atofSimpleTest);
         };
         for (_i in 0 ... _benchmarksRandomBits.length.toBasic()) {
             var _bits:stdgo.StdGoTypes.GoUInt64 = ((stdgo.math.rand.Rand.uint32() : stdgo.StdGoTypes.GoUInt64) << (32i64 : stdgo.StdGoTypes.GoUInt64)) | (stdgo.math.rand.Rand.uint32() : stdgo.StdGoTypes.GoUInt64);
@@ -2543,7 +2543,7 @@ function testAtoi(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     var __tmp__ = atoi(_test._in?.__copy__()), _out:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     var _testErr:stdgo.Error = (null : stdgo.Error);
                     if (_test._err != null) {
-                        _testErr = stdgo.Go.asInterface((stdgo.Go.setRef((new NumError(("Atoi" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), (stdgo.Go.typeAssert((stdgo.Go.toInterface(_test._err) : stdgo.StdGoTypes.Ref<NumError>)) : stdgo.StdGoTypes.Ref<NumError>).err) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
+                        _testErr = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(("Atoi" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), (stdgo.Go.typeAssert((stdgo.Go.toInterface(_test._err) : stdgo.StdGoTypes.Ref<NumError>)) : stdgo.StdGoTypes.Ref<NumError>).err) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
                     };
                     if (((_test._out : stdgo.StdGoTypes.GoInt) != _out) || !stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_testErr), stdgo.Go.toInterface(_err))) {
                         _t.errorf(("Atoi(%q) = %v, %v want %v, %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_test._out), stdgo.Go.toInterface(_testErr));
@@ -2555,7 +2555,7 @@ function testAtoi(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     var __tmp__ = atoi(_test._in?.__copy__()), _out:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     var _testErr:stdgo.Error = (null : stdgo.Error);
                     if (_test._err != null) {
-                        _testErr = stdgo.Go.asInterface((stdgo.Go.setRef((new NumError(("Atoi" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), (stdgo.Go.typeAssert((stdgo.Go.toInterface(_test._err) : stdgo.StdGoTypes.Ref<NumError>)) : stdgo.StdGoTypes.Ref<NumError>).err) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
+                        _testErr = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(("Atoi" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), (stdgo.Go.typeAssert((stdgo.Go.toInterface(_test._err) : stdgo.StdGoTypes.Ref<NumError>)) : stdgo.StdGoTypes.Ref<NumError>).err) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
                     };
                     if ((_test._out != (_out : stdgo.StdGoTypes.GoInt64)) || !stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_testErr), stdgo.Go.toInterface(_err))) {
                         _t.errorf(("Atoi(%q) = %v, %v want %v, %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_test._out), stdgo.Go.toInterface(_testErr));
@@ -2624,7 +2624,7 @@ function testParseUintBase(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     }
 function testNumError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _test in _numErrorTests) {
-            var _err = (stdgo.Go.setRef(({ func : ("ParseFloat" : stdgo.GoString)?.__copy__(), num : _test._num?.__copy__(), err : stdgo.errors.Errors.new_(("failed" : stdgo.GoString)?.__copy__()) } : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
+            var _err = (stdgo.Go.setRef(({ func : ("ParseFloat" : stdgo.GoString)?.__copy__(), num : _test._num?.__copy__(), err : stdgo.errors.Errors.new_(("failed" : stdgo.GoString)?.__copy__()) } : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
             {
                 var _got:stdgo.GoString = _err.error()?.__copy__();
                 if (_got != (_test._want)) {
@@ -2634,7 +2634,7 @@ function testNumError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testNumErrorUnwrap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        var _err = (stdgo.Go.setRef(({ err : errSyntax } : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
+        var _err = (stdgo.Go.setRef(({ err : errSyntax } : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
         if (!stdgo.errors.Errors.is_(stdgo.Go.asInterface(_err), errSyntax)) {
             _t.error(stdgo.Go.toInterface(("errors.Is failed, wanted success" : stdgo.GoString)));
         };
@@ -4001,37 +4001,37 @@ function testErrorPrefixes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             for (_i in 0 ... _parseUint64Tests.length.toBasic()) {
                 var _test = (stdgo.Go.setRef(_parseUint64Tests[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.strconv_test.Strconv_test.T_parseUint64Test>);
                 if (_test._err != null) {
-                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new NumError(("ParseUint" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
+                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(("ParseUint" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
             for (_i in 0 ... _parseUint64BaseTests.length.toBasic()) {
                 var _test = (stdgo.Go.setRef(_parseUint64BaseTests[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest>);
                 if (_test._err != null) {
-                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new NumError(("ParseUint" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
+                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(("ParseUint" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
             for (_i in 0 ... _parseInt64Tests.length.toBasic()) {
                 var _test = (stdgo.Go.setRef(_parseInt64Tests[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.strconv_test.Strconv_test.T_parseInt64Test>);
                 if (_test._err != null) {
-                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new NumError(("ParseInt" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
+                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(("ParseInt" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
             for (_i in 0 ... _parseInt64BaseTests.length.toBasic()) {
                 var _test = (stdgo.Go.setRef(_parseInt64BaseTests[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest>);
                 if (_test._err != null) {
-                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new NumError(("ParseInt" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
+                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(("ParseInt" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
             for (_i in 0 ... _parseUint32Tests.length.toBasic()) {
                 var _test = (stdgo.Go.setRef(_parseUint32Tests[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.strconv_test.Strconv_test.T_parseUint32Test>);
                 if (_test._err != null) {
-                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new NumError(("ParseUint" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
+                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(("ParseUint" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
             for (_i in 0 ... _parseInt32Tests.length.toBasic()) {
                 var _test = (stdgo.Go.setRef(_parseInt32Tests[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.strconv_test.Strconv_test.T_parseInt32Test>);
                 if (_test._err != null) {
-                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new NumError(("ParseInt" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
+                    _test._err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(("ParseInt" : stdgo.GoString)?.__copy__(), _test._in?.__copy__(), _test._err) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>));
                 };
             };
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;

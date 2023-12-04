@@ -165,7 +165,7 @@ typedef T__interface_3 = stdgo.StdGoTypes.StructType & {
     // Each call to New returns a distinct error value even if the text is identical.
 **/
 function new_(_text:stdgo.GoString):stdgo.Error {
-        return stdgo.Go.asInterface((stdgo.Go.setRef((new T_errorString(_text?.__copy__()) : T_errorString)) : stdgo.StdGoTypes.Ref<stdgo.errors.Errors.T_errorString>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.errors.Errors.T_errorString(_text?.__copy__()) : stdgo.errors.Errors.T_errorString)) : stdgo.StdGoTypes.Ref<stdgo.errors.Errors.T_errorString>));
     }
 /**
     // Join returns an error that wraps the given errors.
@@ -188,7 +188,7 @@ function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error {
         if (_n == ((0 : stdgo.StdGoTypes.GoInt))) {
             return (null : stdgo.Error);
         };
-        var _e = (stdgo.Go.setRef(({ _errs : new stdgo.Slice<stdgo.Error>((0 : stdgo.StdGoTypes.GoInt).toBasic(), _n) } : T_joinError)) : stdgo.StdGoTypes.Ref<stdgo.errors.Errors.T_joinError>);
+        var _e = (stdgo.Go.setRef(({ _errs : new stdgo.Slice<stdgo.Error>((0 : stdgo.StdGoTypes.GoInt).toBasic(), _n) } : stdgo.errors.Errors.T_joinError)) : stdgo.StdGoTypes.Ref<stdgo.errors.Errors.T_joinError>);
         for (__1 => _err in _errs) {
             if (_err != null) {
                 _e._errs = (_e._errs.__append__(_err));

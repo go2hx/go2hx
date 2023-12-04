@@ -876,7 +876,7 @@ function readDir(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<DirEntry
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return { _0 : (null : stdgo.Slice<stdgo.io.fs.Fs.DirEntry>), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("readdir" : stdgo.GoString)?.__copy__(), path : _name?.__copy__(), err : stdgo.errors.Errors.new_(("not implemented" : stdgo.GoString)?.__copy__()) } : PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)) };
+                    return { _0 : (null : stdgo.Slice<stdgo.io.fs.Fs.DirEntry>), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("readdir" : stdgo.GoString)?.__copy__(), path : _name?.__copy__(), err : stdgo.errors.Errors.new_(("not implemented" : stdgo.GoString)?.__copy__()) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)) };
                 };
             };
             var __tmp__ = _dir.readDir((-1 : stdgo.StdGoTypes.GoInt)), _list:stdgo.Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -921,7 +921,7 @@ function fileInfoToDirEntry(_info:FileInfo):DirEntry {
         if (_info == null) {
             return (null : stdgo.io.fs.Fs.DirEntry);
         };
-        return stdgo.Go.asInterface(({ _fileInfo : _info } : T_dirInfo));
+        return stdgo.Go.asInterface(({ _fileInfo : _info } : stdgo.io.fs.Fs.T_dirInfo));
     }
 /**
     // ReadFile reads the named file from the file system fs and returns its contents.
@@ -1077,7 +1077,7 @@ function stat(_fsys:FS, _name:stdgo.GoString):{ var _0 : FileInfo; var _1 : stdg
 **/
 function sub(_fsys:FS, _dir:stdgo.GoString):{ var _0 : FS; var _1 : stdgo.Error; } {
         if (!validPath(_dir?.__copy__())) {
-            return { _0 : (null : stdgo.io.fs.Fs.FS), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("sub" : stdgo.GoString)?.__copy__(), path : _dir?.__copy__(), err : stdgo.errors.Errors.new_(("invalid name" : stdgo.GoString)?.__copy__()) } : PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)) };
+            return { _0 : (null : stdgo.io.fs.Fs.FS), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("sub" : stdgo.GoString)?.__copy__(), path : _dir?.__copy__(), err : stdgo.errors.Errors.new_(("invalid name" : stdgo.GoString)?.__copy__()) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)) };
         };
         if (_dir == (("." : stdgo.GoString))) {
             return { _0 : _fsys, _1 : (null : stdgo.Error) };
@@ -1092,7 +1092,7 @@ function sub(_fsys:FS, _dir:stdgo.GoString):{ var _0 : FS; var _1 : stdgo.Error;
                 return _fsys.sub(_dir?.__copy__());
             };
         };
-        return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_subFS(_fsys, _dir?.__copy__()) : T_subFS)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.T_subFS>)), _1 : (null : stdgo.Error) };
+        return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.io.fs.Fs.T_subFS(_fsys, _dir?.__copy__()) : stdgo.io.fs.Fs.T_subFS)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.T_subFS>)), _1 : (null : stdgo.Error) };
     }
 /**
     // walkDir recursively descends path, calling walkDirFn.
@@ -1150,7 +1150,7 @@ function walkDir(_fsys:FS, _root:stdgo.GoString, _fn:WalkDirFunc):stdgo.Error {
         if (_err != null) {
             _err = _fn(_root?.__copy__(), (null : stdgo.io.fs.Fs.DirEntry), _err);
         } else {
-            _err = _walkDir(_fsys, _root?.__copy__(), stdgo.Go.asInterface((stdgo.Go.setRef((new T_statDirEntry(_info) : T_statDirEntry)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.T_statDirEntry>)), _fn);
+            _err = _walkDir(_fsys, _root?.__copy__(), stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.io.fs.Fs.T_statDirEntry(_info) : stdgo.io.fs.Fs.T_statDirEntry)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.T_statDirEntry>)), _fn);
         };
         if ((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipAll))) {
             return (null : stdgo.Error);
@@ -1291,7 +1291,7 @@ class T_subFS_asInterface {
         if (_err != null) {
             return { _0 : (null : stdgo.io.fs.Fs.FS), _1 : _err };
         };
-        return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_subFS(_f._fsys, _full?.__copy__()) : T_subFS)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.T_subFS>)), _1 : (null : stdgo.Error) };
+        return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.io.fs.Fs.T_subFS(_f._fsys, _full?.__copy__()) : stdgo.io.fs.Fs.T_subFS)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.T_subFS>)), _1 : (null : stdgo.Error) };
     }
     @:keep
     static public function glob( _f:stdgo.StdGoTypes.Ref<T_subFS>, _pattern:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
@@ -1391,7 +1391,7 @@ class T_subFS_asInterface {
     static public function _fullName( _f:stdgo.StdGoTypes.Ref<T_subFS>, _op:stdgo.GoString, _name:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.StdGoTypes.Ref<T_subFS> = _f;
         if (!validPath(_name?.__copy__())) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : _op?.__copy__(), path : _name?.__copy__(), err : stdgo.errors.Errors.new_(("invalid name" : stdgo.GoString)?.__copy__()) } : PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)) };
+            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : _op?.__copy__(), path : _name?.__copy__(), err : stdgo.errors.Errors.new_(("invalid name" : stdgo.GoString)?.__copy__()) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)) };
         };
         return { _0 : stdgo.path.Path.join(_f._dir?.__copy__(), _name?.__copy__())?.__copy__(), _1 : (null : stdgo.Error) };
     }

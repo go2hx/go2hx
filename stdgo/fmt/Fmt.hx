@@ -1069,7 +1069,7 @@ function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterfa
             if (__value__ == ((0 : stdgo.StdGoTypes.GoInt))) {
                 _err = stdgo.errors.Errors.new_(_s?.__copy__());
             } else if (__value__ == ((1 : stdgo.StdGoTypes.GoInt))) {
-                var _w = (stdgo.Go.setRef(({ _msg : _s?.__copy__() } : T_wrapError)) : stdgo.StdGoTypes.Ref<stdgo.fmt.Fmt.T_wrapError>);
+                var _w = (stdgo.Go.setRef(({ _msg : _s?.__copy__() } : stdgo.fmt.Fmt.T_wrapError)) : stdgo.StdGoTypes.Ref<stdgo.fmt.Fmt.T_wrapError>);
                 {
                     var __tmp__ = try {
                         { value : (stdgo.Go.typeAssert((_a[(_p._wrappedErrs[(0 : stdgo.StdGoTypes.GoInt)] : stdgo.StdGoTypes.GoInt)] : stdgo.Error)) : stdgo.Error), ok : true };
@@ -1099,7 +1099,7 @@ function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.StdGoTypes.AnyInterfa
                         };
                     };
                 };
-                _err = stdgo.Go.asInterface((stdgo.Go.setRef((new T_wrapErrors(_s?.__copy__(), _errs) : T_wrapErrors)) : stdgo.StdGoTypes.Ref<stdgo.fmt.Fmt.T_wrapErrors>));
+                _err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.fmt.Fmt.T_wrapErrors(_s?.__copy__(), _errs) : stdgo.fmt.Fmt.T_wrapErrors)) : stdgo.StdGoTypes.Ref<stdgo.fmt.Fmt.T_wrapErrors>));
             };
         };
         _p._free();
@@ -1567,7 +1567,7 @@ function _newScanState(_r:stdgo.io.Io.Reader, _nlIsSpace:Bool, _nlIsEnd:Bool):{ 
             if (_ok) {
                 _s._rs = _rs;
             } else {
-                _s._rs = stdgo.Go.asInterface((stdgo.Go.setRef(({ _reader : _r, _peekRune : (-1 : stdgo.StdGoTypes.GoInt32) } : T_readRune)) : stdgo.StdGoTypes.Ref<stdgo.fmt.Fmt.T_readRune>));
+                _s._rs = stdgo.Go.asInterface((stdgo.Go.setRef(({ _reader : _r, _peekRune : (-1 : stdgo.StdGoTypes.GoInt32) } : stdgo.fmt.Fmt.T_readRune)) : stdgo.StdGoTypes.Ref<stdgo.fmt.Fmt.T_readRune>));
             };
         };
         _s._ssave._nlIsSpace = _nlIsSpace;
@@ -2362,7 +2362,7 @@ class T_fmt_asInterface {
     @:keep
     static public function _clearflags( _f:stdgo.StdGoTypes.Ref<T_fmt>):Void {
         @:recv var _f:stdgo.StdGoTypes.Ref<T_fmt> = _f;
-        _f._fmtFlags = (new T_fmtFlags() : T_fmtFlags);
+        _f._fmtFlags = (new stdgo.fmt.Fmt.T_fmtFlags() : stdgo.fmt.Fmt.T_fmtFlags);
     }
 }
 class T_pp_asInterface {
@@ -4844,12 +4844,12 @@ class T_ss_asInterface {
     @:keep
     static public function _errorString( _s:stdgo.StdGoTypes.Ref<T_ss>, _err:stdgo.GoString):Void {
         @:recv var _s:stdgo.StdGoTypes.Ref<T_ss> = _s;
-        throw stdgo.Go.toInterface((new T_scanError(stdgo.errors.Errors.new_(_err?.__copy__())) : T_scanError));
+        throw stdgo.Go.toInterface((new stdgo.fmt.Fmt.T_scanError(stdgo.errors.Errors.new_(_err?.__copy__())) : stdgo.fmt.Fmt.T_scanError));
     }
     @:keep
     static public function _error( _s:stdgo.StdGoTypes.Ref<T_ss>, _err:stdgo.Error):Void {
         @:recv var _s:stdgo.StdGoTypes.Ref<T_ss> = _s;
-        throw stdgo.Go.toInterface((new T_scanError(_err) : T_scanError));
+        throw stdgo.Go.toInterface((new stdgo.fmt.Fmt.T_scanError(_err) : stdgo.fmt.Fmt.T_scanError));
     }
     @:keep
     static public function unreadRune( _s:stdgo.StdGoTypes.Ref<T_ss>):stdgo.Error {

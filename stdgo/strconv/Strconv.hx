@@ -924,13 +924,13 @@ var _detailedPowersOfTen : stdgo.GoArray<stdgo.GoArray<stdgo.StdGoTypes.GoUInt64
     
     
 **/
-var _float32info : stdgo.strconv.Strconv.T_floatInfo = (new T_floatInfo((23u32 : stdgo.StdGoTypes.GoUInt), (8u32 : stdgo.StdGoTypes.GoUInt), (-127 : stdgo.StdGoTypes.GoInt)) : T_floatInfo);
+var _float32info : stdgo.strconv.Strconv.T_floatInfo = (new stdgo.strconv.Strconv.T_floatInfo((23u32 : stdgo.StdGoTypes.GoUInt), (8u32 : stdgo.StdGoTypes.GoUInt), (-127 : stdgo.StdGoTypes.GoInt)) : stdgo.strconv.Strconv.T_floatInfo);
 /**
     
     
     
 **/
-var _float64info : stdgo.strconv.Strconv.T_floatInfo = (new T_floatInfo((52u32 : stdgo.StdGoTypes.GoUInt), (11u32 : stdgo.StdGoTypes.GoUInt), (-1023 : stdgo.StdGoTypes.GoInt)) : T_floatInfo);
+var _float64info : stdgo.strconv.Strconv.T_floatInfo = (new stdgo.strconv.Strconv.T_floatInfo((52u32 : stdgo.StdGoTypes.GoUInt), (11u32 : stdgo.StdGoTypes.GoUInt), (-1023 : stdgo.StdGoTypes.GoInt)) : stdgo.strconv.Strconv.T_floatInfo);
 /**
     
     
@@ -3078,16 +3078,16 @@ function _cloneString(_x:stdgo.GoString):stdgo.GoString {
         return ((_x : stdgo.Slice<stdgo.StdGoTypes.GoByte>) : stdgo.GoString)?.__copy__();
     }
 function _syntaxError(_fn:stdgo.GoString, _str:stdgo.GoString):stdgo.StdGoTypes.Ref<NumError> {
-        return (stdgo.Go.setRef((new NumError(_fn?.__copy__(), _cloneString(_str?.__copy__())?.__copy__(), errSyntax) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
+        return (stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(_fn?.__copy__(), _cloneString(_str?.__copy__())?.__copy__(), errSyntax) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
     }
 function _rangeError(_fn:stdgo.GoString, _str:stdgo.GoString):stdgo.StdGoTypes.Ref<NumError> {
-        return (stdgo.Go.setRef((new NumError(_fn?.__copy__(), _cloneString(_str?.__copy__())?.__copy__(), errRange) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
+        return (stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(_fn?.__copy__(), _cloneString(_str?.__copy__())?.__copy__(), errRange) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
     }
 function _baseError(_fn:stdgo.GoString, _str:stdgo.GoString, _base:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<NumError> {
-        return (stdgo.Go.setRef((new NumError(_fn?.__copy__(), _cloneString(_str?.__copy__())?.__copy__(), stdgo.errors.Errors.new_(("invalid base " : stdgo.GoString) + itoa(_base)?.__copy__()?.__copy__())) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
+        return (stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(_fn?.__copy__(), _cloneString(_str?.__copy__())?.__copy__(), stdgo.errors.Errors.new_(("invalid base " : stdgo.GoString) + itoa(_base)?.__copy__()?.__copy__())) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
     }
 function _bitSizeError(_fn:stdgo.GoString, _str:stdgo.GoString, _bitSize:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<NumError> {
-        return (stdgo.Go.setRef((new NumError(_fn?.__copy__(), _cloneString(_str?.__copy__())?.__copy__(), stdgo.errors.Errors.new_(("invalid bit size " : stdgo.GoString) + itoa(_bitSize)?.__copy__()?.__copy__())) : NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
+        return (stdgo.Go.setRef((new stdgo.strconv.Strconv.NumError(_fn?.__copy__(), _cloneString(_str?.__copy__())?.__copy__(), stdgo.errors.Errors.new_(("invalid bit size " : stdgo.GoString) + itoa(_bitSize)?.__copy__()?.__copy__())) : stdgo.strconv.Strconv.NumError)) : stdgo.StdGoTypes.Ref<stdgo.strconv.Strconv.NumError>);
     }
 /**
     // ParseUint is like ParseInt but for unsigned numbers.
@@ -3727,7 +3727,7 @@ function _bigFtoa(_dst:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _prec:stdgo.StdGoTy
         var _shortest:Bool = _prec < (0 : stdgo.StdGoTypes.GoInt);
         if (_shortest) {
             _roundShortest(_d, _mant, _exp, _flt);
-            _digs = ({ _d : (_d._d.__slice__(0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _nd : _d._nd, _dp : _d._dp } : T_decimalSlice);
+            _digs = ({ _d : (_d._d.__slice__(0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _nd : _d._nd, _dp : _d._dp } : stdgo.strconv.Strconv.T_decimalSlice);
             {
                 final __value__ = _fmt;
                 if (__value__ == ((101 : stdgo.StdGoTypes.GoUInt8)) || __value__ == ((69 : stdgo.StdGoTypes.GoUInt8))) {
@@ -3752,7 +3752,7 @@ function _bigFtoa(_dst:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _prec:stdgo.StdGoTy
                     _d.round(_prec);
                 };
             };
-            _digs = ({ _d : (_d._d.__slice__(0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _nd : _d._nd, _dp : _d._dp } : T_decimalSlice);
+            _digs = ({ _d : (_d._d.__slice__(0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _nd : _d._nd, _dp : _d._dp } : stdgo.strconv.Strconv.T_decimalSlice);
         };
         return _formatDigits(_dst, _shortest, _neg, _digs?.__copy__(), _prec, _fmt);
     }

@@ -150,7 +150,7 @@ var _natOne : stdgo.math.big.Big.T_nat = (new stdgo.Slice<stdgo.math.big.Big.Wor
     
     
 **/
-var _intOne : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = (stdgo.Go.setRef((new Int_(false, _natOne) : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
+var _intOne : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = (stdgo.Go.setRef((new stdgo.math.big.Big.Int_(false, _natOne) : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
 /**
     
     
@@ -2155,7 +2155,7 @@ final above : stdgo.math.big.Big.Accuracy = (1 : stdgo.math.big.Big.Accuracy);
     
     
 **/
-var __8 : stdgo.Error = stdgo.Go.asInterface((new ErrNaN() : ErrNaN));
+var __8 : stdgo.Error = stdgo.Go.asInterface((new stdgo.math.big.Big.ErrNaN() : stdgo.math.big.Big.ErrNaN));
 /**
     
     
@@ -4389,13 +4389,13 @@ function testFunVV(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var _arg:stdgo.math.big.Big.T_argVV = _a?.__copy__();
             _testFunVV(_t, ("addVV_g" : stdgo.GoString)?.__copy__(), _addVV_g, _arg?.__copy__());
             _testFunVV(_t, ("addVV" : stdgo.GoString)?.__copy__(), _addVV, _arg?.__copy__());
-            _arg = (new T_argVV(_a._z, _a._y, _a._x, _a._c) : T_argVV);
+            _arg = (new stdgo.math.big.Big.T_argVV(_a._z, _a._y, _a._x, _a._c) : stdgo.math.big.Big.T_argVV);
             _testFunVV(_t, ("addVV_g symmetric" : stdgo.GoString)?.__copy__(), _addVV_g, _arg?.__copy__());
             _testFunVV(_t, ("addVV symmetric" : stdgo.GoString)?.__copy__(), _addVV, _arg?.__copy__());
-            _arg = (new T_argVV(_a._x, _a._z, _a._y, _a._c) : T_argVV);
+            _arg = (new stdgo.math.big.Big.T_argVV(_a._x, _a._z, _a._y, _a._c) : stdgo.math.big.Big.T_argVV);
             _testFunVV(_t, ("subVV_g" : stdgo.GoString)?.__copy__(), _subVV_g, _arg?.__copy__());
             _testFunVV(_t, ("subVV" : stdgo.GoString)?.__copy__(), _subVV, _arg?.__copy__());
-            _arg = (new T_argVV(_a._y, _a._z, _a._x, _a._c) : T_argVV);
+            _arg = (new stdgo.math.big.Big.T_argVV(_a._y, _a._z, _a._x, _a._c) : stdgo.math.big.Big.T_argVV);
             _testFunVV(_t, ("subVV_g symmetric" : stdgo.GoString)?.__copy__(), _subVV_g, _arg?.__copy__());
             _testFunVV(_t, ("subVV symmetric" : stdgo.GoString)?.__copy__(), _subVV, _arg?.__copy__());
         };
@@ -4486,7 +4486,7 @@ function testFunVW(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var _arg:stdgo.math.big.Big.T_argVW = _a?.__copy__();
             _testFunVW(_t, ("addVW_g" : stdgo.GoString)?.__copy__(), _addVW_g, _arg?.__copy__());
             _testFunVW(_t, ("addVW" : stdgo.GoString)?.__copy__(), _addVW, _arg?.__copy__());
-            _arg = (new T_argVW(_a._x, _a._z, _a._y, _a._c) : T_argVW);
+            _arg = (new stdgo.math.big.Big.T_argVW(_a._x, _a._z, _a._y, _a._c) : stdgo.math.big.Big.T_argVW);
             _testFunVW(_t, ("subVW_g" : stdgo.GoString)?.__copy__(), _subVW_g, _arg?.__copy__());
             _testFunVW(_t, ("subVW" : stdgo.GoString)?.__copy__(), _subVW, _arg?.__copy__());
         };
@@ -4544,18 +4544,18 @@ function testFunVWExt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var _x = _rndV(_n);
             var _y:stdgo.math.big.Big.Word = _rndW();
             var _z:stdgo.math.big.Big.T_nat = new stdgo.Slice<stdgo.math.big.Big.Word>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
-            var _arg:stdgo.math.big.Big.T_argVW = (new T_argVW(_z, _x, _y, (0u32 : stdgo.math.big.Big.Word)) : T_argVW);
+            var _arg:stdgo.math.big.Big.T_argVW = (new stdgo.math.big.Big.T_argVW(_z, _x, _y, (0u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_argVW);
             _testFunVWext(_t, ("addVW, random inputs" : stdgo.GoString)?.__copy__(), _addVW, _addVW_g, _arg?.__copy__());
             _testFunVWext(_t, ("subVW, random inputs" : stdgo.GoString)?.__copy__(), _subVW, _subVW_g, _arg?.__copy__());
-            _arg = (new T_argVW(_x, _x, _y, (0u32 : stdgo.math.big.Big.Word)) : T_argVW);
+            _arg = (new stdgo.math.big.Big.T_argVW(_x, _x, _y, (0u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_argVW);
             _testFunVWext(_t, ("addVW, random inputs, sharing storage" : stdgo.GoString)?.__copy__(), _addVW, _addVW_g, _arg?.__copy__());
             _testFunVWext(_t, ("subVW, random inputs, sharing storage" : stdgo.GoString)?.__copy__(), _subVW, _subVW_g, _arg?.__copy__());
             _y = (-1u32 : stdgo.math.big.Big.Word);
             _x = _makeWordVec(_y, _n);
-            _arg = (new T_argVW(_z, _x, _y, (0u32 : stdgo.math.big.Big.Word)) : T_argVW);
+            _arg = (new stdgo.math.big.Big.T_argVW(_z, _x, _y, (0u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_argVW);
             _testFunVWext(_t, ("addVW, vector of max uint" : stdgo.GoString)?.__copy__(), _addVW, _addVW_g, _arg?.__copy__());
             _x = _makeWordVec((0u32 : stdgo.math.big.Big.Word), _n);
-            _arg = (new T_argVW(_z, _x, (1u32 : stdgo.math.big.Big.Word), (0u32 : stdgo.math.big.Big.Word)) : T_argVW);
+            _arg = (new stdgo.math.big.Big.T_argVW(_z, _x, (1u32 : stdgo.math.big.Big.Word), (0u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_argVW);
             _testFunVWext(_t, ("subVW, vector of zero" : stdgo.GoString)?.__copy__(), _subVW, _subVW_g, _arg?.__copy__());
         };
     }
@@ -4729,7 +4729,7 @@ function testFunVWW(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _testFunVWW(_t, ("mulAddVWW_g" : stdgo.GoString)?.__copy__(), _mulAddVWW_g, _arg?.__copy__());
             _testFunVWW(_t, ("mulAddVWW" : stdgo.GoString)?.__copy__(), _mulAddVWW, _arg?.__copy__());
             if ((_a._y != (0u32 : stdgo.math.big.Big.Word)) && (_a._r < _a._y)) {
-                var _arg:stdgo.math.big.Big.T_argWVW = (new T_argWVW(_a._x, _a._c, _a._z, _a._y, _a._r) : T_argWVW);
+                var _arg:stdgo.math.big.Big.T_argWVW = (new stdgo.math.big.Big.T_argWVW(_a._x, _a._c, _a._z, _a._y, _a._r) : stdgo.math.big.Big.T_argWVW);
                 _testFunWVW(_t, ("divWVW" : stdgo.GoString)?.__copy__(), _divWVW, _arg?.__copy__());
             };
         };
@@ -5137,7 +5137,7 @@ function _trim(_x:stdgo.StdGoTypes.Ref<T_decimal>):Void {
         };
     }
 function testDecimalString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        for (__0 => _test in (new stdgo.Slice<T__struct_7>(6, 6, ({ _x : ({} : stdgo.math.big.Big.T_decimal), _want : ("0" : stdgo.GoString)?.__copy__() } : T__struct_7), ({ _x : (new T_decimal((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (1000 : stdgo.StdGoTypes.GoInt)) : T_decimal), _want : ("0" : stdgo.GoString)?.__copy__() } : T__struct_7), ({ _x : (new T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (0 : stdgo.StdGoTypes.GoInt)) : T_decimal), _want : ("0.12345" : stdgo.GoString)?.__copy__() } : T__struct_7), ({ _x : (new T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (-3 : stdgo.StdGoTypes.GoInt)) : T_decimal), _want : ("0.00012345" : stdgo.GoString)?.__copy__() } : T__struct_7), ({ _x : (new T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (3 : stdgo.StdGoTypes.GoInt)) : T_decimal), _want : ("123.45" : stdgo.GoString)?.__copy__() } : T__struct_7), ({ _x : (new T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (10 : stdgo.StdGoTypes.GoInt)) : T_decimal), _want : ("1234500000" : stdgo.GoString)?.__copy__() } : T__struct_7)) : stdgo.Slice<T__struct_7>)) {
+        for (__0 => _test in (new stdgo.Slice<T__struct_7>(6, 6, ({ _x : ({} : stdgo.math.big.Big.T_decimal), _want : ("0" : stdgo.GoString)?.__copy__() } : T__struct_7), ({ _x : (new stdgo.math.big.Big.T_decimal((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (1000 : stdgo.StdGoTypes.GoInt)) : stdgo.math.big.Big.T_decimal), _want : ("0" : stdgo.GoString)?.__copy__() } : T__struct_7), ({ _x : (new stdgo.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.math.big.Big.T_decimal), _want : ("0.12345" : stdgo.GoString)?.__copy__() } : T__struct_7), ({ _x : (new stdgo.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (-3 : stdgo.StdGoTypes.GoInt)) : stdgo.math.big.Big.T_decimal), _want : ("0.00012345" : stdgo.GoString)?.__copy__() } : T__struct_7), ({ _x : (new stdgo.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (3 : stdgo.StdGoTypes.GoInt)) : stdgo.math.big.Big.T_decimal), _want : ("123.45" : stdgo.GoString)?.__copy__() } : T__struct_7), ({ _x : (new stdgo.math.big.Big.T_decimal((("12345" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), (10 : stdgo.StdGoTypes.GoInt)) : stdgo.math.big.Big.T_decimal), _want : ("1234500000" : stdgo.GoString)?.__copy__() } : T__struct_7)) : stdgo.Slice<T__struct_7>)) {
             {
                 var _got:stdgo.GoString = (_test._x.string() : stdgo.GoString)?.__copy__();
                 if (_got != (_test._want)) {
@@ -5260,7 +5260,7 @@ function benchmarkFloatString(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):
 **/
 function newFloat(_x:stdgo.StdGoTypes.GoFloat64):stdgo.StdGoTypes.Ref<Float_> {
         if (stdgo.math.Math.isNaN(_x)) {
-            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new ErrNaN(("NewFloat(NaN)" : stdgo.GoString)?.__copy__()) : ErrNaN)));
+            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big.Big.ErrNaN(("NewFloat(NaN)" : stdgo.GoString)?.__copy__()) : stdgo.math.big.Big.ErrNaN)));
         };
         return (stdgo.Go.setRef(({} : stdgo.math.big.Big.Float_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>).setFloat64(_x);
     }
@@ -8164,7 +8164,7 @@ function newInt(_x:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.Ref<Int_> {
         } else {
             _abs = (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (_u : Word)) : stdgo.Slice<stdgo.math.big.Big.Word>);
         };
-        return (stdgo.Go.setRef(({ _neg : _x < (0i64 : stdgo.StdGoTypes.GoInt64), _abs : _abs } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
+        return (stdgo.Go.setRef(({ _neg : _x < (0i64 : stdgo.StdGoTypes.GoInt64), _abs : _abs } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
     }
 /**
     // low32 returns the least significant 32 bits of x.
@@ -8417,11 +8417,11 @@ function testSumZZ(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _a in _sumZZ) {
             var _arg:stdgo.math.big.Big.T_argZZ = _a?.__copy__();
             _testFunZZ(_t, ("AddZZ" : stdgo.GoString)?.__copy__(), addZZ, _arg?.__copy__());
-            _arg = (new T_argZZ(_a._z, _a._y, _a._x) : T_argZZ);
+            _arg = (new stdgo.math.big.Big.T_argZZ(_a._z, _a._y, _a._x) : stdgo.math.big.Big.T_argZZ);
             _testFunZZ(_t, ("AddZZ symmetric" : stdgo.GoString)?.__copy__(), addZZ, _arg?.__copy__());
-            _arg = (new T_argZZ(_a._x, _a._z, _a._y) : T_argZZ);
+            _arg = (new stdgo.math.big.Big.T_argZZ(_a._x, _a._z, _a._y) : stdgo.math.big.Big.T_argZZ);
             _testFunZZ(_t, ("SubZZ" : stdgo.GoString)?.__copy__(), subZZ, _arg?.__copy__());
-            _arg = (new T_argZZ(_a._y, _a._z, _a._x) : T_argZZ);
+            _arg = (new stdgo.math.big.Big.T_argZZ(_a._y, _a._z, _a._x) : stdgo.math.big.Big.T_argZZ);
             _testFunZZ(_t, ("SubZZ symmetric" : stdgo.GoString)?.__copy__(), subZZ, _arg?.__copy__());
         };
     }
@@ -8432,7 +8432,7 @@ function testProdZZ(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _a in _prodZZ) {
             var _arg:stdgo.math.big.Big.T_argZZ = _a?.__copy__();
             _testFunZZ(_t, ("MulZZ" : stdgo.GoString)?.__copy__(), mulZZ, _arg?.__copy__());
-            _arg = (new T_argZZ(_a._z, _a._y, _a._x) : T_argZZ);
+            _arg = (new stdgo.math.big.Big.T_argZZ(_a._z, _a._y, _a._x) : stdgo.math.big.Big.T_argZZ);
             _testFunZZ(_t, ("MulZZ symmetric" : stdgo.GoString)?.__copy__(), mulZZ, _arg?.__copy__());
         };
     }
@@ -8695,8 +8695,8 @@ function testQuo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testQuoStepD6(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        var _u = (stdgo.Go.setRef((new Int_(false, (new stdgo.Slice<stdgo.math.big.Big.Word>(4, 4, (0u32 : stdgo.math.big.Big.Word), (0u32 : stdgo.math.big.Big.Word), (-2147483647u32 : stdgo.math.big.Big.Word), (2147483647u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat)) : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
-        var _v = (stdgo.Go.setRef((new Int_(false, (new stdgo.Slice<stdgo.math.big.Big.Word>(3, 3, (5u32 : stdgo.math.big.Big.Word), (-2147483646u32 : stdgo.math.big.Big.Word), (-2147483648u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat)) : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
+        var _u = (stdgo.Go.setRef((new stdgo.math.big.Big.Int_(false, (new stdgo.Slice<stdgo.math.big.Big.Word>(4, 4, (0u32 : stdgo.math.big.Big.Word), (0u32 : stdgo.math.big.Big.Word), (-2147483647u32 : stdgo.math.big.Big.Word), (2147483647u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat)) : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
+        var _v = (stdgo.Go.setRef((new stdgo.math.big.Big.Int_(false, (new stdgo.Slice<stdgo.math.big.Big.Word>(3, 3, (5u32 : stdgo.math.big.Big.Word), (-2147483646u32 : stdgo.math.big.Big.Word), (-2147483648u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat)) : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
         var _r = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
         var __tmp__ = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).quoRem(_u, _v, _r), _q:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _r:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._1;
         {};
@@ -8781,7 +8781,7 @@ function testExp(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("#%d: got %x want %x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface(_z1)), stdgo.Go.toInterface(stdgo.Go.asInterface(_out)));
             };
             if (_m == null || (_m : Dynamic).__nil__) {
-                _m = (stdgo.Go.setRef(({ _abs : (new stdgo.Slice<stdgo.math.big.Big.Word>(0, 0) : stdgo.math.big.Big.T_nat) } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
+                _m = (stdgo.Go.setRef(({ _abs : (new stdgo.Slice<stdgo.math.big.Big.Word>(0, 0) : stdgo.math.big.Big.T_nat) } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
                 var _z2 = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).exp(_x, _y, _m);
                 if (_z2.cmp(_z1) != ((0 : stdgo.StdGoTypes.GoInt))) {
                     _t.errorf(("#%d: got %x want %x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface(_z2)), stdgo.Go.toInterface(stdgo.Go.asInterface(_z1)));
@@ -10571,17 +10571,17 @@ function testFunNN(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _a in _sumNN) {
             var _arg:stdgo.math.big.Big.T_argNN = _a?.__copy__();
             _testFunNN(_t, ("add" : stdgo.GoString)?.__copy__(), T_nat_static_extension._add, _arg?.__copy__());
-            _arg = (new T_argNN(_a._z, _a._y, _a._x) : T_argNN);
+            _arg = (new stdgo.math.big.Big.T_argNN(_a._z, _a._y, _a._x) : stdgo.math.big.Big.T_argNN);
             _testFunNN(_t, ("add symmetric" : stdgo.GoString)?.__copy__(), T_nat_static_extension._add, _arg?.__copy__());
-            _arg = (new T_argNN(_a._x, _a._z, _a._y) : T_argNN);
+            _arg = (new stdgo.math.big.Big.T_argNN(_a._x, _a._z, _a._y) : stdgo.math.big.Big.T_argNN);
             _testFunNN(_t, ("sub" : stdgo.GoString)?.__copy__(), T_nat_static_extension._sub, _arg?.__copy__());
-            _arg = (new T_argNN(_a._y, _a._z, _a._x) : T_argNN);
+            _arg = (new stdgo.math.big.Big.T_argNN(_a._y, _a._z, _a._x) : stdgo.math.big.Big.T_argNN);
             _testFunNN(_t, ("sub symmetric" : stdgo.GoString)?.__copy__(), T_nat_static_extension._sub, _arg?.__copy__());
         };
         for (__1 => _a in _prodNN) {
             var _arg:stdgo.math.big.Big.T_argNN = _a?.__copy__();
             _testFunNN(_t, ("mul" : stdgo.GoString)?.__copy__(), T_nat_static_extension._mul, _arg?.__copy__());
-            _arg = (new T_argNN(_a._z, _a._y, _a._x) : T_argNN);
+            _arg = (new stdgo.math.big.Big.T_argNN(_a._z, _a._y, _a._x) : stdgo.math.big.Big.T_argNN);
             _testFunNN(_t, ("mul symmetric" : stdgo.GoString)?.__copy__(), T_nat_static_extension._mul, _arg?.__copy__());
         };
     }
@@ -10823,14 +10823,14 @@ function testMontgomery(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             } else {
                 _out = _natFromString(_test._out64?.__copy__());
             };
-            var _xi = (stdgo.Go.setRef(({ _abs : _x } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
-            var _yi = (stdgo.Go.setRef(({ _abs : _y } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
-            var _mi = (stdgo.Go.setRef(({ _abs : _m } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
+            var _xi = (stdgo.Go.setRef(({ _abs : _x } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
+            var _yi = (stdgo.Go.setRef(({ _abs : _y } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
+            var _mi = (stdgo.Go.setRef(({ _abs : _m } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
             var _p = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).mod((stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).mul(_xi, (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).mul(_yi, (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).modInverse((stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).lsh(_one, (_m.length : stdgo.StdGoTypes.GoUInt) * (32u32 : stdgo.StdGoTypes.GoUInt)), _mi))), _mi);
             if (_out._cmp(_p._abs._norm()) != ((0 : stdgo.StdGoTypes.GoInt))) {
                 _t.errorf(("#%d: out in table=0x%s, computed=0x%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_out._utoa((16 : stdgo.StdGoTypes.GoInt))), stdgo.Go.toInterface(_p._abs._norm()._utoa((16 : stdgo.StdGoTypes.GoInt))));
             };
-            var _k = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).mod((stdgo.Go.setRef(({ _abs : _m } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>), __B);
+            var _k = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).mod((stdgo.Go.setRef(({ _abs : _m } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>), __B);
             _k = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).sub(__B, _k);
             _k = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).mod(_k, __B);
             var _k0:stdgo.math.big.Big.Word = ((stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).modInverse(_k, __B).uint64() : Word);
@@ -12103,24 +12103,24 @@ function _testRatBin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _i:stdgo.
     }
 function testRatBin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (_i => _test in _ratBinTests) {
-            var _arg:stdgo.math.big.Big.T_ratBinArg = (new T_ratBinArg(_test._x?.__copy__(), _test._y?.__copy__(), _test._sum?.__copy__()) : T_ratBinArg);
+            var _arg:stdgo.math.big.Big.T_ratBinArg = (new stdgo.math.big.Big.T_ratBinArg(_test._x?.__copy__(), _test._y?.__copy__(), _test._sum?.__copy__()) : stdgo.math.big.Big.T_ratBinArg);
             _testRatBin(_t, _i, ("Add" : stdgo.GoString)?.__copy__(), Rat_static_extension.add, _arg?.__copy__());
-            _arg = (new T_ratBinArg(_test._y?.__copy__(), _test._x?.__copy__(), _test._sum?.__copy__()) : T_ratBinArg);
+            _arg = (new stdgo.math.big.Big.T_ratBinArg(_test._y?.__copy__(), _test._x?.__copy__(), _test._sum?.__copy__()) : stdgo.math.big.Big.T_ratBinArg);
             _testRatBin(_t, _i, ("Add symmetric" : stdgo.GoString)?.__copy__(), Rat_static_extension.add, _arg?.__copy__());
-            _arg = (new T_ratBinArg(_test._sum?.__copy__(), _test._x?.__copy__(), _test._y?.__copy__()) : T_ratBinArg);
+            _arg = (new stdgo.math.big.Big.T_ratBinArg(_test._sum?.__copy__(), _test._x?.__copy__(), _test._y?.__copy__()) : stdgo.math.big.Big.T_ratBinArg);
             _testRatBin(_t, _i, ("Sub" : stdgo.GoString)?.__copy__(), Rat_static_extension.sub, _arg?.__copy__());
-            _arg = (new T_ratBinArg(_test._sum?.__copy__(), _test._y?.__copy__(), _test._x?.__copy__()) : T_ratBinArg);
+            _arg = (new stdgo.math.big.Big.T_ratBinArg(_test._sum?.__copy__(), _test._y?.__copy__(), _test._x?.__copy__()) : stdgo.math.big.Big.T_ratBinArg);
             _testRatBin(_t, _i, ("Sub symmetric" : stdgo.GoString)?.__copy__(), Rat_static_extension.sub, _arg?.__copy__());
-            _arg = (new T_ratBinArg(_test._x?.__copy__(), _test._y?.__copy__(), _test._prod?.__copy__()) : T_ratBinArg);
+            _arg = (new stdgo.math.big.Big.T_ratBinArg(_test._x?.__copy__(), _test._y?.__copy__(), _test._prod?.__copy__()) : stdgo.math.big.Big.T_ratBinArg);
             _testRatBin(_t, _i, ("Mul" : stdgo.GoString)?.__copy__(), Rat_static_extension.mul, _arg?.__copy__());
-            _arg = (new T_ratBinArg(_test._y?.__copy__(), _test._x?.__copy__(), _test._prod?.__copy__()) : T_ratBinArg);
+            _arg = (new stdgo.math.big.Big.T_ratBinArg(_test._y?.__copy__(), _test._x?.__copy__(), _test._prod?.__copy__()) : stdgo.math.big.Big.T_ratBinArg);
             _testRatBin(_t, _i, ("Mul symmetric" : stdgo.GoString)?.__copy__(), Rat_static_extension.mul, _arg?.__copy__());
             if (_test._x != (("0" : stdgo.GoString))) {
-                _arg = (new T_ratBinArg(_test._prod?.__copy__(), _test._x?.__copy__(), _test._y?.__copy__()) : T_ratBinArg);
+                _arg = (new stdgo.math.big.Big.T_ratBinArg(_test._prod?.__copy__(), _test._x?.__copy__(), _test._y?.__copy__()) : stdgo.math.big.Big.T_ratBinArg);
                 _testRatBin(_t, _i, ("Quo" : stdgo.GoString)?.__copy__(), Rat_static_extension.quo, _arg?.__copy__());
             };
             if (_test._y != (("0" : stdgo.GoString))) {
-                _arg = (new T_ratBinArg(_test._prod?.__copy__(), _test._y?.__copy__(), _test._x?.__copy__()) : T_ratBinArg);
+                _arg = (new stdgo.math.big.Big.T_ratBinArg(_test._prod?.__copy__(), _test._y?.__copy__(), _test._x?.__copy__()) : stdgo.math.big.Big.T_ratBinArg);
                 _testRatBin(_t, _i, ("Quo symmetric" : stdgo.GoString)?.__copy__(), Rat_static_extension.quo, _arg?.__copy__());
             };
         };
@@ -12530,7 +12530,7 @@ function testIssue34919(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         } } : T__struct_63), ({ _name : ("Num" : stdgo.GoString)?.__copy__(), _f : function(_x:stdgo.StdGoTypes.Ref<Rat>):Void {
             _x.num();
         } } : T__struct_63)) : stdgo.Slice<T__struct_63>)) {
-            var _r = (stdgo.Go.setRef((new Rat(({ _abs : (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (991u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat) } : Int_), ({ _abs : new stdgo.Slice<stdgo.math.big.Big.Word>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (1 : stdgo.StdGoTypes.GoInt)).__setNumber32__() } : Int_)) : Rat)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Rat>);
+            var _r = (stdgo.Go.setRef((new stdgo.math.big.Big.Rat(({ _abs : (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (991u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat) } : stdgo.math.big.Big.Int_), ({ _abs : new stdgo.Slice<stdgo.math.big.Big.Word>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (1 : stdgo.StdGoTypes.GoInt)).__setNumber32__() } : stdgo.math.big.Big.Int_)) : stdgo.math.big.Big.Rat)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Rat>);
             _acc._f(_r);
             {
                 var _d:stdgo.math.big.Big.Word = (_r._b._abs.__slice__(0, (1 : stdgo.StdGoTypes.GoInt)) : stdgo.math.big.Big.T_nat)[(0 : stdgo.StdGoTypes.GoInt)];
@@ -13882,7 +13882,7 @@ class Float__asInterface {
             _z._prec = _x._prec;
         };
         if (_x.sign() == ((-1 : stdgo.StdGoTypes.GoInt))) {
-            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new ErrNaN(("square root of negative operand" : stdgo.GoString)?.__copy__()) : ErrNaN)));
+            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big.Big.ErrNaN(("square root of negative operand" : stdgo.GoString)?.__copy__()) : stdgo.math.big.Big.ErrNaN)));
         };
         if (_x._form != ((1 : stdgo.math.big.Big.T_form))) {
             _z._acc = (0 : stdgo.math.big.Big.Accuracy);
@@ -14313,7 +14313,7 @@ class Float__asInterface {
         @:recv var _z:stdgo.StdGoTypes.Ref<Float_> = _z;
         if ((_buf.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             {
-                var __tmp__ = (new Float_() : Float_);
+                var __tmp__ = (new stdgo.math.big.Big.Float_() : stdgo.math.big.Big.Float_);
                 _z._prec = __tmp__._prec;
                 _z._mode = __tmp__._mode;
                 _z._acc = __tmp__._acc;
@@ -14402,7 +14402,7 @@ class Float__asInterface {
     static public function scan( _z:stdgo.StdGoTypes.Ref<Float_>, _s:stdgo.fmt.Fmt.ScanState, _ch:stdgo.StdGoTypes.GoRune):stdgo.Error {
         @:recv var _z:stdgo.StdGoTypes.Ref<Float_> = _z;
         _s.skipSpace();
-        var __tmp__ = _z._scan(stdgo.Go.asInterface((new T_byteReader(_s) : T_byteReader)), (0 : stdgo.StdGoTypes.GoInt)), __0:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_> = __tmp__._0, __1:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _z._scan(stdgo.Go.asInterface((new stdgo.math.big.Big.T_byteReader(_s) : stdgo.math.big.Big.T_byteReader)), (0 : stdgo.StdGoTypes.GoInt)), __0:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_> = __tmp__._0, __1:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         return _err;
     }
     /**
@@ -14769,7 +14769,7 @@ class Float__asInterface {
         if (((_x._form == (0 : stdgo.math.big.Big.T_form)) && (_y._form == (0 : stdgo.math.big.Big.T_form))) || ((_x._form == (2 : stdgo.math.big.Big.T_form)) && (_y._form == (2 : stdgo.math.big.Big.T_form)))) {
             _z._form = (0 : stdgo.math.big.Big.T_form);
             _z._neg = false;
-            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new ErrNaN(("division of zero by zero or infinity by infinity" : stdgo.GoString)?.__copy__()) : ErrNaN)));
+            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big.Big.ErrNaN(("division of zero by zero or infinity by infinity" : stdgo.GoString)?.__copy__()) : stdgo.math.big.Big.ErrNaN)));
         };
         if ((_x._form == (0 : stdgo.math.big.Big.T_form)) || (_y._form == (2 : stdgo.math.big.Big.T_form))) {
             _z._form = (0 : stdgo.math.big.Big.T_form);
@@ -14803,7 +14803,7 @@ class Float__asInterface {
         if (((_x._form == (0 : stdgo.math.big.Big.T_form)) && (_y._form == (2 : stdgo.math.big.Big.T_form))) || ((_x._form == (2 : stdgo.math.big.Big.T_form)) && (_y._form == (0 : stdgo.math.big.Big.T_form)))) {
             _z._form = (0 : stdgo.math.big.Big.T_form);
             _z._neg = false;
-            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new ErrNaN(("multiplication of zero with infinity" : stdgo.GoString)?.__copy__()) : ErrNaN)));
+            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big.Big.ErrNaN(("multiplication of zero with infinity" : stdgo.GoString)?.__copy__()) : stdgo.math.big.Big.ErrNaN)));
         };
         if ((_x._form == (2 : stdgo.math.big.Big.T_form)) || (_y._form == (2 : stdgo.math.big.Big.T_form))) {
             _z._form = (2 : stdgo.math.big.Big.T_form);
@@ -14850,7 +14850,7 @@ class Float__asInterface {
             _z._acc = (0 : stdgo.math.big.Big.Accuracy);
             _z._form = (0 : stdgo.math.big.Big.T_form);
             _z._neg = false;
-            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new ErrNaN(("subtraction of infinities with equal signs" : stdgo.GoString)?.__copy__()) : ErrNaN)));
+            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big.Big.ErrNaN(("subtraction of infinities with equal signs" : stdgo.GoString)?.__copy__()) : stdgo.math.big.Big.ErrNaN)));
         };
         if ((_x._form == (0 : stdgo.math.big.Big.T_form)) && (_y._form == (0 : stdgo.math.big.Big.T_form))) {
             _z._acc = (0 : stdgo.math.big.Big.Accuracy);
@@ -14903,7 +14903,7 @@ class Float__asInterface {
             _z._acc = (0 : stdgo.math.big.Big.Accuracy);
             _z._form = (0 : stdgo.math.big.Big.T_form);
             _z._neg = false;
-            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new ErrNaN(("addition of infinities with opposite signs" : stdgo.GoString)?.__copy__()) : ErrNaN)));
+            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big.Big.ErrNaN(("addition of infinities with opposite signs" : stdgo.GoString)?.__copy__()) : stdgo.math.big.Big.ErrNaN)));
         };
         if ((_x._form == (0 : stdgo.math.big.Big.T_form)) && (_y._form == (0 : stdgo.math.big.Big.T_form))) {
             _z._acc = (0 : stdgo.math.big.Big.Accuracy);
@@ -15551,7 +15551,7 @@ class Float__asInterface {
             _z._prec = (53u32 : stdgo.StdGoTypes.GoUInt32);
         };
         if (stdgo.math.Math.isNaN(_x)) {
-            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new ErrNaN(("Float.SetFloat64(NaN)" : stdgo.GoString)?.__copy__()) : ErrNaN)));
+            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.math.big.Big.ErrNaN(("Float.SetFloat64(NaN)" : stdgo.GoString)?.__copy__()) : stdgo.math.big.Big.ErrNaN)));
         };
         _z._acc = (0 : stdgo.math.big.Big.Accuracy);
         _z._neg = stdgo.math.Math.signbit(_x);
@@ -16725,7 +16725,7 @@ class Int__asInterface {
         @:recv var _z:stdgo.StdGoTypes.Ref<Int_> = _z;
         if ((_buf.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             {
-                var __tmp__ = (new Int_() : Int_);
+                var __tmp__ = (new stdgo.math.big.Big.Int_() : stdgo.math.big.Big.Int_);
                 _z._neg = __tmp__._neg;
                 _z._abs = __tmp__._abs;
             };
@@ -16781,7 +16781,7 @@ class Int__asInterface {
                 return stdgo.errors.Errors.new_(("Int.Scan: invalid verb" : stdgo.GoString)?.__copy__());
             };
         };
-        var __tmp__ = _z._scan(stdgo.Go.asInterface((new T_byteReader(_s) : T_byteReader)), _base), __0:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, __1:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _z._scan(stdgo.Go.asInterface((new stdgo.math.big.Big.T_byteReader(_s) : stdgo.math.big.Big.T_byteReader)), _base), __0:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, __1:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         return _err;
     }
     /**
@@ -18460,7 +18460,7 @@ class Rat_asInterface {
         @:recv var _z:stdgo.StdGoTypes.Ref<Rat> = _z;
         if ((_buf.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
             {
-                var __tmp__ = (new Rat() : Rat);
+                var __tmp__ = (new stdgo.math.big.Big.Rat() : stdgo.math.big.Big.Rat);
                 _z._a = __tmp__._a;
                 _z._b = __tmp__._b;
             };
@@ -18961,7 +18961,7 @@ class Rat_asInterface {
     static public function denom( _x:stdgo.StdGoTypes.Ref<Rat>):stdgo.StdGoTypes.Ref<Int_> {
         @:recv var _x:stdgo.StdGoTypes.Ref<Rat> = _x;
         if ((_x._b._abs.length) == ((0 : stdgo.StdGoTypes.GoInt))) {
-            return (stdgo.Go.setRef(({ _abs : (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (1u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat) } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
+            return (stdgo.Go.setRef(({ _abs : (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (1u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat) } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
         };
         return (stdgo.Go.setRef(_x._b) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
     }
@@ -19798,8 +19798,8 @@ class T_nat_asInterface {
         var _p:stdgo.math.big.Big.Word = ((3u32 : stdgo.math.big.Big.Word) : Word);
         var _d:stdgo.math.big.Big.T_nat = (new stdgo.Slice<stdgo.math.big.Big.Word>(1, 1, (1u32 : stdgo.math.big.Big.Word)) : stdgo.math.big.Big.T_nat);
         var _t1:stdgo.math.big.Big.T_nat = (new stdgo.math.big.Big.T_nat(0, 0) : T_nat);
-        var _intD = (stdgo.Go.setRef(({ _abs : _d } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
-        var _intN = (stdgo.Go.setRef(({ _abs : _n } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
+        var _intD = (stdgo.Go.setRef(({ _abs : _d } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
+        var _intN = (stdgo.Go.setRef(({ _abs : _n } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>);
         stdgo.Go.cfor(true, _p++, {
             if (_p > (10000u32 : stdgo.math.big.Big.Word)) {
                 throw stdgo.Go.toInterface(("math/big: internal error: cannot find (D/n) = -1 for " : stdgo.GoString) + (_intN.string() : stdgo.GoString)?.__copy__());
@@ -21757,6 +21757,6 @@ class T_nat_asInterface {
     @:keep
     static public function _modInverse( _z:T_nat, _g:T_nat, _n:T_nat):T_nat {
         @:recv var _z:T_nat = _z;
-        return (stdgo.Go.setRef(({ _abs : _z } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).modInverse((stdgo.Go.setRef(({ _abs : _g } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>), (stdgo.Go.setRef(({ _abs : _n } : Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>))._abs;
+        return (stdgo.Go.setRef(({ _abs : _z } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).modInverse((stdgo.Go.setRef(({ _abs : _g } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>), (stdgo.Go.setRef(({ _abs : _n } : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>))._abs;
     }
 }

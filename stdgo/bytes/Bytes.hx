@@ -234,7 +234,7 @@ function _growSlice(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _n:stdgo.StdGoTypes
     // sufficient to initialize a Buffer.
 **/
 function newBuffer(_buf:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.Ref<Buffer> {
-        return (stdgo.Go.setRef(({ _buf : _buf } : Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
+        return (stdgo.Go.setRef(({ _buf : _buf } : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
     }
 /**
     // NewBufferString creates and initializes a new Buffer using string s as its
@@ -245,7 +245,7 @@ function newBuffer(_buf:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.R
     // sufficient to initialize a Buffer.
 **/
 function newBufferString(_s:stdgo.GoString):stdgo.StdGoTypes.Ref<Buffer> {
-        return (stdgo.Go.setRef(({ _buf : (_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>) } : Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
+        return (stdgo.Go.setRef(({ _buf : (_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>) } : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
     }
 /**
     // Equal reports whether a and b
@@ -751,7 +751,7 @@ function fields(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.Slice
     
     
 **/
-@:structInit class T_fieldsFunc_0___localname___span {
+@:structInit class T_fieldsFunc_7___localname___span {
     public var _start : stdgo.StdGoTypes.GoInt = 0;
     public var _end : stdgo.StdGoTypes.GoInt = 0;
     public function new(?_start:stdgo.StdGoTypes.GoInt, ?_end:stdgo.StdGoTypes.GoInt) {
@@ -760,7 +760,7 @@ function fields(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.Slice
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_fieldsFunc_0___localname___span(_start, _end);
+        return new T_fieldsFunc_7___localname___span(_start, _end);
     }
 }
 /**
@@ -774,7 +774,7 @@ function fields(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.Slice
 **/
 function fieldsFunc(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _f:stdgo.StdGoTypes.GoRune -> Bool):stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoByte>> {
         {};
-        var _spans = new stdgo.Slice<stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (32 : stdgo.StdGoTypes.GoInt), ...[for (i in 0 ... ((0 : stdgo.StdGoTypes.GoInt).toBasic() > (32 : stdgo.StdGoTypes.GoInt) ? (0 : stdgo.StdGoTypes.GoInt).toBasic() : (32 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.bytes.Bytes.T_fieldsFunc_0___localname___span)]);
+        var _spans = new stdgo.Slice<stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (32 : stdgo.StdGoTypes.GoInt), ...[for (i in 0 ... ((0 : stdgo.StdGoTypes.GoInt).toBasic() > (32 : stdgo.StdGoTypes.GoInt) ? (0 : stdgo.StdGoTypes.GoInt).toBasic() : (32 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span)]);
         var _start:stdgo.StdGoTypes.GoInt = (-1 : stdgo.StdGoTypes.GoInt);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -790,7 +790,7 @@ function fieldsFunc(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _f:stdgo.StdGoTypes
                 };
                 if (_f(_r)) {
                     if (_start >= (0 : stdgo.StdGoTypes.GoInt)) {
-                        _spans = (_spans.__append__((new T_fieldsFunc_0___localname___span(_start, _i) : T_fieldsFunc_0___localname___span)));
+                        _spans = (_spans.__append__((new stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span(_start, _i) : stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span)));
                         _start = (-1 : stdgo.StdGoTypes.GoInt);
                     };
                 } else {
@@ -802,7 +802,7 @@ function fieldsFunc(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _f:stdgo.StdGoTypes
             };
         };
         if (_start >= (0 : stdgo.StdGoTypes.GoInt)) {
-            _spans = (_spans.__append__((new T_fieldsFunc_0___localname___span(_start, (_s.length)) : T_fieldsFunc_0___localname___span)));
+            _spans = (_spans.__append__((new stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span(_start, (_s.length)) : stdgo.bytes.Bytes.T_fieldsFunc_7___localname___span)));
         };
         var _a = new stdgo.Slice<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>((_spans.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         for (_i => _span in _spans) {
@@ -1711,7 +1711,7 @@ function cutSuffix(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _suffix:stdgo.Slice<
     // NewReader returns a new Reader reading from b.
 **/
 function newReader(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.Ref<Reader> {
-        return (stdgo.Go.setRef((new Reader(_b, (0i64 : stdgo.StdGoTypes.GoInt64), (-1 : stdgo.StdGoTypes.GoInt)) : Reader)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Reader>);
+        return (stdgo.Go.setRef((new stdgo.bytes.Bytes.Reader(_b, (0i64 : stdgo.StdGoTypes.GoInt64), (-1 : stdgo.StdGoTypes.GoInt)) : stdgo.bytes.Bytes.Reader)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Reader>);
     }
 class Buffer_asInterface {
     /**
@@ -2474,7 +2474,7 @@ class Reader_asInterface {
     static public function reset( _r:stdgo.StdGoTypes.Ref<Reader>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Void {
         @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         {
-            var __tmp__ = (new Reader(_b, (0i64 : stdgo.StdGoTypes.GoInt64), (-1 : stdgo.StdGoTypes.GoInt)) : Reader);
+            var __tmp__ = (new stdgo.bytes.Bytes.Reader(_b, (0i64 : stdgo.StdGoTypes.GoInt64), (-1 : stdgo.StdGoTypes.GoInt)) : stdgo.bytes.Bytes.Reader);
             _r._s = __tmp__._s;
             _r._i = __tmp__._i;
             _r._prevRune = __tmp__._prevRune;

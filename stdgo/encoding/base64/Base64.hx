@@ -88,7 +88,7 @@ var _encodingTests : stdgo.Slice<stdgo.encoding.base64.Base64.T_encodingTest> = 
     
     
 **/
-var _bigtest : stdgo.encoding.base64.Base64.T_testpair = (new T_testpair(("Twas brillig, and the slithy toves" : stdgo.GoString)?.__copy__(), ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : stdgo.GoString)?.__copy__()) : T_testpair);
+var _bigtest : stdgo.encoding.base64.Base64.T_testpair = (new stdgo.encoding.base64.Base64.T_testpair(("Twas brillig, and the slithy toves" : stdgo.GoString)?.__copy__(), ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : stdgo.GoString)?.__copy__()) : stdgo.encoding.base64.Base64.T_testpair);
 /**
     
     
@@ -866,7 +866,7 @@ function newEncoding(_encoder:stdgo.GoString):stdgo.StdGoTypes.Ref<Encoding> {
     // partially written blocks.
 **/
 function newEncoder(_enc:stdgo.StdGoTypes.Ref<Encoding>, _w:stdgo.io.Io.Writer):stdgo.io.Io.WriteCloser {
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _enc : _enc, _w : _w } : T_encoder)) : stdgo.StdGoTypes.Ref<stdgo.encoding.base64.Base64.T_encoder>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _enc : _enc, _w : _w } : stdgo.encoding.base64.Base64.T_encoder)) : stdgo.StdGoTypes.Ref<stdgo.encoding.base64.Base64.T_encoder>));
     }
 /**
     // assemble32 assembles 4 base64 digits into 3 bytes.
@@ -896,7 +896,7 @@ function _assemble64(_n1:stdgo.StdGoTypes.GoByte, _n2:stdgo.StdGoTypes.GoByte, _
     // NewDecoder constructs a new base64 stream decoder.
 **/
 function newDecoder(_enc:stdgo.StdGoTypes.Ref<Encoding>, _r:stdgo.io.Io.Reader):stdgo.io.Io.Reader {
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _enc : _enc, _r : stdgo.Go.asInterface((stdgo.Go.setRef((new T_newlineFilteringReader(_r) : T_newlineFilteringReader)) : stdgo.StdGoTypes.Ref<stdgo.encoding.base64.Base64.T_newlineFilteringReader>)) } : T_decoder)) : stdgo.StdGoTypes.Ref<stdgo.encoding.base64.Base64.T_decoder>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _enc : _enc, _r : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.base64.Base64.T_newlineFilteringReader(_r) : stdgo.encoding.base64.Base64.T_newlineFilteringReader)) : stdgo.StdGoTypes.Ref<stdgo.encoding.base64.Base64.T_newlineFilteringReader>)) } : stdgo.encoding.base64.Base64.T_decoder)) : stdgo.StdGoTypes.Ref<stdgo.encoding.base64.Base64.T_decoder>));
     }
 /**
     // Do nothing to a reference base64 string (leave in standard format)
@@ -1246,10 +1246,10 @@ function testNewLineCharacters(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
 function testDecoderIssue3577(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _next = new stdgo.Chan<stdgo.encoding.base64.Base64.T_nextRead>((10 : stdgo.StdGoTypes.GoInt).toBasic(), () -> ({} : stdgo.encoding.base64.Base64.T_nextRead));
         var _wantErr:stdgo.Error = stdgo.errors.Errors.new_(("my error" : stdgo.GoString)?.__copy__());
-        _next.__send__((new T_nextRead((5 : stdgo.StdGoTypes.GoInt), (null : stdgo.Error)) : T_nextRead));
-        _next.__send__((new T_nextRead((10 : stdgo.StdGoTypes.GoInt), _wantErr) : T_nextRead));
-        _next.__send__((new T_nextRead((0 : stdgo.StdGoTypes.GoInt), _wantErr) : T_nextRead));
-        var _d:stdgo.io.Io.Reader = newDecoder(stdEncoding, stdgo.Go.asInterface((stdgo.Go.setRef(({ _source : ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : stdgo.GoString)?.__copy__(), _nextc : _next } : T_faultInjectReader)) : stdgo.StdGoTypes.Ref<stdgo.encoding.base64.Base64.T_faultInjectReader>)));
+        _next.__send__((new stdgo.encoding.base64.Base64.T_nextRead((5 : stdgo.StdGoTypes.GoInt), (null : stdgo.Error)) : stdgo.encoding.base64.Base64.T_nextRead));
+        _next.__send__((new stdgo.encoding.base64.Base64.T_nextRead((10 : stdgo.StdGoTypes.GoInt), _wantErr) : stdgo.encoding.base64.Base64.T_nextRead));
+        _next.__send__((new stdgo.encoding.base64.Base64.T_nextRead((0 : stdgo.StdGoTypes.GoInt), _wantErr) : stdgo.encoding.base64.Base64.T_nextRead));
+        var _d:stdgo.io.Io.Reader = newDecoder(stdEncoding, stdgo.Go.asInterface((stdgo.Go.setRef(({ _source : ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : stdgo.GoString)?.__copy__(), _nextc : _next } : stdgo.encoding.base64.Base64.T_faultInjectReader)) : stdgo.StdGoTypes.Ref<stdgo.encoding.base64.Base64.T_faultInjectReader>)));
         var _errc = new stdgo.Chan<stdgo.Error>((1 : stdgo.StdGoTypes.GoInt).toBasic(), () -> (null : stdgo.Error));
         stdgo.Go.routine(() -> {
             var a = function():Void {
@@ -1349,7 +1349,7 @@ function benchmarkDecodeString(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>)
         };
     }
 function benchmarkNewEncoding(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _b.setBytes(((new Encoding() : Encoding)._decodeMap.length : stdgo.StdGoTypes.GoInt64));
+        _b.setBytes(((new stdgo.encoding.base64.Base64.Encoding() : stdgo.encoding.base64.Base64.Encoding)._decodeMap.length : stdgo.StdGoTypes.GoInt64));
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _b.n, _i++, {

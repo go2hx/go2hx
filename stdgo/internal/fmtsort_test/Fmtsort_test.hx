@@ -34,7 +34,7 @@ _ct(stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(false)), stdgo.Go.toInterf
 _ct(stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.pointer(_ints[(0 : stdgo.StdGoTypes.GoInt)]))), stdgo.Go.toInterface(stdgo.Go.pointer(_ints[(0 : stdgo.StdGoTypes.GoInt)])), stdgo.Go.toInterface(stdgo.Go.pointer(_ints[(1 : stdgo.StdGoTypes.GoInt)])), stdgo.Go.toInterface(stdgo.Go.pointer(_ints[(2 : stdgo.StdGoTypes.GoInt)]))),
 _ct(stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface((stdgo.Go.toInterface(stdgo.Go.pointer(_ints[(0 : stdgo.StdGoTypes.GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer))), stdgo.Go.toInterface((stdgo.Go.toInterface(stdgo.Go.pointer(_ints[(0 : stdgo.StdGoTypes.GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer)), stdgo.Go.toInterface((stdgo.Go.toInterface(stdgo.Go.pointer(_ints[(1 : stdgo.StdGoTypes.GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer)), stdgo.Go.toInterface((stdgo.Go.toInterface(stdgo.Go.pointer(_ints[(2 : stdgo.StdGoTypes.GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer))),
 _ct(stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(_chans[(0 : stdgo.StdGoTypes.GoInt)])), stdgo.Go.toInterface(_chans[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_chans[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_chans[(2 : stdgo.StdGoTypes.GoInt)])),
-_ct(stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface((new T_toy() : T_toy))), stdgo.Go.toInterface((new T_toy((0 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : T_toy)), stdgo.Go.toInterface((new T_toy((0 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt)) : T_toy)), stdgo.Go.toInterface((new T_toy((1 : stdgo.StdGoTypes.GoInt), (-1 : stdgo.StdGoTypes.GoInt)) : T_toy)), stdgo.Go.toInterface((new T_toy((1 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : T_toy))),
+_ct(stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface((new stdgo.internal.fmtsort_test.Fmtsort_test.T_toy() : stdgo.internal.fmtsort_test.Fmtsort_test.T_toy))), stdgo.Go.toInterface((new stdgo.internal.fmtsort_test.Fmtsort_test.T_toy((0 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_toy)), stdgo.Go.toInterface((new stdgo.internal.fmtsort_test.Fmtsort_test.T_toy((0 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_toy)), stdgo.Go.toInterface((new stdgo.internal.fmtsort_test.Fmtsort_test.T_toy((1 : stdgo.StdGoTypes.GoInt), (-1 : stdgo.StdGoTypes.GoInt)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_toy)), stdgo.Go.toInterface((new stdgo.internal.fmtsort_test.Fmtsort_test.T_toy((1 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_toy))),
 _ct(stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.StdGoTypes.GoInt)]))) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>))), stdgo.Go.toInterface((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>((1 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>)), stdgo.Go.toInterface((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>((1 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>)), stdgo.Go.toInterface((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>((2 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>))),
 _ct(stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)))), _iFace, stdgo.Go.toInterface((1 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((2 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((3 : stdgo.StdGoTypes.GoInt)))) : stdgo.Slice<stdgo.Slice<stdgo.reflect.Reflect.Value>>);
 /**
@@ -295,7 +295,7 @@ function _makeChans():stdgo.Slice<stdgo.Chan<stdgo.StdGoTypes.GoInt>> {
         });
         return _cs;
     }
-function _pointerMap():GoMap<stdgo.Pointer<stdgo.StdGoTypes.GoInt>, stdgo.GoString> {
+function _pointerMap():stdgo.GoMap<stdgo.Pointer<stdgo.StdGoTypes.GoInt>, stdgo.GoString> {
         var _m = ({
             final x = new stdgo.GoMap.GoPointerMap<stdgo.Pointer<stdgo.StdGoTypes.GoInt>, stdgo.GoString>();
             @:mergeBlock {};
@@ -309,7 +309,7 @@ function _pointerMap():GoMap<stdgo.Pointer<stdgo.StdGoTypes.GoInt>, stdgo.GoStri
         };
         return _m;
     }
-function _unsafePointerMap():GoMap<stdgo.unsafe.Unsafe.UnsafePointer, stdgo.GoString> {
+function _unsafePointerMap():stdgo.GoMap<stdgo.unsafe.Unsafe.UnsafePointer, stdgo.GoString> {
         var _m = ({
             final x = new stdgo.GoMap.GoObjectMap<stdgo.unsafe.Unsafe.UnsafePointer, stdgo.GoString>();
             x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind));
@@ -325,7 +325,7 @@ function _unsafePointerMap():GoMap<stdgo.unsafe.Unsafe.UnsafePointer, stdgo.GoSt
         };
         return _m;
     }
-function _chanMap():GoMap<stdgo.Chan<stdgo.StdGoTypes.GoInt>, stdgo.GoString> {
+function _chanMap():stdgo.GoMap<stdgo.Chan<stdgo.StdGoTypes.GoInt>, stdgo.GoString> {
         var _m = ({
             final x = new stdgo.GoMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);

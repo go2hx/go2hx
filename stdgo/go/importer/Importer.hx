@@ -74,7 +74,7 @@ function forCompiler(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _
                     x.__defaultValue__ = () -> (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>);
                     @:mergeBlock {};
                     x;
-                } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>>), _lookup : _lookup } : T_gcimports)) : stdgo.StdGoTypes.Ref<stdgo.go.importer.Importer.T_gcimports>));
+                } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>>), _lookup : _lookup } : stdgo.go.importer.Importer.T_gcimports)) : stdgo.StdGoTypes.Ref<stdgo.go.importer.Importer.T_gcimports>));
             } else if (__value__ == (("gccgo" : stdgo.GoString))) {
                 var _inst:stdgo.go.internal.gccgoimporter.Gccgoimporter.GccgoInstallation = ({} : stdgo.go.internal.gccgoimporter.Gccgoimporter.GccgoInstallation);
                 {
@@ -88,7 +88,7 @@ function forCompiler(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _
                     x.__defaultValue__ = () -> (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>);
                     @:mergeBlock {};
                     x;
-                } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>>), _importer : _inst.getImporter((null : stdgo.Slice<stdgo.GoString>), (null : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>, stdgo.go.internal.gccgoimporter.Gccgoimporter.InitData>)), _lookup : _lookup } : T_gccgoimports)) : stdgo.StdGoTypes.Ref<stdgo.go.importer.Importer.T_gccgoimports>));
+                } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>>), _importer : _inst.getImporter((null : stdgo.Slice<stdgo.GoString>), (null : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>, stdgo.go.internal.gccgoimporter.Gccgoimporter.InitData>)), _lookup : _lookup } : stdgo.go.importer.Importer.T_gccgoimports)) : stdgo.StdGoTypes.Ref<stdgo.go.importer.Importer.T_gccgoimports>));
             } else if (__value__ == (("source" : stdgo.GoString))) {
                 if (_lookup != null) {
                     throw stdgo.Go.toInterface(("source importer for custom import path lookup not supported (issue #13847)." : stdgo.GoString));

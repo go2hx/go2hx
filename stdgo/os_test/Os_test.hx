@@ -81,14 +81,14 @@ var _sysdir : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir> = {
                     {
                         final __value__ = ("js" : stdgo.GoString);
                         if (__value__ == (("android" : stdgo.GoString))) {
-                            return (stdgo.Go.setRef((new T_sysDir(("/system/lib" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, ("libmedia.so" : stdgo.GoString)?.__copy__(), ("libpowermanager.so" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
+                            return (stdgo.Go.setRef((new stdgo.os_test.Os_test.T_sysDir(("/system/lib" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, ("libmedia.so" : stdgo.GoString)?.__copy__(), ("libpowermanager.so" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.os_test.Os_test.T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
                             break;
                         } else if (__value__ == (("ios" : stdgo.GoString))) {
                             var __tmp__ = stdgo.syscall.Syscall.getwd(), _wd:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
                                 _wd = _err.error()?.__copy__();
                             };
-                            var _sd = (stdgo.Go.setRef((new T_sysDir(stdgo.path.filepath.Filepath.join(_wd?.__copy__(), (".." : stdgo.GoString)?.__copy__(), (".." : stdgo.GoString)?.__copy__())?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, ("ResourceRules.plist" : stdgo.GoString)?.__copy__(), ("Info.plist" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
+                            var _sd = (stdgo.Go.setRef((new stdgo.os_test.Os_test.T_sysDir(stdgo.path.filepath.Filepath.join(_wd?.__copy__(), (".." : stdgo.GoString)?.__copy__(), (".." : stdgo.GoString)?.__copy__())?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, ("ResourceRules.plist" : stdgo.GoString)?.__copy__(), ("Info.plist" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.os_test.Os_test.T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
                             var _found:Bool = true;
                             for (__0 => _f in _sd._files) {
                                 var _path:stdgo.GoString = stdgo.path.filepath.Filepath.join(_sd._name?.__copy__(), _f?.__copy__())?.__copy__();
@@ -105,20 +105,20 @@ var _sysdir : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir> = {
                             };
                             break;
                         } else if (__value__ == (("windows" : stdgo.GoString))) {
-                            return (stdgo.Go.setRef((new T_sysDir(getenv(("SystemRoot" : stdgo.GoString)?.__copy__()) + ("\\system32\\drivers\\etc" : stdgo.GoString)?.__copy__()?.__copy__(), (new stdgo.Slice<stdgo.GoString>(3, 3, ("networks" : stdgo.GoString)?.__copy__(), ("protocol" : stdgo.GoString)?.__copy__(), ("services" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
+                            return (stdgo.Go.setRef((new stdgo.os_test.Os_test.T_sysDir(getenv(("SystemRoot" : stdgo.GoString)?.__copy__()) + ("\\system32\\drivers\\etc" : stdgo.GoString)?.__copy__()?.__copy__(), (new stdgo.Slice<stdgo.GoString>(3, 3, ("networks" : stdgo.GoString)?.__copy__(), ("protocol" : stdgo.GoString)?.__copy__(), ("services" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.os_test.Os_test.T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
                             break;
                         } else if (__value__ == (("plan9" : stdgo.GoString))) {
-                            return (stdgo.Go.setRef((new T_sysDir(("/lib/ndb" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, ("common" : stdgo.GoString)?.__copy__(), ("local" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
+                            return (stdgo.Go.setRef((new stdgo.os_test.Os_test.T_sysDir(("/lib/ndb" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(2, 2, ("common" : stdgo.GoString)?.__copy__(), ("local" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.os_test.Os_test.T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
                             break;
                         } else if (__value__ == (("wasip1" : stdgo.GoString))) {
-                            return (stdgo.Go.setRef((new T_sysDir(stdgo.runtime.Runtime.goroot()?.__copy__(), (new stdgo.Slice<stdgo.GoString>(3, 3, ("go.env" : stdgo.GoString)?.__copy__(), ("LICENSE" : stdgo.GoString)?.__copy__(), ("CONTRIBUTING.md" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
+                            return (stdgo.Go.setRef((new stdgo.os_test.Os_test.T_sysDir(stdgo.runtime.Runtime.goroot()?.__copy__(), (new stdgo.Slice<stdgo.GoString>(3, 3, ("go.env" : stdgo.GoString)?.__copy__(), ("LICENSE" : stdgo.GoString)?.__copy__(), ("CONTRIBUTING.md" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.os_test.Os_test.T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
                             break;
                         };
                     };
                     break;
                 };
             };
-            return (stdgo.Go.setRef((new T_sysDir(("/etc" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(3, 3, ("group" : stdgo.GoString)?.__copy__(), ("hosts" : stdgo.GoString)?.__copy__(), ("passwd" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
+            return (stdgo.Go.setRef((new stdgo.os_test.Os_test.T_sysDir(("/etc" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(3, 3, ("group" : stdgo.GoString)?.__copy__(), ("hosts" : stdgo.GoString)?.__copy__(), ("passwd" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) : stdgo.os_test.Os_test.T_sysDir)) : stdgo.StdGoTypes.Ref<stdgo.os_test.Os_test.T_sysDir>);
         };
         a();
     };
@@ -943,7 +943,7 @@ function testPathErrorUnwrap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
         };
     }
 function testErrorIsMethods(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        if (stdgo.os.Os.isPermission(stdgo.Go.asInterface((new T_myErrorIs(stdgo.io.fs.Fs.errPermission) : T_myErrorIs)))) {
+        if (stdgo.os.Os.isPermission(stdgo.Go.asInterface((new stdgo.os_test.Os_test.T_myErrorIs(stdgo.io.fs.Fs.errPermission) : stdgo.os_test.Os_test.T_myErrorIs)))) {
             _t.error(stdgo.Go.toInterface(("os.IsPermission(err) = true when err.Is(fs.ErrPermission), wanted false" : stdgo.GoString)));
         };
     }
@@ -3077,7 +3077,7 @@ function _testStartProcess(_dir:stdgo.GoString, _cmd:stdgo.GoString, _args:stdgo
                     _t.fatalf(("Pipe: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
                 };
                 __deferstack__.unshift(() -> _r.close());
-                var _attr = (stdgo.Go.setRef(({ dir : _dir?.__copy__(), files : (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.os.Os.File>>(3, 3, null, _w, stderr) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.os.Os.File>>) } : ProcAttr)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.ProcAttr>);
+                var _attr = (stdgo.Go.setRef(({ dir : _dir?.__copy__(), files : (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.os.Os.File>>(3, 3, null, _w, stderr) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.os.Os.File>>) } : stdgo.os.Os.ProcAttr)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.ProcAttr>);
                 var __tmp__ = startProcess(_cmd?.__copy__(), _args, _attr), _p:stdgo.StdGoTypes.Ref<stdgo.os.Os.Process> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatalf(("StartProcess: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
@@ -3966,7 +3966,7 @@ function testProgWideChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     
     
 **/
-@:structInit class T_testSeek_0___localname___test {
+@:structInit class T_testSeek_6___localname___test {
     public var _in : stdgo.StdGoTypes.GoInt64 = 0;
     public var _whence : stdgo.StdGoTypes.GoInt = 0;
     public var _out : stdgo.StdGoTypes.GoInt64 = 0;
@@ -3977,7 +3977,7 @@ function testProgWideChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testSeek_0___localname___test(_in, _whence, _out);
+        return new T_testSeek_6___localname___test(_in, _whence, _out);
     }
 }
 function testSeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
@@ -3993,21 +3993,21 @@ function testSeek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             {};
             stdgo.io.Io.writeString(stdgo.Go.asInterface(_f), ("hello, world\n" : stdgo.GoString)?.__copy__());
             {};
-            var _tests:stdgo.Slice<stdgo.os_test.Os_test.T_testSeek_0___localname___test> = (new stdgo.Slice<stdgo.os_test.Os_test.T_testSeek_0___localname___test>(
+            var _tests:stdgo.Slice<stdgo.os_test.Os_test.T_testSeek_6___localname___test> = (new stdgo.Slice<stdgo.os_test.Os_test.T_testSeek_6___localname___test>(
 12,
 12,
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (1 : stdgo.StdGoTypes.GoInt), (("hello, world\n" : stdgo.GoString).length : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (0i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((5i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (5i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (2 : stdgo.StdGoTypes.GoInt), (("hello, world\n" : stdgo.GoString).length : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (0i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((-1i64 : stdgo.StdGoTypes.GoInt64), (2 : stdgo.StdGoTypes.GoInt), (12i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((8589934592i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (8589934592i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((8589934592i64 : stdgo.StdGoTypes.GoInt64), (2 : stdgo.StdGoTypes.GoInt), (8589934605i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((4294967295i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (4294967295i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (1 : stdgo.StdGoTypes.GoInt), (4294967295i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((8589934591i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (8589934591i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
-(new stdgo.os_test.Os_test.T_testSeek_0___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (1 : stdgo.StdGoTypes.GoInt), (8589934591i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test)) : stdgo.Slice<stdgo.os_test.Os_test.T_testSeek_0___localname___test>);
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (1 : stdgo.StdGoTypes.GoInt), (("hello, world\n" : stdgo.GoString).length : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (0i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((5i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (5i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (2 : stdgo.StdGoTypes.GoInt), (("hello, world\n" : stdgo.GoString).length : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (0i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((-1i64 : stdgo.StdGoTypes.GoInt64), (2 : stdgo.StdGoTypes.GoInt), (12i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((8589934592i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (8589934592i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((8589934592i64 : stdgo.StdGoTypes.GoInt64), (2 : stdgo.StdGoTypes.GoInt), (8589934605i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((4294967295i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (4294967295i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (1 : stdgo.StdGoTypes.GoInt), (4294967295i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((8589934591i64 : stdgo.StdGoTypes.GoInt64), (0 : stdgo.StdGoTypes.GoInt), (8589934591i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_6___localname___test((0i64 : stdgo.StdGoTypes.GoInt64), (1 : stdgo.StdGoTypes.GoInt), (8589934591i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.os_test.Os_test.T_testSeek_6___localname___test)) : stdgo.Slice<stdgo.os_test.Os_test.T_testSeek_6___localname___test>);
             for (_i => _tt in _tests) {
                 var __tmp__ = _f.seek(_tt._in, _tt._whence), _off:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if ((_off != _tt._out) || (_err != null)) {
@@ -4162,7 +4162,7 @@ function _runBinHostname(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):stdgo
             if (false) {
                 _argv = (new stdgo.Slice<stdgo.GoString>(2, 2, ("hostname" : stdgo.GoString)?.__copy__(), ("-s" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
-            var __tmp__ = startProcess(_path?.__copy__(), _argv, (stdgo.Go.setRef(({ files : (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.os.Os.File>>(3, 3, null, _w, stderr) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.os.Os.File>>) } : ProcAttr)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.ProcAttr>)), _p:stdgo.StdGoTypes.Ref<stdgo.os.Os.Process> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = startProcess(_path?.__copy__(), _argv, (stdgo.Go.setRef(({ files : (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.os.Os.File>>(3, 3, null, _w, stderr) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.os.Os.File>>) } : stdgo.os.Os.ProcAttr)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.ProcAttr>)), _p:stdgo.StdGoTypes.Ref<stdgo.os.Os.Process> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
@@ -8302,8 +8302,8 @@ function testMkdirTempBadPattern(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
     }
 @:keep var _ = {
         try {
-            _isExistTests = (_isExistTests.__append__(({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.LinkError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.LinkError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.SyscallError>)), _is : true, _isnot : false } : T_isExistTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.SyscallError>)), _is : true, _isnot : false } : T_isExistTest)));
-            _isPermissionTests = (_isPermissionTests.__append__(({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)), _want : true } : T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)), _want : true } : T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)), _want : false } : T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.LinkError>)), _want : true } : T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.LinkError>)), _want : true } : T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.LinkError>)), _want : false } : T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.SyscallError>)), _want : true } : T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.SyscallError>)), _want : true } : T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.SyscallError>)), _want : false } : T_isPermissionTest)));
+            _isExistTests = (_isExistTests.__append__(({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)), _is : true, _isnot : false } : stdgo.os_test.Os_test.T_isExistTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)), _is : true, _isnot : false } : stdgo.os_test.Os_test.T_isExistTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.LinkError>)), _is : true, _isnot : false } : stdgo.os_test.Os_test.T_isExistTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.LinkError>)), _is : true, _isnot : false } : stdgo.os_test.Os_test.T_isExistTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.SyscallError>)), _is : true, _isnot : false } : stdgo.os_test.Os_test.T_isExistTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((39 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.SyscallError>)), _is : true, _isnot : false } : stdgo.os_test.Os_test.T_isExistTest)));
+            _isPermissionTests = (_isPermissionTests.__append__(({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)), _want : true } : stdgo.os_test.Os_test.T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)), _want : true } : stdgo.os_test.Os_test.T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.io.fs.Fs.PathError)) : stdgo.StdGoTypes.Ref<stdgo.io.fs.Fs.PathError>)), _want : false } : stdgo.os_test.Os_test.T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.LinkError>)), _want : true } : stdgo.os_test.Os_test.T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.LinkError>)), _want : true } : stdgo.os_test.Os_test.T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.LinkError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.LinkError>)), _want : false } : stdgo.os_test.Os_test.T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((13 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.SyscallError>)), _want : true } : stdgo.os_test.Os_test.T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((1 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.SyscallError>)), _want : true } : stdgo.os_test.Os_test.T_isPermissionTest), ({ _err : stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo.Go.asInterface((17 : stdgo.syscall.Syscall.Errno)) } : stdgo.os.Os.SyscallError)) : stdgo.StdGoTypes.Ref<stdgo.os.Os.SyscallError>)), _want : false } : stdgo.os_test.Os_test.T_isPermissionTest)));
             {
                 var _e:stdgo.GoString = stdgo.os.Os.getenv(("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString)?.__copy__())?.__copy__();
                 if (_e != (stdgo.Go.str())) {

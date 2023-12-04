@@ -629,7 +629,7 @@ function example_sortKeys():Void {
 **/
 function orderedBy(_less:haxe.Rest<T_lessFunc>):stdgo.StdGoTypes.Ref<T_multiSorter> {
         var _less = new stdgo.Slice<T_lessFunc>(_less.length, 0, ..._less);
-        return (stdgo.Go.setRef(({ _less : _less } : T_multiSorter)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_multiSorter>);
+        return (stdgo.Go.setRef(({ _less : _less } : stdgo.sort_test.Sort_test.T_multiSorter)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_multiSorter>);
     }
 /**
     // ExampleMultiKeys demonstrates a technique for sorting a struct type using different
@@ -803,10 +803,10 @@ function exampleStrings():Void {
     }
 function example_sortWrapper():Void {
         var _s = (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.Organ>>(6, 6, (new stdgo.sort_test.Sort_test.Organ(("brain" : stdgo.GoString)?.__copy__(), (1340 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ), (new stdgo.sort_test.Sort_test.Organ(("heart" : stdgo.GoString)?.__copy__(), (290 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ), (new stdgo.sort_test.Sort_test.Organ(("liver" : stdgo.GoString)?.__copy__(), (1494 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ), (new stdgo.sort_test.Sort_test.Organ(("pancreas" : stdgo.GoString)?.__copy__(), (131 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ), (new stdgo.sort_test.Sort_test.Organ(("prostate" : stdgo.GoString)?.__copy__(), (62 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ), (new stdgo.sort_test.Sort_test.Organ(("spleen" : stdgo.GoString)?.__copy__(), (162 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.Organ>>);
-        stdgo.sort.Sort.sort(stdgo.Go.asInterface((new ByWeight(_s) : ByWeight)));
+        stdgo.sort.Sort.sort(stdgo.Go.asInterface((new stdgo.sort_test.Sort_test.ByWeight(_s) : stdgo.sort_test.Sort_test.ByWeight)));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Organs by weight:" : stdgo.GoString)));
         _printOrgans(_s);
-        stdgo.sort.Sort.sort(stdgo.Go.asInterface((new ByName(_s) : ByName)));
+        stdgo.sort.Sort.sort(stdgo.Go.asInterface((new stdgo.sort_test.Sort_test.ByName(_s) : stdgo.sort_test.Sort_test.ByName)));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Organs by name:" : stdgo.GoString)));
         _printOrgans(_s);
     }
@@ -1176,7 +1176,7 @@ function testNonDeterministicComparison(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Te
                 };
                 a();
             });
-            var _td = (stdgo.Go.setRef(({ _r : stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((0i64 : stdgo.StdGoTypes.GoInt64))) } : T_nonDeterministicTestingData)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_nonDeterministicTestingData>);
+            var _td = (stdgo.Go.setRef(({ _r : stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((0i64 : stdgo.StdGoTypes.GoInt64))) } : stdgo.sort_test.Sort_test.T_nonDeterministicTestingData)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_nonDeterministicTestingData>);
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < (10 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -1544,7 +1544,7 @@ function _testBentleyMcIlroy(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _
                                         };
                                     };
                                     var _desc:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("n=%d m=%d dist=%s mode=%s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_m), stdgo.Go.toInterface(_dists[(_dist : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_modes[(_mode : stdgo.StdGoTypes.GoInt)]))?.__copy__();
-                                    var _d = (stdgo.Go.setRef(({ _desc : _desc?.__copy__(), _t : _t, _data : (_mdata.__slice__((0 : stdgo.StdGoTypes.GoInt), _n) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), _maxswap : _maxswap(_n) } : T_testingData)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_testingData>);
+                                    var _d = (stdgo.Go.setRef(({ _desc : _desc?.__copy__(), _t : _t, _data : (_mdata.__slice__((0 : stdgo.StdGoTypes.GoInt), _n) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), _maxswap : _maxswap(_n) } : stdgo.sort_test.Sort_test.T_testingData)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_testingData>);
                                     _sort(stdgo.Go.asInterface(_d));
                                     if (!intsAreSorted(_mdata)) {
                                         _t.fatalf(("%s: ints not sorted\n\t%v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_desc), stdgo.Go.toInterface(_mdata));
@@ -1581,7 +1581,7 @@ function _newAdversaryTestingData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
                 _data[(_i : stdgo.StdGoTypes.GoInt)] = _gas;
             });
         };
-        return (stdgo.Go.setRef(({ _t : _t, _data : _data, _maxcmp : _maxcmp, _gas : _gas } : T_adversaryTestingData)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_adversaryTestingData>);
+        return (stdgo.Go.setRef(({ _t : _t, _data : _data, _maxcmp : _maxcmp, _gas : _gas } : stdgo.sort_test.Sort_test.T_adversaryTestingData)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_adversaryTestingData>);
     }
 function testAdversary(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {};
@@ -1661,7 +1661,7 @@ function _countOps(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _algo:Inter
             _t.skip(stdgo.Go.toInterface(("Counting skipped as non-verbose mode." : stdgo.GoString)));
         };
         for (__0 => _n in _sizes) {
-            var _td:stdgo.sort_test.Sort_test.T_testingData = ({ _desc : _name?.__copy__(), _t : _t, _data : new stdgo.Slice<stdgo.StdGoTypes.GoInt>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__(), _maxswap : (2147483647 : stdgo.StdGoTypes.GoInt) } : T_testingData);
+            var _td:stdgo.sort_test.Sort_test.T_testingData = ({ _desc : _name?.__copy__(), _t : _t, _data : new stdgo.Slice<stdgo.StdGoTypes.GoInt>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__(), _maxswap : (2147483647 : stdgo.StdGoTypes.GoInt) } : stdgo.sort_test.Sort_test.T_testingData);
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < _n, _i++, {
@@ -2144,7 +2144,7 @@ class By_asInterface {
     @:keep
     static public function sort( _by:By, _planets:stdgo.Slice<Planet>):Void {
         @:recv var _by:By = _by;
-        var _ps = (stdgo.Go.setRef(({ _planets : _planets, _by : _by } : T_planetSorter)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_planetSorter>);
+        var _ps = (stdgo.Go.setRef(({ _planets : _planets, _by : _by } : stdgo.sort_test.Sort_test.T_planetSorter)) : stdgo.StdGoTypes.Ref<stdgo.sort_test.Sort_test.T_planetSorter>);
         stdgo.sort.Sort.sort(stdgo.Go.asInterface(_ps));
     }
 }

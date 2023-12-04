@@ -201,7 +201,7 @@ function int_(_rand:stdgo.io.Io.Reader, _max:stdgo.StdGoTypes.Ref<stdgo.math.big
     }
 @:keep var _ = {
         try {
-            reader = stdgo.Go.asInterface((stdgo.Go.setRef((new T_reader() : T_reader)) : stdgo.StdGoTypes.Ref<stdgo.crypto.rand.Rand.T_reader>));
+            reader = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.crypto.rand.Rand.T_reader() : stdgo.crypto.rand.Rand.T_reader)) : stdgo.StdGoTypes.Ref<stdgo.crypto.rand.Rand.T_reader>));
             _batchedGetRandom = _batched(_getRandom, (65536 : stdgo.StdGoTypes.GoInt));
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;

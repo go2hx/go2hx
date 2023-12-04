@@ -74,7 +74,7 @@ var _errOffset : stdgo.Error = stdgo.errors.Errors.new_(("Seek: invalid offset" 
     
     
 **/
-var discard : stdgo.io.Io.Writer = stdgo.Go.asInterface((new T_discard() : T_discard));
+var discard : stdgo.io.Io.Writer = stdgo.Go.asInterface((new stdgo.io.Io.T_discard() : stdgo.io.Io.T_discard));
 /**
     
     
@@ -132,7 +132,7 @@ final seekEnd : stdgo.StdGoTypes.GoUInt64 = (2i64 : stdgo.StdGoTypes.GoUInt64);
     
     
 **/
-var __3 : stdgo.io.Io.ReaderFrom = stdgo.Go.asInterface((new T_discard() : T_discard));
+var __3 : stdgo.io.Io.ReaderFrom = stdgo.Go.asInterface((new stdgo.io.Io.T_discard() : stdgo.io.Io.T_discard));
 /**
     
     
@@ -1003,7 +1003,7 @@ function _copyBuffer(_dst:Writer, _src:Reader, _buf:stdgo.Slice<stdgo.StdGoTypes
     // The underlying implementation is a *LimitedReader.
 **/
 function limitReader(_r:Reader, _n:stdgo.StdGoTypes.GoInt64):Reader {
-        return stdgo.Go.asInterface((stdgo.Go.setRef((new LimitedReader(_r, _n) : LimitedReader)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.LimitedReader>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.io.Io.LimitedReader(_r, _n) : stdgo.io.Io.LimitedReader)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.LimitedReader>));
     }
 /**
     // NewSectionReader returns a SectionReader that reads from r
@@ -1017,14 +1017,14 @@ function newSectionReader(_r:ReaderAt, _off:stdgo.StdGoTypes.GoInt64, _n:stdgo.S
         } else {
             _remaining = (9223372036854775807i64 : stdgo.StdGoTypes.GoInt64);
         };
-        return (stdgo.Go.setRef((new SectionReader(_r, _off, _off, _remaining) : SectionReader)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.SectionReader>);
+        return (stdgo.Go.setRef((new stdgo.io.Io.SectionReader(_r, _off, _off, _remaining) : stdgo.io.Io.SectionReader)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.SectionReader>);
     }
 /**
     // NewOffsetWriter returns an OffsetWriter that writes to w
     // starting at offset off.
 **/
 function newOffsetWriter(_w:WriterAt, _off:stdgo.StdGoTypes.GoInt64):stdgo.StdGoTypes.Ref<OffsetWriter> {
-        return (stdgo.Go.setRef((new OffsetWriter(_w, _off, _off) : OffsetWriter)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.OffsetWriter>);
+        return (stdgo.Go.setRef((new stdgo.io.Io.OffsetWriter(_w, _off, _off) : stdgo.io.Io.OffsetWriter)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.OffsetWriter>);
     }
 /**
     // TeeReader returns a Reader that writes to w what it reads from r.
@@ -1034,7 +1034,7 @@ function newOffsetWriter(_w:WriterAt, _off:stdgo.StdGoTypes.GoInt64):stdgo.StdGo
     // Any error encountered while writing is reported as a read error.
 **/
 function teeReader(_r:Reader, _w:Writer):Reader {
-        return stdgo.Go.asInterface((stdgo.Go.setRef((new T_teeReader(_r, _w) : T_teeReader)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.T_teeReader>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.io.Io.T_teeReader(_r, _w) : stdgo.io.Io.T_teeReader)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.T_teeReader>));
     }
 /**
     // NopCloser returns a ReadCloser with a no-op Close method wrapping
@@ -1050,10 +1050,10 @@ function nopCloser(_r:Reader):ReadCloser {
                 { value : (null : stdgo.io.Io.WriterTo), ok : false };
             }, __0 = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
-                return stdgo.Go.asInterface((new T_nopCloserWriterTo(_r) : T_nopCloserWriterTo));
+                return stdgo.Go.asInterface((new stdgo.io.Io.T_nopCloserWriterTo(_r) : stdgo.io.Io.T_nopCloserWriterTo));
             };
         };
-        return stdgo.Go.asInterface((new T_nopCloser(_r) : T_nopCloser));
+        return stdgo.Go.asInterface((new stdgo.io.Io.T_nopCloser(_r) : stdgo.io.Io.T_nopCloser));
     }
 /**
     // ReadAll reads from r until an error or EOF and returns the data it read.
@@ -1087,7 +1087,7 @@ function multiReader(_readers:haxe.Rest<Reader>):Reader {
         var _readers = new stdgo.Slice<Reader>(_readers.length, 0, ..._readers);
         var _r = new stdgo.Slice<stdgo.io.Io.Reader>((_readers.length : stdgo.StdGoTypes.GoInt).toBasic(), 0);
         stdgo.Go.copySlice(_r, _readers);
-        return stdgo.Go.asInterface((stdgo.Go.setRef((new T_multiReader(_r) : T_multiReader)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.T_multiReader>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.io.Io.T_multiReader(_r) : stdgo.io.Io.T_multiReader)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.T_multiReader>));
     }
 /**
     // MultiWriter creates a writer that duplicates its writes to all the
@@ -1114,7 +1114,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
                 };
             };
         };
-        return stdgo.Go.asInterface((stdgo.Go.setRef((new T_multiWriter(_allWriters) : T_multiWriter)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.T_multiWriter>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.io.Io.T_multiWriter(_allWriters) : stdgo.io.Io.T_multiWriter)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.T_multiWriter>));
     }
 /**
     // Pipe creates a synchronous in-memory pipe.
@@ -1134,8 +1134,8 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
     // the individual calls will be gated sequentially.
 **/
 function pipe():{ var _0 : stdgo.StdGoTypes.Ref<PipeReader>; var _1 : stdgo.StdGoTypes.Ref<PipeWriter>; } {
-        var _p = (stdgo.Go.setRef(({ _wrCh : new stdgo.Chan<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>(0, () -> (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), _rdCh : new stdgo.Chan<stdgo.StdGoTypes.GoInt>(0, () -> (0 : stdgo.StdGoTypes.GoInt)), _done : new stdgo.Chan<T_discard>(0, () -> ({} : T_discard)) } : T_pipe)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.T_pipe>);
-        return { _0 : (stdgo.Go.setRef((new PipeReader(_p) : PipeReader)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.PipeReader>), _1 : (stdgo.Go.setRef((new PipeWriter(_p) : PipeWriter)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.PipeWriter>) };
+        var _p = (stdgo.Go.setRef(({ _wrCh : new stdgo.Chan<stdgo.Slice<stdgo.StdGoTypes.GoUInt8>>(0, () -> (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), _rdCh : new stdgo.Chan<stdgo.StdGoTypes.GoInt>(0, () -> (0 : stdgo.StdGoTypes.GoInt)), _done : new stdgo.Chan<T_discard>(0, () -> ({} : T_discard)) } : stdgo.io.Io.T_pipe)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.T_pipe>);
+        return { _0 : (stdgo.Go.setRef((new stdgo.io.Io.PipeReader(_p) : stdgo.io.Io.PipeReader)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.PipeReader>), _1 : (stdgo.Go.setRef((new stdgo.io.Io.PipeWriter(_p) : stdgo.io.Io.PipeWriter)) : stdgo.StdGoTypes.Ref<stdgo.io.Io.PipeWriter>) };
     }
 class LimitedReader_asInterface {
     @:keep
@@ -1556,7 +1556,7 @@ class T_multiReader_asInterface {
                 _err = __tmp__._1;
             };
             if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(eof))) {
-                _mr._readers[(0 : stdgo.StdGoTypes.GoInt)] = stdgo.Go.asInterface((new T_eofReader() : T_eofReader));
+                _mr._readers[(0 : stdgo.StdGoTypes.GoInt)] = stdgo.Go.asInterface((new stdgo.io.Io.T_eofReader() : stdgo.io.Io.T_eofReader));
                 _mr._readers = (_mr._readers.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.io.Io.Reader>);
             };
             if ((_n > (0 : stdgo.StdGoTypes.GoInt)) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(eof))) {

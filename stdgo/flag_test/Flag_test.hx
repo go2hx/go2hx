@@ -182,7 +182,7 @@ function exampleTextVar():Void {
     }
 function exampleValue():Void {
         var _fs = stdgo.flag.Flag.newFlagSet(("ExampleValue" : stdgo.GoString)?.__copy__(), (1 : stdgo.flag.Flag.ErrorHandling));
-        _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new URLValue(_u) : URLValue)) : stdgo.StdGoTypes.Ref<stdgo.flag_test.Flag_test.URLValue>)), ("url" : stdgo.GoString)?.__copy__(), ("URL to parse" : stdgo.GoString)?.__copy__());
+        _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.flag_test.Flag_test.URLValue(_u) : stdgo.flag_test.Flag_test.URLValue)) : stdgo.StdGoTypes.Ref<stdgo.flag_test.Flag_test.URLValue>)), ("url" : stdgo.GoString)?.__copy__(), ("URL to parse" : stdgo.GoString)?.__copy__());
         _fs.parse((new stdgo.Slice<stdgo.GoString>(2, 2, ("-url" : stdgo.GoString)?.__copy__(), ("https://golang.org/pkg/flag/" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>));
         stdgo.fmt.Fmt.printf(("{scheme: %q, host: %q, path: %q}" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_u.scheme), stdgo.Go.toInterface(_u.host), stdgo.Go.toInterface(_u.path));
     }
@@ -686,8 +686,8 @@ function testPrintDefaults(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
         _fs.bool_(("O" : stdgo.GoString)?.__copy__(), true, ("a flag\nmultiline help string" : stdgo.GoString)?.__copy__());
         _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString)?.__copy__(), ("b" : stdgo.GoString)?.__copy__()) : stdgo.flag_test.Flag_test.T_flagVar)) : stdgo.StdGoTypes.Ref<stdgo.flag_test.Flag_test.T_flagVar>)), ("V" : stdgo.GoString)?.__copy__(), ("a `list` of strings" : stdgo.GoString)?.__copy__());
         _fs.int_(("Z" : stdgo.GoString)?.__copy__(), (0 : stdgo.StdGoTypes.GoInt), ("an int that defaults to zero" : stdgo.GoString)?.__copy__());
-        _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new T_zeroPanicker(true, stdgo.Go.str()?.__copy__()) : T_zeroPanicker)) : stdgo.StdGoTypes.Ref<stdgo.flag_test.Flag_test.T_zeroPanicker>)), ("ZP0" : stdgo.GoString)?.__copy__(), ("a flag whose String method panics when it is zero" : stdgo.GoString)?.__copy__());
-        _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new T_zeroPanicker(true, ("something" : stdgo.GoString)?.__copy__()) : T_zeroPanicker)) : stdgo.StdGoTypes.Ref<stdgo.flag_test.Flag_test.T_zeroPanicker>)), ("ZP1" : stdgo.GoString)?.__copy__(), ("a flag whose String method panics when it is zero" : stdgo.GoString)?.__copy__());
+        _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.flag_test.Flag_test.T_zeroPanicker(true, stdgo.Go.str()?.__copy__()) : stdgo.flag_test.Flag_test.T_zeroPanicker)) : stdgo.StdGoTypes.Ref<stdgo.flag_test.Flag_test.T_zeroPanicker>)), ("ZP0" : stdgo.GoString)?.__copy__(), ("a flag whose String method panics when it is zero" : stdgo.GoString)?.__copy__());
+        _fs.var_(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.flag_test.Flag_test.T_zeroPanicker(true, ("something" : stdgo.GoString)?.__copy__()) : stdgo.flag_test.Flag_test.T_zeroPanicker)) : stdgo.StdGoTypes.Ref<stdgo.flag_test.Flag_test.T_zeroPanicker>)), ("ZP1" : stdgo.GoString)?.__copy__(), ("a flag whose String method panics when it is zero" : stdgo.GoString)?.__copy__());
         _fs.duration(("maxT" : stdgo.GoString)?.__copy__(), (0i64 : stdgo.time.Time.Duration), ("set `timeout` for dial" : stdgo.GoString)?.__copy__());
         _fs.printDefaults();
         var _got:stdgo.GoString = (_buf.string() : stdgo.GoString)?.__copy__();

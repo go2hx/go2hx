@@ -2070,7 +2070,7 @@ function new_(_src:Source):stdgo.StdGoTypes.Ref<Rand> {
         } catch(_) {
             { value : (null : stdgo.math.rand.Rand.Source64), ok : false };
         }, _s64 = __tmp__.value, __0 = __tmp__.ok;
-        return (stdgo.Go.setRef(({ _src : _src, _s64 : _s64 } : Rand)) : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>);
+        return (stdgo.Go.setRef(({ _src : _src, _s64 : _s64 } : stdgo.math.rand.Rand.Rand)) : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>);
     }
 function _read(_p:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _src:Source, _readVal:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, _readPos:stdgo.Pointer<stdgo.StdGoTypes.GoInt8>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
@@ -2118,7 +2118,7 @@ function _globalRand():stdgo.StdGoTypes.Ref<Rand> {
             _r = new_(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.math.rand.Rand.T_lockedSource)) : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.T_lockedSource>)));
             _r.seed((1i64 : stdgo.StdGoTypes.GoInt64));
         } else {
-            _r = (stdgo.Go.setRef(({ _src : stdgo.Go.asInterface((stdgo.Go.setRef((new T_fastSource() : T_fastSource)) : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.T_fastSource>)), _s64 : stdgo.Go.asInterface((stdgo.Go.setRef((new T_fastSource() : T_fastSource)) : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.T_fastSource>)) } : Rand)) : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>);
+            _r = (stdgo.Go.setRef(({ _src : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.math.rand.Rand.T_fastSource() : stdgo.math.rand.Rand.T_fastSource)) : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.T_fastSource>)), _s64 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.math.rand.Rand.T_fastSource() : stdgo.math.rand.Rand.T_fastSource)) : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.T_fastSource>)) } : stdgo.math.rand.Rand.Rand)) : stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>);
         };
         if (!_globalRandGenerator.compareAndSwap(({} : stdgo.math.rand.Rand.Rand), null, _r)) {
             return _globalRandGenerator.load(({} : stdgo.math.rand.Rand.Rand));

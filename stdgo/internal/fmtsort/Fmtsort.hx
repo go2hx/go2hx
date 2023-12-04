@@ -59,7 +59,7 @@ function sort(_mapValue:stdgo.reflect.Reflect.Value):stdgo.StdGoTypes.Ref<Sorted
             _key = (_key.__append__(_iter.key()?.__copy__()));
             _value = (_value.__append__(_iter.value()?.__copy__()));
         };
-        var _sorted = (stdgo.Go.setRef(({ key : _key, value : _value } : SortedMap)) : stdgo.StdGoTypes.Ref<stdgo.internal.fmtsort.Fmtsort.SortedMap>);
+        var _sorted = (stdgo.Go.setRef(({ key : _key, value : _value } : stdgo.internal.fmtsort.Fmtsort.SortedMap)) : stdgo.StdGoTypes.Ref<stdgo.internal.fmtsort.Fmtsort.SortedMap>);
         stdgo.sort.Sort.stable(stdgo.Go.asInterface(_sorted));
         return _sorted;
     }

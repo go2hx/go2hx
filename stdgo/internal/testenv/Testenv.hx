@@ -641,7 +641,7 @@ function skipIfOptimizationOff(_t:stdgo.testing.Testing.TB):Void {
     // pkgs may include any package pattern that is valid to pass to 'go list',
     // so it may also be a list of Go source files all in the same directory.
 **/
-function writeImportcfg(_t:stdgo.testing.Testing.TB, _dstPath:stdgo.GoString, _packageFiles:GoMap<stdgo.GoString, stdgo.GoString>, _pkgs:haxe.Rest<stdgo.GoString>):Void {
+function writeImportcfg(_t:stdgo.testing.Testing.TB, _dstPath:stdgo.GoString, _packageFiles:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _pkgs:haxe.Rest<stdgo.GoString>):Void {
         var _pkgs = new stdgo.Slice<stdgo.GoString>(_pkgs.length, 0, ..._pkgs);
         _t.helper();
         var _icfg = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);

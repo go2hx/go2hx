@@ -381,7 +381,7 @@ function newWriterSize(_w:stdgo.io.Io.Writer, _size:stdgo.StdGoTypes.GoInt):stdg
         if (_size <= (0 : stdgo.StdGoTypes.GoInt)) {
             _size = (4096 : stdgo.StdGoTypes.GoInt);
         };
-        return (stdgo.Go.setRef(({ _buf : new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((_size : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__(), _wr : _w } : Writer)) : stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Writer>);
+        return (stdgo.Go.setRef(({ _buf : new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((_size : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__(), _wr : _w } : stdgo.bufio.Bufio.Writer)) : stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Writer>);
     }
 /**
     // NewWriter returns a new Writer whose buffer has the default size.
@@ -395,14 +395,14 @@ function newWriter(_w:stdgo.io.Io.Writer):stdgo.StdGoTypes.Ref<Writer> {
     // NewReadWriter allocates a new ReadWriter that dispatches to r and w.
 **/
 function newReadWriter(_r:stdgo.StdGoTypes.Ref<Reader>, _w:stdgo.StdGoTypes.Ref<Writer>):stdgo.StdGoTypes.Ref<ReadWriter> {
-        return (stdgo.Go.setRef((new ReadWriter(_r, _w) : ReadWriter)) : stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.ReadWriter>);
+        return (stdgo.Go.setRef((new stdgo.bufio.Bufio.ReadWriter(_r, _w) : stdgo.bufio.Bufio.ReadWriter)) : stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.ReadWriter>);
     }
 /**
     // NewScanner returns a new Scanner to read from r.
     // The split function defaults to ScanLines.
 **/
 function newScanner(_r:stdgo.io.Io.Reader):stdgo.StdGoTypes.Ref<Scanner> {
-        return (stdgo.Go.setRef(({ _r : _r, _split : scanLines, _maxTokenSize : (65536 : stdgo.StdGoTypes.GoInt) } : Scanner)) : stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Scanner>);
+        return (stdgo.Go.setRef(({ _r : _r, _split : scanLines, _maxTokenSize : (65536 : stdgo.StdGoTypes.GoInt) } : stdgo.bufio.Bufio.Scanner)) : stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Scanner>);
     }
 /**
     // ScanBytes is a split function for a Scanner that returns each byte as a token.
@@ -1255,7 +1255,7 @@ class Reader_asInterface {
     static public function _reset( _b:stdgo.StdGoTypes.Ref<Reader>, _buf:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _r:stdgo.io.Io.Reader):Void {
         @:recv var _b:stdgo.StdGoTypes.Ref<Reader> = _b;
         {
-            var __tmp__ = ({ _buf : _buf, _rd : _r, _lastByte : (-1 : stdgo.StdGoTypes.GoInt), _lastRuneSize : (-1 : stdgo.StdGoTypes.GoInt) } : Reader);
+            var __tmp__ = ({ _buf : _buf, _rd : _r, _lastByte : (-1 : stdgo.StdGoTypes.GoInt), _lastRuneSize : (-1 : stdgo.StdGoTypes.GoInt) } : stdgo.bufio.Bufio.Reader);
             _b._buf = __tmp__._buf;
             _b._rd = __tmp__._rd;
             _b._r = __tmp__._r;

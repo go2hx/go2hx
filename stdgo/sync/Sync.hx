@@ -819,10 +819,10 @@ class T__struct_0_asInterface {
     // NewCond returns a new Cond with Locker l.
 **/
 function newCond(_l:Locker):stdgo.StdGoTypes.Ref<Cond> {
-        return (stdgo.Go.setRef(({ l : _l } : Cond)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Cond>);
+        return (stdgo.Go.setRef(({ l : _l } : stdgo.sync.Sync.Cond)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Cond>);
     }
 function newPoolDequeue(_n:stdgo.StdGoTypes.GoInt):PoolDequeue {
-        var _d = (stdgo.Go.setRef(({ _vals : new stdgo.Slice<stdgo.sync.Sync.T_eface>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_n : stdgo.StdGoTypes.GoInt).toBasic() > 0 ? (_n : stdgo.StdGoTypes.GoInt).toBasic() : 0 : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.sync.Sync.T_eface)]) } : T_poolDequeue)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolDequeue>);
+        var _d = (stdgo.Go.setRef(({ _vals : new stdgo.Slice<stdgo.sync.Sync.T_eface>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_n : stdgo.StdGoTypes.GoInt).toBasic() > 0 ? (_n : stdgo.StdGoTypes.GoInt).toBasic() : 0 : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.sync.Sync.T_eface)]) } : stdgo.sync.Sync.T_poolDequeue)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolDequeue>);
         _d._headTail = _d._pack((-500u32 : stdgo.StdGoTypes.GoUInt32), (-500u32 : stdgo.StdGoTypes.GoUInt32));
         return stdgo.Go.asInterface(_d);
     }
@@ -830,7 +830,7 @@ function newPoolChain():PoolDequeue {
         return stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.sync.Sync.T_poolChain)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChain>));
     }
 function _newEntry(_i:stdgo.StdGoTypes.AnyInterface):stdgo.StdGoTypes.Ref<T_entry> {
-        var _e = (stdgo.Go.setRef((new T_entry() : T_entry)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>);
+        var _e = (stdgo.Go.setRef((new stdgo.sync.Sync.T_entry() : stdgo.sync.Sync.T_entry)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>);
         _e._p.store((null : stdgo.StdGoTypes.AnyInterface), (stdgo.Go.setRef(_i) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>));
         return _e;
     }
@@ -948,7 +948,7 @@ function _poolCleanup():Void {
         };
     }
 function _indexLocal(_l:stdgo.unsafe.Unsafe.UnsafePointer, _i:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<T_poolLocal> {
-        var _lp:stdgo.unsafe.Unsafe.UnsafePointer = (stdgo.Go.toInterface(((_l.__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr) + ((_i : stdgo.StdGoTypes.GoUIntptr) * stdgo.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new T_poolLocal() : T_poolLocal)))))) : stdgo.unsafe.Unsafe.UnsafePointer);
+        var _lp:stdgo.unsafe.Unsafe.UnsafePointer = (stdgo.Go.toInterface(((_l.__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr) + ((_i : stdgo.StdGoTypes.GoUIntptr) * stdgo.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo.sync.Sync.T_poolLocal() : stdgo.sync.Sync.T_poolLocal)))))) : stdgo.unsafe.Unsafe.UnsafePointer);
         return (_lp.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolLocal", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_poolLocalInternal", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolLocalInternal", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_private", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "_shared", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChain", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_head", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_poolDequeue", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolDequeue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_headTail", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "_vals", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_eface", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }, { name : "_val", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_next", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_prev", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_tail", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_poolDequeue", embedded : true, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolDequeue", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_headTail", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "_vals", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_eface", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "_typ", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }, { name : "_val", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_next", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_prev", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.Sync.T_poolChainElt", [], stdgo.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_pad", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }, 112) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<T_poolLocal>);
     }
 /**
@@ -1292,7 +1292,7 @@ class Map__asInterface {
         if (_m._misses < (_m._dirty.length)) {
             return;
         };
-        _m._read.store(({} : stdgo.sync.Sync.T_readOnly), (stdgo.Go.setRef(({ _m : _m._dirty } : T_readOnly)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_readOnly>));
+        _m._read.store(({} : stdgo.sync.Sync.T_readOnly), (stdgo.Go.setRef(({ _m : _m._dirty } : stdgo.sync.Sync.T_readOnly)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_readOnly>));
         _m._dirty = (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>>);
         _m._misses = (0 : stdgo.StdGoTypes.GoInt);
     }
@@ -1317,7 +1317,7 @@ class Map__asInterface {
             _m._mu.lock();
             _read = _m._loadReadOnly()?.__copy__();
             if (_read._amended) {
-                _read = ({ _m : _m._dirty } : T_readOnly);
+                _read = ({ _m : _m._dirty } : stdgo.sync.Sync.T_readOnly);
                 _m._read.store(({} : stdgo.sync.Sync.T_readOnly), (stdgo.Go.setRef(_read) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_readOnly>));
                 _m._dirty = (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>>);
                 _m._misses = (0 : stdgo.StdGoTypes.GoInt);
@@ -1492,7 +1492,7 @@ class Map__asInterface {
                 } else {
                     if (!_read._amended) {
                         _m._dirtyLocked();
-                        _m._read.store(({} : stdgo.sync.Sync.T_readOnly), (stdgo.Go.setRef(({ _m : _read._m, _amended : true } : T_readOnly)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_readOnly>));
+                        _m._read.store(({} : stdgo.sync.Sync.T_readOnly), (stdgo.Go.setRef(({ _m : _read._m, _amended : true } : stdgo.sync.Sync.T_readOnly)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_readOnly>));
                     };
                     _m._dirty[_key] = _newEntry(_value);
                 };
@@ -1587,7 +1587,7 @@ class Map__asInterface {
                 } else {
                     if (!_read._amended) {
                         _m._dirtyLocked();
-                        _m._read.store(({} : stdgo.sync.Sync.T_readOnly), (stdgo.Go.setRef(({ _m : _read._m, _amended : true } : T_readOnly)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_readOnly>));
+                        _m._read.store(({} : stdgo.sync.Sync.T_readOnly), (stdgo.Go.setRef(({ _m : _read._m, _amended : true } : stdgo.sync.Sync.T_readOnly)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_readOnly>));
                     };
                     _m._dirty[_key] = _newEntry(_value);
                     {
@@ -1653,7 +1653,7 @@ class Map__asInterface {
                 return (_p : stdgo.sync.Sync.T_readOnly)?.__copy__();
             };
         };
-        return (new T_readOnly() : T_readOnly);
+        return (new stdgo.sync.Sync.T_readOnly() : stdgo.sync.Sync.T_readOnly);
     }
 }
 class T_entry_asInterface {
@@ -2347,7 +2347,7 @@ class T_poolDequeue_asInterface {
             _val = (null : stdgo.StdGoTypes.AnyInterface);
         };
         {
-            var __tmp__ = (new T_eface() : T_eface);
+            var __tmp__ = (new stdgo.sync.Sync.T_eface() : stdgo.sync.Sync.T_eface);
             _slot._typ = __tmp__._typ;
             _slot._val = __tmp__._val;
         };
@@ -2487,7 +2487,7 @@ class T_poolChain_asInterface {
         if (_newSize >= (1073741824 : stdgo.StdGoTypes.GoInt)) {
             _newSize = (1073741824 : stdgo.StdGoTypes.GoInt);
         };
-        var _d2 = (stdgo.Go.setRef(({ _prev : _d } : T_poolChainElt)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>);
+        var _d2 = (stdgo.Go.setRef(({ _prev : _d } : stdgo.sync.Sync.T_poolChainElt)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>);
         _d2._poolDequeue._vals = new stdgo.Slice<stdgo.sync.Sync.T_eface>((_newSize : stdgo.StdGoTypes.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_newSize : stdgo.StdGoTypes.GoInt).toBasic() > 0 ? (_newSize : stdgo.StdGoTypes.GoInt).toBasic() : 0 : stdgo.StdGoTypes.GoInt).toBasic()) ({} : stdgo.sync.Sync.T_eface)]);
         _c._head = _d2;
         _storePoolChainElt((stdgo.Go.setRef(_d._next) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_poolChainElt>>), _d2);

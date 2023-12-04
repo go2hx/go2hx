@@ -199,7 +199,7 @@ function _update(_def:stdgo.GoString, _env:stdgo.GoString):Void throw ":internal
     // in which case the GODEBUG is only enabled for call stacks
     // matching pattern, for use with golang.org/x/tools/cmd/bisect.
 **/
-function _parse(_did:GoMap<stdgo.GoString, Bool>, _s:stdgo.GoString):Void throw ":internal.godebug._parse is not yet implemented";
+function _parse(_did:stdgo.GoMap<stdgo.GoString, Bool>, _s:stdgo.GoString):Void throw ":internal.godebug._parse is not yet implemented";
 /**
     // Since we cannot import os or syscall, use the runtime's write function
     // to print to standard error.

@@ -765,7 +765,7 @@ function benchmarkPrintlnNoFlags(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B
         };
     }
 function benchmarkConcurrent(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        var _l = new_(stdgo.Go.asInterface((new T_discard() : T_discard)), ("prefix: " : stdgo.GoString)?.__copy__(), (79 : stdgo.StdGoTypes.GoInt));
+        var _l = new_(stdgo.Go.asInterface((new stdgo.log.Log.T_discard() : stdgo.log.Log.T_discard)), ("prefix: " : stdgo.GoString)?.__copy__(), (79 : stdgo.StdGoTypes.GoInt));
         var _group:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
         {
             var _i:stdgo.StdGoTypes.GoInt = stdgo.runtime.Runtime.numCPU();

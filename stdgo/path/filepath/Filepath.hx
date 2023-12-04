@@ -642,7 +642,7 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
         };
         var _rooted:Bool = stdgo.os.Os.isPathSeparator(_path[(0 : stdgo.StdGoTypes.GoInt)]);
         var _n:stdgo.StdGoTypes.GoInt = (_path.length);
-        var _out:stdgo.path.filepath.Filepath.T_lazybuf = ({ _path : _path?.__copy__(), _volAndPath : _originalPath?.__copy__(), _volLen : _volLen } : T_lazybuf);
+        var _out:stdgo.path.filepath.Filepath.T_lazybuf = ({ _path : _path?.__copy__(), _volAndPath : _originalPath?.__copy__(), _volLen : _volLen } : stdgo.path.filepath.Filepath.T_lazybuf);
         var __0:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), __1:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _dotdot:stdgo.StdGoTypes.GoInt = __1, _r:stdgo.StdGoTypes.GoInt = __0;
         if (_rooted) {
             _out._append((47 : stdgo.StdGoTypes.GoUInt8));
@@ -1023,7 +1023,7 @@ function walkDir(_root:stdgo.GoString, _fn:stdgo.io.fs.Fs.WalkDirFunc):stdgo.Err
         if (_err != null) {
             _err = _fn(_root?.__copy__(), (null : stdgo.io.fs.Fs.DirEntry), _err);
         } else {
-            _err = _walkDir(_root?.__copy__(), stdgo.Go.asInterface((stdgo.Go.setRef((new T_statDirEntry(_info) : T_statDirEntry)) : stdgo.StdGoTypes.Ref<stdgo.path.filepath.Filepath.T_statDirEntry>)), _fn);
+            _err = _walkDir(_root?.__copy__(), stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.path.filepath.Filepath.T_statDirEntry(_info) : stdgo.path.filepath.Filepath.T_statDirEntry)) : stdgo.StdGoTypes.Ref<stdgo.path.filepath.Filepath.T_statDirEntry>)), _fn);
         };
         if ((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipAll))) {
             return (null : stdgo.Error);

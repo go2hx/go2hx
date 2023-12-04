@@ -298,7 +298,7 @@ function _newBitReader(_r:stdgo.io.Io.Reader):T_bitReader {
         if (!_ok) {
             _byter = stdgo.Go.asInterface(stdgo.bufio.Bufio.newReader(_r));
         };
-        return ({ _r : _byter } : T_bitReader);
+        return ({ _r : _byter } : stdgo.compress.bzip2.Bzip2.T_bitReader);
     }
 /**
     // NewReader returns an io.Reader which decompresses bzip2 data from r.

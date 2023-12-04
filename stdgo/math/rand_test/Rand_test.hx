@@ -1132,7 +1132,7 @@ function _generateNormalSamples(_nsamples:stdgo.StdGoTypes.GoInt, _mean:stdgo.St
 function _testNormalDistribution(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _nsamples:stdgo.StdGoTypes.GoInt, _mean:stdgo.StdGoTypes.GoFloat64, _stddev:stdgo.StdGoTypes.GoFloat64, _seed:stdgo.StdGoTypes.GoInt64):Void {
         var _samples = _generateNormalSamples(_nsamples, _mean, _stddev, _seed);
         var _errorScale:stdgo.StdGoTypes.GoFloat64 = _max((1 : stdgo.StdGoTypes.GoFloat64), _stddev);
-        var _expected = (stdgo.Go.setRef((new T_statsResults(_mean, _stddev, (0.1 : stdgo.StdGoTypes.GoFloat64) * _errorScale, (0.08 : stdgo.StdGoTypes.GoFloat64) * _errorScale) : T_statsResults)) : stdgo.StdGoTypes.Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
+        var _expected = (stdgo.Go.setRef((new stdgo.math.rand_test.Rand_test.T_statsResults(_mean, _stddev, (0.1 : stdgo.StdGoTypes.GoFloat64) * _errorScale, (0.08 : stdgo.StdGoTypes.GoFloat64) * _errorScale) : stdgo.math.rand_test.Rand_test.T_statsResults)) : stdgo.StdGoTypes.Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
         _checkSampleDistribution(_t, _samples, _expected);
         _checkSampleSliceDistributions(_t, _samples, (2 : stdgo.StdGoTypes.GoInt), _expected);
         _checkSampleSliceDistributions(_t, _samples, (7 : stdgo.StdGoTypes.GoInt), _expected);
@@ -1179,7 +1179,7 @@ function _testExponentialDistribution(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
         var _stddev:stdgo.StdGoTypes.GoFloat64 = _mean;
         var _samples = _generateExponentialSamples(_nsamples, _rate, _seed);
         var _errorScale:stdgo.StdGoTypes.GoFloat64 = _max((1 : stdgo.StdGoTypes.GoFloat64), (1 : stdgo.StdGoTypes.GoFloat64) / _rate);
-        var _expected = (stdgo.Go.setRef((new T_statsResults(_mean, _stddev, (0.1 : stdgo.StdGoTypes.GoFloat64) * _errorScale, (0.2 : stdgo.StdGoTypes.GoFloat64) * _errorScale) : T_statsResults)) : stdgo.StdGoTypes.Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
+        var _expected = (stdgo.Go.setRef((new stdgo.math.rand_test.Rand_test.T_statsResults(_mean, _stddev, (0.1 : stdgo.StdGoTypes.GoFloat64) * _errorScale, (0.2 : stdgo.StdGoTypes.GoFloat64) * _errorScale) : stdgo.math.rand_test.Rand_test.T_statsResults)) : stdgo.StdGoTypes.Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
         _checkSampleDistribution(_t, _samples, _expected);
         _checkSampleSliceDistributions(_t, _samples, (2 : stdgo.StdGoTypes.GoInt), _expected);
         _checkSampleSliceDistributions(_t, _samples, (7 : stdgo.StdGoTypes.GoInt), _expected);
@@ -1372,7 +1372,7 @@ function _testReadUniformity(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _
             _t.errorf(("Read returned unexpected n; %d != %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_nRead), stdgo.Go.toInterface(_n));
         };
         var __0:stdgo.StdGoTypes.GoFloat64 = (127.5 : stdgo.StdGoTypes.GoFloat64), __1:stdgo.StdGoTypes.GoFloat64 = (256 : stdgo.StdGoTypes.GoFloat64) / stdgo.math.Math.sqrt((12 : stdgo.StdGoTypes.GoFloat64)), __2:stdgo.StdGoTypes.GoFloat64 = _stddev / stdgo.math.Math.sqrt((_n : stdgo.StdGoTypes.GoFloat64)), _errorScale:stdgo.StdGoTypes.GoFloat64 = __2, _stddev:stdgo.StdGoTypes.GoFloat64 = __1, _mean:stdgo.StdGoTypes.GoFloat64 = __0;
-        var _expected = (stdgo.Go.setRef((new T_statsResults(_mean, _stddev, (0.1 : stdgo.StdGoTypes.GoFloat64) * _errorScale, (0.08 : stdgo.StdGoTypes.GoFloat64) * _errorScale) : T_statsResults)) : stdgo.StdGoTypes.Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
+        var _expected = (stdgo.Go.setRef((new stdgo.math.rand_test.Rand_test.T_statsResults(_mean, _stddev, (0.1 : stdgo.StdGoTypes.GoFloat64) * _errorScale, (0.08 : stdgo.StdGoTypes.GoFloat64) * _errorScale) : stdgo.math.rand_test.Rand_test.T_statsResults)) : stdgo.StdGoTypes.Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
         var _samples = new stdgo.Slice<stdgo.StdGoTypes.GoFloat64>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         for (_i => _val in _buf) {
             _samples[(_i : stdgo.StdGoTypes.GoInt)] = (_val : stdgo.StdGoTypes.GoFloat64);
@@ -1541,7 +1541,7 @@ function testUniformFactorial(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
                                 _samples[(_i : stdgo.StdGoTypes.GoInt)] = __9672;
                             };
                             var _dof:stdgo.StdGoTypes.GoFloat64 = (_nfact - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoFloat64);
-                            var _expected = (stdgo.Go.setRef(({ _mean : _dof, _stddev : stdgo.math.Math.sqrt((2 : stdgo.StdGoTypes.GoFloat64) * _dof) } : T_statsResults)) : stdgo.StdGoTypes.Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
+                            var _expected = (stdgo.Go.setRef(({ _mean : _dof, _stddev : stdgo.math.Math.sqrt((2 : stdgo.StdGoTypes.GoFloat64) * _dof) } : stdgo.math.rand_test.Rand_test.T_statsResults)) : stdgo.StdGoTypes.Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
                             var _errorScale:stdgo.StdGoTypes.GoFloat64 = _max((1 : stdgo.StdGoTypes.GoFloat64), _expected._stddev);
                             _expected._closeEnough = (0.1 : stdgo.StdGoTypes.GoFloat64) * _errorScale;
                             _expected._maxError = (0.08 : stdgo.StdGoTypes.GoFloat64);

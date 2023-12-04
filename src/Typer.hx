@@ -1932,6 +1932,16 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 			var obj:Ast.IndexExpr = obj;
 			var index = typeExpr(obj.index, info);
 			var x = typeExpr(obj.x, info);
+			switch getUnderlying(typeof(obj.x,info, false)) {
+				case mapType(_.get() => var keyType, _):
+					trace(typeof(obj.index, info, false));
+					trace(keyType);
+					// something strange is not working here try assign translate instead
+					index = assignTranslate(typeof(obj.index, info, false), keyType, index, info);
+					//index = checkType(index, toComplexType(keyType, info), typeof(obj.index, info, false), keyType, info);
+					trace(printer.printExpr(index));
+				default:
+			}
 			final t = getUnderlying(typeof(obj, info, false));
 			final value = switch t {
 				case tuple(_, _.get() => vars):

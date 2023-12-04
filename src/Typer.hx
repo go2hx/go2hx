@@ -1122,6 +1122,8 @@ private function isInvalidTitle(name:String):Bool {
 	return false;
 }
 
+var typeSpecCount = 0;
+
 private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	if (stmt.decl.decls == null)
 		return (macro {}).expr; // blank
@@ -1139,7 +1141,8 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
 					final name = spec.name.name;
-					spec.name.name = "T_" + info.funcName + "_" + (info.count++) + "___localname___" + name;
+					
+					spec.name.name = "T_" + info.funcName + "_" + (typeSpecCount++) + "___localname___" + name;
 					info.renameClasses[name] = className(spec.name.name, info);
 					info.data.defs.push(typeSpec(spec, info));
 				case "ValueSpec": // typeValue
@@ -1276,7 +1279,7 @@ private function createNamedObjectDecl(fields:Array<FieldType>, f:(field:String,
 	}
 	return toExpr(EObjectDecl(objectFields));
 }
-
+// implicit conversion
 private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
 	// trace(fromType, toType);
 	if (e != null) {
@@ -1357,7 +1360,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 	if (isNamed(fromType) && !isInterface(fromType) && isInterface(toType) && !isAnyInterface(toType)) {
 		return wrapperExpr(fromType, e, info);
 	}
-	// trace(fromType, toType);
+// trace(fromType, toType);
 	if ((isRef(fromType) || isPointer(fromType))
 		&& !isAnyInterface(fromType)
 		&& !isInterface(fromType)
@@ -2258,8 +2261,9 @@ private function goTypesEqual(a:GoType, b:GoType) {
 			}
 	}
 }
-
+// explicit conversion
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
+	// trace(fromType,toType);
 	if (goTypesEqual(fromType, toType)) {
 		if (passCopy)
 			return passByCopy(toType, expr, info);
@@ -2447,7 +2451,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				}
 			}
 			return (macro $assign = $expr).expr;
-		case ASSIGN:
+		case ASSIGN: // x = y
 			var blankBool:Bool = true;
 			for (lhs in stmt.lhs) {
 				if (lhs.id != "Ident" || lhs.name != "_") {
@@ -4014,7 +4018,8 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			typeof(e.type, info, false, paths.copy());
 		case "CompositeLit":
 			final e:Ast.CompositeLit = e;
-			typeof(e.type, info, false, paths.copy());
+			final t = typeof(e.type, info, false, paths.copy());
+			t;
 		case "SelectorExpr":
 			final e:Ast.SelectorExpr = e;
 			var t = typeof(e.type, info, false, paths.copy());
@@ -4663,8 +4668,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	if (expr.type == null)
 		return (macro @:invalid_compositelit_null null).expr;
 	var type = typeof(expr.type, info, false);
-	var ct = typeExprType(expr.type, info);
-	// var ct = toComplexType(type, info);
+	//var ct = typeExprType(expr.type, info);
+	var ct = toComplexType(type, info);
 	final e = compositeLit(type, ct, expr, info);
 	// trace(printer.printExpr({expr: e, pos: null}));
 	return e;
@@ -5403,7 +5408,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.renameClasses = [];
 	info.classNames = data.classNames.copy();
 	info.renameIdents = data.renameIdents.copy();
-	info.count = 0;
 	info.gotoSystem = false;
 	info.global = data.global;
 	info.locals = data.locals.copy();
@@ -7645,7 +7649,6 @@ class Global {
 
 class Info {
 	public var blankCounter:Int = 0;
-	public var count:Int = 0;
 	public var restricted:Array<String> = [];
 	public var thisName:String = "";
 	public var deferBool:Bool = false;
@@ -7690,7 +7693,6 @@ class Info {
 		info.returnNamed = returnNamed;
 		info.deferBool = deferBool;
 		info.recoverBool = recoverBool;
-		info.count = count;
 		info.funcName = funcName;
 		info.className = className;
 		info.data = data;

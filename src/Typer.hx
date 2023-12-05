@@ -988,19 +988,24 @@ private function typeLabeledStmt(stmt:Ast.LabeledStmt, info:Info):ExprDef {
 private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 	var x = typeExpr(stmt.x, info);
 	var t = typeof(stmt.x, info, false);
+	function setTok(x:Expr) {
+		return switch stmt.tok {
+			case INC: return (macro $x++);
+			case DEC: return (macro $x--);
+			default:
+				throw "unknown IncDec token: " + stmt.tok;
+				null;
+		}
+	}
 	switch escapeParens(x).expr {
 		case ETernary(econd, eif, _):
 			x = macro if ($econd)
 				$eif;
+		case EBinop(OpNullCoal, e1, e2):
+			return (macro (${e1} != null ? ${setTok(e1)} : ${e2})).expr;
 		default:
 	}
-	return switch stmt.tok {
-		case INC: return (macro $x++).expr;
-		case DEC: return (macro $x--).expr;
-		default:
-			throw "unknown IncDec token: " + stmt.tok;
-			null;
-	}
+	return setTok(x).expr;
 }
 
 private function escapeParensRaw(expr:Ast.Expr):Ast.Expr {
@@ -1028,7 +1033,7 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 		var arg = typeExpr(stmt.call.args[i], info);
 		var name = "_a" + i;
 		exprs.push(macro var $name = $arg);
-		stmt.call.args[i] = {id: "Ident", name: 'a$i'}; // switch out call arguments
+		stmt.call.args[i] = {id: "Ident", name: 'a$i', type: stmt.call.args[i].type}; // switch out call arguments
 	}
 	// otherwise its Ident, Selector etc
 	var call = toExpr(typeCallExpr(stmt.call, info));
@@ -2019,7 +2024,22 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 			case basic(basicKind):
 				switch basicKind {
 					case string_kind:
-						return macro $y?.__copy__();
+						function f(x) {
+							return switch escapeParens(x).expr {
+								case ECheckType(e, _):
+									f(e);
+								case EConst(c):
+									switch c {
+										case CString(_):
+											return macro $y;
+										default:
+											throw "not possible";
+									}
+								default:
+									macro $y?.__copy__();
+							}
+						}
+						return f(y);
 					default:
 				}
 			case signature(_, _, _, _):
@@ -3130,10 +3150,10 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 	t = getUnderlyingRefNamed(t);
 	switch t {
 		case arrayType(_, _), sliceType(_), basic(untyped_string_kind), basic(string_kind):
-			index = assignTranslate(typeof(expr.index, info, false), basic(int_kind), index, info);
+			index = assignTranslate(typeof(expr.index, info, false), basic(int_kind), index, info, false);
 			index = macro($index : stdgo.StdGoTypes.GoInt); // explicit casting needed for macro typeParam system otherwise compilation breaks
 		case mapType(_.get() => indexType, _.get() => valueType):
-			index = assignTranslate(typeof(expr.index, info, false), indexType, index, info);
+			index = assignTranslate(typeof(expr.index, info, false), indexType, index, info, false);
 			final value = defaultValue(valueType, info);
 			final e = macro ($x[$index] ?? $value);
 			return e.expr;
@@ -3464,13 +3484,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						var key = typeExpr(expr.args[1], info);
 						var t = typeof(expr.args[0], info, false);
 						t = getUnderlying(t);
-						trace(expr.args[1]);
-						trace(t);
-						trace(printer.printExpr(key));
-						trace("--------");
 						switch t {
 							case mapType(_.get() => var keyType, _):
-								key = assignTranslate(typeof(expr.args[1], info, false), keyType, key, info);
+								key = assignTranslate(typeof(expr.args[1], info, false), keyType, key, info, false);
 							case invalidType:
 							default:
 								throw "first arg of delete builtin function not of type map: " + t;

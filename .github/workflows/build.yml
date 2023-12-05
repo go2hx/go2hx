@@ -128,6 +128,8 @@ jobs:
         run: go mod init github.com/go2hx/go4hx
       - name: Get go2hxdoc
         run: go get github.com/go2hx/go2hxdoc
+      - name: Build go2hxdoc
+        run: go build github.com/go2hx/go2hxdoc
       - name: Run go2hxdoc
         run: ./go2hxdoc -dir `npx haxelib libpath go2hx`stdgo -stats -force -seq
       - name: Commit docs

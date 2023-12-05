@@ -10,61 +10,61 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var errInvalidUnreadByte : stdgo.Error = stdgo.errors.Errors.new_(("bufio: invalid use of UnreadByte" : stdgo.GoString)?.__copy__());
+var errInvalidUnreadByte : stdgo.Error = stdgo.errors.Errors.new_(("bufio: invalid use of UnreadByte" : stdgo.GoString));
 /**
     
     
     
 **/
-var errInvalidUnreadRune : stdgo.Error = stdgo.errors.Errors.new_(("bufio: invalid use of UnreadRune" : stdgo.GoString)?.__copy__());
+var errInvalidUnreadRune : stdgo.Error = stdgo.errors.Errors.new_(("bufio: invalid use of UnreadRune" : stdgo.GoString));
 /**
     
     
     
 **/
-var errBufferFull : stdgo.Error = stdgo.errors.Errors.new_(("bufio: buffer full" : stdgo.GoString)?.__copy__());
+var errBufferFull : stdgo.Error = stdgo.errors.Errors.new_(("bufio: buffer full" : stdgo.GoString));
 /**
     
     
     
 **/
-var errNegativeCount : stdgo.Error = stdgo.errors.Errors.new_(("bufio: negative count" : stdgo.GoString)?.__copy__());
+var errNegativeCount : stdgo.Error = stdgo.errors.Errors.new_(("bufio: negative count" : stdgo.GoString));
 /**
     
     
     
 **/
-var _errNegativeRead : stdgo.Error = stdgo.errors.Errors.new_(("bufio: reader returned negative count from Read" : stdgo.GoString)?.__copy__());
+var _errNegativeRead : stdgo.Error = stdgo.errors.Errors.new_(("bufio: reader returned negative count from Read" : stdgo.GoString));
 /**
     
     
     
 **/
-var _errNegativeWrite : stdgo.Error = stdgo.errors.Errors.new_(("bufio: writer returned negative count from Write" : stdgo.GoString)?.__copy__());
-/**
-    // Errors returned by Scanner.
-    
-    
-**/
-var errTooLong : stdgo.Error = stdgo.errors.Errors.new_(("bufio.Scanner: token too long" : stdgo.GoString)?.__copy__());
+var _errNegativeWrite : stdgo.Error = stdgo.errors.Errors.new_(("bufio: writer returned negative count from Write" : stdgo.GoString));
 /**
     // Errors returned by Scanner.
     
     
 **/
-var errNegativeAdvance : stdgo.Error = stdgo.errors.Errors.new_(("bufio.Scanner: SplitFunc returns negative advance count" : stdgo.GoString)?.__copy__());
+var errTooLong : stdgo.Error = stdgo.errors.Errors.new_(("bufio.Scanner: token too long" : stdgo.GoString));
 /**
     // Errors returned by Scanner.
     
     
 **/
-var errAdvanceTooFar : stdgo.Error = stdgo.errors.Errors.new_(("bufio.Scanner: SplitFunc returns advance count beyond input" : stdgo.GoString)?.__copy__());
+var errNegativeAdvance : stdgo.Error = stdgo.errors.Errors.new_(("bufio.Scanner: SplitFunc returns negative advance count" : stdgo.GoString));
 /**
     // Errors returned by Scanner.
     
     
 **/
-var errBadReadCount : stdgo.Error = stdgo.errors.Errors.new_(("bufio.Scanner: Read returned impossible count" : stdgo.GoString)?.__copy__());
+var errAdvanceTooFar : stdgo.Error = stdgo.errors.Errors.new_(("bufio.Scanner: SplitFunc returns advance count beyond input" : stdgo.GoString));
+/**
+    // Errors returned by Scanner.
+    
+    
+**/
+var errBadReadCount : stdgo.Error = stdgo.errors.Errors.new_(("bufio.Scanner: Read returned impossible count" : stdgo.GoString));
 /**
     // ErrFinalToken is a special sentinel error value. It is intended to be
     // returned by a Split function to indicate that the token being delivered
@@ -77,7 +77,7 @@ var errBadReadCount : stdgo.Error = stdgo.errors.Errors.new_(("bufio.Scanner: Re
     
     
 **/
-var errFinalToken : stdgo.Error = stdgo.errors.Errors.new_(("final token" : stdgo.GoString)?.__copy__());
+var errFinalToken : stdgo.Error = stdgo.errors.Errors.new_(("final token" : stdgo.GoString));
 /**
     
     

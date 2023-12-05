@@ -14,7 +14,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var errBadPattern : stdgo.Error = stdgo.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString)?.__copy__());
+var errBadPattern : stdgo.Error = stdgo.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString));
 /**
     // A lazybuf is a lazily constructed path buffer.
     // It supports append, reading previously appended bytes,
@@ -340,7 +340,7 @@ function _getEsc(_chunk:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoRune; var 
 **/
 function clean(_path:stdgo.GoString):stdgo.GoString {
         if (_path == (stdgo.Go.str())) {
-            return ("." : stdgo.GoString)?.__copy__();
+            return ("." : stdgo.GoString);
         };
         var _rooted:Bool = _path[(0 : stdgo.StdGoTypes.GoInt)] == ((47 : stdgo.StdGoTypes.GoUInt8));
         var _n:stdgo.StdGoTypes.GoInt = (_path.length);
@@ -385,7 +385,7 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
             };
         };
         if (_out._w == ((0 : stdgo.StdGoTypes.GoInt))) {
-            return ("." : stdgo.GoString)?.__copy__();
+            return ("." : stdgo.GoString);
         };
         return _out._string()?.__copy__();
     }
@@ -463,7 +463,7 @@ function ext(_path:stdgo.GoString):stdgo.GoString {
 **/
 function base(_path:stdgo.GoString):stdgo.GoString {
         if (_path == (stdgo.Go.str())) {
-            return ("." : stdgo.GoString)?.__copy__();
+            return ("." : stdgo.GoString);
         };
         while ((_path.length > (0 : stdgo.StdGoTypes.GoInt)) && (_path[((_path.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] == (47 : stdgo.StdGoTypes.GoUInt8))) {
             _path = (_path.__slice__((0 : stdgo.StdGoTypes.GoInt), (_path.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
@@ -475,7 +475,7 @@ function base(_path:stdgo.GoString):stdgo.GoString {
             };
         };
         if (_path == (stdgo.Go.str())) {
-            return ("/" : stdgo.GoString)?.__copy__();
+            return ("/" : stdgo.GoString);
         };
         return _path?.__copy__();
     }

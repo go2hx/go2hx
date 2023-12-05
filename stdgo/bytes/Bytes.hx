@@ -9,19 +9,19 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var errTooLarge : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: too large" : stdgo.GoString)?.__copy__());
+var errTooLarge : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: too large" : stdgo.GoString));
 /**
     
     
     
 **/
-var _errNegativeRead : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: reader returned negative count from Read" : stdgo.GoString)?.__copy__());
+var _errNegativeRead : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: reader returned negative count from Read" : stdgo.GoString));
 /**
     
     
     
 **/
-var _errUnreadByte : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: UnreadByte: previous operation was not a successful read" : stdgo.GoString)?.__copy__());
+var _errUnreadByte : stdgo.Error = stdgo.errors.Errors.new_(("bytes.Buffer: UnreadByte: previous operation was not a successful read" : stdgo.GoString));
 /**
     
     
@@ -2004,7 +2004,7 @@ class Buffer_asInterface {
     static public function unreadRune( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.Error {
         @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         if (_b._lastRead <= (0 : stdgo.bytes.Bytes.T_readOp)) {
-            return stdgo.errors.Errors.new_(("bytes.Buffer: UnreadRune: previous operation was not a successful ReadRune" : stdgo.GoString)?.__copy__());
+            return stdgo.errors.Errors.new_(("bytes.Buffer: UnreadRune: previous operation was not a successful ReadRune" : stdgo.GoString));
         };
         if (_b._off >= (_b._lastRead : stdgo.StdGoTypes.GoInt)) {
             _b._off = _b._off - ((_b._lastRead : stdgo.StdGoTypes.GoInt));
@@ -2371,7 +2371,7 @@ class Buffer_asInterface {
     static public function string( _b:stdgo.StdGoTypes.Ref<Buffer>):stdgo.GoString {
         @:recv var _b:stdgo.StdGoTypes.Ref<Buffer> = _b;
         if (_b == null || (_b : Dynamic).__nil__) {
-            return ("<nil>" : stdgo.GoString)?.__copy__();
+            return ("<nil>" : stdgo.GoString);
         };
         return ((_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)?.__copy__();
     }
@@ -2520,11 +2520,11 @@ class Reader_asInterface {
             } else if (__value__ == ((2 : stdgo.StdGoTypes.GoInt))) {
                 _abs = (_r._s.length : stdgo.StdGoTypes.GoInt64) + _offset;
             } else {
-                return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: invalid whence" : stdgo.GoString)?.__copy__()) };
+                return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: invalid whence" : stdgo.GoString)) };
             };
         };
         if (_abs < (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: negative position" : stdgo.GoString)?.__copy__()) };
+            return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("bytes.Reader.Seek: negative position" : stdgo.GoString)) };
         };
         _r._i = _abs;
         return { _0 : _abs, _1 : (null : stdgo.Error) };
@@ -2536,10 +2536,10 @@ class Reader_asInterface {
     static public function unreadRune( _r:stdgo.StdGoTypes.Ref<Reader>):stdgo.Error {
         @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         if (_r._i <= (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadRune: at beginning of slice" : stdgo.GoString)?.__copy__());
+            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadRune: at beginning of slice" : stdgo.GoString));
         };
         if (_r._prevRune < (0 : stdgo.StdGoTypes.GoInt)) {
-            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadRune: previous operation was not ReadRune" : stdgo.GoString)?.__copy__());
+            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadRune: previous operation was not ReadRune" : stdgo.GoString));
         };
         _r._i = (_r._prevRune : stdgo.StdGoTypes.GoInt64);
         _r._prevRune = (-1 : stdgo.StdGoTypes.GoInt);
@@ -2579,7 +2579,7 @@ class Reader_asInterface {
     static public function unreadByte( _r:stdgo.StdGoTypes.Ref<Reader>):stdgo.Error {
         @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         if (_r._i <= (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadByte: at beginning of slice" : stdgo.GoString)?.__copy__());
+            return stdgo.errors.Errors.new_(("bytes.Reader.UnreadByte: at beginning of slice" : stdgo.GoString));
         };
         _r._prevRune = (-1 : stdgo.StdGoTypes.GoInt);
         _r._i--;
@@ -2607,7 +2607,7 @@ class Reader_asInterface {
         @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (_off < (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.errors.Errors.new_(("bytes.Reader.ReadAt: negative offset" : stdgo.GoString)?.__copy__()) };
+            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.errors.Errors.new_(("bytes.Reader.ReadAt: negative offset" : stdgo.GoString)) };
         };
         if (_off >= (_r._s.length : stdgo.StdGoTypes.GoInt64)) {
             return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.io.Io.eof };

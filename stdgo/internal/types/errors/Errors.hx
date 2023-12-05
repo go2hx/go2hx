@@ -2136,7 +2136,7 @@ class Code_asInterface {
     static public function string( _i:Code):stdgo.GoString {
         @:recv var _i:Code = _i;
         if (_i == ((-1 : stdgo.internal.types.errors.Errors.Code))) {
-            return ("InvalidSyntaxTree" : stdgo.GoString)?.__copy__();
+            return ("InvalidSyntaxTree" : stdgo.GoString);
         } else if (((1 : stdgo.internal.types.errors.Errors.Code) <= _i) && (_i <= (28 : stdgo.internal.types.errors.Errors.Code))) {
             _i = _i - ((1 : stdgo.internal.types.errors.Errors.Code));
             return (("TestBlankPkgNameMismatchedPkgNameInvalidPkgUseBadImportPathBrokenImportImportCRenamedUnusedImportInvalidInitCycleDuplicateDeclInvalidDeclCycleInvalidTypeCycleInvalidConstInitInvalidConstValInvalidConstTypeUntypedNilUseWrongAssignCountUnassignableOperandNoNewVarMultiValAssignOpInvalidIfaceAssignInvalidChanAssignIncompatibleAssignUnaddressableFieldAssignNotATypeInvalidArrayLenBlankIfaceMethodIncomparableMapKey" : stdgo.GoString).__slice__(__Code_index_1[(_i : stdgo.StdGoTypes.GoInt)], __Code_index_1[(_i + (1 : stdgo.internal.types.errors.Errors.Code) : stdgo.StdGoTypes.GoInt)]) : stdgo.GoString)?.__copy__();

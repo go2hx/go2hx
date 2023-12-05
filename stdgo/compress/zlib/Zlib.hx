@@ -26,19 +26,19 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var errChecksum : stdgo.Error = stdgo.errors.Errors.new_(("zlib: invalid checksum" : stdgo.GoString)?.__copy__());
+var errChecksum : stdgo.Error = stdgo.errors.Errors.new_(("zlib: invalid checksum" : stdgo.GoString));
 /**
     // ErrDictionary is returned when reading ZLIB data that has an invalid dictionary.
     
     
 **/
-var errDictionary : stdgo.Error = stdgo.errors.Errors.new_(("zlib: invalid dictionary" : stdgo.GoString)?.__copy__());
+var errDictionary : stdgo.Error = stdgo.errors.Errors.new_(("zlib: invalid dictionary" : stdgo.GoString));
 /**
     // ErrHeader is returned when reading ZLIB data that has an invalid header.
     
     
 **/
-var errHeader : stdgo.Error = stdgo.errors.Errors.new_(("zlib: invalid header" : stdgo.GoString)?.__copy__());
+var errHeader : stdgo.Error = stdgo.errors.Errors.new_(("zlib: invalid header" : stdgo.GoString));
 /**
     
     
@@ -47,9 +47,9 @@ var errHeader : stdgo.Error = stdgo.errors.Errors.new_(("zlib: invalid header" :
 var _zlibTests : stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest> = (new stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest>(
 14,
 14,
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("truncated empty" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(0, 0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("truncated dict" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (120 : stdgo.StdGoTypes.GoUInt8), (187 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (0 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("truncated checksum" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("truncated empty" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(0, 0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest),
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("truncated dict" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(2, 2, (120 : stdgo.StdGoTypes.GoUInt8), (187 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (0 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest),
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("truncated checksum" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
 24,
 24,
 (120 : stdgo.StdGoTypes.GoUInt8),
@@ -76,8 +76,8 @@ var _zlibTests : stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest> = (new stdgo.S
 (0 : stdgo.StdGoTypes.GoUInt8),
 (255 : stdgo.StdGoTypes.GoUInt8),
 (255 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (0 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("empty" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (120 : stdgo.StdGoTypes.GoUInt8), (156 : stdgo.StdGoTypes.GoUInt8), (3 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Error)) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("goodbye" : stdgo.GoString)?.__copy__(), ("goodbye, world" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("empty" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (120 : stdgo.StdGoTypes.GoUInt8), (156 : stdgo.StdGoTypes.GoUInt8), (3 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Error)) : stdgo.compress.zlib.Zlib.T_zlibTest),
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("goodbye" : stdgo.GoString), ("goodbye, world" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
 22,
 22,
 (120 : stdgo.StdGoTypes.GoUInt8),
@@ -102,11 +102,11 @@ var _zlibTests : stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest> = (new stdgo.S
 (165 : stdgo.StdGoTypes.GoUInt8),
 (5 : stdgo.StdGoTypes.GoUInt8),
 (94 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Error)) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("bad header (CINFO)" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (136 : stdgo.StdGoTypes.GoUInt8), (152 : stdgo.StdGoTypes.GoUInt8), (3 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), errHeader) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("bad header (FCHECK)" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (120 : stdgo.StdGoTypes.GoUInt8), (159 : stdgo.StdGoTypes.GoUInt8), (3 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), errHeader) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("bad checksum" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (120 : stdgo.StdGoTypes.GoUInt8), (156 : stdgo.StdGoTypes.GoUInt8), (3 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), errChecksum) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("not enough data" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(6, 6, (120 : stdgo.StdGoTypes.GoUInt8), (156 : stdgo.StdGoTypes.GoUInt8), (3 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("excess data is silently ignored" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("bad header (CINFO)" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (136 : stdgo.StdGoTypes.GoUInt8), (152 : stdgo.StdGoTypes.GoUInt8), (3 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), errHeader) : stdgo.compress.zlib.Zlib.T_zlibTest),
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("bad header (FCHECK)" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (120 : stdgo.StdGoTypes.GoUInt8), (159 : stdgo.StdGoTypes.GoUInt8), (3 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (1 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), errHeader) : stdgo.compress.zlib.Zlib.T_zlibTest),
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("bad checksum" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(8, 8, (120 : stdgo.StdGoTypes.GoUInt8), (156 : stdgo.StdGoTypes.GoUInt8), (3 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (255 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), errChecksum) : stdgo.compress.zlib.Zlib.T_zlibTest),
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("not enough data" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(6, 6, (120 : stdgo.StdGoTypes.GoUInt8), (156 : stdgo.StdGoTypes.GoUInt8), (3 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest),
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("excess data is silently ignored" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
 11,
 11,
 (120 : stdgo.StdGoTypes.GoUInt8),
@@ -120,7 +120,7 @@ var _zlibTests : stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest> = (new stdgo.S
 (120 : stdgo.StdGoTypes.GoUInt8),
 (156 : stdgo.StdGoTypes.GoUInt8),
 (255 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Error)) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("dictionary" : stdgo.GoString)?.__copy__(), ("Hello, World!\n" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("dictionary" : stdgo.GoString), ("Hello, World!\n" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
 19,
 19,
 (120 : stdgo.StdGoTypes.GoUInt8),
@@ -156,7 +156,7 @@ var _zlibTests : stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest> = (new stdgo.S
 (108 : stdgo.StdGoTypes.GoUInt8),
 (100 : stdgo.StdGoTypes.GoUInt8),
 (10 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Error)) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("wrong dictionary" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("wrong dictionary" : stdgo.GoString), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
 19,
 19,
 (120 : stdgo.StdGoTypes.GoUInt8),
@@ -178,7 +178,7 @@ var _zlibTests : stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest> = (new stdgo.S
 (18 : stdgo.StdGoTypes.GoUInt8),
 (4 : stdgo.StdGoTypes.GoUInt8),
 (116 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(4, 4, (72 : stdgo.StdGoTypes.GoUInt8), (101 : stdgo.StdGoTypes.GoUInt8), (108 : stdgo.StdGoTypes.GoUInt8), (108 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), errDictionary) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("truncated zlib stream amid raw-block" : stdgo.GoString)?.__copy__(), ("hello" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("truncated zlib stream amid raw-block" : stdgo.GoString), ("hello" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(
 12,
 12,
 (120 : stdgo.StdGoTypes.GoUInt8),
@@ -193,19 +193,19 @@ var _zlibTests : stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest> = (new stdgo.S
 (108 : stdgo.StdGoTypes.GoUInt8),
 (108 : stdgo.StdGoTypes.GoUInt8),
 (111 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest),
-(new stdgo.compress.zlib.Zlib.T_zlibTest(("truncated zlib stream amid fixed-block" : stdgo.GoString)?.__copy__(), ("He" : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(5, 5, (120 : stdgo.StdGoTypes.GoUInt8), (156 : stdgo.StdGoTypes.GoUInt8), (242 : stdgo.StdGoTypes.GoUInt8), (72 : stdgo.StdGoTypes.GoUInt8), (205 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest)) : stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest>);
+(new stdgo.compress.zlib.Zlib.T_zlibTest(("truncated zlib stream amid fixed-block" : stdgo.GoString), ("He" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(5, 5, (120 : stdgo.StdGoTypes.GoUInt8), (156 : stdgo.StdGoTypes.GoUInt8), (242 : stdgo.StdGoTypes.GoUInt8), (72 : stdgo.StdGoTypes.GoUInt8), (205 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), stdgo.io.Io.errUnexpectedEOF) : stdgo.compress.zlib.Zlib.T_zlibTest)) : stdgo.Slice<stdgo.compress.zlib.Zlib.T_zlibTest>);
 /**
     
     
     
 **/
-var _filenames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("../testdata/gettysburg.txt" : stdgo.GoString)?.__copy__(), ("../testdata/e.txt" : stdgo.GoString)?.__copy__(), ("../testdata/pi.txt" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+var _filenames : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("../testdata/gettysburg.txt" : stdgo.GoString), ("../testdata/e.txt" : stdgo.GoString), ("../testdata/pi.txt" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
 /**
     
     
     
 **/
-var _data : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(1, 1, ("test a reasonable sized string that can be compressed" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+var _data : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(1, 1, ("test a reasonable sized string that can be compressed" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
 /**
     
     
@@ -381,7 +381,7 @@ function testDecompressor(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 var __tmp__ = newReaderDict(stdgo.Go.asInterface(_in), _tt._dict), _zr:stdgo.io.Io.ReadCloser = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(_tt._err))) {
-                        _t.errorf(("%s: NewReader: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_err));
+                        _t.errorf(("%s: NewReader: %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_err));
                     };
                     continue;
                 };
@@ -390,24 +390,24 @@ function testDecompressor(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 var __tmp__ = stdgo.io.Io.copy(stdgo.Go.asInterface(_b), _zr), _n:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(_tt._err))) {
-                        _t.errorf(("%s: io.Copy: %v want %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._err));
+                        _t.errorf(("%s: io.Copy: %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._err));
                     };
                     continue;
                 };
                 var _s:stdgo.GoString = (_b.string() : stdgo.GoString)?.__copy__();
                 if (_s != (_tt._raw)) {
-                    _t.errorf(("%s: got %d-byte %q want %d-byte %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_s), stdgo.Go.toInterface((_tt._raw.length)), stdgo.Go.toInterface(_tt._raw));
+                    _t.errorf(("%s: got %d-byte %q want %d-byte %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_s), stdgo.Go.toInterface((_tt._raw.length)), stdgo.Go.toInterface(_tt._raw));
                 };
                 {
                     var __tmp__ = _zr.read((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (0 : stdgo.StdGoTypes.GoUInt8)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if ((_n != (0 : stdgo.StdGoTypes.GoInt)) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo.io.Io.eof))) {
-                        _t.errorf(("%s: Read() = (%d, %v), want (0, io.EOF)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
+                        _t.errorf(("%s: Read() = (%d, %v), want (0, io.EOF)" : stdgo.GoString), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
                     };
                 };
                 {
                     var _err:stdgo.Error = _zr.close();
                     if (_err != null) {
-                        _t.errorf(("%s: Close() = %v, want nil" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_err));
+                        _t.errorf(("%s: Close() = %v, want nil" : stdgo.GoString), stdgo.Go.toInterface(_tt._desc), stdgo.Go.toInterface(_err));
                     };
                 };
             };
@@ -466,7 +466,7 @@ function newWriterLevel(_w:stdgo.io.Io.Writer, _level:stdgo.StdGoTypes.GoInt):{ 
 **/
 function newWriterLevelDict(_w:stdgo.io.Io.Writer, _level:stdgo.StdGoTypes.GoInt, _dict:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.Ref<Writer>; var _1 : stdgo.Error; } {
         if ((_level < (-2 : stdgo.StdGoTypes.GoInt)) || (_level > (9 : stdgo.StdGoTypes.GoInt))) {
-            return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("zlib: invalid compression level: %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_level)) };
+            return { _0 : null, _1 : stdgo.fmt.Fmt.errorf(("zlib: invalid compression level: %d" : stdgo.GoString), stdgo.Go.toInterface(_level)) };
         };
         return { _0 : (stdgo.Go.setRef(({ _w : _w, _level : _level, _dict : _dict } : stdgo.compress.zlib.Zlib.Writer)) : stdgo.StdGoTypes.Ref<stdgo.compress.zlib.Zlib.Writer>), _1 : (null : stdgo.Error) };
     }
@@ -479,13 +479,13 @@ function _testFileLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _f
         try {
             var __tmp__ = stdgo.os.Os.open(_fn?.__copy__()), _golden:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err));
+                _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err));
                 return;
             };
             __deferstack__.unshift(() -> _golden.close());
             var __tmp__ = stdgo.io.Io.readAll(stdgo.Go.asInterface(_golden)), _b0:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err0:stdgo.Error = __tmp__._1;
             if (_err0 != null) {
-                _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err0));
+                _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err0));
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -534,7 +534,7 @@ function _testLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:st
                         __deferstack__.unshift(() -> _pipew.close());
                         var __tmp__ = newWriterLevelDict(stdgo.Go.asInterface(_pipew), _level, _dict), _zlibw:stdgo.StdGoTypes.Ref<stdgo.compress.zlib.Zlib.Writer> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
-                            _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err));
+                            _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err));
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -548,7 +548,7 @@ function _testLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:st
                             _err = __tmp__._1;
                         };
                         if (_err != null) {
-                            _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err));
+                            _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err));
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -584,7 +584,7 @@ function _testLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:st
             });
             var __tmp__ = newReaderDict(stdgo.Go.asInterface(_piper), _dict), _zlibr:stdgo.io.Io.ReadCloser = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err));
+                _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err));
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -595,7 +595,7 @@ function _testLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:st
             __deferstack__.unshift(() -> _zlibr.close());
             var __tmp__ = stdgo.io.Io.readAll(_zlibr), _b1:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err1:stdgo.Error = __tmp__._1;
             if (_err1 != null) {
-                _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err1));
+                _t.errorf(("%s (level=%d, dict=%q): %v" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_err1));
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -604,7 +604,7 @@ function _testLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:st
                 };
             };
             if ((_b0.length) != ((_b1.length))) {
-                _t.errorf(("%s (level=%d, dict=%q): length mismatch %d versus %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface((_b0.length)), stdgo.Go.toInterface((_b1.length)));
+                _t.errorf(("%s (level=%d, dict=%q): length mismatch %d versus %d" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface((_b0.length)), stdgo.Go.toInterface((_b1.length)));
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -616,7 +616,7 @@ function _testLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:st
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < (_b0.length), _i++, {
                     if (_b0[(_i : stdgo.StdGoTypes.GoInt)] != (_b1[(_i : stdgo.StdGoTypes.GoInt)])) {
-                        _t.errorf(("%s (level=%d, dict=%q): mismatch at %d, 0x%02x versus 0x%02x\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_b0[(_i : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_b1[(_i : stdgo.StdGoTypes.GoInt)]));
+                        _t.errorf(("%s (level=%d, dict=%q): mismatch at %d, 0x%02x versus 0x%02x\n" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_d), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_b0[(_i : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_b1[(_i : stdgo.StdGoTypes.GoInt)]));
                         {
                             for (defer in __deferstack__) {
                                 defer();
@@ -660,7 +660,7 @@ function _testFileLevelDictReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                _t.errorf(("%s (level=%d): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_err));
+                _t.errorf(("%s (level=%d): %v" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_err));
                 return;
             };
         };
@@ -689,7 +689,7 @@ function _testFileLevelDictReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             _err = _zlibw.close();
         };
         if (_err != null) {
-            _t.errorf(("%s (level=%d): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_err));
+            _t.errorf(("%s (level=%d): %v" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_err));
             return;
         };
         var _out:stdgo.GoString = (_buf.string() : stdgo.GoString)?.__copy__();
@@ -703,18 +703,18 @@ function _testFileLevelDictReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             _err = _zlibw.close();
         };
         if (_err != null) {
-            _t.errorf(("%s (level=%d): %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_err));
+            _t.errorf(("%s (level=%d): %v" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface(_err));
             return;
         };
         var _out2:stdgo.GoString = (_buf2.string() : stdgo.GoString)?.__copy__();
         if (_out2 != (_out)) {
-            _t.errorf(("%s (level=%d): different output after reset (got %d bytes, expected %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface((_out2.length)), stdgo.Go.toInterface((_out.length)));
+            _t.errorf(("%s (level=%d): different output after reset (got %d bytes, expected %d" : stdgo.GoString), stdgo.Go.toInterface(_fn), stdgo.Go.toInterface(_level), stdgo.Go.toInterface((_out2.length)), stdgo.Go.toInterface((_out.length)));
         };
     }
 function testWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (_i => _s in _data) {
             var _b = (_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
-            var _tag:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("#%d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i))?.__copy__();
+            var _tag:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("#%d" : stdgo.GoString), stdgo.Go.toInterface(_i))?.__copy__();
             _testLevelDict(_t, _tag?.__copy__(), _b, (-1 : stdgo.StdGoTypes.GoInt), stdgo.Go.str()?.__copy__());
             _testLevelDict(_t, _tag?.__copy__(), _b, (0 : stdgo.StdGoTypes.GoInt), stdgo.Go.str()?.__copy__());
             _testLevelDict(_t, _tag?.__copy__(), _b, (-2 : stdgo.StdGoTypes.GoInt), stdgo.Go.str()?.__copy__());
@@ -748,13 +748,13 @@ function testWriterBig(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 function testWriterDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {};
         for (_i => _fn in _filenames) {
-            _testFileLevelDict(_t, _fn?.__copy__(), (-1 : stdgo.StdGoTypes.GoInt), ("0123456789." : stdgo.GoString)?.__copy__());
-            _testFileLevelDict(_t, _fn?.__copy__(), (0 : stdgo.StdGoTypes.GoInt), ("0123456789." : stdgo.GoString)?.__copy__());
-            _testFileLevelDict(_t, _fn?.__copy__(), (-2 : stdgo.StdGoTypes.GoInt), ("0123456789." : stdgo.GoString)?.__copy__());
+            _testFileLevelDict(_t, _fn?.__copy__(), (-1 : stdgo.StdGoTypes.GoInt), ("0123456789." : stdgo.GoString));
+            _testFileLevelDict(_t, _fn?.__copy__(), (0 : stdgo.StdGoTypes.GoInt), ("0123456789." : stdgo.GoString));
+            _testFileLevelDict(_t, _fn?.__copy__(), (-2 : stdgo.StdGoTypes.GoInt), ("0123456789." : stdgo.GoString));
             {
                 var _level:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_level <= (9 : stdgo.StdGoTypes.GoInt), _level++, {
-                    _testFileLevelDict(_t, _fn?.__copy__(), _level, ("0123456789." : stdgo.GoString)?.__copy__());
+                    _testFileLevelDict(_t, _fn?.__copy__(), _level, ("0123456789." : stdgo.GoString));
                     if (((_level >= (1 : stdgo.StdGoTypes.GoInt)) && stdgo.testing.Testing.short()) && (stdgo.internal.testenv.Testenv.builder() == stdgo.Go.str())) {
                         break;
                     };
@@ -790,7 +790,7 @@ function testWriterDictIsUsed(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
         var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         var __tmp__ = newWriterLevelDict(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), (9 : stdgo.StdGoTypes.GoInt), _input), _compressor:stdgo.StdGoTypes.Ref<stdgo.compress.zlib.Zlib.Writer> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.errorf(("error in NewWriterLevelDict: %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
+            _t.errorf(("error in NewWriterLevelDict: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             return;
         };
         _compressor.write(_input);
@@ -798,7 +798,7 @@ function testWriterDictIsUsed(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
         {};
         var _output = _buf.bytes();
         if ((_output.length) > (25 : stdgo.StdGoTypes.GoInt)) {
-            _t.errorf(("result too large (got %d, want <= %d bytes). Is the dictionary being used?" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((_output.length)), stdgo.Go.toInterface((25 : stdgo.StdGoTypes.GoInt)));
+            _t.errorf(("result too large (got %d, want <= %d bytes). Is the dictionary being used?" : stdgo.GoString), stdgo.Go.toInterface((_output.length)), stdgo.Go.toInterface((25 : stdgo.StdGoTypes.GoInt)));
         };
     }
 class T_reader_asInterface {

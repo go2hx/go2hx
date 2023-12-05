@@ -5,7 +5,7 @@ import stdgo.testing.fstest.Fstest;
     
     
 **/
-var _tests : stdgo.Slice<stdgo.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo.testing.Testing.InternalTest>(5, 5, (new stdgo.testing.Testing.InternalTest(("TestMapFS" : stdgo.GoString)?.__copy__(), stdgo.testing.fstest.Fstest.testMapFS) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestMapFSChmodDot" : stdgo.GoString)?.__copy__(), stdgo.testing.fstest.Fstest.testMapFSChmodDot) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestSymlink" : stdgo.GoString)?.__copy__(), stdgo.testing.fstest.Fstest.testSymlink) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestDash" : stdgo.GoString)?.__copy__(), stdgo.testing.fstest.Fstest.testDash) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestShuffledFS" : stdgo.GoString)?.__copy__(), stdgo.testing.fstest.Fstest.testShuffledFS) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
+var _tests : stdgo.Slice<stdgo.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo.testing.Testing.InternalTest>(5, 5, (new stdgo.testing.Testing.InternalTest(("TestMapFS" : stdgo.GoString), stdgo.testing.fstest.Fstest.testMapFS) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestMapFSChmodDot" : stdgo.GoString), stdgo.testing.fstest.Fstest.testMapFSChmodDot) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestSymlink" : stdgo.GoString), stdgo.testing.fstest.Fstest.testSymlink) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestDash" : stdgo.GoString), stdgo.testing.fstest.Fstest.testDash) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestShuffledFS" : stdgo.GoString), stdgo.testing.fstest.Fstest.testShuffledFS) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
 /**
     
     
@@ -30,7 +30,7 @@ function main():Void {
     }
 @:keep var _ = {
         try {
-            stdgo.testing.internal.testdeps.Testdeps.importPath = ("testing/fstest" : stdgo.GoString)?.__copy__();
+            stdgo.testing.internal.testdeps.Testdeps.importPath = ("testing/fstest" : stdgo.GoString);
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

@@ -8,20 +8,20 @@ import stdgo.io.fs.Fs;
 var _tests : stdgo.Slice<stdgo.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo.testing.Testing.InternalTest>(
 14,
 14,
-(new stdgo.testing.Testing.InternalTest(("TestFormatFileInfo" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testFormatFileInfo) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestFormatDirEntry" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testFormatDirEntry) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestValidPath" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testValidPath) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestGlob" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testGlob) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestGlobError" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testGlobError) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestCVE202230630" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testCVE202230630) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestGlobMethod" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testGlobMethod) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestReadDir" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testReadDir) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestFileInfoToDirEntry" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testFileInfoToDirEntry) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestReadFile" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testReadFile) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestStat" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testStat) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestSub" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testSub) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestWalkDir" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testWalkDir) : stdgo.testing.Testing.InternalTest),
-(new stdgo.testing.Testing.InternalTest(("TestIssue51617" : stdgo.GoString)?.__copy__(), stdgo.io.fs_test.Fs_test.testIssue51617) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
+(new stdgo.testing.Testing.InternalTest(("TestFormatFileInfo" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testFormatFileInfo) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestFormatDirEntry" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testFormatDirEntry) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestValidPath" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testValidPath) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestGlob" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testGlob) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestGlobError" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testGlobError) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestCVE202230630" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testCVE202230630) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestGlobMethod" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testGlobMethod) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestReadDir" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testReadDir) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestFileInfoToDirEntry" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testFileInfoToDirEntry) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestReadFile" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testReadFile) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestStat" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testStat) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestSub" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testSub) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestWalkDir" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testWalkDir) : stdgo.testing.Testing.InternalTest),
+(new stdgo.testing.Testing.InternalTest(("TestIssue51617" : stdgo.GoString), stdgo.io.fs_test.Fs_test.testIssue51617) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
 /**
     
     
@@ -46,7 +46,7 @@ function main():Void {
     }
 @:keep var _ = {
         try {
-            stdgo.testing.internal.testdeps.Testdeps.importPath = ("io/fs" : stdgo.GoString)?.__copy__();
+            stdgo.testing.internal.testdeps.Testdeps.importPath = ("io/fs" : stdgo.GoString);
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

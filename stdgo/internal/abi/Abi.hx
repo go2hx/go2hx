@@ -6,33 +6,33 @@ package stdgo.internal.abi;
 **/
 var _kindNames : stdgo.Slice<stdgo.GoString> = {
         var s = new stdgo.Slice<stdgo.GoString>(27, 0).__setString__();
-        s[0] = ("invalid" : stdgo.GoString)?.__copy__();
-        s[1] = ("bool" : stdgo.GoString)?.__copy__();
-        s[2] = ("int" : stdgo.GoString)?.__copy__();
-        s[3] = ("int8" : stdgo.GoString)?.__copy__();
-        s[4] = ("int16" : stdgo.GoString)?.__copy__();
-        s[5] = ("int32" : stdgo.GoString)?.__copy__();
-        s[6] = ("int64" : stdgo.GoString)?.__copy__();
-        s[7] = ("uint" : stdgo.GoString)?.__copy__();
-        s[8] = ("uint8" : stdgo.GoString)?.__copy__();
-        s[9] = ("uint16" : stdgo.GoString)?.__copy__();
-        s[10] = ("uint32" : stdgo.GoString)?.__copy__();
-        s[11] = ("uint64" : stdgo.GoString)?.__copy__();
-        s[12] = ("uintptr" : stdgo.GoString)?.__copy__();
-        s[13] = ("float32" : stdgo.GoString)?.__copy__();
-        s[14] = ("float64" : stdgo.GoString)?.__copy__();
-        s[15] = ("complex64" : stdgo.GoString)?.__copy__();
-        s[16] = ("complex128" : stdgo.GoString)?.__copy__();
-        s[17] = ("array" : stdgo.GoString)?.__copy__();
-        s[18] = ("chan" : stdgo.GoString)?.__copy__();
-        s[19] = ("func" : stdgo.GoString)?.__copy__();
-        s[20] = ("interface" : stdgo.GoString)?.__copy__();
-        s[21] = ("map" : stdgo.GoString)?.__copy__();
-        s[22] = ("ptr" : stdgo.GoString)?.__copy__();
-        s[23] = ("slice" : stdgo.GoString)?.__copy__();
-        s[24] = ("string" : stdgo.GoString)?.__copy__();
-        s[25] = ("struct" : stdgo.GoString)?.__copy__();
-        s[26] = ("unsafe.Pointer" : stdgo.GoString)?.__copy__();
+        s[0] = ("invalid" : stdgo.GoString);
+        s[1] = ("bool" : stdgo.GoString);
+        s[2] = ("int" : stdgo.GoString);
+        s[3] = ("int8" : stdgo.GoString);
+        s[4] = ("int16" : stdgo.GoString);
+        s[5] = ("int32" : stdgo.GoString);
+        s[6] = ("int64" : stdgo.GoString);
+        s[7] = ("uint" : stdgo.GoString);
+        s[8] = ("uint8" : stdgo.GoString);
+        s[9] = ("uint16" : stdgo.GoString);
+        s[10] = ("uint32" : stdgo.GoString);
+        s[11] = ("uint64" : stdgo.GoString);
+        s[12] = ("uintptr" : stdgo.GoString);
+        s[13] = ("float32" : stdgo.GoString);
+        s[14] = ("float64" : stdgo.GoString);
+        s[15] = ("complex64" : stdgo.GoString);
+        s[16] = ("complex128" : stdgo.GoString);
+        s[17] = ("array" : stdgo.GoString);
+        s[18] = ("chan" : stdgo.GoString);
+        s[19] = ("func" : stdgo.GoString);
+        s[20] = ("interface" : stdgo.GoString);
+        s[21] = ("map" : stdgo.GoString);
+        s[22] = ("ptr" : stdgo.GoString);
+        s[23] = ("slice" : stdgo.GoString);
+        s[24] = ("string" : stdgo.GoString);
+        s[25] = ("struct" : stdgo.GoString);
+        s[26] = ("unsafe.Pointer" : stdgo.GoString);
         s;
     };
 /**
@@ -3381,7 +3381,7 @@ class UncommonType_asInterface {
         if (_t.xcount == ((0 : stdgo.StdGoTypes.GoUInt16))) {
             return (null : stdgo.Slice<stdgo.internal.abi.Abi.Method>);
         };
-        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), (_t.moff : stdgo.StdGoTypes.GoUIntptr), ("t.xcount > 0" : stdgo.GoString)?.__copy__()).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Method", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mtyp", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "ifn", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TextOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "tfn", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TextOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, 65536) })) : stdgo.StdGoTypes.Ref<stdgo.GoArray<Method>>).__slice__(0, _t.xcount, _t.xcount) : stdgo.Slice<stdgo.internal.abi.Abi.Method>);
+        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), (_t.moff : stdgo.StdGoTypes.GoUIntptr), ("t.xcount > 0" : stdgo.GoString)).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Method", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mtyp", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "ifn", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TextOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "tfn", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TextOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, 65536) })) : stdgo.StdGoTypes.Ref<stdgo.GoArray<Method>>).__slice__(0, _t.xcount, _t.xcount) : stdgo.Slice<stdgo.internal.abi.Abi.Method>);
     }
     @:keep
     static public function methods( _t:stdgo.StdGoTypes.Ref<UncommonType>):stdgo.Slice<Method> {
@@ -3389,7 +3389,7 @@ class UncommonType_asInterface {
         if (_t.mcount == ((0 : stdgo.StdGoTypes.GoUInt16))) {
             return (null : stdgo.Slice<stdgo.internal.abi.Abi.Method>);
         };
-        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), (_t.moff : stdgo.StdGoTypes.GoUIntptr), ("t.mcount > 0" : stdgo.GoString)?.__copy__()).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Method", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mtyp", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "ifn", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TextOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "tfn", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TextOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, 65536) })) : stdgo.StdGoTypes.Ref<stdgo.GoArray<Method>>).__slice__(0, _t.mcount, _t.mcount) : stdgo.Slice<stdgo.internal.abi.Abi.Method>);
+        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), (_t.moff : stdgo.StdGoTypes.GoUIntptr), ("t.mcount > 0" : stdgo.GoString)).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Method", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.NameOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "mtyp", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TypeOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "ifn", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TextOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }, { name : "tfn", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.TextOff", [], stdgo.internal.reflect.Reflect.GoType.basic(int32_kind), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, 65536) })) : stdgo.StdGoTypes.Ref<stdgo.GoArray<Method>>).__slice__(0, _t.mcount, _t.mcount) : stdgo.Slice<stdgo.internal.abi.Abi.Method>);
     }
 }
 class ArrayType_asInterface {
@@ -4094,7 +4094,7 @@ class FuncType_asInterface {
         if (_t.type.tflag & (1 : stdgo.internal.abi.Abi.TFlag) != ((0 : stdgo.internal.abi.Abi.TFlag))) {
             _uadd = _uadd + (stdgo.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo.internal.abi.Abi.UncommonType() : stdgo.internal.abi.Abi.UncommonType))));
         };
-        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), _uadd, ("outCount > 0" : stdgo.GoString)?.__copy__()).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), _uadd, ("outCount > 0" : stdgo.GoString)).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -4117,7 +4117,7 @@ class FuncType_asInterface {
         if (_t.inCount == ((0 : stdgo.StdGoTypes.GoUInt16))) {
             return (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.internal.abi.Abi.Type>>);
         };
-        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), _uadd, ("t.inCount > 0" : stdgo.GoString)?.__copy__()).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
+        return ((_addChecked((stdgo.Go.toInterface(_t) : stdgo.unsafe.Unsafe.UnsafePointer), _uadd, ("t.inCount > 0" : stdgo.GoString)).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.abi.Abi.Type", [], stdgo.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "hash", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false },
@@ -4476,7 +4476,7 @@ class Name_asInterface {
         };
         var __tmp__ = _n.readVarint((1 : stdgo.StdGoTypes.GoInt)), _i:stdgo.StdGoTypes.GoInt = __tmp__._0, _l:stdgo.StdGoTypes.GoInt = __tmp__._1;
         var __tmp__ = _n.readVarint(((1 : stdgo.StdGoTypes.GoInt) + _i) + _l), _i2:stdgo.StdGoTypes.GoInt = __tmp__._0, _l2:stdgo.StdGoTypes.GoInt = __tmp__._1;
-        return _unsafeStringFor(_n.dataChecked((((1 : stdgo.StdGoTypes.GoInt) + _i) + _l) + _i2, ("non-empty string" : stdgo.GoString)?.__copy__()), _l2)?.__copy__();
+        return _unsafeStringFor(_n.dataChecked((((1 : stdgo.StdGoTypes.GoInt) + _i) + _l) + _i2, ("non-empty string" : stdgo.GoString)), _l2)?.__copy__();
     }
     /**
         // Name returns the tag string for n, or empty if there is none.
@@ -4488,7 +4488,7 @@ class Name_asInterface {
             return stdgo.Go.str()?.__copy__();
         };
         var __tmp__ = _n.readVarint((1 : stdgo.StdGoTypes.GoInt)), _i:stdgo.StdGoTypes.GoInt = __tmp__._0, _l:stdgo.StdGoTypes.GoInt = __tmp__._1;
-        return _unsafeStringFor(_n.dataChecked((1 : stdgo.StdGoTypes.GoInt) + _i, ("non-empty string" : stdgo.GoString)?.__copy__()), _l)?.__copy__();
+        return _unsafeStringFor(_n.dataChecked((1 : stdgo.StdGoTypes.GoInt) + _i, ("non-empty string" : stdgo.GoString)), _l)?.__copy__();
     }
     /**
         // IsBlank indicates whether n is "_".
@@ -4513,7 +4513,7 @@ class Name_asInterface {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(true, _i++, {
-                var _x:stdgo.StdGoTypes.GoUInt8 = _n.dataChecked(_off + _i, ("read varint" : stdgo.GoString)?.__copy__()).value;
+                var _x:stdgo.StdGoTypes.GoUInt8 = _n.dataChecked(_off + _i, ("read varint" : stdgo.GoString)).value;
                 _v = _v + ((_x & (127 : stdgo.StdGoTypes.GoUInt8) : stdgo.StdGoTypes.GoInt) << ((7 : stdgo.StdGoTypes.GoInt) * _i));
                 if (_x & (128 : stdgo.StdGoTypes.GoUInt8) == ((0 : stdgo.StdGoTypes.GoUInt8))) {
                     return { _0 : _i + (1 : stdgo.StdGoTypes.GoInt), _1 : _v };
@@ -4552,7 +4552,7 @@ class Name_asInterface {
     @:keep
     static public function data( _n:Name, _off:stdgo.StdGoTypes.GoInt):stdgo.Pointer<stdgo.StdGoTypes.GoByte> {
         @:recv var _n:Name = _n?.__copy__();
-        return (_addChecked((stdgo.Go.toInterface(_n.bytes) : stdgo.unsafe.Unsafe.UnsafePointer), (_off : stdgo.StdGoTypes.GoUIntptr), ("the runtime doesn\'t need to give you a reason" : stdgo.GoString)?.__copy__()).__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.StdGoTypes.GoByte>);
+        return (_addChecked((stdgo.Go.toInterface(_n.bytes) : stdgo.unsafe.Unsafe.UnsafePointer), (_off : stdgo.StdGoTypes.GoUIntptr), ("the runtime doesn\'t need to give you a reason" : stdgo.GoString)).__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.StdGoTypes.GoByte>);
     }
     /**
         // DataChecked does pointer arithmetic on n's Bytes, and that arithmetic is asserted to

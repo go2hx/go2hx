@@ -1895,7 +1895,7 @@ class Mutex_asInterface {
     static public function _unlockSlow( _m:stdgo.StdGoTypes.Ref<Mutex>, _new:stdgo.StdGoTypes.GoInt32):Void {
         @:recv var _m:stdgo.StdGoTypes.Ref<Mutex> = _m;
         if ((_new + (1 : stdgo.StdGoTypes.GoInt32)) & (1 : stdgo.StdGoTypes.GoInt32) == ((0 : stdgo.StdGoTypes.GoInt32))) {
-            _fatal(("sync: unlock of unlocked mutex" : stdgo.GoString)?.__copy__());
+            _fatal(("sync: unlock of unlocked mutex" : stdgo.GoString));
         };
         if (_new & (4 : stdgo.StdGoTypes.GoInt32) == ((0 : stdgo.StdGoTypes.GoInt32))) {
             var _old:stdgo.StdGoTypes.GoInt32 = _new;
@@ -1954,7 +1954,7 @@ class Mutex_asInterface {
             };
             if (_awoke) {
                 if (_new & (2 : stdgo.StdGoTypes.GoInt32) == ((0 : stdgo.StdGoTypes.GoInt32))) {
-                    _throw(("sync: inconsistent mutex state" : stdgo.GoString)?.__copy__());
+                    _throw(("sync: inconsistent mutex state" : stdgo.GoString));
                 };
                 _new = _new & ((2 : stdgo.StdGoTypes.GoInt32) ^ (-1i32 : stdgo.StdGoTypes.GoInt));
             };
@@ -1971,7 +1971,7 @@ class Mutex_asInterface {
                 _old = _m._state;
                 if (_old & (4 : stdgo.StdGoTypes.GoInt32) != ((0 : stdgo.StdGoTypes.GoInt32))) {
                     if (((_old & (3 : stdgo.StdGoTypes.GoInt32)) != (0 : stdgo.StdGoTypes.GoInt32)) || ((_old >> (3i64 : stdgo.StdGoTypes.GoUInt64)) == (0 : stdgo.StdGoTypes.GoInt32))) {
-                        _throw(("sync: inconsistent mutex state" : stdgo.GoString)?.__copy__());
+                        _throw(("sync: inconsistent mutex state" : stdgo.GoString));
                     };
                     var _delta:stdgo.StdGoTypes.GoInt32 = (-7 : stdgo.StdGoTypes.GoInt32);
                     if (!_starving || ((_old >> (3i64 : stdgo.StdGoTypes.GoUInt64)) == (1 : stdgo.StdGoTypes.GoInt32))) {
@@ -2654,7 +2654,7 @@ class RWMutex_asInterface {
         var _r:stdgo.StdGoTypes.GoInt32 = _rw._readerCount.add((1073741824 : stdgo.StdGoTypes.GoInt32));
         if (_r >= (1073741824 : stdgo.StdGoTypes.GoInt32)) {
             stdgo.internal.race.Race.enable();
-            _fatal(("sync: Unlock of unlocked RWMutex" : stdgo.GoString)?.__copy__());
+            _fatal(("sync: Unlock of unlocked RWMutex" : stdgo.GoString));
         };
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -2729,7 +2729,7 @@ class RWMutex_asInterface {
         @:recv var _rw:stdgo.StdGoTypes.Ref<RWMutex> = _rw;
         if (((_r + (1 : stdgo.StdGoTypes.GoInt32)) == (0 : stdgo.StdGoTypes.GoInt32)) || ((_r + (1 : stdgo.StdGoTypes.GoInt32)) == (-1073741824 : stdgo.StdGoTypes.GoInt32))) {
             stdgo.internal.race.Race.enable();
-            _fatal(("sync: RUnlock of unlocked RWMutex" : stdgo.GoString)?.__copy__());
+            _fatal(("sync: RUnlock of unlocked RWMutex" : stdgo.GoString));
         };
         if (_rw._readerWait.add((-1 : stdgo.StdGoTypes.GoInt32)) == ((0 : stdgo.StdGoTypes.GoInt32))) {
             _runtime_Semrelease(stdgo.Go.pointer(_rw._writerSem), false, (1 : stdgo.StdGoTypes.GoInt));

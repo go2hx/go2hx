@@ -14,7 +14,7 @@ private var __go2hxdoc__package : Bool;
 var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test>(
 32,
 32,
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("76245dbf96f661bd221046197ab8b9f063f11bad" : stdgo.GoString)?.__copy__(), ("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("76245dbf96f661bd221046197ab8b9f063f11bad" : stdgo.GoString), ("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "\x0B",
 160,
@@ -81,7 +81,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 150)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("da39a3ee5e6b4b0d3255bfef95601890afd80709" : stdgo.GoString)?.__copy__(), stdgo.Go.str()?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("da39a3ee5e6b4b0d3255bfef95601890afd80709" : stdgo.GoString), stdgo.Go.str()?.__copy__(), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -170,7 +170,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 0)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("86f7e437faa5a7fce15d1ddcb9eaeaea377667b8" : stdgo.GoString)?.__copy__(), ("a" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("86f7e437faa5a7fce15d1ddcb9eaeaea377667b8" : stdgo.GoString), ("a" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -259,7 +259,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 0)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("da23614e02469a0d7c7bd1bdab5c9c474b1904dc" : stdgo.GoString)?.__copy__(), ("ab" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("da23614e02469a0d7c7bd1bdab5c9c474b1904dc" : stdgo.GoString), ("ab" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -348,7 +348,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 1)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("a9993e364706816aba3e25717850c26c9cd0d89d" : stdgo.GoString)?.__copy__(), ("abc" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("a9993e364706816aba3e25717850c26c9cd0d89d" : stdgo.GoString), ("abc" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -437,7 +437,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 1)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("81fe8bfe87576c3ecb22426f8e57847382917acf" : stdgo.GoString)?.__copy__(), ("abcd" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("81fe8bfe87576c3ecb22426f8e57847382917acf" : stdgo.GoString), ("abcd" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -525,7 +525,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 2)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("03de6c570bfe24bfc328ccd7ca46b76eadaf4334" : stdgo.GoString)?.__copy__(), ("abcde" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("03de6c570bfe24bfc328ccd7ca46b76eadaf4334" : stdgo.GoString), ("abcde" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -613,7 +613,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 2)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("1f8ac10f23c5b5bc1167bda84b833e5c057a77d2" : stdgo.GoString)?.__copy__(), ("abcdef" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("1f8ac10f23c5b5bc1167bda84b833e5c057a77d2" : stdgo.GoString), ("abcdef" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -700,7 +700,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 3)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("2fb5e13419fc89246865e7a324f476ec624e8740" : stdgo.GoString)?.__copy__(), ("abcdefg" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("2fb5e13419fc89246865e7a324f476ec624e8740" : stdgo.GoString), ("abcdefg" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -787,7 +787,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 3)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("425af12a0743502b322e93a015bcf868e324d56a" : stdgo.GoString)?.__copy__(), ("abcdefgh" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("425af12a0743502b322e93a015bcf868e324d56a" : stdgo.GoString), ("abcdefgh" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -873,7 +873,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 4)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("c63b19f1e4c8b5f76b25c49b8b87f57d8e4872a1" : stdgo.GoString)?.__copy__(), ("abcdefghi" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("c63b19f1e4c8b5f76b25c49b8b87f57d8e4872a1" : stdgo.GoString), ("abcdefghi" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -959,7 +959,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 4)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("d68c19a0a345b7eab78d5e11e991c026ec60db63" : stdgo.GoString)?.__copy__(), ("abcdefghij" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("d68c19a0a345b7eab78d5e11e991c026ec60db63" : stdgo.GoString), ("abcdefghij" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1044,7 +1044,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 5)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("ebf81ddcbe5bf13aaabdc4d65354fdf2044f38a7" : stdgo.GoString)?.__copy__(), ("Discard medicine more than two years old." : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("ebf81ddcbe5bf13aaabdc4d65354fdf2044f38a7" : stdgo.GoString), ("Discard medicine more than two years old." : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1114,7 +1114,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 20)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("e5dea09392dd886ca63531aaa00571dc07554bb6" : stdgo.GoString)?.__copy__(), ("He who has a shady past knows that nice guys finish last." : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("e5dea09392dd886ca63531aaa00571dc07554bb6" : stdgo.GoString), ("He who has a shady past knows that nice guys finish last." : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1176,7 +1176,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 28)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("45988f7234467b94e3e9494434c96ee3609d8f8f" : stdgo.GoString)?.__copy__(), ("I wouldn\'t marry him with a ten foot pole." : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("45988f7234467b94e3e9494434c96ee3609d8f8f" : stdgo.GoString), ("I wouldn\'t marry him with a ten foot pole." : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1245,7 +1245,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 21)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("55dee037eb7460d5a692d1ce11330b260e40c988" : stdgo.GoString)?.__copy__(), ("Free! Free!/A trip/to Mars/for 900/empty jars/Burma Shave" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("55dee037eb7460d5a692d1ce11330b260e40c988" : stdgo.GoString), ("Free! Free!/A trip/to Mars/for 900/empty jars/Burma Shave" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1307,7 +1307,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 28)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("b7bc5fb91080c7de6b582ea281f8a396d7c0aee8" : stdgo.GoString)?.__copy__(), ("The days of the digital watch are numbered.  -Tom Stoppard" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("b7bc5fb91080c7de6b582ea281f8a396d7c0aee8" : stdgo.GoString), ("The days of the digital watch are numbered.  -Tom Stoppard" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1368,7 +1368,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 29)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("c3aed9358f7c77f523afe86135f06b95b3999797" : stdgo.GoString)?.__copy__(), ("Nepal premier won\'t resign." : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("c3aed9358f7c77f523afe86135f06b95b3999797" : stdgo.GoString), ("Nepal premier won\'t resign." : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1445,7 +1445,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 "\r")?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("6e29d302bf6e3a5e4305ff318d983197d6906bb9" : stdgo.GoString)?.__copy__(), ("For every action there is an equal and opposite government program." : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("6e29d302bf6e3a5e4305ff318d983197d6906bb9" : stdgo.GoString), ("For every action there is an equal and opposite government program." : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1502,7 +1502,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 "!")?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("597f6a540010f94c15d71806a99a2c8710e747bd" : stdgo.GoString)?.__copy__(), ("His money is twice tainted: \'taint yours and \'taint mine." : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("597f6a540010f94c15d71806a99a2c8710e747bd" : stdgo.GoString), ("His money is twice tainted: \'taint yours and \'taint mine." : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1564,7 +1564,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 28)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("6859733b2590a8a091cecf50086febc5ceef1e80" : stdgo.GoString)?.__copy__(), ("There is no reason for any individual to have a computer in their home. -Ken Olsen, 1977" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("6859733b2590a8a091cecf50086febc5ceef1e80" : stdgo.GoString), ("There is no reason for any individual to have a computer in their home. -Ken Olsen, 1977" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1610,7 +1610,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 ",")?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("514b2630ec089b8aee18795fc0cf1f4860cdacad" : stdgo.GoString)?.__copy__(), ("It\'s a tiny change to the code and not completely disgusting. - Bob Manchek" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("514b2630ec089b8aee18795fc0cf1f4860cdacad" : stdgo.GoString), ("It\'s a tiny change to the code and not completely disgusting. - Bob Manchek" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1663,7 +1663,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 "%")?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("c5ca0d4a7b6676fc7aa72caa41cc3d5df567ed69" : stdgo.GoString)?.__copy__(), ("size:  a.out:  bad magic" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("c5ca0d4a7b6676fc7aa72caa41cc3d5df567ed69" : stdgo.GoString), ("size:  a.out:  bad magic" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1741,7 +1741,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 "\x0C")?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("74c51fa9a04eadc8c1bbeaa7fc442f834b90a00a" : stdgo.GoString)?.__copy__(), ("The major problem is with sendmail.  -Mark Horton" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("74c51fa9a04eadc8c1bbeaa7fc442f834b90a00a" : stdgo.GoString), ("The major problem is with sendmail.  -Mark Horton" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1807,7 +1807,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 24)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("0b4c4ce5f52c3ad2821852a8dc00217fa18b8b66" : stdgo.GoString)?.__copy__(), ("Give me a rock, paper and scissors and I will move the world.  CCFestoon" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("0b4c4ce5f52c3ad2821852a8dc00217fa18b8b66" : stdgo.GoString), ("Give me a rock, paper and scissors and I will move the world.  CCFestoon" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1861,7 +1861,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 "$")?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("3ae7937dd790315beb0f48330e8642237c61550a" : stdgo.GoString)?.__copy__(), ("If the enemy is within range, then so are you." : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("3ae7937dd790315beb0f48330e8642237c61550a" : stdgo.GoString), ("If the enemy is within range, then so are you." : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1928,7 +1928,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 23)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("410a2b296df92b9a47412b13281df8f830a9f44b" : stdgo.GoString)?.__copy__(), ("It\'s well we cannot hear the screams/That we create in others\' dreams." : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("410a2b296df92b9a47412b13281df8f830a9f44b" : stdgo.GoString), ("It\'s well we cannot hear the screams/That we create in others\' dreams." : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -1983,7 +1983,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 "#")?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("841e7c85ca1adcddbdd0187f1289acb5c642f7f5" : stdgo.GoString)?.__copy__(), ("You remind me of a TV show, but that\'s all right: I watch it anyway." : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("841e7c85ca1adcddbdd0187f1289acb5c642f7f5" : stdgo.GoString), ("You remind me of a TV show, but that\'s all right: I watch it anyway." : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -2039,7 +2039,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 "\"")?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("163173b825d03b952601376b25212df66763e1db" : stdgo.GoString)?.__copy__(), ("C is as portable as Stonehedge!!" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("163173b825d03b952601376b25212df66763e1db" : stdgo.GoString), ("C is as portable as Stonehedge!!" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -2113,7 +2113,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 16)?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("32b0377f2687eb88e22106f133c586ab314d5279" : stdgo.GoString)?.__copy__(), ("Even if I could be Shakespeare, I think I should still choose to be Faraday. - A. Huxley" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("32b0377f2687eb88e22106f133c586ab314d5279" : stdgo.GoString), ("Even if I could be Shakespeare, I think I should still choose to be Faraday. - A. Huxley" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -2159,7 +2159,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 ",")?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("0885aaf99b569542fd165fa44e322718f4a984e0" : stdgo.GoString)?.__copy__(), ("The fugacity of a constituent in a mixture of gases at a given temperature is proportional to its mole fraction.  Lewis-Randall Rule" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("0885aaf99b569542fd165fa44e322718f4a984e0" : stdgo.GoString), ("The fugacity of a constituent in a mixture of gases at a given temperature is proportional to its mole fraction.  Lewis-Randall Rule" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "x}",
 244,
@@ -2244,7 +2244,7 @@ var _golden : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_sha1Test> = (new stdgo.Slice<
 0,
 0,
 "B")?.__copy__()) : stdgo.crypto.sha1.Sha1.T_sha1Test),
-(new stdgo.crypto.sha1.Sha1.T_sha1Test(("6627d6904d71420b0bf3886ab629623538689f45" : stdgo.GoString)?.__copy__(), ("How can you write a big system without C++?  -Paul Glick" : stdgo.GoString)?.__copy__(), stdgo.Go.str("sha",
+(new stdgo.crypto.sha1.Sha1.T_sha1Test(("6627d6904d71420b0bf3886ab629623538689f45" : stdgo.GoString), ("How can you write a big system without C++?  -Paul Glick" : stdgo.GoString), stdgo.Go.str("sha",
 1,
 "gE#",
 1,
@@ -2343,7 +2343,7 @@ var _largeUnmarshalTests : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_unmarshalTest> =
 0,
 1,
 167,
-"VCw")?.__copy__(), _sum : ("bc6245c9959cc33e1c2592e5c9ea9b5d0431246c" : stdgo.GoString)?.__copy__() } : stdgo.crypto.sha1.Sha1.T_unmarshalTest), ({ _state : stdgo.Go.str("sha",
+"VCw")?.__copy__(), _sum : ("bc6245c9959cc33e1c2592e5c9ea9b5d0431246c" : stdgo.GoString) } : stdgo.crypto.sha1.Sha1.T_unmarshalTest), ({ _state : stdgo.Go.str("sha",
 1,
 "m;",
 22,
@@ -2377,7 +2377,7 @@ var _largeUnmarshalTests : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_unmarshalTest> =
 0,
 1,
 135,
-"VCw")?.__copy__(), _sum : ("8f2d1c0e4271768f35feb918bfe21ea1387a2072" : stdgo.GoString)?.__copy__() } : stdgo.crypto.sha1.Sha1.T_unmarshalTest)) : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_unmarshalTest>);
+"VCw")?.__copy__(), _sum : ("8f2d1c0e4271768f35feb918bfe21ea1387a2072" : stdgo.GoString) } : stdgo.crypto.sha1.Sha1.T_unmarshalTest)) : stdgo.Slice<stdgo.crypto.sha1.Sha1.T_unmarshalTest>);
 /**
     
     
@@ -2591,9 +2591,9 @@ function testGolden(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < (_golden.length), _i++, {
                 var _g:stdgo.crypto.sha1.Sha1.T_sha1Test = _golden[(_i : stdgo.StdGoTypes.GoInt)];
-                var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("%x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(sum((_g._in : stdgo.Slice<stdgo.StdGoTypes.GoByte>))))?.__copy__();
+                var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("%x" : stdgo.GoString), stdgo.Go.toInterface(sum((_g._in : stdgo.Slice<stdgo.StdGoTypes.GoByte>))))?.__copy__();
                 if (_s != (_g._out)) {
-                    _t.fatalf(("Sum function: sha1(%s) = %s want %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_g._in), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_g._out));
+                    _t.fatalf(("Sum function: sha1(%s) = %s want %s" : stdgo.GoString), stdgo.Go.toInterface(_g._in), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_g._out));
                 };
                 var _c:stdgo.hash.Hash.Hash = new_();
                 {
@@ -2620,9 +2620,9 @@ function testGolden(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                                 _sum = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : stdgo.StdGoTypes.Ref<T_digest>)) : stdgo.StdGoTypes.Ref<T_digest>).constantTimeSum((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
                             };
                         };
-                        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("%x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_sum))?.__copy__();
+                        var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("%x" : stdgo.GoString), stdgo.Go.toInterface(_sum))?.__copy__();
                         if (_s != (_g._out)) {
-                            _t.fatalf(("sha1[%d](%s) = %s want %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_g._in), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_g._out));
+                            _t.fatalf(("sha1[%d](%s) = %s want %s" : stdgo.GoString), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_g._in), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_g._out));
                         };
                         _c.reset();
                     });
@@ -2639,17 +2639,17 @@ function testGoldenMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             stdgo.io.Io.writeString(_h, (_g._in.__slice__(0, (_g._in.length) / (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__());
             var __tmp__ = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_h) : stdgo.encoding.Encoding.BinaryMarshaler)) : stdgo.encoding.Encoding.BinaryMarshaler).marshalBinary(), _state:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.errorf(("could not marshal: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
+                _t.errorf(("could not marshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 continue;
             };
             if ((_state : stdgo.GoString) != (_g._halfState)) {
-                _t.errorf(("sha1(%q) state = %+q, want %+q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_g._in), stdgo.Go.toInterface(_state), stdgo.Go.toInterface(_g._halfState));
+                _t.errorf(("sha1(%q) state = %+q, want %+q" : stdgo.GoString), stdgo.Go.toInterface(_g._in), stdgo.Go.toInterface(_state), stdgo.Go.toInterface(_g._halfState));
                 continue;
             };
             {
                 var _err:stdgo.Error = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_h2) : stdgo.encoding.Encoding.BinaryUnmarshaler)) : stdgo.encoding.Encoding.BinaryUnmarshaler).unmarshalBinary(_state);
                 if (_err != null) {
-                    _t.errorf(("could not unmarshal: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_err));
+                    _t.errorf(("could not unmarshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     continue;
                 };
             };
@@ -2658,7 +2658,7 @@ function testGoldenMarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             {
                 var __0 = _h.sum((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __1 = _h2.sum((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), _actual2 = __1, _actual = __0;
                 if (!stdgo.bytes.Bytes.equal(_actual, _actual2)) {
-                    _t.errorf(("sha1(%q) = 0x%x != marshaled 0x%x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_g._in), stdgo.Go.toInterface(_actual), stdgo.Go.toInterface(_actual2));
+                    _t.errorf(("sha1(%q) = 0x%x != marshaled 0x%x" : stdgo.GoString), stdgo.Go.toInterface(_g._in), stdgo.Go.toInterface(_actual), stdgo.Go.toInterface(_actual2));
                 };
             };
         };
@@ -2668,7 +2668,7 @@ function testSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {
             var _got:stdgo.StdGoTypes.GoInt = _c.size();
             if (_got != ((20 : stdgo.StdGoTypes.GoInt))) {
-                _t.errorf(("Size = %d; want %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((20 : stdgo.StdGoTypes.GoInt)));
+                _t.errorf(("Size = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((20 : stdgo.StdGoTypes.GoInt)));
             };
         };
     }
@@ -2677,7 +2677,7 @@ function testBlockSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {
             var _got:stdgo.StdGoTypes.GoInt = _c.blockSize();
             if (_got != ((64 : stdgo.StdGoTypes.GoInt))) {
-                _t.errorf(("BlockSize = %d; want %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((64 : stdgo.StdGoTypes.GoInt)));
+                _t.errorf(("BlockSize = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((64 : stdgo.StdGoTypes.GoInt)));
             };
         };
     }
@@ -2697,7 +2697,7 @@ function testBlockGeneric(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 _blockGeneric(_gen, _buf);
                 _block(_asm, _buf);
                 if (stdgo.Go.toInterface((_gen : stdgo.crypto.sha1.Sha1.T_digest)) != stdgo.Go.toInterface((_asm : stdgo.crypto.sha1.Sha1.T_digest))) {
-                    _t.errorf(("For %#v block and blockGeneric resulted in different states" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_buf));
+                    _t.errorf(("For %#v block and blockGeneric resulted in different states" : stdgo.GoString), stdgo.Go.toInterface(_buf));
                 };
             });
         };
@@ -2714,7 +2714,7 @@ function _safeSum(_h:stdgo.hash.Hash.Hash):{ var _0 : stdgo.Slice<stdgo.StdGoTyp
                         r;
                     });
                     if (_r != null) {
-                        _err = stdgo.fmt.Fmt.errorf(("sum panic: %v" : stdgo.GoString)?.__copy__(), _r);
+                        _err = stdgo.fmt.Fmt.errorf(("sum panic: %v" : stdgo.GoString), _r);
                     };
                 };
             };
@@ -2757,17 +2757,17 @@ function testLargeHashes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             {
                 var _err:stdgo.Error = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_h) : stdgo.encoding.Encoding.BinaryUnmarshaler)) : stdgo.encoding.Encoding.BinaryUnmarshaler).unmarshalBinary((_test._state : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
                 if (_err != null) {
-                    _t.errorf(("test %d could not unmarshal: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
+                    _t.errorf(("test %d could not unmarshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     continue;
                 };
             };
             var __tmp__ = _safeSum(_h), _sum:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.errorf(("test %d could not sum: %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
+                _t.errorf(("test %d could not sum: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                 continue;
             };
-            if (stdgo.fmt.Fmt.sprintf(("%x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_sum)) != (_test._sum)) {
-                _t.errorf(("test %d sum mismatch: expect %s got %x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._sum), stdgo.Go.toInterface(_sum));
+            if (stdgo.fmt.Fmt.sprintf(("%x" : stdgo.GoString), stdgo.Go.toInterface(_sum)) != (_test._sum)) {
+                _t.errorf(("test %d sum mismatch: expect %s got %x" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._sum), stdgo.Go.toInterface(_sum));
             };
         };
     }
@@ -2784,12 +2784,12 @@ function testAllocations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             _out = _h.sum((_out.__slice__(0, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
         }) : stdgo.StdGoTypes.GoInt);
         if (_n > (0 : stdgo.StdGoTypes.GoInt)) {
-            _t.errorf(("allocs = %d, want 0" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n));
+            _t.errorf(("allocs = %d, want 0" : stdgo.GoString), stdgo.Go.toInterface(_n));
         };
     }
 function _benchmarkSize(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _size:stdgo.StdGoTypes.GoInt):Void {
         var _sum = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((_bench.size() : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
-        _b.run(("New" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("New" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             _b.reportAllocs();
             _b.setBytes((_size : stdgo.StdGoTypes.GoInt64));
             {
@@ -2801,7 +2801,7 @@ function _benchmarkSize(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _size:
                 });
             };
         });
-        _b.run(("Sum" : stdgo.GoString)?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
+        _b.run(("Sum" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             _b.reportAllocs();
             _b.setBytes((_size : stdgo.StdGoTypes.GoInt64));
             {
@@ -3141,10 +3141,10 @@ class T_digest_asInterface {
     static public function unmarshalBinary( _d:stdgo.StdGoTypes.Ref<T_digest>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
         @:recv var _d:stdgo.StdGoTypes.Ref<T_digest> = _d;
         if ((_b.length < stdgo.Go.str("sha", 1).length) || (((_b.__slice__(0, (stdgo.Go.str("sha", 1).length)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("sha", 1))) {
-            return stdgo.errors.Errors.new_(("crypto/sha1: invalid hash state identifier" : stdgo.GoString)?.__copy__());
+            return stdgo.errors.Errors.new_(("crypto/sha1: invalid hash state identifier" : stdgo.GoString));
         };
         if ((_b.length) != ((96 : stdgo.StdGoTypes.GoInt))) {
-            return stdgo.errors.Errors.new_(("crypto/sha1: invalid hash state size" : stdgo.GoString)?.__copy__());
+            return stdgo.errors.Errors.new_(("crypto/sha1: invalid hash state size" : stdgo.GoString));
         };
         _b = (_b.__slice__((stdgo.Go.str("sha", 1).length)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         {

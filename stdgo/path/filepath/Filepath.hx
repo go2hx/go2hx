@@ -14,7 +14,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var errBadPattern : stdgo.Error = stdgo.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString)?.__copy__());
+var errBadPattern : stdgo.Error = stdgo.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString));
 /**
     // SkipDir is used as a return value from WalkFuncs to indicate that
     // the directory named in the call is to be skipped. It is not returned
@@ -176,7 +176,7 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                     _pattern = __tmp__._2?.__copy__();
                 };
                 if (_star && (_chunk == stdgo.Go.str())) {
-                    return { _0 : !stdgo.strings.Strings.contains(_name?.__copy__(), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__()), _1 : (null : stdgo.Error) };
+                    return { _0 : !stdgo.strings.Strings.contains(_name?.__copy__(), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)), _1 : (null : stdgo.Error) };
                 };
                 var __tmp__ = _matchChunk(_chunk?.__copy__(), _name?.__copy__()), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                 if (_ok && ((_t.length == (0 : stdgo.StdGoTypes.GoInt)) || (_pattern.length > (0 : stdgo.StdGoTypes.GoInt)))) {
@@ -494,7 +494,7 @@ function _cleanGlobPath(_path:stdgo.GoString):stdgo.GoString {
         {
             final __value__ = _path;
             if (__value__ == (stdgo.Go.str())) {
-                return ("." : stdgo.GoString)?.__copy__();
+                return ("." : stdgo.GoString);
             } else if (__value__ == (((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString))) {
                 return _path?.__copy__();
             } else {
@@ -509,7 +509,7 @@ function _cleanGlobPathWindows(_path:stdgo.GoString):{ var _0 : stdgo.StdGoTypes
         var _prefixLen:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _cleaned:stdgo.GoString = ("" : stdgo.GoString);
         var _vollen:stdgo.StdGoTypes.GoInt = _volumeNameLen(_path?.__copy__());
         if (_path == (stdgo.Go.str())) {
-            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : ("." : stdgo.GoString)?.__copy__() };
+            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : ("." : stdgo.GoString) };
         } else if (((_vollen + (1 : stdgo.StdGoTypes.GoInt)) == (_path.length)) && stdgo.os.Os.isPathSeparator(_path[((_path.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)])) {
             return { _0 : _vollen + (1 : stdgo.StdGoTypes.GoInt), _1 : _path?.__copy__() };
         } else if ((_vollen == (_path.length)) && (_path.length == (2 : stdgo.StdGoTypes.GoInt))) {
@@ -595,9 +595,9 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
     // recognized by Match.
 **/
 function _hasMeta(_path:stdgo.GoString):Bool {
-        var _magicChars:stdgo.GoString = ("*?[" : stdgo.GoString)?.__copy__();
+        var _magicChars:stdgo.GoString = ("*?[" : stdgo.GoString);
         if (true) {
-            _magicChars = ("*?[\\" : stdgo.GoString)?.__copy__();
+            _magicChars = ("*?[\\" : stdgo.GoString);
         };
         return stdgo.strings.Strings.containsAny(_path?.__copy__(), _magicChars?.__copy__());
     }
@@ -727,7 +727,7 @@ function _unixIsLocal(_path:stdgo.GoString):Bool {
             while (_p != (stdgo.Go.str())) {
                 var _part:stdgo.GoString = ("" : stdgo.GoString);
                 {
-                    var __tmp__ = stdgo.strings.Strings.cut(_p?.__copy__(), ("/" : stdgo.GoString)?.__copy__());
+                    var __tmp__ = stdgo.strings.Strings.cut(_p?.__copy__(), ("/" : stdgo.GoString));
                     _part = __tmp__._0?.__copy__();
                     _p = __tmp__._1?.__copy__();
                 };
@@ -740,7 +740,7 @@ function _unixIsLocal(_path:stdgo.GoString):Bool {
         if (_hasDots) {
             _path = clean(_path?.__copy__())?.__copy__();
         };
-        if ((_path == (".." : stdgo.GoString)) || stdgo.strings.Strings.hasPrefix(_path?.__copy__(), ("../" : stdgo.GoString)?.__copy__())) {
+        if ((_path == (".." : stdgo.GoString)) || stdgo.strings.Strings.hasPrefix(_path?.__copy__(), ("../" : stdgo.GoString))) {
             return false;
         };
         return true;
@@ -754,7 +754,7 @@ function toSlash(_path:stdgo.GoString):stdgo.GoString {
         if (true) {
             return _path?.__copy__();
         };
-        return stdgo.strings.Strings.replaceAll(_path?.__copy__(), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__(), ("/" : stdgo.GoString)?.__copy__())?.__copy__();
+        return stdgo.strings.Strings.replaceAll(_path?.__copy__(), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString), ("/" : stdgo.GoString))?.__copy__();
     }
 /**
     // FromSlash returns the result of replacing each slash ('/') character
@@ -765,7 +765,7 @@ function fromSlash(_path:stdgo.GoString):stdgo.GoString {
         if (true) {
             return _path?.__copy__();
         };
-        return stdgo.strings.Strings.replaceAll(_path?.__copy__(), ("/" : stdgo.GoString)?.__copy__(), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__())?.__copy__();
+        return stdgo.strings.Strings.replaceAll(_path?.__copy__(), ("/" : stdgo.GoString), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString))?.__copy__();
     }
 /**
     // SplitList splits a list of paths joined by the OS-specific ListSeparator,
@@ -868,14 +868,14 @@ function rel(_basepath:stdgo.GoString, _targpath:stdgo.GoString):{ var _0 : stdg
         var _base:stdgo.GoString = clean(_basepath?.__copy__())?.__copy__();
         var _targ:stdgo.GoString = clean(_targpath?.__copy__())?.__copy__();
         if (_sameWord(_targ?.__copy__(), _base?.__copy__())) {
-            return { _0 : ("." : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
+            return { _0 : ("." : stdgo.GoString), _1 : (null : stdgo.Error) };
         };
         _base = (_base.__slice__((_baseVol.length)) : stdgo.GoString)?.__copy__();
         _targ = (_targ.__slice__((_targVol.length)) : stdgo.GoString)?.__copy__();
         if (_base == (("." : stdgo.GoString))) {
             _base = stdgo.Go.str()?.__copy__();
         } else if ((_base == stdgo.Go.str()) && (_volumeNameLen(_baseVol?.__copy__()) > (2 : stdgo.StdGoTypes.GoInt))) {
-            _base = ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__();
+            _base = ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString);
         };
         var _baseSlashed:Bool = (_base.length > (0 : stdgo.StdGoTypes.GoInt)) && (_base[(0 : stdgo.StdGoTypes.GoInt)] == (47 : stdgo.StdGoTypes.GoUInt8));
         var _targSlashed:Bool = (_targ.length > (0 : stdgo.StdGoTypes.GoInt)) && (_targ[(0 : stdgo.StdGoTypes.GoInt)] == (47 : stdgo.StdGoTypes.GoUInt8));
@@ -908,7 +908,7 @@ function rel(_basepath:stdgo.GoString, _targpath:stdgo.GoString):{ var _0 : stdg
             return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.errors.Errors.new_(("Rel: can\'t make " : stdgo.GoString) + _targpath?.__copy__() + (" relative to " : stdgo.GoString)?.__copy__() + _basepath?.__copy__()?.__copy__()) };
         };
         if (_b0 != (_bl)) {
-            var _seps:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.count((_base.__slice__(_b0, _bl) : stdgo.GoString)?.__copy__(), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__());
+            var _seps:stdgo.StdGoTypes.GoInt = stdgo.strings.Strings.count((_base.__slice__(_b0, _bl) : stdgo.GoString)?.__copy__(), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString));
             var _size:stdgo.StdGoTypes.GoInt = (2 : stdgo.StdGoTypes.GoInt) + (_seps * (3 : stdgo.StdGoTypes.GoInt));
             if (_tl != (_t0)) {
                 _size = _size + (((1 : stdgo.StdGoTypes.GoInt) + _tl) - _t0);
@@ -1102,7 +1102,7 @@ function _readDirNames(_dirname:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoS
 **/
 function base(_path:stdgo.GoString):stdgo.GoString {
         if (_path == (stdgo.Go.str())) {
-            return ("." : stdgo.GoString)?.__copy__();
+            return ("." : stdgo.GoString);
         };
         while ((_path.length > (0 : stdgo.StdGoTypes.GoInt)) && stdgo.os.Os.isPathSeparator(_path[((_path.length) - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)])) {
             _path = (_path.__slice__((0 : stdgo.StdGoTypes.GoInt), (_path.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
@@ -1116,7 +1116,7 @@ function base(_path:stdgo.GoString):stdgo.GoString {
             _path = (_path.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__();
         };
         if (_path == (stdgo.Go.str())) {
-            return ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__();
+            return ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString);
         };
         return _path?.__copy__();
     }
@@ -1156,7 +1156,7 @@ function _isLocal(_path:stdgo.GoString):Bool {
     // IsAbs reports whether the path is absolute.
 **/
 function isAbs(_path:stdgo.GoString):Bool {
-        return stdgo.strings.Strings.hasPrefix(_path?.__copy__(), ("/" : stdgo.GoString)?.__copy__());
+        return stdgo.strings.Strings.hasPrefix(_path?.__copy__(), ("/" : stdgo.GoString));
     }
 /**
     // volumeNameLen returns length of the leading volume name on Windows.
@@ -1178,7 +1178,7 @@ function _splitList(_path:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
         if (_path == (stdgo.Go.str())) {
             return (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>);
         };
-        return stdgo.strings.Strings.split(_path?.__copy__(), ((58 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__());
+        return stdgo.strings.Strings.split(_path?.__copy__(), ((58 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString));
     }
 function _abs(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         return _unixAbs(_path?.__copy__());
@@ -1186,7 +1186,7 @@ function _abs(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Er
 function _join(_elem:stdgo.Slice<stdgo.GoString>):stdgo.GoString {
         for (_i => _e in _elem) {
             if (_e != (stdgo.Go.str())) {
-                return clean(stdgo.strings.Strings.join((_elem.__slice__(_i) : stdgo.Slice<stdgo.GoString>), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__())?.__copy__())?.__copy__();
+                return clean(stdgo.strings.Strings.join((_elem.__slice__(_i) : stdgo.Slice<stdgo.GoString>), ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString))?.__copy__())?.__copy__();
             };
         };
         return stdgo.Go.str()?.__copy__();
@@ -1196,7 +1196,7 @@ function _sameWord(_a:stdgo.GoString, _b:stdgo.GoString):Bool {
     }
 function _walkSymlinks(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         var _volLen:stdgo.StdGoTypes.GoInt = _volumeNameLen(_path?.__copy__());
-        var _pathSeparator:stdgo.GoString = ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__();
+        var _pathSeparator:stdgo.GoString = ((47 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString);
         if ((_volLen < _path.length) && stdgo.os.Os.isPathSeparator(_path[(_volLen : stdgo.StdGoTypes.GoInt)])) {
             _volLen++;
         };
@@ -1254,7 +1254,7 @@ function _walkSymlinks(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 :
                 };
                 _linksWalked++;
                 if (_linksWalked > (255 : stdgo.StdGoTypes.GoInt)) {
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.errors.Errors.new_(("EvalSymlinks: too many links" : stdgo.GoString)?.__copy__()) };
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.errors.Errors.new_(("EvalSymlinks: too many links" : stdgo.GoString)) };
                 };
                 var __tmp__ = stdgo.os.Os.readlink(_dest?.__copy__()), _link:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {

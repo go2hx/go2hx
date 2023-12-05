@@ -102,7 +102,7 @@ macro function _parseNanoseconds<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_
                         };
                     };
                     if (_ns < (0 : stdgo.StdGoTypes.GoInt)) {
-                        _rangeErrString = ("fractional second" : stdgo.GoString).__copy__();
+                        _rangeErrString = ("fractional second" : stdgo.GoString);
                         return { _0 : _ns, _1 : _rangeErrString, _2 : _err };
                     };
                     var _scaleDigits:stdgo.StdGoTypes.GoInt = (10 : stdgo.StdGoTypes.GoInt) - _nbytes;

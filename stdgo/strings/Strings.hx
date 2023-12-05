@@ -2139,11 +2139,11 @@ class Reader_asInterface {
             } else if (__value__ == ((2 : stdgo.StdGoTypes.GoInt))) {
                 _abs = (_r._s.length : stdgo.StdGoTypes.GoInt64) + _offset;
             } else {
-                return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("strings.Reader.Seek: invalid whence" : stdgo.GoString)?.__copy__()) };
+                return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("strings.Reader.Seek: invalid whence" : stdgo.GoString)) };
             };
         };
         if (_abs < (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("strings.Reader.Seek: negative position" : stdgo.GoString)?.__copy__()) };
+            return { _0 : (0i64 : stdgo.StdGoTypes.GoInt64), _1 : stdgo.errors.Errors.new_(("strings.Reader.Seek: negative position" : stdgo.GoString)) };
         };
         _r._i = _abs;
         return { _0 : _abs, _1 : (null : stdgo.Error) };
@@ -2155,10 +2155,10 @@ class Reader_asInterface {
     static public function unreadRune( _r:stdgo.StdGoTypes.Ref<Reader>):stdgo.Error {
         @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         if (_r._i <= (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return stdgo.errors.Errors.new_(("strings.Reader.UnreadRune: at beginning of string" : stdgo.GoString)?.__copy__());
+            return stdgo.errors.Errors.new_(("strings.Reader.UnreadRune: at beginning of string" : stdgo.GoString));
         };
         if (_r._prevRune < (0 : stdgo.StdGoTypes.GoInt)) {
-            return stdgo.errors.Errors.new_(("strings.Reader.UnreadRune: previous operation was not ReadRune" : stdgo.GoString)?.__copy__());
+            return stdgo.errors.Errors.new_(("strings.Reader.UnreadRune: previous operation was not ReadRune" : stdgo.GoString));
         };
         _r._i = (_r._prevRune : stdgo.StdGoTypes.GoInt64);
         _r._prevRune = (-1 : stdgo.StdGoTypes.GoInt);
@@ -2198,7 +2198,7 @@ class Reader_asInterface {
     static public function unreadByte( _r:stdgo.StdGoTypes.Ref<Reader>):stdgo.Error {
         @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         if (_r._i <= (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return stdgo.errors.Errors.new_(("strings.Reader.UnreadByte: at beginning of string" : stdgo.GoString)?.__copy__());
+            return stdgo.errors.Errors.new_(("strings.Reader.UnreadByte: at beginning of string" : stdgo.GoString));
         };
         _r._prevRune = (-1 : stdgo.StdGoTypes.GoInt);
         _r._i--;
@@ -2226,7 +2226,7 @@ class Reader_asInterface {
         @:recv var _r:stdgo.StdGoTypes.Ref<Reader> = _r;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         if (_off < (0i64 : stdgo.StdGoTypes.GoInt64)) {
-            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.errors.Errors.new_(("strings.Reader.ReadAt: negative offset" : stdgo.GoString)?.__copy__()) };
+            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.errors.Errors.new_(("strings.Reader.ReadAt: negative offset" : stdgo.GoString)) };
         };
         if (_off >= (_r._s.length : stdgo.StdGoTypes.GoInt64)) {
             return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : stdgo.io.Io.eof };
@@ -2581,12 +2581,12 @@ class T_genericReplacer_asInterface {
         };
         _s = _s + (("\n" : stdgo.GoString))?.__copy__();
         if (_t._prefix != (stdgo.Go.str())) {
-            _s = _s + (repeat(("." : stdgo.GoString)?.__copy__(), _depth) + _t._prefix?.__copy__())?.__copy__();
+            _s = _s + (repeat(("." : stdgo.GoString), _depth) + _t._prefix?.__copy__())?.__copy__();
             _s = _s + (_r._printNode(_t._next, _depth + (_t._prefix.length)))?.__copy__();
         } else if (_t._table != null) {
             for (_b => _m in _r._mapping) {
                 if (((_m : stdgo.StdGoTypes.GoInt) != _r._tableSize) && ((_t._table[(_m : stdgo.StdGoTypes.GoInt)] != null) && ((_t._table[(_m : stdgo.StdGoTypes.GoInt)] : Dynamic).__nil__ == null || !(_t._table[(_m : stdgo.StdGoTypes.GoInt)] : Dynamic).__nil__))) {
-                    _s = _s + (repeat(("." : stdgo.GoString)?.__copy__(), _depth) + ((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (_b : stdgo.StdGoTypes.GoByte)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)?.__copy__())?.__copy__();
+                    _s = _s + (repeat(("." : stdgo.GoString), _depth) + ((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, (_b : stdgo.StdGoTypes.GoByte)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)?.__copy__())?.__copy__();
                     _s = _s + (_r._printNode(_t._table[(_m : stdgo.StdGoTypes.GoInt)], _depth + (1 : stdgo.StdGoTypes.GoInt)))?.__copy__();
                 };
             };

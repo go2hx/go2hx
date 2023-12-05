@@ -325,21 +325,21 @@ var _caseTest : stdgo.Slice<stdgo.unicode_test.Unicode_test.T_caseT> = (new stdg
 var _simpleFoldTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(
 9,
 9,
-("Aa" : stdgo.GoString)?.__copy__(),
-("δΔ" : stdgo.GoString)?.__copy__(),
-("KkK" : stdgo.GoString)?.__copy__(),
-("Ssſ" : stdgo.GoString)?.__copy__(),
-("ρϱΡ" : stdgo.GoString)?.__copy__(),
-("ͅΙιι" : stdgo.GoString)?.__copy__(),
-("İ" : stdgo.GoString)?.__copy__(),
-("ı" : stdgo.GoString)?.__copy__(),
-("Ꮀꮀ" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+("Aa" : stdgo.GoString),
+("δΔ" : stdgo.GoString),
+("KkK" : stdgo.GoString),
+("Ssſ" : stdgo.GoString),
+("ρϱΡ" : stdgo.GoString),
+("ͅΙιι" : stdgo.GoString),
+("İ" : stdgo.GoString),
+("ı" : stdgo.GoString),
+("Ꮀꮀ" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
 /**
     
     
     
 **/
-var _calibrate : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("calibrate" : stdgo.GoString)?.__copy__(), false, ("compute crossover for linear vs. binary search" : stdgo.GoString)?.__copy__());
+var _calibrate : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("calibrate" : stdgo.GoString), false, ("compute crossover for linear vs. binary search" : stdgo.GoString));
 /**
     
     
@@ -348,42 +348,42 @@ var _calibrate : stdgo.Pointer<Bool> = stdgo.flag.Flag.bool_(("calibrate" : stdg
 var _inCategoryTest : stdgo.Slice<stdgo.unicode_test.Unicode_test.T> = (new stdgo.Slice<stdgo.unicode_test.Unicode_test.T>(
 36,
 36,
-(new stdgo.unicode_test.Unicode_test.T((129 : stdgo.StdGoTypes.GoInt32), ("Cc" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8203 : stdgo.StdGoTypes.GoInt32), ("Cf" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((983040 : stdgo.StdGoTypes.GoInt32), ("Co" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((56192 : stdgo.StdGoTypes.GoInt32), ("Cs" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((566 : stdgo.StdGoTypes.GoInt32), ("Ll" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((7581 : stdgo.StdGoTypes.GoInt32), ("Lm" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((1999 : stdgo.StdGoTypes.GoInt32), ("Lo" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8074 : stdgo.StdGoTypes.GoInt32), ("Lt" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((1023 : stdgo.StdGoTypes.GoInt32), ("Lu" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((3009 : stdgo.StdGoTypes.GoInt32), ("Mc" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8415 : stdgo.StdGoTypes.GoInt32), ("Me" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((2032 : stdgo.StdGoTypes.GoInt32), ("Mn" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((7090 : stdgo.StdGoTypes.GoInt32), ("Nd" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((65863 : stdgo.StdGoTypes.GoInt32), ("Nl" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((9336 : stdgo.StdGoTypes.GoInt32), ("No" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((65075 : stdgo.StdGoTypes.GoInt32), ("Pc" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8209 : stdgo.StdGoTypes.GoInt32), ("Pd" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((12318 : stdgo.StdGoTypes.GoInt32), ("Pe" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((11779 : stdgo.StdGoTypes.GoInt32), ("Pf" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((11778 : stdgo.StdGoTypes.GoInt32), ("Pi" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((34 : stdgo.StdGoTypes.GoInt32), ("Po" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((10096 : stdgo.StdGoTypes.GoInt32), ("Ps" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((164 : stdgo.StdGoTypes.GoInt32), ("Sc" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((42769 : stdgo.StdGoTypes.GoInt32), ("Sk" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((9721 : stdgo.StdGoTypes.GoInt32), ("Sm" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8456 : stdgo.StdGoTypes.GoInt32), ("So" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8232 : stdgo.StdGoTypes.GoInt32), ("Zl" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8233 : stdgo.StdGoTypes.GoInt32), ("Zp" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8239 : stdgo.StdGoTypes.GoInt32), ("Zs" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((1194 : stdgo.StdGoTypes.GoInt32), ("L" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((9 : stdgo.StdGoTypes.GoInt32), ("C" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((5906 : stdgo.StdGoTypes.GoInt32), ("M" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((49 : stdgo.StdGoTypes.GoInt32), ("N" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((187 : stdgo.StdGoTypes.GoInt32), ("P" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((162 : stdgo.StdGoTypes.GoInt32), ("S" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((160 : stdgo.StdGoTypes.GoInt32), ("Z" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T)) : stdgo.Slice<stdgo.unicode_test.Unicode_test.T>);
+(new stdgo.unicode_test.Unicode_test.T((129 : stdgo.StdGoTypes.GoInt32), ("Cc" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8203 : stdgo.StdGoTypes.GoInt32), ("Cf" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((983040 : stdgo.StdGoTypes.GoInt32), ("Co" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((56192 : stdgo.StdGoTypes.GoInt32), ("Cs" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((566 : stdgo.StdGoTypes.GoInt32), ("Ll" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((7581 : stdgo.StdGoTypes.GoInt32), ("Lm" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((1999 : stdgo.StdGoTypes.GoInt32), ("Lo" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8074 : stdgo.StdGoTypes.GoInt32), ("Lt" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((1023 : stdgo.StdGoTypes.GoInt32), ("Lu" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((3009 : stdgo.StdGoTypes.GoInt32), ("Mc" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8415 : stdgo.StdGoTypes.GoInt32), ("Me" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((2032 : stdgo.StdGoTypes.GoInt32), ("Mn" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((7090 : stdgo.StdGoTypes.GoInt32), ("Nd" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((65863 : stdgo.StdGoTypes.GoInt32), ("Nl" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((9336 : stdgo.StdGoTypes.GoInt32), ("No" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((65075 : stdgo.StdGoTypes.GoInt32), ("Pc" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8209 : stdgo.StdGoTypes.GoInt32), ("Pd" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((12318 : stdgo.StdGoTypes.GoInt32), ("Pe" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((11779 : stdgo.StdGoTypes.GoInt32), ("Pf" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((11778 : stdgo.StdGoTypes.GoInt32), ("Pi" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((34 : stdgo.StdGoTypes.GoInt32), ("Po" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((10096 : stdgo.StdGoTypes.GoInt32), ("Ps" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((164 : stdgo.StdGoTypes.GoInt32), ("Sc" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((42769 : stdgo.StdGoTypes.GoInt32), ("Sk" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((9721 : stdgo.StdGoTypes.GoInt32), ("Sm" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8456 : stdgo.StdGoTypes.GoInt32), ("So" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8232 : stdgo.StdGoTypes.GoInt32), ("Zl" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8233 : stdgo.StdGoTypes.GoInt32), ("Zp" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8239 : stdgo.StdGoTypes.GoInt32), ("Zs" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((1194 : stdgo.StdGoTypes.GoInt32), ("L" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((9 : stdgo.StdGoTypes.GoInt32), ("C" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((5906 : stdgo.StdGoTypes.GoInt32), ("M" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((49 : stdgo.StdGoTypes.GoInt32), ("N" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((187 : stdgo.StdGoTypes.GoInt32), ("P" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((162 : stdgo.StdGoTypes.GoInt32), ("S" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((160 : stdgo.StdGoTypes.GoInt32), ("Z" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T)) : stdgo.Slice<stdgo.unicode_test.Unicode_test.T>);
 /**
     
     
@@ -392,41 +392,41 @@ var _inCategoryTest : stdgo.Slice<stdgo.unicode_test.Unicode_test.T> = (new stdg
 var _inPropTest : stdgo.Slice<stdgo.unicode_test.Unicode_test.T> = (new stdgo.Slice<stdgo.unicode_test.Unicode_test.T>(
 35,
 35,
-(new stdgo.unicode_test.Unicode_test.T((70 : stdgo.StdGoTypes.GoInt32), ("ASCII_Hex_Digit" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8207 : stdgo.StdGoTypes.GoInt32), ("Bidi_Control" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8722 : stdgo.StdGoTypes.GoInt32), ("Dash" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((917505 : stdgo.StdGoTypes.GoInt32), ("Deprecated" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((183 : stdgo.StdGoTypes.GoInt32), ("Diacritic" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((12542 : stdgo.StdGoTypes.GoInt32), ("Extender" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((65350 : stdgo.StdGoTypes.GoInt32), ("Hex_Digit" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((11799 : stdgo.StdGoTypes.GoInt32), ("Hyphen" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((12283 : stdgo.StdGoTypes.GoInt32), ("IDS_Binary_Operator" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((12275 : stdgo.StdGoTypes.GoInt32), ("IDS_Trinary_Operator" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((64106 : stdgo.StdGoTypes.GoInt32), ("Ideographic" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8205 : stdgo.StdGoTypes.GoInt32), ("Join_Control" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((3780 : stdgo.StdGoTypes.GoInt32), ("Logical_Order_Exception" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((196607 : stdgo.StdGoTypes.GoInt32), ("Noncharacter_Code_Point" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((1630 : stdgo.StdGoTypes.GoInt32), ("Other_Alphabetic" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8293 : stdgo.StdGoTypes.GoInt32), ("Other_Default_Ignorable_Code_Point" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((3031 : stdgo.StdGoTypes.GoInt32), ("Other_Grapheme_Extend" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((903 : stdgo.StdGoTypes.GoInt32), ("Other_ID_Continue" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8494 : stdgo.StdGoTypes.GoInt32), ("Other_ID_Start" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8340 : stdgo.StdGoTypes.GoInt32), ("Other_Lowercase" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8256 : stdgo.StdGoTypes.GoInt32), ("Other_Math" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8559 : stdgo.StdGoTypes.GoInt32), ("Other_Uppercase" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((39 : stdgo.StdGoTypes.GoInt32), ("Pattern_Syntax" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((32 : stdgo.StdGoTypes.GoInt32), ("Pattern_White_Space" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((1757 : stdgo.StdGoTypes.GoInt32), ("Prepended_Concatenation_Mark" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((12301 : stdgo.StdGoTypes.GoInt32), ("Quotation_Mark" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((12019 : stdgo.StdGoTypes.GoInt32), ("Radical" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((127487 : stdgo.StdGoTypes.GoInt32), ("Regional_Indicator" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((1567 : stdgo.StdGoTypes.GoInt32), ("STerm" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((1567 : stdgo.StdGoTypes.GoInt32), ("Sentence_Terminal" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((8305 : stdgo.StdGoTypes.GoInt32), ("Soft_Dotted" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((58 : stdgo.StdGoTypes.GoInt32), ("Terminal_Punctuation" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((40899 : stdgo.StdGoTypes.GoInt32), ("Unified_Ideograph" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((65039 : stdgo.StdGoTypes.GoInt32), ("Variation_Selector" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T),
-(new stdgo.unicode_test.Unicode_test.T((32 : stdgo.StdGoTypes.GoInt32), ("White_Space" : stdgo.GoString)?.__copy__()) : stdgo.unicode_test.Unicode_test.T)) : stdgo.Slice<stdgo.unicode_test.Unicode_test.T>);
+(new stdgo.unicode_test.Unicode_test.T((70 : stdgo.StdGoTypes.GoInt32), ("ASCII_Hex_Digit" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8207 : stdgo.StdGoTypes.GoInt32), ("Bidi_Control" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8722 : stdgo.StdGoTypes.GoInt32), ("Dash" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((917505 : stdgo.StdGoTypes.GoInt32), ("Deprecated" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((183 : stdgo.StdGoTypes.GoInt32), ("Diacritic" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((12542 : stdgo.StdGoTypes.GoInt32), ("Extender" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((65350 : stdgo.StdGoTypes.GoInt32), ("Hex_Digit" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((11799 : stdgo.StdGoTypes.GoInt32), ("Hyphen" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((12283 : stdgo.StdGoTypes.GoInt32), ("IDS_Binary_Operator" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((12275 : stdgo.StdGoTypes.GoInt32), ("IDS_Trinary_Operator" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((64106 : stdgo.StdGoTypes.GoInt32), ("Ideographic" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8205 : stdgo.StdGoTypes.GoInt32), ("Join_Control" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((3780 : stdgo.StdGoTypes.GoInt32), ("Logical_Order_Exception" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((196607 : stdgo.StdGoTypes.GoInt32), ("Noncharacter_Code_Point" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((1630 : stdgo.StdGoTypes.GoInt32), ("Other_Alphabetic" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8293 : stdgo.StdGoTypes.GoInt32), ("Other_Default_Ignorable_Code_Point" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((3031 : stdgo.StdGoTypes.GoInt32), ("Other_Grapheme_Extend" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((903 : stdgo.StdGoTypes.GoInt32), ("Other_ID_Continue" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8494 : stdgo.StdGoTypes.GoInt32), ("Other_ID_Start" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8340 : stdgo.StdGoTypes.GoInt32), ("Other_Lowercase" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8256 : stdgo.StdGoTypes.GoInt32), ("Other_Math" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8559 : stdgo.StdGoTypes.GoInt32), ("Other_Uppercase" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((39 : stdgo.StdGoTypes.GoInt32), ("Pattern_Syntax" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((32 : stdgo.StdGoTypes.GoInt32), ("Pattern_White_Space" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((1757 : stdgo.StdGoTypes.GoInt32), ("Prepended_Concatenation_Mark" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((12301 : stdgo.StdGoTypes.GoInt32), ("Quotation_Mark" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((12019 : stdgo.StdGoTypes.GoInt32), ("Radical" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((127487 : stdgo.StdGoTypes.GoInt32), ("Regional_Indicator" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((1567 : stdgo.StdGoTypes.GoInt32), ("STerm" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((1567 : stdgo.StdGoTypes.GoInt32), ("Sentence_Terminal" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((8305 : stdgo.StdGoTypes.GoInt32), ("Soft_Dotted" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((58 : stdgo.StdGoTypes.GoInt32), ("Terminal_Punctuation" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((40899 : stdgo.StdGoTypes.GoInt32), ("Unified_Ideograph" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((65039 : stdgo.StdGoTypes.GoInt32), ("Variation_Selector" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T),
+(new stdgo.unicode_test.Unicode_test.T((32 : stdgo.StdGoTypes.GoInt32), ("White_Space" : stdgo.GoString)) : stdgo.unicode_test.Unicode_test.T)) : stdgo.Slice<stdgo.unicode_test.Unicode_test.T>);
 /**
     
     
@@ -466,12 +466,12 @@ var _inPropTest : stdgo.Slice<stdgo.unicode_test.Unicode_test.T> = (new stdgo.Sl
 function testDigit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _r in _testDigit) {
             if (!isDigit(_r)) {
-                _t.errorf(("IsDigit(U+%04X) = false, want true" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r));
+                _t.errorf(("IsDigit(U+%04X) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
         for (__1 => _r in _testLetter) {
             if (isDigit(_r)) {
-                _t.errorf(("IsDigit(U+%04X) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r));
+                _t.errorf(("IsDigit(U+%04X) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
     }
@@ -483,7 +483,7 @@ function testDigitOptimization(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             var _i:stdgo.StdGoTypes.GoInt32 = ((0 : stdgo.StdGoTypes.GoInt32) : stdgo.StdGoTypes.GoRune);
             stdgo.Go.cfor(_i <= (255 : stdgo.StdGoTypes.GoInt32), _i++, {
                 if (is_(digit, _i) != (isDigit(_i))) {
-                    _t.errorf(("IsDigit(U+%04X) disagrees with Is(Digit)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
+                    _t.errorf(("IsDigit(U+%04X) disagrees with Is(Digit)" : stdgo.GoString), stdgo.Go.toInterface(_i));
                 };
             });
         };
@@ -495,7 +495,7 @@ function testDigitOptimization(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
 function example_is():Void {
         {};
         for (__0 => _c in ("\x085Ὂg̀9! ℃ᾭG" : stdgo.GoString)) {
-            stdgo.fmt.Fmt.printf(("For %q:\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_c));
+            stdgo.fmt.Fmt.printf(("For %q:\n" : stdgo.GoString), stdgo.Go.toInterface(_c));
             if (stdgo.unicode.Unicode.isControl(_c)) {
                 stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("\tis control rune" : stdgo.GoString)));
             };
@@ -541,75 +541,75 @@ function example_is():Void {
         };
     }
 function exampleSimpleFold():Void {
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((65 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((97 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((75 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((107 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((8490 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((49 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((75 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((107 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((8490 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.simpleFold((49 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleTo():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (103 : stdgo.StdGoTypes.GoInt32))));
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((0 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((1 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.to((2 : stdgo.StdGoTypes.GoInt), (71 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleToLower():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.toLower((71 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toLower((71 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleToTitle():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleToUpper():Void {
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleSpecialCase():Void {
         var _t:stdgo.unicode.Unicode.SpecialCase = stdgo.unicode.Unicode.turkishCase;
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_t.toLower((105 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_t.toTitle((105 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_t.toUpper((105 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(_t.toLower((105 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(_t.toTitle((105 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(_t.toUpper((105 : stdgo.StdGoTypes.GoInt32))));
         {};
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_t.toLower((304 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_t.toTitle((304 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_t.toUpper((304 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(_t.toLower((304 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(_t.toTitle((304 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%#U\n" : stdgo.GoString), stdgo.Go.toInterface(_t.toUpper((304 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleIsDigit():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((2537 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((2537 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isDigit((65 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleIsNumber():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((8551 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((8551 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isNumber((65 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleIsLetter():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((65 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((55 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLetter((55 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleIsLower():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((97 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isLower((65 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleIsUpper():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((65 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((65 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isUpper((97 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleIsTitle():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((453 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((453 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isTitle((97 : stdgo.StdGoTypes.GoInt32))));
     }
 function exampleIsSpace():Void {
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((32 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((10 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((9 : stdgo.StdGoTypes.GoInt32))));
-        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((97 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((32 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((10 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((9 : stdgo.StdGoTypes.GoInt32))));
+        stdgo.fmt.Fmt.printf(("%t\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.unicode.Unicode.isSpace((97 : stdgo.StdGoTypes.GoInt32))));
     }
 function testIsControlLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {
@@ -623,7 +623,7 @@ function testIsControlLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
                     _want = true;
                 };
                 if (_got != (_want)) {
-                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             });
         };
@@ -635,7 +635,7 @@ function testIsLetterLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                 var _got:Bool = isLetter(_i);
                 var _want:Bool = is_(letter, _i);
                 if (_got != (_want)) {
-                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             });
         };
@@ -647,7 +647,7 @@ function testIsUpperLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 var _got:Bool = isUpper(_i);
                 var _want:Bool = is_(upper, _i);
                 if (_got != (_want)) {
-                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             });
         };
@@ -659,7 +659,7 @@ function testIsLowerLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 var _got:Bool = isLower(_i);
                 var _want:Bool = is_(lower, _i);
                 if (_got != (_want)) {
-                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             });
         };
@@ -671,7 +671,7 @@ function testNumberLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 var _got:Bool = isNumber(_i);
                 var _want:Bool = is_(number, _i);
                 if (_got != (_want)) {
-                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             });
         };
@@ -686,7 +686,7 @@ function testIsPrintLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                     _want = true;
                 };
                 if (_got != (_want)) {
-                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             });
         };
@@ -698,7 +698,7 @@ function testIsGraphicLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
                 var _got:Bool = isGraphic(_i);
                 var _want:Bool = in_(_i, ...graphicRanges.__toArray__());
                 if (_got != (_want)) {
-                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             });
         };
@@ -710,7 +710,7 @@ function testIsPunctLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 var _got:Bool = isPunct(_i);
                 var _want:Bool = is_(punct, _i);
                 if (_got != (_want)) {
-                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             });
         };
@@ -722,7 +722,7 @@ function testIsSpaceLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 var _got:Bool = isSpace(_i);
                 var _want:Bool = is_(white_Space, _i);
                 if (_got != (_want)) {
-                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             });
         };
@@ -734,7 +734,7 @@ function testIsSymbolLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                 var _got:Bool = isSymbol(_i);
                 var _want:Bool = is_(symbol, _i);
                 if (_got != (_want)) {
-                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    _t.errorf(("%U incorrect: got %t; want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             });
         };
@@ -742,34 +742,34 @@ function testIsSymbolLatin1(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
 function testIsLetter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _r in _upperTest) {
             if (!isLetter(_r)) {
-                _t.errorf(("IsLetter(U+%04X) = false, want true" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r));
+                _t.errorf(("IsLetter(U+%04X) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
         for (__1 => _r in _letterTest) {
             if (!isLetter(_r)) {
-                _t.errorf(("IsLetter(U+%04X) = false, want true" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r));
+                _t.errorf(("IsLetter(U+%04X) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
         for (__2 => _r in _notletterTest) {
             if (isLetter(_r)) {
-                _t.errorf(("IsLetter(U+%04X) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r));
+                _t.errorf(("IsLetter(U+%04X) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
     }
 function testIsUpper(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _r in _upperTest) {
             if (!isUpper(_r)) {
-                _t.errorf(("IsUpper(U+%04X) = false, want true" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r));
+                _t.errorf(("IsUpper(U+%04X) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
         for (__1 => _r in _notupperTest) {
             if (isUpper(_r)) {
-                _t.errorf(("IsUpper(U+%04X) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r));
+                _t.errorf(("IsUpper(U+%04X) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
         for (__2 => _r in _notletterTest) {
             if (isUpper(_r)) {
-                _t.errorf(("IsUpper(U+%04X) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r));
+                _t.errorf(("IsUpper(U+%04X) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
     }
@@ -777,20 +777,20 @@ function _caseString(_c:stdgo.StdGoTypes.GoInt):stdgo.GoString {
         {
             final __value__ = _c;
             if (__value__ == ((0 : stdgo.StdGoTypes.GoInt))) {
-                return ("UpperCase" : stdgo.GoString)?.__copy__();
+                return ("UpperCase" : stdgo.GoString);
             } else if (__value__ == ((1 : stdgo.StdGoTypes.GoInt))) {
-                return ("LowerCase" : stdgo.GoString)?.__copy__();
+                return ("LowerCase" : stdgo.GoString);
             } else if (__value__ == ((2 : stdgo.StdGoTypes.GoInt))) {
-                return ("TitleCase" : stdgo.GoString)?.__copy__();
+                return ("TitleCase" : stdgo.GoString);
             };
         };
-        return ("ErrorCase" : stdgo.GoString)?.__copy__();
+        return ("ErrorCase" : stdgo.GoString);
     }
 function testTo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _c in _caseTest) {
             var _r:stdgo.StdGoTypes.GoInt32 = to(_c._cas, _c._in);
             if (_c._out != (_r)) {
-                _t.errorf(("To(U+%04X, %s) = U+%04X want U+%04X" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_c._in), stdgo.Go.toInterface(_caseString(_c._cas)), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_c._out));
+                _t.errorf(("To(U+%04X, %s) = U+%04X want U+%04X" : stdgo.GoString), stdgo.Go.toInterface(_c._in), stdgo.Go.toInterface(_caseString(_c._cas)), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_c._out));
             };
         };
     }
@@ -801,7 +801,7 @@ function testToUpperCase(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             };
             var _r:stdgo.StdGoTypes.GoInt32 = toUpper(_c._in);
             if (_c._out != (_r)) {
-                _t.errorf(("ToUpper(U+%04X) = U+%04X want U+%04X" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_c._in), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_c._out));
+                _t.errorf(("ToUpper(U+%04X) = U+%04X want U+%04X" : stdgo.GoString), stdgo.Go.toInterface(_c._in), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_c._out));
             };
         };
     }
@@ -812,7 +812,7 @@ function testToLowerCase(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             };
             var _r:stdgo.StdGoTypes.GoInt32 = toLower(_c._in);
             if (_c._out != (_r)) {
-                _t.errorf(("ToLower(U+%04X) = U+%04X want U+%04X" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_c._in), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_c._out));
+                _t.errorf(("ToLower(U+%04X) = U+%04X want U+%04X" : stdgo.GoString), stdgo.Go.toInterface(_c._in), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_c._out));
             };
         };
     }
@@ -823,19 +823,19 @@ function testToTitleCase(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             };
             var _r:stdgo.StdGoTypes.GoInt32 = toTitle(_c._in);
             if (_c._out != (_r)) {
-                _t.errorf(("ToTitle(U+%04X) = U+%04X want U+%04X" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_c._in), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_c._out));
+                _t.errorf(("ToTitle(U+%04X) = U+%04X want U+%04X" : stdgo.GoString), stdgo.Go.toInterface(_c._in), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_c._out));
             };
         };
     }
 function testIsSpace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         for (__0 => _c in _spaceTest) {
             if (!isSpace(_c)) {
-                _t.errorf(("IsSpace(U+%04X) = false; want true" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_c));
+                _t.errorf(("IsSpace(U+%04X) = false; want true" : stdgo.GoString), stdgo.Go.toInterface(_c));
             };
         };
         for (__1 => _c in _letterTest) {
             if (isSpace(_c)) {
-                _t.errorf(("IsSpace(U+%04X) = true; want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_c));
+                _t.errorf(("IsSpace(U+%04X) = true; want false" : stdgo.GoString), stdgo.Go.toInterface(_c));
             };
         };
     }
@@ -848,28 +848,28 @@ function testLetterOptimizations(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             var _i:stdgo.StdGoTypes.GoInt32 = ((0 : stdgo.StdGoTypes.GoInt32) : stdgo.StdGoTypes.GoRune);
             stdgo.Go.cfor(_i <= (255 : stdgo.StdGoTypes.GoInt32), _i++, {
                 if (is_(letter, _i) != (isLetter(_i))) {
-                    _t.errorf(("IsLetter(U+%04X) disagrees with Is(Letter)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
+                    _t.errorf(("IsLetter(U+%04X) disagrees with Is(Letter)" : stdgo.GoString), stdgo.Go.toInterface(_i));
                 };
                 if (is_(upper, _i) != (isUpper(_i))) {
-                    _t.errorf(("IsUpper(U+%04X) disagrees with Is(Upper)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
+                    _t.errorf(("IsUpper(U+%04X) disagrees with Is(Upper)" : stdgo.GoString), stdgo.Go.toInterface(_i));
                 };
                 if (is_(lower, _i) != (isLower(_i))) {
-                    _t.errorf(("IsLower(U+%04X) disagrees with Is(Lower)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
+                    _t.errorf(("IsLower(U+%04X) disagrees with Is(Lower)" : stdgo.GoString), stdgo.Go.toInterface(_i));
                 };
                 if (is_(title, _i) != (isTitle(_i))) {
-                    _t.errorf(("IsTitle(U+%04X) disagrees with Is(Title)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
+                    _t.errorf(("IsTitle(U+%04X) disagrees with Is(Title)" : stdgo.GoString), stdgo.Go.toInterface(_i));
                 };
                 if (is_(white_Space, _i) != (isSpace(_i))) {
-                    _t.errorf(("IsSpace(U+%04X) disagrees with Is(White_Space)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
+                    _t.errorf(("IsSpace(U+%04X) disagrees with Is(White_Space)" : stdgo.GoString), stdgo.Go.toInterface(_i));
                 };
                 if (to((0 : stdgo.StdGoTypes.GoInt), _i) != (toUpper(_i))) {
-                    _t.errorf(("ToUpper(U+%04X) disagrees with To(Upper)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
+                    _t.errorf(("ToUpper(U+%04X) disagrees with To(Upper)" : stdgo.GoString), stdgo.Go.toInterface(_i));
                 };
                 if (to((1 : stdgo.StdGoTypes.GoInt), _i) != (toLower(_i))) {
-                    _t.errorf(("ToLower(U+%04X) disagrees with To(Lower)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
+                    _t.errorf(("ToLower(U+%04X) disagrees with To(Lower)" : stdgo.GoString), stdgo.Go.toInterface(_i));
                 };
                 if (to((2 : stdgo.StdGoTypes.GoInt), _i) != (toTitle(_i))) {
-                    _t.errorf(("ToTitle(U+%04X) disagrees with To(Title)" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_i));
+                    _t.errorf(("ToTitle(U+%04X) disagrees with To(Title)" : stdgo.GoString), stdgo.Go.toInterface(_i));
                 };
             });
         };
@@ -880,22 +880,22 @@ function testTurkishCase(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
         for (_i => _l in _lower) {
             var _u:stdgo.StdGoTypes.GoInt32 = _upper[(_i : stdgo.StdGoTypes.GoInt)];
             if (turkishCase.toLower(_l) != (_l)) {
-                _t.errorf(("lower(U+%04X) is U+%04X not U+%04X" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_l), stdgo.Go.toInterface(turkishCase.toLower(_l)), stdgo.Go.toInterface(_l));
+                _t.errorf(("lower(U+%04X) is U+%04X not U+%04X" : stdgo.GoString), stdgo.Go.toInterface(_l), stdgo.Go.toInterface(turkishCase.toLower(_l)), stdgo.Go.toInterface(_l));
             };
             if (turkishCase.toUpper(_u) != (_u)) {
-                _t.errorf(("upper(U+%04X) is U+%04X not U+%04X" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_u), stdgo.Go.toInterface(turkishCase.toUpper(_u)), stdgo.Go.toInterface(_u));
+                _t.errorf(("upper(U+%04X) is U+%04X not U+%04X" : stdgo.GoString), stdgo.Go.toInterface(_u), stdgo.Go.toInterface(turkishCase.toUpper(_u)), stdgo.Go.toInterface(_u));
             };
             if (turkishCase.toUpper(_l) != (_u)) {
-                _t.errorf(("upper(U+%04X) is U+%04X not U+%04X" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_l), stdgo.Go.toInterface(turkishCase.toUpper(_l)), stdgo.Go.toInterface(_u));
+                _t.errorf(("upper(U+%04X) is U+%04X not U+%04X" : stdgo.GoString), stdgo.Go.toInterface(_l), stdgo.Go.toInterface(turkishCase.toUpper(_l)), stdgo.Go.toInterface(_u));
             };
             if (turkishCase.toLower(_u) != (_l)) {
-                _t.errorf(("lower(U+%04X) is U+%04X not U+%04X" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_u), stdgo.Go.toInterface(turkishCase.toLower(_l)), stdgo.Go.toInterface(_l));
+                _t.errorf(("lower(U+%04X) is U+%04X not U+%04X" : stdgo.GoString), stdgo.Go.toInterface(_u), stdgo.Go.toInterface(turkishCase.toLower(_l)), stdgo.Go.toInterface(_l));
             };
             if (turkishCase.toTitle(_u) != (_u)) {
-                _t.errorf(("title(U+%04X) is U+%04X not U+%04X" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_u), stdgo.Go.toInterface(turkishCase.toTitle(_u)), stdgo.Go.toInterface(_u));
+                _t.errorf(("title(U+%04X) is U+%04X not U+%04X" : stdgo.GoString), stdgo.Go.toInterface(_u), stdgo.Go.toInterface(turkishCase.toTitle(_u)), stdgo.Go.toInterface(_u));
             };
             if (turkishCase.toTitle(_l) != (_u)) {
-                _t.errorf(("title(U+%04X) is U+%04X not U+%04X" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_l), stdgo.Go.toInterface(turkishCase.toTitle(_l)), stdgo.Go.toInterface(_u));
+                _t.errorf(("title(U+%04X) is U+%04X not U+%04X" : stdgo.GoString), stdgo.Go.toInterface(_l), stdgo.Go.toInterface(turkishCase.toTitle(_l)), stdgo.Go.toInterface(_u));
             };
         };
     }
@@ -907,7 +907,7 @@ function testSimpleFold(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 {
                     var _r:stdgo.StdGoTypes.GoInt32 = simpleFold(_r);
                     if (_r != (_out)) {
-                        _t.errorf(("SimpleFold(%#U) = %#U, want %#U" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_out));
+                        _t.errorf(("SimpleFold(%#U) = %#U, want %#U" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_out));
                     };
                 };
                 _r = _out;
@@ -916,7 +916,7 @@ function testSimpleFold(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {
             var _r:stdgo.StdGoTypes.GoInt32 = simpleFold((-42 : stdgo.StdGoTypes.GoInt32));
             if (_r != ((-42 : stdgo.StdGoTypes.GoInt32))) {
-                _t.errorf(("SimpleFold(-42) = %v, want -42" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_r));
+                _t.errorf(("SimpleFold(-42) = %v, want -42" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
     }
@@ -925,7 +925,7 @@ function testCalibrate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return;
         };
         if (false) {
-            stdgo.fmt.Fmt.printf(("warning: running calibration on %s\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
+            stdgo.fmt.Fmt.printf(("warning: running calibration on %s\n" : stdgo.GoString), stdgo.Go.toInterface(("wasm" : stdgo.GoString)));
         };
         var _n:stdgo.StdGoTypes.GoInt = stdgo.sort.Sort.search((64 : stdgo.StdGoTypes.GoInt), function(_n:stdgo.StdGoTypes.GoInt):Bool {
             var _tab = _fakeTable(_n);
@@ -961,10 +961,10 @@ function testCalibrate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             var _bmlinear:stdgo.testing.Testing.BenchmarkResult = stdgo.testing.Testing.benchmark(_blinear)?.__copy__();
             var _bmbinary:stdgo.testing.Testing.BenchmarkResult = stdgo.testing.Testing.benchmark(_bbinary)?.__copy__();
-            stdgo.fmt.Fmt.printf(("n=%d: linear=%d binary=%d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_bmlinear.nsPerOp()), stdgo.Go.toInterface(_bmbinary.nsPerOp()));
+            stdgo.fmt.Fmt.printf(("n=%d: linear=%d binary=%d\n" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_bmlinear.nsPerOp()), stdgo.Go.toInterface(_bmbinary.nsPerOp()));
             return (_bmlinear.nsPerOp() * (100i64 : stdgo.StdGoTypes.GoInt64)) > (_bmbinary.nsPerOp() * (110i64 : stdgo.StdGoTypes.GoInt64));
         });
-        stdgo.fmt.Fmt.printf(("calibration: linear cutoff = %d\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n));
+        stdgo.fmt.Fmt.printf(("calibration: linear cutoff = %d\n" : stdgo.GoString), stdgo.Go.toInterface(_n));
     }
 function _fakeTable(_n:stdgo.StdGoTypes.GoInt):stdgo.Slice<Range16> {
         var _r16:stdgo.Slice<Range16> = (null : stdgo.Slice<stdgo.unicode.Unicode.Range16>);
@@ -1014,17 +1014,17 @@ function testLatinOffset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                     _i++;
                 };
                 if (_tab.latinOffset != (_i)) {
-                    _t.errorf(("%s: LatinOffset=%d, want %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_tab.latinOffset), stdgo.Go.toInterface(_i));
+                    _t.errorf(("%s: LatinOffset=%d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_tab.latinOffset), stdgo.Go.toInterface(_i));
                 };
             };
         };
     }
 function testSpecialCaseNoMapping(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _noChangeForCapitalA:stdgo.unicode.Unicode.CaseRange = (new stdgo.unicode.Unicode.CaseRange((65u32 : stdgo.StdGoTypes.GoUInt32), (65u32 : stdgo.StdGoTypes.GoUInt32), (new stdgo.GoArray<stdgo.StdGoTypes.GoInt32>((0 : stdgo.StdGoTypes.GoInt32), (0 : stdgo.StdGoTypes.GoInt32), (0 : stdgo.StdGoTypes.GoInt32)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt32>)) : stdgo.unicode.Unicode.CaseRange);
-        var _got:stdgo.GoString = stdgo.strings.Strings.toLowerSpecial(((new stdgo.Slice<stdgo.unicode.Unicode.CaseRange>(1, 1, _noChangeForCapitalA?.__copy__()) : stdgo.Slice<stdgo.unicode.Unicode.CaseRange>) : SpecialCase), ("ABC" : stdgo.GoString)?.__copy__())?.__copy__();
-        var _want:stdgo.GoString = ("Abc" : stdgo.GoString)?.__copy__();
+        var _got:stdgo.GoString = stdgo.strings.Strings.toLowerSpecial(((new stdgo.Slice<stdgo.unicode.Unicode.CaseRange>(1, 1, _noChangeForCapitalA?.__copy__()) : stdgo.Slice<stdgo.unicode.Unicode.CaseRange>) : SpecialCase), ("ABC" : stdgo.GoString))?.__copy__();
+        var _want:stdgo.GoString = ("Abc" : stdgo.GoString);
         if (_got != (_want)) {
-            _t.errorf(("got %q; want %q" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+            _t.errorf(("got %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };
     }
 function testNegativeRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
@@ -1038,46 +1038,46 @@ function testNegativeRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 };
                 var _r:stdgo.StdGoTypes.GoInt32 = (_base - (-2147483648u32 : stdgo.StdGoTypes.GoUInt32) : stdgo.StdGoTypes.GoRune);
                 if (is_(letter, _r)) {
-                    _t.errorf(("Is(Letter, 0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("Is(Letter, 0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isControl(_r)) {
-                    _t.errorf(("IsControl(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsControl(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isDigit(_r)) {
-                    _t.errorf(("IsDigit(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsDigit(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isGraphic(_r)) {
-                    _t.errorf(("IsGraphic(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsGraphic(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isLetter(_r)) {
-                    _t.errorf(("IsLetter(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsLetter(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isLower(_r)) {
-                    _t.errorf(("IsLower(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsLower(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isMark(_r)) {
-                    _t.errorf(("IsMark(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsMark(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isNumber(_r)) {
-                    _t.errorf(("IsNumber(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsNumber(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isPrint(_r)) {
-                    _t.errorf(("IsPrint(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsPrint(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isPunct(_r)) {
-                    _t.errorf(("IsPunct(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsPunct(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isSpace(_r)) {
-                    _t.errorf(("IsSpace(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsSpace(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isSymbol(_r)) {
-                    _t.errorf(("IsSymbol(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsSymbol(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isTitle(_r)) {
-                    _t.errorf(("IsTitle(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsTitle(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
                 if (isUpper(_r)) {
-                    _t.errorf(("IsUpper(0x%x - 1<<31) = true, want false" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_base));
+                    _t.errorf(("IsUpper(0x%x - 1<<31) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_base));
                 };
             });
         };
@@ -1090,7 +1090,7 @@ function testCategories(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             x;
         } : stdgo.GoMap<stdgo.GoString, Bool>);
         for (_k => _ in categories) {
-            _notTested[_k?.__copy__()] = true;
+            _notTested[_k] = true;
         };
         for (__0 => _test in _inCategoryTest) {
             {
@@ -1099,10 +1099,10 @@ function testCategories(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     _t.fatal(stdgo.Go.toInterface(_test._script), stdgo.Go.toInterface(("not a known category" : stdgo.GoString)));
                 };
             };
-            if (!is_((categories[_test._script?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>)), _test._rune)) {
-                _t.errorf(("IsCategory(%U, %s) = false, want true" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._rune), stdgo.Go.toInterface(_test._script));
+            if (!is_((categories[_test._script] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>)), _test._rune)) {
+                _t.errorf(("IsCategory(%U, %s) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_test._rune), stdgo.Go.toInterface(_test._script));
             };
-            if (_notTested != null) _notTested.remove(_test._script?.__copy__());
+            if (_notTested != null) _notTested.remove(_test._script);
         };
         for (_k => _ in _notTested) {
             _t.error(stdgo.Go.toInterface(("category not tested:" : stdgo.GoString)), stdgo.Go.toInterface(_k));
@@ -1116,7 +1116,7 @@ function testProperties(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             x;
         } : stdgo.GoMap<stdgo.GoString, Bool>);
         for (_k => _ in properties) {
-            _notTested[_k?.__copy__()] = true;
+            _notTested[_k] = true;
         };
         for (__0 => _test in _inPropTest) {
             {
@@ -1125,10 +1125,10 @@ function testProperties(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     _t.fatal(stdgo.Go.toInterface(_test._script), stdgo.Go.toInterface(("not a known prop" : stdgo.GoString)));
                 };
             };
-            if (!is_((properties[_test._script?.__copy__()] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>)), _test._rune)) {
-                _t.errorf(("IsCategory(%U, %s) = false, want true" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_test._rune), stdgo.Go.toInterface(_test._script));
+            if (!is_((properties[_test._script] ?? (null : stdgo.StdGoTypes.Ref<stdgo.unicode.Unicode.RangeTable>)), _test._rune)) {
+                _t.errorf(("IsCategory(%U, %s) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_test._rune), stdgo.Go.toInterface(_test._script));
             };
-            if (_notTested != null) _notTested.remove(_test._script?.__copy__());
+            if (_notTested != null) _notTested.remove(_test._script);
         };
         for (_k => _ in _notTested) {
             _t.error(stdgo.Go.toInterface(("property not tested:" : stdgo.GoString)), stdgo.Go.toInterface(_k));

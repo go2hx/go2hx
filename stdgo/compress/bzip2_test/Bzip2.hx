@@ -5,13 +5,13 @@ import stdgo.compress.bzip2.Bzip2;
     
     
 **/
-var _tests : stdgo.Slice<stdgo.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo.testing.Testing.InternalTest>(4, 4, (new stdgo.testing.Testing.InternalTest(("TestReader" : stdgo.GoString)?.__copy__(), stdgo.compress.bzip2.Bzip2.testReader) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestBitReader" : stdgo.GoString)?.__copy__(), stdgo.compress.bzip2.Bzip2.testBitReader) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestMTF" : stdgo.GoString)?.__copy__(), stdgo.compress.bzip2.Bzip2.testMTF) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestZeroRead" : stdgo.GoString)?.__copy__(), stdgo.compress.bzip2.Bzip2.testZeroRead) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
+var _tests : stdgo.Slice<stdgo.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo.testing.Testing.InternalTest>(4, 4, (new stdgo.testing.Testing.InternalTest(("TestReader" : stdgo.GoString), stdgo.compress.bzip2.Bzip2.testReader) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestBitReader" : stdgo.GoString), stdgo.compress.bzip2.Bzip2.testBitReader) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestMTF" : stdgo.GoString), stdgo.compress.bzip2.Bzip2.testMTF) : stdgo.testing.Testing.InternalTest), (new stdgo.testing.Testing.InternalTest(("TestZeroRead" : stdgo.GoString), stdgo.compress.bzip2.Bzip2.testZeroRead) : stdgo.testing.Testing.InternalTest)) : stdgo.Slice<stdgo.testing.Testing.InternalTest>);
 /**
     
     
     
 **/
-var _benchmarks : stdgo.Slice<stdgo.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo.testing.Testing.InternalBenchmark>(3, 3, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkDecodeDigits" : stdgo.GoString)?.__copy__(), stdgo.compress.bzip2.Bzip2.benchmarkDecodeDigits) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkDecodeNewton" : stdgo.GoString)?.__copy__(), stdgo.compress.bzip2.Bzip2.benchmarkDecodeNewton) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkDecodeRand" : stdgo.GoString)?.__copy__(), stdgo.compress.bzip2.Bzip2.benchmarkDecodeRand) : stdgo.testing.Testing.InternalBenchmark)) : stdgo.Slice<stdgo.testing.Testing.InternalBenchmark>);
+var _benchmarks : stdgo.Slice<stdgo.testing.Testing.InternalBenchmark> = (new stdgo.Slice<stdgo.testing.Testing.InternalBenchmark>(3, 3, (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkDecodeDigits" : stdgo.GoString), stdgo.compress.bzip2.Bzip2.benchmarkDecodeDigits) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkDecodeNewton" : stdgo.GoString), stdgo.compress.bzip2.Bzip2.benchmarkDecodeNewton) : stdgo.testing.Testing.InternalBenchmark), (new stdgo.testing.Testing.InternalBenchmark(("BenchmarkDecodeRand" : stdgo.GoString), stdgo.compress.bzip2.Bzip2.benchmarkDecodeRand) : stdgo.testing.Testing.InternalBenchmark)) : stdgo.Slice<stdgo.testing.Testing.InternalBenchmark>);
 /**
     
     
@@ -30,7 +30,7 @@ function main():Void {
     }
 @:keep var _ = {
         try {
-            stdgo.testing.internal.testdeps.Testdeps.importPath = ("compress/bzip2" : stdgo.GoString)?.__copy__();
+            stdgo.testing.internal.testdeps.Testdeps.importPath = ("compress/bzip2" : stdgo.GoString);
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

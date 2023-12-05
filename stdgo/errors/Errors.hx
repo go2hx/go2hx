@@ -71,7 +71,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var errUnsupported : stdgo.Error = new_(("unsupported operation" : stdgo.GoString)?.__copy__());
+var errUnsupported : stdgo.Error = new_(("unsupported operation" : stdgo.GoString));
 /**
     
     

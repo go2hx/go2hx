@@ -9,13 +9,13 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var _jsCrypto : stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.global().get(("crypto" : stdgo.GoString)?.__copy__());
+var _jsCrypto : stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.global().get(("crypto" : stdgo.GoString));
 /**
     
     
     
 **/
-var _uint8Array : stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.global().get(("Uint8Array" : stdgo.GoString)?.__copy__());
+var _uint8Array : stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.global().get(("Uint8Array" : stdgo.GoString));
 /**
     // Reader is a global, shared instance of a cryptographically
     // secure random number generator.
@@ -90,7 +90,7 @@ function _batched(_f:stdgo.Slice<stdgo.StdGoTypes.GoByte> -> stdgo.Error, _readM
     }
 function _getRandom(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
         var _a:stdgo.syscall.js.Js.Value = _uint8Array.new_(stdgo.Go.toInterface((_b.length)))?.__copy__();
-        _jsCrypto.call(("getRandomValues" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)));
+        _jsCrypto.call(("getRandomValues" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)));
         stdgo.syscall.js.Js.copyBytesToGo(_b, _a?.__copy__());
         return (null : stdgo.Error);
     }
@@ -102,20 +102,20 @@ function testRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _b = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         var __tmp__ = stdgo.io.Io.readFull(reader, _b), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if ((_n != (_b.length)) || (_err != null)) {
-            _t.fatalf(("ReadFull(buf) = %d, %s" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
+            _t.fatalf(("ReadFull(buf) = %d, %s" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
         };
         var _z:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         var __tmp__ = stdgo.compress.flate.Flate.newWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), (5 : stdgo.StdGoTypes.GoInt)), _f:stdgo.StdGoTypes.Ref<stdgo.compress.flate.Flate.Writer> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
         _f.write(_b);
         _f.close();
         if (_z.len() < ((_b.length * (99 : stdgo.StdGoTypes.GoInt)) / (100 : stdgo.StdGoTypes.GoInt))) {
-            _t.fatalf(("Compressed %d -> %d" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((_b.length)), stdgo.Go.toInterface(_z.len()));
+            _t.fatalf(("Compressed %d -> %d" : stdgo.GoString), stdgo.Go.toInterface((_b.length)), stdgo.Go.toInterface(_z.len()));
         };
     }
 function testReadEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var __tmp__ = reader.read(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__()), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if ((_n != (0 : stdgo.StdGoTypes.GoInt)) || (_err != null)) {
-            _t.fatalf(("Read(make([]byte, 0)) = %d, %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
+            _t.fatalf(("Read(make([]byte, 0)) = %d, %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
         };
         {
             var __tmp__ = reader.read((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
@@ -123,7 +123,7 @@ function testReadEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _err = __tmp__._1;
         };
         if ((_n != (0 : stdgo.StdGoTypes.GoInt)) || (_err != null)) {
-            _t.fatalf(("Read(nil) = %d, %v" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
+            _t.fatalf(("Read(nil) = %d, %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
         };
     }
 /**
@@ -132,7 +132,7 @@ function testReadEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 **/
 function prime(_rand:stdgo.io.Io.Reader, _bits:stdgo.StdGoTypes.GoInt):{ var _0 : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>; var _1 : stdgo.Error; } {
         if (_bits < (2 : stdgo.StdGoTypes.GoInt)) {
-            return { _0 : null, _1 : stdgo.errors.Errors.new_(("crypto/rand: prime size must be at least 2-bit" : stdgo.GoString)?.__copy__()) };
+            return { _0 : null, _1 : stdgo.errors.Errors.new_(("crypto/rand: prime size must be at least 2-bit" : stdgo.GoString)) };
         };
         stdgo.crypto.internal.randutil.Randutil.maybeReadByte(_rand);
         var _b:stdgo.StdGoTypes.GoUInt = (_bits % (8 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoUInt);

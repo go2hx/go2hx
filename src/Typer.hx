@@ -2031,7 +2031,9 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 								case EConst(c):
 									switch c {
 										case CString(_):
-											return macro $y;
+											macro $y;
+										case CIdent(_):
+											macro $y?.__copy__();
 										default:
 											throw "not possible";
 									}

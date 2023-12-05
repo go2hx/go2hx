@@ -2030,12 +2030,10 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 									f(e);
 								case EConst(c):
 									switch c {
-										case CString(_):
-											macro $y;
 										case CIdent(_):
 											macro $y?.__copy__();
 										default:
-											throw "not possible";
+											macro $y;
 									}
 								default:
 									macro $y?.__copy__();

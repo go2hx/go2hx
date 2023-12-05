@@ -115,6 +115,13 @@ jobs:
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
       # Add any additional setup steps required for the documentation generation
+      - name: Install lix
+        run: npm i lix -g
+      - name: Run lix
+        run: npx lix download
+      # go2hx setup
+      - name: Set source
+        run: npx haxelib dev go2hx .
       - name: Delete go mod
         run: rm go.mod
       - name: Go mod init

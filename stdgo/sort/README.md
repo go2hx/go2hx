@@ -1162,9 +1162,9 @@ function exampleSearch():Void {
             return _a[(_i : stdgo.StdGoTypes.GoInt)] >= _x;
         });
         if ((_i < _a.length) && (_a[(_i : stdgo.StdGoTypes.GoInt)] == _x)) {
-            stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
+            stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
         } else {
-            stdgo.fmt.Fmt.printf(("%d not found in %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_a));
+            stdgo.fmt.Fmt.printf(("%d not found in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_a));
         };
     }
 ```
@@ -1201,9 +1201,9 @@ function exampleSearch_descendingOrder():Void {
             return _a[(_i : stdgo.StdGoTypes.GoInt)] <= _x;
         });
         if ((_i < _a.length) && (_a[(_i : stdgo.StdGoTypes.GoInt)] == _x)) {
-            stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
+            stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
         } else {
-            stdgo.fmt.Fmt.printf(("%d not found in %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_a));
+            stdgo.fmt.Fmt.printf(("%d not found in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_a));
         };
     }
 ```
@@ -1242,10 +1242,10 @@ function exampleSearchFloat64s():Void {
         var _a = (new stdgo.Slice<stdgo.StdGoTypes.GoFloat64>(7, 7, (1 : stdgo.StdGoTypes.GoFloat64), (2 : stdgo.StdGoTypes.GoFloat64), (3.3 : stdgo.StdGoTypes.GoFloat64), (4.6 : stdgo.StdGoTypes.GoFloat64), (6.1 : stdgo.StdGoTypes.GoFloat64), (7.2 : stdgo.StdGoTypes.GoFloat64), (8 : stdgo.StdGoTypes.GoFloat64)) : stdgo.Slice<stdgo.StdGoTypes.GoFloat64>);
         var _x:stdgo.StdGoTypes.GoFloat64 = (2 : stdgo.StdGoTypes.GoFloat64);
         var _i:stdgo.StdGoTypes.GoInt = stdgo.sort.Sort.searchFloat64s(_a, _x);
-        stdgo.fmt.Fmt.printf(("found %g at index %d in %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
+        stdgo.fmt.Fmt.printf(("found %g at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
         _x = (0.5 : stdgo.StdGoTypes.GoFloat64);
         _i = stdgo.sort.Sort.searchFloat64s(_a, _x);
-        stdgo.fmt.Fmt.printf(("%g not found, can be inserted at index %d in %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
+        stdgo.fmt.Fmt.printf(("%g not found, can be inserted at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
     }
 ```
 
@@ -1283,10 +1283,10 @@ function exampleSearchInts():Void {
         var _a = (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(7, 7, (1 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt), (3 : stdgo.StdGoTypes.GoInt), (4 : stdgo.StdGoTypes.GoInt), (6 : stdgo.StdGoTypes.GoInt), (7 : stdgo.StdGoTypes.GoInt), (8 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
         var _x:stdgo.StdGoTypes.GoInt = (2 : stdgo.StdGoTypes.GoInt);
         var _i:stdgo.StdGoTypes.GoInt = stdgo.sort.Sort.searchInts(_a, _x);
-        stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
+        stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
         _x = (5 : stdgo.StdGoTypes.GoInt);
         _i = stdgo.sort.Sort.searchInts(_a, _x);
-        stdgo.fmt.Fmt.printf(("%d not found, can be inserted at index %d in %v\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
+        stdgo.fmt.Fmt.printf(("%d not found, can be inserted at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
     }
 ```
 
@@ -1345,7 +1345,7 @@ the Interface type's Less method.
 
 ```haxe
 function exampleSlice():Void {
-        var _people = (new stdgo.Slice<Person>(4, 4, (new Person(("Gopher" : stdgo.GoString)?.__copy__(), (7 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString)?.__copy__(), (55 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Vera" : stdgo.GoString)?.__copy__(), (24 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString)?.__copy__(), (75 : stdgo.StdGoTypes.GoInt)) : Person)) : stdgo.Slice<Person>);
+        var _people = (new stdgo.Slice<Person>(4, 4, (new Person(("Gopher" : stdgo.GoString), (7 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString), (55 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Vera" : stdgo.GoString), (24 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString), (75 : stdgo.StdGoTypes.GoInt)) : Person)) : stdgo.Slice<Person>);
         stdgo.sort.Sort.slice(stdgo.Go.toInterface(_people), function(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
             return _people[(_i : stdgo.StdGoTypes.GoInt)].name < _people[(_j : stdgo.StdGoTypes.GoInt)].name;
         });
@@ -1406,7 +1406,7 @@ the Interface type's Less method.
 
 ```haxe
 function exampleSliceStable():Void {
-        var _people = (new stdgo.Slice<Person>(8, 8, (new Person(("Alice" : stdgo.GoString)?.__copy__(), (25 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Elizabeth" : stdgo.GoString)?.__copy__(), (75 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString)?.__copy__(), (75 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString)?.__copy__(), (75 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString)?.__copy__(), (75 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString)?.__copy__(), (25 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Colin" : stdgo.GoString)?.__copy__(), (25 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Elizabeth" : stdgo.GoString)?.__copy__(), (25 : stdgo.StdGoTypes.GoInt)) : Person)) : stdgo.Slice<Person>);
+        var _people = (new stdgo.Slice<Person>(8, 8, (new Person(("Alice" : stdgo.GoString), (25 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Elizabeth" : stdgo.GoString), (75 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString), (75 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString), (75 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Alice" : stdgo.GoString), (75 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Bob" : stdgo.GoString), (25 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Colin" : stdgo.GoString), (25 : stdgo.StdGoTypes.GoInt)) : Person), (new Person(("Elizabeth" : stdgo.GoString), (25 : stdgo.StdGoTypes.GoInt)) : Person)) : stdgo.Slice<Person>);
         stdgo.sort.Sort.sliceStable(stdgo.Go.toInterface(_people), function(_i:stdgo.StdGoTypes.GoInt, _j:stdgo.StdGoTypes.GoInt):Bool {
             return _people[(_i : stdgo.StdGoTypes.GoInt)].name < _people[(_j : stdgo.StdGoTypes.GoInt)].name;
         });
@@ -1492,7 +1492,7 @@ Note: consider using the newer slices.Sort function, which runs faster.
 
 ```haxe
 function exampleStrings():Void {
-        var _s = (new stdgo.Slice<stdgo.GoString>(6, 6, ("Go" : stdgo.GoString)?.__copy__(), ("Bravo" : stdgo.GoString)?.__copy__(), ("Gopher" : stdgo.GoString)?.__copy__(), ("Alpha" : stdgo.GoString)?.__copy__(), ("Grin" : stdgo.GoString)?.__copy__(), ("Delta" : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+        var _s = (new stdgo.Slice<stdgo.GoString>(6, 6, ("Go" : stdgo.GoString), ("Bravo" : stdgo.GoString), ("Gopher" : stdgo.GoString), ("Alpha" : stdgo.GoString), ("Grin" : stdgo.GoString), ("Delta" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         stdgo.sort.Sort.strings(_s);
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }

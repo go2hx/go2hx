@@ -187,16 +187,6 @@
 
   - [`function toVector():haxe.ds.Vector<stdgo.SliceData.T>`](<#slicedata-function-tovector>)
 
-- [class VectorData](<#class-vectordata>)
-
-  - [`function get(i:Int):stdgo.VectorData.T`](<#vectordata-function-get>)
-
-  - [`function new(length:Int):Void`](<#vectordata-function-new>)
-
-  - [`function set(i:Int, value:stdgo.VectorData.T):stdgo.VectorData.T`](<#vectordata-function-set>)
-
-  - [`function toString():String`](<#vectordata-function-tostring>)
-
 - [typedef Complex128](<#typedef-complex128>)
 
 - [typedef Complex64](<#typedef-complex64>)
@@ -1087,7 +1077,7 @@ function get(index:Int):stdgo.SliceData.T
 ```
 
 
-[\(view code\)](<./Slice.hx#L330>)
+[\(view code\)](<./Slice.hx#L335>)
 
 
 ### SliceData function grow
@@ -1098,7 +1088,7 @@ function grow():Void
 ```
 
 
-[\(view code\)](<./Slice.hx#L376>)
+[\(view code\)](<./Slice.hx#L381>)
 
 
 ### SliceData function new
@@ -1109,7 +1099,7 @@ function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void
 ```
 
 
-[\(view code\)](<./Slice.hx#L232>)
+[\(view code\)](<./Slice.hx#L237>)
 
 
 ### SliceData function set
@@ -1120,7 +1110,7 @@ function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T
 ```
 
 
-[\(view code\)](<./Slice.hx#L349>)
+[\(view code\)](<./Slice.hx#L354>)
 
 
 ### SliceData function toArray
@@ -1131,7 +1121,7 @@ function toArray():Array<stdgo.SliceData.T>
 ```
 
 
-[\(view code\)](<./Slice.hx#L358>)
+[\(view code\)](<./Slice.hx#L363>)
 
 
 ### SliceData function toVector
@@ -1142,69 +1132,7 @@ function toVector():haxe.ds.Vector<stdgo.SliceData.T>
 ```
 
 
-[\(view code\)](<./Slice.hx#L364>)
-
-
-## class VectorData
-
-
-```haxe
-var capacity:Int
-```
-
-
-```haxe
-var length:Int
-```
-
-
-```haxe
-var vector:haxe.ds.Vector<stdgo.VectorData.T>
-```
-
-
-### VectorData function get
-
-
-```haxe
-function get(i:Int):stdgo.VectorData.T
-```
-
-
-[\(view code\)](<./GoArray.hx#L29>)
-
-
-### VectorData function new
-
-
-```haxe
-function new(length:Int):Void
-```
-
-
-[\(view code\)](<./GoArray.hx#L24>)
-
-
-### VectorData function set
-
-
-```haxe
-function set(i:Int, value:stdgo.VectorData.T):stdgo.VectorData.T
-```
-
-
-[\(view code\)](<./GoArray.hx#L32>)
-
-
-### VectorData function toString
-
-
-```haxe
-function toString():String
-```
-
-
-[\(view code\)](<./GoArray.hx#L35>)
+[\(view code\)](<./Slice.hx#L369>)
 
 
 # Typedefs

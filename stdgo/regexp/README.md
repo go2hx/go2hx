@@ -1869,16 +1869,16 @@ More complicated queries need to use Compile and the full Regexp interface.
 
 ```haxe
 function exampleMatch():Void {
-        var __tmp__ = stdgo.regexp.Regexp.match(("foo.*" : stdgo.GoString)?.__copy__(), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.regexp.Regexp.match(("foo.*" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
         {
-            var __tmp__ = stdgo.regexp.Regexp.match(("bar.*" : stdgo.GoString)?.__copy__(), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+            var __tmp__ = stdgo.regexp.Regexp.match(("bar.*" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
             _matched = __tmp__._0;
             _err = __tmp__._1;
         };
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
         {
-            var __tmp__ = stdgo.regexp.Regexp.match(("a(b" : stdgo.GoString)?.__copy__(), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+            var __tmp__ = stdgo.regexp.Regexp.match(("a(b" : stdgo.GoString), (("seafood" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
             _matched = __tmp__._0;
             _err = __tmp__._1;
         };
@@ -1938,16 +1938,16 @@ More complicated queries need to use Compile and the full Regexp interface.
 
 ```haxe
 function exampleMatchString():Void {
-        var __tmp__ = stdgo.regexp.Regexp.matchString(("foo.*" : stdgo.GoString)?.__copy__(), ("seafood" : stdgo.GoString)?.__copy__()), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.regexp.Regexp.matchString(("foo.*" : stdgo.GoString), ("seafood" : stdgo.GoString)), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
         {
-            var __tmp__ = stdgo.regexp.Regexp.matchString(("bar.*" : stdgo.GoString)?.__copy__(), ("seafood" : stdgo.GoString)?.__copy__());
+            var __tmp__ = stdgo.regexp.Regexp.matchString(("bar.*" : stdgo.GoString), ("seafood" : stdgo.GoString));
             _matched = __tmp__._0;
             _err = __tmp__._1;
         };
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_matched), stdgo.Go.toInterface(_err));
         {
-            var __tmp__ = stdgo.regexp.Regexp.matchString(("a(b" : stdgo.GoString)?.__copy__(), ("seafood" : stdgo.GoString)?.__copy__());
+            var __tmp__ = stdgo.regexp.Regexp.matchString(("a(b" : stdgo.GoString), ("seafood" : stdgo.GoString));
             _matched = __tmp__._0;
             _err = __tmp__._1;
         };
@@ -2017,7 +2017,7 @@ the literal text.
 
 ```haxe
 function exampleQuoteMeta():Void {
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.regexp.Regexp.quoteMeta(("Escaping symbols like: .+*?()|[]{}^$" : stdgo.GoString)?.__copy__())));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.regexp.Regexp.quoteMeta(("Escaping symbols like: .+*?()|[]{}^$" : stdgo.GoString))));
     }
 ```
 

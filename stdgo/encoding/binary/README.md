@@ -224,17 +224,17 @@ package or protocol buffers.
 
   - [`function new(?int_:Null<stdgo.GoInt>, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void`](<#t-function-new>)
 
-- [class T\_testNoFixedSize\_0\_\_\_localname\_\_\_Person](<#class-t_testnofixedsize_0localnameperson>)
+- [class T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person](<#class-t_testnofixedsize_14localnameperson>)
 
-  - [`function new(?age:Null<stdgo.GoInt>, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void`](<#t_testnofixedsize_0localnameperson-function-new>)
+  - [`function new(?age:Null<stdgo.GoInt>, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void`](<#t_testnofixedsize_14localnameperson-function-new>)
 
-- [class T\_testSizeStructCache\_0\_\_\_localname\_\_\_foo](<#class-t_testsizestructcache_0localnamefoo>)
+- [class T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo](<#class-t_testsizestructcache_11localnamefoo>)
 
-  - [`function new(?a:stdgo.GoUInt32):Void`](<#t_testsizestructcache_0localnamefoo-function-new>)
+  - [`function new(?a:stdgo.GoUInt32):Void`](<#t_testsizestructcache_11localnamefoo-function-new>)
 
-- [class T\_testSizeStructCache\_1\_\_\_localname\_\_\_bar](<#class-t_testsizestructcache_1localnamebar>)
+- [class T\_testSizeStructCache\_12\_\_\_localname\_\_\_bar](<#class-t_testsizestructcache_12localnamebar>)
 
-  - [`function new(?a:stdgo.encoding.binary.Struct, ?b:stdgo.encoding.binary.T_testSizeStructCache_0___localname___foo, ?c:stdgo.encoding.binary.Struct):Void`](<#t_testsizestructcache_1localnamebar-function-new>)
+  - [`function new(?a:stdgo.encoding.binary.Struct, ?b:stdgo.encoding.binary.T_testSizeStructCache_11___localname___foo, ?c:stdgo.encoding.binary.Struct):Void`](<#t_testsizestructcache_12localnamebar-function-new>)
 
 - [class Unexported](<#class-unexported>)
 
@@ -262,7 +262,7 @@ package or protocol buffers.
 
 - [typedef T\_encoder](<#typedef-t_encoder>)
 
-- [typedef T\_testByteOrder\_0\_\_\_localname\_\_\_byteOrder](<#typedef-t_testbyteorder_0localnamebyteorder>)
+- [typedef T\_testByteOrder\_13\_\_\_localname\_\_\_byteOrder](<#typedef-t_testbyteorder_13localnamebyteorder>)
 
 # Examples
 
@@ -911,7 +911,7 @@ function examplePutUvarint():Void {
         var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((10 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         for (__0 => _x in (new stdgo.Slice<stdgo.StdGoTypes.GoUInt64>(6, 6, (1i64 : stdgo.StdGoTypes.GoUInt64), (2i64 : stdgo.StdGoTypes.GoUInt64), (127i64 : stdgo.StdGoTypes.GoUInt64), (128i64 : stdgo.StdGoTypes.GoUInt64), (255i64 : stdgo.StdGoTypes.GoUInt64), (256i64 : stdgo.StdGoTypes.GoUInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt64>)) {
             var _n:stdgo.StdGoTypes.GoInt = stdgo.encoding.binary.Binary.putUvarint(_buf, _x);
-            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
+            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
         };
     }
 ```
@@ -959,7 +959,7 @@ function examplePutVarint():Void {
 (63i64 : stdgo.StdGoTypes.GoInt64),
 (64i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoInt64>)) {
             var _n:stdgo.StdGoTypes.GoInt = stdgo.encoding.binary.Binary.putVarint(_buf, _x);
-            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
+            stdgo.fmt.Fmt.printf(("%x\n" : stdgo.GoString), stdgo.Go.toInterface((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)));
         };
     }
 ```
@@ -1060,7 +1060,7 @@ function exampleRead_multi():Void {
         };
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_data.pi));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_data.uate));
-        stdgo.fmt.Fmt.printf(("% x\n" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_data.mine));
+        stdgo.fmt.Fmt.printf(("% x\n" : stdgo.GoString), stdgo.Go.toInterface(_data.mine));
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_data.too));
     }
 ```
@@ -1605,7 +1605,7 @@ function exampleWrite():Void {
         if (_err != null) {
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("binary.Write failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        stdgo.fmt.Fmt.printf(("% x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_buf.bytes()));
+        stdgo.fmt.Fmt.printf(("% x" : stdgo.GoString), stdgo.Go.toInterface(_buf.bytes()));
     }
 ```
 
@@ -1631,7 +1631,7 @@ function exampleWrite_multi():Void {
                 stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("binary.Write failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
         };
-        stdgo.fmt.Fmt.printf(("%x" : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(_buf.bytes()));
+        stdgo.fmt.Fmt.printf(("%x" : stdgo.GoString), stdgo.Go.toInterface(_buf.bytes()));
     }
 ```
 
@@ -1880,7 +1880,7 @@ function new(?int_:Null<stdgo.GoInt>, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntp
 [\(view code\)](<./Binary.hx#L500>)
 
 
-## class T\_testNoFixedSize\_0\_\_\_localname\_\_\_Person
+## class T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person
 
 
 ```haxe
@@ -1898,7 +1898,7 @@ var weight:stdgo.GoFloat64
 ```
 
 
-### T\_testNoFixedSize\_0\_\_\_localname\_\_\_Person function new
+### T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person function new
 
 
 ```haxe
@@ -1909,7 +1909,7 @@ function new(?age:Null<stdgo.GoInt>, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFl
 [\(view code\)](<./Binary.hx#L1764>)
 
 
-## class T\_testSizeStructCache\_0\_\_\_localname\_\_\_foo
+## class T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo
 
 
 ```haxe
@@ -1917,7 +1917,7 @@ var a:stdgo.GoUInt32
 ```
 
 
-### T\_testSizeStructCache\_0\_\_\_localname\_\_\_foo function new
+### T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo function new
 
 
 ```haxe
@@ -1928,7 +1928,7 @@ function new(?a:stdgo.GoUInt32):Void
 [\(view code\)](<./Binary.hx#L1373>)
 
 
-## class T\_testSizeStructCache\_1\_\_\_localname\_\_\_bar
+## class T\_testSizeStructCache\_12\_\_\_localname\_\_\_bar
 
 
 ```haxe
@@ -1937,7 +1937,7 @@ var a:stdgo.encoding.binary.Struct
 
 
 ```haxe
-var b:stdgo.encoding.binary.T_testSizeStructCache_0___localname___foo
+var b:stdgo.encoding.binary.T_testSizeStructCache_11___localname___foo
 ```
 
 
@@ -1946,11 +1946,11 @@ var c:stdgo.encoding.binary.Struct
 ```
 
 
-### T\_testSizeStructCache\_1\_\_\_localname\_\_\_bar function new
+### T\_testSizeStructCache\_12\_\_\_localname\_\_\_bar function new
 
 
 ```haxe
-function new(?a:stdgo.encoding.binary.Struct, ?b:stdgo.encoding.binary.T_testSizeStructCache_0___localname___foo, ?c:stdgo.encoding.binary.Struct):Void
+function new(?a:stdgo.encoding.binary.Struct, ?b:stdgo.encoding.binary.T_testSizeStructCache_11___localname___foo, ?c:stdgo.encoding.binary.Struct):Void
 ```
 
 
@@ -2119,11 +2119,11 @@ typedef T_encoder = stdgo.encoding.binary.T_coder;
 ```
 
 
-## typedef T\_testByteOrder\_0\_\_\_localname\_\_\_byteOrder
+## typedef T\_testByteOrder\_13\_\_\_localname\_\_\_byteOrder
 
 
 ```haxe
-typedef T_testByteOrder_0___localname___byteOrder = {
+typedef T_testByteOrder_13___localname___byteOrder = {
 	public function uint64(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt64;
 	public function uint32(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32;
 	public function uint16(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt16;

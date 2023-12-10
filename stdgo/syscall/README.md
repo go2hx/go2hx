@@ -3588,9 +3588,9 @@ function _copyenv():Void
 
 ```haxe
 function _direntIno(_buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:Bool;
-		_0:stdgo.GoUInt64;
-	}
+	_1:Bool;
+	_0:stdgo.GoUInt64;
+}
 ```
 
 
@@ -3602,9 +3602,9 @@ function _direntIno(_buf:stdgo.Slice<stdgo.GoByte>):{
 
 ```haxe
 function _direntNamlen(_buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:Bool;
-		_0:stdgo.GoUInt64;
-	}
+	_1:Bool;
+	_0:stdgo.GoUInt64;
+}
 ```
 
 
@@ -3616,9 +3616,9 @@ function _direntNamlen(_buf:stdgo.Slice<stdgo.GoByte>):{
 
 ```haxe
 function _direntReclen(_buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:Bool;
-		_0:stdgo.GoUInt64;
-	}
+	_1:Bool;
+	_0:stdgo.GoUInt64;
+}
 ```
 
 
@@ -3656,9 +3656,9 @@ function _faketimeWrite(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>):stdgo.GoI
 
 ```haxe
 function _fdToFile(_fd:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.Ref<stdgo.syscall.T_jsFile>;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.syscall.T_jsFile>;
+}
 ```
 
 
@@ -3670,9 +3670,9 @@ function _fdToFile(_fd:stdgo.GoInt):{
 
 ```haxe
 function _fsCall(_name:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):{
-		_1:stdgo.Error;
-		_0:stdgo.syscall.js.Value;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.syscall.js.Value;
+}
 ```
 
 
@@ -3720,9 +3720,9 @@ function _msanWrite(_addr:stdgo.unsafe.UnsafePointer, _len:stdgo.GoInt):Void
 
 ```haxe
 function _now():{
-		_1:stdgo.GoInt32;
-		_0:stdgo.GoInt64;
-	}
+	_1:stdgo.GoInt32;
+	_0:stdgo.GoInt64;
+}
 ```
 
 
@@ -3737,9 +3737,9 @@ Provided by package runtime.
 
 ```haxe
 function _readInt(_b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoUIntptr, _size:stdgo.GoUIntptr):{
-		_1:Bool;
-		_0:stdgo.GoUInt64;
-	}
+	_1:Bool;
+	_0:stdgo.GoUInt64;
+}
 ```
 
 
@@ -3856,10 +3856,10 @@ function _setTimeval(_sec:stdgo.GoInt64, _usec:stdgo.GoInt64):stdgo.syscall.Time
 
 ```haxe
 function accept(_fd:stdgo.GoInt):{
-		_2:stdgo.Error;
-		_1:stdgo.syscall.Sockaddr;
-		_0:stdgo.GoInt;
-	}
+	_2:stdgo.Error;
+	_1:stdgo.syscall.Sockaddr;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -3882,9 +3882,9 @@ function bind(_fd:stdgo.GoInt, _sa:stdgo.syscall.Sockaddr):stdgo.Error
 
 ```haxe
 function bytePtrFromString(_s:stdgo.GoString):{
-		_1:stdgo.Error;
-		_0:stdgo.Pointer<stdgo.GoByte>;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.Pointer<stdgo.GoByte>;
+}
 ```
 
 
@@ -3901,9 +3901,9 @@ location, it returns \(nil, EINVAL\).
 
 ```haxe
 function byteSliceFromString(_s:stdgo.GoString):{
-		_1:stdgo.Error;
-		_0:stdgo.Slice<stdgo.GoByte>;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
 ```
 
 
@@ -3997,9 +3997,9 @@ function connect(_fd:stdgo.GoInt, _sa:stdgo.syscall.Sockaddr):stdgo.Error
 
 ```haxe
 function dup(_fd:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4110,9 +4110,9 @@ function ftruncate(_fd:stdgo.GoInt, _length:stdgo.GoInt64):stdgo.Error
 
 ```haxe
 function getcwd(_buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4135,9 +4135,9 @@ function getegid():stdgo.GoInt
 
 ```haxe
 function getenv(_key:stdgo.GoString):{
-		_1:Bool;
-		_0:stdgo.GoString;
-	}
+	_1:Bool;
+	_0:stdgo.GoString;
+}
 ```
 
 
@@ -4171,9 +4171,9 @@ function getgid():stdgo.GoInt
 
 ```haxe
 function getgroups():{
-		_1:stdgo.Error;
-		_0:stdgo.Slice<stdgo.GoInt>;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoInt>;
+}
 ```
 
 
@@ -4218,9 +4218,9 @@ function getppid():stdgo.GoInt
 
 ```haxe
 function getsockoptInt(_fd:stdgo.GoInt, _level:stdgo.GoInt, _opt:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4254,9 +4254,9 @@ function getuid():stdgo.GoInt
 
 ```haxe
 function getwd():{
-		_1:stdgo.Error;
-		_0:stdgo.GoString;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoString;
+}
 ```
 
 
@@ -4362,9 +4362,9 @@ NsecToTimeval converts a number of nanoseconds into a Timeval.
 
 ```haxe
 function open(_path:stdgo.GoString, _openmode:stdgo.GoInt, _perm:stdgo.GoUInt32):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4376,10 +4376,10 @@ function open(_path:stdgo.GoString, _openmode:stdgo.GoInt, _perm:stdgo.GoUInt32)
 
 ```haxe
 function parseDirent(_buf:stdgo.Slice<stdgo.GoByte>, _max:stdgo.GoInt, _names:stdgo.Slice<stdgo.GoString>):{
-		_2:stdgo.Slice<stdgo.GoString>;
-		_1:stdgo.GoInt;
-		_0:stdgo.GoInt;
-	}
+	_2:stdgo.Slice<stdgo.GoString>;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4408,9 +4408,9 @@ function pipe(_fd:stdgo.Slice<stdgo.GoInt>):stdgo.Error
 
 ```haxe
 function pread(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoInt64):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4422,9 +4422,9 @@ function pread(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoIn
 
 ```haxe
 function pwrite(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoInt64):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4436,10 +4436,10 @@ function pwrite(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoI
 
 ```haxe
 function rawSyscall(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr):{
-		_2:stdgo.syscall.Errno;
-		_1:stdgo.GoUIntptr;
-		_0:stdgo.GoUIntptr;
-	}
+	_2:stdgo.syscall.Errno;
+	_1:stdgo.GoUIntptr;
+	_0:stdgo.GoUIntptr;
+}
 ```
 
 
@@ -4451,10 +4451,10 @@ function rawSyscall(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUInt
 
 ```haxe
 function rawSyscall6(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr, _a4:stdgo.GoUIntptr, _a5:stdgo.GoUIntptr, _a6:stdgo.GoUIntptr):{
-		_2:stdgo.syscall.Errno;
-		_1:stdgo.GoUIntptr;
-		_0:stdgo.GoUIntptr;
-	}
+	_2:stdgo.syscall.Errno;
+	_1:stdgo.GoUIntptr;
+	_0:stdgo.GoUIntptr;
+}
 ```
 
 
@@ -4466,9 +4466,9 @@ function rawSyscall6(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIn
 
 ```haxe
 function read(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4480,9 +4480,9 @@ function read(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>):{
 
 ```haxe
 function readDirent(_fd:stdgo.GoInt, _buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4494,9 +4494,9 @@ function readDirent(_fd:stdgo.GoInt, _buf:stdgo.Slice<stdgo.GoByte>):{
 
 ```haxe
 function readlink(_path:stdgo.GoString, _buf:stdgo.Slice<stdgo.GoByte>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4508,10 +4508,10 @@ function readlink(_path:stdgo.GoString, _buf:stdgo.Slice<stdgo.GoByte>):{
 
 ```haxe
 function recvfrom(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt):{
-		_2:stdgo.Error;
-		_1:stdgo.syscall.Sockaddr;
-		_0:stdgo.GoInt;
-	}
+	_2:stdgo.Error;
+	_1:stdgo.syscall.Sockaddr;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4523,12 +4523,12 @@ function recvfrom(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.Go
 
 ```haxe
 function recvmsg(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt):{
-		_4:stdgo.Error;
-		_3:stdgo.syscall.Sockaddr;
-		_2:stdgo.GoInt;
-		_1:stdgo.GoInt;
-		_0:stdgo.GoInt;
-	}
+	_4:stdgo.Error;
+	_3:stdgo.syscall.Sockaddr;
+	_2:stdgo.GoInt;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4562,9 +4562,9 @@ function rmdir(_path:stdgo.GoString):stdgo.Error
 
 ```haxe
 function seek(_fd:stdgo.GoInt, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt64;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}
 ```
 
 
@@ -4576,9 +4576,9 @@ function seek(_fd:stdgo.GoInt, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
 
 ```haxe
 function sendfile(_outfd:stdgo.GoInt, _infd:stdgo.GoInt, _offset:stdgo.Pointer<stdgo.GoInt64>, _count:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4590,9 +4590,9 @@ function sendfile(_outfd:stdgo.GoInt, _infd:stdgo.GoInt, _offset:stdgo.Pointer<s
 
 ```haxe
 function sendmsgN(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.syscall.Sockaddr, _flags:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4681,9 +4681,9 @@ function shutdown(_fd:stdgo.GoInt, _how:stdgo.GoInt):stdgo.Error
 
 ```haxe
 function socket(_proto:stdgo.GoInt, _sotype:stdgo.GoInt, _unused:stdgo.GoInt):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4695,10 +4695,10 @@ function socket(_proto:stdgo.GoInt, _sotype:stdgo.GoInt, _unused:stdgo.GoInt):{
 
 ```haxe
 function startProcess(_argv0:stdgo.GoString, _argv:stdgo.Slice<stdgo.GoString>, _attr:stdgo.Ref<stdgo.syscall.ProcAttr>):{
-		_2:stdgo.Error;
-		_1:stdgo.GoUIntptr;
-		_0:stdgo.GoInt;
-	}
+	_2:stdgo.Error;
+	_1:stdgo.GoUIntptr;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4781,10 +4781,10 @@ function symlink(_path:stdgo.GoString, _link:stdgo.GoString):stdgo.Error
 
 ```haxe
 function syscall(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr):{
-		_2:stdgo.syscall.Errno;
-		_1:stdgo.GoUIntptr;
-		_0:stdgo.GoUIntptr;
-	}
+	_2:stdgo.syscall.Errno;
+	_1:stdgo.GoUIntptr;
+	_0:stdgo.GoUIntptr;
+}
 ```
 
 
@@ -4796,10 +4796,10 @@ function syscall(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr
 
 ```haxe
 function syscall6(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr, _a4:stdgo.GoUIntptr, _a5:stdgo.GoUIntptr, _a6:stdgo.GoUIntptr):{
-		_2:stdgo.syscall.Errno;
-		_1:stdgo.GoUIntptr;
-		_0:stdgo.GoUIntptr;
-	}
+	_2:stdgo.syscall.Errno;
+	_1:stdgo.GoUIntptr;
+	_0:stdgo.GoUIntptr;
+}
 ```
 
 
@@ -4811,9 +4811,9 @@ function syscall6(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntpt
 
 ```haxe
 function sysctl(_key:stdgo.GoString):{
-		_1:stdgo.Error;
-		_0:stdgo.GoString;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoString;
+}
 ```
 
 
@@ -4908,9 +4908,9 @@ function utimesNano(_path:stdgo.GoString, _ts:stdgo.Slice<stdgo.syscall.Timespec
 
 ```haxe
 function wait4(_pid:stdgo.GoInt, _wstatus:stdgo.Pointer<stdgo.syscall.WaitStatus>, _options:stdgo.GoInt, _rusage:stdgo.Ref<stdgo.syscall.Rusage>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -4922,9 +4922,9 @@ function wait4(_pid:stdgo.GoInt, _wstatus:stdgo.Pointer<stdgo.syscall.WaitStatus
 
 ```haxe
 function write(_fd:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoByte>):{
-		_1:stdgo.Error;
-		_0:stdgo.GoInt;
-	}
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -5267,9 +5267,9 @@ Nano returns the time stored in ts as nanoseconds.
 
 ```haxe
 function unix():{
-		_1:stdgo.GoInt64;
-		_0:stdgo.GoInt64;
-	}
+	_1:stdgo.GoInt64;
+	_0:stdgo.GoInt64;
+}
 ```
 
 
@@ -5322,9 +5322,9 @@ Nano returns the time stored in tv as nanoseconds.
 
 ```haxe
 function unix():{
-		_1:stdgo.GoInt64;
-		_0:stdgo.GoInt64;
-	}
+	_1:stdgo.GoInt64;
+	_0:stdgo.GoInt64;
+}
 ```
 
 
@@ -5347,11 +5347,11 @@ import stdgo.syscall.*
 
 ```haxe
 typedef Conn = {
-		public function syscallConn():{
-			_1:stdgo.Error;
-			_0:stdgo.syscall.RawConn;
-		};	//  SyscallConn returns a raw network connection.
-	};
+	public function syscallConn():{
+		_1:stdgo.Error;
+		_0:stdgo.syscall.RawConn;
+	};	//  SyscallConn returns a raw network connection.
+};
 ```
 
 

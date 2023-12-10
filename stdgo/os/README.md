@@ -39,9 +39,8 @@ stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : error: stdgo.Slice<stdgo.GoStr
 stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : ... have: stdgo.GoMap<..., (haxe.Rest<...>) -> ...>
 stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : ... want: stdgo.GoMap<..., (stdgo.Slice<...>) -> ...>
 stdgo/os/exec_test/Exec_test.hx:454: characters 36-60 : Type not found : stdgo.encoding.json.Json
-stdgo/os/exec_test/Exec_test.hx:1327: characters 25-55 : Type not found : os.exec.internal.fdtest.Fdtest
 stdgo/os/exec_test/Exec_test.hx:1379: characters 27-40 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1379: characters 137-159 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1379: characters 113-135 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1384: characters 150-175 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1389: characters 27-40 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1389: characters 64-86 : Type not found : stdgo.net.Net
@@ -52,19 +51,18 @@ stdgo/os/exec_test/Exec_test.hx:1499: characters 27-49 : Type not found : stdgo.
 stdgo/os/exec_test/Exec_test.hx:1506: characters 42-64 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1527: characters 25-47 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1530: characters 25-47 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:2613: characters 25-55 : Type not found : os.exec.internal.fdtest.Fdtest
 stdgo/os/exec_test/Exec.hx:64: characters 70-94 : Module stdgo.testing.Testing does not define type M_asInterface
 stdgo/os/exec_test/Exec.hx:64: characters 70-94 : ... For function argument '_i'
-stdgo/os_test/Os_test.hx:2623: characters 151-230 : invalid type abstract run asInterface: TAbstract(stdgo.GoUInt32,[])
-stdgo/os_test/Os_test.hx:2623: characters 151-230 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:2655: characters 152-233 : invalid type abstract run asInterface: TAbstract(stdgo.GoUInt32,[])
-stdgo/os_test/Os_test.hx:2655: characters 152-233 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:3156: characters 142-169 : Module stdgo.os.Os does not define type FileMode_asInterface
-stdgo/os_test/Os_test.hx:3156: characters 142-169 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:3159: characters 191-218 : Module stdgo.os.Os does not define type FileMode_asInterface
-stdgo/os_test/Os_test.hx:3159: characters 191-218 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:4816: characters 134-203 : invalid type abstract run asInterface: TAbstract(stdgo.GoUInt32,[])
-stdgo/os_test/Os_test.hx:4816: characters 134-203 : ... For function argument 'args'
+stdgo/os_test/Os_test.hx:2623: characters 139-218 : invalid type abstract run asInterface: TAbstract(stdgo.GoUInt32,[])
+stdgo/os_test/Os_test.hx:2623: characters 139-218 : ... For function argument 'args'
+stdgo/os_test/Os_test.hx:2655: characters 140-221 : invalid type abstract run asInterface: TAbstract(stdgo.GoUInt32,[])
+stdgo/os_test/Os_test.hx:2655: characters 140-221 : ... For function argument 'args'
+stdgo/os_test/Os_test.hx:3156: characters 130-157 : Module stdgo.os.Os does not define type FileMode_asInterface
+stdgo/os_test/Os_test.hx:3156: characters 130-157 : ... For function argument 'args'
+stdgo/os_test/Os_test.hx:3159: characters 179-206 : Module stdgo.os.Os does not define type FileMode_asInterface
+stdgo/os_test/Os_test.hx:3159: characters 179-206 : ... For function argument 'args'
+stdgo/os_test/Os_test.hx:4816: characters 122-191 : invalid type abstract run asInterface: TAbstract(stdgo.GoUInt32,[])
+stdgo/os_test/Os_test.hx:4816: characters 122-191 : ... For function argument 'args'
 stdgo/os_test/Os_test.hx:4831: characters 56-130 : invalid type abstract run asInterface: TAbstract(stdgo.GoUInt32,[])
 stdgo/os_test/Os_test.hx:4831: characters 56-130 : ... For function argument '_a'
 stdgo/os_test/Os.hx:171: characters 70-94 : Module stdgo.testing.Testing does not define type M_asInterface

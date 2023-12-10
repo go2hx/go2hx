@@ -9,7 +9,7 @@ stdgo/hash_test/Hash_test.hx:27: characters 16-34 : Type not found : stdgo.hash.
 stdgo/hash_test/Hash_test.hx:30: characters 16-34 : Type not found : stdgo.hash.fnv.Fnv
 stdgo/hash_test/Hash_test.hx:33: characters 16-34 : Type not found : stdgo.hash.fnv.Fnv
 stdgo/hash_test/Hash_test.hx:36: characters 16-34 : Type not found : stdgo.hash.fnv.Fnv
-stdgo/hash_test/Hash_test.hx:38: characters 57-77 : Type not found : stdgo.crypto.md5.Md5
+stdgo/hash_test/Hash_test.hx:38: characters 45-65 : Type not found : stdgo.crypto.md5.Md5
 
 ```
 

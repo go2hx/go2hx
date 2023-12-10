@@ -161,8 +161,13 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	}
 
 	public inline function __setData__(data:SliceData<T>) {
-		if (this == null)
-			this = new Slice<T>(0, -1);
+		// special cases
+		// this == null
+		// data == null
+		if (data == null) {
+			this.__nil__ = true;
+			return;
+		}
 		this.length = data.length;
 		this.capacity = data.capacity;
 		this.bytes = data.bytes;

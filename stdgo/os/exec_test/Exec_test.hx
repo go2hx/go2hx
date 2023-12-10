@@ -1324,7 +1324,7 @@ function testPipeLookPathLeak(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             {
                 var _i:stdgo.StdGoTypes.GoUIntptr = (0 : stdgo.StdGoTypes.GoUIntptr);
                 stdgo.Go.cfor(_i < (100 : stdgo.StdGoTypes.GoUIntptr), _i++, {
-                    if (os.exec.internal.fdtest.Fdtest.exists(_i)) {
+                    if (stdgo.os.exec.internal.fdtest.Fdtest.exists(_i)) {
                         _fds = (_fds.__append__(_i));
                     };
                 });
@@ -2610,7 +2610,7 @@ function testConcurrentExec(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                     if (stdgo.internal.poll.Poll.isPollDescriptor(_fd)) {
                         continue;
                     };
-                    if (os.exec.internal.fdtest.Fdtest.exists(_fd)) {
+                    if (stdgo.os.exec.internal.fdtest.Fdtest.exists(_fd)) {
                         _haveUnexpectedFDs = true;
                         throw "__return__";
                     };

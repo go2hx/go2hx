@@ -39,6 +39,7 @@ stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : error: stdgo.Slice<stdgo.GoStr
 stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : ... have: stdgo.GoMap<..., (haxe.Rest<...>) -> ...>
 stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : ... want: stdgo.GoMap<..., (stdgo.Slice<...>) -> ...>
 stdgo/os/exec_test/Exec_test.hx:454: characters 36-60 : Type not found : stdgo.encoding.json.Json
+stdgo/os/exec_test/Exec_test.hx:1327: characters 25-55 : Type not found : os.exec.internal.fdtest.Fdtest
 stdgo/os/exec_test/Exec_test.hx:1379: characters 27-40 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1379: characters 113-135 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1384: characters 150-175 : Type not found : stdgo.net.Net
@@ -51,6 +52,7 @@ stdgo/os/exec_test/Exec_test.hx:1499: characters 27-49 : Type not found : stdgo.
 stdgo/os/exec_test/Exec_test.hx:1506: characters 42-64 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1527: characters 25-47 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:1530: characters 25-47 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:2613: characters 25-55 : Type not found : os.exec.internal.fdtest.Fdtest
 stdgo/os/exec_test/Exec.hx:64: characters 70-94 : Module stdgo.testing.Testing does not define type M_asInterface
 stdgo/os/exec_test/Exec.hx:64: characters 70-94 : ... For function argument '_i'
 

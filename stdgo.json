@@ -186,5 +186,9 @@
     "cmp",
     "debug/cmp",
     "internal/bisect",
-    "log/internal"
+    "log/internal",
+    "os/exec/internal/fdtest",
+    "go/internal/srcimporter",
+    "internal/cfg",
+    "internal/goversion"
 ]

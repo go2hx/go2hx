@@ -132,6 +132,8 @@ jobs:
         run: go build github.com/go2hx/go2hxdoc
       - name: Run go2hxdoc
         run: ./go2hxdoc -dir `npx haxelib libpath go2hx`stdgo -stats -force -seq
+      - name: Git pull
+        run: git pull
       - name: Commit docs
         uses: stefanzweifel/git-auto-commit-action@v4
         with:

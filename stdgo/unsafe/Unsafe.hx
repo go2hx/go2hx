@@ -7,11 +7,10 @@ using GoString.GoStringTools;
 
 @:follow typedef Pointer_ = UnsafePointer;
 
-abstract UnsafePointer(AnyInterface) from AnyInterface {
+abstract UnsafePointer(AnyInterface) from AnyInterface to AnyInterface {
 	private function new(value) {
 		this = value;
 	}
-
 	public function __toRef__():Ref<Dynamic>
 		return this.value;
 

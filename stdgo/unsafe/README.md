@@ -43,7 +43,7 @@ function alignof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Unsafe.hx#L70>)
+[\(view code\)](<./Unsafe.hx#L69>)
 
 
 ## function offsetof\_
@@ -54,7 +54,7 @@ function offsetof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Unsafe.hx#L66>)
+[\(view code\)](<./Unsafe.hx#L65>)
 
 
 ## function sizeof
@@ -65,7 +65,7 @@ function sizeof(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Unsafe.hx#L62>)
+[\(view code\)](<./Unsafe.hx#L61>)
 
 
 ## function slice
@@ -76,7 +76,7 @@ function slice(_ptr:stdgo.Pointer<Dynamic>, _len:stdgo.GoInt):Array<Dynamic>
 ```
 
 
-[\(view code\)](<./Unsafe.hx#L84>)
+[\(view code\)](<./Unsafe.hx#L83>)
 
 
 ## function sliceData
@@ -87,7 +87,7 @@ function sliceData(s:stdgo.Slice<sliceData.T>):Dynamic
 ```
 
 
-[\(view code\)](<./Unsafe.hx#L78>)
+[\(view code\)](<./Unsafe.hx#L77>)
 
 
 ## function string
@@ -98,7 +98,7 @@ function string(s:stdgo.Pointer<stdgo.GoByte>, len:stdgo.GoInt):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Unsafe.hx#L81>)
+[\(view code\)](<./Unsafe.hx#L80>)
 
 
 ## function stringData
@@ -109,7 +109,7 @@ function stringData(s:stdgo.GoString):Dynamic
 ```
 
 
-[\(view code\)](<./Unsafe.hx#L75>)
+[\(view code\)](<./Unsafe.hx#L74>)
 
 
 # Typedefs

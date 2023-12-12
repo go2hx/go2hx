@@ -1,5 +1,18 @@
 # Module stdgo.os.exec has compilation errors, please do not use:
 ```
+stdgo/os/exec_test/Exec_test.hx:1327: characters 25-61 : Type not found : stdgo.os.exec.internal.fdtest.Fdtest
+stdgo/os/exec_test/Exec_test.hx:1379: characters 27-40 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1379: characters 113-135 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1384: characters 150-175 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1389: characters 27-40 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1389: characters 64-86 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1394: characters 23-55 : Type not found : stdgo.net.http.httptest.Httptest
+stdgo/os/exec_test/Exec_test.hx:1399: characters 31-50 : Type not found : stdgo.net.http.Http
+stdgo/os/exec_test/Exec_test.hx:1442: characters 34-42 : stdgo.Ref<stdgo.testing.T> has no field deadline
+stdgo/os/exec_test/Exec_test.hx:1499: characters 27-49 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1506: characters 42-64 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1527: characters 25-47 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1530: characters 25-47 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:39: characters 46-54 : error: stdgo.Slice<stdgo.GoString> should be haxe.Rest<stdgo.GoString>
 stdgo/os/exec_test/Exec_test.hx:39: characters 46-54 : ... have: (haxe.Rest<...>) -> ...
 stdgo/os/exec_test/Exec_test.hx:39: characters 46-54 : ... want: (stdgo.Slice<...>) -> ...
@@ -38,23 +51,10 @@ stdgo/os/exec_test/Exec_test.hx:48: characters 46-54 : ... want: (stdgo.Slice<..
 stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : error: stdgo.Slice<stdgo.GoString> should be haxe.Rest<stdgo.GoString>
 stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : ... have: stdgo.GoMap<..., (haxe.Rest<...>) -> ...>
 stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : ... want: stdgo.GoMap<..., (stdgo.Slice<...>) -> ...>
-stdgo/os/exec_test/Exec_test.hx:454: characters 36-60 : Type not found : stdgo.encoding.json.Json
-stdgo/os/exec_test/Exec_test.hx:1327: characters 25-61 : Type not found : stdgo.os.exec.internal.fdtest.Fdtest
-stdgo/os/exec_test/Exec_test.hx:1379: characters 27-40 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1379: characters 113-135 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1384: characters 150-175 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1389: characters 27-40 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1389: characters 64-86 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1394: characters 23-55 : Type not found : stdgo.net.http.httptest.Httptest
-stdgo/os/exec_test/Exec_test.hx:1399: characters 31-50 : Type not found : stdgo.net.http.Http
-stdgo/os/exec_test/Exec_test.hx:1442: characters 34-42 : stdgo.Ref<stdgo.testing.T> has no field deadline
-stdgo/os/exec_test/Exec_test.hx:1499: characters 27-49 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1506: characters 42-64 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1527: characters 25-47 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1530: characters 25-47 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:2613: characters 25-61 : Type not found : stdgo.os.exec.internal.fdtest.Fdtest
 stdgo/os/exec_test/Exec.hx:64: characters 70-94 : Module stdgo.testing.Testing does not define type M_asInterface
 stdgo/os/exec_test/Exec.hx:64: characters 70-94 : ... For function argument '_i'
+stdgo/os/exec_test/Exec_test.hx:454: characters 36-60 : Type not found : stdgo.encoding.json.Json
+stdgo/os/exec_test/Exec_test.hx:2613: characters 25-61 : Type not found : stdgo.os.exec.internal.fdtest.Fdtest
 
 ```
 

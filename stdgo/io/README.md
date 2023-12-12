@@ -27,7 +27,6 @@ stdgo/math/big/Big.hx:10214: characters 31-55 : Type not found : stdgo.encoding.
 stdgo/math/big/Big.hx:10221: characters 44-68 : Type not found : stdgo.encoding.json.Json
 stdgo/math/big/Big.hx:10251: characters 31-54 : Type not found : stdgo.encoding.xml.Xml_
 stdgo/math/big/Big.hx:10258: characters 44-67 : Type not found : stdgo.encoding.xml.Xml_
-stdgo/math/big/Big.hx:10863: characters 12-16 : stdgo.Ref<stdgo.testing.F> has no field fuzz
 stdgo/math/big/Big.hx:12875: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
 stdgo/math/big/Big.hx:12876: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
 stdgo/math/big/Big.hx:12907: characters 20-42 : Type not found : stdgo.encoding.gob.Gob

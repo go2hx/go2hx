@@ -226,6 +226,8 @@ class F {
 		return true;
 	}
 
+	public function fuzz(_ff:AnyInterface) {}
+
 	public function setenv(key:GoString, value:GoString) {}
 
 	public function skip(args:Rest<AnyInterface>) {}

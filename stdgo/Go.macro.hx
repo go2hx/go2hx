@@ -1201,7 +1201,7 @@ class Go {
 					case "Void":
 						ret = macro stdgo.internal.reflect.Reflect.GoType.invalidType; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default: // used internally such as reflect.Kind
-						trace(t);
+						trace(t, Context.currentPos());
 						throw "issue";
 						Context.error('unknown abstract type: $sref', Context.currentPos());
 				}

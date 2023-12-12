@@ -678,11 +678,12 @@ func encodeString(s string) string {
 	return `"` + buffer.String() + `"`
 }
 
+var count = 0
+
 func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 	interfaceTypes := make(map[uint32]*ast.Ident)
 	structTypes := make(map[uint32]*ast.Ident)
 	continueBool := false
-	count := 0
 	funcName := ""
 	apply := func(cursor *astutil.Cursor) bool {
 		switch cursor.Parent().(type) {

@@ -69,5 +69,7 @@
     "internal/bisect",
     "internal/testenv",
     "internal/platform",
-    "context"
+    "context",
+    "encoding/gob",
+    "encoding/json"
 ]

@@ -2460,6 +2460,7 @@ private function nonAssignToken(tok:Ast.Token):Ast.Token {
 private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 	switch stmt.tok {
 		case ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN, SHL_ASSIGN, SHR_ASSIGN, XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
+			// remove checkType from x in x = y
 			final expr = toExpr(typeBinaryExpr({
 				x: stmt.lhs[0],
 				y: {id: "ParenExpr", x: stmt.rhs[0]},
@@ -2468,7 +2469,15 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				type: stmt.lhs[0],
 			}, info));
 
-			final assign = typeExpr(stmt.lhs[0], info);
+			var assign = typeExpr(stmt.lhs[0], info);
+			assign = escapeParens(assign);
+			switch assign.expr {
+				case ECheckType(e, _):
+					assign = e;
+				case EBinop(OpNullCoal, e, _):
+					assign = e;
+				default:
+			}
 			if (stmt.lhs[0].id == "IndexExpr" || stmt.lhs[0].id == "StarExpr" && stmt.lhs[0].x.id == "IndexExpr") { // prevent invalid assign to null
 				switch escapeParens(assign).expr {
 					case ETernary(econd, eif, _):

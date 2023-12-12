@@ -1,0 +1,3 @@
+-m stdgo.encoding.json_test.Json
+-lib go2hx
+-cp .

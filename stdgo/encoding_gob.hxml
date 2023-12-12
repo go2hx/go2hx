@@ -1,0 +1,3 @@
+-m stdgo.encoding.gob_test.Gob
+-lib go2hx
+-cp .

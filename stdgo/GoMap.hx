@@ -338,6 +338,7 @@ class GoInt64Map<T> extends BalancedTree<GoInt64, T> {
 }
 
 class GoUInt64Map<T> extends BalancedTree<GoUInt64, T> {
+	public var __defaultValue__:Void->T;
 	override function compare(k1:GoUInt64, k2:GoUInt64):Int {
 		return if (k1 == k2) {
 			0;
@@ -347,9 +348,23 @@ class GoUInt64Map<T> extends BalancedTree<GoUInt64, T> {
 			-1;
 		}
 	}
+	override function get(key:GoUInt64):T {
+		var node = root;
+		while (node != null) {
+			var c = compare(key, node.key);
+			if (c == 0)
+				return node.value;
+			if (c < 0)
+				node = node.left;
+			else
+				node = node.right;
+		}
+		return __defaultValue__();
+	}
 }
 
 class GoFloat64Map<T> extends BalancedTree<GoFloat64, T> {
+	public var __defaultValue__:Void->T;
 	override function compare(k1:GoFloat64, k2:GoFloat64):Int {
 		return if (k1 == k2) {
 			0;
@@ -358,6 +373,19 @@ class GoFloat64Map<T> extends BalancedTree<GoFloat64, T> {
 		} else {
 			-1;
 		}
+	}
+	override function get(key:GoFloat64):T {
+		var node = root;
+		while (node != null) {
+			var c = compare(key, node.key);
+			if (c == 0)
+				return node.value;
+			if (c < 0)
+				node = node.left;
+			else
+				node = node.right;
+		}
+		return __defaultValue__();
 	}
 }
 
@@ -377,24 +405,67 @@ typedef GoComplex64Map<T> = GoComplex128Map<T>;
 // ref
 
 class GoRefMap<K, V> extends BalancedTree<Ref<K>, V> {
+	public var __defaultValue__:Void->V;
 	override function compare(k1:Ref<K>, k2:Ref<K>):Int {
 		return k1 == k2 ? 0 : 1;
+	}
+	override function get(key:Ref<K>):V {
+		var node = root;
+		while (node != null) {
+			var c = compare(key, node.key);
+			if (c == 0)
+				return node.value;
+			if (c < 0)
+				node = node.left;
+			else
+				node = node.right;
+		}
+		return __defaultValue__();
 	}
 }
 
 class GoPointerMap<K, V> extends BalancedTree<Pointer<K>, V> {
+	public var __defaultValue__:Void->V;
 	override function compare(k1:Pointer<K>, k2:Pointer<K>):Int {
 		return k1 == k2 ? 0 : 1;
+	}
+	override function get(key:Pointer<K>):V {
+		var node = root;
+		while (node != null) {
+			var c = compare(key, node.key);
+			if (c == 0)
+				return node.value;
+			if (c < 0)
+				node = node.left;
+			else
+				node = node.right;
+		}
+		return __defaultValue__();
 	}
 }
 
 class GoChanMap<K, V> extends BalancedTree<Chan<K>, V> {
+	public var __defaultValue__:Void->V;
 	override function compare(k1:Chan<K>, k2:Chan<K>):Int {
 		return k1 == k2 ? 0 : 1;
+	}
+	override function get(key:Chan<K>):V {
+		var node = root;
+		while (node != null) {
+			var c = compare(key, node.key);
+			if (c == 0)
+				return node.value;
+			if (c < 0)
+				node = node.left;
+			else
+				node = node.right;
+		}
+		return __defaultValue__();
 	}
 }
 
 class GoComplex128Map<T> extends BalancedTree<GoComplex128, T> {
+	public var __defaultValue__:Void->T;
 	override function compare(k1:GoComplex128, k2:GoComplex128):Int {
 		return if (k1 == k2) {
 			0;
@@ -403,6 +474,19 @@ class GoComplex128Map<T> extends BalancedTree<GoComplex128, T> {
 		} else {
 			-1;
 		}
+	}
+	override function get(key:GoComplex128):T {
+		var node = root;
+		while (node != null) {
+			var c = compare(key, node.key);
+			if (c == 0)
+				return node.value;
+			if (c < 0)
+				node = node.left;
+			else
+				node = node.right;
+		}
+		return __defaultValue__();
 	}
 }
 

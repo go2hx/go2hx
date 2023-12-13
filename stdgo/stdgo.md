@@ -10,10 +10,12 @@
 | [stdgo.context](./context/README.md) | ✅ | no |
 | [stdgo.crypto.rand](./crypto/rand/README.md) | ❌ | yes |
 | [stdgo.crypto.sha1](./crypto/sha1/README.md) | ❌ | yes |
-| [stdgo.encoding](./encoding/README.md) | ✅ | no |
+| [stdgo.encoding](./encoding/README.md) | ❌ | no |
 | [stdgo.encoding.base64](./encoding/base64/README.md) | ✅ | yes |
 | [stdgo.encoding.binary](./encoding/binary/README.md) | ✅ | yes |
+| [stdgo.encoding.gob](./encoding/gob/README.md) | ❌ | yes |
 | [stdgo.encoding.hex](./encoding/hex/README.md) | ✅ | yes |
+| [stdgo.encoding.json](./encoding/json/README.md) | ❌ | yes |
 | [stdgo.errors](./errors/README.md) | ✅ | yes |
 | [stdgo.flag](./flag/README.md) | ❌ | yes |
 | [stdgo.fmt](./fmt/README.md) | ❌ | yes |

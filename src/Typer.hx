@@ -1843,12 +1843,16 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 private function hasBreak(expr:Expr):Bool {
 	var f = null;
 	var hasBreakBool = false;
-	f = expr -> switch expr.expr {
-		case EBreak:
-			hasBreakBool = true;
+	f = expr -> {
+		if (expr == null || expr.expr == null)
 			return;
-		default:
-			haxe.macro.ExprTools.iter(expr, f);
+		switch expr.expr {
+			case EBreak:
+				hasBreakBool = true;
+				return;
+			default:
+				haxe.macro.ExprTools.iter(expr, f);
+		}
 	}
 	f(expr);
 	return hasBreakBool;

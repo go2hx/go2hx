@@ -11,7 +11,7 @@ stdgo/io/fs_test/Fs_test.hx:433: characters 50-298 : { sys : stdgo.AnyInterface,
 stdgo/io/fs_test/Fs_test.hx:433: characters 50-298 : ... For function argument 'value'
 stdgo/io_test/Io_test.hx:1860: characters 32-38 : Unknown identifier : reader
 stdgo/io_test/Io_test.hx:1903: characters 32-38 : Unknown identifier : writer
-stdgo/encoding/gob/Gob.hx:4255: characters 9-195 : Recursive typedef is not allowed
+stdgo/encoding/gob/Gob.hx:4255: characters 9-197 : Recursive typedef is not allowed
 
 ```
 

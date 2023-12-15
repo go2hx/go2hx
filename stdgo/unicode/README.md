@@ -85,7 +85,7 @@ Unicode code points.
 
 - [class RangeTable](<#class-rangetable>)
 
-  - [`function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.unicode.Range32>, ?latinOffset:stdgo.GoInt):Void`](<#rangetable-function-new>)
+  - [`function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.unicode.Range32>, ?latinOffset:Null<stdgo.GoInt>):Void`](<#rangetable-function-new>)
 
 - [typedef SpecialCase](<#typedef-specialcase>)
 
@@ -5128,7 +5128,7 @@ var r32:stdgo.Slice<stdgo.unicode.Range32>
 
 
 ```haxe
-function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.unicode.Range32>, ?latinOffset:stdgo.GoInt):Void
+function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.unicode.Range32>, ?latinOffset:Null<stdgo.GoInt>):Void
 ```
 
 

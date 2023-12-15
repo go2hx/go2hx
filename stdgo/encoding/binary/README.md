@@ -224,17 +224,17 @@ package or protocol buffers.
 
   - [`function new(?int_:Null<stdgo.GoInt>, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void`](<#t-function-new>)
 
-- [class T\_testNoFixedSize\_17\_\_\_localname\_\_\_Person](<#class-t_testnofixedsize_17localnameperson>)
+- [class T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person](<#class-t_testnofixedsize_14localnameperson>)
 
-  - [`function new(?age:Null<stdgo.GoInt>, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void`](<#t_testnofixedsize_17localnameperson-function-new>)
+  - [`function new(?age:Null<stdgo.GoInt>, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFloat64):Void`](<#t_testnofixedsize_14localnameperson-function-new>)
 
-- [class T\_testSizeStructCache\_14\_\_\_localname\_\_\_foo](<#class-t_testsizestructcache_14localnamefoo>)
+- [class T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo](<#class-t_testsizestructcache_11localnamefoo>)
 
-  - [`function new(?a:stdgo.GoUInt32):Void`](<#t_testsizestructcache_14localnamefoo-function-new>)
+  - [`function new(?a:stdgo.GoUInt32):Void`](<#t_testsizestructcache_11localnamefoo-function-new>)
 
-- [class T\_testSizeStructCache\_15\_\_\_localname\_\_\_bar](<#class-t_testsizestructcache_15localnamebar>)
+- [class T\_testSizeStructCache\_12\_\_\_localname\_\_\_bar](<#class-t_testsizestructcache_12localnamebar>)
 
-  - [`function new(?a:stdgo.encoding.binary.Struct, ?b:stdgo.encoding.binary.T_testSizeStructCache_14___localname___foo, ?c:stdgo.encoding.binary.Struct):Void`](<#t_testsizestructcache_15localnamebar-function-new>)
+  - [`function new(?a:stdgo.encoding.binary.Struct, ?b:stdgo.encoding.binary.T_testSizeStructCache_11___localname___foo, ?c:stdgo.encoding.binary.Struct):Void`](<#t_testsizestructcache_12localnamebar-function-new>)
 
 - [class Unexported](<#class-unexported>)
 
@@ -262,7 +262,7 @@ package or protocol buffers.
 
 - [typedef T\_encoder](<#typedef-t_encoder>)
 
-- [typedef T\_testByteOrder\_16\_\_\_localname\_\_\_byteOrder](<#typedef-t_testbyteorder_16localnamebyteorder>)
+- [typedef T\_testByteOrder\_13\_\_\_localname\_\_\_byteOrder](<#typedef-t_testbyteorder_13localnamebyteorder>)
 
 # Examples
 
@@ -1880,7 +1880,7 @@ function new(?int_:Null<stdgo.GoInt>, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntp
 [\(view code\)](<./Binary.hx#L500>)
 
 
-## class T\_testNoFixedSize\_17\_\_\_localname\_\_\_Person
+## class T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person
 
 
 ```haxe
@@ -1898,7 +1898,7 @@ var weight:stdgo.GoFloat64
 ```
 
 
-### T\_testNoFixedSize\_17\_\_\_localname\_\_\_Person function new
+### T\_testNoFixedSize\_14\_\_\_localname\_\_\_Person function new
 
 
 ```haxe
@@ -1909,7 +1909,7 @@ function new(?age:Null<stdgo.GoInt>, ?weight:stdgo.GoFloat64, ?height:stdgo.GoFl
 [\(view code\)](<./Binary.hx#L1764>)
 
 
-## class T\_testSizeStructCache\_14\_\_\_localname\_\_\_foo
+## class T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo
 
 
 ```haxe
@@ -1917,7 +1917,7 @@ var a:stdgo.GoUInt32
 ```
 
 
-### T\_testSizeStructCache\_14\_\_\_localname\_\_\_foo function new
+### T\_testSizeStructCache\_11\_\_\_localname\_\_\_foo function new
 
 
 ```haxe
@@ -1928,7 +1928,7 @@ function new(?a:stdgo.GoUInt32):Void
 [\(view code\)](<./Binary.hx#L1373>)
 
 
-## class T\_testSizeStructCache\_15\_\_\_localname\_\_\_bar
+## class T\_testSizeStructCache\_12\_\_\_localname\_\_\_bar
 
 
 ```haxe
@@ -1937,7 +1937,7 @@ var a:stdgo.encoding.binary.Struct
 
 
 ```haxe
-var b:stdgo.encoding.binary.T_testSizeStructCache_14___localname___foo
+var b:stdgo.encoding.binary.T_testSizeStructCache_11___localname___foo
 ```
 
 
@@ -1946,11 +1946,11 @@ var c:stdgo.encoding.binary.Struct
 ```
 
 
-### T\_testSizeStructCache\_15\_\_\_localname\_\_\_bar function new
+### T\_testSizeStructCache\_12\_\_\_localname\_\_\_bar function new
 
 
 ```haxe
-function new(?a:stdgo.encoding.binary.Struct, ?b:stdgo.encoding.binary.T_testSizeStructCache_14___localname___foo, ?c:stdgo.encoding.binary.Struct):Void
+function new(?a:stdgo.encoding.binary.Struct, ?b:stdgo.encoding.binary.T_testSizeStructCache_11___localname___foo, ?c:stdgo.encoding.binary.Struct):Void
 ```
 
 
@@ -2119,11 +2119,11 @@ typedef T_encoder = stdgo.encoding.binary.T_coder;
 ```
 
 
-## typedef T\_testByteOrder\_16\_\_\_localname\_\_\_byteOrder
+## typedef T\_testByteOrder\_13\_\_\_localname\_\_\_byteOrder
 
 
 ```haxe
-typedef T_testByteOrder_16___localname___byteOrder = {
+typedef T_testByteOrder_13___localname___byteOrder = {
 	public function uint64(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt64;
 	public function uint32(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32;
 	public function uint16(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt16;

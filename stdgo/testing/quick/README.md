@@ -190,13 +190,13 @@ The testing/quick package is frozen and is not accepting new features.
 
   - [`function _getRand():stdgo.Ref<stdgo.math.rand.Rand>`](<#config-function-_getrand>)
 
-- [class T\_testNonZeroSliceAndMap\_24\_\_\_localname\_\_\_Q](<#class-t_testnonzerosliceandmap_24localnameq>)
+- [class T\_testNonZeroSliceAndMap\_35\_\_\_localname\_\_\_Q](<#class-t_testnonzerosliceandmap_35localnameq>)
 
-  - [`function new(?m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?s:stdgo.Slice<stdgo.GoInt>):Void`](<#t_testnonzerosliceandmap_24localnameq-function-new>)
+  - [`function new(?m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?s:stdgo.Slice<stdgo.GoInt>):Void`](<#t_testnonzerosliceandmap_35localnameq-function-new>)
 
-- [class T\_testRecursive\_23\_\_\_localname\_\_\_R](<#class-t_testrecursive_23localnamer>)
+- [class T\_testRecursive\_34\_\_\_localname\_\_\_R](<#class-t_testrecursive_34localnamer>)
 
-  - [`function new(?ptr:stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>, ?sliceP:stdgo.Slice<stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>>, ?slice:stdgo.Slice<stdgo.testing.quick.T_testRecursive_23___localname___R>, ?map:stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_23___localname___R>, ?mapP:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>>, ?mapR:stdgo.GoMap<stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>, stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>>, ?sliceMap:stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_23___localname___R>>):Void`](<#t_testrecursive_23localnamer-function-new>)
+  - [`function new(?ptr:stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>, ?sliceP:stdgo.Slice<stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>>, ?slice:stdgo.Slice<stdgo.testing.quick.T_testRecursive_34___localname___R>, ?map:stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_34___localname___R>, ?mapP:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>>, ?mapR:stdgo.GoMap<stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>, stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>>, ?sliceMap:stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_34___localname___R>>):Void`](<#t_testrecursive_34localnamer-function-new>)
 
 - [class TestStruct](<#class-teststruct>)
 
@@ -1292,7 +1292,7 @@ getRand returns the \*rand.Rand to use for a given Config.
 [\(view code\)](<./Quick.hx#L937>)
 
 
-## class T\_testNonZeroSliceAndMap\_24\_\_\_localname\_\_\_Q
+## class T\_testNonZeroSliceAndMap\_35\_\_\_localname\_\_\_Q
 
 
 ```haxe
@@ -1305,7 +1305,7 @@ var s:stdgo.Slice<stdgo.GoInt>
 ```
 
 
-### T\_testNonZeroSliceAndMap\_24\_\_\_localname\_\_\_Q function new
+### T\_testNonZeroSliceAndMap\_35\_\_\_localname\_\_\_Q function new
 
 
 ```haxe
@@ -1316,49 +1316,49 @@ function new(?m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?s:stdgo.Slice<stdgo.GoIn
 [\(view code\)](<./Quick.hx#L853>)
 
 
-## class T\_testRecursive\_23\_\_\_localname\_\_\_R
+## class T\_testRecursive\_34\_\_\_localname\_\_\_R
 
 
 ```haxe
-var map:stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_23___localname___R>
+var map:stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_34___localname___R>
 ```
 
 
 ```haxe
-var mapP:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>>
+var mapP:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>>
 ```
 
 
 ```haxe
-var mapR:stdgo.GoMap<stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>, stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>>
+var mapR:stdgo.GoMap<stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>, stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>>
 ```
 
 
 ```haxe
-var ptr:stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>
+var ptr:stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>
 ```
 
 
 ```haxe
-var slice:stdgo.Slice<stdgo.testing.quick.T_testRecursive_23___localname___R>
+var slice:stdgo.Slice<stdgo.testing.quick.T_testRecursive_34___localname___R>
 ```
 
 
 ```haxe
-var sliceMap:stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_23___localname___R>>
+var sliceMap:stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_34___localname___R>>
 ```
 
 
 ```haxe
-var sliceP:stdgo.Slice<stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>>
+var sliceP:stdgo.Slice<stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>>
 ```
 
 
-### T\_testRecursive\_23\_\_\_localname\_\_\_R function new
+### T\_testRecursive\_34\_\_\_localname\_\_\_R function new
 
 
 ```haxe
-function new(?ptr:stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>, ?sliceP:stdgo.Slice<stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>>, ?slice:stdgo.Slice<stdgo.testing.quick.T_testRecursive_23___localname___R>, ?map:stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_23___localname___R>, ?mapP:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>>, ?mapR:stdgo.GoMap<stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>, stdgo.Ref<stdgo.testing.quick.T_testRecursive_23___localname___R>>, ?sliceMap:stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_23___localname___R>>):Void
+function new(?ptr:stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>, ?sliceP:stdgo.Slice<stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>>, ?slice:stdgo.Slice<stdgo.testing.quick.T_testRecursive_34___localname___R>, ?map:stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_34___localname___R>, ?mapP:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>>, ?mapR:stdgo.GoMap<stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>, stdgo.Ref<stdgo.testing.quick.T_testRecursive_34___localname___R>>, ?sliceMap:stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.T_testRecursive_34___localname___R>>):Void
 ```
 
 

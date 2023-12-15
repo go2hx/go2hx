@@ -4634,7 +4634,7 @@ private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int
 
 private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
-	final t = typeof(expr, info, false); // use expr type potentially instead of expr.x?
+	final t = typeof(expr.x, info, false); // use expr type potentially instead of expr.x?
 	final isNamed = isNamed(t);
 	if (expr.op == AND) {
 		return switch t {

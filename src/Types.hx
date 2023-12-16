@@ -186,7 +186,14 @@ function isRefValue(type:GoType):Bool {
 	return switch type {
 		case named(_, _, t, _):
 			isRefValue(t);
-		case basic(_): //, refType(_):
+		case refType(_.get() => t):
+			switch t {
+				case refType(_):
+					false;
+				default:
+					true;
+			}
+		case basic(_):
 			false;
 		default:
 			true;

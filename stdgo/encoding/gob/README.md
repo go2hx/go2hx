@@ -1,6 +1,6 @@
 # Module stdgo.encoding.gob has compilation errors, please do not use:
 ```
-stdgo/encoding/gob/Gob.hx:4255: characters 9-195 : Recursive typedef is not allowed
+stdgo/encoding/gob/Gob.hx:10516: characters 27-51 : Type not found : internal.saferio.Saferio
 
 ```
 

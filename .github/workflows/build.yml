@@ -42,10 +42,10 @@ jobs:
       # compile stdgo
       - name: Run stdgo automatic compile
         run: npx haxe stdgo.hxml -D runnerCount=${{ env.CORES }}
-      - name: Run tests
-        run: |
-          npx haxe tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }}
-          npx haxe tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }}
+      - name: Run unit
+        run: npx haxe tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }}
+      - name: Run std
+        run: npx haxe tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }}
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: stdgo automatic compile

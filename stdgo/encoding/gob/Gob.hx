@@ -5563,7 +5563,7 @@ function _decUint8Slice(_i:stdgo.StdGoTypes.Ref<T_decInstr>, _state:stdgo.StdGoT
             _errorf(("bad %s slice length: %d" : stdgo.GoString), stdgo.Go.toInterface(_value.type()), stdgo.Go.toInterface(_n));
         };
         if (_value.cap() < _n) {
-            var _safe:stdgo.StdGoTypes.GoInt = internal.saferio.Saferio.sliceCap(stdgo.Go.toInterface(((null : stdgo.Pointer<stdgo.StdGoTypes.GoUInt8>) : stdgo.Pointer<stdgo.StdGoTypes.GoByte>)), (_n : stdgo.StdGoTypes.GoUInt64));
+            var _safe:stdgo.StdGoTypes.GoInt = stdgo.internal.saferio.Saferio.sliceCap(stdgo.Go.toInterface(((null : stdgo.Pointer<stdgo.StdGoTypes.GoUInt8>) : stdgo.Pointer<stdgo.StdGoTypes.GoByte>)), (_n : stdgo.StdGoTypes.GoUInt64));
             if (_safe < (0 : stdgo.StdGoTypes.GoInt)) {
                 _errorf(("%s slice too big: %d elements" : stdgo.GoString), stdgo.Go.toInterface(_value.type()), stdgo.Go.toInterface(_n));
             };
@@ -10513,7 +10513,7 @@ class Decoder_asInterface {
         };
         var _buf:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         {
-            var __tmp__ = internal.saferio.Saferio.readData(_dec._r, (_nbytes : stdgo.StdGoTypes.GoUInt64));
+            var __tmp__ = stdgo.internal.saferio.Saferio.readData(_dec._r, (_nbytes : stdgo.StdGoTypes.GoUInt64));
             _buf = __tmp__._0;
             _dec._err = __tmp__._1;
         };
@@ -11381,7 +11381,7 @@ class Decoder_asInterface {
             _errorf(("%s slice too big: %d elements of %d bytes" : stdgo.GoString), stdgo.Go.toInterface(_typ.elem()), stdgo.Go.toInterface(_u), stdgo.Go.toInterface(_size));
         };
         if (_value.cap() < _n) {
-            var _safe:stdgo.StdGoTypes.GoInt = internal.saferio.Saferio.sliceCap(stdgo.reflect.Reflect.zero(stdgo.reflect.Reflect.ptrTo(_typ.elem())).interface_(), (_n : stdgo.StdGoTypes.GoUInt64));
+            var _safe:stdgo.StdGoTypes.GoInt = stdgo.internal.saferio.Saferio.sliceCap(stdgo.reflect.Reflect.zero(stdgo.reflect.Reflect.ptrTo(_typ.elem())).interface_(), (_n : stdgo.StdGoTypes.GoUInt64));
             if (_safe < (0 : stdgo.StdGoTypes.GoInt)) {
                 _errorf(("%s slice too big: %d elements of %d bytes" : stdgo.GoString), stdgo.Go.toInterface(_typ.elem()), stdgo.Go.toInterface(_u), stdgo.Go.toInterface(_size));
             };

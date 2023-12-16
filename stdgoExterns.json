@@ -19,5 +19,6 @@
 	"log/internal",
 	"context",
 	"internal/platform",
-	"internal/race"
+	"internal/race",
+	"net"
 ]

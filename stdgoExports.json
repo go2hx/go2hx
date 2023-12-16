@@ -1,5 +1,6 @@
 [
     "runtime",
     "runtime/debug",
-    "reflect"
+    "reflect",
+    "net"
 ]

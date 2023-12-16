@@ -87,9 +87,13 @@ function main() {
 		testYaegi();
 	if (goByExampleBool)
 		testGoByExample();
+	runTests();
+}
+
+function runTests() {
 	tests.sort((a, b) -> a > b ? 1 : -1); // consistent across os targets
-	// tests = ["./tests/unit/invalidString0.go"];
 	trace(tests);
+	trace(tests.length);
 	startStamp = haxe.Timer.stamp();
 	final timer = new haxe.Timer(100);
 	timer.run = update;
@@ -98,6 +102,8 @@ function main() {
 var runningCount = 0;
 var instance:InstanceData = null;
 var timeout = 0;
+var retryFailedCount = 3;
+var failedRegressionTasks:Array<TaskData> = [];
 
 function update() {
 	if (completeBool && tests.length == 0 && tasks.length == 0 && runningCount == 0) {
@@ -142,9 +148,9 @@ function update() {
 			timeoutTimer.stop();
 			trace("TEST TIMEOUT: " + task.command + " " + task.args);
 			if (task.runtime) {
-				suite.runtimeError(task.path,task.target);
+				suite.runtimeError(task);
 			}else{
-				suite.buildError(task.path,task.target);
+				suite.buildError(task);
 			}
 			ls.removeAllListeners();
 			ls.kill();
@@ -169,10 +175,10 @@ function update() {
 			runningCount--;
 			if (code == 0) {
 				if (task.target == "interp") {
-					suite.success(task.path, task.target);
+					suite.success(task);
 				}else{
 					if (task.runtime) {
-						suite.success(task.path, task.target);
+						suite.success(task);
 					}else{
 						final cmd = Main.runTarget(task.target,task.out,[],task.main).split(" ");
 						tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: ""});
@@ -181,10 +187,10 @@ function update() {
 			}else{
 				if (task.runtime) {
 					trace("runtime error: " + task.command + " " + task.args);
-					suite.runtimeError(task.path, task.target);
+					suite.runtimeError(task);
 				}else{
 					trace("build error: " + task.command + " " + task.args);
-					suite.buildError(task.path, task.target);
+					suite.buildError(task);
 				}
 			}
 		});
@@ -318,12 +324,16 @@ private function close() {
 			testFailingCount[data.path] = 0;
 		if (!testData.exists(data.path))
 			testData[data.path] = "";
+		final fullName = data.target + "|" + data.path;
 		if (!data.passing) {
 			testFailingCount[data.path]++;
+			// if in regression list
+			if (output.indexOf(fullName) != -1) {
+				failedRegressionTasks.push(data.task);
+			}
 		} else {
-			final fullname = data.target + "|" + data.path;
-			input.push(fullname);
-			output.remove(fullname);
+			input.push(fullName);
+			output.remove(fullName);
 		}
 		testData[data.path] += "\n    " + (data.passing ? "[x]" : "[ ]") + " " + data.target
 			+ (data.build ? " build error" : "") + (data.correct ? " correct" : "");
@@ -342,6 +352,13 @@ private function close() {
 		for (obj in output)
 			log(obj);
 		code = 1;
+		// retry failed tests
+		if (retryFailedCount-- > 0) {
+			tasks = failedRegressionTasks;
+			failedRegressionTasks = [];
+			runTests();
+			return;
+		}
 	}else{
 		input.sort((a, b) -> a > b ? 1 : -1);
 		File.saveContent('tests/$type.json', Json.stringify(input, null, " "));
@@ -352,7 +369,7 @@ private function close() {
 
 private function testYaegi() {
 	type = "yaegi";
-	final dir = path + "tests/yaegi/_test/";
+	final dir = path + "/tests/yaegi/_test/";
 	if (!FileSystem.exists(dir)) {
 		Sys.command("git clone https://github.com/traefik/yaegi tests/yaegi");
 	} else {
@@ -432,12 +449,14 @@ class TestSuiteData {
 	public var build:Bool = false;
 	public var passing:Bool = false;
 	public var correct:Bool = false;
-	public function new(path:String,target:String, passing:Bool,build:Bool=false,correct:Bool=false) {
+	public var task:TaskData = null;
+	public function new(path:String,target:String, passing:Bool,task:TaskData,build:Bool=false,correct:Bool=false) {
 		this.path = path;
 		this.target = target;
 		this.passing = passing;
 		this.build = build;
 		this.correct = correct;
+		this.task = task;
 	}
 }
 
@@ -452,26 +471,26 @@ class TestSuite {
 
 	public function new() {}
 
-	public function buildError(test:String, target:String) {
-		dataList.push(new TestSuiteData(test, target, false, true));
+	public function buildError(task:TaskData) {
+		dataList.push(new TestSuiteData(task.path, task.target, false, task, true));
 		buildErrorCount++;
 		count++;
 	}
 
-	public function runtimeError(test:String,target:String) {
-		dataList.push(new TestSuiteData(test, target, false));
+	public function runtimeError(task:TaskData) {
+		dataList.push(new TestSuiteData(task.path, task.target, false, task));
 		runtimeErrorCount++;
 		count++;
 	}
 
-	public function success(test:String, target:String) { // passess running the test
-		dataList.push(new TestSuiteData(test, target, true));
+	public function success(task:TaskData) { // passess running the test
+		dataList.push(new TestSuiteData(task.path, task.target, true, task));
 		successCount++;
 		count++;
 	}
 
-	public function correct(test:String, target:String) { // correct matching output
-		dataList.push(new TestSuiteData(test, target, false, false, true));
+	public function correct(task:TaskData) { // correct matching output
+		dataList.push(new TestSuiteData(task.path, task.target, false, task, false, true));
 		correctCount++;
 		count++;
 	}

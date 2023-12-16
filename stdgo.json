@@ -190,5 +190,12 @@
     "os/exec/internal/fdtest",
     "go/internal/srcimporter",
     "internal/cfg",
-    "internal/goversion"
+    "internal/goversion",
+    "internal/intern",
+    "internal/saferio",
+    "internal/singleflight",
+    "internal/singleflight_test",
+    "net/http/internal",
+    "net/http/internal/ascii",
+    "net/http/internal/testcert"
 ]

@@ -1520,7 +1520,7 @@ function testReadErrorMsg(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
         var _s = (stdgo.Go.setRef(({} : T_littleEndian)) : stdgo.StdGoTypes.Ref<T_littleEndian>);
         _read(stdgo.Go.toInterface((stdgo.Go.setRef(_s) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<T_littleEndian>>)));
         var _p = (stdgo.Go.setRef(_s) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<T_littleEndian>>);
-        _read(stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<T_littleEndian>>>)));
+        _read(stdgo.Go.toInterface(stdgo.Go.pointer(_p)));
     }
 function testReadTruncated(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {};

@@ -509,6 +509,12 @@ class Go {
 						case ".Null":
 							t = params[0];
 							value = gen(isNull);
+						case "stdgo.Chan": // grab params for default value
+							final t = Context.toComplexType(params[0]);
+							value = macro new stdgo.Chan(-1,null);
+						case "stdgo.Pointer":
+							final t = Context.toComplexType(params[0]);
+							value = macro new stdgo.Pointer(null);
 						default:
 							throw "invalid path tabstract setRef: " + path;
 					}

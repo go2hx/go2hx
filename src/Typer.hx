@@ -1551,6 +1551,8 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 
 // make Go equality exprs work in Haxe
 private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, info:Info):Expr {
+	if (typeX == null || typeY == null)
+		return toExpr(EBinop(op, x, y));
 	switch typeX {
 		case named(path, _, _, _):
 			if (path == "reflect.Type") {
@@ -4738,6 +4740,8 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 		return (macro @:invalid_compositelit null).expr;
 	}
 	switch underlying {
+		case interfaceType(_, _):
+			return (macro @:compositeLit_interface null).expr;
 		case refType(_.get() => elem):
 			final e = toExpr(compositeLit(elem, complexTypeElem(ct), expr, info));
 			return e.expr;
@@ -4833,7 +4837,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 		case mapType(_.get() => var keyType, _.get() => valueType):
 			return compositeLitMapList(keyType, valueType, underlying, toComplexType(type, info), expr, info).expr;
 		default:
-			throw "not supported CompositeLit type: " + type;
+			throw "not supported CompositeLit type: " + underlying;
 	}
 }
 
@@ -6558,6 +6562,7 @@ private function typeFieldListFieldTypes(list:Ast.FieldList, info:Info, access:A
 			case "Ident": type.name;
 			case "StarExpr": getName(type.x);
 			case "Pointer": getName(type.elem);
+			case "IndexExpr": getName(type.x);
 			default: throw "unknown embedded: " + type.id;
 		}
 	}

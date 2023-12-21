@@ -197,5 +197,6 @@
     "internal/singleflight_test",
     "net/http/internal",
     "net/http/internal/ascii",
-    "net/http/internal/testcert"
+    "net/http/internal/testcert",
+    "internal/intern"
 ]

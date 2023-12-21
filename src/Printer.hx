@@ -157,11 +157,11 @@ class Printer extends haxe.macro.Printer {
 					+ t.name
 					+ ((t.params != null && t.params.length > 0) ? "<" + t.params.map(printTypeParamDecl).join(", ") + ">" : "")
 					+ " = "
-					+ (switch (ct) {
+					+ ((ct == null) ? "#NULL" : (switch (ct) {
 						case TExtend(tpl, fields): printExtension(tpl, fields);
 						case TAnonymous(fields): printStructure(fields);
 						case _: printComplexType(ct);
-					})
+					}))
 					+ ";";
 				default:
 					return super.printTypeDefinition(t, printPackage);

@@ -53,6 +53,10 @@
 
   - [`function pointer(expr:Dynamic, hasSet:Dynamic):Dynamic`](<#go-function-pointer>)
 
+  - [`function print(args:haxe.Rest<Dynamic>):Void`](<#go-function-print>)
+
+  - [`function println(args:haxe.Rest<Dynamic>):Void`](<#go-function-println>)
+
   - [`function refPointer(expr:Dynamic):Dynamic`](<#go-function-refpointer>)
 
   - [`function routine(func:():Void):Void`](<#go-function-routine>)
@@ -518,6 +522,28 @@ function pointer(expr:Dynamic, hasSet:Dynamic):Dynamic
 ```
 
 
+### Go function print
+
+
+```haxe
+function print(args:haxe.Rest<Dynamic>):Void
+```
+
+
+[\(view code\)](<./Go.hx#L20>)
+
+
+### Go function println
+
+
+```haxe
+function println(args:haxe.Rest<Dynamic>):Void
+```
+
+
+[\(view code\)](<./Go.hx#L26>)
+
+
 ### Go function refPointer
 
 
@@ -534,7 +560,7 @@ function routine(func:():Void):Void
 ```
 
 
-[\(view code\)](<./Go.hx#L7>)
+[\(view code\)](<./Go.hx#L8>)
 
 
 ### Go function select

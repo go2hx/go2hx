@@ -9,12 +9,13 @@ Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 
 ### What is supported?
 
-* A few std libs ([compatibility](https://go2hx.github.io/stdgo/index.html)).
+* A few std libs ([compatibility](https://go2hx.github.io/)).
 * No support for Cgo and Go assembly
+* 95% of the normal language features
 
 ### Installation
-* [Download Go 1.16+](https://golang.org/dl/)
-* [Download Haxe 4.3.0-rc.1 or later](https://build.haxe.org/builds/haxe/)
+* [Download Go 1.20+](https://golang.org/dl/)
+* [Download Haxe 4.3.2+](https://build.haxe.org/builds/haxe/)
 
 
 ```sh

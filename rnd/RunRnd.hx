@@ -2,7 +2,7 @@ package;
 
 import haxe.macro.Compiler;
 import haxe.Timer;
-import shared.Util;
+import src.Util;
 
 function main() {
 	final testBool = false;
@@ -10,7 +10,14 @@ function main() {
 		if (modules.length == 0)
 			throw "no exported path";
 		final mainPath = mainPath(modules);
-		if (Compiler.getDefine("rnd_interp") != null) {
+		if (Compiler.getDefine("rnd_cpp") != null) {
+			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --cpp bin/cpp -lib hxcpp -lib hxcpp-debug-server';
+			Sys.println(command);
+			Sys.command(command);
+			final command = './bin/cpp/rnd';
+			Sys.println(command);
+			Sys.command(command);
+		} else if (Compiler.getDefine("rnd_interp") != null) {
 			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --interp';
 			Sys.println(command);
 			Sys.command(command);

@@ -1,4 +1,4 @@
-package shared;
+package src;
 
 import haxe.Timer;
 import haxe.macro.Expr;

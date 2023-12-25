@@ -174,7 +174,7 @@ function compileArgs(args:Array<String>):InstanceData {
 }
 
 private function printDoc(handler:Args.ArgHandler) {
-	shared.Util.successMsg("go2hx");
+	src.Util.successMsg("go2hx");
 	Sys.print("\n");
 	final max = 20;
 	for (option in handler.options) {
@@ -545,8 +545,8 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		}
 	}
 	if (instance.buildPath != "") { // create build file
-		final mains = [for (path in paths) shared.Util.makeExpr(path)];
-		final base = [for (command in commands) shared.Util.makeExpr(command)];
+		final mains = [for (path in paths) src.Util.makeExpr(path)];
+		final base = [for (command in commands) src.Util.makeExpr(command)];
 		final expr = macro function main() {
 			final base = $a{base};
 			final mains = $a{mains};
@@ -557,7 +557,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 			instance.buildPath += ".hx";
 		final content = new haxe.macro.Printer("    ").printExpr(expr);
 		File.saveContent(instance.buildPath, content);
-		// Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
+		// Sys.println('Generated: $buildPath - ' + src.Util.kbCount(content) + "kb");
 	}
 	
 	if (instance.hxmlPath != "") {
@@ -582,7 +582,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 			}
 			content = content.substr(0, content.length - 1);
 			File.saveContent(hxmlPath, content);
-			Sys.println('Generated: ' + hxmlPath + ' - ' + shared.Util.kbCount(content) + "kb");
+			Sys.println('Generated: ' + hxmlPath + ' - ' + src.Util.kbCount(content) + "kb");
 		}
 	}
 }

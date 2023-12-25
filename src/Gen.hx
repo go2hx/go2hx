@@ -113,5 +113,5 @@ private function save(dir:String, name:String, content:String, extension:String 
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";
 	File.saveContent(path, content);
-	Sys.println("Generated: " + dir + name + extension + ".hx - " + shared.Util.kbCount(content) + "kb");
+	Sys.println("Generated: " + dir + name + extension + ".hx - " + src.Util.kbCount(content) + "kb");
 }

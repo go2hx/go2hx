@@ -3132,7 +3132,7 @@ function _myatof64(_s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoFloat64; var
                 };
                 var __tmp__ = stdgo.strconv.Strconv.atoi(_exp?.__copy__()), _e:stdgo.StdGoTypes.GoInt = __tmp__._0, _err1:stdgo.Error = __tmp__._1;
                 if (_err1 != null) {
-                    trace(("bad e" : stdgo.GoString), _exp);
+                    stdgo.Go.println(("bad e" : stdgo.GoString), _exp);
                     return { _0 : (0 : stdgo.StdGoTypes.GoFloat64), _1 : false };
                 };
                 var _v:stdgo.StdGoTypes.GoFloat64 = (_n : stdgo.StdGoTypes.GoFloat64);
@@ -3174,12 +3174,12 @@ function _myatof32(_s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.GoFloat32; var
             if (_ok) {
                 var __tmp__ = stdgo.strconv.Strconv.atoi(_mant?.__copy__()), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    trace(("bad n" : stdgo.GoString), _mant);
+                    stdgo.Go.println(("bad n" : stdgo.GoString), _mant);
                     return { _0 : (0 : stdgo.StdGoTypes.GoFloat64), _1 : false };
                 };
                 var __tmp__ = stdgo.strconv.Strconv.atoi(_exp?.__copy__()), _e:stdgo.StdGoTypes.GoInt = __tmp__._0, _err1:stdgo.Error = __tmp__._1;
                 if (_err1 != null) {
-                    trace(("bad p" : stdgo.GoString), _exp);
+                    stdgo.Go.println(("bad p" : stdgo.GoString), _exp);
                     return { _0 : (0 : stdgo.StdGoTypes.GoFloat64), _1 : false };
                 };
                 return { _0 : ((_n : stdgo.StdGoTypes.GoFloat64) * _pow2(_e) : stdgo.StdGoTypes.GoFloat32), _1 : true };

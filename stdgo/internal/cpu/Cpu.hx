@@ -323,7 +323,7 @@ function _processOptions(_env:stdgo.GoString):Void {
                 };
                 _i = _indexByte(_field?.__copy__(), (61 : stdgo.StdGoTypes.GoUInt8));
                 if (_i < (0 : stdgo.StdGoTypes.GoInt)) {
-                    trace(("GODEBUG: no value specified for \"" : stdgo.GoString), _field, ("\"\n" : stdgo.GoString));
+                    stdgo.Go.print(("GODEBUG: no value specified for \"" : stdgo.GoString), _field, ("\"\n" : stdgo.GoString));
                     continue;
                 };
                 var __0:stdgo.GoString = (_field.__slice__((4 : stdgo.StdGoTypes.GoInt), _i) : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = (_field.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), _value:stdgo.GoString = __1, _key:stdgo.GoString = __0;
@@ -335,7 +335,7 @@ function _processOptions(_env:stdgo.GoString):Void {
                     } else if (__value__ == (("off" : stdgo.GoString))) {
                         _enable = false;
                     } else {
-                        trace(("GODEBUG: value \"" : stdgo.GoString), _value, ("\" not supported for cpu option \"" : stdgo.GoString), _key, ("\"\n" : stdgo.GoString));
+                        stdgo.Go.print(("GODEBUG: value \"" : stdgo.GoString), _value, ("\" not supported for cpu option \"" : stdgo.GoString), _key, ("\"\n" : stdgo.GoString));
                         @:jump("field") continue;
                     };
                 };
@@ -353,14 +353,14 @@ function _processOptions(_env:stdgo.GoString):Void {
                         @:jump("field") continue;
                     };
                 };
-                trace(("GODEBUG: unknown cpu feature \"" : stdgo.GoString), _key, ("\"\n" : stdgo.GoString));
+                stdgo.Go.print(("GODEBUG: unknown cpu feature \"" : stdgo.GoString), _key, ("\"\n" : stdgo.GoString));
             };
             for (__0 => _o in _options) {
                 if (!_o.specified) {
                     continue;
                 };
                 if (_o.enable && !_o.feature.value) {
-                    trace(("GODEBUG: can not enable \"" : stdgo.GoString), _o.name, ("\", missing CPU support\n" : stdgo.GoString));
+                    stdgo.Go.print(("GODEBUG: can not enable \"" : stdgo.GoString), _o.name, ("\", missing CPU support\n" : stdgo.GoString));
                     continue;
                 };
                 _o.feature.value = _o.enable;

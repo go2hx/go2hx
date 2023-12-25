@@ -1,5 +1,6 @@
 package stdgo;
 
+import haxe.Rest;
 import haxe.macro.Expr;
 class Go {
 	public static var recover_exception:stdgo.StdGoTypes.AnyInterface= null;
@@ -13,6 +14,27 @@ class Go {
 		sys.thread.Thread.createWithEventLoop(() -> {
 			func();
 		});
+		#end
+	}
+
+	public static function print(args:Rest<Dynamic>) {
+		for (i in 0...args.length) {
+			_print(args[i] + (i != args.length - 1 ? " " : ""));
+		}
+	}
+
+	public static function println(args:Rest<Dynamic>) {
+		for (i in 0...args.length) {
+			_print(args[i] + (i != args.length - 1 ? " " : ""));
+		}
+		print("\n");
+	}
+
+	static function _print(arg:Dynamic) {
+		#if js
+		js.Syntax.code("console.log({0});", arg);
+		#else
+		Sys.print(arg);
 		#end
 	}
 

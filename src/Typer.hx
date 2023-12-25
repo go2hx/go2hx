@@ -3511,13 +3511,13 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					case "print":
 						genArgs(true, 0);
 						if (args.length == 0)
-							return returnExpr(macro trace("")).expr;
-						return returnExpr(macro trace($a{args})).expr;
+							return returnExpr(macro stdgo.Go.print("")).expr;
+						return returnExpr(macro stdgo.Go.print($a{args})).expr;
 					case "println":
 						genArgs(true, 0);
 						if (args.length == 0)
-							return returnExpr(macro trace("")).expr;
-						return returnExpr(macro trace($a{args})).expr;
+							return returnExpr(macro stdgo.Go.println("")).expr;
+						return returnExpr(macro stdgo.Go.println($a{args})).expr;
 					case "complex":
 						genArgs(false);
 						return returnExpr(macro new stdgo.StdGoTypes.GoComplex128($a{args})).expr;

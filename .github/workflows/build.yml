@@ -34,6 +34,8 @@ jobs:
       # go2hx setup
       - name: Set source
         run: npx haxelib dev go2hx .
+      - name: Sort tests
+        run: go run ./scripts/sortTests
       - name: Test run
         run: npx haxelib run go2hx ./rnd
       # clean stdgo

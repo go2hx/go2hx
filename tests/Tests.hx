@@ -46,20 +46,23 @@ var ciBool = false;
 var logOutput:FileOutput = null;
 var startStamp = 0.0;
 var tests:Array<String> = [];
+var outputMap:Map<String,String> = [];
 var tasks:Array<TaskData> = [];
 var type:String = "";
 // cpp tests take a long time to compile, so sometimes its not run if quick testing is required
 var targets = ["hl"];
 var suite = new TestSuite();
 var completeBool = false;
+var sortMode = "";
+var count = 0;
+var offset = 0;
 var lastTaskLogs = [];
+var dryRun = false;
 final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
 
 function main() {
 	if (Compiler.getDefine("target_hxcpp") != null)
 		targets = ["cpp"];
-	Main.setup(0, Std.parseInt(runnerCount)); // amount of processes to spawn
-	Main.onComplete = complete;
 
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
@@ -70,6 +73,14 @@ function main() {
 	final goBool = Compiler.getDefine("go") != null;
 	final yaegiBool = Compiler.getDefine("yaegi") != null;
 	final goByExampleBool = Compiler.getDefine("gobyexample") != null;
+	final tinygoBool = Compiler.getDefine("tinygo") != null;
+	final sortModeStr = Compiler.getDefine("sort");
+	sortMode = sortModeStr != null ? sortModeStr : "";
+	final countStr = Compiler.getDefine("count");
+	count = countStr != null ? Std.parseInt(countStr) : 0;
+	final offsetStr = Compiler.getDefine("offset");
+	offset = offsetStr != null ? Std.parseInt(offsetStr) : 0;
+	dryRun = Compiler.getDefine("dryRun") != null;
 	var startStamp = 0.0;
 
 	if (!unitBool && !stdBool && !goBool && !yaegiBool && !goByExampleBool) {
@@ -85,6 +96,8 @@ function main() {
 		testGo();
 	if (yaegiBool)
 		testYaegi();
+	if (tinygoBool)
+		testTinyGo();
 	if (goByExampleBool)
 		testGoByExample();
 	runTests();
@@ -92,11 +105,21 @@ function main() {
 
 function runTests() {
 	tests.sort((a, b) -> a > b ? 1 : -1); // consistent across os targets
+	if (offset > 0) {
+		tests = tests.slice(offset > tests.length ? tests.length : offset);
+	}
+	if (count > 0) {
+		tests = tests.slice(0, tests.length < count ? tests.length : count);
+	}
 	trace(tests);
 	trace(tests.length);
-	startStamp = haxe.Timer.stamp();
-	final timer = new haxe.Timer(100);
-	timer.run = update;
+	if (!dryRun) {
+		Main.setup(0, Std.parseInt(runnerCount)); // amount of processes to spawn
+		Main.onComplete = complete;
+		startStamp = haxe.Timer.stamp();
+		final timer = new haxe.Timer(100);
+		timer.run = update;
+	}
 }
 
 var runningCount = 0;
@@ -158,12 +181,14 @@ function update() {
 		ls.stdout.on('data', function(data) {
 			log(task.target + "|" + task.path + "|" + task.runtime);
 			Sys.print(data);
+			task.output += data;
 			log(data);
 			timeout = 0;
 		});
 		ls.stderr.on('data', function(data) {
 			log(task.target + "|" + task.path + "|" + task.runtime);
 			Sys.print(data);
+			task.output += data;
 			log(data);
 			timeout = 0;
 		});
@@ -174,15 +199,26 @@ function update() {
 			timeoutTimer.stop();
 			runningCount--;
 			if (code == 0) {
-				if (task.target == "interp") {
-					suite.success(task);
-				}else{
-					if (task.runtime) {
-						suite.success(task);
+				if (task.runtime) {
+					final wanted = outputMap[type + "_" + task.path];
+					if (wanted != null) {
+						final output = task.output;
+						final correct = output == wanted;
+						Sys.println("output:");
+						Sys.println(output);
+						Sys.println("wanted:");
+						Sys.println(wanted);
+						if (correct) {
+							suite.correct(task);
+						}else{
+							suite.incorrect(task);
+						}
 					}else{
-						final cmd = Main.runTarget(task.target,task.out,[],task.main).split(" ");
-						tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: ""});
+						suite.success(task);
 					}
+				}else{
+					final cmd = Main.runTarget(task.target,"golibs/" + task.out,[],task.main).split(" ");
+					tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: ""});
 				}
 			}else{
 				if (task.runtime) {
@@ -208,7 +244,7 @@ private function complete(modules:Array<Typer.Module>, _) {
 		final hxml = "golibs/" + type + "_" + path + ".hxml";
 		for (target in targets) {
 			final out = createTargetOutput(target, type, path);
-			final outCmd = Main.buildTarget(target, out).split(" ");
+			final outCmd = Main.buildTarget(target, "golibs/" + out).split(" ");
 			final args = [hxml].concat(outCmd);
 			if (ciBool)
 				args.unshift("haxe");
@@ -240,20 +276,7 @@ private function sanatize(s:String):String {
 }
 
 private function testGo() { // go tests
-	var GOROOT:String = ChildProcess.execSync("go env GOROOT");
-	GOROOT = GOROOT.substr(0, GOROOT.length - 1);
-	final dir = GOROOT.addTrailingSlash() + "test/";
-	for (path in FileSystem.readDirectory(dir)) {
-		var name = path.withoutExtension();
-		if (FileSystem.isDirectory(path) || path.extension() != "go" || excludes[type].indexOf(path) != -1)
-			continue;
-		final input = File.read(dir + path, false);
-		final line = input.readLine().substr(3);
-		if (line != "run")
-			continue;
-		tests.push(name);
-	}
-	// go run /usr/local/go/test/alias1.go
+	sortDataToTests(Json.parse(File.getContent("tests/sort_go.json")));
 }
 
 private function testStd() { // standard library package tests
@@ -312,6 +335,7 @@ private function close() {
 	final input:Array<String> = [];
 	log('--> $type');
 	log('      correct output: ' + calc(suite.correctCount, suite.count));
+	log('    incorrect output: ' + calc(suite.incorrectCount, suite.count));
 	log('             success: ' + calc(suite.successCount, suite.count));
 	log('         build error: ' + calc(suite.buildErrorCount, suite.count));
 	log('       runtime error: ' + calc(suite.runtimeErrorCount, suite.count));
@@ -336,7 +360,7 @@ private function close() {
 			output.remove(fullName);
 		}
 		testData[data.path] += "\n    " + (data.passing ? "[x]" : "[ ]") + " " + data.target
-			+ (data.build ? " build error" : "") + (data.correct ? " correct" : "");
+			+ (!data.build ? " build error" : "") + (data.correct ? " correct" : (data.incorrect ? " incorrect" : ""));
 	}
 	for (name => str in testData) {
 		final failCount = testFailingCount[name];
@@ -347,7 +371,7 @@ private function close() {
 		}
 	}
 	var code = 0;
-	if (output.length > 0) {
+	if (count == 0 && sortMode == "" && offset == 0 && output.length > 0) {
 		log('         regression results: ');
 		for (obj in output)
 			log(obj);
@@ -367,6 +391,47 @@ private function close() {
 	Main.close(code);
 }
 
+private function testTinyGo() {
+	type = "tinygo";
+	final dir = "./tests/tinygo/";
+	if (!FileSystem.exists(dir)) {
+		Sys.command("git clone https://github.com/tinygo-org/tinygo tests/tinygo");
+	} else {
+		Sys.setCwd("./tests/tinygo");
+		Sys.command("git pull");
+		Sys.setCwd("../..");
+	}
+	sortDataToTests(Json.parse(File.getContent("tests/sort_tinygo.json")));
+}
+
+private function sortDataToTests(sortData:SortData) {
+	var tempTests:Array<String> = [];
+	if (sortMode == "") {
+		tempTests = sortData.easy.concat(sortData.medium).concat(sortData.hard);
+	}else{
+		Sys.println("sort mode: " + sortMode);
+		switch sortMode {
+			case "easy":
+				tempTests = sortData.easy;
+			case "medium":
+				tempTests = sortData.medium;
+			case "hard":
+				tempTests = sortData.hard;
+		}
+	}
+	var index = 0;
+	for (data in tempTests) {
+		index = data.indexOf("\n");
+		if (index == -1)
+			throw "invalid sort data";
+		final path = data.substr(0, index);
+		final output = data.substr(index + 1);
+		tests.push(path);
+		final outputPath = sortData.name + "_" + Path.withoutExtension(Path.withoutDirectory(path));
+		outputMap[outputPath] = output;
+	}
+}
+
 private function testYaegi() {
 	type = "yaegi";
 	final dir = path + "/tests/yaegi/_test/";
@@ -377,35 +442,7 @@ private function testYaegi() {
 		Sys.command("git pull");
 		Sys.setCwd("../..");
 	}
-	for (path in FileSystem.readDirectory(dir)) {
-		final name = path.withoutExtension();
-		if (FileSystem.isDirectory(path) || path.extension() != "go" || excludes[type].indexOf(path) != -1)
-			continue;
-		final input = File.read(dir + path, false);
-		var isError = false;
-		while (true) {
-			try {
-				final line = input.readLine();
-				if (StringTools.startsWith(line, "package")) {
-					isError = line.indexOf("main") == -1;
-				}
-				if (line == "// Error:") {
-					isError = true;
-					break;
-				}
-				if (line == "// Output:")
-					break;
-			} catch (_) {
-				isError = true;
-				break;
-			}
-		}
-		input.close();
-		if (isError)
-			continue;
-		tests.push(name);
-	}
-	// go run ./tests/yaegi/_test/a1.go
+	sortDataToTests(Json.parse(File.getContent("tests/sort_yaegi.json")));
 }
 
 private function testUnit() {
@@ -442,20 +479,22 @@ private function testGoByExample() { // gobyexample
 	}
 	// go run ./tests/gobyexample/examples/arrays/arrays.go
 }
-
+@:structInit
 class TestSuiteData {
 	public var path:String = "";
 	public var target:String = "";
 	public var build:Bool = false;
 	public var passing:Bool = false;
 	public var correct:Bool = false;
+	public var incorrect:Bool = false;
 	public var task:TaskData = null;
-	public function new(path:String,target:String, passing:Bool,task:TaskData,build:Bool=false,correct:Bool=false) {
+	public function new(path:String,target:String, passing:Bool,task:TaskData,build:Bool,correct:Bool, incorrect:Bool) {
 		this.path = path;
 		this.target = target;
 		this.passing = passing;
 		this.build = build;
 		this.correct = correct;
+		this.incorrect = incorrect;
 		this.task = task;
 	}
 }
@@ -466,32 +505,39 @@ class TestSuite {
 	public var runtimeErrorCount:Int = 0;
 	public var successCount:Int = 0;
 	public var correctCount:Int = 0;
+	public var incorrectCount:Int = 0;
 	public var count:Int = 0;
 	public var dataList:Array<TestSuiteData> = [];
 
 	public function new() {}
 
 	public function buildError(task:TaskData) {
-		dataList.push(new TestSuiteData(task.path, task.target, false, task, true));
+		dataList.push({path: task.path, target: task.target, build: false, task: task, passing: false, incorrect: false, correct: false});
 		buildErrorCount++;
 		count++;
 	}
 
 	public function runtimeError(task:TaskData) {
-		dataList.push(new TestSuiteData(task.path, task.target, false, task));
+		dataList.push({path: task.path, target: task.target, build: true, task: task, passing: false, incorrect: false, correct: false});
 		runtimeErrorCount++;
 		count++;
 	}
 
 	public function success(task:TaskData) { // passess running the test
-		dataList.push(new TestSuiteData(task.path, task.target, true, task));
+		dataList.push({path: task.path, target: task.target, build: true, task: task, passing: true, incorrect: false, correct: false});
 		successCount++;
 		count++;
 	}
 
 	public function correct(task:TaskData) { // correct matching output
-		dataList.push(new TestSuiteData(task.path, task.target, false, task, false, true));
+		dataList.push({path: task.path, target: task.target, build: true, task: task, passing: true, incorrect: false, correct: true});
 		correctCount++;
+		count++;
+	}
+
+	public function incorrect(task:TaskData) { // incorrect matching output
+		dataList.push({path: task.path, target: task.target, build: true, task: task, passing: false, incorrect: true, correct: false});
+		incorrectCount++;
 		count++;
 	}
 }
@@ -505,6 +551,7 @@ class TaskData {
 	public var runtime:Bool;
 	public var out:String;
 	public var main:String;
+	public var output:String = "";
 	public function new(path:String, command:String,args:Array<String>,target:String,runtime:Bool, out:String, main:String) {
 		this.path = path;
 		this.target = target;
@@ -514,4 +561,11 @@ class TaskData {
 		this.out = out;
 		this.main = main;
 	}
+}
+
+typedef SortData = {
+	name:String,
+	easy:Array<String>,
+	medium:Array<String>,
+	hard:Array<String>,
 }

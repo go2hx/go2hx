@@ -1,10 +1,12 @@
 [
  "hl|append0",
+ "hl|badtype0",
  "hl|builtin0",
  "hl|chan0",
  "hl|complex0",
  "hl|complex1",
  "hl|copy0",
+ "hl|copy1",
  "hl|func0",
  "hl|func1",
  "hl|func2",
@@ -86,6 +88,7 @@
  "hl|switch0",
  "hl|switch1",
  "hl|typeswitch0",
+ "hl|unary0",
  "hl|unsafe0",
  "hl|var0"
 ]

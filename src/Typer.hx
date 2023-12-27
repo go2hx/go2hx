@@ -1133,6 +1133,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	var decls:Array<Ast.GenDecl> = stmt.decl.decls;
 	var vars:Array<Var> = [];
 	var vars2:Array<Var> = [];
+	var typeSpecCount = 0;
 	for (decl in decls) {
 		info.lastValue = null;
 		info.lastType = null;
@@ -1144,7 +1145,6 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
 					final name = spec.name.name;
-					var typeSpecCount = decl.specs.indexOf(spec);
 					// turn pkg name into typeSpecCount number
 					for (i in 0...info.data.name.length) {
 						typeSpecCount += info.data.name.charCodeAt(i) * 100;

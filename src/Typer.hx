@@ -1127,13 +1127,14 @@ private function isInvalidTitle(name:String):Bool {
 	return false;
 }
 
+var typeSpecCount = 0;
+
 private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	if (stmt.decl.decls == null)
 		return (macro {}).expr; // blank
 	var decls:Array<Ast.GenDecl> = stmt.decl.decls;
 	var vars:Array<Var> = [];
 	var vars2:Array<Var> = [];
-	var typeSpecCount = 0;
 	for (decl in decls) {
 		info.lastValue = null;
 		info.lastType = null;
@@ -1145,10 +1146,6 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
 					final name = spec.name.name;
-					// turn pkg name into typeSpecCount number
-					for (i in 0...info.data.name.length) {
-						typeSpecCount += info.data.name.charCodeAt(i) * 100;
-					}
 					spec.name.name = "T_" + info.funcName + "_" + (typeSpecCount++) + "___localname___" + name;
 					info.renameClasses[name] = className(spec.name.name, info);
 					info.data.defs.push(typeSpec(spec, info));

@@ -35,9 +35,9 @@ jobs:
       - name: Set source
         run: npx haxelib dev go2hx .
       - name: clone yaegi
-        run: git clone https://github.com/traefik/yaegi /tests/yaegi
+        run: git clone https://github.com/traefik/yaegi ./tests/yaegi
       - name: clone tinygo
-        run: git clone https://github.com/tinygo-org/tinygo /tests/tinygo
+        run: git clone https://github.com/tinygo-org/tinygo ./tests/tinygo
       - name: Sort tests
         run: go run ./scripts/sortTests
       - name: Test run

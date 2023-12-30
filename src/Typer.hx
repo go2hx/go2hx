@@ -969,15 +969,6 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 	return EBlock(exprs);
 }
 
-private function exprToString(e:Expr):String {
-	switch e.expr {
-		case EConst(CString(s)):
-			return s;
-		default:
-			throw "invalid expr for exprToString: " + e.expr;
-	}
-}
-
 private function typeLabeledStmt(stmt:Ast.LabeledStmt, info:Info):ExprDef {
 	final name = makeString(stmt.label.name);
 	var stmtExpr = typeStmt(stmt.stmt, info);
@@ -1650,8 +1641,19 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 					case OpNotEq:
 						return (macro !$e);
 					default:
-						return e;
 				}
+			}
+		default:
+	}
+	switch t {
+		case arrayType(_, _):
+			switch getUnderlying(typeY) {
+				case arrayType(_, _):
+					// set x and y to AnyInterface
+					x = toAnyInterface(x, typeX, info, false);
+					y = toAnyInterface(y, typeY, info, false);
+					return toExpr(EBinop(op, x, y));
+				default:
 			}
 		default:
 	}
@@ -3511,11 +3513,17 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						genArgs(true, 0);
 						if (args.length == 0)
 							return returnExpr(macro stdgo.Go.print("")).expr;
+						for (i in 0...args.length) {
+							args[i] = exprToString(typeof(expr.args[i], info, false), basic(string_kind), args[i], info);
+						}
 						return returnExpr(macro stdgo.Go.print($a{args})).expr;
 					case "println":
 						genArgs(true, 0);
 						if (args.length == 0)
 							return returnExpr(macro stdgo.Go.println("")).expr;
+						for (i in 0...args.length) {
+							args[i] = exprToString(typeof(expr.args[i], info, false), basic(string_kind), args[i], info);
+						}
 						return returnExpr(macro stdgo.Go.println($a{args})).expr;
 					case "complex":
 						genArgs(false);
@@ -3617,6 +3625,33 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		e = macro $e($a{args});
 	}
 	return returnExpr(e).expr;
+}
+
+private function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
+	switch toType {
+		case basic(string_kind):
+			switch fromType {
+				case basic(float32_kind), basic(float64_kind), basic(untyped_float_kind):
+					return macro Std.string($expr);
+				case basic(uint32_kind), basic(uint_kind), basic(untyped_int_kind):
+					return macro Std.string((($expr: UInt) : Float));
+				case  basic(uint64_kind):
+					return macro haxe.UInt64Helper.parseString($expr.toBasic());
+				case basic(int64_kind):
+					return macro haxe.Int64Helper.parseString($expr.toBasic());
+				case basic(int_kind), basic(int8_kind), basic(uint8_kind), basic(int16_kind), basic(uint16_kind), basic(int32_kind):
+					return expr;
+				case basic(bool_kind):
+					return expr;
+				case basic(complex64_kind), basic(complex128_kind):
+					return expr;
+				case basic(string_kind):
+					return expr;
+				default:
+			}
+		default:
+	}
+	return expr;
 }
 
 private function genSlice(elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info):Expr {
@@ -5153,6 +5188,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 	var op = typeOp(expr.op);
 	y = toGoType(y);
 	x = toGoType(x);
+	// A == B or A != B
 	switch op {
 		case OpEq, OpNotEq: // op == and op !=
 			return translateEquals(x, y, typeX, typeY, op, info).expr;

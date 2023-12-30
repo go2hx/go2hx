@@ -110,7 +110,7 @@ function getElem(type:GoType):GoType {
 		return type;
 	return switch type {
 		case named(_, _, type, _, _):
-			type;
+			getElem(type);
 		case _var(_, _.get() => type):
 			getElem(type);
 		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointerType(_.get() => elem), refType(_.get() => elem):

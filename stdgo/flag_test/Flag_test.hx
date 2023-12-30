@@ -1216,7 +1216,7 @@ class T_flagVar_asInterface {
     @:keep
     static public function set( _f:stdgo.StdGoTypes.Ref<T_flagVar>, _value:stdgo.GoString):stdgo.Error {
         @:recv var _f:stdgo.StdGoTypes.Ref<T_flagVar> = _f;
-        _f.__setData__(((_f : stdgo.flag_test.Flag_test.T_flagVar).__append__(_value)));
+        _f.__setData__(((_f : stdgo.flag_test.Flag_test.T_flagVar).__append__(_value?.__copy__())));
         return (null : stdgo.Error);
     }
     @:keep

@@ -101,6 +101,15 @@ function main() {
 	if (goByExampleBool)
 		testGoByExample();
 	runTests();
+	trace(tests);
+	trace(tests.length);
+	if (!dryRun) {
+		Main.setup(0, Std.parseInt(runnerCount)); // amount of processes to spawn
+		Main.onComplete = complete;
+		startStamp = haxe.Timer.stamp();
+		final timer = new haxe.Timer(100);
+		timer.run = update;
+	}
 }
 
 function runTests() {
@@ -110,15 +119,6 @@ function runTests() {
 	}
 	if (count > 0) {
 		tests = tests.slice(0, tests.length < count ? tests.length : count);
-	}
-	trace(tests);
-	trace(tests.length);
-	if (!dryRun) {
-		Main.setup(0, Std.parseInt(runnerCount)); // amount of processes to spawn
-		Main.onComplete = complete;
-		startStamp = haxe.Timer.stamp();
-		final timer = new haxe.Timer(100);
-		timer.run = update;
 	}
 }
 

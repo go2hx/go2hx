@@ -204,13 +204,13 @@ function update() {
 					if (wanted != null) {
 						final output = task.output;
 						final correct = output == wanted;
-						Sys.println("output:");
-						Sys.println(output);
-						Sys.println("wanted:");
-						Sys.println(wanted);
 						if (correct) {
 							suite.correct(task);
 						}else{
+							Sys.println("output:");
+							Sys.println(output);
+							Sys.println("wanted:");
+							Sys.println(wanted);
 							suite.incorrect(task);
 						}
 					}else{
@@ -380,6 +380,7 @@ private function close() {
 		if (retryFailedCount-- > 0) {
 			tasks = failedRegressionTasks;
 			failedRegressionTasks = [];
+			dryRun = false;
 			runTests();
 			return;
 		}

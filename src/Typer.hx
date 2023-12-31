@@ -3636,9 +3636,9 @@ private function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:In
 				case basic(uint32_kind), basic(uint_kind), basic(untyped_int_kind):
 					return macro Std.string((($expr: UInt) : Float));
 				case  basic(uint64_kind):
-					return macro haxe.UInt64Helper.parseString($expr.toBasic());
+					return macro ($expr.toBasic() : haxe.UInt64).toString();
 				case basic(int64_kind):
-					return macro haxe.Int64Helper.parseString($expr.toBasic());
+					return macro ($expr.toBasic() : haxe.Int64).toString();
 				case basic(int_kind), basic(int8_kind), basic(uint8_kind), basic(int16_kind), basic(uint16_kind), basic(int32_kind):
 					return expr;
 				case basic(bool_kind):

@@ -955,7 +955,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 				catchBlock = catchBlock.concat([macro stdgo.Go.recover_exception != null ?throw stdgo.Go.recover_exception:$e]);
 		}
 		exprs.unshift(macro var __deferstack__:Array<Void->Void> = []);
-		exprs.push(typeDeferReturn(info, true));
+		//exprs.push(typeDeferReturn(info, true));
 		exprs.push(ret);
 		// recover
 		final pos = 1 + info.returnNames.length;
@@ -3636,9 +3636,9 @@ private function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:In
 				case basic(uint32_kind), basic(uint_kind), basic(untyped_int_kind):
 					return macro Std.string((($expr: UInt) : Float));
 				case  basic(uint64_kind):
-					return macro ($expr.toBasic() : haxe.UInt64).toString();
+					return macro @:privateAccess ($expr.toBasic() : haxe.UInt64).toString();
 				case basic(int64_kind):
-					return macro ($expr.toBasic() : haxe.Int64).toString();
+					return macro @:privateAccess ($expr.toBasic() : haxe.Int64).toString();
 				case basic(int_kind), basic(int8_kind), basic(uint8_kind), basic(int16_kind), basic(uint16_kind), basic(int32_kind):
 					return expr;
 				case basic(bool_kind):

@@ -646,7 +646,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1321>)
+[\(view code\)](<./Reflect.hx#L1324>)
 
 
 ### \_Type function assignableTo
@@ -734,7 +734,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1318>)
+[\(view code\)](<./Reflect.hx#L1321>)
 
 
 ### \_Type function fieldByIndex
@@ -861,7 +861,7 @@ function method( _0:stdgo.GoInt):stdgo.reflect.Method
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1315>)
+[\(view code\)](<./Reflect.hx#L1318>)
 
 
 ### \_Type function name
@@ -872,7 +872,7 @@ function name():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1291>)
+[\(view code\)](<./Reflect.hx#L1294>)
 
 
 ### \_Type function numField
@@ -905,7 +905,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1293>)
+[\(view code\)](<./Reflect.hx#L1296>)
 
 
 ### \_Type function numOut
@@ -938,7 +938,7 @@ function pkgPath():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1288>)
+[\(view code\)](<./Reflect.hx#L1291>)
 
 
 ### \_Type function size
@@ -949,7 +949,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1252>)
+[\(view code\)](<./Reflect.hx#L1255>)
 
 
 ### \_Type function string

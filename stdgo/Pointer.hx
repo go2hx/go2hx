@@ -77,7 +77,7 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 class PointerData<T> {
 	public var get:() -> T;
 	public var set:T->T;
-	public var ref:T = null;
+	public var ref:T;
 	public var hasSet:Bool = false;
 	public var previous:Pointer<Any> = null;
 	public var convert:T->Any;
@@ -88,7 +88,7 @@ class PointerData<T> {
 
 	public inline function new(?get:()->T, ?set:T->T, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {
 		if (get == null)
-			get = () -> null;
+			get = () -> throw "null pointer dereference";
 		if (set == null)
 			set = value -> value;
 		this.get = get;

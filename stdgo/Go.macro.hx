@@ -718,7 +718,10 @@ class Go {
 							(stdgo.internal.reflect.Reflect.asInterfaceValue($e.value, gt) : $t);
 						}
 					} else {
-						if (($e.value : Dynamic).__underlying__ == null) {
+						// exclude basic types from using __underlying__ field access
+						if (t.kind() == 2) {
+							($e.value : $t);
+						}else if (($e.value : Dynamic).__underlying__ == null) {
 							($e.value : $t);
 						} else {
 							var value:Dynamic = ($e.value : Dynamic).__underlying__().value;

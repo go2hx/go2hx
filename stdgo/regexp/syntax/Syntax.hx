@@ -2110,9 +2110,6 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
                     };
                     return { _0 : _p._stack[(0 : stdgo.StdGoTypes.GoInt)], _1 : (null : stdgo.Error) };
                 };
-                for (defer in __deferstack__) {
-                    defer();
-                };
                 {
                     for (defer in __deferstack__) {
                         defer();

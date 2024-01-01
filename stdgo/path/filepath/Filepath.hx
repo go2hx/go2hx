@@ -566,9 +566,6 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                 };
                 return { _0 : _m, _1 : _e };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

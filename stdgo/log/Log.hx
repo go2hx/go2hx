@@ -604,9 +604,6 @@ function testOutputRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                             __deferstack__.unshift(() -> _wg.done());
                             _l.setFlags((0 : stdgo.StdGoTypes.GoInt));
                             _l.output((0 : stdgo.StdGoTypes.GoInt), stdgo.Go.str()?.__copy__());
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -782,9 +779,6 @@ function benchmarkConcurrent(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):V
                                 });
                             };
                             __deferstack__.unshift(() -> _group.done());
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -953,9 +947,6 @@ class Logger_asInterface {
                     defer();
                 };
                 return _l._out;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -1176,9 +1167,6 @@ class Logger_asInterface {
                 };
                 return _err;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1228,9 +1216,6 @@ class Logger_asInterface {
             __deferstack__.unshift(() -> _l._outMu.unlock());
             _l._out = _w;
             _l._isDiscard.store(stdgo.Go.toInterface(_w) == (stdgo.Go.toInterface(stdgo.io.Io.discard)));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

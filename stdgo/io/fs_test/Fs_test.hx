@@ -640,9 +640,6 @@ function testWalkDir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
                 _n._mark = (0 : stdgo.StdGoTypes.GoInt);
             });
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -704,9 +701,6 @@ function testIssue51617(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var _want = (new stdgo.Slice<stdgo.GoString>(4, 4, ("." : stdgo.GoString), ("a" : stdgo.GoString), ("a/bad" : stdgo.GoString), ("a/next" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_saw), stdgo.Go.toInterface(_want))) {
                 _t.errorf(("got directories %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_saw), stdgo.Go.toInterface(_want));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

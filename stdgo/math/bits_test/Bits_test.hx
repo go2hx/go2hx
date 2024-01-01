@@ -1106,9 +1106,6 @@ function testAdd64OverflowPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
                         a();
                     });
                     _f();
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -1196,9 +1193,6 @@ function testSub64OverflowPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
                         a();
                     });
                     _f();
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -1347,9 +1341,6 @@ function testDivPanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             });
             var __tmp__ = div((1u32 : stdgo.StdGoTypes.GoUInt), (0u32 : stdgo.StdGoTypes.GoUInt), (1u32 : stdgo.StdGoTypes.GoUInt)), _q:stdgo.StdGoTypes.GoUInt = __tmp__._0, _r:stdgo.StdGoTypes.GoUInt = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div should have panicked" : stdgo.GoString), stdgo.Go.toInterface(_q), stdgo.Go.toInterface(_r));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1400,9 +1391,6 @@ function testDiv32PanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             });
             var __tmp__ = div32((1u32 : stdgo.StdGoTypes.GoUInt32), (0u32 : stdgo.StdGoTypes.GoUInt32), (1u32 : stdgo.StdGoTypes.GoUInt32)), _q:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _r:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div32 should have panicked" : stdgo.GoString), stdgo.Go.toInterface(_q), stdgo.Go.toInterface(_r));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1453,9 +1441,6 @@ function testDiv64PanicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             });
             var __tmp__ = div64((1i64 : stdgo.StdGoTypes.GoUInt64), (0i64 : stdgo.StdGoTypes.GoUInt64), (1i64 : stdgo.StdGoTypes.GoUInt64)), _q:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _r:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div64 should have panicked" : stdgo.GoString), stdgo.Go.toInterface(_q), stdgo.Go.toInterface(_r));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1506,9 +1491,6 @@ function testDivPanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             });
             var __tmp__ = div((1u32 : stdgo.StdGoTypes.GoUInt), (1u32 : stdgo.StdGoTypes.GoUInt), (0u32 : stdgo.StdGoTypes.GoUInt)), _q:stdgo.StdGoTypes.GoUInt = __tmp__._0, _r:stdgo.StdGoTypes.GoUInt = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div should have panicked" : stdgo.GoString), stdgo.Go.toInterface(_q), stdgo.Go.toInterface(_r));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1559,9 +1541,6 @@ function testDiv32PanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             });
             var __tmp__ = div32((1u32 : stdgo.StdGoTypes.GoUInt32), (1u32 : stdgo.StdGoTypes.GoUInt32), (0u32 : stdgo.StdGoTypes.GoUInt32)), _q:stdgo.StdGoTypes.GoUInt32 = __tmp__._0, _r:stdgo.StdGoTypes.GoUInt32 = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div32 should have panicked" : stdgo.GoString), stdgo.Go.toInterface(_q), stdgo.Go.toInterface(_r));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1612,9 +1591,6 @@ function testDiv64PanicZero(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             });
             var __tmp__ = div64((1i64 : stdgo.StdGoTypes.GoUInt64), (1i64 : stdgo.StdGoTypes.GoUInt64), (0i64 : stdgo.StdGoTypes.GoUInt64)), _q:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, _r:stdgo.StdGoTypes.GoUInt64 = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div64 should have panicked" : stdgo.GoString), stdgo.Go.toInterface(_q), stdgo.Go.toInterface(_r));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

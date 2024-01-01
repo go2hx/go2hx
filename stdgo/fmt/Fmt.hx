@@ -3229,9 +3229,6 @@ class T_pp_asInterface {
                 };
                 return false;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3888,9 +3885,6 @@ class T_ss_asInterface {
                 };
                 return { _0 : _numProcessed, _1 : _err };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -4029,9 +4023,6 @@ class T_ss_asInterface {
                     defer();
                 };
                 return { _0 : _numProcessed, _1 : _err };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -4816,9 +4807,6 @@ class T_ss_asInterface {
                     defer();
                 };
                 return { _0 : _tok, _1 : _err };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

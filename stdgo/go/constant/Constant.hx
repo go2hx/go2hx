@@ -2259,9 +2259,6 @@ function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value {
                     };
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

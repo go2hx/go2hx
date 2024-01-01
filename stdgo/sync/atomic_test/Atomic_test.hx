@@ -1918,9 +1918,6 @@ function testHammer32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                                         a();
                                     });
                                     _testf(stdgo.Go.pointer(_val), _n);
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
                                     {
                                         for (defer in __deferstack__) {
                                             defer();
@@ -1955,9 +1952,6 @@ function testHammer32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 if (!stdgo.strings.Strings.hasPrefix(_name?.__copy__(), ("Swap" : stdgo.GoString)) && (_val != ((_n : stdgo.StdGoTypes.GoUInt32) * (4u32 : stdgo.StdGoTypes.GoUInt32)))) {
                     _t.fatalf(("%s: val=%d want %d" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_val), stdgo.Go.toInterface(_n * (4 : stdgo.StdGoTypes.GoInt)));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -2242,9 +2236,6 @@ function testHammer64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                                         a();
                                     });
                                     _testf(stdgo.Go.pointer(_val), _n);
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
                                     {
                                         for (defer in __deferstack__) {
                                             defer();
@@ -2279,9 +2270,6 @@ function testHammer64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 if (!stdgo.strings.Strings.hasPrefix(_name?.__copy__(), ("Swap" : stdgo.GoString)) && (_val != ((_n : stdgo.StdGoTypes.GoUInt64) * (4i64 : stdgo.StdGoTypes.GoUInt64)))) {
                     _t.fatalf(("%s: val=%d want %d" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_val), stdgo.Go.toInterface(_n * (4 : stdgo.StdGoTypes.GoInt)));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -2578,9 +2566,6 @@ _hammerStoreLoadUint64Method) : stdgo.Slice<(stdgo.StdGoTypes.Ref<stdgo.testing.
                     });
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2659,9 +2644,6 @@ function testStoreLoadSeqCst32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
             _c.__get__();
             _c.__get__();
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2740,9 +2722,6 @@ function testStoreLoadSeqCst64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
             _c.__get__();
             _c.__get__();
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2842,9 +2821,6 @@ function testStoreLoadRelAcq32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
             _c.__get__();
             _c.__get__();
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2944,9 +2920,6 @@ function testStoreLoadRelAcq64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
             _c.__get__();
             _c.__get__();
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2996,9 +2969,6 @@ function _shouldPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _name:st
                 a();
             });
             _f();
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3272,9 +3242,6 @@ function():Void {
                             a();
                         });
                         _f();
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
                         {
                             for (defer in __deferstack__) {
                                 defer();
@@ -3382,9 +3349,6 @@ function exampleValue_readMostly():Void {
                 };
                 _m2[_key] = _val?.__copy__();
                 _m.store(stdgo.Go.toInterface(_m2));
-                for (defer in __deferstack__) {
-                    defer();
-                };
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -3490,9 +3454,6 @@ function testValuePanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                         a();
                     });
                     _v.store((null : stdgo.StdGoTypes.AnyInterface));
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -3535,9 +3496,6 @@ function testValuePanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                         a();
                     });
                     _v.store(stdgo.Go.toInterface(("foo" : stdgo.GoString)));
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -3579,9 +3537,6 @@ function testValuePanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                         a();
                     });
                     _v.store((null : stdgo.StdGoTypes.AnyInterface));
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -3704,9 +3659,6 @@ function testValue_Swap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                             _t.errorf(("got %v, want %v" : stdgo.GoString), _got, _tt._new);
                         };
                     };
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -3802,9 +3754,6 @@ function testValue_CompareAndSwap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
                         if (_got != (_tt._want)) {
                             _t.errorf(("got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
                         };
-                    };
-                    for (defer in __deferstack__) {
-                        defer();
                     };
                     {
                         for (defer in __deferstack__) {

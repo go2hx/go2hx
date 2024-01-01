@@ -457,9 +457,6 @@ function testAsValidation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                         };
                     };
                     _t.errorf(("As(err, %T(%v)) did not panic" : stdgo.GoString), _tc, _tc);
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
                     {
                         for (defer in __deferstack__) {
                             defer();

@@ -1484,9 +1484,6 @@ function _equal(_p:stdgo.StdGoTypes.Ref<FileSet>, _q:stdgo.StdGoTypes.Ref<FileSe
                 };
                 return (null : stdgo.Error);
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2023,9 +2020,6 @@ class File_asInterface {
                 };
                 return (_f._base + _f._lines[(_line - (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)] : Pos);
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2126,9 +2120,6 @@ class File_asInterface {
             };
             stdgo.Go.copySlice((_f._lines.__slice__(_line) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), (_f._lines.__slice__(_line + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>));
             _f._lines = (_f._lines.__slice__(0, (_f._lines.length) - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2412,9 +2403,6 @@ class FileSet_asInterface {
                 };
                 return null;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2481,9 +2469,6 @@ class FileSet_asInterface {
                     _s._files = ((_s._files.__slice__(0, _i) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>>).__append__(...(_s._files.__slice__(_i + (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>>).__toArray__()));
                     _last = null;
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -2553,9 +2538,6 @@ class FileSet_asInterface {
                     defer();
                 };
                 return _f;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

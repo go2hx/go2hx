@@ -2822,9 +2822,6 @@ function _fprint(_w:stdgo.io.Io.Writer, _fset:stdgo.StdGoTypes.Ref<stdgo.go.toke
                 };
                 return _err;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

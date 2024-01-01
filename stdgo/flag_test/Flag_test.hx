@@ -603,9 +603,6 @@ function testChangingArgs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             if ((((!_before.value || (_cmd != ("subcmd" : stdgo.GoString))) || !_after.value) || (_args.length != (1 : stdgo.StdGoTypes.GoInt))) || (_args[(0 : stdgo.StdGoTypes.GoInt)] != ("args" : stdgo.GoString))) {
                 _t.fatalf(("expected true subcmd true [args] got %v %v %v %v" : stdgo.GoString), stdgo.Go.toInterface(_before.value), stdgo.Go.toInterface(_cmd), stdgo.Go.toInterface(_after.value), stdgo.Go.toInterface(_args));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -744,9 +741,6 @@ function testUsageOutput(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                 if (_got != (("flag provided but not defined: -i\nUsage of app:\n" : stdgo.GoString))) {
                     _t.errorf(("output = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(("flag provided but not defined: -i\nUsage of app:\n" : stdgo.GoString)));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -898,9 +892,6 @@ function _mustPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _testName:
                 a();
             });
             _f();
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

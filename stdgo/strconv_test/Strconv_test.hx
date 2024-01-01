@@ -2727,9 +2727,6 @@ function testFormatComplexInvalidBitSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.T
                 a();
             });
             formatComplex(((1f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 2f64)), (103 : stdgo.StdGoTypes.GoUInt8), (-1 : stdgo.StdGoTypes.GoInt), (100 : stdgo.StdGoTypes.GoInt));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3263,9 +3260,6 @@ stdgo.Go.toInterface(_s));
             if (_s.err() != null) {
                 _t.fatal(stdgo.Go.toInterface(("testfp: read testdata/testfp.txt: " : stdgo.GoString)), stdgo.Go.toInterface(_s.err()));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3395,9 +3389,6 @@ function testFormatFloatInvalidBitSize(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
                 a();
             });
             formatFloat((3.14 : stdgo.StdGoTypes.GoFloat64), (103 : stdgo.StdGoTypes.GoUInt8), (-1 : stdgo.StdGoTypes.GoInt), (100 : stdgo.StdGoTypes.GoInt));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3513,9 +3504,6 @@ function testItoa(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 a();
             });
             formatUint((12345678i64 : stdgo.StdGoTypes.GoUInt64), (1 : stdgo.StdGoTypes.GoInt));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

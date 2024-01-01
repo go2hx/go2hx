@@ -2727,9 +2727,6 @@ function _safeSum(_h:stdgo.hash.Hash.Hash):{ var _0 : stdgo.Slice<stdgo.StdGoTyp
                 };
                 return { _0 : _h.sum((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), _1 : (null : stdgo.Error) };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

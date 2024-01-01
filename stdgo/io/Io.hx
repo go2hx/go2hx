@@ -1680,9 +1680,6 @@ class T_onceError_asInterface {
                 };
                 return _a._err;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1720,9 +1717,6 @@ class T_onceError_asInterface {
                 };
             };
             _a._err = _err;
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1859,9 +1853,6 @@ class T_pipe_asInterface {
                     defer();
                 };
                 return { _0 : _n, _1 : (null : stdgo.Error) };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

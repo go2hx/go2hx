@@ -1743,9 +1743,6 @@ function testNegativeRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 a();
             });
             _b.read(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((100 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__());
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2959,9 +2956,6 @@ function testDontLoopForever(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             };
             if (_s.err() != null) {
                 _t.fatal(stdgo.Go.toInterface(("after scan:" : stdgo.GoString)), stdgo.Go.toInterface(_s.err()));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

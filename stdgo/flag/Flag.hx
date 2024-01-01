@@ -488,9 +488,6 @@ function _isZeroValue(_flag:stdgo.StdGoTypes.Ref<Flag>, _value:stdgo.GoString):{
                 };
                 return { _0 : _value == (((stdgo.Go.typeAssert((_z.interface_() : Value)) : Value).string() : stdgo.GoString)), _1 : (null : stdgo.Error) };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

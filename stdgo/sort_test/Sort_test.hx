@@ -1183,9 +1183,6 @@ function testNonDeterministicComparison(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Te
                     sort(stdgo.Go.asInterface(_td));
                 });
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

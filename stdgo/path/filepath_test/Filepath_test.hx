@@ -1076,9 +1076,6 @@ function exampleWalk():Void {
                     return;
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1311,9 +1308,6 @@ function testWindowsGlob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                 if (_err != null) {
                     _t.error(stdgo.Go.toInterface(_err));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -1685,9 +1679,6 @@ function _testWalk(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _walk:(stdg
                 stdgo.os.Os.chmod(stdgo.path.filepath.Filepath.join(_tree._name?.__copy__(), _tree._entries[(1 : stdgo.StdGoTypes.GoInt)]._name?.__copy__())?.__copy__(), (504u32 : stdgo.io.fs.Fs.FileMode));
                 stdgo.os.Os.chmod(stdgo.path.filepath.Filepath.join(_tree._name?.__copy__(), _tree._entries[(3 : stdgo.StdGoTypes.GoInt)]._name?.__copy__())?.__copy__(), (504u32 : stdgo.io.fs.Fs.FileMode));
             });
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1895,9 +1886,6 @@ function testWalkFileError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want))) {
                 _t.errorf(("Walked %#v; want %#v" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2088,9 +2076,6 @@ function _testEvalSymlinksAfterChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
             if (stdgo.path.filepath.Filepath.clean(_have?.__copy__()) != (stdgo.path.filepath.Filepath.clean(_want?.__copy__()))) {
                 _t.errorf(("EvalSymlinks(%q) in %q directory returns %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_wd), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_want));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2179,9 +2164,6 @@ function testEvalSymlinksIsNotExist(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             };
             if (!stdgo.os.Os.isNotExist(_err)) {
                 _t.errorf(("expected the file is not found, got %v\n" : stdgo.GoString), stdgo.Go.toInterface(_err));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -2337,9 +2319,6 @@ function testAbs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     _t.errorf(("Abs(%q)=%q, isn\'t clean" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_abspath));
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2399,9 +2378,6 @@ function testAbsEmptyString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             };
             if (stdgo.path.filepath.Filepath.isAbs(_abspath?.__copy__()) && (_abspath != stdgo.path.filepath.Filepath.clean(_abspath?.__copy__()))) {
                 _t.errorf(("Abs(\"\")=%q, isn\'t clean" : stdgo.GoString), stdgo.Go.toInterface(_abspath));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -2556,9 +2532,6 @@ function _testWalkSymlink(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _mkl
             var _want = (new stdgo.Slice<stdgo.GoString>(2, 2, ("." : stdgo.GoString), ("link" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
             if (stdgo.fmt.Fmt.sprintf(("%q" : stdgo.GoString), stdgo.Go.toInterface(_visited)) != (stdgo.fmt.Fmt.sprintf(("%q" : stdgo.GoString), stdgo.Go.toInterface(_want)))) {
                 _t.errorf(("unexpected paths visited %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_visited), stdgo.Go.toInterface(_want));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -2717,9 +2690,6 @@ function testEvalSymlinksAboveRootChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Te
                     _t.logf(("EvalSymlinks(%q) = %q" : stdgo.GoString), stdgo.Go.toInterface(_check), stdgo.Go.toInterface(_resolved));
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2785,9 +2755,6 @@ function testIssue51617(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var _want = (new stdgo.Slice<stdgo.GoString>(4, 4, ("." : stdgo.GoString), ("a" : stdgo.GoString), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("bad" : stdgo.GoString))?.__copy__(), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("next" : stdgo.GoString))?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_saw), stdgo.Go.toInterface(_want))) {
                 _t.errorf(("got directories %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_saw), stdgo.Go.toInterface(_want));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

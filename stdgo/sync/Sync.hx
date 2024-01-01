@@ -865,9 +865,6 @@ function onceFunc(_f:() -> Void):() -> Void {
                 });
                 _f();
                 _valid = true;
-                for (defer in __deferstack__) {
-                    defer();
-                };
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -1416,9 +1413,6 @@ class Map__asInterface {
                     defer();
                 };
                 return _swapped;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -2057,9 +2051,6 @@ class Once_asInterface {
                     __deferstack__.unshift(() -> stdgo.sync.atomic_.Atomic_.storeUint32(_a0, _a1));
                 };
                 _f();
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

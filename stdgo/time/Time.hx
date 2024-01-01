@@ -4610,9 +4610,6 @@ function checkRuntimeTimerPeriodOverflow():Void {
                 __deferstack__.unshift(() -> _stopTimer(_a0));
             };
             after((25000000i64 : stdgo.time.Time.Duration)).__get__();
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -6137,9 +6134,6 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
                 };
                 return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _1 : stdgo.Go.asInterface((2 : stdgo.syscall.Syscall.Errno)) };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -6287,9 +6281,6 @@ function _readFile(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.StdGoTypes
                     defer();
                 };
                 return { _0 : _ret, _1 : _err };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

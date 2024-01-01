@@ -1116,9 +1116,6 @@ function testDecodeBounds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             if ((_n != (_buf.length)) || (_err != null)) {
                 _t.fatalf(("StdEncoding.Decode = %d, %v, want %d, nil" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((_buf.length)));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

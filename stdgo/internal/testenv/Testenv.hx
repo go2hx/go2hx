@@ -745,9 +745,6 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                 };
                 return { _0 : true, _1 : stdgo.Go.str()?.__copy__() };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

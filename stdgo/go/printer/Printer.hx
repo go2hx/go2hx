@@ -2883,9 +2883,6 @@ class T_printer_asInterface {
                     _p._writeString(_pos?.__copy__(), _trimRight(_line?.__copy__())?.__copy__(), true);
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3203,9 +3200,6 @@ class T_printer_asInterface {
                 };
                 return _size;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3418,9 +3412,6 @@ class T_printer_asInterface {
                 _p._print(stdgo.Go.toInterface((32 : stdgo.go.printer.Printer.T_whiteSpace)));
             };
             _p._block(_b, (1 : stdgo.StdGoTypes.GoInt));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -5188,9 +5179,6 @@ class Config_asInterface {
                     defer();
                 };
                 return _err;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

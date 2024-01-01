@@ -362,9 +362,6 @@ function testLookPath(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     };
                 };
             });
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -476,9 +473,6 @@ function exampleCmd_StdinPipe():Void {
                 try {
                     __deferstack__.unshift(() -> _stdin.close());
                     stdgo.io.Io.writeString(_stdin, ("values written to stdin are passed to cmd\'s standard input" : stdgo.GoString));
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -555,9 +549,6 @@ function exampleCommandContext():Void {
             {
                 var _err:stdgo.Error = stdgo.os.exec.Exec.commandContext(_ctx, ("sleep" : stdgo.GoString), ("5" : stdgo.GoString)).run();
                 if (_err != null) {};
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -723,9 +714,6 @@ function _cmdCat(_args:haxe.Rest<stdgo.GoString>):Void {
                 };
             };
             Sys.exit(_exit);
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -891,9 +879,6 @@ function testEchoFileRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                         __deferstack__.unshift(() -> if (_a0 != null) _a0.__close__());
                     };
                     stdgo.fmt.Fmt.fprint(_stdin, stdgo.Go.toInterface(("echo\n" : stdgo.GoString)));
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -1135,9 +1120,6 @@ function testStdinClose(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                                 _t.errorf(("Close: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                             };
                         };
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
                         {
                             for (defer in __deferstack__) {
                                 defer();
@@ -1162,9 +1144,6 @@ function testStdinClose(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 a();
             });
             _check(("Wait" : stdgo.GoString), _cmd.wait_());
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1218,9 +1197,6 @@ function testStdinCloseRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                     try {
                         __deferstack__.unshift(() -> _wg.done());
                         _cmd.process.kill();
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
                         {
                             for (defer in __deferstack__) {
                                 defer();
@@ -1256,9 +1232,6 @@ function testStdinCloseRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                                 _t.errorf(("stdin.Close: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                             };
                         };
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
                         {
                             for (defer in __deferstack__) {
                                 defer();
@@ -1287,9 +1260,6 @@ function testStdinCloseRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                 if (_err == null) {
                     _t.fatalf(("Wait: succeeded unexpectedly" : stdgo.GoString));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -1465,9 +1435,6 @@ function testExtraFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             if ((_stdout.string() : stdgo.GoString) != (("Hello, fd 3!" : stdgo.GoString))) {
                 _t.errorf(("got stdout %q, stderr %q; want %q on stdout" : stdgo.GoString), stdgo.Go.toInterface((_stdout.string() : stdgo.GoString)), stdgo.Go.toInterface((_stderr.string() : stdgo.GoString)), stdgo.Go.toInterface(("Hello, fd 3!" : stdgo.GoString)));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -1705,9 +1672,6 @@ function testContextCancel(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 } else {
                     _t.logf(("exit status: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -2181,9 +2145,6 @@ function testCancelErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 if (!stdgo.errors.Errors.is_(_err, _errArbitrary) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_errArbitrary))) {
                     _t.errorf(("Wait error = %v; want an error wrapping %v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_errArbitrary));
                 };
-                for (defer in __deferstack__) {
-                    defer();
-                };
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -2243,9 +2204,6 @@ function testCancelErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 _t.logf(("[%d] %v" : stdgo.GoString), stdgo.Go.toInterface(_cmd.process.pid), stdgo.Go.toInterface(_err));
                 if (_err != null) {
                     _t.errorf(("Wait error = %v; want nil" : stdgo.GoString), stdgo.Go.toInterface(_err));
-                };
-                for (defer in __deferstack__) {
-                    defer();
                 };
                 {
                     for (defer in __deferstack__) {
@@ -2310,9 +2268,6 @@ function testCancelErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                         _t.errorf(("Wait error = %v; want %T" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(stdgo.Go.asInterface((_ee : stdgo.os.exec.Exec.ExitError))));
                     };
                 };
-                for (defer in __deferstack__) {
-                    defer();
-                };
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -2375,9 +2330,6 @@ function testCancelErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                         _t.errorf(("Wait error of type %T; want %T" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(stdgo.Go.asInterface(_ee)));
                     };
                 };
-                for (defer in __deferstack__) {
-                    defer();
-                };
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -2436,9 +2388,6 @@ function testCancelErrors(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                     if (!_ok || (_ee.processState.exitCode() != (1 : stdgo.StdGoTypes.GoInt))) {
                         _t.errorf(("Wait error = %v; want exit status 1" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     };
-                };
-                for (defer in __deferstack__) {
-                    defer();
                 };
                 {
                     for (defer in __deferstack__) {
@@ -2513,9 +2462,6 @@ function testConcurrentExec(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                                 };
                             };
                             _cmd.wait_();
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -2557,9 +2503,6 @@ function testConcurrentExec(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                                 if (_err != null) {
                                     _t.error(stdgo.Go.toInterface(_err));
                                 };
-                            };
-                            for (defer in __deferstack__) {
-                                defer();
                             };
                             {
                                 for (defer in __deferstack__) {

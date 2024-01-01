@@ -2338,9 +2338,6 @@ function testLookupFieldOrMethodOnNil(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
                 a();
             });
             lookupFieldOrMethod((null : stdgo.go.types.Types.Type), false, null, stdgo.Go.str()?.__copy__());
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3383,9 +3380,6 @@ function _testFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _filenames
                 };
                 if (!stdgo.strings.Strings.contains(_err.error()?.__copy__(), (": \t" : stdgo.GoString))) {
                     _errlist = (_errlist.__append__(_err));
-                };
-                for (defer in __deferstack__) {
-                    defer();
                 };
                 {
                     for (defer in __deferstack__) {
@@ -5002,9 +4996,6 @@ function testIssue34921(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 var _conf:stdgo.go.types.Types.Config = ({ importer : stdgo.Go.asInterface(({ _pkg : _pkg } : stdgo.go.types_test.Types_test.T_importHelper)) } : stdgo.go.types.Types.Config);
                 _pkg = _mustTypecheck(_src?.__copy__(), (stdgo.Go.setRef(_conf) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Config>), null);
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -6039,9 +6030,6 @@ function testStdlib(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                         if (_err != null) {
                             _t.errorf(("error checking %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_dir), stdgo.Go.toInterface(_err));
                         };
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
                         {
                             for (defer in __deferstack__) {
                                 defer();
@@ -6120,9 +6108,6 @@ function _firstComment(_filename:stdgo.GoString):stdgo.GoString {
                         };
                     };
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

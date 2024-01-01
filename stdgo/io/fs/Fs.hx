@@ -889,9 +889,6 @@ function readDir(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<DirEntry
                 };
                 return { _0 : _list, _1 : _err };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -981,9 +978,6 @@ function readFile(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.S
                     };
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1034,9 +1028,6 @@ function stat(_fsys:FS, _name:stdgo.GoString):{ var _0 : FileInfo; var _1 : stdg
                     defer();
                 };
                 return _file.stat();
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

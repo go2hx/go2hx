@@ -168,9 +168,6 @@ function _testIntPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _b:std
                 a();
             });
             stdgo.crypto.rand.Rand.int_(stdgo.crypto.rand.Rand.reader, _b);
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

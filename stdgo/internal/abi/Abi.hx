@@ -1765,7 +1765,7 @@ class RegArgs_asInterface {
         stdgo.Go.println("");
         stdgo.Go.print(("Floats:" : stdgo.GoString));
         for (__1 => _x in _r.floats) {
-            stdgo.Go.print((" " : stdgo.GoString), (_x.toBasic() : haxe.UInt64).toString());
+            stdgo.Go.print((" " : stdgo.GoString), @:privateAccess (_x.toBasic() : haxe.UInt64).toString());
         };
         stdgo.Go.println("");
         stdgo.Go.print(("Ptrs:" : stdgo.GoString));

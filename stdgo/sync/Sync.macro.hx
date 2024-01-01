@@ -35,9 +35,6 @@ macro function onceValue<T>(__generic__0:haxe.macro.Expr.ExprOf<T>, _f:haxe.macr
                             });
                             _result = _f();
                             _valid = true;
-                            for (@:privateAccess stdgo.sync.Sync.defer in __deferstack__) {
-                                @:privateAccess stdgo.sync.Sync.defer();
-                            };
                             {
                                 for (@:privateAccess stdgo.sync.Sync.defer in __deferstack__) {
                                     @:privateAccess stdgo.sync.Sync.defer();
@@ -119,9 +116,6 @@ macro function onceValues<T1, T2>(__generic__0:haxe.macro.Expr.ExprOf<T1>, __gen
                                 _r2 = __tmp__._1;
                             };
                             _valid = true;
-                            for (@:privateAccess stdgo.sync.Sync.defer in __deferstack__) {
-                                @:privateAccess stdgo.sync.Sync.defer();
-                            };
                             {
                                 for (@:privateAccess stdgo.sync.Sync.defer in __deferstack__) {
                                     @:privateAccess stdgo.sync.Sync.defer();

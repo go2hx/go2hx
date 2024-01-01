@@ -4186,9 +4186,6 @@ function _hasVarSize(_t:Type, _seen:stdgo.GoMap<stdgo.StdGoTypes.Ref<Named>, Boo
                 };
                 return false;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -4961,9 +4958,6 @@ function checkExpr(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _pk
                     defer();
                 };
                 return (null : stdgo.Error);
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -8021,9 +8015,6 @@ function _computeInterfaceTypeSet(_check:stdgo.StdGoTypes.Ref<Checker>, _pos:std
                 };
                 return _ityp._tset;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -11056,9 +11047,6 @@ class Checker_asInterface {
                 };
                 return stdgo.Go.asInterface(_inst);
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -11316,9 +11304,6 @@ class Checker_asInterface {
                     defer();
                 };
                 return stdgo.Go.asInterface(_typ);
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -12410,9 +12395,6 @@ class Checker_asInterface {
                     _check._error(_s, (-1 : stdgo.internal.types.errors.Errors.Code), ("invalid statement" : stdgo.GoString));
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -12687,9 +12669,6 @@ class Checker_asInterface {
                 _check._error(stdgo.Go.asInterface((_body.rbrace : T_atPos)), (102 : stdgo.internal.types.errors.Errors.Code), ("missing return" : stdgo.GoString));
             };
             _check._usage(_sig._scope);
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -12924,9 +12903,6 @@ class Checker_asInterface {
             _sig._params = newTuple(..._params.__toArray__());
             _sig._results = newTuple(..._results.__toArray__());
             _sig._variadic = _variadic;
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -14966,9 +14942,6 @@ class Checker_asInterface {
                 };
                 return _inferred;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -16140,9 +16113,6 @@ class Checker_asInterface {
                 };
                 return _kind;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -17269,9 +17239,6 @@ class Checker_asInterface {
                 };
                 _index = _index + ((_f.names.length));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -17341,9 +17308,6 @@ class Checker_asInterface {
             if (_isTypeParam(_rhs)) {
                 _check._error(_tdecl.type, (144 : stdgo.internal.types.errors.Errors.Code), ("cannot use a type parameter as RHS in type declaration" : stdgo.GoString));
                 _named._underlying = stdgo.Go.asInterface(typ[((0 : stdgo.go.types.Types.BasicKind) : stdgo.StdGoTypes.GoInt)]);
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -17470,9 +17434,6 @@ class Checker_asInterface {
                 _check._expr((null : stdgo.go.types.Types.Type), (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>), _init);
             };
             _check._initConst(_obj, (stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.T_operand>));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -17710,9 +17671,6 @@ class Checker_asInterface {
                     };
                     return false;
                 };
-                for (defer in __deferstack__) {
-                    defer();
-                };
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -17878,9 +17836,6 @@ class Checker_asInterface {
                     var _obj:stdgo.go.types.Types.Object = __type__ == null ? (null : stdgo.go.types.Types.Object) : cast __type__;
                     _unreachable();
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -18422,9 +18377,6 @@ class Checker_asInterface {
                     defer();
                 };
                 return _err;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -19280,9 +19232,6 @@ class Checker_asInterface {
                 };
                 return { _0 : _resList, _1 : _targsList, _2 : _xlistList };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -19538,9 +19487,6 @@ class Checker_asInterface {
                     defer();
                 };
                 return _inst;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -20797,9 +20743,6 @@ class Checker_asInterface {
                 };
                 return true;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -21437,9 +21380,6 @@ class Context_asInterface {
                 };
                 return _id;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -21495,9 +21435,6 @@ class Context_asInterface {
                 };
                 return _inst;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -21548,9 +21485,6 @@ class Context_asInterface {
                     defer();
                 };
                 return (null : stdgo.go.types.Types.Type);
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -21945,9 +21879,6 @@ class T_tpWalker_asInterface {
                 };
                 return false;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -22081,9 +22012,6 @@ class T_cycleFinder_asInterface {
                     var _t:stdgo.go.types.Types.Type = __type__ == null ? (null : stdgo.go.types.Types.Type) : cast __type__;
                     throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("unexpected %T" : stdgo.GoString), stdgo.Go.toInterface(_typ)));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -23136,9 +23064,6 @@ class Named_asInterface {
                 };
                 return _underlying;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -23403,9 +23328,6 @@ class Named_asInterface {
                 };
                 return _t._methods[(_i : stdgo.StdGoTypes.GoInt)];
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -23587,9 +23509,6 @@ class Named_asInterface {
                     defer();
                 };
                 return _n;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -26738,9 +26657,6 @@ class StdSizes_asInterface {
                 };
                 return _a;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -27212,9 +27128,6 @@ class T_subster_asInterface {
                     defer();
                 };
                 return _typ;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -27895,9 +27808,6 @@ class T_typeWriter_asInterface {
                 };
             };
             _w._tuple(_sig._results, false);
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -28271,9 +28181,6 @@ class T_typeWriter_asInterface {
                         break;
                     };
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -29202,9 +29109,6 @@ class T_unifier_asInterface {
                     defer();
                 };
                 return false;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

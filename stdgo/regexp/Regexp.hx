@@ -2403,9 +2403,6 @@ function _testRE2(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _file:stdgo.
                 _t.fatalf(("%s:%d: out of sync: have %d strings left at EOF" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface((_input.length)));
             };
             _t.logf(("%d cases tested" : stdgo.GoString), stdgo.Go.toInterface(_ncase));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2491,9 +2488,6 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<Regexp>;
                     defer();
                 };
                 return compile(_s?.__copy__());
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -2733,9 +2727,6 @@ function _testFowler(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _file:std
                             _t.errorf(("%s:%d: %#q.FindSubmatchIndex(%#q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_pos));
                         };
                     };
-                };
-                for (defer in __deferstack__) {
-                    defer();
                 };
                 {
                     for (defer in __deferstack__) {
@@ -3365,9 +3356,6 @@ function _mergeRuneSets(_leftRunes:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoT
                     defer();
                 };
                 return { _0 : _merged, _1 : _next };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

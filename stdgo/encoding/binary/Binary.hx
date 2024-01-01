@@ -1476,9 +1476,6 @@ function testUnexportedRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             });
             var _u2:Unexported = ({} : stdgo.encoding.binary.Binary.Unexported);
             read(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), stdgo.Go.asInterface(littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_u2) : stdgo.StdGoTypes.Ref<stdgo.encoding.binary.Binary.Unexported>)));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1577,9 +1574,6 @@ function _testUint64SmallSliceLengthPanics():Bool {
                 };
                 return false;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1622,9 +1616,6 @@ function _testPutUint64SmallSliceLengthPanics():Bool {
                     defer();
                 };
                 return false;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

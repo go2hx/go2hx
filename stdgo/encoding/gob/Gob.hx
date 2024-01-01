@@ -3181,9 +3181,6 @@ function testUintCodec(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     };
                 });
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3219,9 +3216,6 @@ function _verifyInt(_i:stdgo.StdGoTypes.GoInt64, _t:stdgo.StdGoTypes.Ref<stdgo.t
             var _j:stdgo.StdGoTypes.GoInt64 = _decState._decodeInt();
             if (_i != (_j)) {
                 _t.errorf(("Encode/Decode: sent %#x received %#x" : stdgo.GoString), stdgo.Go.toInterface((_i : stdgo.StdGoTypes.GoUInt64)), stdgo.Go.toInterface((_j : stdgo.StdGoTypes.GoUInt64)));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -3442,9 +3436,6 @@ function _execDec(_instr:stdgo.StdGoTypes.Ref<T_decInstr>, _state:stdgo.StdGoTyp
             };
             _instr._op(_instr, _state, _value.elem()?.__copy__());
             _state._fieldnum = (6 : stdgo.StdGoTypes.GoInt);
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -4695,9 +4686,6 @@ function testFuzzOneByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                                 });
                                 var _err:stdgo.Error = newDecoder(stdgo.Go.asInterface(stdgo.bytes.Bytes.newReader(_b))).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_e) : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.DT>)));
                                 _err;
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
                                 {
                                     for (defer in __deferstack__) {
                                         defer();
@@ -6419,9 +6407,6 @@ function _buildEncEngine(_info:stdgo.StdGoTypes.Ref<T_typeInfo>, _ut:stdgo.StdGo
                 };
                 return _enc;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -7524,9 +7509,6 @@ function _encodeAndRecover(_value:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdg
                 };
                 return { _0 : _encodeErr, _1 : _panicErr };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -8512,9 +8494,6 @@ function testIgnoreDepthLimit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
                     _t.errorf(("Decode didn\'t fail with depth limit of 100: want %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_expectedErr), stdgo.Go.toInterface(_err));
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -9195,9 +9174,6 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.StdGoTypes.Ref<T_userTyp
                     };
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -9425,9 +9401,6 @@ function _buildTypeInfo(_ut:stdgo.StdGoTypes.Ref<T_userTypeInfo>, _rt:stdgo.refl
                 };
                 return { _0 : _info, _1 : (null : stdgo.Error) };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -9563,9 +9536,6 @@ function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo.reflect.Reflect.Type):
                     defer();
                 };
                 return _t;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -9861,9 +9831,6 @@ function testTypeRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                                         return;
                                     };
                                 };
-                            };
-                            for (defer in __deferstack__) {
-                                defer();
                             };
                             {
                                 for (defer in __deferstack__) {
@@ -10395,9 +10362,6 @@ class Decoder_asInterface {
                 };
                 return _dec._err;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -10632,9 +10596,6 @@ class Decoder_asInterface {
                     _dec._decodeSingle(_engine, _value?.__copy__());
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -10824,9 +10785,6 @@ class Decoder_asInterface {
                 };
                 return { _0 : _engine, _1 : _err };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -10930,9 +10888,6 @@ class Decoder_asInterface {
                     defer();
                 };
                 return (_dec._wireType[_remoteId] ?? (null : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_wireType>))._string()?.__copy__();
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -11541,9 +11496,6 @@ class Decoder_asInterface {
             };
             var _instr = (stdgo.Go.setRef(_engine._instr[(0 : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_decInstr>);
             _instr._op(_instr, _state, _noValue?.__copy__());
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -11594,9 +11546,6 @@ class Decoder_asInterface {
                 var _instr = (stdgo.Go.setRef(_engine._instr[(_fieldnum : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_decInstr>);
                 _instr._op(_instr, _state, _noValue?.__copy__());
                 _state._fieldnum = _fieldnum;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -11660,9 +11609,6 @@ class Decoder_asInterface {
                 _instr._op(_instr, _state, _field?.__copy__());
                 _state._fieldnum = _fieldnum;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -11705,9 +11651,6 @@ class Decoder_asInterface {
             };
             var _instr = (stdgo.Go.setRef(_engine._instr[(0 : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_decInstr>);
             _instr._op(_instr, _state, _value?.__copy__());
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -12046,9 +11989,6 @@ class Encoder_asInterface {
                 };
                 return _enc._err;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -12297,9 +12237,6 @@ class Encoder_asInterface {
             } else {
                 _enc._encodeSingle(_b, _engine, _value?.__copy__());
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -12462,9 +12399,6 @@ class Encoder_asInterface {
                     _op(null, _state, _elem?.__copy__());
                 });
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -12521,9 +12455,6 @@ class Encoder_asInterface {
                     _instr._op(_instr, _state, _field?.__copy__());
                 });
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -12566,9 +12497,6 @@ class Encoder_asInterface {
             };
             if (_valid(_value?.__copy__())) {
                 _instr._op(_instr, _state, _value?.__copy__());
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

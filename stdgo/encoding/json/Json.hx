@@ -4701,9 +4701,6 @@ function _codeInit():Void {
                 };
                 throw stdgo.Go.toInterface(("re-marshal code.json: different result" : stdgo.GoString));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -6584,9 +6581,6 @@ function testUnmarshalPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             });
             unmarshal((("{}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.T_unmarshalPanic() : stdgo.encoding.json.Json.T_unmarshalPanic)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_unmarshalPanic>))));
             _t.fatalf(("Unmarshal should have panicked" : stdgo.GoString));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -6910,9 +6904,6 @@ function marshal(_v:stdgo.StdGoTypes.AnyInterface):{ var _0 : stdgo.Slice<stdgo.
                     defer();
                 };
                 return { _0 : _buf, _1 : (null : stdgo.Error) };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -8328,9 +8319,6 @@ function testMarshalErrorAndReuseEncodeState(_t:stdgo.StdGoTypes.Ref<stdgo.testi
             if (stdgo.Go.toInterface(_data2) != stdgo.Go.toInterface(_data)) {
                 _t.errorf(("expect: %v, but get: %v" : stdgo.GoString), stdgo.Go.toInterface(_data), stdgo.Go.toInterface(_data2));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -8796,9 +8784,6 @@ function testMarshalPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             });
             marshal(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.encoding.json.Json.T_marshalPanic() : stdgo.encoding.json.Json.T_marshalPanic)) : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_marshalPanic>))));
             _t.error(stdgo.Go.toInterface(("Marshal should have panicked" : stdgo.GoString)));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -9057,9 +9042,6 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _src:stdgo.Sl
                 };
                 return { _0 : _dst, _1 : (null : stdgo.Error) };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -9177,9 +9159,6 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _src:stdgo.Sli
                     defer();
                 };
                 return { _0 : _dst, _1 : (null : stdgo.Error) };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -9324,9 +9303,6 @@ function valid(_data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Bool {
                     defer();
                 };
                 return _checkValid(_data, _scan) == null;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -10196,9 +10172,6 @@ function testEncoderErrorAndReuseEncodeState(_t:stdgo.StdGoTypes.Ref<stdgo.testi
             if (stdgo.Go.toInterface(_data2) != stdgo.Go.toInterface(_data)) {
                 _t.errorf(("expect: %v, but get: %v" : stdgo.GoString), stdgo.Go.toInterface(_data), stdgo.Go.toInterface(_data2));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -10479,9 +10452,6 @@ function testHTTPDecoding(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             _err = _d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_foo) : stdgo.StdGoTypes.Ref<T__struct_44>))));
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.io.Io.eof))) {
                 _t.errorf(("err = %v; want io.EOF" : stdgo.GoString), stdgo.Go.toInterface(_err));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -12272,9 +12242,6 @@ class T_encodeState_asInterface {
                 };
                 return (null : stdgo.Error);
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -12484,9 +12451,6 @@ class T_mapEncoder_asInterface {
             };
             _e.writeByte((125 : stdgo.StdGoTypes.GoUInt8));
             _e._ptrLevel--;
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -12550,9 +12514,6 @@ class T_sliceEncoder_asInterface {
             };
             _se._arrayEnc(_e, _v?.__copy__(), _opts?.__copy__());
             _e._ptrLevel--;
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -12645,9 +12606,6 @@ class T_ptrEncoder_asInterface {
             };
             _pe._elemEnc(_e, _v.elem()?.__copy__(), _opts?.__copy__());
             _e._ptrLevel--;
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -13550,9 +13508,6 @@ class Encoder_asInterface {
                     defer();
                 };
                 return _err;
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

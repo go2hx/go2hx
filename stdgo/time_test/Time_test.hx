@@ -2034,9 +2034,6 @@ function exampleNewTicker():Void {
                     };
                 }]);
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -2555,9 +2552,6 @@ function testLoadLocationZipFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             var __tmp__ = loadLocation(("Australia/Sydney" : stdgo.GoString)), __0:stdgo.StdGoTypes.Ref<stdgo.time.Time.Location> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -3318,9 +3312,6 @@ function _benchmark(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _bench:(_n
                             _garbage[(_j : stdgo.StdGoTypes.GoInt)] = afterFunc((3600000000000i64 : stdgo.time.Time.Duration), null);
                         };
                         _garbageAll[(_i : stdgo.StdGoTypes.GoInt)] = _garbage;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
                         {
                             for (defer in __deferstack__) {
                                 defer();
@@ -3647,9 +3638,6 @@ function testSleepZeroDeadlock(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
                 });
             };
             _c.__get__();
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3756,9 +3744,6 @@ function testIssue5745(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var _timer:stdgo.StdGoTypes.Ref<Timer> = (null : stdgo.StdGoTypes.Ref<stdgo.time.Time.Timer>);
             _timer.stop();
             _t.error(stdgo.Go.toInterface(("Should be unreachable." : stdgo.GoString)));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3810,9 +3795,6 @@ function testZeroTimerResetPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
             };
             var _tr:Timer = ({} : stdgo.time.Time.Timer);
             _tr.reset((1i64 : stdgo.time.Time.Duration));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3843,9 +3825,6 @@ function testZeroTimerStopPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             };
             var _tr:Timer = ({} : stdgo.time.Time.Timer);
             _tr.stop();
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3933,9 +3912,6 @@ function testTimerModifiedEarlier(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
             };
             if (_fail > (0 : stdgo.StdGoTypes.GoInt)) {
                 _t.errorf(("%d failures" : stdgo.GoString), stdgo.Go.toInterface(_fail));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -4127,9 +4103,6 @@ function benchmarkStaggeredTickerLatency(_b:stdgo.StdGoTypes.Ref<stdgo.testing.T
                                                     _doWork(_dur);
                                                 });
                                                 _wg.done();
-                                                for (defer in __deferstack__) {
-                                                    defer();
-                                                };
                                                 {
                                                     for (defer in __deferstack__) {
                                                         defer();
@@ -4317,9 +4290,6 @@ function testNewTickerLtZeroDuration(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
                 a();
             });
             newTicker((-1i64 : stdgo.time.Time.Duration));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -4364,9 +4334,6 @@ function testTickerResetLtZeroDuration(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
             });
             var _tk = newTicker((1000000000i64 : stdgo.time.Time.Duration));
             _tk.reset((0i64 : stdgo.time.Time.Duration));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -5452,9 +5419,6 @@ function testConcurrentTimerReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
                                     _timer.reset((3600000000000i64 : stdgo.time.Time.Duration) + (_i * _j : Duration));
                                 });
                             };
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -5505,9 +5469,6 @@ function testConcurrentTimerResetStop(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
                                     _timer.reset((3600000000000i64 : stdgo.time.Time.Duration) + (_i * _j : Duration));
                                 });
                             };
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -5537,9 +5498,6 @@ function testConcurrentTimerResetStop(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
                         try {
                             __deferstack__.unshift(() -> _wg.done());
                             _timer.stop();
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -5598,9 +5556,6 @@ function testTimeIsDST(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 if (_got != (_tt._want)) {
                     _t.errorf(("#%d:: (%#v).IsDST()=%t, want %t" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tt._time.format(("2006-01-02T15:04:05Z07:00" : stdgo.GoString))), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -5684,9 +5639,6 @@ function testTimeWithZoneTransition(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
                 if (!_tt._give.equal(_tt._want?.__copy__())) {
                     _t.errorf(("#%d:: %#v is not equal to %#v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tt._give.format(("2006-01-02T15:04:05Z07:00" : stdgo.GoString))), stdgo.Go.toInterface(_tt._want.format(("2006-01-02T15:04:05Z07:00" : stdgo.GoString))));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -5780,9 +5732,6 @@ function testZoneBounds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     _t.errorf(("#%d:: ZoneBounds of %v expects right bounds:\n  got start=%v\n  want start=%v\n  got end=%v\n  want end=%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface(_tt._giveTime)), stdgo.Go.toInterface(stdgo.Go.asInterface(_start)), stdgo.Go.toInterface(stdgo.Go.asInterface(_tt._wantStart)), stdgo.Go.toInterface(stdgo.Go.asInterface(_end)), stdgo.Go.toInterface(stdgo.Go.asInterface(_tt._wantEnd)));
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -5846,9 +5795,6 @@ function testEmbeddedTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                 if (_found != ((2 : stdgo.StdGoTypes.GoInt))) {
                     _t.errorf(("test must be updated for change to time.Location struct" : stdgo.GoString));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -5931,9 +5877,6 @@ function testEnvVarUsage(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                     _t.errorf(("zoneinfo does not match env variable: got %q want %q" : stdgo.GoString), stdgo.Go.toInterface(_zoneinfo.value), stdgo.Go.toInterface(("foo.zip" : stdgo.GoString)));
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -5985,9 +5928,6 @@ function testVersion3(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -6034,9 +5974,6 @@ function testFirstZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 if (_s != (_test._want2)) {
                     _t.errorf(("for %s %d got %q want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._zone), stdgo.Go.toInterface(_test._unix), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._want2));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -6092,9 +6029,6 @@ function testLoadLocationFromTZData(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(stdgo.Go.asInterface(_reference)), stdgo.Go.toInterface(stdgo.Go.asInterface(_sample)))) {
                 _t.errorf(("return values of LoadLocationFromTZData and LoadLocation don\'t match" : stdgo.GoString));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -6142,9 +6076,6 @@ function testEarlyLocation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 if (_tzOffset != (_want)) {
                     _t.errorf(("Zone offset == %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_tzOffset), stdgo.Go.toInterface(_want));
                 };
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

@@ -411,9 +411,6 @@ function testDecompressor(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                     };
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -494,9 +491,6 @@ function _testFileLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _f
                 };
             };
             _testLevelDict(_t, _fn?.__copy__(), _b0, _level, _d?.__copy__());
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -555,9 +549,6 @@ function _testLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:st
                                 };
                                 return;
                             };
-                        };
-                        for (defer in __deferstack__) {
-                            defer();
                         };
                         {
                             for (defer in __deferstack__) {
@@ -625,9 +616,6 @@ function _testLevelDict(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _fn:st
                         };
                     };
                 });
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {

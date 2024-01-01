@@ -653,9 +653,6 @@ function _doDefaultTest(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _v:std
                                 try {
                                     __deferstack__.unshift(() -> _wg.done());
                                     seed(_s);
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
                                     {
                                         for (defer in __deferstack__) {
                                             defer();
@@ -691,9 +688,6 @@ function _doDefaultTest(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _v:std
                                 try {
                                     __deferstack__.unshift(() -> _wg.done());
                                     _ch.__send__(uint64());
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
                                     {
                                         for (defer in __deferstack__) {
                                             defer();
@@ -730,9 +724,6 @@ function _doDefaultTest(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _v:std
                                 try {
                                     __deferstack__.unshift(() -> _wg.done());
                                     _ch.__send__(uint64());
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
                                     {
                                         for (defer in __deferstack__) {
                                             defer();
@@ -770,9 +761,6 @@ function _doDefaultTest(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _v:std
                                 try {
                                     __deferstack__.unshift(() -> _wg.done());
                                     seed(_s);
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
                                     {
                                         for (defer in __deferstack__) {
                                             defer();
@@ -808,9 +796,6 @@ function _doDefaultTest(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _v:std
                                 try {
                                     __deferstack__.unshift(() -> _wg.done());
                                     _ch.__send__(uint64());
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
                                     {
                                         for (defer in __deferstack__) {
                                             defer();
@@ -910,9 +895,6 @@ function example_rand():Void {
             _show(("Int31n(10)" : stdgo.GoString), stdgo.Go.toInterface(_r.int31n((10 : stdgo.StdGoTypes.GoInt32))), stdgo.Go.toInterface(_r.int31n((10 : stdgo.StdGoTypes.GoInt32))), stdgo.Go.toInterface(_r.int31n((10 : stdgo.StdGoTypes.GoInt32))));
             _show(("Int63n(10)" : stdgo.GoString), stdgo.Go.toInterface(_r.int63n((10i64 : stdgo.StdGoTypes.GoInt64))), stdgo.Go.toInterface(_r.int63n((10i64 : stdgo.StdGoTypes.GoInt64))), stdgo.Go.toInterface(_r.int63n((10i64 : stdgo.StdGoTypes.GoInt64))));
             _show(("Perm" : stdgo.GoString), stdgo.Go.toInterface(_r.perm((5 : stdgo.StdGoTypes.GoInt))), stdgo.Go.toInterface(_r.perm((5 : stdgo.StdGoTypes.GoInt))), stdgo.Go.toInterface(_r.perm((5 : stdgo.StdGoTypes.GoInt))));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1020,9 +1002,6 @@ function testConcurrent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                                         seed((_i * _j : stdgo.StdGoTypes.GoInt64) * _seed);
                                     });
                                 };
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
                                 {
                                     for (defer in __deferstack__) {
                                         defer();
@@ -1047,9 +1026,6 @@ function testConcurrent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                         a(_i);
                     });
                 });
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -1726,9 +1702,6 @@ function benchmarkConcurrent(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):V
                                 stdgo.Go.cfor(_n > (0 : stdgo.StdGoTypes.GoInt), _n--, {
                                     int63();
                                 });
-                            };
-                            for (defer in __deferstack__) {
-                                defer();
                             };
                             {
                                 for (defer in __deferstack__) {

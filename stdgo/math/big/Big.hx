@@ -5906,9 +5906,6 @@ stdgo.math.Math.inf((0 : stdgo.StdGoTypes.GoInt)),
             var _f:Float_ = ({} : stdgo.math.big.Big.Float_);
             _f.setFloat64(stdgo.math.Math.naN());
             _t.errorf(("got %s; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(_f.text((112 : stdgo.StdGoTypes.GoUInt8), (0 : stdgo.StdGoTypes.GoInt))));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -6795,9 +6792,6 @@ function testFloatArithmeticSpecialValues(_t:stdgo.StdGoTypes.Ref<stdgo.testing.
                                         a();
                                     });
                                     _f(_got, _xx, _yy);
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
                                     {
                                         for (defer in __deferstack__) {
                                             defer();
@@ -9647,9 +9641,6 @@ function testJacobiPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             var _y = newInt((2i64 : stdgo.StdGoTypes.GoInt64));
             jacobi(_x, _y);
             throw stdgo.Go.toInterface(("test failure" : stdgo.GoString));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -9834,9 +9825,6 @@ function testFillBytes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                         defer();
                     };
                     return _panic;
-                };
-                for (defer in __deferstack__) {
-                    defer();
                 };
                 {
                     for (defer in __deferstack__) {
@@ -10628,9 +10616,6 @@ function testMulUnbalanced(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                     _t.errorf(("multiplication uses too much memory (%d > %d times the size of inputs)" : stdgo.GoString), stdgo.Go.toInterface(_allocSize), stdgo.Go.toInterface(_ratio));
                 };
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -11293,9 +11278,6 @@ function testString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                         a();
                     });
                     _natOne._utoa((1 : stdgo.StdGoTypes.GoInt));
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -11635,9 +11617,6 @@ function testProbablyPrime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                         });
                         if (!_c.probablyPrime(_n)) {
                             _t.fatalf(("%v should be a prime" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c)));
-                        };
-                        for (defer in __deferstack__) {
-                            defer();
                         };
                         {
                             for (defer in __deferstack__) {
@@ -11982,9 +11961,6 @@ function testZeroRat(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 a();
             });
             _z.quo((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Rat>), (stdgo.Go.setRef(_y) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Rat>));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

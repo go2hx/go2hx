@@ -26,9 +26,6 @@ function exampleNew_file():Void {
                 };
             };
             stdgo.fmt.Fmt.printf(("% x" : stdgo.GoString), stdgo.Go.toInterface(_h.sum((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>))));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

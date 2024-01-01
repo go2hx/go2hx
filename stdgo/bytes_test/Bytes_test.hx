@@ -1624,9 +1624,6 @@ function testReadFromPanicReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
                 a();
             });
             _buf2.readFrom(stdgo.Go.asInterface(({ _panic : true } : stdgo.bytes_test.Bytes_test.T_panicReader)));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1678,9 +1675,6 @@ function testReadFromNegativeReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
                 a();
             });
             _b.readFrom(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo.bytes_test.Bytes_test.T_negativeReader)) : stdgo.StdGoTypes.Ref<stdgo.bytes_test.Bytes_test.T_negativeReader>)));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1970,9 +1964,6 @@ function testGrowOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             var _buf = newBuffer(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((1 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__());
             {};
             _buf.grow((2147483647 : stdgo.StdGoTypes.GoInt));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3257,9 +3248,6 @@ function _repeat(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _count:stdgo.StdGoType
                 };
                 return _err;
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3547,9 +3535,6 @@ function testBufferGrowNegative(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             });
             var _b:Buffer = ({} : stdgo.bytes.Bytes.Buffer);
             _b.grow((-1 : stdgo.StdGoTypes.GoInt));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3591,9 +3576,6 @@ function testBufferTruncateNegative(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             });
             var _b:Buffer = ({} : stdgo.bytes.Bytes.Buffer);
             _b.truncate((-1 : stdgo.StdGoTypes.GoInt));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3636,9 +3618,6 @@ function testBufferTruncateOutOfRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
             var _b:Buffer = ({} : stdgo.bytes.Bytes.Buffer);
             _b.write(new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((10 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__());
             _b.truncate((20 : stdgo.StdGoTypes.GoInt));
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -4837,9 +4816,6 @@ function testReaderAtConcurrent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
                             __deferstack__.unshift(() -> _wg.done());
                             var _buf:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 1) (0 : stdgo.StdGoTypes.GoUInt8)]);
                             _r.readAt((_buf.__slice__(0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (_i : stdgo.StdGoTypes.GoInt64));
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -4881,9 +4857,6 @@ function testEmptyReaderConcurrent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
                             __deferstack__.unshift(() -> _wg.done());
                             var _buf:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 1) (0 : stdgo.StdGoTypes.GoUInt8)]);
                             _r.read((_buf.__slice__(0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -4913,9 +4886,6 @@ function testEmptyReaderConcurrent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
                         try {
                             __deferstack__.unshift(() -> _wg.done());
                             _r.read((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>));
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
                             {
                                 for (defer in __deferstack__) {
                                     defer();

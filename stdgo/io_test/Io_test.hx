@@ -1214,9 +1214,6 @@ function testOffsetWriter_Seek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
                     };
                 };
             });
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1269,9 +1266,6 @@ function testOffsetWriter_WriteAt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
                                     _t.errorf(("WriteAt failed. off: %d, at: %d, step: %d\n error: %v" : stdgo.GoString), stdgo.Go.toInterface(_off), stdgo.Go.toInterface(_at), stdgo.Go.toInterface(_step), stdgo.Go.toInterface(_e));
                                 };
                                 stdgo.sync.atomic_.Atomic_.addInt64(stdgo.Go.pointer(_writeN), (_n : stdgo.StdGoTypes.GoInt64));
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
                                 {
                                     for (defer in __deferstack__) {
                                         defer();
@@ -1305,9 +1299,6 @@ function testOffsetWriter_WriteAt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
                 var _readContent:stdgo.GoString = ((_buf.__slice__(0, _contentSize) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString)?.__copy__();
                 if (((_writeN != (_readN : stdgo.StdGoTypes.GoInt64)) || (_writeN != _contentSize)) || (_readContent != ("0123456789ABCDEF" : stdgo.GoString))) {
                     _t.fatalf(("%s:: WriteAt(%s, %d) error. \ngot n: %v, content: %s \nexpected n: %v, content: %v" : stdgo.GoString), stdgo.Go.toInterface(_position), stdgo.Go.toInterface(("0123456789ABCDEF" : stdgo.GoString)), stdgo.Go.toInterface(_at), stdgo.Go.toInterface(_readN), stdgo.Go.toInterface(_readContent), stdgo.Go.toInterface(_contentSize), stdgo.Go.toInterface(("0123456789ABCDEF" : stdgo.GoString)));
-                };
-                for (defer in __deferstack__) {
-                    defer();
                 };
                 {
                     for (defer in __deferstack__) {
@@ -1358,9 +1349,6 @@ function testWriteAt_PositionPriorToBase(_t:stdgo.StdGoTypes.Ref<stdgo.testing.T
             var __tmp__ = _w.writeAt((("hello" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _at), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _e:stdgo.Error = __tmp__._1;
             if (_e == null) {
                 _t.errorf(("error expected to be not nil" : stdgo.GoString));
-            };
-            for (defer in __deferstack__) {
-                defer();
             };
             {
                 for (defer in __deferstack__) {
@@ -1425,9 +1413,6 @@ function testOffsetWriter_Write(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
                 __deferstack__.unshift(() -> _f2.close());
                 copy(stdgo.Go.asInterface(_w2), stdgo.Go.asInterface(_f));
                 _checkContent(_name?.__copy__(), _f2);
-                for (defer in __deferstack__) {
-                    defer();
-                };
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -1457,9 +1442,6 @@ function testOffsetWriter_Write(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
                 __deferstack__.unshift(() -> _f.close());
                 copy(stdgo.Go.asInterface(_w), stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("0123456789ABCDEF" : stdgo.GoString))));
                 _checkContent(_name?.__copy__(), _f);
-                for (defer in __deferstack__) {
-                    defer();
-                };
                 {
                     for (defer in __deferstack__) {
                         defer();

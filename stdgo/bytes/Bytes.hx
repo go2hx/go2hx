@@ -198,9 +198,6 @@ function _growSlice(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _n:stdgo.StdGoTypes
                 };
                 return (_b2.__slice__(0, (_b.length)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

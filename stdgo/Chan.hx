@@ -80,6 +80,20 @@ class ChanData<T> {
 		return {value: __buffer__.pop(), ok: true};
 	}
 
+	public function __doubleGet__():{value:T, ok:Bool} {
+		if (closed)
+			return {value: defaultValue(), ok: false}
+		__mutex__.acquire();
+		__sendBool__ = true;
+		__mutex__.release();
+		__sendWg__.release();
+		final value = __buffer__.pop();
+		__mutex__.acquire();
+		__getBool__ = false;
+		__mutex__.release();
+		return {value: value, ok: true};
+	}
+
 	public function __get__():T {
 		if (closed)
 			return defaultValue();
@@ -132,11 +146,13 @@ class ChanData<T> {
 
 	public inline function __close__() {
 		closed = true;
+		__buffer__.closed = true;
 	}
 }
 
 private class ChanBuffer<T> {
 	var buffer:Deque<T> = null;
+	public var closed:Bool = false;
 
 	@:isVar public var length(get, set):Int = 0;
 	public var mutex:Mutex = null;
@@ -170,7 +186,7 @@ private class ChanBuffer<T> {
 
 	public function pop():T {
 		var value:T = null;
-		while (true) {
+		while (!closed) {
 			if (length > 0) {
 				value = buffer.pop(true);
 				break;
@@ -178,6 +194,8 @@ private class ChanBuffer<T> {
 			Async.tick();
 			Sys.sleep(0.01);
 		}
+		if (closed)
+			return null;
 		length--;
 		return value;
 	}

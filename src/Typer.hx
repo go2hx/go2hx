@@ -1939,7 +1939,7 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 		case "UnaryExpr":
 			var obj:Ast.UnaryExpr = obj;
 			var x = typeExpr(obj.x, info);
-			{expr: macro $x.__smartGet__(), ok: true};
+			{expr: macro $x.__doubleGet__(), ok: true};
 		case "IndexExpr":
 			var obj:Ast.IndexExpr = obj;
 			var index = typeExpr(obj.index, info);

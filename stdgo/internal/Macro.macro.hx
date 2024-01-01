@@ -79,14 +79,14 @@ class Macro {
 		final e = macro {
 			var $stack = {pos: $v{pos}, fileName: $v{fileName}};
 			//$traceExpr;
-			try {
+			//try {
 				$body;
-			}catch(e) {
+			/*}catch(e) {
 				trace(e);
 				trace($i{stack});
 				Sys.println('stack: ' + $i{stack}.fileName + ':' + $i{stack}.pos);
 				throw e;
-			}
+			}*/
 		};
 		e.pos = Context.currentPos();
 		return e;
@@ -121,21 +121,29 @@ class Macro {
 			if (inLoop) {
 				if (label != null) {
 					exprs.push(macro if ($i{innerName}) {
+						// trace("inner");
 						if ($i{selectName} == $label) {
 							$i{innerName} = false;
 							if ($i{breakName}) {
+								// trace("breakName");
 								break;
 							}else{
+								// trace("nonBreakName");
 								continue;
 							}
 						}else{
+							// trace("non selected name");
 							break;
 						}
+					}else{
+						// trace("outer");
 					});
 				}else{
 					exprs.push(macro if ($i{innerName}) {
-						$i{innerName} = false;
+						// trace("inner set to false");
+						//$i{innerName} = false;
 						if ($i{breakName}) {
+							// trace("break other");
 							break;
 						}else{
 							continue;

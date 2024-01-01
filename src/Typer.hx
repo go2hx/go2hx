@@ -6289,12 +6289,10 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final ct = toComplexType(elem, info);
 			macro(null : stdgo.StdGoTypes.Ref<$ct>); // pointer can be nil
 		case named(path, _, underlying, alias, _):
-			switch underlying {
-				case named(_, _, type, _, _):
-					underlying = type;
-				default:
-			}
-			switch underlying {
+			switch getUnderlying(underlying) {
+				case chanType(_, _):
+					final ct = ct();
+					macro(null : $ct);
 				case pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
 					final ct = ct();
 					macro(null : $ct);

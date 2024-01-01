@@ -45,7 +45,11 @@ stdgo/Go.macro.hx:713: lines 713-719 : Void should be stdgo.Ref<stdgo.go.ast.Gen
 stdgo/go/token_test/Token_test.hx:18: characters 32-131 : ... Called from macro here
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : Any should be { pos : () -> stdgo.go.token.Pos }
 stdgo/go/token_test/Token_test.hx:18: characters 74-79 : ... For function argument 'value'
-stdgo/Go.macro.hx:720: lines 720-731 : Void should be stdgo.Ref<stdgo.go.ast.GenDecl>
+stdgo/go/token_test/Token_test.hx:18: characters 74-79 : Any should be { pos : () -> stdgo.go.token.Pos }
+stdgo/go/token_test/Token_test.hx:18: characters 74-79 : ... For function argument 'value'
+stdgo/Go.macro.hx:722: lines 722-724 : Void should be stdgo.Ref<stdgo.go.ast.GenDecl>
+stdgo/go/token_test/Token_test.hx:18: characters 32-131 : ... Called from macro here
+stdgo/Go.macro.hx:724: lines 724-733 : Void should be stdgo.Ref<stdgo.go.ast.GenDecl>
 stdgo/go/token_test/Token_test.hx:18: characters 32-131 : ... Called from macro here
 stdgo/go/ast/Ast.hx:5624: characters 12-19 : stdgo.Ref<stdgo.go.ast.T_pkgBuilder> has no field _errors
 stdgo/go/ast/Ast.hx:2913: characters 32-34 : stdgo.go.ast.T_pkgBuilder does not have a constructor

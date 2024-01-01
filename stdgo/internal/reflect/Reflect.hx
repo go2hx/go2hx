@@ -1191,6 +1191,9 @@ class _Type {
 						formatGoFieldName(field.name) + " " + new _Type(field.type.get()).string()
 				].join("; ") + " }";
 			case arrayType(_.get() => typ, len):
+				if (len == -1) {
+					len = 0;
+				}
 				"[" + Std.string(len) + "]" + new _Type(typ).string();
 			case sliceType(_.get() => typ):
 				"[]" + new _Type(typ).string();

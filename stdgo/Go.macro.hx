@@ -439,6 +439,12 @@ class Go {
 					}
 					Context.error("invalid type abstract run asInterface: " + t, Context.currentPos());
 					null;
+				case TMono(_.get() => t2):
+					if (t2 == null) {
+						trace(Context.currentPos());
+					}
+					t = t2;
+					run();
 				default:
 					Context.error("invalid type run asInterface: " + t, Context.currentPos());
 					null;
@@ -1523,11 +1529,15 @@ class Go {
 					});
 					exprs.push(select);
 				} else {
-					exprs.push(macro if ($selectCond) {
-						$select;
-					} else {
-						$defaultBlock;
-					});
+					if (selectCond != null) {
+						exprs.push(macro if ($selectCond) {
+							$select;
+						} else {
+							$defaultBlock;
+						});
+					}else{
+						exprs.push(defaultBlock);
+					}
 				}
 				// Sys.println(new haxe.macro.Printer().printExprs(exprs, ";\n"));
 				return macro $b{exprs};

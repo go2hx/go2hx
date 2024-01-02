@@ -471,6 +471,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 					fieldExtension.unshift("stdgo");
 				}
+				// files check against all TypeSpecs
 				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				file.defs.push(staticExtension);
 				var embedded = false;
@@ -4775,6 +4776,8 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 	}
 	switch underlying {
 		case interfaceType(_, _):
+			//trace(underlying);
+			//trace(type);
 			return (macro @:compositeLit_interface null).expr;
 		case refType(_.get() => elem):
 			final e = toExpr(compositeLit(elem, complexTypeElem(ct), expr, info));
@@ -4890,7 +4893,9 @@ private function compositeLitMapList(keyType:GoType, valueType:GoType, underlyin
 					return typeExpr(elt, info);
 				default:
 			}
-			return toExpr(compositeLit(valueType, complexTypeElem(ct, 1), elt, info));
+			final t = typeof(elt, info, false);
+			final ct = toComplexType(t, info);
+			return toExpr(compositeLit(t, ct, elt, info));
 		}
 		return typeExpr(elt, info);
 	}
@@ -6400,7 +6405,15 @@ private function getRecvName(recv:Ast.Expr, info:Info):String {
 	if (recv.id == "StarExpr" || recv.id == "IndexExpr" || recv.id == "IndexListExpr") {
 		return getRecvName(recv.x, info);
 	}
-	return className(recv.name, info);
+	final t = typeof(recv, info, false);
+	switch t {
+		case named(path, _, _, _, _):
+			path = Path.withoutDirectory(path);
+			path = Path.extension(path);
+			return className(path, info);
+		default:
+			throw "invalid recv type: " + t;
+	}
 }
 
 private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValuesBool:Bool):ComplexType { // A single type or Anonymous struct type
@@ -7135,6 +7148,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 					fieldExtension.unshift("stdgo");
 				}
+				// embedding
 				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				info.data.defs.push(staticExtension);
 				var embedded = false;

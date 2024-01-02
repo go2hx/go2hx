@@ -5351,39 +5351,36 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		}
 	}
 	var typeX = typeof(expr.x, info, false);
-	var selFunctionBool = isFunction(expr.sel, info);
 
 	if (isPointer(typeX)) {
 		if (!isClass(expr.x, info))
 			x = macro $x.value;
 	}
-	if (!selFunctionBool) {
-		final fields = getStructFields(typeX);
-		if (fields.length > 0) {
-			var chains:Array<String> = []; // chains together a field selectors
-			function recursion(path:String, fields:Array<FieldType>) {
-				for (field in fields) {
-					var setPath = path + field.name;
-					chains.push(setPath);
-					setPath += ".";
-					var structFields = getStructFields(field.type.get());
-					if (isPointer(field.type.get())) {
-						setPath += "value.";
-					}
-					if (structFields.length > 0)
-						recursion(setPath, structFields);
+	final fields = getStructFields(typeX);
+	if (fields.length > 0) {
+		var chains:Array<String> = []; // chains together a field selectors
+		function recursion(path:String, fields:Array<FieldType>) {
+			for (field in fields) {
+				var setPath = path + field.name;
+				chains.push(setPath);
+				setPath += ".";
+				var structFields = getStructFields(field.type.get());
+				if (isPointer(field.type.get())) {
+					setPath += "value.";
 				}
+				if (structFields.length > 0)
+					recursion(setPath, structFields);
 			}
-			recursion("", fields);
-			chains.sort((a, b) -> {
-				return a.length - b.length;
-			});
-			for (chain in chains) {
-				var field = chain.substr(chain.lastIndexOf(".") + 1);
-				if (field == sel) {
-					sel = chain;
-					break;
-				}
+		}
+		recursion("", fields);
+		chains.sort((a, b) -> {
+			return a.length - b.length;
+		});
+		for (chain in chains) {
+			var field = chain.substr(chain.lastIndexOf(".") + 1);
+			if (field == sel) {
+				sel = chain;
+				break;
 			}
 		}
 	}

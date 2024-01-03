@@ -5481,10 +5481,9 @@ private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 	};
 }
 
-var counter:Int = 0;
-
 private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "", defName:String = ""):TypeDefinition {
 	final info = new Info();
+	info.blankCounter = data.blankCounter + 1;
 	info.data = data.data;
 	info.renameClasses = [];
 	info.classNames = data.classNames.copy();
@@ -6502,14 +6501,13 @@ private function isVoid(ct:ComplexType):Bool {
 
 private function typeFieldListArgs(list:Ast.FieldList, info:Info):Array<FunctionArg> { // Array of FunctionArgs
 	var args:Array<FunctionArg> = [];
-	var counter:Int = 0;
 	if (list == null)
 		return [];
 	for (field in list.list) {
 		var type = typeExprType(field.type, info); // null can be assumed as interface{}
 		if (field.names.length == 0) {
 			args.push({
-				name: "_" + counter++,
+				name: "_" + info.blankCounter++,
 				type: type,
 			});
 			continue;
@@ -6571,7 +6569,6 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 private function typeFields(list:Array<FieldType>, info:Info, access:Array<Access>, defaultBool:Bool, ?docs:Array<Ast.CommentGroup>,
 		?comments:Array<Ast.CommentGroup>):Array<Field> {
 	var fields:Array<Field> = [];
-	var blankCounter = 0;
 	for (i in 0...list.length) {
 		final field = list[i];
 		final ct = toComplexType(field.type.get(), info);
@@ -7779,6 +7776,7 @@ class Info {
 
 	public inline function copy() {
 		var info = new Info();
+		info.blankCounter = blankCounter + 1;
 		info.returnTypes = returnTypes.copy();
 		info.returnComplexTypes = returnComplexTypes.copy();
 		info.returnNames = returnNames.copy();

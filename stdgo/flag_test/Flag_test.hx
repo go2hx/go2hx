@@ -878,7 +878,7 @@ function _mustPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _testName:
                         } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoString))) {
                             var _msg:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__().value;
                             {
-                                var __tmp__ = stdgo.regexp.Regexp.matchString(_expected?.__copy__(), _msg?.__copy__()), _ok:Bool = __tmp__._0, __8:stdgo.Error = __tmp__._1;
+                                var __tmp__ = stdgo.regexp.Regexp.matchString(_expected?.__copy__(), _msg?.__copy__()), _ok:Bool = __tmp__._0, __16:stdgo.Error = __tmp__._1;
                                 if (!_ok) {
                                     _t.errorf(("%s\n: expected panic(%q), but got panic(%q)" : stdgo.GoString), stdgo.Go.toInterface(_testName), stdgo.Go.toInterface(_expected), stdgo.Go.toInterface(_msg));
                                 };

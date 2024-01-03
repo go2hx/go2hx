@@ -917,7 +917,7 @@ function example_rand():Void {
         };
     }
 function examplePerm():Void {
-        for (__0 => _value in stdgo.math.rand.Rand.perm((3 : stdgo.StdGoTypes.GoInt))) {
+        for (__4 => _value in stdgo.math.rand.Rand.perm((3 : stdgo.StdGoTypes.GoInt))) {
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_value));
         };
     }
@@ -992,11 +992,11 @@ function testConcurrent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                                         _seed = _seed + ((normFloat64() : stdgo.StdGoTypes.GoInt64));
                                         _seed = _seed + ((uint32() : stdgo.StdGoTypes.GoInt64));
                                         _seed = _seed + ((uint64() : stdgo.StdGoTypes.GoInt64));
-                                        for (__4 => _p in perm((10 : stdgo.StdGoTypes.GoInt))) {
+                                        for (__16 => _p in perm((10 : stdgo.StdGoTypes.GoInt))) {
                                             _seed = _seed + ((_p : stdgo.StdGoTypes.GoInt64));
                                         };
                                         read(_buf);
-                                        for (__5 => _b in _buf) {
+                                        for (__17 => _b in _buf) {
                                             _seed = _seed + ((_b : stdgo.StdGoTypes.GoInt64));
                                         };
                                         seed((_i * _j : stdgo.StdGoTypes.GoInt64) * _seed);
@@ -1064,7 +1064,7 @@ function _nearEqual(_a:stdgo.StdGoTypes.GoFloat64, _b:stdgo.StdGoTypes.GoFloat64
 function _getStatsResults(_samples:stdgo.Slice<stdgo.StdGoTypes.GoFloat64>):stdgo.StdGoTypes.Ref<T_statsResults> {
         var _res = (stdgo.Go.setRef(({} : stdgo.math.rand_test.Rand_test.T_statsResults)) : stdgo.StdGoTypes.Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
         var __0:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64), __1:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64), _squaresum:stdgo.StdGoTypes.GoFloat64 = __1, _sum:stdgo.StdGoTypes.GoFloat64 = __0;
-        for (__0 => _s in _samples) {
+        for (__4 => _s in _samples) {
             _sum = _sum + (_s);
             _squaresum = _squaresum + (_s * _s);
         };
@@ -1114,7 +1114,7 @@ function _testNormalDistribution(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
         _checkSampleSliceDistributions(_t, _samples, (7 : stdgo.StdGoTypes.GoInt), _expected);
     }
 function testStandardNormalValues(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        for (__0 => _seed in _testSeeds) {
+        for (__4 => _seed in _testSeeds) {
             _testNormalDistribution(_t, (10000 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoFloat64), (1 : stdgo.StdGoTypes.GoFloat64), _seed);
         };
     }
@@ -1131,7 +1131,7 @@ function testNonStandardNormalValues(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testi
                 {
                     var _m:stdgo.StdGoTypes.GoFloat64 = (0.5 : stdgo.StdGoTypes.GoFloat64);
                     stdgo.Go.cfor(_m < _mmax, _m = _m * (2 : stdgo.StdGoTypes.GoFloat64), {
-                        for (__0 => _seed in _testSeeds) {
+                        for (__4 => _seed in _testSeeds) {
                             _testNormalDistribution(_t, (10000 : stdgo.StdGoTypes.GoInt), _m, _sd, _seed);
                             if (stdgo.testing.Testing.short()) {
                                 break;
@@ -1161,7 +1161,7 @@ function _testExponentialDistribution(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Test
         _checkSampleSliceDistributions(_t, _samples, (7 : stdgo.StdGoTypes.GoInt), _expected);
     }
 function testStandardExponentialValues(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        for (__0 => _seed in _testSeeds) {
+        for (__4 => _seed in _testSeeds) {
             _testExponentialDistribution(_t, (10000 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoFloat64), _seed);
         };
     }
@@ -1169,7 +1169,7 @@ function testNonStandardExponentialValues(_t:stdgo.StdGoTypes.Ref<stdgo.testing.
         {
             var _rate:stdgo.StdGoTypes.GoFloat64 = (0.05 : stdgo.StdGoTypes.GoFloat64);
             stdgo.Go.cfor(_rate < (10 : stdgo.StdGoTypes.GoFloat64), _rate = _rate * (2 : stdgo.StdGoTypes.GoFloat64), {
-                for (__0 => _seed in _testSeeds) {
+                for (__4 => _seed in _testSeeds) {
                     _testExponentialDistribution(_t, (10000 : stdgo.StdGoTypes.GoInt), _rate, _seed);
                     if (stdgo.testing.Testing.short()) {
                         break;
@@ -1357,8 +1357,8 @@ function _testReadUniformity(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _
     }
 function testReadUniformity(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _testBufferSizes = (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(7, 7, (2 : stdgo.StdGoTypes.GoInt), (4 : stdgo.StdGoTypes.GoInt), (7 : stdgo.StdGoTypes.GoInt), (64 : stdgo.StdGoTypes.GoInt), (1024 : stdgo.StdGoTypes.GoInt), (65536 : stdgo.StdGoTypes.GoInt), (1048576 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
-        for (__0 => _seed in _testSeeds) {
-            for (__1 => _n in _testBufferSizes) {
+        for (__4 => _seed in _testSeeds) {
+            for (__5 => _n in _testBufferSizes) {
                 _testReadUniformity(_t, _n, _seed);
             };
         };
@@ -1377,7 +1377,7 @@ function testReadEmpty(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 function testReadByOneByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _r = new_(newSource((1i64 : stdgo.StdGoTypes.GoInt64)));
         var _b1 = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((100 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
-        var __tmp__ = stdgo.io.Io.readFull(stdgo.testing.iotest.Iotest.oneByteReader(stdgo.Go.asInterface(_r)), _b1), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.io.Io.readFull(stdgo.testing.iotest.Iotest.oneByteReader(stdgo.Go.asInterface(_r)), _b1), __4:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("read by one byte: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
@@ -1397,7 +1397,7 @@ function testReadByOneByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
 function testReadSeedReset(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _r = new_(newSource((42i64 : stdgo.StdGoTypes.GoInt64)));
         var _b1 = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((128 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
-        var __tmp__ = _r.read(_b1), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _r.read(_b1), __4:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("read: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
@@ -1491,7 +1491,7 @@ function testUniformFactorial(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
                         });
                         return _encodePerm(_p);
                     } } : T__struct_0)) : stdgo.GoArray<T__struct_0>);
-                    for (__0 => _test in _tests) {
+                    for (__12 => _test in _tests) {
                         _t.run(_test._name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                             var _nsamples:stdgo.StdGoTypes.GoInt = (10 : stdgo.StdGoTypes.GoInt) * _nfact;
                             if (_nsamples < (200 : stdgo.StdGoTypes.GoInt)) {
@@ -1509,7 +1509,7 @@ function testUniformFactorial(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
                                 };
                                 var _want:stdgo.StdGoTypes.GoFloat64 = (1000 : stdgo.StdGoTypes.GoFloat64) / (_nfact : stdgo.StdGoTypes.GoFloat64);
                                 var __9672:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
-                                for (__0 => _have in _counts) {
+                                for (__21 => _have in _counts) {
                                     var _err:stdgo.StdGoTypes.GoFloat64 = (_have : stdgo.StdGoTypes.GoFloat64) - _want;
                                     __9672 = __9672 + (_err * _err);
                                 };

@@ -2918,7 +2918,7 @@ function benchmarkMap(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             return _r;
         };
         _b.run(("identity" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-            for (__0 => _md in _mapdata) {
+            for (__8 => _md in _mapdata) {
                 _b.run(_md._name?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
                     {
                         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -2939,7 +2939,7 @@ function benchmarkMap(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             return _r;
         };
         _b.run(("change" : stdgo.GoString), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-            for (__0 => _md in _mapdata) {
+            for (__16 => _md in _mapdata) {
                 _b.run(_md._name?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
                     {
                         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -4005,7 +4005,7 @@ function benchmarkEqualFold(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Vo
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < _b.n, _i++, {
-                    for (__8 => _tt in equalFoldTests) {
+                    for (__16 => _tt in equalFoldTests) {
                         {
                             var _out:Bool = equalFold(_tt._s?.__copy__(), _tt._t?.__copy__());
                             if (_out != (_tt._out)) {

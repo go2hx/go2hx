@@ -1184,7 +1184,7 @@ function testOffsetWriter_Seek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             __deferstack__.unshift(() -> _tmpfile.close());
             var _w = newOffsetWriter(stdgo.Go.asInterface(_tmpfile), (0i64 : stdgo.StdGoTypes.GoInt64));
             _t.run(("errWhence" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-                for (__0 => _whence in (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(6, 6, (-3 : stdgo.StdGoTypes.GoInt), (-2 : stdgo.StdGoTypes.GoInt), (-1 : stdgo.StdGoTypes.GoInt), (3 : stdgo.StdGoTypes.GoInt), (4 : stdgo.StdGoTypes.GoInt), (5 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)) {
+                for (__24 => _whence in (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(6, 6, (-3 : stdgo.StdGoTypes.GoInt), (-2 : stdgo.StdGoTypes.GoInt), (-1 : stdgo.StdGoTypes.GoInt), (3 : stdgo.StdGoTypes.GoInt), (4 : stdgo.StdGoTypes.GoInt), (5 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)) {
                     var _offset:stdgo.StdGoTypes.GoInt64 = (0i64 : stdgo.StdGoTypes.GoInt64);
                     var __tmp__ = _w.seek(_offset, _whence), _gotOff:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _gotErr:stdgo.Error = __tmp__._1;
                     if ((_gotOff != (0i64 : stdgo.StdGoTypes.GoInt64)) || (stdgo.Go.toInterface(_gotErr) != stdgo.Go.toInterface(errWhence))) {
@@ -1193,7 +1193,7 @@ function testOffsetWriter_Seek(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
                 };
             });
             _t.run(("errOffset" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-                for (__0 => _whence in (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)) {
+                for (__32 => _whence in (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)) {
                     {
                         var _offset:stdgo.StdGoTypes.GoInt64 = (-3i64 : stdgo.StdGoTypes.GoInt64);
                         stdgo.Go.cfor(_offset < (0i64 : stdgo.StdGoTypes.GoInt64), _offset++, {
@@ -1401,7 +1401,7 @@ function testOffsetWriter_Write(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             try {
                 var __tmp__ = _makeOffsetWriter(_name?.__copy__()), _w:stdgo.StdGoTypes.Ref<stdgo.io.Io.OffsetWriter> = __tmp__._0, _f:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._1;
                 __deferstack__.unshift(() -> _f.close());
-                for (__0 => _value in (("0123456789ABCDEF" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)) {
+                for (__16 => _value in (("0123456789ABCDEF" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)) {
                     var __tmp__ = _w.write((new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(1, 1, _value) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         _t.fatalf(("Write failed, n: %d, err: %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));

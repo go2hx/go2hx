@@ -742,7 +742,7 @@ function _smallFloat64(_x:stdgo.StdGoTypes.GoFloat64):Bool {
         if (stdgo.math.Math.isInf(_x, (0 : stdgo.StdGoTypes.GoInt))) {
             return false;
         };
-        var __tmp__ = stdgo.math.Math.frexp(_x), __0:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, _e:stdgo.StdGoTypes.GoInt = __tmp__._1;
+        var __tmp__ = stdgo.math.Math.frexp(_x), __1:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, _e:stdgo.StdGoTypes.GoInt = __tmp__._1;
         return ((-4096 : stdgo.StdGoTypes.GoInt) < _e) && (_e < (4096 : stdgo.StdGoTypes.GoInt));
     }
 /**
@@ -856,7 +856,7 @@ function makeFromLiteral(_lit:stdgo.GoString, _tok:stdgo.go.token.Token.Token, _
                     var _n:stdgo.StdGoTypes.GoInt = (_lit.length);
                     if (_n >= (2 : stdgo.StdGoTypes.GoInt)) {
                         {
-                            var __tmp__ = stdgo.strconv.Strconv.unquoteChar((_lit.__slice__((1 : stdgo.StdGoTypes.GoInt), _n - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), (39 : stdgo.StdGoTypes.GoUInt8)), _code:stdgo.StdGoTypes.GoInt32 = __tmp__._0, __0:Bool = __tmp__._1, __1:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
+                            var __tmp__ = stdgo.strconv.Strconv.unquoteChar((_lit.__slice__((1 : stdgo.StdGoTypes.GoInt), _n - (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), (39 : stdgo.StdGoTypes.GoUInt8)), _code:stdgo.StdGoTypes.GoInt32 = __tmp__._0, __1:Bool = __tmp__._1, __2:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
                             if (_err == null) {
                                 return makeInt64((_code : stdgo.StdGoTypes.GoInt64));
                             };
@@ -1190,7 +1190,7 @@ function bytes(_x:Value):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
         var _words = _t._val.bits();
         var _bytes = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>(((_words.length) * (4 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__();
         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-        for (__0 => _w in _words) {
+        for (__1 => _w in _words) {
             {
                 var _j:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_j < (4 : stdgo.StdGoTypes.GoInt), _j++, {
@@ -1214,7 +1214,7 @@ function makeFromBytes(_bytes:stdgo.Slice<stdgo.StdGoTypes.GoByte>):Value {
         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _w:stdgo.math.big.Big.Word = ((0 : stdgo.StdGoTypes.GoUInt) : stdgo.math.big.Big.Word);
         var _s:stdgo.StdGoTypes.GoUInt = (0 : stdgo.StdGoTypes.GoUInt);
-        for (__0 => _b in _bytes) {
+        for (__1 => _b in _bytes) {
             _w = _w | ((_b : stdgo.math.big.Big.Word) << _s);
             {
                 _s = _s + ((8u32 : stdgo.StdGoTypes.GoUInt));
@@ -1257,7 +1257,7 @@ function num(_x:Value):Value {
                     } else if (stdgo.Go.typeEquals((__type__ : T_floatVal))) {
                         var _x:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                         if (_smallFloat(_x._val)) {
-                            var __tmp__ = _x._val.rat(null), _r:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Rat> = __tmp__._0, __0:stdgo.math.big.Big.Accuracy = __tmp__._1;
+                            var __tmp__ = _x._val.rat(null), _r:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Rat> = __tmp__._0, __1:stdgo.math.big.Big.Accuracy = __tmp__._1;
                             return _makeInt(_r.num());
                         };
                     } else if (stdgo.Go.typeEquals((__type__ : T_unknownVal))) {
@@ -1294,7 +1294,7 @@ function denom(_x:Value):Value {
                     } else if (stdgo.Go.typeEquals((__type__ : T_floatVal))) {
                         var _x:stdgo.go.constant.Constant.T_floatVal = __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__() == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__ == null ? ({} : stdgo.go.constant.Constant.T_floatVal) : __type__.__underlying__().value;
                         if (_smallFloat(_x._val)) {
-                            var __tmp__ = _x._val.rat(null), _r:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Rat> = __tmp__._0, __0:stdgo.math.big.Big.Accuracy = __tmp__._1;
+                            var __tmp__ = _x._val.rat(null), _r:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Rat> = __tmp__._0, __1:stdgo.math.big.Big.Accuracy = __tmp__._1;
                             return _makeInt(_r.denom());
                         };
                     } else if (stdgo.Go.typeEquals((__type__ : T_unknownVal))) {
@@ -1388,7 +1388,7 @@ function toInt(_x:Value):Value {
                 if (_smallFloat(_x._val)) {
                     var _i = _newInt();
                     {
-                        var __tmp__ = _x._val.int_(_i), __0:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
+                        var __tmp__ = _x._val.int_(_i), __1:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
                         if (_acc == ((0 : stdgo.math.big.Big.Accuracy))) {
                             return _makeInt(_i);
                         };
@@ -1399,7 +1399,7 @@ function toInt(_x:Value):Value {
                     _t.setMode((2 : stdgo.math.big.Big.RoundingMode));
                     _t.set(_x._val);
                     {
-                        var __tmp__ = _t.int_(_i), __1:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
+                        var __tmp__ = _t.int_(_i), __2:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
                         if (_acc == ((0 : stdgo.math.big.Big.Accuracy))) {
                             return _makeInt(_i);
                         };
@@ -1407,7 +1407,7 @@ function toInt(_x:Value):Value {
                     _t.setMode((3 : stdgo.math.big.Big.RoundingMode));
                     _t.set(_x._val);
                     {
-                        var __tmp__ = _t.int_(_i), __2:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
+                        var __tmp__ = _t.int_(_i), __3:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _acc:stdgo.math.big.Big.Accuracy = __tmp__._1;
                         if (_acc == ((0 : stdgo.math.big.Big.Accuracy))) {
                             return _makeInt(_i);
                         };
@@ -2022,7 +2022,7 @@ function compare(_x_:Value, _op:stdgo.go.token.Token.Token, _y_:Value):Bool {
         throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid comparison %v %s %v" : stdgo.GoString), stdgo.Go.toInterface(_x_), stdgo.Go.toInterface(stdgo.Go.asInterface(_op)), stdgo.Go.toInterface(_y_)));
     }
 function _testNumbers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _kind:stdgo.go.token.Token.Token, _tests:stdgo.Slice<stdgo.GoString>):Void {
-        for (__0 => _test in _tests) {
+        for (__1 => _test in _tests) {
             var _a = stdgo.strings.Strings.split(_test?.__copy__(), (" = " : stdgo.GoString));
             if ((_a.length) != ((2 : stdgo.StdGoTypes.GoInt))) {
                 _t.errorf(("invalid test case: %s" : stdgo.GoString), stdgo.Go.toInterface(_test));
@@ -2071,7 +2071,7 @@ function testNumbers(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         _testNumbers(_t, (7 : stdgo.go.token.Token.Token), _imagTests);
     }
 function testOps(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        for (__0 => _test in _opTests) {
+        for (__1 => _test in _opTests) {
             var _a = stdgo.strings.Strings.split(_test?.__copy__(), (" " : stdgo.GoString));
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             var __0:Value = (null : stdgo.go.constant.Constant.Value), __1:Value = (null : stdgo.go.constant.Constant.Value), _x0:Value = __1, _x:Value = __0;
@@ -2116,19 +2116,19 @@ function _eql(_x:Value, _y:Value):Bool {
             { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x) : T_unknownVal)) : T_unknownVal), ok : true };
         } catch(_) {
             { value : ({} : stdgo.go.constant.Constant.T_unknownVal), ok : false };
-        }, __0 = __tmp__.value, _ux = __tmp__.ok;
+        }, __1 = __tmp__.value, _ux = __tmp__.ok;
         var __tmp__ = try {
             { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_y) : T_unknownVal)) : T_unknownVal), ok : true };
         } catch(_) {
             { value : ({} : stdgo.go.constant.Constant.T_unknownVal), ok : false };
-        }, __1 = __tmp__.value, _uy = __tmp__.ok;
+        }, __2 = __tmp__.value, _uy = __tmp__.ok;
         if (_ux || _uy) {
             return _ux == (_uy);
         };
         return compare(_x, (39 : stdgo.go.token.Token.Token), _y);
     }
 function testString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        for (__0 => _test in _stringTests) {
+        for (__1 => _test in _stringTests) {
             var _x:stdgo.go.constant.Constant.Value = _val(_test._input?.__copy__());
             {
                 var _got:stdgo.GoString = (_x.string() : stdgo.GoString)?.__copy__();
@@ -2243,7 +2243,7 @@ function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value {
                         return makeBool(compare(_x, _op, _y));
                     };
                 } else if (__value__ == ((20 : stdgo.go.token.Token.Token)) || __value__ == ((21 : stdgo.go.token.Token.Token))) {
-                    var __tmp__ = int64Val(_y), _s:stdgo.StdGoTypes.GoInt64 = __tmp__._0, __0:Bool = __tmp__._1;
+                    var __tmp__ = int64Val(_y), _s:stdgo.StdGoTypes.GoInt64 = __tmp__._0, __1:Bool = __tmp__._1;
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -2281,7 +2281,7 @@ function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value {
         };
     }
 function testFractions(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        for (__0 => _test in _fracTests) {
+        for (__1 => _test in _fracTests) {
             var _x:stdgo.go.constant.Constant.Value = _val(_test?.__copy__());
             var _q:stdgo.go.constant.Constant.Value = binaryOp(num(_x), (15 : stdgo.go.token.Token.Token), denom(_x));
             var _got:stdgo.GoString = (_q.string() : stdgo.GoString)?.__copy__();
@@ -2292,7 +2292,7 @@ function testFractions(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testBytes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        for (__0 => _test in _bytesTests) {
+        for (__1 => _test in _bytesTests) {
             var _x:stdgo.go.constant.Constant.Value = _val(_test?.__copy__());
             var _bytes = bytes(_x);
             if ((sign(_x) == (0 : stdgo.StdGoTypes.GoInt)) && (_bytes.length != (0 : stdgo.StdGoTypes.GoInt))) {
@@ -2315,7 +2315,7 @@ function testBytes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 function testUnknown(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _u:stdgo.go.constant.Constant.Value = makeUnknown();
         var _values:stdgo.Slice<stdgo.go.constant.Constant.Value> = (new stdgo.Slice<stdgo.go.constant.Constant.Value>(8, 8, _u, makeBool(false), makeString(stdgo.Go.str()?.__copy__()), makeInt64((1i64 : stdgo.StdGoTypes.GoInt64)), makeFromLiteral(("\'\'" : stdgo.GoString), (8 : stdgo.go.token.Token.Token), (0u32 : stdgo.StdGoTypes.GoUInt)), makeFromLiteral(("-1234567890123456789012345678901234567890" : stdgo.GoString), (5 : stdgo.go.token.Token.Token), (0u32 : stdgo.StdGoTypes.GoUInt)), makeFloat64((1.2 : stdgo.StdGoTypes.GoFloat64)), makeImag(makeFloat64((1.2 : stdgo.StdGoTypes.GoFloat64)))) : stdgo.Slice<stdgo.go.constant.Constant.Value>);
-        for (__0 => _val in _values) {
+        for (__1 => _val in _values) {
             var __0:stdgo.go.constant.Constant.Value = _val, __1:stdgo.go.constant.Constant.Value = _u, _y:stdgo.go.constant.Constant.Value = __1, _x:stdgo.go.constant.Constant.Value = __0;
             for (_i in 0 ... (new stdgo.GoArray<stdgo.StdGoTypes.GoInt>(...([].concat([for (i in 0 ... 2) (0 : stdgo.StdGoTypes.GoInt)]))) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>).length.toBasic()) {
                 if (_i == ((1 : stdgo.StdGoTypes.GoInt))) {
@@ -2343,7 +2343,7 @@ function testUnknown(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     }
 function testMakeFloat64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _zero:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
-        for (__0 => _arg in (new stdgo.Slice<stdgo.StdGoTypes.GoFloat64>(
+        for (__1 => _arg in (new stdgo.Slice<stdgo.StdGoTypes.GoFloat64>(
 10,
 10,
 (-3.4028234663852886e+38 : stdgo.StdGoTypes.GoFloat64),
@@ -2377,7 +2377,7 @@ function _dup(_k:Kind, _x:stdgo.StdGoTypes.AnyInterface):T_makeTestCase {
         return (new stdgo.go.constant.Constant.T_makeTestCase(_k, _x, _x) : stdgo.go.constant.Constant.T_makeTestCase);
     }
 function testMake(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        for (__0 => _test in (new stdgo.Slice<stdgo.go.constant.Constant.T_makeTestCase>(
+        for (__1 => _test in (new stdgo.Slice<stdgo.go.constant.Constant.T_makeTestCase>(
 9,
 9,
 (new stdgo.go.constant.Constant.T_makeTestCase((1 : stdgo.go.constant.Constant.Kind), stdgo.Go.toInterface(false), stdgo.Go.toInterface(false)) : stdgo.go.constant.Constant.T_makeTestCase),
@@ -2425,7 +2425,7 @@ function benchmarkStringAdd(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Vo
         };
     }
 function testBitLen(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        for (__0 => _test in _bitLenTests) {
+        for (__1 => _test in _bitLenTests) {
             {
                 var _got:stdgo.StdGoTypes.GoInt = bitLen(makeInt64(_test._val));
                 if (_got != (_test._want)) {
@@ -2583,7 +2583,7 @@ class T_stringVal_asInterface {
             {
                 var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_n < (69 : stdgo.StdGoTypes.GoInt), _n++, {
-                    var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString)?.__copy__()), __0:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
+                    var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString)?.__copy__()), __1:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1;
                     _i = _i + (_size);
                 });
             };
@@ -2718,7 +2718,7 @@ class T_floatVal_asInterface {
             return (_f.string() : stdgo.GoString)?.__copy__();
         };
         {
-            var __tmp__ = _f.float64(), _x:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, __0:stdgo.math.big.Big.Accuracy = __tmp__._1;
+            var __tmp__ = _f.float64(), _x:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, __1:stdgo.math.big.Big.Accuracy = __tmp__._1;
             if (((_f.sign() == (0 : stdgo.StdGoTypes.GoInt)) == (_x == (0 : stdgo.StdGoTypes.GoFloat64))) && !stdgo.math.Math.isInf(_x, (0 : stdgo.StdGoTypes.GoInt))) {
                 var _s:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("%.6g" : stdgo.GoString), stdgo.Go.toInterface(_x))?.__copy__();
                 if (!_f.isInt() && (stdgo.strings.Strings.indexByte(_s?.__copy__(), (46 : stdgo.StdGoTypes.GoUInt8)) < (0 : stdgo.StdGoTypes.GoInt))) {
@@ -2729,7 +2729,7 @@ class T_floatVal_asInterface {
         };
         var _mant:stdgo.math.big.Big.Float_ = ({} : stdgo.math.big.Big.Float_);
         var _exp:stdgo.StdGoTypes.GoInt = _f.mantExp((stdgo.Go.setRef(_mant) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>));
-        var __tmp__ = _mant.float64(), _m:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, __1:stdgo.math.big.Big.Accuracy = __tmp__._1;
+        var __tmp__ = _mant.float64(), _m:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, __2:stdgo.math.big.Big.Accuracy = __tmp__._1;
         var _d:stdgo.StdGoTypes.GoFloat64 = (_exp : stdgo.StdGoTypes.GoFloat64) * (0.3010299956639812 : stdgo.StdGoTypes.GoFloat64);
         var _e:stdgo.StdGoTypes.GoInt64 = (_d : stdgo.StdGoTypes.GoInt64);
         _m = _m * (stdgo.math.Math.pow((10 : stdgo.StdGoTypes.GoFloat64), _d - (_e : stdgo.StdGoTypes.GoFloat64)));

@@ -3159,7 +3159,7 @@ function testUintCodec(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             var _b = (stdgo.Go.setRef(({} : stdgo.encoding.gob.Gob.T_encBuffer)) : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_encBuffer>);
             var _encState = _newEncoderState(_b);
-            for (__0 => _tt in _encodeT) {
+            for (__8 => _tt in _encodeT) {
                 _b.reset();
                 _encState._encodeUint(_tt._x);
                 if (!stdgo.bytes.Bytes.equal(_tt._b, _b.bytes())) {
@@ -4518,7 +4518,7 @@ function testDebugSingleton(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             return;
         };
         var _b = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
-        for (__0 => _x in _singletons) {
+        for (__8 => _x in _singletons) {
             var _err:stdgo.Error = newEncoder(stdgo.Go.asInterface(_b)).encode(_x);
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("encode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
@@ -4610,7 +4610,7 @@ function testFuzzRegressions(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
     }
 function _testFuzz(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _seed:stdgo.StdGoTypes.GoInt64, _n:stdgo.StdGoTypes.GoInt, _input:haxe.Rest<stdgo.StdGoTypes.AnyInterface>):Void {
         var _input = new stdgo.Slice<stdgo.StdGoTypes.AnyInterface>(_input.length, 0, ..._input);
-        for (__0 => _e in _input) {
+        for (__8 => _e in _input) {
             _t.logf(("seed=%d n=%d e=%T" : stdgo.GoString), stdgo.Go.toInterface(_seed), stdgo.Go.toInterface(_n), _e);
             var _rng = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(_seed));
             {
@@ -4657,7 +4657,7 @@ function testFuzzOneByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
         if (stdgo.testing.Testing.short()) {
             _indices = (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(3, 3, (1 : stdgo.StdGoTypes.GoInt), (111 : stdgo.StdGoTypes.GoInt), (178 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
         };
-        for (__16 => _i in _indices) {
+        for (__24 => _i in _indices) {
             {
                 var _j:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_j < (256 : stdgo.StdGoTypes.GoInt), _j = _j + ((3 : stdgo.StdGoTypes.GoInt)), {
@@ -5363,7 +5363,7 @@ function _decodeUintReader(_r:stdgo.io.Io.Reader, _buf:stdgo.Slice<stdgo.StdGoTy
             };
             return { _0 : _x, _1 : _width, _2 : _err };
         };
-        for (__0 => _b in (_buf.__slice__((0 : stdgo.StdGoTypes.GoInt), _width) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) {
+        for (__8 => _b in (_buf.__slice__((0 : stdgo.StdGoTypes.GoInt), _width) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) {
             _x = (_x << (8i64 : stdgo.StdGoTypes.GoUInt64)) | (_b : stdgo.StdGoTypes.GoUInt64);
         };
         _width++;
@@ -5569,7 +5569,7 @@ function _decUint8Slice(_i:stdgo.StdGoTypes.Ref<T_decInstr>, _state:stdgo.StdGoT
                 _value.setLen(_ln);
                 var _sub:stdgo.reflect.Reflect.Value = _value.slice(_i, _ln)?.__copy__();
                 {
-                    var __tmp__ = _state._b.read(_sub.bytes()), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = _state._b.read(_sub.bytes()), __8:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         _errorf(("error decoding []byte at %d: %s" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_i));
                     };
@@ -5579,7 +5579,7 @@ function _decUint8Slice(_i:stdgo.StdGoTypes.Ref<T_decInstr>, _state:stdgo.StdGoT
         } else {
             _value.setLen(_n);
             {
-                var __tmp__ = _state._b.read(_value.bytes()), __1:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = _state._b.read(_value.bytes()), __9:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _errorf(("error decoding []byte: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 };
@@ -5650,7 +5650,7 @@ function newDecoder(_r:stdgo.io.Io.Reader):stdgo.StdGoTypes.Ref<Decoder> {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r) : stdgo.io.Io.ByteReader)) : stdgo.io.Io.ByteReader), ok : true };
             } catch(_) {
                 { value : (null : stdgo.io.Io.ByteReader), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+            }, __8 = __tmp__.value, _ok = __tmp__.ok;
             if (!_ok) {
                 _r = stdgo.Go.asInterface(stdgo.bufio.Bufio.newReader(_r));
             };
@@ -5703,7 +5703,7 @@ function _encBoolSlice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.ref
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != false) || _state._sendZero) {
                 if (_x) {
                     _state._encodeUint((1i64 : stdgo.StdGoTypes.GoUInt64));
@@ -5729,7 +5729,7 @@ function _encComplex64Slice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdg
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != ((0f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 0f64))) || _state._sendZero) {
                 var _rpart:stdgo.StdGoTypes.GoUInt64 = _floatBits((_x.real : stdgo.StdGoTypes.GoFloat64));
                 var _ipart:stdgo.StdGoTypes.GoUInt64 = _floatBits((_x.imag : stdgo.StdGoTypes.GoFloat64));
@@ -5754,7 +5754,7 @@ function _encComplex128Slice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:std
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != ((0f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 0f64))) || _state._sendZero) {
                 var _rpart:stdgo.StdGoTypes.GoUInt64 = _floatBits(_x.real);
                 var _ipart:stdgo.StdGoTypes.GoUInt64 = _floatBits(_x.imag);
@@ -5779,7 +5779,7 @@ function _encFloat32Slice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0 : stdgo.StdGoTypes.GoFloat64)) || _state._sendZero) {
                 var _bits:stdgo.StdGoTypes.GoUInt64 = _floatBits((_x : stdgo.StdGoTypes.GoFloat64));
                 _state._encodeUint(_bits);
@@ -5802,7 +5802,7 @@ function _encFloat64Slice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0 : stdgo.StdGoTypes.GoFloat64)) || _state._sendZero) {
                 var _bits:stdgo.StdGoTypes.GoUInt64 = _floatBits(_x);
                 _state._encodeUint(_bits);
@@ -5825,7 +5825,7 @@ function _encIntSlice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.refl
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0 : stdgo.StdGoTypes.GoInt)) || _state._sendZero) {
                 _state._encodeInt((_x : stdgo.StdGoTypes.GoInt64));
             };
@@ -5847,7 +5847,7 @@ function _encInt16Slice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.re
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0 : stdgo.StdGoTypes.GoInt16)) || _state._sendZero) {
                 _state._encodeInt((_x : stdgo.StdGoTypes.GoInt64));
             };
@@ -5869,7 +5869,7 @@ function _encInt32Slice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.re
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0 : stdgo.StdGoTypes.GoInt32)) || _state._sendZero) {
                 _state._encodeInt((_x : stdgo.StdGoTypes.GoInt64));
             };
@@ -5891,7 +5891,7 @@ function _encInt64Slice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.re
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0i64 : stdgo.StdGoTypes.GoInt64)) || _state._sendZero) {
                 _state._encodeInt(_x);
             };
@@ -5913,7 +5913,7 @@ function _encInt8Slice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.ref
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0 : stdgo.StdGoTypes.GoInt8)) || _state._sendZero) {
                 _state._encodeInt((_x : stdgo.StdGoTypes.GoInt64));
             };
@@ -5935,7 +5935,7 @@ function _encStringSlice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.r
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != stdgo.Go.str()) || _state._sendZero) {
                 _state._encodeUint((_x.length : stdgo.StdGoTypes.GoUInt64));
                 _state._b.writeString(_x?.__copy__());
@@ -5958,7 +5958,7 @@ function _encUintSlice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.ref
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0u32 : stdgo.StdGoTypes.GoUInt)) || _state._sendZero) {
                 _state._encodeUint((_x : stdgo.StdGoTypes.GoUInt64));
             };
@@ -5980,7 +5980,7 @@ function _encUint16Slice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.r
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0 : stdgo.StdGoTypes.GoUInt16)) || _state._sendZero) {
                 _state._encodeUint((_x : stdgo.StdGoTypes.GoUInt64));
             };
@@ -6002,7 +6002,7 @@ function _encUint32Slice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.r
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0u32 : stdgo.StdGoTypes.GoUInt32)) || _state._sendZero) {
                 _state._encodeUint((_x : stdgo.StdGoTypes.GoUInt64));
             };
@@ -6024,7 +6024,7 @@ function _encUint64Slice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.r
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0i64 : stdgo.StdGoTypes.GoUInt64)) || _state._sendZero) {
                 _state._encodeUint(_x);
             };
@@ -6046,7 +6046,7 @@ function _encUintptrSlice(_state:stdgo.StdGoTypes.Ref<T_encoderState>, _v:stdgo.
         if (!_ok) {
             return false;
         };
-        for (__0 => _x in _slice) {
+        for (__8 => _x in _slice) {
             if ((_x != (0 : stdgo.StdGoTypes.GoUIntptr)) || _state._sendZero) {
                 _state._encodeUint((_x : stdgo.StdGoTypes.GoUInt64));
             };
@@ -6469,7 +6469,7 @@ stdgo.Go.toInterface(((1.2345f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGo
 stdgo.Go.toInterface(((1.2345678f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 2.3456789f64) : stdgo.StdGoTypes.GoComplex128)),
 stdgo.Go.toInterface((("hello" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)),
 stdgo.Go.toInterface(("hello" : stdgo.GoString))) : stdgo.Slice<stdgo.StdGoTypes.AnyInterface>);
-        for (__0 => _value in _values) {
+        for (__8 => _value in _values) {
             var _b = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
             var _enc = newEncoder(stdgo.Go.asInterface(_b));
             var _err:stdgo.Error = _enc.encode(_value);
@@ -6680,7 +6680,7 @@ function testWrongTypeDecoder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
 function testUnsupported(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         var _enc = newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)));
-        for (__0 => _v in _unsupportedValues) {
+        for (__8 => _v in _unsupportedValues) {
             var _err:stdgo.Error = _enc.encode(_v);
             if (_err == null) {
                 _t.errorf(("expected error for %T; got none" : stdgo.GoString), _v);
@@ -6983,7 +6983,7 @@ function testSingletons(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _b = (stdgo.Go.setRef(({} : stdgo.bytes.Bytes.Buffer)) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>);
         var _enc = newEncoder(stdgo.Go.asInterface(_b));
         var _dec = newDecoder(stdgo.Go.asInterface(_b));
-        for (__0 => _test in _singleTests) {
+        for (__8 => _test in _singleTests) {
             _b.reset();
             var _err:stdgo.Error = _enc.encode(_test._in);
             if (_err != null) {
@@ -7558,8 +7558,8 @@ function testNilPointerPanics(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
 ({ _value : stdgo.Go.toInterface(_nilStringSlicePtr), _mustPanic : true } : T__struct_2),
 ({ _value : stdgo.Go.toInterface(_nilBoolChannel), _mustPanic : false } : T__struct_2),
 ({ _value : stdgo.Go.toInterface(_nilBoolChannelPtr), _mustPanic : true } : T__struct_2)) : stdgo.Slice<T__struct_2>);
-        for (__0 => _tt in _testCases) {
-            var __tmp__ = _encodeAndRecover(_tt._value), __1:stdgo.Error = __tmp__._0, _panicErr:stdgo.Error = __tmp__._1;
+        for (__8 => _tt in _testCases) {
+            var __tmp__ = _encodeAndRecover(_tt._value), __9:stdgo.Error = __tmp__._0, _panicErr:stdgo.Error = __tmp__._1;
             if (_tt._mustPanic) {
                 if (_panicErr == null) {
                     _t.errorf(("expected panic with input %#v, did not panic" : stdgo.GoString), _tt._value);
@@ -8876,7 +8876,7 @@ function _validUserType(_rt:stdgo.reflect.Reflect.Type):{ var _0 : stdgo.StdGoTy
                 };
             };
         };
-        var __tmp__ = _userTypeCache.loadOrStore(stdgo.Go.toInterface(_rt), stdgo.Go.toInterface(_ut)), _ui:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __8:Bool = __tmp__._1;
+        var __tmp__ = _userTypeCache.loadOrStore(stdgo.Go.toInterface(_rt), stdgo.Go.toInterface(_ut)), _ui:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __16:Bool = __tmp__._1;
         return { _0 : (stdgo.Go.typeAssert((_ui : stdgo.StdGoTypes.Ref<T_userTypeInfo>)) : stdgo.StdGoTypes.Ref<T_userTypeInfo>), _1 : (null : stdgo.Error) };
     }
 /**
@@ -9207,7 +9207,7 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.StdGoTypes.Ref<T_userTyp
     // isExported reports whether this is an exported - upper case - name.
 **/
 function _isExported(_name:stdgo.GoString):Bool {
-        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_name?.__copy__()), _rune:stdgo.StdGoTypes.GoInt32 = __tmp__._0, __0:stdgo.StdGoTypes.GoInt = __tmp__._1;
+        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_name?.__copy__()), _rune:stdgo.StdGoTypes.GoInt32 = __tmp__._0, __8:stdgo.StdGoTypes.GoInt = __tmp__._1;
         return stdgo.unicode.Unicode.isUpper(_rune);
     }
 /**
@@ -9266,7 +9266,7 @@ function _checkId(_want:T_typeId, _got:T_typeId):Void {
 **/
 function _bootstrapType(_name:stdgo.GoString, _e:stdgo.StdGoTypes.AnyInterface):T_typeId {
         var _rt:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(_e).elem();
-        var __tmp__ = (_types != null && _types.exists(_rt) ? { value : _types[_rt], ok : true } : { value : (null : stdgo.encoding.gob.Gob.T_gobType), ok : false }), __0:stdgo.encoding.gob.Gob.T_gobType = __tmp__.value, _present:Bool = __tmp__.ok;
+        var __tmp__ = (_types != null && _types.exists(_rt) ? { value : _types[_rt], ok : true } : { value : (null : stdgo.encoding.gob.Gob.T_gobType), ok : false }), __8:stdgo.encoding.gob.Gob.T_gobType = __tmp__.value, _present:Bool = __tmp__.ok;
         if (_present) {
             throw stdgo.Go.toInterface(("bootstrap type already present: " : stdgo.GoString) + _name?.__copy__() + (", " : stdgo.GoString)?.__copy__() + (_rt.string() : stdgo.GoString)?.__copy__());
         };
@@ -9286,7 +9286,7 @@ function _lookupTypeInfo(_rt:stdgo.reflect.Reflect.Type):stdgo.StdGoTypes.Ref<T_
             { value : (stdgo.Go.typeAssert((_typeInfoMap.load() : stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.Ref<T_typeInfo>>)) : stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.Ref<T_typeInfo>>), ok : true };
         } catch(_) {
             { value : (null : stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_typeInfo>>), ok : false };
-        }, _m = __tmp__.value, __0 = __tmp__.ok;
+        }, _m = __tmp__.value, __8 = __tmp__.ok;
         return (_m[_rt] ?? (null : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_typeInfo>));
     }
 function _getTypeInfo(_ut:stdgo.StdGoTypes.Ref<T_userTypeInfo>):{ var _0 : stdgo.StdGoTypes.Ref<T_typeInfo>; var _1 : stdgo.Error; } {
@@ -9390,7 +9390,7 @@ function _buildTypeInfo(_ut:stdgo.StdGoTypes.Ref<T_userTypeInfo>, _rt:stdgo.refl
                 { value : (stdgo.Go.typeAssert((_typeInfoMap.load() : stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.Ref<T_typeInfo>>)) : stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.Ref<T_typeInfo>>), ok : true };
             } catch(_) {
                 { value : (null : stdgo.GoMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_typeInfo>>), ok : false };
-            }, _m = __tmp__.value, __32 = __tmp__.ok;
+            }, _m = __tmp__.value, __40 = __tmp__.ok;
             var _newm = ({
                 final x = new stdgo.GoMap.GoObjectMap<stdgo.reflect.Reflect.Type, stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_typeInfo>>();
                 x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.Type", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }));
@@ -9570,7 +9570,7 @@ function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo.reflect.Reflect.Type):
     // Sanity checks
 **/
 function testBasic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-        for (__0 => _tt in _basicTypes) {
+        for (__8 => _tt in _basicTypes) {
             if (_tt._id._string() != (_tt._str)) {
                 _t.errorf(("checkType: expected %q got %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._str), stdgo.Go.toInterface(_tt._id._string()));
             };
@@ -9694,10 +9694,10 @@ function testRegistration(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
 **/
 function testRegistrationNaming(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _testCases = (new stdgo.Slice<T__struct_12>(2, 2, ({ _t : stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo.encoding.gob.Gob.N1() : stdgo.encoding.gob.Gob.N1)) : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.N1>)), _name : ("*gob.N1" : stdgo.GoString) } : T__struct_12), ({ _t : stdgo.Go.toInterface((new stdgo.encoding.gob.Gob.N2() : stdgo.encoding.gob.Gob.N2)), _name : ("encoding/gob.N2" : stdgo.GoString) } : T__struct_12)) : stdgo.Slice<T__struct_12>);
-        for (__0 => _tc in _testCases) {
+        for (__8 => _tc in _testCases) {
             register(_tc._t);
             var _tct:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(_tc._t);
-            var __tmp__ = _nameToConcreteType.load(stdgo.Go.toInterface(_tc._name)), _ct:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __5:Bool = __tmp__._1;
+            var __tmp__ = _nameToConcreteType.load(stdgo.Go.toInterface(_tc._name)), _ct:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __13:Bool = __tmp__._1;
             if (_ct != (stdgo.Go.toInterface(_tct))) {
                 _t.errorf(("nameToConcreteType[%q] = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tc._name), _ct, stdgo.Go.toInterface(_tct));
             };
@@ -9705,7 +9705,7 @@ function testRegistrationNaming(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
                 _tct = _tct.elem();
             };
             {
-                var __tmp__ = _concreteTypeToName.load(stdgo.Go.toInterface(_tct)), _n:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __18:Bool = __tmp__._1;
+                var __tmp__ = _concreteTypeToName.load(stdgo.Go.toInterface(_tct)), _n:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __26:Bool = __tmp__._1;
                 if (_n != (stdgo.Go.toInterface(_tc._name))) {
                     _t.errorf(("concreteTypeToName[%v] got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tct), _n, stdgo.Go.toInterface(_tc._name));
                 };
@@ -10015,7 +10015,7 @@ class T_decoderState_asInterface {
         if ((_buf.length) < _n) {
             _errorf(("invalid uint data length %d: exceeds input size %d" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface((_buf.length)));
         };
-        for (__0 => _b in (_buf.__slice__((0 : stdgo.StdGoTypes.GoInt), _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) {
+        for (__8 => _b in (_buf.__slice__((0 : stdgo.StdGoTypes.GoInt), _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)) {
             _x = (_x << (8i64 : stdgo.StdGoTypes.GoUInt64)) | (_b : stdgo.StdGoTypes.GoUInt64);
         };
         _state._b.drop(_n);
@@ -10459,7 +10459,7 @@ class Decoder_asInterface {
     @:keep
     static public function _nextUint( _dec:stdgo.StdGoTypes.Ref<Decoder>):stdgo.StdGoTypes.GoUInt64 {
         @:recv var _dec:stdgo.StdGoTypes.Ref<Decoder> = _dec;
-        var __tmp__ = _decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef(_dec._buf) : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_decBuffer>)), _dec._countBuf), _n:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, __0:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef(_dec._buf) : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_decBuffer>)), _dec._countBuf), _n:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, __8:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             _dec._err = _err;
         };
@@ -10468,7 +10468,7 @@ class Decoder_asInterface {
     @:keep
     static public function _nextInt( _dec:stdgo.StdGoTypes.Ref<Decoder>):stdgo.StdGoTypes.GoInt64 {
         @:recv var _dec:stdgo.StdGoTypes.Ref<Decoder> = _dec;
-        var __tmp__ = _decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef(_dec._buf) : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_decBuffer>)), _dec._countBuf), _n:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, __0:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef(_dec._buf) : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_decBuffer>)), _dec._countBuf), _n:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, __8:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             _dec._err = _err;
         };
@@ -10501,7 +10501,7 @@ class Decoder_asInterface {
     @:keep
     static public function _recvMessage( _dec:stdgo.StdGoTypes.Ref<Decoder>):Bool {
         @:recv var _dec:stdgo.StdGoTypes.Ref<Decoder> = _dec;
-        var __tmp__ = _decodeUintReader(_dec._r, _dec._countBuf), _nbytes:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, __0:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _decodeUintReader(_dec._r, _dec._countBuf), _nbytes:stdgo.StdGoTypes.GoUInt64 = __tmp__._0, __8:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             _dec._err = _err;
             return false;
@@ -12039,7 +12039,7 @@ class Encoder_asInterface {
             _rt = _ut._user;
         };
         {
-            var __tmp__ = (_enc._sent != null && _enc._sent.exists(_rt) ? { value : _enc._sent[_rt], ok : true } : { value : ((0 : stdgo.StdGoTypes.GoInt32) : stdgo.encoding.gob.Gob.T_typeId), ok : false }), __0:stdgo.encoding.gob.Gob.T_typeId = __tmp__.value, _alreadySent:Bool = __tmp__.ok;
+            var __tmp__ = (_enc._sent != null && _enc._sent.exists(_rt) ? { value : _enc._sent[_rt], ok : true } : { value : ((0 : stdgo.StdGoTypes.GoInt32) : stdgo.encoding.gob.Gob.T_typeId), ok : false }), __8:stdgo.encoding.gob.Gob.T_typeId = __tmp__.value, _alreadySent:Bool = __tmp__.ok;
             if (!_alreadySent) {
                 var _sent:Bool = _enc._sendType(_w, _state, _rt);
                 if (_enc._err != null) {
@@ -12123,7 +12123,7 @@ class Encoder_asInterface {
         @:recv var _enc:stdgo.StdGoTypes.Ref<Encoder> = _enc;
         var _sent:Bool = false;
         {
-            var __tmp__ = (_enc._sent != null && _enc._sent.exists(_actual) ? { value : _enc._sent[_actual], ok : true } : { value : ((0 : stdgo.StdGoTypes.GoInt32) : stdgo.encoding.gob.Gob.T_typeId), ok : false }), __0:stdgo.encoding.gob.Gob.T_typeId = __tmp__.value, _alreadySent:Bool = __tmp__.ok;
+            var __tmp__ = (_enc._sent != null && _enc._sent.exists(_actual) ? { value : _enc._sent[_actual], ok : true } : { value : ((0 : stdgo.StdGoTypes.GoInt32) : stdgo.encoding.gob.Gob.T_typeId), ok : false }), __8:stdgo.encoding.gob.Gob.T_typeId = __tmp__.value, _alreadySent:Bool = __tmp__.ok;
             if (_alreadySent) {
                 return false;
             };
@@ -12182,7 +12182,7 @@ class Encoder_asInterface {
         _enc._countState._encodeUint((_messageLen : stdgo.StdGoTypes.GoUInt64));
         var _offset:stdgo.StdGoTypes.GoInt = (9 : stdgo.StdGoTypes.GoInt) - _enc._countState._b.len();
         stdgo.Go.copySlice((_message.__slice__(_offset) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _enc._countState._b.bytes());
-        var __tmp__ = _w.write((_message.__slice__(_offset) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _w.write((_message.__slice__(_offset) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __8:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         _b.reset();
         _b.write(_spaceForLength);
         if (_err != null) {
@@ -13068,14 +13068,14 @@ class T_structType_asInterface {
             return ("<nil>" : stdgo.GoString);
         };
         {
-            var __tmp__ = (_seen != null && _seen.exists(_s.commonType.id) ? { value : _seen[_s.commonType.id], ok : true } : { value : false, ok : false }), __0:Bool = __tmp__.value, _ok:Bool = __tmp__.ok;
+            var __tmp__ = (_seen != null && _seen.exists(_s.commonType.id) ? { value : _seen[_s.commonType.id], ok : true } : { value : false, ok : false }), __8:Bool = __tmp__.value, _ok:Bool = __tmp__.ok;
             if (_ok) {
                 return _s.commonType.name?.__copy__();
             };
         };
         _seen[_s.commonType.id] = true;
         var _str:stdgo.GoString = _s.commonType.name + (" = struct { " : stdgo.GoString)?.__copy__()?.__copy__();
-        for (__1 => _f in _s.field) {
+        for (__9 => _f in _s.field) {
             _str = _str + (stdgo.fmt.Fmt.sprintf(("%s %s; " : stdgo.GoString), stdgo.Go.toInterface(_f.name), stdgo.Go.toInterface(_f.id._gobType()._safeString(_seen))))?.__copy__();
         };
         _str = _str + (("}" : stdgo.GoString))?.__copy__();
@@ -13177,7 +13177,7 @@ class Vector_asInterface {
     static public function square( _v:Vector):stdgo.StdGoTypes.GoInt {
         @:recv var _v:Vector = _v;
         var _sum:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-        for (__0 => _x in _v) {
+        for (__8 => _x in _v) {
             _sum = _sum + (_x * _x);
         };
         return _sum;
@@ -13202,7 +13202,7 @@ class Gobber_asInterface {
     @:keep
     @:pointer
     static public function gobDecode(____:Gobber,  _g:stdgo.Pointer<Gobber>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
-        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%d" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.StdGoTypes.GoInt>(() -> (_g.value : stdgo.StdGoTypes.GoInt), v -> (_g.value = (v : stdgo.encoding.gob.Gob.Gobber) : stdgo.StdGoTypes.GoInt)))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%d" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.StdGoTypes.GoInt>(() -> (_g.value : stdgo.StdGoTypes.GoInt), v -> (_g.value = (v : stdgo.encoding.gob.Gob.Gobber) : stdgo.StdGoTypes.GoInt)))), __8:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     }
     @:keep
@@ -13229,7 +13229,7 @@ class ValueGobber_asInterface {
     @:keep
     @:pointer
     static public function gobDecode(____:ValueGobber,  _v:stdgo.Pointer<ValueGobber>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
-        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%s" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.GoString>(() -> (_v.value : stdgo.GoString), v -> (_v.value = (v : stdgo.encoding.gob.Gob.ValueGobber) : stdgo.GoString)))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%s" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.GoString>(() -> (_v.value : stdgo.GoString), v -> (_v.value = (v : stdgo.encoding.gob.Gob.ValueGobber) : stdgo.GoString)))), __8:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     }
     @:keep
@@ -13257,7 +13257,7 @@ class BinaryGobber_asInterface {
     @:keep
     @:pointer
     static public function unmarshalBinary(____:BinaryGobber,  _g:stdgo.Pointer<BinaryGobber>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
-        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%d" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.StdGoTypes.GoInt>(() -> (_g.value : stdgo.StdGoTypes.GoInt), v -> (_g.value = (v : stdgo.encoding.gob.Gob.BinaryGobber) : stdgo.StdGoTypes.GoInt)))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%d" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.StdGoTypes.GoInt>(() -> (_g.value : stdgo.StdGoTypes.GoInt), v -> (_g.value = (v : stdgo.encoding.gob.Gob.BinaryGobber) : stdgo.StdGoTypes.GoInt)))), __8:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     }
     @:keep
@@ -13284,7 +13284,7 @@ class BinaryValueGobber_asInterface {
     @:keep
     @:pointer
     static public function unmarshalBinary(____:BinaryValueGobber,  _v:stdgo.Pointer<BinaryValueGobber>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
-        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%s" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.GoString>(() -> (_v.value : stdgo.GoString), v -> (_v.value = (v : stdgo.encoding.gob.Gob.BinaryValueGobber) : stdgo.GoString)))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%s" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.GoString>(() -> (_v.value : stdgo.GoString), v -> (_v.value = (v : stdgo.encoding.gob.Gob.BinaryValueGobber) : stdgo.GoString)))), __8:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     }
     @:keep
@@ -13312,7 +13312,7 @@ class TextGobber_asInterface {
     @:keep
     @:pointer
     static public function unmarshalText(____:TextGobber,  _g:stdgo.Pointer<TextGobber>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
-        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%d" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.StdGoTypes.GoInt>(() -> (_g.value : stdgo.StdGoTypes.GoInt), v -> (_g.value = (v : stdgo.encoding.gob.Gob.TextGobber) : stdgo.StdGoTypes.GoInt)))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%d" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.StdGoTypes.GoInt>(() -> (_g.value : stdgo.StdGoTypes.GoInt), v -> (_g.value = (v : stdgo.encoding.gob.Gob.TextGobber) : stdgo.StdGoTypes.GoInt)))), __8:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     }
     @:keep
@@ -13339,7 +13339,7 @@ class TextValueGobber_asInterface {
     @:keep
     @:pointer
     static public function unmarshalText(____:TextValueGobber,  _v:stdgo.Pointer<TextValueGobber>, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
-        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%s" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.GoString>(() -> (_v.value : stdgo.GoString), v -> (_v.value = (v : stdgo.encoding.gob.Gob.TextValueGobber) : stdgo.GoString)))), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.fmt.Fmt.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%s" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.GoString>(() -> (_v.value : stdgo.GoString), v -> (_v.value = (v : stdgo.encoding.gob.Gob.TextValueGobber) : stdgo.GoString)))), __8:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     }
     @:keep

@@ -927,11 +927,11 @@ function _poolRaceAddr(_x:stdgo.StdGoTypes.AnyInterface):stdgo.unsafe.Unsafe.Uns
         return (stdgo.Go.toInterface(stdgo.Go.pointer(_poolRaceHash[(_h % (_poolRaceHash.length : stdgo.StdGoTypes.GoUInt32) : stdgo.StdGoTypes.GoInt)])) : stdgo.unsafe.Unsafe.UnsafePointer);
     }
 function _poolCleanup():Void {
-        for (__0 => _p in _oldPools) {
+        for (__16 => _p in _oldPools) {
             _p._victim = @:default_value null;
             _p._victimSize = (0 : stdgo.StdGoTypes.GoUIntptr);
         };
-        for (__1 => _p in _allPools) {
+        for (__17 => _p in _allPools) {
             _p._victim = _p._local;
             _p._victimSize = _p._localSize;
             _p._local = @:default_value null;
@@ -2169,7 +2169,7 @@ class Pool_asInterface {
             stdgo.Go.cfor(_i < (_size : stdgo.StdGoTypes.GoInt), _i++, {
                 var _l = _indexLocal(_locals, ((_pid + _i) + (1 : stdgo.StdGoTypes.GoInt)) % (_size : stdgo.StdGoTypes.GoInt));
                 {
-                    var __tmp__ = _l._poolLocalInternal._shared._popTail(), _x:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __0:Bool = __tmp__._1;
+                    var __tmp__ = _l._poolLocalInternal._shared._popTail(), _x:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __20:Bool = __tmp__._1;
                     if (_x != null) {
                         return _x;
                     };
@@ -2194,7 +2194,7 @@ class Pool_asInterface {
             stdgo.Go.cfor(_i < (_size : stdgo.StdGoTypes.GoInt), _i++, {
                 var _l = _indexLocal(_locals, (_pid + _i) % (_size : stdgo.StdGoTypes.GoInt));
                 {
-                    var __tmp__ = _l._poolLocalInternal._shared._popTail(), _x:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __1:Bool = __tmp__._1;
+                    var __tmp__ = _l._poolLocalInternal._shared._popTail(), _x:stdgo.StdGoTypes.AnyInterface = __tmp__._0, __21:Bool = __tmp__._1;
                     if (_x != null) {
                         return _x;
                     };

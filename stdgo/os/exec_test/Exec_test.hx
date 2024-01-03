@@ -250,7 +250,7 @@ function testLookPath(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             for (__56 => _errdot in (new stdgo.Slice<stdgo.GoString>(2, 2, ("1" : stdgo.GoString), ("0" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
                 _t.run(("GODEBUG=execerrdot=" : stdgo.GoString) + _errdot?.__copy__()?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     _t.setenv(("GODEBUG" : stdgo.GoString), ("execerrdot=" : stdgo.GoString) + _errdot?.__copy__() + (",execwait=2" : stdgo.GoString)?.__copy__()?.__copy__());
-                    for (__8 => _dir in (new stdgo.Slice<stdgo.GoString>(2, 2, ("." : stdgo.GoString), ("../testdir" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+                    for (__73 => _dir in (new stdgo.Slice<stdgo.GoString>(2, 2, ("." : stdgo.GoString), ("../testdir" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
                         _t.run(_pathVar + ("=" : stdgo.GoString)?.__copy__() + _dir?.__copy__()?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                             _t.setenv(_pathVar?.__copy__(), _dir + ((58 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__() + _origPath?.__copy__()?.__copy__());
                             var _good:stdgo.GoString = _dir + ("/execabs-test" : stdgo.GoString)?.__copy__()?.__copy__();
@@ -269,7 +269,7 @@ function testLookPath(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                                     };
                                 };
                             };
-                            var __tmp__ = lookPath(("execabs-test" : stdgo.GoString)), __24:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                            var __tmp__ = lookPath(("execabs-test" : stdgo.GoString)), __106:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_errdot == (("1" : stdgo.GoString))) {
                                 if (_err == null) {
                                     _t.fatalf(("LookPath didn\'t fail when finding a non-relative path" : stdgo.GoString));
@@ -1033,7 +1033,7 @@ function testPipes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _outbr = stdgo.bufio.Bufio.newReader(_stdout);
         var _errbr = stdgo.bufio.Bufio.newReader(_stderr);
         var _line = function(_what:stdgo.GoString, _br:stdgo.StdGoTypes.Ref<stdgo.bufio.Bufio.Reader>):stdgo.GoString {
-            var __tmp__ = _br.readLine(), _line:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, __0:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            var __tmp__ = _br.readLine(), _line:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, __26:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 _t.fatalf(("%s: %v" : stdgo.GoString), stdgo.Go.toInterface(_what), stdgo.Go.toInterface(_err));
             };
@@ -1112,7 +1112,7 @@ function testStdinClose(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
                         __deferstack__.unshift(() -> _wg.done());
-                        var __tmp__ = stdgo.io.Io.copy(_stdin, stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("Some test string." : stdgo.GoString)))), __4:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = stdgo.io.Io.copy(_stdin, stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("Some test string." : stdgo.GoString)))), __41:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         _check(("Copy" : stdgo.GoString), _err);
                         {
                             var _err:stdgo.Error = _stdin.close();
@@ -1896,7 +1896,7 @@ function _cmdHang(_args:haxe.Rest<stdgo.GoString>):Void {
                 var a = function():Void {
                     for (_ => _ in _ticker.c) {
                         {
-                            var __tmp__ = stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo.os.Os.stderr), ("%d: ok\n" : stdgo.GoString), stdgo.Go.toInterface(_pid)), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                            var __tmp__ = stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo.os.Os.stderr), ("%d: ok\n" : stdgo.GoString), stdgo.Go.toInterface(_pid)), __61:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
                                 Sys.exit((1 : stdgo.StdGoTypes.GoInt));
                             };

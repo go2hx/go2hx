@@ -4289,7 +4289,7 @@ function _parse(_layout:stdgo.GoString, _value:stdgo.GoString, _defaultLocation:
         if (_zoneOffset != ((-1 : stdgo.StdGoTypes.GoInt))) {
             var _t:stdgo.time.Time.Time = date(_year, (_month : Month), _day, _hour, _min, _sec, _nsec, utc)?.__copy__();
             _t._addSec(-(_zoneOffset : stdgo.StdGoTypes.GoInt64));
-            var __tmp__ = _local._lookup(_t._unixSec()), _name:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, __0:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __1:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __2:Bool = __tmp__._4;
+            var __tmp__ = _local._lookup(_t._unixSec()), _name:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, __1:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __2:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __3:Bool = __tmp__._4;
             if ((_offset == _zoneOffset) && ((_zoneName == stdgo.Go.str()) || (_name == _zoneName))) {
                 _t._setLoc(_local);
                 return { _0 : _t?.__copy__(), _1 : (null : stdgo.Error) };
@@ -4765,7 +4765,7 @@ function _preadn(_fd:stdgo.StdGoTypes.GoUIntptr, _buf:stdgo.Slice<stdgo.StdGoTyp
             _whence = (2 : stdgo.StdGoTypes.GoInt);
         };
         {
-            var __tmp__ = stdgo.syscall.Syscall.seek((_fd : stdgo.StdGoTypes.GoInt), (_off : stdgo.StdGoTypes.GoInt64), _whence), __0:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.syscall.Syscall.seek((_fd : stdgo.StdGoTypes.GoInt), (_off : stdgo.StdGoTypes.GoInt64), _whence), __1:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -5131,7 +5131,7 @@ function date(_year:stdgo.StdGoTypes.GoInt, _month:Month, _day:stdgo.StdGoTypes.
         var _abs:stdgo.StdGoTypes.GoUInt64 = _d * (86400i64 : stdgo.StdGoTypes.GoUInt64);
         _abs = _abs + ((((_hour * (3600 : stdgo.StdGoTypes.GoInt)) + (_min * (60 : stdgo.StdGoTypes.GoInt))) + _sec : stdgo.StdGoTypes.GoUInt64));
         var _unix:stdgo.StdGoTypes.GoInt64 = (_abs : stdgo.StdGoTypes.GoInt64) + (-9223372028715321600i64 : stdgo.StdGoTypes.GoInt64);
-        var __tmp__ = _loc._lookup(_unix), __0:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, _start:stdgo.StdGoTypes.GoInt64 = __tmp__._2, _end:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __1:Bool = __tmp__._4;
+        var __tmp__ = _loc._lookup(_unix), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, _start:stdgo.StdGoTypes.GoInt64 = __tmp__._2, _end:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __2:Bool = __tmp__._4;
         if (_offset != ((0 : stdgo.StdGoTypes.GoInt))) {
             var _utc:stdgo.StdGoTypes.GoInt64 = _unix - (_offset : stdgo.StdGoTypes.GoInt64);
             if ((_utc < _start) || (_utc >= _end)) {
@@ -5344,7 +5344,7 @@ function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.StdGoTypes.GoInt64, _sec:std
         if (!_ok || (_s.length > (0 : stdgo.StdGoTypes.GoInt))) {
             return { _0 : stdgo.Go.str()?.__copy__(), _1 : (0 : stdgo.StdGoTypes.GoInt), _2 : (0i64 : stdgo.StdGoTypes.GoInt64), _3 : (0i64 : stdgo.StdGoTypes.GoInt64), _4 : false, _5 : false };
         };
-        var __tmp__ = _absDate(((_sec + (62135596800i64 : stdgo.StdGoTypes.GoInt64)) + (9223371966579724800i64 : stdgo.StdGoTypes.GoInt64) : stdgo.StdGoTypes.GoUInt64), false), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, __0:stdgo.time.Time.Month = __tmp__._1, __1:stdgo.StdGoTypes.GoInt = __tmp__._2, _yday:stdgo.StdGoTypes.GoInt = __tmp__._3;
+        var __tmp__ = _absDate(((_sec + (62135596800i64 : stdgo.StdGoTypes.GoInt64)) + (9223371966579724800i64 : stdgo.StdGoTypes.GoInt64) : stdgo.StdGoTypes.GoUInt64), false), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, __1:stdgo.time.Time.Month = __tmp__._1, __2:stdgo.StdGoTypes.GoInt = __tmp__._2, _yday:stdgo.StdGoTypes.GoInt = __tmp__._3;
         var _ysec:stdgo.StdGoTypes.GoInt64 = (_yday * (86400 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt64) + (_sec % (86400i64 : stdgo.StdGoTypes.GoInt64));
         var _d:stdgo.StdGoTypes.GoUInt64 = _daysSinceEpoch(_year);
         var _abs:stdgo.StdGoTypes.GoInt64 = (_d * (86400i64 : stdgo.StdGoTypes.GoUInt64) : stdgo.StdGoTypes.GoInt64);
@@ -5687,7 +5687,7 @@ function loadLocation(_name:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<Loca
             return { _0 : null, _1 : _errLocation };
         };
         _zoneinfoOnce.do_(function():Void {
-            var __tmp__ = stdgo.syscall.Syscall.getenv(("ZONEINFO" : stdgo.GoString)), _env:stdgo.GoString = __tmp__._0, __0:Bool = __tmp__._1;
+            var __tmp__ = stdgo.syscall.Syscall.getenv(("ZONEINFO" : stdgo.GoString)), _env:stdgo.GoString = __tmp__._0, __1:Bool = __tmp__._1;
             _zoneinfo = stdgo.Go.pointer(_env);
         });
         var _firstErr:stdgo.Error = (null : stdgo.Error);
@@ -5958,7 +5958,7 @@ function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.St
             _tx = (_tx.__append__(({ _when : (-9223372036854775808i64 : stdgo.StdGoTypes.GoInt64), _index : (0 : stdgo.StdGoTypes.GoUInt8) } : stdgo.time.Time.T_zoneTrans)));
         };
         var _l = (stdgo.Go.setRef(({ _name : _name?.__copy__(), _zone : _zones, _tx : _tx, _extend : _extend?.__copy__() } : stdgo.time.Time.Location)) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Location>);
-        var __tmp__ = _now(), _sec:stdgo.StdGoTypes.GoInt64 = __tmp__._0, __0:stdgo.StdGoTypes.GoInt32 = __tmp__._1, __1:stdgo.StdGoTypes.GoInt64 = __tmp__._2;
+        var __tmp__ = _now(), _sec:stdgo.StdGoTypes.GoInt64 = __tmp__._0, __1:stdgo.StdGoTypes.GoInt32 = __tmp__._1, __2:stdgo.StdGoTypes.GoInt64 = __tmp__._2;
         for (_i in 0 ... _tx.length.toBasic()) {
             if ((_tx[(_i : stdgo.StdGoTypes.GoInt)]._when <= _sec) && (((_i + (1 : stdgo.StdGoTypes.GoInt)) == (_tx.length)) || (_sec < _tx[(_i + (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)]._when))) {
                 _l._cacheStart = _tx[(_i : stdgo.StdGoTypes.GoInt)]._when;
@@ -6175,7 +6175,7 @@ function _loadTzinfo(_name:stdgo.GoString, _source:stdgo.GoString):{ var _0 : st
 **/
 function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.StdGoTypes.Ref<Location>; var _1 : stdgo.Error; } {
         var _z:stdgo.StdGoTypes.Ref<Location> = (null : stdgo.StdGoTypes.Ref<stdgo.time.Time.Location>), _firstErr:stdgo.Error = (null : stdgo.Error);
-        for (__0 => _source in _sources) {
+        for (__1 => _source in _sources) {
             var __tmp__ = _loadTzinfo(_name?.__copy__(), _source?.__copy__()), _zoneData:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
                 {
@@ -6948,7 +6948,7 @@ class Time_asInterface {
         if (_d <= (0i64 : stdgo.time.Time.Duration)) {
             return _t?.__copy__();
         };
-        var __tmp__ = _div(_t?.__copy__(), _d), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _r:stdgo.time.Time.Duration = __tmp__._1;
+        var __tmp__ = _div(_t?.__copy__(), _d), __1:stdgo.StdGoTypes.GoInt = __tmp__._0, _r:stdgo.time.Time.Duration = __tmp__._1;
         if (_lessThanHalf(_r, _d)) {
             return _t.add(-_r)?.__copy__();
         };
@@ -6970,7 +6970,7 @@ class Time_asInterface {
         if (_d <= (0i64 : stdgo.time.Time.Duration)) {
             return _t?.__copy__();
         };
-        var __tmp__ = _div(_t?.__copy__(), _d), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _r:stdgo.time.Time.Duration = __tmp__._1;
+        var __tmp__ = _div(_t?.__copy__(), _d), __1:stdgo.StdGoTypes.GoInt = __tmp__._0, _r:stdgo.time.Time.Duration = __tmp__._1;
         return _t.add(-_r)?.__copy__();
     }
     /**
@@ -6979,7 +6979,7 @@ class Time_asInterface {
     @:keep
     static public function isDST( _t:Time):Bool {
         @:recv var _t:Time = _t?.__copy__();
-        var __tmp__ = _t._loc._lookup(_t.unix()), __0:stdgo.GoString = __tmp__._0, __1:stdgo.StdGoTypes.GoInt = __tmp__._1, __2:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __3:stdgo.StdGoTypes.GoInt64 = __tmp__._3, _isDST:Bool = __tmp__._4;
+        var __tmp__ = _t._loc._lookup(_t.unix()), __1:stdgo.GoString = __tmp__._0, __2:stdgo.StdGoTypes.GoInt = __tmp__._1, __3:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __4:stdgo.StdGoTypes.GoInt64 = __tmp__._3, _isDST:Bool = __tmp__._4;
         return _isDST;
     }
     /**
@@ -7110,7 +7110,7 @@ class Time_asInterface {
         if (_offset == ((-60 : stdgo.StdGoTypes.GoInt))) {
             _t._setLoc((stdgo.Go.setRef(_utcLoc) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Location>));
         } else {
-            var __tmp__ = stdgo.time.Time.local._lookup(_t._unixSec()), __0:stdgo.GoString = __tmp__._0, _localoff:stdgo.StdGoTypes.GoInt = __tmp__._1, __1:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __2:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __3:Bool = __tmp__._4;
+            var __tmp__ = stdgo.time.Time.local._lookup(_t._unixSec()), __1:stdgo.GoString = __tmp__._0, _localoff:stdgo.StdGoTypes.GoInt = __tmp__._1, __2:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __3:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __4:Bool = __tmp__._4;
             if (_offset == (_localoff)) {
                 _t._setLoc(stdgo.time.Time.local);
             } else {
@@ -7131,7 +7131,7 @@ class Time_asInterface {
         if (_t.location() == (stdgo.time.Time.utc)) {
             _offsetMin = (-1 : stdgo.StdGoTypes.GoInt16);
         } else {
-            var __tmp__ = _t.zone(), __0:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1;
+            var __tmp__ = _t.zone(), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1;
             if (_offset % (60 : stdgo.StdGoTypes.GoInt) != ((0 : stdgo.StdGoTypes.GoInt))) {
                 _version = (2 : stdgo.StdGoTypes.GoUInt8);
                 _offsetSec = (_offset % (60 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt8);
@@ -7228,7 +7228,7 @@ _version,
     static public function zoneBounds( _t:Time):{ var _0 : Time; var _1 : Time; } {
         @:recv var _t:Time = _t?.__copy__();
         var _start:Time = ({} : stdgo.time.Time.Time), _end:Time = ({} : stdgo.time.Time.Time);
-        var __tmp__ = _t._loc._lookup(_t._unixSec()), __0:stdgo.GoString = __tmp__._0, __1:stdgo.StdGoTypes.GoInt = __tmp__._1, _startSec:stdgo.StdGoTypes.GoInt64 = __tmp__._2, _endSec:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __2:Bool = __tmp__._4;
+        var __tmp__ = _t._loc._lookup(_t._unixSec()), __1:stdgo.GoString = __tmp__._0, __2:stdgo.StdGoTypes.GoInt = __tmp__._1, _startSec:stdgo.StdGoTypes.GoInt64 = __tmp__._2, _endSec:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __3:Bool = __tmp__._4;
         if (_startSec != ((-9223372036854775808i64 : stdgo.StdGoTypes.GoInt64))) {
             _start = _unixTime(_startSec, (0 : stdgo.StdGoTypes.GoInt32))?.__copy__();
             _start._setLoc(_t._loc);
@@ -7391,7 +7391,7 @@ _version,
     @:keep
     static public function yearDay( _t:Time):stdgo.StdGoTypes.GoInt {
         @:recv var _t:Time = _t?.__copy__();
-        var __tmp__ = _t._date(false), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, __1:stdgo.time.Time.Month = __tmp__._1, __2:stdgo.StdGoTypes.GoInt = __tmp__._2, _yday:stdgo.StdGoTypes.GoInt = __tmp__._3;
+        var __tmp__ = _t._date(false), __1:stdgo.StdGoTypes.GoInt = __tmp__._0, __2:stdgo.time.Time.Month = __tmp__._1, __3:stdgo.StdGoTypes.GoInt = __tmp__._2, _yday:stdgo.StdGoTypes.GoInt = __tmp__._3;
         return _yday + (1 : stdgo.StdGoTypes.GoInt);
     }
     /**
@@ -7452,7 +7452,7 @@ _version,
             _d = (-3 : stdgo.time.Time.Weekday);
         };
         _abs = _abs + ((_d : stdgo.StdGoTypes.GoUInt64) * (86400i64 : stdgo.StdGoTypes.GoUInt64));
-        var __tmp__ = _absDate(_abs, false), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, __0:stdgo.time.Time.Month = __tmp__._1, __1:stdgo.StdGoTypes.GoInt = __tmp__._2, _yday:stdgo.StdGoTypes.GoInt = __tmp__._3;
+        var __tmp__ = _absDate(_abs, false), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, __1:stdgo.time.Time.Month = __tmp__._1, __2:stdgo.StdGoTypes.GoInt = __tmp__._2, _yday:stdgo.StdGoTypes.GoInt = __tmp__._3;
         return { _0 : _year, _1 : (_yday / (7 : stdgo.StdGoTypes.GoInt)) + (1 : stdgo.StdGoTypes.GoInt) };
     }
     /**
@@ -7469,7 +7469,7 @@ _version,
     @:keep
     static public function day( _t:Time):stdgo.StdGoTypes.GoInt {
         @:recv var _t:Time = _t?.__copy__();
-        var __tmp__ = _t._date(true), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, __1:stdgo.time.Time.Month = __tmp__._1, _day:stdgo.StdGoTypes.GoInt = __tmp__._2, __2:stdgo.StdGoTypes.GoInt = __tmp__._3;
+        var __tmp__ = _t._date(true), __1:stdgo.StdGoTypes.GoInt = __tmp__._0, __2:stdgo.time.Time.Month = __tmp__._1, _day:stdgo.StdGoTypes.GoInt = __tmp__._2, __3:stdgo.StdGoTypes.GoInt = __tmp__._3;
         return _day;
     }
     /**
@@ -7478,7 +7478,7 @@ _version,
     @:keep
     static public function month( _t:Time):Month {
         @:recv var _t:Time = _t?.__copy__();
-        var __tmp__ = _t._date(true), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, __1:stdgo.StdGoTypes.GoInt = __tmp__._2, __2:stdgo.StdGoTypes.GoInt = __tmp__._3;
+        var __tmp__ = _t._date(true), __1:stdgo.StdGoTypes.GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, __2:stdgo.StdGoTypes.GoInt = __tmp__._2, __3:stdgo.StdGoTypes.GoInt = __tmp__._3;
         return _month;
     }
     /**
@@ -7487,7 +7487,7 @@ _version,
     @:keep
     static public function year( _t:Time):stdgo.StdGoTypes.GoInt {
         @:recv var _t:Time = _t?.__copy__();
-        var __tmp__ = _t._date(false), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, __0:stdgo.time.Time.Month = __tmp__._1, __1:stdgo.StdGoTypes.GoInt = __tmp__._2, __2:stdgo.StdGoTypes.GoInt = __tmp__._3;
+        var __tmp__ = _t._date(false), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, __1:stdgo.time.Time.Month = __tmp__._1, __2:stdgo.StdGoTypes.GoInt = __tmp__._2, __3:stdgo.StdGoTypes.GoInt = __tmp__._3;
         return _year;
     }
     /**
@@ -7552,7 +7552,7 @@ _version,
             if ((((_l._cacheZone != null) && ((_l._cacheZone : Dynamic).__nil__ == null || !(_l._cacheZone : Dynamic).__nil__)) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
                 _sec = _sec + ((_l._cacheZone._offset : stdgo.StdGoTypes.GoInt64));
             } else {
-                var __tmp__ = _l._lookup(_sec), __0:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, __1:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __2:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __3:Bool = __tmp__._4;
+                var __tmp__ = _l._lookup(_sec), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, __2:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __3:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __4:Bool = __tmp__._4;
                 _sec = _sec + ((_offset : stdgo.StdGoTypes.GoInt64));
             };
         };
@@ -7774,8 +7774,8 @@ _version,
     @:keep
     static public function _appendFormatRFC3339( _t:Time, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _nanos:Bool):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
         @:recv var _t:Time = _t?.__copy__();
-        var __tmp__ = _t._locabs(), __0:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, _abs:stdgo.StdGoTypes.GoUInt64 = __tmp__._2;
-        var __tmp__ = _absDate(_abs, true), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, _day:stdgo.StdGoTypes.GoInt = __tmp__._2, __1:stdgo.StdGoTypes.GoInt = __tmp__._3;
+        var __tmp__ = _t._locabs(), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, _abs:stdgo.StdGoTypes.GoUInt64 = __tmp__._2;
+        var __tmp__ = _absDate(_abs, true), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, _day:stdgo.StdGoTypes.GoInt = __tmp__._2, __2:stdgo.StdGoTypes.GoInt = __tmp__._3;
         _b = _appendInt(_b, _year, (4 : stdgo.StdGoTypes.GoInt));
         _b = (_b.__append__((45 : stdgo.StdGoTypes.GoUInt8)));
         _b = _appendInt(_b, (_month : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt));
@@ -8045,7 +8045,7 @@ _version,
     static public function goString( _t:Time):stdgo.GoString {
         @:recv var _t:Time = _t?.__copy__();
         var _abs:stdgo.StdGoTypes.GoUInt64 = _t._abs();
-        var __tmp__ = _absDate(_abs, true), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, _day:stdgo.StdGoTypes.GoInt = __tmp__._2, __0:stdgo.StdGoTypes.GoInt = __tmp__._3;
+        var __tmp__ = _absDate(_abs, true), _year:stdgo.StdGoTypes.GoInt = __tmp__._0, _month:stdgo.time.Time.Month = __tmp__._1, _day:stdgo.StdGoTypes.GoInt = __tmp__._2, __1:stdgo.StdGoTypes.GoInt = __tmp__._3;
         var __tmp__ = _absClock(_abs), _hour:stdgo.StdGoTypes.GoInt = __tmp__._0, _minute:stdgo.StdGoTypes.GoInt = __tmp__._1, _second:stdgo.StdGoTypes.GoInt = __tmp__._2;
         var _buf = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (("time.Date(9999, time.September, 31, 23, 59, 59, 999999999, time.Local)" : stdgo.GoString).length)).__setNumber32__();
         _buf = (_buf.__append__(...("time.Date(" : stdgo.GoString).__toArray__()));
@@ -8201,7 +8201,7 @@ class Location_asInterface {
         for (_i in 0 ... _l._zone.length.toBasic()) {
             var _zone = (stdgo.Go.setRef(_l._zone[(_i : stdgo.StdGoTypes.GoInt)]) : stdgo.StdGoTypes.Ref<stdgo.time.Time.T_zone>);
             if (_zone._name == (_name)) {
-                var __tmp__ = _l._lookup(_unix - (_zone._offset : stdgo.StdGoTypes.GoInt64)), _nam:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, __0:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __1:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __2:Bool = __tmp__._4;
+                var __tmp__ = _l._lookup(_unix - (_zone._offset : stdgo.StdGoTypes.GoInt64)), _nam:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, __1:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __2:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __3:Bool = __tmp__._4;
                 if (_nam == (_zone._name)) {
                     return { _0 : _offset, _1 : true };
                 };
@@ -8222,7 +8222,7 @@ class Location_asInterface {
     @:keep
     static public function _firstZoneUsed( _l:stdgo.StdGoTypes.Ref<Location>):Bool {
         @:recv var _l:stdgo.StdGoTypes.Ref<Location> = _l;
-        for (__0 => _tx in _l._tx) {
+        for (__1 => _tx in _l._tx) {
             if (_tx._index == ((0 : stdgo.StdGoTypes.GoUInt8))) {
                 return true;
             };

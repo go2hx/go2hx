@@ -2092,7 +2092,7 @@ function benchmarkCompile(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void
                     var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                     stdgo.Go.cfor(_i < _b.n, _i++, {
                         {
-                            var __tmp__ = compile(_data._re?.__copy__()), __16:stdgo.StdGoTypes.Ref<stdgo.regexp.Regexp.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                            var __tmp__ = compile(_data._re?.__copy__()), __25:stdgo.StdGoTypes.Ref<stdgo.regexp.Regexp.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
                                 _b.fatal(stdgo.Go.toInterface(_err));
                             };

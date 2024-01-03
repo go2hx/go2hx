@@ -634,7 +634,7 @@ function testSwapPointer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
         _x._before = _magicptr;
         _x._after = _magicptr;
         var _j:stdgo.unsafe.Unsafe.UnsafePointer = @:default_value null;
-        for (__0 => _p in _testPointers()) {
+        for (__34 => _p in _testPointers()) {
             var _k:stdgo.unsafe.Unsafe.UnsafePointer = swapPointer(stdgo.Go.pointer(_x._i), _p);
             if ((_x._i != _p) || (_k != _j)) {
                 _t.fatalf(("p=%p i=%p j=%p k=%p" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
@@ -652,7 +652,7 @@ function testSwapPointerMethod(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
         _x._before = _magicptr;
         _x._after = _magicptr;
         var _j:stdgo.Pointer<stdgo.StdGoTypes.GoByte> = (null : stdgo.Pointer<stdgo.StdGoTypes.GoUInt8>);
-        for (__0 => _p in _testPointers()) {
+        for (__34 => _p in _testPointers()) {
             var _p = (_p.__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.StdGoTypes.GoByte>);
             var _k = _x._i.swap((0 : stdgo.StdGoTypes.GoUInt8), _p);
             if ((_x._i.load((0 : stdgo.StdGoTypes.GoUInt8)) != _p) || (_k != _j)) {
@@ -1150,7 +1150,7 @@ function testCompareAndSwapPointer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
         _x._before = _magicptr;
         _x._after = _magicptr;
         var _q:stdgo.unsafe.Unsafe.UnsafePointer = (stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoUInt8))) : stdgo.unsafe.Unsafe.UnsafePointer);
-        for (__0 => _p in _testPointers()) {
+        for (__34 => _p in _testPointers()) {
             _x._i = _p;
             if (!compareAndSwapPointer(stdgo.Go.pointer(_x._i), _p, _q)) {
                 _t.fatalf(("should have swapped %p %p" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_q));
@@ -1176,7 +1176,7 @@ function testCompareAndSwapPointerMethod(_t:stdgo.StdGoTypes.Ref<stdgo.testing.T
         _x._before = _magicptr;
         _x._after = _magicptr;
         var _q = stdgo.Go.pointer((0 : stdgo.StdGoTypes.GoUInt8));
-        for (__0 => _p in _testPointers()) {
+        for (__34 => _p in _testPointers()) {
             var _p = (_p.__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.StdGoTypes.GoByte>);
             _x._i.store((0 : stdgo.StdGoTypes.GoUInt8), _p);
             if (!_x._i.compareAndSwap((0 : stdgo.StdGoTypes.GoUInt8), _p, _q)) {
@@ -1400,7 +1400,7 @@ function testLoadPointer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
         var _magicptr:stdgo.StdGoTypes.GoUIntptr = (_m : stdgo.StdGoTypes.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
-        for (__0 => _p in _testPointers()) {
+        for (__34 => _p in _testPointers()) {
             _x._i = _p;
             var _k:stdgo.unsafe.Unsafe.UnsafePointer = loadPointer(stdgo.Go.pointer(_x._i));
             if (_k != (_p)) {
@@ -1417,7 +1417,7 @@ function testLoadPointerMethod(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
         var _magicptr:stdgo.StdGoTypes.GoUIntptr = (_m : stdgo.StdGoTypes.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
-        for (__0 => _p in _testPointers()) {
+        for (__34 => _p in _testPointers()) {
             var _p = (_p.__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.StdGoTypes.GoByte>);
             _x._i.store((0 : stdgo.StdGoTypes.GoUInt8), _p);
             var _k = _x._i.load((0 : stdgo.StdGoTypes.GoUInt8));
@@ -1633,7 +1633,7 @@ function testStorePointer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
         var _magicptr:stdgo.StdGoTypes.GoUIntptr = (_m : stdgo.StdGoTypes.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
-        for (__0 => _p in _testPointers()) {
+        for (__34 => _p in _testPointers()) {
             storePointer(stdgo.Go.pointer(_x._i), _p);
             if (_x._i != (_p)) {
                 _t.fatalf(("x.i=%p p=%p" : stdgo.GoString), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_p));
@@ -1649,7 +1649,7 @@ function testStorePointerMethod(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
         var _magicptr:stdgo.StdGoTypes.GoUIntptr = (_m : stdgo.StdGoTypes.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
-        for (__0 => _p in _testPointers()) {
+        for (__34 => _p in _testPointers()) {
             var _p = (_p.__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.StdGoTypes.GoByte>);
             _x._i.store((0 : stdgo.StdGoTypes.GoUInt8), _p);
             if (_x._i.load((0 : stdgo.StdGoTypes.GoUInt8)) != (_p)) {
@@ -1675,7 +1675,7 @@ function _hammerSwapInt32(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _coun
         };
     }
 function _hammerSwapInt32Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int32>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int32>);
         var _seed:stdgo.StdGoTypes.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr) : stdgo.StdGoTypes.GoInt);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1702,7 +1702,7 @@ function _hammerSwapUint32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _coun
         };
     }
 function _hammerSwapUint32Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint32>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint32>);
         var _seed:stdgo.StdGoTypes.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr) : stdgo.StdGoTypes.GoInt);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1730,7 +1730,7 @@ function _hammerSwapUintptr32(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _
         };
     }
 function _hammerSwapUintptr32Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
         var _seed:stdgo.StdGoTypes.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr) : stdgo.StdGoTypes.GoInt);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -1753,7 +1753,7 @@ function _hammerAddInt32(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _count
         };
     }
 function _hammerAddInt32Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int32>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int32>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -1770,7 +1770,7 @@ function _hammerAddUint32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _count
         };
     }
 function _hammerAddUint32Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint32>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint32>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -1788,7 +1788,7 @@ function _hammerAddUintptr32(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _c
         };
     }
 function _hammerAddUintptr32Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -1811,7 +1811,7 @@ function _hammerCompareAndSwapInt32(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt
         };
     }
 function _hammerCompareAndSwapInt32Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int32>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int32>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -1838,7 +1838,7 @@ function _hammerCompareAndSwapUint32(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt
         };
     }
 function _hammerCompareAndSwapUint32Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint32>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint32>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -1866,7 +1866,7 @@ function _hammerCompareAndSwapUintptr32(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.Go
         };
     }
 function _hammerCompareAndSwapUintptr32Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -1989,7 +1989,7 @@ function _hammerSwapInt64(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _coun
         };
     }
 function _hammerSwapInt64Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int64_", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__4", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__5", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int64_>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int64_", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int64_>);
         var _seed:stdgo.StdGoTypes.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr) : stdgo.StdGoTypes.GoInt);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -2016,7 +2016,7 @@ function _hammerSwapUint64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _coun
         };
     }
 function _hammerSwapUint64Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__4", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__5", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>);
         var _seed:stdgo.StdGoTypes.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr) : stdgo.StdGoTypes.GoInt);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -2047,7 +2047,7 @@ function _hammerSwapUintptr64(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _
     }
 function _hammerSwapUintptr64Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _count:stdgo.StdGoTypes.GoInt):Void {
         if (false) {
-            var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
+            var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
             var _seed:stdgo.StdGoTypes.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr) : stdgo.StdGoTypes.GoInt);
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -2071,7 +2071,7 @@ function _hammerAddInt64(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _count
         };
     }
 function _hammerAddInt64Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int64_", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__4", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__5", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int64_>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int64_", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int64_>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -2088,7 +2088,7 @@ function _hammerAddUint64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _count
         };
     }
 function _hammerAddUint64Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__4", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__5", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -2106,7 +2106,7 @@ function _hammerAddUintptr64(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _c
         };
     }
 function _hammerAddUintptr64Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -2129,7 +2129,7 @@ function _hammerCompareAndSwapInt64(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt
         };
     }
 function _hammerCompareAndSwapInt64Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int64_", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__4", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__5", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int64_>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int64_", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int64_>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -2156,7 +2156,7 @@ function _hammerCompareAndSwapUint64(_addr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt
         };
     }
 function _hammerCompareAndSwapUint64Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__4", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__5", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -2184,7 +2184,7 @@ function _hammerCompareAndSwapUintptr64(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.Go
         };
     }
 function _hammerCompareAndSwapUintptr64Method(_uaddr:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, _count:stdgo.StdGoTypes.GoInt):Void {
-        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
+        var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _count, _i++, {
@@ -2335,7 +2335,7 @@ function _hammerStoreLoadUint32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
         storeUint32(_addr, _new);
     }
 function _hammerStoreLoadUint32Method(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _paddr:stdgo.unsafe.Unsafe.UnsafePointer):Void {
-        var _addr = (_paddr.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint32>);
+        var _addr = (_paddr.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint32", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint32>);
         var _v:stdgo.StdGoTypes.GoUInt32 = _addr.load();
         var _vlo:stdgo.StdGoTypes.GoUInt32 = _v & (65535u32 : stdgo.StdGoTypes.GoUInt32);
         var _vhi:stdgo.StdGoTypes.GoUInt32 = _v >> (16i64 : stdgo.StdGoTypes.GoUInt64);
@@ -2360,7 +2360,7 @@ function _hammerStoreLoadInt64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>,
         storeInt64(_addr, _new);
     }
 function _hammerStoreLoadInt64Method(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _paddr:stdgo.unsafe.Unsafe.UnsafePointer):Void {
-        var _addr = (_paddr.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int64_", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__4", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__5", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int64_>);
+        var _addr = (_paddr.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Int64_", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Int64_>);
         var _v:stdgo.StdGoTypes.GoInt64 = _addr.load();
         var _vlo:stdgo.StdGoTypes.GoInt64 = _v & (4294967295i64 : stdgo.StdGoTypes.GoInt64);
         var _vhi:stdgo.StdGoTypes.GoInt64 = _v >> (32i64 : stdgo.StdGoTypes.GoUInt64);
@@ -2382,7 +2382,7 @@ function _hammerStoreLoadUint64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
         storeUint64(_addr, _new);
     }
 function _hammerStoreLoadUint64Method(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _paddr:stdgo.unsafe.Unsafe.UnsafePointer):Void {
-        var _addr = (_paddr.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__4", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__5", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>);
+        var _addr = (_paddr.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>);
         var _v:stdgo.StdGoTypes.GoUInt64 = _addr.load();
         var _vlo:stdgo.StdGoTypes.GoUInt64 = _v & (4294967295i64 : stdgo.StdGoTypes.GoUInt64);
         var _vhi:stdgo.StdGoTypes.GoUInt64 = _v >> (32i64 : stdgo.StdGoTypes.GoUInt64);
@@ -2421,7 +2421,7 @@ function _hammerStoreLoadUintptr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
     //go:nocheckptr
 **/
 function _hammerStoreLoadUintptrMethod(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _paddr:stdgo.unsafe.Unsafe.UnsafePointer):Void {
-        var _addr = (_paddr.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__2", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
+        var _addr = (_paddr.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uintptr", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uintptr>);
         var _v:stdgo.StdGoTypes.GoUIntptr = _addr.load();
         var _new:stdgo.StdGoTypes.GoUIntptr = _v;
         if (true) {
@@ -2483,7 +2483,7 @@ function _hammerStoreLoadPointer(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
     //go:nocheckptr
 **/
 function _hammerStoreLoadPointerMethod(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _paddr:stdgo.unsafe.Unsafe.UnsafePointer):Void {
-        var _addr = (_paddr.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Pointer_", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__4", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, 0) }, optional : false }, { name : "__5", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Pointer_<stdgo.StdGoTypes.GoByte>>);
+        var _addr = (_paddr.__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Pointer_", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, 0) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Pointer_<stdgo.StdGoTypes.GoByte>>);
         var _v:stdgo.StdGoTypes.GoUIntptr = ((stdgo.Go.toInterface(_addr.load()) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.StdGoTypes.GoUIntptr);
         var _new:stdgo.StdGoTypes.GoUIntptr = _v;
         if (true) {
@@ -2539,7 +2539,7 @@ _hammerStoreLoadUint64Method) : stdgo.Slice<(stdgo.StdGoTypes.Ref<stdgo.testing.
                 __deferstack__.unshift(() -> stdgo.runtime.debug.Debug.setGCPercent(_a0));
             };
             stdgo.runtime.Runtime.gc();
-            for (__0 => _tt in _tests) {
+            for (__34 => _tt in _tests) {
                 var _c = new stdgo.Chan<stdgo.StdGoTypes.GoInt>(0, () -> (0 : stdgo.StdGoTypes.GoInt));
                 var _val:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
                 {
@@ -2960,7 +2960,7 @@ function _shouldPanic(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _name:st
                             { value : (stdgo.Go.typeAssert((_err : stdgo.GoString)) : stdgo.GoString), ok : true };
                         } catch(_) {
                             { value : ("" : stdgo.GoString), ok : false };
-                        }, _s = __tmp__.value, __8 = __tmp__.ok;
+                        }, _s = __tmp__.value, __42 = __tmp__.ok;
                         if (_s != (_want)) {
                             _t.errorf(("%s: wanted panic %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_want), _err);
                         };
@@ -3000,25 +3000,25 @@ function testUnaligned64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             loadUint64(_p);
         });
         _shouldPanic(_t, ("LoadUint64Method" : stdgo.GoString), function():Void {
-            ((stdgo.Go.toInterface(_p) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__8", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__9", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>).load();
+            ((stdgo.Go.toInterface(_p) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__50", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__51", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>).load();
         });
         _shouldPanic(_t, ("StoreUint64" : stdgo.GoString), function():Void {
             storeUint64(_p, (1i64 : stdgo.StdGoTypes.GoUInt64));
         });
         _shouldPanic(_t, ("StoreUint64Method" : stdgo.GoString), function():Void {
-            ((stdgo.Go.toInterface(_p) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__8", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__9", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>).store((1i64 : stdgo.StdGoTypes.GoUInt64));
+            ((stdgo.Go.toInterface(_p) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__50", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__51", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>).store((1i64 : stdgo.StdGoTypes.GoUInt64));
         });
         _shouldPanic(_t, ("CompareAndSwapUint64" : stdgo.GoString), function():Void {
             compareAndSwapUint64(_p, (1i64 : stdgo.StdGoTypes.GoUInt64), (2i64 : stdgo.StdGoTypes.GoUInt64));
         });
         _shouldPanic(_t, ("CompareAndSwapUint64Method" : stdgo.GoString), function():Void {
-            ((stdgo.Go.toInterface(_p) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__8", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__9", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>).compareAndSwap((1i64 : stdgo.StdGoTypes.GoUInt64), (2i64 : stdgo.StdGoTypes.GoUInt64));
+            ((stdgo.Go.toInterface(_p) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__50", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__51", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>).compareAndSwap((1i64 : stdgo.StdGoTypes.GoUInt64), (2i64 : stdgo.StdGoTypes.GoUInt64));
         });
         _shouldPanic(_t, ("AddUint64" : stdgo.GoString), function():Void {
             addUint64(_p, (3i64 : stdgo.StdGoTypes.GoUInt64));
         });
         _shouldPanic(_t, ("AddUint64Method" : stdgo.GoString), function():Void {
-            ((stdgo.Go.toInterface(_p) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__8", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__9", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>).add((3i64 : stdgo.StdGoTypes.GoUInt64));
+            ((stdgo.Go.toInterface(_p) : stdgo.unsafe.Unsafe.UnsafePointer).__convert__(stdgo.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.Uint64", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "__50", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_noCopy", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__51", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_.Atomic_.T_align64", [], stdgo.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.StdGoTypes.Ref<Uint64>).add((3i64 : stdgo.StdGoTypes.GoUInt64));
         });
     }
 function testAutoAligned64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
@@ -3225,7 +3225,7 @@ function():Void {
 function():Void {
             ((null : stdgo.StdGoTypes.Ref<stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.StdGoTypes.GoUInt8>>) : stdgo.StdGoTypes.Ref<Pointer_<stdgo.StdGoTypes.GoByte>>).store((null : stdgo.Pointer<stdgo.StdGoTypes.GoUInt8>));
         }) : stdgo.GoArray<() -> Void>);
-        for (__0 => _f in _funcs) {
+        for (__34 => _f in _funcs) {
             {
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
@@ -3569,7 +3569,7 @@ function testValueConcurrent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
             _p = _p / ((2 : stdgo.StdGoTypes.GoInt));
             n = (1000 : stdgo.StdGoTypes.GoInt);
         };
-        for (__0 => _test in _tests) {
+        for (__34 => _test in _tests) {
             var _v:Value = ({} : stdgo.sync.atomic_.Atomic_.Value);
             var _done = new stdgo.Chan<Bool>((_p : stdgo.StdGoTypes.GoInt).toBasic(), () -> false);
             {
@@ -3585,7 +3585,7 @@ function testValueConcurrent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
                                     var _x:stdgo.StdGoTypes.AnyInterface = _test[(_r.intn((_test.length)) : stdgo.StdGoTypes.GoInt)];
                                     _v.store(_x);
                                     _x = _v.load();
-                                    for (__0 => _x1 in _test) {
+                                    for (__35 => _x1 in _test) {
                                         if (_x == (_x1)) {
                                             @:jump("loop") continue;
                                         };

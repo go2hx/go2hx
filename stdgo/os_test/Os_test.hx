@@ -2923,7 +2923,7 @@ function testRenameCaseDifference(_pt:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
                         };
                     };
                     {
-                        var __tmp__ = stat(_to?.__copy__()), __8:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = stat(_to?.__copy__()), __17:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             if (isNotExist(_err)) {
                                 _t.skipf(("case sensitive filesystem" : stdgo.GoString));
@@ -4876,8 +4876,8 @@ function testLongPath(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                         };
                         _names = (_names.__append__(("link.txt" : stdgo.GoString)));
                     };
-                    for (__48 => _wantSize in (new stdgo.Slice<stdgo.StdGoTypes.GoInt64>(2, 2, (_data.length : stdgo.StdGoTypes.GoInt64), (0i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoInt64>)) {
-                        for (__49 => _name in _names) {
+                    for (__65 => _wantSize in (new stdgo.Slice<stdgo.StdGoTypes.GoInt64>(2, 2, (_data.length : stdgo.StdGoTypes.GoInt64), (0i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.Slice<stdgo.StdGoTypes.GoInt64>)) {
+                        for (__66 => _name in _names) {
                             var _path:stdgo.GoString = _sizedTempDir + ("/" : stdgo.GoString)?.__copy__() + _name?.__copy__()?.__copy__();
                             var __tmp__ = stat(_path?.__copy__()), _dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
@@ -5197,7 +5197,7 @@ function testPipeThreads(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                             var _b:stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 1) (0 : stdgo.StdGoTypes.GoUInt8)]);
                             _creading.__send__(true);
                             {
-                                var __tmp__ = _r[(_i : stdgo.StdGoTypes.GoInt)].read((_b.__slice__(0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                var __tmp__ = _r[(_i : stdgo.StdGoTypes.GoInt)].read((_b.__slice__(0) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __48:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {
                                     _t.error(stdgo.Go.toInterface(_err));
                                 };
@@ -7087,11 +7087,11 @@ function testRemoveAllButReadOnlyAndPathError(_t:stdgo.StdGoTypes.Ref<stdgo.test
 ("c/z/3" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
             var _readonly = (new stdgo.Slice<stdgo.GoString>(1, 1, ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
             var _inReadonly:stdgo.GoString -> Bool = function(_d:stdgo.GoString):Bool {
-                for (__0 => _ro in _readonly) {
+                for (__32 => _ro in _readonly) {
                     if (_d == (_ro)) {
                         return true;
                     };
-                    var __tmp__ = stdgo.path.filepath.Filepath.split(_d?.__copy__()), _dd:stdgo.GoString = __tmp__._0, __1:stdgo.GoString = __tmp__._1;
+                    var __tmp__ = stdgo.path.filepath.Filepath.split(_d?.__copy__()), _dd:stdgo.GoString = __tmp__._0, __33:stdgo.GoString = __tmp__._1;
                     if (stdgo.path.filepath.Filepath.clean(_dd?.__copy__()) == (_ro)) {
                         return true;
                     };
@@ -8005,7 +8005,7 @@ function testMkdirTempBadPattern(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             var _tests = (new stdgo.Slice<T__struct_8>(7, 7, ({ _pattern : ("ioutil*test" : stdgo.GoString), _wantErr : false } : T__struct_8), ({ _pattern : ("tempfile_test*foo" : stdgo.GoString), _wantErr : false } : T__struct_8), ({ _pattern : ("tempfile_test/foo" : stdgo.GoString), _wantErr : true } : T__struct_8), ({ _pattern : ("tempfile_test*/foo" : stdgo.GoString), _wantErr : true } : T__struct_8), ({ _pattern : ("tempfile_test/*foo" : stdgo.GoString), _wantErr : true } : T__struct_8), ({ _pattern : ("/tempfile_test/*foo" : stdgo.GoString), _wantErr : true } : T__struct_8), ({ _pattern : ("tempfile_test*foo/" : stdgo.GoString), _wantErr : true } : T__struct_8)) : stdgo.Slice<T__struct_8>);
             for (__24 => _tt in _tests) {
                 _t.run(_tt._pattern?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-                    var __tmp__ = mkdirTemp(_tmpDir?.__copy__(), _tt._pattern?.__copy__()), __0:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = mkdirTemp(_tmpDir?.__copy__(), _tt._pattern?.__copy__()), __33:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_tt._wantErr) {
                         if (_err == null) {
                             _t.errorf(("MkdirTemp(..., %#q) succeeded, expected error" : stdgo.GoString), stdgo.Go.toInterface(_tt._pattern));

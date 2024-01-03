@@ -1048,7 +1048,7 @@ function nopCloser(_r:Reader):ReadCloser {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r) : WriterTo)) : WriterTo), ok : true };
             } catch(_) {
                 { value : (null : stdgo.io.Io.WriterTo), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+            }, __6 = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return stdgo.Go.asInterface((new stdgo.io.Io.T_nopCloserWriterTo(_r) : stdgo.io.Io.T_nopCloserWriterTo));
             };
@@ -1100,7 +1100,7 @@ function multiReader(_readers:haxe.Rest<Reader>):Reader {
 function multiWriter(_writers:haxe.Rest<Writer>):Writer {
         var _writers = new stdgo.Slice<Writer>(_writers.length, 0, ..._writers);
         var _allWriters = new stdgo.Slice<stdgo.io.Io.Writer>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (_writers.length));
-        for (__0 => _w in _writers) {
+        for (__6 => _w in _writers) {
             {
                 var __tmp__ = try {
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo.StdGoTypes.Ref<T_multiWriter>)) : stdgo.StdGoTypes.Ref<T_multiWriter>), ok : true };
@@ -1588,7 +1588,7 @@ class T_multiWriter_asInterface {
         @:recv var _t:stdgo.StdGoTypes.Ref<T_multiWriter> = _t;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         var _p:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
-        for (__0 => _w in _t._writers) {
+        for (__6 => _w in _t._writers) {
             {
                 var __tmp__ = try {
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : StringWriter)) : StringWriter), ok : true };
@@ -1626,7 +1626,7 @@ class T_multiWriter_asInterface {
     static public function write( _t:stdgo.StdGoTypes.Ref<T_multiWriter>, _p:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo.StdGoTypes.Ref<T_multiWriter> = _t;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        for (__0 => _w in _t._writers) {
+        for (__6 => _w in _t._writers) {
             {
                 var __tmp__ = _w.write(_p);
                 _n = __tmp__._0;

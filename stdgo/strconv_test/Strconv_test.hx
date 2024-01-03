@@ -2655,7 +2655,7 @@ function _benchmarkParseInt(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _n
                 {
                     var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                     stdgo.Go.cfor(_i < _b.n, _i++, {
-                        var __tmp__ = parseInt(_s?.__copy__(), (10 : stdgo.StdGoTypes.GoInt), (64 : stdgo.StdGoTypes.GoInt)), _out:stdgo.StdGoTypes.GoInt64 = __tmp__._0, __8:stdgo.Error = __tmp__._1;
+                        var __tmp__ = parseInt(_s?.__copy__(), (10 : stdgo.StdGoTypes.GoInt), (64 : stdgo.StdGoTypes.GoInt)), _out:stdgo.StdGoTypes.GoInt64 = __tmp__._0, __17:stdgo.Error = __tmp__._1;
                         benchSink = benchSink + ((_out : stdgo.StdGoTypes.GoInt));
                     });
                 };
@@ -2681,7 +2681,7 @@ function _benchmarkAtoi(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _neg:s
                 {
                     var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                     stdgo.Go.cfor(_i < _b.n, _i++, {
-                        var __tmp__ = atoi(_s?.__copy__()), _out:stdgo.StdGoTypes.GoInt = __tmp__._0, __8:stdgo.Error = __tmp__._1;
+                        var __tmp__ = atoi(_s?.__copy__()), _out:stdgo.StdGoTypes.GoInt = __tmp__._0, __17:stdgo.Error = __tmp__._1;
                         benchSink = benchSink + (_out);
                     });
                 };

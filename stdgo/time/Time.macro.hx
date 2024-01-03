@@ -181,7 +181,7 @@ macro function _parseRFC3339<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_byte
                     var _ok:Bool = true;
                     var _parseUint:($T_bytes, stdgo.StdGoTypes.GoInt, stdgo.StdGoTypes.GoInt) -> stdgo.StdGoTypes.GoInt = function(_s:$T_bytes, _min:stdgo.StdGoTypes.GoInt, _max:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.GoInt {
                         var _x:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-                        for (__0 => _c in (_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>)) {
+                        for (__1 => _c in (_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>)) {
                             if ((_c < (48 : stdgo.StdGoTypes.GoUInt8)) || ((57 : stdgo.StdGoTypes.GoUInt8) < _c)) {
                                 _ok = false;
                                 return _min;
@@ -233,7 +233,7 @@ macro function _parseRFC3339<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_byte
                         };
                         _t._addSec(-(_zoneOffset : stdgo.StdGoTypes.GoInt64));
                         {
-                            var __tmp__ = _local._lookup(_t._unixSec()), __0:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, __1:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __2:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __3:Bool = __tmp__._4;
+                            var __tmp__ = _local._lookup(_t._unixSec()), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1, __2:stdgo.StdGoTypes.GoInt64 = __tmp__._2, __3:stdgo.StdGoTypes.GoInt64 = __tmp__._3, __4:Bool = __tmp__._4;
                             if (_offset == (_zoneOffset)) {
                                 _t._setLoc(_local);
                             } else {

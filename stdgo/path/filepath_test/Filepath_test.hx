@@ -1732,10 +1732,10 @@ function testWalkSkipDirOnFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
             return (null : stdgo.Error);
         };
-        var _walkFn:(stdgo.GoString, stdgo.io.fs.Fs.FileInfo, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __0:stdgo.io.fs.Fs.FileInfo, __1:stdgo.Error):stdgo.Error {
+        var _walkFn:(stdgo.GoString, stdgo.io.fs.Fs.FileInfo, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __16:stdgo.io.fs.Fs.FileInfo, __17:stdgo.Error):stdgo.Error {
             return _walker(_path?.__copy__());
         };
-        var _walkDirFn:(stdgo.GoString, stdgo.io.fs.Fs.DirEntry, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __0:stdgo.io.fs.Fs.DirEntry, __1:stdgo.Error):stdgo.Error {
+        var _walkDirFn:(stdgo.GoString, stdgo.io.fs.Fs.DirEntry, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __16:stdgo.io.fs.Fs.DirEntry, __17:stdgo.Error):stdgo.Error {
             return _walker(_path?.__copy__());
         };
         var _check = function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _walk:(_root:stdgo.GoString) -> stdgo.Error, _root:stdgo.GoString):Void {
@@ -1794,10 +1794,10 @@ function testWalkSkipAllOnFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
             return (null : stdgo.Error);
         };
-        var _walkFn:(stdgo.GoString, stdgo.io.fs.Fs.FileInfo, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __0:stdgo.io.fs.Fs.FileInfo, __1:stdgo.Error):stdgo.Error {
+        var _walkFn:(stdgo.GoString, stdgo.io.fs.Fs.FileInfo, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __24:stdgo.io.fs.Fs.FileInfo, __25:stdgo.Error):stdgo.Error {
             return _walker(_path?.__copy__());
         };
-        var _walkDirFn:(stdgo.GoString, stdgo.io.fs.Fs.DirEntry, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __0:stdgo.io.fs.Fs.DirEntry, __1:stdgo.Error):stdgo.Error {
+        var _walkDirFn:(stdgo.GoString, stdgo.io.fs.Fs.DirEntry, stdgo.Error) -> stdgo.Error = function(_path:stdgo.GoString, __24:stdgo.io.fs.Fs.DirEntry, __25:stdgo.Error):stdgo.Error {
             return _walker(_path?.__copy__());
         };
         var _check = function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _walk:(_root:stdgo.GoString) -> stdgo.Error, _root:stdgo.GoString):Void {
@@ -1814,14 +1814,14 @@ function testWalkSkipAllOnFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
         };
         _t.run(("Walk" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-            var walk:stdgo.GoString -> stdgo.Error = function(__0:stdgo.GoString):stdgo.Error {
+            var walk:stdgo.GoString -> stdgo.Error = function(__32:stdgo.GoString):stdgo.Error {
                 return stdgo.path.filepath.Filepath.walk(_td?.__copy__(), _walkFn);
             };
             _check(_t, walk, _td?.__copy__());
             _check(_t, walk, stdgo.path.filepath.Filepath.join(_td?.__copy__(), ("dir" : stdgo.GoString))?.__copy__());
         });
         _t.run(("WalkDir" : stdgo.GoString), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
-            var walkDir:stdgo.GoString -> stdgo.Error = function(__0:stdgo.GoString):stdgo.Error {
+            var walkDir:stdgo.GoString -> stdgo.Error = function(__40:stdgo.GoString):stdgo.Error {
                 return stdgo.path.filepath.Filepath.walkDir(_td?.__copy__(), _walkDirFn);
             };
             _check(_t, walkDir, _td?.__copy__());
@@ -1863,7 +1863,7 @@ function testWalkFileError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Error>);
             var _err:stdgo.Error = stdgo.path.filepath.Filepath.walk(_td?.__copy__(), function(_path:stdgo.GoString, _fi:stdgo.io.fs.Fs.FileInfo, _err:stdgo.Error):stdgo.Error {
-                var __tmp__ = stdgo.path.filepath.Filepath.rel(_td?.__copy__(), _path?.__copy__()), _rel:stdgo.GoString = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.path.filepath.Filepath.rel(_td?.__copy__(), _path?.__copy__()), _rel:stdgo.GoString = __tmp__._0, __16:stdgo.Error = __tmp__._1;
                 _got[stdgo.path.filepath.Filepath.toSlash(_rel?.__copy__())] = _err;
                 return (null : stdgo.Error);
             });

@@ -355,7 +355,7 @@ function _processOptions(_env:stdgo.GoString):Void {
                 };
                 stdgo.Go.print(("GODEBUG: unknown cpu feature \"" : stdgo.GoString), _key, ("\"\n" : stdgo.GoString));
             };
-            for (__0 => _o in _options) {
+            for (__74 => _o in _options) {
                 if (!_o.specified) {
                     continue;
                 };

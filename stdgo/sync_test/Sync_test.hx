@@ -732,7 +732,7 @@ function examplePool():Void {
 function exampleWaitGroup():Void {
         var _wg:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
         var _urls:stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ("http://www.golang.org/" : stdgo.GoString), ("http://www.google.com/" : stdgo.GoString), ("http://www.example.com/" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        for (__0 => _url in _urls) {
+        for (__4 => _url in _urls) {
             _wg.add((1 : stdgo.StdGoTypes.GoInt));
             stdgo.Go.routine(() -> {
                 var a = function(_url:stdgo.GoString):Void {
@@ -792,7 +792,7 @@ function exampleOnce():Void {
         };
     }
 function _benchMap(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _bench:T_bench):Void {
-        for (__0 => _m in (new stdgo.GoArray<stdgo.sync_test.Sync_test.T_mapInterface>(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.sync_test.Sync_test.DeepCopyMap() : stdgo.sync_test.Sync_test.DeepCopyMap)) : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>)), stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.sync_test.Sync_test.RWMutexMap() : stdgo.sync_test.Sync_test.RWMutexMap)) : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.RWMutexMap>)), stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.sync.Sync.Map_() : stdgo.sync.Sync.Map_)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Map_>))) : stdgo.GoArray<stdgo.sync_test.Sync_test.T_mapInterface>)) {
+        for (__4 => _m in (new stdgo.GoArray<stdgo.sync_test.Sync_test.T_mapInterface>(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.sync_test.Sync_test.DeepCopyMap() : stdgo.sync_test.Sync_test.DeepCopyMap)) : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>)), stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.sync_test.Sync_test.RWMutexMap() : stdgo.sync_test.Sync_test.RWMutexMap)) : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.RWMutexMap>)), stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo.sync.Sync.Map_() : stdgo.sync.Sync.Map_)) : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Map_>))) : stdgo.GoArray<stdgo.sync_test.Sync_test.T_mapInterface>)) {
             _b.run(stdgo.fmt.Fmt.sprintf(("%T" : stdgo.GoString), stdgo.Go.toInterface(_m))?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
                 _m = (stdgo.Go.typeAssert((stdgo.reflect.Reflect.new_(stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(_m)).elem()).interface_() : T_mapInterface)) : T_mapInterface);
                 if (_bench._setup != null) {
@@ -809,7 +809,7 @@ function _benchMap(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _bench:T_be
     }
 function benchmarkLoadMostlyHits(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < (1023 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -830,7 +830,7 @@ function benchmarkLoadMostlyHits(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B
     }
 function benchmarkLoadMostlyMisses(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < (1 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -857,7 +857,7 @@ function benchmarkLoadOrStoreBalanced(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Test
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                }, __4 = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -879,7 +879,7 @@ function benchmarkLoadOrStoreBalanced(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Test
                 var _j:stdgo.StdGoTypes.GoInt = _i % (256 : stdgo.StdGoTypes.GoInt);
                 if (_j < (128 : stdgo.StdGoTypes.GoInt)) {
                     {
-                        var __tmp__ = _m.loadOrStore(stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_i)), __0:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = _m.loadOrStore(stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_i)), __4:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (!_ok) {
                             _b.fatalf(("unexpected miss for %v" : stdgo.GoString), stdgo.Go.toInterface(_j));
                         };
@@ -902,7 +902,7 @@ function benchmarkLoadOrStoreUnique(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                }, __4 = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -914,7 +914,7 @@ function benchmarkLoadOrStoreUnique(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
         } } : stdgo.sync_test.Sync_test.T_bench));
     }
 function benchmarkLoadOrStoreCollision(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             _m.loadOrStore(stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)));
         }, _perG : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>, _i:stdgo.StdGoTypes.GoInt, _m:T_mapInterface):Void {
             stdgo.Go.cfor(_pb.next(), _i++, {
@@ -930,7 +930,7 @@ function benchmarkLoadAndDeleteBalanced(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Te
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                }, __4 = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -965,7 +965,7 @@ function benchmarkLoadAndDeleteUnique(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Test
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                }, __4 = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -977,12 +977,12 @@ function benchmarkLoadAndDeleteUnique(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Test
         } } : stdgo.sync_test.Sync_test.T_bench));
     }
 function benchmarkLoadAndDeleteCollision(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             _m.loadOrStore(stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)));
         }, _perG : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>, _i:stdgo.StdGoTypes.GoInt, _m:T_mapInterface):Void {
             stdgo.Go.cfor(_pb.next(), _i++, {
                 {
-                    var __tmp__ = _m.loadAndDelete(stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt))), __0:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1;
+                    var __tmp__ = _m.loadAndDelete(stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt))), __4:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1;
                     if (_loaded) {
                         _m.store(stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)));
                     };
@@ -992,7 +992,7 @@ function benchmarkLoadAndDeleteCollision(_b:stdgo.StdGoTypes.Ref<stdgo.testing.T
     }
 function benchmarkRange(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < (1024 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -1001,7 +1001,7 @@ function benchmarkRange(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
             };
         }, _perG : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>, _i:stdgo.StdGoTypes.GoInt, _m:T_mapInterface):Void {
             stdgo.Go.cfor(_pb.next(), _i++, {
-                _m.range(function(__0:stdgo.StdGoTypes.AnyInterface, __1:stdgo.StdGoTypes.AnyInterface):Bool {
+                _m.range(function(__4:stdgo.StdGoTypes.AnyInterface, __5:stdgo.StdGoTypes.AnyInterface):Bool {
                     return true;
                 });
             });
@@ -1039,7 +1039,7 @@ function benchmarkAdversarialAlloc(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
 **/
 function benchmarkAdversarialDelete(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < (1024 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -1050,7 +1050,7 @@ function benchmarkAdversarialDelete(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             stdgo.Go.cfor(_pb.next(), _i++, {
                 _m.load(stdgo.Go.toInterface(_i));
                 if (_i % (1024 : stdgo.StdGoTypes.GoInt) == ((0 : stdgo.StdGoTypes.GoInt))) {
-                    _m.range(function(_k:stdgo.StdGoTypes.AnyInterface, __0:stdgo.StdGoTypes.AnyInterface):Bool {
+                    _m.range(function(_k:stdgo.StdGoTypes.AnyInterface, __4:stdgo.StdGoTypes.AnyInterface):Bool {
                         _m.delete(_k);
                         return false;
                     });
@@ -1060,7 +1060,7 @@ function benchmarkAdversarialDelete(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
         } } : stdgo.sync_test.Sync_test.T_bench));
     }
 function benchmarkDeleteCollision(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             _m.loadOrStore(stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)));
         }, _perG : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>, _i:stdgo.StdGoTypes.GoInt, _m:T_mapInterface):Void {
             stdgo.Go.cfor(_pb.next(), _i++, {
@@ -1069,7 +1069,7 @@ function benchmarkDeleteCollision(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
         } } : stdgo.sync_test.Sync_test.T_bench));
     }
 function benchmarkSwapCollision(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             _m.loadOrStore(stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)));
         }, _perG : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>, _i:stdgo.StdGoTypes.GoInt, _m:T_mapInterface):Void {
             stdgo.Go.cfor(_pb.next(), _i++, {
@@ -1079,7 +1079,7 @@ function benchmarkSwapCollision(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>
     }
 function benchmarkSwapMostlyHits(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < (1023 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -1106,7 +1106,7 @@ function benchmarkSwapMostlyHits(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B
     }
 function benchmarkSwapMostlyMisses(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < (1 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -1132,7 +1132,7 @@ function benchmarkSwapMostlyMisses(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
         } } : stdgo.sync_test.Sync_test.T_bench));
     }
 function benchmarkCompareAndSwapCollision(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             _m.loadOrStore(stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)));
         }, _perG : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>, _i:stdgo.StdGoTypes.GoInt, _m:T_mapInterface):Void {
             while (_pb.next()) {
@@ -1152,7 +1152,7 @@ function benchmarkCompareAndSwapNoExistingKey(_b:stdgo.StdGoTypes.Ref<stdgo.test
         } } : stdgo.sync_test.Sync_test.T_bench));
     }
 function benchmarkCompareAndSwapValueNotEqual(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             _m.store(stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)));
         }, _perG : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>, _i:stdgo.StdGoTypes.GoInt, _m:T_mapInterface):Void {
             stdgo.Go.cfor(_pb.next(), _i++, {
@@ -1168,7 +1168,7 @@ function benchmarkCompareAndSwapMostlyHits(_b:stdgo.StdGoTypes.Ref<stdgo.testing
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                }, __4 = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -1197,7 +1197,7 @@ function benchmarkCompareAndSwapMostlyHits(_b:stdgo.StdGoTypes.Ref<stdgo.testing
     }
 function benchmarkCompareAndSwapMostlyMisses(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < (1 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -1221,7 +1221,7 @@ function benchmarkCompareAndSwapMostlyMisses(_b:stdgo.StdGoTypes.Ref<stdgo.testi
         } } : stdgo.sync_test.Sync_test.T_bench));
     }
 function benchmarkCompareAndDeleteCollision(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             _m.loadOrStore(stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)));
         }, _perG : function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>, _i:stdgo.StdGoTypes.GoInt, _m:T_mapInterface):Void {
             stdgo.Go.cfor(_pb.next(), _i++, {
@@ -1239,7 +1239,7 @@ function benchmarkCompareAndDeleteMostlyHits(_b:stdgo.StdGoTypes.Ref<stdgo.testi
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.StdGoTypes.Ref<DeepCopyMap>)) : stdgo.StdGoTypes.Ref<DeepCopyMap>), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok : false };
-                }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                }, __4 = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -1270,7 +1270,7 @@ function benchmarkCompareAndDeleteMostlyHits(_b:stdgo.StdGoTypes.Ref<stdgo.testi
     }
 function benchmarkCompareAndDeleteMostlyMisses(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
-        _benchMap(_b, ({ _setup : function(__0:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
+        _benchMap(_b, ({ _setup : function(__4:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < (1 : stdgo.StdGoTypes.GoInt), _i++, {
@@ -1304,7 +1304,7 @@ function _randValue(_r:stdgo.StdGoTypes.Ref<stdgo.math.rand.Rand.Rand>):stdgo.St
     }
 function _applyCalls(_m:T_mapInterface, _calls:stdgo.Slice<T_mapCall>):{ var _0 : stdgo.Slice<T_mapResult>; var _1 : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>; } {
         var _results:stdgo.Slice<T_mapResult> = (null : stdgo.Slice<stdgo.sync_test.Sync_test.T_mapResult>), _final:stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface> = (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>);
-        for (__0 => _c in _calls) {
+        for (__4 => _c in _calls) {
             var __tmp__ = _c._apply(_m), _v:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
             _results = (_results.__append__((new stdgo.sync_test.Sync_test.T_mapResult(_v, _ok) : stdgo.sync_test.Sync_test.T_mapResult)));
         };
@@ -1501,7 +1501,7 @@ function testMapRangeNestedCall(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
                     };
                 };
                 {
-                    var __tmp__ = _m.loadOrStore(stdgo.Go.toInterface((42 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(("dummy" : stdgo.GoString))), __16:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1;
+                    var __tmp__ = _m.loadOrStore(stdgo.Go.toInterface((42 : stdgo.StdGoTypes.GoInt)), stdgo.Go.toInterface(("dummy" : stdgo.GoString))), __32:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1;
                     if (_loaded) {
                         _t.fatalf(("Nested Range loads unexpected value, want store a new value" : stdgo.GoString));
                     };
@@ -1678,7 +1678,7 @@ function testMutex(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     }
 function testMutexMisuse(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         stdgo.internal.testenv.Testenv.mustHaveExec(stdgo.Go.asInterface(_t));
-        for (__0 => _test in _misuseTests) {
+        for (__4 => _test in _misuseTests) {
             var __tmp__ = stdgo.os.exec.Exec.command(stdgo.os.Os.args[(0 : stdgo.StdGoTypes.GoInt)]?.__copy__(), ("TESTMISUSE" : stdgo.GoString), _test._name?.__copy__()).combinedOutput(), _out:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if ((_err == null) || !stdgo.strings.Strings.contains((_out : stdgo.GoString)?.__copy__(), ("unlocked" : stdgo.GoString))) {
                 _t.errorf(("%s: did not find failure with message about unlocked lock: %s\n%s\n" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_out));
@@ -2029,7 +2029,7 @@ function _testOncePanicX(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _call
         });
     }
 function _testOncePanicWith(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _calls:stdgo.Pointer<stdgo.StdGoTypes.GoInt>, _f:() -> Void, _check:(_label:stdgo.GoString, _p:stdgo.StdGoTypes.AnyInterface) -> Void):Void {
-        for (__0 => _label in (new stdgo.Slice<stdgo.GoString>(2, 2, ("first time" : stdgo.GoString), ("second time" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__4 => _label in (new stdgo.Slice<stdgo.GoString>(2, 2, ("first time" : stdgo.GoString), ("second time" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
             var _p:stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
             var _panicked:Bool = true;
             {
@@ -2714,7 +2714,7 @@ function benchmarkPoolSTW(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void
                 return _pauses[(_i : stdgo.StdGoTypes.GoInt)] < _pauses[(_j : stdgo.StdGoTypes.GoInt)];
             });
             var _total:stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
-            for (__8 => _ns in _pauses) {
+            for (__12 => _ns in _pauses) {
                 _total = _total + (_ns);
             };
             _b.reportMetric((_total : stdgo.StdGoTypes.GoFloat64) / (_b.n : stdgo.StdGoTypes.GoFloat64), ("ns/op" : stdgo.GoString));
@@ -3473,7 +3473,7 @@ function benchmarkWaitGroupActuallyWait(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Te
 @:keep var _ = {
         try {
             if ((stdgo.os.Os.args.length == (3 : stdgo.StdGoTypes.GoInt)) && (stdgo.os.Os.args[(1 : stdgo.StdGoTypes.GoInt)] == ("TESTMISUSE" : stdgo.GoString))) {
-                for (__0 => _test in _misuseTests) {
+                for (__4 => _test in _misuseTests) {
                     if (_test._name == (stdgo.os.Os.args[((2 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)])) {
                         {
                             var a = function():Void {
@@ -3577,7 +3577,7 @@ class RWMutexMap_asInterface {
             _keys = (_keys.__append__(_k));
         };
         _m._mu.runlock();
-        for (__24 => _k in _keys) {
+        for (__28 => _k in _keys) {
             var __tmp__ = _m.load(_k), _v:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 continue;
@@ -3831,7 +3831,7 @@ class DeepCopyMap_asInterface {
             { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
         } catch(_) {
             { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-        }, _clean = __tmp__.value, __0 = __tmp__.ok;
+        }, _clean = __tmp__.value, __4 = __tmp__.ok;
         var _dirty = ({
             final x = new stdgo.GoMap.GoAnyInterfaceMap<stdgo.StdGoTypes.AnyInterface>();
             x.__defaultValue__ = () -> (null : stdgo.StdGoTypes.AnyInterface);
@@ -3850,7 +3850,7 @@ class DeepCopyMap_asInterface {
             { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
         } catch(_) {
             { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-        }, _clean = __tmp__.value, __0 = __tmp__.ok;
+        }, _clean = __tmp__.value, __4 = __tmp__.ok;
         for (_k => _v in _clean) {
             if (!_f(_k, _v)) {
                 break;
@@ -3867,7 +3867,7 @@ class DeepCopyMap_asInterface {
                 { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
             } catch(_) {
                 { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-            }, _clean = __tmp__.value, __0 = __tmp__.ok;
+            }, _clean = __tmp__.value, __4 = __tmp__.ok;
             {
                 var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false }), _previous:stdgo.StdGoTypes.AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (!_ok || (_previous != _old)) {
@@ -3925,7 +3925,7 @@ class DeepCopyMap_asInterface {
                 { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
             } catch(_) {
                 { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-            }, _clean = __tmp__.value, __0 = __tmp__.ok;
+            }, _clean = __tmp__.value, __4 = __tmp__.ok;
             {
                 var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false }), _previous:stdgo.StdGoTypes.AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (!_ok || (_previous != _old)) {
@@ -4022,7 +4022,7 @@ class DeepCopyMap_asInterface {
             { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
         } catch(_) {
             { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-        }, _clean = __tmp__.value, __0 = __tmp__.ok;
+        }, _clean = __tmp__.value, __4 = __tmp__.ok;
         {
             var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false });
             _actual = __tmp__.value;
@@ -4071,7 +4071,7 @@ class DeepCopyMap_asInterface {
             { value : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>)) : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : true };
         } catch(_) {
             { value : (null : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>), ok : false };
-        }, _clean = __tmp__.value, __0 = __tmp__.ok;
+        }, _clean = __tmp__.value, __4 = __tmp__.ok;
         {
             var __tmp__ = (_clean != null && _clean.exists(_key) ? { value : _clean[_key], ok : true } : { value : (null : stdgo.StdGoTypes.AnyInterface), ok : false });
             _value = __tmp__.value;
@@ -4134,7 +4134,7 @@ class T_mapCall_asInterface {
             } else if (__value__ == ((("CompareAndDelete" : stdgo.GoString) : stdgo.sync_test.Sync_test.T_mapOp))) {
                 if (_m.compareAndDelete(_c._k, _c._v)) {
                     {
-                        var __tmp__ = _m.load(_c._k), __0:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = _m.load(_c._k), __4:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (!_ok) {
                             return { _0 : (null : stdgo.StdGoTypes.AnyInterface), _1 : true };
                         };

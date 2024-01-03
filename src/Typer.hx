@@ -6403,10 +6403,14 @@ private function getRecvName(recv:Ast.Expr, info:Info):String {
 		return getRecvName(recv.x, info);
 	}
 	final t = typeof(recv, info, false);
+	// return className(recv.name, info);
 	switch t {
 		case named(path, _, _, _, _):
 			path = Path.withoutDirectory(path);
 			path = Path.extension(path);
+			final index = path.indexOf("[");
+			if (index != -1)
+				path = path.substr(0, index);
 			return className(path, info);
 		default:
 			throw "invalid recv type: " + t;

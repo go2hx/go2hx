@@ -53,12 +53,14 @@ class ChanData<T> {
 	}
 
 	public function __isSend__(reset:Bool = true):Bool {
-		__mutex__.acquire();
-		final value = __sendBool__;
-		if (reset && value)
-			__sendBool__ = false;
+		if (!__mutex__.tryAcquire()) {
+			return false;
+		}
+		if (closed) {
+			return false;
+		}
 		__mutex__.release();
-		return value;
+		return true;
 	}
 
 	public function __isGet__(reset:Bool = true):Bool {

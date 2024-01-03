@@ -387,9 +387,6 @@ function exampleDumper():Void {
             for (__0 => _line in _lines) {
                 _stdoutDumper.write((_line : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
             };
-            for (defer in __deferstack__) {
-                defer();
-            };
             {
                 for (defer in __deferstack__) {
                     defer();

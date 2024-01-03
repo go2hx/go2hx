@@ -358,7 +358,7 @@ function benchmarkDecodeString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1332>)
+[\(view code\)](<./Base64.hx#L1329>)
 
 
 ## function benchmarkEncodeToString
@@ -369,7 +369,7 @@ function benchmarkEncodeToString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1322>)
+[\(view code\)](<./Base64.hx#L1319>)
 
 
 ## function benchmarkNewEncoding
@@ -380,7 +380,7 @@ function benchmarkNewEncoding(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1351>)
+[\(view code\)](<./Base64.hx#L1348>)
 
 
 ## function newDecoder
@@ -463,7 +463,7 @@ function testBig(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1176>)
+[\(view code\)](<./Base64.hx#L1173>)
 
 
 ## function testDecode
@@ -507,7 +507,7 @@ function testDecodedLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1166>)
+[\(view code\)](<./Base64.hx#L1163>)
 
 
 ## function testDecoder
@@ -540,7 +540,7 @@ function testDecoderIssue15656(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1301>)
+[\(view code\)](<./Base64.hx#L1298>)
 
 
 ## function testDecoderIssue3577
@@ -554,7 +554,7 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 tests that we don't ignore errors from our underlying reader  
 
-[\(view code\)](<./Base64.hx#L1246>)
+[\(view code\)](<./Base64.hx#L1243>)
 
 
 ## function testDecoderIssue4779
@@ -565,7 +565,7 @@ function testDecoderIssue4779(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1269>)
+[\(view code\)](<./Base64.hx#L1266>)
 
 
 ## function testDecoderIssue7733
@@ -576,7 +576,7 @@ function testDecoderIssue7733(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1291>)
+[\(view code\)](<./Base64.hx#L1288>)
 
 
 ## function testDecoderRaw
@@ -587,7 +587,7 @@ function testDecoderRaw(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1363>)
+[\(view code\)](<./Base64.hx#L1360>)
 
 
 ## function testEncode
@@ -609,7 +609,7 @@ function testEncodedLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1143>)
+[\(view code\)](<./Base64.hx#L1140>)
 
 
 ## function testEncoder
@@ -642,7 +642,7 @@ function testNewLineCharacters(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1213>)
+[\(view code\)](<./Base64.hx#L1210>)
 
 
 # Classes
@@ -713,7 +713,7 @@ source buffer si.
 It returns the number of bytes read from src, the number of bytes written
 to dst, and an error, if any.  
 
-[\(view code\)](<./Base64.hx#L1569>)
+[\(view code\)](<./Base64.hx#L1566>)
 
 
 ### Encoding function decode
@@ -734,7 +734,7 @@ written. If src contains invalid base64 data, it will return the
 number of bytes successfully written and CorruptInputError.
 New line characters \(\\r and \\n\) are ignored.  
 
-[\(view code\)](<./Base64.hx#L1482>)
+[\(view code\)](<./Base64.hx#L1479>)
 
 
 ### Encoding function decodeString
@@ -751,7 +751,7 @@ function decodeString( _s:stdgo.GoString):{
 
 DecodeString returns the bytes represented by the base64 string s.  
 
-[\(view code\)](<./Base64.hx#L1555>)
+[\(view code\)](<./Base64.hx#L1552>)
 
 
 ### Encoding function decodedLen
@@ -766,7 +766,7 @@ function decodedLen( _n:stdgo.GoInt):stdgo.GoInt
 DecodedLen returns the maximum length in bytes of the decoded data
 corresponding to n bytes of base64\-encoded data.  
 
-[\(view code\)](<./Base64.hx#L1467>)
+[\(view code\)](<./Base64.hx#L1464>)
 
 
 ### Encoding function encode
@@ -786,7 +786,7 @@ The encoding pads the output to a multiple of 4 bytes,
 so Encode is not appropriate for use on individual blocks
 of a large data stream. Use NewEncoder\(\) instead.  
 
-[\(view code\)](<./Base64.hx#L1710>)
+[\(view code\)](<./Base64.hx#L1707>)
 
 
 ### Encoding function encodeToString
@@ -800,7 +800,7 @@ function encodeToString( _src:stdgo.Slice<stdgo.GoByte>):stdgo.GoString
 
 EncodeToString returns the base64 encoding of src.  
 
-[\(view code\)](<./Base64.hx#L1695>)
+[\(view code\)](<./Base64.hx#L1692>)
 
 
 ### Encoding function encodedLen
@@ -815,7 +815,7 @@ function encodedLen( _n:stdgo.GoInt):stdgo.GoInt
 EncodedLen returns the length in bytes of the base64 encoding
 of an input buffer of length n.  
 
-[\(view code\)](<./Base64.hx#L1684>)
+[\(view code\)](<./Base64.hx#L1681>)
 
 
 ### Encoding function strict
@@ -835,7 +835,7 @@ trailing padding bits are zero, as described in RFC 4648 section 3.5.
 Note that the input is still malleable, as new line characters
 \(CR and LF\) are still ignored.  
 
-[\(view code\)](<./Base64.hx#L1761>)
+[\(view code\)](<./Base64.hx#L1758>)
 
 
 ### Encoding function withPadding
@@ -855,7 +855,7 @@ below '\\xff'.
 Padding characters above '\\x7f' are encoded as their exact byte value
 rather than using the UTF\-8 representation of the codepoint.  
 
-[\(view code\)](<./Base64.hx#L1776>)
+[\(view code\)](<./Base64.hx#L1773>)
 
 
 # Typedefs

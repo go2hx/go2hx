@@ -129,7 +129,7 @@ function exampleEncodeToString():Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L63>)
+[\(view code\)](<./Hex.hx#L60>)
 
 
 ## function main

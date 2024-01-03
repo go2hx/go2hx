@@ -1,18 +1,18 @@
 # Module stdgo.os has compilation errors, please do not use:
 ```
-stdgo/os/exec_test/Exec_test.hx:1327: characters 25-61 : Type not found : stdgo.os.exec.internal.fdtest.Fdtest
-stdgo/os/exec_test/Exec_test.hx:1379: characters 27-40 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1379: characters 113-135 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1384: characters 150-175 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1389: characters 27-40 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1389: characters 64-86 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1394: characters 23-55 : Type not found : stdgo.net.http.httptest.Httptest
-stdgo/os/exec_test/Exec_test.hx:1399: characters 31-50 : Type not found : stdgo.net.http.Http
-stdgo/os/exec_test/Exec_test.hx:1442: characters 34-42 : stdgo.Ref<stdgo.testing.T> has no field deadline
-stdgo/os/exec_test/Exec_test.hx:1499: characters 27-49 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1506: characters 42-64 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1527: characters 25-47 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:1530: characters 25-47 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1297: characters 25-61 : Type not found : stdgo.os.exec.internal.fdtest.Fdtest
+stdgo/os/exec_test/Exec_test.hx:1349: characters 27-40 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1349: characters 113-135 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1354: characters 150-175 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1359: characters 27-40 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1359: characters 64-86 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1364: characters 23-55 : Type not found : stdgo.net.http.httptest.Httptest
+stdgo/os/exec_test/Exec_test.hx:1369: characters 31-50 : Type not found : stdgo.net.http.Http
+stdgo/os/exec_test/Exec_test.hx:1412: characters 34-42 : stdgo.Ref<stdgo.testing.T> has no field deadline
+stdgo/os/exec_test/Exec_test.hx:1466: characters 27-49 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1473: characters 42-64 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1494: characters 25-47 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:1497: characters 25-47 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:39: characters 46-54 : error: stdgo.Slice<stdgo.GoString> should be haxe.Rest<stdgo.GoString>
 stdgo/os/exec_test/Exec_test.hx:39: characters 46-54 : ... have: (haxe.Rest<...>) -> ...
 stdgo/os/exec_test/Exec_test.hx:39: characters 46-54 : ... want: (stdgo.Slice<...>) -> ...
@@ -31,8 +31,8 @@ stdgo/os/exec_test/Exec_test.hx:43: characters 52-66 : ... want: (stdgo.Slice<..
 stdgo/os/exec_test/Exec_test.hx:44: characters 46-54 : error: stdgo.Slice<stdgo.GoString> should be haxe.Rest<stdgo.GoString>
 stdgo/os/exec_test/Exec_test.hx:44: characters 46-54 : ... have: (haxe.Rest<...>) -> ...
 stdgo/os/exec_test/Exec_test.hx:44: characters 46-54 : ... want: (stdgo.Slice<...>) -> ...
-stdgo/os/exec_test/Exec_test.hx:794: characters 23-36 : Type not found : stdgo.net.Net
-stdgo/os/exec_test/Exec_test.hx:794: characters 59-81 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:782: characters 23-36 : Type not found : stdgo.net.Net
+stdgo/os/exec_test/Exec_test.hx:782: characters 59-81 : Type not found : stdgo.net.Net
 stdgo/os/exec_test/Exec_test.hx:45: characters 55-72 : error: stdgo.Slice<stdgo.GoString> should be haxe.Rest<stdgo.GoString>
 stdgo/os/exec_test/Exec_test.hx:45: characters 55-72 : ... have: (haxe.Rest<...>) -> ...
 stdgo/os/exec_test/Exec_test.hx:45: characters 55-72 : ... want: (stdgo.Slice<...>) -> ...
@@ -42,9 +42,9 @@ stdgo/os/exec_test/Exec_test.hx:46: characters 52-66 : ... want: (stdgo.Slice<..
 stdgo/os/exec_test/Exec_test.hx:47: characters 45-52 : error: stdgo.Slice<stdgo.GoString> should be haxe.Rest<stdgo.GoString>
 stdgo/os/exec_test/Exec_test.hx:47: characters 45-52 : ... have: (haxe.Rest<...>) -> ...
 stdgo/os/exec_test/Exec_test.hx:47: characters 45-52 : ... want: (stdgo.Slice<...>) -> ...
-stdgo/os/exec_test/Exec_test.hx:1900: characters 13-35 : Type not found : stdgo.os.signal.Signal
-stdgo/os/exec_test/Exec_test.hx:1910: characters 13-35 : Type not found : stdgo.os.signal.Signal
-stdgo/os/exec_test/Exec_test.hx:1915: characters 17-39 : Type not found : stdgo.os.signal.Signal
+stdgo/os/exec_test/Exec_test.hx:1864: characters 13-35 : Type not found : stdgo.os.signal.Signal
+stdgo/os/exec_test/Exec_test.hx:1874: characters 13-35 : Type not found : stdgo.os.signal.Signal
+stdgo/os/exec_test/Exec_test.hx:1879: characters 17-39 : Type not found : stdgo.os.signal.Signal
 stdgo/os/exec_test/Exec_test.hx:48: characters 46-54 : error: stdgo.Slice<stdgo.GoString> should be haxe.Rest<stdgo.GoString>
 stdgo/os/exec_test/Exec_test.hx:48: characters 46-54 : ... have: (haxe.Rest<...>) -> ...
 stdgo/os/exec_test/Exec_test.hx:48: characters 46-54 : ... want: (stdgo.Slice<...>) -> ...
@@ -53,10 +53,10 @@ stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : ... have: stdgo.GoMap<..., (ha
 stdgo/os/exec_test/Exec_test.hx:35: lines 35-51 : ... want: stdgo.GoMap<..., (stdgo.Slice<...>) -> ...>
 stdgo/os/exec_test/Exec.hx:64: characters 70-94 : Module stdgo.testing.Testing does not define type M_asInterface
 stdgo/os/exec_test/Exec.hx:64: characters 70-94 : ... For function argument '_i'
-stdgo/encoding/json/Json.hx:11878: characters 79-102 : Type not found : stdgo.image.Image
-stdgo/encoding/json/Json.hx:11853: characters 61-84 : Type not found : stdgo.image.Image
-stdgo/encoding/json/Json.hx:11835: characters 75-98 : Type not found : stdgo.image.Image
-stdgo/encoding/json/Json.hx:11810: characters 61-84 : Type not found : stdgo.image.Image
+stdgo/encoding/json/Json.hx:11848: characters 79-102 : Type not found : stdgo.image.Image
+stdgo/encoding/json/Json.hx:11823: characters 61-84 : Type not found : stdgo.image.Image
+stdgo/encoding/json/Json.hx:11805: characters 75-98 : Type not found : stdgo.image.Image
+stdgo/encoding/json/Json.hx:11780: characters 61-84 : Type not found : stdgo.image.Image
 stdgo/encoding/json/Json.hx:1918: characters 24-47 : Type not found : stdgo.image.Image
 stdgo/encoding/json/Json.hx:1841: characters 53-76 : Type not found : stdgo.image.Image
 

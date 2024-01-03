@@ -1160,7 +1160,7 @@ function _appendClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.GoRune>
 appendClass returns the result of appending the class x to the class r.
 It assume x is clean.  
 
-[\(view code\)](<./Syntax.hx#L2350>)
+[\(view code\)](<./Syntax.hx#L2347>)
 
 
 ## function \_appendFoldedClass
@@ -1174,7 +1174,7 @@ function _appendFoldedClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.G
 
 appendFoldedClass returns the result of appending the case folding of the class x to the class r.  
 
-[\(view code\)](<./Syntax.hx#L2362>)
+[\(view code\)](<./Syntax.hx#L2359>)
 
 
 ## function \_appendFoldedRange
@@ -1189,7 +1189,7 @@ function _appendFoldedRange(_r:stdgo.Slice<stdgo.GoRune>, _lo:stdgo.GoRune, _hi:
 appendFoldedRange returns the result of appending the range lo\-hi
 and its case folding\-equivalent runes to the class r.  
 
-[\(view code\)](<./Syntax.hx#L2318>)
+[\(view code\)](<./Syntax.hx#L2315>)
 
 
 ## function \_appendLiteral
@@ -1203,7 +1203,7 @@ function _appendLiteral(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.GoRune, _flags:st
 
 appendLiteral returns the result of appending the literal x to the class r.  
 
-[\(view code\)](<./Syntax.hx#L2284>)
+[\(view code\)](<./Syntax.hx#L2281>)
 
 
 ## function \_appendNegatedClass
@@ -1218,7 +1218,7 @@ function _appendNegatedClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.
 appendNegatedClass returns the result of appending the negation of the class x to the class r.
 It assumes x is clean.  
 
-[\(view code\)](<./Syntax.hx#L2375>)
+[\(view code\)](<./Syntax.hx#L2372>)
 
 
 ## function \_appendNegatedTable
@@ -1232,7 +1232,7 @@ function _appendNegatedTable(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Ref<stdgo.un
 
 appendNegatedTable returns the result of appending the negation of x to the class r.  
 
-[\(view code\)](<./Syntax.hx#L2427>)
+[\(view code\)](<./Syntax.hx#L2424>)
 
 
 ## function \_appendRange
@@ -1246,7 +1246,7 @@ function _appendRange(_r:stdgo.Slice<stdgo.GoRune>, _lo:stdgo.GoRune, _hi:stdgo.
 
 appendRange returns the result of appending the range lo\-hi to the class r.  
 
-[\(view code\)](<./Syntax.hx#L2293>)
+[\(view code\)](<./Syntax.hx#L2290>)
 
 
 ## function \_appendTable
@@ -1260,7 +1260,7 @@ function _appendTable(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Ref<stdgo.unicode.R
 
 appendTable returns the result of appending x to the class r.  
 
-[\(view code\)](<./Syntax.hx#L2395>)
+[\(view code\)](<./Syntax.hx#L2392>)
 
 
 ## function \_bw
@@ -1271,7 +1271,7 @@ function _bw(_b:stdgo.Ref<stdgo.strings.Builder>, _args:haxe.Rest<stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2845>)
+[\(view code\)](<./Syntax.hx#L2842>)
 
 
 ## function \_checkUTF8
@@ -1282,7 +1282,7 @@ function _checkUTF8(_s:stdgo.GoString):stdgo.Error
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2497>)
+[\(view code\)](<./Syntax.hx#L2494>)
 
 
 ## function \_cleanAlt
@@ -1311,7 +1311,7 @@ function _cleanClass(_rp:stdgo.Ref<stdgo.Slice<stdgo.GoRune>>):stdgo.Slice<stdgo
 cleanClass sorts the ranges \(pairs of elements of r\),
 merges them, and eliminates duplicates.  
 
-[\(view code\)](<./Syntax.hx#L2257>)
+[\(view code\)](<./Syntax.hx#L2254>)
 
 
 ## function \_dump
@@ -1326,7 +1326,7 @@ function _dump(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):stdgo.GoString
 dump prints a string representation of the regexp showing
 the structure explicitly.  
 
-[\(view code\)](<./Syntax.hx#L2568>)
+[\(view code\)](<./Syntax.hx#L2565>)
 
 
 ## function \_dumpInst
@@ -1337,7 +1337,7 @@ function _dumpInst(_b:stdgo.Ref<stdgo.strings.Builder>, _i:stdgo.Ref<stdgo.regex
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2869>)
+[\(view code\)](<./Syntax.hx#L2866>)
 
 
 ## function \_dumpProg
@@ -1348,7 +1348,7 @@ function _dumpProg(_b:stdgo.Ref<stdgo.strings.Builder>, _p:stdgo.Ref<stdgo.regex
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2851>)
+[\(view code\)](<./Syntax.hx#L2848>)
 
 
 ## function \_dumpRegexp
@@ -1364,7 +1364,7 @@ dumpRegexp writes an encoding of the syntax tree for the regexp re to b.
 It is used during testing to distinguish between parses that might print
 the same using re's String method.  
 
-[\(view code\)](<./Syntax.hx#L2578>)
+[\(view code\)](<./Syntax.hx#L2575>)
 
 
 ## function \_escape
@@ -1375,7 +1375,7 @@ function _escape(_b:stdgo.Ref<stdgo.strings.Builder>, _r:stdgo.GoRune, _force:Bo
 ```
 
 
-[\(view code\)](<./Syntax.hx#L3109>)
+[\(view code\)](<./Syntax.hx#L3106>)
 
 
 ## function \_isCharClass
@@ -1390,7 +1390,7 @@ function _isCharClass(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Bool
 can this be represented as a character class?
 single\-rune literal string, char class, ., and .|\\n.  
 
-[\(view code\)](<./Syntax.hx#L2161>)
+[\(view code\)](<./Syntax.hx#L2158>)
 
 
 ## function \_isUpperFold
@@ -1401,7 +1401,7 @@ function _isUpperFold(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2686>)
+[\(view code\)](<./Syntax.hx#L2683>)
 
 
 ## function \_isValidCaptureName
@@ -1419,7 +1419,7 @@ PCRE limits names to 32 bytes.
 Python rejects names starting with digits.
 We don't enforce either of those.  
 
-[\(view code\)](<./Syntax.hx#L2146>)
+[\(view code\)](<./Syntax.hx#L2143>)
 
 
 ## function \_isalnum
@@ -1430,7 +1430,7 @@ function _isalnum(_c:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2515>)
+[\(view code\)](<./Syntax.hx#L2512>)
 
 
 ## function \_literalRegexp
@@ -1466,7 +1466,7 @@ function _matchRune(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _r:stdgo.GoRune):
 
 does re match r?  
 
-[\(view code\)](<./Syntax.hx#L2167>)
+[\(view code\)](<./Syntax.hx#L2164>)
 
 
 ## function \_mergeCharClass
@@ -1482,7 +1482,7 @@ mergeCharClass makes dst = dst|src.
 The caller must ensure that dst.Op \>= src.Op,
 to reduce the amount of copying.  
 
-[\(view code\)](<./Syntax.hx#L2195>)
+[\(view code\)](<./Syntax.hx#L2192>)
 
 
 ## function \_minFoldRune
@@ -1507,7 +1507,7 @@ function _mkCharClass(_f:()):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2663>)
+[\(view code\)](<./Syntax.hx#L2660>)
 
 
 ## function \_negateClass
@@ -1522,7 +1522,7 @@ function _negateClass(_r:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>
 negateClass overwrites r and returns r's negation.
 It assumes the class r is already clean.  
 
-[\(view code\)](<./Syntax.hx#L2476>)
+[\(view code\)](<./Syntax.hx#L2473>)
 
 
 ## function \_nextRune
@@ -1537,7 +1537,7 @@ function _nextRune(_s:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2507>)
+[\(view code\)](<./Syntax.hx#L2504>)
 
 
 ## function \_parse
@@ -1604,7 +1604,7 @@ for other operators generates these unary expressions.
 Letting them call simplify1 makes sure the expressions they
 generate are simple.  
 
-[\(view code\)](<./Syntax.hx#L3178>)
+[\(view code\)](<./Syntax.hx#L3175>)
 
 
 ## function \_testParseDump
@@ -1618,7 +1618,7 @@ function _testParseDump(_t:stdgo.Ref<stdgo.testing.T>, _tests:stdgo.Slice<stdgo.
 
 Test Parse \-\> Dump.  
 
-[\(view code\)](<./Syntax.hx#L2548>)
+[\(view code\)](<./Syntax.hx#L2545>)
 
 
 ## function \_u32
@@ -1629,7 +1629,7 @@ function _u32(_i:stdgo.GoUInt32):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2866>)
+[\(view code\)](<./Syntax.hx#L2863>)
 
 
 ## function \_unhex
@@ -1640,7 +1640,7 @@ function _unhex(_c:stdgo.GoRune):stdgo.GoRune
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2518>)
+[\(view code\)](<./Syntax.hx#L2515>)
 
 
 ## function \_unicodeTable
@@ -1658,7 +1658,7 @@ function _unicodeTable(_name:stdgo.GoString):{
 unicodeTable returns the unicode.RangeTable identified by name
 and the table of additional fold\-equivalent code points.  
 
-[\(view code\)](<./Syntax.hx#L2235>)
+[\(view code\)](<./Syntax.hx#L2232>)
 
 
 ## function \_writeRegexp
@@ -1672,7 +1672,7 @@ function _writeRegexp(_b:stdgo.Ref<stdgo.strings.Builder>, _re:stdgo.Ref<stdgo.r
 
 writeRegexp writes the Perl syntax for the regular expression re to b.  
 
-[\(view code\)](<./Syntax.hx#L2945>)
+[\(view code\)](<./Syntax.hx#L2942>)
 
 
 ## function benchmarkEmptyOpContext
@@ -1683,7 +1683,7 @@ function benchmarkEmptyOpContext(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2914>)
+[\(view code\)](<./Syntax.hx#L2911>)
 
 
 ## function benchmarkIsWordChar
@@ -1694,7 +1694,7 @@ function benchmarkIsWordChar(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2927>)
+[\(view code\)](<./Syntax.hx#L2924>)
 
 
 ## function compile
@@ -1731,7 +1731,7 @@ at the beginning of the text.
 Passing r2 == \-1 indicates that the position is
 at the end of the text.  
 
-[\(view code\)](<./Syntax.hx#L2815>)
+[\(view code\)](<./Syntax.hx#L2812>)
 
 
 ## function isWordChar
@@ -1747,7 +1747,7 @@ IsWordChar reports whether r is considered a “word character”
 during the evaluation of the \\b and \\B zero\-width assertions.
 These assertions are ASCII\-only: the word characters are \[A\-Za\-z0\-9\_\].  
 
-[\(view code\)](<./Syntax.hx#L2842>)
+[\(view code\)](<./Syntax.hx#L2839>)
 
 
 ## function parse
@@ -1777,7 +1777,7 @@ function testAppendRangeCollapse(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2717>)
+[\(view code\)](<./Syntax.hx#L2714>)
 
 
 ## function testCompile
@@ -1788,7 +1788,7 @@ function testCompile(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2904>)
+[\(view code\)](<./Syntax.hx#L2901>)
 
 
 ## function testFoldConstants
@@ -1799,7 +1799,7 @@ function testFoldConstants(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2699>)
+[\(view code\)](<./Syntax.hx#L2696>)
 
 
 ## function testParseFoldCase
@@ -1810,7 +1810,7 @@ function testParseFoldCase(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2533>)
+[\(view code\)](<./Syntax.hx#L2530>)
 
 
 ## function testParseInvalidRegexps
@@ -1821,7 +1821,7 @@ function testParseInvalidRegexps(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2730>)
+[\(view code\)](<./Syntax.hx#L2727>)
 
 
 ## function testParseLiteral
@@ -1832,7 +1832,7 @@ function testParseLiteral(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2536>)
+[\(view code\)](<./Syntax.hx#L2533>)
 
 
 ## function testParseMatchNL
@@ -1843,7 +1843,7 @@ function testParseMatchNL(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2539>)
+[\(view code\)](<./Syntax.hx#L2536>)
 
 
 ## function testParseNoMatchNL
@@ -1854,7 +1854,7 @@ function testParseNoMatchNL(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2542>)
+[\(view code\)](<./Syntax.hx#L2539>)
 
 
 ## function testParseSimple
@@ -1865,7 +1865,7 @@ function testParseSimple(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2530>)
+[\(view code\)](<./Syntax.hx#L2527>)
 
 
 ## function testSimplify
@@ -1876,7 +1876,7 @@ function testSimplify(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L3192>)
+[\(view code\)](<./Syntax.hx#L3189>)
 
 
 ## function testToStringEquivalentParse
@@ -1887,7 +1887,7 @@ function testToStringEquivalentParse(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L2774>)
+[\(view code\)](<./Syntax.hx#L2771>)
 
 
 # Classes
@@ -1946,7 +1946,7 @@ function _op():stdgo.regexp.syntax.InstOp
 
 op returns i.Op but merges all the Rune special cases into InstRune  
 
-[\(view code\)](<./Syntax.hx#L5413>)
+[\(view code\)](<./Syntax.hx#L5410>)
 
 
 ### Inst function matchEmptyWidth
@@ -1962,7 +1962,7 @@ MatchEmptyWidth reports whether the instruction matches
 an empty string between the runes before and after.
 It should only be called when i.Op == InstEmptyWidth.  
 
-[\(view code\)](<./Syntax.hx#L5311>)
+[\(view code\)](<./Syntax.hx#L5308>)
 
 
 ### Inst function matchRune
@@ -1977,7 +1977,7 @@ function matchRune( _r:stdgo.GoRune):Bool
 MatchRune reports whether the instruction matches \(and consumes\) r.
 It should only be called when i.Op == InstRune.  
 
-[\(view code\)](<./Syntax.hx#L5405>)
+[\(view code\)](<./Syntax.hx#L5402>)
 
 
 ### Inst function matchRunePos
@@ -1995,7 +1995,7 @@ If so, MatchRunePos returns the index of the matching rune pair
 If not, MatchRunePos returns \-1.
 MatchRunePos should only be called when i.Op == InstRune.  
 
-[\(view code\)](<./Syntax.hx#L5339>)
+[\(view code\)](<./Syntax.hx#L5336>)
 
 
 ### Inst function string
@@ -2006,7 +2006,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5299>)
+[\(view code\)](<./Syntax.hx#L5296>)
 
 
 ## class Prog
@@ -2052,7 +2052,7 @@ function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref<stdgo.regexp.syntax.Inst>
 
 skipNop follows any no\-op or capturing instructions.  
 
-[\(view code\)](<./Syntax.hx#L5243>)
+[\(view code\)](<./Syntax.hx#L5240>)
 
 
 ### Prog function prefix
@@ -2071,7 +2071,7 @@ Prefix returns a literal string that all matches for the
 regexp must start with. Complete is true if the prefix
 is the entire match.  
 
-[\(view code\)](<./Syntax.hx#L5225>)
+[\(view code\)](<./Syntax.hx#L5222>)
 
 
 ### Prog function startCond
@@ -2086,7 +2086,7 @@ function startCond():stdgo.regexp.syntax.EmptyOp
 StartCond returns the leading empty\-width conditions that must
 be true in any match. It returns ^EmptyOp\(0\) if no matches are possible.  
 
-[\(view code\)](<./Syntax.hx#L5183>)
+[\(view code\)](<./Syntax.hx#L5180>)
 
 
 ### Prog function string
@@ -2097,7 +2097,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5252>)
+[\(view code\)](<./Syntax.hx#L5249>)
 
 
 ## class Regexp
@@ -2175,7 +2175,7 @@ function _capNames( _names:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5573>)
+[\(view code\)](<./Syntax.hx#L5570>)
 
 
 ### Regexp function capNames
@@ -2189,7 +2189,7 @@ function capNames():stdgo.Slice<stdgo.GoString>
 
 CapNames walks the regexp to find the names of capturing groups.  
 
-[\(view code\)](<./Syntax.hx#L5586>)
+[\(view code\)](<./Syntax.hx#L5583>)
 
 
 ### Regexp function equal
@@ -2203,7 +2203,7 @@ function equal( _y:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Bool
 
 Equal reports whether x and y have identical structure.  
 
-[\(view code\)](<./Syntax.hx#L5623>)
+[\(view code\)](<./Syntax.hx#L5620>)
 
 
 ### Regexp function maxCap
@@ -2217,7 +2217,7 @@ function maxCap():stdgo.GoInt
 
 MaxCap walks the regexp to find the maximum capture index.  
 
-[\(view code\)](<./Syntax.hx#L5596>)
+[\(view code\)](<./Syntax.hx#L5593>)
 
 
 ### Regexp function simplify
@@ -2237,7 +2237,7 @@ may have been duplicated or removed. For example, the simplified form
 for /\(x\)\{1,2\}/ is /\(x\)\(x\)?/ but both parentheses capture as $1.
 The returned regexp may share structure with or be the original.  
 
-[\(view code\)](<./Syntax.hx#L5475>)
+[\(view code\)](<./Syntax.hx#L5472>)
 
 
 ### Regexp function string
@@ -2248,7 +2248,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L5613>)
+[\(view code\)](<./Syntax.hx#L5610>)
 
 
 ## class T\_error
@@ -2287,7 +2287,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Syntax.hx#L3529>)
+[\(view code\)](<./Syntax.hx#L3526>)
 
 
 # Typedefs

@@ -303,7 +303,7 @@ function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Errors.hx#L486>)
+[\(view code\)](<./Errors.hx#L483>)
 
 
 ## function main
@@ -360,7 +360,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Errors_test.hx#L512>)
+[\(view code\)](<./Errors_test.hx#L509>)
 
 
 # Typedefs

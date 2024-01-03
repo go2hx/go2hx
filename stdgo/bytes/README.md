@@ -528,7 +528,7 @@ containsRune is a simplified version of strings.ContainsRune
 to avoid importing the strings package.
 We avoid bytes.ContainsRune to avoid allocating a temporary copy of s.  
 
-[\(view code\)](<./Bytes.hx#L1237>)
+[\(view code\)](<./Bytes.hx#L1234>)
 
 
 ## function \_explode
@@ -543,7 +543,7 @@ function _explode(_s:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.Slice<stdg
 explode splits s into a slice of UTF\-8 sequences, one per Unicode code point \(still slices of bytes\),
 up to a maximum of n byte slices. Invalid UTF\-8 sequences are chopped into individual bytes.  
 
-[\(view code\)](<./Bytes.hx#L270>)
+[\(view code\)](<./Bytes.hx#L267>)
 
 
 ## function \_genSplit
@@ -558,7 +558,7 @@ function _genSplit(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>,
 Generic split: splits after each instance of sep,
 including sepSave bytes of sep in the subslices.  
 
-[\(view code\)](<./Bytes.hx#L623>)
+[\(view code\)](<./Bytes.hx#L620>)
 
 
 ## function \_growSlice
@@ -584,7 +584,7 @@ function _indexBytePortable(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo
 ```
 
 
-[\(view code\)](<./Bytes.hx#L344>)
+[\(view code\)](<./Bytes.hx#L341>)
 
 
 ## function \_indexFunc
@@ -600,7 +600,7 @@ indexFunc is the same as IndexFunc except that if
 truth==false, the sense of the predicate function is
 inverted.  
 
-[\(view code\)](<./Bytes.hx#L1170>)
+[\(view code\)](<./Bytes.hx#L1167>)
 
 
 ## function \_isSeparator
@@ -615,7 +615,7 @@ function _isSeparator(_r:stdgo.GoRune):Bool
 isSeparator reports whether the rune could mark a word boundary.
 TODO: update when package unicode captures more of the properties.  
 
-[\(view code\)](<./Bytes.hx#L1061>)
+[\(view code\)](<./Bytes.hx#L1058>)
 
 
 ## function \_lastIndexFunc
@@ -631,7 +631,7 @@ lastIndexFunc is the same as LastIndexFunc except that if
 truth==false, the sense of the predicate function is
 inverted.  
 
-[\(view code\)](<./Bytes.hx#L1194>)
+[\(view code\)](<./Bytes.hx#L1191>)
 
 
 ## function \_makeASCIISet
@@ -649,7 +649,7 @@ function _makeASCIISet(_chars:stdgo.GoString):{
 makeASCIISet creates a set of ASCII characters and reports whether all
 characters in chars are ASCII.  
 
-[\(view code\)](<./Bytes.hx#L1218>)
+[\(view code\)](<./Bytes.hx#L1215>)
 
 
 ## function \_trimLeftASCII
@@ -660,7 +660,7 @@ function _trimLeftASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo.bytes.
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1298>)
+[\(view code\)](<./Bytes.hx#L1295>)
 
 
 ## function \_trimLeftByte
@@ -671,7 +671,7 @@ function _trimLeftByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Slic
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1289>)
+[\(view code\)](<./Bytes.hx#L1286>)
 
 
 ## function \_trimLeftUnicode
@@ -682,7 +682,7 @@ function _trimLeftUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1310>)
+[\(view code\)](<./Bytes.hx#L1307>)
 
 
 ## function \_trimRightASCII
@@ -693,7 +693,7 @@ function _trimRightASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo.bytes
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1355>)
+[\(view code\)](<./Bytes.hx#L1352>)
 
 
 ## function \_trimRightByte
@@ -704,7 +704,7 @@ function _trimRightByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Sli
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1349>)
+[\(view code\)](<./Bytes.hx#L1346>)
 
 
 ## function \_trimRightUnicode
@@ -715,7 +715,7 @@ function _trimRightUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString)
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1364>)
+[\(view code\)](<./Bytes.hx#L1361>)
 
 
 ## function clone
@@ -754,7 +754,7 @@ function exampleClone():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1674>)
+[\(view code\)](<./Bytes.hx#L1671>)
 
 
 ## function compare
@@ -817,7 +817,7 @@ function exampleCompare_search():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L263>)
+[\(view code\)](<./Bytes.hx#L260>)
 
 
 ## function contains
@@ -852,7 +852,7 @@ function exampleContains():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L317>)
+[\(view code\)](<./Bytes.hx#L314>)
 
 
 ## function containsAny
@@ -887,7 +887,7 @@ function exampleContainsAny():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L323>)
+[\(view code\)](<./Bytes.hx#L320>)
 
 
 ## function containsFunc
@@ -901,7 +901,7 @@ function containsFunc(_b:stdgo.Slice<stdgo.GoByte>, _f:()):Bool
 
 ContainsFunc reports whether any of the UTF\-8\-encoded code points r within b satisfy f\(r\).  
 
-[\(view code\)](<./Bytes.hx#L335>)
+[\(view code\)](<./Bytes.hx#L332>)
 
 
 ## function containsRune
@@ -937,7 +937,7 @@ function exampleContainsRune():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L329>)
+[\(view code\)](<./Bytes.hx#L326>)
 
 
 ## function count
@@ -971,7 +971,7 @@ function exampleCount():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L297>)
+[\(view code\)](<./Bytes.hx#L294>)
 
 
 ## function cut
@@ -1020,7 +1020,7 @@ function exampleCut():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1659>)
+[\(view code\)](<./Bytes.hx#L1656>)
 
 
 ## function cutPrefix
@@ -1066,7 +1066,7 @@ function exampleCutPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1688>)
+[\(view code\)](<./Bytes.hx#L1685>)
 
 
 ## function cutSuffix
@@ -1112,7 +1112,7 @@ function exampleCutSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1703>)
+[\(view code\)](<./Bytes.hx#L1700>)
 
 
 ## function equal
@@ -1147,7 +1147,7 @@ function exampleEqual():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L255>)
+[\(view code\)](<./Bytes.hx#L252>)
 
 
 ## function equalFold
@@ -1181,7 +1181,7 @@ function exampleEqualFold():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1483>)
+[\(view code\)](<./Bytes.hx#L1480>)
 
 
 ## function fields
@@ -1216,7 +1216,7 @@ function exampleFields():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L705>)
+[\(view code\)](<./Bytes.hx#L702>)
 
 
 ## function fieldsFunc
@@ -1258,7 +1258,7 @@ function exampleFieldsFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L775>)
+[\(view code\)](<./Bytes.hx#L772>)
 
 
 ## function hasPrefix
@@ -1292,7 +1292,7 @@ function exampleHasPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L848>)
+[\(view code\)](<./Bytes.hx#L845>)
 
 
 ## function hasSuffix
@@ -1327,7 +1327,7 @@ function exampleHasSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L854>)
+[\(view code\)](<./Bytes.hx#L851>)
 
 
 ## function index
@@ -1360,7 +1360,7 @@ function exampleIndex():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1578>)
+[\(view code\)](<./Bytes.hx#L1575>)
 
 
 ## function indexAny
@@ -1396,7 +1396,7 @@ function exampleIndexAny():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L444>)
+[\(view code\)](<./Bytes.hx#L441>)
 
 
 ## function indexByte
@@ -1429,7 +1429,7 @@ function exampleIndexByte():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L341>)
+[\(view code\)](<./Bytes.hx#L338>)
 
 
 ## function indexBytePortable
@@ -1481,7 +1481,7 @@ function exampleIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1154>)
+[\(view code\)](<./Bytes.hx#L1151>)
 
 
 ## function indexRune
@@ -1518,7 +1518,7 @@ function exampleIndexRune():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L415>)
+[\(view code\)](<./Bytes.hx#L412>)
 
 
 ## function join
@@ -1552,7 +1552,7 @@ function exampleJoin():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L817>)
+[\(view code\)](<./Bytes.hx#L814>)
 
 
 ## function lastIndex
@@ -1586,7 +1586,7 @@ function exampleLastIndex():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L355>)
+[\(view code\)](<./Bytes.hx#L352>)
 
 
 ## function lastIndexAny
@@ -1623,7 +1623,7 @@ function exampleLastIndexAny():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L530>)
+[\(view code\)](<./Bytes.hx#L527>)
 
 
 ## function lastIndexByte
@@ -1657,7 +1657,7 @@ function exampleLastIndexByte():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L397>)
+[\(view code\)](<./Bytes.hx#L394>)
 
 
 ## function lastIndexFunc
@@ -1693,7 +1693,7 @@ function exampleLastIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1162>)
+[\(view code\)](<./Bytes.hx#L1159>)
 
 
 ## function map
@@ -1736,7 +1736,7 @@ function exampleMap():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L863>)
+[\(view code\)](<./Bytes.hx#L860>)
 
 
 ## function newBuffer
@@ -1759,7 +1759,7 @@ buf should have the desired capacity but a length of zero.
 In most cases, new\(Buffer\) \(or just declaring a Buffer variable\) is
 sufficient to initialize a Buffer.  
 
-[\(view code\)](<./Bytes.hx#L236>)
+[\(view code\)](<./Bytes.hx#L233>)
 
 
 ## function newBufferString
@@ -1779,7 +1779,7 @@ string.
 In most cases, new\(Buffer\) \(or just declaring a Buffer variable\) is
 sufficient to initialize a Buffer.  
 
-[\(view code\)](<./Bytes.hx#L247>)
+[\(view code\)](<./Bytes.hx#L244>)
 
 
 ## function newReader
@@ -1793,7 +1793,7 @@ function newReader(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Ref<stdgo.bytes.Reader>
 
 NewReader returns a new Reader reading from b.  
 
-[\(view code\)](<./Bytes.hx#L1713>)
+[\(view code\)](<./Bytes.hx#L1710>)
 
 
 ## function repeat
@@ -1829,7 +1829,7 @@ function exampleRepeat():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L892>)
+[\(view code\)](<./Bytes.hx#L889>)
 
 
 ## function replace
@@ -1867,7 +1867,7 @@ function exampleReplace():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1434>)
+[\(view code\)](<./Bytes.hx#L1431>)
 
 
 ## function replaceAll
@@ -1903,7 +1903,7 @@ function exampleReplaceAll():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1475>)
+[\(view code\)](<./Bytes.hx#L1472>)
 
 
 ## function runes
@@ -1939,7 +1939,7 @@ function exampleRunes():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1415>)
+[\(view code\)](<./Bytes.hx#L1412>)
 
 
 ## function split
@@ -1980,7 +1980,7 @@ function exampleSplit():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L687>)
+[\(view code\)](<./Bytes.hx#L684>)
 
 
 ## function splitAfter
@@ -2015,7 +2015,7 @@ function exampleSplitAfter():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L696>)
+[\(view code\)](<./Bytes.hx#L693>)
 
 
 ## function splitAfterN
@@ -2055,7 +2055,7 @@ function exampleSplitAfterN():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L676>)
+[\(view code\)](<./Bytes.hx#L673>)
 
 
 ## function splitN
@@ -2100,7 +2100,7 @@ function exampleSplitN():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L663>)
+[\(view code\)](<./Bytes.hx#L660>)
 
 
 ## function title
@@ -2137,7 +2137,7 @@ function exampleTitle():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1086>)
+[\(view code\)](<./Bytes.hx#L1083>)
 
 
 ## function toLower
@@ -2170,7 +2170,7 @@ function exampleToLower():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L965>)
+[\(view code\)](<./Bytes.hx#L962>)
 
 
 ## function toLowerSpecial
@@ -2206,7 +2206,7 @@ function exampleToLowerSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1014>)
+[\(view code\)](<./Bytes.hx#L1011>)
 
 
 ## function toTitle
@@ -2239,7 +2239,7 @@ function exampleToTitle():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1000>)
+[\(view code\)](<./Bytes.hx#L997>)
 
 
 ## function toTitleSpecial
@@ -2275,7 +2275,7 @@ function exampleToTitleSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1021>)
+[\(view code\)](<./Bytes.hx#L1018>)
 
 
 ## function toUpper
@@ -2308,7 +2308,7 @@ function exampleToUpper():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L929>)
+[\(view code\)](<./Bytes.hx#L926>)
 
 
 ## function toUpperSpecial
@@ -2344,7 +2344,7 @@ function exampleToUpperSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1007>)
+[\(view code\)](<./Bytes.hx#L1004>)
 
 
 ## function toValidUTF8
@@ -2379,7 +2379,7 @@ function exampleToValidUTF8():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1028>)
+[\(view code\)](<./Bytes.hx#L1025>)
 
 
 ## function trim
@@ -2412,7 +2412,7 @@ function exampleTrim():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1249>)
+[\(view code\)](<./Bytes.hx#L1246>)
 
 
 ## function trimFunc
@@ -2448,7 +2448,7 @@ function exampleTrimFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1126>)
+[\(view code\)](<./Bytes.hx#L1123>)
 
 
 ## function trimLeft
@@ -2481,7 +2481,7 @@ function exampleTrimLeft():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1271>)
+[\(view code\)](<./Bytes.hx#L1268>)
 
 
 ## function trimLeftFunc
@@ -2516,7 +2516,7 @@ function exampleTrimLeftFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1101>)
+[\(view code\)](<./Bytes.hx#L1098>)
 
 
 ## function trimPrefix
@@ -2552,7 +2552,7 @@ function exampleTrimPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1133>)
+[\(view code\)](<./Bytes.hx#L1130>)
 
 
 ## function trimRight
@@ -2585,7 +2585,7 @@ function exampleTrimRight():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1334>)
+[\(view code\)](<./Bytes.hx#L1331>)
 
 
 ## function trimRightFunc
@@ -2620,7 +2620,7 @@ function exampleTrimRightFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1112>)
+[\(view code\)](<./Bytes.hx#L1109>)
 
 
 ## function trimSpace
@@ -2653,7 +2653,7 @@ function exampleTrimSpace():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1385>)
+[\(view code\)](<./Bytes.hx#L1382>)
 
 
 ## function trimSuffix
@@ -2690,7 +2690,7 @@ function exampleTrimSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1143>)
+[\(view code\)](<./Bytes.hx#L1140>)
 
 
 # Classes
@@ -2745,7 +2745,7 @@ function _empty():Bool
 
 empty reports whether the unread portion of the buffer is empty.  
 
-[\(view code\)](<./Bytes.hx#L2360>)
+[\(view code\)](<./Bytes.hx#L2357>)
 
 
 ### Buffer function \_grow
@@ -2761,7 +2761,7 @@ grow grows the buffer to guarantee space for n more bytes.
 It returns the index where bytes should be written.
 If the buffer can't grow it will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2255>)
+[\(view code\)](<./Bytes.hx#L2252>)
 
 
 ### Buffer function \_readSlice
@@ -2778,7 +2778,7 @@ function _readSlice( _delim:stdgo.GoByte):{
 
 readSlice is like ReadBytes but returns a reference to internal buffer data.  
 
-[\(view code\)](<./Bytes.hx#L1948>)
+[\(view code\)](<./Bytes.hx#L1945>)
 
 
 ### Buffer function \_tryGrowByReslice
@@ -2797,7 +2797,7 @@ tryGrowByReslice is an inlineable version of grow for the fast\-case where the
 internal buffer only needs to be resliced.
 It returns the index where bytes should be written and whether it succeeded.  
 
-[\(view code\)](<./Bytes.hx#L2289>)
+[\(view code\)](<./Bytes.hx#L2286>)
 
 
 ### Buffer function available
@@ -2811,7 +2811,7 @@ function available():stdgo.GoInt
 
 Available returns how many bytes are unused in the buffer.  
 
-[\(view code\)](<./Bytes.hx#L2334>)
+[\(view code\)](<./Bytes.hx#L2331>)
 
 
 ### Buffer function availableBuffer
@@ -2828,7 +2828,7 @@ This buffer is intended to be appended to and
 passed to an immediately succeeding Write call.
 The buffer is only valid until the next write operation on b.  
 
-[\(view code\)](<./Bytes.hx#L2385>)
+[\(view code\)](<./Bytes.hx#L2382>)
 
 
 ### Buffer function bytes
@@ -2846,7 +2846,7 @@ only until the next call to a method like Read, Write, Reset, or Truncate\).
 The slice aliases the buffer content at least until the next buffer modification,
 so immediate changes to the slice will affect the result of future reads.  
 
-[\(view code\)](<./Bytes.hx#L2397>)
+[\(view code\)](<./Bytes.hx#L2394>)
 
 
 ### Buffer function cap
@@ -2861,7 +2861,7 @@ function cap():stdgo.GoInt
 Cap returns the capacity of the buffer's underlying byte slice, that is, the
 total space allocated for the buffer's data.  
 
-[\(view code\)](<./Bytes.hx#L2343>)
+[\(view code\)](<./Bytes.hx#L2340>)
 
 
 ### Buffer function grow
@@ -2879,7 +2879,7 @@ buffer without another allocation.
 If n is negative, Grow will panic.
 If the buffer can't grow it will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2241>)
+[\(view code\)](<./Bytes.hx#L2238>)
 
 
 ### Buffer function len
@@ -2894,7 +2894,7 @@ function len():stdgo.GoInt
 Len returns the number of bytes of the unread portion of the buffer;
 b.Len\(\) == len\(b.Bytes\(\)\).  
 
-[\(view code\)](<./Bytes.hx#L2352>)
+[\(view code\)](<./Bytes.hx#L2349>)
 
 
 ### Buffer function next
@@ -2911,7 +2911,7 @@ advancing the buffer as if the bytes had been returned by Read.
 If there are fewer than n bytes in the buffer, Next returns the entire buffer.
 The slice is only valid until the next call to a read or write method.  
 
-[\(view code\)](<./Bytes.hx#L2064>)
+[\(view code\)](<./Bytes.hx#L2061>)
 
 
 ### Buffer function read
@@ -2931,7 +2931,7 @@ is drained. The return value n is the number of bytes read. If the
 buffer has no data to return, err is io.EOF \(unless len\(p\) is zero\);
 otherwise it is nil.  
 
-[\(view code\)](<./Bytes.hx#L2085>)
+[\(view code\)](<./Bytes.hx#L2082>)
 
 
 ### Buffer function readByte
@@ -2949,7 +2949,7 @@ function readByte():{
 ReadByte reads and returns the next byte from the buffer.
 If no byte is available, it returns error io.EOF.  
 
-[\(view code\)](<./Bytes.hx#L2046>)
+[\(view code\)](<./Bytes.hx#L2043>)
 
 
 ### Buffer function readBytes
@@ -2971,7 +2971,7 @@ it returns the data read before the error and the error itself \(often io.EOF\).
 ReadBytes returns err \!= nil if and only if the returned data does not end in
 delim.  
 
-[\(view code\)](<./Bytes.hx#L1971>)
+[\(view code\)](<./Bytes.hx#L1968>)
 
 
 ### Buffer function readFrom
@@ -2991,7 +2991,7 @@ the buffer as needed. The return value n is the number of bytes read. Any
 error except io.EOF encountered during the read is also returned. If the
 buffer becomes too large, ReadFrom will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2180>)
+[\(view code\)](<./Bytes.hx#L2177>)
 
 
 ### Buffer function readRune
@@ -3013,7 +3013,7 @@ If no bytes are available, the error returned is io.EOF.
 If the bytes are an erroneous UTF\-8 encoding, it
 consumes one byte and returns U\+FFFD, 1.  
 
-[\(view code\)](<./Bytes.hx#L2023>)
+[\(view code\)](<./Bytes.hx#L2020>)
 
 
 ### Buffer function readString
@@ -3035,7 +3035,7 @@ it returns the data read before the error and the error itself \(often io.EOF\).
 ReadString returns err \!= nil if and only if the returned data does not end
 in delim.  
 
-[\(view code\)](<./Bytes.hx#L1938>)
+[\(view code\)](<./Bytes.hx#L1935>)
 
 
 ### Buffer function reset
@@ -3051,7 +3051,7 @@ Reset resets the buffer to be empty,
 but it retains the underlying storage for use by future writes.
 Reset is the same as Truncate\(0\).  
 
-[\(view code\)](<./Bytes.hx#L2306>)
+[\(view code\)](<./Bytes.hx#L2303>)
 
 
 ### Buffer function string
@@ -3069,7 +3069,7 @@ as a string. If the Buffer is a nil pointer, it returns "\<nil\>".
 
 To build strings more efficiently, see the strings.Builder type.  
 
-[\(view code\)](<./Bytes.hx#L2371>)
+[\(view code\)](<./Bytes.hx#L2368>)
 
 
 ### Buffer function truncate
@@ -3085,7 +3085,7 @@ Truncate discards all but the first n unread bytes from the buffer
 but continues to use the same allocated storage.
 It panics if n is negative or greater than the length of the buffer.  
 
-[\(view code\)](<./Bytes.hx#L2318>)
+[\(view code\)](<./Bytes.hx#L2315>)
 
 
 ### Buffer function unreadByte
@@ -3102,7 +3102,7 @@ read operation that read at least one byte. If a write has happened since
 the last read, if the last read returned an error, or if the read read zero
 bytes, UnreadByte returns an error.  
 
-[\(view code\)](<./Bytes.hx#L1985>)
+[\(view code\)](<./Bytes.hx#L1982>)
 
 
 ### Buffer function unreadRune
@@ -3120,7 +3120,7 @@ not a successful ReadRune, UnreadRune returns an error.  \(In this regard
 it is stricter than UnreadByte, which will unread the last byte
 from any read operation.\)  
 
-[\(view code\)](<./Bytes.hx#L2004>)
+[\(view code\)](<./Bytes.hx#L2001>)
 
 
 ### Buffer function write
@@ -3139,7 +3139,7 @@ Write appends the contents of p to the buffer, growing the buffer as
 needed. The return value n is the length of p; err is always nil. If the
 buffer becomes too large, Write will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2223>)
+[\(view code\)](<./Bytes.hx#L2220>)
 
 
 ### Buffer function writeByte
@@ -3156,7 +3156,7 @@ The returned error is always nil, but is included to match bufio.Writer's
 WriteByte. If the buffer becomes too large, WriteByte will panic with
 ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2132>)
+[\(view code\)](<./Bytes.hx#L2129>)
 
 
 ### Buffer function writeRune
@@ -3176,7 +3176,7 @@ buffer, returning its length and an error, which is always nil but is
 included to match bufio.Writer's WriteRune. The buffer is grown as needed;
 if it becomes too large, WriteRune will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2110>)
+[\(view code\)](<./Bytes.hx#L2107>)
 
 
 ### Buffer function writeString
@@ -3195,7 +3195,7 @@ WriteString appends the contents of s to the buffer, growing the buffer as
 needed. The return value n is the length of s; err is always nil. If the
 buffer becomes too large, WriteString will panic with ErrTooLarge.  
 
-[\(view code\)](<./Bytes.hx#L2207>)
+[\(view code\)](<./Bytes.hx#L2204>)
 
 
 ### Buffer function writeTo
@@ -3215,7 +3215,7 @@ The return value n is the number of bytes written; it always fits into an
 int, but it is int64 to match the io.WriterTo interface. Any error
 encountered during the write is also returned.  
 
-[\(view code\)](<./Bytes.hx#L2149>)
+[\(view code\)](<./Bytes.hx#L2146>)
 
 
 ## class Reader
@@ -3266,7 +3266,7 @@ function len():stdgo.GoInt
 Len returns the number of bytes of the unread portion of the
 slice.  
 
-[\(view code\)](<./Bytes.hx#L2651>)
+[\(view code\)](<./Bytes.hx#L2648>)
 
 
 ### Reader function read
@@ -3283,7 +3283,7 @@ function read( _b:stdgo.Slice<stdgo.GoByte>):{
 
 Read implements the io.Reader interface.  
 
-[\(view code\)](<./Bytes.hx#L2625>)
+[\(view code\)](<./Bytes.hx#L2622>)
 
 
 ### Reader function readAt
@@ -3300,7 +3300,7 @@ function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{
 
 ReadAt implements the io.ReaderAt interface.  
 
-[\(view code\)](<./Bytes.hx#L2606>)
+[\(view code\)](<./Bytes.hx#L2603>)
 
 
 ### Reader function readByte
@@ -3317,7 +3317,7 @@ function readByte():{
 
 ReadByte implements the io.ByteReader interface.  
 
-[\(view code\)](<./Bytes.hx#L2592>)
+[\(view code\)](<./Bytes.hx#L2589>)
 
 
 ### Reader function readRune
@@ -3335,7 +3335,7 @@ function readRune():{
 
 ReadRune implements the io.RuneReader interface.  
 
-[\(view code\)](<./Bytes.hx#L2552>)
+[\(view code\)](<./Bytes.hx#L2549>)
 
 
 ### Reader function reset
@@ -3349,7 +3349,7 @@ function reset( _b:stdgo.Slice<stdgo.GoByte>):Void
 
 Reset resets the Reader to be reading from b.  
 
-[\(view code\)](<./Bytes.hx#L2474>)
+[\(view code\)](<./Bytes.hx#L2471>)
 
 
 ### Reader function seek
@@ -3366,7 +3366,7 @@ function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
 
 Seek implements the io.Seeker interface.  
 
-[\(view code\)](<./Bytes.hx#L2510>)
+[\(view code\)](<./Bytes.hx#L2507>)
 
 
 ### Reader function size
@@ -3382,7 +3382,7 @@ Size returns the original length of the underlying byte slice.
 Size is the number of bytes available for reading via ReadAt.
 The result is unaffected by any method calls except Reset.  
 
-[\(view code\)](<./Bytes.hx#L2642>)
+[\(view code\)](<./Bytes.hx#L2639>)
 
 
 ### Reader function unreadByte
@@ -3396,7 +3396,7 @@ function unreadByte():stdgo.Error
 
 UnreadByte complements ReadByte in implementing the io.ByteScanner interface.  
 
-[\(view code\)](<./Bytes.hx#L2579>)
+[\(view code\)](<./Bytes.hx#L2576>)
 
 
 ### Reader function unreadRune
@@ -3410,7 +3410,7 @@ function unreadRune():stdgo.Error
 
 UnreadRune complements ReadRune in implementing the io.RuneScanner interface.  
 
-[\(view code\)](<./Bytes.hx#L2536>)
+[\(view code\)](<./Bytes.hx#L2533>)
 
 
 ### Reader function writeTo
@@ -3427,7 +3427,7 @@ function writeTo( _w:stdgo.io.Writer):{
 
 WriteTo implements the io.WriterTo interface.  
 
-[\(view code\)](<./Bytes.hx#L2487>)
+[\(view code\)](<./Bytes.hx#L2484>)
 
 
 ## class T\_fieldsFunc\_7\_\_\_localname\_\_\_span
@@ -3455,7 +3455,7 @@ function new(?_start:Null<stdgo.GoInt>, ?_end:Null<stdgo.GoInt>):Void
 ```
 
 
-[\(view code\)](<./Bytes.hx#L757>)
+[\(view code\)](<./Bytes.hx#L754>)
 
 
 # Typedefs

@@ -386,7 +386,7 @@ function testCleanMallocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             _t.log(stdgo.Go.toInterface(("skipping AllocsPerRun checks; GOMAXPROCS>1" : stdgo.GoString)));
             return;
         };
-        for (__0 => _test in _cleantests) {
+        for (__16 => _test in _cleantests) {
             var _allocs:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : stdgo.StdGoTypes.GoInt), function():Void {
                 clean(_test._result?.__copy__());
             });

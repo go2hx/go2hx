@@ -2200,7 +2200,7 @@ function _testAtof(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _opt:Bool):
                 };
             });
         };
-        for (__0 => _test in _atof32tests) {
+        for (__24 => _test in _atof32tests) {
             var __tmp__ = parseFloat(_test._in?.__copy__(), (32 : stdgo.StdGoTypes.GoInt)), _out:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             var _out32:stdgo.StdGoTypes.GoFloat32 = (_out : stdgo.StdGoTypes.GoFloat32);
             if ((_out32 : stdgo.StdGoTypes.GoFloat64) != (_out)) {
@@ -3330,7 +3330,7 @@ function testFtoaPowersOfTwo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
                 if (!stdgo.math.Math.isInf((_f32 : stdgo.StdGoTypes.GoFloat64), (0 : stdgo.StdGoTypes.GoInt))) {
                     var _s:stdgo.GoString = formatFloat((_f32 : stdgo.StdGoTypes.GoFloat64), (101 : stdgo.StdGoTypes.GoUInt8), (-1 : stdgo.StdGoTypes.GoInt), (32 : stdgo.StdGoTypes.GoInt))?.__copy__();
                     {
-                        var __tmp__ = parseFloat(_s?.__copy__(), (32 : stdgo.StdGoTypes.GoInt)), _x:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, __1:stdgo.Error = __tmp__._1;
+                        var __tmp__ = parseFloat(_s?.__copy__(), (32 : stdgo.StdGoTypes.GoInt)), _x:stdgo.StdGoTypes.GoFloat64 = __tmp__._0, __9:stdgo.Error = __tmp__._1;
                         if ((_x : stdgo.StdGoTypes.GoFloat32) != (_f32)) {
                             _t.errorf(("failed roundtrip %v => %s => %v" : stdgo.GoString), stdgo.Go.toInterface(_f32), stdgo.Go.toInterface(_s), stdgo.Go.toInterface((_x : stdgo.StdGoTypes.GoFloat32)));
                         };
@@ -3880,7 +3880,7 @@ function testCountMallocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
         for (_i in 0 ... _oneMB.length.toBasic()) {
             _oneMB[(_i : stdgo.StdGoTypes.GoInt)] = (_i : stdgo.StdGoTypes.GoByte);
         };
-        for (__0 => _mt in _mallocTest) {
+        for (__16 => _mt in _mallocTest) {
             var _allocs:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : stdgo.StdGoTypes.GoInt), _mt._fn);
             {
                 var _max:stdgo.StdGoTypes.GoFloat64 = (_mt._count : stdgo.StdGoTypes.GoFloat64);

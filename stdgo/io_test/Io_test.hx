@@ -1149,7 +1149,7 @@ function testCopyLargeWriter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
         _wb = ({ _err : _want } : stdgo.io_test.Io_test.T_largeWriter);
         _rb.writeString(("hello, world." : stdgo.GoString));
         {
-            var __tmp__ = copy(stdgo.Go.asInterface(_wb), stdgo.Go.asInterface(_rb)), __1:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = copy(stdgo.Go.asInterface(_wb), stdgo.Go.asInterface(_rb)), __9:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(_want))) {
                 _t.errorf(("Copy error: got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_want));
             };
@@ -1346,7 +1346,7 @@ function testWriteAt_PositionPriorToBase(_t:stdgo.StdGoTypes.Ref<stdgo.testing.T
             var _offset:stdgo.StdGoTypes.GoInt64 = (10i64 : stdgo.StdGoTypes.GoInt64);
             var _at:stdgo.StdGoTypes.GoInt64 = (-1i64 : stdgo.StdGoTypes.GoInt64);
             var _w = newOffsetWriter(stdgo.Go.asInterface(_tmpfile), _offset);
-            var __tmp__ = _w.writeAt((("hello" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _at), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _e:stdgo.Error = __tmp__._1;
+            var __tmp__ = _w.writeAt((("hello" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), _at), __16:stdgo.StdGoTypes.GoInt = __tmp__._0, _e:stdgo.Error = __tmp__._1;
             if (_e == null) {
                 _t.errorf(("error expected to be not nil" : stdgo.GoString));
             };
@@ -2130,7 +2130,7 @@ function testPipeCloseError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
         };
         _r.closeWithError(stdgo.Go.asInterface((new stdgo.io_test.Io_test.T_testPipeCloseError_5___localname___testError2() : stdgo.io_test.Io_test.T_testPipeCloseError_5___localname___testError2)));
         {
-            var __tmp__ = _w.write((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __1:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _w.write((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __9:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface(((new stdgo.io_test.Io_test.T_testPipeCloseError_4___localname___testError1() : stdgo.io_test.Io_test.T_testPipeCloseError_4___localname___testError1)))))) {
                 _t.errorf(("Write error: got %T, want testError1" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -2142,14 +2142,14 @@ function testPipeCloseError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
         };
         _w.closeWithError(stdgo.Go.asInterface((new stdgo.io_test.Io_test.T_testPipeCloseError_4___localname___testError1() : stdgo.io_test.Io_test.T_testPipeCloseError_4___localname___testError1)));
         {
-            var __tmp__ = _r.read((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __2:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _r.read((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __18:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface(((new stdgo.io_test.Io_test.T_testPipeCloseError_4___localname___testError1() : stdgo.io_test.Io_test.T_testPipeCloseError_4___localname___testError1)))))) {
                 _t.errorf(("Read error: got %T, want testError1" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
         _w.closeWithError(stdgo.Go.asInterface((new stdgo.io_test.Io_test.T_testPipeCloseError_5___localname___testError2() : stdgo.io_test.Io_test.T_testPipeCloseError_5___localname___testError2)));
         {
-            var __tmp__ = _r.read((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __3:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _r.read((null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __27:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface(((new stdgo.io_test.Io_test.T_testPipeCloseError_4___localname___testError1() : stdgo.io_test.Io_test.T_testPipeCloseError_4___localname___testError1)))))) {
                 _t.errorf(("Read error: got %T, want testError1" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };

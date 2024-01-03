@@ -1146,7 +1146,7 @@ function testLineInfo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 (300 : stdgo.StdGoTypes.GoInt),
 (333 : stdgo.StdGoTypes.GoInt),
 (401 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
-        for (__0 => _offs in _lines) {
+        for (__16 => _offs in _lines) {
             _f.addLine(_offs);
             _f.addLineInfo(_offs, ("bar" : stdgo.GoString), (42 : stdgo.StdGoTypes.GoInt));
         };
@@ -1154,7 +1154,7 @@ function testLineInfo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var _offs:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_offs <= _f.size(), _offs++, {
                 var _p:stdgo.go.token.Token.Pos = _f.pos(_offs);
-                var __tmp__ = _linecol(_lines, _offs), __1:stdgo.StdGoTypes.GoInt = __tmp__._0, _col:stdgo.StdGoTypes.GoInt = __tmp__._1;
+                var __tmp__ = _linecol(_lines, _offs), __17:stdgo.StdGoTypes.GoInt = __tmp__._0, _col:stdgo.StdGoTypes.GoInt = __tmp__._1;
                 var _msg:stdgo.GoString = stdgo.fmt.Fmt.sprintf(("%s (offs = %d, p = %d)" : stdgo.GoString), stdgo.Go.toInterface(_f.name()), stdgo.Go.toInterface(_offs), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)))?.__copy__();
                 _checkPos(_t, _msg?.__copy__(), _f.position(_f.pos(_offs))?.__copy__(), (new stdgo.go.token.Token.Position(("bar" : stdgo.GoString), _offs, (42 : stdgo.StdGoTypes.GoInt), _col) : stdgo.go.token.Token.Position));
                 _checkPos(_t, _msg?.__copy__(), _fset.position(_p)?.__copy__(), (new stdgo.go.token.Token.Position(("bar" : stdgo.GoString), _offs, (42 : stdgo.StdGoTypes.GoInt), _col) : stdgo.go.token.Token.Position));
@@ -1390,7 +1390,7 @@ function testFileAddLineColumnInfo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
             _t.run(_test._name?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 var _fs = newFileSet();
                 var _f = _fs.addFile(("test.go" : stdgo.GoString), (-1 : stdgo.StdGoTypes.GoInt), (100 : stdgo.StdGoTypes.GoInt));
-                for (__0 => _info in _test._infos) {
+                for (__8 => _info in _test._infos) {
                     _f.addLineColumnInfo(_info.offset, _info.filename?.__copy__(), _info.line, _info.column);
                 };
                 if (!stdgo.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_f._infos), stdgo.Go.toInterface(_test._want))) {

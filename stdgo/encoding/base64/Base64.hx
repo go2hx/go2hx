@@ -1351,7 +1351,7 @@ function benchmarkNewEncoding(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _b.n, _i++, {
                 var _e = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString));
-                for (__8 => _v in _e._decodeMap) {
+                for (__16 => _v in _e._decodeMap) {
                     _v;
                 };
             });

@@ -607,7 +607,7 @@ var _fmtTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(
         final x = new stdgo.GoMap.GoStringMap<stdgo.fmt_test.Fmt_test.B>();
         x.__defaultValue__ = () -> ({} : stdgo.fmt_test.Fmt_test.B);
         @:mergeBlock {
-            x.set(("a" : stdgo.GoString), (new stdgo.fmt_test.Fmt_test.B((1 : stdgo.fmt_test.Fmt_test.I), (2 : stdgo.StdGoTypes.GoInt)) : stdgo.fmt_test.Fmt_test.B));
+            x.set(("a" : stdgo.GoString), @:invalid_compositelit null);
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, stdgo.fmt_test.Fmt_test.B>)), _out : ("map[string]fmt_test.B{\"a\":fmt_test.B{I:1, j:2}}" : stdgo.GoString) } : T__struct_2),
@@ -3087,7 +3087,7 @@ function testCountMallocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
         } else if (false) {
             _t.skip(stdgo.Go.toInterface(("skipping malloc count under race detector" : stdgo.GoString)));
         };
-        for (__0 => _mt in _mallocTest) {
+        for (__24 => _mt in _mallocTest) {
             var _mallocs:stdgo.StdGoTypes.GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : stdgo.StdGoTypes.GoInt), _mt._fn);
             {
                 var __0:stdgo.StdGoTypes.GoFloat64 = _mallocs, __1:stdgo.StdGoTypes.GoFloat64 = (_mt._count : stdgo.StdGoTypes.GoFloat64), _max:stdgo.StdGoTypes.GoFloat64 = __1, _got:stdgo.StdGoTypes.GoFloat64 = __0;
@@ -3764,7 +3764,7 @@ function testEOFAllTypes(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
                 };
             };
             {
-                var __tmp__ = sscanf(("   " : stdgo.GoString), _test._format?.__copy__(), _test._v), __1:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = sscanf(("   " : stdgo.GoString), _test._format?.__copy__(), _test._v), __9:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.io.Io.eof))) {
                     _t.errorf(("#%d: %s %T not eof on trailing blanks: %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._format), _test._v, stdgo.Go.toInterface(_err));
                 };

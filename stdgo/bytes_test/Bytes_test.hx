@@ -1780,7 +1780,7 @@ function testRuneIO(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         {
-            var __tmp__ = _buf.readRune(), __0:stdgo.StdGoTypes.GoInt32 = __tmp__._0, __1:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            var __tmp__ = _buf.readRune(), __40:stdgo.StdGoTypes.GoInt32 = __tmp__._0, __41:stdgo.StdGoTypes.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err == null) {
                 _t.fatal(stdgo.Go.toInterface(("ReadRune at EOF: got no error" : stdgo.GoString)));
             };
@@ -1795,7 +1795,7 @@ function testRuneIO(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {
             var _r:stdgo.StdGoTypes.GoInt32 = ((0 : stdgo.StdGoTypes.GoInt32) : stdgo.StdGoTypes.GoRune);
             stdgo.Go.cfor(_r < (1000 : stdgo.StdGoTypes.GoInt32), _r++, {
-                var __tmp__ = _buf.readRune(), _r1:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1, __2:stdgo.Error = __tmp__._2;
+                var __tmp__ = _buf.readRune(), _r1:stdgo.StdGoTypes.GoInt32 = __tmp__._0, _size:stdgo.StdGoTypes.GoInt = __tmp__._1, __58:stdgo.Error = __tmp__._2;
                 {
                     var _err:stdgo.Error = _buf.unreadRune();
                     if (_err != null) {
@@ -1908,7 +1908,7 @@ function benchmarkReadString(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):V
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _b.n, _i++, {
                 var _buf = newBuffer(_data);
-                var __tmp__ = _buf.readString((120 : stdgo.StdGoTypes.GoUInt8)), __8:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = _buf.readString((120 : stdgo.StdGoTypes.GoUInt8)), __16:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _b.fatal(stdgo.Go.toInterface(_err));
                 };
@@ -2008,7 +2008,7 @@ function testUnreadByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         {
-            var __tmp__ = _b.readByte(), __0:stdgo.StdGoTypes.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _b.readByte(), __8:stdgo.StdGoTypes.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
                 _t.fatal(stdgo.Go.toInterface(("ReadByte at EOF: got no error" : stdgo.GoString)));
             };
@@ -2033,7 +2033,7 @@ function testUnreadByte(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         {
-            var __tmp__ = _b.readBytes((109 : stdgo.StdGoTypes.GoUInt8)), __1:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _b.readBytes((109 : stdgo.StdGoTypes.GoUInt8)), __41:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("ReadBytes: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -3043,11 +3043,11 @@ function testFieldsFunc(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return _c == ((88 : stdgo.StdGoTypes.GoInt32));
         };
         var _fieldsFuncTests:stdgo.Slice<stdgo.bytes_test.Bytes_test.FieldsTest> = (new stdgo.Slice<stdgo.bytes_test.Bytes_test.FieldsTest>(4, 4, (new stdgo.bytes_test.Bytes_test.FieldsTest(stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>)) : stdgo.bytes_test.Bytes_test.FieldsTest), (new stdgo.bytes_test.Bytes_test.FieldsTest(("XX" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(0, 0) : stdgo.Slice<stdgo.GoString>)) : stdgo.bytes_test.Bytes_test.FieldsTest), (new stdgo.bytes_test.Bytes_test.FieldsTest(("XXhiXXX" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ("hi" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.bytes_test.Bytes_test.FieldsTest), (new stdgo.bytes_test.Bytes_test.FieldsTest(("aXXbXXXcX" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(3, 3, ("a" : stdgo.GoString), ("b" : stdgo.GoString), ("c" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) : stdgo.bytes_test.Bytes_test.FieldsTest)) : stdgo.Slice<stdgo.bytes_test.Bytes_test.FieldsTest>);
-        for (__1 => _tt in _fieldsFuncTests) {
+        for (__9 => _tt in _fieldsFuncTests) {
             var _b = (_tt._s : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
             var _a = fieldsFunc(_b, _pred);
             var _x:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
-            for (__2 => _v in _a) {
+            for (__10 => _v in _a) {
                 _x = (_v.__append__((122 : stdgo.StdGoTypes.GoUInt8)));
             };
             var _result = _sliceOfString(_a);
@@ -3360,7 +3360,7 @@ function testTrim(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("%s(%q, %q) = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_tc._in), stdgo.Go.toInterface(_tc._arg), stdgo.Go.toInterface(_actual), stdgo.Go.toInterface(_tc._out));
             };
         };
-        for (__1 => _tc in _trimNilTests) {
+        for (__9 => _tc in _trimNilTests) {
             var _name:stdgo.GoString = _tc._f?.__copy__();
             var __tmp__ = _toFn(_name?.__copy__()), _f:(stdgo.Slice<stdgo.StdGoTypes.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _fb:(stdgo.Slice<stdgo.StdGoTypes.GoUInt8>, stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) -> stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._1;
             if ((_f == null) && (_fb == null)) {
@@ -3733,7 +3733,7 @@ function benchmarkToValidUTF8(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):
         var _tests = (new stdgo.Slice<T__struct_14>(3, 3, ({ _name : ("Valid" : stdgo.GoString), _input : (("typical" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>) } : T__struct_14), ({ _name : ("InvalidASCII" : stdgo.GoString), _input : (stdgo.Go.str("foo", 255, "bar") : stdgo.Slice<stdgo.StdGoTypes.GoByte>) } : T__struct_14), ({ _name : ("InvalidNonASCII" : stdgo.GoString), _input : (stdgo.Go.str("日本語", 255, "日本語") : stdgo.Slice<stdgo.StdGoTypes.GoByte>) } : T__struct_14)) : stdgo.Slice<T__struct_14>);
         var _replacement = (("�" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
         _b.resetTimer();
-        for (__0 => _test in _tests) {
+        for (__8 => _test in _tests) {
             _b.run(_test._name?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);

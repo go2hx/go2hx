@@ -657,7 +657,7 @@ function writeImportcfg(_t:stdgo.testing.Testing.TB, _dstPath:stdgo.GoString, _p
             if (_err != null) {
                 _t.fatalf(("%v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_cmd.stderr));
             };
-            for (__24 => _line in stdgo.strings.Strings.split((_out : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString))) {
+            for (__30 => _line in stdgo.strings.Strings.split((_out : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString))) {
                 if (_line == (stdgo.Go.str())) {
                     continue;
                 };

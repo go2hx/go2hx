@@ -1140,7 +1140,7 @@ class Logger_asInterface {
                     };
                 } else {
                     var _fs = stdgo.runtime.Runtime.callersFrames((new stdgo.Slice<stdgo.StdGoTypes.GoUIntptr>(1, 1, _pc) : stdgo.Slice<stdgo.StdGoTypes.GoUIntptr>));
-                    var __tmp__ = _fs.next(), _f:stdgo.runtime.Runtime.Frame = __tmp__._0, __12:Bool = __tmp__._1;
+                    var __tmp__ = _fs.next(), _f:stdgo.runtime.Runtime.Frame = __tmp__._0, __27:Bool = __tmp__._1;
                     _file = _f.file?.__copy__();
                     if (_file == (stdgo.Go.str())) {
                         _file = ("???" : stdgo.GoString);
@@ -1160,7 +1160,7 @@ class Logger_asInterface {
             };
             _l._outMu.lock();
             __deferstack__.unshift(() -> _l._outMu.unlock());
-            var __tmp__ = _l._out.write((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __49:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _l._out.write((_buf : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), __64:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {
                 for (defer in __deferstack__) {
                     defer();

@@ -992,11 +992,11 @@ function testConcurrent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                                         _seed = _seed + ((normFloat64() : stdgo.StdGoTypes.GoInt64));
                                         _seed = _seed + ((uint32() : stdgo.StdGoTypes.GoInt64));
                                         _seed = _seed + ((uint64() : stdgo.StdGoTypes.GoInt64));
-                                        for (__0 => _p in perm((10 : stdgo.StdGoTypes.GoInt))) {
+                                        for (__4 => _p in perm((10 : stdgo.StdGoTypes.GoInt))) {
                                             _seed = _seed + ((_p : stdgo.StdGoTypes.GoInt64));
                                         };
                                         read(_buf);
-                                        for (__1 => _b in _buf) {
+                                        for (__5 => _b in _buf) {
                                             _seed = _seed + ((_b : stdgo.StdGoTypes.GoInt64));
                                         };
                                         seed((_i * _j : stdgo.StdGoTypes.GoInt64) * _seed);

@@ -60,8 +60,8 @@ var _testFsys : stdgo.testing.fstest.Fstest.MapFS = ({
         final x = new stdgo.GoMap.GoStringMap<stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>>();
         x.__defaultValue__ = () -> (null : stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>);
         @:mergeBlock {
-            x.set(("hello.txt" : stdgo.GoString), ({ data : (("hello, world" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), mode : (302u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : stdgo.Go.toInterface(stdgo.Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
-            x.set(("sub/goodbye.txt" : stdgo.GoString), ({ data : (("goodbye, world" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), mode : (302u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : stdgo.Go.toInterface(stdgo.Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
+            x.set(("hello.txt" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("sub/goodbye.txt" : stdgo.GoString), @:invalid_compositelit null);
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>>);
@@ -341,7 +341,7 @@ function testGlob(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("Glob(%#q) = %#v want %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._pattern), stdgo.Go.toInterface(_matches), stdgo.Go.toInterface(_tt._result));
             };
         };
-        for (__1 => _pattern in (new stdgo.Slice<stdgo.GoString>(3, 3, ("no_match" : stdgo.GoString), ("../*/no_match" : stdgo.GoString), ("\\*" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+        for (__17 => _pattern in (new stdgo.Slice<stdgo.GoString>(3, 3, ("no_match" : stdgo.GoString), ("../*/no_match" : stdgo.GoString), ("\\*" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
             var __tmp__ = glob(stdgo.os.Os.dirFS(("." : stdgo.GoString)), _pattern?.__copy__()), _matches:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.errorf(("Glob error for %q: %s" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_err));
@@ -399,7 +399,7 @@ function testReadDir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.helper();
             if ((((_err != null) || (_dirs.length != (2 : stdgo.StdGoTypes.GoInt))) || (_dirs[(0 : stdgo.StdGoTypes.GoInt)].name() != ("hello.txt" : stdgo.GoString))) || (_dirs[(1 : stdgo.StdGoTypes.GoInt)].name() != ("sub" : stdgo.GoString))) {
                 var _names:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-                for (__0 => _d in _dirs) {
+                for (__8 => _d in _dirs) {
                     _names = (_names.__append__(_d.name()?.__copy__()));
                 };
                 _t.errorf(("ReadDir(%s) = %v, %v, want %v, nil" : stdgo.GoString), stdgo.Go.toInterface(_desc), stdgo.Go.toInterface(_names), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoString>(2, 2, ("hello.txt" : stdgo.GoString), ("sub" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)));
@@ -429,8 +429,8 @@ function testFileInfoToDirEntry(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             final x = new stdgo.GoMap.GoStringMap<stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>>();
             x.__defaultValue__ = () -> (null : stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>);
             @:mergeBlock {
-                x.set(("notadir.txt" : stdgo.GoString), ({ data : (("hello, world" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), mode : (0u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : stdgo.Go.toInterface(stdgo.Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
-                x.set(("adir" : stdgo.GoString), ({ data : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), mode : (-2147483648u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : stdgo.Go.toInterface(stdgo.Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFS));
+                x.set(("notadir.txt" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("adir" : stdgo.GoString), @:invalid_compositelit null);
             };
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>>);
@@ -527,7 +527,7 @@ function testSub(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             var __tmp__ = readDir(_sub, ("." : stdgo.GoString)), _dirs:stdgo.Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_err != null) || (_dirs.length != (1 : stdgo.StdGoTypes.GoInt))) || (_dirs[(0 : stdgo.StdGoTypes.GoInt)].name() != ("goodbye.txt" : stdgo.GoString))) {
                 var _names:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-                for (__0 => _d in _dirs) {
+                for (__24 => _d in _dirs) {
                     _names = (_names.__append__(_d.name()?.__copy__()));
                 };
                 _t.errorf(("ReadDir(%s, \".\") = %v, %v, want %v, nil" : stdgo.GoString), stdgo.Go.toInterface(_desc), stdgo.Go.toInterface(_names), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ("goodbye.txt" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)));
@@ -665,7 +665,7 @@ function testIssue51617(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _dir:stdgo.GoString = _t.tempDir()?.__copy__();
-            for (__0 => _sub in (new stdgo.Slice<stdgo.GoString>(3, 3, ("a" : stdgo.GoString), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("bad" : stdgo.GoString))?.__copy__(), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("next" : stdgo.GoString))?.__copy__()) : stdgo.Slice<stdgo.GoString>)) {
+            for (__8 => _sub in (new stdgo.Slice<stdgo.GoString>(3, 3, ("a" : stdgo.GoString), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("bad" : stdgo.GoString))?.__copy__(), stdgo.path.filepath.Filepath.join(("a" : stdgo.GoString), ("next" : stdgo.GoString))?.__copy__()) : stdgo.Slice<stdgo.GoString>)) {
                 {
                     var _err:stdgo.Error = stdgo.os.Os.mkdir(stdgo.path.filepath.Filepath.join(_dir?.__copy__(), _sub?.__copy__())?.__copy__(), (493u32 : stdgo.io.fs.Fs.FileMode));
                     if (_err != null) {

@@ -3347,7 +3347,7 @@ function testFieldsFunc(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _pred:stdgo.StdGoTypes.GoInt32 -> Bool = function(_c:stdgo.StdGoTypes.GoRune):Bool {
             return _c == ((88 : stdgo.StdGoTypes.GoInt32));
         };
-        for (__1 => _tt in fieldsFuncTests) {
+        for (__9 => _tt in fieldsFuncTests) {
             var _a = fieldsFunc(_tt._s?.__copy__(), _pred);
             if (!_eq(_a, _tt._a)) {
                 _t.errorf(("FieldsFunc(%q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._s), stdgo.Go.toInterface(_a), stdgo.Go.toInterface(_tt._a));
@@ -3588,7 +3588,7 @@ function benchmarkTrim(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _b.n, _i++, {
-                for (__8 => _tc in _trimTests) {
+                for (__16 => _tc in _trimTests) {
                     var _name:stdgo.GoString = _tc._f?.__copy__();
                     var _f:(stdgo.GoString, stdgo.GoString) -> stdgo.GoString = null;
                     {
@@ -3619,7 +3619,7 @@ function benchmarkToValidUTF8(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):
         var _tests = (new stdgo.Slice<T__struct_13>(3, 3, ({ _name : ("Valid" : stdgo.GoString), _input : ("typical" : stdgo.GoString) } : T__struct_13), ({ _name : ("InvalidASCII" : stdgo.GoString), _input : stdgo.Go.str("foo", 255, "bar")?.__copy__() } : T__struct_13), ({ _name : ("InvalidNonASCII" : stdgo.GoString), _input : stdgo.Go.str("日本語", 255, "日本語")?.__copy__() } : T__struct_13)) : stdgo.Slice<T__struct_13>);
         var _replacement:stdgo.GoString = ("�" : stdgo.GoString);
         _b.resetTimer();
-        for (__0 => _test in _tests) {
+        for (__8 => _test in _tests) {
             _b.run(_test._name?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);

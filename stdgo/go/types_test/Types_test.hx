@@ -1646,7 +1646,7 @@ function testInstanceInfo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                         { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_ptype) : T__interface_0)) : T__interface_0), ok : true };
                     } catch(_) {
                         { value : (null : stdgo.go.types_test.Types_test.T__interface_0), ok : false };
-                    }, _lister = __tmp__.value, __0 = __tmp__.ok;
+                    }, _lister = __tmp__.value, __40 = __tmp__.ok;
                     if ((_lister == null) || (_lister.typeParams().len() == (0 : stdgo.StdGoTypes.GoInt))) {
                         _t.fatalf(("info.Types[%v] = %v, want parameterized type" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_inst.ident)), stdgo.Go.toInterface(_ptype));
                     };
@@ -1800,7 +1800,7 @@ function testGenericMethodInfo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
         };
         var __0:stdgo.StdGoTypes.Ref<Func> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), __1:stdgo.StdGoTypes.Ref<Func> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _dn:stdgo.StdGoTypes.Ref<Func> = __1, _dm:stdgo.StdGoTypes.Ref<Func> = __0;
         var __0:stdgo.StdGoTypes.Ref<Func> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), __1:stdgo.StdGoTypes.Ref<Func> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Func>), _dmn:stdgo.StdGoTypes.Ref<Func> = __1, _dmm:stdgo.StdGoTypes.Ref<Func> = __0;
-        for (__0 => _decl in _f.decls) {
+        for (__24 => _decl in _f.decls) {
             var __tmp__ = try {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_decl) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncDecl>), ok : true };
             } catch(_) {
@@ -2078,7 +2078,7 @@ function testScopesInfo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
                 var _desc:stdgo.GoString = _kind + (":" : stdgo.GoString)?.__copy__() + stdgo.strings.Strings.join(_scope.names(), (" " : stdgo.GoString))?.__copy__()?.__copy__();
                 var _found:Bool = false;
-                for (__1 => _d in _test._scopes) {
+                for (__9 => _d in _test._scopes) {
                     if (_desc == (_d)) {
                         _found = true;
                         break;
@@ -2164,8 +2164,8 @@ function testFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         var _vars:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-        for (__1 => _init in _info.initOrder) {
-            for (__2 => _v in _init.lhs) {
+        for (__17 => _init in _info.initOrder) {
+            for (__18 => _v in _init.lhs) {
                 _vars = (_vars.__append__(_v.name()?.__copy__()));
             };
         };
@@ -2203,33 +2203,33 @@ function testSelection(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoArray<stdgo.GoString>>();
             x.__defaultValue__ = () -> new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 2) ("" : stdgo.GoString)]);
             @:mergeBlock {
-                x.set(("lib.T.M" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method expr (lib.T) M(lib.T)" : stdgo.GoString), (".[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("A{}.B" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("field (main.A) B *main.B" : stdgo.GoString), (".[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("new(A).B" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("field (*main.A) B *main.B" : stdgo.GoString), ("->[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("A{}.C" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("field (main.A) C main.C" : stdgo.GoString), (".[1]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("new(A).C" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("field (*main.A) C main.C" : stdgo.GoString), ("->[1]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("A{}.b" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("field (main.A) b int" : stdgo.GoString), ("->[0 0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("new(A).b" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("field (*main.A) b int" : stdgo.GoString), ("->[0 0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("A{}.c" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("field (main.A) c int" : stdgo.GoString), (".[1 0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("new(A).c" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("field (*main.A) c int" : stdgo.GoString), ("->[1 0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("Inst.p" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("field (main.G[int]) p int" : stdgo.GoString), (".[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("A{}.f" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method (main.A) f(int)" : stdgo.GoString), ("->[0 0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("new(A).f" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method (*main.A) f(int)" : stdgo.GoString), ("->[0 0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("A{}.g" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method (main.A) g()" : stdgo.GoString), (".[1 0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("new(A).g" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method (*main.A) g()" : stdgo.GoString), ("->[1 0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("new(A).h" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method (*main.A) h()" : stdgo.GoString), ("->[1 1]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("B{}.f" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method (main.B) f(int)" : stdgo.GoString), (".[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("new(B).f" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method (*main.B) f(int)" : stdgo.GoString), ("->[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("C{}.g" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method (main.C) g()" : stdgo.GoString), (".[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("new(C).g" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method (*main.C) g()" : stdgo.GoString), ("->[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("new(C).h" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method (*main.C) h()" : stdgo.GoString), ("->[1]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("Inst.m" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method (main.G[int]) m(int)" : stdgo.GoString), (".[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("A.f" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method expr (main.A) f(main.A, int)" : stdgo.GoString), ("->[0 0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("(*A).f" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method expr (*main.A) f(*main.A, int)" : stdgo.GoString), ("->[0 0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("B.f" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method expr (main.B) f(main.B, int)" : stdgo.GoString), (".[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("(*B).f" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method expr (*main.B) f(*main.B, int)" : stdgo.GoString), ("->[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("G[string].m" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("method expr (main.G[string]) m(main.G[string], string)" : stdgo.GoString), (".[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
-                x.set(("G[string]{}.p" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoString>(("field (main.G[string]) p string" : stdgo.GoString), (".[0]" : stdgo.GoString)) : stdgo.GoArray<stdgo.GoString>));
+                x.set(("lib.T.M" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("A{}.B" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("new(A).B" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("A{}.C" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("new(A).C" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("A{}.b" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("new(A).b" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("A{}.c" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("new(A).c" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("Inst.p" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("A{}.f" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("new(A).f" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("A{}.g" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("new(A).g" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("new(A).h" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("B{}.f" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("new(B).f" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("C{}.g" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("new(C).g" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("new(C).h" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("Inst.m" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("A.f" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("(*A).f" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("B.f" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("(*B).f" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("G[string].m" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("G[string]{}.p" : stdgo.GoString), @:invalid_compositelit null);
             };
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoArray<stdgo.GoString>>);
@@ -2254,7 +2254,7 @@ function testSelection(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_sel.type()) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>), ok : true };
             } catch(_) {
                 { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Signature>), ok : false };
-            }, _sig = __tmp__.value, __0 = __tmp__.ok;
+            }, _sig = __tmp__.value, __24 = __tmp__.ok;
             if (_sel.kind() == ((1 : stdgo.go.types.Types.SelectionKind))) {
                 var _got:stdgo.go.types.Types.Type = _sig.recv().type();
                 var _want:stdgo.go.types.Types.Type = _sel.recv();
@@ -2492,7 +2492,7 @@ function testScopeLookupParent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
                 };
                 var _got:stdgo.GoString = ("undef" : stdgo.GoString);
                 {
-                    var __tmp__ = _inner.lookupParent(_name?.__copy__(), T_comment_static_extension.pos()), __2:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _obj:stdgo.go.types.Types.Object = __tmp__._1;
+                    var __tmp__ = _inner.lookupParent(_name?.__copy__(), T_comment_static_extension.pos()), __34:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _obj:stdgo.go.types.Types.Object = __tmp__._1;
                     if (_obj != null) {
                         var _kind:stdgo.GoString = stdgo.strings.Strings.toLower(stdgo.strings.Strings.trimPrefix((stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(_obj)).string() : stdgo.GoString)?.__copy__(), ("*types." : stdgo.GoString))?.__copy__())?.__copy__();
                         _got = stdgo.fmt.Fmt.sprintf(("%s:%d" : stdgo.GoString), stdgo.Go.toInterface(_kind), stdgo.Go.toInterface(_fset.position(_obj.pos()).line))?.__copy__();
@@ -2512,7 +2512,7 @@ function testScopeLookupParent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             if (_id.name == (("X" : stdgo.GoString))) {
                 continue;
             };
-            var __tmp__ = _inner.lookupParent(_id.name?.__copy__(), _id.pos()), __3:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _gotObj:stdgo.go.types.Types.Object = __tmp__._1;
+            var __tmp__ = _inner.lookupParent(_id.name?.__copy__(), _id.pos()), __75:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _gotObj:stdgo.go.types.Types.Object = __tmp__._1;
             if (stdgo.Go.toInterface(_gotObj) != (stdgo.Go.toInterface(_wantObj))) {
                 _t.errorf(("%s: got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fset.position(_id.pos()))), stdgo.Go.toInterface(_gotObj), stdgo.Go.toInterface(_wantObj));
                 continue;
@@ -2836,7 +2836,7 @@ function testInstantiate(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
         var _pkg = _mustTypecheck(("package p; type T[P any] *T[P]" : stdgo.GoString), null, null);
         var t = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_pkg.scope().lookup(("T" : stdgo.GoString)).type()) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>);
         {
-            var _n:stdgo.StdGoTypes.GoInt = t.typeParams().len();
+            var _n:stdgo.StdGoTypes.GoInt = t._check._environment._decl._tdecl.typeParams().len();
             if (_n != ((1 : stdgo.StdGoTypes.GoInt))) {
                 _t.fatalf(("expected 1 type parameter; found %d" : stdgo.GoString), stdgo.Go.toInterface(_n));
             };
@@ -2962,7 +2962,7 @@ function testInstantiatedObjects(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             };
             return true;
         });
-        for (__0 => _test in _tests) {
+        for (__48 => _test in _tests) {
             var _test:T__struct_25 = {
                 final x = _test;
                 ({ _name : x._name?.__copy__(), _obj : x._obj } : T__struct_25);
@@ -3057,7 +3057,7 @@ function testImplements(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 ({ v : bad, t : ii, _want : false } : T__struct_26),
 ({ v : bad, t : ci, _want : false } : T__struct_26),
 ({ v : bad, t : emptyIface, _want : true } : T__struct_26)) : stdgo.Slice<T__struct_26>);
-        for (__1 => _test in _tests) {
+        for (__17 => _test in _tests) {
             {
                 var _got:Bool = implements_(_test.v, _test.t);
                 if (_got != (_test._want)) {
@@ -3072,7 +3072,7 @@ function testImplements(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(t.underlying()) : stdgo.StdGoTypes.Ref<Interface>)) : stdgo.StdGoTypes.Ref<Interface>), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Interface>), ok : false };
-                }, __2 = __tmp__.value, _ok = __tmp__.ok;
+                }, __26 = __tmp__.value, _ok = __tmp__.ok;
                 if ((_ok || implements_(t, v)) && (stdgo.Go.toInterface(t) != stdgo.Go.toInterface(bad))) {
                     _want = true;
                 };
@@ -3150,13 +3150,13 @@ function testBuiltinSignatures(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
                 };
             };
         };
-        for (__3 => _name in unsafe.scope().names()) {
+        for (__11 => _name in unsafe.scope().names()) {
             {
                 var __tmp__ = try {
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(unsafe.scope().lookup(_name?.__copy__())) : stdgo.StdGoTypes.Ref<Builtin>)) : stdgo.StdGoTypes.Ref<Builtin>), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Builtin>), ok : false };
-                }, __4 = __tmp__.value, _ok = __tmp__.ok;
+                }, __12 = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok && !(_seen[_name] ?? false)) {
                     _t.errorf(("missing test for unsafe.%s" : stdgo.GoString), stdgo.Go.toInterface(_name));
                 };
@@ -3223,7 +3223,7 @@ function _testBuiltinSignature(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>,
                         { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<Builtin>)) : stdgo.StdGoTypes.Ref<Builtin>), ok : true };
                     } catch(_) {
                         { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Builtin>), ok : false };
-                    }, _bin = __tmp__.value, __1 = __tmp__.ok;
+                    }, _bin = __tmp__.value, __33 = __tmp__.ok;
                     if (_bin == null || (_bin : Dynamic).__nil__) {
                         _t.errorf(("%s: %s does not denote a built-in" : stdgo.GoString), stdgo.Go.toInterface(_src0), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)));
                         return;
@@ -3262,9 +3262,9 @@ function _parseFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _filename
                         { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.go.scanner.Scanner.ErrorList)) : stdgo.go.scanner.Scanner.ErrorList), ok : true };
                     } catch(_) {
                         { value : new stdgo.go.scanner.Scanner.ErrorList(0, 0), ok : false };
-                    }, _list = __tmp__.value, __0 = __tmp__.ok;
+                    }, _list = __tmp__.value, __8 = __tmp__.ok;
                     if ((_list.length) > (0 : stdgo.StdGoTypes.GoInt)) {
-                        for (__1 => _err in _list) {
+                        for (__9 => _err in _list) {
                             _errlist = (_errlist.__append__(stdgo.Go.asInterface(_err)));
                         };
                     } else {
@@ -3354,7 +3354,7 @@ function _testFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _filenames
         var _listErrors:Bool = _manual && !_verifyErrors.value;
         if (_listErrors && (_errlist.length > (0 : stdgo.StdGoTypes.GoInt))) {
             _t.errorf(("--- %s:" : stdgo.GoString), stdgo.Go.toInterface(_pkgName));
-            for (__0 => _err in _errlist) {
+            for (__24 => _err in _errlist) {
                 _t.error(stdgo.Go.toInterface(_err));
             };
         };
@@ -3402,7 +3402,7 @@ function _testFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _filenames
                 return;
             };
         };
-        for (__1 => _opt in _opts) {
+        for (__33 => _opt in _opts) {
             _opt((stdgo.Go.setRef(_conf) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Config>));
         };
         _conf.check(_pkgName?.__copy__(), _fset, _files, null);
@@ -3424,7 +3424,7 @@ function _testFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _filenames
             };
         };
         var _indices:stdgo.Slice<stdgo.StdGoTypes.GoInt> = (null : stdgo.Slice<stdgo.StdGoTypes.GoInt>);
-        for (__2 => _err in _errlist) {
+        for (__34 => _err in _errlist) {
             var __tmp__ = _unpackError(_fset, _err), _gotPos:stdgo.go.token.Token.Position = __tmp__._0, _gotMsg:stdgo.GoString = __tmp__._1;
             var _filename:stdgo.GoString = _gotPos.filename?.__copy__();
             var _filemap = (_errmap[_filename] ?? (null : stdgo.GoMap<stdgo.StdGoTypes.GoInt, stdgo.Slice<stdgo.go.types_test.Types_test.T_comment>>));
@@ -3474,7 +3474,7 @@ function _testFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _filenames
             };
             var _index:stdgo.StdGoTypes.GoInt = (-1 : stdgo.StdGoTypes.GoInt);
             var _delta:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-            for (__3 => _i in _indices) {
+            for (__59 => _i in _indices) {
                 {
                     var _d:stdgo.StdGoTypes.GoInt = _absDiff(_gotPos.column, _errList[(_i : stdgo.StdGoTypes.GoInt)]._col);
                     if ((_index < (0 : stdgo.StdGoTypes.GoInt)) || (_d < _delta)) {
@@ -3508,7 +3508,7 @@ function _testFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _filenames
             _t.errorf(("--- %s: unreported errors:" : stdgo.GoString), stdgo.Go.toInterface(_pkgName));
             for (_filename => _filemap in _errmap) {
                 for (_line => _errList in _filemap) {
-                    for (__4 => _err in _errList) {
+                    for (__76 => _err in _errList) {
                         _t.errorf(("%s:%d:%d: %s" : stdgo.GoString), stdgo.Go.toInterface(_filename), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err._col), stdgo.Go.toInterface(_err._text));
                     };
                 };
@@ -3618,7 +3618,7 @@ function _testDirFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _dir:st
             _t.error(stdgo.Go.toInterface(_err));
             return;
         };
-        for (__0 => _fi in _fis) {
+        for (__8 => _fi in _fis) {
             var _path:stdgo.GoString = stdgo.path.filepath.Filepath.join(_dir?.__copy__(), _fi.name()?.__copy__())?.__copy__();
             if (_fi.isDir()) {
                 _testDir(_t, _path?.__copy__(), _manual);
@@ -3637,7 +3637,7 @@ function _testDir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _dir:stdgo.G
             return;
         };
         var _filenames:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-        for (__0 => _fi in _fis) {
+        for (__8 => _fi in _fis) {
             _filenames = (_filenames.__append__(stdgo.path.filepath.Filepath.join(_dir?.__copy__(), _fi.name()?.__copy__())?.__copy__()));
         };
         _t.run(stdgo.path.filepath.Filepath.base(_dir?.__copy__())?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
@@ -3767,7 +3767,7 @@ function testErrorCalls(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        for (__0 => _file in _files) {
+        for (__8 => _file in _files) {
             stdgo.go.ast.Ast.inspect(stdgo.Go.asInterface(_file), function(_n:stdgo.go.ast.Ast.Node):Bool {
                 var __tmp__ = try {
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_n) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.CallExpr>), ok : true };
@@ -3927,9 +3927,9 @@ function testEvalPos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        for (__0 => _file in _files) {
-            for (__1 => _group in _file.comments) {
-                for (__2 => T_comment_static_extension in _group.list) {
+        for (__16 => _file in _files) {
+            for (__17 => _group in _file.comments) {
+                for (__18 => T_comment_static_extension in _group.list) {
                     var _s:stdgo.GoString = T_comment_static_extension.text?.__copy__();
                     if (((_s.length >= (4 : stdgo.StdGoTypes.GoInt)) && ((_s.__slice__(0, (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString) == ("/*" : stdgo.GoString))) && ((_s.__slice__((_s.length) - (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString) == ("*/" : stdgo.GoString))) {
                         var __tmp__ = _split((_s.__slice__((2 : stdgo.StdGoTypes.GoInt), (_s.length) - (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoString)?.__copy__(), (", " : stdgo.GoString)), _str:stdgo.GoString = __tmp__._0, _typ:stdgo.GoString = __tmp__._1;
@@ -4008,8 +4008,8 @@ function testCheckExpr(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             return { _0 : (null : stdgo.go.types.Types.Object), _1 : stdgo.fmt.Fmt.errorf(("no object for %s" : stdgo.GoString), stdgo.Go.toInterface(_str)) };
         };
-        for (__0 => _group in _f.comments) {
-            for (__1 => T_comment_static_extension in _group.list) {
+        for (__16 => _group in _f.comments) {
+            for (__17 => T_comment_static_extension in _group.list) {
                 var _s:stdgo.GoString = T_comment_static_extension.text?.__copy__();
                 if (((_s.length >= (4 : stdgo.StdGoTypes.GoInt)) && stdgo.strings.Strings.hasPrefix(_s?.__copy__(), ("/*" : stdgo.GoString))) && stdgo.strings.Strings.hasSuffix(_s?.__copy__(), ("*/" : stdgo.GoString))) {
                     var _pos:stdgo.go.token.Token.Pos = T_comment_static_extension.pos();
@@ -4872,7 +4872,7 @@ function testIssue28005(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 stdgo.Go.cfor(_i < _iface.numMethods(), _i++, {
                     var _m = _iface.method(_i);
-                    var _recvName:stdgo.GoString = (stdgo.Go.typeAssert((stdgo.Go.toInterface((stdgo.Go.typeAssert((stdgo.Go.toInterface(_m.type()) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>).recv().type()) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>).obj().name()?.__copy__();
+                    var _recvName:stdgo.GoString = (stdgo.Go.typeAssert((stdgo.Go.toInterface((stdgo.Go.typeAssert((stdgo.Go.toInterface(_m.type()) : stdgo.StdGoTypes.Ref<Signature>)) : stdgo.StdGoTypes.Ref<Signature>).recv().type()) : stdgo.StdGoTypes.Ref<Named>)) : stdgo.StdGoTypes.Ref<Named>)._check._environment._decl._tdecl.name.obj().name()?.__copy__();
                     if (_recvName != (_m.name())) {
                         _t.errorf(("perm %v: got recv %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_perm), stdgo.Go.toInterface(_recvName), stdgo.Go.toInterface(_m.name()));
                     };
@@ -4889,7 +4889,7 @@ function testIssue28282(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         if (_got != (_want)) {
             _t.fatalf(("%s.Method(0): got %q (%p); want %q (%p)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_it)), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
         };
-        var __tmp__ = lookupFieldOrMethod(_et, false, null, ("Error" : stdgo.GoString)), _obj:stdgo.go.types.Types.Object = __tmp__._0, __0:stdgo.Slice<stdgo.StdGoTypes.GoInt> = __tmp__._1, __1:Bool = __tmp__._2;
+        var __tmp__ = lookupFieldOrMethod(_et, false, null, ("Error" : stdgo.GoString)), _obj:stdgo.go.types.Types.Object = __tmp__._0, __32:stdgo.Slice<stdgo.StdGoTypes.GoInt> = __tmp__._1, __33:Bool = __tmp__._2;
         if (stdgo.Go.toInterface(_obj) != (stdgo.Go.toInterface(stdgo.Go.asInterface(_want)))) {
             _t.fatalf(("%s.Lookup: got %q (%p); want %q (%p)" : stdgo.GoString), stdgo.Go.toInterface(_et), stdgo.Go.toInterface(_obj), stdgo.Go.toInterface(_obj), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
         };
@@ -5150,7 +5150,7 @@ function testIssue51093(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                             _t.fatalf(("%s: got type %s, want type parameter" : stdgo.GoString), stdgo.Go.toInterface(exprString(stdgo.Go.asInterface(_x))), stdgo.Go.toInterface(_tv.type));
                         };
                         {
-                            var _name:stdgo.GoString = _tpar.obj().name()?.__copy__();
+                            var _name:stdgo.GoString = _tpar._check._environment._decl._tdecl.name.obj().name()?.__copy__();
                             if (_name != (("P" : stdgo.GoString))) {
                                 _t.fatalf(("%s: got type parameter name %s, want P" : stdgo.GoString), stdgo.Go.toInterface(exprString(stdgo.Go.asInterface(_x))), stdgo.Go.toInterface(_name));
                             };
@@ -5271,36 +5271,36 @@ function testNewMethodSet(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>>();
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>);
             @:mergeBlock {
-                x.set(("var a T; type T struct{}; func (T) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), false) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a *T; type T struct{}; func (T) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a T; type T struct{}; func (*T) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(0, 0) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a *T; type T struct{}; func (*T) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a T[int]; type T[P any] struct{}; func (T[P]) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), false) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a *T[int]; type T[P any] struct{}; func (T[P]) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a T[int]; type T[P any] struct{}; func (*T[P]) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(0, 0) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a *T[int]; type T[P any] struct{}; func (*T[P]) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a T; type T interface{ f() }" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a T1; type ( T1 T2; T2 interface{ f() } )" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a T1; type ( T1 interface{ T2 }; T2 interface{ f() } )" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a T[int]; type T[P any] interface{ f() }" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a T1[int]; type ( T1[P any] T2[P]; T2[P any] interface{ f() } )" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a T1[int]; type ( T1[P any] interface{ T2[P] }; T2[P any] interface{ f() } )" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ E }; type E interface{ f() }" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a *struct{ E }; type E interface{ f() }" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ E }; type E struct{}; func (E) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), false) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ *E }; type E struct{}; func (E) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ E }; type E struct{}; func (*E) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(0, 0) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ *E }; type E struct{}; func (*E) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ E[int] }; type E[P any] interface{ f() }" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a *struct{ E[int] }; type E[P any] interface{ f() }" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ E[int] }; type E[P any] struct{}; func (E[P]) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), false) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ *E[int] }; type E[P any] struct{}; func (E[P]) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ E[int] }; type E[P any] struct{}; func (*E[P]) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(0, 0) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ *E[int] }; type E[P any] struct{}; func (*E[P]) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ E1; *E2 }; type ( E1 interface{ f() }; E2 struct{ f int })" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(0, 0) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a struct{ E1; *E2 }; type ( E1 struct{ f int }; E2 struct{} ); func (E2) f() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(0, 0) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a T[int]; type ( T[P any] struct { *N[P] }; N[P any] struct { *T[P] } ); func (N[P]) m() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("m" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(2, 2, (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("var a T[int]; type ( T[P any] struct { *N[P] }; N[P any] struct { *T[P] } ); func (T[P]) m() {}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("m" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), false) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
+                x.set(("var a T; type T struct{}; func (T) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a *T; type T struct{}; func (T) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a T; type T struct{}; func (*T) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a *T; type T struct{}; func (*T) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a T[int]; type T[P any] struct{}; func (T[P]) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a *T[int]; type T[P any] struct{}; func (T[P]) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a T[int]; type T[P any] struct{}; func (*T[P]) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a *T[int]; type T[P any] struct{}; func (*T[P]) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a T; type T interface{ f() }" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a T1; type ( T1 T2; T2 interface{ f() } )" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a T1; type ( T1 interface{ T2 }; T2 interface{ f() } )" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a T[int]; type T[P any] interface{ f() }" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a T1[int]; type ( T1[P any] T2[P]; T2[P any] interface{ f() } )" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a T1[int]; type ( T1[P any] interface{ T2[P] }; T2[P any] interface{ f() } )" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ E }; type E interface{ f() }" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a *struct{ E }; type E interface{ f() }" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ E }; type E struct{}; func (E) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ *E }; type E struct{}; func (E) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ E }; type E struct{}; func (*E) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ *E }; type E struct{}; func (*E) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ E[int] }; type E[P any] interface{ f() }" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a *struct{ E[int] }; type E[P any] interface{ f() }" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ E[int] }; type E[P any] struct{}; func (E[P]) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ *E[int] }; type E[P any] struct{}; func (E[P]) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ E[int] }; type E[P any] struct{}; func (*E[P]) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ *E[int] }; type E[P any] struct{}; func (*E[P]) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ E1; *E2 }; type ( E1 interface{ f() }; E2 struct{ f int })" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a struct{ E1; *E2 }; type ( E1 struct{ f int }; E2 struct{} ); func (E2) f() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a T[int]; type ( T[P any] struct { *N[P] }; N[P any] struct { *T[P] } ); func (N[P]) m() {}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("var a T[int]; type ( T[P any] struct { *N[P] }; N[P any] struct { *T[P] } ); func (T[P]) m() {}" : stdgo.GoString), @:invalid_compositelit null);
             };
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>>);
@@ -5308,8 +5308,8 @@ function testNewMethodSet(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>>();
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>);
             @:mergeBlock {
-                x.set(("type C interface{ f() }; func g[T C](a T){}" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
-                x.set(("type C interface{ f() }; func g[T C]() { var a T; _ = a }" : stdgo.GoString), (new stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>(1, 1, (new stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method(("f" : stdgo.GoString), (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>), true) : stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method)) : stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>));
+                x.set(("type C interface{ f() }; func g[T C](a T){}" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("type C interface{ f() }; func g[T C]() { var a T; _ = a }" : stdgo.GoString), @:invalid_compositelit null);
             };
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.go.types_test.Types_test.T_testNewMethodSet_41___localname___method>>);
@@ -5396,8 +5396,8 @@ function testIssue60634(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         var t:stdgo.go.types.Types.Type = _pkg.scope().lookup(("T" : stdgo.GoString)).type();
         var _name:stdgo.GoString = ("m" : stdgo.GoString);
-        for (__0 => _recv in (new stdgo.Slice<stdgo.go.types.Types.Type>(2, 2, t, stdgo.Go.asInterface(newPointer(t))) : stdgo.Slice<stdgo.go.types.Types.Type>)) {
-            var __tmp__ = lookupFieldOrMethod(_recv, false, _pkg, _name?.__copy__()), _obj1:stdgo.go.types.Types.Object = __tmp__._0, __1:stdgo.Slice<stdgo.StdGoTypes.GoInt> = __tmp__._1, __2:Bool = __tmp__._2;
+        for (__16 => _recv in (new stdgo.Slice<stdgo.go.types.Types.Type>(2, 2, t, stdgo.Go.asInterface(newPointer(t))) : stdgo.Slice<stdgo.go.types.Types.Type>)) {
+            var __tmp__ = lookupFieldOrMethod(_recv, false, _pkg, _name?.__copy__()), _obj1:stdgo.go.types.Types.Object = __tmp__._0, __17:stdgo.Slice<stdgo.StdGoTypes.GoInt> = __tmp__._1, __18:Bool = __tmp__._2;
             var _mset = newMethodSet(_recv);
             if ((_obj1 != null) != ((_mset.len() == (1 : stdgo.StdGoTypes.GoInt)))) {
                 _t.fatalf(("lookup(%v.%s): got obj = %v, mset = %v" : stdgo.GoString), stdgo.Go.toInterface(_recv), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_obj1), stdgo.Go.toInterface(stdgo.Go.asInterface(_mset)));
@@ -5569,7 +5569,7 @@ function testEmbeddedMethod(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
             _t.fatalf(("original error.Error not found" : stdgo.GoString));
         };
         var _iface:stdgo.go.types.Types.Object = _pkg.scope().lookup(("I" : stdgo.GoString));
-        var __tmp__ = lookupFieldOrMethod(_iface.type(), false, null, ("Error" : stdgo.GoString)), _embed:stdgo.go.types.Types.Object = __tmp__._0, __2:stdgo.Slice<stdgo.StdGoTypes.GoInt> = __tmp__._1, __3:Bool = __tmp__._2;
+        var __tmp__ = lookupFieldOrMethod(_iface.type(), false, null, ("Error" : stdgo.GoString)), _embed:stdgo.go.types.Types.Object = __tmp__._0, __10:stdgo.Slice<stdgo.StdGoTypes.GoInt> = __tmp__._1, __11:Bool = __tmp__._2;
         if (_embed == null) {
             _t.fatalf(("embedded error.Error not found" : stdgo.GoString));
         };
@@ -5591,7 +5591,7 @@ function testObjectString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
                 _t.errorf(("%s: invalid object path %s" : stdgo.GoString), stdgo.Go.toInterface(_test._src), stdgo.Go.toInterface(_test._obj));
                 continue;
             };
-            var __tmp__ = _pkg.scope().lookupParent(_names[(0 : stdgo.StdGoTypes.GoInt)]?.__copy__(), _nopos), __1:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _obj:stdgo.go.types.Types.Object = __tmp__._1;
+            var __tmp__ = _pkg.scope().lookupParent(_names[(0 : stdgo.StdGoTypes.GoInt)]?.__copy__(), _nopos), __17:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _obj:stdgo.go.types.Types.Object = __tmp__._1;
             if (_obj == null) {
                 _t.errorf(("%s: %s not found" : stdgo.GoString), stdgo.Go.toInterface(_test._src), stdgo.Go.toInterface(_names[(0 : stdgo.StdGoTypes.GoInt)]));
                 continue;
@@ -5628,8 +5628,8 @@ function _lookupTypeParamObj(_list:stdgo.StdGoTypes.Ref<TypeParamList>, _name:st
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _list.len(), _i++, {
                 var _tpar = _list.at(_i);
-                if (_tpar.obj().name() == (_name)) {
-                    return stdgo.Go.asInterface(_tpar.obj());
+                if (_tpar._check._environment._decl._tdecl.name.obj().name() == (_name)) {
+                    return stdgo.Go.asInterface(_tpar._check._environment._decl._tdecl.name.obj());
                 };
             });
         };
@@ -5660,12 +5660,12 @@ function testResolveIdents(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        for (__2 => _name in _pkgnames) {
+        for (__10 => _name in _pkgnames) {
             if (!(_importer._imported[_name] ?? false)) {
                 _t.errorf(("package %s not imported" : stdgo.GoString), stdgo.Go.toInterface(_name));
             };
         };
-        for (__3 => _f in _files) {
+        for (__19 => _f in _files) {
             stdgo.go.ast.Ast.inspect(stdgo.Go.asInterface(_f), function(_n:stdgo.go.ast.Ast.Node):Bool {
                 {
                     var __tmp__ = try {
@@ -5691,7 +5691,7 @@ function testResolveIdents(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                                         { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_obj) : stdgo.StdGoTypes.Ref<PkgName>)) : stdgo.StdGoTypes.Ref<PkgName>), ok : true };
                                     } catch(_) {
                                         { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.PkgName>), ok : false };
-                                    }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                                    }, __16 = __tmp__.value, _ok = __tmp__.ok;
                                     if (_ok && ((_uses[_s.sel] ?? (null : stdgo.go.types.Types.Object)) == null)) {
                                         _t.errorf(("%s: unresolved selector %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fset.position(_s.sel.pos()))), stdgo.Go.toInterface(_s.sel.name));
                                         return false;
@@ -5712,7 +5712,7 @@ function testResolveIdents(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
         var _both:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-        for (__4 => _f in _files) {
+        for (__36 => _f in _files) {
             stdgo.go.ast.Ast.inspect(stdgo.Go.asInterface(_f), function(_n:stdgo.go.ast.Ast.Node):Bool {
                 {
                     var __tmp__ = try {
@@ -5851,7 +5851,7 @@ function _runbench(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _path:stdgo
                     } : stdgo.GoMap<stdgo.go.ast.Ast.Node, stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope>>) } : stdgo.go.types.Types.Info)) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Info>);
                 };
                 {
-                    var __tmp__ = _conf.check(_path?.__copy__(), _fset, _files, _info), __8:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = _conf.check(_path?.__copy__(), _fset, _files, _info), __32:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         _b.fatal(stdgo.Go.toInterface(_err));
                     };
@@ -6080,7 +6080,7 @@ function _firstComment(_filename:stdgo.GoString):stdgo.GoString {
             var _s:stdgo.go.scanner.Scanner.Scanner = ({} : stdgo.go.scanner.Scanner.Scanner);
             _s.init(_fset.addFile(stdgo.Go.str()?.__copy__(), _fset.base(), _n), (_src.__slice__(0, _n) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), null, (1u32 : stdgo.go.scanner.Scanner.Mode));
             while (true) {
-                var __tmp__ = _s.scan(), __1:stdgo.go.token.Token.Pos = __tmp__._0, _tok:stdgo.go.token.Token.Token = __tmp__._1, _lit:stdgo.GoString = __tmp__._2;
+                var __tmp__ = _s.scan(), __17:stdgo.go.token.Token.Pos = __tmp__._0, _tok:stdgo.go.token.Token.Token = __tmp__._1, _lit:stdgo.GoString = __tmp__._2;
                 {
                     final __value__ = _tok;
                     if (__value__ == ((2 : stdgo.go.token.Token.Token))) {
@@ -6153,11 +6153,11 @@ function _testTestDir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _path:st
             @:mergeBlock {};
             x;
         } : stdgo.GoMap<stdgo.GoString, Bool>);
-        for (__2 => _filename in _ignore) {
+        for (__18 => _filename in _ignore) {
             _excluded[_filename] = true;
         };
         var _fset = stdgo.go.token.Token.newFileSet();
-        for (__3 => _f in _files) {
+        for (__19 => _f in _files) {
             if ((_f.isDir() || !stdgo.strings.Strings.hasSuffix(_f.name()?.__copy__(), (".go" : stdgo.GoString))) || (_excluded[_f.name()] ?? false)) {
                 continue;
             };
@@ -6184,7 +6184,7 @@ function _testTestDir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _path:st
                                     break;
                                 } else if (__value__ == (("errorcheck" : stdgo.GoString))) {
                                     _expectErrors = true;
-                                    for (__4 => _arg in (_fields.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.GoString>)) {
+                                    for (__20 => _arg in (_fields.__slice__((1 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.GoString>)) {
                                         if (((_arg == ("-0" : stdgo.GoString)) || (_arg == ("-+" : stdgo.GoString))) || (_arg == ("-std" : stdgo.GoString))) {
                                             _expectErrors = false;
                                             break;

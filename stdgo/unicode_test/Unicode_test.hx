@@ -469,7 +469,7 @@ function testDigit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("IsDigit(U+%04X) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
-        for (__1 => _r in _testLetter) {
+        for (__9 => _r in _testLetter) {
             if (isDigit(_r)) {
                 _t.errorf(("IsDigit(U+%04X) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
@@ -745,12 +745,12 @@ function testIsLetter(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("IsLetter(U+%04X) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
-        for (__1 => _r in _letterTest) {
+        for (__9 => _r in _letterTest) {
             if (!isLetter(_r)) {
                 _t.errorf(("IsLetter(U+%04X) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
-        for (__2 => _r in _notletterTest) {
+        for (__18 => _r in _notletterTest) {
             if (isLetter(_r)) {
                 _t.errorf(("IsLetter(U+%04X) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
@@ -762,12 +762,12 @@ function testIsUpper(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("IsUpper(U+%04X) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
-        for (__1 => _r in _notupperTest) {
+        for (__9 => _r in _notupperTest) {
             if (isUpper(_r)) {
                 _t.errorf(("IsUpper(U+%04X) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
         };
-        for (__2 => _r in _notletterTest) {
+        for (__18 => _r in _notletterTest) {
             if (isUpper(_r)) {
                 _t.errorf(("IsUpper(U+%04X) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_r));
             };
@@ -833,7 +833,7 @@ function testIsSpace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("IsSpace(U+%04X) = false; want true" : stdgo.GoString), stdgo.Go.toInterface(_c));
             };
         };
-        for (__1 => _c in _letterTest) {
+        for (__9 => _c in _letterTest) {
             if (isSpace(_c)) {
                 _t.errorf(("IsSpace(U+%04X) = true; want false" : stdgo.GoString), stdgo.Go.toInterface(_c));
             };

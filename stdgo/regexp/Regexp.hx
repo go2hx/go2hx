@@ -1574,7 +1574,7 @@ function testReplaceAllLiteral(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
                 _t.errorf(("%q.ReplaceAllLiteral(%q,%q) = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_tc._pattern), stdgo.Go.toInterface(_tc._input), stdgo.Go.toInterface(_tc._replacement), stdgo.Go.toInterface(_actual), stdgo.Go.toInterface(_tc._output));
             };
         };
-        for (__1 => _tc in _replaceLiteralTests) {
+        for (__25 => _tc in _replaceLiteralTests) {
             var __tmp__ = compile(_tc._pattern?.__copy__()), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.Regexp.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.errorf(("Unexpected error compiling %q: %v" : stdgo.GoString), stdgo.Go.toInterface(_tc._pattern), stdgo.Go.toInterface(_err));
@@ -1667,7 +1667,7 @@ function testSubexp(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     });
                 };
             };
-            for (__1 => _subexp in _c._indices) {
+            for (__25 => _subexp in _c._indices) {
                 var _index:stdgo.StdGoTypes.GoInt = _re.subexpIndex(_subexp._name?.__copy__());
                 if (_index != (_subexp._index)) {
                     _t.errorf(("%q: SubexpIndex(%q) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_c._input), stdgo.Go.toInterface(_subexp._name), stdgo.Go.toInterface(_index), stdgo.Go.toInterface(_subexp._index));
@@ -2092,7 +2092,7 @@ function benchmarkCompile(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void
                     var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                     stdgo.Go.cfor(_i < _b.n, _i++, {
                         {
-                            var __tmp__ = compile(_data._re?.__copy__()), __8:stdgo.StdGoTypes.Ref<stdgo.regexp.Regexp.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                            var __tmp__ = compile(_data._re?.__copy__()), __16:stdgo.StdGoTypes.Ref<stdgo.regexp.Regexp.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
                                 _b.fatal(stdgo.Go.toInterface(_err));
                             };
@@ -2572,7 +2572,7 @@ function testFowler(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        for (__0 => _file in _files) {
+        for (__8 => _file in _files) {
             _t.log(stdgo.Go.toInterface(_file));
             _testFowler(_t, _file?.__copy__());
         };
@@ -2680,7 +2680,7 @@ function _testFowler(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _file:std
                         _t.errorf(("%s:%d: cannot parse result %#q" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_field[(3 : stdgo.StdGoTypes.GoInt)]));
                         @:jump("Reading") continue;
                     };
-                    @:label("Testing") for (__0 => _c in _flag) {
+                    @:label("Testing") for (__72 => _c in _flag) {
                         var _pattern:stdgo.GoString = _field[(1 : stdgo.StdGoTypes.GoInt)]?.__copy__();
                         var _syn:stdgo.regexp.syntax.Syntax.Flags = (4 : stdgo.regexp.syntax.Syntax.Flags);
                         {
@@ -2691,7 +2691,7 @@ function _testFowler(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _file:std
                                 @:jump("Testing") continue;
                             };
                         };
-                        for (__1 => _c in _flag) {
+                        for (__73 => _c in _flag) {
                             {
                                 final __value__ = _c;
                                 if (__value__ == ((105 : stdgo.StdGoTypes.GoInt32))) {
@@ -2861,7 +2861,7 @@ function benchmarkMatch_onepass_regex(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Test
         if (_r._onepass == null || (_r._onepass : Dynamic).__nil__) {
             _b.fatalf(("want onepass regex, but %q is not onepass" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)));
         };
-        for (__0 => _size in _benchSizes) {
+        for (__8 => _size in _benchSizes) {
             if ((_isRaceBuilder || stdgo.testing.Testing.short()) && (_size._n > (1024 : stdgo.StdGoTypes.GoInt))) {
                 continue;
             };

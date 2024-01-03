@@ -1405,7 +1405,7 @@ function testEncoderDecoder(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                 var _decBuf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
                 var _w:T__struct_2 = ({ writer : stdgo.Go.asInterface((stdgo.Go.setRef(_decBuf) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)) } : T__struct_2);
                 {
-                    var __tmp__ = stdgo.io.Io.copyBuffer(stdgo.Go.asInterface(_w), _dec, new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((7 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__()), __2:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo.io.Io.copyBuffer(stdgo.Go.asInterface(_w), _dec, new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((7 : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__()), __18:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if ((_err != null) || (_decBuf.len() != (_input.length))) {
                         _t.errorf(("decoder.Read(%q*%d) = (%d, %v), want (%d, nil)" : stdgo.GoString), stdgo.Go.toInterface(_test._enc), stdgo.Go.toInterface(_multiplier), stdgo.Go.toInterface(_decBuf.len()), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((_input.length)));
                     };

@@ -740,7 +740,7 @@ function testFailure(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<CheckError>)) : stdgo.StdGoTypes.Ref<CheckError>), ok : true };
             } catch(_) {
                 { value : (null : stdgo.StdGoTypes.Ref<stdgo.testing.quick.Quick.CheckError>), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+            }, __8 = __tmp__.value, _ok = __tmp__.ok;
             if (!_ok) {
                 _t.errorf(("Error was not a CheckError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -754,7 +754,7 @@ function testFailure(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : SetupError)) : SetupError), ok : true };
             } catch(_) {
                 { value : (("" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError), ok : false };
-            }, __1 = __tmp__.value, _ok = __tmp__.ok;
+            }, __25 = __tmp__.value, _ok = __tmp__.ok;
             if (!_ok) {
                 _t.errorf(("#1 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -768,7 +768,7 @@ function testFailure(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : SetupError)) : SetupError), ok : true };
             } catch(_) {
                 { value : (("" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError), ok : false };
-            }, __2 = __tmp__.value, _ok = __tmp__.ok;
+            }, __42 = __tmp__.value, _ok = __tmp__.ok;
             if (!_ok) {
                 _t.errorf(("#2 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -786,7 +786,7 @@ function testFailure(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : SetupError)) : SetupError), ok : true };
             } catch(_) {
                 { value : (("" : stdgo.GoString) : stdgo.testing.quick.Quick.SetupError), ok : false };
-            }, __3 = __tmp__.value, _ok = __tmp__.ok;
+            }, __59 = __tmp__.value, _ok = __tmp__.ok;
             if (!_ok) {
                 _t.errorf(("#3 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };

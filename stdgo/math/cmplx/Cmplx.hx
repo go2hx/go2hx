@@ -1144,7 +1144,7 @@ function testAcos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _acosSC) {
+        for (__8 => _v in _acosSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = acos(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1161,7 +1161,7 @@ function testAcos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
         };
-        for (__1 => _pt in _branchPoints) {
+        for (__25 => _pt in _branchPoints) {
             {
                 var __0:stdgo.StdGoTypes.GoComplex128 = acos(_pt[(0 : stdgo.StdGoTypes.GoInt)]), __1:stdgo.StdGoTypes.GoComplex128 = acos(_pt[(1 : stdgo.StdGoTypes.GoInt)]), _f1:stdgo.StdGoTypes.GoComplex128 = __1, _f0:stdgo.StdGoTypes.GoComplex128 = __0;
                 if (!_cVeryclose(_f0, _f1)) {
@@ -1182,7 +1182,7 @@ function testAcosh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _acoshSC) {
+        for (__8 => _v in _acoshSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = acosh(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1199,7 +1199,7 @@ function testAcosh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
         };
-        for (__1 => _pt in _branchPoints) {
+        for (__25 => _pt in _branchPoints) {
             {
                 var __0:stdgo.StdGoTypes.GoComplex128 = acosh(_pt[(0 : stdgo.StdGoTypes.GoInt)]), __1:stdgo.StdGoTypes.GoComplex128 = acosh(_pt[(1 : stdgo.StdGoTypes.GoInt)]), _f1:stdgo.StdGoTypes.GoComplex128 = __1, _f0:stdgo.StdGoTypes.GoComplex128 = __0;
                 if (!_cVeryclose(_f0, _f1)) {
@@ -1220,7 +1220,7 @@ function testAsin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _asinSC) {
+        for (__8 => _v in _asinSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = asin(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1246,7 +1246,7 @@ function testAsin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
         };
-        for (__1 => _pt in _branchPoints) {
+        for (__33 => _pt in _branchPoints) {
             {
                 var __0:stdgo.StdGoTypes.GoComplex128 = asin(_pt[(0 : stdgo.StdGoTypes.GoInt)]), __1:stdgo.StdGoTypes.GoComplex128 = asin(_pt[(1 : stdgo.StdGoTypes.GoInt)]), _f1:stdgo.StdGoTypes.GoComplex128 = __1, _f0:stdgo.StdGoTypes.GoComplex128 = __0;
                 if (!_cVeryclose(_f0, _f1)) {
@@ -1267,7 +1267,7 @@ function testAsinh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _asinhSC) {
+        for (__8 => _v in _asinhSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = asinh(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1293,7 +1293,7 @@ function testAsinh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
         };
-        for (__1 => _pt in _branchPoints) {
+        for (__33 => _pt in _branchPoints) {
             {
                 var __0:stdgo.StdGoTypes.GoComplex128 = asinh(_pt[(0 : stdgo.StdGoTypes.GoInt)]), __1:stdgo.StdGoTypes.GoComplex128 = asinh(_pt[(1 : stdgo.StdGoTypes.GoInt)]), _f1:stdgo.StdGoTypes.GoComplex128 = __1, _f0:stdgo.StdGoTypes.GoComplex128 = __0;
                 if (!_cVeryclose(_f0, _f1)) {
@@ -1314,7 +1314,7 @@ function testAtan(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _atanSC) {
+        for (__8 => _v in _atanSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = atan(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1340,7 +1340,7 @@ function testAtan(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
         };
-        for (__1 => _pt in _branchPoints) {
+        for (__33 => _pt in _branchPoints) {
             {
                 var __0:stdgo.StdGoTypes.GoComplex128 = atan(_pt[(0 : stdgo.StdGoTypes.GoInt)]), __1:stdgo.StdGoTypes.GoComplex128 = atan(_pt[(1 : stdgo.StdGoTypes.GoInt)]), _f1:stdgo.StdGoTypes.GoComplex128 = __1, _f0:stdgo.StdGoTypes.GoComplex128 = __0;
                 if (!_cVeryclose(_f0, _f1)) {
@@ -1361,7 +1361,7 @@ function testAtanh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _atanhSC) {
+        for (__8 => _v in _atanhSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = atanh(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1387,7 +1387,7 @@ function testAtanh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
         };
-        for (__1 => _pt in _branchPoints) {
+        for (__33 => _pt in _branchPoints) {
             {
                 var __0:stdgo.StdGoTypes.GoComplex128 = atanh(_pt[(0 : stdgo.StdGoTypes.GoInt)]), __1:stdgo.StdGoTypes.GoComplex128 = atanh(_pt[(1 : stdgo.StdGoTypes.GoInt)]), _f1:stdgo.StdGoTypes.GoComplex128 = __1, _f0:stdgo.StdGoTypes.GoComplex128 = __0;
                 if (!_cVeryclose(_f0, _f1)) {
@@ -1432,7 +1432,7 @@ function testCos(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _cosSC) {
+        for (__8 => _v in _cosSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = cos(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1471,7 +1471,7 @@ function testCosh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _coshSC) {
+        for (__8 => _v in _coshSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = cosh(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1510,7 +1510,7 @@ function testExp(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _expSC) {
+        for (__8 => _v in _expSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = exp(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1553,7 +1553,7 @@ function testLog(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _logSC) {
+        for (__8 => _v in _logSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = log(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1570,7 +1570,7 @@ function testLog(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
         };
-        for (__1 => _pt in _branchPoints) {
+        for (__25 => _pt in _branchPoints) {
             {
                 var __0:stdgo.StdGoTypes.GoComplex128 = log(_pt[(0 : stdgo.StdGoTypes.GoInt)]), __1:stdgo.StdGoTypes.GoComplex128 = log(_pt[(1 : stdgo.StdGoTypes.GoInt)]), _f1:stdgo.StdGoTypes.GoComplex128 = __1, _f0:stdgo.StdGoTypes.GoComplex128 = __0;
                 if (!_cVeryclose(_f0, _f1)) {
@@ -1591,7 +1591,7 @@ function testLog10(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _log10SC) {
+        for (__8 => _v in _log10SC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = log10(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1667,7 +1667,7 @@ function testPow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__1 => _pt in _branchPoints) {
+        for (__25 => _pt in _branchPoints) {
             {
                 var __0:stdgo.StdGoTypes.GoComplex128 = pow(_pt[(0 : stdgo.StdGoTypes.GoInt)], ((0.1f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 0f64))), __1:stdgo.StdGoTypes.GoComplex128 = pow(_pt[(1 : stdgo.StdGoTypes.GoInt)], ((0.1f64 : stdgo.StdGoTypes.GoFloat64) + new stdgo.StdGoTypes.GoComplex128(0f64, 0f64))), _f1:stdgo.StdGoTypes.GoComplex128 = __1, _f0:stdgo.StdGoTypes.GoComplex128 = __0;
                 if (!_cVeryclose(_f0, _f1)) {
@@ -1712,7 +1712,7 @@ function testSin(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _sinSC) {
+        for (__8 => _v in _sinSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = sin(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1751,7 +1751,7 @@ function testSinh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _sinhSC) {
+        for (__8 => _v in _sinhSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = sinh(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1790,7 +1790,7 @@ function testSqrt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _sqrtSC) {
+        for (__8 => _v in _sqrtSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = sqrt(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1807,7 +1807,7 @@ function testSqrt(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             };
         };
-        for (__1 => _pt in _branchPoints) {
+        for (__25 => _pt in _branchPoints) {
             {
                 var __0:stdgo.StdGoTypes.GoComplex128 = sqrt(_pt[(0 : stdgo.StdGoTypes.GoInt)]), __1:stdgo.StdGoTypes.GoComplex128 = sqrt(_pt[(1 : stdgo.StdGoTypes.GoInt)]), _f1:stdgo.StdGoTypes.GoComplex128 = __1, _f0:stdgo.StdGoTypes.GoComplex128 = __0;
                 if (!_cVeryclose(_f0, _f1)) {
@@ -1828,7 +1828,7 @@ function testTan(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _tanSC) {
+        for (__8 => _v in _tanSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = tan(_v._in);
                 if (!_cAlike(_v._want, _f)) {
@@ -1867,7 +1867,7 @@ function testTanh(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _v in _tanhSC) {
+        for (__8 => _v in _tanhSC) {
             {
                 var _f:stdgo.StdGoTypes.GoComplex128 = tanh(_v._in);
                 if (!_cAlike(_v._want, _f)) {

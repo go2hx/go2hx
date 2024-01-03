@@ -2473,7 +2473,7 @@ class T_printer_asInterface {
                             { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_n) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.LabeledStmt>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.LabeledStmt>), ok : true };
                         } catch(_) {
                             { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.LabeledStmt>), ok : false };
-                        }, __32 = __tmp__.value, _ok = __tmp__.ok;
+                        }, __56 = __tmp__.value, _ok = __tmp__.ok;
                         if (_ok) {
                             _p._indent = (1 : stdgo.StdGoTypes.GoInt);
                         };
@@ -2487,13 +2487,13 @@ class T_printer_asInterface {
                     _p._spec(_n, (1 : stdgo.StdGoTypes.GoInt), false);
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.Slice<stdgo.go.ast.Ast.Stmt>))) {
                     var _n:stdgo.Slice<stdgo.go.ast.Ast.Stmt> = __type__ == null ? (null : stdgo.Slice<stdgo.go.ast.Ast.Stmt>) : __type__.__underlying__() == null ? (null : stdgo.Slice<stdgo.go.ast.Ast.Stmt>) : __type__ == null ? (null : stdgo.Slice<stdgo.go.ast.Ast.Stmt>) : __type__.__underlying__().value;
-                    for (__41 => _s in _n) {
+                    for (__89 => _s in _n) {
                         {
                             var __tmp__ = try {
                                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.LabeledStmt>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.LabeledStmt>), ok : true };
                             } catch(_) {
                                 { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.LabeledStmt>), ok : false };
-                            }, __42 = __tmp__.value, _ok = __tmp__.ok;
+                            }, __90 = __tmp__.value, _ok = __tmp__.ok;
                             if (_ok) {
                                 _p._indent = (1 : stdgo.StdGoTypes.GoInt);
                             };
@@ -2754,7 +2754,7 @@ class T_printer_asInterface {
                     return _p._writeCommentSuffix(false);
                 };
             };
-            for (__64 => _c in _list) {
+            for (__120 => _c in _list) {
                 _p._writeCommentPrefix(_p._posFor(_c.pos())?.__copy__(), _next?.__copy__(), _last, _tok);
                 _p._writeComment(_c);
                 _last = _c;
@@ -3189,7 +3189,7 @@ class T_printer_asInterface {
         try {
             var _size:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             while (_p._commentBefore(_next?.__copy__())) {
-                for (__8 => _c in _p._commentInfo._comment.list) {
+                for (__16 => _c in _p._commentInfo._comment.list) {
                     _size = _size + ((_c.text.length));
                 };
                 _p._nextComment();
@@ -3853,7 +3853,7 @@ class T_printer_asInterface {
             if (((0 : stdgo.StdGoTypes.GoInt) < _b) && (_b < _e)) {
                 var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                 var _line:stdgo.StdGoTypes.GoInt = _b;
-                for (__0 => _x in _list) {
+                for (__16 => _x in _list) {
                     var _xb:stdgo.StdGoTypes.GoInt = _p._lineFor(_x.pos());
                     var _xe:stdgo.StdGoTypes.GoInt = _p._lineFor(_x.end());
                     if (_line < _xb) {
@@ -3927,13 +3927,13 @@ class T_printer_asInterface {
         };
         var _line:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-        for (__0 => _s in _list) {
+        for (__8 => _s in _list) {
             {
                 var __tmp__ = try {
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.EmptyStmt>), ok : false };
-                }, __1 = __tmp__.value, _isEmpty = __tmp__.ok;
+                }, __9 = __tmp__.value, _isEmpty = __tmp__.ok;
                 if (!_isEmpty) {
                     if ((_p._output.length) > (0 : stdgo.StdGoTypes.GoInt)) {
                         _p._linebreak(_p._lineFor(_s.pos()), (1 : stdgo.StdGoTypes.GoInt), (0 : stdgo.go.printer.Printer.T_whiteSpace), ((_i == (0 : stdgo.StdGoTypes.GoInt)) || (_nindent == (0 : stdgo.StdGoTypes.GoInt))) || (_p._linesFrom(_line) > (0 : stdgo.StdGoTypes.GoInt)));
@@ -3947,7 +3947,7 @@ class T_printer_asInterface {
                                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.LabeledStmt>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.LabeledStmt>), ok : true };
                             } catch(_) {
                                 { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.LabeledStmt>), ok : false };
-                            }, _lt = __tmp__.value, __10 = __tmp__.ok;
+                            }, _lt = __tmp__.value, __58 = __tmp__.ok;
                             if (_lt == null || (_lt : Dynamic).__nil__) {
                                 break;
                             };
@@ -4086,7 +4086,7 @@ class T_printer_asInterface {
                         { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x.x) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>), ok : true };
                     } catch(_) {
                         { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ParenExpr>), ok : false };
-                    }, __16 = __tmp__.value, _hasParens = __tmp__.ok;
+                    }, __232 = __tmp__.value, _hasParens = __tmp__.ok;
                     if (_hasParens) {
                         _p._expr0(_x.x, _depth);
                     } else {
@@ -4141,7 +4141,7 @@ class T_printer_asInterface {
                 if (_depth <= (1 : stdgo.StdGoTypes.GoInt)) {
                     var _indexCount:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                     var _hasBinaries:Bool = false;
-                    for (__17 => _x in _indices) {
+                    for (__465 => _x in _indices) {
                         if (_x != null) {
                             _indexCount++;
                             if (_isBinary(_x)) {
@@ -4180,7 +4180,7 @@ class T_printer_asInterface {
                         { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_x.fun) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>)) : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>), ok : true };
                     } catch(_) {
                         { value : (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.FuncType>), ok : false };
-                    }, __18 = __tmp__.value, _ok = __tmp__.ok;
+                    }, __514 = __tmp__.value, _ok = __tmp__.ok;
                     if (_ok) {
                         _p._print(stdgo.Go.toInterface(stdgo.Go.asInterface((49 : stdgo.go.token.Token.Token))));
                         _wasIndented = _p._possibleSelectorExpr(_x.fun, (7 : stdgo.StdGoTypes.GoInt), _depth);
@@ -4898,10 +4898,10 @@ class T_printer_asInterface {
         };
         var _block:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         if (_x == null) {
-            for (__177 => _pos in _p._goBuild) {
+            for (__193 => _pos in _p._goBuild) {
                 _block = (_block.__append__(..._p._lineAt(_pos).__toArray__()));
             };
-            for (__186 => _pos in _p._plusBuild) {
+            for (__210 => _pos in _p._plusBuild) {
                 _block = (_block.__append__(..._p._lineAt(_pos).__toArray__()));
             };
         } else {
@@ -4914,7 +4914,7 @@ class T_printer_asInterface {
                 if (_err != null) {
                     _lines = (new stdgo.Slice<stdgo.GoString>(1, 1, ("// +build error: " : stdgo.GoString) + _err.error()?.__copy__()?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
-                for (__203 => _line in _lines) {
+                for (__235 => _line in _lines) {
                     _block = (_block.__append__((255 : stdgo.StdGoTypes.GoUInt8)));
                     _block = (_block.__append__(..._line.__toArray__()));
                     _block = (_block.__append__((255 : stdgo.StdGoTypes.GoUInt8), (10 : stdgo.StdGoTypes.GoUInt8)));
@@ -4926,7 +4926,7 @@ class T_printer_asInterface {
         stdgo.sort.Sort.ints(_toDelete);
         var _after:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
         var _start:stdgo.StdGoTypes.GoInt = _insert;
-        for (__220 => _end in _toDelete) {
+        for (__252 => _end in _toDelete) {
             if (_end < _start) {
                 continue;
             };
@@ -5169,7 +5169,7 @@ class Config_asInterface {
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_output) : stdgo.StdGoTypes.Ref<stdgo.text.tabwriter.Tabwriter.Writer>)) : stdgo.StdGoTypes.Ref<stdgo.text.tabwriter.Tabwriter.Writer>), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.StdGoTypes.Ref<stdgo.text.tabwriter.Tabwriter.Writer>), ok : false };
-                }, _tw = __tmp__.value, __16 = __tmp__.ok;
+                }, _tw = __tmp__.value, __48 = __tmp__.ok;
                 if (_tw != null && ((_tw : Dynamic).__nil__ == null || !(_tw : Dynamic).__nil__)) {
                     _err = _tw.flush();
                 };

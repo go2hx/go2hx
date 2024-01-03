@@ -2007,7 +2007,7 @@ function newCommentMap(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>,
         var _nodes = _nodeList(_node);
         _nodes = (_nodes.__append__((null : stdgo.go.ast.Ast.Node)));
         var __0:Node = (null : stdgo.go.ast.Ast.Node), __1:stdgo.go.token.Token.Position = ({} : stdgo.go.token.Token.Position), __2:Node = (null : stdgo.go.ast.Ast.Node), __3:stdgo.go.token.Token.Position = ({} : stdgo.go.token.Token.Position), __4:T_nodeStack = new stdgo.go.ast.Ast.T_nodeStack(0, 0), _stack:T_nodeStack = __4, _pgend:stdgo.go.token.Token.Position = __3, _pg:Node = __2, _pend:stdgo.go.token.Token.Position = __1, _p:Node = __0;
-        for (__0 => _q in _nodes) {
+        for (__8 => _q in _nodes) {
             var _qpos:stdgo.go.token.Token.Position = ({} : stdgo.go.token.Token.Position);
             if (_q != null) {
                 _qpos = _fset.position(_q.pos())?.__copy__();
@@ -2694,7 +2694,7 @@ function _sortSpecs(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _f
             cast x;
         } : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.ImportSpec>, stdgo.Slice<stdgo.go.ast.Ast.T_cgPos>>);
         var _specIndex:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-        for (__0 => _g in _comments) {
+        for (__16 => _g in _comments) {
             while (((_specIndex + (1 : stdgo.StdGoTypes.GoInt)) < _specs.length) && (_pos[(_specIndex + (1 : stdgo.StdGoTypes.GoInt) : stdgo.StdGoTypes.GoInt)].start <= _g.pos())) {
                 _specIndex++;
             };
@@ -2738,8 +2738,8 @@ function _sortSpecs(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _f
             };
             _s.path.valuePos = _pos[(_i : stdgo.StdGoTypes.GoInt)].start;
             _s.endPos = _pos[(_i : stdgo.StdGoTypes.GoInt)].end;
-            for (__1 => _g in (_importComments[_s] ?? (null : stdgo.Slice<stdgo.go.ast.Ast.T_cgPos>))) {
-                for (__2 => _c in _g._cg.list) {
+            for (__25 => _g in (_importComments[_s] ?? (null : stdgo.Slice<stdgo.go.ast.Ast.T_cgPos>))) {
+                for (__26 => _c in _g._cg.list) {
                     if (_g._left) {
                         _c.slash = _pos[(_i : stdgo.StdGoTypes.GoInt)].start - (1 : stdgo.go.token.Token.Pos);
                     } else {
@@ -2921,7 +2921,7 @@ function newPackage(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _f
                     continue;
                 };
             };
-            for (__9 => _obj in _file.scope.objects) {
+            for (__17 => _obj in _file.scope.objects) {
                 _p._declare(_pkgScope, null, _obj);
             };
         };
@@ -2931,18 +2931,18 @@ function newPackage(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _f
             @:mergeBlock {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object>>);
-        for (__10 => _file in _files) {
+        for (__26 => _file in _files) {
             if (_file.name.name != (_pkgName)) {
                 continue;
             };
             var _importErrors:Bool = false;
             var _fileScope = newScope(_pkgScope);
-            for (__11 => _spec in _file.imports) {
+            for (__27 => _spec in _file.imports) {
                 if (_importer == null) {
                     _importErrors = true;
                     continue;
                 };
-                var __tmp__ = stdgo.strconv.Strconv.unquote(_spec.path.value?.__copy__()), _path:stdgo.GoString = __tmp__._0, __12:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.strconv.Strconv.unquote(_spec.path.value?.__copy__()), _path:stdgo.GoString = __tmp__._0, __28:stdgo.Error = __tmp__._1;
                 var __tmp__ = _importer(_imports, _path?.__copy__()), _pkg:stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.Object> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _p._errorf(_spec.path.pos(), ("could not import %s (%s)" : stdgo.GoString), stdgo.Go.toInterface(_path), stdgo.Go.toInterface(_err));
@@ -2954,7 +2954,7 @@ function newPackage(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _f
                     _name = _spec.name.name?.__copy__();
                 };
                 if (_name == (("." : stdgo.GoString))) {
-                    for (__13 => _obj in (stdgo.Go.typeAssert((_pkg.data : stdgo.StdGoTypes.Ref<Scope>)) : stdgo.StdGoTypes.Ref<Scope>).objects) {
+                    for (__37 => _obj in (stdgo.Go.typeAssert((_pkg.data : stdgo.StdGoTypes.Ref<Scope>)) : stdgo.StdGoTypes.Ref<Scope>).objects) {
                         _p._declare(_fileScope, _pkgScope, _obj);
                     };
                 } else if (_name != (("_" : stdgo.GoString))) {
@@ -2968,7 +2968,7 @@ function newPackage(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _f
                 _pkgScope.outer = null;
             };
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-            for (__14 => _ident in _file.unresolved) {
+            for (__54 => _ident in _file.unresolved) {
                 if (!_resolve(_fileScope, _ident)) {
                     _p._errorf(_ident.pos(), ("undeclared name: %s" : stdgo.GoString), stdgo.Go.toInterface(_ident.name));
                     _file.unresolved[(_i : stdgo.StdGoTypes.GoInt)] = _ident;
@@ -5399,7 +5399,7 @@ class T_printer_asInterface {
                 if (_x.len() > (0 : stdgo.StdGoTypes.GoInt)) {
                     _p._indent++;
                     _p._printf(("\n" : stdgo.GoString));
-                    for (__8 => _key in _x.mapKeys()) {
+                    for (__40 => _key in _x.mapKeys()) {
                         _p._print(_key?.__copy__());
                         _p._printf((": " : stdgo.GoString));
                         _p._print(_x.mapIndex(_key?.__copy__())?.__copy__());

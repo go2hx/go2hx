@@ -104,7 +104,7 @@ function testCommentMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _out = (_out.__append__(stdgo.fmt.Fmt.sprintf(("\t\"%2d: %T\":\t%q," : stdgo.GoString), stdgo.Go.toInterface(_fset.position(_n.pos()).line), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_ctext(_list)))?.__copy__()));
             };
             stdgo.sort.Sort.strings(_out);
-            for (__0 => _s in _out) {
+            for (__40 => _s in _out) {
                 stdgo.fmt.Fmt.println(stdgo.Go.toInterface(_s));
             };
         };

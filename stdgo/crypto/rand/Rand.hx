@@ -105,7 +105,7 @@ function testRead(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.fatalf(("ReadFull(buf) = %d, %s" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
         };
         var _z:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-        var __tmp__ = stdgo.compress.flate.Flate.newWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), (5 : stdgo.StdGoTypes.GoInt)), _f:stdgo.StdGoTypes.Ref<stdgo.compress.flate.Flate.Writer> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.compress.flate.Flate.newWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>)), (5 : stdgo.StdGoTypes.GoInt)), _f:stdgo.StdGoTypes.Ref<stdgo.compress.flate.Flate.Writer> = __tmp__._0, __8:stdgo.Error = __tmp__._1;
         _f.write(_b);
         _f.close();
         if (_z.len() < ((_b.length * (99 : stdgo.StdGoTypes.GoInt)) / (100 : stdgo.StdGoTypes.GoInt))) {

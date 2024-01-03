@@ -207,12 +207,12 @@ var _perlGroup : stdgo.GoMap<stdgo.GoString, stdgo.regexp.syntax.Syntax.T_charGr
         final x = new stdgo.GoMap.GoStringMap<stdgo.regexp.syntax.Syntax.T_charGroup>();
         x.__defaultValue__ = () -> ({} : stdgo.regexp.syntax.Syntax.T_charGroup);
         @:mergeBlock {
-            x.set(("\\d" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code1) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("\\D" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code1) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("\\s" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code2) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("\\S" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code2) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("\\w" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code3) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("\\W" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code3) : stdgo.regexp.syntax.Syntax.T_charGroup));
+            x.set(("\\d" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("\\D" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("\\s" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("\\S" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("\\w" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("\\W" : stdgo.GoString), @:invalid_compositelit null);
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, stdgo.regexp.syntax.Syntax.T_charGroup>);
@@ -309,34 +309,34 @@ var _posixGroup : stdgo.GoMap<stdgo.GoString, stdgo.regexp.syntax.Syntax.T_charG
         final x = new stdgo.GoMap.GoStringMap<stdgo.regexp.syntax.Syntax.T_charGroup>();
         x.__defaultValue__ = () -> ({} : stdgo.regexp.syntax.Syntax.T_charGroup);
         @:mergeBlock {
-            x.set(("[:alnum:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code4) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^alnum:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code4) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:alpha:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code5) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^alpha:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code5) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:ascii:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code6) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^ascii:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code6) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:blank:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code7) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^blank:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code7) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:cntrl:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code8) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^cntrl:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code8) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:digit:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code9) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^digit:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code9) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:graph:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code10) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^graph:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code10) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:lower:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code11) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^lower:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code11) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:print:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code12) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^print:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code12) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:punct:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code13) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^punct:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code13) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:space:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code14) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^space:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code14) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:upper:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code15) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^upper:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code15) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:word:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code16) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^word:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code16) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:xdigit:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((1 : stdgo.StdGoTypes.GoInt), _code17) : stdgo.regexp.syntax.Syntax.T_charGroup));
-            x.set(("[:^xdigit:]" : stdgo.GoString), (new stdgo.regexp.syntax.Syntax.T_charGroup((-1 : stdgo.StdGoTypes.GoInt), _code17) : stdgo.regexp.syntax.Syntax.T_charGroup));
+            x.set(("[:alnum:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^alnum:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:alpha:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^alpha:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:ascii:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^ascii:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:blank:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^blank:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:cntrl:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^cntrl:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:digit:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^digit:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:graph:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^graph:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:lower:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^lower:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:print:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^print:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:punct:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^punct:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:space:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^space:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:upper:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^upper:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:word:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^word:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:xdigit:]" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("[:^xdigit:]" : stdgo.GoString), @:invalid_compositelit null);
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, stdgo.regexp.syntax.Syntax.T_charGroup>);
@@ -2739,9 +2739,9 @@ function testParseInvalidRegexps(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
                 };
             };
         };
-        for (__1 => _regexp in _onlyPerl) {
+        for (__17 => _regexp in _onlyPerl) {
             {
-                var __tmp__ = parse(_regexp?.__copy__(), (212 : stdgo.regexp.syntax.Syntax.Flags)), __2:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = parse(_regexp?.__copy__(), (212 : stdgo.regexp.syntax.Syntax.Flags)), __18:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _t.errorf(("Parse(%#q, Perl): %v" : stdgo.GoString), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_err));
                 };
@@ -2753,7 +2753,7 @@ function testParseInvalidRegexps(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
                 };
             };
         };
-        for (__3 => _regexp in _onlyPOSIX) {
+        for (__35 => _regexp in _onlyPOSIX) {
             {
                 var __tmp__ = parse(_regexp?.__copy__(), (212 : stdgo.regexp.syntax.Syntax.Flags)), _re:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
@@ -2761,7 +2761,7 @@ function testParseInvalidRegexps(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
                 };
             };
             {
-                var __tmp__ = parse(_regexp?.__copy__(), (0 : stdgo.regexp.syntax.Syntax.Flags)), __4:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = parse(_regexp?.__copy__(), (0 : stdgo.regexp.syntax.Syntax.Flags)), __44:stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _t.errorf(("Parse(%#q, POSIX): %v" : stdgo.GoString), stdgo.Go.toInterface(_regexp), stdgo.Go.toInterface(_err));
                 };

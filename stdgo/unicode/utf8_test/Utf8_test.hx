@@ -425,7 +425,7 @@ function testFullRune(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _t.errorf(("FullRune(%q) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_s1));
             };
         };
-        for (__1 => _s in (new stdgo.Slice<stdgo.GoString>(2, 2, stdgo.Go.str(192)?.__copy__(), stdgo.Go.str(193)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) {
+        for (__33 => _s in (new stdgo.Slice<stdgo.GoString>(2, 2, stdgo.Go.str(192)?.__copy__(), stdgo.Go.str(193)?.__copy__()) : stdgo.Slice<stdgo.GoString>)) {
             var _b = (_s : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
             if (!fullRune(_b)) {
                 _t.errorf(("FullRune(%q) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_s));
@@ -599,7 +599,7 @@ function testRuntimeConversion(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
                 };
             };
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
-            for (__1 => _r in _ts) {
+            for (__17 => _r in _ts) {
                 if (_r != (_runes[(_i : stdgo.StdGoTypes.GoInt)])) {
                     _t.errorf(("%q[%d]: expected %c (%U); got %c (%U)" : stdgo.GoString), stdgo.Go.toInterface(_ts), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_runes[(_i : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_runes[(_i : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_r));
                 };
@@ -623,7 +623,7 @@ function testDecodeInvalidSequence(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
                     return;
                 };
             };
-            var __tmp__ = decodeRuneInString(_s?.__copy__()), _r2:stdgo.StdGoTypes.GoInt32 = __tmp__._0, __2:stdgo.StdGoTypes.GoInt = __tmp__._1;
+            var __tmp__ = decodeRuneInString(_s?.__copy__()), _r2:stdgo.StdGoTypes.GoInt32 = __tmp__._0, __10:stdgo.StdGoTypes.GoInt = __tmp__._1;
             {
                 var _want:stdgo.StdGoTypes.GoInt32 = (65533 : stdgo.StdGoTypes.GoInt32);
                 if (_r2 != (_want)) {

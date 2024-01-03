@@ -247,10 +247,10 @@ function testLookPath(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.setenv(("PWD" : stdgo.GoString), _tmpDir?.__copy__());
             _t.logf((". is %#q" : stdgo.GoString), stdgo.Go.toInterface(_tmpDir));
             var _origPath:stdgo.GoString = stdgo.os.Os.getenv(_pathVar?.__copy__())?.__copy__();
-            for (__0 => _errdot in (new stdgo.Slice<stdgo.GoString>(2, 2, ("1" : stdgo.GoString), ("0" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+            for (__56 => _errdot in (new stdgo.Slice<stdgo.GoString>(2, 2, ("1" : stdgo.GoString), ("0" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
                 _t.run(("GODEBUG=execerrdot=" : stdgo.GoString) + _errdot?.__copy__()?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     _t.setenv(("GODEBUG" : stdgo.GoString), ("execerrdot=" : stdgo.GoString) + _errdot?.__copy__() + (",execwait=2" : stdgo.GoString)?.__copy__()?.__copy__());
-                    for (__0 => _dir in (new stdgo.Slice<stdgo.GoString>(2, 2, ("." : stdgo.GoString), ("../testdir" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
+                    for (__8 => _dir in (new stdgo.Slice<stdgo.GoString>(2, 2, ("." : stdgo.GoString), ("../testdir" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>)) {
                         _t.run(_pathVar + ("=" : stdgo.GoString)?.__copy__() + _dir?.__copy__()?.__copy__(), function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                             _t.setenv(_pathVar?.__copy__(), _dir + ((58 : stdgo.StdGoTypes.GoInt32) : stdgo.GoString)?.__copy__() + _origPath?.__copy__()?.__copy__());
                             var _good:stdgo.GoString = _dir + ("/execabs-test" : stdgo.GoString)?.__copy__()?.__copy__();
@@ -269,7 +269,7 @@ function testLookPath(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                                     };
                                 };
                             };
-                            var __tmp__ = lookPath(("execabs-test" : stdgo.GoString)), __0:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                            var __tmp__ = lookPath(("execabs-test" : stdgo.GoString)), __24:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_errdot == (("1" : stdgo.GoString))) {
                                 if (_err == null) {
                                     _t.fatalf(("LookPath didn\'t fail when finding a non-relative path" : stdgo.GoString));
@@ -514,7 +514,7 @@ function exampleCmd_StderrPipe():Void {
                 stdgo.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        var __tmp__ = stdgo.io.Io.readAll(_stderr), _slurp:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.io.Io.readAll(_stderr), _slurp:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, __12:stdgo.Error = __tmp__._1;
         stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_slurp));
         {
             var _err:stdgo.Error = _cmd.wait_();
@@ -586,7 +586,7 @@ function testMain(_m:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.M>):Void {
             if (((_code == (0 : stdgo.StdGoTypes.GoInt)) && ((stdgo.flag.Flag.lookup(("test.run" : stdgo.GoString)).value.string() : stdgo.GoString) == stdgo.Go.str())) && ((stdgo.flag.Flag.lookup(("test.list" : stdgo.GoString)).value.string() : stdgo.GoString) == stdgo.Go.str())) {
                 for (_cmd => _ in _helperCommands) {
                     {
-                        var __tmp__ = _helperCommandUsed.load(stdgo.Go.toInterface(_cmd)), __0:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = _helperCommandUsed.load(stdgo.Go.toInterface(_cmd)), __4:stdgo.StdGoTypes.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (!_ok) {
                             stdgo.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo.os.Os.stderr), ("helper command unused: %q\n" : stdgo.GoString), stdgo.Go.toInterface(_cmd));
                             _code = (1 : stdgo.StdGoTypes.GoInt);
@@ -918,7 +918,7 @@ function testCatGoodAndBadFile(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
                 { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.ExitError>)) : stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.ExitError>), ok : true };
             } catch(_) {
                 { value : (null : stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.ExitError>), ok : false };
-            }, __0 = __tmp__.value, _ok = __tmp__.ok;
+            }, __14 = __tmp__.value, _ok = __tmp__.ok;
             if (!_ok) {
                 _t.errorf(("expected *exec.ExitError from cat combined; got %T: %v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_err));
             };
@@ -1098,7 +1098,7 @@ function testStdinClose(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_stdin) : T__interface_0)) : T__interface_0), ok : true };
                 } catch(_) {
                     { value : (null : stdgo.os.exec_test.Exec_test.T__interface_0), ok : false };
-                }, __0 = __tmp__.value, _ok = __tmp__.ok;
+                }, __14 = __tmp__.value, _ok = __tmp__.ok;
                 if (!_ok) {
                     _t.error(stdgo.Go.toInterface(("can\'t access methods of underlying *os.File" : stdgo.GoString)));
                 };
@@ -1112,7 +1112,7 @@ function testStdinClose(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
                         __deferstack__.unshift(() -> _wg.done());
-                        var __tmp__ = stdgo.io.Io.copy(_stdin, stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("Some test string." : stdgo.GoString)))), __0:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = stdgo.io.Io.copy(_stdin, stdgo.Go.asInterface(stdgo.strings.Strings.newReader(("Some test string." : stdgo.GoString)))), __4:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         _check(("Copy" : stdgo.GoString), _err);
                         {
                             var _err:stdgo.Error = _stdin.close();
@@ -1307,7 +1307,7 @@ function testPipeLookPathLeak(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             @:mergeBlock {};
             x;
         } : stdgo.GoMap<stdgo.StdGoTypes.GoUIntptr, Bool>);
-        for (__0 => _fd in _openFDs()) {
+        for (__8 => _fd in _openFDs()) {
             _old[_fd] = true;
         };
         {
@@ -1325,7 +1325,7 @@ function testPipeLookPathLeak(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
                 };
             });
         };
-        for (__1 => _fd in _openFDs()) {
+        for (__41 => _fd in _openFDs()) {
             if (!(_old[_fd] ?? false)) {
                 _t.errorf(("leaked file descriptor %v" : stdgo.GoString), stdgo.Go.toInterface(_fd));
             };
@@ -1515,10 +1515,10 @@ function testExtraFilesRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
                 };
                 _la.close();
                 _lb.close();
-                for (__12 => _f in _ca.extraFiles) {
+                for (__44 => _f in _ca.extraFiles) {
                     _f.close();
                 };
-                for (__19 => _f in _cb.extraFiles) {
+                for (__51 => _f in _cb.extraFiles) {
                     _f.close();
                 };
             });
@@ -1565,7 +1565,7 @@ function testClosePipeOnCopyError(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
 function testOutputStderrCapture(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         _t.parallel();
         var _cmd = _helperCommand(_t, ("stderrfail" : stdgo.GoString));
-        var __tmp__ = _cmd.output(), __0:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _cmd.output(), __14:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         var __tmp__ = try {
             { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.ExitError>)) : stdgo.StdGoTypes.Ref<stdgo.os.exec.Exec.ExitError>), ok : true };
         } catch(_) {
@@ -1599,7 +1599,7 @@ function testContext(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         {
-            var __tmp__ = _stdin.write((("O:hi\n" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _stdin.write((("O:hi\n" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)), __50:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
@@ -1640,7 +1640,7 @@ function testContextCancel(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 };
             };
             {
-                var __tmp__ = stdgo.io.Io.writeString(_stdin, ("echo" : stdgo.GoString)), __0:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.io.Io.writeString(_stdin, ("echo" : stdgo.GoString)), __36:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
@@ -1650,7 +1650,7 @@ function testContextCancel(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             var _delay:stdgo.time.Time.Duration = (1000000i64 : stdgo.time.Time.Duration);
             while (true) {
                 {
-                    var __tmp__ = stdgo.io.Io.writeString(_stdin, ("echo" : stdgo.GoString)), __1:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo.io.Io.writeString(_stdin, ("echo" : stdgo.GoString)), __45:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         break;
                     };
@@ -1730,7 +1730,7 @@ function testString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _t.skip(stdgo.Go.toInterface(_err));
         };
         var _tests = (new stdgo.GoArray<T__struct_2>(({ _path : ("echo" : stdgo.GoString), _args : (null : stdgo.Slice<stdgo.GoString>), _want : _echoPath?.__copy__() } : T__struct_2), ({ _path : ("echo" : stdgo.GoString), _args : (new stdgo.Slice<stdgo.GoString>(1, 1, ("a" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _want : _echoPath + (" a" : stdgo.GoString)?.__copy__()?.__copy__() } : T__struct_2), ({ _path : ("echo" : stdgo.GoString), _args : (new stdgo.Slice<stdgo.GoString>(2, 2, ("a" : stdgo.GoString), ("b" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>), _want : _echoPath + (" a b" : stdgo.GoString)?.__copy__()?.__copy__() } : T__struct_2)) : stdgo.GoArray<T__struct_2>);
-        for (__0 => _test in _tests) {
+        for (__16 => _test in _tests) {
             var _cmd = stdgo.os.exec.Exec.command(_test._path?.__copy__(), ..._test._args.__toArray__());
             {
                 var _got:stdgo.GoString = (_cmd.string() : stdgo.GoString)?.__copy__();
@@ -1742,7 +1742,7 @@ function testString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     }
 function testStringPathNotResolved(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         _t.parallel();
-        var __tmp__ = stdgo.os.exec.Exec.lookPath(("makemeasandwich" : stdgo.GoString)), __0:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo.os.exec.Exec.lookPath(("makemeasandwich" : stdgo.GoString)), __8:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err == null) {
             _t.skip(stdgo.Go.toInterface(("wow, thanks" : stdgo.GoString)));
         };
@@ -1848,7 +1848,7 @@ function _cmdHang(_args:haxe.Rest<stdgo.GoString>):Void {
             _cmd.start();
             var _buf = (stdgo.Go.setRef(({} : stdgo.strings.Strings.Builder)) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>);
             {
-                var __tmp__ = stdgo.io.Io.copy(stdgo.Go.asInterface(_buf), _out), __12:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo.io.Io.copy(stdgo.Go.asInterface(_buf), _out), __24:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     stdgo.fmt.Fmt.fprintln(stdgo.Go.asInterface(stdgo.os.Os.stderr), stdgo.Go.toInterface(_err));
                     _cmd.process.kill();
@@ -1942,7 +1942,7 @@ function _startHang(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _ctx:stdgo
         };
         var _buf = (stdgo.Go.setRef(({} : stdgo.strings.Strings.Builder)) : stdgo.StdGoTypes.Ref<stdgo.strings.Strings.Builder>);
         {
-            var __tmp__ = stdgo.io.Io.copy(stdgo.Go.asInterface(_buf), _out), __18:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.io.Io.copy(stdgo.Go.asInterface(_buf), _out), __74:stdgo.StdGoTypes.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.error(stdgo.Go.toInterface(_err));
                 _cmd.process.kill();

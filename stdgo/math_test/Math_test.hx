@@ -3480,7 +3480,7 @@ function testGamma(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
             });
         };
-        for (__0 => _g in _vfgamma) {
+        for (__8 => _g in _vfgamma) {
             var _f:stdgo.StdGoTypes.GoFloat64 = gamma(_g[(0 : stdgo.StdGoTypes.GoInt)]);
             var _ok:Bool = false;
             if (((isNaN(_g[(1 : stdgo.StdGoTypes.GoInt)]) || isInf(_g[(1 : stdgo.StdGoTypes.GoInt)], (0 : stdgo.StdGoTypes.GoInt))) || (_g[(1 : stdgo.StdGoTypes.GoInt)] == (0 : stdgo.StdGoTypes.GoFloat64))) || (_f == (0 : stdgo.StdGoTypes.GoFloat64))) {

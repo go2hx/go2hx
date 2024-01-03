@@ -1657,7 +1657,7 @@ function _countOps(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _algo:Inter
         if (!stdgo.testing.Testing.verbose()) {
             _t.skip(stdgo.Go.toInterface(("Counting skipped as non-verbose mode." : stdgo.GoString)));
         };
-        for (__0 => _n in _sizes) {
+        for (__8 => _n in _sizes) {
             var _td:stdgo.sort_test.Sort_test.T_testingData = ({ _desc : _name?.__copy__(), _t : _t, _data : new stdgo.Slice<stdgo.StdGoTypes.GoInt>((_n : stdgo.StdGoTypes.GoInt).toBasic(), 0).__setNumber32__(), _maxswap : (2147483647 : stdgo.StdGoTypes.GoInt) } : stdgo.sort_test.Sort_test.T_testingData);
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);

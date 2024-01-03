@@ -131,7 +131,7 @@ function testForCompiler(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void 
             _t.fatalf(("go list %s: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(("math/big" : stdgo.GoString)), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_out));
         };
         var _export:stdgo.GoString = stdgo.strings.Strings.trimSpace((_out : stdgo.GoString)?.__copy__())?.__copy__();
-        var __tmp__ = stdgo.strings.Strings.cut(_export?.__copy__(), (":" : stdgo.GoString)), _compiler:stdgo.GoString = __tmp__._0, _target:stdgo.GoString = __tmp__._1, __0:Bool = __tmp__._2;
+        var __tmp__ = stdgo.strings.Strings.cut(_export?.__copy__(), (":" : stdgo.GoString)), _compiler:stdgo.GoString = __tmp__._0, _target:stdgo.GoString = __tmp__._1, __14:Bool = __tmp__._2;
         if (_compiler == (("gccgo" : stdgo.GoString))) {
             _t.skip(stdgo.Go.toInterface(("golang.org/issue/22500" : stdgo.GoString)));
         };

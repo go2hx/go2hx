@@ -2510,7 +2510,7 @@ function testParseInLocation(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
-        var __tmp__ = _t1.zone(), __0:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1;
+        var __tmp__ = _t1.zone(), __16:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1;
         if (_offset != ((0 : stdgo.StdGoTypes.GoInt))) {
             _t2 = date((2013 : stdgo.StdGoTypes.GoInt), (2 : stdgo.time.Time.Month), (1 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), (0 : stdgo.StdGoTypes.GoInt), _baghdad)?.__copy__();
             if (stdgo.Go.toInterface(_t1) != stdgo.Go.toInterface(_t2)) {
@@ -2761,7 +2761,7 @@ function testMinutesInTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             _t.fatal(stdgo.Go.toInterface(("error parsing date:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var _expected:stdgo.StdGoTypes.GoInt = (4980 : stdgo.StdGoTypes.GoInt);
-        var __tmp__ = _time.zone(), __0:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1;
+        var __tmp__ = _time.zone(), __8:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1;
         if (_offset != (_expected)) {
             _t.errorf(("ZoneOffset = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_offset), stdgo.Go.toInterface(_expected));
         };
@@ -2772,7 +2772,7 @@ function testParseSecondsInTimeZone(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("error parsing date:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
-            var __tmp__ = _time.zone(), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1;
+            var __tmp__ = _time.zone(), __9:stdgo.GoString = __tmp__._0, _offset:stdgo.StdGoTypes.GoInt = __tmp__._1;
             if (_offset != (_test._expectedoffset)) {
                 _t.errorf(("ZoneOffset = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_offset), stdgo.Go.toInterface(_test._expectedoffset));
             };
@@ -2924,7 +2924,7 @@ function fuzzFormatRFC3339(_f:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.F>):Voi
         for (__0 => _ts in (new stdgo.Slice<stdgo.GoArray<stdgo.StdGoTypes.GoInt64>>(5, 5, (new stdgo.GoArray<stdgo.StdGoTypes.GoInt64>((-9223372036854775808i64 : stdgo.StdGoTypes.GoInt64), (-9223372036854775808i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt64>), (new stdgo.GoArray<stdgo.StdGoTypes.GoInt64>((-62167219200i64 : stdgo.StdGoTypes.GoInt64), (0i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt64>), (new stdgo.GoArray<stdgo.StdGoTypes.GoInt64>((1661201140i64 : stdgo.StdGoTypes.GoInt64), (676836973i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt64>), (new stdgo.GoArray<stdgo.StdGoTypes.GoInt64>((253402300799i64 : stdgo.StdGoTypes.GoInt64), (999999999i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt64>), (new stdgo.GoArray<stdgo.StdGoTypes.GoInt64>((9223372036854775807i64 : stdgo.StdGoTypes.GoInt64), (9223372036854775807i64 : stdgo.StdGoTypes.GoInt64)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt64>)) : stdgo.Slice<stdgo.GoArray<stdgo.StdGoTypes.GoInt64>>)) {
             _f.add(stdgo.Go.toInterface(_ts[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_ts[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(true), stdgo.Go.toInterface(false), stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)));
             _f.add(stdgo.Go.toInterface(_ts[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_ts[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(false), stdgo.Go.toInterface(true), stdgo.Go.toInterface((0 : stdgo.StdGoTypes.GoInt)));
-            for (__1 => _offset in (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(5, 5, (0 : stdgo.StdGoTypes.GoInt), (60 : stdgo.StdGoTypes.GoInt), (3600 : stdgo.StdGoTypes.GoInt), (362340 : stdgo.StdGoTypes.GoInt), (123456789 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)) {
+            for (__17 => _offset in (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(5, 5, (0 : stdgo.StdGoTypes.GoInt), (60 : stdgo.StdGoTypes.GoInt), (3600 : stdgo.StdGoTypes.GoInt), (362340 : stdgo.StdGoTypes.GoInt), (123456789 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>)) {
                 _f.add(stdgo.Go.toInterface(_ts[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_ts[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(false), stdgo.Go.toInterface(false), stdgo.Go.toInterface(-_offset));
                 _f.add(stdgo.Go.toInterface(_ts[(0 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(_ts[(1 : stdgo.StdGoTypes.GoInt)]), stdgo.Go.toInterface(false), stdgo.Go.toInterface(false), stdgo.Go.toInterface(_offset));
             };
@@ -2955,13 +2955,13 @@ function fuzzParseRFC3339(_f:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.F>):Void
         for (__0 => _tt in _formatTests) {
             _f.add(stdgo.Go.toInterface(_tt._result));
         };
-        for (__1 => _tt in _parseTests) {
+        for (__9 => _tt in _parseTests) {
             _f.add(stdgo.Go.toInterface(_tt._value));
         };
-        for (__2 => _tt in _parseErrorTests) {
+        for (__18 => _tt in _parseErrorTests) {
             _f.add(stdgo.Go.toInterface(_tt._value));
         };
-        for (__3 => _tt in _longFractionalDigitsTests) {
+        for (__27 => _tt in _longFractionalDigitsTests) {
             _f.add(stdgo.Go.toInterface(_tt._value));
         };
         _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _s:stdgo.GoString):Void {
@@ -3225,7 +3225,7 @@ function testMonotonicOverflow(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
 function testMonotonicString(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _t1:stdgo.time.Time.Time = now()?.__copy__();
         _t.logf(("Now() = %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_t1)));
-        for (__0 => _tt in _monotonicStringTests) {
+        for (__8 => _tt in _monotonicStringTests) {
             var _t1:stdgo.time.Time.Time = now()?.__copy__();
             setMono((stdgo.Go.setRef(_t1) : stdgo.StdGoTypes.Ref<stdgo.time.Time.Time>), _tt._mono);
             var _s:stdgo.GoString = (_t1.string() : stdgo.GoString)?.__copy__();
@@ -3344,8 +3344,8 @@ function _benchmark(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>, _bench:(_n
             };
         });
         _b.stopTimer();
-        for (__0 => _garbage in _garbageAll) {
-            for (__1 => _t in _garbage) {
+        for (__32 => _garbage in _garbageAll) {
+            for (__33 => _t in _garbage) {
                 _t.stop();
             };
         };
@@ -4043,7 +4043,7 @@ function benchmarkParallelTimerLatency(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Tes
         var _total:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
         var _samples:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
         var _max:stdgo.time.Time.Duration = ((0i64 : stdgo.time.Time.Duration) : Duration);
-        for (__12 => _s in _stats) {
+        for (__36 => _s in _stats) {
             if (_s._max > _max) {
                 _max = _s._max;
             };
@@ -4064,7 +4064,7 @@ function benchmarkStaggeredTickerLatency(_b:stdgo.StdGoTypes.Ref<stdgo.testing.T
             _b.skip(stdgo.Go.toInterface(("skipping with GOMAXPROCS < 2 or NumCPU < GOMAXPROCS" : stdgo.GoString)));
         };
         {};
-        for (__0 => _dur in (new stdgo.Slice<stdgo.time.Time.Duration>(2, 2, (300000i64 : stdgo.time.Time.Duration), (2000000i64 : stdgo.time.Time.Duration)) : stdgo.Slice<stdgo.time.Time.Duration>)) {
+        for (__8 => _dur in (new stdgo.Slice<stdgo.time.Time.Duration>(2, 2, (300000i64 : stdgo.time.Time.Duration), (2000000i64 : stdgo.time.Time.Duration)) : stdgo.Slice<stdgo.time.Time.Duration>)) {
             _b.run(stdgo.fmt.Fmt.sprintf(("work-dur=%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_dur)))?.__copy__(), function(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
                 {
                     var _tickersPerP:stdgo.StdGoTypes.GoInt = (1 : stdgo.StdGoTypes.GoInt);
@@ -4132,7 +4132,7 @@ function benchmarkStaggeredTickerLatency(_b:stdgo.StdGoTypes.Ref<stdgo.testing.T
                             var _total:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
                             var _samples:stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
                             var _max:stdgo.time.Time.Duration = ((0i64 : stdgo.time.Time.Duration) : Duration);
-                            for (__12 => _s in _stats) {
+                            for (__28 => _s in _stats) {
                                 if (_s._max > _max) {
                                     _max = _s._max;
                                 };
@@ -4971,7 +4971,7 @@ function testCountMallocs(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
         if (stdgo.runtime.Runtime.gomaxprocs((0 : stdgo.StdGoTypes.GoInt)) > (1 : stdgo.StdGoTypes.GoInt)) {
             _t.skip(stdgo.Go.toInterface(("skipping; GOMAXPROCS>1" : stdgo.GoString)));
         };
-        for (__0 => _mt in _mallocTest) {
+        for (__16 => _mt in _mallocTest) {
             var _allocs:stdgo.StdGoTypes.GoInt = (stdgo.testing.Testing.allocsPerRun((100 : stdgo.StdGoTypes.GoInt), _mt._fn) : stdgo.StdGoTypes.GoInt);
             if (_allocs > _mt._count) {
                 _t.errorf(("%s: %d allocs, want %d" : stdgo.GoString), stdgo.Go.toInterface(_mt._desc), stdgo.Go.toInterface(_allocs), stdgo.Go.toInterface(_mt._count));
@@ -5387,7 +5387,7 @@ function testReadFileLimit(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 _t.skip(stdgo.Go.toInterface(("skipping test without a /dev/zero" : stdgo.GoString)));
             };
         };
-        var __tmp__ = readFile(("/dev/zero" : stdgo.GoString)), __1:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = readFile(("/dev/zero" : stdgo.GoString)), __9:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if ((_err == null) || !stdgo.strings.Strings.contains(_err.error()?.__copy__(), ("is too large" : stdgo.GoString))) {
             _t.errorf(("readFile(%q) error = %v; want error containing \'is too large\'" : stdgo.GoString), stdgo.Go.toInterface(("/dev/zero" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -5670,7 +5670,7 @@ function testZoneBounds(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
-            for (__0 => _test in _utctests) {
+            for (__8 => _test in _utctests) {
                 var _sec:stdgo.StdGoTypes.GoInt64 = _test._seconds;
                 var _golden = (stdgo.Go.setRef(_test._golden) : stdgo.StdGoTypes.Ref<stdgo.time_test.Time_test.T_parsedTime>);
                 var _tm:stdgo.time.Time.Time = unix(_sec, (0i64 : stdgo.StdGoTypes.GoInt64)).utc()?.__copy__();
@@ -5912,8 +5912,8 @@ function testLoadLocationValidatesNames(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Te
         {};
         _t.setenv(("ZONEINFO" : stdgo.GoString), stdgo.Go.str()?.__copy__());
         var _bad = (new stdgo.Slice<stdgo.GoString>(4, 4, ("/usr/foo/Foo" : stdgo.GoString), ("\\UNC\x0Coo" : stdgo.GoString), (".." : stdgo.GoString), ("a.." : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
-        for (__0 => _v in _bad) {
-            var __tmp__ = stdgo.time.Time.loadLocation(_v?.__copy__()), __1:stdgo.StdGoTypes.Ref<stdgo.time.Time.Location> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        for (__8 => _v in _bad) {
+            var __tmp__ = stdgo.time.Time.loadLocation(_v?.__copy__()), __9:stdgo.StdGoTypes.Ref<stdgo.time.Time.Location> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.time.Time.errLocation))) {
                 _t.errorf(("LoadLocation(%q) error = %v; want ErrLocation" : stdgo.GoString), stdgo.Go.toInterface(_v), stdgo.Go.toInterface(_err));
             };

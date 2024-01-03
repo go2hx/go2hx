@@ -379,7 +379,7 @@ function iterator():stdgo._Chan.ChanIterator<stdgo.ChanData.T>
 ```
 
 
-[\(view code\)](<./Chan.hx#L141>)
+[\(view code\)](<./Chan.hx#L143>)
 
 
 ### ChanData function keyValueIterator
@@ -390,7 +390,7 @@ function keyValueIterator():stdgo._Chan.ChanKeyValueIterator<stdgo.ChanData.T>
 ```
 
 
-[\(view code\)](<./Chan.hx#L138>)
+[\(view code\)](<./Chan.hx#L140>)
 
 
 ### ChanData function new
@@ -412,7 +412,7 @@ function toString():String
 ```
 
 
-[\(view code\)](<./Chan.hx#L143>)
+[\(view code\)](<./Chan.hx#L145>)
 
 
 ## class Complex

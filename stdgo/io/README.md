@@ -1,19 +1,11 @@
 # Module stdgo.io has compilation errors, please do not use:
 ```
-stdgo/io/fs_test/Fs_test.hx:63: characters 51-319 : { sys : stdgo.AnyInterface, mode : stdgo.io.fs.FileMode, modTime : Null<stdgo.time.Time>, data : stdgo.Slice<stdgo.GoByte> } should be stdgo.testing.fstest.MapFS
-stdgo/io/fs_test/Fs_test.hx:63: characters 51-319 : ... For function argument 'value'
-stdgo/io/fs_test/Fs_test.hx:64: characters 57-327 : { sys : stdgo.AnyInterface, mode : stdgo.io.fs.FileMode, modTime : Null<stdgo.time.Time>, data : stdgo.Slice<stdgo.GoByte> } should be stdgo.testing.fstest.MapFS
-stdgo/io/fs_test/Fs_test.hx:64: characters 57-327 : ... For function argument 'value'
 stdgo/io/fs_test/Fs_test.hx:301: characters 9-11 : Unknown identifier : fs
-stdgo/io/fs_test/Fs_test.hx:432: characters 57-323 : { sys : stdgo.AnyInterface, mode : stdgo.io.fs.FileMode, modTime : Null<stdgo.time.Time>, data : stdgo.Slice<stdgo.GoByte> } should be stdgo.testing.fstest.MapFS
-stdgo/io/fs_test/Fs_test.hx:432: characters 57-323 : ... For function argument 'value'
-stdgo/io/fs_test/Fs_test.hx:433: characters 50-298 : { sys : stdgo.AnyInterface, mode : stdgo.io.fs.FileMode, modTime : Null<stdgo.time.Time>, data : stdgo.Slice<stdgo.GoUInt8> } should be stdgo.testing.fstest.MapFS
-stdgo/io/fs_test/Fs_test.hx:433: characters 50-298 : ... For function argument 'value'
 stdgo/io_test/Io_test.hx:1842: characters 32-38 : Unknown identifier : reader
 stdgo/io_test/Io_test.hx:1885: characters 32-38 : Unknown identifier : writer
-stdgo/encoding/gob/Gob.hx:10480: characters 27-57 : Type not found : stdgo.internal.saferio.Saferio
+stdgo/encoding/gob/Gob.hx:10488: characters 27-57 : Type not found : stdgo.internal.saferio.Saferio
 stdgo/encoding/gob/Gob.hx:5554: characters 48-78 : Type not found : stdgo.internal.saferio.Saferio
-stdgo/encoding/gob/Gob.hx:11339: characters 48-78 : Type not found : stdgo.internal.saferio.Saferio
+stdgo/encoding/gob/Gob.hx:11347: characters 48-78 : Type not found : stdgo.internal.saferio.Saferio
 stdgo/encoding/gob/Gob.hx:4140: characters 9-78 : Invalid assign
 stdgo/encoding/gob/Gob.hx:4160: characters 9-78 : Invalid assign
 stdgo/encoding/gob/Gob.hx:4263: characters 9-83 : Invalid assign
@@ -28,10 +20,10 @@ stdgo/Go.macro.hx:561: lines 561-563 : ... have: stdgo.Slice<stdgo.Ref<stdgo.enc
 stdgo/Go.macro.hx:561: lines 561-563 : ... want: stdgo.Ref<stdgo.Ref<stdgo.encoding.gob.T_emptyStruct>>
 stdgo/Go.macro.hx:561: lines 561-563 : ... For function argument '_e'
 stdgo/encoding/gob/Gob.hx:6777: characters 9-88 : Invalid assign
-stdgo/encoding/gob/Gob.hx:7539: characters 180-187 : Unknown identifier : _intMap
-stdgo/encoding/gob/Gob.hx:8456: characters 17-33 : Type not found : stdgo.net.Net
-stdgo/encoding/gob/Gob.hx:8457: characters 194-210 : Type not found : stdgo.net.Net
-stdgo/encoding/gob/Gob.hx:8457: characters 194-210 : ... For function argument '_e'
+stdgo/encoding/gob/Gob.hx:7547: characters 180-187 : Unknown identifier : _intMap
+stdgo/encoding/gob/Gob.hx:8464: characters 17-33 : Type not found : stdgo.net.Net
+stdgo/encoding/gob/Gob.hx:8465: characters 194-210 : Type not found : stdgo.net.Net
+stdgo/encoding/gob/Gob.hx:8465: characters 194-210 : ... For function argument '_e'
 stdgo/encoding/json/Json.hx:11848: characters 79-102 : Type not found : stdgo.image.Image
 stdgo/encoding/json/Json.hx:11823: characters 61-84 : Type not found : stdgo.image.Image
 stdgo/encoding/json/Json.hx:11805: characters 75-98 : Type not found : stdgo.image.Image

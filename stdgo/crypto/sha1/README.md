@@ -1,8 +1,8 @@
 # Module stdgo.crypto.sha1 has compilation errors, please do not use:
 ```
-stdgo/encoding/gob/Gob.hx:10480: characters 27-57 : Type not found : stdgo.internal.saferio.Saferio
+stdgo/encoding/gob/Gob.hx:10488: characters 27-57 : Type not found : stdgo.internal.saferio.Saferio
 stdgo/encoding/gob/Gob.hx:5554: characters 48-78 : Type not found : stdgo.internal.saferio.Saferio
-stdgo/encoding/gob/Gob.hx:11339: characters 48-78 : Type not found : stdgo.internal.saferio.Saferio
+stdgo/encoding/gob/Gob.hx:11347: characters 48-78 : Type not found : stdgo.internal.saferio.Saferio
 stdgo/encoding/gob/Gob.hx:4140: characters 9-78 : Invalid assign
 stdgo/encoding/gob/Gob.hx:4160: characters 9-78 : Invalid assign
 stdgo/encoding/gob/Gob.hx:4263: characters 9-83 : Invalid assign
@@ -17,10 +17,10 @@ stdgo/Go.macro.hx:561: lines 561-563 : ... have: stdgo.Slice<stdgo.Ref<stdgo.enc
 stdgo/Go.macro.hx:561: lines 561-563 : ... want: stdgo.Ref<stdgo.Ref<stdgo.encoding.gob.T_emptyStruct>>
 stdgo/Go.macro.hx:561: lines 561-563 : ... For function argument '_e'
 stdgo/encoding/gob/Gob.hx:6777: characters 9-88 : Invalid assign
-stdgo/encoding/gob/Gob.hx:7539: characters 180-187 : Unknown identifier : _intMap
-stdgo/encoding/gob/Gob.hx:8456: characters 17-33 : Type not found : stdgo.net.Net
-stdgo/encoding/gob/Gob.hx:8457: characters 194-210 : Type not found : stdgo.net.Net
-stdgo/encoding/gob/Gob.hx:8457: characters 194-210 : ... For function argument '_e'
+stdgo/encoding/gob/Gob.hx:7547: characters 180-187 : Unknown identifier : _intMap
+stdgo/encoding/gob/Gob.hx:8464: characters 17-33 : Type not found : stdgo.net.Net
+stdgo/encoding/gob/Gob.hx:8465: characters 194-210 : Type not found : stdgo.net.Net
+stdgo/encoding/gob/Gob.hx:8465: characters 194-210 : ... For function argument '_e'
 stdgo/encoding/json/Json.hx:11848: characters 79-102 : Type not found : stdgo.image.Image
 stdgo/encoding/json/Json.hx:11823: characters 61-84 : Type not found : stdgo.image.Image
 stdgo/encoding/json/Json.hx:11805: characters 75-98 : Type not found : stdgo.image.Image

@@ -340,7 +340,7 @@ private function close() {
 		return count + " " + (Std.int(count / total * 10000) / 100) + "%";
 	}
 	final testName = type + (sortMode == "" ? "" : "_" + sortMode);
-	var output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$type.json')) : [];
+	var output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
 	// remove targets that don't exist
 	output = output.filter((v) -> {
 		final parts = v.split("|");

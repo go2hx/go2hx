@@ -939,8 +939,8 @@ class Logger_asInterface {
     static public function writer( _l:stdgo.StdGoTypes.Ref<Logger>):stdgo.io.Io.Writer {
         @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         var __deferstack__:Array<Void -> Void> = [];
-        _l._outMu.lock();
         try {
+            _l._outMu.lock();
             __deferstack__.unshift(() -> _l._outMu.unlock());
             {
                 for (defer in __deferstack__) {
@@ -1116,10 +1116,10 @@ class Logger_asInterface {
     static public function _output( _l:stdgo.StdGoTypes.Ref<Logger>, _pc:stdgo.StdGoTypes.GoUIntptr, _calldepth:stdgo.StdGoTypes.GoInt, _appendOutput:stdgo.Slice<stdgo.StdGoTypes.GoByte> -> stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Error {
         @:recv var _l:stdgo.StdGoTypes.Ref<Logger> = _l;
         var __deferstack__:Array<Void -> Void> = [];
-        if (_l._isDiscard.load()) {
-            return (null : stdgo.Error);
-        };
         try {
+            if (_l._isDiscard.load()) {
+                return (null : stdgo.Error);
+            };
             var _now:stdgo.time.Time.Time = stdgo.time.Time.now()?.__copy__();
             var _prefix:stdgo.GoString = _l.prefix()?.__copy__();
             var _flag:stdgo.StdGoTypes.GoInt = _l.flags();

@@ -1405,10 +1405,10 @@ function testFileAddLineColumnInfo(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
 **/
 function _equal(_p:stdgo.StdGoTypes.Ref<FileSet>, _q:stdgo.StdGoTypes.Ref<FileSet>):stdgo.Error {
         var __deferstack__:Array<Void -> Void> = [];
-        if (_p == (_q)) {
-            return (null : stdgo.Error);
-        };
         try {
+            if (_p == (_q)) {
+                return (null : stdgo.Error);
+            };
             _p._mutex.lock();
             _q._mutex.lock();
             __deferstack__.unshift(() -> _q._mutex.unlock());
@@ -2005,10 +2005,10 @@ class File_asInterface {
     static public function lineStart( _f:stdgo.StdGoTypes.Ref<File>, _line:stdgo.StdGoTypes.GoInt):Pos {
         @:recv var _f:stdgo.StdGoTypes.Ref<File> = _f;
         var __deferstack__:Array<Void -> Void> = [];
-        if (_line < (1 : stdgo.StdGoTypes.GoInt)) {
-            throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid line number %d (should be >= 1)" : stdgo.GoString), stdgo.Go.toInterface(_line)));
-        };
         try {
+            if (_line < (1 : stdgo.StdGoTypes.GoInt)) {
+                throw stdgo.Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid line number %d (should be >= 1)" : stdgo.GoString), stdgo.Go.toInterface(_line)));
+            };
             _f._mutex.lock();
             __deferstack__.unshift(() -> _f._mutex.unlock());
             if (_line > (_f._lines.length)) {
@@ -2373,13 +2373,13 @@ class FileSet_asInterface {
     static public function _file( _s:stdgo.StdGoTypes.Ref<FileSet>, _p:Pos):stdgo.StdGoTypes.Ref<File> {
         @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var _f = _s._last.load(({} : stdgo.go.token.Token.File));
-            if ((((_f != null) && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) && (_f._base <= (_p : stdgo.StdGoTypes.GoInt))) && ((_p : stdgo.StdGoTypes.GoInt) <= (_f._base + _f._size))) {
-                return _f;
-            };
-        };
         try {
+            {
+                var _f = _s._last.load(({} : stdgo.go.token.Token.File));
+                if ((((_f != null) && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) && (_f._base <= (_p : stdgo.StdGoTypes.GoInt))) && ((_p : stdgo.StdGoTypes.GoInt) <= (_f._base + _f._size))) {
+                    return _f;
+                };
+            };
             _s._mutex.rlock();
             __deferstack__.unshift(() -> _s._mutex.runlock());
             {
@@ -2512,8 +2512,8 @@ class FileSet_asInterface {
     static public function addFile( _s:stdgo.StdGoTypes.Ref<FileSet>, _filename:stdgo.GoString, _base:stdgo.StdGoTypes.GoInt, _size:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<File> {
         @:recv var _s:stdgo.StdGoTypes.Ref<FileSet> = _s;
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = (stdgo.Go.setRef(({ _name : _filename?.__copy__(), _size : _size, _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : stdgo.go.token.Token.File)) : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
         try {
+            var _f = (stdgo.Go.setRef(({ _name : _filename?.__copy__(), _size : _size, _lines : (new stdgo.Slice<stdgo.StdGoTypes.GoInt>(1, 1, (0 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoInt>) } : stdgo.go.token.Token.File)) : stdgo.StdGoTypes.Ref<stdgo.go.token.Token.File>);
             _s._mutex.lock();
             __deferstack__.unshift(() -> _s._mutex.unlock());
             if (_base < (0 : stdgo.StdGoTypes.GoInt)) {

@@ -3177,16 +3177,16 @@ class T_printer_asInterface {
     static public function _commentSizeBefore( _p:stdgo.StdGoTypes.Ref<T_printer>, _next:stdgo.go.token.Token.Position):stdgo.StdGoTypes.GoInt {
         @:recv var _p:stdgo.StdGoTypes.Ref<T_printer> = _p;
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var _a0 = _p._commentInfo;
-            __deferstack__.unshift(() -> {
-                var a = function(_info:T_commentInfo):Void {
-                    _p._commentInfo = _info?.__copy__();
-                };
-                a(_a0?.__copy__());
-            });
-        };
         try {
+            {
+                var _a0 = _p._commentInfo;
+                __deferstack__.unshift(() -> {
+                    var a = function(_info:T_commentInfo):Void {
+                        _p._commentInfo = _info?.__copy__();
+                    };
+                    a(_a0?.__copy__());
+                });
+            };
             var _size:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             while (_p._commentBefore(_next?.__copy__())) {
                 for (__16 => _c in _p._commentInfo._comment.list) {

@@ -456,8 +456,8 @@ function set(_name:stdgo.GoString, _value:stdgo.GoString):stdgo.Error {
 function _isZeroValue(_flag:stdgo.StdGoTypes.Ref<Flag>, _value:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
         var _ok:Bool = false, _err:stdgo.Error = (null : stdgo.Error);
-        var _typ:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(_flag.value));
         try {
+            var _typ:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(stdgo.Go.toInterface(_flag.value));
             var _z:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
             if (_typ.kind() == ((22u32 : stdgo.reflect.Reflect.Kind))) {
                 _z = stdgo.reflect.Reflect.new_(_typ.elem())?.__copy__();

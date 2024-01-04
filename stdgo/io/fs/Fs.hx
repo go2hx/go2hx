@@ -850,18 +850,18 @@ function _hasMeta(_path:stdgo.GoString):Bool {
 **/
 function readDir(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<DirEntry>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : ReadDirFS)) : ReadDirFS), ok : true };
-            } catch(_) {
-                { value : (null : stdgo.io.fs.Fs.ReadDirFS), ok : false };
-            }, _fsys = __tmp__.value, _ok = __tmp__.ok;
-            if (_ok) {
-                return _fsys.readDir(_name?.__copy__());
-            };
-        };
-        var __tmp__ = _fsys.open(_name?.__copy__()), _file:stdgo.io.fs.Fs.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         try {
+            {
+                var __tmp__ = try {
+                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : ReadDirFS)) : ReadDirFS), ok : true };
+                } catch(_) {
+                    { value : (null : stdgo.io.fs.Fs.ReadDirFS), ok : false };
+                }, _fsys = __tmp__.value, _ok = __tmp__.ok;
+                if (_ok) {
+                    return _fsys.readDir(_name?.__copy__());
+                };
+            };
+            var __tmp__ = _fsys.open(_name?.__copy__()), _file:stdgo.io.fs.Fs.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.io.fs.Fs.DirEntry>), _1 : _err };
             };
@@ -932,18 +932,18 @@ function fileInfoToDirEntry(_info:FileInfo):DirEntry {
 **/
 function readFile(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : ReadFileFS)) : ReadFileFS), ok : true };
-            } catch(_) {
-                { value : (null : stdgo.io.fs.Fs.ReadFileFS), ok : false };
-            }, _fsys = __tmp__.value, _ok = __tmp__.ok;
-            if (_ok) {
-                return _fsys.readFile(_name?.__copy__());
-            };
-        };
-        var __tmp__ = _fsys.open(_name?.__copy__()), _file:stdgo.io.fs.Fs.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         try {
+            {
+                var __tmp__ = try {
+                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : ReadFileFS)) : ReadFileFS), ok : true };
+                } catch(_) {
+                    { value : (null : stdgo.io.fs.Fs.ReadFileFS), ok : false };
+                }, _fsys = __tmp__.value, _ok = __tmp__.ok;
+                if (_ok) {
+                    return _fsys.readFile(_name?.__copy__());
+                };
+            };
+            var __tmp__ = _fsys.open(_name?.__copy__()), _file:stdgo.io.fs.Fs.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _1 : _err };
             };
@@ -1007,18 +1007,18 @@ function readFile(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.S
 **/
 function stat(_fsys:FS, _name:stdgo.GoString):{ var _0 : FileInfo; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var __tmp__ = try {
-                { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : StatFS)) : StatFS), ok : true };
-            } catch(_) {
-                { value : (null : stdgo.io.fs.Fs.StatFS), ok : false };
-            }, _fsys = __tmp__.value, _ok = __tmp__.ok;
-            if (_ok) {
-                return _fsys.stat(_name?.__copy__());
-            };
-        };
-        var __tmp__ = _fsys.open(_name?.__copy__()), _file:stdgo.io.fs.Fs.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         try {
+            {
+                var __tmp__ = try {
+                    { value : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : StatFS)) : StatFS), ok : true };
+                } catch(_) {
+                    { value : (null : stdgo.io.fs.Fs.StatFS), ok : false };
+                }, _fsys = __tmp__.value, _ok = __tmp__.ok;
+                if (_ok) {
+                    return _fsys.stat(_name?.__copy__());
+                };
+            };
+            var __tmp__ = _fsys.open(_name?.__copy__()), _file:stdgo.io.fs.Fs.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.io.fs.Fs.FileInfo), _1 : _err };
             };

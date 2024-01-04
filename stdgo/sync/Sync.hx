@@ -1382,8 +1382,8 @@ class Map__asInterface {
     static public function compareAndSwap( _m:stdgo.StdGoTypes.Ref<Map_>, _key:stdgo.StdGoTypes.AnyInterface, _old:stdgo.StdGoTypes.AnyInterface, _new:stdgo.StdGoTypes.AnyInterface):Bool {
         @:recv var _m:stdgo.StdGoTypes.Ref<Map_> = _m;
         var __deferstack__:Array<Void -> Void> = [];
-        var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
         try {
+            var _read:stdgo.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
             {
                 var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { value : _read._m[_key], ok : true } : { value : (null : stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry>), ok : false }), _e:stdgo.StdGoTypes.Ref<stdgo.sync.Sync.T_entry> = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (_ok) {

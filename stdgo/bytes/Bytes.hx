@@ -173,19 +173,19 @@ final minRead : stdgo.StdGoTypes.GoUInt64 = (512i64 : stdgo.StdGoTypes.GoUInt64)
 **/
 function _growSlice(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _n:stdgo.StdGoTypes.GoInt):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                if (({
-                    final r = stdgo.Go.recover_exception;
-                    stdgo.Go.recover_exception = null;
-                    r;
-                }) != null) {
-                    throw stdgo.Go.toInterface(errTooLarge);
-                };
-            };
-            a();
-        });
         try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    if (({
+                        final r = stdgo.Go.recover_exception;
+                        stdgo.Go.recover_exception = null;
+                        r;
+                    }) != null) {
+                        throw stdgo.Go.toInterface(errTooLarge);
+                    };
+                };
+                a();
+            });
             var _c:stdgo.StdGoTypes.GoInt = (_b.length) + _n;
             if (_c < ((2 : stdgo.StdGoTypes.GoInt) * _b.capacity)) {
                 _c = (2 : stdgo.StdGoTypes.GoInt) * _b.capacity;

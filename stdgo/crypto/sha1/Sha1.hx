@@ -2705,22 +2705,22 @@ function testBlockGeneric(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
 function _safeSum(_h:stdgo.hash.Hash.Hash):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
         var _sum:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _err:stdgo.Error = (null : stdgo.Error);
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _r:stdgo.StdGoTypes.AnyInterface = ({
-                        final r = stdgo.Go.recover_exception;
-                        stdgo.Go.recover_exception = null;
-                        r;
-                    });
-                    if (_r != null) {
-                        _err = stdgo.fmt.Fmt.errorf(("sum panic: %v" : stdgo.GoString), _r);
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _r:stdgo.StdGoTypes.AnyInterface = ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        });
+                        if (_r != null) {
+                            _err = stdgo.fmt.Fmt.errorf(("sum panic: %v" : stdgo.GoString), _r);
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             {
                 for (defer in __deferstack__) {
                     defer();

@@ -6033,11 +6033,11 @@ function _get2(_b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.StdGoTypes.GoInt {
 **/
 function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = _open(_zipfile?.__copy__()), _fd:stdgo.StdGoTypes.GoUIntptr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        if (_err != null) {
-            return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _1 : _err };
-        };
         try {
+            var __tmp__ = _open(_zipfile?.__copy__()), _fd:stdgo.StdGoTypes.GoUIntptr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            if (_err != null) {
+                return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _1 : _err };
+            };
             {
                 var _a0 = _fd;
                 __deferstack__.unshift(() -> _closefd(_a0));
@@ -6245,11 +6245,11 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
 **/
 function _readFile(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = _open(_name?.__copy__()), _f:stdgo.StdGoTypes.GoUIntptr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        if (_err != null) {
-            return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _1 : _err };
-        };
         try {
+            var __tmp__ = _open(_name?.__copy__()), _f:stdgo.StdGoTypes.GoUIntptr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            if (_err != null) {
+                return { _0 : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _1 : _err };
+            };
             {
                 var _a0 = _f;
                 __deferstack__.unshift(() -> _closefd(_a0));

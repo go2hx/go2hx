@@ -530,8 +530,8 @@ function _cleanGlobPathWindows(_path:stdgo.GoString):{ var _0 : stdgo.StdGoTypes
 function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
         var _m:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), _e:stdgo.Error = (null : stdgo.Error);
-        _m = _matches;
         try {
+            _m = _matches;
             var __tmp__ = stdgo.os.Os.stat(_dir?.__copy__()), _fi:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : _m, _1 : _e };

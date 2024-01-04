@@ -2246,7 +2246,7 @@ function testSelection(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             var _got = (new stdgo.GoArray<stdgo.GoString>((_sel.string() : stdgo.GoString)?.__copy__(), stdgo.fmt.Fmt.sprintf(("%s%v" : stdgo.GoString), stdgo.Go.toInterface(_direct), stdgo.Go.toInterface(_sel.index()))?.__copy__()) : stdgo.GoArray<stdgo.GoString>);
             var _want = (_wantOut[_syntax] ?? new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 2) ("" : stdgo.GoString)]))?.__copy__();
-            if (!(_want == _got)) {
+            if (stdgo.Go.toInterface(_want) != stdgo.Go.toInterface(_got)) {
                 _t.errorf(("%s: got %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_syntax), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
             if (_wantOut != null) _wantOut.remove(_syntax);
@@ -6068,8 +6068,8 @@ function testStdlib(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
 **/
 function _firstComment(_filename:stdgo.GoString):stdgo.GoString {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.open(_filename?.__copy__()), _f:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.open(_filename?.__copy__()), _f:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return stdgo.Go.str()?.__copy__();
             };

@@ -3819,11 +3819,11 @@ class T_ss_asInterface {
         @:recv var _s:stdgo.StdGoTypes.Ref<T_ss> = _s;
         var __deferstack__:Array<Void -> Void> = [];
         var _numProcessed:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        {
-            var _a0 = (stdgo.Go.setRef(_err) : stdgo.StdGoTypes.Ref<stdgo.Error>);
-            __deferstack__.unshift(() -> _errorHandler(_a0));
-        };
         try {
+            {
+                var _a0 = (stdgo.Go.setRef(_err) : stdgo.StdGoTypes.Ref<stdgo.Error>);
+                __deferstack__.unshift(() -> _errorHandler(_a0));
+            };
             var _end:stdgo.StdGoTypes.GoInt = (_format.length) - (1 : stdgo.StdGoTypes.GoInt);
             {
                 var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -3997,11 +3997,11 @@ class T_ss_asInterface {
         @:recv var _s:stdgo.StdGoTypes.Ref<T_ss> = _s;
         var __deferstack__:Array<Void -> Void> = [];
         var _numProcessed:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        {
-            var _a0 = (stdgo.Go.setRef(_err) : stdgo.StdGoTypes.Ref<stdgo.Error>);
-            __deferstack__.unshift(() -> _errorHandler(_a0));
-        };
         try {
+            {
+                var _a0 = (stdgo.Go.setRef(_err) : stdgo.StdGoTypes.Ref<stdgo.Error>);
+                __deferstack__.unshift(() -> _errorHandler(_a0));
+            };
             for (__0 => _arg in _a) {
                 _s._scanOne((118 : stdgo.StdGoTypes.GoInt32), _arg);
                 _numProcessed++;
@@ -4770,33 +4770,33 @@ class T_ss_asInterface {
         @:recv var _s:stdgo.StdGoTypes.Ref<T_ss> = _s;
         var __deferstack__:Array<Void -> Void> = [];
         var _tok:stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), _err:stdgo.Error = (null : stdgo.Error);
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _e:stdgo.StdGoTypes.AnyInterface = ({
-                        final r = stdgo.Go.recover_exception;
-                        stdgo.Go.recover_exception = null;
-                        r;
-                    });
-                    if (_e != null) {
-                        {
-                            var __tmp__ = try {
-                                { value : (stdgo.Go.typeAssert((_e : T_scanError)) : T_scanError), ok : true };
-                            } catch(_) {
-                                { value : ({} : stdgo.fmt.Fmt.T_scanError), ok : false };
-                            }, _se = __tmp__.value, _ok = __tmp__.ok;
-                            if (_ok) {
-                                _err = _se._err;
-                            } else {
-                                throw stdgo.Go.toInterface(_e);
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _e:stdgo.StdGoTypes.AnyInterface = ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        });
+                        if (_e != null) {
+                            {
+                                var __tmp__ = try {
+                                    { value : (stdgo.Go.typeAssert((_e : T_scanError)) : T_scanError), ok : true };
+                                } catch(_) {
+                                    { value : ({} : stdgo.fmt.Fmt.T_scanError), ok : false };
+                                }, _se = __tmp__.value, _ok = __tmp__.ok;
+                                if (_ok) {
+                                    _err = _se._err;
+                                } else {
+                                    throw stdgo.Go.toInterface(_e);
+                                };
                             };
                         };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             if (_f == null) {
                 _f = _notSpace;
             };

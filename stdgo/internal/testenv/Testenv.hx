@@ -690,55 +690,55 @@ function _syscallIsNotSupported(_err:stdgo.Error):Bool {
 function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
         var __deferstack__:Array<Void -> Void> = [];
         var _ok:Bool = false, _reason:stdgo.GoString = ("" : stdgo.GoString);
-        {
-            final __value__ = ("js" : stdgo.GoString);
-            if (__value__ == (("plan9" : stdgo.GoString))) {
-                return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
-            } else if (__value__ == (("android" : stdgo.GoString)) || __value__ == (("wasip1" : stdgo.GoString))) {
-                var __tmp__ = stdgo.os.Os.mkdirTemp(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (_err != null) {
+        try {
+            {
+                final __value__ = ("js" : stdgo.GoString);
+                if (__value__ == (("plan9" : stdgo.GoString))) {
                     return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
-                };
-                __deferstack__.unshift(() -> {
-                    var a = function():Void {
-                        stdgo.os.Os.removeAll(_dir?.__copy__());
-                    };
-                    a();
-                });
-                var _fpath:stdgo.GoString = stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("testfile.txt" : stdgo.GoString))?.__copy__();
-                {
-                    var _err:stdgo.Error = stdgo.os.Os.writeFile(_fpath?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (420u32 : stdgo.io.fs.Fs.FileMode));
+                } else if (__value__ == (("android" : stdgo.GoString)) || __value__ == (("wasip1" : stdgo.GoString))) {
+                    var __tmp__ = stdgo.os.Os.mkdirTemp(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+                        return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+                    };
+                    __deferstack__.unshift(() -> {
+                        var a = function():Void {
+                            stdgo.os.Os.removeAll(_dir?.__copy__());
                         };
-                    };
-                };
-                {
-                    var _err:stdgo.Error = stdgo.os.Os.symlink(_fpath?.__copy__(), stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("testlink" : stdgo.GoString))?.__copy__());
-                    if (_err != null) {
-                        if (syscallIsNotSupported(_err)) {
+                        a();
+                    });
+                    var _fpath:stdgo.GoString = stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("testfile.txt" : stdgo.GoString))?.__copy__();
+                    {
+                        var _err:stdgo.Error = stdgo.os.Os.writeFile(_fpath?.__copy__(), (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), (420u32 : stdgo.io.fs.Fs.FileMode));
+                        if (_err != null) {
                             {
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
-                                return { _0 : false, _1 : stdgo.fmt.Fmt.sprintf(("symlinks unsupported: %s" : stdgo.GoString), stdgo.Go.toInterface(_err.error()))?.__copy__() };
+                                return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
                             };
                         };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
+                    };
+                    {
+                        var _err:stdgo.Error = stdgo.os.Os.symlink(_fpath?.__copy__(), stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("testlink" : stdgo.GoString))?.__copy__());
+                        if (_err != null) {
+                            if (syscallIsNotSupported(_err)) {
+                                {
+                                    for (defer in __deferstack__) {
+                                        defer();
+                                    };
+                                    return { _0 : false, _1 : stdgo.fmt.Fmt.sprintf(("symlinks unsupported: %s" : stdgo.GoString), stdgo.Go.toInterface(_err.error()))?.__copy__() };
+                                };
                             };
-                            return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+                            {
+                                for (defer in __deferstack__) {
+                                    defer();
+                                };
+                                return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+                            };
                         };
                     };
                 };
             };
-        };
-        try {
             {
                 for (defer in __deferstack__) {
                     defer();

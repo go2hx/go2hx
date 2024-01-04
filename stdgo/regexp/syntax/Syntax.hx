@@ -1740,29 +1740,29 @@ function _parse(_s:stdgo.GoString, _flags:Flags):{ var _0 : stdgo.StdGoTypes.Ref
         stdgo.internal.Macro.controlFlow({
             var __deferstack__:Array<Void -> Void> = [];
             var _0:stdgo.StdGoTypes.Ref<Regexp> = (null : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.Regexp>), _err:stdgo.Error = (null : stdgo.Error);
-            __deferstack__.unshift(() -> {
-                var a = function():Void {
-                    {
-                        var _r:stdgo.StdGoTypes.AnyInterface = ({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        });
+            try {
+                __deferstack__.unshift(() -> {
+                    var a = function():Void {
                         {
-                            final __value__ = _r;
-                            if (__value__ == null) {} else if (__value__ == (stdgo.Go.toInterface(stdgo.Go.asInterface((("expression too large" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode))))) {
-                                _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("expression too large" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s?.__copy__() } : stdgo.regexp.syntax.Syntax.T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
-                            } else if (__value__ == (stdgo.Go.toInterface(stdgo.Go.asInterface((("expression nests too deeply" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode))))) {
-                                _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("expression nests too deeply" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s?.__copy__() } : stdgo.regexp.syntax.Syntax.T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
-                            } else {
-                                throw stdgo.Go.toInterface(_r);
+                            var _r:stdgo.StdGoTypes.AnyInterface = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            });
+                            {
+                                final __value__ = _r;
+                                if (__value__ == null) {} else if (__value__ == (stdgo.Go.toInterface(stdgo.Go.asInterface((("expression too large" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode))))) {
+                                    _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("expression too large" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s?.__copy__() } : stdgo.regexp.syntax.Syntax.T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
+                                } else if (__value__ == (stdgo.Go.toInterface(stdgo.Go.asInterface((("expression nests too deeply" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode))))) {
+                                    _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ code : (("expression nests too deeply" : stdgo.GoString) : stdgo.regexp.syntax.Syntax.ErrorCode), expr : _s?.__copy__() } : stdgo.regexp.syntax.Syntax.T_error)) : stdgo.StdGoTypes.Ref<stdgo.regexp.syntax.Syntax.T_error>));
+                                } else {
+                                    throw stdgo.Go.toInterface(_r);
+                                };
                             };
                         };
                     };
-                };
-                a();
-            });
-            try {
+                    a();
+                });
                 if (_flags & (2 : stdgo.regexp.syntax.Syntax.Flags) != ((0 : stdgo.regexp.syntax.Syntax.Flags))) {
                     {
                         var _err:stdgo.Error = _checkUTF8(_s?.__copy__());

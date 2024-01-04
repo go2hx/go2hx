@@ -1671,8 +1671,8 @@ class T_onceError_asInterface {
     static public function load( _a:stdgo.StdGoTypes.Ref<T_onceError>):stdgo.Error {
         @:recv var _a:stdgo.StdGoTypes.Ref<T_onceError> = _a;
         var __deferstack__:Array<Void -> Void> = [];
-        _a.lock();
         try {
+            _a.lock();
             __deferstack__.unshift(() -> _a.unlock());
             {
                 for (defer in __deferstack__) {
@@ -1824,13 +1824,13 @@ class T_pipe_asInterface {
         @:recv var _p:stdgo.StdGoTypes.Ref<T_pipe> = _p;
         var __deferstack__:Array<Void -> Void> = [];
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        stdgo.Go.select([_p._done.__get__() => {
-            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._writeCloseError() };
-        }, {
-            _p._wrMu.lock();
-            __deferstack__.unshift(() -> _p._wrMu.unlock());
-        }]);
         try {
+            stdgo.Go.select([_p._done.__get__() => {
+                return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._writeCloseError() };
+            }, {
+                _p._wrMu.lock();
+                __deferstack__.unshift(() -> _p._wrMu.unlock());
+            }]);
             {
                 var _once:Bool = true;
                 stdgo.Go.cfor(_once || (_b.length > (0 : stdgo.StdGoTypes.GoInt)), _once = false, {

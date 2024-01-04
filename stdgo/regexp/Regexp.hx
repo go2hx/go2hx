@@ -2467,22 +2467,22 @@ function _isSingleBytes(_s:stdgo.GoString):Bool {
 function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.StdGoTypes.Ref<Regexp>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
         var _re:stdgo.StdGoTypes.Ref<Regexp> = (null : stdgo.StdGoTypes.Ref<stdgo.regexp.Regexp.Regexp>), _err:stdgo.Error = (null : stdgo.Error);
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _r:stdgo.StdGoTypes.AnyInterface = ({
-                        final r = stdgo.Go.recover_exception;
-                        stdgo.Go.recover_exception = null;
-                        r;
-                    });
-                    if (_r != null) {
-                        _err = stdgo.fmt.Fmt.errorf(("panic: %v" : stdgo.GoString), _r);
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _r:stdgo.StdGoTypes.AnyInterface = ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        });
+                        if (_r != null) {
+                            _err = stdgo.fmt.Fmt.errorf(("panic: %v" : stdgo.GoString), _r);
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -3302,9 +3302,9 @@ function _newQueue(_size:stdgo.StdGoTypes.GoInt):stdgo.StdGoTypes.Ref<T_queueOne
     }
 function _mergeRuneSets(_leftRunes:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoRune>>, _rightRunes:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.GoRune>>, _leftPC:stdgo.StdGoTypes.GoUInt32, _rightPC:stdgo.StdGoTypes.GoUInt32):{ var _0 : stdgo.Slice<stdgo.StdGoTypes.GoRune>; var _1 : stdgo.Slice<stdgo.StdGoTypes.GoUInt32>; } {
         var __deferstack__:Array<Void -> Void> = [];
-        var _leftLen:stdgo.StdGoTypes.GoInt = ((_leftRunes : stdgo.Slice<stdgo.StdGoTypes.GoInt32>).length);
-        var _rightLen:stdgo.StdGoTypes.GoInt = ((_rightRunes : stdgo.Slice<stdgo.StdGoTypes.GoInt32>).length);
         try {
+            var _leftLen:stdgo.StdGoTypes.GoInt = ((_leftRunes : stdgo.Slice<stdgo.StdGoTypes.GoInt32>).length);
+            var _rightLen:stdgo.StdGoTypes.GoInt = ((_rightRunes : stdgo.Slice<stdgo.StdGoTypes.GoInt32>).length);
             if (((_leftLen & (1 : stdgo.StdGoTypes.GoInt)) != (0 : stdgo.StdGoTypes.GoInt)) || ((_rightLen & (1 : stdgo.StdGoTypes.GoInt)) != (0 : stdgo.StdGoTypes.GoInt))) {
                 throw stdgo.Go.toInterface(("mergeRuneSets odd length []rune" : stdgo.GoString));
             };

@@ -1380,8 +1380,8 @@ function testMain(_m:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.M>):Void {
     }
 function _size(_name:stdgo.GoString, _t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):stdgo.StdGoTypes.GoInt64 {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = open(_name?.__copy__()), _file:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         try {
+            var __tmp__ = open(_name?.__copy__()), _file:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("open failed:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
@@ -2272,11 +2272,11 @@ function testReaddirStatFailures(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T
             _touch(_t, stdgo.path.filepath.Filepath.join(_dir?.__copy__(), ("good2" : stdgo.GoString))?.__copy__());
             var _readDir:() -> { var _0 : stdgo.Slice<stdgo.io.fs.Fs.FileInfo>; var _1 : stdgo.Error; } = function():{ var _0 : stdgo.Slice<FileInfo>; var _1 : stdgo.Error; } {
                 var __deferstack__:Array<Void -> Void> = [];
-                var __tmp__ = open(_dir?.__copy__()), _d:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (_err != null) {
-                    _t.fatal(stdgo.Go.toInterface(_err));
-                };
                 try {
+                    var __tmp__ = open(_dir?.__copy__()), _d:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    if (_err != null) {
+                        _t.fatal(stdgo.Go.toInterface(_err));
+                    };
                     __deferstack__.unshift(() -> _d.close());
                     {
                         for (defer in __deferstack__) {
@@ -4019,8 +4019,8 @@ function testOpenNoName(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     }
 function _runBinHostname(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):stdgo.GoString {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = pipe(), _r:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _w:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         try {
+            var __tmp__ = pipe(), _r:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._0, _w:stdgo.StdGoTypes.Ref<stdgo.os.Os.File> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };

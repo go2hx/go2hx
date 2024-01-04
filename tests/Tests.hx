@@ -56,6 +56,7 @@ var completeBool = false;
 var sortMode = "";
 var count = 0;
 var offset = 0;
+var run:String = "";
 var lastTaskLogs = [];
 var dryRun = false;
 final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
@@ -74,12 +75,12 @@ function main() {
 	final yaegiBool = Compiler.getDefine("yaegi") != null;
 	final goByExampleBool = Compiler.getDefine("gobyexample") != null;
 	final tinygoBool = Compiler.getDefine("tinygo") != null;
-	final sortModeStr = Compiler.getDefine("sort");
-	sortMode = sortModeStr != null ? sortModeStr : "";
+	sortMode = Compiler.getDefine("mode") ?? (Compiler.getDefine("sort") ?? "");
 	final countStr = Compiler.getDefine("count");
 	count = countStr != null ? Std.parseInt(countStr) : 0;
 	final offsetStr = Compiler.getDefine("offset");
 	offset = offsetStr != null ? Std.parseInt(offsetStr) : 0;
+	run = Compiler.getDefine("run") ?? "";
 	dryRun = Compiler.getDefine("dryRun") != null;
 	var startStamp = 0.0;
 
@@ -120,6 +121,10 @@ function runTests() {
 	if (count > 0) {
 		tests = tests.slice(0, tests.length < count ? tests.length : count);
 	}
+	if (run != "") {
+		trace(tests);
+		tests = tests.filter((v) -> v.indexOf(run) != -1);
+	}
 }
 
 var runningCount = 0;
@@ -145,7 +150,7 @@ function update() {
 		close();
 	}
 	for (test in tests) {
-		final hxml = "golibs/" + type + "_" + sanatize(test);
+		final hxml = "golibs/" + type + "_" + sanatize(Path.withoutExtension(test));
 		final args = [test, '--norun', '--hxml', hxml];
 		args.push(path);
 		instance = Main.compileArgs(args);
@@ -201,9 +206,14 @@ function update() {
 			if (code == 0) {
 				if (task.runtime) {
 					final wanted = outputMap[type + "_" + task.path];
-					if (wanted != null) {
+					if (wanted != null && wanted != "") {
 						final output = task.output;
-						final correct = output == wanted;
+						function removeEndNewLine(s:String):String {
+							if (s.charAt(s.length - 1) == "\n")
+								return s.substr(0, s.length - 1);
+							return s;
+						}
+						final correct = removeEndNewLine(output) == removeEndNewLine(wanted);
 						if (correct) {
 							suite.correct(task);
 						}else{
@@ -211,6 +221,9 @@ function update() {
 							Sys.println(output);
 							Sys.println("wanted:");
 							Sys.println(wanted);
+							Sys.println("bytes:");
+							Sys.println([for (i in 0...output.length) output.charCodeAt(i)]);
+							Sys.println([for (i in 0...wanted.length) wanted.charCodeAt(i)]);
 							suite.incorrect(task);
 						}
 					}else{
@@ -269,6 +282,7 @@ private function createTargetOutput(target:String, type:String, name:String):Str
 }
 
 private function sanatize(s:String):String {
+	s = Typer.normalizePath(s);
 	s = Path.withoutDirectory(s);
 	s = Path.withoutExtension(s);
 	s = StringTools.replace(s, "/", "_");
@@ -322,7 +336,8 @@ private function close() {
 			return "0%";
 		return count + " " + (Std.int(count / total * 10000) / 100) + "%";
 	}
-	var output:Array<String> = FileSystem.exists('tests/$type.json') ? Json.parse(File.getContent('tests/$type.json')) : [];
+	final testName = type + (sortMode == "" ? "" : "_" + sortMode);
+	var output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$type.json')) : [];
 	// remove targets that don't exist
 	output = output.filter((v) -> {
 		final parts = v.split("|");
@@ -371,7 +386,7 @@ private function close() {
 		}
 	}
 	var code = 0;
-	if (count == 0 && sortMode == "" && offset == 0 && output.length > 0) {
+	if (count == 0 && offset == 0 && output.length > 0 && run == "") {
 		log('         regression results: ');
 		for (obj in output)
 			log(obj);
@@ -384,9 +399,10 @@ private function close() {
 			runTests();
 			return;
 		}
-	}else{
+	}else if (output.length == 0){
 		input.sort((a, b) -> a > b ? 1 : -1);
-		File.saveContent('tests/$type.json', Json.stringify(input, null, " "));
+		
+		File.saveContent('tests/$testName.json', Json.stringify(input, null, " "));
 	}
 	logOutput.close();
 	Main.close(code);

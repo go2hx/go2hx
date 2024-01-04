@@ -959,7 +959,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		//exprs.push(typeDeferReturn(info, true));
 		exprs.push(ret);
 		// recover
-		final pos = 1 + info.returnNames.length;
+		final pos = 1 + (info.returnNamed ? 1 : 0);
 		final trydef = macro try
 			$b{exprs.slice(pos)} catch (__exception__)
 			$b{catchBlock};
@@ -1624,9 +1624,9 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 	}
 	var t = getUnderlying(typeX);
 	switch t {
-		case structType(_):
+		case structType(_), arrayType(_, _):
 			return toExpr(EBinop(op, toAnyInterface(x, typeX, info, false), toAnyInterface(y, typeY, info, false)));
-		case arrayType(_, _), sliceType(_), refType(_):
+		case sliceType(_), refType(_):
 			var run = true;
 			if (isRef(t)) {
 				switch getElem(t) {

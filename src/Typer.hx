@@ -7057,6 +7057,16 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 								]);
 							}
 						}
+						final methodType = typeof(method.type, info, false);
+						final methodPointer = switch methodType {
+							case signature(_,_,_,_.get() => _var(_, _.get() => res)):
+								isPointer(res);
+							default:
+								throw "invalid signature: " + methodType;
+						}
+						if (methodPointer) {
+							args.unshift(macro stdgo.Go.pointer($i{name}));
+						}
 						final methodName = nameIdent(method.name, false, false, info);
 						var expr = macro $i{name}.$fieldName($a{args});
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {

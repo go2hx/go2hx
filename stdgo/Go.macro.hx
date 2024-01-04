@@ -453,6 +453,10 @@ class Go {
 		return run();
 	}
 
+	// deprecated
+	public static macro function select(e:Expr)
+		return macro null;
+
 	/*
 		reference of an expression by returning a new expression that references the original one, but with additional modifications. The function can be used to create new objects, modify existing ones, or cast them into other types.
 	 */
@@ -1435,122 +1439,6 @@ class Go {
 	public static macro function setKeys(expr:Expr) {
 		var t = Context.toComplexType(Context.getExpectedType());
 		return macro($expr : $t);
-	}
-
-	public static macro function select(expr:Expr) {
-		switch expr.expr {
-			case EArrayDecl(values):
-				var exprs:Array<Expr> = [];
-				var conds:Array<Expr> = [];
-				var selectCond:Expr = null;
-				var defaultBlock:Expr = null;
-				var count = 0;
-
-				function ifs(i:Int) {
-					var value = values[i];
-					var cond:Expr = null;
-					var block:Expr = null;
-					final varName = switch value.expr {
-						case EVars(vars):
-							value = vars[0].expr;
-							vars[0].name;
-						default:
-							"_";
-					}
-					switch value.expr {
-						case EBlock(exprs):
-							defaultBlock = macro $b{exprs};
-						case EBinop(OpArrow, e1, e2):
-							block = e2;
-							switch e1.expr {
-								case ECall({expr: EField(e, field), pos: _}, params):
-									final v = "_" + count++;
-									exprs.push(macro var $v = $e);
-									e = macro $i{v};
-									exprs.push(macro $e.__mutex__.acquire());
-									switch field {
-										case "__get__":
-											exprs.push(macro $e.__sendBool__ = true);
-											cond = macro $e.__isGet__();
-											switch block.expr {
-												case EBlock(exprs):
-													exprs.unshift(macro var $varName = $e.__get__());
-												default:
-											}
-										case "__send__":
-											exprs.push(macro $e.__getBool__ = true);
-											cond = macro $e.__isSend__();
-											switch block.expr {
-												case EBlock(exprs):
-													exprs.unshift(macro $e.__send__($a{params}));
-												default:
-											}
-										default:
-											Context.error("invalid field name: " + field, Context.currentPos());
-									}
-									exprs.push(macro $e.__mutex__.release());
-								default:
-									Context.error("invalid value call expr: " + value.expr, Context.currentPos());
-							}
-						default:
-							Context.error("invalid value expr: " + value.expr, Context.currentPos());
-					}
-					if (cond == null) {
-						return null;
-					} else {
-						switch cond.expr {
-							case ECall(e, params):
-								if (selectCond == null) {
-									selectCond = macro $e(false);
-								} else {
-									selectCond = macro $selectCond || $e(false);
-								}
-								conds.push(macro $e(false));
-							default:
-						}
-					}
-					if (i + 1 >= values.length) {
-						final e = macro if ($cond)
-							$block;
-						e.pos = Context.currentPos();
-						return e;
-					}
-					final next = ifs(i + 1);
-					return macro if ($cond)
-						$block
-					else
-						$next;
-				}
-
-				final select = ifs(0);
-				if (defaultBlock == null) {
-					exprs.push(macro while (true) {
-						// trace($a{conds});
-						if ($selectCond)
-							break;
-						#if !js
-						Sys.sleep(0.01);
-						#end
-						stdgo.internal.Async.tick();
-					});
-					exprs.push(select);
-				} else {
-					if (selectCond != null) {
-						exprs.push(macro if ($selectCond) {
-							$select;
-						} else {
-							$defaultBlock;
-						});
-					}else{
-						exprs.push(defaultBlock);
-					}
-				}
-				// Sys.println(new haxe.macro.Printer().printExprs(exprs, ";\n"));
-				return macro $b{exprs};
-			default:
-				Context.error("select must be array decl expr: " + expr.expr, Context.currentPos());
-		}
-		return macro null;
 	}
 
 	public static macro function multireturn(expr:Expr):Expr {

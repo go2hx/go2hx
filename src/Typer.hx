@@ -804,9 +804,10 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	if (stmt.body.list == null)
 		return (macro @:null_select {}).expr;
 	var needsReturn = true;
-	for (i in 0...stmt.body.list.length) {
+	function ifs(i:Int):Expr {
 		final obj:Ast.CommClause = stmt.body.list[i];
-		final block = toExpr(typeStmtList(obj.body, info, false));
+		var block = toExpr(typeStmtList(obj.body, info, false));
+		var cond:Expr = null;
 		if (needsReturn && !exprWillReturn(block))
 			needsReturn = false;
 		var varName = "";
@@ -824,7 +825,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 							return;
 						}
 					});
-					continue;
+					return ifs(i + 1);
 				}
 				varName = nameIdent(comm.lhs[0].name, false, true, info);
 				comm = comm.rhs[0];
@@ -834,24 +835,57 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 			if (comm.id == "UnaryExpr") { // get
 				var expr:Ast.UnaryExpr = comm;
 				var e = typeExpr(expr.x, info);
+				cond = macro $e != null && $e.__isGet__();
 				e = macro $e.__get__();
 				if (varName != "")
 					e = macro var $varName = $e;
-
-				list.push(macro $e => $block);
+				block = macro $b{[e, block]};
 			} else { // send
 				var stmt:Ast.SendStmt = comm;
 				final value = typeExpr(stmt.value, info);
 				final e = typeExpr(stmt.chan, info);
-				list.push(macro $e.__send__($value) => $block);
+				cond = macro $e != null && $e.__isSend__();
 			}
 		}
+		if (cond == null)
+			defaultBlock = block;
+		block = macro $b{[macro __select__ = false, block]};
+		if (i + 1 >= stmt.body.list.length) {
+			if (cond == null)
+				return block;
+			return if (defaultBlock == null) {
+					macro if ($cond) $block;
+				}else{
+					defaultBlock = macro $b{[macro __select__ = false, defaultBlock]};
+					macro if ($cond) $block else $defaultBlock;
+			}
+		}
+		final next = ifs(i + 1);
+		if (cond == null)
+			return next;
+		return macro if ($cond)
+			$block
+		else
+			$next;
 	}
-	stdgo.internal.Random.shuffle(list); // psuedo random
-	if (defaultBlock != null)
-		list.push(defaultBlock);
-	var e = macro $a{list};
-	e = (macro stdgo.Go.select($e));
+	var e = ifs(0);
+	if (defaultBlock == null) {
+		e = macro {
+			var __select__ = true;
+			while(__select__) {
+				$e;
+			}
+		}
+		#if !js
+		Sys.sleep(0.01);
+		#end
+		stdgo.internal.Async.tick();
+	}else{
+		e = macro {
+			final __select__ = true;
+			$e;
+		}
+	}
 	if (needsReturn) {
 		e = macro $b{[e, toExpr(typeReturnStmt({results: [], returnPos: 0}, info))]};
 	}

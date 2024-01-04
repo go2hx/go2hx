@@ -2748,7 +2748,7 @@ function testStoreLoadSeqCst64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
     
     
 **/
-@:structInit class T_testStoreLoadRelAcq32_26___localname___Data {
+@:structInit class T_testStoreLoadRelAcq32_15___localname___Data {
     public var _signal : stdgo.StdGoTypes.GoInt32 = 0;
     public var _pad1 : stdgo.GoArray<stdgo.StdGoTypes.GoInt8> = new stdgo.GoArray<stdgo.StdGoTypes.GoInt8>(...[for (i in 0 ... 128) (0 : stdgo.StdGoTypes.GoInt8)]);
     public var _data1 : stdgo.StdGoTypes.GoInt32 = 0;
@@ -2763,7 +2763,7 @@ function testStoreLoadSeqCst64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testStoreLoadRelAcq32_26___localname___Data(_signal, _pad1, _data1, _pad2, _data2);
+        return new T_testStoreLoadRelAcq32_15___localname___Data(_signal, _pad1, _data1, _pad2, _data2);
     }
 }
 function testStoreLoadRelAcq32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
@@ -2782,7 +2782,7 @@ function testStoreLoadRelAcq32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
             var _c = new stdgo.Chan<Bool>((2 : stdgo.StdGoTypes.GoInt).toBasic(), () -> false);
             {};
-            var x:T_testStoreLoadRelAcq32_26___localname___Data = ({} : stdgo.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq32_26___localname___Data);
+            var x:T_testStoreLoadRelAcq32_15___localname___Data = ({} : stdgo.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq32_15___localname___Data);
             {
                 var _p:stdgo.StdGoTypes.GoInt32 = (0 : stdgo.StdGoTypes.GoInt32);
                 stdgo.Go.cfor(_p < (2 : stdgo.StdGoTypes.GoInt32), _p++, {
@@ -2847,7 +2847,7 @@ function testStoreLoadRelAcq32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
     
     
 **/
-@:structInit class T_testStoreLoadRelAcq64_27___localname___Data {
+@:structInit class T_testStoreLoadRelAcq64_16___localname___Data {
     public var _signal : stdgo.StdGoTypes.GoInt64 = 0;
     public var _pad1 : stdgo.GoArray<stdgo.StdGoTypes.GoInt8> = new stdgo.GoArray<stdgo.StdGoTypes.GoInt8>(...[for (i in 0 ... 128) (0 : stdgo.StdGoTypes.GoInt8)]);
     public var _data1 : stdgo.StdGoTypes.GoInt64 = 0;
@@ -2862,7 +2862,7 @@ function testStoreLoadRelAcq32(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testStoreLoadRelAcq64_27___localname___Data(_signal, _pad1, _data1, _pad2, _data2);
+        return new T_testStoreLoadRelAcq64_16___localname___Data(_signal, _pad1, _data1, _pad2, _data2);
     }
 }
 function testStoreLoadRelAcq64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
@@ -2881,7 +2881,7 @@ function testStoreLoadRelAcq64(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>)
             };
             var _c = new stdgo.Chan<Bool>((2 : stdgo.StdGoTypes.GoInt).toBasic(), () -> false);
             {};
-            var x:T_testStoreLoadRelAcq64_27___localname___Data = ({} : stdgo.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq64_27___localname___Data);
+            var x:T_testStoreLoadRelAcq64_16___localname___Data = ({} : stdgo.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq64_16___localname___Data);
             {
                 var _p:stdgo.StdGoTypes.GoInt64 = (0i64 : stdgo.StdGoTypes.GoInt64);
                 stdgo.Go.cfor(_p < (2i64 : stdgo.StdGoTypes.GoInt64), _p++, {
@@ -3312,7 +3312,7 @@ function exampleValue_config():Void {
             });
         };
     }
-@:named typedef T_exampleValue_readMostly_28___localname___Map = stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
+@:named typedef T_exampleValue_readMostly_17___localname___Map = stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
 /**
     // The following example shows how to maintain a scalable frequently read,
     // but infrequently updated data structure using copy-on-write idiom.
@@ -3329,7 +3329,7 @@ function exampleValue_readMostly():Void {
         var _mu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
         var _read:stdgo.GoString -> stdgo.GoString = function(_key:stdgo.GoString):stdgo.GoString {
             var _val:stdgo.GoString = ("" : stdgo.GoString);
-            var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_28___localname___Map = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly_28___localname___Map)) : T_exampleValue_readMostly_28___localname___Map);
+            var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_17___localname___Map = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly_17___localname___Map)) : T_exampleValue_readMostly_17___localname___Map);
             return (_m1[_key] ?? ("" : stdgo.GoString))?.__copy__();
         };
         var _insert:(stdgo.GoString, stdgo.GoString) -> Void = function(_key:stdgo.GoString, _val:stdgo.GoString):Void {
@@ -3337,8 +3337,8 @@ function exampleValue_readMostly():Void {
             try {
                 _mu.lock();
                 __deferstack__.unshift(() -> _mu.unlock());
-                var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_28___localname___Map = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly_28___localname___Map)) : T_exampleValue_readMostly_28___localname___Map);
-                var _m2:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_28___localname___Map = ({
+                var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_17___localname___Map = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly_17___localname___Map)) : T_exampleValue_readMostly_17___localname___Map);
+                var _m2:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_17___localname___Map = ({
                     final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
                     x.__defaultValue__ = () -> ("" : stdgo.GoString);
                     @:mergeBlock {};

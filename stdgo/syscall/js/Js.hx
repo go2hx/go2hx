@@ -239,17 +239,17 @@ final typeFunction = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.syscall.js.Js.Type);
 **/
 @:structInit @:using(stdgo.syscall.js.Js.Value_static_extension) class Value {
     @:optional
-    public var __10 : stdgo.GoArray<() -> Void> = new stdgo.GoArray<() -> Void>(...[for (i in 0 ... 0) null]);
+    public var __26 : stdgo.GoArray<() -> Void> = new stdgo.GoArray<() -> Void>(...[for (i in 0 ... 0) null]);
     public var _ref : stdgo.syscall.js.Js.T_ref = ((0 : stdgo.StdGoTypes.GoUInt64) : stdgo.syscall.js.Js.T_ref);
     public var _gcPtr : stdgo.Pointer<stdgo.syscall.js.Js.T_ref> = (null : stdgo.Pointer<stdgo.syscall.js.Js.T_ref>);
-    public function new(?__10:stdgo.GoArray<() -> Void>, ?_ref:stdgo.syscall.js.Js.T_ref, ?_gcPtr:stdgo.Pointer<stdgo.syscall.js.Js.T_ref>) {
-        if (__10 != null) this.__10 = __10;
+    public function new(?__26:stdgo.GoArray<() -> Void>, ?_ref:stdgo.syscall.js.Js.T_ref, ?_gcPtr:stdgo.Pointer<stdgo.syscall.js.Js.T_ref>) {
+        if (__26 != null) this.__26 = __26;
         if (_ref != null) this._ref = _ref;
         if (_gcPtr != null) this._gcPtr = _gcPtr;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new Value(__10, _ref, _gcPtr);
+        return new Value(__26, _ref, _gcPtr);
     }
 }
 /**

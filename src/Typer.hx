@@ -3206,7 +3206,7 @@ private function typeInterfaceType(expr:Ast.InterfaceType, info:Info):ExprDef {
 }
 
 private function typeMapType(expr:Ast.MapType, info:Info):ExprDef {
-	return null;
+	return (macro @:invalid_map_type null).expr;
 }
 
 private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {

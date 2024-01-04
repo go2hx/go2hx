@@ -7436,9 +7436,9 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 		interfaceBool = isAnyInterface(typeof(value.type, info, false));
 	}
 	var values:Array<TypeDefinition> = [];
+	// destructure
 	if (value.names.length > value.values.length && value.values.length > 0) {
 		var t = typeof(value.values[0], info, false);
-		// destructure
 		var tmp = "__tmp__" + (info.blankCounter++);
 		var tmpExpr = macro $i{tmp};
 		var func = typeExpr(value.values[0], info);
@@ -7466,6 +7466,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 			});
 		}
 	} else {
+		// normal
 		for (i in 0...value.names.length) {
 			var expr:Expr = null;
 			if (value.values[i] == null) {
@@ -7486,7 +7487,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 				info.lastValue = value.values[i];
 				info.lastType = typeof(value.type, info, false);
 				final t = typeof(value.values[i], info, false);
-				final nameType = typeof(value.names[0], info, false);
+				final nameType = typeof(value.names[i], info, false);
 				if (!info.global.externBool || StringTools.endsWith(info.global.module.path, "_test")) {
 					expr = typeExpr(value.values[i], info);
 					expr = assignTranslate(t, info.lastType, expr, info);

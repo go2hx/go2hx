@@ -7059,8 +7059,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						}
 						final methodType = typeof(method.type, info, false);
 						final methodPointer = switch methodType {
-							case signature(_,_,_,_.get() => _var(_, _.get() => res)):
-								isPointer(res);
+							case signature(_,_,_,_.get() => recv):
+								isPointer(recv);
 							default:
 								throw "invalid signature: " + methodType;
 						}

@@ -292,7 +292,7 @@ comprehensive API for users. It is exempt from the Go compatibility promise.
 
 - [class Value](<#class-value>)
 
-  - [`function new(?__10:stdgo.GoArray<():Void>, ?_ref:Null<stdgo.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo.syscall.js.T_ref>):Void`](<#value-function-new>)
+  - [`function new(?__26:stdgo.GoArray<():Void>, ?_ref:Null<stdgo.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo.syscall.js.T_ref>):Void`](<#value-function-new>)
 
   - [`function _float( _method:stdgo.GoString):stdgo.GoFloat64`](<#value-function-_float>)
 
@@ -2050,7 +2050,7 @@ Value represents a JavaScript value. The zero value is the JavaScript value "und
 Values can be checked for equality with the Equal method.  
 
 ```haxe
-var __10:stdgo.GoArray<():Void>
+var __26:stdgo.GoArray<():Void>
 ```
 
 
@@ -2068,7 +2068,7 @@ var _ref:stdgo.syscall.js.T_ref
 
 
 ```haxe
-function new(?__10:stdgo.GoArray<():Void>, ?_ref:Null<stdgo.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo.syscall.js.T_ref>):Void
+function new(?__26:stdgo.GoArray<():Void>, ?_ref:Null<stdgo.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo.syscall.js.T_ref>):Void
 ```
 
 

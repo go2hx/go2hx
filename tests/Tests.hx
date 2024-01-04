@@ -208,12 +208,14 @@ function update() {
 					final wanted = outputMap[type + "_" + task.path];
 					if (wanted != null && wanted != "") {
 						final output = task.output;
-						function removeEndNewLine(s:String):String {
+						function sanatize(s:String):String {
 							if (s.charAt(s.length - 1) == "\n")
-								return s.substr(0, s.length - 1);
-							return s;
+								s = s.substr(0, s.length - 1);
+							return StringTools.trim(s);
 						}
-						final correct = removeEndNewLine(output) == removeEndNewLine(wanted);
+						final output = sanatize(output);
+						final wanted = sanatize(wanted);
+						final correct = output == wanted;
 						if (correct) {
 							suite.correct(task);
 						}else{
@@ -290,6 +292,7 @@ private function sanatize(s:String):String {
 }
 
 private function testGo() { // go tests
+	type = "go";
 	sortDataToTests(Json.parse(File.getContent("tests/sort_go.json")));
 }
 
@@ -430,6 +433,8 @@ private function sortDataToTests(sortData:SortData) {
 		switch sortMode {
 			case "easy":
 				tempTests = sortData.easy;
+				// does not have a main func
+				tempTests.remove("tests/yaegi/_test/export0.go\n");
 			case "medium":
 				tempTests = sortData.medium;
 			case "hard":

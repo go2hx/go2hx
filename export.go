@@ -20,7 +20,6 @@ import (
 	"path/filepath"
 	"runtime"
 	"runtime/debug"
-	"sort"
 
 	_ "embed"
 	"os"
@@ -907,9 +906,6 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 			}
 		}
 	}
-	sort.Slice(data.Pkgs, func(i, j int) bool {
-		return data.Pkgs[i].Name < data.Pkgs[j].Name
-	})
 	return data
 }
 
@@ -939,9 +935,6 @@ func parsePkg(pkg *packages.Package) packageType {
 	if len(pkg.Syntax) > 0 {
 		data.Files = []fileType{parseFile(pkg.Syntax[0], name)}
 	}
-	sort.Slice(data.Files, func(i, j int) bool {
-		return data.Files[i].Location < data.Files[j].Location
-	})
 	checker = nil
 	fset = nil
 	return data
@@ -980,9 +973,6 @@ func parseFile(file *ast.File, path string) fileType {
 			data.Decls = append(data.Decls, obj)
 		}
 	}
-	sort.Slice(data.Decls, func(i, j int) bool {
-		return data.Decls[i]["pos"].(int) < data.Decls[j]["pos"].(int)
-	})
 	return data
 }
 func parseBody(list []ast.Stmt) []map[string]interface{} {

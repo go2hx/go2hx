@@ -112,9 +112,9 @@ var _sortTests : stdgo.Slice<stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest
         x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.internal.fmtsort_test.Fmtsort_test.T_toy", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "a", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "_b", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }));
         x.__defaultValue__ = () -> ("" : stdgo.GoString);
         @:mergeBlock {
-            x.set(@:invalid_compositelit_null null, ("72" : stdgo.GoString));
-            x.set(@:invalid_compositelit_null null, ("71" : stdgo.GoString));
-            x.set(@:invalid_compositelit_null null, ("34" : stdgo.GoString));
+            x.set((new stdgo.internal.fmtsort_test.Fmtsort_test.T_toy((7 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_toy), ("72" : stdgo.GoString));
+            x.set((new stdgo.internal.fmtsort_test.Fmtsort_test.T_toy((7 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_toy), ("71" : stdgo.GoString));
+            x.set((new stdgo.internal.fmtsort_test.Fmtsort_test.T_toy((3 : stdgo.StdGoTypes.GoInt), (4 : stdgo.StdGoTypes.GoInt)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_toy), ("34" : stdgo.GoString));
         };
         cast x;
     } : stdgo.GoMap<stdgo.internal.fmtsort_test.Fmtsort_test.T_toy, stdgo.GoString>)), ("{3 4}:34 {7 1}:71 {7 2}:72" : stdgo.GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest),
@@ -123,9 +123,9 @@ var _sortTests : stdgo.Slice<stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest
         x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, 2));
         x.__defaultValue__ = () -> ("" : stdgo.GoString);
         @:mergeBlock {
-            x.set(@:invalid_compositelit_null null, ("72" : stdgo.GoString));
-            x.set(@:invalid_compositelit_null null, ("71" : stdgo.GoString));
-            x.set(@:invalid_compositelit_null null, ("34" : stdgo.GoString));
+            x.set((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>((7 : stdgo.StdGoTypes.GoInt), (2 : stdgo.StdGoTypes.GoInt)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>), ("72" : stdgo.GoString));
+            x.set((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>((7 : stdgo.StdGoTypes.GoInt), (1 : stdgo.StdGoTypes.GoInt)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>), ("71" : stdgo.GoString));
+            x.set((new stdgo.GoArray<stdgo.StdGoTypes.GoInt>((3 : stdgo.StdGoTypes.GoInt), (4 : stdgo.StdGoTypes.GoInt)) : stdgo.GoArray<stdgo.StdGoTypes.GoInt>), ("34" : stdgo.GoString));
         };
         cast x;
     } : stdgo.GoMap<stdgo.GoArray<stdgo.StdGoTypes.GoInt>, stdgo.GoString>)), ("[3 4]:34 [7 1]:71 [7 2]:72" : stdgo.GoString)) : stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest)) : stdgo.Slice<stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest>);

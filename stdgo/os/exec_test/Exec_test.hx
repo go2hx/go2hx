@@ -33,7 +33,7 @@ var _pipeSignal : stdgo.os.Os.Signal = (null : stdgo.os.Os.Signal);
     
 **/
 var _helperCommands : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> Void> = ({
-        final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString> -> Void>();
+        final x = new stdgo.GoMap.GoStringMap<haxe.Rest<stdgo.GoString> -> Void>();
         x.__defaultValue__ = () -> null;
         @:mergeBlock {
             x.set(("echo" : stdgo.GoString), _cmdEcho);
@@ -48,7 +48,7 @@ var _helperCommands : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> V
             x.set(("hang" : stdgo.GoString), _cmdHang);
         };
         x;
-    } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString> -> Void>);
+    } : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> Void>);
 /**
     // haveUnexpectedFDs is set at init time to report whether any file descriptors
     // were open at program start.

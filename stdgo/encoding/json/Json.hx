@@ -386,7 +386,7 @@ var _ummapXY : stdgo.GoMap<stdgo.encoding.json.Json.T_unmarshalerText, Bool> = (
         x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.encoding.json.Json.T_unmarshalerText", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "a", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "b", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }]), false, { get : () -> null }));
         x.__defaultValue__ = () -> false;
         @:mergeBlock {
-            x.set(@:invalid_compositelit_null null, true);
+            x.set((new stdgo.encoding.json.Json.T_unmarshalerText(("x" : stdgo.GoString), ("y" : stdgo.GoString)) : stdgo.encoding.json.Json.T_unmarshalerText), true);
         };
         cast x;
     } : stdgo.GoMap<stdgo.encoding.json.Json.T_unmarshalerText, Bool>);
@@ -417,15 +417,15 @@ var _allValue : stdgo.encoding.json.Json.All = ({ bool_ : true, int_ : (2 : stdg
         final x = new stdgo.GoMap.GoStringMap<stdgo.encoding.json.Json.Small>();
         x.__defaultValue__ = () -> ({} : stdgo.encoding.json.Json.Small);
         @:mergeBlock {
-            x.set(("17" : stdgo.GoString), @:invalid_compositelit null);
-            x.set(("18" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("17" : stdgo.GoString), ({ tag : ("tag17" : stdgo.GoString) } : stdgo.encoding.json.Json.Small));
+            x.set(("18" : stdgo.GoString), ({ tag : ("tag18" : stdgo.GoString) } : stdgo.encoding.json.Json.Small));
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>), mapP : ({
         final x = new stdgo.GoMap.GoStringMap<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>();
         x.__defaultValue__ = () -> (null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>);
         @:mergeBlock {
-            x.set(("19" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("19" : stdgo.GoString), ({ tag : ("tag19" : stdgo.GoString) } : stdgo.encoding.json.Json.Small));
             x.set(("20" : stdgo.GoString), null);
         };
         x;
@@ -8450,10 +8450,10 @@ function testTextMarshalerMapKeysAreSorted(_t:stdgo.StdGoTypes.Ref<stdgo.testing
             x.t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.encoding.json.Json.T_unmarshalerText", [], stdgo.internal.reflect.Reflect.GoType.structType([{ name : "a", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }, { name : "b", embedded : false, tag : "", type : { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, optional : false }]), false, { get : () -> null }));
             x.__defaultValue__ = () -> (0 : stdgo.StdGoTypes.GoInt);
             @:mergeBlock {
-                x.set(@:invalid_compositelit_null null, (1 : stdgo.StdGoTypes.GoInt));
-                x.set(@:invalid_compositelit_null null, (2 : stdgo.StdGoTypes.GoInt));
-                x.set(@:invalid_compositelit_null null, (3 : stdgo.StdGoTypes.GoInt));
-                x.set(@:invalid_compositelit_null null, (4 : stdgo.StdGoTypes.GoInt));
+                x.set((new stdgo.encoding.json.Json.T_unmarshalerText(("x" : stdgo.GoString), ("y" : stdgo.GoString)) : stdgo.encoding.json.Json.T_unmarshalerText), (1 : stdgo.StdGoTypes.GoInt));
+                x.set((new stdgo.encoding.json.Json.T_unmarshalerText(("y" : stdgo.GoString), ("x" : stdgo.GoString)) : stdgo.encoding.json.Json.T_unmarshalerText), (2 : stdgo.StdGoTypes.GoInt));
+                x.set((new stdgo.encoding.json.Json.T_unmarshalerText(("a" : stdgo.GoString), ("z" : stdgo.GoString)) : stdgo.encoding.json.Json.T_unmarshalerText), (3 : stdgo.StdGoTypes.GoInt));
+                x.set((new stdgo.encoding.json.Json.T_unmarshalerText(("z" : stdgo.GoString), ("a" : stdgo.GoString)) : stdgo.encoding.json.Json.T_unmarshalerText), (4 : stdgo.StdGoTypes.GoInt));
             };
             cast x;
         } : stdgo.GoMap<stdgo.encoding.json.Json.T_unmarshalerText, stdgo.StdGoTypes.GoInt>))), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -8473,7 +8473,7 @@ function testNilMarshalerTextMapKey(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testin
             final x = new stdgo.GoMap.GoRefMap<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_unmarshalerText>, stdgo.StdGoTypes.GoInt>();
             @:mergeBlock {
                 x.set(((null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_unmarshalerText>) : stdgo.StdGoTypes.Ref<T_unmarshalerText>), (1 : stdgo.StdGoTypes.GoInt));
-                x.set(@:invalid_compositelit_null null, (2 : stdgo.StdGoTypes.GoInt));
+                x.set((new stdgo.encoding.json.Json.T_unmarshalerText(("A" : stdgo.GoString), ("B" : stdgo.GoString)) : stdgo.encoding.json.Json.T_unmarshalerText), (2 : stdgo.StdGoTypes.GoInt));
             };
             cast x;
         } : stdgo.GoMap<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.T_unmarshalerText>, stdgo.StdGoTypes.GoInt>))), _b:stdgo.Slice<stdgo.StdGoTypes.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

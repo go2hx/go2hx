@@ -3765,8 +3765,8 @@ function testEndToEnd(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             final x = new stdgo.GoMap.GoIntMap<stdgo.encoding.gob.Gob.T_testEndToEnd_51___localname___T3>();
             x.__defaultValue__ = () -> ({} : stdgo.encoding.gob.Gob.T_testEndToEnd_51___localname___T3);
             @:mergeBlock {
-                x.set((4 : stdgo.StdGoTypes.GoInt), @:invalid_compositelit null);
-                x.set((10 : stdgo.StdGoTypes.GoInt), @:invalid_compositelit null);
+                x.set((4 : stdgo.StdGoTypes.GoInt), ({ x : _pi, z : stdgo.Go.pointer(_meaning) } : stdgo.encoding.gob.Gob.T_testEndToEnd_51___localname___T3));
+                x.set((10 : stdgo.StdGoTypes.GoInt), ({ x : _e, z : stdgo.Go.pointer(_fingers) } : stdgo.encoding.gob.Gob.T_testEndToEnd_51___localname___T3));
             };
             x;
         } : stdgo.GoMap<stdgo.StdGoTypes.GoInt, stdgo.encoding.gob.Gob.T_testEndToEnd_51___localname___T3>), mstring : ({

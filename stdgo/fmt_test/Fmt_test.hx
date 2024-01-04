@@ -607,7 +607,7 @@ var _fmtTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(
         final x = new stdgo.GoMap.GoStringMap<stdgo.fmt_test.Fmt_test.B>();
         x.__defaultValue__ = () -> ({} : stdgo.fmt_test.Fmt_test.B);
         @:mergeBlock {
-            x.set(("a" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("a" : stdgo.GoString), (new stdgo.fmt_test.Fmt_test.B((1 : stdgo.fmt_test.Fmt_test.I), (2 : stdgo.StdGoTypes.GoInt)) : stdgo.fmt_test.Fmt_test.B));
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, stdgo.fmt_test.Fmt_test.B>)), _out : ("map[string]fmt_test.B{\"a\":fmt_test.B{I:1, j:2}}" : stdgo.GoString) } : T__struct_2),

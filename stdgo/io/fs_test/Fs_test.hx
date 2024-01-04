@@ -60,8 +60,8 @@ var _testFsys : stdgo.testing.fstest.Fstest.MapFS = ({
         final x = new stdgo.GoMap.GoStringMap<stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>>();
         x.__defaultValue__ = () -> (null : stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>);
         @:mergeBlock {
-            x.set(("hello.txt" : stdgo.GoString), @:invalid_compositelit null);
-            x.set(("sub/goodbye.txt" : stdgo.GoString), @:invalid_compositelit null);
+            x.set(("hello.txt" : stdgo.GoString), ({ data : (("hello, world" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), mode : (302u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : stdgo.Go.toInterface(stdgo.Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFile));
+            x.set(("sub/goodbye.txt" : stdgo.GoString), ({ data : (("goodbye, world" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), mode : (302u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : stdgo.Go.toInterface(stdgo.Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFile));
         };
         x;
     } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>>);
@@ -429,8 +429,8 @@ function testFileInfoToDirEntry(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>
             final x = new stdgo.GoMap.GoStringMap<stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>>();
             x.__defaultValue__ = () -> (null : stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>);
             @:mergeBlock {
-                x.set(("notadir.txt" : stdgo.GoString), @:invalid_compositelit null);
-                x.set(("adir" : stdgo.GoString), @:invalid_compositelit null);
+                x.set(("notadir.txt" : stdgo.GoString), ({ data : (("hello, world" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>), mode : (0u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : stdgo.Go.toInterface(stdgo.Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFile));
+                x.set(("adir" : stdgo.GoString), ({ data : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>), mode : (-2147483648u32 : stdgo.io.fs.Fs.FileMode), modTime : stdgo.time.Time.now()?.__copy__(), sys : stdgo.Go.toInterface(stdgo.Go.pointer(_sysValue)) } : stdgo.testing.fstest.Fstest.MapFile));
             };
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.testing.fstest.Fstest.MapFile>>);

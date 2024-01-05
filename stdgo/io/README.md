@@ -1,8 +1,8 @@
 # Module stdgo.io has compilation errors, please do not use:
 ```
 stdgo/io/fs_test/Fs_test.hx:301: characters 9-11 : Unknown identifier : fs
-stdgo/io_test/Io_test.hx:1842: characters 32-38 : Unknown identifier : reader
-stdgo/io_test/Io_test.hx:1885: characters 32-38 : Unknown identifier : writer
+stdgo/io_test/Io_test.hx:1859: characters 32-38 : Unknown identifier : reader
+stdgo/io_test/Io_test.hx:1902: characters 32-38 : Unknown identifier : writer
 stdgo/encoding/gob/Gob.hx:10488: characters 27-57 : Type not found : stdgo.internal.saferio.Saferio
 stdgo/encoding/gob/Gob.hx:5554: characters 48-78 : Type not found : stdgo.internal.saferio.Saferio
 stdgo/encoding/gob/Gob.hx:11347: characters 48-78 : Type not found : stdgo.internal.saferio.Saferio

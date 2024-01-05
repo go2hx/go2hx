@@ -358,7 +358,7 @@ function benchmarkDecodeString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1329>)
+[\(view code\)](<./Base64.hx#L1346>)
 
 
 ## function benchmarkEncodeToString
@@ -369,7 +369,7 @@ function benchmarkEncodeToString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1319>)
+[\(view code\)](<./Base64.hx#L1336>)
 
 
 ## function benchmarkNewEncoding
@@ -380,7 +380,7 @@ function benchmarkNewEncoding(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1348>)
+[\(view code\)](<./Base64.hx#L1365>)
 
 
 ## function newDecoder
@@ -540,7 +540,7 @@ function testDecoderIssue15656(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1298>)
+[\(view code\)](<./Base64.hx#L1315>)
 
 
 ## function testDecoderIssue3577
@@ -565,7 +565,7 @@ function testDecoderIssue4779(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1266>)
+[\(view code\)](<./Base64.hx#L1283>)
 
 
 ## function testDecoderIssue7733
@@ -576,7 +576,7 @@ function testDecoderIssue7733(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1288>)
+[\(view code\)](<./Base64.hx#L1305>)
 
 
 ## function testDecoderRaw
@@ -587,7 +587,7 @@ function testDecoderRaw(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-[\(view code\)](<./Base64.hx#L1360>)
+[\(view code\)](<./Base64.hx#L1377>)
 
 
 ## function testEncode
@@ -713,7 +713,7 @@ source buffer si.
 It returns the number of bytes read from src, the number of bytes written
 to dst, and an error, if any.  
 
-[\(view code\)](<./Base64.hx#L1566>)
+[\(view code\)](<./Base64.hx#L1583>)
 
 
 ### Encoding function decode
@@ -734,7 +734,7 @@ written. If src contains invalid base64 data, it will return the
 number of bytes successfully written and CorruptInputError.
 New line characters \(\\r and \\n\) are ignored.  
 
-[\(view code\)](<./Base64.hx#L1479>)
+[\(view code\)](<./Base64.hx#L1496>)
 
 
 ### Encoding function decodeString
@@ -751,7 +751,7 @@ function decodeString( _s:stdgo.GoString):{
 
 DecodeString returns the bytes represented by the base64 string s.  
 
-[\(view code\)](<./Base64.hx#L1552>)
+[\(view code\)](<./Base64.hx#L1569>)
 
 
 ### Encoding function decodedLen
@@ -766,7 +766,7 @@ function decodedLen( _n:stdgo.GoInt):stdgo.GoInt
 DecodedLen returns the maximum length in bytes of the decoded data
 corresponding to n bytes of base64\-encoded data.  
 
-[\(view code\)](<./Base64.hx#L1464>)
+[\(view code\)](<./Base64.hx#L1481>)
 
 
 ### Encoding function encode
@@ -786,7 +786,7 @@ The encoding pads the output to a multiple of 4 bytes,
 so Encode is not appropriate for use on individual blocks
 of a large data stream. Use NewEncoder\(\) instead.  
 
-[\(view code\)](<./Base64.hx#L1707>)
+[\(view code\)](<./Base64.hx#L1724>)
 
 
 ### Encoding function encodeToString
@@ -800,7 +800,7 @@ function encodeToString( _src:stdgo.Slice<stdgo.GoByte>):stdgo.GoString
 
 EncodeToString returns the base64 encoding of src.  
 
-[\(view code\)](<./Base64.hx#L1692>)
+[\(view code\)](<./Base64.hx#L1709>)
 
 
 ### Encoding function encodedLen
@@ -815,7 +815,7 @@ function encodedLen( _n:stdgo.GoInt):stdgo.GoInt
 EncodedLen returns the length in bytes of the base64 encoding
 of an input buffer of length n.  
 
-[\(view code\)](<./Base64.hx#L1681>)
+[\(view code\)](<./Base64.hx#L1698>)
 
 
 ### Encoding function strict
@@ -835,7 +835,7 @@ trailing padding bits are zero, as described in RFC 4648 section 3.5.
 Note that the input is still malleable, as new line characters
 \(CR and LF\) are still ignored.  
 
-[\(view code\)](<./Base64.hx#L1758>)
+[\(view code\)](<./Base64.hx#L1775>)
 
 
 ### Encoding function withPadding
@@ -855,7 +855,7 @@ below '\\xff'.
 Padding characters above '\\x7f' are encoded as their exact byte value
 rather than using the UTF\-8 representation of the codepoint.  
 
-[\(view code\)](<./Base64.hx#L1773>)
+[\(view code\)](<./Base64.hx#L1790>)
 
 
 # Typedefs

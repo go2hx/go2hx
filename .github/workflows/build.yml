@@ -10,7 +10,7 @@ jobs:
     timeout-minutes: 20
     strategy:
       fail-fast: true
-    runs-on: [ubuntu-latest-l]
+    runs-on: [ubuntu-latest-m]
     steps:
       - uses: actions/checkout@v3
       # Get the cores 

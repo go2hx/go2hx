@@ -7,10 +7,10 @@ concurrency:
   cancel-in-progress: true
 jobs:
   build:
-    timeout-minutes: 15
+    timeout-minutes: 20
     strategy:
       fail-fast: true
-    runs-on: [ubuntu-latest-m]
+    runs-on: [ubuntu-latest-l]
     steps:
       - uses: actions/checkout@v3
       # Get the cores 

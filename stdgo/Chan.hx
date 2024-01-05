@@ -59,12 +59,17 @@ class ChanData<T> {
 		if (closed) {
 			return false;
 		}
+		final value = __sendBool__;
+		if (reset && value)
+			__sendBool__ = false;
 		__mutex__.release();
-		return true;
+		return value;
 	}
 
 	public function __isGet__(reset:Bool = true):Bool {
-		__mutex__.acquire();
+		if (!__mutex__.tryAcquire()) {
+			return false;
+		}
 		final value = __getBool__;
 		if (reset && value)
 			__getBool__ = false;
@@ -72,28 +77,22 @@ class ChanData<T> {
 		return value;
 	}
 
+	// deprecated
+	public function __doubleGet__():{value:T, ok:Bool} {
+		return __smartGet__();
+	}
+
 	public function __smartGet__():{value:T, ok:Bool} {
+		if (closed)
+			return {value: defaultValue(), ok: false}
 		if (__buffer__.length == 0)
 			return {value: defaultValue(), ok: false}
-		__mutex__.acquire();
+		if (!__mutex__.tryAcquire())
+			return {value: defaultValue(), ok: false}
 		__getBool__ = false;
 		__mutex__.release();
 		__sendWg__.release();
 		return {value: __buffer__.pop(), ok: true};
-	}
-
-	public function __doubleGet__():{value:T, ok:Bool} {
-		if (closed)
-			return {value: defaultValue(), ok: false}
-		__mutex__.acquire();
-		__sendBool__ = true;
-		__mutex__.release();
-		__sendWg__.release();
-		final value = __buffer__.pop();
-		__mutex__.acquire();
-		__getBool__ = false;
-		__mutex__.release();
-		return {value: value, ok: true};
 	}
 
 	public function __get__():T {

@@ -707,15 +707,32 @@ function testZeroReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             a();
         });
-        stdgo.Go.select([stdgo.time.Time.after((1000000000i64 : stdgo.time.Time.Duration)).__get__() => {
-            _t.error(stdgo.Go.toInterface(("test timed out (endless loop in ReadByte?)" : stdgo.GoString)));
-        }, var _err = _c.__get__() => {
-            if (_err == null) {
-                _t.error(stdgo.Go.toInterface(("error expected" : stdgo.GoString)));
-            } else if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.io.Io.errNoProgress))) {
-                _t.error(stdgo.Go.toInterface(("unexpected error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+        {
+            var __select__ = true;
+            while (__select__) {
+                if (_c != null && _c.__isGet__()) {
+                    __select__ = false;
+                    {
+                        var _err = _c.__get__();
+                        {
+                            if (_err == null) {
+                                _t.error(stdgo.Go.toInterface(("error expected" : stdgo.GoString)));
+                            } else if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.io.Io.errNoProgress))) {
+                                _t.error(stdgo.Go.toInterface(("unexpected error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+                            };
+                        };
+                    };
+                } else if (stdgo.time.Time.after((1000000000i64 : stdgo.time.Time.Duration)) != null && stdgo.time.Time.after((1000000000i64 : stdgo.time.Time.Duration)).__isGet__()) {
+                    __select__ = false;
+                    {
+                        stdgo.time.Time.after((1000000000i64 : stdgo.time.Time.Duration)).__get__();
+                        {
+                            _t.error(stdgo.Go.toInterface(("test timed out (endless loop in ReadByte?)" : stdgo.GoString)));
+                        };
+                    };
+                };
             };
-        }]);
+        };
     }
 function _readRuneSegments(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _segments:stdgo.Slice<stdgo.GoString>):Void {
         var _got:stdgo.GoString = stdgo.Go.str()?.__copy__();

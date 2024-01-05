@@ -4712,7 +4712,19 @@ function newTimer(_d:Duration):stdgo.StdGoTypes.Ref<Timer> {
     // sendTime does a non-blocking send of the current time on c.
 **/
 function _sendTime(_c:stdgo.StdGoTypes.AnyInterface, _seq:stdgo.StdGoTypes.GoUIntptr):Void {
-        stdgo.Go.select([(stdgo.Go.typeAssert((_c : stdgo.Chan<Time>)) : stdgo.Chan<Time>).__send__(now()) => {}, {}]);
+        {
+            var __select__ = true;
+            if ((stdgo.Go.typeAssert((_c : stdgo.Chan<Time>)) : stdgo.Chan<Time>) != null && (stdgo.Go.typeAssert((_c : stdgo.Chan<Time>)) : stdgo.Chan<Time>).__isSend__()) {
+                __select__ = false;
+                {
+                    (stdgo.Go.typeAssert((_c : stdgo.Chan<Time>)) : stdgo.Chan<Time>).__send__(now());
+                    {};
+                };
+            } else {
+                __select__ = false;
+                {};
+            };
+        };
     }
 /**
     // After waits for the duration to elapse and then sends the current time

@@ -1980,11 +1980,28 @@ function exampleDuration_Seconds():Void {
     }
 function _handle(_0:stdgo.StdGoTypes.GoInt):Void {}
 function exampleAfter():Void {
-        stdgo.Go.select([stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)).__get__() => {
-            stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("timed out" : stdgo.GoString)));
-        }, var _m = _c.__get__() => {
-            _handle(_m);
-        }]);
+        {
+            var __select__ = true;
+            while (__select__) {
+                if (_c != null && _c.__isGet__()) {
+                    __select__ = false;
+                    {
+                        var _m = _c.__get__();
+                        {
+                            _handle(_m);
+                        };
+                    };
+                } else if (stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)) != null && stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)).__isGet__()) {
+                    __select__ = false;
+                    {
+                        stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)).__get__();
+                        {
+                            stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("timed out" : stdgo.GoString)));
+                        };
+                    };
+                };
+            };
+        };
     }
 function exampleSleep():Void {
         stdgo.time.Time.sleep((100000000i64 : stdgo.time.Time.Duration));
@@ -2022,17 +2039,34 @@ function exampleNewTicker():Void {
                 a();
             });
             while (true) {
-                stdgo.Go.select([var _t = _ticker.c.__get__() => {
-                    stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Current time: " : stdgo.GoString)), stdgo.Go.toInterface(stdgo.Go.asInterface(_t)));
-                }, _done.__get__() => {
-                    stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Done!" : stdgo.GoString)));
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
+                {
+                    var __select__ = true;
+                    while (__select__) {
+                        if (_done != null && _done.__isGet__()) {
+                            __select__ = false;
+                            {
+                                _done.__get__();
+                                {
+                                    stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Done!" : stdgo.GoString)));
+                                    {
+                                        for (defer in __deferstack__) {
+                                            defer();
+                                        };
+                                        return;
+                                    };
+                                };
+                            };
+                        } else if (_ticker.c != null && _ticker.c.__isGet__()) {
+                            __select__ = false;
+                            {
+                                var _t = _ticker.c.__get__();
+                                {
+                                    stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("Current time: " : stdgo.GoString)), stdgo.Go.toInterface(stdgo.Go.asInterface(_t)));
+                                };
+                            };
                         };
-                        return;
                     };
-                }]);
+                };
             };
             {
                 for (defer in __deferstack__) {
@@ -3517,13 +3551,31 @@ function testAfterStop(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                     continue;
                 };
                 _c2.__get__();
-                stdgo.Go.select([_c1.__get__() => {
-                    _errs = (_errs.__append__(("event 1 was not stopped" : stdgo.GoString)));
-                    continue;
-                }, _t0.c.__get__() => {
-                    _errs = (_errs.__append__(("event 0 was not stopped" : stdgo.GoString)));
-                    continue;
-                }, {}]);
+                {
+                    var __select__ = true;
+                    if (_t0.c != null && _t0.c.__isGet__()) {
+                        __select__ = false;
+                        {
+                            _t0.c.__get__();
+                            {
+                                _errs = (_errs.__append__(("event 0 was not stopped" : stdgo.GoString)));
+                                continue;
+                            };
+                        };
+                    } else if (_c1 != null && _c1.__isGet__()) {
+                        __select__ = false;
+                        {
+                            _c1.__get__();
+                            {
+                                _errs = (_errs.__append__(("event 1 was not stopped" : stdgo.GoString)));
+                                continue;
+                            };
+                        };
+                    } else {
+                        __select__ = false;
+                        {};
+                    };
+                };
                 if (_t1.stop()) {
                     _errs = (_errs.__append__(("Stop returned true twice" : stdgo.GoString)));
                     continue;
@@ -3666,13 +3718,37 @@ function _testReset(_d:Duration):stdgo.Error {
             return stdgo.errors.Errors.new_(("resetting unfired timer returned false" : stdgo.GoString));
         };
         sleep((2i64 : stdgo.time.Time.Duration) * _d);
-        stdgo.Go.select([_t0.c.__get__() => {
-            return stdgo.errors.Errors.new_(("timer fired early" : stdgo.GoString));
-        }, {}]);
+        {
+            var __select__ = true;
+            if (_t0.c != null && _t0.c.__isGet__()) {
+                __select__ = false;
+                {
+                    _t0.c.__get__();
+                    {
+                        return stdgo.errors.Errors.new_(("timer fired early" : stdgo.GoString));
+                    };
+                };
+            } else {
+                __select__ = false;
+                {};
+            };
+        };
         sleep((2i64 : stdgo.time.Time.Duration) * _d);
-        stdgo.Go.select([_t0.c.__get__() => {}, {
-            return stdgo.errors.Errors.new_(("reset timer did not fire" : stdgo.GoString));
-        }]);
+        {
+            var __select__ = true;
+            if (_t0.c != null && _t0.c.__isGet__()) {
+                __select__ = false;
+                {
+                    _t0.c.__get__();
+                    {};
+                };
+            } else {
+                __select__ = false;
+                {
+                    return stdgo.errors.Errors.new_(("reset timer did not fire" : stdgo.GoString));
+                };
+            };
+        };
         if (_t0.reset((50000000i64 : stdgo.time.Time.Duration))) {
             return stdgo.errors.Errors.new_(("resetting expired timer returned true" : stdgo.GoString));
         };
@@ -3708,14 +3784,48 @@ function testOverflowSleep(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
             a();
         });
-        stdgo.Go.select([after((25000000i64 : stdgo.time.Time.Duration)).__get__() => {}, after((9223372036854775807i64 : stdgo.time.Time.Duration)).__get__() => {
-            _t.fatalf(("big timeout fired" : stdgo.GoString));
-        }]);
+        {
+            var __select__ = true;
+            while (__select__) {
+                if (after((9223372036854775807i64 : stdgo.time.Time.Duration)) != null && after((9223372036854775807i64 : stdgo.time.Time.Duration)).__isGet__()) {
+                    __select__ = false;
+                    {
+                        after((9223372036854775807i64 : stdgo.time.Time.Duration)).__get__();
+                        {
+                            _t.fatalf(("big timeout fired" : stdgo.GoString));
+                        };
+                    };
+                } else if (after((25000000i64 : stdgo.time.Time.Duration)) != null && after((25000000i64 : stdgo.time.Time.Duration)).__isGet__()) {
+                    __select__ = false;
+                    {
+                        after((25000000i64 : stdgo.time.Time.Duration)).__get__();
+                        {};
+                    };
+                };
+            };
+        };
         {};
         sleep((-9223372036854775808i64 : stdgo.time.Time.Duration));
-        stdgo.Go.select([after((1000000000i64 : stdgo.time.Time.Duration)).__get__() => {
-            _t.fatalf(("negative timeout didn\'t fire" : stdgo.GoString));
-        }, after((-9223372036854775808i64 : stdgo.time.Time.Duration)).__get__() => {}]);
+        {
+            var __select__ = true;
+            while (__select__) {
+                if (after((-9223372036854775808i64 : stdgo.time.Time.Duration)) != null && after((-9223372036854775808i64 : stdgo.time.Time.Duration)).__isGet__()) {
+                    __select__ = false;
+                    {
+                        after((-9223372036854775808i64 : stdgo.time.Time.Duration)).__get__();
+                        {};
+                    };
+                } else if (after((1000000000i64 : stdgo.time.Time.Duration)) != null && after((1000000000i64 : stdgo.time.Time.Duration)).__isGet__()) {
+                    __select__ = false;
+                    {
+                        after((1000000000i64 : stdgo.time.Time.Duration)).__get__();
+                        {
+                            _t.fatalf(("negative timeout didn\'t fire" : stdgo.GoString));
+                        };
+                    };
+                };
+            };
+        };
     }
 /**
     // Test that a panic while deleting a timer does not leave
@@ -3897,17 +4007,34 @@ function testTimerModifiedEarlier(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
                     var _deadline = newTimer((10000000000i64 : stdgo.time.Time.Duration));
                     __deferstack__.unshift(() -> _deadline.stop());
                     var _now:stdgo.time.Time.Time = now()?.__copy__();
-                    stdgo.Go.select([_deadline.c.__get__() => {
-                        _t.error(stdgo.Go.toInterface(("deadline expired" : stdgo.GoString)));
-                    }, _timer.c.__get__() => {
-                        {
-                            var _since:stdgo.time.Time.Duration = since(_now?.__copy__());
-                            if (_since > (8000000000i64 : stdgo.time.Time.Duration)) {
-                                _t.errorf(("timer took too long (%v)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_since)));
-                                _fail++;
+                    {
+                        var __select__ = true;
+                        while (__select__) {
+                            if (_timer.c != null && _timer.c.__isGet__()) {
+                                __select__ = false;
+                                {
+                                    _timer.c.__get__();
+                                    {
+                                        {
+                                            var _since:stdgo.time.Time.Duration = since(_now?.__copy__());
+                                            if (_since > (8000000000i64 : stdgo.time.Time.Duration)) {
+                                                _t.errorf(("timer took too long (%v)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_since)));
+                                                _fail++;
+                                            };
+                                        };
+                                    };
+                                };
+                            } else if (_deadline.c != null && _deadline.c.__isGet__()) {
+                                __select__ = false;
+                                {
+                                    _deadline.c.__get__();
+                                    {
+                                        _t.error(stdgo.Go.toInterface(("deadline expired" : stdgo.GoString)));
+                                    };
+                                };
                             };
                         };
-                    }]);
+                    };
                 });
             };
             if (_fail > (0 : stdgo.StdGoTypes.GoInt)) {
@@ -4219,10 +4346,22 @@ function testTicker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 continue;
             };
             sleep((2i64 : stdgo.time.Time.Duration) * _delta);
-            stdgo.Go.select([_ticker.c.__get__() => {
-                _errs = (_errs.__append__(("Ticker did not shut down" : stdgo.GoString)));
-                continue;
-            }, {}]);
+            {
+                var __select__ = true;
+                if (_ticker.c != null && _ticker.c.__isGet__()) {
+                    __select__ = false;
+                    {
+                        _ticker.c.__get__();
+                        {
+                            _errs = (_errs.__append__(("Ticker did not shut down" : stdgo.GoString)));
+                            continue;
+                        };
+                    };
+                } else {
+                    __select__ = false;
+                    {};
+                };
+            };
             if ((_errs.length) > (0 : stdgo.StdGoTypes.GoInt)) {
                 _t.logf(("saw %d errors, ignoring to avoid flakiness" : stdgo.GoString), stdgo.Go.toInterface((_errs.length)));
                 _logErrs();

@@ -1536,9 +1536,26 @@ function _check(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _source:stdgo.
             };
             a();
         });
-        stdgo.Go.select([_cc.__get__() => {}, stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)).__get__() => {
-            _t.errorf(("%s: running too slowly" : stdgo.GoString), stdgo.Go.toInterface(_source));
-        }]);
+        {
+            var __select__ = true;
+            while (__select__) {
+                if (stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)) != null && stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)).__isGet__()) {
+                    __select__ = false;
+                    {
+                        stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)).__get__();
+                        {
+                            _t.errorf(("%s: running too slowly" : stdgo.GoString), stdgo.Go.toInterface(_source));
+                        };
+                    };
+                } else if (_cc != null && _cc.__isGet__()) {
+                    __select__ = false;
+                    {
+                        _cc.__get__();
+                        {};
+                    };
+                };
+            };
+        };
     }
 function testFiles(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         _t.parallel();

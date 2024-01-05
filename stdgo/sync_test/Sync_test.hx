@@ -384,16 +384,40 @@ function testCondSignal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             });
         };
         while (_n > (0 : stdgo.StdGoTypes.GoInt)) {
-            stdgo.Go.select([_awake.__get__() => {
-                _t.fatal(stdgo.Go.toInterface(("goroutine not asleep" : stdgo.GoString)));
-            }, {}]);
+            {
+                var __select__ = true;
+                if (_awake != null && _awake.__isGet__()) {
+                    __select__ = false;
+                    {
+                        _awake.__get__();
+                        {
+                            _t.fatal(stdgo.Go.toInterface(("goroutine not asleep" : stdgo.GoString)));
+                        };
+                    };
+                } else {
+                    __select__ = false;
+                    {};
+                };
+            };
             _m.lock();
             _c.signal();
             _m.unlock();
             _awake.__get__();
-            stdgo.Go.select([_awake.__get__() => {
-                _t.fatal(stdgo.Go.toInterface(("too many goroutines awake" : stdgo.GoString)));
-            }, {}]);
+            {
+                var __select__ = true;
+                if (_awake != null && _awake.__isGet__()) {
+                    __select__ = false;
+                    {
+                        _awake.__get__();
+                        {
+                            _t.fatal(stdgo.Go.toInterface(("too many goroutines awake" : stdgo.GoString)));
+                        };
+                    };
+                } else {
+                    __select__ = false;
+                    {};
+                };
+            };
             _n--;
         };
         _c.signal();
@@ -468,9 +492,21 @@ function testCondBroadcast(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                     _exit = true;
                     _m.unlock();
                 };
-                stdgo.Go.select([_awake.__get__() => {
-                    _t.fatal(stdgo.Go.toInterface(("goroutine not asleep" : stdgo.GoString)));
-                }, {}]);
+                {
+                    var __select__ = true;
+                    if (_awake != null && _awake.__isGet__()) {
+                        __select__ = false;
+                        {
+                            _awake.__get__();
+                            {
+                                _t.fatal(stdgo.Go.toInterface(("goroutine not asleep" : stdgo.GoString)));
+                            };
+                        };
+                    } else {
+                        __select__ = false;
+                        {};
+                    };
+                };
                 _m.lock();
                 _c.broadcast();
                 _m.unlock();
@@ -487,9 +523,21 @@ function testCondBroadcast(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 };
             });
         };
-        stdgo.Go.select([_running.__get__() => {
-            _t.fatal(stdgo.Go.toInterface(("goroutine did not exit" : stdgo.GoString)));
-        }, {}]);
+        {
+            var __select__ = true;
+            if (_running != null && _running.__isGet__()) {
+                __select__ = false;
+                {
+                    _running.__get__();
+                    {
+                        _t.fatal(stdgo.Go.toInterface(("goroutine did not exit" : stdgo.GoString)));
+                    };
+                };
+            } else {
+                __select__ = false;
+                {};
+            };
+        };
         _c.broadcast();
     }
 function testRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
@@ -1378,14 +1426,26 @@ function testConcurrentRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
                                 {
                                     var _i:stdgo.StdGoTypes.GoInt64 = (0i64 : stdgo.StdGoTypes.GoInt64);
                                     stdgo.Go.cfor(true, _i++, {
-                                        stdgo.Go.select([_done.__get__() => {
-                                            {
-                                                for (defer in __deferstack__) {
-                                                    defer();
+                                        {
+                                            var __select__ = true;
+                                            if (_done != null && _done.__isGet__()) {
+                                                __select__ = false;
+                                                {
+                                                    _done.__get__();
+                                                    {
+                                                        {
+                                                            for (defer in __deferstack__) {
+                                                                defer();
+                                                            };
+                                                            return;
+                                                        };
+                                                    };
                                                 };
-                                                return;
+                                            } else {
+                                                __select__ = false;
+                                                {};
                                             };
-                                        }, {}]);
+                                        };
                                         {
                                             var _n:stdgo.StdGoTypes.GoInt64 = (1i64 : stdgo.StdGoTypes.GoInt64);
                                             stdgo.Go.cfor(_n < (1024i64 : stdgo.StdGoTypes.GoInt64), _n++, {
@@ -1700,9 +1760,21 @@ function testMutexFairness(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                         _mu.lock();
                         stdgo.time.Time.sleep((100000i64 : stdgo.time.Time.Duration));
                         _mu.unlock();
-                        stdgo.Go.select([_stop.__get__() => {
-                            return;
-                        }, {}]);
+                        {
+                            var __select__ = true;
+                            if (_stop != null && _stop.__isGet__()) {
+                                __select__ = false;
+                                {
+                                    _stop.__get__();
+                                    {
+                                        return;
+                                    };
+                                };
+                            } else {
+                                __select__ = false;
+                                {};
+                            };
+                        };
                     };
                 };
                 a();
@@ -1722,9 +1794,26 @@ function testMutexFairness(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 };
                 a();
             });
-            stdgo.Go.select([stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)).__get__() => {
-                _t.fatalf(("can\'t acquire Mutex in 10 seconds" : stdgo.GoString));
-            }, _done.__get__() => {}]);
+            {
+                var __select__ = true;
+                while (__select__) {
+                    if (_done != null && _done.__isGet__()) {
+                        __select__ = false;
+                        {
+                            _done.__get__();
+                            {};
+                        };
+                    } else if (stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)) != null && stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)).__isGet__()) {
+                        __select__ = false;
+                        {
+                            stdgo.time.Time.after((10000000000i64 : stdgo.time.Time.Duration)).__get__();
+                            {
+                                _t.fatalf(("can\'t acquire Mutex in 10 seconds" : stdgo.GoString));
+                            };
+                        };
+                    };
+                };
+            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1751,7 +1840,7 @@ function testMutexFairness(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     
     
 **/
-@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_18___localname___PaddedMutex_static_extension) class T_benchmarkMutexUncontended_18___localname___PaddedMutex {
+@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_29___localname___PaddedMutex_static_extension) class T_benchmarkMutexUncontended_29___localname___PaddedMutex {
     @:embedded
     public var mutex : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
     public var _pad : stdgo.GoArray<stdgo.StdGoTypes.GoUInt8> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 128) (0 : stdgo.StdGoTypes.GoUInt8)]);
@@ -1771,13 +1860,13 @@ function testMutexFairness(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     @:embedded
     public function _unlockSlow(__0:stdgo.StdGoTypes.GoInt32) mutex._unlockSlow(__0);
     public function __copy__() {
-        return new T_benchmarkMutexUncontended_18___localname___PaddedMutex(mutex, _pad);
+        return new T_benchmarkMutexUncontended_29___localname___PaddedMutex(mutex, _pad);
     }
 }
 function benchmarkMutexUncontended(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
         _b.runParallel(function(_pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>):Void {
-            var _mu:T_benchmarkMutexUncontended_18___localname___PaddedMutex = ({} : stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_18___localname___PaddedMutex);
+            var _mu:T_benchmarkMutexUncontended_29___localname___PaddedMutex = ({} : stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_29___localname___PaddedMutex);
             while (_pb.next()) {
                 _mu.lock();
                 _mu.unlock();
@@ -2804,7 +2893,7 @@ function benchmarkPoolExpensiveNew(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
     
     
 **/
-@:structInit class T_benchmarkSemaUncontended_19___localname___PaddedSem {
+@:structInit class T_benchmarkSemaUncontended_30___localname___PaddedSem {
     public var _sem : stdgo.StdGoTypes.GoUInt32 = 0;
     public var _pad : stdgo.GoArray<stdgo.StdGoTypes.GoUInt32> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt32>(...[for (i in 0 ... 32) (0 : stdgo.StdGoTypes.GoUInt32)]);
     public function new(?_sem:stdgo.StdGoTypes.GoUInt32, ?_pad:stdgo.GoArray<stdgo.StdGoTypes.GoUInt32>) {
@@ -2813,7 +2902,7 @@ function benchmarkPoolExpensiveNew(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_benchmarkSemaUncontended_19___localname___PaddedSem(_sem, _pad);
+        return new T_benchmarkSemaUncontended_30___localname___PaddedSem(_sem, _pad);
     }
 }
 function benchmarkSemaUncontended(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
@@ -3131,14 +3220,38 @@ function testRLocker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             stdgo.Go.cfor(_i < _n, _i++, {
                 _rlocked.__get__();
                 _rl.unlock();
-                stdgo.Go.select([_wlocked.__get__() => {
-                    _t.fatal(stdgo.Go.toInterface(("RLocker() didn\'t read-lock it" : stdgo.GoString)));
-                }, {}]);
+                {
+                    var __select__ = true;
+                    if (_wlocked != null && _wlocked.__isGet__()) {
+                        __select__ = false;
+                        {
+                            _wlocked.__get__();
+                            {
+                                _t.fatal(stdgo.Go.toInterface(("RLocker() didn\'t read-lock it" : stdgo.GoString)));
+                            };
+                        };
+                    } else {
+                        __select__ = false;
+                        {};
+                    };
+                };
                 _rl.unlock();
                 _wlocked.__get__();
-                stdgo.Go.select([_rlocked.__get__() => {
-                    _t.fatal(stdgo.Go.toInterface(("RLocker() didn\'t respect the write lock" : stdgo.GoString)));
-                }, {}]);
+                {
+                    var __select__ = true;
+                    if (_rlocked != null && _rlocked.__isGet__()) {
+                        __select__ = false;
+                        {
+                            _rlocked.__get__();
+                            {
+                                _t.fatal(stdgo.Go.toInterface(("RLocker() didn\'t respect the write lock" : stdgo.GoString)));
+                            };
+                        };
+                    } else {
+                        __select__ = false;
+                        {};
+                    };
+                };
                 _wl.unlock();
             });
         };
@@ -3148,7 +3261,7 @@ function testRLocker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex_static_extension) class T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex {
+@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex_static_extension) class T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex {
     @:embedded
     public var rwmutex : stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
     public var _pad : stdgo.GoArray<stdgo.StdGoTypes.GoUInt32> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt32>(...[for (i in 0 ... 32) (0 : stdgo.StdGoTypes.GoUInt32)]);
@@ -3174,13 +3287,13 @@ function testRLocker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
     @:embedded
     public function _rUnlockSlow(__0:stdgo.StdGoTypes.GoInt32) rwmutex._rUnlockSlow(__0);
     public function __copy__() {
-        return new T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex(rwmutex, _pad);
+        return new T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex(rwmutex, _pad);
     }
 }
 function benchmarkRWMutexUncontended(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
         _b.runParallel(function(_pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>):Void {
-            var _rwm:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex = ({} : stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex);
+            var _rwm:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex = ({} : stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex);
             while (_pb.next()) {
                 _rwm.rlock();
                 _rwm.rlock();
@@ -3249,9 +3362,21 @@ function _testWaitGroup(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _wg1:s
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i != (_n), _i++, {
-                stdgo.Go.select([_exited.__get__() => {
-                    _t.fatal(stdgo.Go.toInterface(("WaitGroup released group too soon" : stdgo.GoString)));
-                }, {}]);
+                {
+                    var __select__ = true;
+                    if (_exited != null && _exited.__isGet__()) {
+                        __select__ = false;
+                        {
+                            _exited.__get__();
+                            {
+                                _t.fatal(stdgo.Go.toInterface(("WaitGroup released group too soon" : stdgo.GoString)));
+                            };
+                        };
+                    } else {
+                        __select__ = false;
+                        {};
+                    };
+                };
                 _wg2.done();
             });
         };
@@ -3348,7 +3473,7 @@ function testWaitGroupRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     
     
 **/
-@:structInit class T_testWaitGroupAlign_21___localname___X {
+@:structInit class T_testWaitGroupAlign_32___localname___X {
     public var _x : stdgo.StdGoTypes.GoUInt8 = 0;
     public var _wg : stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
     public function new(?_x:stdgo.StdGoTypes.GoUInt8, ?_wg:stdgo.sync.Sync.WaitGroup) {
@@ -3357,18 +3482,18 @@ function testWaitGroupRace(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_testWaitGroupAlign_21___localname___X(_x, _wg);
+        return new T_testWaitGroupAlign_32___localname___X(_x, _wg);
     }
 }
 function testWaitGroupAlign(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         {};
-        var _x:T_testWaitGroupAlign_21___localname___X = ({} : stdgo.sync_test.Sync_test.T_testWaitGroupAlign_21___localname___X);
+        var _x:T_testWaitGroupAlign_32___localname___X = ({} : stdgo.sync_test.Sync_test.T_testWaitGroupAlign_32___localname___X);
         _x._wg.add((1 : stdgo.StdGoTypes.GoInt));
         stdgo.Go.routine(() -> {
-            var a = function(_x:stdgo.StdGoTypes.Ref<T_testWaitGroupAlign_21___localname___X>):Void {
+            var a = function(_x:stdgo.StdGoTypes.Ref<T_testWaitGroupAlign_32___localname___X>):Void {
                 _x._wg.done();
             };
-            a((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.T_testWaitGroupAlign_21___localname___X>));
+            a((stdgo.Go.setRef(_x) : stdgo.StdGoTypes.Ref<stdgo.sync_test.Sync_test.T_testWaitGroupAlign_32___localname___X>));
         });
         _x._wg.wait_();
     }
@@ -3377,7 +3502,7 @@ function testWaitGroupAlign(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
     
     
 **/
-@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup_static_extension) class T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup {
+@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup_static_extension) class T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup {
     @:embedded
     public var waitGroup : stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
     public var _pad : stdgo.GoArray<stdgo.StdGoTypes.GoUInt8> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 128) (0 : stdgo.StdGoTypes.GoUInt8)]);
@@ -3393,13 +3518,13 @@ function testWaitGroupAlign(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
     @:embedded
     public function wait_() waitGroup.wait_();
     public function __copy__() {
-        return new T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup(waitGroup, _pad);
+        return new T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup(waitGroup, _pad);
     }
 }
 function benchmarkWaitGroupUncontended(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
         {};
         _b.runParallel(function(_pb:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.PB>):Void {
-            var _wg:T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup = ({} : stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup);
+            var _wg:T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup = ({} : stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup);
             while (_pb.next()) {
                 _wg.add((1 : stdgo.StdGoTypes.GoInt));
                 _wg.done();
@@ -4166,7 +4291,7 @@ class T_one_asInterface {
         _o.value++;
     }
 }
-class T_benchmarkMutexUncontended_18___localname___PaddedMutex_asInterface {
+class T_benchmarkMutexUncontended_29___localname___PaddedMutex_asInterface {
     @:embedded
     public dynamic function _unlockSlow(__0:stdgo.StdGoTypes.GoInt32):Void __self__.value._unlockSlow(__0);
     @:embedded
@@ -4182,22 +4307,22 @@ class T_benchmarkMutexUncontended_18___localname___PaddedMutex_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_benchmarkMutexUncontended_18___localname___PaddedMutex>;
+    var __self__ : stdgo.Pointer<T_benchmarkMutexUncontended_29___localname___PaddedMutex>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_18___localname___PaddedMutex_asInterface) class T_benchmarkMutexUncontended_18___localname___PaddedMutex_static_extension {
+@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_29___localname___PaddedMutex_asInterface) class T_benchmarkMutexUncontended_29___localname___PaddedMutex_static_extension {
     @:embedded
-    public static function _unlockSlow( __self__:T_benchmarkMutexUncontended_18___localname___PaddedMutex, __0:stdgo.StdGoTypes.GoInt32) __self__._unlockSlow(__0);
+    public static function _unlockSlow( __self__:T_benchmarkMutexUncontended_29___localname___PaddedMutex, __0:stdgo.StdGoTypes.GoInt32) __self__._unlockSlow(__0);
     @:embedded
-    public static function _lockSlow( __self__:T_benchmarkMutexUncontended_18___localname___PaddedMutex) __self__._lockSlow();
+    public static function _lockSlow( __self__:T_benchmarkMutexUncontended_29___localname___PaddedMutex) __self__._lockSlow();
     @:embedded
-    public static function unlock( __self__:T_benchmarkMutexUncontended_18___localname___PaddedMutex) __self__.unlock();
+    public static function unlock( __self__:T_benchmarkMutexUncontended_29___localname___PaddedMutex) __self__.unlock();
     @:embedded
-    public static function tryLock( __self__:T_benchmarkMutexUncontended_18___localname___PaddedMutex):Bool return __self__.tryLock();
+    public static function tryLock( __self__:T_benchmarkMutexUncontended_29___localname___PaddedMutex):Bool return __self__.tryLock();
     @:embedded
-    public static function lock( __self__:T_benchmarkMutexUncontended_18___localname___PaddedMutex) __self__.lock();
+    public static function lock( __self__:T_benchmarkMutexUncontended_29___localname___PaddedMutex) __self__.lock();
 }
-class T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex_asInterface {
+class T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex_asInterface {
     @:embedded
     public dynamic function _rUnlockSlow(__0:stdgo.StdGoTypes.GoInt32):Void __self__.value._rUnlockSlow(__0);
     @:embedded
@@ -4219,28 +4344,28 @@ class T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex>;
+    var __self__ : stdgo.Pointer<T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex_asInterface) class T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex_static_extension {
+@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex_asInterface) class T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex_static_extension {
     @:embedded
-    public static function _rUnlockSlow( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex, __0:stdgo.StdGoTypes.GoInt32) __self__._rUnlockSlow(__0);
+    public static function _rUnlockSlow( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex, __0:stdgo.StdGoTypes.GoInt32) __self__._rUnlockSlow(__0);
     @:embedded
-    public static function unlock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex) __self__.unlock();
+    public static function unlock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex) __self__.unlock();
     @:embedded
-    public static function tryRLock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex):Bool return __self__.tryRLock();
+    public static function tryRLock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex):Bool return __self__.tryRLock();
     @:embedded
-    public static function tryLock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex):Bool return __self__.tryLock();
+    public static function tryLock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex):Bool return __self__.tryLock();
     @:embedded
-    public static function runlock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex) __self__.runlock();
+    public static function runlock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex) __self__.runlock();
     @:embedded
-    public static function rlocker( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex):stdgo.sync.Sync.Locker return __self__.rlocker();
+    public static function rlocker( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex):stdgo.sync.Sync.Locker return __self__.rlocker();
     @:embedded
-    public static function rlock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex) __self__.rlock();
+    public static function rlock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex) __self__.rlock();
     @:embedded
-    public static function lock( __self__:T_benchmarkRWMutexUncontended_20___localname___PaddedRWMutex) __self__.lock();
+    public static function lock( __self__:T_benchmarkRWMutexUncontended_31___localname___PaddedRWMutex) __self__.lock();
 }
-class T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup_asInterface {
+class T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup_asInterface {
     @:embedded
     public dynamic function wait_():Void __self__.value.wait_();
     @:embedded
@@ -4252,14 +4377,14 @@ class T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup_asInterfa
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.StdGoTypes.AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup>;
+    var __self__ : stdgo.Pointer<T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup_asInterface) class T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup_static_extension {
+@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup_asInterface) class T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup_static_extension {
     @:embedded
-    public static function wait_( __self__:T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup) __self__.wait_();
+    public static function wait_( __self__:T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup) __self__.wait_();
     @:embedded
-    public static function done( __self__:T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup) __self__.done();
+    public static function done( __self__:T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup) __self__.done();
     @:embedded
-    public static function add( __self__:T_benchmarkWaitGroupUncontended_22___localname___PaddedWaitGroup, __0:stdgo.StdGoTypes.GoInt) __self__.add(__0);
+    public static function add( __self__:T_benchmarkWaitGroupUncontended_33___localname___PaddedWaitGroup, __0:stdgo.StdGoTypes.GoInt) __self__.add(__0);
 }

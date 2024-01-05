@@ -3720,14 +3720,31 @@ function testProgWideChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                                 if (_i % (2 : stdgo.StdGoTypes.GoInt) == ((1 : stdgo.StdGoTypes.GoInt))) {
                                     stdgo.runtime.Runtime.lockOSThread();
                                 };
-                                stdgo.Go.select([_hold.__get__() => {}, _done.__get__() => {
-                                    {
-                                        for (defer in __deferstack__) {
-                                            defer();
+                                {
+                                    var __select__ = true;
+                                    while (__select__) {
+                                        if (_done != null && _done.__isGet__()) {
+                                            __select__ = false;
+                                            {
+                                                _done.__get__();
+                                                {
+                                                    {
+                                                        for (defer in __deferstack__) {
+                                                            defer();
+                                                        };
+                                                        return;
+                                                    };
+                                                };
+                                            };
+                                        } else if (_hold != null && _hold.__isGet__()) {
+                                            __select__ = false;
+                                            {
+                                                _hold.__get__();
+                                                {};
+                                            };
                                         };
-                                        return;
                                     };
-                                }]);
+                                };
                                 var __tmp__ = stat(("." : stdgo.GoString)), _f0:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {
                                     _t.error(stdgo.Go.toInterface(_err));

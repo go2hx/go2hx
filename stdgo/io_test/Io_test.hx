@@ -1756,9 +1756,26 @@ function testMultiReaderFreesExhaustedReaders(_t:stdgo.StdGoTypes.Ref<stdgo.test
             };
         };
         stdgo.runtime.Runtime.gc();
-        stdgo.Go.select([stdgo.time.Time.after((5000000000i64 : stdgo.time.Time.Duration)).__get__() => {
-            _t.fatal(stdgo.Go.toInterface(("timeout waiting for collection of buf1" : stdgo.GoString)));
-        }, _closed.__get__() => {}]);
+        {
+            var __select__ = true;
+            while (__select__) {
+                if (_closed != null && _closed.__isGet__()) {
+                    __select__ = false;
+                    {
+                        _closed.__get__();
+                        {};
+                    };
+                } else if (stdgo.time.Time.after((5000000000i64 : stdgo.time.Time.Duration)) != null && stdgo.time.Time.after((5000000000i64 : stdgo.time.Time.Duration)).__isGet__()) {
+                    __select__ = false;
+                    {
+                        stdgo.time.Time.after((5000000000i64 : stdgo.time.Time.Duration)).__get__();
+                        {
+                            _t.fatal(stdgo.Go.toInterface(("timeout waiting for collection of buf1" : stdgo.GoString)));
+                        };
+                    };
+                };
+            };
+        };
         {
             var __tmp__ = readFull(_mr, (_buf.__slice__(0, (2 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>)), _n:stdgo.StdGoTypes.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if ((_err != null) || (((_buf.__slice__(0, (2 : stdgo.StdGoTypes.GoInt)) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) : stdgo.GoString) != ("ar" : stdgo.GoString))) {

@@ -1825,27 +1825,56 @@ class T_pipe_asInterface {
         var __deferstack__:Array<Void -> Void> = [];
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         try {
-            stdgo.Go.select([_p._done.__get__() => {
-                return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._writeCloseError() };
-            }, {
-                _p._wrMu.lock();
-                __deferstack__.unshift(() -> _p._wrMu.unlock());
-            }]);
+            {
+                var __select__ = true;
+                if (_p._done != null && _p._done.__isGet__()) {
+                    __select__ = false;
+                    {
+                        _p._done.__get__();
+                        {
+                            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._writeCloseError() };
+                        };
+                    };
+                } else {
+                    __select__ = false;
+                    {
+                        _p._wrMu.lock();
+                        __deferstack__.unshift(() -> _p._wrMu.unlock());
+                    };
+                };
+            };
             {
                 var _once:Bool = true;
                 stdgo.Go.cfor(_once || (_b.length > (0 : stdgo.StdGoTypes.GoInt)), _once = false, {
-                    stdgo.Go.select([_p._done.__get__() => {
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
+                    {
+                        var __select__ = true;
+                        while (__select__) {
+                            if (_p._wrCh != null && _p._wrCh.__isSend__()) {
+                                __select__ = false;
+                                {
+                                    _p._wrCh.__send__(_b);
+                                    {
+                                        var _nw:stdgo.StdGoTypes.GoInt = _p._rdCh.__get__();
+                                        _b = (_b.__slice__(_nw) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+                                        _n = _n + (_nw);
+                                    };
+                                };
+                            } else if (_p._done != null && _p._done.__isGet__()) {
+                                __select__ = false;
+                                {
+                                    _p._done.__get__();
+                                    {
+                                        {
+                                            for (defer in __deferstack__) {
+                                                defer();
+                                            };
+                                            return { _0 : _n, _1 : _p._writeCloseError() };
+                                        };
+                                    };
+                                };
                             };
-                            return { _0 : _n, _1 : _p._writeCloseError() };
                         };
-                    }, _p._wrCh.__send__(_b) => {
-                        var _nw:stdgo.StdGoTypes.GoInt = _p._rdCh.__get__();
-                        _b = (_b.__slice__(_nw) : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
-                        _n = _n + (_nw);
-                    }]);
+                    };
                 });
             };
             {
@@ -1891,17 +1920,46 @@ class T_pipe_asInterface {
     static public function _read( _p:stdgo.StdGoTypes.Ref<T_pipe>, _b:stdgo.Slice<stdgo.StdGoTypes.GoByte>):{ var _0 : stdgo.StdGoTypes.GoInt; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.StdGoTypes.Ref<T_pipe> = _p;
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
-        stdgo.Go.select([_p._done.__get__() => {
-            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._readCloseError() };
-        }, {}]);
         {
-            stdgo.Go.select([_p._done.__get__() => {
-                return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._readCloseError() };
-            }, var _bw = _p._wrCh.__get__() => {
-                var _nr:stdgo.StdGoTypes.GoInt = stdgo.Go.copySlice(_b, _bw);
-                _p._rdCh.__send__(_nr);
-                return { _0 : _nr, _1 : (null : stdgo.Error) };
-            }]);
+            var __select__ = true;
+            if (_p._done != null && _p._done.__isGet__()) {
+                __select__ = false;
+                {
+                    _p._done.__get__();
+                    {
+                        return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._readCloseError() };
+                    };
+                };
+            } else {
+                __select__ = false;
+                {};
+            };
+        };
+        {
+            {
+                var __select__ = true;
+                while (__select__) {
+                    if (_p._wrCh != null && _p._wrCh.__isGet__()) {
+                        __select__ = false;
+                        {
+                            var _bw = _p._wrCh.__get__();
+                            {
+                                var _nr:stdgo.StdGoTypes.GoInt = stdgo.Go.copySlice(_b, _bw);
+                                _p._rdCh.__send__(_nr);
+                                return { _0 : _nr, _1 : (null : stdgo.Error) };
+                            };
+                        };
+                    } else if (_p._done != null && _p._done.__isGet__()) {
+                        __select__ = false;
+                        {
+                            _p._done.__get__();
+                            {
+                                return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._readCloseError() };
+                            };
+                        };
+                    };
+                };
+            };
             return { _0 : _n, _1 : _err };
         };
     }

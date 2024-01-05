@@ -1255,13 +1255,30 @@ function testDecoderIssue3577(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
             };
             a();
         });
-        stdgo.Go.select([stdgo.time.Time.after((5000000000i64 : stdgo.time.Time.Duration)).__get__() => {
-            _t.errorf(("timeout; Decoder blocked without returning an error" : stdgo.GoString));
-        }, var _err = _errc.__get__() => {
-            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(_wantErr))) {
-                _t.errorf(("got error %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_wantErr));
+        {
+            var __select__ = true;
+            while (__select__) {
+                if (_errc != null && _errc.__isGet__()) {
+                    __select__ = false;
+                    {
+                        var _err = _errc.__get__();
+                        {
+                            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(_wantErr))) {
+                                _t.errorf(("got error %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_wantErr));
+                            };
+                        };
+                    };
+                } else if (stdgo.time.Time.after((5000000000i64 : stdgo.time.Time.Duration)) != null && stdgo.time.Time.after((5000000000i64 : stdgo.time.Time.Duration)).__isGet__()) {
+                    __select__ = false;
+                    {
+                        stdgo.time.Time.after((5000000000i64 : stdgo.time.Time.Duration)).__get__();
+                        {
+                            _t.errorf(("timeout; Decoder blocked without returning an error" : stdgo.GoString));
+                        };
+                    };
+                };
             };
-        }]);
+        };
     }
 function testDecoderIssue4779(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _encoded:stdgo.GoString = ("CP/EAT8AAAEF\nAQEBAQEBAAAAAAAAAAMAAQIEBQYHCAkKCwEAAQUBAQEBAQEAAAAAAAAAAQACAwQFBgcICQoLEAAB\nBAEDAgQCBQcGCAUDDDMBAAIRAwQhEjEFQVFhEyJxgTIGFJGhsUIjJBVSwWIzNHKC0UMHJZJT8OHx\nY3M1FqKygyZEk1RkRcKjdDYX0lXiZfKzhMPTdePzRieUpIW0lcTU5PSltcXV5fVWZnaGlqa2xtbm\n9jdHV2d3h5ent8fX5/cRAAICAQIEBAMEBQYHBwYFNQEAAhEDITESBEFRYXEiEwUygZEUobFCI8FS\n0fAzJGLhcoKSQ1MVY3M08SUGFqKygwcmNcLSRJNUoxdkRVU2dGXi8rOEw9N14/NGlKSFtJXE1OT0\npbXF1eX1VmZ2hpamtsbW5vYnN0dXZ3eHl6e3x//aAAwDAQACEQMRAD8A9VSSSSUpJJJJSkkkJ+Tj\n1kiy1jCJJDnAcCTykpKkuQ6p/jN6FgmxlNduXawwAzaGH+V6jn/R/wCt71zdn+N/qL3kVYFNYB4N\nji6PDVjWpKp9TSXnvTf8bFNjg3qOEa2n6VlLpj/rT/pf567DpX1i6L1hs9Py67X8mqdtg/rUWbbf\n+gkp0kkkklKSSSSUpJJJJT//0PVUkkklKVLq3WMDpGI7KzrNjADtYNXvI/Mqr/Pd/q9W3vaxjnvM\nNaCXE9gNSvGPrf8AWS3qmba5jjsJhoB0DAf0NDf6sevf+/lf8Hj0JJATfWT6/dV6oXU1uOLQeKKn\nEQP+Hubtfe/+R7Mf/g7f5xcocp++Z11JMCJPgFBxOg7/AOuqDx8I/ikpkXkmSdU8mJIJA/O8EMAy\nj+mSARB/17pKVXYWHXjsj7yIex0PadzXMO1zT5KHoNA3HT8ietoGhgjsfA+CSnvvqh/jJtqsrwOv\n2b6NGNzXfTYexzJ+nU7/ALkf4P8Awv6P9KvTQQ4AgyDqCF85Pho3CTB7eHwXoH+LT65uZbX9X+o2\nbqbPb06551Y4\n" : stdgo.GoString);

@@ -843,8 +843,10 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 			} else { // send
 				var stmt:Ast.SendStmt = comm;
 				final value = typeExpr(stmt.value, info);
-				final e = typeExpr(stmt.chan, info);
+				var e = typeExpr(stmt.chan, info);
 				cond = macro $e != null && $e.__isSend__();
+				e = macro $e.__send__($value);
+				block = macro $b{[e, block]};
 			}
 		}
 		if (cond == null)

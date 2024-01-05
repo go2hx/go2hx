@@ -126,7 +126,7 @@ For information about UTF\-8 strings in Go, see https://blog.golang.org/strings.
 
 - [`function lastIndexFunc(_s:stdgo.GoString, _f:()):stdgo.GoInt`](<#function-lastindexfunc>)
 
-- [`function map(_mapping:(), _s:stdgo.GoString):stdgo.GoString`](<#function-map>)
+- [`function map_(_mapping:(), _s:stdgo.GoString):stdgo.GoString`](<#function-map_>)
 
 - [`function newReader(_s:stdgo.GoString):stdgo.Ref<stdgo.strings.Reader>`](<#function-newreader>)
 
@@ -312,8 +312,6 @@ For information about UTF\-8 strings in Go, see https://blog.golang.org/strings.
 - [`exampleLastIndexByte`](<#examplelastindexbyte>)
 
 - [`exampleLastIndexFunc`](<#examplelastindexfunc>)
-
-- [`exampleMap`](<#examplemap>)
 
 - [`exampleNewReplacer`](<#examplenewreplacer>)
 
@@ -1573,11 +1571,11 @@ function exampleLastIndexFunc():Void {
 [\(view code\)](<./Strings.hx#L1360>)
 
 
-## function map
+## function map\_
 
 
 ```haxe
-function map(_mapping:(), _s:stdgo.GoString):stdgo.GoString
+function map_(_mapping:(), _s:stdgo.GoString):stdgo.GoString
 ```
 
 
@@ -1585,32 +1583,6 @@ function map(_mapping:(), _s:stdgo.GoString):stdgo.GoString
 Map returns a copy of the string s with all its characters modified
 according to the mapping function. If mapping returns a negative value, the character is
 dropped from the string with no replacement.  
-
-### exampleMap
-
-
-<details><summary></summary>
-<p>
-
-
-```haxe
-function exampleMap():Void {
-        var _rot13:stdgo.StdGoTypes.GoInt32 -> stdgo.StdGoTypes.GoInt32 = function(_r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
-            if ((_r >= (65 : stdgo.StdGoTypes.GoInt32)) && (_r <= (90 : stdgo.StdGoTypes.GoInt32))) {
-                return (65 : stdgo.StdGoTypes.GoInt32) + (((_r - (65 : stdgo.StdGoTypes.GoInt32)) + (13 : stdgo.StdGoTypes.GoInt32)) % (26 : stdgo.StdGoTypes.GoInt32));
-            } else if ((_r >= (97 : stdgo.StdGoTypes.GoInt32)) && (_r <= (122 : stdgo.StdGoTypes.GoInt32))) {
-                return (97 : stdgo.StdGoTypes.GoInt32) + (((_r - (97 : stdgo.StdGoTypes.GoInt32)) + (13 : stdgo.StdGoTypes.GoInt32)) % (26 : stdgo.StdGoTypes.GoInt32));
-            };
-            return _r;
-        };
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.map(_rot13, ("\'Twas brillig and the slithy gopher..." : stdgo.GoString))));
-    }
-```
-
-
-</p>
-</details>
-
 
 [\(view code\)](<./Strings.hx#L1024>)
 

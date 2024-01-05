@@ -384,7 +384,7 @@ final invalid:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.ref
 
 
 ```haxe
-final map:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
+final map_:stdgo.reflect.Kind = ((((0 : stdgo.StdGoTypes.GoUInt)) : stdgo.reflect.Reflect.Kind))
 ```
 
 

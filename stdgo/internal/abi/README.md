@@ -1728,11 +1728,6 @@ final kindMask:stdgo.GoUInt64 = ((31i64 : stdgo.StdGoTypes.GoUInt64))
 
 
 ```haxe
-final map:stdgo.internal.abi.Kind = ((26u32 : stdgo.internal.abi.Abi.Kind))
-```
-
-
-```haxe
 final mapBucketCount:stdgo.GoUInt64 = ((8i64 : stdgo.StdGoTypes.GoUInt64))
 ```
 
@@ -1776,6 +1771,11 @@ runtime/runtime\-gdb.py:MapTypePrinter contains its own copy
 
 
 Must fit in a uint8.  
+
+```haxe
+final map_:stdgo.internal.abi.Kind = ((26u32 : stdgo.internal.abi.Abi.Kind))
+```
+
 
 ```haxe
 final pcdata_ArgLiveIndex:stdgo.GoUInt64 = ((3i64 : stdgo.StdGoTypes.GoUInt64))

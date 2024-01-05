@@ -115,7 +115,7 @@ It is analogous to the facilities of the \[strings\] package.
 
 - [`function lastIndexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdgo.GoInt`](<#function-lastindexfunc>)
 
-- [`function map(_mapping:(_r:stdgo.GoRune):stdgo.GoRune, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-map>)
+- [`function map_(_mapping:(_r:stdgo.GoRune):stdgo.GoRune, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-map_>)
 
 - [`function newBuffer(_buf:stdgo.Slice<stdgo.GoByte>):stdgo.Ref<stdgo.bytes.Buffer>`](<#function-newbuffer>)
 
@@ -319,8 +319,6 @@ It is analogous to the facilities of the \[strings\] package.
 - [`exampleLastIndexByte`](<#examplelastindexbyte>)
 
 - [`exampleLastIndexFunc`](<#examplelastindexfunc>)
-
-- [`exampleMap`](<#examplemap>)
 
 - [`exampleRepeat`](<#examplerepeat>)
 
@@ -1696,11 +1694,11 @@ function exampleLastIndexFunc():Void {
 [\(view code\)](<./Bytes.hx#L1159>)
 
 
-## function map
+## function map\_
 
 
 ```haxe
-function map(_mapping:(_r:stdgo.GoRune):stdgo.GoRune, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+function map_(_mapping:(_r:stdgo.GoRune):stdgo.GoRune, _s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
 ```
 
 
@@ -1709,32 +1707,6 @@ Map returns a copy of the byte slice s with all its characters modified
 according to the mapping function. If mapping returns a negative value, the character is
 dropped from the byte slice with no replacement. The characters in s and the
 output are interpreted as UTF\-8\-encoded code points.  
-
-### exampleMap
-
-
-<details><summary></summary>
-<p>
-
-
-```haxe
-function exampleMap():Void {
-        var _rot13:stdgo.StdGoTypes.GoInt32 -> stdgo.StdGoTypes.GoInt32 = function(_r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
-            if ((_r >= (65 : stdgo.StdGoTypes.GoInt32)) && (_r <= (90 : stdgo.StdGoTypes.GoInt32))) {
-                return (65 : stdgo.StdGoTypes.GoInt32) + (((_r - (65 : stdgo.StdGoTypes.GoInt32)) + (13 : stdgo.StdGoTypes.GoInt32)) % (26 : stdgo.StdGoTypes.GoInt32));
-            } else if ((_r >= (97 : stdgo.StdGoTypes.GoInt32)) && (_r <= (122 : stdgo.StdGoTypes.GoInt32))) {
-                return (97 : stdgo.StdGoTypes.GoInt32) + (((_r - (97 : stdgo.StdGoTypes.GoInt32)) + (13 : stdgo.StdGoTypes.GoInt32)) % (26 : stdgo.StdGoTypes.GoInt32));
-            };
-            return _r;
-        };
-        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.map(_rot13, (("\'Twas brillig and the slithy gopher..." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
-    }
-```
-
-
-</p>
-</details>
-
 
 [\(view code\)](<./Bytes.hx#L860>)
 

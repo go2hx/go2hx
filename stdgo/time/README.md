@@ -1,18 +1,18 @@
 # Module stdgo.time has compilation errors, please do not use:
 ```
-stdgo/time_test/Time_test.hx:2959: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
-stdgo/time_test/Time_test.hx:2960: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
-stdgo/time_test/Time_test.hx:2962: characters 20-23 : stdgo.Ref<stdgo.testing.F> has no field add
-stdgo/time_test/Time_test.hx:2963: characters 20-23 : stdgo.Ref<stdgo.testing.F> has no field add
-stdgo/time_test/Time_test.hx:2990: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
-stdgo/time_test/Time_test.hx:2993: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
-stdgo/time_test/Time_test.hx:2996: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
-stdgo/time_test/Time_test.hx:2999: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
-stdgo/time_test/Time_test.hx:3637: characters 232-308 : invalid type abstract run asInterface: TAbstract(stdgo.GoInt64,[])
-stdgo/time_test/Time_test.hx:3637: characters 232-308 : ... For function argument '_a'
-stdgo/time_test/Time_test.hx:3598: lines 3598-3606 : ... Called from macro here
-stdgo/time_test/Time_test.hx:4342: characters 337-401 : invalid type abstract run asInterface: TAbstract(stdgo.GoInt64,[])
-stdgo/time_test/Time_test.hx:4342: characters 337-401 : ... For function argument '_a'
+stdgo/time_test/Time_test.hx:2963: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
+stdgo/time_test/Time_test.hx:2964: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
+stdgo/time_test/Time_test.hx:2966: characters 20-23 : stdgo.Ref<stdgo.testing.F> has no field add
+stdgo/time_test/Time_test.hx:2967: characters 20-23 : stdgo.Ref<stdgo.testing.F> has no field add
+stdgo/time_test/Time_test.hx:2994: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
+stdgo/time_test/Time_test.hx:2997: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
+stdgo/time_test/Time_test.hx:3000: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
+stdgo/time_test/Time_test.hx:3003: characters 16-19 : stdgo.Ref<stdgo.testing.F> has no field add
+stdgo/time_test/Time_test.hx:3645: characters 232-308 : invalid type abstract run asInterface: TAbstract(stdgo.GoInt64,[])
+stdgo/time_test/Time_test.hx:3645: characters 232-308 : ... For function argument '_a'
+stdgo/time_test/Time_test.hx:3606: lines 3606-3614 : ... Called from macro here
+stdgo/time_test/Time_test.hx:4364: characters 337-401 : invalid type abstract run asInterface: TAbstract(stdgo.GoInt64,[])
+stdgo/time_test/Time_test.hx:4364: characters 337-401 : ... For function argument '_a'
 stdgo/encoding/gob/Gob.hx:10488: characters 27-57 : Type not found : stdgo.internal.saferio.Saferio
 stdgo/encoding/gob/Gob.hx:5554: characters 48-78 : Type not found : stdgo.internal.saferio.Saferio
 stdgo/encoding/gob/Gob.hx:11347: characters 48-78 : Type not found : stdgo.internal.saferio.Saferio

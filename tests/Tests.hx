@@ -150,7 +150,8 @@ function update() {
 		close();
 	}
 	for (test in tests) {
-		final hxml = "golibs/" + type + "_" + sanatize(Path.withoutExtension(test));
+		final hxmlName = sanatize(Path.withoutExtension(test));
+		final hxml = "golibs/" + type + "_" + hxmlName;
 		final args = [test, '--norun', '--hxml', hxml];
 		args.push(path);
 		instance = Main.compileArgs(args);
@@ -256,7 +257,7 @@ private function complete(modules:Array<Typer.Module>, _) {
 	for (path in paths) {
 		final main = path;
 		path = path.charAt(0).toLowerCase() + path.substr(1);
-		final hxml = "golibs/" + type + "_" + path + ".hxml";
+		final hxml = "golibs/" + type + "_" + sanatize(path) + ".hxml";
 		for (target in targets) {
 			final out = createTargetOutput(target, type, path);
 			final outCmd = Main.buildTarget(target, "golibs/" + out).split(" ");
@@ -288,6 +289,9 @@ private function sanatize(s:String):String {
 	s = Path.withoutDirectory(s);
 	s = Path.withoutExtension(s);
 	s = StringTools.replace(s, "/", "_");
+	if (Typer.reserved.indexOf(s) != -1) {
+		s += "_";
+	}
 	return s;
 }
 

@@ -15,7 +15,7 @@ final reserved = [
 	"iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function", "dynamic",
 	"else", "enum", "extends", "extern", "final", "for", "function", "if", "interface", "implements", "import", "in", "inline", "macro", "new", "operator",
 	"overload", "override", "package", "private", "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
-	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof", "atomic",
+	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof", "atomic", "map",
 ];
 
 final reservedClassNames = [
@@ -827,6 +827,9 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 					});
 					return ifs(i + 1);
 				}
+				if (comm.lhs[0].id != "Ident") {
+					return @:null_select null;
+				}
 				varName = nameIdent(comm.lhs[0].name, false, true, info);
 				comm = comm.rhs[0];
 			} else if (comm.id == "ExprStmt") {
@@ -871,23 +874,14 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 			$next;
 	}
 	var e = ifs(0);
-	if (defaultBlock == null) {
-		e = macro {
-			var __select__ = true;
-			while(__select__) {
-				$e;
-			}
-		}
-		#if !js
-		Sys.sleep(0.01);
-		#end
-		stdgo.internal.Async.tick();
-	}else{
-		e = macro {
-			var __select__ = true;
+	e = macro {
+		var __select__ = true;
+		while(__select__) {
 			$e;
+			@:define("!js") Sys.sleep(0.01);
+			stdgo.internal.Async.tick();
 		}
-	}
+	};
 	if (needsReturn) {
 		e = macro $b{[e, toExpr(typeReturnStmt({results: [], returnPos: 0}, info))]};
 	}
@@ -1976,7 +1970,7 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 		case "UnaryExpr":
 			var obj:Ast.UnaryExpr = obj;
 			var x = typeExpr(obj.x, info);
-			{expr: macro $x.__doubleGet__(), ok: true};
+			{expr: macro $x.__smartGet__(), ok: true};
 		case "IndexExpr":
 			var obj:Ast.IndexExpr = obj;
 			var index = typeExpr(obj.index, info);

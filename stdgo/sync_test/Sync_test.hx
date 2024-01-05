@@ -386,17 +386,21 @@ function testCondSignal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         while (_n > (0 : stdgo.StdGoTypes.GoInt)) {
             {
                 var __select__ = true;
-                if (_awake != null && _awake.__isGet__()) {
-                    __select__ = false;
-                    {
-                        _awake.__get__();
+                while (__select__) {
+                    if (_awake != null && _awake.__isGet__()) {
+                        __select__ = false;
                         {
-                            _t.fatal(stdgo.Go.toInterface(("goroutine not asleep" : stdgo.GoString)));
+                            _awake.__get__();
+                            {
+                                _t.fatal(stdgo.Go.toInterface(("goroutine not asleep" : stdgo.GoString)));
+                            };
                         };
+                    } else {
+                        __select__ = false;
+                        {};
                     };
-                } else {
-                    __select__ = false;
-                    {};
+                    #if !js Sys.sleep(0.01) #else null #end;
+                    stdgo.internal.Async.tick();
                 };
             };
             _m.lock();
@@ -405,17 +409,21 @@ function testCondSignal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             _awake.__get__();
             {
                 var __select__ = true;
-                if (_awake != null && _awake.__isGet__()) {
-                    __select__ = false;
-                    {
-                        _awake.__get__();
+                while (__select__) {
+                    if (_awake != null && _awake.__isGet__()) {
+                        __select__ = false;
                         {
-                            _t.fatal(stdgo.Go.toInterface(("too many goroutines awake" : stdgo.GoString)));
+                            _awake.__get__();
+                            {
+                                _t.fatal(stdgo.Go.toInterface(("too many goroutines awake" : stdgo.GoString)));
+                            };
                         };
+                    } else {
+                        __select__ = false;
+                        {};
                     };
-                } else {
-                    __select__ = false;
-                    {};
+                    #if !js Sys.sleep(0.01) #else null #end;
+                    stdgo.internal.Async.tick();
                 };
             };
             _n--;
@@ -494,17 +502,21 @@ function testCondBroadcast(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                 };
                 {
                     var __select__ = true;
-                    if (_awake != null && _awake.__isGet__()) {
-                        __select__ = false;
-                        {
-                            _awake.__get__();
+                    while (__select__) {
+                        if (_awake != null && _awake.__isGet__()) {
+                            __select__ = false;
                             {
-                                _t.fatal(stdgo.Go.toInterface(("goroutine not asleep" : stdgo.GoString)));
+                                _awake.__get__();
+                                {
+                                    _t.fatal(stdgo.Go.toInterface(("goroutine not asleep" : stdgo.GoString)));
+                                };
                             };
+                        } else {
+                            __select__ = false;
+                            {};
                         };
-                    } else {
-                        __select__ = false;
-                        {};
+                        #if !js Sys.sleep(0.01) #else null #end;
+                        stdgo.internal.Async.tick();
                     };
                 };
                 _m.lock();
@@ -525,17 +537,21 @@ function testCondBroadcast(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
         };
         {
             var __select__ = true;
-            if (_running != null && _running.__isGet__()) {
-                __select__ = false;
-                {
-                    _running.__get__();
+            while (__select__) {
+                if (_running != null && _running.__isGet__()) {
+                    __select__ = false;
                     {
-                        _t.fatal(stdgo.Go.toInterface(("goroutine did not exit" : stdgo.GoString)));
+                        _running.__get__();
+                        {
+                            _t.fatal(stdgo.Go.toInterface(("goroutine did not exit" : stdgo.GoString)));
+                        };
                     };
+                } else {
+                    __select__ = false;
+                    {};
                 };
-            } else {
-                __select__ = false;
-                {};
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
         _c.broadcast();
@@ -1369,7 +1385,7 @@ function _applyCalls(_m:T_mapInterface, _calls:stdgo.Slice<T_mapCall>):{ var _0 
         return { _0 : _results, _1 : _final };
     }
 function _applyMap(_calls:stdgo.Slice<T_mapCall>):{ var _0 : stdgo.Slice<T_mapResult>; var _1 : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>; } {
-        return _applyCalls(stdgo.Go.asInterface(_new(stdgo.sync.Sync.map)), _calls);
+        return _applyCalls(stdgo.Go.asInterface(_new(stdgo.sync.Sync.map_)), _calls);
     }
 function _applyRWMutexMap(_calls:stdgo.Slice<T_mapCall>):{ var _0 : stdgo.Slice<T_mapResult>; var _1 : stdgo.GoMap<stdgo.StdGoTypes.AnyInterface, stdgo.StdGoTypes.AnyInterface>; } {
         return _applyCalls(stdgo.Go.asInterface(_new(RWMutexMap_static_extension)), _calls);
@@ -1397,7 +1413,7 @@ function testConcurrentRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {};
-            var _m = _new(stdgo.sync.Sync.map);
+            var _m = _new(stdgo.sync.Sync.map_);
             {
                 var _n:stdgo.StdGoTypes.GoInt64 = (1i64 : stdgo.StdGoTypes.GoInt64);
                 stdgo.Go.cfor(_n <= (1024i64 : stdgo.StdGoTypes.GoInt64), _n++, {
@@ -1428,22 +1444,26 @@ function testConcurrentRange(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):V
                                     stdgo.Go.cfor(true, _i++, {
                                         {
                                             var __select__ = true;
-                                            if (_done != null && _done.__isGet__()) {
-                                                __select__ = false;
-                                                {
-                                                    _done.__get__();
+                                            while (__select__) {
+                                                if (_done != null && _done.__isGet__()) {
+                                                    __select__ = false;
                                                     {
+                                                        _done.__get__();
                                                         {
-                                                            for (defer in __deferstack__) {
-                                                                defer();
+                                                            {
+                                                                for (defer in __deferstack__) {
+                                                                    defer();
+                                                                };
+                                                                return;
                                                             };
-                                                            return;
                                                         };
                                                     };
+                                                } else {
+                                                    __select__ = false;
+                                                    {};
                                                 };
-                                            } else {
-                                                __select__ = false;
-                                                {};
+                                                #if !js Sys.sleep(0.01) #else null #end;
+                                                stdgo.internal.Async.tick();
                                             };
                                         };
                                         {
@@ -1762,17 +1782,21 @@ function testMutexFairness(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                         _mu.unlock();
                         {
                             var __select__ = true;
-                            if (_stop != null && _stop.__isGet__()) {
-                                __select__ = false;
-                                {
-                                    _stop.__get__();
+                            while (__select__) {
+                                if (_stop != null && _stop.__isGet__()) {
+                                    __select__ = false;
                                     {
-                                        return;
+                                        _stop.__get__();
+                                        {
+                                            return;
+                                        };
                                     };
+                                } else {
+                                    __select__ = false;
+                                    {};
                                 };
-                            } else {
-                                __select__ = false;
-                                {};
+                                #if !js Sys.sleep(0.01) #else null #end;
+                                stdgo.internal.Async.tick();
                             };
                         };
                     };
@@ -1812,6 +1836,8 @@ function testMutexFairness(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                             };
                         };
                     };
+                    #if !js Sys.sleep(0.01) #else null #end;
+                    stdgo.internal.Async.tick();
                 };
             };
             {
@@ -3222,34 +3248,42 @@ function testRLocker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _rl.unlock();
                 {
                     var __select__ = true;
-                    if (_wlocked != null && _wlocked.__isGet__()) {
-                        __select__ = false;
-                        {
-                            _wlocked.__get__();
+                    while (__select__) {
+                        if (_wlocked != null && _wlocked.__isGet__()) {
+                            __select__ = false;
                             {
-                                _t.fatal(stdgo.Go.toInterface(("RLocker() didn\'t read-lock it" : stdgo.GoString)));
+                                _wlocked.__get__();
+                                {
+                                    _t.fatal(stdgo.Go.toInterface(("RLocker() didn\'t read-lock it" : stdgo.GoString)));
+                                };
                             };
+                        } else {
+                            __select__ = false;
+                            {};
                         };
-                    } else {
-                        __select__ = false;
-                        {};
+                        #if !js Sys.sleep(0.01) #else null #end;
+                        stdgo.internal.Async.tick();
                     };
                 };
                 _rl.unlock();
                 _wlocked.__get__();
                 {
                     var __select__ = true;
-                    if (_rlocked != null && _rlocked.__isGet__()) {
-                        __select__ = false;
-                        {
-                            _rlocked.__get__();
+                    while (__select__) {
+                        if (_rlocked != null && _rlocked.__isGet__()) {
+                            __select__ = false;
                             {
-                                _t.fatal(stdgo.Go.toInterface(("RLocker() didn\'t respect the write lock" : stdgo.GoString)));
+                                _rlocked.__get__();
+                                {
+                                    _t.fatal(stdgo.Go.toInterface(("RLocker() didn\'t respect the write lock" : stdgo.GoString)));
+                                };
                             };
+                        } else {
+                            __select__ = false;
+                            {};
                         };
-                    } else {
-                        __select__ = false;
-                        {};
+                        #if !js Sys.sleep(0.01) #else null #end;
+                        stdgo.internal.Async.tick();
                     };
                 };
                 _wl.unlock();
@@ -3364,17 +3398,21 @@ function _testWaitGroup(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _wg1:s
             stdgo.Go.cfor(_i != (_n), _i++, {
                 {
                     var __select__ = true;
-                    if (_exited != null && _exited.__isGet__()) {
-                        __select__ = false;
-                        {
-                            _exited.__get__();
+                    while (__select__) {
+                        if (_exited != null && _exited.__isGet__()) {
+                            __select__ = false;
                             {
-                                _t.fatal(stdgo.Go.toInterface(("WaitGroup released group too soon" : stdgo.GoString)));
+                                _exited.__get__();
+                                {
+                                    _t.fatal(stdgo.Go.toInterface(("WaitGroup released group too soon" : stdgo.GoString)));
+                                };
                             };
+                        } else {
+                            __select__ = false;
+                            {};
                         };
-                    } else {
-                        __select__ = false;
-                        {};
+                        #if !js Sys.sleep(0.01) #else null #end;
+                        stdgo.internal.Async.tick();
                     };
                 };
                 _wg2.done();

@@ -1277,6 +1277,8 @@ function testDecoderIssue3577(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):
                         };
                     };
                 };
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
     }

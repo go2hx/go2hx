@@ -559,7 +559,7 @@ final interface_ = (26u32 : stdgo.internal.abi.Abi.Kind);
     
     
 **/
-final map = (26u32 : stdgo.internal.abi.Abi.Kind);
+final map_ = (26u32 : stdgo.internal.abi.Abi.Kind);
 /**
     
     

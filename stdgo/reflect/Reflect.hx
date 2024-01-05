@@ -144,7 +144,7 @@ final interface_ = ((0 : stdgo.StdGoTypes.GoUInt) : stdgo.reflect.Reflect.Kind);
     
     
 **/
-final map = ((0 : stdgo.StdGoTypes.GoUInt) : stdgo.reflect.Reflect.Kind);
+final map_ = ((0 : stdgo.StdGoTypes.GoUInt) : stdgo.reflect.Reflect.Kind);
 /**
     
     

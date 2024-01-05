@@ -731,6 +731,8 @@ function testZeroReader(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                         };
                     };
                 };
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
     }

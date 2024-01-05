@@ -3743,6 +3743,8 @@ function testProgWideChdir(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                                                 {};
                                             };
                                         };
+                                        #if !js Sys.sleep(0.01) #else null #end;
+                                        stdgo.internal.Async.tick();
                                     };
                                 };
                                 var __tmp__ = stat(("." : stdgo.GoString)), _f0:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;

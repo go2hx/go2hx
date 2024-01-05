@@ -3110,7 +3110,7 @@ function testMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _maxRune:stdgo.StdGoTypes.GoInt32 -> stdgo.StdGoTypes.GoInt32 = function(_r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
             return (1114111 : stdgo.StdGoTypes.GoInt32);
         };
-        var _m = map(_maxRune, (_a : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+        var _m = map_(_maxRune, (_a : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
         var _expect:stdgo.GoString = _tenRunes((1114111 : stdgo.StdGoTypes.GoInt32))?.__copy__();
         if ((_m : stdgo.GoString) != (_expect)) {
             _t.errorf(("growing: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
@@ -3118,17 +3118,17 @@ function testMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _minRune:stdgo.StdGoTypes.GoInt32 -> stdgo.StdGoTypes.GoInt32 = function(_r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
             return (97 : stdgo.StdGoTypes.GoInt32);
         };
-        _m = map(_minRune, (_tenRunes((1114111 : stdgo.StdGoTypes.GoInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+        _m = map_(_minRune, (_tenRunes((1114111 : stdgo.StdGoTypes.GoInt32)) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
         _expect = _a?.__copy__();
         if ((_m : stdgo.GoString) != (_expect)) {
             _t.errorf(("shrinking: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
         };
-        _m = map(_rot13, (("a to zed" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+        _m = map_(_rot13, (("a to zed" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
         _expect = ("n gb mrq" : stdgo.GoString);
         if ((_m : stdgo.GoString) != (_expect)) {
             _t.errorf(("rot13: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
         };
-        _m = map(_rot13, map(_rot13, (("a to zed" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)));
+        _m = map_(_rot13, map_(_rot13, (("a to zed" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)));
         _expect = ("a to zed" : stdgo.GoString);
         if ((_m : stdgo.GoString) != (_expect)) {
             _t.errorf(("rot13: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
@@ -3139,7 +3139,7 @@ function testMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             return (-1 : stdgo.StdGoTypes.GoInt32);
         };
-        _m = map(_dropNotLatin, (("Hello, 세계" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+        _m = map_(_dropNotLatin, (("Hello, 세계" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
         _expect = ("Hello" : stdgo.GoString);
         if ((_m : stdgo.GoString) != (_expect)) {
             _t.errorf(("drop: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
@@ -3147,7 +3147,7 @@ function testMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _invalidRune:stdgo.StdGoTypes.GoInt32 -> stdgo.StdGoTypes.GoInt32 = function(_r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
             return (1114112 : stdgo.StdGoTypes.GoInt32);
         };
-        _m = map(_invalidRune, (("x" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
+        _m = map_(_invalidRune, (("x" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>));
         _expect = ("�" : stdgo.GoString);
         if ((_m : stdgo.GoString) != (_expect)) {
             _t.errorf(("invalidRune: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
@@ -4617,7 +4617,7 @@ function exampleMap():Void {
             };
             return _r;
         };
-        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.map(_rot13, (("\'Twas brillig and the slithy gopher..." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
+        stdgo.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.bytes.Bytes.map_(_rot13, (("\'Twas brillig and the slithy gopher..." : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>))));
     }
 function exampleReader_Len():Void {
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.bytes.Bytes.newReader((("Hi!" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>)).len()));

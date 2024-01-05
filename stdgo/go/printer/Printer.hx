@@ -1554,6 +1554,8 @@ function _check(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>, _source:stdgo.
                         {};
                     };
                 };
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
     }

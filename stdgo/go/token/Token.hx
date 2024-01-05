@@ -616,7 +616,7 @@ final interface_ = (89 : stdgo.go.token.Token.Token);
     
     
 **/
-final map = (89 : stdgo.go.token.Token.Token);
+final map_ = (89 : stdgo.go.token.Token.Token);
 /**
     // The list of tokens.
     

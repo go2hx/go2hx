@@ -2178,7 +2178,7 @@ function exampleMap():Void {
             };
             return _r;
         };
-        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.map(_rot13, ("\'Twas brillig and the slithy gopher..." : stdgo.GoString))));
+        stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.strings.Strings.map_(_rot13, ("\'Twas brillig and the slithy gopher..." : stdgo.GoString))));
     }
 function exampleNewReplacer():Void {
         var _r = stdgo.strings.Strings.newReplacer(("<" : stdgo.GoString), ("&lt;" : stdgo.GoString), (">" : stdgo.GoString), ("&gt;" : stdgo.GoString));
@@ -2909,7 +2909,7 @@ function benchmarkByteByteMap(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _b.n, _i++, {
-                map(_fn, _str?.__copy__());
+                map_(_fn, _str?.__copy__());
             });
         };
     }
@@ -2923,7 +2923,7 @@ function benchmarkMap(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
                     {
                         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                         stdgo.Go.cfor(_i < _b.n, _i++, {
-                            map(_mapidentity, _md._data?.__copy__());
+                            map_(_mapidentity, _md._data?.__copy__());
                         });
                     };
                 });
@@ -2944,7 +2944,7 @@ function benchmarkMap(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>):Void {
                     {
                         var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
                         stdgo.Go.cfor(_i < _b.n, _i++, {
-                            map(_mapchange, _md._data?.__copy__());
+                            map_(_mapchange, _md._data?.__copy__());
                         });
                     };
                 });
@@ -3393,7 +3393,7 @@ function testMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _maxRune:stdgo.StdGoTypes.GoInt32 -> stdgo.StdGoTypes.GoInt32 = function(_0:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
             return (1114111 : stdgo.StdGoTypes.GoInt32);
         };
-        var _m:stdgo.GoString = map(_maxRune, _a?.__copy__())?.__copy__();
+        var _m:stdgo.GoString = map_(_maxRune, _a?.__copy__())?.__copy__();
         var _expect:stdgo.GoString = _tenRunes((1114111 : stdgo.StdGoTypes.GoInt32))?.__copy__();
         if (_m != (_expect)) {
             _t.errorf(("growing: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
@@ -3401,17 +3401,17 @@ function testMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _minRune:stdgo.StdGoTypes.GoInt32 -> stdgo.StdGoTypes.GoInt32 = function(_0:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
             return (97 : stdgo.StdGoTypes.GoInt32);
         };
-        _m = map(_minRune, _tenRunes((1114111 : stdgo.StdGoTypes.GoInt32))?.__copy__())?.__copy__();
+        _m = map_(_minRune, _tenRunes((1114111 : stdgo.StdGoTypes.GoInt32))?.__copy__())?.__copy__();
         _expect = _a?.__copy__();
         if (_m != (_expect)) {
             _t.errorf(("shrinking: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
         };
-        _m = map(_rot13, ("a to zed" : stdgo.GoString))?.__copy__();
+        _m = map_(_rot13, ("a to zed" : stdgo.GoString))?.__copy__();
         _expect = ("n gb mrq" : stdgo.GoString);
         if (_m != (_expect)) {
             _t.errorf(("rot13: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
         };
-        _m = map(_rot13, map(_rot13, ("a to zed" : stdgo.GoString))?.__copy__())?.__copy__();
+        _m = map_(_rot13, map_(_rot13, ("a to zed" : stdgo.GoString))?.__copy__())?.__copy__();
         _expect = ("a to zed" : stdgo.GoString);
         if (_m != (_expect)) {
             _t.errorf(("rot13: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
@@ -3422,7 +3422,7 @@ function testMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             return (-1 : stdgo.StdGoTypes.GoInt32);
         };
-        _m = map(_dropNotLatin, ("Hello, 세계" : stdgo.GoString))?.__copy__();
+        _m = map_(_dropNotLatin, ("Hello, 세계" : stdgo.GoString))?.__copy__();
         _expect = ("Hello" : stdgo.GoString);
         if (_m != (_expect)) {
             _t.errorf(("drop: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
@@ -3431,7 +3431,7 @@ function testMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             return _r;
         };
         var _orig:stdgo.GoString = ("Input string that we expect not to be copied." : stdgo.GoString);
-        _m = map(_identity, _orig?.__copy__())?.__copy__();
+        _m = map_(_identity, _orig?.__copy__())?.__copy__();
         if (stdgo.unsafe.Unsafe.stringData(_orig?.__copy__()) != (stdgo.unsafe.Unsafe.stringData(_m?.__copy__()))) {
             _t.error(stdgo.Go.toInterface(("unexpected copy during identity map" : stdgo.GoString)));
         };
@@ -3441,7 +3441,7 @@ function testMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             return (65533 : stdgo.StdGoTypes.GoInt32);
         };
-        _m = map(_replaceNotLatin, stdgo.Go.str("Hello", 173, "World")?.__copy__())?.__copy__();
+        _m = map_(_replaceNotLatin, stdgo.Go.str("Hello", 173, "World")?.__copy__())?.__copy__();
         _expect = ("Hello�World" : stdgo.GoString);
         if (_m != (_expect)) {
             _t.errorf(("replace invalid sequence: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
@@ -3459,11 +3459,11 @@ function testMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         };
         var _s:stdgo.GoString = ("\u0080\u{0010ffff}" : stdgo.GoString);
         var _r:stdgo.GoString = ("\u{0010ffff}\u0080" : stdgo.GoString);
-        _m = map(_encode, _s?.__copy__())?.__copy__();
+        _m = map_(_encode, _s?.__copy__())?.__copy__();
         if (_m != (_r)) {
             _t.errorf(("encoding not handled correctly: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_m));
         };
-        _m = map(_encode, _r?.__copy__())?.__copy__();
+        _m = map_(_encode, _r?.__copy__())?.__copy__();
         if (_m != (_s)) {
             _t.errorf(("encoding not handled correctly: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_m));
         };
@@ -3473,7 +3473,7 @@ function testMap(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             };
             return _r;
         };
-        _m = map(_trimSpaces, ("   abc    123   " : stdgo.GoString))?.__copy__();
+        _m = map_(_trimSpaces, ("   abc    123   " : stdgo.GoString))?.__copy__();
         _expect = ("abc123" : stdgo.GoString);
         if (_m != (_expect)) {
             _t.errorf(("trimSpaces: expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_m));
@@ -3530,7 +3530,7 @@ function benchmarkMapNoChanges(_b:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.B>)
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
             stdgo.Go.cfor(_i < _b.n, _i++, {
-                map(_identity, ("Some string that won\'t be modified." : stdgo.GoString));
+                map_(_identity, ("Some string that won\'t be modified." : stdgo.GoString));
             });
         };
     }

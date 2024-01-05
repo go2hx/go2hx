@@ -11591,7 +11591,7 @@ function testProbablyPrime(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
             };
         };
         for (_i => _s in _composites) {
-            _s = stdgo.strings.Strings.map(_cutSpace, _s?.__copy__())?.__copy__();
+            _s = stdgo.strings.Strings.map_(_cutSpace, _s?.__copy__())?.__copy__();
             var __tmp__ = (stdgo.Go.setRef(({} : stdgo.math.big.Big.Int_)) : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>).setString(_s?.__copy__(), (10 : stdgo.StdGoTypes.GoInt)), _c:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_> = __tmp__._0, __23:Bool = __tmp__._1;
             if ((_c.probablyPrime(_nreps) || ((_nreps != (1 : stdgo.StdGoTypes.GoInt)) && _c.probablyPrime((1 : stdgo.StdGoTypes.GoInt)))) || _c.probablyPrime((0 : stdgo.StdGoTypes.GoInt))) {
                 _t.errorf(("#%d composite found to be prime (%s)" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_s));

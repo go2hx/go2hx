@@ -4714,15 +4714,19 @@ function newTimer(_d:Duration):stdgo.StdGoTypes.Ref<Timer> {
 function _sendTime(_c:stdgo.StdGoTypes.AnyInterface, _seq:stdgo.StdGoTypes.GoUIntptr):Void {
         {
             var __select__ = true;
-            if ((stdgo.Go.typeAssert((_c : stdgo.Chan<Time>)) : stdgo.Chan<Time>) != null && (stdgo.Go.typeAssert((_c : stdgo.Chan<Time>)) : stdgo.Chan<Time>).__isSend__()) {
-                __select__ = false;
-                {
-                    (stdgo.Go.typeAssert((_c : stdgo.Chan<Time>)) : stdgo.Chan<Time>).__send__(now());
+            while (__select__) {
+                if ((stdgo.Go.typeAssert((_c : stdgo.Chan<Time>)) : stdgo.Chan<Time>) != null && (stdgo.Go.typeAssert((_c : stdgo.Chan<Time>)) : stdgo.Chan<Time>).__isSend__()) {
+                    __select__ = false;
+                    {
+                        (stdgo.Go.typeAssert((_c : stdgo.Chan<Time>)) : stdgo.Chan<Time>).__send__(now());
+                        {};
+                    };
+                } else {
+                    __select__ = false;
                     {};
                 };
-            } else {
-                __select__ = false;
-                {};
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
     }

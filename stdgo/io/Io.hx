@@ -1827,20 +1827,24 @@ class T_pipe_asInterface {
         try {
             {
                 var __select__ = true;
-                if (_p._done != null && _p._done.__isGet__()) {
-                    __select__ = false;
-                    {
-                        _p._done.__get__();
+                while (__select__) {
+                    if (_p._done != null && _p._done.__isGet__()) {
+                        __select__ = false;
                         {
-                            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._writeCloseError() };
+                            _p._done.__get__();
+                            {
+                                return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._writeCloseError() };
+                            };
+                        };
+                    } else {
+                        __select__ = false;
+                        {
+                            _p._wrMu.lock();
+                            __deferstack__.unshift(() -> _p._wrMu.unlock());
                         };
                     };
-                } else {
-                    __select__ = false;
-                    {
-                        _p._wrMu.lock();
-                        __deferstack__.unshift(() -> _p._wrMu.unlock());
-                    };
+                    #if !js Sys.sleep(0.01) #else null #end;
+                    stdgo.internal.Async.tick();
                 };
             };
             {
@@ -1873,6 +1877,8 @@ class T_pipe_asInterface {
                                     };
                                 };
                             };
+                            #if !js Sys.sleep(0.01) #else null #end;
+                            stdgo.internal.Async.tick();
                         };
                     };
                 });
@@ -1922,17 +1928,21 @@ class T_pipe_asInterface {
         var _n:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt), _err:stdgo.Error = (null : stdgo.Error);
         {
             var __select__ = true;
-            if (_p._done != null && _p._done.__isGet__()) {
-                __select__ = false;
-                {
-                    _p._done.__get__();
+            while (__select__) {
+                if (_p._done != null && _p._done.__isGet__()) {
+                    __select__ = false;
                     {
-                        return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._readCloseError() };
+                        _p._done.__get__();
+                        {
+                            return { _0 : (0 : stdgo.StdGoTypes.GoInt), _1 : _p._readCloseError() };
+                        };
                     };
+                } else {
+                    __select__ = false;
+                    {};
                 };
-            } else {
-                __select__ = false;
-                {};
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
         {
@@ -1958,6 +1968,8 @@ class T_pipe_asInterface {
                             };
                         };
                     };
+                    #if !js Sys.sleep(0.01) #else null #end;
+                    stdgo.internal.Async.tick();
                 };
             };
             return { _0 : _n, _1 : _err };

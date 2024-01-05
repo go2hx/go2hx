@@ -1774,6 +1774,8 @@ function testMultiReaderFreesExhaustedReaders(_t:stdgo.StdGoTypes.Ref<stdgo.test
                         };
                     };
                 };
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
         {

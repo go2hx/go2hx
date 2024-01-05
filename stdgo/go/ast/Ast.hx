@@ -822,17 +822,17 @@ typedef Visitor = stdgo.StdGoTypes.StructType & {
     
 **/
 @:structInit @:using(stdgo.go.ast.Ast.MapType_static_extension) class MapType {
-    public var map : stdgo.go.token.Token.Pos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
+    public var map_ : stdgo.go.token.Token.Pos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
     public var key : stdgo.go.ast.Ast.Expr = (null : stdgo.go.ast.Ast.Expr);
     public var value : stdgo.go.ast.Ast.Expr = (null : stdgo.go.ast.Ast.Expr);
-    public function new(?map:stdgo.go.token.Token.Pos, ?key:stdgo.go.ast.Ast.Expr, ?value:stdgo.go.ast.Ast.Expr) {
-        if (map != null) this.map = map;
+    public function new(?map_:stdgo.go.token.Token.Pos, ?key:stdgo.go.ast.Ast.Expr, ?value:stdgo.go.ast.Ast.Expr) {
+        if (map_ != null) this.map_ = map_;
         if (key != null) this.key = key;
         if (value != null) this.value = value;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new MapType(map, key, value);
+        return new MapType(map_, key, value);
     }
 }
 /**
@@ -4310,7 +4310,7 @@ class MapType_asInterface {
     @:keep
     static public function pos( _x:stdgo.StdGoTypes.Ref<MapType>):stdgo.go.token.Token.Pos {
         @:recv var _x:stdgo.StdGoTypes.Ref<MapType> = _x;
-        return _x.map;
+        return _x.map_;
     }
 }
 class ChanType_asInterface {

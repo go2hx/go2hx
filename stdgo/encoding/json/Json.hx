@@ -413,7 +413,7 @@ var _wrongStringTests : stdgo.Slice<stdgo.encoding.json.Json.T_wrongStringTest> 
     
     
 **/
-var _allValue : stdgo.encoding.json.Json.All = ({ bool_ : true, int_ : (2 : stdgo.StdGoTypes.GoInt), int8 : (3 : stdgo.StdGoTypes.GoInt8), int16 : (4 : stdgo.StdGoTypes.GoInt16), int32 : (5 : stdgo.StdGoTypes.GoInt32), int64 : (6i64 : stdgo.StdGoTypes.GoInt64), uint : (7u32 : stdgo.StdGoTypes.GoUInt), uint8 : (8 : stdgo.StdGoTypes.GoUInt8), uint16 : (9 : stdgo.StdGoTypes.GoUInt16), uint32 : (10u32 : stdgo.StdGoTypes.GoUInt32), uint64 : (11i64 : stdgo.StdGoTypes.GoUInt64), uintptr : (12 : stdgo.StdGoTypes.GoUIntptr), float32 : (14.100000381469727 : stdgo.StdGoTypes.GoFloat64), float64 : (15.1 : stdgo.StdGoTypes.GoFloat64), foo : ("foo" : stdgo.GoString), foo2 : ("foo2" : stdgo.GoString), intStr : (42i64 : stdgo.StdGoTypes.GoInt64), uintptrStr : (44 : stdgo.StdGoTypes.GoUIntptr), string : ("16" : stdgo.GoString), map : ({
+var _allValue : stdgo.encoding.json.Json.All = ({ bool_ : true, int_ : (2 : stdgo.StdGoTypes.GoInt), int8 : (3 : stdgo.StdGoTypes.GoInt8), int16 : (4 : stdgo.StdGoTypes.GoInt16), int32 : (5 : stdgo.StdGoTypes.GoInt32), int64 : (6i64 : stdgo.StdGoTypes.GoInt64), uint : (7u32 : stdgo.StdGoTypes.GoUInt), uint8 : (8 : stdgo.StdGoTypes.GoUInt8), uint16 : (9 : stdgo.StdGoTypes.GoUInt16), uint32 : (10u32 : stdgo.StdGoTypes.GoUInt32), uint64 : (11i64 : stdgo.StdGoTypes.GoUInt64), uintptr : (12 : stdgo.StdGoTypes.GoUIntptr), float32 : (14.100000381469727 : stdgo.StdGoTypes.GoFloat64), float64 : (15.1 : stdgo.StdGoTypes.GoFloat64), foo : ("foo" : stdgo.GoString), foo2 : ("foo2" : stdgo.GoString), intStr : (42i64 : stdgo.StdGoTypes.GoInt64), uintptrStr : (44 : stdgo.StdGoTypes.GoUIntptr), string : ("16" : stdgo.GoString), map_ : ({
         final x = new stdgo.GoMap.GoStringMap<stdgo.encoding.json.Json.Small>();
         x.__defaultValue__ = () -> ({} : stdgo.encoding.json.Json.Small);
         @:mergeBlock {
@@ -440,7 +440,7 @@ var _allValue : stdgo.encoding.json.Json.All = ({ bool_ : true, int_ : (2 : stdg
     
     
 **/
-var _pallValue : stdgo.encoding.json.Json.All = ({ pbool : stdgo.Go.pointer(_allValue.bool_), pint : stdgo.Go.pointer(_allValue.int_), pint8 : stdgo.Go.pointer(_allValue.int8), pint16 : stdgo.Go.pointer(_allValue.int16), pint32 : stdgo.Go.pointer(_allValue.int32), pint64 : stdgo.Go.pointer(_allValue.int64), puint : stdgo.Go.pointer(_allValue.uint), puint8 : stdgo.Go.pointer(_allValue.uint8), puint16 : stdgo.Go.pointer(_allValue.uint16), puint32 : stdgo.Go.pointer(_allValue.uint32), puint64 : stdgo.Go.pointer(_allValue.uint64), puintptr : stdgo.Go.pointer(_allValue.uintptr), pfloat32 : stdgo.Go.pointer(_allValue.float32), pfloat64 : stdgo.Go.pointer(_allValue.float64), pstring : stdgo.Go.pointer(_allValue.string), pmap : (stdgo.Go.setRef(_allValue.map) : stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>>), pmapP : (stdgo.Go.setRef(_allValue.mapP) : stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>>), pslice : (stdgo.Go.setRef(_allValue.slice) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.encoding.json.Json.Small>>), psliceP : (stdgo.Go.setRef(_allValue.sliceP) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>>), ppsmall : (stdgo.Go.setRef(_allValue.psmall) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>), pinterface : (stdgo.Go.setRef(_allValue.interface_) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>) } : stdgo.encoding.json.Json.All);
+var _pallValue : stdgo.encoding.json.Json.All = ({ pbool : stdgo.Go.pointer(_allValue.bool_), pint : stdgo.Go.pointer(_allValue.int_), pint8 : stdgo.Go.pointer(_allValue.int8), pint16 : stdgo.Go.pointer(_allValue.int16), pint32 : stdgo.Go.pointer(_allValue.int32), pint64 : stdgo.Go.pointer(_allValue.int64), puint : stdgo.Go.pointer(_allValue.uint), puint8 : stdgo.Go.pointer(_allValue.uint8), puint16 : stdgo.Go.pointer(_allValue.uint16), puint32 : stdgo.Go.pointer(_allValue.uint32), puint64 : stdgo.Go.pointer(_allValue.uint64), puintptr : stdgo.Go.pointer(_allValue.uintptr), pfloat32 : stdgo.Go.pointer(_allValue.float32), pfloat64 : stdgo.Go.pointer(_allValue.float64), pstring : stdgo.Go.pointer(_allValue.string), pmap : (stdgo.Go.setRef(_allValue.map_) : stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>>), pmapP : (stdgo.Go.setRef(_allValue.mapP) : stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>>), pslice : (stdgo.Go.setRef(_allValue.slice) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.encoding.json.Json.Small>>), psliceP : (stdgo.Go.setRef(_allValue.sliceP) : stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>>), ppsmall : (stdgo.Go.setRef(_allValue.psmall) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>), pinterface : (stdgo.Go.setRef(_allValue.interface_) : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>) } : stdgo.encoding.json.Json.All);
 /**
     
     
@@ -452,7 +452,7 @@ var _allValueIndent : stdgo.GoString = ("{\n\t\"Bool\": true,\n\t\"Int\": 2,\n\t
     
     
 **/
-var _allValueCompact : stdgo.GoString = stdgo.strings.Strings.map(_noSpace, _allValueIndent?.__copy__());
+var _allValueCompact : stdgo.GoString = stdgo.strings.Strings.map_(_noSpace, _allValueIndent?.__copy__());
 /**
     
     
@@ -464,7 +464,7 @@ var _pallValueIndent : stdgo.GoString = ("{\n\t\"Bool\": false,\n\t\"Int\": 0,\n
     
     
 **/
-var _pallValueCompact : stdgo.GoString = stdgo.strings.Strings.map(_noSpace, _pallValueIndent?.__copy__());
+var _pallValueCompact : stdgo.GoString = stdgo.strings.Strings.map_(_noSpace, _pallValueIndent?.__copy__());
 /**
     
     
@@ -2356,7 +2356,7 @@ typedef Marshaler = stdgo.StdGoTypes.StructType & {
     public var pfloat64 : stdgo.Pointer<stdgo.StdGoTypes.GoFloat64> = (null : stdgo.Pointer<stdgo.StdGoTypes.GoFloat64>);
     public var string : stdgo.GoString = "";
     public var pstring : stdgo.Pointer<stdgo.GoString> = (null : stdgo.Pointer<stdgo.GoString>);
-    public var map : stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small> = (null : stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>);
+    public var map_ : stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small> = (null : stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>);
     public var mapP : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>> = (null : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>);
     public var pmap : stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>> = (null : stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>>);
     public var pmapP : stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>> = (null : stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>>);
@@ -2376,7 +2376,7 @@ typedef Marshaler = stdgo.StdGoTypes.StructType & {
     public var interface_ : stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
     public var pinterface : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface> = (null : stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>);
     public var _unexported : stdgo.StdGoTypes.GoInt = 0;
-    public function new(?bool_:Bool, ?int_:stdgo.StdGoTypes.GoInt, ?int8:stdgo.StdGoTypes.GoInt8, ?int16:stdgo.StdGoTypes.GoInt16, ?int32:stdgo.StdGoTypes.GoInt32, ?int64:stdgo.StdGoTypes.GoInt64, ?uint:stdgo.StdGoTypes.GoUInt, ?uint8:stdgo.StdGoTypes.GoUInt8, ?uint16:stdgo.StdGoTypes.GoUInt16, ?uint32:stdgo.StdGoTypes.GoUInt32, ?uint64:stdgo.StdGoTypes.GoUInt64, ?uintptr:stdgo.StdGoTypes.GoUIntptr, ?float32:stdgo.StdGoTypes.GoFloat32, ?float64:stdgo.StdGoTypes.GoFloat64, ?foo:stdgo.GoString, ?foo2:stdgo.GoString, ?intStr:stdgo.StdGoTypes.GoInt64, ?uintptrStr:stdgo.StdGoTypes.GoUIntptr, ?pbool:stdgo.Pointer<Bool>, ?pint:stdgo.Pointer<stdgo.StdGoTypes.GoInt>, ?pint8:stdgo.Pointer<stdgo.StdGoTypes.GoInt8>, ?pint16:stdgo.Pointer<stdgo.StdGoTypes.GoInt16>, ?pint32:stdgo.Pointer<stdgo.StdGoTypes.GoInt32>, ?pint64:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, ?puint:stdgo.Pointer<stdgo.StdGoTypes.GoUInt>, ?puint8:stdgo.Pointer<stdgo.StdGoTypes.GoUInt8>, ?puint16:stdgo.Pointer<stdgo.StdGoTypes.GoUInt16>, ?puint32:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, ?puint64:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, ?puintptr:stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>, ?pfloat32:stdgo.Pointer<stdgo.StdGoTypes.GoFloat32>, ?pfloat64:stdgo.Pointer<stdgo.StdGoTypes.GoFloat64>, ?string:stdgo.GoString, ?pstring:stdgo.Pointer<stdgo.GoString>, ?map:stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>, ?mapP:stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>, ?pmap:stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>>, ?pmapP:stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>, ?nilMap:stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>, ?slice:stdgo.Slice<stdgo.encoding.json.Json.Small>, ?sliceP:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>, ?pslice:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.encoding.json.Json.Small>>, ?psliceP:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>>, ?emptySlice:stdgo.Slice<stdgo.encoding.json.Json.Small>, ?nilSlice:stdgo.Slice<stdgo.encoding.json.Json.Small>, ?stringSlice:stdgo.Slice<stdgo.GoString>, ?byteSlice:stdgo.Slice<stdgo.StdGoTypes.GoUInt8>, ?small:stdgo.encoding.json.Json.Small, ?psmall:stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>, ?ppsmall:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>, ?interface_:stdgo.StdGoTypes.AnyInterface, ?pinterface:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>, ?_unexported:stdgo.StdGoTypes.GoInt) {
+    public function new(?bool_:Bool, ?int_:stdgo.StdGoTypes.GoInt, ?int8:stdgo.StdGoTypes.GoInt8, ?int16:stdgo.StdGoTypes.GoInt16, ?int32:stdgo.StdGoTypes.GoInt32, ?int64:stdgo.StdGoTypes.GoInt64, ?uint:stdgo.StdGoTypes.GoUInt, ?uint8:stdgo.StdGoTypes.GoUInt8, ?uint16:stdgo.StdGoTypes.GoUInt16, ?uint32:stdgo.StdGoTypes.GoUInt32, ?uint64:stdgo.StdGoTypes.GoUInt64, ?uintptr:stdgo.StdGoTypes.GoUIntptr, ?float32:stdgo.StdGoTypes.GoFloat32, ?float64:stdgo.StdGoTypes.GoFloat64, ?foo:stdgo.GoString, ?foo2:stdgo.GoString, ?intStr:stdgo.StdGoTypes.GoInt64, ?uintptrStr:stdgo.StdGoTypes.GoUIntptr, ?pbool:stdgo.Pointer<Bool>, ?pint:stdgo.Pointer<stdgo.StdGoTypes.GoInt>, ?pint8:stdgo.Pointer<stdgo.StdGoTypes.GoInt8>, ?pint16:stdgo.Pointer<stdgo.StdGoTypes.GoInt16>, ?pint32:stdgo.Pointer<stdgo.StdGoTypes.GoInt32>, ?pint64:stdgo.Pointer<stdgo.StdGoTypes.GoInt64>, ?puint:stdgo.Pointer<stdgo.StdGoTypes.GoUInt>, ?puint8:stdgo.Pointer<stdgo.StdGoTypes.GoUInt8>, ?puint16:stdgo.Pointer<stdgo.StdGoTypes.GoUInt16>, ?puint32:stdgo.Pointer<stdgo.StdGoTypes.GoUInt32>, ?puint64:stdgo.Pointer<stdgo.StdGoTypes.GoUInt64>, ?puintptr:stdgo.Pointer<stdgo.StdGoTypes.GoUIntptr>, ?pfloat32:stdgo.Pointer<stdgo.StdGoTypes.GoFloat32>, ?pfloat64:stdgo.Pointer<stdgo.StdGoTypes.GoFloat64>, ?string:stdgo.GoString, ?pstring:stdgo.Pointer<stdgo.GoString>, ?map_:stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>, ?mapP:stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>, ?pmap:stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>>, ?pmapP:stdgo.StdGoTypes.Ref<stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>, ?nilMap:stdgo.GoMap<stdgo.GoString, stdgo.encoding.json.Json.Small>, ?slice:stdgo.Slice<stdgo.encoding.json.Json.Small>, ?sliceP:stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>, ?pslice:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.encoding.json.Json.Small>>, ?psliceP:stdgo.StdGoTypes.Ref<stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>>, ?emptySlice:stdgo.Slice<stdgo.encoding.json.Json.Small>, ?nilSlice:stdgo.Slice<stdgo.encoding.json.Json.Small>, ?stringSlice:stdgo.Slice<stdgo.GoString>, ?byteSlice:stdgo.Slice<stdgo.StdGoTypes.GoUInt8>, ?small:stdgo.encoding.json.Json.Small, ?psmall:stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>, ?ppsmall:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.Small>>, ?interface_:stdgo.StdGoTypes.AnyInterface, ?pinterface:stdgo.StdGoTypes.Ref<stdgo.StdGoTypes.AnyInterface>, ?_unexported:stdgo.StdGoTypes.GoInt) {
         if (bool_ != null) this.bool_ = bool_;
         if (int_ != null) this.int_ = int_;
         if (int8 != null) this.int8 = int8;
@@ -2411,7 +2411,7 @@ typedef Marshaler = stdgo.StdGoTypes.StructType & {
         if (pfloat64 != null) this.pfloat64 = pfloat64;
         if (string != null) this.string = string;
         if (pstring != null) this.pstring = pstring;
-        if (map != null) this.map = map;
+        if (map_ != null) this.map_ = map_;
         if (mapP != null) this.mapP = mapP;
         if (pmap != null) this.pmap = pmap;
         if (pmapP != null) this.pmapP = pmapP;
@@ -2469,7 +2469,7 @@ pfloat32,
 pfloat64,
 string,
 pstring,
-map,
+map_,
 mapP,
 pmap,
 pmapP,
@@ -2527,7 +2527,7 @@ _unexported);
     public var float64 : stdgo.StdGoTypes.GoFloat64 = 0;
     public var string : stdgo.GoString = "";
     public var pbool : stdgo.Pointer<Bool> = (null : stdgo.Pointer<Bool>);
-    public var map : stdgo.GoMap<stdgo.GoString, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var map_ : stdgo.GoMap<stdgo.GoString, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
     public var slice : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var interface_ : stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
     public var praw : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.RawMessage> = (null : stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.RawMessage>);
@@ -2542,7 +2542,7 @@ _unexported);
     public var text : stdgo.encoding.json.Json.MustNotUnmarshalText = ({} : stdgo.encoding.json.Json.MustNotUnmarshalText);
     public var buffer : stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
     public var struct_ : T_unquotedValue = ({} : T_unquotedValue);
-    public function new(?bool_:Bool, ?int_:stdgo.StdGoTypes.GoInt, ?int8:stdgo.StdGoTypes.GoInt8, ?int16:stdgo.StdGoTypes.GoInt16, ?int32:stdgo.StdGoTypes.GoInt32, ?int64:stdgo.StdGoTypes.GoInt64, ?uint:stdgo.StdGoTypes.GoUInt, ?uint8:stdgo.StdGoTypes.GoUInt8, ?uint16:stdgo.StdGoTypes.GoUInt16, ?uint32:stdgo.StdGoTypes.GoUInt32, ?uint64:stdgo.StdGoTypes.GoUInt64, ?float32:stdgo.StdGoTypes.GoFloat32, ?float64:stdgo.StdGoTypes.GoFloat64, ?string:stdgo.GoString, ?pbool:stdgo.Pointer<Bool>, ?map:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?slice:stdgo.Slice<stdgo.GoString>, ?interface_:stdgo.StdGoTypes.AnyInterface, ?praw:stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.RawMessage>, ?ptime:stdgo.StdGoTypes.Ref<stdgo.time.Time.Time>, ?pbigInt:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, ?ptext:stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.MustNotUnmarshalText>, ?pbuffer:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, ?pstruct:stdgo.StdGoTypes.Ref<T_unquotedValue>, ?raw:stdgo.encoding.json.Json.RawMessage, ?time:stdgo.time.Time.Time, ?bigInt:stdgo.math.big.Big.Int_, ?text:stdgo.encoding.json.Json.MustNotUnmarshalText, ?buffer:stdgo.bytes.Bytes.Buffer, ?struct_:T_unquotedValue) {
+    public function new(?bool_:Bool, ?int_:stdgo.StdGoTypes.GoInt, ?int8:stdgo.StdGoTypes.GoInt8, ?int16:stdgo.StdGoTypes.GoInt16, ?int32:stdgo.StdGoTypes.GoInt32, ?int64:stdgo.StdGoTypes.GoInt64, ?uint:stdgo.StdGoTypes.GoUInt, ?uint8:stdgo.StdGoTypes.GoUInt8, ?uint16:stdgo.StdGoTypes.GoUInt16, ?uint32:stdgo.StdGoTypes.GoUInt32, ?uint64:stdgo.StdGoTypes.GoUInt64, ?float32:stdgo.StdGoTypes.GoFloat32, ?float64:stdgo.StdGoTypes.GoFloat64, ?string:stdgo.GoString, ?pbool:stdgo.Pointer<Bool>, ?map_:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?slice:stdgo.Slice<stdgo.GoString>, ?interface_:stdgo.StdGoTypes.AnyInterface, ?praw:stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.RawMessage>, ?ptime:stdgo.StdGoTypes.Ref<stdgo.time.Time.Time>, ?pbigInt:stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Int_>, ?ptext:stdgo.StdGoTypes.Ref<stdgo.encoding.json.Json.MustNotUnmarshalText>, ?pbuffer:stdgo.StdGoTypes.Ref<stdgo.bytes.Bytes.Buffer>, ?pstruct:stdgo.StdGoTypes.Ref<T_unquotedValue>, ?raw:stdgo.encoding.json.Json.RawMessage, ?time:stdgo.time.Time.Time, ?bigInt:stdgo.math.big.Big.Int_, ?text:stdgo.encoding.json.Json.MustNotUnmarshalText, ?buffer:stdgo.bytes.Bytes.Buffer, ?struct_:T_unquotedValue) {
         if (bool_ != null) this.bool_ = bool_;
         if (int_ != null) this.int_ = int_;
         if (int8 != null) this.int8 = int8;
@@ -2558,7 +2558,7 @@ _unexported);
         if (float64 != null) this.float64 = float64;
         if (string != null) this.string = string;
         if (pbool != null) this.pbool = pbool;
-        if (map != null) this.map = map;
+        if (map_ != null) this.map_ = map_;
         if (slice != null) this.slice = slice;
         if (interface_ != null) this.interface_ = interface_;
         if (praw != null) this.praw = praw;
@@ -2592,7 +2592,7 @@ float32,
 float64,
 string,
 pbool,
-map,
+map_,
 slice,
 interface_,
 praw,
@@ -5724,8 +5724,8 @@ function testUnmarshal(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 };
                 if (!stdgo.reflect.Reflect.deepEqual(_v.elem().interface_(), _vv.elem().interface_())) {
                     _t.errorf(("#%d: mismatch\nhave: %#+v\nwant: %#+v" : stdgo.GoString), stdgo.Go.toInterface(_i), _v.elem().interface_(), _vv.elem().interface_());
-                    _t.errorf(("     In: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.map(_noSpace, (_in : stdgo.GoString)?.__copy__())));
-                    _t.errorf(("Marshal: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.map(_noSpace, (_enc : stdgo.GoString)?.__copy__())));
+                    _t.errorf(("     In: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.map_(_noSpace, (_in : stdgo.GoString)?.__copy__())));
+                    _t.errorf(("Marshal: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.strings.Strings.map_(_noSpace, (_enc : stdgo.GoString)?.__copy__())));
                     continue;
                 };
             };
@@ -6011,7 +6011,7 @@ function testInterfaceSet(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
 **/
 function testUnmarshalNulls(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
         var _jsonData = (("{\n\t\t\t\t\"Bool\"    : null,\n\t\t\t\t\"Int\"     : null,\n\t\t\t\t\"Int8\"    : null,\n\t\t\t\t\"Int16\"   : null,\n\t\t\t\t\"Int32\"   : null,\n\t\t\t\t\"Int64\"   : null,\n\t\t\t\t\"Uint\"    : null,\n\t\t\t\t\"Uint8\"   : null,\n\t\t\t\t\"Uint16\"  : null,\n\t\t\t\t\"Uint32\"  : null,\n\t\t\t\t\"Uint64\"  : null,\n\t\t\t\t\"Float32\" : null,\n\t\t\t\t\"Float64\" : null,\n\t\t\t\t\"String\"  : null,\n\t\t\t\t\"PBool\": null,\n\t\t\t\t\"Map\": null,\n\t\t\t\t\"Slice\": null,\n\t\t\t\t\"Interface\": null,\n\t\t\t\t\"PRaw\": null,\n\t\t\t\t\"PTime\": null,\n\t\t\t\t\"PBigInt\": null,\n\t\t\t\t\"PText\": null,\n\t\t\t\t\"PBuffer\": null,\n\t\t\t\t\"PStruct\": null,\n\t\t\t\t\"Raw\": null,\n\t\t\t\t\"Time\": null,\n\t\t\t\t\"BigInt\": null,\n\t\t\t\t\"Text\": null,\n\t\t\t\t\"Buffer\": null,\n\t\t\t\t\"Struct\": null\n\t\t\t}" : stdgo.GoString) : stdgo.Slice<stdgo.StdGoTypes.GoByte>);
-        var _nulls:stdgo.encoding.json.Json.NullTest = ({ bool_ : true, int_ : (2 : stdgo.StdGoTypes.GoInt), int8 : (3 : stdgo.StdGoTypes.GoInt8), int16 : (4 : stdgo.StdGoTypes.GoInt16), int32 : (5 : stdgo.StdGoTypes.GoInt32), int64 : (6i64 : stdgo.StdGoTypes.GoInt64), uint : (7u32 : stdgo.StdGoTypes.GoUInt), uint8 : (8 : stdgo.StdGoTypes.GoUInt8), uint16 : (9 : stdgo.StdGoTypes.GoUInt16), uint32 : (10u32 : stdgo.StdGoTypes.GoUInt32), uint64 : (11i64 : stdgo.StdGoTypes.GoUInt64), float32 : (12.100000381469727 : stdgo.StdGoTypes.GoFloat64), float64 : (13.1 : stdgo.StdGoTypes.GoFloat64), string : ("14" : stdgo.GoString), pbool : stdgo.Go.pointer(false), map : ({
+        var _nulls:stdgo.encoding.json.Json.NullTest = ({ bool_ : true, int_ : (2 : stdgo.StdGoTypes.GoInt), int8 : (3 : stdgo.StdGoTypes.GoInt8), int16 : (4 : stdgo.StdGoTypes.GoInt16), int32 : (5 : stdgo.StdGoTypes.GoInt32), int64 : (6i64 : stdgo.StdGoTypes.GoInt64), uint : (7u32 : stdgo.StdGoTypes.GoUInt), uint8 : (8 : stdgo.StdGoTypes.GoUInt8), uint16 : (9 : stdgo.StdGoTypes.GoUInt16), uint32 : (10u32 : stdgo.StdGoTypes.GoUInt32), uint64 : (11i64 : stdgo.StdGoTypes.GoUInt64), float32 : (12.100000381469727 : stdgo.StdGoTypes.GoFloat64), float64 : (13.1 : stdgo.StdGoTypes.GoFloat64), string : ("14" : stdgo.GoString), pbool : stdgo.Go.pointer(false), map_ : ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
             @:mergeBlock {};
@@ -6028,7 +6028,7 @@ function testUnmarshalNulls(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Vo
         if (_nulls.pbool != null) {
             _t.errorf(("Unmarshal of null did not clear nulls.PBool" : stdgo.GoString));
         };
-        if (_nulls.map != null) {
+        if (_nulls.map_ != null) {
             _t.errorf(("Unmarshal of null did not clear nulls.Map" : stdgo.GoString));
         };
         if (_nulls.slice != null) {

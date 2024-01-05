@@ -1021,7 +1021,7 @@ function hasSuffix(_s:stdgo.GoString, _suffix:stdgo.GoString):Bool {
     // according to the mapping function. If mapping returns a negative value, the character is
     // dropped from the string with no replacement.
 **/
-function map(_mapping:stdgo.StdGoTypes.GoRune -> stdgo.StdGoTypes.GoRune, _s:stdgo.GoString):stdgo.GoString {
+function map_(_mapping:stdgo.StdGoTypes.GoRune -> stdgo.StdGoTypes.GoRune, _s:stdgo.GoString):stdgo.GoString {
         var _b:Builder = ({} : stdgo.strings.Strings.Builder);
         for (_i => _c in _s) {
             var _r:stdgo.StdGoTypes.GoInt32 = _mapping(_c);
@@ -1153,7 +1153,7 @@ function toUpper(_s:stdgo.GoString):stdgo.GoString {
             };
             return (_b.string() : stdgo.GoString)?.__copy__();
         };
-        return map(stdgo.unicode.Unicode.toUpper, _s?.__copy__())?.__copy__();
+        return map_(stdgo.unicode.Unicode.toUpper, _s?.__copy__())?.__copy__();
     }
 /**
     // ToLower returns s with all Unicode letters mapped to their lower case.
@@ -1196,35 +1196,35 @@ function toLower(_s:stdgo.GoString):stdgo.GoString {
             };
             return (_b.string() : stdgo.GoString)?.__copy__();
         };
-        return map(stdgo.unicode.Unicode.toLower, _s?.__copy__())?.__copy__();
+        return map_(stdgo.unicode.Unicode.toLower, _s?.__copy__())?.__copy__();
     }
 /**
     // ToTitle returns a copy of the string s with all Unicode letters mapped to
     // their Unicode title case.
 **/
 function toTitle(_s:stdgo.GoString):stdgo.GoString {
-        return map(stdgo.unicode.Unicode.toTitle, _s?.__copy__())?.__copy__();
+        return map_(stdgo.unicode.Unicode.toTitle, _s?.__copy__())?.__copy__();
     }
 /**
     // ToUpperSpecial returns a copy of the string s with all Unicode letters mapped to their
     // upper case using the case mapping specified by c.
 **/
 function toUpperSpecial(_c:stdgo.unicode.Unicode.SpecialCase, _s:stdgo.GoString):stdgo.GoString {
-        return map(_c.toUpper, _s?.__copy__())?.__copy__();
+        return map_(_c.toUpper, _s?.__copy__())?.__copy__();
     }
 /**
     // ToLowerSpecial returns a copy of the string s with all Unicode letters mapped to their
     // lower case using the case mapping specified by c.
 **/
 function toLowerSpecial(_c:stdgo.unicode.Unicode.SpecialCase, _s:stdgo.GoString):stdgo.GoString {
-        return map(_c.toLower, _s?.__copy__())?.__copy__();
+        return map_(_c.toLower, _s?.__copy__())?.__copy__();
     }
 /**
     // ToTitleSpecial returns a copy of the string s with all Unicode letters mapped to their
     // Unicode title case, giving priority to the special casing rules.
 **/
 function toTitleSpecial(_c:stdgo.unicode.Unicode.SpecialCase, _s:stdgo.GoString):stdgo.GoString {
-        return map(_c.toTitle, _s?.__copy__())?.__copy__();
+        return map_(_c.toTitle, _s?.__copy__())?.__copy__();
     }
 /**
     // ToValidUTF8 returns a copy of the string s with each run of invalid UTF-8 byte sequences
@@ -1305,7 +1305,7 @@ function _isSeparator(_r:stdgo.StdGoTypes.GoRune):Bool {
 **/
 function title(_s:stdgo.GoString):stdgo.GoString {
         var _prev:stdgo.StdGoTypes.GoInt32 = (32 : stdgo.StdGoTypes.GoInt32);
-        return map(function(_r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
+        return map_(function(_r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
             if (_isSeparator(_prev)) {
                 _prev = _r;
                 return stdgo.unicode.Unicode.toTitle(_r);

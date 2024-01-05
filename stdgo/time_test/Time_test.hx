@@ -2000,6 +2000,8 @@ function exampleAfter():Void {
                         };
                     };
                 };
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
     }
@@ -2065,6 +2067,8 @@ function exampleNewTicker():Void {
                                 };
                             };
                         };
+                        #if !js Sys.sleep(0.01) #else null #end;
+                        stdgo.internal.Async.tick();
                     };
                 };
             };
@@ -2359,7 +2363,7 @@ function testNextStdChunk(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void
             return _r;
         };
         for (__2 => _marked in _nextStdChunkTests) {
-            var _format:stdgo.GoString = stdgo.strings.Strings.map(_noParens, _marked?.__copy__())?.__copy__();
+            var _format:stdgo.GoString = stdgo.strings.Strings.map_(_noParens, _marked?.__copy__())?.__copy__();
             var _out:stdgo.GoString = _markChunks(_format?.__copy__())?.__copy__();
             if (_out != (_marked)) {
                 _t.errorf(("nextStdChunk parses %q as %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_format), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_marked));
@@ -3553,27 +3557,31 @@ function testAfterStop(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
                 _c2.__get__();
                 {
                     var __select__ = true;
-                    if (_t0.c != null && _t0.c.__isGet__()) {
-                        __select__ = false;
-                        {
-                            _t0.c.__get__();
+                    while (__select__) {
+                        if (_t0.c != null && _t0.c.__isGet__()) {
+                            __select__ = false;
                             {
-                                _errs = (_errs.__append__(("event 0 was not stopped" : stdgo.GoString)));
-                                continue;
+                                _t0.c.__get__();
+                                {
+                                    _errs = (_errs.__append__(("event 0 was not stopped" : stdgo.GoString)));
+                                    continue;
+                                };
                             };
-                        };
-                    } else if (_c1 != null && _c1.__isGet__()) {
-                        __select__ = false;
-                        {
-                            _c1.__get__();
+                        } else if (_c1 != null && _c1.__isGet__()) {
+                            __select__ = false;
                             {
-                                _errs = (_errs.__append__(("event 1 was not stopped" : stdgo.GoString)));
-                                continue;
+                                _c1.__get__();
+                                {
+                                    _errs = (_errs.__append__(("event 1 was not stopped" : stdgo.GoString)));
+                                    continue;
+                                };
                             };
+                        } else {
+                            __select__ = false;
+                            {};
                         };
-                    } else {
-                        __select__ = false;
-                        {};
+                        #if !js Sys.sleep(0.01) #else null #end;
+                        stdgo.internal.Async.tick();
                     };
                 };
                 if (_t1.stop()) {
@@ -3720,33 +3728,41 @@ function _testReset(_d:Duration):stdgo.Error {
         sleep((2i64 : stdgo.time.Time.Duration) * _d);
         {
             var __select__ = true;
-            if (_t0.c != null && _t0.c.__isGet__()) {
-                __select__ = false;
-                {
-                    _t0.c.__get__();
+            while (__select__) {
+                if (_t0.c != null && _t0.c.__isGet__()) {
+                    __select__ = false;
                     {
-                        return stdgo.errors.Errors.new_(("timer fired early" : stdgo.GoString));
+                        _t0.c.__get__();
+                        {
+                            return stdgo.errors.Errors.new_(("timer fired early" : stdgo.GoString));
+                        };
                     };
+                } else {
+                    __select__ = false;
+                    {};
                 };
-            } else {
-                __select__ = false;
-                {};
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
         sleep((2i64 : stdgo.time.Time.Duration) * _d);
         {
             var __select__ = true;
-            if (_t0.c != null && _t0.c.__isGet__()) {
-                __select__ = false;
-                {
-                    _t0.c.__get__();
-                    {};
+            while (__select__) {
+                if (_t0.c != null && _t0.c.__isGet__()) {
+                    __select__ = false;
+                    {
+                        _t0.c.__get__();
+                        {};
+                    };
+                } else {
+                    __select__ = false;
+                    {
+                        return stdgo.errors.Errors.new_(("reset timer did not fire" : stdgo.GoString));
+                    };
                 };
-            } else {
-                __select__ = false;
-                {
-                    return stdgo.errors.Errors.new_(("reset timer did not fire" : stdgo.GoString));
-                };
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
         if (_t0.reset((50000000i64 : stdgo.time.Time.Duration))) {
@@ -3802,6 +3818,8 @@ function testOverflowSleep(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                         {};
                     };
                 };
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
         {};
@@ -3824,6 +3842,8 @@ function testOverflowSleep(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Voi
                         };
                     };
                 };
+                #if !js Sys.sleep(0.01) #else null #end;
+                stdgo.internal.Async.tick();
             };
         };
     }
@@ -4033,6 +4053,8 @@ function testTimerModifiedEarlier(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.
                                     };
                                 };
                             };
+                            #if !js Sys.sleep(0.01) #else null #end;
+                            stdgo.internal.Async.tick();
                         };
                     };
                 });
@@ -4348,18 +4370,22 @@ function testTicker(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T>):Void {
             sleep((2i64 : stdgo.time.Time.Duration) * _delta);
             {
                 var __select__ = true;
-                if (_ticker.c != null && _ticker.c.__isGet__()) {
-                    __select__ = false;
-                    {
-                        _ticker.c.__get__();
+                while (__select__) {
+                    if (_ticker.c != null && _ticker.c.__isGet__()) {
+                        __select__ = false;
                         {
-                            _errs = (_errs.__append__(("Ticker did not shut down" : stdgo.GoString)));
-                            continue;
+                            _ticker.c.__get__();
+                            {
+                                _errs = (_errs.__append__(("Ticker did not shut down" : stdgo.GoString)));
+                                continue;
+                            };
                         };
+                    } else {
+                        __select__ = false;
+                        {};
                     };
-                } else {
-                    __select__ = false;
-                    {};
+                    #if !js Sys.sleep(0.01) #else null #end;
+                    stdgo.internal.Async.tick();
                 };
             };
             if ((_errs.length) > (0 : stdgo.StdGoTypes.GoInt)) {

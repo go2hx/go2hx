@@ -857,7 +857,7 @@ function hasSuffix(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>, _suffix:stdgo.Slice<
     // dropped from the byte slice with no replacement. The characters in s and the
     // output are interpreted as UTF-8-encoded code points.
 **/
-function map(_mapping:(_r:stdgo.StdGoTypes.GoRune) -> stdgo.StdGoTypes.GoRune, _s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
+function map_(_mapping:(_r:stdgo.StdGoTypes.GoRune) -> stdgo.StdGoTypes.GoRune, _s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
         var _b = new stdgo.Slice<stdgo.StdGoTypes.GoUInt8>((0 : stdgo.StdGoTypes.GoInt).toBasic(), (_s.length)).__setNumber32__();
         {
             var _i:stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
@@ -953,7 +953,7 @@ function toUpper(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdG
             };
             return _b;
         };
-        return map(stdgo.unicode.Unicode.toUpper, _s);
+        return map_(stdgo.unicode.Unicode.toUpper, _s);
     }
 /**
     // ToLower returns a copy of the byte slice s with all Unicode letters mapped to
@@ -989,34 +989,34 @@ function toLower(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdG
             };
             return _b;
         };
-        return map(stdgo.unicode.Unicode.toLower, _s);
+        return map_(stdgo.unicode.Unicode.toLower, _s);
     }
 /**
     // ToTitle treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their title case.
 **/
 function toTitle(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
-        return map(stdgo.unicode.Unicode.toTitle, _s);
+        return map_(stdgo.unicode.Unicode.toTitle, _s);
     }
 /**
     // ToUpperSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
     // upper case, giving priority to the special casing rules.
 **/
 function toUpperSpecial(_c:stdgo.unicode.Unicode.SpecialCase, _s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
-        return map(_c.toUpper, _s);
+        return map_(_c.toUpper, _s);
     }
 /**
     // ToLowerSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
     // lower case, giving priority to the special casing rules.
 **/
 function toLowerSpecial(_c:stdgo.unicode.Unicode.SpecialCase, _s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
-        return map(_c.toLower, _s);
+        return map_(_c.toLower, _s);
     }
 /**
     // ToTitleSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
     // title case, giving priority to the special casing rules.
 **/
 function toTitleSpecial(_c:stdgo.unicode.Unicode.SpecialCase, _s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
-        return map(_c.toTitle, _s);
+        return map_(_c.toTitle, _s);
     }
 /**
     // ToValidUTF8 treats s as UTF-8-encoded bytes and returns a copy with each run of bytes
@@ -1082,7 +1082,7 @@ function _isSeparator(_r:stdgo.StdGoTypes.GoRune):Bool {
 **/
 function title(_s:stdgo.Slice<stdgo.StdGoTypes.GoByte>):stdgo.Slice<stdgo.StdGoTypes.GoByte> {
         var _prev:stdgo.StdGoTypes.GoInt32 = (32 : stdgo.StdGoTypes.GoInt32);
-        return map(function(_r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
+        return map_(function(_r:stdgo.StdGoTypes.GoRune):stdgo.StdGoTypes.GoRune {
             if (_isSeparator(_prev)) {
                 _prev = _r;
                 return stdgo.unicode.Unicode.toTitle(_r);

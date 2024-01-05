@@ -882,7 +882,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 		stdgo.internal.Async.tick();
 	}else{
 		e = macro {
-			final __select__ = true;
+			var __select__ = true;
 			$e;
 		}
 	}

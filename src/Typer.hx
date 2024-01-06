@@ -1073,7 +1073,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 	var value = stmt.value == null ? macro _ : typeExpr(stmt.value, info); // value of x[key]
 	var body = {expr: typeBlockStmt(stmt.body, info, false), pos: null};
 	var assign = false;
-	if (stmt.value == null) {
+	if (stmt.value == null && stmt.tok != ASSIGN) {
 		switch xType {
 			case arrayType(_, _), sliceType(_):
 				return (macro for ($key in 0...$x.length.toBasic()) $body).expr;

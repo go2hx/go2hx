@@ -59,7 +59,7 @@ class ChanData<T> {
 		if (closed) {
 			return false;
 		}
-		final value = __sendBool__;
+		final value = __sendBool__ || __buffer__.buffered;
 		if (reset && value)
 			__sendBool__ = false;
 		__mutex__.release();

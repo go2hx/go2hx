@@ -3302,10 +3302,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case EBlock(exprs):
 					exprs.unshift(macro var __tmp__ = $tupleArg);
 				default:
-					e = macro {
+					e = macro ({
 						var __tmp__ = $tupleArg;
 						$e;
-					};
+					});
 			}
 		}
 		/*if (forceType) {

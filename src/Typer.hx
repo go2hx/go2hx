@@ -55,7 +55,7 @@ final reservedClassNames = [
 	// "StringBuf",
 	"StringTools",
 	"SysError",
-	// "Type",
+	"Type",
 	// "UnicodeString",
 	"ValueType",
 	"Void",
@@ -1182,8 +1182,8 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						var func = typeExpr(spec.values[0], info);
 						var data = castTranslate(spec.values[0], func, info);
 						func = data.expr;
-						if (data.ok)
-							spec.names = [{name: "value", type: null}, {name: "ok", type: null}];
+						/*if (data.ok)
+							spec.names = [{name: "value", type: null}, {name: "ok", type: null}];*/
 						vars2.push({
 							name: tmp,
 							expr: func
@@ -1962,9 +1962,9 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 			{
 				ok: true,
 				expr: macro try {
-					{value: $e, ok: true};
+					{_0: $e, _1: true};
 				} catch (_) {
-					{value: $value, ok: false};
+					{_0: $value, _1: false};
 				}
 			};
 		case "UnaryExpr":
@@ -1975,7 +1975,8 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 			var obj:Ast.IndexExpr = obj;
 			var index = typeExpr(obj.index, info);
 			var x = typeExpr(obj.x, info);
-			switch getUnderlying(typeof(obj.x,info, false)) {
+			final ut = getUnderlying(typeof(obj.x,info, false));
+			switch ut {
 				case mapType(_.get() => var keyType, _):
 					// something strange is not working here try assign translate instead
 					index = assignTranslate(typeof(obj.index, info, false), keyType, index, info);
@@ -1991,7 +1992,7 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 			}
 			{
 				ok: true,
-				expr: macro($x != null && $x.exists($index) ? {value: $x[$index], ok: true} : {value: $value, ok: false}),
+				expr: macro($x != null && $x.exists($index) ? {_0: $x[$index], _1: true} : {_0: $value, _1: false}),
 			};
 		default:
 			{expr: e, ok: false};
@@ -2673,8 +2674,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				var types:Array<GoType> = [];
 				var data = castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
-				if (data.ok)
-					names = ["value", "ok"];
+				/*if (data.ok)
+					names = ["value", "ok"];*/
 				switch t {
 					case tuple(_, _.get() => vars):
 						for (i in 0...vars.length) {
@@ -2767,8 +2768,8 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 				var types:Array<ComplexType> = [];
 				var data = castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
-				if (data.ok)
-					names = ["value", "ok"];
+				/*if (data.ok)
+					names = ["value", "ok"];*/
 				switch t {
 					case tuple(_, _.get() => vars):
 						for (i in 0...vars.length) {
@@ -7474,8 +7475,8 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 		var func = typeExpr(value.values[0], info);
 		var data = castTranslate(value.values[0], func, info);
 		func = data.expr;
-		if (data.ok)
-			value.names = [{name: "value", type: null}, {name: "ok", type: null}];
+		/*if (data.ok)
+			value.names = [{name: "value", type: null}, {name: "ok", type: null}];*/
 		info.blankCounter++;
 		values.unshift({
 			name: tmp,
@@ -7486,8 +7487,9 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 		});
 		for (i in 0...value.names.length) {
 			var fieldName = "_" + i;
+			final name = nameIdent(value.names[i].name, false, true, info);
 			values.push({
-				name: nameIdent(value.names[i].name, false, true, info),
+				name: name,
 				pos: {min: info.blankCounter, max: 0, file: ""},
 				pack: [],
 				fields: [],

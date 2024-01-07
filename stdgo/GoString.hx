@@ -1,6 +1,5 @@
 package stdgo;
 
-import stdgo.Slice.SliceData;
 import haxe.io.Bytes;
 import stdgo.StdGoTypes;
 
@@ -119,7 +118,7 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 			// vector starts at 0
 			slice.__vector__.set(slice.__offset__ + i, value);
 		}*/
-		final slice = new SliceData<GoByte>(0,-1);
+		final slice = new stdgo.GoArray.GoArrayData<GoByte>(0,-1);
 		slice.bytes = this.bytes;
 		slice.offset = this.low;
 		slice.length = this.high - this.low;
@@ -130,9 +129,6 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 		return slice;
 	}
 
-	@:to public function __toVector__():haxe.ds.Vector<GoByte> {
-		return __toSliceByte__().__toVector__();
-	}
 
 	@:to public function __toSliceRune__():Slice<GoRune> {
 		var bytes = __toSliceByte__();

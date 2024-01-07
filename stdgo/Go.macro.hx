@@ -808,7 +808,6 @@ class Go {
 
 	public static macro function pointer(expr:Expr, hasSet:Bool = false) {
 		expr = escapeParens(expr);
-
 		var p:TypePath = {name: "Pointer", pack: ["stdgo"]};
 		var expected = Context.getExpectedType();
 		if (expected != null) {
@@ -864,36 +863,38 @@ class Go {
 				return macro {
 					final underlying = $e;
 					final underlyingIndex = $v{field};
-					new $p(() -> $expr, v -> $expr = v, false, underlying, underlyingIndex);
+					new $p(() -> $expr, v -> $expr = v, false, null, underlying, underlyingIndex);
 				};
 			case EArray(e1, e2):
 				var t = Context.follow(Context.typeof(e1));
 				switch t {
-					case TAbstract(t, params):
-						var t = t.get();
-						if (t.name == "Pointer") {
+					case TAbstract(_.get() => at, params):
+						if (at.name == "Pointer") {
 							switch params[0] {
-								case TAbstract(t2, params2):
-									t = t2.get();
+								case TAbstract(_.get() => t2, params2):
+									at = t2;
 									e1 = macro ${e1}.value;
 								default:
 							}
 						}
-						switch t.name {
-							case "Slice":
-								return macro {
+						switch at.name {
+							case "Slice", "GoArray":
+								// trace(new haxe.macro.Printer().printExpr(e2));
+								// trace(new haxe.macro.Printer().printExpr(e1));
+								//trace(new haxe.macro.Printer().printComplexType(Context.toComplexType(t)));
+								final expr = macro {
 									final _offset_ = ${e1}.__getOffset__();
 									final index = (${e2} : stdgo.StdGoTypes.GoInt).toBasic() + _offset_;
-									final underlying = ${e1}.__toVector__();
+									final underlying = ${e1}.__toBasic__();
 									var underlyingIndex = index;
-									new $p(() -> ${e1}.__toVector__()[index], v -> ${e1}.__toVector__()[index] = v, false, underlying, underlyingIndex);
+									final get = () -> underlying.get(index);
+									final set = v -> underlying.set(index, v);
+									final ptr = new $p(get, set, false, null, underlying, underlyingIndex);
+									ptr.underlying = underlying;
+									ptr;
 								};
-							case "GoArray":
-								return macro {
-									final underlying = ${e1}.__toVector__();
-									final underlyingIndex = (${e2} : stdgo.StdGoTypes.GoInt).toBasic();
-									new $p(() -> $expr, v -> $expr = v, false, underlying, underlyingIndex);
-								}
+								// trace(new haxe.macro.Printer().printExpr(expr));
+								return expr;
 						}
 					default:
 				}

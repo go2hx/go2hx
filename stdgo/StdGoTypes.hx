@@ -1867,7 +1867,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				if (a == null || b == null) {
 					a == b;
 				}else{
-					a.__toVector__() == b.__toVector__();
+					a == b;
 				}
 			case interfaceType(_, _):
 				aValue == bValue;

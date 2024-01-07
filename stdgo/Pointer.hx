@@ -53,15 +53,6 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 		}
 		return value;
 	}
-
-	// Conversions from slice to array pointer go 1.17
-
-	@:from
-	private static function fromSlice<T>(slice:Slice<T>):Pointer<GoArray<T>> {
-		var x:GoArray<T> = cast slice.__toVector__();
-		return #if !macro Go.pointer(x) #else null #end;
-	}
-
 	@:to
 	public static inline function to<T>(p:PointerData<T>):T {
 		if (p == null)

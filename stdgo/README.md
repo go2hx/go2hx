@@ -91,6 +91,36 @@
 
   - [`function new(k:stdgo.AnyInterface):Void`](<#goanyinterfacemapkey-function-new>)
 
+- [class GoArrayData](<#class-goarraydata>)
+
+  - [`function get(index:Int):stdgo.GoArrayData.T`](<#goarraydata-function-get>)
+
+  - [`function grow():Void`](<#goarraydata-function-grow>)
+
+  - [`function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.GoArrayData.T>):Void`](<#goarraydata-function-new>)
+
+  - [`function set(index:Int, value:stdgo.GoArrayData.T):stdgo.GoArrayData.T`](<#goarraydata-function-set>)
+
+  - [`function toArray():Array<stdgo.GoArrayData.T>`](<#goarraydata-function-toarray>)
+
+  - [`function toVector():haxe.ds.Vector<stdgo.GoArrayData.T>`](<#goarraydata-function-tovector>)
+
+- [class GoArrayDataIterator](<#class-goarraydataiterator>)
+
+  - [`function hasNext():Bool`](<#goarraydataiterator-function-hasnext>)
+
+  - [`function new(slice:stdgo.GoArrayData<stdgo.GoArrayDataIterator.T>):Void`](<#goarraydataiterator-function-new>)
+
+  - [`function next():stdgo.GoArrayDataIterator.T`](<#goarraydataiterator-function-next>)
+
+- [class GoArrayDataKeyValueIterator](<#class-goarraydatakeyvalueiterator>)
+
+  - [`function hasNext():Bool`](<#goarraydatakeyvalueiterator-function-hasnext>)
+
+  - [`function new(slice:stdgo.GoArrayData<stdgo.GoArrayDataKeyValueIterator.T>):Void`](<#goarraydatakeyvalueiterator-function-new>)
+
+  - [`function next():{ value:stdgo.GoArrayDataKeyValueIterator.T; key:stdgo.GoInt;}`](<#goarraydatakeyvalueiterator-function-next>)
+
 - [class GoArrayMap](<#class-goarraymap>)
 
   - [`function new():Void`](<#goarraymap-function-new>)
@@ -188,20 +218,6 @@
   - [`function set()`](<#pointerdata-function-set>)
 
   - [`function toString():String`](<#pointerdata-function-tostring>)
-
-- [class SliceData](<#class-slicedata>)
-
-  - [`function get(index:Int):stdgo.SliceData.T`](<#slicedata-function-get>)
-
-  - [`function grow():Void`](<#slicedata-function-grow>)
-
-  - [`function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void`](<#slicedata-function-new>)
-
-  - [`function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T`](<#slicedata-function-set>)
-
-  - [`function toArray():Array<stdgo.SliceData.T>`](<#slicedata-function-toarray>)
-
-  - [`function toVector():haxe.ds.Vector<stdgo.SliceData.T>`](<#slicedata-function-tovector>)
 
 - [typedef Complex128](<#typedef-complex128>)
 
@@ -695,6 +711,175 @@ function new(k:stdgo.AnyInterface):Void
 [\(view code\)](<./GoMap.hx#L572>)
 
 
+## class GoArrayData
+
+
+```haxe
+var bytes:haxe.io.Bytes
+```
+
+
+```haxe
+var capacity:Int
+```
+
+
+```haxe
+var length:Int
+```
+
+
+```haxe
+var offset:Int
+```
+
+
+```haxe
+var vector:haxe.ds.Vector<stdgo.GoArrayData.T>
+```
+
+
+### GoArrayData function get
+
+
+```haxe
+function get(index:Int):stdgo.GoArrayData.T
+```
+
+
+[\(view code\)](<./GoArray.hx#L123>)
+
+
+### GoArrayData function grow
+
+
+```haxe
+function grow():Void
+```
+
+
+[\(view code\)](<./GoArray.hx#L169>)
+
+
+### GoArrayData function new
+
+
+```haxe
+function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.GoArrayData.T>):Void
+```
+
+
+[\(view code\)](<./GoArray.hx#L25>)
+
+
+### GoArrayData function set
+
+
+```haxe
+function set(index:Int, value:stdgo.GoArrayData.T):stdgo.GoArrayData.T
+```
+
+
+[\(view code\)](<./GoArray.hx#L142>)
+
+
+### GoArrayData function toArray
+
+
+```haxe
+function toArray():Array<stdgo.GoArrayData.T>
+```
+
+
+[\(view code\)](<./GoArray.hx#L151>)
+
+
+### GoArrayData function toVector
+
+
+```haxe
+function toVector():haxe.ds.Vector<stdgo.GoArrayData.T>
+```
+
+
+[\(view code\)](<./GoArray.hx#L157>)
+
+
+## class GoArrayDataIterator
+
+
+### GoArrayDataIterator function hasNext
+
+
+```haxe
+function hasNext():Bool
+```
+
+
+[\(view code\)](<./GoArray.hx#L228>)
+
+
+### GoArrayDataIterator function new
+
+
+```haxe
+function new(slice:stdgo.GoArrayData<stdgo.GoArrayDataIterator.T>):Void
+```
+
+
+[\(view code\)](<./GoArray.hx#L224>)
+
+
+### GoArrayDataIterator function next
+
+
+```haxe
+function next():stdgo.GoArrayDataIterator.T
+```
+
+
+[\(view code\)](<./GoArray.hx#L232>)
+
+
+## class GoArrayDataKeyValueIterator
+
+
+### GoArrayDataKeyValueIterator function hasNext
+
+
+```haxe
+function hasNext():Bool
+```
+
+
+[\(view code\)](<./GoArray.hx#L211>)
+
+
+### GoArrayDataKeyValueIterator function new
+
+
+```haxe
+function new(slice:stdgo.GoArrayData<stdgo.GoArrayDataKeyValueIterator.T>):Void
+```
+
+
+[\(view code\)](<./GoArray.hx#L207>)
+
+
+### GoArrayDataKeyValueIterator function next
+
+
+```haxe
+function next():{
+	value:stdgo.GoArrayDataKeyValueIterator.T;
+	key:stdgo.GoInt;
+}
+```
+
+
+[\(view code\)](<./GoArray.hx#L215>)
+
+
 ## class GoArrayMap
 
 
@@ -1008,7 +1193,7 @@ function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L307>)
+[\(view code\)](<./GoString.hx#L303>)
 
 
 ### GoStringTools function lastIndexOf
@@ -1019,7 +1204,7 @@ function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L304>)
+[\(view code\)](<./GoString.hx#L300>)
 
 
 ### GoStringTools function substr
@@ -1030,7 +1215,7 @@ function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString
 ```
 
 
-[\(view code\)](<./GoString.hx#L310>)
+[\(view code\)](<./GoString.hx#L306>)
 
 
 ## class GoUInt64Map
@@ -1123,7 +1308,7 @@ function new(?get:():stdgo.PointerData.T, ?set:(), ?hasSet:Bool, ?previous:stdgo
 ```
 
 
-[\(view code\)](<./Pointer.hx#L89>)
+[\(view code\)](<./Pointer.hx#L80>)
 
 
 ### PointerData function set
@@ -1142,101 +1327,7 @@ function toString():String
 ```
 
 
-[\(view code\)](<./Pointer.hx#L107>)
-
-
-## class SliceData
-
-
-```haxe
-var bytes:haxe.io.Bytes
-```
-
-
-```haxe
-var capacity:Int
-```
-
-
-```haxe
-var length:Int
-```
-
-
-```haxe
-var offset:Int
-```
-
-
-```haxe
-var vector:haxe.ds.Vector<stdgo.SliceData.T>
-```
-
-
-### SliceData function get
-
-
-```haxe
-function get(index:Int):stdgo.SliceData.T
-```
-
-
-[\(view code\)](<./Slice.hx#L335>)
-
-
-### SliceData function grow
-
-
-```haxe
-function grow():Void
-```
-
-
-[\(view code\)](<./Slice.hx#L381>)
-
-
-### SliceData function new
-
-
-```haxe
-function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void
-```
-
-
-[\(view code\)](<./Slice.hx#L237>)
-
-
-### SliceData function set
-
-
-```haxe
-function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T
-```
-
-
-[\(view code\)](<./Slice.hx#L354>)
-
-
-### SliceData function toArray
-
-
-```haxe
-function toArray():Array<stdgo.SliceData.T>
-```
-
-
-[\(view code\)](<./Slice.hx#L363>)
-
-
-### SliceData function toVector
-
-
-```haxe
-function toVector():haxe.ds.Vector<stdgo.SliceData.T>
-```
-
-
-[\(view code\)](<./Slice.hx#L369>)
+[\(view code\)](<./Pointer.hx#L98>)
 
 
 # Typedefs

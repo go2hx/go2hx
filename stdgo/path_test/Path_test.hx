@@ -332,18 +332,18 @@ function exampleJoin():Void {
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(stdgo.path.Path.join(stdgo.Go.str()?.__copy__(), ("a" : stdgo.GoString))));
     }
 function exampleMatch():Void {
-        {
+        ({
             var __tmp__ = stdgo.path.Path.match(("abc" : stdgo.GoString), ("abc" : stdgo.GoString));
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
-        };
-        {
+        });
+        ({
             var __tmp__ = stdgo.path.Path.match(("a*" : stdgo.GoString), ("abc" : stdgo.GoString));
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
-        };
-        {
+        });
+        ({
             var __tmp__ = stdgo.path.Path.match(("a*/b" : stdgo.GoString), ("a/c/b" : stdgo.GoString));
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
-        };
+        });
     }
 function exampleSplit():Void {
         var _split:stdgo.GoString -> Void = function(_s:stdgo.GoString):Void {

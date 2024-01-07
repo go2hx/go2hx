@@ -977,22 +977,22 @@ function exampleJoin():Void {
     }
 function exampleMatch():Void {
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)));
-        {
+        ({
             var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/catch/*" : stdgo.GoString), ("/home/catch/foo" : stdgo.GoString));
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
-        };
-        {
+        });
+        ({
             var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/catch/*" : stdgo.GoString), ("/home/catch/foo/bar" : stdgo.GoString));
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
-        };
-        {
+        });
+        ({
             var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/?opher" : stdgo.GoString), ("/home/gopher" : stdgo.GoString));
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
-        };
-        {
+        });
+        ({
             var __tmp__ = stdgo.path.filepath.Filepath.match(("/home/\\*" : stdgo.GoString), ("/home/*" : stdgo.GoString));
             stdgo.fmt.Fmt.println(stdgo.Go.toInterface((__tmp__._0 : Bool)), stdgo.Go.toInterface((__tmp__._1 : stdgo.Error)));
-        };
+        });
     }
 function exampleBase():Void {
         stdgo.fmt.Fmt.println(stdgo.Go.toInterface(("On Unix:" : stdgo.GoString)));

@@ -729,7 +729,8 @@ class Go {
 						}
 					} else {
 						// exclude basic types from using __underlying__ field access
-						if (t.kind() == 2 || t.kind() == 1 || t.kind() == 5) {
+						// trace(t.kind());
+						if (t.kind() == 2 || t.kind() == 1 || t.kind() == 5 || t.kind() == 19) {
 							($e.value : $t);
 						}else if (($e.value : Dynamic).__underlying__ == null) {
 							($e.value : $t);

@@ -43,9 +43,9 @@
 
 - [`function _pow2(_i:stdgo.GoInt):stdgo.GoFloat64`](<#function-_pow2>)
 
-- [`function _testAtof(_t:stdgo.Ref<stdgo.testing.T>, _opt:Bool):Void`](<#function-_testatof>)
+- [`function _testAtof(_t:stdgo.Ref<stdgo.testing.T_>, _opt:Bool):Void`](<#function-_testatof>)
 
-- [`function _testUnquote(_t:stdgo.Ref<stdgo.testing.T>, _in:stdgo.GoString, _want:stdgo.GoString, _wantErr:stdgo.Error):Void`](<#function-_testunquote>)
+- [`function _testUnquote(_t:stdgo.Ref<stdgo.testing.T_>, _in:stdgo.GoString, _want:stdgo.GoString, _wantErr:stdgo.Error):Void`](<#function-_testunquote>)
 
 - [`function benchmarkAppendFloat(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkappendfloat>)
 
@@ -165,117 +165,117 @@
 
 - [`function exampleUnquoteChar():Void`](<#function-exampleunquotechar>)
 
-- [`function testAllocationsFromBytes(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testallocationsfrombytes>)
+- [`function testAllocationsFromBytes(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testallocationsfrombytes>)
 
-- [`function testAppendBool(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testappendbool>)
+- [`function testAppendBool(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testappendbool>)
 
-- [`function testAtof(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testatof>)
+- [`function testAtof(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testatof>)
 
-- [`function testAtofRandom(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testatofrandom>)
+- [`function testAtofRandom(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testatofrandom>)
 
-- [`function testAtofSlow(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testatofslow>)
+- [`function testAtofSlow(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testatofslow>)
 
-- [`function testAtoi(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testatoi>)
+- [`function testAtoi(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testatoi>)
 
-- [`function testCanBackquote(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcanbackquote>)
+- [`function testCanBackquote(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcanbackquote>)
 
-- [`function testCountMallocs(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcountmallocs>)
+- [`function testCountMallocs(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcountmallocs>)
 
-- [`function testDecimalRound(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testdecimalround>)
+- [`function testDecimalRound(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testdecimalround>)
 
-- [`function testDecimalRoundedInteger(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testdecimalroundedinteger>)
+- [`function testDecimalRoundedInteger(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testdecimalroundedinteger>)
 
-- [`function testDecimalShift(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testdecimalshift>)
+- [`function testDecimalShift(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testdecimalshift>)
 
-- [`function testErrorPrefixes(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testerrorprefixes>)
+- [`function testErrorPrefixes(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testerrorprefixes>)
 
-- [`function testFormatBool(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testformatbool>)
+- [`function testFormatBool(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testformatbool>)
 
-- [`function testFormatComplex(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testformatcomplex>)
+- [`function testFormatComplex(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testformatcomplex>)
 
-- [`function testFormatComplexInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testformatcomplexinvalidbitsize>)
+- [`function testFormatComplexInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testformatcomplexinvalidbitsize>)
 
-- [`function testFormatFloatInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testformatfloatinvalidbitsize>)
+- [`function testFormatFloatInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testformatfloatinvalidbitsize>)
 
-- [`function testFormatUintVarlen(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testformatuintvarlen>)
+- [`function testFormatUintVarlen(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testformatuintvarlen>)
 
-- [`function testFp(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testfp>)
+- [`function testFp(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testfp>)
 
-- [`function testFtoa(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testftoa>)
+- [`function testFtoa(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testftoa>)
 
-- [`function testFtoaPowersOfTwo(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testftoapowersoftwo>)
+- [`function testFtoaPowersOfTwo(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testftoapowersoftwo>)
 
-- [`function testFtoaRandom(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testftoarandom>)
+- [`function testFtoaRandom(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testftoarandom>)
 
-- [`function testIsGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testisgraphic>)
+- [`function testIsGraphic(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testisgraphic>)
 
-- [`function testIsPrint(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testisprint>)
+- [`function testIsPrint(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testisprint>)
 
-- [`function testItoa(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testitoa>)
+- [`function testItoa(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testitoa>)
 
-- [`function testMulByLog10Log2(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testmulbylog10log2>)
+- [`function testMulByLog10Log2(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testmulbylog10log2>)
 
-- [`function testMulByLog2Log10(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testmulbylog2log10>)
+- [`function testMulByLog2Log10(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testmulbylog2log10>)
 
-- [`function testNumError(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnumerror>)
+- [`function testNumError(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnumerror>)
 
-- [`function testNumErrorUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnumerrorunwrap>)
+- [`function testNumErrorUnwrap(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnumerrorunwrap>)
 
-- [`function testParseBool(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparsebool>)
+- [`function testParseBool(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparsebool>)
 
-- [`function testParseComplex(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparsecomplex>)
+- [`function testParseComplex(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparsecomplex>)
 
-- [`function testParseComplexIncorrectBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparsecomplexincorrectbitsize>)
+- [`function testParseComplexIncorrectBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparsecomplexincorrectbitsize>)
 
-- [`function testParseFloatIncorrectBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparsefloatincorrectbitsize>)
+- [`function testParseFloatIncorrectBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparsefloatincorrectbitsize>)
 
-- [`function testParseFloatPrefix(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparsefloatprefix>)
+- [`function testParseFloatPrefix(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparsefloatprefix>)
 
-- [`function testParseInt(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseint>)
+- [`function testParseInt(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseint>)
 
-- [`function testParseInt32(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseint32>)
+- [`function testParseInt32(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseint32>)
 
-- [`function testParseInt64(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseint64>)
+- [`function testParseInt64(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseint64>)
 
-- [`function testParseInt64Base(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseint64base>)
+- [`function testParseInt64Base(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseint64base>)
 
-- [`function testParseIntBase(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseintbase>)
+- [`function testParseIntBase(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseintbase>)
 
-- [`function testParseIntBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseintbitsize>)
+- [`function testParseIntBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseintbitsize>)
 
-- [`function testParseUint(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseuint>)
+- [`function testParseUint(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseuint>)
 
-- [`function testParseUint32(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseuint32>)
+- [`function testParseUint32(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseuint32>)
 
-- [`function testParseUint64(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseuint64>)
+- [`function testParseUint64(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseuint64>)
 
-- [`function testParseUint64Base(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseuint64base>)
+- [`function testParseUint64Base(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseuint64base>)
 
-- [`function testParseUintBase(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseuintbase>)
+- [`function testParseUintBase(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseuintbase>)
 
-- [`function testParseUintBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testparseuintbitsize>)
+- [`function testParseUintBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testparseuintbitsize>)
 
-- [`function testQuote(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testquote>)
+- [`function testQuote(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testquote>)
 
-- [`function testQuoteRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testquoterune>)
+- [`function testQuoteRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testquoterune>)
 
-- [`function testQuoteRuneToASCII(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testquoterunetoascii>)
+- [`function testQuoteRuneToASCII(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testquoterunetoascii>)
 
-- [`function testQuoteRuneToGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testquoterunetographic>)
+- [`function testQuoteRuneToGraphic(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testquoterunetographic>)
 
-- [`function testQuoteToASCII(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testquotetoascii>)
+- [`function testQuoteToASCII(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testquotetoascii>)
 
-- [`function testQuoteToGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testquotetographic>)
+- [`function testQuoteToGraphic(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testquotetographic>)
 
-- [`function testRoundTrip(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testroundtrip>)
+- [`function testRoundTrip(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testroundtrip>)
 
-- [`function testRoundTrip32(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testroundtrip32>)
+- [`function testRoundTrip32(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testroundtrip32>)
 
-- [`function testUitoa(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testuitoa>)
+- [`function testUitoa(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testuitoa>)
 
-- [`function testUnquote(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testunquote>)
+- [`function testUnquote(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testunquote>)
 
-- [`function testUnquoteInvalidUTF8(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testunquoteinvalidutf8>)
+- [`function testUnquoteInvalidUTF8(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testunquoteinvalidutf8>)
 
 - [`function main():Void`](<#function-main>)
 
@@ -760,7 +760,7 @@ function _pow2(_i:stdgo.GoInt):stdgo.GoFloat64
 
 
 ```haxe
-function _testAtof(_t:stdgo.Ref<stdgo.testing.T>, _opt:Bool):Void
+function _testAtof(_t:stdgo.Ref<stdgo.testing.T_>, _opt:Bool):Void
 ```
 
 
@@ -771,7 +771,7 @@ function _testAtof(_t:stdgo.Ref<stdgo.testing.T>, _opt:Bool):Void
 
 
 ```haxe
-function _testUnquote(_t:stdgo.Ref<stdgo.testing.T>, _in:stdgo.GoString, _want:stdgo.GoString, _wantErr:stdgo.Error):Void
+function _testUnquote(_t:stdgo.Ref<stdgo.testing.T_>, _in:stdgo.GoString, _want:stdgo.GoString, _wantErr:stdgo.Error):Void
 ```
 
 
@@ -1431,7 +1431,7 @@ function exampleUnquoteChar():Void
 
 
 ```haxe
-function testAllocationsFromBytes(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAllocationsFromBytes(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1442,7 +1442,7 @@ function testAllocationsFromBytes(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testAppendBool(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAppendBool(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1453,7 +1453,7 @@ function testAppendBool(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testAtof(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAtof(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1464,7 +1464,7 @@ function testAtof(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testAtofRandom(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAtofRandom(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1475,7 +1475,7 @@ function testAtofRandom(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testAtofSlow(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAtofSlow(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1486,7 +1486,7 @@ function testAtofSlow(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testAtoi(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAtoi(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1497,7 +1497,7 @@ function testAtoi(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCanBackquote(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCanBackquote(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1508,7 +1508,7 @@ function testCanBackquote(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCountMallocs(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCountMallocs(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1519,7 +1519,7 @@ function testCountMallocs(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testDecimalRound(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testDecimalRound(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1530,7 +1530,7 @@ function testDecimalRound(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testDecimalRoundedInteger(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testDecimalRoundedInteger(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1541,7 +1541,7 @@ function testDecimalRoundedInteger(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testDecimalShift(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testDecimalShift(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1552,7 +1552,7 @@ function testDecimalShift(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testErrorPrefixes(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testErrorPrefixes(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1563,7 +1563,7 @@ function testErrorPrefixes(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFormatBool(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFormatBool(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1574,7 +1574,7 @@ function testFormatBool(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFormatComplex(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFormatComplex(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1585,7 +1585,7 @@ function testFormatComplex(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFormatComplexInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFormatComplexInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1596,7 +1596,7 @@ function testFormatComplexInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFormatFloatInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFormatFloatInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1607,7 +1607,7 @@ function testFormatFloatInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFormatUintVarlen(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFormatUintVarlen(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1618,7 +1618,7 @@ function testFormatUintVarlen(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFp(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFp(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1629,7 +1629,7 @@ function testFp(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFtoa(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFtoa(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1640,7 +1640,7 @@ function testFtoa(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFtoaPowersOfTwo(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFtoaPowersOfTwo(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1651,7 +1651,7 @@ function testFtoaPowersOfTwo(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFtoaRandom(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFtoaRandom(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1662,7 +1662,7 @@ function testFtoaRandom(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsGraphic(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1676,7 +1676,7 @@ Verify that our IsGraphic agrees with unicode.IsGraphic.
 
 
 ```haxe
-function testIsPrint(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsPrint(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1690,7 +1690,7 @@ Verify that our IsPrint agrees with unicode.IsPrint.
 
 
 ```haxe
-function testItoa(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testItoa(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1701,7 +1701,7 @@ function testItoa(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testMulByLog10Log2(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testMulByLog10Log2(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1712,7 +1712,7 @@ function testMulByLog10Log2(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testMulByLog2Log10(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testMulByLog2Log10(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1723,7 +1723,7 @@ function testMulByLog2Log10(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testNumError(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNumError(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1734,7 +1734,7 @@ function testNumError(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testNumErrorUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNumErrorUnwrap(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1745,7 +1745,7 @@ function testNumErrorUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseBool(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseBool(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1756,7 +1756,7 @@ function testParseBool(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseComplex(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseComplex(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1767,7 +1767,7 @@ function testParseComplex(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseComplexIncorrectBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseComplexIncorrectBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1781,7 +1781,7 @@ Issue 42297: allow ParseComplex\(s, not\_32\_or\_64\) for legacy reasons
 
 
 ```haxe
-function testParseFloatIncorrectBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseFloatIncorrectBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1796,7 +1796,7 @@ or ParseFloat\(s, 0\), so allow bitSize values other than 32 and 64.
 
 
 ```haxe
-function testParseFloatPrefix(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseFloatPrefix(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1807,7 +1807,7 @@ function testParseFloatPrefix(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseInt(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseInt(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1818,7 +1818,7 @@ function testParseInt(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseInt32(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseInt32(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1829,7 +1829,7 @@ function testParseInt32(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseInt64(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseInt64(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1840,7 +1840,7 @@ function testParseInt64(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseInt64Base(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseInt64Base(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1851,7 +1851,7 @@ function testParseInt64Base(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseIntBase(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseIntBase(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1862,7 +1862,7 @@ function testParseIntBase(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseIntBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseIntBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1873,7 +1873,7 @@ function testParseIntBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseUint(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseUint(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1884,7 +1884,7 @@ function testParseUint(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseUint32(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseUint32(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1895,7 +1895,7 @@ function testParseUint32(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseUint64(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseUint64(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1906,7 +1906,7 @@ function testParseUint64(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseUint64Base(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseUint64Base(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1917,7 +1917,7 @@ function testParseUint64Base(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseUintBase(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseUintBase(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1928,7 +1928,7 @@ function testParseUintBase(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testParseUintBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testParseUintBitSize(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1939,7 +1939,7 @@ function testParseUintBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testQuote(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testQuote(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1950,7 +1950,7 @@ function testQuote(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testQuoteRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testQuoteRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1961,7 +1961,7 @@ function testQuoteRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testQuoteRuneToASCII(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testQuoteRuneToASCII(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1972,7 +1972,7 @@ function testQuoteRuneToASCII(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testQuoteRuneToGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testQuoteRuneToGraphic(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1983,7 +1983,7 @@ function testQuoteRuneToGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testQuoteToASCII(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testQuoteToASCII(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1994,7 +1994,7 @@ function testQuoteToASCII(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testQuoteToGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testQuoteToGraphic(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2005,7 +2005,7 @@ function testQuoteToGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testRoundTrip(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testRoundTrip(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2016,7 +2016,7 @@ function testRoundTrip(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testRoundTrip32(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testRoundTrip32(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2030,7 +2030,7 @@ TestRoundTrip32 tries a fraction of all finite positive float32 values.
 
 
 ```haxe
-function testUitoa(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testUitoa(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2041,7 +2041,7 @@ function testUitoa(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testUnquote(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testUnquote(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2052,7 +2052,7 @@ function testUnquote(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testUnquoteInvalidUTF8(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testUnquoteInvalidUTF8(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 

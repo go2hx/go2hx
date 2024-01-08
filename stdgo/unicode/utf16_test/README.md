@@ -27,21 +27,21 @@
 
 - [`function benchmarkEncodeValidJapaneseChars(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkencodevalidjapanesechars>)
 
-- [`function testAllocationsDecode(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testallocationsdecode>)
+- [`function testAllocationsDecode(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testallocationsdecode>)
 
-- [`function testAppendRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testappendrune>)
+- [`function testAppendRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testappendrune>)
 
-- [`function testConstants(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testconstants>)
+- [`function testConstants(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testconstants>)
 
-- [`function testDecode(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testdecode>)
+- [`function testDecode(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testdecode>)
 
-- [`function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testdecoderune>)
+- [`function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testdecoderune>)
 
-- [`function testEncode(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testencode>)
+- [`function testEncode(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testencode>)
 
-- [`function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testencoderune>)
+- [`function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testencoderune>)
 
-- [`function testIsSurrogate(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testissurrogate>)
+- [`function testIsSurrogate(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testissurrogate>)
 
 - [`function main():Void`](<#function-main>)
 
@@ -202,7 +202,7 @@ function benchmarkEncodeValidJapaneseChars(_b:stdgo.Ref<stdgo.testing.B>):Void
 
 
 ```haxe
-function testAllocationsDecode(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAllocationsDecode(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -213,7 +213,7 @@ function testAllocationsDecode(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testAppendRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAppendRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -224,7 +224,7 @@ function testAppendRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testConstants(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testConstants(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -238,7 +238,7 @@ Validate the constants redefined from unicode.
 
 
 ```haxe
-function testDecode(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testDecode(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -249,7 +249,7 @@ function testDecode(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -260,7 +260,7 @@ function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testEncode(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testEncode(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -271,7 +271,7 @@ function testEncode(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -282,7 +282,7 @@ function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsSurrogate(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsSurrogate(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 

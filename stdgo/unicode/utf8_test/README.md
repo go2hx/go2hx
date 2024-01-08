@@ -15,7 +15,7 @@
 
 - [`function _runtimeRuneCount(_s:stdgo.GoString):stdgo.GoInt`](<#function-_runtimerunecount>)
 
-- [`function _testSequence(_t:stdgo.Ref<stdgo.testing.T>, _s:stdgo.GoString):Void`](<#function-_testsequence>)
+- [`function _testSequence(_t:stdgo.Ref<stdgo.testing.T_>, _s:stdgo.GoString):Void`](<#function-_testsequence>)
 
 - [`function benchmarkAppendASCIIRune(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkappendasciirune>)
 
@@ -91,33 +91,33 @@
 
 - [`function exampleValidString():Void`](<#function-examplevalidstring>)
 
-- [`function testAppendRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testappendrune>)
+- [`function testAppendRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testappendrune>)
 
-- [`function testConstants(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testconstants>)
+- [`function testConstants(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testconstants>)
 
-- [`function testDecodeInvalidSequence(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testdecodeinvalidsequence>)
+- [`function testDecodeInvalidSequence(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testdecodeinvalidsequence>)
 
-- [`function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testdecoderune>)
+- [`function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testdecoderune>)
 
-- [`function testDecodeSurrogateRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testdecodesurrogaterune>)
+- [`function testDecodeSurrogateRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testdecodesurrogaterune>)
 
-- [`function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testencoderune>)
+- [`function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testencoderune>)
 
-- [`function testFullRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testfullrune>)
+- [`function testFullRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testfullrune>)
 
-- [`function testNegativeRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnegativerune>)
+- [`function testNegativeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnegativerune>)
 
-- [`function testRuneCount(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testrunecount>)
+- [`function testRuneCount(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testrunecount>)
 
-- [`function testRuneLen(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testrunelen>)
+- [`function testRuneLen(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testrunelen>)
 
-- [`function testRuntimeConversion(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testruntimeconversion>)
+- [`function testRuntimeConversion(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testruntimeconversion>)
 
-- [`function testSequencing(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsequencing>)
+- [`function testSequencing(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsequencing>)
 
-- [`function testValid(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testvalid>)
+- [`function testValid(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testvalid>)
 
-- [`function testValidRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testvalidrune>)
+- [`function testValidRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testvalidrune>)
 
 - [`function main():Void`](<#function-main>)
 
@@ -289,7 +289,7 @@ function _runtimeRuneCount(_s:stdgo.GoString):stdgo.GoInt
 
 
 ```haxe
-function _testSequence(_t:stdgo.Ref<stdgo.testing.T>, _s:stdgo.GoString):Void
+function _testSequence(_t:stdgo.Ref<stdgo.testing.T_>, _s:stdgo.GoString):Void
 ```
 
 
@@ -707,7 +707,7 @@ function exampleValidString():Void
 
 
 ```haxe
-function testAppendRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAppendRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -718,7 +718,7 @@ function testAppendRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testConstants(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testConstants(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -732,7 +732,7 @@ Validate the constants redefined from unicode.
 
 
 ```haxe
-function testDecodeInvalidSequence(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testDecodeInvalidSequence(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -743,7 +743,7 @@ function testDecodeInvalidSequence(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -754,7 +754,7 @@ function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testDecodeSurrogateRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testDecodeSurrogateRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -765,7 +765,7 @@ function testDecodeSurrogateRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -776,7 +776,7 @@ function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFullRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFullRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -787,7 +787,7 @@ function testFullRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testNegativeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNegativeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -801,7 +801,7 @@ Check that negative runes encode as U\+FFFD.
 
 
 ```haxe
-function testRuneCount(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testRuneCount(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -812,7 +812,7 @@ function testRuneCount(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testRuneLen(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testRuneLen(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -823,7 +823,7 @@ function testRuneLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testRuntimeConversion(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testRuntimeConversion(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -840,7 +840,7 @@ it's good to verify.
 
 
 ```haxe
-function testSequencing(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSequencing(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -855,7 +855,7 @@ the equivalent range loop.
 
 
 ```haxe
-function testValid(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testValid(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -866,7 +866,7 @@ function testValid(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testValidRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testValidRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 

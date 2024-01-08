@@ -47,67 +47,67 @@
 
 - [`function example_is():Void`](<#function-example_is>)
 
-- [`function testCalibrate(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcalibrate>)
+- [`function testCalibrate(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcalibrate>)
 
-- [`function testCategories(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcategories>)
+- [`function testCategories(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcategories>)
 
-- [`function testDigit(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testdigit>)
+- [`function testDigit(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testdigit>)
 
-- [`function testDigitOptimization(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testdigitoptimization>)
+- [`function testDigitOptimization(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testdigitoptimization>)
 
-- [`function testIsControlLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testiscontrollatin1>)
+- [`function testIsControlLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testiscontrollatin1>)
 
-- [`function testIsGraphicLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testisgraphiclatin1>)
+- [`function testIsGraphicLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testisgraphiclatin1>)
 
-- [`function testIsLetter(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testisletter>)
+- [`function testIsLetter(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testisletter>)
 
-- [`function testIsLetterLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testisletterlatin1>)
+- [`function testIsLetterLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testisletterlatin1>)
 
-- [`function testIsLowerLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testislowerlatin1>)
+- [`function testIsLowerLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testislowerlatin1>)
 
-- [`function testIsPrintLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testisprintlatin1>)
+- [`function testIsPrintLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testisprintlatin1>)
 
-- [`function testIsPunctLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testispunctlatin1>)
+- [`function testIsPunctLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testispunctlatin1>)
 
-- [`function testIsSpace(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testisspace>)
+- [`function testIsSpace(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testisspace>)
 
-- [`function testIsSpaceLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testisspacelatin1>)
+- [`function testIsSpaceLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testisspacelatin1>)
 
-- [`function testIsSymbolLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testissymbollatin1>)
+- [`function testIsSymbolLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testissymbollatin1>)
 
-- [`function testIsUpper(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testisupper>)
+- [`function testIsUpper(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testisupper>)
 
-- [`function testIsUpperLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testisupperlatin1>)
+- [`function testIsUpperLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testisupperlatin1>)
 
-- [`function testLatinOffset(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testlatinoffset>)
+- [`function testLatinOffset(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testlatinoffset>)
 
-- [`function testLetterOptimizations(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testletteroptimizations>)
+- [`function testLetterOptimizations(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testletteroptimizations>)
 
-- [`function testNegativeRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnegativerune>)
+- [`function testNegativeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnegativerune>)
 
-- [`function testNumberLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnumberlatin1>)
+- [`function testNumberLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnumberlatin1>)
 
-- [`function testProperties(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testproperties>)
+- [`function testProperties(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testproperties>)
 
-- [`function testSimpleFold(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsimplefold>)
+- [`function testSimpleFold(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsimplefold>)
 
-- [`function testSpecialCaseNoMapping(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testspecialcasenomapping>)
+- [`function testSpecialCaseNoMapping(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testspecialcasenomapping>)
 
-- [`function testTo(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testto>)
+- [`function testTo(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testto>)
 
-- [`function testToLowerCase(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtolowercase>)
+- [`function testToLowerCase(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtolowercase>)
 
-- [`function testToTitleCase(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtotitlecase>)
+- [`function testToTitleCase(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtotitlecase>)
 
-- [`function testToUpperCase(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtouppercase>)
+- [`function testToUpperCase(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtouppercase>)
 
-- [`function testTurkishCase(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testturkishcase>)
+- [`function testTurkishCase(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testturkishcase>)
 
 - [`function main():Void`](<#function-main>)
 
-- [class T](<#class-t>)
+- [class T\_](<#class-t_>)
 
-  - [`function new(?_rune:stdgo.GoInt32, ?_script:stdgo.GoString):Void`](<#t-function-new>)
+  - [`function new(?_rune:stdgo.GoInt32, ?_script:stdgo.GoString):Void`](<#t_-function-new>)
 
 # Variables
 
@@ -128,12 +128,12 @@ var _caseTest:stdgo.Slice<stdgo.unicode_test.T_caseT>
 
 
 ```haxe
-var _inCategoryTest:stdgo.Slice<stdgo.unicode_test.T>
+var _inCategoryTest:stdgo.Slice<stdgo.unicode_test.T_>
 ```
 
 
 ```haxe
-var _inPropTest:stdgo.Slice<stdgo.unicode_test.T>
+var _inPropTest:stdgo.Slice<stdgo.unicode_test.T_>
 ```
 
 
@@ -419,7 +419,7 @@ rune belongs to. Note that runes may fit into more than one range.
 
 
 ```haxe
-function testCalibrate(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCalibrate(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -430,7 +430,7 @@ function testCalibrate(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCategories(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCategories(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -441,7 +441,7 @@ function testCategories(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testDigit(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testDigit(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -452,7 +452,7 @@ function testDigit(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testDigitOptimization(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testDigitOptimization(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -466,7 +466,7 @@ Test that the special case in IsDigit agrees with the table
 
 
 ```haxe
-function testIsControlLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsControlLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -477,7 +477,7 @@ function testIsControlLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsGraphicLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsGraphicLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -488,7 +488,7 @@ function testIsGraphicLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsLetter(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsLetter(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -499,7 +499,7 @@ function testIsLetter(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsLetterLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsLetterLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -510,7 +510,7 @@ function testIsLetterLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsLowerLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsLowerLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -521,7 +521,7 @@ function testIsLowerLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsPrintLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsPrintLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -532,7 +532,7 @@ function testIsPrintLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsPunctLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsPunctLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -543,7 +543,7 @@ function testIsPunctLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsSpace(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsSpace(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -554,7 +554,7 @@ function testIsSpace(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsSpaceLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsSpaceLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -565,7 +565,7 @@ function testIsSpaceLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsSymbolLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsSymbolLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -576,7 +576,7 @@ function testIsSymbolLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsUpper(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsUpper(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -587,7 +587,7 @@ function testIsUpper(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIsUpperLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIsUpperLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -598,7 +598,7 @@ function testIsUpperLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testLatinOffset(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testLatinOffset(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -609,7 +609,7 @@ function testLatinOffset(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testLetterOptimizations(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testLetterOptimizations(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -624,7 +624,7 @@ We only need to check the Latin\-1 range.
 
 
 ```haxe
-function testNegativeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNegativeRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -635,7 +635,7 @@ function testNegativeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testNumberLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNumberLatin1(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -646,7 +646,7 @@ function testNumberLatin1(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testProperties(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testProperties(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -657,7 +657,7 @@ function testProperties(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSimpleFold(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSimpleFold(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -668,7 +668,7 @@ function testSimpleFold(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSpecialCaseNoMapping(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSpecialCaseNoMapping(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -679,7 +679,7 @@ function testSpecialCaseNoMapping(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testTo(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testTo(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -690,7 +690,7 @@ function testTo(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testToLowerCase(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testToLowerCase(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -701,7 +701,7 @@ function testToLowerCase(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testToTitleCase(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testToTitleCase(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -712,7 +712,7 @@ function testToTitleCase(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testToUpperCase(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testToUpperCase(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -723,7 +723,7 @@ function testToUpperCase(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testTurkishCase(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testTurkishCase(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -749,7 +749,7 @@ import stdgo.unicode_test.*
 ```
 
 
-## class T
+## class T\_
 
 
 ```haxe
@@ -762,7 +762,7 @@ var _script:stdgo.GoString
 ```
 
 
-### T function new
+### T\_ function new
 
 
 ```haxe

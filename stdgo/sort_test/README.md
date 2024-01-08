@@ -15,7 +15,7 @@
 
 - [`function _bench(_b:stdgo.Ref<stdgo.testing.B>, _size:stdgo.GoInt, _algo:(), _name:stdgo.GoString):Void`](<#function-_bench>)
 
-- [`function _countOps(_t:stdgo.Ref<stdgo.testing.T>, _algo:(), _name:stdgo.GoString):Void`](<#function-_countops>)
+- [`function _countOps(_t:stdgo.Ref<stdgo.testing.T_>, _algo:(), _name:stdgo.GoString):Void`](<#function-_countops>)
 
 - [`function _f(_a:stdgo.Slice<stdgo.GoInt>, _x:stdgo.GoInt):()`](<#function-_f>)
 
@@ -25,13 +25,13 @@
 
 - [`function _min(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt`](<#function-_min>)
 
-- [`function _newAdversaryTestingData(_t:stdgo.Ref<stdgo.testing.T>, _size:stdgo.GoInt, _maxcmp:stdgo.GoInt):stdgo.Ref<stdgo.sort_test.T_adversaryTestingData>`](<#function-_newadversarytestingdata>)
+- [`function _newAdversaryTestingData(_t:stdgo.Ref<stdgo.testing.T_>, _size:stdgo.GoInt, _maxcmp:stdgo.GoInt):stdgo.Ref<stdgo.sort_test.T_adversaryTestingData>`](<#function-_newadversarytestingdata>)
 
 - [`function _printOrgans(_s:stdgo.Slice<stdgo.Ref<stdgo.sort_test.Organ>>):Void`](<#function-_printorgans>)
 
 - [`function _runSearchWrappers():Void`](<#function-_runsearchwrappers>)
 
-- [`function _testBentleyMcIlroy(_t:stdgo.Ref<stdgo.testing.T>, _sort:(), _maxswap:()):Void`](<#function-_testbentleymcilroy>)
+- [`function _testBentleyMcIlroy(_t:stdgo.Ref<stdgo.testing.T_>, _sort:(), _maxswap:()):Void`](<#function-_testbentleymcilroy>)
 
 - [`function benchmarkSearchWrappers(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarksearchwrappers>)
 
@@ -105,59 +105,59 @@
 
 - [`function orderedBy(_less:haxe.Rest<stdgo.sort_test.T_lessFunc>):stdgo.Ref<stdgo.sort_test.T_multiSorter>`](<#function-orderedby>)
 
-- [`function testAdversary(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testadversary>)
+- [`function testAdversary(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testadversary>)
 
-- [`function testBreakPatterns(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testbreakpatterns>)
+- [`function testBreakPatterns(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testbreakpatterns>)
 
-- [`function testCountSortOps(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcountsortops>)
+- [`function testCountSortOps(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcountsortops>)
 
-- [`function testCountStableOps(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcountstableops>)
+- [`function testCountStableOps(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcountstableops>)
 
-- [`function testFind(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testfind>)
+- [`function testFind(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testfind>)
 
-- [`function testFindExhaustive(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testfindexhaustive>)
+- [`function testFindExhaustive(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testfindexhaustive>)
 
-- [`function testFloat64s(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testfloat64s>)
+- [`function testFloat64s(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testfloat64s>)
 
-- [`function testHeapsortBM(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testheapsortbm>)
+- [`function testHeapsortBM(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testheapsortbm>)
 
-- [`function testInts(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testints>)
+- [`function testInts(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testints>)
 
-- [`function testNonDeterministicComparison(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnondeterministiccomparison>)
+- [`function testNonDeterministicComparison(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnondeterministiccomparison>)
 
-- [`function testReverseRange(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreverserange>)
+- [`function testReverseRange(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreverserange>)
 
-- [`function testReverseSortIntSlice(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreversesortintslice>)
+- [`function testReverseSortIntSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreversesortintslice>)
 
-- [`function testSearch(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsearch>)
+- [`function testSearch(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsearch>)
 
-- [`function testSearchEfficiency(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsearchefficiency>)
+- [`function testSearchEfficiency(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsearchefficiency>)
 
-- [`function testSearchExhaustive(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsearchexhaustive>)
+- [`function testSearchExhaustive(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsearchexhaustive>)
 
-- [`function testSearchWrappers(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsearchwrappers>)
+- [`function testSearchWrappers(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsearchwrappers>)
 
-- [`function testSearchWrappersDontAlloc(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsearchwrappersdontalloc>)
+- [`function testSearchWrappersDontAlloc(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsearchwrappersdontalloc>)
 
-- [`function testSlice(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testslice>)
+- [`function testSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testslice>)
 
-- [`function testSortBM(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsortbm>)
+- [`function testSortBM(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsortbm>)
 
-- [`function testSortFloat64Slice(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsortfloat64slice>)
+- [`function testSortFloat64Slice(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsortfloat64slice>)
 
-- [`function testSortIntSlice(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsortintslice>)
+- [`function testSortIntSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsortintslice>)
 
-- [`function testSortLarge_Random(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsortlarge_random>)
+- [`function testSortLarge_Random(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsortlarge_random>)
 
-- [`function testSortStringSlice(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsortstringslice>)
+- [`function testSortStringSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsortstringslice>)
 
-- [`function testStability(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-teststability>)
+- [`function testStability(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-teststability>)
 
-- [`function testStableBM(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-teststablebm>)
+- [`function testStableBM(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-teststablebm>)
 
-- [`function testStableInts(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-teststableints>)
+- [`function testStableInts(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-teststableints>)
 
-- [`function testStrings(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-teststrings>)
+- [`function testStrings(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-teststrings>)
 
 - [`function main():Void`](<#function-main>)
 
@@ -417,7 +417,7 @@ function _bench(_b:stdgo.Ref<stdgo.testing.B>, _size:stdgo.GoInt, _algo:(), _nam
 
 
 ```haxe
-function _countOps(_t:stdgo.Ref<stdgo.testing.T>, _algo:(), _name:stdgo.GoString):Void
+function _countOps(_t:stdgo.Ref<stdgo.testing.T_>, _algo:(), _name:stdgo.GoString):Void
 ```
 
 
@@ -476,7 +476,7 @@ function _min(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt
 
 
 ```haxe
-function _newAdversaryTestingData(_t:stdgo.Ref<stdgo.testing.T>, _size:stdgo.GoInt, _maxcmp:stdgo.GoInt):stdgo.Ref<stdgo.sort_test.T_adversaryTestingData>
+function _newAdversaryTestingData(_t:stdgo.Ref<stdgo.testing.T_>, _size:stdgo.GoInt, _maxcmp:stdgo.GoInt):stdgo.Ref<stdgo.sort_test.T_adversaryTestingData>
 ```
 
 
@@ -509,7 +509,7 @@ function _runSearchWrappers():Void
 
 
 ```haxe
-function _testBentleyMcIlroy(_t:stdgo.Ref<stdgo.testing.T>, _sort:(), _maxswap:()):Void
+function _testBentleyMcIlroy(_t:stdgo.Ref<stdgo.testing.T_>, _sort:(), _maxswap:()):Void
 ```
 
 
@@ -942,7 +942,7 @@ Call its Sort method to sort the data.
 
 
 ```haxe
-function testAdversary(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAdversary(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -953,7 +953,7 @@ function testAdversary(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testBreakPatterns(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testBreakPatterns(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -964,7 +964,7 @@ function testBreakPatterns(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCountSortOps(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCountSortOps(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -975,7 +975,7 @@ function testCountSortOps(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCountStableOps(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCountStableOps(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -986,7 +986,7 @@ function testCountStableOps(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFind(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFind(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -997,7 +997,7 @@ function testFind(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFindExhaustive(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFindExhaustive(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1011,7 +1011,7 @@ Abstract exhaustive test for Find.
 
 
 ```haxe
-function testFloat64s(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFloat64s(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1022,7 +1022,7 @@ function testFloat64s(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testHeapsortBM(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testHeapsortBM(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1033,7 +1033,7 @@ function testHeapsortBM(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testInts(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testInts(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1044,7 +1044,7 @@ function testInts(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testNonDeterministicComparison(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNonDeterministicComparison(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1055,7 +1055,7 @@ function testNonDeterministicComparison(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReverseRange(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReverseRange(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1066,7 +1066,7 @@ function testReverseRange(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReverseSortIntSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReverseSortIntSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1077,7 +1077,7 @@ function testReverseSortIntSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSearch(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSearch(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1088,7 +1088,7 @@ function testSearch(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSearchEfficiency(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSearchEfficiency(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1099,7 +1099,7 @@ function testSearchEfficiency(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSearchExhaustive(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSearchExhaustive(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1115,7 +1115,7 @@ corner cases, this test exercises them.
 
 
 ```haxe
-function testSearchWrappers(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSearchWrappers(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1126,7 +1126,7 @@ function testSearchWrappers(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSearchWrappersDontAlloc(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSearchWrappersDontAlloc(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1137,7 +1137,7 @@ function testSearchWrappersDontAlloc(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1148,7 +1148,7 @@ function testSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSortBM(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSortBM(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1159,7 +1159,7 @@ function testSortBM(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSortFloat64Slice(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSortFloat64Slice(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1170,7 +1170,7 @@ function testSortFloat64Slice(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSortIntSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSortIntSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1181,7 +1181,7 @@ function testSortIntSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSortLarge_Random(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSortLarge_Random(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1192,7 +1192,7 @@ function testSortLarge_Random(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSortStringSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSortStringSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1203,7 +1203,7 @@ function testSortStringSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testStability(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testStability(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1214,7 +1214,7 @@ function testStability(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testStableBM(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testStableBM(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1225,7 +1225,7 @@ function testStableBM(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testStableInts(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testStableInts(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -1236,7 +1236,7 @@ function testStableInts(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testStrings(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testStrings(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 

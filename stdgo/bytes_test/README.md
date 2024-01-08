@@ -33,15 +33,15 @@
 
 - [`function _bmIndexRuneASCII(_index:(:stdgo.Slice<stdgo.GoByte>, :stdgo.GoRune):stdgo.GoInt):(_b:stdgo.Ref<stdgo.testing.B>, _n:stdgo.GoInt):Void`](<#function-_bmindexruneascii>)
 
-- [`function _check(_t:stdgo.Ref<stdgo.testing.T>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString):Void`](<#function-_check>)
+- [`function _check(_t:stdgo.Ref<stdgo.testing.T_>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString):Void`](<#function-_check>)
 
-- [`function _empty(_t:stdgo.Ref<stdgo.testing.T>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _fub:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_empty>)
+- [`function _empty(_t:stdgo.Ref<stdgo.testing.T_>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _fub:stdgo.Slice<stdgo.GoByte>):Void`](<#function-_empty>)
 
 - [`function _eq(_a:stdgo.Slice<stdgo.GoString>, _b:stdgo.Slice<stdgo.GoString>):Bool`](<#function-_eq>)
 
-- [`function _fillBytes(_t:stdgo.Ref<stdgo.testing.T>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _n:stdgo.GoInt, _fub:stdgo.Slice<stdgo.GoByte>):stdgo.GoString`](<#function-_fillbytes>)
+- [`function _fillBytes(_t:stdgo.Ref<stdgo.testing.T_>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _n:stdgo.GoInt, _fub:stdgo.Slice<stdgo.GoByte>):stdgo.GoString`](<#function-_fillbytes>)
 
-- [`function _fillString(_t:stdgo.Ref<stdgo.testing.T>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _n:stdgo.GoInt, _fus:stdgo.GoString):stdgo.GoString`](<#function-_fillstring>)
+- [`function _fillString(_t:stdgo.Ref<stdgo.testing.T_>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _n:stdgo.GoInt, _fus:stdgo.GoString):stdgo.GoString`](<#function-_fillstring>)
 
 - [`function _makeBenchInputHard():stdgo.Slice<stdgo.GoByte>`](<#function-_makebenchinputhard>)
 
@@ -55,11 +55,11 @@
 
 - [`function _rot13(_r:stdgo.GoRune):stdgo.GoRune`](<#function-_rot13>)
 
-- [`function _runIndexAnyTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.BinOpTest>):Void`](<#function-_runindexanytests>)
+- [`function _runIndexAnyTests(_t:stdgo.Ref<stdgo.testing.T_>, _f:(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.BinOpTest>):Void`](<#function-_runindexanytests>)
 
-- [`function _runIndexTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.BinOpTest>):Void`](<#function-_runindextests>)
+- [`function _runIndexTests(_t:stdgo.Ref<stdgo.testing.T_>, _f:(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.BinOpTest>):Void`](<#function-_runindextests>)
 
-- [`function _runStringTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(), _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.StringTest>):Void`](<#function-_runstringtests>)
+- [`function _runStringTests(_t:stdgo.Ref<stdgo.testing.T_>, _f:(), _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.StringTest>):Void`](<#function-_runstringtests>)
 
 - [`function _runesEqual(_a:stdgo.Slice<stdgo.GoRune>, _b:stdgo.Slice<stdgo.GoRune>):Bool`](<#function-_runesequal>)
 
@@ -313,179 +313,179 @@
 
 - [`function exampleTrimSuffix():Void`](<#function-exampletrimsuffix>)
 
-- [`function testBasicOperations(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testbasicoperations>)
+- [`function testBasicOperations(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testbasicoperations>)
 
-- [`function testBufferGrowNegative(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testbuffergrownegative>)
+- [`function testBufferGrowNegative(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testbuffergrownegative>)
 
-- [`function testBufferGrowth(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testbuffergrowth>)
+- [`function testBufferGrowth(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testbuffergrowth>)
 
-- [`function testBufferTruncateNegative(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testbuffertruncatenegative>)
+- [`function testBufferTruncateNegative(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testbuffertruncatenegative>)
 
-- [`function testBufferTruncateOutOfRange(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testbuffertruncateoutofrange>)
+- [`function testBufferTruncateOutOfRange(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testbuffertruncateoutofrange>)
 
-- [`function testCapWithPreallocatedSlice(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcapwithpreallocatedslice>)
+- [`function testCapWithPreallocatedSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcapwithpreallocatedslice>)
 
-- [`function testCapWithSliceAndWrittenData(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcapwithsliceandwrittendata>)
+- [`function testCapWithSliceAndWrittenData(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcapwithsliceandwrittendata>)
 
-- [`function testClone(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testclone>)
+- [`function testClone(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testclone>)
 
-- [`function testCompare(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcompare>)
+- [`function testCompare(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcompare>)
 
-- [`function testCompareBytes(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcomparebytes>)
+- [`function testCompareBytes(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcomparebytes>)
 
-- [`function testCompareIdenticalSlice(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcompareidenticalslice>)
+- [`function testCompareIdenticalSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcompareidenticalslice>)
 
-- [`function testContains(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcontains>)
+- [`function testContains(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcontains>)
 
-- [`function testContainsAny(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcontainsany>)
+- [`function testContainsAny(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcontainsany>)
 
-- [`function testContainsFunc(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcontainsfunc>)
+- [`function testContainsFunc(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcontainsfunc>)
 
-- [`function testContainsRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcontainsrune>)
+- [`function testContainsRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcontainsrune>)
 
-- [`function testCountByte(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcountbyte>)
+- [`function testCountByte(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcountbyte>)
 
-- [`function testCountByteNoMatch(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcountbytenomatch>)
+- [`function testCountByteNoMatch(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcountbytenomatch>)
 
-- [`function testCut(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcut>)
+- [`function testCut(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcut>)
 
-- [`function testCutPrefix(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcutprefix>)
+- [`function testCutPrefix(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcutprefix>)
 
-- [`function testCutSuffix(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcutsuffix>)
+- [`function testCutSuffix(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testcutsuffix>)
 
-- [`function testEmptyReaderConcurrent(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testemptyreaderconcurrent>)
+- [`function testEmptyReaderConcurrent(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testemptyreaderconcurrent>)
 
-- [`function testEndianBaseCompare(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testendianbasecompare>)
+- [`function testEndianBaseCompare(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testendianbasecompare>)
 
-- [`function testEqual(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testequal>)
+- [`function testEqual(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testequal>)
 
-- [`function testEqualExhaustive(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testequalexhaustive>)
+- [`function testEqualExhaustive(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testequalexhaustive>)
 
-- [`function testEqualFold(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testequalfold>)
+- [`function testEqualFold(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testequalfold>)
 
-- [`function testFields(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testfields>)
+- [`function testFields(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testfields>)
 
-- [`function testFieldsFunc(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testfieldsfunc>)
+- [`function testFieldsFunc(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testfieldsfunc>)
 
-- [`function testGrow(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testgrow>)
+- [`function testGrow(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testgrow>)
 
-- [`function testGrowOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testgrowoverflow>)
+- [`function testGrowOverflow(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testgrowoverflow>)
 
-- [`function testIndex(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testindex>)
+- [`function testIndex(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testindex>)
 
-- [`function testIndexAny(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testindexany>)
+- [`function testIndexAny(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testindexany>)
 
-- [`function testIndexByte(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testindexbyte>)
+- [`function testIndexByte(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testindexbyte>)
 
-- [`function testIndexByteBig(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testindexbytebig>)
+- [`function testIndexByteBig(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testindexbytebig>)
 
-- [`function testIndexByteSmall(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testindexbytesmall>)
+- [`function testIndexByteSmall(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testindexbytesmall>)
 
-- [`function testIndexFunc(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testindexfunc>)
+- [`function testIndexFunc(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testindexfunc>)
 
-- [`function testIndexRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testindexrune>)
+- [`function testIndexRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testindexrune>)
 
-- [`function testLargeByteReads(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testlargebytereads>)
+- [`function testLargeByteReads(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testlargebytereads>)
 
-- [`function testLargeByteWrites(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testlargebytewrites>)
+- [`function testLargeByteWrites(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testlargebytewrites>)
 
-- [`function testLargeStringReads(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testlargestringreads>)
+- [`function testLargeStringReads(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testlargestringreads>)
 
-- [`function testLargeStringWrites(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testlargestringwrites>)
+- [`function testLargeStringWrites(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testlargestringwrites>)
 
-- [`function testLastIndex(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testlastindex>)
+- [`function testLastIndex(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testlastindex>)
 
-- [`function testLastIndexAny(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testlastindexany>)
+- [`function testLastIndexAny(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testlastindexany>)
 
-- [`function testLastIndexByte(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testlastindexbyte>)
+- [`function testLastIndexByte(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testlastindexbyte>)
 
-- [`function testMap(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testmap>)
+- [`function testMap(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testmap>)
 
-- [`function testMixedReadsAndWrites(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testmixedreadsandwrites>)
+- [`function testMixedReadsAndWrites(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testmixedreadsandwrites>)
 
-- [`function testNewBuffer(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnewbuffer>)
+- [`function testNewBuffer(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnewbuffer>)
 
-- [`function testNewBufferString(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnewbufferstring>)
+- [`function testNewBufferString(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnewbufferstring>)
 
-- [`function testNext(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnext>)
+- [`function testNext(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnext>)
 
-- [`function testNil(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnil>)
+- [`function testNil(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnil>)
 
-- [`function testNotEqual(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnotequal>)
+- [`function testNotEqual(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnotequal>)
 
-- [`function testReadAfterBigSeek(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreadafterbigseek>)
+- [`function testReadAfterBigSeek(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreadafterbigseek>)
 
-- [`function testReadBytes(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreadbytes>)
+- [`function testReadBytes(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreadbytes>)
 
-- [`function testReadEmptyAtEOF(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreademptyateof>)
+- [`function testReadEmptyAtEOF(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreademptyateof>)
 
-- [`function testReadFrom(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreadfrom>)
+- [`function testReadFrom(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreadfrom>)
 
-- [`function testReadFromNegativeReader(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreadfromnegativereader>)
+- [`function testReadFromNegativeReader(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreadfromnegativereader>)
 
-- [`function testReadFromPanicReader(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreadfrompanicreader>)
+- [`function testReadFromPanicReader(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreadfrompanicreader>)
 
-- [`function testReadString(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreadstring>)
+- [`function testReadString(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreadstring>)
 
-- [`function testReader(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreader>)
+- [`function testReader(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreader>)
 
-- [`function testReaderAt(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreaderat>)
+- [`function testReaderAt(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreaderat>)
 
-- [`function testReaderAtConcurrent(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreaderatconcurrent>)
+- [`function testReaderAtConcurrent(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreaderatconcurrent>)
 
-- [`function testReaderCopyNothing(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreadercopynothing>)
+- [`function testReaderCopyNothing(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreadercopynothing>)
 
-- [`function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreaderdoubleunreadrune>)
+- [`function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreaderdoubleunreadrune>)
 
-- [`function testReaderLen(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreaderlen>)
+- [`function testReaderLen(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreaderlen>)
 
-- [`function testReaderLenSize(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreaderlensize>)
+- [`function testReaderLenSize(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreaderlensize>)
 
-- [`function testReaderReset(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreaderreset>)
+- [`function testReaderReset(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreaderreset>)
 
-- [`function testReaderWriteTo(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreaderwriteto>)
+- [`function testReaderWriteTo(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreaderwriteto>)
 
-- [`function testReaderZero(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreaderzero>)
+- [`function testReaderZero(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreaderzero>)
 
-- [`function testRepeat(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testrepeat>)
+- [`function testRepeat(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testrepeat>)
 
-- [`function testRepeatCatchesOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testrepeatcatchesoverflow>)
+- [`function testRepeatCatchesOverflow(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testrepeatcatchesoverflow>)
 
-- [`function testReplace(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testreplace>)
+- [`function testReplace(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testreplace>)
 
-- [`function testRuneIO(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testruneio>)
+- [`function testRuneIO(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testruneio>)
 
-- [`function testRunes(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testrunes>)
+- [`function testRunes(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testrunes>)
 
-- [`function testSplit(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsplit>)
+- [`function testSplit(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsplit>)
 
-- [`function testSplitAfter(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsplitafter>)
+- [`function testSplitAfter(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testsplitafter>)
 
-- [`function testTitle(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtitle>)
+- [`function testTitle(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtitle>)
 
-- [`function testToLower(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtolower>)
+- [`function testToLower(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtolower>)
 
-- [`function testToTitle(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtotitle>)
+- [`function testToTitle(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtotitle>)
 
-- [`function testToUpper(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtoupper>)
+- [`function testToUpper(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtoupper>)
 
-- [`function testToValidUTF8(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtovalidutf8>)
+- [`function testToValidUTF8(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtovalidutf8>)
 
-- [`function testTrim(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtrim>)
+- [`function testTrim(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtrim>)
 
-- [`function testTrimFunc(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtrimfunc>)
+- [`function testTrimFunc(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtrimfunc>)
 
-- [`function testTrimSpace(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtrimspace>)
+- [`function testTrimSpace(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testtrimspace>)
 
-- [`function testUnreadByte(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testunreadbyte>)
+- [`function testUnreadByte(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testunreadbyte>)
 
-- [`function testUnreadRuneError(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testunreadruneerror>)
+- [`function testUnreadRuneError(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testunreadruneerror>)
 
-- [`function testWriteAppend(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testwriteappend>)
+- [`function testWriteAppend(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testwriteappend>)
 
-- [`function testWriteInvalidRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testwriteinvalidrune>)
+- [`function testWriteInvalidRune(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testwriteinvalidrune>)
 
-- [`function testWriteTo(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testwriteto>)
+- [`function testWriteTo(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testwriteto>)
 
 - [`function main():Void`](<#function-main>)
 
@@ -1010,7 +1010,7 @@ function _bmIndexRuneASCII(_index:(:stdgo.Slice<stdgo.GoByte>, :stdgo.GoRune):st
 
 
 ```haxe
-function _check(_t:stdgo.Ref<stdgo.testing.T>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString):Void
+function _check(_t:stdgo.Ref<stdgo.testing.T_>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString):Void
 ```
 
 
@@ -1024,7 +1024,7 @@ Verify that contents of buf match the string s.
 
 
 ```haxe
-function _empty(_t:stdgo.Ref<stdgo.testing.T>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _fub:stdgo.Slice<stdgo.GoByte>):Void
+function _empty(_t:stdgo.Ref<stdgo.testing.T_>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _fub:stdgo.Slice<stdgo.GoByte>):Void
 ```
 
 
@@ -1050,7 +1050,7 @@ function _eq(_a:stdgo.Slice<stdgo.GoString>, _b:stdgo.Slice<stdgo.GoString>):Boo
 
 
 ```haxe
-function _fillBytes(_t:stdgo.Ref<stdgo.testing.T>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _n:stdgo.GoInt, _fub:stdgo.Slice<stdgo.GoByte>):stdgo.GoString
+function _fillBytes(_t:stdgo.Ref<stdgo.testing.T_>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _n:stdgo.GoInt, _fub:stdgo.Slice<stdgo.GoByte>):stdgo.GoString
 ```
 
 
@@ -1066,7 +1066,7 @@ the result is the final contents of buf returned as a string.
 
 
 ```haxe
-function _fillString(_t:stdgo.Ref<stdgo.testing.T>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _n:stdgo.GoInt, _fus:stdgo.GoString):stdgo.GoString
+function _fillString(_t:stdgo.Ref<stdgo.testing.T_>, _testname:stdgo.GoString, _buf:stdgo.Ref<stdgo.bytes.Buffer>, _s:stdgo.GoString, _n:stdgo.GoInt, _fus:stdgo.GoString):stdgo.GoString
 ```
 
 
@@ -1151,7 +1151,7 @@ User\-defined self\-inverse mapping function
 
 
 ```haxe
-function _runIndexAnyTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.BinOpTest>):Void
+function _runIndexAnyTests(_t:stdgo.Ref<stdgo.testing.T_>, _f:(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.BinOpTest>):Void
 ```
 
 
@@ -1162,7 +1162,7 @@ function _runIndexAnyTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(_s:stdgo.Slice<std
 
 
 ```haxe
-function _runIndexTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.BinOpTest>):Void
+function _runIndexTests(_t:stdgo.Ref<stdgo.testing.T_>, _f:(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.BinOpTest>):Void
 ```
 
 
@@ -1177,7 +1177,7 @@ in failure reports.
 
 
 ```haxe
-function _runStringTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(), _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.StringTest>):Void
+function _runStringTests(_t:stdgo.Ref<stdgo.testing.T_>, _f:(), _funcName:stdgo.GoString, _testCases:stdgo.Slice<stdgo.bytes_test.StringTest>):Void
 ```
 
 
@@ -2584,7 +2584,7 @@ function exampleTrimSuffix():Void
 
 
 ```haxe
-function testBasicOperations(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testBasicOperations(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2595,7 +2595,7 @@ function testBasicOperations(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testBufferGrowNegative(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testBufferGrowNegative(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2606,7 +2606,7 @@ function testBufferGrowNegative(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testBufferGrowth(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testBufferGrowth(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2620,7 +2620,7 @@ Tests that we occasionally compact. Issue 5154.
 
 
 ```haxe
-function testBufferTruncateNegative(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testBufferTruncateNegative(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2631,7 +2631,7 @@ function testBufferTruncateNegative(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testBufferTruncateOutOfRange(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testBufferTruncateOutOfRange(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2642,7 +2642,7 @@ function testBufferTruncateOutOfRange(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCapWithPreallocatedSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCapWithPreallocatedSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2653,7 +2653,7 @@ function testCapWithPreallocatedSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCapWithSliceAndWrittenData(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCapWithSliceAndWrittenData(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2664,7 +2664,7 @@ function testCapWithSliceAndWrittenData(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testClone(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testClone(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2675,7 +2675,7 @@ function testClone(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCompare(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCompare(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2686,7 +2686,7 @@ function testCompare(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCompareBytes(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCompareBytes(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2697,7 +2697,7 @@ function testCompareBytes(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCompareIdenticalSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCompareIdenticalSlice(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2708,7 +2708,7 @@ function testCompareIdenticalSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testContains(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testContains(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2719,7 +2719,7 @@ function testContains(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testContainsAny(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testContainsAny(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2730,7 +2730,7 @@ function testContainsAny(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testContainsFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testContainsFunc(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2741,7 +2741,7 @@ function testContainsFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testContainsRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testContainsRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2752,7 +2752,7 @@ function testContainsRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCountByte(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCountByte(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2766,7 +2766,7 @@ test count of a single byte across page offsets
 
 
 ```haxe
-function testCountByteNoMatch(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCountByteNoMatch(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2780,7 +2780,7 @@ Make sure we don't count bytes outside our window
 
 
 ```haxe
-function testCut(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCut(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2791,7 +2791,7 @@ function testCut(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCutPrefix(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCutPrefix(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2802,7 +2802,7 @@ function testCutPrefix(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testCutSuffix(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testCutSuffix(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2813,7 +2813,7 @@ function testCutSuffix(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testEmptyReaderConcurrent(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testEmptyReaderConcurrent(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2824,7 +2824,7 @@ function testEmptyReaderConcurrent(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testEndianBaseCompare(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testEndianBaseCompare(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2835,7 +2835,7 @@ function testEndianBaseCompare(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testEqual(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2846,7 +2846,7 @@ function testEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testEqualExhaustive(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testEqualExhaustive(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2857,7 +2857,7 @@ function testEqualExhaustive(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testEqualFold(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testEqualFold(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2868,7 +2868,7 @@ function testEqualFold(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFields(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFields(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2879,7 +2879,7 @@ function testFields(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testFieldsFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testFieldsFunc(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2890,7 +2890,7 @@ function testFieldsFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testGrow(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testGrow(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2901,7 +2901,7 @@ function testGrow(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testGrowOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testGrowOverflow(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2912,7 +2912,7 @@ function testGrowOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIndex(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2923,7 +2923,7 @@ function testIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIndexAny(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIndexAny(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2934,7 +2934,7 @@ function testIndexAny(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIndexByte(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIndexByte(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2945,7 +2945,7 @@ function testIndexByte(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIndexByteBig(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIndexByteBig(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2959,7 +2959,7 @@ test a larger buffer with different sizes and alignments
 
 
 ```haxe
-function testIndexByteSmall(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIndexByteSmall(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2973,7 +2973,7 @@ test a small index across all page offsets
 
 
 ```haxe
-function testIndexFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIndexFunc(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2984,7 +2984,7 @@ function testIndexFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIndexRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIndexRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -2995,7 +2995,7 @@ function testIndexRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testLargeByteReads(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testLargeByteReads(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3006,7 +3006,7 @@ function testLargeByteReads(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testLargeByteWrites(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testLargeByteWrites(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3017,7 +3017,7 @@ function testLargeByteWrites(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testLargeStringReads(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testLargeStringReads(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3028,7 +3028,7 @@ function testLargeStringReads(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testLargeStringWrites(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testLargeStringWrites(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3039,7 +3039,7 @@ function testLargeStringWrites(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testLastIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testLastIndex(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3050,7 +3050,7 @@ function testLastIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testLastIndexAny(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testLastIndexAny(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3061,7 +3061,7 @@ function testLastIndexAny(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testLastIndexByte(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testLastIndexByte(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3072,7 +3072,7 @@ function testLastIndexByte(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testMap(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testMap(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3083,7 +3083,7 @@ function testMap(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testMixedReadsAndWrites(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testMixedReadsAndWrites(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3094,7 +3094,7 @@ function testMixedReadsAndWrites(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testNewBuffer(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNewBuffer(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3105,7 +3105,7 @@ function testNewBuffer(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testNewBufferString(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNewBufferString(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3116,7 +3116,7 @@ function testNewBufferString(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testNext(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNext(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3127,7 +3127,7 @@ function testNext(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testNil(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNil(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3138,7 +3138,7 @@ function testNil(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testNotEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNotEqual(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3153,7 +3153,7 @@ is all zeros except for a single one in one location.
 
 
 ```haxe
-function testReadAfterBigSeek(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReadAfterBigSeek(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3164,7 +3164,7 @@ function testReadAfterBigSeek(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReadBytes(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReadBytes(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3175,7 +3175,7 @@ function testReadBytes(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReadEmptyAtEOF(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReadEmptyAtEOF(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3189,7 +3189,7 @@ Was a bug: used to give EOF reading empty slice at EOF.
 
 
 ```haxe
-function testReadFrom(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReadFrom(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3200,7 +3200,7 @@ function testReadFrom(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReadFromNegativeReader(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReadFromNegativeReader(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3211,7 +3211,7 @@ function testReadFromNegativeReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReadFromPanicReader(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReadFromPanicReader(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3226,7 +3226,7 @@ it is "grown" before a Read that panics
 
 
 ```haxe
-function testReadString(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReadString(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3237,7 +3237,7 @@ function testReadString(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReader(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReader(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3248,7 +3248,7 @@ function testReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReaderAt(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReaderAt(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3259,7 +3259,7 @@ function testReaderAt(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReaderAtConcurrent(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReaderAtConcurrent(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3270,7 +3270,7 @@ function testReaderAtConcurrent(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReaderCopyNothing(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReaderCopyNothing(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3285,7 +3285,7 @@ regardless of the presence of a WriteTo method.
 
 
 ```haxe
-function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3296,7 +3296,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReaderLen(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReaderLen(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3307,7 +3307,7 @@ function testReaderLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReaderLenSize(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReaderLenSize(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3321,7 +3321,7 @@ tests that Len is affected by reads, but Size is not.
 
 
 ```haxe
-function testReaderReset(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReaderReset(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3332,7 +3332,7 @@ function testReaderReset(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReaderWriteTo(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReaderWriteTo(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3343,7 +3343,7 @@ function testReaderWriteTo(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testReaderZero(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReaderZero(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3354,7 +3354,7 @@ function testReaderZero(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testRepeat(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testRepeat(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3365,7 +3365,7 @@ function testRepeat(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testRepeatCatchesOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testRepeatCatchesOverflow(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3379,7 +3379,7 @@ See Issue golang.org/issue/16237
 
 
 ```haxe
-function testReplace(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testReplace(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3390,7 +3390,7 @@ function testReplace(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testRuneIO(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testRuneIO(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3401,7 +3401,7 @@ function testRuneIO(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testRunes(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testRunes(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3412,7 +3412,7 @@ function testRunes(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSplit(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSplit(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3423,7 +3423,7 @@ function testSplit(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testSplitAfter(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testSplitAfter(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3434,7 +3434,7 @@ function testSplitAfter(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testTitle(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testTitle(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3445,7 +3445,7 @@ function testTitle(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testToLower(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testToLower(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3456,7 +3456,7 @@ function testToLower(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testToTitle(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testToTitle(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3467,7 +3467,7 @@ function testToTitle(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testToUpper(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testToUpper(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3478,7 +3478,7 @@ function testToUpper(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testToValidUTF8(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testToValidUTF8(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3489,7 +3489,7 @@ function testToValidUTF8(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testTrim(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testTrim(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3500,7 +3500,7 @@ function testTrim(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testTrimFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testTrimFunc(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3511,7 +3511,7 @@ function testTrimFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testTrimSpace(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testTrimSpace(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3522,7 +3522,7 @@ function testTrimSpace(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testUnreadByte(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testUnreadByte(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3533,7 +3533,7 @@ function testUnreadByte(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testUnreadRuneError(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testUnreadRuneError(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3544,7 +3544,7 @@ function testUnreadRuneError(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testWriteAppend(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testWriteAppend(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3555,7 +3555,7 @@ function testWriteAppend(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testWriteInvalidRune(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testWriteInvalidRune(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -3566,7 +3566,7 @@ function testWriteInvalidRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testWriteTo(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testWriteTo(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 

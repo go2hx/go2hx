@@ -27,23 +27,23 @@
 
 - [`function exampleUnwrap():Void`](<#function-exampleunwrap>)
 
-- [`function testAs(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testas>)
+- [`function testAs(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testas>)
 
-- [`function testAsValidation(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testasvalidation>)
+- [`function testAsValidation(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testasvalidation>)
 
-- [`function testErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testerrormethod>)
+- [`function testErrorMethod(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testerrormethod>)
 
-- [`function testIs(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testis>)
+- [`function testIs(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testis>)
 
-- [`function testJoin(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testjoin>)
+- [`function testJoin(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testjoin>)
 
-- [`function testJoinErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testjoinerrormethod>)
+- [`function testJoinErrorMethod(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testjoinerrormethod>)
 
-- [`function testJoinReturnsNil(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testjoinreturnsnil>)
+- [`function testJoinReturnsNil(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testjoinreturnsnil>)
 
-- [`function testNewEqual(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnewequal>)
+- [`function testNewEqual(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testnewequal>)
 
-- [`function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testunwrap>)
+- [`function testUnwrap(_t:stdgo.Ref<stdgo.testing.T_>):Void`](<#function-testunwrap>)
 
 - [`function main():Void`](<#function-main>)
 
@@ -211,7 +211,7 @@ function exampleUnwrap():Void
 
 
 ```haxe
-function testAs(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAs(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -222,7 +222,7 @@ function testAs(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testAsValidation(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testAsValidation(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -233,7 +233,7 @@ function testAsValidation(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testErrorMethod(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -244,7 +244,7 @@ function testErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testIs(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testIs(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -255,7 +255,7 @@ function testIs(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testJoin(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testJoin(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -266,7 +266,7 @@ function testJoin(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testJoinErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testJoinErrorMethod(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -277,7 +277,7 @@ function testJoinErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testJoinReturnsNil(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testJoinReturnsNil(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -288,7 +288,7 @@ function testJoinReturnsNil(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testNewEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testNewEqual(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 
@@ -299,7 +299,7 @@ function testNewEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
+function testUnwrap(_t:stdgo.Ref<stdgo.testing.T_>):Void
 ```
 
 

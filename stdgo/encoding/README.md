@@ -1,6 +1,6 @@
 # Module stdgo.encoding has compilation errors, please do not use:
 ```
-stdgo/internal/reflect/Reflect.hx:7: characters 33-38 : Type not found : Type_
+stdgo/encoding/json/Json.hx:11848: characters 79-102 : Type not found : stdgo.image.Image
 
 ```
 

@@ -2,7 +2,7 @@ package stdgo.internal.reflectlite;
 
 import stdgo.StdGoTypes;
 
-@:follow typedef Type = stdgo.reflect.Reflect.Type;
+@:follow typedef Type = stdgo.reflect.Reflect.Type_;
 @:follow typedef Value = stdgo.reflect.Reflect.Value;
 @:follow typedef Kind = stdgo.reflect.Reflect.Kind;
 

@@ -4,7 +4,7 @@ import stdgo.Pointer;
 import stdgo.StdGoTypes;
 import stdgo.reflect.Reflect;
 
-private typedef Type = Type_;
+@:follow private typedef Type = Type_;
 
 
 enum abstract KindType(stdgo.reflect.Reflect.Kind) from Int from stdgo.reflect.Reflect.Kind to stdgo.reflect.Reflect.Kind {

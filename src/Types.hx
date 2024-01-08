@@ -67,6 +67,8 @@ function isTitle(string:String):Bool {
 }
 
 function isStruct(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case refType(_.get() => type):
 			isStruct(type);
@@ -79,6 +81,8 @@ function isStruct(type:GoType):Bool {
 }
 
 function isPointerStruct(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case pointerType(_.get() => elem): isStruct(elem);
 		default: false;
@@ -145,6 +149,8 @@ function getSignature(type:GoType):GoType {
 }
 
 function isUnsafePointer(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case named(_, _, elem, _, _):
 			isUnsafePointer(elem);
@@ -159,6 +165,8 @@ function isUnsafePointer(type:GoType):Bool {
 }
 
 function isPointer(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case _var(_, _.get() => elem):
 			isPointer(elem);
@@ -174,6 +182,8 @@ function isPointer(type:GoType):Bool {
 }
 
 function isRef(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case refType(_):
 			true;
@@ -183,6 +193,8 @@ function isRef(type:GoType):Bool {
 }
 
 function isRefValue(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case named(_, _, t, _):
 			isRefValue(t);
@@ -212,6 +224,8 @@ function pointerUnwrap(type:GoType):GoType {
 }
 
 function getUnderlyingRefNamed(gt:GoType, once:Bool = false) {
+	if (gt == null)
+		return;
 	return switch gt {
 		case named(_, _, type, _, _), refType(_.get() => type):
 			if (once) {
@@ -240,6 +254,8 @@ function getUnderlying(gt:GoType, once:Bool = false) {
 }
 
 function isAnyInterface(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case named(_, _, elem, _, _):
 			isAnyInterface(elem);
@@ -251,6 +267,8 @@ function isAnyInterface(type:GoType):Bool {
 }
 
 function isInterface(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case refType(_.get() => elem):
 			isInterface(elem);
@@ -282,6 +300,8 @@ function isSignature(type:GoType, underlyingBool:Bool = true):Bool {
 
 // named doesn't count for interfaces
 function isNamed(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case refType(_.get() => underlying):
 			isNamed(underlying);

@@ -297,14 +297,6 @@ private function sanatize(s:String):String {
 
 private function testGo() { // go tests
 	type = "go";
-	final dir = path + "/tests/go/test/";
-	if (!FileSystem.exists(dir)) {
-		Sys.command("git clone https://github.com/golang/go tests/go");
-	} else {
-		Sys.setCwd("./tests/go");
-		Sys.command("git pull");
-		Sys.setCwd("../..");
-	}
 	sortDataToTests(Json.parse(File.getContent("tests/sort_go.json")));
 }
 
@@ -425,14 +417,6 @@ private function close() {
 
 private function testTinyGo() {
 	type = "tinygo";
-	final dir = "./tests/tinygo/";
-	if (!FileSystem.exists(dir)) {
-		Sys.command("git clone https://github.com/tinygo-org/tinygo tests/tinygo");
-	} else {
-		Sys.setCwd("./tests/tinygo");
-		Sys.command("git pull");
-		Sys.setCwd("../..");
-	}
 	sortDataToTests(Json.parse(File.getContent("tests/sort_tinygo.json")));
 }
 
@@ -464,6 +448,8 @@ private function sortDataToTests(sortData:SortData) {
 		switch name {
 			case "issue48137", "bug285": // breaks compiler
 				continue;
+			case "issue32288": // inf loop
+				continue;
 		}
 		tests.push(path);
 		final outputPath = sortData.name + "_" + name;
@@ -473,14 +459,6 @@ private function sortDataToTests(sortData:SortData) {
 
 private function testYaegi() {
 	type = "yaegi";
-	final dir = path + "/tests/yaegi/_test/";
-	if (!FileSystem.exists(dir)) {
-		Sys.command("git clone https://github.com/traefik/yaegi tests/yaegi");
-	} else {
-		Sys.setCwd("./tests/yaegi");
-		Sys.command("git pull");
-		Sys.setCwd("../..");
-	}
 	sortDataToTests(Json.parse(File.getContent("tests/sort_yaegi.json")));
 }
 

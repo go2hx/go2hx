@@ -144,6 +144,8 @@ jobs:
         run: go run ./scripts/sortTests ci
       - name: Run yaegi easy tests
         run: npx haxe tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }}
+      - name: Clean go2hx
+        run: npx haxelib run go2hx clean
       # git pull latest
       - name: Pull latest
         run: git pull
@@ -195,6 +197,8 @@ jobs:
       - name: Pull latest
         run: git pull
       # add go_easy.json regression 
+      - name: Clean go2hx
+        run: npx haxelib run go2hx clean
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
             commit_message: go easy tests update

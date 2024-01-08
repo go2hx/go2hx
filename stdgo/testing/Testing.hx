@@ -249,10 +249,9 @@ class F {
 		return new F(output);
 }
 
-@:follow typedef T_ = T;
 
 
-class T_asInterface {
+class T__asInterface {
 	public function new(?_0,?_1,?_2,?_3,?_4,?_5) {}
 	public function __underlying__():AnyInterface
 		return null;
@@ -281,7 +280,7 @@ class T_asInterface {
 }
 
 @:structInit
-class T {
+class T_ {
 	var skipBool:Bool = false;
 	var failBool:Bool = false;
 	@:local

@@ -69,7 +69,7 @@ macro function onceValue<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:haxe.ma
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_f));
@@ -150,7 +150,7 @@ macro function onceValues<T1, T2>(__generic__0:haxe.macro.Expr.ExprOf<T1>, __gen
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $__generic__1, $_f));

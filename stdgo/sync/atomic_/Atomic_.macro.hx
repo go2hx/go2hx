@@ -23,7 +23,7 @@ class Pointer__static_extension {
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($_x, $__generic__0, $_old, $_new));
@@ -51,7 +51,7 @@ haxe.macro.Context.defineType(td);
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($_x, $__generic__0, $_new));
@@ -77,7 +77,7 @@ haxe.macro.Context.defineType(td);
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($_x, $__generic__0, $_val));
@@ -102,7 +102,7 @@ haxe.macro.Context.defineType(td);
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($_x, $__generic__0));

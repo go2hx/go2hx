@@ -73,7 +73,7 @@ macro function _appendString<Bytes>(__generic__0:haxe.macro.Expr.ExprOf<Bytes>, 
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_dst, $_src, $_escapeHTML));

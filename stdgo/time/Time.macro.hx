@@ -34,7 +34,7 @@ macro function _atoi<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_bytes>, _s:h
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_s));
@@ -65,7 +65,7 @@ macro function _isDigit<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_bytes>, _
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_s, $_i));
@@ -119,7 +119,7 @@ macro function _parseNanoseconds<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_value, $_nbytes));
@@ -161,7 +161,7 @@ macro function _leadingInt<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_bytes>
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_s));
@@ -248,7 +248,7 @@ macro function _parseRFC3339<T_bytes>(__generic__0:haxe.macro.Expr.ExprOf<T_byte
                         final td:haxe.macro.Expr.TypeDefinition = { name : id, pos : haxe.macro.Context.currentPos(), pack : [], kind : TDClass(), fields : [{ name : "f", pos : haxe.macro.Context.currentPos(), access : [AStatic, APublic], kind : FFun({ args : f.args, expr : f.expr }) }] };
 haxe.macro.Context.defineType(td);
                     default:
-                        throw "invalid expr";
+                        throw info.panic() + "invalid expr: " + f.expr;
                 };
             };
             return macro stdgo.Go.refPointer($p{[id,"f"]}($__generic__0, $_s, $_local));

@@ -135,6 +135,12 @@ jobs:
         run: npx haxelib dev go2hx .
       - name: Test run
         run: npx haxelib run go2hx ./rnd
+      # clean stdgo
+      - name: Clean go2hx
+        run: npx haxelib run go2hx clean
+      # compile stdgo
+      - name: Run stdgo automatic compile
+        run: npx haxe stdgo.hxml -D runnerCount=${{ env.CORES }}
       # run yaegi easy tests
       - name: Run yaegi easy tests
         run: npx haxe tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }}
@@ -171,6 +177,12 @@ jobs:
         run: npx haxelib dev go2hx .
       - name: Test run
         run: npx haxelib run go2hx ./rnd
+      # clean stdgo
+      - name: Clean go2hx
+        run: npx haxelib run go2hx clean
+      # compile stdgo
+      - name: Run stdgo automatic compile
+        run: npx haxe stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Sort tests
         run: go run ./scripts/sortTests
       # run go easy tests

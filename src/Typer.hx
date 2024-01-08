@@ -56,6 +56,7 @@ final reservedClassNames = [
 	"StringTools",
 	"SysError",
 	"Type",
+	"T",
 	// "UnicodeString",
 	"ValueType",
 	"Void",
@@ -1182,8 +1183,6 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						var func = typeExpr(spec.values[0], info);
 						var data = castTranslate(spec.values[0], func, info);
 						func = data.expr;
-						/*if (data.ok)
-							spec.names = [{name: "value", type: null}, {name: "ok", type: null}];*/
 						vars2.push({
 							name: tmp,
 							expr: func
@@ -1223,7 +1222,10 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 								expr = typeExpr(spec.values[i], info);
 								expr = assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
 							}
-							var name = nameIdent(spec.names[i].name, false, true, info);
+							var nameStr = spec.names[i]?.name;
+							if (nameStr == null)
+								nameStr = '_$i';
+							var name = nameIdent(nameStr, false, true, info);
 							var t = typeof(spec.type, info, false);
 							var exprType = type;
 							if (exprType == null) {
@@ -2674,8 +2676,6 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				var types:Array<GoType> = [];
 				var data = castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
-				/*if (data.ok)
-					names = ["value", "ok"];*/
 				switch t {
 					case tuple(_, _.get() => vars):
 						for (i in 0...vars.length) {
@@ -2703,7 +2703,9 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							e = e2;
 						default:
 					}
-					final fieldName = names[i];
+					var fieldName = names[i];
+					if (fieldName == null)
+						fieldName = '_$i';
 					var e2 = macro __tmp__.$fieldName;
 					e2 = assignTranslate(types[i], typeof(stmt.lhs[i], info, false), e2, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
@@ -2768,8 +2770,6 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 				var types:Array<ComplexType> = [];
 				var data = castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
-				/*if (data.ok)
-					names = ["value", "ok"];*/
 				switch t {
 					case tuple(_, _.get() => vars):
 						for (i in 0...vars.length) {
@@ -2791,6 +2791,8 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 						throw "define left side not an ident";
 					var varName = nameIdent(stmt.lhs[i].name, false, true, info);
 					var fieldName = names[i];
+					if (fieldName == null)
+						fieldName = '_$i';
 					defines.push({name: varName, expr: macro __tmp__.$fieldName, type: types[i]});
 				}
 				return EVars([{name: "__tmp__", expr: func}].concat(defines));
@@ -7475,8 +7477,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 		var func = typeExpr(value.values[0], info);
 		var data = castTranslate(value.values[0], func, info);
 		func = data.expr;
-		/*if (data.ok)
-			value.names = [{name: "value", type: null}, {name: "ok", type: null}];*/
 		info.blankCounter++;
 		values.unshift({
 			name: tmp,
@@ -7487,13 +7487,16 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 		});
 		for (i in 0...value.names.length) {
 			var fieldName = "_" + i;
-			final name = nameIdent(value.names[i].name, false, true, info);
+			var nameStr = value.names[i]?.name;
+			if (nameStr == null)
+				nameStr = fieldName;
+			final name = nameIdent(nameStr, false, true, info);
 			values.push({
 				name: name,
 				pos: {min: info.blankCounter, max: 0, file: ""},
 				pack: [],
 				fields: [],
-				isExtern: isTitle(value.names[i].name),
+				isExtern: isTitle(value.names[i]?.name ?? ""),
 				kind: TDField(FVar(type, macro $tmpExpr.$fieldName), [])
 			});
 		}

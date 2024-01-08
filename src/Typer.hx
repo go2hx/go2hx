@@ -775,16 +775,16 @@ private function typeStmt(stmt:Dynamic, info:Info):Expr {
 		case "IncDecStmt": typeIncDecStmt(stmt, info);
 		case "LabeledStmt": typeLabeledStmt(stmt, info);
 		case "BlockStmt": typeBlockStmt(stmt, info, false);
-		case "BadStmt": throw "BAD STATEMENT TYPED";
+		case "BadStmt": throw info.panic() + "BAD STATEMENT TYPED";
 		case "GoStmt": typeGoStmt(stmt, info);
 		case "BranchStmt": typeBranchStmt(stmt, info);
 		case "SelectStmt": typeSelectStmt(stmt, info);
 		case "SendStmt": typeSendStmt(stmt, info);
 		case "EmptyStmt": typeEmptyStmt(stmt, info);
-		default: throw "unknown stmt id: " + stmt.id;
+		default: throw info.panic() + "unknown stmt id: " + stmt.id;
 	}
 	if (def == null)
-		throw "stmt null: " + stmt.id;
+		throw info.panic() + "stmt null: " + stmt.id;
 	return toExpr(def);
 }
 
@@ -1016,7 +1016,7 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 			case INC: return (macro $x++);
 			case DEC: return (macro $x--);
 			default:
-				throw "unknown IncDec token: " + stmt.tok;
+				throw info.panic() + "unknown IncDec token: " + stmt.tok;
 				null;
 		}
 	}
@@ -1241,7 +1241,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						}
 					}
 				default:
-					throw "unknown id: " + spec.id;
+					throw info.panic() + "unknown id: " + spec.id;
 			}
 		}
 	}
@@ -1287,10 +1287,11 @@ private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:In
 						($expr : $toComplexType);
 					}));
 				default:
-					throw "not a struct";
+					//return macro @:not_struct null;
+					throw info.panic() + "not a struct: " + underlying;
 			}
 		default:
-			throw "struct is unnamed: " + toType;
+			throw info.panic() + "struct is unnamed: " + toType;
 	}
 }
 
@@ -1363,7 +1364,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 					p;
 				};
 			default:
-				throw "struct type not tpath: " + ct;
+				throw info.panic() + "struct type not tpath: " + ct;
 		}
 	}
 
@@ -1379,7 +1380,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 				final set = checkType(macro $e = $v, toComplexType(toElem, info), fromElem, toElem, info);
 				return macro new $p(() -> $get, v -> $set);
 			default:
-				throw "pointer not tpath: " + ct;
+				throw info.panic() + "pointer not tpath: " + ct;
 		}
 	}
 	if (isAnyInterface(toType))
@@ -2641,7 +2642,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							case AND_NOT_ASSIGN: // &^=
 								expr = toExpr(EBinop(OpAssignOp(OpAnd), x, macro - 1 ^ ($y)));
 							default:
-								throw "op is null";
+								throw info.panic() + "op is null";
 						}
 					}
 					exprs.push(expr);
@@ -2663,7 +2664,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							inits.push(macro final $tmpName = ${e2});
 							expr.expr = EBinop(op, e1, macro $i{tmpName});
 						default:
-							throw "expr should normally be a binop: " + expr.expr;
+							throw info.panic() + "expr should normally be a binop: " + expr.expr;
 					}
 				}
 				exprs = inits.concat(exprs);
@@ -2723,7 +2724,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				}
 				return EBlock([macro var __tmp__ = $func].concat(assigns));
 			} else {
-				throw "unknown type assign type: " + stmt;
+				throw info.panic() + "unknown type assign type: " + stmt;
 			}
 		case DEFINE: // var expr = x; var x = y; x:= y
 			if (stmt.lhs.length == stmt.rhs.length) {
@@ -2790,7 +2791,7 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 				var defines:Array<Var> = [];
 				for (i in 0...stmt.lhs.length) {
 					if (stmt.lhs[i].id != "Ident")
-						throw "define left side not an ident";
+						throw info.panic() +  "define left side not an ident";
 					var varName = nameIdent(stmt.lhs[i].name, false, true, info);
 					var fieldName = names[i];
 					if (fieldName == null)
@@ -2799,10 +2800,10 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 				}
 				return EVars([{name: "__tmp__", expr: func}].concat(defines));
 			} else {
-				throw "unknown type assign define type: " + stmt;
+				throw info.panic() + "unknown type assign define type: " + stmt;
 			}
 		default:
-			throw "type assign tok not found: " + stmt.tok;
+			throw info.panic() + "type assign tok not found: " + stmt.tok;
 	}
 }
 
@@ -2926,7 +2927,7 @@ case "UnaryExpr": unaryType(expr, info);
 		case "HashType": return typeExprType(hashTypeToExprType(expr, info), info);
 		case "BasicLit": return toComplexType(typeof(expr.type, info, false, []), info);
 		default:
-			throw "Type expr unknown: " + expr.id;
+			throw info.panic() + "Type expr unknown: " + expr.id;
 			null;
 	}
 	// if (type == null)
@@ -3151,7 +3152,7 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 		case "ParenExpr": typeParenExpr(expr, info);
 		case "Ellipsis": typeEllipsis(expr, info);
 		case "MapType": typeMapType(expr, info);
-		case "BadExpr": throw "BAD EXPRESSION TYPED";
+		case "BadExpr": throw info.panic() + "BAD EXPRESSION TYPED";
 		case "InterfaceType": typeInterfaceType(expr, info);
 		case "IndexListExpr": typeIndexListExpr(expr, info);
 		default:
@@ -3159,7 +3160,7 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 			null;
 	};
 	if (def == null)
-		throw "expr null: " + expr.id;
+		throw info.panic() + "expr null: " + expr.id;
 	return toExpr(def);
 }
 
@@ -3224,13 +3225,17 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 			// nothing
 			index = macro @:param_index $index;
 		case invalidType:
-			index = macro @:invalid_index $index;
+			index = macro @:invalid_index_invalid_type $index;
+		case structType(_):
+			index = macro @:invalid_index_struct $index;
+		case interfaceType(_,_):
+			index = macro @:invalid_index_interface $index;
 		default:
 			trace("invalid_index: " + t);
 			trace(expr.x);
 			trace(hashTypeToExprType(expr.x.type, info));
 			trace(typeExprType(expr.x, info));
-			throw "invalid index";
+			throw info.panic() + "invalid index";
 	}
 	final e = macro $x[$index];
 	return e.expr;
@@ -3438,7 +3443,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									case EConst(CIdent(s)):
 										s;
 									default:
-										throw "unknown expr: " + expr.fun.sel;
+										throw info.panic() + "unknown expr: " + expr.fun.sel;
 								}
 								var x = typeExpr(expr.fun.x, info);
 								genArgs(true);
@@ -3541,7 +3546,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								key = assignTranslate(typeof(expr.args[1], info, false), keyType, key, info, false);
 							case invalidType:
 							default:
-								throw "first arg of delete builtin function not of type map: " + t;
+								throw info.panic() + "first arg of delete builtin function not of type map: " + t;
 						}
 						return returnExpr(macro if ($e != null)
 							$e.remove($key)).expr;
@@ -3645,7 +3650,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							case invalidType:
 								macro @:invalid_make null;
 							default:
-								throw "unknown make type: " + type;
+								throw info.panic() + "unknown make type: " + type;
 						}
 						return returnExpr(e).expr;
 				}
@@ -3781,7 +3786,7 @@ function typeFunctionLiteral(args:Array<Expr>, params:Array<GoType>, results:Arr
 				type: toComplexType(type, info),
 			} : FunctionArg);
 		default:
-			throw "param not var: " + param;
+			throw info.panic() + "param not var: " + param;
 	});
 	final exprArgs = funcArgs.map(arg -> macro $i{arg.name});
 	final ret = getReturn(results, info);
@@ -3997,7 +4002,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			final path:String = e.path;
 			if (path == null) {
 				trace("null named path: " + e);
-				throw path;
+				throw info.panic() + path;
 			}
 			var underlying = invalidType;
 			final methods:Array<MethodType> = [];
@@ -4200,7 +4205,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 					invalidType;
 				default:
 					trace(v);
-					throw "unknown Array id: " + id;
+					throw info.panic() + "unknown Array id: " + id;
 			}
 		case "MapType":
 			final e:Ast.MapType = e;
@@ -4223,8 +4228,10 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 		case "Ellipsis":
 			typeof(e.type, info, false, paths.copy());
 		default:
-			throw "unknown typeof expr: " + e.id;
+			throw info.panic() + "unknown typeof expr: " + e.id;
 	}
+	if (t == null)
+		return null;
 	return switch t {
 		case pointerType(_.get() => elem):
 			isRefValue(elem) ? refType({get: () -> elem}) : t;
@@ -4332,21 +4339,21 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 				case uintptr_kind: TPath({pack: ["stdgo"], name: "StdGoTypes", sub: "GoUIntptr"});
 
 				case untyped_int_kind, untyped_bool_kind, untyped_float_kind, untyped_rune_kind, untyped_complex_kind,
-					untyped_string_kind: throw "untyped kind: "
+					untyped_string_kind: throw info.panic() + "untyped kind: "
 						+ kind;
 				case untyped_nil_kind: null;
 				case unsafepointer_kind: TPath({pack: ["stdgo", "unsafe", "Unsafe"], name: "UnsafePointer"});
 				default:
-					throw "unknown kind to complexType: " + kind;
+					throw info.panic() + "unknown kind to complexType: " + kind;
 			}
 		case interfaceType(empty, _):
 			if (empty)
 				return anyInterfaceType();
-			throw "non empty interface";
+			throw info.panic() + "non empty interface";
 		case named(path, _, underlying, _, _.get() => params):
 			if (path == null) {
 				trace("underlying null path: " + printer.printComplexType(toComplexType(underlying, info)));
-				throw path;
+				throw info.panic() + path;
 			}
 			final p = namedTypePath(path, info);
 			if (params != null)
@@ -4404,8 +4411,15 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case typeParam(name, _):
 			final p = namedTypePath(name, info);
 			return TPath(p);
+		case tuple(len, _.get() => vars):
+			var fields:Array<Field> = [];
+			for (i in 0...vars.length) {
+				final t = toComplexType(vars[i], info);
+				fields.push({name: '_$i', pos: null, kind: FVar(t)});
+			}
+			TAnonymous(fields);
 		default:
-			throw "unknown goType to complexType: " + e;
+			throw info.panic() + "unknown goType to complexType: " + e;
 	}
 }
 
@@ -4477,7 +4491,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 				var e = toExpr(EConst(CInt(expr.value, "i32")));
 				e;
 			default:
-				throw "unknown token: " + expr.token;
+				throw info.panic() + "unknown token: " + expr.token;
 		}
 		final t = typeof(expr.type, info, false);
 		switch t {
@@ -4787,12 +4801,12 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	return e;
 }
 
-function getTypePath(ct:ComplexType):TypePath {
+function getTypePath(ct:ComplexType, info:Info):TypePath {
 	switch ct {
 		case TPath(p):
 			return p;
 		default:
-			throw "ComplexType not a TPath: " + ct;
+			throw info.panic() + "ComplexType not a TPath: " + ct;
 	}
 }
 
@@ -4886,7 +4900,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 					var e = toExpr(EObjectDecl(objectFields));
 					return (macro($e : $ct)).expr;
 				} else {
-					final p = getTypePath(ct);
+					final p = getTypePath(ct, info);
 					// generic named type needs fields filled in
 					switch type {
 						case named(_, _, _, _, _.get() => params):
@@ -4909,7 +4923,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 		case mapType(_.get() => var keyType, _.get() => valueType):
 			return compositeLitMapList(keyType, valueType, underlying, toComplexType(type, info), expr, info).expr;
 		default:
-			throw "not supported CompositeLit type: " + underlying;
+			throw info.panic() + "not supported CompositeLit type: " + underlying;
 	}
 }
 
@@ -4955,7 +4969,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 			k = keyType;
 			v = valueType;
 		default:
-			throw "underlying t invalid type createMap";
+			throw info.panic() + "underlying t invalid type createMap";
 	}
 	final keyT = toReflectType(k, info, [], true);
 	final defaultValueExpr = defaultValue(v, info, true);
@@ -4999,7 +5013,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 				case string_kind, untyped_string_kind: p.sub = "GoStringMap";
 				//case unsafepointer_kind: KindType.unsafePointer;
 				case unsafepointer_kind: isObjectMap = true;
-				default: throw 'Unknown BasicKind: $kind';
+				default: throw info.panic() + 'Unknown BasicKind: $kind';
 			}
 		default:
 	}
@@ -5021,7 +5035,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 }
 
 private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):Expr {
-	final p = getTypePath(toComplexType(underlying, info));
+	final p = getTypePath(toComplexType(underlying, info), info);
 	var value = defaultValue(elem, info, false);
 	if (keyValueBool) {
 		var exprs:Array<{expr:Expr, index:Int}> = [];
@@ -5382,7 +5396,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 					default:
 				}
 			default:
-				throw "expr id: " + expr.x.id;
+				throw info.panic() + "expr id: " + expr.x.id;
 		}
 	}
 	var typeX = typeof(expr.x, info, false);
@@ -5571,7 +5585,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 						case TPType(TPath(p)):
 							({name: p.name} : TypeParamDecl);
 						default:
-							throw "unknown param";
+							throw info.panic() + "unknown param: " + param;
 					});
 				}
 			default:
@@ -5844,6 +5858,8 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 		}
 		function findGenericTypes(locals:Array<String>, e:Expr):Expr {
 			//trace(printer.printExpr(e));
+			if (e == null)
+				return e;
 			return switch e.expr {
 				case ENew(p, params):
 					if (p.pack.length == 0 && identifierNames.indexOf(p.name) != -1) {
@@ -5982,10 +5998,10 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 						case TPType(t):
 							t;
 						default:
-							throw "invalid p param";
+							throw info.panic() + throw "invalid p param: " + p.params[0];
 					}
 				default:
-					throw "invalid p not TPath";
+					throw info.panic() + "invalid p not TPath: " + arg.type;
 			};
 			({
 				name: arg.name,
@@ -6004,10 +6020,10 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 								case TPType(t):
 									t;
 								default:
-									throw "invalid p param";
+									throw info.panic() + "invalid p param: " + p.params[0];
 							}
 						default:
-							throw "invalid p not TPath";
+							throw info.panic() + "invalid p not TPath: " + arg.type;
 					};
 					({
 						name: arg.name,
@@ -6076,7 +6092,7 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 								};
 								haxe.macro.Context.defineType(td);
 							default:
-								throw "invalid expr";
+								throw info.panic() + "invalid expr: " + f.expr;
 						}
 					}
 					return @:macro stdgo.Go.refPointer($i{'$$p{[id,"f"]}'}($a{nameArgs}));
@@ -6379,7 +6395,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					case complex64_kind: macro new stdgo.StdGoTypes.GoComplex64(0, 0);
 					case complex128_kind: macro new stdgo.StdGoTypes.GoComplex128(0, 0);
 					case untyped_bool_kind, untyped_rune_kind, untyped_string_kind, untyped_int_kind, untyped_float_kind, untyped_complex_kind:
-						throw "untyped kind: " + kind;
+						throw info.panic() + "untyped kind: " + kind;
 					default: macro @:default_value null;
 				}
 			} else {
@@ -6430,7 +6446,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 		case _var(_, _.get() => type):
 			defaultValue(type, info, strict);
 		default:
-			throw "unsupported default value type: " + type;
+			throw info.panic() + "unsupported default value type: " + type;
 	}
 }
 
@@ -6449,7 +6465,7 @@ private function getRecvName(recv:Ast.Expr, info:Info):String {
 				path = path.substr(0, index);
 			return className(path, info);
 		default:
-			throw "invalid recv type: " + t;
+			throw info.panic() + "invalid recv type: " + t;
 	}
 }
 
@@ -6645,7 +6661,7 @@ private function typeFieldListFieldTypes(list:Ast.FieldList, info:Info, access:A
 			case "StarExpr": getName(type.x);
 			case "Pointer": getName(type.elem);
 			case "IndexExpr": getName(type.x);
-			default: throw "unknown embedded: " + type.id;
+			default: throw info.panic() + "unknown embedded: " + type.id;
 		}
 	}
 	final comments = [];
@@ -6726,7 +6742,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var t = typeof(spec.type, info, false);
 	switch t {
 		case structType(fs):
-			final path = getTypePath(ct);
+			final path = getTypePath(ct, info);
 			final superClass = path;
 			final argExprs:Array<Expr> = [];
 			final args:Array<FunctionArg> = [];
@@ -7099,7 +7115,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							case signature(_,_,_,_.get() => recv):
 								isPointer(recv);
 							default:
-								throw "invalid signature: " + methodType;
+								throw info.panic() + "invalid signature: " + methodType;
 						}
 						if (methodPointer) {
 							args.unshift(macro stdgo.Go.pointer($i{name}));
@@ -7126,7 +7142,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							fields.push(field);
 						}
 					default:
-						throw "method not a signature";
+						throw info.panic() + "method not a signature";
 				}
 				info.restricted = [];
 			}
@@ -7323,7 +7339,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				}
 			for (method in struct.methods.list) {
 				if (method.names.length == 0) {
-					implicits.push(getTypePath(typeExprType(method.type, info)));
+					implicits.push(getTypePath(typeExprType(method.type, info), info));
 				}
 			}
 			// Interface -> Struct creation
@@ -7844,6 +7860,10 @@ class Info {
 		info.locals = locals.copy();
 		info.localUnderlyingNames = localUnderlyingNames.copy();
 		return info;
+	}
+
+	public function panic():String {
+		return "panic: " + global.filePath + ":" + global.path + ":" + global.module.name + ":" + className + ":" + funcName + ":\n";
 	}
 }
 

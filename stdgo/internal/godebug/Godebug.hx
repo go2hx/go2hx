@@ -44,25 +44,25 @@ private var __go2hxdoc__package : Bool;
     
     // name string -> value *atomic.Pointer[string]
 **/
-var _cache = ({} : stdgo.sync.Sync.Map_);
+var _cache : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
 /**
     
     
     
 **/
-var _empty = ({} : stdgo.internal.godebug.Godebug.T_value);
+var _empty : T_value = ({} : stdgo.internal.godebug.Godebug.T_value);
 /**
     
     
     
 **/
-var _updateMu = ({} : stdgo.sync.Sync.Mutex);
+var _updateMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 /**
     
     
     
 **/
-var _stderr = ({} : stdgo.internal.godebug.Godebug.T_runtimeStderr);
+var _stderr : T_runtimeStderr = ({} : stdgo.internal.godebug.Godebug.T_runtimeStderr);
 /**
     // A Setting is a single setting in the $GODEBUG environment variable.
     

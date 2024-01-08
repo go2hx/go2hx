@@ -1204,25 +1204,25 @@ var _mallocTest : stdgo.Slice<T__struct_5> = (new stdgo.Slice<T__struct_5>(
     
     
 **/
-var _atofOnce = ({} : stdgo.sync.Sync.Once);
+var _atofOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 /**
     
     
     
 **/
-var _atofRandomTests = (null : stdgo.Slice<stdgo.strconv_test.Strconv_test.T_atofSimpleTest>);
+var _atofRandomTests : stdgo.Slice<T_atofSimpleTest> = (null : stdgo.Slice<stdgo.strconv_test.Strconv_test.T_atofSimpleTest>);
 /**
     
     
     
 **/
-var _benchmarksRandomBits = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
+var _benchmarksRandomBits : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
 /**
     
     
     
 **/
-var _benchmarksRandomNormal = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
+var _benchmarksRandomNormal : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);
 /**
     
     
@@ -1240,37 +1240,37 @@ final _above1e23 : stdgo.StdGoTypes.GoUInt64 = (0i64 : stdgo.StdGoTypes.GoUInt64
     
     // make sure compiler cannot optimize away benchmarks
 **/
-var benchSink = (0 : stdgo.StdGoTypes.GoInt);
+var benchSink : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     
     
     
 **/
-var _benchQuoteBuf = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+var _benchQuoteBuf : stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
 /**
     
     
     
 **/
-var _benchQuoteRuneBuf = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+var _benchQuoteRuneBuf : stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
 /**
     
     
     
 **/
-var _globalBuf = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 64) (0 : stdgo.StdGoTypes.GoUInt8)]);
+var _globalBuf : stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 64) (0 : stdgo.StdGoTypes.GoUInt8)]);
 /**
     
     
     // Will be allocated to 1MB of random data by TestCountMallocs.
 **/
-var _oneMB = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+var _oneMB : stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
 /**
     // Sink makes sure the compiler cannot optimize away the benchmarks.
     
     
 **/
-var sink = ({ bool_ : false, int_ : (0 : stdgo.StdGoTypes.GoInt), int64 : (0 : stdgo.StdGoTypes.GoInt64), uint64 : (0 : stdgo.StdGoTypes.GoUInt64), float64 : (0 : stdgo.StdGoTypes.GoFloat64), complex128 : new stdgo.StdGoTypes.GoComplex128(0, 0), error : (null : stdgo.Error), bytes : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) } : T__struct_6);
+var sink : T__struct_6 = ({ bool_ : false, int_ : (0 : stdgo.StdGoTypes.GoInt), int64 : (0 : stdgo.StdGoTypes.GoInt64), uint64 : (0 : stdgo.StdGoTypes.GoUInt64), float64 : (0 : stdgo.StdGoTypes.GoFloat64), complex128 : new stdgo.StdGoTypes.GoComplex128(0, 0), error : (null : stdgo.Error), bytes : (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>) } : T__struct_6);
 /**
     
     

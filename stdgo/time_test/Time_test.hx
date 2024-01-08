@@ -993,7 +993,7 @@ var _slimTests : stdgo.Slice<T__struct_32> = (new stdgo.Slice<T__struct_32>(4, 4
     
     
 **/
-var _c = (null : stdgo.Chan<stdgo.StdGoTypes.GoInt>);
+var _c : stdgo.Chan<stdgo.StdGoTypes.GoInt> = (null : stdgo.Chan<stdgo.StdGoTypes.GoInt>);
 /**
     // Go runtime uses different Windows timers for time.Now and sleeping.
     // These can tick at different frequencies and can arrive out of sync.
@@ -1022,13 +1022,13 @@ final _unixToZero : stdgo.StdGoTypes.GoUInt64 = (62135596800i64 : stdgo.StdGoTyp
     
     
 **/
-var _t = ({} : stdgo.time.Time.Time);
+var _t : Time = ({} : stdgo.time.Time.Time);
 /**
     
     
     
 **/
-var _u = (0 : stdgo.StdGoTypes.GoInt64);
+var _u : stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
 /**
     
     

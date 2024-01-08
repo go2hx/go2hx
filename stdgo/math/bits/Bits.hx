@@ -177,13 +177,13 @@ final _m4 : stdgo.StdGoTypes.GoUInt64 = (281470681808895i64 : stdgo.StdGoTypes.G
     
     
 **/
-var _overflowError = @:privateAccess stdgo.Error._overflowError;
+var _overflowError : stdgo.Error = @:privateAccess stdgo.Error._overflowError;
 /**
     //go:linkname divideError runtime.divideError
     
     
 **/
-var _divideError = @:privateAccess stdgo.Error._divideError;
+var _divideError : stdgo.Error = @:privateAccess stdgo.Error._divideError;
 /**
     
     

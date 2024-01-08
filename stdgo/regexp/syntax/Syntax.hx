@@ -1182,7 +1182,7 @@ final _noMatch : stdgo.StdGoTypes.GoUInt64 = (0i64 : stdgo.StdGoTypes.GoUInt64);
     
     
 **/
-var _sink = (null : stdgo.StdGoTypes.AnyInterface);
+var _sink : stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
 /**
     
     

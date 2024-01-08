@@ -485,7 +485,7 @@ var _dependentTestTypes : stdgo.Slice<stdgo.go.types_test.Types_test.T_testEntry
     
     
 **/
-var _nopos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
+var _nopos : stdgo.go.token.Token.Pos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
 /**
     
     
@@ -519,7 +519,7 @@ final _dstDir : stdgo.GoString = ("/src/go/types/" : stdgo.GoString);
     
     
 **/
-var _printPackageMu = ({} : stdgo.sync.Sync.Mutex);
+var _printPackageMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 /**
     
     
@@ -2283,7 +2283,7 @@ function testIssue8518(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void {
         var _makePkg:(stdgo.GoString, stdgo.GoString) -> Void = function(_path:stdgo.GoString, _src:stdgo.GoString):Void {
             {
                 var __tmp__ = _conf.check(_path?.__copy__(), _fset, (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>>(1, 1, _mustParse(_fset, _src?.__copy__())) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>>), null);
-                _imports[_path] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>) = __tmp__._0;
+                _imports[_path] = __tmp__._0;
             };
         };
         {};
@@ -2305,7 +2305,7 @@ function testIssue59603(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>):Void 
         var _makePkg:(stdgo.GoString, stdgo.GoString) -> Void = function(_path:stdgo.GoString, _src:stdgo.GoString):Void {
             {
                 var __tmp__ = _conf.check(_path?.__copy__(), _fset, (new stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>>(1, 1, _mustParse(_fset, _src?.__copy__())) : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>>), null);
-                _imports[_path] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>) = __tmp__._0;
+                _imports[_path] = __tmp__._0;
             };
         };
         {};
@@ -2459,7 +2459,7 @@ function testScopeLookupParent(_t:stdgo.StdGoTypes.Ref<stdgo.testing.Testing.T_>
             var _err:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = _conf.check(_path?.__copy__(), _fset, _files, (stdgo.Go.setRef(_info) : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Info>));
-                _imports[_path] ?? (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>) = __tmp__._0;
+                _imports[_path] = __tmp__._0;
                 _err = __tmp__._1;
             };
             if (_err != null) {

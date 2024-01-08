@@ -1480,25 +1480,25 @@ var _eofTests : stdgo.Slice<T__struct_13> = (new stdgo.Slice<T__struct_13>(
     
     
 **/
-var _pValue = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.fmt_test.Fmt_test.P);
+var _pValue : P = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.fmt_test.Fmt_test.P);
 /**
     
     
     
 **/
-var _mallocBuf = ({} : stdgo.bytes.Bytes.Buffer);
+var _mallocBuf : stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 /**
     
     
     // A pointer so we know the interface value won't allocate.
 **/
-var _mallocPointer = (null : stdgo.Pointer<stdgo.StdGoTypes.GoInt>);
+var _mallocPointer : stdgo.Pointer<stdgo.StdGoTypes.GoInt> = (null : stdgo.Pointer<stdgo.StdGoTypes.GoInt>);
 /**
     
     
     
 **/
-var __1 = ({} : stdgo.bytes.Bytes.Buffer);
+var __1 : stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 /**
     
     
@@ -1516,283 +1516,319 @@ final _hello : stdgo.GoString = ("hello " : stdgo.GoString);
     
     
 **/
-var _boolVal = false;
+var _boolVal : Bool = false;
 /**
     
     
     
 **/
-var _intVal = (0 : stdgo.StdGoTypes.GoInt);
+var _intVal : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     
     
     
 **/
-var _int8Val = (0 : stdgo.StdGoTypes.GoInt8);
+var _int8Val : stdgo.StdGoTypes.GoInt8 = (0 : stdgo.StdGoTypes.GoInt8);
 /**
     
     
     
 **/
-var _int16Val = (0 : stdgo.StdGoTypes.GoInt16);
+var _int16Val : stdgo.StdGoTypes.GoInt16 = (0 : stdgo.StdGoTypes.GoInt16);
 /**
     
     
     
 **/
-var _int32Val = (0 : stdgo.StdGoTypes.GoInt32);
+var _int32Val : stdgo.StdGoTypes.GoInt32 = (0 : stdgo.StdGoTypes.GoInt32);
 /**
     
     
     
 **/
-var _int64Val = (0 : stdgo.StdGoTypes.GoInt64);
+var _int64Val : stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
 /**
     
     
     
 **/
-var _uintVal = (0 : stdgo.StdGoTypes.GoUInt);
+var _uintVal : stdgo.StdGoTypes.GoUInt = (0 : stdgo.StdGoTypes.GoUInt);
 /**
     
     
     
 **/
-var _uint8Val = (0 : stdgo.StdGoTypes.GoUInt8);
+var _uint8Val : stdgo.StdGoTypes.GoUInt8 = (0 : stdgo.StdGoTypes.GoUInt8);
 /**
     
     
     
 **/
-var _uint16Val = (0 : stdgo.StdGoTypes.GoUInt16);
+var _uint16Val : stdgo.StdGoTypes.GoUInt16 = (0 : stdgo.StdGoTypes.GoUInt16);
 /**
     
     
     
 **/
-var _uint32Val = (0 : stdgo.StdGoTypes.GoUInt32);
+var _uint32Val : stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
 /**
     
     
     
 **/
-var _uint64Val = (0 : stdgo.StdGoTypes.GoUInt64);
+var _uint64Val : stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
 /**
     
     
     
 **/
-var _uintptrVal = (0 : stdgo.StdGoTypes.GoUIntptr);
+var _uintptrVal : stdgo.StdGoTypes.GoUIntptr = (0 : stdgo.StdGoTypes.GoUIntptr);
 /**
     
     
     
 **/
-var _float32Val = (0 : stdgo.StdGoTypes.GoFloat32);
+var _float32Val : stdgo.StdGoTypes.GoFloat32 = (0 : stdgo.StdGoTypes.GoFloat32);
 /**
     
     
     
 **/
-var _float64Val = (0 : stdgo.StdGoTypes.GoFloat64);
+var _float64Val : stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
 /**
     
     
     
 **/
-var _stringVal = ("" : stdgo.GoString);
+var _stringVal : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     
 **/
-var _bytesVal = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+var _bytesVal : stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
 /**
     
     
     
 **/
-var _runeVal = (0 : stdgo.StdGoTypes.GoInt32);
+var _runeVal : stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32);
 /**
     
     
     
 **/
-var _complex64Val = new stdgo.StdGoTypes.GoComplex64(0, 0);
+var _complex64Val : stdgo.StdGoTypes.GoComplex64 = new stdgo.StdGoTypes.GoComplex64(0, 0);
 /**
     
     
     
 **/
-var _complex128Val = new stdgo.StdGoTypes.GoComplex128(0, 0);
+var _complex128Val : stdgo.StdGoTypes.GoComplex128 = new stdgo.StdGoTypes.GoComplex128(0, 0);
 /**
     
     
     
 **/
-var _renamedBoolVal = (false : stdgo.fmt_test.Fmt_test.T_renamedBool);
+var _renamedBoolVal : T_renamedBool = (false : stdgo.fmt_test.Fmt_test.T_renamedBool);
 /**
     
     
     
 **/
-var _renamedIntVal = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.fmt_test.Fmt_test.T_renamedInt);
+var _renamedIntVal : T_renamedInt = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.fmt_test.Fmt_test.T_renamedInt);
 /**
     
     
     
 **/
-var _renamedInt8Val = ((0 : stdgo.StdGoTypes.GoInt8) : stdgo.fmt_test.Fmt_test.T_renamedInt8);
+var _renamedInt8Val : T_renamedInt8 = ((0 : stdgo.StdGoTypes.GoInt8) : stdgo.fmt_test.Fmt_test.T_renamedInt8);
 /**
     
     
     
 **/
-var _renamedInt16Val = ((0 : stdgo.StdGoTypes.GoInt16) : stdgo.fmt_test.Fmt_test.T_renamedInt16);
+var _renamedInt16Val : T_renamedInt16 = ((0 : stdgo.StdGoTypes.GoInt16) : stdgo.fmt_test.Fmt_test.T_renamedInt16);
 /**
     
     
     
 **/
-var _renamedInt32Val = ((0 : stdgo.StdGoTypes.GoInt32) : stdgo.fmt_test.Fmt_test.T_renamedInt32);
+var _renamedInt32Val : T_renamedInt32 = ((0 : stdgo.StdGoTypes.GoInt32) : stdgo.fmt_test.Fmt_test.T_renamedInt32);
 /**
     
     
     
 **/
-var _renamedInt64Val = ((0 : stdgo.StdGoTypes.GoInt64) : stdgo.fmt_test.Fmt_test.T_renamedInt64);
+var _renamedInt64Val : T_renamedInt64 = ((0 : stdgo.StdGoTypes.GoInt64) : stdgo.fmt_test.Fmt_test.T_renamedInt64);
 /**
     
     
     
 **/
-var _renamedUintVal = ((0 : stdgo.StdGoTypes.GoUInt) : stdgo.fmt_test.Fmt_test.T_renamedUint);
+var _renamedUintVal : T_renamedUint = ((0 : stdgo.StdGoTypes.GoUInt) : stdgo.fmt_test.Fmt_test.T_renamedUint);
 /**
     
     
     
 **/
-var _renamedUint8Val = ((0 : stdgo.StdGoTypes.GoUInt8) : stdgo.fmt_test.Fmt_test.T_renamedUint8);
+var _renamedUint8Val : T_renamedUint8 = ((0 : stdgo.StdGoTypes.GoUInt8) : stdgo.fmt_test.Fmt_test.T_renamedUint8);
 /**
     
     
     
 **/
-var _renamedUint16Val = ((0 : stdgo.StdGoTypes.GoUInt16) : stdgo.fmt_test.Fmt_test.T_renamedUint16);
+var _renamedUint16Val : T_renamedUint16 = ((0 : stdgo.StdGoTypes.GoUInt16) : stdgo.fmt_test.Fmt_test.T_renamedUint16);
 /**
     
     
     
 **/
-var _renamedUint32Val = ((0 : stdgo.StdGoTypes.GoUInt32) : stdgo.fmt_test.Fmt_test.T_renamedUint32);
+var _renamedUint32Val : T_renamedUint32 = ((0 : stdgo.StdGoTypes.GoUInt32) : stdgo.fmt_test.Fmt_test.T_renamedUint32);
 /**
     
     
     
 **/
-var _renamedUint64Val = ((0 : stdgo.StdGoTypes.GoUInt64) : stdgo.fmt_test.Fmt_test.T_renamedUint64);
+var _renamedUint64Val : T_renamedUint64 = ((0 : stdgo.StdGoTypes.GoUInt64) : stdgo.fmt_test.Fmt_test.T_renamedUint64);
 /**
     
     
     
 **/
-var _renamedUintptrVal = ((0 : stdgo.StdGoTypes.GoUIntptr) : stdgo.fmt_test.Fmt_test.T_renamedUintptr);
+var _renamedUintptrVal : T_renamedUintptr = ((0 : stdgo.StdGoTypes.GoUIntptr) : stdgo.fmt_test.Fmt_test.T_renamedUintptr);
 /**
     
     
     
 **/
-var _renamedStringVal = (("" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.T_renamedString);
+var _renamedStringVal : T_renamedString = (("" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.T_renamedString);
 /**
     
     
     
 **/
-var _renamedBytesVal = new stdgo.fmt_test.Fmt_test.T_renamedBytes(0, 0);
+var _renamedBytesVal : T_renamedBytes = new stdgo.fmt_test.Fmt_test.T_renamedBytes(0, 0);
 /**
     
     
     
 **/
-var _renamedFloat32Val = ((0 : stdgo.StdGoTypes.GoFloat32) : stdgo.fmt_test.Fmt_test.T_renamedFloat32);
+var _renamedFloat32Val : T_renamedFloat32 = ((0 : stdgo.StdGoTypes.GoFloat32) : stdgo.fmt_test.Fmt_test.T_renamedFloat32);
 /**
     
     
     
 **/
-var _renamedFloat64Val = ((0 : stdgo.StdGoTypes.GoFloat64) : stdgo.fmt_test.Fmt_test.T_renamedFloat64);
+var _renamedFloat64Val : T_renamedFloat64 = ((0 : stdgo.StdGoTypes.GoFloat64) : stdgo.fmt_test.Fmt_test.T_renamedFloat64);
 /**
     
     
     
 **/
-var _renamedComplex64Val = (new stdgo.StdGoTypes.GoComplex64(0, 0) : stdgo.fmt_test.Fmt_test.T_renamedComplex64);
+var _renamedComplex64Val : T_renamedComplex64 = (new stdgo.StdGoTypes.GoComplex64(0, 0) : stdgo.fmt_test.Fmt_test.T_renamedComplex64);
 /**
     
     
     
 **/
-var _renamedComplex128Val = (new stdgo.StdGoTypes.GoComplex128(0, 0) : stdgo.fmt_test.Fmt_test.T_renamedComplex128);
+var _renamedComplex128Val : T_renamedComplex128 = (new stdgo.StdGoTypes.GoComplex128(0, 0) : stdgo.fmt_test.Fmt_test.T_renamedComplex128);
 /**
     
     
     
 **/
-var _xVal = (("" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.Xs);
+var _xVal : Xs = (("" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.Xs);
 /**
     
     
     
 **/
-var _intStringVal = ({} : stdgo.fmt_test.Fmt_test.IntString);
+var _intStringVal : IntString = ({} : stdgo.fmt_test.Fmt_test.IntString);
 /**
     
     
     
 **/
-var _truth = false;
+var _truth : Bool = false;
 /**
     
     
     
 **/
-var _i = (0 : stdgo.StdGoTypes.GoInt);
+var _i : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     
     
     
 **/
-var _f = (0 : stdgo.StdGoTypes.GoFloat64);
+var _j : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     
     
     
 **/
-var _s = ("" : stdgo.GoString);
+var _k : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     
     
     
 **/
-var _c = new stdgo.StdGoTypes.GoComplex128(0, 0);
+var _f : stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
 /**
     
     
     
 **/
-var _x = (("" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.Xs);
+var _s : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     
 **/
-var _z = ({} : stdgo.fmt_test.Fmt_test.IntString);
+var _t : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     
 **/
-var _r1 = (0 : stdgo.StdGoTypes.GoInt32);
+var _c : stdgo.StdGoTypes.GoComplex128 = new stdgo.StdGoTypes.GoComplex128(0, 0);
+/**
+    
+    
+    
+**/
+var _x : Xs = (("" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.Xs);
+/**
+    
+    
+    
+**/
+var _y : Xs = (("" : stdgo.GoString) : stdgo.fmt_test.Fmt_test.Xs);
+/**
+    
+    
+    
+**/
+var _z : IntString = ({} : stdgo.fmt_test.Fmt_test.IntString);
+/**
+    
+    
+    
+**/
+var _r1 : stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32);
+/**
+    
+    
+    
+**/
+var _r2 : stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32);
+/**
+    
+    
+    
+**/
+var _r3 : stdgo.StdGoTypes.GoRune = (0 : stdgo.StdGoTypes.GoInt32);
 /**
     // 800 is small enough to not overflow the stack when using gccgo on a
     // platform that does not support split stack.

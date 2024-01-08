@@ -35,79 +35,79 @@ var sigquit : stdgo.os.Os.Signal = stdgo.os.Os.kill;
     
     
 **/
-var _tryExecOnce = ({} : stdgo.sync.Sync.Once);
+var _tryExecOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 /**
     
     
     
 **/
-var _tryExecErr = (null : stdgo.Error);
+var _tryExecErr : stdgo.Error = (null : stdgo.Error);
 /**
     
     
     // path -> error
 **/
-var _execPaths = ({} : stdgo.sync.Sync.Map_);
+var _execPaths : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
 /**
     
     
     
 **/
-var _goBuildOnce = ({} : stdgo.sync.Sync.Once);
+var _goBuildOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 /**
     
     
     
 **/
-var _goBuildErr = (null : stdgo.Error);
+var _goBuildErr : stdgo.Error = (null : stdgo.Error);
 /**
     
     
     
 **/
-var _gorootOnce = ({} : stdgo.sync.Sync.Once);
+var _gorootOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 /**
     
     
     
 **/
-var _gorootPath = ("" : stdgo.GoString);
+var _gorootPath : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     
 **/
-var _gorootErr = (null : stdgo.Error);
+var _gorootErr : stdgo.Error = (null : stdgo.Error);
 /**
     
     
     
 **/
-var _goToolOnce = ({} : stdgo.sync.Sync.Once);
+var _goToolOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 /**
     
     
     
 **/
-var _goToolPath = ("" : stdgo.GoString);
+var _goToolPath : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     
 **/
-var _goToolErr = (null : stdgo.Error);
+var _goToolErr : stdgo.Error = (null : stdgo.Error);
 /**
     
     
     
 **/
-var _hasCgoOnce = ({} : stdgo.sync.Sync.Once);
+var _hasCgoOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 /**
     
     
     
 **/
-var _hasCgo = false;
+var _hasCgo : Bool = false;
 /**
     
     

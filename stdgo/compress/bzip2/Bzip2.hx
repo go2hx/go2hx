@@ -44,7 +44,7 @@ final _bzip2FinalMagic : stdgo.StdGoTypes.GoUInt64 = (25779555029136i64 : stdgo.
     
     
 **/
-var _crctab = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt32>(...[for (i in 0 ... 256) (0 : stdgo.StdGoTypes.GoUInt32)]);
+var _crctab : stdgo.GoArray<stdgo.StdGoTypes.GoUInt32> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt32>(...[for (i in 0 ... 256) (0 : stdgo.StdGoTypes.GoUInt32)]);
 /**
     // invalidNodeValue is an invalid index which marks a leaf node in the tree.
     

@@ -76,7 +76,7 @@ var _tree : stdgo.StdGoTypes.Ref<stdgo.io.fs_test.Fs_test.Node> = (stdgo.Go.setR
     
     
 **/
-var _sysValue = (0 : stdgo.StdGoTypes.GoInt);
+var _sysValue : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     // formatTest implements FileInfo to test FormatFileInfo,
     // and implements DirEntry to test FormatDirEntry.

@@ -845,13 +845,13 @@ var _stringdata : stdgo.Slice<T__struct_7> = (new stdgo.Slice<T__struct_7>(2, 2,
     
     
 **/
-var _sinkS = ("" : stdgo.GoString);
+var _sinkS : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     
 **/
-var _emptyString = ("" : stdgo.GoString);
+var _emptyString : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
@@ -869,7 +869,7 @@ final _space : stdgo.GoString = ("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000" : stdg
     
     
 **/
-var _stringSink = ("" : stdgo.GoString);
+var _stringSink : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     

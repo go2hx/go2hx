@@ -99,13 +99,13 @@ var cmykmodel : stdgo.image.color.Color.Model = modelFunc(_cmykModel);
     
     
 **/
-var _sink8 = (0 : stdgo.StdGoTypes.GoUInt8);
+var _sink8 : stdgo.StdGoTypes.GoUInt8 = (0 : stdgo.StdGoTypes.GoUInt8);
 /**
     
     
     
 **/
-var _sink32 = (0 : stdgo.StdGoTypes.GoUInt32);
+var _sink32 : stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
 /**
     // Color can convert itself to alpha-premultiplied 16-bits per channel RGBA.
     // The conversion may be lossy.

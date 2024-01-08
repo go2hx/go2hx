@@ -2580,7 +2580,7 @@ final largestSubnormalFloat64 : stdgo.StdGoTypes.GoFloat64 = (2.225073858507201e
     
     
 **/
-var globalI = (0 : stdgo.StdGoTypes.GoInt);
+var globalI : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     // Global exported variables are used to store the
     // return values of functions measured in the benchmarks.
@@ -2589,7 +2589,7 @@ var globalI = (0 : stdgo.StdGoTypes.GoInt);
     
     
 **/
-var globalB = false;
+var globalB : Bool = false;
 /**
     // Global exported variables are used to store the
     // return values of functions measured in the benchmarks.
@@ -2598,7 +2598,7 @@ var globalB = false;
     
     
 **/
-var globalF = (0 : stdgo.StdGoTypes.GoFloat64);
+var globalF : stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
 /**
     
     

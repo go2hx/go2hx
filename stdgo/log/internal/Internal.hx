@@ -11,4 +11,4 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var defaultOutput = null;
+var defaultOutput : (_pc:stdgo.StdGoTypes.GoUIntptr, _data:stdgo.Slice<stdgo.StdGoTypes.GoByte>) -> stdgo.Error = null;

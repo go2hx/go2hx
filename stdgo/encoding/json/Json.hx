@@ -1082,13 +1082,13 @@ var _structTagObjectKeyTests : stdgo.Slice<T__struct_45> = (new stdgo.Slice<T__s
     
     
 **/
-var _codeJSON = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+var _codeJSON : stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
 /**
     
     
     
 **/
-var _codeStruct = ({} : stdgo.encoding.json.Json.T_codeResponse);
+var _codeStruct : T_codeResponse = ({} : stdgo.encoding.json.Json.T_codeResponse);
 /**
     // phasePanicMsg is used as a panic message when we end up with something that
     // shouldn't happen. It can indicate a bug in the JSON decoder, or that
@@ -1120,19 +1120,19 @@ final _startDetectingCyclesAfter : stdgo.StdGoTypes.GoUInt64 = (1000i64 : stdgo.
     
     
 **/
-var _encodeStatePool = ({} : stdgo.sync.Sync.Pool);
+var _encodeStatePool : stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
 /**
     
     
     // map[reflect.Type]encoderFunc
 **/
-var _encoderCache = ({} : stdgo.sync.Sync.Map_);
+var _encoderCache : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
 /**
     
     
     // map[reflect.Type]structFields
 **/
-var _fieldCache = ({} : stdgo.sync.Sync.Map_);
+var _fieldCache : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
 /**
     // indentGrowthFactor specifies the growth factor of indenting JSON input.
     // Empirically, the growth factor was measured to be between 1.4x to 1.8x
@@ -1315,7 +1315,7 @@ final _maxNestingDepth : stdgo.StdGoTypes.GoUInt64 = (10000i64 : stdgo.StdGoType
     
     
 **/
-var _jsonBig = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+var _jsonBig : stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
 /**
     
     

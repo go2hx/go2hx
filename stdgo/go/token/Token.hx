@@ -724,7 +724,7 @@ final highestPrec : stdgo.StdGoTypes.GoUInt64 = (7i64 : stdgo.StdGoTypes.GoUInt6
     
     
 **/
-var _keywords = (null : stdgo.GoMap<stdgo.GoString, stdgo.go.token.Token.Token>);
+var _keywords : stdgo.GoMap<stdgo.GoString, Token> = (null : stdgo.GoMap<stdgo.GoString, stdgo.go.token.Token.Token>);
 /**
     // Position describes an arbitrary source position
     // including the file, line, and column location.

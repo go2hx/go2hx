@@ -24,13 +24,13 @@ var _u : stdgo.StdGoTypes.Ref<stdgo.net.url.Url.URL> = (stdgo.Go.setRef((new std
     
     
 **/
-var _gopherType = ("" : stdgo.GoString);
+var _gopherType : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     
 **/
-var _intervalFlag = new stdgo.flag_test.Flag_test.T_interval(0, 0);
+var _intervalFlag : T_interval = new stdgo.flag_test.Flag_test.T_interval(0, 0);
 /**
     
     

@@ -75,13 +75,13 @@ var _closedchan : stdgo.Chan<T_deadlineExceededError> = (null : stdgo.Chan<T_dea
     
     
 **/
-var _goroutines = ({} : stdgo.sync.atomic_.Atomic_.Int32);
+var _goroutines : stdgo.sync.atomic_.Atomic_.Int32 = ({} : stdgo.sync.atomic_.Atomic_.Int32);
 /**
     // &cancelCtxKey is the key that a cancelCtx returns itself for.
     
     
 **/
-var _cancelCtxKey = (0 : stdgo.StdGoTypes.GoInt);
+var _cancelCtxKey : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     // A Context carries a deadline, a cancellation signal, and other values across
     // API boundaries.

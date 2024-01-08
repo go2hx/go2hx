@@ -248,7 +248,7 @@ final _readdirFileInfo = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.os.Os.T_readdirMo
     
     
 **/
-var _testingForceReadDirLstat = false;
+var _testingForceReadDirLstat : Bool = false;
 /**
     // More than 5760 to work around https://golang.org/issue/24015.
     
@@ -391,7 +391,7 @@ final devNull : stdgo.GoString = ("" : stdgo.GoString);
     
     
 **/
-var _getwdCache = ({ mutex : ({} : stdgo.sync.Sync.Mutex), _dir : ("" : stdgo.GoString) } : T__struct_0);
+var _getwdCache : T__struct_0 = ({ mutex : ({} : stdgo.sync.Sync.Mutex), _dir : ("" : stdgo.GoString) } : T__struct_0);
 /**
     
     
@@ -409,7 +409,7 @@ final pathListSeparator : stdgo.StdGoTypes.GoInt32 = (0 : stdgo.StdGoTypes.GoInt
     
     
 **/
-var args = (null : stdgo.Slice<stdgo.GoString>);
+var args : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
 /**
     // According to sticky(8), neither open(2) nor mkdir(2) will create
     // a file with the sticky bit set.

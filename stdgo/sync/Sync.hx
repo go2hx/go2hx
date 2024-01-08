@@ -97,13 +97,13 @@ final _starvationThresholdNs : stdgo.StdGoTypes.GoFloat64 = (1e+06 : stdgo.StdGo
     
     
 **/
-var _poolRaceHash = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt64>(...[for (i in 0 ... 128) (0 : stdgo.StdGoTypes.GoUInt64)]);
+var _poolRaceHash : stdgo.GoArray<stdgo.StdGoTypes.GoUInt64> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt64>(...[for (i in 0 ... 128) (0 : stdgo.StdGoTypes.GoUInt64)]);
 /**
     
     
     
 **/
-var _allPoolsMu = ({} : stdgo.sync.Sync.Mutex);
+var _allPoolsMu : Mutex = ({} : stdgo.sync.Sync.Mutex);
 /**
     // allPools is the set of pools that have non-empty primary
     // caches. Protected by either 1) allPoolsMu and pinning or 2)
@@ -111,14 +111,14 @@ var _allPoolsMu = ({} : stdgo.sync.Sync.Mutex);
     
     
 **/
-var _allPools = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Pool>>);
+var _allPools : stdgo.Slice<stdgo.StdGoTypes.Ref<Pool>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Pool>>);
 /**
     // oldPools is the set of pools that may have non-empty victim
     // caches. Protected by STW.
     
     
 **/
-var _oldPools = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Pool>>);
+var _oldPools : stdgo.Slice<stdgo.StdGoTypes.Ref<Pool>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.sync.Sync.Pool>>);
 /**
     
     

@@ -35,7 +35,7 @@ final _offsetPPC64HasPOWER9 : stdgo.StdGoTypes.GoUIntptr = stdgo.unsafe.Unsafe.o
     
     
 **/
-var maxLen = (0 : stdgo.StdGoTypes.GoInt);
+var maxLen : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     // PrimeRK is the prime base used in Rabin-Karp algorithm.
     

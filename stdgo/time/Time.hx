@@ -2875,25 +2875,25 @@ final _omega : stdgo.StdGoTypes.GoUInt64 = (9223372036854775807i64 : stdgo.StdGo
     
     
 **/
-var _localLoc = ({} : stdgo.time.Time.Location);
+var _localLoc : Location = ({} : stdgo.time.Time.Location);
 /**
     
     
     
 **/
-var _localOnce = ({} : stdgo.sync.Sync.Once);
+var _localOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 /**
     
     
     
 **/
-var _unnamedFixedZones = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.time.Time.Location>>);
+var _unnamedFixedZones : stdgo.Slice<stdgo.StdGoTypes.Ref<Location>> = (null : stdgo.Slice<stdgo.StdGoTypes.Ref<stdgo.time.Time.Location>>);
 /**
     
     
     
 **/
-var _unnamedFixedZonesOnce = ({} : stdgo.sync.Sync.Once);
+var _unnamedFixedZonesOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 /**
     
     
@@ -2917,13 +2917,13 @@ final _ruleMonthWeekDay = (2 : stdgo.time.Time.T_ruleKind);
     
     
 **/
-var _zoneinfo = (null : stdgo.Pointer<stdgo.GoString>);
+var _zoneinfo : stdgo.Pointer<stdgo.GoString> = (null : stdgo.Pointer<stdgo.GoString>);
 /**
     
     
     
 **/
-var _zoneinfoOnce = ({} : stdgo.sync.Sync.Once);
+var _zoneinfoOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 /**
     // loadFromEmbeddedTZData is used to load a specific tzdata file
     // from tzdata information embedded in the binary itself.
@@ -2932,7 +2932,7 @@ var _zoneinfoOnce = ({} : stdgo.sync.Sync.Once);
     
     
 **/
-var _loadFromEmbeddedTZData = null;
+var _loadFromEmbeddedTZData : (_zipname:stdgo.GoString) -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; } = null;
 /**
     // maxFileSize is the max permitted size of files read by readFile.
     // As reference, the zoneinfo.zip distributed by Go is ~350 KB,
@@ -2966,7 +2966,7 @@ final _seekEnd : stdgo.StdGoTypes.GoUInt64 = (2i64 : stdgo.StdGoTypes.GoUInt64);
     
     
 **/
-var _loadTzinfoFromTzdata = null;
+var _loadTzinfoFromTzdata : (_file:stdgo.GoString, _name:stdgo.GoString) -> { var _0 : stdgo.Slice<stdgo.StdGoTypes.GoByte>; var _1 : stdgo.Error; } = null;
 /**
     
     

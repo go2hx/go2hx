@@ -23,7 +23,7 @@ final _complexSize : stdgo.StdGoTypes.GoUInt64 = (50i64 : stdgo.StdGoTypes.GoUIn
     
     
 **/
-var _defaultConfig = ({} : stdgo.testing.quick.Quick.Config);
+var _defaultConfig : Config = ({} : stdgo.testing.quick.Quick.Config);
 /**
     // A Generator can generate random values of its own type.
     

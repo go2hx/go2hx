@@ -19,7 +19,7 @@ var cacheLineSize : stdgo.StdGoTypes.GoUIntptr = (64 : stdgo.StdGoTypes.GoUIntpt
     
     
 **/
-var debugOptions = false;
+var debugOptions : Bool = false;
 /**
     // The booleans in X86 contain the correspondingly named cpuid feature bit.
     // HasAVX and HasAVX2 are only set if the OS does support XMM and YMM registers
@@ -28,27 +28,27 @@ var debugOptions = false;
     
     
 **/
-var x86 = ({ hasAES : false, hasADX : false, hasAVX : false, hasAVX2 : false, hasBMI1 : false, hasBMI2 : false, hasERMS : false, hasFMA : false, hasOSXSAVE : false, hasPCLMULQDQ : false, hasPOPCNT : false, hasRDTSCP : false, hasSHA : false, hasSSE3 : false, hasSSSE3 : false, hasSSE41 : false, hasSSE42 : false } : T__struct_0);
+var x86 : T__struct_0 = ({ hasAES : false, hasADX : false, hasAVX : false, hasAVX2 : false, hasBMI1 : false, hasBMI2 : false, hasERMS : false, hasFMA : false, hasOSXSAVE : false, hasPCLMULQDQ : false, hasPOPCNT : false, hasRDTSCP : false, hasSHA : false, hasSSE3 : false, hasSSSE3 : false, hasSSE41 : false, hasSSE42 : false } : T__struct_0);
 /**
     // The booleans in ARM contain the correspondingly named cpu feature bit.
     // The struct is padded to avoid false sharing.
     
     
 **/
-var arm = ({ hasVFPv4 : false, hasIDIVA : false } : T__struct_1);
+var arm : T__struct_1 = ({ hasVFPv4 : false, hasIDIVA : false } : T__struct_1);
 /**
     // The booleans in ARM64 contain the correspondingly named cpu feature bit.
     // The struct is padded to avoid false sharing.
     
     
 **/
-var arm64 = ({ hasAES : false, hasPMULL : false, hasSHA1 : false, hasSHA2 : false, hasSHA512 : false, hasCRC32 : false, hasATOMICS : false, hasCPUID : false, isNeoverse : false } : T__struct_2);
+var arm64 : T__struct_2 = ({ hasAES : false, hasPMULL : false, hasSHA1 : false, hasSHA2 : false, hasSHA512 : false, hasCRC32 : false, hasATOMICS : false, hasCPUID : false, isNeoverse : false } : T__struct_2);
 /**
     
     
     
 **/
-var mips64x = ({ hasMSA : false } : T__struct_3);
+var mips64x : T__struct_3 = ({ hasMSA : false } : T__struct_3);
 /**
     // For ppc64(le), it is safe to check only for ISA level starting on ISA v3.00,
     // since there are no optional categories. There are some exceptions that also
@@ -58,13 +58,13 @@ var mips64x = ({ hasMSA : false } : T__struct_3);
     
     
 **/
-var ppc64 = ({ hasDARN : false, hasSCV : false, isPOWER8 : false, isPOWER9 : false, isPOWER10 : false } : T__struct_4);
+var ppc64 : T__struct_4 = ({ hasDARN : false, hasSCV : false, isPOWER8 : false, isPOWER9 : false, isPOWER10 : false } : T__struct_4);
 /**
     
     
     
 **/
-var s390x = ({ hasZARCH : false, hasSTFLE : false, hasLDISP : false, hasEIMM : false, hasDFP : false, hasETF3EH : false, hasMSA : false, hasAES : false, hasAESCBC : false, hasAESCTR : false, hasAESGCM : false, hasGHASH : false, hasSHA1 : false, hasSHA256 : false, hasSHA512 : false, hasSHA3 : false, hasVX : false, hasVXE : false, hasKDSA : false, hasECDSA : false, hasEDDSA : false } : T__struct_5);
+var s390x : T__struct_5 = ({ hasZARCH : false, hasSTFLE : false, hasLDISP : false, hasEIMM : false, hasDFP : false, hasETF3EH : false, hasMSA : false, hasAES : false, hasAESCBC : false, hasAESCTR : false, hasAESGCM : false, hasGHASH : false, hasSHA1 : false, hasSHA256 : false, hasSHA512 : false, hasSHA3 : false, hasVX : false, hasVXE : false, hasKDSA : false, hasECDSA : false, hasEDDSA : false } : T__struct_5);
 /**
     // options contains the cpu debug options that can be used in GODEBUG.
     // Options are arch dependent and are added by the arch specific doinit functions.
@@ -73,7 +73,7 @@ var s390x = ({ hasZARCH : false, hasSTFLE : false, hasLDISP : false, hasEIMM : f
     
     
 **/
-var _options = (null : stdgo.Slice<stdgo.internal.cpu.Cpu.T_option>);
+var _options : stdgo.Slice<T_option> = (null : stdgo.Slice<stdgo.internal.cpu.Cpu.T_option>);
 /**
     
     

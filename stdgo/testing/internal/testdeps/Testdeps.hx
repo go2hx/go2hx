@@ -13,25 +13,25 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-var _matchPat = ("" : stdgo.GoString);
+var _matchPat : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     
 **/
-var _matchRe = (null : stdgo.StdGoTypes.Ref<stdgo.regexp.Regexp.Regexp>);
+var _matchRe : stdgo.StdGoTypes.Ref<stdgo.regexp.Regexp.Regexp> = (null : stdgo.StdGoTypes.Ref<stdgo.regexp.Regexp.Regexp>);
 /**
     // ImportPath is the import path of the testing binary, set by the generated main function.
     
     
 **/
-var importPath = ("" : stdgo.GoString);
+var importPath : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     
 **/
-var _log = ({} : stdgo.testing.internal.testdeps.Testdeps.T_testLog);
+var _log : T_testLog = ({} : stdgo.testing.internal.testdeps.Testdeps.T_testLog);
 /**
     // TestDeps is an implementation of the testing.testDeps interface,
     // suitable for passing to testing.MainStart.

@@ -407,7 +407,7 @@ final _maxExp : stdgo.StdGoTypes.GoUInt64 = (4096i64 : stdgo.StdGoTypes.GoUInt64
     
     
 **/
-var _emptyString = ({} : stdgo.go.constant.Constant.T_stringVal);
+var _emptyString : T_stringVal = ({} : stdgo.go.constant.Constant.T_stringVal);
 /**
     // Compute the size of a Word in bytes.
     

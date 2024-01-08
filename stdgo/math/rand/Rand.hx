@@ -1842,7 +1842,7 @@ final _rn : stdgo.StdGoTypes.GoFloat64 = (3.442619855899 : stdgo.StdGoTypes.GoFl
     
     
 **/
-var _globalRandGenerator = ({} : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.math.rand.Rand.Rand>);
+var _globalRandGenerator : stdgo.sync.atomic_.Atomic_.Pointer_<Rand> = ({} : stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.math.rand.Rand.Rand>);
 /**
     
     

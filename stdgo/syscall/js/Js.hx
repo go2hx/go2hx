@@ -84,7 +84,7 @@ var _arrayConstructor : stdgo.syscall.js.Js.Value = ({} : stdgo.syscall.js.Js.Va
     
     
 **/
-var _funcsMu = ({} : stdgo.sync.Sync.Mutex);
+var _funcsMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 /**
     // nanHead are the upper 32 bits of a ref which are set if the value is not encoded as an IEEE 754 number (see above).
     

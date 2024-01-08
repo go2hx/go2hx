@@ -310,7 +310,7 @@ final _bufferSize : stdgo.StdGoTypes.GoUInt64 = (1024i64 : stdgo.StdGoTypes.GoUI
     
     
 **/
-var _sink = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+var _sink : stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
 /**
     
     

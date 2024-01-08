@@ -2053,7 +2053,7 @@ final _maxShift : stdgo.StdGoTypes.GoUInt64 = (28i64 : stdgo.StdGoTypes.GoUInt64
     
     
 **/
-var _sink = ("" : stdgo.GoString);
+var _sink : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
@@ -2161,7 +2161,7 @@ var __8 : stdgo.Error = stdgo.Go.asInterface((new stdgo.math.big.Big.ErrNaN() : 
     
     
 **/
-var _floatZero = ({} : stdgo.math.big.Big.Float_);
+var _floatZero : Float_ = ({} : stdgo.math.big.Big.Float_);
 /**
     
     
@@ -2173,7 +2173,7 @@ var __9 : stdgo.fmt.Fmt.Scanner = stdgo.Go.asInterface(((null : stdgo.StdGoTypes
     
     
 **/
-var _zero_ = (0 : stdgo.StdGoTypes.GoFloat64);
+var _zero_ : stdgo.StdGoTypes.GoFloat64 = (0 : stdgo.StdGoTypes.GoFloat64);
 /**
     
     
@@ -2221,7 +2221,7 @@ final _intGobVersion : stdgo.StdGoTypes.GoUInt8 = (1 : stdgo.StdGoTypes.GoUInt8)
     
     
 **/
-var _natPool = ({} : stdgo.sync.Sync.Pool);
+var _natPool : stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
 /**
     
     
@@ -2245,7 +2245,7 @@ final _maxBaseSmall : stdgo.StdGoTypes.GoInt32 = (36 : stdgo.StdGoTypes.GoInt32)
     
     
 **/
-var _cacheBase10 = ({ mutex : ({} : stdgo.sync.Sync.Mutex), _table : new stdgo.GoArray<stdgo.math.big.Big.T_divisor>(...[for (i in 0 ... 64) ({} : stdgo.math.big.Big.T_divisor)]) } : T__struct_57);
+var _cacheBase10 : T__struct_57 = ({ mutex : ({} : stdgo.sync.Sync.Mutex), _table : new stdgo.GoArray<stdgo.math.big.Big.T_divisor>(...[for (i in 0 ... 64) ({} : stdgo.math.big.Big.T_divisor)]) } : T__struct_57);
 /**
     // divRecursiveThreshold is the number of divisor digits
     // at which point divRecursive is faster than divBasic.
@@ -2258,7 +2258,7 @@ final _divRecursiveThreshold : stdgo.StdGoTypes.GoUInt64 = (100i64 : stdgo.StdGo
     
     
 **/
-var _ratZero = ({} : stdgo.math.big.Big.Rat);
+var _ratZero : Rat = ({} : stdgo.math.big.Big.Rat);
 /**
     
     
@@ -2282,7 +2282,7 @@ final __RoundingMode_name : stdgo.GoString = ("ToNearestEvenToNearestAwayToZeroA
     
     
 **/
-var _threeOnce = ({ once : ({} : stdgo.sync.Sync.Once), _v : (null : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>) } : T__struct_67);
+var _threeOnce : T__struct_67 = ({ once : ({} : stdgo.sync.Sync.Once), _v : (null : stdgo.StdGoTypes.Ref<stdgo.math.big.Big.Float_>) } : T__struct_67);
 /**
     
     

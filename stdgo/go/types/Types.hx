@@ -669,7 +669,7 @@ final recvOnly = (2 : stdgo.go.types.Types.ChanDir);
     
     
 **/
-var _nopos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
+var _nopos : stdgo.go.token.Token.Pos = ((0 : stdgo.StdGoTypes.GoInt) : stdgo.go.token.Token.Pos);
 /**
     // debugging/development support
     
@@ -693,13 +693,13 @@ final _invalidOp : stdgo.GoString = ("invalid operation: " : stdgo.GoString);
     
     
 **/
-var _unaryOpPredicates = (null : stdgo.go.types.Types.T_opPredicates);
+var _unaryOpPredicates : T_opPredicates = (null : stdgo.go.types.Types.T_opPredicates);
 /**
     
     
     
 **/
-var _binaryOpPredicates = (null : stdgo.go.types.Types.T_opPredicates);
+var _binaryOpPredicates : T_opPredicates = (null : stdgo.go.types.Types.T_opPredicates);
 /**
     
     
@@ -733,7 +733,7 @@ final _enableReverseTypeInference : Bool = true;
     
     
 **/
-var _emptyMethodSet = ({} : stdgo.go.types.Types.MethodSet);
+var _emptyMethodSet : MethodSet = ({} : stdgo.go.types.Types.MethodSet);
 /**
     
     
@@ -900,7 +900,7 @@ final _termSep : stdgo.GoString = (" | " : stdgo.GoString);
     
     
 **/
-var _lastID = (0 : stdgo.StdGoTypes.GoUInt32);
+var _lastID : stdgo.StdGoTypes.GoUInt32 = (0 : stdgo.StdGoTypes.GoUInt32);
 /**
     // invalidTypeSet is a singleton type set to signal an invalid type set
     // due to an error. It's also a valid empty type set, so consumers of
@@ -908,7 +908,7 @@ var _lastID = (0 : stdgo.StdGoTypes.GoUInt32);
     
     
 **/
-var _invalidTypeSet = ({} : stdgo.go.types.Types.T__TypeSet);
+var _invalidTypeSet : T__TypeSet = ({} : stdgo.go.types.Types.T__TypeSet);
 /**
     // Upper limit for recursion depth. Used to catch infinite recursions
     // due to implementation issues (e.g., see issues go.dev/issue/48619, go.dev/issue/48656).
@@ -974,50 +974,50 @@ final _maxTermCount : stdgo.StdGoTypes.GoUInt64 = (100i64 : stdgo.StdGoTypes.GoU
     
     
 **/
-var universe = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope>);
+var universe : stdgo.StdGoTypes.Ref<Scope> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope>);
 /**
     // The Unsafe package is the package returned by an importer
     // for the import path "unsafe".
     
     
 **/
-var unsafe = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>);
+var unsafe : stdgo.StdGoTypes.Ref<Package> = (null : stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Package>);
 /**
     
     
     
 **/
-var _universeIota = (null : stdgo.go.types.Types.Object);
+var _universeIota : Object = (null : stdgo.go.types.Types.Object);
 /**
     
     
     // uint8 alias, but has name "byte"
 **/
-var _universeByte = (null : stdgo.go.types.Types.Type_);
+var _universeByte : Type_ = (null : stdgo.go.types.Types.Type_);
 /**
     
     
     // int32 alias, but has name "rune"
 **/
-var _universeRune = (null : stdgo.go.types.Types.Type_);
+var _universeRune : Type_ = (null : stdgo.go.types.Types.Type_);
 /**
     
     
     
 **/
-var _universeAny = (null : stdgo.go.types.Types.Object);
+var _universeAny : Object = (null : stdgo.go.types.Types.Object);
 /**
     
     
     
 **/
-var _universeError = (null : stdgo.go.types.Types.Type_);
+var _universeError : Type_ = (null : stdgo.go.types.Types.Type_);
 /**
     
     
     
 **/
-var _universeComparable = (null : stdgo.go.types.Types.Object);
+var _universeComparable : Object = (null : stdgo.go.types.Types.Object);
 /**
     // universe scope
     
@@ -4944,7 +4944,7 @@ function checkExpr(_fset:stdgo.StdGoTypes.Ref<stdgo.go.token.Token.FileSet>, _pk
             };
             var _check = newChecker(null, _fset, _pkg, _info);
             _check._pkg._scope = _scope;
-            _check._pkg._scope._pos = _pos;
+            _check._environment._pos = _pos;
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.StdGoTypes.Ref<stdgo.Error>);
                 __deferstack__.unshift(() -> _check._handleBailout(_a0));
@@ -11425,7 +11425,7 @@ class Checker_asInterface {
         @:recv var _check:stdgo.StdGoTypes.Ref<Checker> = _check;
         _x._mode = (0 : stdgo.go.types.Types.T_operandMode);
         _x._expr = stdgo.Go.asInterface(_e);
-        var __tmp__ = _check._pkg._scope.lookupParent(_e.name?.__copy__(), _check._pkg._scope._pos), _scope:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _obj:stdgo.go.types.Types.Object = __tmp__._1;
+        var __tmp__ = _check._pkg._scope.lookupParent(_e.name?.__copy__(), _check._environment._pos), _scope:stdgo.StdGoTypes.Ref<stdgo.go.types.Types.Scope> = __tmp__._0, _obj:stdgo.go.types.Types.Object = __tmp__._1;
         {
             final __value__ = _obj;
             if (__value__ == null) {
@@ -18736,7 +18736,7 @@ class Checker_asInterface {
                                 };
                                 for (__25 => _prefix in _cgoPrefixes) {
                                     {
-                                        var __tmp__ = _check._pkg._scope.lookupParent(_prefix + _sel?.__copy__()?.__copy__(), _check._pkg._scope._pos);
+                                        var __tmp__ = _check._pkg._scope.lookupParent(_prefix + _sel?.__copy__()?.__copy__(), _check._environment._pos);
                                         _exp = __tmp__._1;
                                     };
                                     if (_exp != null) {

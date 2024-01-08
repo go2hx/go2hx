@@ -153,25 +153,25 @@ final _isBigEndian : Bool = false;
     
     
 **/
-var _envOnce = ({} : stdgo.sync.Sync.Once);
+var _envOnce : stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 /**
     // envLock guards env and envs.
     
     
 **/
-var _envLock = ({} : stdgo.sync.Sync.RWMutex);
+var _envLock : stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
 /**
     // env maps from an environment variable to its first occurrence in envs.
     
     
 **/
-var _env = (null : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.GoInt>);
+var _env : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.GoInt> = (null : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.GoInt>);
 /**
     
     
     
 **/
-var _filesMu = ({} : stdgo.sync.Sync.Mutex);
+var _filesMu : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 /**
     
     
@@ -304,7 +304,7 @@ final sys_FCNTL : stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
     
     
 **/
-var __zero = (0 : stdgo.StdGoTypes.GoUIntptr);
+var __zero : stdgo.StdGoTypes.GoUIntptr = (0 : stdgo.StdGoTypes.GoUIntptr);
 /**
     
     
@@ -760,7 +760,7 @@ final s_IXOTH : stdgo.StdGoTypes.GoUInt64 = (0 : stdgo.StdGoTypes.GoUInt64);
     
     
 **/
-var forkLock = ({} : stdgo.sync.Sync.RWMutex);
+var forkLock : stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
 /**
     
     

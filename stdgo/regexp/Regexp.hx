@@ -697,7 +697,7 @@ var _onePassTests1 : stdgo.Slice<T__struct_7> = (new stdgo.Slice<T__struct_7>(1,
     
     
 **/
-var _sink = ("" : stdgo.GoString);
+var _sink : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
@@ -721,26 +721,26 @@ final _maxBacktrackVector : stdgo.StdGoTypes.GoUInt64 = (262144i64 : stdgo.StdGo
     
     
 **/
-var _bitStatePool = ({} : stdgo.sync.Sync.Pool);
+var _bitStatePool : stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
 /**
     
     
     
 **/
-var _onePassPool = ({} : stdgo.sync.Sync.Pool);
+var _onePassPool : stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
 /**
     // arrayNoInts is returned by doExecute match if nil dstCap is passed
     // to it with ncap=0.
     
     
 **/
-var _arrayNoInts = new stdgo.GoArray<stdgo.StdGoTypes.GoInt>(...[for (i in 0 ... 0) (0 : stdgo.StdGoTypes.GoInt)]);
+var _arrayNoInts : stdgo.GoArray<stdgo.StdGoTypes.GoInt> = new stdgo.GoArray<stdgo.StdGoTypes.GoInt>(...[for (i in 0 ... 0) (0 : stdgo.StdGoTypes.GoInt)]);
 /**
     
     
     
 **/
-var _text = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+var _text : stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
 /**
     // mergeRuneSets merges two non-intersecting runesets, and returns the merged result,
     // and a NextIp array. The idea is that if a rune matches the OnePassRunes at index
@@ -761,7 +761,7 @@ final _mergeFailed : stdgo.StdGoTypes.GoUInt32 = (-1u32 : stdgo.StdGoTypes.GoUIn
     
     
 **/
-var _matchPool = new stdgo.GoArray<stdgo.sync.Sync.Pool>(...[for (i in 0 ... 5) ({} : stdgo.sync.Sync.Pool)]);
+var _matchPool : stdgo.GoArray<stdgo.sync.Sync.Pool> = new stdgo.GoArray<stdgo.sync.Sync.Pool>(...[for (i in 0 ... 5) ({} : stdgo.sync.Sync.Pool)]);
 /**
     
     
@@ -773,7 +773,7 @@ final _endOfText : stdgo.StdGoTypes.GoInt32 = (-1 : stdgo.StdGoTypes.GoInt32);
     
     
 **/
-var _specialBytes = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 16) (0 : stdgo.StdGoTypes.GoUInt8)]);
+var _specialBytes : stdgo.GoArray<stdgo.StdGoTypes.GoByte> = new stdgo.GoArray<stdgo.StdGoTypes.GoUInt8>(...[for (i in 0 ... 16) (0 : stdgo.StdGoTypes.GoUInt8)]);
 /**
     
     

@@ -112,25 +112,25 @@ final _typeTParam = (2 : stdgo.go.printer.Printer.T_paramMode);
     
     
 **/
-var _fileNode = (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>);
+var _fileNode : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File> = (null : stdgo.StdGoTypes.Ref<stdgo.go.ast.Ast.File>);
 /**
     
     
     
 **/
-var _fileSize = (0 : stdgo.StdGoTypes.GoInt64);
+var _fileSize : stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
 /**
     
     
     
 **/
-var _declNode = (null : stdgo.go.ast.Ast.Decl);
+var _declNode : stdgo.go.ast.Ast.Decl = (null : stdgo.go.ast.Ast.Decl);
 /**
     
     
     
 **/
-var _declSize = (0 : stdgo.StdGoTypes.GoInt64);
+var _declSize : stdgo.StdGoTypes.GoInt64 = (0 : stdgo.StdGoTypes.GoInt64);
 /**
     
     

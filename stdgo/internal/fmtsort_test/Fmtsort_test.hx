@@ -134,13 +134,13 @@ var _sortTests : stdgo.Slice<stdgo.internal.fmtsort_test.Fmtsort_test.T_sortTest
     
     
 **/
-var _iFace = (null : stdgo.StdGoTypes.AnyInterface);
+var _iFace : stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
 /**
     
     
     
 **/
-var _ints = new stdgo.GoArray<stdgo.StdGoTypes.GoInt>(...[for (i in 0 ... 3) (0 : stdgo.StdGoTypes.GoInt)]);
+var _ints : stdgo.GoArray<stdgo.StdGoTypes.GoInt> = new stdgo.GoArray<stdgo.StdGoTypes.GoInt>(...[for (i in 0 ... 3) (0 : stdgo.StdGoTypes.GoInt)]);
 /**
     
     

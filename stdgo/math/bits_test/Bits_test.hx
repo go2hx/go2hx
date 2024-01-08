@@ -16,7 +16,7 @@ var input : stdgo.StdGoTypes.GoUInt64 = (285870213051353865i64 : stdgo.StdGoType
     
     
 **/
-var output = (0 : stdgo.StdGoTypes.GoInt);
+var output : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     
     
@@ -52,7 +52,7 @@ final _overflowError : stdgo.GoString = ("runtime error: integer overflow" : std
     
     
 **/
-var _tab = new stdgo.GoArray<T_entry>(...[for (i in 0 ... 256) ({ _nlz : (0 : stdgo.StdGoTypes.GoInt), _ntz : (0 : stdgo.StdGoTypes.GoInt), _pop : (0 : stdgo.StdGoTypes.GoInt) } : T_entry)]);
+var _tab : stdgo.GoArray<T_entry> = new stdgo.GoArray<T_entry>(...[for (i in 0 ... 256) ({ _nlz : (0 : stdgo.StdGoTypes.GoInt), _ntz : (0 : stdgo.StdGoTypes.GoInt), _pop : (0 : stdgo.StdGoTypes.GoInt) } : T_entry)]);
 @:follow typedef T_entry = {
     var _nlz : stdgo.StdGoTypes.GoInt;
     var _ntz : stdgo.StdGoTypes.GoInt;

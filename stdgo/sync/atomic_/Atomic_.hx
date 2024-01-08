@@ -56,7 +56,7 @@ var __24 : stdgo.StdGoTypes.Ref<stdgo.sync.atomic_.Atomic_.Pointer_<stdgo.StdGoT
     
     
 **/
-var _firstStoreInProgress = (0 : stdgo.StdGoTypes.GoUInt8);
+var _firstStoreInProgress : stdgo.StdGoTypes.GoByte = (0 : stdgo.StdGoTypes.GoUInt8);
 /**
     // A Bool is an atomic boolean value.
     // The zero value is false.

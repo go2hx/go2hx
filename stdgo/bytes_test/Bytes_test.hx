@@ -732,19 +732,19 @@ final n : stdgo.StdGoTypes.GoUInt64 = (10000i64 : stdgo.StdGoTypes.GoUInt64);
     
     // test data for write tests
 **/
-var _testString = ("" : stdgo.GoString);
+var _testString : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     // test data; same as testString but as a slice.
 **/
-var _testBytes = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+var _testBytes : stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
 /**
     
     
     
 **/
-var _bmbuf = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
+var _bmbuf : stdgo.Slice<stdgo.StdGoTypes.GoByte> = (null : stdgo.Slice<stdgo.StdGoTypes.GoUInt8>);
 /**
     
     

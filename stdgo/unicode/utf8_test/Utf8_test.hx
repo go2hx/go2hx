@@ -179,20 +179,20 @@ var _ascii100000 : stdgo.GoString = stdgo.strings.Strings.repeat(("0123456789" :
     
     // ~100KB, ~97% ASCII
 **/
-var _longStringMostlyASCII = ("" : stdgo.GoString);
+var _longStringMostlyASCII : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     // ~100KB, non-ASCII
 **/
-var _longStringJapanese = ("" : stdgo.GoString);
+var _longStringJapanese : stdgo.GoString = ("" : stdgo.GoString);
 /**
     // boolSink is used to reference the return value of benchmarked
     // functions to avoid dead code elimination.
     
     
 **/
-var _boolSink = false;
+var _boolSink : Bool = false;
 /**
     
     

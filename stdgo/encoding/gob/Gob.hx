@@ -868,7 +868,7 @@ var _basicTypes : stdgo.Slice<stdgo.encoding.gob.Gob.T_typeT> = (new stdgo.Slice
     
     
 **/
-var _noValue = ({} : stdgo.reflect.Reflect.Value);
+var _noValue : stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
 /**
     
     
@@ -896,7 +896,7 @@ final _tooBig : stdgo.StdGoTypes.GoUInt64 = (1073741824i64 : stdgo.StdGoTypes.Go
     
     
 **/
-var _debugFunc = null;
+var _debugFunc : stdgo.io.Io.Reader -> Void = null;
 /**
     
     
@@ -922,37 +922,37 @@ final _maxLength : stdgo.StdGoTypes.GoUInt64 = (9i64 : stdgo.StdGoTypes.GoUInt64
     
     
 **/
-var _testInt = (0 : stdgo.StdGoTypes.GoInt);
+var _testInt : stdgo.StdGoTypes.GoInt = (0 : stdgo.StdGoTypes.GoInt);
 /**
     
     
     
 **/
-var _testFloat32 = (0 : stdgo.StdGoTypes.GoFloat32);
+var _testFloat32 : stdgo.StdGoTypes.GoFloat32 = (0 : stdgo.StdGoTypes.GoFloat32);
 /**
     
     
     
 **/
-var _testString = ("" : stdgo.GoString);
+var _testString : stdgo.GoString = ("" : stdgo.GoString);
 /**
     
     
     
 **/
-var _testSlice = (null : stdgo.Slice<stdgo.GoString>);
+var _testSlice : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
 /**
     
     
     
 **/
-var _testMap = (null : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.GoInt>);
+var _testMap : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.GoInt> = (null : stdgo.GoMap<stdgo.GoString, stdgo.StdGoTypes.GoInt>);
 /**
     
     
     
 **/
-var _testArray = new stdgo.GoArray<stdgo.StdGoTypes.GoInt>(...[for (i in 0 ... 7) (0 : stdgo.StdGoTypes.GoInt)]);
+var _testArray : stdgo.GoArray<stdgo.StdGoTypes.GoInt> = new stdgo.GoArray<stdgo.StdGoTypes.GoInt>(...[for (i in 0 ... 7) (0 : stdgo.StdGoTypes.GoInt)]);
 /**
     // externalEncoding bits
     
@@ -976,13 +976,13 @@ final _xText = (3i64 : stdgo.StdGoTypes.GoUInt64);
     
     // map[reflect.Type]*userTypeInfo
 **/
-var _userTypeCache = ({} : stdgo.sync.Sync.Map_);
+var _userTypeCache : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
 /**
     
     
     // set while building a type
 **/
-var _typeLock = ({} : stdgo.sync.Sync.Mutex);
+var _typeLock : stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 /**
     
     
@@ -994,13 +994,13 @@ final _firstUserId : stdgo.StdGoTypes.GoUInt64 = (64i64 : stdgo.StdGoTypes.GoUIn
     
     // set in init() after builtins are established
 **/
-var _builtinIdToTypeSlice = new stdgo.GoArray<stdgo.encoding.gob.Gob.T_gobType>(...[for (i in 0 ... 64) (null : stdgo.encoding.gob.Gob.T_gobType)]);
+var _builtinIdToTypeSlice : stdgo.GoArray<T_gobType> = new stdgo.GoArray<stdgo.encoding.gob.Gob.T_gobType>(...[for (i in 0 ... 64) (null : stdgo.encoding.gob.Gob.T_gobType)]);
 /**
     
     
     // userTypeInfo of wireType
 **/
-var _wireTypeUserInfo = (null : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_userTypeInfo>);
+var _wireTypeUserInfo : stdgo.StdGoTypes.Ref<T_userTypeInfo> = (null : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_userTypeInfo>);
 /**
     // typeInfoMap is an atomic pointer to map[reflect.Type]*typeInfo.
     // It's updated copy-on-write. Readers just do an atomic load
@@ -1011,19 +1011,19 @@ var _wireTypeUserInfo = (null : stdgo.StdGoTypes.Ref<stdgo.encoding.gob.Gob.T_us
     
     
 **/
-var _typeInfoMap = ({} : stdgo.sync.atomic_.Atomic_.Value);
+var _typeInfoMap : stdgo.sync.atomic_.Atomic_.Value = ({} : stdgo.sync.atomic_.Atomic_.Value);
 /**
     
     
     // map[string]reflect.Type
 **/
-var _nameToConcreteType = ({} : stdgo.sync.Sync.Map_);
+var _nameToConcreteType : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
 /**
     
     
     // map[reflect.Type]string
 **/
-var _concreteTypeToName = ({} : stdgo.sync.Sync.Map_);
+var _concreteTypeToName : stdgo.sync.Sync.Map_ = ({} : stdgo.sync.Sync.Map_);
 /**
     // An interface with several implementations
     

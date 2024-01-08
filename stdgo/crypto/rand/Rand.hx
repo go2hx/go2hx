@@ -30,7 +30,7 @@ var _uint8Array : stdgo.syscall.js.Js.Value = stdgo.syscall.js.Js.global().get((
     
     
 **/
-var reader = (null : stdgo.io.Io.Reader);
+var reader : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
 /**
     // The maximum buffer size for crypto.getRandomValues is 65536 bytes.
     // https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues#exceptions
@@ -43,7 +43,7 @@ final _maxGetRandomRead : stdgo.StdGoTypes.GoUInt64 = (65536i64 : stdgo.StdGoTyp
     
     
 **/
-var _batchedGetRandom = null;
+var _batchedGetRandom : stdgo.Slice<stdgo.StdGoTypes.GoByte> -> stdgo.Error = null;
 /**
     // reader implements a pseudorandom generator
     // using JavaScript crypto.getRandomValues method.

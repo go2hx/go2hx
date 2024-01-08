@@ -221,7 +221,7 @@ var _isReadonlyError : stdgo.Error -> Bool = function(_0:stdgo.Error):Bool {
     
     
 **/
-var _global = (null : stdgo.StdGoTypes.AnyInterface);
+var _global : stdgo.StdGoTypes.AnyInterface = (null : stdgo.StdGoTypes.AnyInterface);
 /**
     
     

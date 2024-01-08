@@ -27,12 +27,12 @@
 | [stdgo.go.types](./go/types/README.md) | ❌ | yes |
 | [stdgo.hash](./hash/README.md) | ❌ | yes |
 | [stdgo.image.color](./image/color/README.md) | ✅ | yes |
-| [stdgo.internal](./internal/README.md) | ❌ | no |
+| [stdgo.internal](./internal/README.md) | ✅ | no |
 | [stdgo.internal.abi](./internal/abi/README.md) | ✅ | no |
 | [stdgo.internal.bisect](./internal/bisect/README.md) | ✅ | no |
 | [stdgo.internal.bytealg](./internal/bytealg/README.md) | ✅ | no |
 | [stdgo.internal.cpu](./internal/cpu/README.md) | ✅ | no |
-| [stdgo.internal.fmtsort](./internal/fmtsort/README.md) | ❌ | yes |
+| [stdgo.internal.fmtsort](./internal/fmtsort/README.md) | ✅ | yes |
 | [stdgo.internal.godebug](./internal/godebug/README.md) | ✅ | no |
 | [stdgo.internal.godebugs](./internal/godebugs/README.md) | ✅ | no |
 | [stdgo.internal.oserror](./internal/oserror/README.md) | ✅ | no |
